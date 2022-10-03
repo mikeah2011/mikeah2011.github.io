@@ -100,7 +100,8 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 #theme: landscape
-theme: aurora
+#theme: aurora
+remote_theme: auroral-ui/hexo-theme-aurora
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
