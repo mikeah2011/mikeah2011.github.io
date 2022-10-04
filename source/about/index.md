@@ -14,11 +14,11 @@ date: 2022-03-17 17:47:37
 
 :post_office:  **后端研发工程师**																									:briefcase:  **<kbd>2013</kbd>年<kbd>07</kbd>月**
 
-:school:  **上海科学技术职业学院**																					:man_student:  **统招 · 大专**
+:school:  **上海科学技术职业学院**																					:man_student:   **统招 · 大专**
 
-:calling:  `188-0196-3698`																								:e-mail:  mashuai21@live.com
+:e-mail:  mikeah2011@gmail.com																				:link:  https://github.com/mikeah2011
 
-
+:calling:  `188-0196-3698`
 
 ## 个人优势
 

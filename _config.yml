@@ -13,8 +13,8 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://mashuai21.github.io/michael.github.io
-root: /michael.github.io/
+url: https://mikeah2011.github.io/michael/
+root: /michael/
 #permalink: :year/:month/:day/:title/
 permalink: /post/:title.html
 permalink_defaults:
@@ -101,12 +101,13 @@ ignore:
 ## Themes: https://hexo.io/themes/
 #theme: landscape
 #theme: aurora
-remote_theme: auroral-ui/hexo-theme-aurora
+#remote_theme: auroral-ui/hexo-theme-aurora
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
 #  repo: https://github.com/mashuai21/mashuai21.github.io.git
-  repo: https://github.com/mashuai21/michael.github.io.git
-  branch: master
+  repo: git@github.com:mikeah2011/michael.git
+  branch: main
+#  root: /mikeah/
