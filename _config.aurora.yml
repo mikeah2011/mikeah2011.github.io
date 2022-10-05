@@ -44,7 +44,7 @@ authors:
 #！ @docs https://aurora.tridiamond.tech/guide/menu.html
 #! ---------------------------------------------------------------
 menu:
-  About: true
+  About: false
   Tags: true
   Archives: true
   Project:
@@ -74,18 +74,18 @@ menu:
       cn: '留言板'
       en: 'Message Board'
     path: '/page/message-board'
-  pages-menu:
-    name: 'Top Menu'
-    children:
-      page-1:
-        name: 'Page 1'
-        path: '/page/page-1'
-      page-2:
-        name: 'Page 2'
-        path: '/page/page-2'
-      page-3:
-        name: 'Page 3'
-        path: '/page/page-3'
+#  pages-menu:
+#    name: 'Top Menu'
+#    children:
+#      page-1:
+#        name: 'Page 1'
+#        path: '/page/page-1'
+#      page-2:
+#        name: 'Page 2'
+#        path: '/page/page-2'
+#      page-3:
+#        name: 'Page 3'
+#        path: '/page/page-3'
 
 #! ---------------------------------------------------------------
 #! Theme Config
