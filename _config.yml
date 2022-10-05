@@ -101,7 +101,7 @@ ignore:
 ## Themes: https://hexo.io/themes/
 #theme: landscape
 #theme: aurora
-#remote_theme: auroral-ui/hexo-theme-aurora
+remote_theme: auroral-ui/hexo-theme-aurora
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -109,4 +109,3 @@ deploy:
   type: git
   repo: git@github.com:mikeah2011/mikeah2011.git
   branch: main
-#  root: /mikeah/
