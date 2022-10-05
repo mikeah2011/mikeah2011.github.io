@@ -15,7 +15,6 @@ timezone: ''
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://mikeah2011.github.io/mikeah2011/
 root: /mikeah2011/
-#permalink: :year/:month/:day/:title/
 permalink: /post/:title.html
 permalink_defaults:
 pretty_urls:
@@ -42,19 +41,19 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: false
+  enable: true
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
-  enable: true
-  preprocess: false
+  enable: false
+  preprocess: true
   line_number: true
   tab_replace: ''
 
@@ -100,8 +99,8 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 #theme: landscape
-#theme: aurora
-remote_theme: auroral-ui/hexo-theme-aurora
+theme: aurora
+#theme: hexo-theme-aurora
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
