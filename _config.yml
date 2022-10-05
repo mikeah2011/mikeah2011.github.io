@@ -13,8 +13,8 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://mikeah2011.github.io/michael/
-root: /michael/
+url: https://mikeah2011.github.io/mikeah2011/
+root: /mikeah2011/
 #permalink: :year/:month/:day/:title/
 permalink: /post/:title.html
 permalink_defaults:
@@ -30,7 +30,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: README.md
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -42,7 +42,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -107,7 +107,6 @@ ignore:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-#  repo: https://github.com/mashuai21/mashuai21.github.io.git
-  repo: git@github.com:mikeah2011/michael.git
+  repo: git@github.com:mikeah2011/mikeah2011.git
   branch: main
 #  root: /mikeah/

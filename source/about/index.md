@@ -1,11 +1,11 @@
 ---
-title: RESUME OF Michael
+title: Curriculum Vitae OF Michael
 tags:
   - resume
   - michael
 categories:
-  - Resume
-date: 2022-03-17 17:47:37
+  - RESUME
+  - Curriculum Vitae
 ---
 
 ## 基本信息
