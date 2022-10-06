@@ -4,15 +4,8 @@ tags:
   - redis
 categories:
   - Redis
-date: 2019-03-20 15:05:07
-
+date: 2022-03-20 15:05:07
 ---
-
-
-
-
-
-
 
 
 
@@ -20,7 +13,9 @@ date: 2019-03-20 15:05:07
 
 ## 1.说说什么是Redis?
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iat60I3icga9By11qSyNsNe8IvaoJAhsvjP4uBaCFDOoXCiaNGffUAcYKKg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)Redis图标
+![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iat60I3icga9By11qSyNsNe8IvaoJAhsvjP4uBaCFDOoXCiaNGffUAcYKKg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+Redis图标
 
 Redis是一种基于键值对（key-value）的NoSQL数据库。
 
@@ -36,7 +31,9 @@ Redis是一种基于键值对（key-value）的NoSQL数据库。
 
 ## 2.Redis可以用来干什么？
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatrrBMiatBgLc3eGcIXxSwu5vc3l8LAgNDh68pd4OPiapR25nzaUVmvp6Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)Redis
+![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatrrBMiatBgLc3eGcIXxSwu5vc3l8LAgNDh68pd4OPiapR25nzaUVmvp6Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+Redis
 
 1. 缓存
 

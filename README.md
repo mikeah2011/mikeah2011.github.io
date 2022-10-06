@@ -208,7 +208,3 @@
 </details>
 <br/>
 </details> 
-
------
-
-[//]: # (致谢: [1999AZZAR]&#40;https://github.com/1999AZZAR&#41;)

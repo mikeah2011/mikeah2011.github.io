@@ -1,13 +1,15 @@
 ---
-title: MySQL优化
+title: MySQL优化经验总结
 tags:
   - MySQL
 categories:
   - SQL
-date: 2019-03-20 15:05:07
+date: 2022-05-20 23:15:47
+cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/6411.png
+feature: true
 ---
 
-![图片](/Users/michael/Project/MichaelBlog/images/6411.png)
+![图片](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/6411.png)
 
 > 线上SQL的调优经验
 

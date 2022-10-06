@@ -1,12 +1,23 @@
+---
+title: Redis Cluster 原理探讨
+tags:
+  - redis
+  - 高可用
+  - 集群
+categories:
+  - Redis
+date: 2020-07-25 20:55:57
+feature: true
+cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/image-20221004222258747.png
+---
+
 >   Redis Cluster
 
 ![image-20221004222258747](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/image-20221004222258747.png)
 
 hash(key) % 16384 = slot 哈希槽 = hash(key) & 2^n^
 
-[0-5460] 、 [5461-10922]、[10923-16383]
-
-
+slot - hash槽分布范围[0-5460] 、 [5461-10922]、[10923-16383]
 
 ```shell
 # 创建RedisCluster配置的节点目录
@@ -54,23 +65,7 @@ hash(key) % 16384 = slot 哈希槽 = hash(key) & 2^n^
 
 
 
-
-
-
-
-### Redis Cluster 注意事项
-
--   不完全支持批量操作：mset、mget
--   事务不能跨节点支持
--   不支持多实例
--   key 是最小粒度
--   最少 6 个才能保证组成完整高可用的集群
--   连接的时候只需要连接 1 台服务器即可。
--   如果 1 个主从连接宕机的话，那么集群就宕机了。
-
-
-
-
+>   Laravel 框架 使用redis cluster需要修改的地方
 
 ```php
 # .composer.lock
@@ -154,7 +149,17 @@ CACHE_DRIVER=redis
 
 
 
-连接池 pool
+>   Redis Cluster 注意事项
+
+-   不完全支持批量操作：mset、mget
+-   事务不能跨节点支持
+-   不支持多实例
+-   key 是最小粒度
+-   最少 6 个才能保证组成完整高可用的集群
+-   连接的时候只需要连接 1 台服务器即可。
+-   如果 1 个主从连接宕机的话，那么集群就宕机了。
+
+
 
 >   应用场景
 
