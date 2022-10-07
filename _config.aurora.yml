@@ -11,13 +11,13 @@
 site:
   subtitle: Michael's Blog
   author: Michael
-  nick: Michael
-  description: Just Do IT
+  nick: Just Do IT
+  description: 知我所能者，我所能者，尽善尽美；<br/> <br/> 知我所不能者，我所不能者，虚怀若谷。
   link: '/'
   language: cn
   multi_language: true
-  logo: https://img-blog.csdnimg.cn/20210313122054101.png
-  avatar: https://img-blog.csdnimg.cn/20210313122054101.png
+  logo: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/blog_logo.jpeg
+  avatar: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/blog_logo.jpeg
   beian:
     number: ''
     link: ''
@@ -30,44 +30,60 @@ site:
 #！ @docs https://aurora.tridiamond.tech/guide/authors.html
 #! ---------------------------------------------------------------
 authors:
-##! example
-# TriDiamond:
-#   name: TriDiamond
-#   avatar: https://up.enterdesk.com/edpic_source/44/ff/3d/44ff3d6bd2819d524facfcc33205d4cd.jpg
-#   link: https://github.com/TriDiamond
-#   description: 'Think like an artist, code like an artisan.'
-#   socials:
-#     github: https://tridiamond.tech
+  Michael:
+   name: Michael
+   avatar: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/blog_logo.jpeg
+   link: https://github.com/mikeah2011
+   description: '任重而道远，吾将上下而求索，道阻且长。溯游从之，宛在水中坻'
+   socials:
+     github: https://mikeah2011.github.io/mikeah2011
+  Zyl:
+    name: zyl
+    avatar: https://avatars.githubusercontent.com/u/12604062?v=4
+    link: https://github.com/zyl-dev
+    description: '一个闷骚的理科男...'
+    socials:
+      github: ''
+  Mikou:
+    name: MikouHero
+    avatar: https://avatars.githubusercontent.com/u/33013997?v=4
+    link: https://github.com/mikouhero
+    description: ''
+    socials:
+      github: ''
 
 #! ---------------------------------------------------------------
 #! Menu Configs
 #！ @docs https://aurora.tridiamond.tech/guide/menu.html
 #! ---------------------------------------------------------------
 menu:
-  About: false
-  Tags: true
-  Archives: true
+  About: false  # 关于页
+  Tags: true # 标签页
+  Archives: true # 归档页
   Project:
-    name: 'Projects'
+    name: '开源项目'
     children:
-      obsidian:
-        name: ''
-        path: ''
-      Aurora:
-        name: ''
-        path: ''
+      DictTool:
+        name: '数据词典生成'
+        path: 'https://github.com/mikeah2011/mysql_to_markdown'
+      PackageRealase:
+        name: '软件发布打包'
+        path: 'https://github.com/mikeah2011/packageRelaseManger'
+      RightWay:
+        name: '正确的成长方式'
+        path: 'https://github.com/mikeah2011/The_Right_Way_Of_Growth'
   GitHub:
     name: 'GitHub'
     path: 'https://github.com/mikeah2011'
   E-Mail:
     name: 'Mail Me'
     path: 'mailto:mikeah2011@gmail.com'
-  Contact:
-    name: 'Contact'
-    i18n:
-      cn: '联系我'
-      en: 'Contact'
-    path: ''
+#  Contact:
+#    name: 'Contact'
+#    i18n:
+#      cn: '联系我'
+#      en: 'Contact'
+#    path: ''
   MessageBoard:
     name: 'MessageBoard'
     i18n:
@@ -92,8 +108,8 @@ menu:
 #! @docs https://aurora.tridiamond.tech/guide/theme.html
 #! ---------------------------------------------------------------
 theme:
-  dark_mode: true
-  profile_shape: diamond # support `circle`, `diamond`, `rounded`
+  dark_mode: 'auto'
+  profile_shape: circle # support `circle`, `diamond`, `rounded`
   feature: true
   gradient:
     color_1: '#24c6dc'
@@ -101,37 +117,48 @@ theme:
     color_3: '#ff0099'
 
 #! ---------------------------------------------------------------
+#! Injections
+#! @docs https://aurora.tridiamond.tech/guide/site-meta.html#custom-meta
+#! ---------------------------------------------------------------
+injects:
+  scripts:
+    - <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+  css:
+    - <link rel="stylesheet" href="//at.alicdn.com/t/font_2476818_87vaqng7dno.css" />
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+#! ---------------------------------------------------------------
 #! Social Configs
 #! @docs https://aurora.tridiamond.tech/guide/social.html
 #! ---------------------------------------------------------------
 socials:
   github: 'https://github.com/mikeah2011'
-  twitter: ''
-  stackoverflow: ''
-  weibo: 'https://weibo.com/u/7318914058'
-  zhihu: 'https://www.zhihu.com/people/tridiamond'
-  csdn: 'https://blog.csdn.net/TriDiamond6'
-  juejin: 'https://juejin.cn/user/1873223546578589'
+#  twitter: ''
+  stackoverflow: 'https://stackoverflow.com/users/11422545/mikeah2011'
+  weibo: 'https://weibo.com/u/2383628417'
+  zhihu: 'https://www.zhihu.com/people/michael-12-18'
+  csdn: 'https://blog.csdn.net/weixin_41273562'
+  juejin: 'https://juejin.cn/user/4389711549044269'
   customs:
     ##! Example:
     ##! --- Using SVG
-    bilibili:
-      icon: http://localhost:4000/svg/bilibili.svg
-      link: https://live.bilibili.com/22619211
+#    bilibili:
+#      icon: iconfont icon_bilibili
+#      link: https://space.bilibili.com/31184432
 
     ##! --- Using IconFont
-    baidu:
-      icon: iconfont icon-baidu
-      link: https://live.bilibili.com/22619211
+#    baidu:
+#      icon: iconfont icon-baidu
+#      link:
 
     ##! --- Using FontAwesome
-    book:
-      icon: far fa-address-book
-      link: https://live.bilibili.com/22619211
+#    book:
+#      icon: iconfont address-book
+#      link:
 
-    facebook:
-      icon: /svg/facebook.svg
-      link: https://facebook.com
+#    facebook:
+#      icon: iconfont icon_facebook
+#      link: https://www.facebook.com/mikeah2011
 
 #! ---------------------------------------------------------------
 #! Site Meta Configs
@@ -139,9 +166,9 @@ socials:
 #! ---------------------------------------------------------------
 site_meta:
   cdn: cn
-  favicon:
-  description: 'Michael Blog IT'
-  keywords: 'IT Blog'
+  favicon: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/blog_logo.jpeg
+  description: '个人技术总结的博客空间'
+  keywords: 'Frontend, Web development, IT Blog'
   author: 'Michael Ma'
 
 #! ---------------------------------------------------------------
@@ -153,13 +180,13 @@ site_meta:
 gitalk:
   enable: true
   autoExpand: true
-  clientID: ''
-  clientSecret: ''
-  repo: 'dev-blog-comments'
-  owner: 'TriDiamond'
-  admin: [ 'TriDiamond' ]
-  id: uid
-  language: en
+  clientID: '62b38a1ff79157b21444'
+  clientSecret: '160b9c9071799bf3ceb745e60ee11f75ee3aa3e6'
+  repo: 'comments'
+  owner: 'mikeah2011'
+  admin: [ 'mikeah2011' ]
+  id: '8CbS6eMpvpz2K2dcjDpTA5'
+  language: cn
   distractionFreeMode: true
   recentComment: true
   proxy: ''
@@ -186,7 +213,7 @@ busuanzi:
   enable: true
 
 copy_protection:
-  enable: true
+  enable: false
   author:
     cn: 作者
     en: Author
@@ -413,13 +440,3 @@ aurora_bot:
         text: 今年的<span>双十一</span>是和谁一起过的呢～
       - date: 12/20-12/31
         text: 这几天是<span>圣诞节</span>，主人肯定又去剁手买买买了～
-
-
-#! ---------------------------------------------------------------
-#! Injections
-#! @docs https://aurora.tridiamond.tech/guide/site-meta.html#custom-meta
-#! ---------------------------------------------------------------
-injects:
-  scripts:
-  css:
-    - <link rel="stylesheet" href="//at.alicdn.com/t/font_2476818_87vaqng7dno.css" />
