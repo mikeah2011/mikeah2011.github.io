@@ -75,3 +75,12 @@ rabbitmq经验、
 | 18   | 离职证明       | [离职证明](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/14_%E7%A6%BB%E8%81%8C%E8%AF%81%E6%98%8E.png) |
 | 19   | 薪资证明       | [薪资证明](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/13_%E5%B7%A5%E8%B5%84%E5%8D%95.png) |
 | 20   | 社保明细       | [社保明细](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/上海市社会保险个人权益记录单20221013161000.pdf) |
+
+
+
+| 项目       | 内容                    |
+| ---------- | ----------------------- |
+| 手机号     | `188 0196 3698`         |
+| 身份证件   | `341 221 19891012 1572` |
+| 公积金账号 | `1441 6364 0205`        |
+
