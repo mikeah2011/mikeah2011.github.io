@@ -1,10 +1,11 @@
 ---
-
+title: JetBrains系列产品激活方法
+tags:
+  - JetBrains Tools
+categories:
+  - PhpStorm
+date: 2022-10-20 15:05:07
 ---
-
-
-
-
 
 
 
