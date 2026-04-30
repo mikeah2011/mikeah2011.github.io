@@ -3,18 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Michael's Blog
 subtitle: ''
-description: ''
+description: '技术笔记 · macOS · PHP · Go · K8s · 网络'
 keywords:
-author: John Doe
-language: en
+author: Michael
+language: [zh-CN, zh-TW, en]
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://mikeah2011.github.io/mikeah2011/
-root: /mikeah2011/
+url: https://mikeah2011.github.io
+root: /
 permalink: /post/:title.html
 permalink_defaults:
 pretty_urls:
@@ -99,7 +99,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 #theme: landscape
-theme: aurora
+theme: landscape
 #theme: obsidian
 #theme: hexo-theme-aurora
 

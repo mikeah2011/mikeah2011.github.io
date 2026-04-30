@@ -27,7 +27,7 @@ npm i -g yarn @vue/cli hexo-cli
 `hexo`版本
 
 ```shell
-brew install hexo
+npm install hexo
 ```
 
 

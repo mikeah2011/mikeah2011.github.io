@@ -6,3 +6,16 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+
+# IDE
+.idea/
+
+# alternative theme configs (kept locally for future migration)
+_config.aurora.yml
+_config.obsidian.yml
+
+# alternative theme source (clone, not tracked)
+themes/aurora/
+
+# yarn lock (project uses npm/package-lock.json)
+yarn.lock
