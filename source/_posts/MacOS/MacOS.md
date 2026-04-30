@@ -1,9 +1,9 @@
 ---
 title: MacOS基础
 tags:
-  - MacOS
+  - macOS
 categories:
-  - MacOS
+  - macOS
 date: 2021-03-20 15:05:07
 
 ---
