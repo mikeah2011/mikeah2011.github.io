@@ -11,7 +11,7 @@ HTTPS：是以安全为目标的HTTP通道，简单讲是HTTP的安全版，即H
 
 
 
-![img](/Users/michael/Project/MichaelBlog/images/HTTPS.png)
+![img](/images/HTTPS.png)
 
 HTTPS 并非是应用层的一种新协议。只是 HTTP 通信接口部分用SSL（Secure Socket Layer）和 TLS（Transport Layer Security）协议代替而已。通常，HTTP 直接和 TCP 通信。当使用 SSL时，则演变成先和 SSL通信，再由 SSL和 TCP 通信了。简言之，所谓 HTTPS，其实就是身披SSL协议这层外壳的 HTTP。
 
@@ -24,14 +24,14 @@ HTTPS 并非是应用层的一种新协议。只是 HTTP 通信接口部分用SS
 5. Web服务器利用自己的私钥解密出会话密钥。
 6. Web服务器利用会话密钥加密与客户端之间的通信。
 
-![img](/Users/michael/Project/MichaelBlog/images/HTTPS_1.png)
+![img](/images/HTTPS_1.png)
 
 ## 为什么HTTPS安全
 
 1. SSL不仅提供加密处理，加密方式为混合加密。
 2. SSL而且还使用了一种被称为证书的手段，可用于确定方。证书由值得信任的第三方机构颁发，用以证明服务器和客户端是实际存在的。另外，伪造证书从技术角度来说是异常困难的一件事。所以只要能够确认通信方（服务器或客户端）持有的证书。
 
-![img](/Users/michael/Project/MichaelBlog/images/HTTPS_2.png)
+![img](/images/HTTPS_2.png)
 
 **加密方法**
 
@@ -45,7 +45,7 @@ HTTPS 并非是应用层的一种新协议。只是 HTTP 通信接口部分用SS
 
 > **混合加密机制（对称加密与非对称加密结合的方式）**顾名思义也就是对称加密和非对称加密的方式相结合。
 
-![img](/Users/michael/Project/MichaelBlog/images/HTTPS_3.png)
+![img](/images/HTTPS_3.png)
 
 如何证明公开没要本身的真实性。因为在公开秘钥传输的过程中，可能真正的公开秘钥已经被攻击者替换掉了。
 
@@ -56,4 +56,4 @@ HTTPS 并非是应用层的一种新协议。只是 HTTP 通信接口部分用SS
 
 那么公开密钥如何交接给客户端是一件非常重要的事，因此多数浏览器开发商发布版本时，会事先在内部植入常用认证机关的公开密钥，这样就确保公钥是使用认证机构的公钥避免了公钥伪造的过程，进而确保了安全。
 
-![img](/Users/michael/Project/MichaelBlog/images/HTTPS_4.webp)
+![img](/images/HTTPS_4.webp)

@@ -43,7 +43,7 @@ TCP/IP协议中最重要的特点就是分层。
 
 当然也有按不同的模型分为4层或者7层的。
 
-![img](/Users/michael/Project/MichaelBlog/images/TCP_IP.webp)
+![img](/images/TCP_IP.webp)
 
 
 

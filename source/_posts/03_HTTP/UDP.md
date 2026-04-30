@@ -14,7 +14,7 @@ date: 2016-03-20 15:05:07
 
 **UDP的首部格式:**
 
-![img](/Users/michael/Project/MichaelBlog/images/UDP.png)
+![img](/images/UDP.png)
 
 用户数据报有两个字段：数据字段和首部字段，数据字段很简单，只有8个字节，由四个字段组成，每个字段的长度都是两个字节。各字段意义如下：
 
@@ -27,7 +27,7 @@ date: 2016-03-20 15:05:07
 
 ## TCP报文首部格式:
 
-![img](/Users/michael/Project/MichaelBlog/images/TCP.png)
+![img](/images/TCP.png)
 
 **源端口和目的端口:** 各占两个字节，分别写入源端口号和目的端口号。
 **序号 ：** 

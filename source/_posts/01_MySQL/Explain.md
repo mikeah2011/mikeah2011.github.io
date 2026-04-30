@@ -31,7 +31,7 @@ EXPLAIN SELECT * FROM employees.titles WHERE emp_no='10001' AND title='Senior En
 
 - select_type：select关键字对应的那个查询的类型，如
 
-  ![图片](/Users/michael/Project/MichaelBlog/images/select_type.png)
+  ![图片](/images/select_type.png)
 
   | 类型         | 含义                                   |
   | :----------- | :------------------------------------- |
@@ -58,7 +58,7 @@ EXPLAIN SELECT * FROM employees.titles WHERE emp_no='10001' AND title='Senior En
 
   ref(普通的⼆级索引列与常量进⾏等值匹配)；
 
-  index(扫描全表索引的覆盖索引) …![图片](/Users/michael/Project/MichaelBlog/images/explain_type.png)
+  index(扫描全表索引的覆盖索引) …![图片](/images/explain_type.png)
 
   system > const > eq_ref > ref > fulltext > ref_or_null > index_merge > unique_subquery > index_subquery > range > index > ALL
 
@@ -97,7 +97,7 @@ EXPLAIN SELECT * FROM employees.titles WHERE emp_no='10001' AND title='Senior En
 
 常用的字符编码占用字节数量如下：
 
-![图片](/Users/michael/Project/MichaelBlog/images/bite.png)
+![图片](/images/bite.png)
 
 目前我的数据库字符编码格式用的：UTF8占3个字节。
 

@@ -31,11 +31,11 @@ date: 2019-03-20 15:05:07
 
 场景描述：A系统发送个数据到BCD三个系统，接口调用发送，那如果E系统也要这个数据呢？那如果C系统现在不需要了呢？现在A系统又要发送第二种数据了呢？A系统负责人崩溃中...再来点崩溃的事儿，A系统要时时刻刻考虑BCDE四个系统如果挂了怎么办？那我要不要重发？我要不要把消息存起来？头发都白了啊...
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_1.png)
+![img](/images/MQ_1.png)
 
 使用了MQ之后的解耦场景
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_2.png)
+![img](/images/MQ_2.png)
 
 面试技巧：你需要考虑下，你负责的系统中是否有类似的场景，就是一个系统或者一个模块，调用了多个系统或者模块，相互之间的调用很复杂，维护起来很麻烦。但是其实这个调用是不需要直接同步调用接口的，如果MQ给他异步化解耦也是可以的，你就需要去考虑在你的项目里是不是可以运用这个MQ去进行系统解耦 。
 
@@ -45,11 +45,11 @@ date: 2019-03-20 15:05:07
 
 不用MQ的同步高延时请求场景
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_3.png)
+![img](/images/MQ_3.png)
 
 使用MQ异步化之后的接口性能优化
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_4.png)
+![img](/images/MQ_4.png)
 
 #### 削峰 
 
@@ -57,11 +57,11 @@ date: 2019-03-20 15:05:07
 
 没有用MQ的时候高峰期系统被打死的场景
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_5.png)
+![img](/images/MQ_5.png)
 
 使用MQ来进行削峰的场景
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_6.png)
+![img](/images/MQ_6.png)
 
 ## 2. 消息队列的有点和缺点？ 
 
@@ -75,7 +75,7 @@ date: 2019-03-20 15:05:07
 
 一致性问题：系统A处理完了直接返回成功了，人家都认为你这个请求成功了；但问题是，要是BCD三个系统哪里BD系统成功了，结果C系统写库失败了，咋整？数据就不一致了，
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_7.png)
+![img](/images/MQ_7.png)
 
 所以消息队列是一种非常复杂的架构，引入它有很多好处，但是也得针对他带来的坏处做各种额外的技术方案和架构来规避掉。做好之后你会发现系统复杂度提升了一个数量积，但是关键时刻，用，还是要用的。
 
@@ -113,7 +113,7 @@ rabbitmq有三种模式：单机模式，普通集群模式，镜像集群模式
 
 所以这个事儿就比较尴尬了，这就没有什么所谓的高可用性可言了，这方案主要是提高吞吐量的，就是说让集群中多个节点来服务某个queue的读写操作。
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_8.png)
+![img](/images/MQ_8.png)
 
 **（1.3）镜像集群模式**
 
@@ -123,7 +123,7 @@ rabbitmq有三种模式：单机模式，普通集群模式，镜像集群模式
 
 那么怎么开启这个镜像集群模式呢？我这里简单说一下，避免面试人家问你你不知道，其实很简单rabbitmq有很好的管理控制台，就是在后台新增一个策略，这个策略是镜像集群模式的策略，指定的时候可以要求数据同步到所有节点的，也可以要求就同步到指定数量的节点，然后你再次创建queue的时候，应用这个策略，就会自动将数据同步到其他的节点上去了。
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_9.png)
+![img](/images/MQ_9.png)
 
 #### （2）kafka的高可用性 
 
@@ -147,7 +147,7 @@ kafka 0.8以后，提供了HA机制，就是replica副本机制。每个partitio
 
 但是大家一定要明白，这个事情是要权衡的，你现在是要快速突击常见面试题体系，而不是要深入学习kafka，要深入学习kafka，你是没那么多时间的。你只能确保，你之前也许压根儿不知道这块，但是现在你知道了，面试被问到，你大概可以说一说。然后很多其他的候选人，也许还不如你，没看过这个，被问到了压根儿答不出来，相比之下，你还能说点出来，大概就是这个意思了。
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_10.png)
+![img](/images/MQ_10.png)
 
 ### 2. 如何保证消息不被重复消费（如何保证消息消费时的幂等性）？ 
 
@@ -181,11 +181,11 @@ kafka实际上有个offset的概念，就是每个消息写进去，都有一个
 
 如何保证MQ的消费是幂等性的，需要结合具体的业务来看
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_11.png)
+![img](/images/MQ_11.png)
 
 如何保证消息的幂等性
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_12.png)
+![img](/images/MQ_12.png)
 
 ### 3. 如何保证消息的可靠传输（如何处理消息丢失的问题）？ 
 
@@ -233,7 +233,7 @@ rabbitmq如果丢失了数据，主要是因为你消费的时候，刚消费到
 
 这个时候得用rabbitmq提供的ack机制，简单来说，就是你关闭rabbitmq自动ack，可以通过一个api来调用就行，然后每次你自己代码里确保处理完的时候，再程序里ack一把。这样的话，如果你还没处理完，不就没有ack？那rabbitmq就认为你还没处理完，这个时候rabbitmq会把这个消费分配给别的consumer去处理，消息是不会丢的。
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_13.png)
+![img](/images/MQ_13.png)
 
 #### （2）kafka 
 
@@ -251,7 +251,7 @@ rabbitmq如果丢失了数据，主要是因为你消费的时候，刚消费到
 
 这块比较常见的一个场景，就是kafka某个broker宕机，然后重新选举partiton的leader时。大家想想，要是此时其他的follower刚好还有些数据没有同步，结果此时leader挂了，然后选举某个follower成leader之后，他不就少了一些数据？这就丢了一些数据啊。
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_14.png)
+![img](/images/MQ_14.png)
 
 生产环境也遇到过，我们也是，之前kafka的leader机器宕机了，将follower切换为leader之后，就会发现说这个数据就丢了
 
@@ -282,23 +282,23 @@ rabbitmq如果丢失了数据，主要是因为你消费的时候，刚消费到
 
 （1）rabbitmq：一个queue，多个consumer，这不明显乱了
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_15.png)
+![img](/images/MQ_15.png)
 
 （2）kafka：一个topic，一个partition，一个consumer，内部多线程，这不也明显乱了
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_16.png)
+![img](/images/MQ_16.png)
 
 ### 那如何保证消息的顺序性呢？简单简单 
 
 （1）rabbitmq：拆分多个queue，每个queue一个consumer，就是多一些queue而已，确实是麻烦点；
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_17.png)
+![img](/images/MQ_17.png)
 
 或者就一个queue但是对应一个consumer，然后这个consumer内部用内存队列做排队，然后分发给底层不同的worker来处理
 
 （2）kafka：一个topic，一个partition，一个consumer，内部单线程消费，写N个内存queue，然后N个线程分别消费一个内存queue即可
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_18.png)
+![img](/images/MQ_18.png)
 
 **如何解决消息队列的延时以及过期失效问题？消息队列满了以后该怎么处理？有几百万消息持续积压几小时，说说怎么解决？**
 
@@ -332,7 +332,7 @@ rabbitmq如果丢失了数据，主要是因为你消费的时候，刚消费到
 
 6）等快速消费完积压数据之后，得恢复原先部署架构，重新用原先的consumer机器来消费消息
 
-![img](/Users/michael/Project/MichaelBlog/images/MQ_19.png)
+![img](/images/MQ_19.png)
 
 ### （2）这里我们假设再来第二个坑 
 

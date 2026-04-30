@@ -36,7 +36,7 @@ date: 2019-03-20 15:05:07
 5. 响应头
 6. 响应正文
 
-![img](/Users/michael/Project/MichaelBlog/images/HTTP.png)
+![img](/images/HTTP.png)
 
 **HTTP的缺点：**
 

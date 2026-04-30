@@ -13,7 +13,7 @@ date: 2018-03-20 15:05:07
 
 `redo log`是固定大小，是物理日志，属于InnoDB引擎的，并且写redo log是环状写日志的形式：
 
-![图片](/Users/michael/Project/MichaelBlog/images/redolog.png)
+![图片](/images/redolog.png)
 
 如上图所示：若是四组的redo log文件，一组为1G的大小，那么四组就是4G的大小，其中`write pos`是**记录当前的位置**，有数据写入当前位置，那么write pos就会边写入边往后移。
 

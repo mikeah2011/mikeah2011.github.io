@@ -48,7 +48,7 @@ Laravel提供了一个版本控制系统，可帮助简化迁移管理
 
 2、Laravel可以与更多数量的工具集成，而Lumen与其他工具的集成设施数量较少。
 
-![img](/Users/michael/Project/MichaelBlog/images/Laravel.jpg)
+![img](/images/Laravel.jpg)
 
 **laravel与lumen的区别是什么**
 

@@ -21,7 +21,7 @@ date: 2019-03-20 15:05:07
 
 在活动追踪、消息传递、度量指标、日志记录和流式处理等场景中非常适合使用`kafka`。
 
-![图片](/Users/michael/Project/MichaelBlog/images/640.png)
+![图片](/images/640.png)
 
 
 
@@ -44,11 +44,11 @@ date: 2019-03-20 15:05:07
 
 - 当我们向kafka要回数据的时候，kafka怎么返回。
 
-  ![图片](/Users/michael/Project/MichaelBlog/images/641.png)
+  ![图片](/images/641.png)
 
 目前大多数数据系统将数据存储在磁盘的格式有追加日志型以及B+树型。而kafka采用了追加日志的格式将数据存储在磁盘上，整体的结构如下图：
 
-![图片](/Users/michael/Project/MichaelBlog/images/642.png)
+![图片](/images/642.png)
 
 追加日志的格式可以带来写性能的提升（毕竟只需要往日志文件后面追加就可以了），但是同时对读的支持不是很友好。为了提升读性能，kafka需要额外的操作。
 
