@@ -6,6 +6,7 @@ categories:
 tags:
   - macOS
   - Shell
+description: macOS 日常开发常用 Shell 命令速查：环境安装、Homebrew、文件处理、系统维护与开发工具配置。
 ---
 
 ```shell
