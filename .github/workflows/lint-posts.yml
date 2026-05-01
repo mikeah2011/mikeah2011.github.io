@@ -1,0 +1,48 @@
+name: Lint posts
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-image-refs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Check for broken image refs
+        run: |
+          set -eu
+          bad=0
+          # Find all md files under source/_posts/
+          find source/_posts -name '*.md' -print0 | while IFS= read -r -d '' f; do
+              grep -nE '!\[[^]]*\]\(|<img[^>]+src=' "$f" 2>/dev/null | while IFS= read -r match; do
+                  lineno=$(echo "$match" | cut -d: -f1)
+                  line=$(echo "$match" | cut -d: -f2-)
+                  urls=$(printf '%s\n' "$line" \
+                      | grep -oE '!\[[^]]*\]\([^)[:space:]]+|src="[^"]+"' \
+                      | sed -E 's/.*\(//; s/^src="//; s/"$//')
+                  printf '%s\n' "$urls" | while IFS= read -r u; do
+                      [ -z "$u" ] && continue
+                      case "$u" in
+                          /Users/*|/home/*|file://*)
+                              echo "::error file=$f,line=$lineno::Absolute local path: $u"
+                              echo X >> /tmp/.bad ;;
+                          ../*|*/../*)
+                              echo "::error file=$f,line=$lineno::Parent-escape path: $u"
+                              echo X >> /tmp/.bad ;;
+                          *.assets/*)
+                              echo "::error file=$f,line=$lineno::Editor assets path: $u"
+                              echo X >> /tmp/.bad ;;
+                      esac
+                  done
+              done
+          done
+          if [ -s /tmp/.bad ]; then
+              echo
+              echo "✗ Bad image refs detected. Move images to source/images/ and use /images/<name>."
+              exit 1
+          fi
+          echo "✓ No bad image refs."

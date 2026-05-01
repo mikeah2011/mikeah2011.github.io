@@ -1,0 +1,46 @@
+#!/bin/sh
+# Block bad image refs in source/_posts/*.md before they enter git.
+# Detects:
+#   - absolute local paths (/Users/..., /home/..., file://, C:\)
+#   - parent-escape paths (../...)
+#   - Typora-style ./<post>.assets/ folders (post_asset_folder=false here)
+set -eu
+
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^source/_posts/.*\.md$' || true)
+[ -z "$files" ] && exit 0
+
+bad=0
+echo "$files" | while IFS= read -r f; do
+    [ -z "$f" ] && continue
+    # Extract image refs and their URLs, line by line
+    grep -nE '!\[[^]]*\]\(|<img[^>]+src=' "$f" 2>/dev/null | while IFS= read -r match; do
+        lineno=$(echo "$match" | cut -d: -f1)
+        line=$(echo "$match" | cut -d: -f2-)
+        # Pull out URLs from md ![](url) and html <img src="url">
+        urls=$(printf '%s\n' "$line" \
+            | grep -oE '!\[[^]]*\]\([^)[:space:]]+|src="[^"]+"' \
+            | sed -E 's/.*\(//; s/^src="//; s/"$//')
+        printf '%s\n' "$urls" | while IFS= read -r u; do
+            [ -z "$u" ] && continue
+            case "$u" in
+                /Users/*|/home/*|file://*)
+                    echo "  BAD (absolute local): $f:$lineno  ->  $u"; echo X >> /tmp/.hook_bad ;;
+                ../*|*/../*)
+                    echo "  BAD (parent-escape):  $f:$lineno  ->  $u"; echo X >> /tmp/.hook_bad ;;
+                *.assets/*)
+                    echo "  BAD (editor assets):  $f:$lineno  ->  $u"; echo X >> /tmp/.hook_bad ;;
+            esac
+        done
+    done
+done
+
+if [ -s /tmp/.hook_bad ]; then
+    rm -f /tmp/.hook_bad
+    echo
+    echo "x Commit blocked: bad image refs detected."
+    echo "  Move the image to source/images/ and use /images/<name> instead."
+    echo "  (Bypass at your own risk with:  git commit --no-verify)"
+    exit 1
+fi
+rm -f /tmp/.hook_bad
+exit 0
