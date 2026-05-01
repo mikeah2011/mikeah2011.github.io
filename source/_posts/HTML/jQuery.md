@@ -1,8 +1,9 @@
 ---
 title: jQuery
 tags:
-  - jQuery
   - 前端
+  - JavaScript
+  - jQuery
 categories:
   - HTML
 date: 2019-03-20 15:05:07

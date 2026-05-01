@@ -3,7 +3,7 @@ title: Yaf
 tags:
   - PHP
   - 框架
-  - C扩展
+  - Yaf
 categories:
   - PHP
   - PHP框架

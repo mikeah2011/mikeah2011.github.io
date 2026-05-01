@@ -1,8 +1,7 @@
 ---
 title: MQ
 tags:
-  - message
-  - queue
+  - MQ
 categories:
   - MQ
 date: 2019-03-20 15:05:07

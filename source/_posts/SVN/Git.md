@@ -1,7 +1,7 @@
 ---
 title: Git基础
 tags:
-  - git
+  - Git
 categories:
   - git
 date: 2020-03-20 15:05:07

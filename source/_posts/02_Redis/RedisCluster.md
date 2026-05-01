@@ -1,9 +1,7 @@
 ---
 title: Redis Cluster 原理探讨
 tags:
-  - redis
-  - 高可用
-  - 集群
+  - Redis
 categories:
   - Redis
 date: 2020-07-25 20:55:57

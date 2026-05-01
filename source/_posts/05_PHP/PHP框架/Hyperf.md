@@ -2,9 +2,8 @@
 title: Hyperf
 tags:
   - PHP
-  - Swoole
   - 框架
-  - 微服务
+  - Hyperf
 categories:
   - PHP
   - PHP框架

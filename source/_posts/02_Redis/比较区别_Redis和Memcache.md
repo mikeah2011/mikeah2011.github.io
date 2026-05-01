@@ -1,7 +1,7 @@
 ---
 title: Redis缓存
 tags:
-  - redis
+  - Redis
 categories:
   - Redis
 date: 2021-03-20 15:05:07

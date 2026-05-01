@@ -2,8 +2,7 @@
 title: Docker
 tags:
   - Docker
-  - 容器
-  - DevOps
+  - 容器化
 categories:
   - Docker
 date: 2020-03-20 15:05:07

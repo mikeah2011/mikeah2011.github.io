@@ -1,8 +1,8 @@
 ---
 title: macOS APP 管理神器——brew
-tags: 
-  - brew
+tags:
   - macOS
+  - Homebrew
 categories:
   - macOS
 date: 2022-12-08 09:11:30

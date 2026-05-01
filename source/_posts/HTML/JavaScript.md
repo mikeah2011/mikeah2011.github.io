@@ -1,8 +1,8 @@
 ---
 title: JavaScript
 tags:
-  - JavaScript
   - 前端
+  - JavaScript
 categories:
   - HTML
 date: 2019-03-20 15:05:07

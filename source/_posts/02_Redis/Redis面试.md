@@ -2,7 +2,7 @@
 title: Redis全部
 sticky: 90
 tags:
-  - redis
+  - Redis
 categories:
   - Redis
 date: 2022-03-20 15:05:07

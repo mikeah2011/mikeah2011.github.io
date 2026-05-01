@@ -1,7 +1,7 @@
 ---
 title: Redis 队列消费
 tags:
-  - redis
+  - Redis
 categories:
   - Redis
 date: 2017-03-20 15:05:07

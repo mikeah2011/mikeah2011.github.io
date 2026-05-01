@@ -2,8 +2,8 @@
 title: EasySwoole
 tags:
   - PHP
-  - Swoole
   - 框架
+  - EasySwoole
 categories:
   - PHP
   - PHP框架

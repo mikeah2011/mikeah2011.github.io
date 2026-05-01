@@ -1,7 +1,7 @@
 ---
 title: Redis常见的问题及方案
 tags:
-  - redis
+  - Redis
 categories:
   - Redis
 date: 2022-08-20 16:05:07

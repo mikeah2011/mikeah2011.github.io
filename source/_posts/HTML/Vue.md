@@ -1,9 +1,9 @@
 ---
 title: Vue
 tags:
-  - Vue
   - 前端
-  - 框架
+  - JavaScript
+  - Vue
 categories:
   - HTML
 date: 2020-03-20 15:05:07

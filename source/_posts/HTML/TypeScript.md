@@ -1,8 +1,8 @@
 ---
 title: TypeScript
 tags:
-  - TypeScript
   - 前端
+  - TypeScript
 categories:
   - HTML
 date: 2020-03-20 15:05:07
