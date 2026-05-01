@@ -1,6 +1,6 @@
 ---
 title: macOS 常用命令
-date: 2026-05-01
+date: 2025-05-25 10:00:00
 categories:
   - macOS
 tags:

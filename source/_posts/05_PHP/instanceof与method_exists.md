@@ -1,6 +1,6 @@
 ---
 title: instanceof 与 method_exists
-date: 2026-05-01
+date: 2023-03-05 10:00:00
 categories:
   - PHP
 tags:
