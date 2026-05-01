@@ -1077,6 +1077,7 @@ inject:
     - <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     - <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     - <link rel="stylesheet" href="/css/custom.css">
+    - <meta name="google-site-verification" content="xf2d-Tpmx9BSNsssXAIiFIuOhBsgj5xnTjvCIznHM-k">
   bottom:
     - <script defer src="/js/matrix-rain.js"></script>
     - <script defer src="/js/reading-progress.js"></script>
