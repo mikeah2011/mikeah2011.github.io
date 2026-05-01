@@ -879,7 +879,7 @@ canvas_fluttering_ribbon:
 # canvas_nest
 # https://github.com/hustcc/canvas-nest.js
 canvas_nest:
-  enable: false
+  enable: true
   # Color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
   color: '0,170,255'
   # The opacity of line (0~1)
@@ -1037,9 +1037,9 @@ pwa:
   enable: true
   manifest: /manifest.json
   apple_touch_icon: /img/avatar.jpg
-  favicon_32_32: /img/favicon.png
-  favicon_16_16: /img/favicon.png
-  mask_icon: /img/favicon.png
+  favicon_32_32: /img/avatar.jpg
+  favicon_16_16: /img/avatar.jpg
+  mask_icon: /img/avatar.jpg
 
 # Open graph meta tags
 # https://hexo.io/docs/helpers#open-graph
@@ -1072,6 +1072,7 @@ inject:
     - <link rel="preconnect" href="https://fonts.googleapis.com">
     - <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     - <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    - <link rel="stylesheet" href="/css/custom.css">
   bottom:
     - <script defer src="/js/matrix-rain.js"></script>
 

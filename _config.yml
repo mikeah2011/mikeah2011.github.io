@@ -130,4 +130,5 @@ robotstxt:
   allow:
     - /
   sitemap:
-    - /sitemap.xml
+    - https://mikeah2011.github.io/sitemap.xml
+
