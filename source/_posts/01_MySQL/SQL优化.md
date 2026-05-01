@@ -7,8 +7,8 @@ categories:
 date: 2022-05-20 23:15:47
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/6411.png
 feature: true
+description: '线上SQL的调优经验 `slow_query_log` 日志中收集到的慢 SQL ，结合 `explain` 分析是否命中索引。 减少索引扫描行数，有针对性的优化慢 SQL。 建立联合索引，由于联合索引的每个叶子节点包含检索字段的信息，按最…'
 ---
-
 ![图片](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/6411.png)
 
 > 线上SQL的调优经验

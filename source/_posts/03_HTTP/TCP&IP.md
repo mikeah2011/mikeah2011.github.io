@@ -5,10 +5,8 @@ tags:
 categories:
   - 网络编程
 date: 2016-03-20 15:05:07
+description: 'TCP/IP（Transmission Control Protocol/Internet Protocol，传输控制协议/网际协议） 是指能够在多个不同网络间实现信息传输的协议簇。 TCP/IP协议不仅仅指的是TCP 和IP两个协议， 而…'
 ---
-
-
-
 TCP/IP（Transmission Control Protocol/Internet Protocol，传输控制协议/网际协议）
 
 是指能够在多个不同网络间实现信息传输的协议簇。

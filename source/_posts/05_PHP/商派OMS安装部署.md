@@ -5,10 +5,8 @@ tags:
 categories:
   - OMS
 date: 2022-09-20 15:05:07
+description: '[TOC] OMS本地环境部署(MacOS) 初始化项目代码 使用`brew`安装服务环境 使用`pecl`安装PHP扩展 下载指定系统环境的 Zend Guard Loader扩展，并解压，拷贝`.so`文件至扩展文件的所在路径 找出`…'
 ---
-
-
-
 [TOC]
 
 ## OMS本地环境部署(MacOS)

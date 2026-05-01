@@ -5,10 +5,8 @@ tags:
 categories:
   - SQL
 date: 2018-03-20 15:05:07
+description: '`redo log`日志也叫做`WAL`技术（`Write- Ahead Logging`），他是一种**先写日志，并更新内存，最后再更新磁盘的技术**，为了就是减少sql执行期间的数据库io操作，并且更新磁盘往往是在Mysql比较闲的时候…'
 ---
-
-
-
 `redo log`日志也叫做`WAL`技术（`Write- Ahead Logging`），他是一种**先写日志，并更新内存，最后再更新磁盘的技术**，为了就是减少sql执行期间的数据库io操作，并且更新磁盘往往是在Mysql比较闲的时候，这样就大大减轻了Mysql的压力。
 
 `redo log`是固定大小，是物理日志，属于InnoDB引擎的，并且写redo log是环状写日志的形式：

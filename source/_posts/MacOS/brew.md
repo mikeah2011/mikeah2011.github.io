@@ -6,10 +6,8 @@ tags:
 categories:
   - macOS
 date: 2022-12-08 09:11:30
+description: '`brew` 神器 眾所周知，`brew` 是 `MacOS` 系統的管理工具，如果是你重度 `Linux` 系統使用者，你可能也會知道她。 身為 `Mac` 用戶，你真的會用嗎？在看到這裡之前，你可能跟我一樣，都不太清楚她~，今天我們就一…'
 ---
-
-
-
 > [`brew`](https://brew.sh/index_zh-tw) 神器
 
 

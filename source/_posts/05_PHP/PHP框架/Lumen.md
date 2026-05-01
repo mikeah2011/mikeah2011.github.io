@@ -5,9 +5,8 @@ tags:
 categories:
   - PHP
 date: 2021-03-20 15:05:07
-
+description: 'Lumen *依赖注入** *它是"其中一种对象依赖于另一个对象"的技术。** 依赖注入有三种类型： 1）构造函数注入 2） setter 注入 3）接口注入. *下面是laravel的主要优点：** Laravel具有blade模板引擎…'
 ---
-
 ## Lumen
 
 **依赖注入**

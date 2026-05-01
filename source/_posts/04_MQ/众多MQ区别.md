@@ -6,12 +6,8 @@ tags:
 categories:
   - MQ
 date: 2019-03-20 15:05:07
+description: '转自 | 特性 | ActiveMQ | RabbitMQ | RocketMQ | Kafka | | :----------------------- | :------------------------------------ |…'
 ---
-
-
-
-
-
 [转自](https://cloud.tencent.com/developer/article/1993685)
 
 | 特性                     | ActiveMQ                              | RabbitMQ                                           | RocketMQ                                                     | Kafka                                                        |
