@@ -29,7 +29,7 @@ pecl i redis rdkafka mongodb-1.11.1
 
 
 
-[pecl安装PHP扩展的版本地址](https://pecl.php.net/package)
+[pecl安装PHP扩展的版本地址](https://pecl.php.net/packages.php)
 
 
 
