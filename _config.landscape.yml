@@ -1,0 +1,7 @@
+# Site-level overrides for hexo-theme-landscape.
+# Anything here wins over node_modules/hexo-theme-landscape/_config.yml.
+
+menu:
+  Home: /
+  Archives: /archives
+  Search: /search.html
