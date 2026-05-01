@@ -34,7 +34,7 @@ code_blocks:
   theme: darker
   macStyle: true
   # Code block height limit (unit: px)
-  height_limit: false
+  height_limit: 500
   word_wrap: false
 
   # Toolbar
@@ -114,7 +114,11 @@ cover:
   archives_enable: true
   # When cover is not set, the default cover is displayed
   default_cover:
-    # - xxx.jpg
+    - /img/banner/tech1-circuit.jpg
+    - /img/banner/tech2-matrix.jpg
+    - /img/banner/tech3-server.jpg
+    - /img/banner/tech4-code.jpg
+    - /img/banner/tech5-network.jpg
 
 # Replace Broken Images
 error_img:
@@ -431,7 +435,7 @@ copy:
 
 # Need to install the hexo-wordcount plugin
 wordcount:
-  enable: false
+  enable: true
   # Display the word count of the article in post meta
   post_wordcount: true
   # Display the time to read the article in post meta
@@ -1075,6 +1079,7 @@ inject:
     - <link rel="stylesheet" href="/css/custom.css">
   bottom:
     - <script defer src="/js/matrix-rain.js"></script>
+    - <script defer src="/js/reading-progress.js"></script>
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work

@@ -1,5 +1,6 @@
 ---
 title: Redis全部
+sticky: 90
 tags:
   - redis
 categories:

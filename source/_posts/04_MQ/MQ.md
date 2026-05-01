@@ -1,5 +1,6 @@
 ---
 title: MQ面试经
+sticky: 80
 tags:
   - MQ
 categories:
