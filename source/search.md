@@ -15,6 +15,8 @@ layout: page
       element: '#search',
       showSubResults: true,
       showImages: false,
+      autofocus: true,
+      resetStyles: false,
       translations: {
         placeholder: '搜索文章...',
         clear_search: '清除',
@@ -33,7 +35,21 @@ layout: page
 </script>
 
 <style>
-  /* Pagefind UI sits inside landscape's article column — give it room */
+  /* Pagefind UI 适配 butterfly 暗色主题 */
   #search { margin-top: 1rem; }
+  .pagefind-ui {
+    --pagefind-ui-primary: #00aaff;
+    --pagefind-ui-text: var(--font-color);
+    --pagefind-ui-background: var(--card-bg);
+    --pagefind-ui-border: var(--scrollbar-color);
+    --pagefind-ui-tag: var(--btn-bg);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-image-border-radius: 6px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pagefind-ui-font: 'Inter', -apple-system, sans-serif;
+  }
   .pagefind-ui__form { font-size: 1rem; }
+  .pagefind-ui__result { padding: 1rem 0; }
+  .pagefind-ui__result-title a { color: var(--theme-color); }
 </style>
