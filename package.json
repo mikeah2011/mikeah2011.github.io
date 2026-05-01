@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "hexo": "^8.1.1",
+    "hexo-filter-nofollow": "^2.0.2",
     "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-baidu-sitemap": "^0.1.9",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-feed": "^4.0.0",
     "hexo-generator-index": "^4.0.0",
@@ -28,7 +30,8 @@
     "hexo-server": "^3.0.0",
     "hexo-theme-butterfly": "^5.5.4",
     "hexo-theme-landscape": "^1.0.0",
-    "hexo-wordcount": "^6.0.1"
+    "hexo-wordcount": "^6.0.1",
+    "hexo-yam": "^9.0.0"
   },
   "devDependencies": {
     "pagefind": "^1.5.2"

@@ -132,3 +132,32 @@ robotstxt:
   sitemap:
     - https://mikeah2011.github.io/sitemap.xml
 
+
+# Baidu sitemap
+baidusitemap:
+  path: baidusitemap.xml
+
+# 外链自动加 nofollow（保留白名单）
+nofollow:
+  enable: true
+  field: site
+  exclude:
+    - mikeah2011.github.io
+    - github.com/mikeah2011
+
+# 压缩（hexo-yam: HTML/CSS/JS）
+neat_enable: true
+neat_html:
+  enable: true
+  exclude:
+neat_css:
+  enable: true
+  exclude:
+    - '*.min.css'
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '*.min.js'
