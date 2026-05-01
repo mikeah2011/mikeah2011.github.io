@@ -770,24 +770,24 @@ site_verification:
 # Theme color for customize
 # Notice: color value must in double quotes like "#000" or may cause error!
 
-# Tech blue palette
+# Vercel palette (default Vercel blue; user can switch via floating switcher)
 theme_color:
   enable: true
-  main: "#00aaff"
-  paginator: "#00d4ff"
-  button_hover: "#0077ff"
-  text_selection: "#00aaff"
-  link_color: "#00aaff"
-  meta_color: "#7a8a99"
-  hr_color: "#1f4a6e"
-  code_foreground: "#7ee2ff"
-  code_background: "rgba(0, 170, 255, .08)"
-  toc_color: "#00d4ff"
-  blockquote_padding_color: "#00aaff"
-  blockquote_background_color: "#00aaff"
-  scrollbar_color: "#00aaff"
+  main: "#0070f3"
+  paginator: "#3291ff"
+  button_hover: "#0761d1"
+  text_selection: "#0070f3"
+  link_color: "#0070f3"
+  meta_color: "#888888"
+  hr_color: "#333333"
+  code_foreground: "#79ffe1"
+  code_background: "rgba(0, 112, 243, .08)"
+  toc_color: "#3291ff"
+  blockquote_padding_color: "#0070f3"
+  blockquote_background_color: "#0070f3"
+  scrollbar_color: "#0070f3"
   meta_theme_color_light: "#ffffff"
-  meta_theme_color_dark: "#0a1929"
+  meta_theme_color_dark: "#000000"
 
 # The user interface setting of category and tag page
 # Choose: index - same as Homepage UI / default - same as archives UI
@@ -1081,6 +1081,7 @@ inject:
   bottom:
     - <script defer src="/js/matrix-rain.js"></script>
     - <script defer src="/js/reading-progress.js"></script>
+    - <script defer src="/js/theme-color-switcher.js"></script>
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work

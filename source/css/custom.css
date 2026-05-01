@@ -1,3 +1,24 @@
+/* ===== Banner: Vercel-style theme gradient (replaces banner image) ===== */
+#page-header,
+#page-header.full_page,
+#page-header.not-top-img,
+#page-header:not(.not-top-img),
+#footer {
+  background-image:
+    radial-gradient(ellipse at top left,  var(--theme-color-light, #3291ff) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom right, var(--theme-color-dark, #0761d1) 0%, transparent 55%),
+    linear-gradient(135deg, var(--theme-color, #0070f3), #000000) !important;
+  background-color: #000 !important;
+}
+#page-header::before,
+#footer::before {
+  background: transparent !important;
+}
+#footer #footer-wrap,
+#footer #footer-wrap a {
+  color: #fafafa !important;
+}
+
 /* ===== JetBrains Mono for code ===== */
 code,
 pre,
@@ -36,9 +57,117 @@ pre {
   left: 0;
   height: 3px;
   width: 0%;
-  background: linear-gradient(90deg, #00aaff, #00e5ff);
+  background: linear-gradient(90deg, #a855f7, #bd34fe);
   z-index: 10000;
-  box-shadow: 0 0 8px rgba(0, 170, 255, 0.6);
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
   transition: width 0.08s linear;
   pointer-events: none;
 }
+
+
+/* ===== Gradient on key headings (follows --theme-color) ===== */
+#site-name,
+#site_social_icons,
+.site-title,
+#post-info > h1.post-title,
+#site-subtitle {
+  background: linear-gradient(90deg, var(--theme-color, #0070f3), var(--theme-color-light, #3291ff)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* link hover */
+a:hover {
+  color: var(--theme-color, #00aaff) !important;
+}
+
+/* ===== Theme color switcher (integrated into rightside) ===== */
+#tcs-toggle {
+  /* inherit butterfly's rightside button look */
+  display: block;
+  margin-top: 4px;
+}
+#tcs-panel {
+  position: fixed;
+  right: 60px;
+  bottom: 60px;
+  background: var(--card-bg, rgba(20,20,20,0.95));
+  border: 1px solid var(--scrollbar-color, #333);
+  border-radius: 10px;
+  padding: 12px;
+  min-width: 240px;
+  width: max-content;
+  max-width: calc(100vw - 80px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  display: none;
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+}
+#tcs-panel.tcs-open { display: block; }
+#tcs-panel .tcs-title {
+  font-size: 13px;
+  color: var(--font-color, #ccc);
+  margin-bottom: 8px;
+  text-align: left;
+  opacity: 0.8;
+}
+#tcs-panel .tcs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+#tcs-panel .tcs-swatch {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.15s, border-color 0.15s;
+}
+#tcs-panel .tcs-swatch:hover { transform: scale(1.15); }
+#tcs-panel .tcs-swatch.tcs-active {
+  border-color: var(--font-color, #fff);
+  box-shadow: 0 0 0 2px var(--card-bg, #000);
+}
+#tcs-panel .tcs-grid-img .tcs-swatch {
+  width: 40px;
+  height: 26px;
+  border-radius: 6px;
+  background-size: cover;
+  background-position: center;
+}
+/* Custom color input — looks like a swatch, opens native picker */
+#tcs-panel .tcs-custom {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px dashed var(--font-color, #888);
+  cursor: pointer;
+  background: linear-gradient(135deg,#f00,#ff0,#0f0,#0ff,#00f,#f0f);
+  display: inline-block;
+  overflow: hidden;
+}
+#tcs-panel .tcs-custom input[type="color"] {
+  position: absolute; inset: -2px;
+  width: calc(100% + 4px); height: calc(100% + 4px);
+  border: none; padding: 0; opacity: 0; cursor: pointer;
+}
+#tcs-panel .tcs-custom-hex {
+  flex: 1 1 80px;
+  min-width: 70px;
+  padding: 4px 6px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--scrollbar-color, #333);
+  border-radius: 4px;
+  color: var(--font-color, #fff);
+  outline: none;
+}
+#tcs-panel .tcs-custom-hex:focus { border-color: var(--theme-color, #0070f3); }

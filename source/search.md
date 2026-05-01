@@ -38,7 +38,7 @@ layout: page
   /* Pagefind UI 适配 butterfly 暗色主题 */
   #search { margin-top: 1rem; }
   .pagefind-ui {
-    --pagefind-ui-primary: #00aaff;
+    --pagefind-ui-primary: #0070f3;
     --pagefind-ui-text: var(--font-color);
     --pagefind-ui-background: var(--card-bg);
     --pagefind-ui-border: var(--scrollbar-color);
