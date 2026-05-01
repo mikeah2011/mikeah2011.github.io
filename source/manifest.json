@@ -1,0 +1,21 @@
+{
+  "name": "Michael's Blog",
+  "short_name": "Michael",
+  "description": "技术笔记 · macOS · PHP · Go · K8s · 网络",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1929",
+  "theme_color": "#00aaff",
+  "icons": [
+    {
+      "src": "/img/avatar.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/img/avatar.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
