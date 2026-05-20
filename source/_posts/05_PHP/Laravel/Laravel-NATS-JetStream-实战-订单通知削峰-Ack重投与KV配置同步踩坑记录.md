@@ -5,14 +5,7 @@ updated: 2026-05-04 16:05:52
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - NATS
-  - JetStream
-  - Event-Driven
-  - Microservices
-  - Queue
-description: 结合 Laravel 在订单通知链路中的真实改造经验，记录 NATS JetStream 在削峰、消息确认、重复投递、消费者并发和 KV 配置同步上的一套可落地实践。
+tags: [Laravel, 微服务, 消息队列]description: 结合 Laravel 在订单通知链路中的真实改造经验，记录 NATS JetStream 在削峰、消息确认、重复投递、消费者并发和 KV 配置同步上的一套可落地实践。
 ---
 
 很多 Laravel 团队做异步解耦时，第一反应是 Redis、RabbitMQ 或 Kafka。但我在一个订单通知链路里遇到的真实问题是：**量没有大到必须上 Kafka，可靠性又比 Redis List 要高，接口还希望顺手做 request-reply 和轻量配置同步**。这类场景里，NATS + JetStream 反而很合适。

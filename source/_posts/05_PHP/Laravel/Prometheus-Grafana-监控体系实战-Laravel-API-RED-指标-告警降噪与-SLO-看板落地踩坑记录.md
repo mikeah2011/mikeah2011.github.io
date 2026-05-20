@@ -5,14 +5,7 @@ updated: 2026-05-03 09:51:28
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Prometheus
-  - Grafana
-  - Alertmanager
-  - SLO
-  - Monitoring
-description: 结合 Laravel B2C API 的真实线上经验，记录一套 Prometheus + Grafana 可观测性落地方案，重点覆盖 RED 指标埋点、PromQL 看板、Alertmanager 告警降噪以及高并发场景下的真实踩坑。
+tags: [Laravel, 监控]description: 结合 Laravel B2C API 的真实线上经验，记录一套 Prometheus + Grafana 可观测性落地方案，重点覆盖 RED 指标埋点、PromQL 看板、Alertmanager 告警降噪以及高并发场景下的真实踩坑。
 ---
 
 很多团队说自己“有监控”，实际只有两样东西：机器 CPU 和 Nginx 5xx 数。真到线上出故障时，只能知道“系统不太对”，却回答不了更关键的问题：**到底是哪条接口变慢、慢在应用还是下游、错误是否持续、要不要半夜把人叫起来**。

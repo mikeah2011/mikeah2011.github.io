@@ -1,8 +1,6 @@
 ---
 title: MQ
-tags:
-  - 消息队列
-categories:
+tags: [消息队列]categories:
   - MQ
 date: 2019-03-20 15:05:07
 description: '转自 | 特性 | ActiveMQ | RabbitMQ | RocketMQ | Kafka | | :----------------------- | :------------------------------------ |…'

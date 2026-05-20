@@ -2,7 +2,7 @@
 title: Redis 实战：缓存失效场景深度解析 - KKday B2C API 真实踩坑记录
 date: 2026-05-03
 categories: [PHP, Laravel, Redis]
-tags: [缓存, 失效策略, 分布式锁, 并发控制]
+tags: [Laravel, 微服务, 缓存]
 description: KKday B2C API 中 Redis 缓存失效的真实踩坑记录，涵盖过期时间陷阱、热点 Key 淘汰、分布式锁竞态条件等场景的深度解析与解决方案。
 ---
 

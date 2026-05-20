@@ -4,14 +4,7 @@ date: 2026-05-03 07:45:00
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - WebSocket
-  - 实时通信
-  - Broadcasting
-  - Redis
-  - Nginx
-description: 基于 Laravel 11 + Reverb 的订单状态实时推送实战，覆盖认证、事件广播、多实例部署、前端订阅、Nginx 反向代理与生产环境踩坑记录，适合中高级开发者落地 WebSocket 场景。
+tags: [Laravel, Nginx, Redis, WebSocket]description: 基于 Laravel 11 + Reverb 的订单状态实时推送实战，覆盖认证、事件广播、多实例部署、前端订阅、Nginx 反向代理与生产环境踩坑记录，适合中高级开发者落地 WebSocket 场景。
 ---
 
 在 B2C API 里，订单创建后如果还靠前端每 3 秒轮询一次 `/orders/{id}`，高峰期其实很浪费：应用层多了无意义查询，数据库多了热行读取，用户看到的状态又不够“即时”。我们把订单付款、出票、失败回滚改成 **Laravel Reverb + WebSocket 推送** 后，移动端首屏状态更新延迟从 2~5 秒降到 300ms 内，接口 QPS 也明显回落。

@@ -5,14 +5,7 @@ categories:
   - PHP
   - Laravel
   - 架构
-tags:
-  - 幂等性
-  - RESTful
-  - API 设计
-  - Redis
-  - Idempotency-Key
-  - 微服务
-description: '深入探讨 RESTful API 的幂等性设计，涵盖三层防护体系（Redis Nonce+Idempotency-Key 状态机+MySQL UPSERT）与真实踩坑记录'
+tags: [Laravel, Redis, 微服务]description: '深入探讨 RESTful API 的幂等性设计，涵盖三层防护体系（Redis Nonce+Idempotency-Key 状态机+MySQL UPSERT）与真实踩坑记录'
 author: Michael
 date: "2026-05-03 22:17:48"
 updated: "2026-05-03 22:21:33"

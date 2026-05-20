@@ -5,13 +5,7 @@ updated: 2026-05-05 06:47:52
 categories:
   - PHP
   - Laravel
-tags:
-  - PHP-CS-Fixer
-  - Laravel Pint
-  - 代码规范
-  - CI/CD
-  - 团队协作
-description: 在 30+ 仓库的 Laravel B2C 项目中落地 PHP-CS-Fixer 和 Laravel Pint 的实战经验，涵盖规则配置、Git Hooks 集成、CI 门禁、存量代码治理策略及踩坑记录。
+tags: [CI/CD, PHP, 工程管理]description: 在 30+ 仓库的 Laravel B2C 项目中落地 PHP-CS-Fixer 和 Laravel Pint 的实战经验，涵盖规则配置、Git Hooks 集成、CI 门禁、存量代码治理策略及踩坑记录。
 ---
 
 # PHP-CS-Fixer + Pint 代码风格统一：团队协作的代码规范自动化踩坑记录

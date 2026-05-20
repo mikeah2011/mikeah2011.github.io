@@ -1,6 +1,6 @@
 ---
 title: "CQRS-模式实战-读写分离架构在-Laravel-中的落地-B2C电商查询性能优化与事件驱动踩坑记录"
-tags: [Laravel, CQRS, 架构设计, 读写分离, DDD, Event-Sourcing]
+tags: [Laravel, 架构]
 categories: "00_架构"
 date: 2026-05-05 09:40:37
 updated: 2026-05-05 09:42:59

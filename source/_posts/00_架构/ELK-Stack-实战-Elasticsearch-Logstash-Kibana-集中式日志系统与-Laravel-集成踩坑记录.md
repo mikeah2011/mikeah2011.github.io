@@ -4,15 +4,7 @@ date: 2026-05-17 03:06:55
 updated: 2026-05-17 03:10:28
 categories:
   - 00_架构
-tags:
-  - ELK
-  - Elasticsearch
-  - Logstash
-  - Kibana
-  - Laravel
-  - 日志系统
-  - 可观测性
-description: 从零搭建 ELK Stack 集中式日志系统，与 Laravel B2C API 深度集成。涵盖 Docker Compose 编排、Logstash Pipeline 配置、Kibana 可视化仪表板、日志字段结构化、慢查询追踪、生产环境性能调优，以及 30+ 仓库日志治理的真实踩坑经验。
+tags: [Elasticsearch, Laravel, 监控]description: 从零搭建 ELK Stack 集中式日志系统，与 Laravel B2C API 深度集成。涵盖 Docker Compose 编排、Logstash Pipeline 配置、Kibana 可视化仪表板、日志字段结构化、慢查询追踪、生产环境性能调优，以及 30+ 仓库日志治理的真实踩坑经验。
 ---
 
 ## 为什么需要 ELK？

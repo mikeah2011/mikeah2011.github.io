@@ -4,14 +4,7 @@ date: 2026-05-05 10:40:23
 updated: 2026-05-05 10:42:25
 categories:
   - 工程管理
-tags:
-  - 开源
-  - Git
-  - Pull Request
-  - Code Review
-  - 贡献指南
-  - CONTRIBUTING
-description: 从 Fork 到合并的完整 PR 工作流，结合 scribe、CRMEB、phpseclib 等真实项目贡献经验，详解 commit 规范、测试要求、Review 礼仪与常见踩坑。
+tags: [Git, Laravel]description: 从 Fork 到合并的完整 PR 工作流，结合 scribe、CRMEB、phpseclib 等真实项目贡献经验，详解 commit 规范、测试要求、Review 礼仪与常见踩坑。
 ---
 
 # 开源项目贡献代码实战：PR 流程与最佳实践

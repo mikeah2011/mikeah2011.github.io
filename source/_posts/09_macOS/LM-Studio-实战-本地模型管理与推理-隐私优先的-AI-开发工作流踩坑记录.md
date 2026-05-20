@@ -4,16 +4,7 @@ date: 2026-05-17 05:40:05
 updated: 2026-05-17 05:42:40
 categories:
   - 09_macOS
-tags:
-  - AI
-  - LLM
-  - 本地AI
-  - GGUF
-  - macOS
-  - M芯片
-  - Ollama
-  - 隐私
-description: "从 Ollama 迁移到 LM Studio 的完整实战记录：GUI 模型管理、Local Server API 兼容 OpenAI、M 芯片 Metal 加速推理、多模型切换策略，以及在 Laravel B2C 项目中如何用本地 LLM 做代码审查和文档生成。"
+tags: [AI, macOS, 安全]description: "从 Ollama 迁移到 LM Studio 的完整实战记录：GUI 模型管理、Local Server API 兼容 OpenAI、M 芯片 Metal 加速推理、多模型切换策略，以及在 Laravel B2C 项目中如何用本地 LLM 做代码审查和文档生成。"
 ---
 
 # LM Studio 实战：本地模型管理与推理 — 隐私优先的 AI 开发工作流踩坑记录

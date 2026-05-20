@@ -4,13 +4,7 @@ date: 2026-05-17 07:20:49
 updated: 2026-05-17 07:25:12
 categories:
   - HTML
-tags:
-  - uni-app
-  - Vue 3
-  - Vite
-  - 跨平台
-  - 前端工程化
-description: >-
+tags: [Vite, Vue, uni-app, 前端]description: >-
   从 Vue 2 + Webpack 的旧 uni-app 项目迁移到 Vue 3 + Vite 现代工作流的完整实战经验，
   包括 Composition API 改造、Vite 插件配置、多端条件编译、TypeScript 集成，
   以及 30+ 仓库批量迁移中遇到的真实踩坑记录。

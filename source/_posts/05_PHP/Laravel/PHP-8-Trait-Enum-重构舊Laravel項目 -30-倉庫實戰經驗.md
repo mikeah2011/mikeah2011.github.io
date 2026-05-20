@@ -2,7 +2,7 @@
 title: PHP 8 Trait + Enum 大型项目重构实战 -30+ Laravel 仓库经验
 date: 2026-05-02 17:30
 categories: [PHP, Laravel, 架构设计]
-tags: [PHP, Trait, Enum, 重构，大型项目，KKday-B2C-API]
+tags: [Laravel, PHP]
 description: PHP 8 Trait 和 Enum 在 Laravel 大型项目中的深度应用与重构实战经验，基于 30+ 仓库的真实踩坑记录。
 ---
 

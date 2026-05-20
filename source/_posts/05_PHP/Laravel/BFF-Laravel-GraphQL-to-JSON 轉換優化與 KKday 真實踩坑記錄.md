@@ -6,13 +6,7 @@ categories:
   - Laravel
   - 架构设计
   - BFF
-tags:
-  - Laravel
-  - GraphQL
-  - JSON
-  - 中间层聚合
-  - KKday-B2C-API
-description: "Laravel BFF 中间层聚合实战：从 GraphQL 到 JSON 的转换优化，KKday B2C API 真实踩坑记录与架构设计建议"
+tags: [KKday, Laravel]description: "Laravel BFF 中间层聚合实战：从 GraphQL 到 JSON 的转换优化，KKday B2C API 真实踩坑记录与架构设计建议"
 ---
 
 # Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与 KKday 真实踩坑记录

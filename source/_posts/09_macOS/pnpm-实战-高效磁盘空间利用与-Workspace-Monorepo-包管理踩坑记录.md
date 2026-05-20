@@ -4,15 +4,7 @@ date: 2026-05-16 23:55:19
 updated: 2026-05-16 23:58:45
 categories:
   - macOS 开发工具
-tags:
-  - pnpm
-  - 包管理器
-  - Monorepo
-  - Workspace
-  - Node.js
-  - Vue
-  - Vite
-description: "从 npm/yarn 迁移到 pnpm 的完整实战记录：内容寻址存储、硬链接去重、幽灵依赖防护、Workspace Monorepo 管理、CI 缓存优化，以及在 Laravel + Vue 3 + Vite 项目中踩过的坑。"
+tags: [Composer, JavaScript, Vite, Vue, macOS]description: "从 npm/yarn 迁移到 pnpm 的完整实战记录：内容寻址存储、硬链接去重、幽灵依赖防护、Workspace Monorepo 管理、CI 缓存优化，以及在 Laravel + Vue 3 + Vite 项目中踩过的坑。"
 ---
 
 ## 一、为什么需要 pnpm？

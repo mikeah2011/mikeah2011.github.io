@@ -2,7 +2,7 @@
 title: Laravel Event-Listener 事件驱动架构 - 解耦订单处理 - KKday B2C API 真实踩坑记录
 date: 2026-05-03
 categories: [PHP, Laravel, 架构设计]
-tags: [Laravel, Event, Listener, 解耦，B2C-API, 订单处理，分布式消息]
+tags: [Laravel]
 description: 深入解析 Laravel 事件驱动架构，通过真实踩坑记录分享 KKday B2C API 订单处理的解耦实践与优化方案。
 ---
 

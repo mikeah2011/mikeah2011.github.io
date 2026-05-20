@@ -4,14 +4,7 @@ date: 2026-05-05 02:15:21
 updated: 2026-05-05 02:17:41
 categories:
   - 00_架构
-tags:
-  - OpenAPI
-  - API Design
-  - Swagger
-  - Laravel
-  - BFF
-  - Contract Testing
-description: 结合 KKday B2C Backend 的真实项目经验，完整记录从 PRD 拆解到 OpenAPI YAML 设计、Interface Design Review、Code Review 到 Test Plan 的全链路工作流，附带真实踩坑与反模式。
+tags: [BFF, Laravel, OpenAPI]description: 结合 KKday B2C Backend 的真实项目经验，完整记录从 PRD 拆解到 OpenAPI YAML 设计、Interface Design Review、Code Review 到 Test Plan 的全链路工作流，附带真实踩坑与反模式。
 ---
 
 在中大型 B2C 项目里，API 设计最常见的灾难不是"设计得不好"，而是**根本没有可追溯的设计过程**。PRD 写完直接丢给后端开发，后端凭经验写 Controller，前端根据"差不多的"文档联调，上线后发现字段含义不一致、枚举值遗漏、分页行为不统一——然后三方（PM、前端、后端）互相甩锅。

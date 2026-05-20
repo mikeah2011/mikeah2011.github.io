@@ -4,15 +4,7 @@ date: 2026-05-16 20:00:51
 updated: 2026-05-16 20:07:32
 categories:
   - 00_架构
-tags:
-  - 配置中心
-  - Apollo
-  - Nacos
-  - Laravel
-  - 动态配置
-  - 微服务
-  - PHP
-description: 在 30+ Laravel 仓库的微服务架构中，如何用 Apollo/Nacos 做配置中心？本文覆盖配置热更新、多环境隔离、灰度配置、回滚机制，以及与 Laravel .env 的共存策略，附真实踩坑记录与代码示例。
+tags: [Laravel, PHP, 微服务]description: 在 30+ Laravel 仓库的微服务架构中，如何用 Apollo/Nacos 做配置中心？本文覆盖配置热更新、多环境隔离、灰度配置、回滚机制，以及与 Laravel .env 的共存策略，附真实踩坑记录与代码示例。
 ---
 
 ## 背景：为什么需要配置中心？

@@ -5,14 +5,7 @@ updated: 2026-05-03 10:03:01
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Multi Tenant
-  - SaaS
-  - Queue
-  - MySQL
-  - Architecture
-description: 结合一个 Laravel SaaS 后台的真实改造过程，记录多租户从单纯 tenant_id 隔离走到共享库 + 独立库混合架构时，租户识别、动态连接切换、队列上下文透传与串租排障的落地方案。
+tags: [Laravel, MySQL, 架构, 消息队列]description: 结合一个 Laravel SaaS 后台的真实改造过程，记录多租户从单纯 tenant_id 隔离走到共享库 + 独立库混合架构时，租户识别、动态连接切换、队列上下文透传与串租排障的落地方案。
 ---
 
 做多租户最容易犯的错，是把它想成“所有表加一个 `tenant_id` 就结束”。项目还小的时候，这么做确实够用；但一旦有大客户要求独立库、队列异步任务变多、后台导出和定时报表开始跑起来，问题就会从“查不到数据”升级成更可怕的“**查到了别人的数据**”。

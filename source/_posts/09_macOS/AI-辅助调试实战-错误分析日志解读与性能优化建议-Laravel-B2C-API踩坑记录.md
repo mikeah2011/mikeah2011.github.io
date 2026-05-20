@@ -5,15 +5,7 @@ updated: 2026-05-17 04:38:08
 categories:
   - macOS
   - AI 工具链
-tags:
-  - AI
-  - 错误分析
-  - 日志解读
-  - 性能优化
-  - Claude
-  - Laravel
-  - Debug 工作流
-description: 真实项目中用 AI 辅助调试的完整工作流——从堆栈追踪分析、结构化日志解读到性能瓶颈定位，涵盖 Claude Code / ChatGPT / Cursor 三工具链实战踩坑记录。
+tags: [AI, Laravel, 性能优化, 监控]description: 真实项目中用 AI 辅助调试的完整工作流——从堆栈追踪分析、结构化日志解读到性能瓶颈定位，涵盖 Claude Code / ChatGPT / Cursor 三工具链实战踩坑记录。
 ---
 
 # AI 辅助调试实战：错误分析、日志解读与性能优化建议——Laravel B2C API 真实踩坑记录

@@ -3,7 +3,7 @@ title: Elasticsearch 全文搜索深度调优实战：ILM 生命周期管理与�
 date: 2026-05-04 11:22:00 +0800
 description: "Elasticsearch 全文搜索深度调优实战：ILM 生命周期管理与冷热数据分离踩坑记录"
 categories: PHP/Laravel/Elasticsearch
-tags: [Elasticsearch, 全文搜索，ILM, 冷热分离，Laravel, KKday, 真实踩坑]
+tags: [Elasticsearch, KKday]
 ---
 
 # Elasticsearch 全文搜索深度调优实战：ILM 生命周期管理与冷热数据分离踩坑记录

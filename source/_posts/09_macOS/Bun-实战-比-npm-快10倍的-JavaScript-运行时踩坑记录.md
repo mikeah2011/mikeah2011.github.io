@@ -5,13 +5,7 @@ updated: 2026-05-16 23:43:00
 categories:
   - macOS
   - 前端工程化
-tags:
-  - Bun
-  - JavaScript
-  - Node.js
-  - 前端工具链
-  - 性能优化
-description: 从 npm/pnpm 迁移到 Bun 的完整实战记录，涵盖包管理、构建、测试、运行时替换，以及在 Laravel + Vue 3 + Vite 项目中踩过的坑。
+tags: [JavaScript, 前端, 性能优化]description: 从 npm/pnpm 迁移到 Bun 的完整实战记录，涵盖包管理、构建、测试、运行时替换，以及在 Laravel + Vue 3 + Vite 项目中踩过的坑。
 ---
 
 ## 前言

@@ -1,10 +1,6 @@
 ---
 title: require 与 include 的区别（含 _once）
-tags:
-  - PHP
-  - require
-  - include
-categories:
+tags: [JavaScript, PHP]categories:
   - PHP
 date: 2021-04-15 10:00:00
 description: require / include 在 PHP 里加载文件的核心区别只有一个 —— 失败时是 Fatal Error 还是 Warning。本文加上 _once 变体、性能、autoload 时代的"几乎不再用"语义对比。

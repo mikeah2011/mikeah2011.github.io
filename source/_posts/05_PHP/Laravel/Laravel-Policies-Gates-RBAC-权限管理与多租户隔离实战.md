@@ -5,14 +5,7 @@ updated: 2026-05-05 12:17:53
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Policies
-  - Gates
-  - RBAC
-  - 多租户
-  - 权限管理
-description: >
+tags: [Laravel]description: >
   基于 Laravel 后台与 B2B/B2C 混合业务的真实改造经验，记录如何用 Policies、Gates 与角色权限表落地 RBAC，并在多租户场景下补上 tenant_id 隔离、超级管理员旁路、批量查询性能与队列串租等关键细节。
 ---
 

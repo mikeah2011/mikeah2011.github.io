@@ -4,14 +4,7 @@ date: 2026-05-17 03:55:18
 updated: 2026-05-17 03:57:41
 categories:
   - macOS
-tags:
-  - AI
-  - AI-Agent
-  - Cron
-  - 自动化
-  - 博客
-  - Hexo
-description: "从零搭建 Hermes Agent 定时任务体系：自动化 Hexo 博客写作、macOS 系统监控、Git 仓库自动更新。涵盖 cron 表达式设计、Skill 编排、错误处理、通知分发的完整实战方案。"
+tags: [AI, Laravel, 测试]description: "从零搭建 Hermes Agent 定时任务体系：自动化 Hexo 博客写作、macOS 系统监控、Git 仓库自动更新。涵盖 cron 表达式设计、Skill 编排、错误处理、通知分发的完整实战方案。"
 ---
 
 ## 前言：为什么要让 AI Agent 跑定时任务？

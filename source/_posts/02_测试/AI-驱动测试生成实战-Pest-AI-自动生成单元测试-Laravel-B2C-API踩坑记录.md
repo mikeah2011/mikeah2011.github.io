@@ -4,15 +4,7 @@ date: 2026-05-05 08:45:30
 updated: 2026-05-05 08:48:08
 categories:
   - 测试
-tags:
-  - AI
-  - Pest
-  - PHPUnit
-  - Laravel
-  - 测试生成
-  - Claude
-  - GPT
-description: "在 30+ Laravel 仓库的维护中，手写单元测试是最大的时间黑洞。本文记录如何用 Claude/GPT 结合 Pest 框架，将测试覆盖率从 35% 提升到 85%+ 的完整工作流，包括 Prompt 工程、生成质量控制、CI 集成与真实踩坑。"
+tags: [AI, Laravel, 测试]description: "在 30+ Laravel 仓库的维护中，手写单元测试是最大的时间黑洞。本文记录如何用 Claude/GPT 结合 Pest 框架，将测试覆盖率从 35% 提升到 85%+ 的完整工作流，包括 Prompt 工程、生成质量控制、CI 集成与真实踩坑。"
 ---
 
 ## 一、为什么手写测试成了瓶颈

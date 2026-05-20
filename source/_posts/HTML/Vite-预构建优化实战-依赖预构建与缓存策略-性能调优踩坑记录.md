@@ -6,14 +6,7 @@ categories:
   - HTML
   - Vite
   - 前端工程化
-tags:
-  - Vite
-  - optimizeDeps
-  - Pre-bundling
-  - Performance
-  - 前端构建
-  - Laravel
-description: 深入 Vite 预构建机制（optimizeDeps），从原理到实战，覆盖依赖分析、esbuild 打包、文件系统缓存、monorepo 陷阱与生产环境踩坑记录，附真实 Laravel B2C 项目的性能对比数据。
+tags: [Laravel, Vite, 前端, 性能优化]description: 深入 Vite 预构建机制（optimizeDeps），从原理到实战，覆盖依赖分析、esbuild 打包、文件系统缓存、monorepo 陷阱与生产环境踩坑记录，附真实 Laravel B2C 项目的性能对比数据。
 ---
 
 我在维护一个 Laravel 单仓后台前端时，遇到过一个很诡异的开发体验问题：`npm run dev` 启动后，首次打开页面要等 **15-20 秒**才能看到内容，浏览器 Network 面板里刷出几百个 `304` 请求，全是 `node_modules` 下的 ESM 模块。更离谱的是，改一行代码 HMR 要 3 秒才生效。

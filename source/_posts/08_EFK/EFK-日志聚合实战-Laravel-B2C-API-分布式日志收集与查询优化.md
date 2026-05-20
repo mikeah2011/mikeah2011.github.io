@@ -2,7 +2,7 @@
 title: EFK 日志聚合实战 - Laravel B2C API 分布式日志收集与查询优化
 date: 2026-05-03
 categories: [日志, EFK, 架构, Laravel]
-tags: [EFK, Elasticsearch, Fluentd, Kibana, 日志聚合, 分布式日志, Laravel, KKday, 微服务]
+tags: [Elasticsearch, KKday, Laravel, 微服务, 监控]
 description: 在 KKday B2C API 微服务架构中，EFK（Elasticsearch + Fluentd + Kibana）日志聚合方案的完整实战记录，涵盖架构设计、Fluentd 多格式解析、Elasticsearch 索引模板优化、Kibana 仪表板配置以及生产环境踩坑记录
 ---
 

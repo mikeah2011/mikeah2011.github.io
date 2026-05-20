@@ -5,15 +5,7 @@ updated: 2026-05-05 10:59:21
 categories:
   - 07_CICD
   - 03_Docker
-tags:
-  - Docker
-  - PHP
-  - Laravel
-  - 多阶段构建
-  - 镜像优化
-  - CI/CD
-  - DevOps
-description: "在 KKday B2C 项目中，PHP-FPM 镜像从 520MB 优化到 48MB 的完整过程：多阶段构建、依赖裁剪、.dockerignore、层缓存治理、Alpine vs Debian 选型，以及 CI 流水线中的镜像推送踩坑记录。"
+tags: [CI/CD, DevOps, Docker, Laravel, PHP]description: "在 KKday B2C 项目中，PHP-FPM 镜像从 520MB 优化到 48MB 的完整过程：多阶段构建、依赖裁剪、.dockerignore、层缓存治理、Alpine vs Debian 选型，以及 CI 流水线中的镜像推送踩坑记录。"
 ---
 
 # Docker 多阶段构建实战：PHP 应用镜像从 500MB 优化到 50MB

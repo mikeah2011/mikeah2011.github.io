@@ -5,13 +5,7 @@ updated: 2026-05-17 06:09:37
 categories:
   - 前端
   - uni-app
-tags:
-  - uni-app
-  - uni-app
-  - 微信支付
-  - 微信登录
-  - Laravel
-description: "基于 KKday B2C 电商项目的真实经验，完整拆解 uni-app 微信小程序的登录、支付、分享三大核心流程。涵盖 wx.login → code2session → 自定义登录态 → 微信支付 v3 → 分享卡片的全链路实现，附带 Vue 3 + Laravel 后端代码、架构图、以及 10+ 真实踩坑记录。"
+tags: [Laravel, uni-app, 支付]description: "基于 KKday B2C 电商项目的真实经验，完整拆解 uni-app 微信小程序的登录、支付、分享三大核心流程。涵盖 wx.login → code2session → 自定义登录态 → 微信支付 v3 → 分享卡片的全链路实现，附带 Vue 3 + Laravel 后端代码、架构图、以及 10+ 真实踩坑记录。"
 ---
 
 # uni-app 微信小程序实战：登录、支付、分享完整流程

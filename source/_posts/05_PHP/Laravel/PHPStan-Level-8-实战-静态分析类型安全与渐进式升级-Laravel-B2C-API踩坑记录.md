@@ -5,14 +5,7 @@ updated: 2026-05-16 20:13:46
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - PHPStan
-  - 静态分析
-  - 类型安全
-  - Level 8
-  - StrictRules
-  - PHP 8.x
-excerpt: "PHPStan Level 8 是 PHP 静态分析的最高等级，要求完全类型安全。本文记录在 Laravel B2C API 项目中从 Level 5 渐进升级到 Level 8 的完整过程，涵盖泛型类型、联合类型、StrictRules 插件、baseline 管理策略以及 CI 门禁集成的实战经验与踩坑记录。"
+tags: [CI/CD, Laravel, PHP]excerpt: "PHPStan Level 8 是 PHP 静态分析的最高等级，要求完全类型安全。本文记录在 Laravel B2C API 项目中从 Level 5 渐进升级到 Level 8 的完整过程，涵盖泛型类型、联合类型、StrictRules 插件、baseline 管理策略以及 CI 门禁集成的实战经验与踩坑记录。"
 ---
 
 ## 前言

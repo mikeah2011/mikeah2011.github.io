@@ -2,7 +2,7 @@
 title: Composer 依賴管理優化與 autoload 快取清理實戰 - KKday-B2C-API 真實踩坑記錄
 date: 2026-05-03
 categories: PHP, Laravel, 工程化
-tags: [Composer, Autoload, 依賴管理，Cache 清理，性能優化]
+tags: [Composer, PHP]
 description: Laravel B2C API 項目Composer安裝緩慢、require_autoload.php缺失、vendor目錄過大等真實踩坑經驗分享
 ---
 

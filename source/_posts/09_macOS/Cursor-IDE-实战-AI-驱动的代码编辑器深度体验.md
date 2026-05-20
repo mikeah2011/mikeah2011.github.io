@@ -3,7 +3,7 @@ title: "Cursor IDE 实战：AI 驱动的代码编辑器深度体验 — Tab 补�
 date: 2026-05-17 03:15:22
 updated: 2026-05-17 03:19:59
 categories: [macOS, AI工具, IDE]
-tags: [AI, 代码编辑器, .cursorrules, Laravel, macOS]
+tags: [AI, Laravel, macOS]
 description: "从 VS Code 用户迁移到 Cursor IDE 的实战经验，深度覆盖 Tab 补全、Cmd+K 行内编辑、Composer 多文件编排、@ 上下文引用、.cursorrules 工程化配置，以及在 Laravel B2C API 项目中的真实踩坑。"
 ---
 

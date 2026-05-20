@@ -4,13 +4,7 @@ date: 2026-05-16 21:40:49
 updated: 2026-05-16 21:43:57
 categories:
   - 00_架构
-tags:
-  - 安全
-  - Laravel
-  - API安全
-  - 跨域
-  - Nginx
-description: >
+tags: [Laravel, Nginx, 安全]description: >
   在 B2C 电商项目中，前后端分离架构下 CORS 是每个开发者都会遇到的"拦路虎"。
   本文基于 KKday B2C API 真实项目经验，深入剖析 CORS 的工作原理、
   Laravel 中的多种配置方式、预检请求优化、Nginx 层面的跨域治理，

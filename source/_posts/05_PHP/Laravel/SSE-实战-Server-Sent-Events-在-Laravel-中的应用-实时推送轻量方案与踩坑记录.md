@@ -6,14 +6,7 @@ categories:
   - PHP
   - Laravel
   - 实时通信
-tags:
-  - SSE
-  - Server-Sent Events
-  - Laravel
-  - 实时推送
-  - EventSource
-  - B2C API
-description: SSE (Server-Sent Events) 在 Laravel B2C API 中的实战应用：订单状态实时推送、后台任务进度通知、库存变更广播。涵盖 EventSource API、Laravel StreamedResponse、Nginx 缓冲坑、心跳保活、断线重连策略，以及与 WebSocket/Poller 的选型对比。
+tags: [KKday, Laravel, WebSocket]description: SSE (Server-Sent Events) 在 Laravel B2C API 中的实战应用：订单状态实时推送、后台任务进度通知、库存变更广播。涵盖 EventSource API、Laravel StreamedResponse、Nginx 缓冲坑、心跳保活、断线重连策略，以及与 WebSocket/Poller 的选型对比。
 ---
 
 # SSE 实战：Server-Sent Events 在 Laravel 中的应用——实时推送轻量方案与踩坑记录

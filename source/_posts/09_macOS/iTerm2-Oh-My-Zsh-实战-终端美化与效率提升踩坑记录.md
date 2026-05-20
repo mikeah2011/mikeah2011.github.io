@@ -4,14 +4,7 @@ date: 2026-05-16 23:15:53
 updated: 2026-05-16 23:18:38
 categories:
   - 09_macOS
-tags:
-  - macOS
-  - Oh-My-Zsh
-  - 终端
-  - macOS
-  - 开发效率
-  - Zsh
-description: >
+tags: [macOS, 工程管理]description: >
   从零搭建 macOS 终端开发环境：iTerm2 配置、Oh My Zsh 主题与插件选型、
   快捷键体系、多面板工作流、以及 30+ 仓库日常运维中积累的效率技巧与踩坑记录。
 ---

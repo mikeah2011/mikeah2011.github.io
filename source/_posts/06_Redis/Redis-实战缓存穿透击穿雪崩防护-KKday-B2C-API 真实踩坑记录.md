@@ -2,7 +2,7 @@
 title: Redis 实战：缓存穿透/击穿/雪崩防护 - KKday B2C API 真实踩坑记录
 date: 2026-05-02
 categories: [Redis, Laravel, 架构设计]
-tags: [Redis, 缓存穿透, 缓存击穿, 缓存雪崩，Predis, BFF, KKday, 高可用]
+tags: [BFF, KKday, Redis, 微服务, 缓存]
 description: 'KKday B2C API 生产环境 Redis 实战：缓存穿透/击穿/雪崩防护策略、布隆过滤器选型、热点 Key 隔离、Jitter 随机过期时间方案'
 ---
 

@@ -5,14 +5,7 @@ updated: 2026-05-16 13:33:19
 categories:
   - Redis
   - 性能优化
-tags:
-  - Redis Pipeline
-  - Laravel
-  - Predis
-  - 网络延迟
-  - 批量操作
-  - 性能优化
-description: >
+tags: [Laravel, Redis, 性能优化]description: >
   在 Laravel B2C API 中，当一次请求需要读取 50+ 个 Redis Key 时，
   逐条命令的 RTT 累加会成为性能瓶颈。本文记录了用 Redis Pipeline 将
   网络往返从 N 次压缩到 1 次的真实优化过程，包括 Predis 客户端的

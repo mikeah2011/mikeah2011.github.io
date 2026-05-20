@@ -1,8 +1,6 @@
 ---
 title: Socket
-tags:
-  - HTTP
-categories:
+tags: [Laravel]categories:
   - 网络编程
 date: 2019-03-20 15:05:07
 description: 'Socket是为了实现通信过程而建立成来的通信管道，其真实的代表是客户端和服务器端的一个通信进程，双方进程通过Socket进行通信，而通信的规则采用指定的协议。Socket只是一种连接模式，不是协议，TCP、UDP，简单的说（虽然不准确）是…'

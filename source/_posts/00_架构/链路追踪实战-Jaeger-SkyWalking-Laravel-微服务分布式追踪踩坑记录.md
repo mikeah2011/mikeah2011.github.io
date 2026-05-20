@@ -3,7 +3,7 @@ title: 链路追踪实战：Jaeger/SkyWalking 在 Laravel 微服务中的应用
 date: 2026-05-16 23:30:13
 updated: 2026-05-16 23:37:23
 categories: [架构, 微服务, 可观测性]
-tags: [Jaeger, SkyWalking, OpenTelemetry, Laravel, 链路追踪, 分布式追踪, 微服务]
+tags: [Laravel, 微服务, 监控]
 description: "在 KKday B2C 微服务架构中落地 Jaeger/SkyWalking 链路追踪的实战经验：从 OpenTelemetry SDK 接入、跨服务上下文传播、采样策略，到生产环境性能调优与踩坑记录。"
 ---
 

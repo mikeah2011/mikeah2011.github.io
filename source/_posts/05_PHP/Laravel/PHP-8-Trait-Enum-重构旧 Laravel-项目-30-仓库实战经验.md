@@ -2,7 +2,7 @@ title: PHP 8 + Trait/Enum 重构旧 Laravel 项目：30+ 仓库的实战经验
 date: 2026-05-02
 description: "PHP 8 + Trait/Enum 重构旧 Laravel 项目：30+ 仓库的实战经验"
 categories: [PHP, Laravel, 重构]
-tags: [PHP, Trait, Enum, 重构，Laravel, 代码质量]
+tags: [Laravel, PHP, 代码质量]
 ---
 
 ## 📌 文章摘要

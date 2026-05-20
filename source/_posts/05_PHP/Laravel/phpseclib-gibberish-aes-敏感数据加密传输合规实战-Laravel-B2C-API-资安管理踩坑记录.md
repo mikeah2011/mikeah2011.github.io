@@ -5,17 +5,7 @@ updated: 2026-05-05 00:28:46
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - phpseclib
-  - gibberish-aes
-  - AES
-  - RSA
-  - 加密
-  - 资安
-  - PCI DSS
-  - 合规
-  - Laravel
-description: 在 KKday B2C API 处理支付回调与会员敏感资料传输时，如何用 phpseclib 3 做 RSA/AES 混合加密、前端用 gibberish-aes 做对称加密，以及在 PCI DSS / 个资法合规要求下的密钥管理、编码踩坑与架构决策。
+tags: [Laravel, PHP, 安全]description: 在 KKday B2C API 处理支付回调与会员敏感资料传输时，如何用 phpseclib 3 做 RSA/AES 混合加密、前端用 gibberish-aes 做对称加密，以及在 PCI DSS / 个资法合规要求下的密钥管理、编码踩坑与架构决策。
 ---
 
 > **一句话总结**：支付资料和个资传输不能只靠 HTTPS，端到端加密 + 密钥管理才是合规底线。phpseclib 3 是 PHP 端 RSA/AES 的瑞士军刀，gibberish-aes 负责前端对称加密，但两者混搭时编码、padding、密钥轮换全是坑。

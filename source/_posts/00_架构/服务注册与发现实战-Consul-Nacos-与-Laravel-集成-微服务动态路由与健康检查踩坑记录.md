@@ -4,16 +4,7 @@ date: 2026-05-16 19:55:58
 updated: 2026-05-16 19:59:09
 categories:
   - 00_架构
-tags:
-  - 服务注册
-  - 服务发现
-  - Consul
-  - Nacos
-  - Laravel
-  - 微服务
-  - 健康检查
-  - 动态路由
-description: 从单体 Laravel 演进到微服务后，硬编码的服务地址成了最大的运维痛点。本文以 Consul 和 Nacos 为主线，结合 KKday B2C 真实场景，完整记录服务注册、健康检查、动态路由解析、故障摘除、本地开发联调的实战方案，附带 Laravel 集成代码与踩坑记录。
+tags: [Laravel, 微服务, 监控]description: 从单体 Laravel 演进到微服务后，硬编码的服务地址成了最大的运维痛点。本文以 Consul 和 Nacos 为主线，结合 KKday B2C 真实场景，完整记录服务注册、健康检查、动态路由解析、故障摘除、本地开发联调的实战方案，附带 Laravel 集成代码与踩坑记录。
 ---
 
 # 服务注册与发现实战：Consul/Nacos 与 Laravel 集成

@@ -5,15 +5,7 @@ updated: 2026-05-03 09:48:49
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Idempotency-Key
-  - API Design
-  - MySQL
-  - Middleware
-  - Order
-  - Retry
-description: 结合 Laravel 订单创建接口的真实经验，记录一套用 Idempotency-Key、请求指纹、结果回放与状态机保护实现 API 幂等性的落地方案，包含架构图、代码示例与踩坑记录。
+tags: [Laravel, MySQL]description: 结合 Laravel 订单创建接口的真实经验，记录一套用 Idempotency-Key、请求指纹、结果回放与状态机保护实现 API 幂等性的落地方案，包含架构图、代码示例与踩坑记录。
 ---
 
 移动端弱网下，`POST /api/orders` 最容易出事：用户点一次“提交订单”，客户端因为超时自动重试一次，网关也可能补发一次，最后数据库里落了两张单。很多团队第一反应是“加唯一索引”，但我在线上踩过几次坑后发现，**唯一索引只能防止部分重复写，解决不了客户端到底该拿到哪一次响应**。

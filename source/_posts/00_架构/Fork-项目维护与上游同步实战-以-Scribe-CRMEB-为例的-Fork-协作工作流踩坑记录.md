@@ -4,14 +4,7 @@ date: 2026-05-05 09:27:40
 updated: 2026-05-05 09:29:10
 categories:
   - 00_架构
-tags:
-  - Git
-  - Fork
-  - 开源
-  - Scribe
-  - CRMEB
-  - 版本控制
-description: 以 Scribe 和 CRMEB 两个真实 fork 项目为例，记录 fork 后如何维护自定义修改、同步上游更新、处理冲突，以及长期维护中的架构决策与踩坑经验。
+tags: [Git, Laravel]description: 以 Scribe 和 CRMEB 两个真实 fork 项目为例，记录 fork 后如何维护自定义修改、同步上游更新、处理冲突，以及长期维护中的架构决策与踩坑经验。
 ---
 
 ## 一、为什么需要 Fork？

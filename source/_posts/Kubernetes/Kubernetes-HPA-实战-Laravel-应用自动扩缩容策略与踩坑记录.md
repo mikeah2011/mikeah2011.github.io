@@ -4,14 +4,7 @@ date: 2026-05-17 02:45:19
 updated: 2026-05-17 02:47:22
 categories:
   - Kubernetes
-tags:
-  - Kubernetes
-  - HPA
-  - Laravel
-  - 自动扩缩容
-  - DevOps
-  - 性能优化
-description: >-
+tags: [DevOps, Kubernetes, Laravel, 性能优化]description: >-
   在 KKday B2C Backend Team 的生产环境中，Laravel API 面对流量洪峰（双11/黑五/春节旅游季）时，
   手动扩缩容根本来不及。本文记录了 Kubernetes HPA 的完整实战经验：从 Metrics Server 安装、
   HPA 配置、自定义指标接入、到与 Laravel Queue Worker 的联动扩缩，以及那些文档里不会告诉你的踩坑记录。

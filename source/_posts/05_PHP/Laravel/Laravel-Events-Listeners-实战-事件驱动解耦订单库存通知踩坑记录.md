@@ -5,14 +5,7 @@ updated: 2026-05-05 11:57:28
 categories:
   - PHP
   - Laravel
-tags:
-  - Laravel
-  - Events
-  - Listeners
-  - 事件驱动
-  - 解耦
-  - B2C
----
+tags: [KKday, Laravel, 架构]---
 
 ## 前言
 

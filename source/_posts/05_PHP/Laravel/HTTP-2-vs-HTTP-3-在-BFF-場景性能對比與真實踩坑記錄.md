@@ -2,7 +2,7 @@
 title: HTTP/2 vs HTTP/3 在 BFF 場景性能對比與真實踩坑記錄
 date: 2026-05-02
 categories: [PHP, Laravel, HTTP, 網絡]
-tags: [HTTP, QUIC, TLS1.3, BFF, 性能优化, 排錯]
+tags: [BFF, Laravel, 安全, 性能优化]
 description: KKday B2C API 真實踩坑記錄：HTTP/2 vs HTTP/3 性能對比、多路复用問題排查、TLS 握手延遲優化、以及从 PHP-FPM+nginx 到 Go 後端的架構遷移實踐。
 ---
 

@@ -4,15 +4,7 @@ date: 2026-05-17 06:56:01
 updated: 2026-05-17 06:58:25
 categories:
   - 02_测试
-tags:
-  - AI
-  - Code Review
-  - CodeRabbit
-  - Codeium
-  - CI/CD
-  - Laravel
-  - GitHub
-description: 在 30+ Laravel 仓库中集成 CodeRabbit 和 Coderium 自动化代码审查工具的完整实战指南。涵盖 GitHub PR 集成、审查规则定制、误报治理、成本控制与团队协作流程优化，附真实踩坑记录与架构设计。
+tags: [AI, CI/CD, Git, Laravel]description: 在 30+ Laravel 仓库中集成 CodeRabbit 和 Coderium 自动化代码审查工具的完整实战指南。涵盖 GitHub PR 集成、审查规则定制、误报治理、成本控制与团队协作流程优化，附真实踩坑记录与架构设计。
 ---
 
 ## 前言：从人工 Prompt 到自动化门禁

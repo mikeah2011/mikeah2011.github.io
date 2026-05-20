@@ -5,14 +5,7 @@ updated: 2026-05-03 10:12:38
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - PostgreSQL
-  - PgBouncer
-  - Connection Pool
-  - Performance
-  - SRE
-description: 结合 Laravel 订单与后台查询混跑场景，记录如何用 PgBouncer 解决 PostgreSQL 连接风暴、空闲连接过多、事务池模式兼容性与 prepared statement 失效等一组真实生产问题。
+tags: [Laravel, MySQL, PostgreSQL, 性能优化, 监控]description: 结合 Laravel 订单与后台查询混跑场景，记录如何用 PgBouncer 解决 PostgreSQL 连接风暴、空闲连接过多、事务池模式兼容性与 prepared statement 失效等一组真实生产问题。
 ---
 
 在 Laravel 单体逐步长大之后，CPU 往往不是第一个瓶颈，**数据库连接数**才是。我们曾把前台 API、后台报表、队列 worker 都直接连 PostgreSQL，高峰一来 `max_connections` 打满。后来真正把问题压下去，不是继续调大连接上限，而是在应用和 PostgreSQL 中间加一层 **PgBouncer**，把“连接很多”改成“请求很多，但后端连接稳定”。

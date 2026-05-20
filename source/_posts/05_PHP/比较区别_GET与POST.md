@@ -1,9 +1,6 @@
 ---
 title: GET 与 POST的区别
-tags:
-  - GET
-  - POST
-categories:
+tags: []categories:
   - PHP
 date: 2019-03-20 15:05:07
 description: '| 比较 | GET | POST | | :----------: | :--------------------------------: | :--------------------: | | 浏览器回退时 | 无害 | 会再次提交…'

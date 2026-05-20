@@ -5,12 +5,7 @@ categories:
   - Webpack
   - Vite
   - Laravel
-tags:
-  - 构建优化
-  - 分包策略
-  - 缓存命中
-  - Sourcemap
-description: 基于 KKday B2C API 真实踩坑经验，记录一套针对 Laravel BFF 架构下的构建优化方案，重点覆盖分包路由、长生命周期缓存与 sourcemap 生产环境处理。
+tags: [Vite, 缓存]description: 基于 KKday B2C API 真实踩坑经验，记录一套针对 Laravel BFF 架构下的构建优化方案，重点覆盖分包路由、长生命周期缓存与 sourcemap 生产环境处理。
 ---
 
 后台前端在单仓库时代能长期维持运转是因为"小而美"：一个 Vue + Vite 工程跑完所有模块，构建快、开发爽。但一旦模块数突破 50+，依赖体积和页面打包时间开始指数级增长，发版回归变成"整站重建"的噩梦。在 KKday B2C 项目中，后台有订单、商品、营销、财务、风控等 8 个中大型模块，如果全部塞进一个 Vite 工程，单页加载平均超过 3.2s，用户打开"营销活动中心"时还得等订单表格渲染完才算完成——这是不可接受的。

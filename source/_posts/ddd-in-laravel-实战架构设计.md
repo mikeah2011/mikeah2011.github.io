@@ -1,6 +1,6 @@
 ---
 title: 领域驱动设计 (DDD) 在 Laravel 中的实践
-tags: [Laravel, DDD, 架构设计]
+tags: [Laravel, 架构]
 categories: 后端开发
 date: 2026-05-03 11:46:40
 description: "领域驱动设计 (DDD) 在 Laravel 中的实践"

@@ -5,13 +5,7 @@ updated: 2026-05-17 03:44:15
 categories:
   - macOS
   - AI 工具链
-tags:
-  - AI
-  - AI Agent
-  - Skill 开发
-  - 工作流自动化
-  - macOS
-description: 深入 Hermes Agent Skill 系统的实战开发经验——从 SKILL.md 格式规范、Progressive Disclosure 机制、条件激活、环境变量管理，到真实 Skill 编写与 Cron 自动化工作流集成，完整踩坑记录。
+tags: [AI, macOS, 架构]description: 深入 Hermes Agent Skill 系统的实战开发经验——从 SKILL.md 格式规范、Progressive Disclosure 机制、条件激活、环境变量管理，到真实 Skill 编写与 Cron 自动化工作流集成，完整踩坑记录。
 ---
 
 # AI Agent Skill 开发实战：自定义技能与工作流自动化——Hermes Agent 踩坑记录

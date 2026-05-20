@@ -2,7 +2,7 @@
 title: Controller 薄 + Service 厚：Laravel 大项目中职责分离的真实踩坑记录
 date: 2026-05-02
 categories: [PHP, Laravel, 架构设计]
-tags: [Controller, Service, 职责分离, KKday, 重构经验]
+tags: [KKday, Laravel, 架构]
 description: KKday B2C 后端团队在 Laravel 大项目中遇到的 Controller 臃肿、Service 缺失的真实踩坑记录，以及最终的重构方案与最佳实践。
 ---
 

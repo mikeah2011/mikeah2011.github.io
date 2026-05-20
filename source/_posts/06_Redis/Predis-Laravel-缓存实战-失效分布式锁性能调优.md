@@ -2,7 +2,7 @@ title: Predis-Laravel-缓存实战-失效分布式锁性能调优
 date: 2026-05-02
 description: "Predis-Laravel-缓存实战-失效分布式锁性能调优"
 categories: [Redis, Laravel]
-tags: [Predis, Redis, 缓存失效, 分布式锁, BFF, KKday]
+tags: [BFF, KKday, Redis, 微服务, 缓存]
 ---
 
 ## 写在前面

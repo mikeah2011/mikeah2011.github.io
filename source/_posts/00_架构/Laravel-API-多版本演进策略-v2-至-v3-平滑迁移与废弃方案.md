@@ -3,7 +3,7 @@ title: Laravel API 多版本演进策略：v2 → v2_1 → v3 的平滑迁移与
 date: 2026-05-02
 description: "Laravel API 多版本演进策略：v2 → v2_1 → v3 的平滑迁移与废弃方案"
 categories: [架构, BFF]
-tags: [Laravel, API, 版本管理，平滑迁移，Backward Compatibility]
+tags: [Laravel]
 ---
 
 ## 📌 问题背景：为什么 Laravel B2C API 需要多版本？

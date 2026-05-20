@@ -4,13 +4,7 @@ date: 2026-05-05 06:40:43
 updated: 2026-05-05 06:42:39
 categories:
   - MySQL
-tags:
-  - MySQL
-  - 分库分表
-  - Sharding
-  - Laravel
-  - B2C
-description: 基于 KKday B2C 后端 30+ 仓库的分库分表实战经验，涵盖垂直拆分、水平分片、Laravel 多数据源配置、分布式 ID 生成、跨分片查询、数据迁移等核心场景，附真实代码与踩坑记录。
+tags: [KKday, Laravel, MySQL]description: 基于 KKday B2C 后端 30+ 仓库的分库分表实战经验，涵盖垂直拆分、水平分片、Laravel 多数据源配置、分布式 ID 生成、跨分片查询、数据迁移等核心场景，附真实代码与踩坑记录。
 ---
 
 # MySQL 分库分表实战：30+ 仓库的数据库拆分经验与踩坑记录

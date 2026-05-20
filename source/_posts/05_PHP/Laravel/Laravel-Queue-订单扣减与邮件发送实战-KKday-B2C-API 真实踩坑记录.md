@@ -2,7 +2,7 @@
 title: Laravel Queue - 订单扣减与邮件发送实战-KKday-B2C-API 真实踩坑记录
 date: 2026-05-02
 categories: [PHP, Laravel, Queue]
-tags: [队列处理，Job 失败，重试机制，订单扣减，邮件发送，B2C API]
+tags: []
 description: KKday B2C API 中 Laravel Queue 实战记录：OrderSyncJob 超时导致用户等待、RetryableTrait 配置不当引发无限重试循环、Worker 并发数设置不合理造成数据库压力等踩坑经验与解决方案
 ---
 

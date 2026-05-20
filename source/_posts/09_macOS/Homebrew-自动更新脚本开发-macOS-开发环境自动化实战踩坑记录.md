@@ -4,13 +4,7 @@ date: 2026-05-05 08:26:03
 updated: 2026-05-05 08:29:14
 categories:
   - 09_macOS
-tags:
-  - macOS
-  - macOS
-  - 自动化
-  - Shell
-  - Launchd
-description: "macOS 开发者 Homebrew 自动更新脚本开发实战：brew upgrade 无人值守、Launchd 定时调度、多 Tap 同步策略、更新报告生成与生产环境踩坑记录。基于 KKday 30+ 仓库 macOS 开发团队真实经验。"
+tags: [macOS, 测试]description: "macOS 开发者 Homebrew 自动更新脚本开发实战：brew upgrade 无人值守、Launchd 定时调度、多 Tap 同步策略、更新报告生成与生产环境踩坑记录。基于 KKday 30+ 仓库 macOS 开发团队真实经验。"
 ---
 
 # Homebrew 自动更新脚本开发：macOS 开发环境自动化实战踩坑记录

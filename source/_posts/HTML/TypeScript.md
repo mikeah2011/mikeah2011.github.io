@@ -1,9 +1,6 @@
 ---
 title: TypeScript
-tags:
-  - 前端
-  - TypeScript
-categories:
+tags: [TypeScript, 前端]categories:
   - HTML
 date: 2020-03-20 15:05:07
 description: 'TypeScript 是 JavaScript 的超集，由微软开发，加上了静态类型系统。它把"运行时崩溃"前置到"编译时报错"，大型项目几乎是必选。'

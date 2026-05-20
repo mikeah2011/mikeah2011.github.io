@@ -5,14 +5,7 @@ updated: 2026-05-03 11:01:35
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Scheduler
-  - Cron
-  - Kubernetes
-  - DevOps
-  - Reliability
-description: 结合 Laravel 订单超时关闭、库存回补与报表汇总场景，记录 Scheduler 在多实例部署下的拆分策略、重入保护、onOneServer 约束、Kubernetes CronJob 取舍与真实踩坑记录。
+tags: [DevOps, Kubernetes, Laravel]description: 结合 Laravel 订单超时关闭、库存回补与报表汇总场景，记录 Scheduler 在多实例部署下的拆分策略、重入保护、onOneServer 约束、Kubernetes CronJob 取舍与真实踩坑记录。
 ---
 
 很多团队第一次用 Laravel Scheduler，都觉得它只是把 crontab 写进 PHP 而已；真正上线到多实例之后，问题才开始暴露：同一个任务被跑两次、`withoutOverlapping()` 没挡住长任务、`onOneServer()` 在容器里偶尔失效、发布时旧 Pod 还在跑半截，结果订单重复关闭、库存重复回补、日报数据互相覆盖。

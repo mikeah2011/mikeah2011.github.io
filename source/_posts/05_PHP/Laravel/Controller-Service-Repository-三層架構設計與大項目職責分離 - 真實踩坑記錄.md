@@ -4,12 +4,7 @@ date: 2026-05-03
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - 架构设计
-  - 職責分離
-  - DDD
-  - BFF
-description: KKday B2C API 團隊在多個 Laravel 倉庫中實踐 C-S-R 三層架構，本文分享從小項目到大項目的演進路徑、真實踩坑記錄與最佳實踐。
+tags: [BFF, 架构]description: KKday B2C API 團隊在多個 Laravel 倉庫中實踐 C-S-R 三層架構，本文分享從小項目到大項目的演進路徑、真實踩坑記錄與最佳實踐。
 ---
 
 ## 一、為什麼大項目需要三層架構？

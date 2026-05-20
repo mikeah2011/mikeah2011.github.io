@@ -2,14 +2,7 @@
 title: Laravel-Migrations-零停机数据库变更与回滚策略实战
 date: 2026-05-06 11:23:35
 updated: 2026-05-06 11:34:49
-tags:
-  - Laravel
-  - Migrations
-  - MySQL
-  - 零停机
-  - 回滚
-  - 发布流程
-categories:
+tags: [Kubernetes, Laravel, MySQL, 工程管理]categories:
   - PHP
   - Laravel
   - 数据库

@@ -4,15 +4,7 @@ date: 2026-05-17 07:38:33
 updated: 2026-05-17 07:39:49
 categories:
   - macOS
-tags:
-  - AI
-  - AI-Agent
-  - 多平台
-  - 配置
-  - LLM
-  - macOS
-  - Linux
-description: "从零搭建 Hermes Agent 多平台 AI 助手的完整实战记录——涵盖 macOS/Linux/WSL 安装配置、多 Provider 接入（OpenAI/Anthropic/Ollama/LM Studio）、模型路由策略、CLI 交互模式、Skill 系统集成，以及 30+ 仓库真实使用场景的踩坑经验。"
+tags: [AI, DevOps, macOS, 前端]description: "从零搭建 Hermes Agent 多平台 AI 助手的完整实战记录——涵盖 macOS/Linux/WSL 安装配置、多 Provider 接入（OpenAI/Anthropic/Ollama/LM Studio）、模型路由策略、CLI 交互模式、Skill 系统集成，以及 30+ 仓库真实使用场景的踩坑经验。"
 ---
 
 ## 前言：为什么需要一个统一的 AI 助手平台？

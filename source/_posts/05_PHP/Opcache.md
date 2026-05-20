@@ -1,10 +1,6 @@
 ---
 title: Opcache
-tags:
-  - PHP
-  - 扩展
-  - 性能优化
-categories:
+tags: [PHP, 性能优化]categories:
   - PHP
 date: 2019-03-20 15:05:07
 description: 'OPcache 通过把 PHP 编译产物（opcode）缓存到共享内存，省掉每次请求的「读源码 → 词法 → 语法 → 编译」过程，是 PHP 生产环境性能优化的第一道关卡。'

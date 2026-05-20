@@ -4,14 +4,7 @@ date: 2026-05-17 00:55:27
 updated: 2026-05-17 00:59:34
 categories:
   - 00_架构
-tags:
-  - Webhook
-  - Laravel
-  - 签名验证
-  - 幂等性
-  - 分布式系统
-  - B2C API
-description: 基于 KKday B2C API 中 Stripe、AliPay、Slack、GrabPay 等多个 Webhook 集成的真实踩坑，总结一套签名验证、重试策略、幂等处理的落地方案，覆盖 Nginx 转发丢 Header、签名校验失败、重试风暴、并发幂等竞态等生产问题。
+tags: [KKday, Laravel, 微服务]description: 基于 KKday B2C API 中 Stripe、AliPay、Slack、GrabPay 等多个 Webhook 集成的真实踩坑，总结一套签名验证、重试策略、幂等处理的落地方案，覆盖 Nginx 转发丢 Header、签名校验失败、重试风暴、并发幂等竞态等生产问题。
 ---
 
 # Webhook 集成最佳实践：签名验证、重试与幂等处理——Laravel B2C API 踩坑记录

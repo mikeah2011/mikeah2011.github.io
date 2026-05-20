@@ -1,8 +1,6 @@
 ---
 title: Redis Cluster 原理探讨
-tags:
-  - Redis
-categories:
+tags: [Redis]categories:
   - Redis
 date: 2020-07-25 20:55:57
 feature: true

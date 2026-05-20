@@ -4,14 +4,7 @@ date: 2026-05-17 02:35:29
 updated: 2026-05-17 02:37:30
 categories:
   - 测试
-tags:
-  - Postman
-  - Apifox
-  - API Testing
-  - Mock
-  - Laravel
-  - Automation
-description: "在 KKday B2C Backend Team，30+ 个 Laravel 微服务仓库的 API 联调长期依赖手动 Postman 请求。本文记录从 Postman Collection Runner → Apifox 自动化 → CI 集成的完整演进路径，覆盖环境变量管理、Mock Server 配置、Pre-request Script、数据驱动测试、CI/CD 集成等实战内容，以及迁移过程中的真实踩坑。"
+tags: [Laravel, 测试]description: "在 KKday B2C Backend Team，30+ 个 Laravel 微服务仓库的 API 联调长期依赖手动 Postman 请求。本文记录从 Postman Collection Runner → Apifox 自动化 → CI 集成的完整演进路径，覆盖环境变量管理、Mock Server 配置、Pre-request Script、数据驱动测试、CI/CD 集成等实战内容，以及迁移过程中的真实踩坑。"
 ---
 
 # Postman/Apifox 实战：API 测试、Mock、自动化测试 — Laravel B2C API 踩坑记录

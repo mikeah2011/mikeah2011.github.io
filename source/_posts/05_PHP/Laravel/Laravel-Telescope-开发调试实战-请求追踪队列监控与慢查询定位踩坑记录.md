@@ -5,13 +5,7 @@ updated: 2026-05-16 20:35:29
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Telescope
-  - 调试
-  - 性能分析
-  - 开发工具
-description: >
+tags: [Laravel, macOS]description: >
   Laravel Telescope 是官方提供的应用调试面板，能实时查看请求、查询、队列、异常、邮件等全链路信息。
   本文基于 KKday B2C API 30+ 仓库的真实使用经验，深入讲解 Telescope 的安装配置、核心功能实战、
   自定义 Tag 与 Watcher、生产环境安全策略，以及在高并发场景下的踩坑记录与性能调优。

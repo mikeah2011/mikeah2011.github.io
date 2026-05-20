@@ -5,17 +5,7 @@ updated: 2026-05-05 01:43:32
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Observability
-  - Logging
-  - Monitoring
-  - Tracing
-  - KKday
-  - Monolog
-  - Prometheus
-  - OpenTelemetry
-description: 基于 KKday B2C Backend 真实项目，记录 kkday/log、kkday/monitor、kkday/tracing 三个内部包如何在 Laravel 中落地日志聚合、指标采集与分布式追踪，覆盖 Structured Logging 规范、Monolog Handler 定制、Prometheus RED 指标暴露、Trace Context 跨队列透传的完整链路与踩坑经验。
+tags: [KKday, Laravel, 微服务, 监控]description: 基于 KKday B2C Backend 真实项目，记录 kkday/log、kkday/monitor、kkday/tracing 三个内部包如何在 Laravel 中落地日志聚合、指标采集与分布式追踪，覆盖 Structured Logging 规范、Monolog Handler 定制、Prometheus RED 指标暴露、Trace Context 跨队列透传的完整链路与踩坑经验。
 ---
 
 在 KKday B2C API 项目中，我们经历了从「打印日志就是可观测」到「日志、指标、追踪三位一体」的演变。初期用 `Log::info()` 打印字符串，出了问题靠 `grep` 搜日志文件；中期接入 Sentry 收错误、Prometheus 拿 QPS；后期才把三个信号串联起来——一次请求出错，能在 Grafana 上从 RED 指标跳到对应 Trace，再从 Trace 里拉出关联的 Structured Log。这篇文章记录的就是这个演进过程中，`kkday/log`、`kkday/monitor`、`kkday/tracing` 三个内部包的实际落地方式与踩过的坑。

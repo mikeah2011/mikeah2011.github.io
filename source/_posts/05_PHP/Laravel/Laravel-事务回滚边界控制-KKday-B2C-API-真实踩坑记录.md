@@ -2,7 +2,7 @@
 title: Laravel 事务回滚边界控制 - KKday B2C-API 真实踩坑记录
 date: 2026-05-02
 categories: [PHP, Laravel, MySQL]
-tags: [Laravel, Transaction, DB::transaction, Rollback, 事务回滚，边界控制]
+tags: [Kubernetes, Laravel]
 description: Laravel 事务回滚的常见误区：多操作分支、异常捕获后回滚不生效、Eloquent 模型内部事务等，结合 KKday B2C-API 真实踩坑记录分析。
 ---
 

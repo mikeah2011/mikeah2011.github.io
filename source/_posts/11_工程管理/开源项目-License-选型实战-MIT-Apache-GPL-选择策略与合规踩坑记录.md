@@ -3,14 +3,7 @@ title: 开源项目-License-选型实战-MIT-Apache-GPL-选择策略与合规踩
 date: 2026-05-05 09:21:02
 updated: 2026-05-05 09:24:05
 description: "开源项目 License 选型实战：MIT/Apache/GPL 的选择策略与合规踩坑记录"
-tags:
-  - 开源
-  - License
-  - MIT
-  - Apache
-  - GPL
-  - 合规
-categories:
+tags: [Git, 安全]categories:
   - 工程管理
 ---
 

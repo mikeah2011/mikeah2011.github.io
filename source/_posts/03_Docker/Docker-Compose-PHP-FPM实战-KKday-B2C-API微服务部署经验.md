@@ -2,7 +2,7 @@
 title: Docker Compose + PHP-FPM 实战：KKday B2C API 微服务部署经验
 date: 2026-05-02
 categories: [PHP, Laravel, Docker]
-tags: [Docker, PHP-FPM, 微服务部署, 踩坑记录]
+tags: [Docker, PHP]
 description: 真实项目中的 Docker Compose + PHP-FPM 微服务部署实战经验，包含服务依赖启动、缓存挂载、性能调优等完整案例
 ---
 

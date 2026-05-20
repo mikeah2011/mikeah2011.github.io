@@ -4,14 +4,7 @@ date: 2026-05-17 06:40:07
 updated: 2026-05-17 06:42:11
 categories:
   - HTML
-tags:
-  - uni-app
-  - iOS
-  - Android
-  - HBuilderX
-  - App打包
-  - 应用发布
-description: "uni-app 一套代码跑多端是它的核心卖点，但从 HBuilderX 点击「原生App-云打包」到真正上架 App Store / Google Play，中间的坑远比你想象的多。本文基于奇乐MAX电商项目的真实打包发布经验，覆盖 iOS 签名体系、Android 签名与多渠道、自定义基座调试、离线打包、应用市场审核踩坑记录。"
+tags: [uni-app]description: "uni-app 一套代码跑多端是它的核心卖点，但从 HBuilderX 点击「原生App-云打包」到真正上架 App Store / Google Play，中间的坑远比你想象的多。本文基于奇乐MAX电商项目的真实打包发布经验，覆盖 iOS 签名体系、Android 签名与多渠道、自定义基座调试、离线打包、应用市场审核踩坑记录。"
 ---
 
 # uni-app App 打包实战：iOS/Android 原生打包与发布

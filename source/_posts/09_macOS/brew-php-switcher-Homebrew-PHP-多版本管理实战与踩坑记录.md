@@ -6,14 +6,7 @@ categories:
   - macOS
   - PHP
   - 开发效率
-tags:
-  - macOS
-  - brew-php-switcher
-  - PHP 多版本
-  - macOS
-  - Laravel
-  - 版本管理
-description: KKday 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.2/8.3 多版本共存的完整方案 | brew-php-switcher 与 Homebrew 原生方式对比 | 真实踩坑记录
+tags: [Git, Laravel, PHP, macOS]description: KKday 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.2/8.3 多版本共存的完整方案 | brew-php-switcher 与 Homebrew 原生方式对比 | 真实踩坑记录
 ---
 
 # brew-php-switcher + Homebrew：macOS 多版本 PHP 管理实战与踩坑记录

@@ -1,8 +1,6 @@
 ---
 title: Linux
-tags:
-  - Linux
-categories:
+tags: [DevOps]categories:
   - Linux
 date: 2021-03-20 15:05:07
 description: 'Linux系统中的644权限是什么意思？ | 权限 | 简称 | 全称 | 值 | 表达式 | | :------: | :--: | :-----: | :--: | :----: | | 读取权限 | r | Read | 4 | 2^…'

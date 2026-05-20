@@ -5,15 +5,7 @@ updated: 2026-05-17 00:46:16
 categories:
   - 前端工程化
   - Vue
-tags:
-  - Vue
-  - Vite
-  - HMR
-  - 构建优化
-  - 环境变量
-  - 前端工程化
-  - Laravel BFF
-description: >
+tags: [DevOps, Laravel, Vite, Vue]description: >
   在 Laravel B2C 项目中使用 Vue 3 + Vite 构建前后端分离应用，深入实战 HMR 原理与故障排查、
   构建产物优化（分包策略、Tree-shaking、Gzip/Brotli 压缩）、环境变量类型安全方案，
   覆盖从开发到生产的完整工程化链路。

@@ -5,16 +5,7 @@ categories:
   - Kubernetes
   - Laravel
   - 架构
-tags:
-  - Istio
-  - Service Mesh
-  - Laravel
-  - Kubernetes
-  - mTLS
-  - Canary
-  - gRPC
-  - Observability
-description: 基于 Laravel B2C API 在 Kubernetes 上的真实改造经验，记录一次从 Ingress 直连到 Istio 服务网格的落地过程，重点解决超时不一致、POST 被错误重试、灰度放量与 mTLS 接入中的生产踩坑。
+tags: [Kubernetes, Laravel, 安全, 微服务, 监控]description: 基于 Laravel B2C API 在 Kubernetes 上的真实改造经验，记录一次从 Ingress 直连到 Istio 服务网格的落地过程，重点解决超时不一致、POST 被错误重试、灰度放量与 mTLS 接入中的生产踩坑。
 ---
 
 我们把 Laravel B2C API 拆到 Kubernetes 之后，最开始只有 Ingress + Service：能跑，但高峰期一旦库存服务抖动，API 侧就会出现很难解释的问题：有的请求 504、有的请求 499、有的明明 Laravel 已经报超时，网关还在继续等；更麻烦的是，灰度发布只能切整批 Pod，风险很难控。

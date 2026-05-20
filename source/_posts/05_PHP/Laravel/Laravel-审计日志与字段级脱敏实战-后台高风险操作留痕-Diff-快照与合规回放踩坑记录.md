@@ -5,14 +5,7 @@ updated: 2026-05-03 10:23:32
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Audit Log
-  - Data Masking
-  - Compliance
-  - Security
-  - Backoffice
-description: 结合后台退款、改价、优惠券回收等高风险操作，记录一套在 Laravel 中落地审计日志与字段级脱敏的实战方案，重点覆盖 Diff 快照、事务一致性、PII 脱敏、回放查询与真实踩坑。
+tags: [Laravel, 安全]description: 结合后台退款、改价、优惠券回收等高风险操作，记录一套在 Laravel 中落地审计日志与字段级脱敏的实战方案，重点覆盖 Diff 快照、事务一致性、PII 脱敏、回放查询与真实踩坑。
 ---
 
 后台系统真正出问题时，最难的不是修 Bug，而是还原现场：谁把订单从 `paid` 改成 `refunded`，谁把退款金额从 `0` 改成 `5000`，谁在投诉前后看过完整手机号。很多团队虽然有“操作日志”，但内容只有一句 `update success`，既不能追责，也不能过合规审计。

@@ -5,14 +5,7 @@ updated: 2026-05-17 05:13:03
 categories:
   - macOS
   - 工具效率
-tags:
-  - 文档
-  - Markdown
-  - 知识管理
-  - PKM
-  - 开发者工具
-  - macOS
-description: 从 Notion/Confluence 迁移到 Obsidian 的完整实战记录，涵盖 Vault 结构设计、核心插件配置、Laravel 项目文档工作流、Git 同步方案，以及 30+ 仓库的知识管理踩坑经验。
+tags: [macOS, 工程管理]description: 从 Notion/Confluence 迁移到 Obsidian 的完整实战记录，涵盖 Vault 结构设计、核心插件配置、Laravel 项目文档工作流、Git 同步方案，以及 30+ 仓库的知识管理踩坑经验。
 ---
 
 ## 前言

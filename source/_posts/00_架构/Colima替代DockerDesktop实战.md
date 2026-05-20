@@ -4,13 +4,7 @@ date: 2026-05-01 21:50:00
 categories:
   - 架构
   - Docker
-tags:
-  - Colima
-  - Docker
-  - Laravel
-  - macOS
-  - Apple Silicon
-description: 从 Docker Desktop 切到 Colima 半年多，在 KKday B2C 的 Laravel 8 + PHP-FPM 8.0 项目里跑 docker-compose、Pest/ParaTest、连 MySQL/PostgreSQL/Redis 的真实体验：许可证、性能、踩坑全记录。
+tags: [Docker, Laravel, macOS]description: 从 Docker Desktop 切到 Colima 半年多，在 KKday B2C 的 Laravel 8 + PHP-FPM 8.0 项目里跑 docker-compose、Pest/ParaTest、连 MySQL/PostgreSQL/Redis 的真实体验：许可证、性能、踩坑全记录。
 ---
 
 > 一句话总结：**M 系列 Mac + Laravel docker-compose，Colima 已经可以无缝替代 Docker Desktop**，而且免费、轻量、可脚本化。本文是我在 KKday B2C 后端日常用了半年多之后的复盘。

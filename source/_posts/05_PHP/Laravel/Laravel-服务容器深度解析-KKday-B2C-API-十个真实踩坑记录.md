@@ -2,7 +2,7 @@
 title: Laravel 服务容器深度解析-KKday-B2C-API-10 个真实踩坑记录
 date: 2026-05-02
 categories: [PHP, Laravel, 架构设计]
-tags: [Laravel, Service Container, 依赖注入, 中间件, Singleton, Binding, Closure Binding]
+tags: [Laravel]
 description: Laravel 服务容器（Service Container）是 Laravel 的核心组件之一，它通过依赖注入和 IoC 原理实现松耦合。本文基于 KKday B2C API 项目中 10 个真实踩坑记录，深入解析服务容器的使用技巧与最佳实践。
 ---
 

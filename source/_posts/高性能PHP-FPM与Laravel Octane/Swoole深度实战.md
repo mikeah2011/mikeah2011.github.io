@@ -1,7 +1,7 @@
 ---
 date: 2026-05-04 09:00:42
 description: "高性能PHP-FPM与Laravel Octane/Swoole深度实战：从瓶颈突破到生产部署"
-tags: [PHP-Laravel-Swoole-Octane]
+tags: []
 categories: 高性能架构
 title: "高性能PHP-FPM与Laravel Octane/Swoole深度实战：从瓶颈突破到生产部署"
 author: Michael

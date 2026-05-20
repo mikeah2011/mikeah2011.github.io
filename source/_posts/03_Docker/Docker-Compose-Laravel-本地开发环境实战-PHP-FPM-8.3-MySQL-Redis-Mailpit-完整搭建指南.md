@@ -6,16 +6,7 @@ categories:
   - Docker
   - Laravel
   - 开发环境
-tags:
-  - Docker
-  - Laravel
-  - PHP-FPM
-  - MySQL
-  - Redis
-  - Mailpit
-  - Xdebug
-  - 本地开发
-description: 从零搭建 Laravel 11+ 本地开发环境的完整指南 —— PHP-FPM 8.3 + MySQL 8.0 + Redis 7 + Mailpit，覆盖 Xdebug 远程调试、热重载、数据库初始化、健康检查等实战配置，附 Colima/M 芯片 Mac 专属踩坑记录。
+tags: [Docker, Laravel, MySQL, PHP, Redis]description: 从零搭建 Laravel 11+ 本地开发环境的完整指南 —— PHP-FPM 8.3 + MySQL 8.0 + Redis 7 + Mailpit，覆盖 Xdebug 远程调试、热重载、数据库初始化、健康检查等实战配置，附 Colima/M 芯片 Mac 专属踩坑记录。
 ---
 
 ## 一、为什么不用 Laravel Sail？

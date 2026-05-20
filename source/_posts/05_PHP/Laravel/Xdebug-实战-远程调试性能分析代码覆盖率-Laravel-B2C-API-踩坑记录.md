@@ -6,14 +6,7 @@ categories:
   - PHP
   - Laravel
   - 测试
-tags:
-  - 测试
-  - 调试
-  - 性能分析
-  - 代码覆盖率
-  - PHPStorm
-  - Laravel
-description: >
+tags: [Laravel, macOS, 测试]description: >
   从零到一配置 Xdebug 3 远程调试、性能分析与代码覆盖率，覆盖 Docker/PHP-FPM/CLI 三种运行模式，
   包含 Laravel B2C API 真实踩坑记录与生产环境替代方案对比。
 ---

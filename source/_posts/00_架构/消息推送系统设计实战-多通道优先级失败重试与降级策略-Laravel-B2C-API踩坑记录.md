@@ -4,15 +4,7 @@ date: 2026-05-16 21:10:35
 updated: 2026-05-16 21:14:39
 categories:
   - 00_架构
-tags:
-  - 消息推送
-  - 系统设计
-  - Laravel
-  - 多通道
-  - 优先级队列
-  - 降级策略
-  - B2C
-description: >
+tags: [KKday, Laravel, WebSocket, 微服务, 架构, 消息队列]description: >
   在 KKday B2C 电商项目中从零搭建消息推送系统的真实经验：多通道（FCM/短信/邮件/企业微信/站内信）架构设计、优先级队列分层、失败重试与死信处理、通道降级策略、频率控制与幂等保障。包含完整代码示例、Mermaid 架构图与生产环境踩坑记录。
 ---
 

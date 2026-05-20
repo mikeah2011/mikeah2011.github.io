@@ -5,12 +5,7 @@ description: "Laravel B2C API 的 Redis 使用场景：会话/购物车/计次/�
 categories:
   - Redis
   - PHP
-tags:
-  - Laravel
-  - B2C
-  - Redis-Scenarios
-  - Cache-Strategy
----
+tags: [KKday, Laravel, Redis, 缓存]---
 
 ## 写在前面：为什么这篇很重要？
 

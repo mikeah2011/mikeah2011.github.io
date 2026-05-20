@@ -1,9 +1,6 @@
 ---
 title: MarkDown
-tags:
-  - 文档
-  - 写作
-categories:
+tags: [工程管理]categories:
   - Editor
 date: 2019-03-20 15:05:07
 description: 'Markdown 是一种轻量级标记语言，2004 年由 John Gruber 创建，目标是"让文档既好读又能转 HTML"。它已成为程序员写作、文档、博客的事实标准。'
@@ -157,7 +154,7 @@ $$
 ---
 title: 我的文章
 date: 2024-01-01
-tags: [Markdown, 写作]
+tags: [工程管理]
 categories: 教程
 description: 文章简介，给 SEO 用
 ---

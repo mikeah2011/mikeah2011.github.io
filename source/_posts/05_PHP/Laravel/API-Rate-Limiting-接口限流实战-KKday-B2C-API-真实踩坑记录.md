@@ -2,7 +2,7 @@
 title: API Rate Limiting - 接口限流实战 - KKday B2C API 真实踩坑记录
 date: 2026-05-03
 categories: [PHP, Laravel, API]
-tags: [rate-limit, 限流，Throttle Middleware, Redis, Token Bucket, Leaky Bucket]
+tags: [Redis]
 description: 分享 KKday B2C API 接口限流的完整实战经验，涵盖滑动窗口算法、Redis 分布式限流、Token Bucket 令牌桶实现，以及生产环境真实踩坑记录。
 ---
 

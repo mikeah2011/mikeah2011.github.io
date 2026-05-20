@@ -2,7 +2,7 @@
 title: Laravel-Kafka 消息队列异步解耦实战-KKday B2C API 订单处理与库存扣减真实踩坑记录
 date: 2026-05-03
 categories: [MQ, Kafka, Laravel, 异步解耦]
-tags: [消息队列, Laravel, 消息队列，异步任务，订单处理，库存扣减，BFF, KKday]
+tags: [KKday, Laravel, 消息队列]
 description: KKday B2C API 项目中 Kafka 与 Laravel 集成分享：Producer/Consumer 配置、消息可靠性保障、事务性消息、死信队列、真实踩坑记录与最佳实践
 ---
 

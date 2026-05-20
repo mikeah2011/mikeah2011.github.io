@@ -2,7 +2,7 @@
 title: Laravel Middleware 实战-KKday B2C API 请求链路追踪与真实踩坑记录
 date: 2026-05-02
 categories: [PHP, Laravel, 架构设计]
-tags: [Laravel, Middleware, 链路追踪, APM, KKday]
+tags: [KKday, Laravel, 微服务, 监控]
 description: KKday B2C API 项目中的 Middleware 实战经验，涵盖请求链路追踪、性能优化、真实踩坑记录与解决方案
 ---
 

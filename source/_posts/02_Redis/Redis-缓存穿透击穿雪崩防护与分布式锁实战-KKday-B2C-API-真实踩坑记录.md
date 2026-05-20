@@ -2,7 +2,7 @@
 title: Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - KKday B2C API 真实踩坑记录
 date: 2026-05-02
 categories: PHP, Laravel, Redis
-tags: [Redis, 缓存穿透, 缓存击穿, 缓存雪崩，分布式锁，KKday, KKday]
+tags: [KKday, Redis, 缓存]
 description: KKday B2C API 项目中 Redis 缓存实战踩坑记录：缓存穿透/击穿/雪崩的防护方案与分布式锁失效场景深度解析
 ---
 

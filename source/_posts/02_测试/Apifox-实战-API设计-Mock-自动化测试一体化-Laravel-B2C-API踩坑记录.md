@@ -4,14 +4,7 @@ date: 2026-05-17 07:50:38
 updated: 2026-05-17 07:53:10
 categories:
   - 测试
-tags:
-  - Postman
-  - API Design
-  - Mock
-  - Automation
-  - Laravel
-  - CI/CD
-description: "在 KKday B2C Backend Team，30+ 个 Laravel 微服务仓库长期面临 API 文档与实现脱节、Mock 数据手动维护、前后端联调效率低三大痛点。本文记录 Apifox Design-First 工作流的完整落地实践：从 OpenAPI Schema 可视化编辑到自动 Mock、从 Apifox CLI 自动化测试到 CI/CD 集成，以及协作模式下的真实踩坑与解决方案。"
+tags: [CI/CD, Laravel, 测试]description: "在 KKday B2C Backend Team，30+ 个 Laravel 微服务仓库长期面临 API 文档与实现脱节、Mock 数据手动维护、前后端联调效率低三大痛点。本文记录 Apifox Design-First 工作流的完整落地实践：从 OpenAPI Schema 可视化编辑到自动 Mock、从 Apifox CLI 自动化测试到 CI/CD 集成，以及协作模式下的真实踩坑与解决方案。"
 ---
 
 # Apifox 实战：API 设计、Mock、自动化测试一体化 — Laravel B2C API 踩坑记录

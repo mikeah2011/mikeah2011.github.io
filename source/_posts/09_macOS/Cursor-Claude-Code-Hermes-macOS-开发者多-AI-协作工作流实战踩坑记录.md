@@ -3,7 +3,7 @@ title: "Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实
 date: 2026-05-05 01:45:08
 updated: 2026-05-05 01:52:55
 categories: [macOS, 开发工具, AI]
-tags: [AI, macOS, 开发效率, 工作流]
+tags: [AI, macOS, 工程管理, 架构]
 description: 从 Cursor 写代码、Claude Code 做深度推理、Hermes Agent 自动化任务调度，真实构建 macOS 上的多 AI 协作开发工作流，包含配置细节、Prompt 工程、踩坑记录与效率对比数据。
 ---
 

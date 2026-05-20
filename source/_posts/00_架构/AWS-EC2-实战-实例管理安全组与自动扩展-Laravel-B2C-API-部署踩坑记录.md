@@ -3,7 +3,7 @@ title: "AWS EC2 实战：实例管理、安全组与自动扩展——Laravel B2
 date: 2026-05-17 01:55:35
 updated: 2026-05-17 02:02:35
 categories: [架构, DevOps, AWS]
-tags: [AWS, 安全组, 自动扩展, ASG, Laravel, KKday, 部署, 负载均衡]
+tags: [AWS, DevOps, KKday, Kubernetes, Laravel, 架构]
 description: 从 KKday B2C Backend Team 的真实部署经验出发，深度讲解 AWS EC2 实例选型、安全组精细化配置、Auto Scaling Group 扩缩容策略，以及 Laravel 应用在 EC2 上的生产级部署架构，附带多个真实踩坑案例。
 ---
 

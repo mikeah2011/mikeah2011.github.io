@@ -4,15 +4,7 @@ date: 2026-05-17 04:15:28
 updated: 2026-05-17 04:19:04
 categories:
   - 00_架构
-tags:
-  - AWS
-  - Step Functions
-  - Serverless
-  - Workflow
-  - Laravel
-  - 状态机
-  - 异步编排
----
+tags: [AWS, Laravel, 架构]---
 
 ## 前言
 

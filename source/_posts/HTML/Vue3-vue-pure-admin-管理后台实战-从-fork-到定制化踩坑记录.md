@@ -5,13 +5,7 @@ updated: 2026-05-05 10:04:33
 categories:
   - 前端
   - Vue
-tags:
-  - Vue
-  - vue-pure-admin
-  - Element Plus
-  - 管理后台
-  - 奇乐MAX
-description: "基于奇乐MAX（qile-admin）真实项目，记录从 fork vue-pure-admin 到深度定制电商管理后台的全过程，覆盖路由改造、API 对接 Laravel BFF、权限体系、构建优化与生产部署踩坑经验。"
+tags: [Vue]description: "基于奇乐MAX（qile-admin）真实项目，记录从 fork vue-pure-admin 到深度定制电商管理后台的全过程，覆盖路由改造、API 对接 Laravel BFF、权限体系、构建优化与生产部署踩坑经验。"
 ---
 
 ## 一、为什么选 vue-pure-admin？

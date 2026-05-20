@@ -2,7 +2,7 @@
 title: Laravel Reverb WebSocket 实时通信系统实战：从入门到生产级部署
 date: 2026-05-02
 categories: [PHP, Laravel, WebSocket, 实时通信]
-tags: [Laravel, WebSocket, 实时通信, Swoole, Pusher, KKday]
+tags: [KKday, Laravel, WebSocket]
 description: Laravel 官方 WebSocket 解决方案 Reverb 的实战经验，涵盖架构解析、配置优化、故障排查及与 Swoole 的对比实践。
 ---
 

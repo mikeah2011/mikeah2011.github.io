@@ -5,14 +5,7 @@ updated: 2026-05-03 11:29:03
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - PostgreSQL
-  - Partitioning
-  - Archiving
-  - Query Optimization
-  - Operations
-description: 结合订单流水表持续膨胀的生产问题，记录一套在 Laravel 中落地 PostgreSQL 月分区、分区裁剪、历史归档与在线迁移的实战方案，重点覆盖 DDL 设计、写入路由、查询改造与真实踩坑。
+tags: [Laravel, MySQL, PostgreSQL, 监控]description: 结合订单流水表持续膨胀的生产问题，记录一套在 Laravel 中落地 PostgreSQL 月分区、分区裁剪、历史归档与在线迁移的实战方案，重点覆盖 DDL 设计、写入路由、查询改造与真实踩坑。
 ---
 
 订单系统最难处理的表，往往不是 `orders`，而是不断追加的 `order_events`、`payment_logs` 这类流水表。它们写多读少，但一旦运营要查三个月前的退款链路、财务要导半年的支付对账，单表很快就会从“还能忍”变成“谁查谁卡”。我在一个 Laravel 订单中心里踩过这类坑：`payment_logs` 跑到 1.8 亿行后，普通索引还在，写入也没报错，但后台按时间筛选的 P95 已经接近 4 秒，VACUUM 和备份窗口也越来越难排。

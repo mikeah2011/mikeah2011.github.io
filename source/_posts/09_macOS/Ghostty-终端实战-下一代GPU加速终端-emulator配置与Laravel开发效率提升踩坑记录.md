@@ -4,15 +4,7 @@ date: 2026-05-17 00:00:28
 updated: 2026-05-17 00:05:14
 categories:
   - 09_macOS
-tags:
-  - macOS
-  - 终端
-  - macOS
-  - GPU加速
-  - Zig
-  - 开发效率
-  - Laravel
-description: >
+tags: [AI, Laravel, macOS, 工程管理]description: >
   从 iTerm2 迁移到 Ghostty 的完整实战记录：GPU 加速渲染性能对比、配置文件详解、
   快捷键体系设计、与 Oh My Zsh/Powerlevel10k 集成、Kitty 图片协议、
   以及在 30+ Laravel 仓库日常运维中的效率提升与踩坑经验。

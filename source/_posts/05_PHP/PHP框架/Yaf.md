@@ -1,10 +1,6 @@
 ---
 title: Yaf
-tags:
-  - PHP
-  - 框架
-  - Yaf
-categories:
+tags: [PHP, 架构]categories:
   - PHP
   - PHP框架
 date: 2019-03-20 15:05:07

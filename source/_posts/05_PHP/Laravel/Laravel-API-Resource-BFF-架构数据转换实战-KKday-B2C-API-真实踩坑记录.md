@@ -2,7 +2,7 @@
 title: Laravel API Resource 實戰：BFF 架構下的數據轉換與格式化 - KKday B2C API 真實踩坑記錄
 date: 2026-05-03
 categories: [PHP, Laravel, API, 架構設計]
-tags: [Laravel, API Resource, BFF, JSON, 數據轉換, KKday, 真實踩坑]
+tags: [BFF, KKday, Laravel]
 description: 深度分享 KKday B2C API 項目中 Laravel API Resource 的實戰經驗：從 Controller 返回格式統一、多版本 API 適配、條件加載到效能優化，涵蓋數據轉換、嵌套資源、分頁格式化等真實踩坑記錄與解決方案
 ---
 

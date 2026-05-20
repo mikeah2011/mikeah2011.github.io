@@ -6,14 +6,7 @@ categories:
   - Kubernetes
   - Laravel
   - DevOps
-tags:
-  - Kubernetes
-  - Kubernetes
-  - Laravel
-  - Canary
-  - Prometheus
-  - GitHub Actions
-description: 基于 Laravel API 在 Kubernetes 上的真实发布治理经验，记录如何用 Argo Rollouts 落地金丝雀发布、Prometheus 自动分析与失败回滚，重点解决迁移兼容、探针误判、流量切分失真与发布中断的生产踩坑。
+tags: [CI/CD, Kubernetes, Laravel, 监控]description: 基于 Laravel API 在 Kubernetes 上的真实发布治理经验，记录如何用 Argo Rollouts 落地金丝雀发布、Prometheus 自动分析与失败回滚，重点解决迁移兼容、探针误判、流量切分失真与发布中断的生产踩坑。
 ---
 
 我们把 Laravel API 跑上 Kubernetes 之后，最早的发布方式很朴素：`kubectl set image`，看 Pod 都 Ready 了就算完成。问题是这种“滚动更新成功”，只代表容器活着，不代表业务安全。一次支付链路改造里，新版本把优惠券查询从同步 SQL 改成了聚合表读取，Pod 启来很快，但上线 3 分钟后 P95 飙到 1.8s，错误率也被 Redis 超时拉高。Deployment 还在继续滚，等我们人工回退时，坏版本已经吃掉了大半流量。

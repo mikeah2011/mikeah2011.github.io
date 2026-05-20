@@ -4,15 +4,7 @@ date: 2026-05-05 06:35:56
 updated: 2026-05-05 06:38:03
 categories:
   - 06_Redis
-tags:
-  - Redis
-  - Lua
-  - 分布式限流
-  - 库存扣减
-  - 排行榜
-  - Laravel
-  - 原子操作
-description: 深入 Redis Lua 脚本在 Laravel B2C API 中的三个核心场景：滑动窗口分布式限流、库存扣减防超卖、实时排行榜。涵盖 EVALSHA 管道优化、Predis 客户端踩坑、脚本缓存策略与生产环境真实问题。
+tags: [Laravel, Redis, 微服务]description: 深入 Redis Lua 脚本在 Laravel B2C API 中的三个核心场景：滑动窗口分布式限流、库存扣减防超卖、实时排行榜。涵盖 EVALSHA 管道优化、Predis 客户端踩坑、脚本缓存策略与生产环境真实问题。
 ---
 
 # Redis Lua 脚本原子操作实战：分布式限流、库存扣减、排行榜

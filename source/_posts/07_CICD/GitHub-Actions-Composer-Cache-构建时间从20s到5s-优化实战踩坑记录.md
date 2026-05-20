@@ -4,14 +4,7 @@ date: 2026-05-05 02:30:33
 updated: 2026-05-05 02:31:49
 categories:
   - CI/CD
-tags:
-  - GitHub Actions
-  - Composer
-  - Cache
-  - Laravel
-  - CI/CD
-  - 性能优化
-description: 在 Laravel B2C 项目中，通过 GitHub Actions 的 Composer 缓存策略，将 CI 构建时间从 20s 优化到 5s 的完整实战记录，涵盖 actions/cache、dependency caching、Lock 文件管理与踩坑经验。
+tags: [CI/CD, Composer, Laravel, 性能优化, 缓存]description: 在 Laravel B2C 项目中，通过 GitHub Actions 的 Composer 缓存策略，将 CI 构建时间从 20s 优化到 5s 的完整实战记录，涵盖 actions/cache、dependency caching、Lock 文件管理与踩坑经验。
 ---
 
 # GitHub Actions + Composer Cache：构建时间从 20s→5s 的优化实战踩坑记录

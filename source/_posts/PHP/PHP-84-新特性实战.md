@@ -1,6 +1,6 @@
 ---
 title: PHP 8.4 新特性实战：从内存管理到性能提升
-tags: [PHP, 性能优化, 实战]
+tags: [PHP, 性能优化]
 categories: 后端开发
 date: 2026-05-03 13:24:17
 description: "PHP 8.4 新特性实战：从内存管理到性能提升"

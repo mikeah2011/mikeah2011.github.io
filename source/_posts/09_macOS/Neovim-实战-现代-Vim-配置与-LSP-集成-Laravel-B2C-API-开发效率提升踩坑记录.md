@@ -4,17 +4,7 @@ date: 2026-05-17 02:10:54
 updated: 2026-05-17 02:15:51
 categories:
   - 09_macOS
-tags:
-  - macOS
-  - Vim
-  - LSP
-  - Lazy.nvim
-  - macOS
-  - 开发效率
-  - Laravel
-  - PHP
-  - Treesitter
-description: >
+tags: [Laravel, PHP, macOS, 工程管理]description: >
   从 Vim 8 到 Neovim 的完整迁移实战记录：Lazy.nvim 插件管理、LSP 配置（phpactor + intelephense）、
   Treesitter 语法高亮、Telescope 模糊搜索、nvim-cmp 自动补全、Laravel 开发工作流集成，
   以及在 30+ 仓库日常开发中的效率提升与踩坑经验。

@@ -5,14 +5,7 @@ updated: 2026-05-04 15:55:22
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - PostgreSQL
-  - Advisory Lock
-  - PgBouncer
-  - Scheduler
-  - 并发控制
-description: 结合 Laravel 补偿任务的生产经验，记录如何用 PostgreSQL Advisory Lock 做单实例互斥，解决多 Pod 重复扫单、会话锁释放、连接池模式不兼容与异常退出后的恢复问题。
+tags: [Laravel, MySQL, PostgreSQL]description: 结合 Laravel 补偿任务的生产经验，记录如何用 PostgreSQL Advisory Lock 做单实例互斥，解决多 Pod 重复扫单、会话锁释放、连接池模式不兼容与异常退出后的恢复问题。
 ---
 
 我们有一类任务很典型：每分钟扫描一次“待补偿订单”，把超时未支付、库存待回收、第三方回调缺失的单子重新推到队列。业务上它不是高吞吐消费，更像**一个必须全局单实例执行的扫描器**。最早我用过 `withoutOverlapping()`、Redis 锁，最后都在多 Pod + Horizon + PgBouncer 的组合下踩过坑：要么锁漂移，要么进程异常后锁残留认知混乱，要么不同入口各扫各的，结果同一批订单被重复补偿。

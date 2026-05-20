@@ -2,7 +2,7 @@
 title: PHP-OpCache 调优实战-KKday-B2C-API 高并发场景下的内存优化与真实踩坑记录
 date: 2026-05-02
 categories: [PHP, Laravel, 性能优化]
-tags: [OpCache, PHP-FPM, 缓存优化，B2C API, 性能优化]
+tags: [PHP, 性能优化]
 description: KKday B2C API 项目中 OpCache 内存泄漏与共享库段实战记录：如何避免 OOM、合理配置 max_wasted_percentage 与 zend_opcache_revalidate_freq，提升 Laravel 应用响应速度
 ---
 

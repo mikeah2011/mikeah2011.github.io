@@ -5,15 +5,7 @@ updated: 2026-05-05 00:17:52
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Event Sourcing
-  - EventSauce
-  - CQRS
-  - DDD
-  - Aggregate Root
-  - Projection
-description: 用 EventSauce 在 Laravel 中落地事件溯源，覆盖聚合根建模、事件持久化、快照机制、读模型投影、并发冲突处理与生产环境踩坑记录。
+tags: [Laravel, 架构]description: 用 EventSauce 在 Laravel 中落地事件溯源，覆盖聚合根建模、事件持久化、快照机制、读模型投影、并发冲突处理与生产环境踩坑记录。
 ---
 
 DDD 那篇讲了聚合边界和领域事件，但只保留了"最终一致性通知"这一个维度。真正让事件溯源有价值的，是另一件事——**把每一次状态变更记录为不可变事件，让聚合根可以从事件流中完整重建**。好处不只是审计，而是你在任何时候都能回答"这个订单为什么变成了退款中"。

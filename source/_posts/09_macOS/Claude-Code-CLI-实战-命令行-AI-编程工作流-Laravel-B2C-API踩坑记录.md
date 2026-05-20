@@ -5,14 +5,7 @@ updated: 2026-05-17 02:42:45
 categories:
   - macOS
   - AI 工具链
-tags:
-  - AI
-  - CLI
-  - AI 编程
-  - Laravel
-  - 终端开发
-  - 命令行工作流
-description: 从安装到深度集成，Claude Code CLI 如何改变 Laravel B2C API 的日常开发节奏——真实项目中的上下文管理、多文件重构、Test-Driven 生成与踩坑实录。
+tags: [AI, Laravel, macOS]description: 从安装到深度集成，Claude Code CLI 如何改变 Laravel B2C API 的日常开发节奏——真实项目中的上下文管理、多文件重构、Test-Driven 生成与踩坑实录。
 ---
 
 # Claude Code CLI 实战：命令行 AI 编程工作流与 Laravel 开发效率跃升踩坑记录

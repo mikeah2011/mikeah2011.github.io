@@ -2,7 +2,7 @@
 title: Laravel Queue 队列实战踩坑记录 - KKday B2C API 真实经验分享
 date: 2026-05-03
 categories: [PHP, Laravel, 队列, 架构设计]
-tags: [Laravel, 队列, Redis, 消息队列, 异步处理, KKday, 真实踩坑]
+tags: [KKday, Laravel, Redis, 消息队列]
 description: 深度分享 KKday B2C API 项目中 Laravel Queue 的实战经验：从驱动选型、任务设计到监控告警，涵盖任务丢失、重复执行、积压处理等真实踩坑记录与解决方案
 ---
 

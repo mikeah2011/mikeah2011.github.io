@@ -2,7 +2,7 @@
 title: Laravel BFF 中间层聚合实战 — GraphQL 到 JSON 转换优化
 date: 2026-05-02
 categories: PHP, Laravel, 架构设计
-tags: [Laravel, GraphQL, BFF, REST API, 性能优化]
+tags: [BFF, Laravel, 性能优化]
 description: 在 KKday B2C 项目中，如何在 BFF 层实现 GraphQL 到 JSON 的高效转换，解决多源数据聚合性能瓶颈
 ---
 

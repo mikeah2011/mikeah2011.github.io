@@ -1,11 +1,7 @@
 ---
 title: 导入&导出优选CSV格式的理由
 date: 2018-04-08 10:27:28
-tags:
-  - 其他
-  - import
-  - export
-categories:
+tags: [JavaScript, 工程管理]categories:
   - Other
 description: 'CSV，comma-separated values 逗号分隔值，通常被用于在使用纯文本的系统之间，交换表格类型的数据。 CSV是一种基于行的文件格式。也就是说，此类文件中的每一行都对应到数据表中的具体某一行。通常，CSV文件里包含有一个标…'
 ---

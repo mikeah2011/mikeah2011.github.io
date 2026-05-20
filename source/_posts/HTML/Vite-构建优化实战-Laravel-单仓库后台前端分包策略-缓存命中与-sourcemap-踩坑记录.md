@@ -5,14 +5,7 @@ categories:
   - HTML
   - Laravel
   - Vite
-tags:
-  - Vite
-  - Laravel
-  - Build
-  - Frontend
-  - Sourcemap
-  - Performance
-description: 结合 Laravel 单仓库项目的真实改造经验，记录如何用 Vite 做多入口拆分、稳定分包、缓存命中优化与 hidden sourcemap 排障，重点覆盖生产环境常见踩坑。
+tags: [Laravel, Vite, 性能优化]description: 结合 Laravel 单仓库项目的真实改造经验，记录如何用 Vite 做多入口拆分、稳定分包、缓存命中优化与 hidden sourcemap 排障，重点覆盖生产环境常见踩坑。
 ---
 
 我在一个 Laravel 单仓库里做过一次 Vite 构建治理：同一套代码同时承载 API 管理后台、运营活动页和内部工具页。最初大家只图省事，把所有资源都挂到一个 `app.ts`，结果很快出现三个问题：**构建越来越慢、首屏 JS 越来越胖、线上压缩报错根本定位不回源码**。

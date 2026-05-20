@@ -4,14 +4,7 @@ date: 2026-05-16 23:10:35
 updated: 2026-05-16 23:12:59
 categories:
   - Kubernetes
-tags:
-  - Kubernetes
-  - Kubernetes
-  - Laravel
-  - DevOps
-  - Chart
-  - 部署
-description: 从零构建 Laravel 应用的 Helm Chart，覆盖 values.yaml 分层设计、多环境模板化、Secret 注入、健康检查、HPA 联动、ArgoCD GitOps 集成，以及 30+ 仓库批量部署的真实踩坑记录。
+tags: [DevOps, Kubernetes, Laravel]description: 从零构建 Laravel 应用的 Helm Chart，覆盖 values.yaml 分层设计、多环境模板化、Secret 注入、健康检查、HPA 联动、ArgoCD GitOps 集成，以及 30+ 仓库批量部署的真实踩坑记录。
 ---
 
 # Helm Chart 实战：Laravel 应用打包与部署踩坑记录

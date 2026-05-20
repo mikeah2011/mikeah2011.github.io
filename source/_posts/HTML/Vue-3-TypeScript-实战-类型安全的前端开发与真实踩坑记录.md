@@ -4,12 +4,7 @@ date: 2026-05-16 22:21:05
 updated: 2026-05-16 22:23:27
 categories:
   - HTML
-tags:
-  - Vue
-  - TypeScript
-  - 前端工程化
-  - 类型安全
-description: 从 Vue 3 + TypeScript 项目搭建到生产落地的完整实战经验，涵盖 ref/reactive 类型推断陷阱、Pinia 类型化 Store、API 响应类型体系、组件 Props 强类型设计，以及 30+ 仓库积累的常见类型错误与修复方案。
+tags: [Laravel, TypeScript, Vue]description: 从 Vue 3 + TypeScript 项目搭建到生产落地的完整实战经验，涵盖 ref/reactive 类型推断陷阱、Pinia 类型化 Store、API 响应类型体系、组件 Props 强类型设计，以及 30+ 仓库积累的常见类型错误与修复方案。
 ---
 
 # Vue 3 + TypeScript 实战：类型安全的前端开发与真实踩坑记录

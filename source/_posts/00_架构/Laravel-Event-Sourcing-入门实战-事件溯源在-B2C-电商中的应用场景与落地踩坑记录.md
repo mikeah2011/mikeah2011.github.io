@@ -4,13 +4,7 @@ date: 2026-05-05 10:45:10
 updated: 2026-05-05 10:47:51
 categories:
   - 00_架构
-tags:
-  - Laravel
-  - Event-Sourcing
-  - DDD
-  - 事件溯源
-  - B2C
-description: 从 CRUD 到事件溯源：在 Laravel B2C 电商项目中用 Spatie Event Sourcing 实现订单生命周期、库存变更追踪、审计日志的真实踩坑记录，附完整代码示例与架构图。
+tags: [KKday, Laravel, 架构]description: 从 CRUD 到事件溯源：在 Laravel B2C 电商项目中用 Spatie Event Sourcing 实现订单生命周期、库存变更追踪、审计日志的真实踩坑记录，附完整代码示例与架构图。
 ---
 
 # Laravel Event-Sourcing 入门实战：事件溯源在 B2C 电商中的应用场景与落地踩坑记录

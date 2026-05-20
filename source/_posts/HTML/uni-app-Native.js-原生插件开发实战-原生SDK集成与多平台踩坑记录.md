@@ -4,15 +4,7 @@ date: 2026-05-17 07:00:11
 updated: 2026-05-17 07:02:53
 categories:
   - HTML
-tags:
-  - uni-app
-  - Native.js
-  - 原生插件
-  - iOS
-  - Android
-  - HBuilderX
-  - 跨平台开发
-description: "uni-app 开发中，有些功能 uni API 无法覆盖——蓝牙硬件通信、自定义相机、原生支付 SDK 等场景必须调用原生能力。本文以真实项目经验，详解 Native.js + 原生插件的开发流程、iOS/Android 双平台集成、常见陷阱与性能优化。"
+tags: [uni-app, 前端]description: "uni-app 开发中，有些功能 uni API 无法覆盖——蓝牙硬件通信、自定义相机、原生支付 SDK 等场景必须调用原生能力。本文以真实项目经验，详解 Native.js + 原生插件的开发流程、iOS/Android 双平台集成、常见陷阱与性能优化。"
 ---
 
 ## 前言

@@ -1,8 +1,6 @@
 ---
 title: PHP5与PHP7
-tags:
-  - PHP
-categories:
+tags: [PHP]categories:
   - PHP
 date: 2019-03-20 15:05:07
 description: '1. 改进的性能 - 将 PHPNG 代码合并到 PHP7 中，速度是 PHP 5 的两倍。 2. 降低内存消耗 - 优化的 PHP 7 使用较少的资源。 3. 标量类型声明 - 现在可以强制执行参数和返回类型。 4. 一致的 64 位支持…'

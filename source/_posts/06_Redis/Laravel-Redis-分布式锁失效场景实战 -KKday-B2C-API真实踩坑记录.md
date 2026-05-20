@@ -2,7 +2,7 @@
 title: Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录
 date: 2026-05-02
 categories: [Redis, Laravel, PHP]
-tags: [Predis, 分布式锁，RedLock, Lua 脚本，热点 Key 降级, CAS, BFF, KKday]
+tags: [BFF, KKday, Redis]
 description: 'KKday B2C API 生产环境 Redis 分布式锁实战：RedLock 集群一致性、Lua 脚本原子性、热点 Key 降级策略、CAS 乐观锁方案、锁超时与死锁处理'
 ---
 

@@ -2,7 +2,7 @@
 title: Laravel Cache 实战：KKday B2C API 多缓存后端配置與失效策略對比
 date: 2026-05-03
 categories: [PHP, Laravel, 架构设计]
-tags: [Laravel, 缓存, Redis, 多缓存后端，缓存失效，B2C, KKday]
+tags: [KKday, Laravel, Redis, 缓存]
 description: 在 KKday B2C API 项目中，我们使用 Laravel 8+ PHP 8.0 构建 BFF 层。本文详细分析多缓存后端配置与各类缓存失效策略的真实踩坑记录。
 ---
 

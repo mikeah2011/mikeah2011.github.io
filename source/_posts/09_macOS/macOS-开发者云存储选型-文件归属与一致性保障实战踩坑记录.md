@@ -4,14 +4,7 @@ date: 2026-05-05 03:00:59
 updated: 2026-05-05 03:02:39
 categories:
   - macOS
-tags:
-  - 云存储
-  - iCloud
-  - Google Drive
-  - 文件管理
-  - 开发效率
-  - macOS
-description: >
+tags: [macOS, 工程管理]description: >
   作为 macOS 开发者，面对 iCloud、Google Drive、NAS 等多云存储，如何科学地决定"哪个文件放哪里"？
   本文基于 KKday B2C Backend Team 的真实实践，分享文件分类决策框架、目录结构设计、一致性保障脚本，
   以及踩过的权限冲突、同步死锁、存储爆盘等坑。

@@ -5,13 +5,7 @@ description: "Pest + PHPUnit + ParaTest：如何在 Laravel B2C API 上跑满 10
 categories:
   - 05_PHP
   - Pest
-tags:
-  - Laravel
-  - 单元测试
-  - Pest
-  - ParaTest
-  - 测试覆盖率
-简介: |
+tags: [Laravel, 测试]简介: |
   KKday B2C API 团队使用 Pest + PHPUnit + ParaTest 构建高覆盖率测试体系。本文分享实战踩坑记录：从 0 到跑满 100% 覆盖率的完整路径，包括断言库选择、Mock/Stubs、并行测试优化与 CI 集成方案。
 ---
 

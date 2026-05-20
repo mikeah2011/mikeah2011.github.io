@@ -1,8 +1,6 @@
 ---
 title: HTTPS
-tags:
-  - HTTP
-categories:
+tags: [Laravel]categories:
   - 网络编程
 date: 2017-03-20 15:05:07
 description: 'HTTPS：是以安全为目标的HTTP通道，简单讲是HTTP的安全版，即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。HTTPS协议的主要作用可以分为两种：一种是建立一个信息安全通道，来保证数据传输的安…'

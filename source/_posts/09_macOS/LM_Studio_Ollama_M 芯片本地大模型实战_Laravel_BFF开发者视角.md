@@ -2,7 +2,7 @@
 title: LM Studio + Ollama：M 芯片 Mac 上的本地大模型实战（Laravel BFF 开发者视角）
 date: 2026-05-02
 categories: [macOS, AI, 开发工具]
-tags: [AI, M 芯片, Laravel]
+tags: [AI, Laravel, macOS]
 description: 在 M 芯片 Mac 上部署本地大模型（Qwen3.5/Gemma）的实战经验，从 Laravel BFF 开发者视角分享 LM Studio 和 Ollama 的使用心得。
 ---
 

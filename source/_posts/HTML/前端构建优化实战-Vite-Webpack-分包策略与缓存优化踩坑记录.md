@@ -4,14 +4,7 @@ date: 2026-05-17 07:15:07
 updated: 2026-05-17 07:16:32
 categories:
   - HTML
-tags:
-  - Vite
-  - Webpack
-  - 构建优化
-  - 分包策略
-  - 性能优化
-  - 前端工程化
-description: 在 Laravel B2C 前后端分离项目中，首屏加载从 4.2s 降到 1.1s 的分包与缓存优化实战。涵盖 Vite manualChunks、Webpack splitChunks、HTTP 缓存策略、CDN 配置等真实踩坑经验。
+tags: [Vite, Webpack, 性能优化]description: 在 Laravel B2C 前后端分离项目中，首屏加载从 4.2s 降到 1.1s 的分包与缓存优化实战。涵盖 Vite manualChunks、Webpack splitChunks、HTTP 缓存策略、CDN 配置等真实踩坑经验。
 ---
 
 # 前端构建优化实战：Vite/Webpack 分包策略与缓存优化踩坑记录

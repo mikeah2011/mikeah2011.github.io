@@ -4,14 +4,7 @@ date: 2026-05-16 15:55:50
 updated: 2026-05-16 16:03:22
 categories:
   - 07_CICD
-tags:
-  - Docker
-  - 多阶段构建
-  - PHP
-  - Laravel
-  - 镜像优化
-  - DevOps
-description: 从 500MB 的"胖镜像"瘦身到 50MB 的生产级镜像，记录 KKday B2C 后端 30+ 仓库的 Docker 多阶段构建实战经验，涵盖 Composer 缓存复用、扩展裁剪、vendor 清理等核心技巧。
+tags: [DevOps, Docker, Laravel, PHP]description: 从 500MB 的"胖镜像"瘦身到 50MB 的生产级镜像，记录 KKday B2C 后端 30+ 仓库的 Docker 多阶段构建实战经验，涵盖 Composer 缓存复用、扩展裁剪、vendor 清理等核心技巧。
 ---
 
 # Docker 多阶段构建实战：PHP 应用镜像优化（500MB → 50MB）

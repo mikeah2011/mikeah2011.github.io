@@ -5,14 +5,7 @@ updated: 2026-05-05 08:22:17
 categories:
   - 00_架构
   - 05_PHP
-tags:
-  - Laravel
-  - Domain-Events
-  - 事件驱动
-  - DDD
-  - 解耦
-  - B2C
----
+tags: [KKday, Laravel, 架构]---
 
 ## 前言：Service Layer 胖到什么程度你会考虑重构？
 

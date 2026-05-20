@@ -4,14 +4,7 @@ date: 2026-05-03 09:26:32
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - GraphQL
-  - Subscriptions
-  - Lighthouse
-  - Reverb
-  - WebSocket
-description: 结合 Laravel BFF 的库存查询场景，记录一套用 Lighthouse + Reverb 落地 GraphQL Subscriptions 的生产实践，重点覆盖事件发布、频道鉴权、多标签页连接控制、JWT 续期与真实踩坑记录。
+tags: [Laravel, WebSocket]description: 结合 Laravel BFF 的库存查询场景，记录一套用 Lighthouse + Reverb 落地 GraphQL Subscriptions 的生产实践，重点覆盖事件发布、频道鉴权、多标签页连接控制、JWT 续期与真实踩坑记录。
 ---
 
 做 GraphQL 时，很多团队把查询层做得很漂亮，但一到“库存变更、订单状态变化、价格波动”这类实时场景，就又退回轮询。原因很现实：**Query/Mutation 好上手，Subscriptions 真正难的是连接生命周期、鉴权、事件风暴和多实例部署**。我这次在 Laravel BFF 里把商品库存提醒从 5 秒轮询改成 GraphQL Subscriptions，接口层统一成 GraphQL 之后，前端少写了一套 SSE/WebSocket 协议适配，后端也终于把“查库存”和“推库存变化”放进同一套 schema 管理。

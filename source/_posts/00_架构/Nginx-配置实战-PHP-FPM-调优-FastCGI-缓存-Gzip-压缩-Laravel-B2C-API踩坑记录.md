@@ -4,14 +4,7 @@ date: 2026-05-16 19:50:32
 updated: 2026-05-16 19:53:26
 categories:
   - 00_架构
-tags:
-  - Nginx
-  - PHP-FPM
-  - FastCGI
-  - Gzip
-  - 性能优化
-  - Laravel
-description: "从 Laravel B2C API 的真实生产环境出发，详解 Nginx 与 PHP-FPM 的连接调优、FastCGI 缓存策略设计、Gzip 压缩配置与踩坑记录。涵盖 upstream keepalive、request_terminate_timeout、缓存命中率监控等实战细节。"
+tags: [Laravel, Nginx, PHP, 性能优化]description: "从 Laravel B2C API 的真实生产环境出发，详解 Nginx 与 PHP-FPM 的连接调优、FastCGI 缓存策略设计、Gzip 压缩配置与踩坑记录。涵盖 upstream keepalive、request_terminate_timeout、缓存命中率监控等实战细节。"
 ---
 
 ## 前言

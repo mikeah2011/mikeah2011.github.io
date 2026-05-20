@@ -1,10 +1,6 @@
 ---
 title: Yii2
-tags:
-  - PHP
-  - 框架
-  - Yii
-categories:
+tags: [PHP, 架构]categories:
   - PHP
   - PHP框架
 date: 2019-03-20 15:05:07

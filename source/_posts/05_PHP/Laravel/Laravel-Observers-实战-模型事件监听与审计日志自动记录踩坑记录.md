@@ -5,13 +5,7 @@ updated: 2026-05-05 11:46:48
 categories:
   - PHP
   - Laravel
-tags:
-  - Laravel
-  - Observers
-  - 审计日志
-  - Eloquent
-  - 模型事件
-description: "Laravel Observers 实战踩坑记录：从基础模型事件监听到 B2C 电商审计日志自动记录，覆盖 created/updated/deleted/restored 全生命周期，含 Octane 兼容性、性能陷阱、批量操作盲区、软删除误报等真实问题"
+tags: [Laravel]description: "Laravel Observers 实战踩坑记录：从基础模型事件监听到 B2C 电商审计日志自动记录，覆盖 created/updated/deleted/restored 全生命周期，含 Octane 兼容性、性能陷阱、批量操作盲区、软删除误报等真实问题"
 ---
 
 ## 背景：为什么需要 Observers？

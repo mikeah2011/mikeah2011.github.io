@@ -2,15 +2,7 @@
 title: 支付系统设计实战-多通道集成对账退款与异常处理-Laravel-B2C-API踩坑记录
 date: 2026-05-16 21:25:31
 updated: 2026-05-16 21:31:10
-tags:
-  - Laravel
-  - 支付系统
-  - 对账
-  - 退款
-  - B2C
-  - Stripe
-  - Alipay
-categories:
+tags: [KKday, Laravel, 支付]categories:
   - 00_架构
 description: 'B2C 电商支付系统不只是调 API：多通道 Gateway 抽象、T+1 自动对账、退款状态机、支付异常降级——来自 KKday B2C API 30+ 仓库的真实踩坑记录。'
 ---

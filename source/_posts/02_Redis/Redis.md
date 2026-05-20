@@ -1,8 +1,6 @@
 ---
 title: Redis常见的问题及方案
-tags:
-  - Redis
-categories:
+tags: [Redis]categories:
   - Redis
 date: 2022-08-20 16:05:07
 description: '为了便于大家查找问题，了解全貌，整理个目录，我们可以快速全局了解关于Redis 缓存，面试官一般喜欢问哪些问题？ 接下来，我们逐条来看看每个问题及解决方案 *Redis 有哪些特性？** 性能高， 读的速度是100000次/s，写的速度是8…'

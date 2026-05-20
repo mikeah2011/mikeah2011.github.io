@@ -5,15 +5,7 @@ updated: 2026-05-03 11:11:39
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - PostgreSQL
-  - LISTEN
-  - NOTIFY
-  - Event Driven
-  - Realtime
-  - PgBouncer
-description: 基于 Laravel 后台审批与订单状态同步场景，记录一套用 PostgreSQL LISTEN/NOTIFY 做事务提交后事件广播的落地方案，重点覆盖触发器设计、常驻监听进程、PgBouncer 兼容、重连与丢消息边界。
+tags: [Laravel, MySQL, PostgreSQL]description: 基于 Laravel 后台审批与订单状态同步场景，记录一套用 PostgreSQL LISTEN/NOTIFY 做事务提交后事件广播的落地方案，重点覆盖触发器设计、常驻监听进程、PgBouncer 兼容、重连与丢消息边界。
 ---
 
 很多团队一提到“事件广播”，第一反应就是 Redis、Kafka 或 WebSocket Broker。但在我最近一次后台审批系统改造里，真正卡住我们的不是“有没有 MQ”，而是**数据库事务提交之前发出的副作用**。审批单状态在事务里改成 `approved`，代码马上发 WebSocket、删缓存、写审计；结果事务回滚时，前端已经收到“已通过”，运营还来问为什么页面和数据库不一致。

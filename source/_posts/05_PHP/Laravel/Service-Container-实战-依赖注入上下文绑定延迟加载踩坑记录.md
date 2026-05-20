@@ -5,13 +5,7 @@ updated: 2026-05-16 15:51:42
 categories:
   - PHP
   - Laravel
-tags:
-  - Laravel
-  - Service-Container
-  - 依赖注入
-  - IoC
-  - 架构模式
-description: "深入 Laravel Service Container 的三大核心能力——依赖注入、上下文绑定（Contextual Binding）、延迟加载（Deferred Providers），结合 B2C 电商真实场景的踩坑记录与性能优化经验。"
+tags: [Laravel, 微服务]description: "深入 Laravel Service Container 的三大核心能力——依赖注入、上下文绑定（Contextual Binding）、延迟加载（Deferred Providers），结合 B2C 电商真实场景的踩坑记录与性能优化经验。"
 ---
 
 # Laravel Service Container 实战：依赖注入、上下文绑定、延迟加载

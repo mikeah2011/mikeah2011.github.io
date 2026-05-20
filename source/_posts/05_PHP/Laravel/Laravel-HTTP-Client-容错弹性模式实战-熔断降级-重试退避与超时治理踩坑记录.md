@@ -5,13 +5,7 @@ updated: 2026-05-04 23:40:38
 categories:
   - PHP
   - Laravel
-tags:
-  - 监控
-  - Resilience
-  - HTTP-Client
-  - 降级
-  - 微服务
-description: >
+tags: [Laravel, 微服务, 监控]description: >
   在 KKday B2C API 实际生产中，对接数十个外部供应商 API（机票、酒店、活动门票），
   任何一个供应商超时或宕机都会拖垮整个请求链路。本文从零实现熔断器（Circuit Breaker）、
   指数退避重试（Exponential Backoff with J Bulkhead）、舱壁隔离（Bulkhead）与

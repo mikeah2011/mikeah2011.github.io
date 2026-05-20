@@ -4,14 +4,7 @@ date: 2026-05-17 06:45:42
 updated: 2026-05-17 06:49:02
 categories:
   - HTML
-tags:
-  - HBuilderX
-  - uni-app
-  - Vue 3
-  - 微信小程序
-  - App
-  - IDE
-description: "在 KKday B2C Backend Team 负责 uni-app 多端项目时，HBuilderX 是团队使用频率最高的前端 IDE。本文记录从 VS Code 迁移到 HBuilderX 的完整过程，覆盖内置终端、真机调试、uni_modules 插件开发、自定义编译配置、多平台发布流水线等实战内容，以及在 M 芯片 Mac 上遇到的真实踩坑。"
+tags: [Vue, macOS, uni-app]description: "在 KKday B2C Backend Team 负责 uni-app 多端项目时，HBuilderX 是团队使用频率最高的前端 IDE。本文记录从 VS Code 迁移到 HBuilderX 的完整过程，覆盖内置终端、真机调试、uni_modules 插件开发、自定义编译配置、多平台发布流水线等实战内容，以及在 M 芯片 Mac 上遇到的真实踩坑。"
 ---
 
 # HBuilderX 实战：uni-app 官方 IDE 深度使用 — 真机调试、插件开发与多端发布踩坑记录

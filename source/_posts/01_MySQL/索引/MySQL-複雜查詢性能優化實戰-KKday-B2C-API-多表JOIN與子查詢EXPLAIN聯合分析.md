@@ -2,7 +2,7 @@
 title: MySQL 複雜查詢性能優化實戰 - KKday B2C API 多表 JOIN 與子查詢 EXPLAIN 聯合分析
 date: 2026-05-03
 categories: [MySQL, 索引優化]
-tags: [EXPLAIN, JOIN 優化, 子查詢優化, 覆蓋索引, 最左前綴原則, KKday]
+tags: [KKday, MySQL]
 description: KKday B2C API 真實踩坑記錄 - 多表 JOIN、子查詢性能調優，EXPLAIN 聯合分析完整案例
 ---
 

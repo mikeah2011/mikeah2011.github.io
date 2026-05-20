@@ -4,13 +4,7 @@ date: 2026-05-16 13:00:44
 updated: 2026-05-16 13:03:40
 categories:
   - Redis
-tags:
-  - Redis Stream
-  - 消息队列
-  - Laravel
-  - 消费者组
-  - 高并发
-description: >
+tags: [Laravel, Redis, 微服务, 消息队列]description: >
   在 B2C 电商项目中，不是所有异步场景都需要引入 RabbitMQ 或 Kafka。
   Redis Stream 5.0+ 提供了轻量级消息队列能力：消费者组、ACK 机制、Pending 队列、
   ID 自动生成。本文基于 KKday B2C API 真实项目，记录 Redis Stream 替代传统 MQ

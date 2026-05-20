@@ -5,14 +5,7 @@ updated: 2026-05-04 15:17:45
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - WebAuthn
-  - Passkey
-  - 安全
-  - 无密码登录
-  - Session
-description: 结合 Laravel 后台账号安全改造的真实经验，记录如何落地 WebAuthn / Passkey 无密码登录，覆盖挑战生成、设备绑定、签名校验、计数器回放防护与线上踩坑处理。
+tags: [Laravel, 安全]description: 结合 Laravel 后台账号安全改造的真实经验，记录如何落地 WebAuthn / Passkey 无密码登录，覆盖挑战生成、设备绑定、签名校验、计数器回放防护与线上踩坑处理。
 ---
 
 后台系统一旦接入财务、退款、优惠券配置这类高风险能力，账号安全就不能只靠短信和 TOTP。我们后来把管理员登录改成 **Password + Passkey 升级**，再逐步推进到高权限角色的 **Passkey 优先登录**。真正难的不是把浏览器弹窗调起来，而是把挑战、设备、会话、回放防护这几件事在 Laravel 里收严。

@@ -5,14 +5,7 @@ updated: 2026-05-05 08:18:39
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - AI
-  - Code Review
-  - Claude
-  - GPT
-  - Laravel
-  - 工程化
-description: 在 30+ 仓库的 Laravel B2C API 项目中，如何将 AI（Claude/GPT）系统性地融入 Code Review 流程？本文涵盖 Prompt 工程、自动化集成、踩坑记录与成本控制，是团队落地 AI 辅助审查的完整实战指南。
+tags: [AI, Laravel]description: 在 30+ 仓库的 Laravel B2C API 项目中，如何将 AI（Claude/GPT）系统性地融入 Code Review 流程？本文涵盖 Prompt 工程、自动化集成、踩坑记录与成本控制，是团队落地 AI 辅助审查的完整实战指南。
 ---
 
 ## 前言：为什么需要 AI 辅助 Code Review？

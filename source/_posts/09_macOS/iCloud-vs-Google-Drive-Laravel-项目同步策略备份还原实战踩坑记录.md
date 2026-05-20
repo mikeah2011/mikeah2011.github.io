@@ -4,14 +4,7 @@ date: 2026-05-05 02:20:35
 updated: 2026-05-05 02:22:40
 categories:
   - macOS
-tags:
-  - macOS
-  - Google Drive
-  - Laravel
-  - 云存储
-  - 备份
-  - macOS
-description: >
+tags: [DevOps, Laravel, macOS]description: >
   macOS 开发者在 Laravel 项目中如何选择 iCloud 或 Google Drive 做文件同步？本文从真实 B2C API 项目出发，
   覆盖项目目录同步策略、数据库备份/还原、.env 与 vendor 管理、符号链接踩坑、文件一致性保障，
   以及多设备切换时的冲突解决实战。

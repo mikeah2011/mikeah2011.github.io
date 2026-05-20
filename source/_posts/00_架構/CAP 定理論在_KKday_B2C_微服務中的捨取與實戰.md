@@ -2,7 +2,7 @@
 title: "CAP 定理论在 KKday B2C 微服务中的取舍与实战"
 date: 2026-05-03
 categories: [架构设计]
-tags: [CAP, 可用性，一致性，云原生，微服务，KKday]
+tags: [架构]
 description: "基于 KKday B2C API 真实项目的 CAP 定理实践：如何在订单、支付、库存等核心场景中权衡最终一致性与高可用性"
 ---
 

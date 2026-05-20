@@ -4,16 +4,7 @@ date: 2026-05-05 10:15:59
 updated: 2026-05-05 10:23:51
 categories:
   - 12_业务设计
-tags:
-  - CRMEB
-  - 开源商城
-  - ThinkPHP
-  - 二次开发
-  - 生产部署
-  - B2C
-  - Docker
-  - Nginx
-description: 基于 CRMEB 开源商城系统的真实二次开发经验，完整记录从 fork 上游仓库、本地环境搭建、核心模块定制开发到生产环境部署的全流程实战。覆盖目录结构解析、支付/商品/订单模块改造、Docker 容器化部署、Nginx 反向配置以及上线后踩过的 12 个真实坑点。
+tags: [Docker, KKday, Nginx, ThinkPHP, 架构]description: 基于 CRMEB 开源商城系统的真实二次开发经验，完整记录从 fork 上游仓库、本地环境搭建、核心模块定制开发到生产环境部署的全流程实战。覆盖目录结构解析、支付/商品/订单模块改造、Docker 容器化部署、Nginx 反向配置以及上线后踩过的 12 个真实坑点。
 ---
 
 # CRMEB 开源商城二次实战：从 Fork 到生产部署踩坑记录

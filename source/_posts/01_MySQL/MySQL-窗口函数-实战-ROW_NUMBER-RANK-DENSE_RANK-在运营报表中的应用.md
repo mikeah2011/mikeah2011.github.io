@@ -4,15 +4,7 @@ date: 2026-05-05 12:06:01
 updated: 2026-05-05 12:09:02
 categories:
   - MySQL
-tags:
-  - MySQL
-  - Laravel
-  - 窗口函数
-  - ROW_NUMBER
-  - RANK
-  - DENSE_RANK
-  - 报表优化
-description: 结合 Laravel B2C 后台真实报表场景，拆解 MySQL 8 窗口函数在分组 Top N、排名、环比计算中的落地方式，重点记录 SQL 改写、索引配合、临时表放大与分页口径错乱等生产踩坑。
+tags: [Laravel, MySQL]description: 结合 Laravel B2C 后台真实报表场景，拆解 MySQL 8 窗口函数在分组 Top N、排名、环比计算中的落地方式，重点记录 SQL 改写、索引配合、临时表放大与分页口径错乱等生产踩坑。
 ---
 
 ## 前言：为什么我会在报表接口里重写 SQL

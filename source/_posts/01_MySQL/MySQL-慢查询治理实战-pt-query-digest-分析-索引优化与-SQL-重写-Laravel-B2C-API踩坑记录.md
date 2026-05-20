@@ -3,15 +3,7 @@ title: MySQL-慢查询治理实战-pt-query-digest-分析-索引优化与-SQL-�
 date: 2026-05-05 06:55:04
 description: "MySQL-慢查询治理实战-pt-query-digest-分析-索引优化与-SQL-重写-Laravel-B2C-API踩坑记录"
 updated: 2026-05-05 06:58:22
-tags:
-  - MySQL
-  - 慢查询
-  - pt-query-digest
-  - 性能优化
-  - Laravel
-  - EXPLAIN
-  - SQL优化
-categories:
+tags: [Laravel, MySQL, 性能优化]categories:
   - MySQL
 ---
 

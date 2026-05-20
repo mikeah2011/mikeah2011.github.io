@@ -4,14 +4,7 @@ date: 2026-05-17 04:06:20
 updated: 2026-05-17 04:09:52
 categories:
   - HTML
-tags:
-  - Vue
-  - 组件库
-  - TypeScript
-  - Vite
-  - npm
-  - 前端工程化
-description: 从零搭建 Vue 3 自定义 UI 组件库的完整实战：组件设计模式（props/slots/events）、TypeScript 类型导出、CSS Variables 主题方案、Vite Library Mode 构建、Vitest 单元测试、VitePress 文档站点、npm 发布与版本管理。基于 vue-pure-admin 二次开发的真实踩坑经验。
+tags: [JavaScript, TypeScript, Vite, Vue]description: 从零搭建 Vue 3 自定义 UI 组件库的完整实战：组件设计模式（props/slots/events）、TypeScript 类型导出、CSS Variables 主题方案、Vite Library Mode 构建、Vitest 单元测试、VitePress 文档站点、npm 发布与版本管理。基于 vue-pure-admin 二次开发的真实踩坑经验。
 ---
 
 ## 前言

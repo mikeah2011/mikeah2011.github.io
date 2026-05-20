@@ -2,15 +2,7 @@
 title: uni-app-nvue-原生渲染优化实战-页面性能调优与踩坑记录
 date: 2026-05-17 06:50:33
 updated: 2026-05-17 06:53:22
-tags:
-  - uni-app
-  - nvue
-  - 原生渲染
-  - 性能优化
-  - Weex
-  - BindingX
-  - 跨平台
-categories:
+tags: [uni-app, 前端, 性能优化]categories:
   - HTML
 description: 在 uni-app 多端项目中，当 Vue 页面的 WebView 渲染性能无法满足复杂列表和高频动画需求时，nvue（基于 Weex 原生渲染引擎）成为 App 端性能优化的关键路径。本文记录 nvue 渲染管线、CSS 子集限制、recycle-list 长列表优化、BindingX 高性能动画、dom 模块命令式操作的实战经验与踩坑。
 ---

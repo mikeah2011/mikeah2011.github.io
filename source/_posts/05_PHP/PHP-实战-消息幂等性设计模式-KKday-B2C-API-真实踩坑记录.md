@@ -1,6 +1,6 @@
 ---
 title: PHP 实战 - 消息幂等性设计模式 KKday B2C API 真实踩坑记录
-tags: [PHP, 幂等性，消息队列，Laravel]
+tags: [PHP]
 categories: 后端开发
 date: 2026-05-03 13:50:54
 description: "PHP 实战 - 消息幂等性设计模式 KKday B2C API 真实踩坑记录"

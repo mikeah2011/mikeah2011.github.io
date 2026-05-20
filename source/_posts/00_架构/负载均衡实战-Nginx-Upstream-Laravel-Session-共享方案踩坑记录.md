@@ -3,7 +3,7 @@ title: 负载均衡实战：Nginx Upstream + Laravel Session 共享方案踩坑�
 date: 2026-05-05 07:30:03
 updated: 2026-05-05 07:32:58
 categories: [架构, Nginx, Laravel]
-tags: [Nginx, Upstream, 负载均衡, Laravel, Session, Redis, Sticky Session, KKday]
+tags: [KKday, Laravel, Nginx, Redis, 架构]
 description: 从单机 Laravel 到 Nginx 多实例负载均衡的真实踩坑记录。覆盖 Upstream 配置、Session 共享方案选型（Cookie / Sticky / Redis / Database）、健康检查、会话一致性与生产环境故障恢复。
 ---
 

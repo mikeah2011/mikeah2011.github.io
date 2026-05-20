@@ -3,14 +3,7 @@ title: PHPStan-Psalm-静态分析实战-Laravel-项目类型安全最佳实践�
 date: 2026-05-05 08:00:16
 updated: 2026-05-05 08:02:37
 description: "在 30+ Laravel B2C 仓库中落地 PHPStan 与 Psalm 静态分析的实战经验，涵盖工具选型、Laravel 类型注解、泛型使用、Model 返回类型、Builder 链式调用类型推导、常见误报治理及团队类型安全文化建设。"
-tags:
-  - PHPStan
-  - Psalm
-  - 静态分析
-  - 类型安全
-  - Laravel
-  - PHP 8
-categories:
+tags: [CI/CD, Laravel, PHP]categories:
   - PHP
   - Laravel
 ---

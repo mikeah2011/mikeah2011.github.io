@@ -5,14 +5,7 @@ updated: 2026-05-05 08:43:28
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - OpenAPI
-  - SwaggerPHP
-  - OpenAPI
-  - API 文档
-  - Laravel
-  - 工程化
-description: 在 30+ 仓库的 Laravel B2C API 项目中，如何选择 API 文档生成工具？本文深度对比 Scribe 与 SwaggerPHP 的架构差异、注解风格、生成效率、定制能力，并结合 KKday 真实项目踩坑经验给出选型建议。
+tags: [Laravel, OpenAPI]description: 在 30+ 仓库的 Laravel B2C API 项目中，如何选择 API 文档生成工具？本文深度对比 Scribe 与 SwaggerPHP 的架构差异、注解风格、生成效率、定制能力，并结合 KKday 真实项目踩坑经验给出选型建议。
 ---
 
 ## 前言：为什么 API 文档工具选型很重要？

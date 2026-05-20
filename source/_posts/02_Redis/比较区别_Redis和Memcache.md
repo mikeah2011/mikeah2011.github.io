@@ -1,8 +1,6 @@
 ---
 title: Redis缓存
-tags:
-  - Redis
-categories:
+tags: [Redis]categories:
   - Redis
 date: 2021-03-20 15:05:07
 description: '数据结构：memcache仅支持简单的key-value形式，Redis支持的数据更多（string字符串，set集合，list列表，hash散列，zset有序集合）； 多线程：memcache支持多线程，Redis支持单线程 持久化：Re…'

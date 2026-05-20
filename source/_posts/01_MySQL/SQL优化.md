@@ -1,8 +1,6 @@
 ---
 title: MySQL优化经验总结
-tags:
-  - MySQL
-categories:
+tags: [MySQL]categories:
   - SQL
 date: 2022-05-20 23:15:47
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/6411.png

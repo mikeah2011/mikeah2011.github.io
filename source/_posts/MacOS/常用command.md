@@ -3,10 +3,7 @@ title: macOS 常用命令
 date: 2025-05-25 10:00:00
 categories:
   - macOS
-tags:
-  - macOS
-  - Shell
-description: macOS 日常开发常用 Shell 命令速查：环境安装、Homebrew、文件处理、系统维护与开发工具配置。
+tags: [macOS]description: macOS 日常开发常用 Shell 命令速查：环境安装、Homebrew、文件处理、系统维护与开发工具配置。
 ---
 
 ```shell

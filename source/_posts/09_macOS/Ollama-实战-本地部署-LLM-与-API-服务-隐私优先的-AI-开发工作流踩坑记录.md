@@ -5,14 +5,7 @@ updated: 2026-05-17 04:02:56
 categories:
   - macOS 开发工具
   - AI 工具链
-tags:
-  - AI
-  - LLM
-  - 本地AI
-  - macOS
-  - API
-  - LangChain
-description: 从零搭建 Ollama 本地 LLM 服务，涵盖模型选型、API 集成、性能调优、与 Laravel 项目联动的完整实战经验。
+tags: [AI, Laravel, macOS]description: 从零搭建 Ollama 本地 LLM 服务，涵盖模型选型、API 集成、性能调优、与 Laravel 项目联动的完整实战经验。
 ---
 
 # Ollama 实战：本地部署 LLM 与 API 服务 — 隐私优先的 AI 开发工作流踩坑记录

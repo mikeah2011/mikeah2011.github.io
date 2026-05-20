@@ -4,15 +4,7 @@ date: 2026-05-16 22:55:57
 updated: 2026-05-16 22:58:46
 categories:
   - 测试
-tags:
-  - 测试
-  - Coveralls
-  - 代码覆盖率
-  - Laravel
-  - PHPUnit
-  - CI/CD
-  - PHP
-description: 代码覆盖率不是"数字越高越好"的KPI游戏。本文以KKday B2C API真实项目为背景，完整走通Xdebug采集→PHPUnit报告→Coveralls.io集成→CI自动上报的全链路，覆盖PHP 8.x + Xdebug 3.x配置踩坑、HTML/Clover/Cobertura多格式报告对比、排除策略设计、以及覆盖率治理中团队协作的真实经验。
+tags: [CI/CD, Laravel, PHP, 测试]description: 代码覆盖率不是"数字越高越好"的KPI游戏。本文以KKday B2C API真实项目为背景，完整走通Xdebug采集→PHPUnit报告→Coveralls.io集成→CI自动上报的全链路，覆盖PHP 8.x + Xdebug 3.x配置踩坑、HTML/Clover/Cobertura多格式报告对比、排除策略设计、以及覆盖率治理中团队协作的真实经验。
 ---
 
 # 代码覆盖率实战：Xdebug + Coveralls 集成与报告

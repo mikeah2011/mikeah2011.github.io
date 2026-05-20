@@ -4,16 +4,7 @@ date: 2026-05-03 10:20:00
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Elasticsearch
-  - Search
-  - Full Text Search
-  - Alias
-  - Reindex
-  - B2C
-  - 搜索优化
-description: 结合 Laravel B2C 商品搜索改造经验，记录 Elasticsearch 在索引设计、召回排序、同义词扩展、增量同步与零停机重建索引上的一套可落地方案。
+tags: [Elasticsearch, KKday, Laravel]description: 结合 Laravel B2C 商品搜索改造经验，记录 Elasticsearch 在索引设计、召回排序、同义词扩展、增量同步与零停机重建索引上的一套可落地方案。
 ---
 
 商品搜索这件事，最容易被低估。项目早期大家通常先用 MySQL `like '%关键字%'` 顶着，数据量一上来就会同时出现三个问题：**查得慢、召回差、排序乱**。我在一个旅游商品 B2C API 里把搜索链路从 MySQL 迁到 Elasticsearch，真正带来收益的不是“换了个引擎”，而是把**索引结构、查询意图、同步机制和重建流程**一次性理顺。上线后，搜索接口 P95 从 420ms 降到 85ms，最关键的是“东京迪士尼”“迪士尼 东京票券”“disney tokyo”这类混合搜索终于能稳定命中。

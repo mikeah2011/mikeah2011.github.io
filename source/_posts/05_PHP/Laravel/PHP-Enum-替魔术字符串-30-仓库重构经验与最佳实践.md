@@ -2,7 +2,7 @@
 title: PHP Enum 替魔术字符串 - 30+ 仓库重构经验与最佳实践
 date: 2026-05-03
 categories: [PHP, Laravel, 架构设计]
-tags: [Enum, 魔术字符串，类型安全，代码重构，Laravel 8+, PHP, BFF]
+tags: [BFF, Laravel, PHP]
 description: KKday 大项目实战经验 | PHP Enum 消除魔术字符串的真实踩坑记录 | 重构策略与最佳实践
 ---
 

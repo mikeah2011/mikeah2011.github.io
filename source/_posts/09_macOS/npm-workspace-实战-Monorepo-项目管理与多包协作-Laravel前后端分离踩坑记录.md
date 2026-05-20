@@ -4,14 +4,7 @@ date: 2026-05-17 07:05:31
 updated: 2026-05-17 07:08:05
 categories:
   - 09_macOS
-tags:
-  - npm
-  - monorepo
-  - workspace
-  - JavaScript
-  - 前端工程化
-  - Laravel
-description: >
+tags: [JavaScript, Laravel, macOS]description: >
   npm workspace 实战：从零搭建 Monorepo 项目、多包依赖管理、脚本编排、
   与 Laravel 前后端分离项目的集成经验，以及 30+ 仓库管理中的真实踩坑记录。
 ---

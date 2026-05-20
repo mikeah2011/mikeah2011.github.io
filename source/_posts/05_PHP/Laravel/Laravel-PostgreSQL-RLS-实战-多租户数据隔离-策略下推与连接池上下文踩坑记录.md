@@ -5,14 +5,7 @@ updated: 2026-05-03 10:52:45
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - PostgreSQL
-  - RLS
-  - Multi Tenant
-  - PgBouncer
-  - Security
-description: 结合一个 Laravel 多租户后台的真实改造过程，记录如何用 PostgreSQL Row Level Security 把 tenant_id 隔离从应用层下推到数据库层，以及在连接池、队列任务和管理员越权场景里的真实踩坑。
+tags: [Laravel, MySQL, PostgreSQL]description: 结合一个 Laravel 多租户后台的真实改造过程，记录如何用 PostgreSQL Row Level Security 把 tenant_id 隔离从应用层下推到数据库层，以及在连接池、队列任务和管理员越权场景里的真实踩坑。
 ---
 
 多租户系统做久了，团队迟早会遇到一个问题：**`where tenant_id = ?` 到底还能信多久**。项目早期靠 Eloquent Global Scope 很顺手，但仓库一多、报表 SQL 一多、定时任务一多，总会冒出“少带一个条件就串租”的事故。我们这次改造没有继续在应用层补洞，而是把隔离规则下推到 PostgreSQL，直接用 **Row Level Security（RLS）** 兜底。

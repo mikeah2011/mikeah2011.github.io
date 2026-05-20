@@ -5,14 +5,7 @@ updated: 2026-05-05 12:27:45
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Eloquent
-  - Casts
-  - Accessors
-  - Attribute
-  - API 设计
-description: 在 Laravel B2C API 项目里，Casts 与 Accessors 用得好可以把金额、时间、快照字段和响应格式统一；用不好则会制造精度丢失、N+1 与序列化性能问题。本文从订单模型实战出发，拆解数据类型转换、计算属性设计和线上踩坑修复策略。
+tags: [Laravel]description: 在 Laravel B2C API 项目里，Casts 与 Accessors 用得好可以把金额、时间、快照字段和响应格式统一；用不好则会制造精度丢失、N+1 与序列化性能问题。本文从订单模型实战出发，拆解数据类型转换、计算属性设计和线上踩坑修复策略。
 ---
 
 # Laravel Casts & Accessors 实战：数据类型转换与计算属性踩坑记录

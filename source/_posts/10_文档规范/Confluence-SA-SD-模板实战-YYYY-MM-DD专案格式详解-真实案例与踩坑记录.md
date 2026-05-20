@@ -4,16 +4,7 @@ date: 2026-05-05 02:26:04
 updated: 2026-05-05 02:28:42
 categories:
   - 文档规范
-tags:
-  - 文档
-  - SA
-  - SD
-  - 系统分析
-  - 系统设计
-  - KKday
-  - 文档模板
-  - 技术文档
-description: >
+tags: [KKday, 工程管理, 架构]description: >
   在 KKday B2C Backend Team 实践了两年的 Confluence SA/SD 文档规范，从最初格式混乱、缺少关键信息，到建立统一模板后新同事快速上手。本文详解 [SA/SD] YYYY-MM-DD {专案} 命名规范、文档结构模板、实际案例（订单 BFF 重构、支付回调优化、会员等级系统），以及团队协作中的真实踩坑记录。
 ---
 

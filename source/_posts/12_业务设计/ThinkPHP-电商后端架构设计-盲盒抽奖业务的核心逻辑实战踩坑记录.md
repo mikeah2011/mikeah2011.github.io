@@ -4,15 +4,7 @@ date: 2026-05-05 09:50:56
 updated: 2026-05-05 09:55:25
 categories:
   - 12_业务设计
-tags:
-  - ThinkPHP
-  - 电商架构
-  - 盲盒
-  - 抽奖
-  - Redis
-  - 支付
-  - B2C
-description: 基于奇乐 MAX（qile-max）开源项目的实战经验，拆解 ThinkPHP 6 多应用架构下盲盒/抽奖电商的后端设计，覆盖多模块分层、数据库建模、Redis 分布式锁防超卖、微信/支付宝支付集成、赏级概率计算以及真实生产环境踩坑记录。
+tags: [KKday, Laravel, Redis, ThinkPHP, 支付]description: 基于奇乐 MAX（qile-max）开源项目的实战经验，拆解 ThinkPHP 6 多应用架构下盲盒/抽奖电商的后端设计，覆盖多模块分层、数据库建模、Redis 分布式锁防超卖、微信/支付宝支付集成、赏级概率计算以及真实生产环境踩坑记录。
 ---
 
 # ThinkPHP 电商后端架构设计：盲盒/抽奖业务的核心逻辑实战踩坑记录

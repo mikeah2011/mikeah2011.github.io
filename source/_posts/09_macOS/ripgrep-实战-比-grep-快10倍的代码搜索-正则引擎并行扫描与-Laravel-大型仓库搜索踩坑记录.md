@@ -4,16 +4,7 @@ date: 2026-05-17 00:11:07
 updated: 2026-05-17 00:14:47
 categories:
   - 09_macOS
-tags:
-  - ripgrep
-  - rg
-  - 搜索工具
-  - 开发效率
-  - macOS
-  - CLI
-  - grep
-  - 代码搜索
-description: ripgrep (rg) 实战深度指南：正则引擎原理、并行文件扫描、.gitignore 感知、与 grep/ag/fd 对比、Laravel 30+ 仓库大规模代码搜索、IDE 集成、自定义 alias 与 CI 流水线集成，附真实性能基准与踩坑记录。
+tags: [macOS, 工程管理]description: ripgrep (rg) 实战深度指南：正则引擎原理、并行文件扫描、.gitignore 感知、与 grep/ag/fd 对比、Laravel 30+ 仓库大规模代码搜索、IDE 集成、自定义 alias 与 CI 流水线集成，附真实性能基准与踩坑记录。
 ---
 
 # ripgrep 实战：比 grep 快 10 倍的代码搜索

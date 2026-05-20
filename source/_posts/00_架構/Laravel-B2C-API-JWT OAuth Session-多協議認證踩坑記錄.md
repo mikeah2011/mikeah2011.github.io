@@ -2,7 +2,7 @@
 title: Laravel B2C API - JWT/OAuth/Sesssion 多协议认证踩坑记录
 date: 2026-05-03
 categories: [PHP, Laravel, 架构设计，认证]
-tags: [JWT, OAuth 2.0, Session, SaaS 集成, 认证，安全性，Laravel BFF]
+tags: [Laravel]
 description: KKday B2C API 真实踩坑记录：JWT 过期刷新、OAuth 回调循环跳转、Session 与 Token 混合认证的边界控制
 ---
 

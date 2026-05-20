@@ -3,7 +3,7 @@ title: "GitHub Copilot 实战：代码补全、测试生成、文档编写——
 date: 2026-05-16 23:45:56
 updated: 2026-05-16 23:49:46
 categories: [AI, 开发工具, Laravel]
-tags: [AI, 代码补全, 测试生成, Laravel, KKday, 工程效能]
+tags: [AI, KKday, Laravel, 工程管理, 测试]
 description: 从 Chat 到 Workspace Agent，深度实战 GitHub Copilot 在 Laravel B2C API 项目中的代码补全、Pest 测试生成、Scribe 文档编写、PR Review 等全场景，附带真实踩坑记录与 Prompt 工程技巧。
 ---
 

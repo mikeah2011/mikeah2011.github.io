@@ -4,14 +4,7 @@ date: 2026-05-05 08:05:44
 updated: 2026-05-05 08:08:13
 categories:
   - 00_架构
-tags:
-  - AWS
-  - Laravel
-  - 文件存储
-  - CDN
-  - CloudFront
-  - 多云备份
-description: "结合 B2C 电商项目真实场景，记录 Laravel + AWS S3 文件存储的完整实战方案，覆盖多 Disk 配置、多云备份（GCS/OSS）、CloudFront CDN 加速、Presigned URL 安全访问、成本优化策略与生产环境踩坑记录。"
+tags: [AWS, DevOps, Laravel]description: "结合 B2C 电商项目真实场景，记录 Laravel + AWS S3 文件存储的完整实战方案，覆盖多 Disk 配置、多云备份（GCS/OSS）、CloudFront CDN 加速、Presigned URL 安全访问、成本优化策略与生产环境踩坑记录。"
 ---
 
 ## 为什么不能只用本地磁盘？

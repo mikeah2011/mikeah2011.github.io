@@ -2,7 +2,7 @@
 title: Elasticsearch 全文搜索深度调优实战：Laravel 多字段映射、分词策略与高可用架构踩坑记录
 date: 2026-05-02
 categories: [PHP, Laravel, Elasticsearch]
-tags: [Elasticsearch, 全文搜索, 分词策略, 高可用, KKday]
+tags: [Elasticsearch, KKday, 微服务]
 description: 基于 KKday B2C API 真实生产环境，深入剖析 Elasticsearch 全文搜索从入门到精通的完整演进路径，涵盖多字段类型映射设计、分词器组合策略、写入优化方案、查询调优技巧。
 ---
 

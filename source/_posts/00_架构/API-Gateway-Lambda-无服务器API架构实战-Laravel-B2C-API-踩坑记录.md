@@ -6,14 +6,7 @@ categories:
   - 架构
   - AWS
   - Serverless
-tags:
-  - API Gateway
-  - Lambda
-  - Serverless
-  - AWS SAM
-  - Laravel
-  - B2C
-description: 从 Laravel B2C 后端视角出发，记录 AWS API Gateway + Lambda 无服务器 API 架构的真实落地经验，涵盖 HTTP API vs REST API 选型、Lambda Proxy 集成、Custom Authorizer、请求/响应转换、冷启动优化，以及与 Laravel 项目的混合部署策略。
+tags: [AWS, KKday, Laravel]description: 从 Laravel B2C 后端视角出发，记录 AWS API Gateway + Lambda 无服务器 API 架构的真实落地经验，涵盖 HTTP API vs REST API 选型、Lambda Proxy 集成、Custom Authorizer、请求/响应转换、冷启动优化，以及与 Laravel 项目的混合部署策略。
 ---
 
 我在 KKday B2C Backend Team 工作期间，有一个需求是为 Affiliate 推荐系统搭建一套独立的轻量 API 层——不需要完整的 Laravel 应用栈，只做数据聚合和签名验证，流量有明显的峰谷特征（白天高、凌晨低），按量付费比常驻 EC2 更划算。最终方案选了 AWS API Gateway + Lambda，但中间踩了不少坑。

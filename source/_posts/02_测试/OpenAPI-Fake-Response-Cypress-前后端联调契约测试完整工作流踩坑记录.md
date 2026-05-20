@@ -3,7 +3,7 @@ title: "OpenAPI + Fake Response + Cypress 契约测试实战——前后端联�
 date: 2026-05-05 02:10:21
 updated: 2026-05-05 02:13:29
 categories: [测试工程化, 前后端协作]
-tags: [OpenAPI, 测试, Fake Response, BFF, Laravel, Swagger, 前后端联调]
+tags: [BFF, Laravel, OpenAPI, 测试]
 description: KKday B2C 后端实战经验 | OpenAPI YAML 契约驱动 → 自动生成 Fake Response JSON → Cypress E2E 测试的完整工作流 | 30+ 仓库的真实踩坑记录
 ---
 

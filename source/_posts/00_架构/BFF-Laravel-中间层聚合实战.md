@@ -3,7 +3,7 @@ title: BFF-Laravel 中间层聚合实战
 date: 2026-05-04 11:22:00 +0800
 description: "BFF-Laravel 中间层聚合实战"
 categories: PHP/Laravel/API/架构设计/BFF
-tags: [Laravel，BFF，微服务，API 聚合，KKday]
+tags: []
 ---
 
 # Laravel BFF 模式详解：如何作为中间层聚合 Search/Recommend/Member 数据  

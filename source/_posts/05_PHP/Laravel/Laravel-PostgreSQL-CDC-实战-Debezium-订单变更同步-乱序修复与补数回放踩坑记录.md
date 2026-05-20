@@ -5,14 +5,7 @@ updated: 2026-05-04 14:24:58
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - PostgreSQL
-  - CDC
-  - Debezium
-  - Kafka
-  - Data Pipeline
-description: 结合订单中心与查询侧分离场景，记录如何在 Laravel 中用 PostgreSQL CDC + Debezium + Kafka 做变更同步，重点处理乱序、重复投递、DDL 漂移与补数回放等真实生产坑。
+tags: [Laravel, PostgreSQL, 消息队列]description: 结合订单中心与查询侧分离场景，记录如何在 Laravel 中用 PostgreSQL CDC + Debezium + Kafka 做变更同步，重点处理乱序、重复投递、DDL 漂移与补数回放等真实生产坑。
 ---
 
 我最近把一个 Laravel 订单中心里“下单后顺手同步搜索、报表、运营看板”的流程，改成了 **PostgreSQL CDC**。原因很现实：以前在事务里同时写主库、发 MQ、刷新读模型，只要任一环节失败，就会出现“主库成功、下游没跟上”的脏状态，最后只能靠人工补单。

@@ -4,14 +4,7 @@ date: 2026-05-17 03:45:47
 updated: 2026-05-17 03:48:30
 categories:
   - 07_CICD
-tags:
-  - Docker
-  - BuildKit
-  - 多阶段构建
-  - 镜像优化
-  - Laravel
-  - CI/CD
-description: >
+tags: [CI/CD, Docker, Laravel]description: >
   Docker 29.x 带来了 BuildKit 原生集成、改进的缓存挂载、OCI 原生镜像格式等重大更新。
   本文基于 KKday B2C Laravel 项目的 30+ 仓库实战经验，深入讲解 Docker 29.x 的新特性、
   多阶段构建的高级模式、镜像体积从 800MB 压缩到 45MB 的完整路径，以及生产环境踩过的坑。

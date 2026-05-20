@@ -5,13 +5,7 @@ updated: 2026-05-16 15:38:23
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - PHP8
-  - Attributes
-  - 元数据编程
-  - Laravel
-  - 反射
-description: "从 DocBlock 注释到 PHP 8 原生 Attribute，30+ 仓库的迁移实战：自定义属性定义、Laravel 内置属性深度解析、运行时反射性能踩坑、与 Doctrine Annotations 的共存策略。"
+tags: [Laravel, PHP]description: "从 DocBlock 注释到 PHP 8 原生 Attribute，30+ 仓库的迁移实战：自定义属性定义、Laravel 内置属性深度解析、运行时反射性能踩坑、与 Doctrine Annotations 的共存策略。"
 ---
 
 # PHP 属性注解实战 — 替代 DocBlock 的元数据编程与 Laravel 真实踩坑记录

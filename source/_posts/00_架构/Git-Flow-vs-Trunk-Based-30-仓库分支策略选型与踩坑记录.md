@@ -4,15 +4,7 @@ date: 2026-05-05 06:50:50
 updated: 2026-05-05 06:53:31
 categories:
   - 00_架构
-tags:
-  - Git
-  - Git Flow
-  - Trunk-Based Development
-  - 分支策略
-  - CI/CD
-  - KKday
-  - B2C
-description: 在管理 30+ 仓库的 KKday B2C 团队中，如何在 Git Flow 和 Trunk-Based Development 之间做出选型决策？本文基于真实项目经验，覆盖从单体到微服务、从发布周期到 CI/CD 管道的完整分支策略选型与踩坑记录。
+tags: [CI/CD, Git, KKday, 工程管理]description: 在管理 30+ 仓库的 KKday B2C 团队中，如何在 Git Flow 和 Trunk-Based Development 之间做出选型决策？本文基于真实项目经验，覆盖从单体到微服务、从发布周期到 CI/CD 管道的完整分支策略选型与踩坑记录。
 ---
 
 > 📝 **写在前面**：在 KKday B2C Backend Team 中，我参与了 30+ 个仓库的分支策略选型与落地工作。从早期的 Git Flow 到后续的 Trunk-Based Development（TBD），经历了无数次的合并冲突、发布踩坑和团队协作摩擦。本文不是理论对比文章，而是一份**真实的踩坑记录与决策框架**。

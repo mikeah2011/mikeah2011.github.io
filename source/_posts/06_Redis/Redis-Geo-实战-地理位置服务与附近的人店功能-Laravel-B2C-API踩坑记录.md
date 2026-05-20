@@ -4,14 +4,7 @@ date: 2026-05-16 15:05:58
 updated: 2026-05-16 15:09:40
 categories:
   - Redis
-tags:
-  - Redis
-  - GEO
-  - Laravel
-  - 地理位置
-  - LBS
-  - B2C
-description: >
+tags: [KKday, Laravel, Redis]description: >
   Redis GEO 实战：GEORADIUS/GEOSEARCH 命令详解、附近门店/景点搜索、
   距离排序、GeoHash 原理、Laravel 集成、百万级 POI 性能优化与踩坑记录。
 ---

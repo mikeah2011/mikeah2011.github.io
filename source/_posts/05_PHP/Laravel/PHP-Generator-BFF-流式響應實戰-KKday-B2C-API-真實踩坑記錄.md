@@ -2,7 +2,7 @@
 title: PHP Generator -BFF 流式響應實戰-KKday-B2C-API-真實踩坑記錄
 date: 2026-05-03
 categories: [PHP, Laravel, BFF, Stream]
-tags: [Generator, Streaming, SSE, BFF, Async, Websocket]
+tags: [BFF, Laravel, WebSocket]
 description: PHP Generator 在 BFF 層的流式響應實戰，結合 KKday-B2C-API 真實踩坑經驗，分享如何利用 Generator 實現漸進式數據傳輸與錯誤容錯機制。
 ---
 

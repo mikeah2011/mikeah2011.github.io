@@ -4,7 +4,7 @@ title: OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Respon
 date: 2026-05-04 11:22:00 +0800
 description: "OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON"
 categories: PHP/Laravel/API/架构设计
-tags: [OpenAPI, YAML，契约驱动，可测试，Mock, Fake Response, Laravel]
+tags: [Laravel, OpenAPI]
 ---
 
 # OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON
@@ -12,13 +12,7 @@ date: 2026-05-02
 description: "OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON"
 categories:
   - 架构
-tags:
-  - OpenAPI
-  - Mocking
-  - Laravel
-  - API
-  - 前端联调
-简介：在 KKday BFF 模式中，前后端联调常因真实接口未就绪而阻塞。本文分享如何用 OpenAPI YAML + Fake Response JSON 实现契约驱动开发，提升协作效率 30%+。
+tags: [Laravel, OpenAPI]简介：在 KKday BFF 模式中，前后端联调常因真实接口未就绪而阻塞。本文分享如何用 OpenAPI YAML + Fake Response JSON 实现契约驱动开发，提升协作效率 30%+。
 ---
 
 ## 问题背景：前后端联调的「假死」困境

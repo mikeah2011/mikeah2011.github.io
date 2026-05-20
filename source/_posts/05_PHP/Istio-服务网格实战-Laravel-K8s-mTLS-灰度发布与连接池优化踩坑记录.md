@@ -2,7 +2,7 @@
 title: Istio 服务网格实战：Laravel K8s 环境下的 mTLS 自动加密、灰度发布与连接池优化踩坑记录
 date: 2026-05-02
 categories: [PHP, Laravel, Kubernetes, 架构设计]
-tags: [Istio, 服务网格, mTLS, 灰度发布, Kubernetes, KKday]
+tags: [KKday, Kubernetes, 安全, 微服务]
 description: 基于 KKday B2C API 真实生产环境，深入探讨 Istio 服务网格在 Laravel K8s 环境下的 mTLS 自动加密、灰度发布与连接池优化实战经验。
 ---
 

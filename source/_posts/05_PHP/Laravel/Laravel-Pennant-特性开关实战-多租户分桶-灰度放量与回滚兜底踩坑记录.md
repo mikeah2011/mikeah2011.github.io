@@ -5,14 +5,7 @@ updated: 2026-05-03 11:21:23
 categories:
   - 05_PHP
   - Laravel
-tags:
-  - Laravel
-  - Pennant
-  - Feature Flag
-  - 灰度发布
-  - 多租户
-  - Octane
-description: 结合 Laravel 后台灰度发布的真实落地经验，记录如何用 Pennant 做多租户分桶、稳定放量、紧急回滚与链路观测，并总结几个在线上很容易踩中的一致性问题。
+tags: [Laravel, 微服务]description: 结合 Laravel 后台灰度发布的真实落地经验，记录如何用 Pennant 做多租户分桶、稳定放量、紧急回滚与链路观测，并总结几个在线上很容易踩中的一致性问题。
 ---
 
 我们把结算页重构成 `checkout-v2` 之后，真正难的不是把新页面写出来，而是**怎么只放给 5% 用户、怎么按租户回滚、怎么让队列和 API 看到同一份开关结果**。早期我用过 `.env + if/else`，发布一次要改一次配置；也用过后台表直接查库，结果高峰期每个请求都多打一条 SQL。后来把这件事收口到 **Laravel Pennant**，并补上“稳定分桶 + 手工覆盖 + 日志观测”三件套，灰度才算真正可控。

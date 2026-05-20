@@ -6,14 +6,7 @@ categories:
   - 01_MySQL
   - Laravel
   - ShardingSphere
-tags:
-  - Laravel
-  - MySQL
-  - ShardingSphere-Proxy
-  - 分库分表
-  - Snowflake
-  - 订单系统
-description: 结合 Laravel 订单中心的真实治理过程，记录一套基于 ShardingSphere-Proxy 的分库分表方案，重点覆盖按用户路由、全局 ID、跨片查询降级与线上踩坑处理。
+tags: [Laravel, MySQL]description: 结合 Laravel 订单中心的真实治理过程，记录一套基于 ShardingSphere-Proxy 的分库分表方案，重点覆盖按用户路由、全局 ID、跨片查询降级与线上踩坑处理。
 ---
 
 订单表在 3000 万行之前，靠索引、冷热字段拆分和归档还能勉强顶住；一旦运营后台开始按状态、渠道、出行日期、退款状态混查，再叠加支付回调、履约任务和财务导出，单表的写放大、索引膨胀和分页扫描会一起爆出来。我们在一个 Laravel 订单中心里把 `orders` 从单库单表迁到 **ShardingSphere-Proxy + MySQL 分片**，目标并不是“为了炫技上分库分表”，而是把最热的订单写入、用户维度查询和后台导出拆开治理。

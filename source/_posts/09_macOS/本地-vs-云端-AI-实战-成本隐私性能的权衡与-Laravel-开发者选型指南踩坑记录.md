@@ -4,17 +4,7 @@ date: 2026-05-17 05:50:38
 updated: 2026-05-17 05:53:29
 categories:
   - 09_macOS
-tags:
-  - AI
-  - Ollama
-  - LM Studio
-  - Claude
-  - GPT
-  - 本地模型
-  - 隐私
-  - 成本优化
-  - Laravel
-description: >
+tags: [AI, DevOps, Laravel, 安全]description: >
   本地 AI 模型 vs 云端 API 的真实选型决策指南。涵盖 Ollama/LM Studio 本地部署、Claude/GPT 云端调用的成本核算、隐私合规、推理性能对比，以及在 Laravel B2C 项目中如何混合使用本地与云端 AI 的实战架构方案。
 ---
 

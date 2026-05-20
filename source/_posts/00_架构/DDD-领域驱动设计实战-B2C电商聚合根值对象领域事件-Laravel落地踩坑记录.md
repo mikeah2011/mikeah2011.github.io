@@ -4,15 +4,7 @@ date: 2026-05-05 11:50:32
 updated: 2026-05-05 11:53:04
 categories:
   - 架构
-tags:
-  - DDD
-  - Laravel
-  - B2C
-  - 领域驱动设计
-  - 聚合根
-  - 值对象
-  - 领域事件
-description: "从 Laravel MVC 胖 Controller 到 DDD 分层架构的实战转型：以 KKday B2C 电商订单/库存/商品模块为例，深入讲解聚合根、值对象、领域事件的设计与落地，附完整代码示例和踩坑记录。"
+tags: [KKday, Laravel, 架构]description: "从 Laravel MVC 胖 Controller 到 DDD 分层架构的实战转型：以 KKday B2C 电商订单/库存/商品模块为例，深入讲解聚合根、值对象、领域事件的设计与落地，附完整代码示例和踩坑记录。"
 ---
 
 ## 前言：为什么要在 Laravel 里搞 DDD？
