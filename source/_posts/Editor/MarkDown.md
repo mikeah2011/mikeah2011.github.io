@@ -1,7 +1,7 @@
 ---
 title: MarkDown
 tags:
-  - Markdown
+  - 文档
   - 写作
 categories:
   - Editor

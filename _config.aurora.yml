@@ -14,7 +14,7 @@ site:
   nick: Just Do IT
   description: 知我所能者，我所能者，尽善尽美；<br/> <br/> 知我所不能者，我所不能者，虚怀若谷。
   link: '/'
-  language: cn
+  language: zh-CN
   multi_language: true
   logo: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/blog_logo.jpeg
   avatar: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/blog_logo.jpeg
@@ -57,9 +57,10 @@ authors:
 #！ @docs https://aurora.tridiamond.tech/guide/menu.html
 #! ---------------------------------------------------------------
 menu:
-  About: false  # 关于页
+  About: true  # 关于页
   Tags: true # 标签页
   Archives: true # 归档页
+  Categories: true # 分类页
   Project:
     name: '开源项目'
     children:
@@ -112,9 +113,9 @@ theme:
   profile_shape: circle # support `circle`, `diamond`, `rounded`
   feature: true
   gradient:
-    color_1: '#24c6dc'
-    color_2: '#5433ff'
-    color_3: '#ff0099'
+    color_1: '#0070f3'
+    color_2: '#3291ff'
+    color_3: '#0761d1'
 
 #! ---------------------------------------------------------------
 #! Injections
@@ -123,9 +124,8 @@ theme:
 injects:
   scripts:
     - <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-  css:
-    - <link rel="stylesheet" href="//at.alicdn.com/t/font_2476818_87vaqng7dno.css" />
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    - <meta name="google-site-verification" content="xf2d-Tpmx9BSNsssXAIiFIuOhBsgj5xnTjvCIznHM-k">
+  css: []
 
 #! ---------------------------------------------------------------
 #! Social Configs
@@ -167,9 +167,9 @@ socials:
 site_meta:
   cdn: cn
   favicon: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/blog_logo.jpeg
-  description: '个人技术总结的博客空间'
-  keywords: 'Frontend, Web development, IT Blog'
-  author: 'Michael Ma'
+  description: 'Michael 的技术博客 | Laravel · PHP · macOS · K8s · Docker · Redis'
+  keywords: 'Laravel, PHP, macOS, K8s, Docker, Redis, MySQL, 技术博客, 后端开发'
+  author: 'Michael'
 
 #! ---------------------------------------------------------------
 #! Plugins
@@ -186,7 +186,7 @@ gitalk:
   owner: 'mikeah2011'
   admin: [ 'mikeah2011' ]
   id: '8CbS6eMpvpz2K2dcjDpTA5'
-  language: cn
+  language: zh-CN
   distractionFreeMode: true
   recentComment: true
   proxy: ''

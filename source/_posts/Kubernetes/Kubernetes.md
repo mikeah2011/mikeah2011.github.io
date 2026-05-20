@@ -1,9 +1,9 @@
 ---
 title: Kubernetes 基础操作命令
 tags:
-  - kubernetes
+  - Kubernetes
   - kubectl
-  - K8S
+  - K8s
 categories:
   - kubernetes
   - command

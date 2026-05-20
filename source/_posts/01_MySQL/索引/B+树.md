@@ -1,7 +1,7 @@
 ---
 title: 索引采用的算法
 tags:
-  - 索引
+  - MySQL索引
 categories:
   - 索引
 date: 2020-03-20 15:05:07

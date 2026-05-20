@@ -1,7 +1,7 @@
 ---
 title: HTTPS
 tags:
-  - HTTPS
+  - HTTP
 categories:
   - 网络编程
 date: 2017-03-20 15:05:07

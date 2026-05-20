@@ -101,7 +101,7 @@ ignore:
 #theme: landscape
 #theme: obsidian
 #theme: hexo-theme-aurora
-theme: butterfly
+theme: aurora
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -161,3 +161,11 @@ neat_js:
   compress:
   exclude:
     - '*.min.js'
+
+# 禁用 swig 标签处理（避免 GitHub Actions 语法被误识别）
+swig:
+  enabled: false
+
+# hexo-renderer-marked: 禁用 Nunjucks 标签处理（避免 {{ }} 被误识别为模板）
+marked:
+  disableNunjucks: true

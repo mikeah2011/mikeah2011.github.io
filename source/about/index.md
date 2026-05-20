@@ -14,7 +14,7 @@ layout: page
 
 ## 这个博客
 
-- **框架**：[Hexo](https://hexo.io) + [Butterfly 主题](https://butterfly.js.org)
+- **框架**：[Hexo](https://hexo.io) + [Aurora 主题](https://aurora.tridiamond.tech)
 - **托管**：GitHub Pages，每次 push 自动构建部署
 - **搜索**：[Pagefind](https://pagefind.app) 静态全文搜索，无后端
 - **源码**：[github.com/mikeah2011/mikeah2011.github.io](https://github.com/mikeah2011/mikeah2011.github.io)

@@ -1,7 +1,7 @@
 ---
 title: Kafka
 tags:
-  - Kafka
+  - 消息队列
   - MQ
 categories:
   - MQ

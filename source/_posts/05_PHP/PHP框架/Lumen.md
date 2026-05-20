@@ -1,7 +1,7 @@
 ---
 title: Lumen 基础
 tags:
-  - Lumen
+  - Laravel
 categories:
   - PHP
 date: 2021-03-20 15:05:07

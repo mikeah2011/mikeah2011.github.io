@@ -2,7 +2,7 @@
 title: MQ面试经
 sticky: 80
 tags:
-  - MQ
+  - 消息队列
 categories:
   - MQ
 date: 2019-03-20 15:05:07
