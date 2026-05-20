@@ -2,9 +2,10 @@
 title: Laravel Sanctum / Passport Token 刷新机制实战：多端登录、双 Token 轮换与并发续签踩坑记录
 date: 2026-05-03 09:11:35
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, Redis]description: 结合 Laravel B2C API 的真实改造经验，记录 Sanctum 与 Passport 在多端登录场景下的 token 刷新设计，覆盖双 token 轮换、并发续签、撤销链路、设备维度会话管理与生产踩坑处理。
+tags: [Laravel, Redis]
+description: 结合 Laravel B2C API 的真实改造经验，记录 Sanctum 与 Passport 在多端登录场景下的 token 刷新设计，覆盖双 token 轮换、并发续签、撤销链路、设备维度会话管理与生产踩坑处理。
 ---
 
 做 B2C API 时，认证最容易“先跑起来再说”，最后把自己坑到：Web 管理后台想要无感续签，App 端要支持长期登录，风控又要求可以单设备踢下线。很多团队的第一反应是把 access token TTL 拉长，但这通常只是把问题延后。

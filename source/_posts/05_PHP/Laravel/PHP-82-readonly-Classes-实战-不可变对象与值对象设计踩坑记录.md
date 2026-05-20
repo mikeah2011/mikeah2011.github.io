@@ -3,9 +3,10 @@ title: "PHP 8.2 readonly Classes 实战 — 不可变对象与值对象设计"
 date: 2026-05-16 16:31:01
 updated: 2026-05-16 16:37:58
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, PHP, 架构]description: "从 PHP 8.1 的 readonly 属性到 8.2 的 readonly class，在 B2C 电商 API 中用不可变对象重构 DTO/ValueObject/领域模型的实战踩坑：序列化兼容、Laravel Validation 交互、性能基准与迁移策略。"
+tags: [Laravel, PHP, 架构]
+description: "从 PHP 8.1 的 readonly 属性到 8.2 的 readonly class，在 B2C 电商 API 中用不可变对象重构 DTO/ValueObject/领域模型的实战踩坑：序列化兼容、Laravel Validation 交互、性能基准与迁移策略。"
 ---
 
 # PHP 8.2 readonly Classes 实战 — 不可变对象与值对象设计

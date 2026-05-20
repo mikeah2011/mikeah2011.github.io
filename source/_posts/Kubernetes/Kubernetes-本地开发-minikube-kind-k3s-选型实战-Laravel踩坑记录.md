@@ -4,7 +4,8 @@ date: 2026-05-16 23:25:38
 updated: 2026-05-16 23:28:41
 categories:
   - Kubernetes
-tags: [Docker, Kubernetes, Laravel, macOS]description: >
+tags: [Docker, Kubernetes, Laravel, macOS]
+description: >
   在 macOS 上搭建本地 Kubernetes 开发环境时，minikube、kind、k3s 三大方案各有优劣。
   本文基于 Laravel B2C API 项目的真实踩坑经验，从启动速度、资源占用、
   功能完整度、CI/CD 集成四个维度进行深度对比，给出不同场景下的选型建议。

@@ -5,7 +5,8 @@ updated: 2026-05-17 05:47:02
 categories:
   - macOS
   - AI 工具
-tags: [AI, Laravel]description: OpenAI Codex CLI 是 2025 年开源的终端 AI 编程代理，本文从安装配置到实际项目中批量重构 Laravel 代码、生成测试、处理遗留代码的真实踩坑记录，对比 Claude Code 的使用差异。
+tags: [AI, Laravel]
+description: OpenAI Codex CLI 是 2025 年开源的终端 AI 编程代理，本文从安装配置到实际项目中批量重构 Laravel 代码、生成测试、处理遗留代码的真实踩坑记录，对比 Claude Code 的使用差异。
 ---
 
 > 一句话总结：**Codex CLI 是 OpenAI 开源的终端 AI 编程代理，适合批量代码生成和自动化重构场景，在 "读上下文 → 规划 → 执行" 的工作流中表现出色，但需要理解它的沙箱机制和审批模式才能安全高效地使用。**

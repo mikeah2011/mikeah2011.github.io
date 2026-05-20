@@ -5,7 +5,8 @@ updated: 2026-05-05 07:13:41
 categories:
   - Redis
   - 高可用
-tags: [Laravel, Redis, 微服务]description: 在 KKday B2C API 生产环境中部署和运维 Redis Cluster 的实战经验，涵盖集群架构设计、Laravel Predis 集成、故障转移测试、监控告警与真实踩坑记录。
+tags: [Laravel, Redis, 微服务]
+description: 在 KKday B2C API 生产环境中部署和运维 Redis Cluster 的实战经验，涵盖集群架构设计、Laravel Predis 集成、故障转移测试、监控告警与真实踩坑记录。
 ---
 
 # Redis Cluster 集群部署与故障转移：高可用架构实战踩坑记录

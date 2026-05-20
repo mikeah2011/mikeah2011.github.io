@@ -4,7 +4,8 @@ date: 2026-05-17 05:55:11
 updated: 2026-05-17 05:58:47
 categories:
   - HTML
-tags: [BFF, Laravel, 测试]description: "在 Laravel B2C 电商项目中，后端接口未就绪时如何让前端不阻塞？Mockoon 作为本地 Mock 服务器的深度实战：从安装配置到动态模板、代理转发、团队协作，附真实踩坑记录。"
+tags: [BFF, Laravel, 测试]
+description: "在 Laravel B2C 电商项目中，后端接口未就绪时如何让前端不阻塞？Mockoon 作为本地 Mock 服务器的深度实战：从安装配置到动态模板、代理转发、团队协作，附真实踩坑记录。"
 ---
 
 # Mockoon 实战：本地 Mock 服务器快速搭建与 Laravel B2C 前后端联调踩坑记录

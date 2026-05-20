@@ -6,7 +6,8 @@ categories:
   - PHP
   - Laravel
   - CI/CD
-tags: [CI/CD, Laravel, 代码质量]description: 在 30+ 仓库的 Laravel B2C 项目中落地 Pint + PHPStan CI 质量门禁的实战经验，涵盖 GitHub Actions 流水线设计、baseline 管理、渐进式 level 提升、增量检查优化及团队协作踩坑记录。
+tags: [CI/CD, Laravel, 代码质量]
+description: 在 30+ 仓库的 Laravel B2C 项目中落地 Pint + PHPStan CI 质量门禁的实战经验，涵盖 GitHub Actions 流水线设计、baseline 管理、渐进式 level 提升、增量检查优化及团队协作踩坑记录。
 ---
 
 # Laravel Pint + PHPStan CI 集成实战：代码质量门禁自动化与渐进式治理踩坑记录

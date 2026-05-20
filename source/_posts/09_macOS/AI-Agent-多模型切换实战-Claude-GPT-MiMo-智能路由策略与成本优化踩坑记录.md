@@ -5,7 +5,8 @@ updated: 2026-05-17 02:54:01
 categories:
   - macOS
   - AI 工具链
-tags: [AI, DevOps]description: 从单模型到多模型智能路由的演进实战，涵盖 Claude/GPT/MiMo 的能力差异、路由策略设计、Fallback 机制、成本优化与真实踩坑记录。
+tags: [AI, DevOps]
+description: 从单模型到多模型智能路由的演进实战，涵盖 Claude/GPT/MiMo 的能力差异、路由策略设计、Fallback 机制、成本优化与真实踩坑记录。
 ---
 
 # AI Agent 多模型切换实战：Claude/GPT/MiMo 智能路由策略与成本优化踩坑记录

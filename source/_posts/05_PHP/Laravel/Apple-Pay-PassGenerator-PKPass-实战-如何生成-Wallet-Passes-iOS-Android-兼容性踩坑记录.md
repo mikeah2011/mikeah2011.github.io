@@ -6,7 +6,8 @@ categories:
   - PHP
   - Laravel
   - Apple Pay
-tags: [Laravel, uni-app, 支付]description: "在 KKday B2C 项目中实现电子票券 Wallet Pass 生成的完整实战：PKPass 文件格式解析、Apple Developer 证书配置、Laravel 后端集成、签名校验流程，以及 iOS 与 Android 的兼容性差异踩坑记录。"
+tags: [Laravel, uni-app, 支付]
+description: "在 KKday B2C 项目中实现电子票券 Wallet Pass 生成的完整实战：PKPass 文件格式解析、Apple Developer 证书配置、Laravel 后端集成、签名校验流程，以及 iOS 与 Android 的兼容性差异踩坑记录。"
 ---
 
 # Apple Pay PassGenerator PKPass 实战：如何生成 Wallet Passes 与 iOS/Android 兼容性踩坑记录

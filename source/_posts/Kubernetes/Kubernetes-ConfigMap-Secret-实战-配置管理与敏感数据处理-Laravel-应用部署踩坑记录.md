@@ -4,7 +4,8 @@ date: 2026-05-16 21:50:51
 updated: 2026-05-16 21:57:35
 categories:
   - Kubernetes
-tags: [DevOps, Kubernetes, Laravel, 安全, 微服务]description: >
+tags: [DevOps, Kubernetes, Laravel, 安全, 微服务]
+description: >
   在 Laravel 应用容器化部署到 Kubernetes 的过程中，配置管理是绕不过去的第一道坎。
   本文从 ConfigMap 和 Secret 的基础用法出发，覆盖 Volume 挂载 vs 环境变量注入的选型、
   Sealed Secrets 加密方案、热更新机制、以及 30+ 仓库部署中积累的真实踩坑记录。

@@ -2,9 +2,10 @@
 title: GitHub Actions CI/CD 优化实战：Laravel 单体仓库的矩阵拆分、缓存命中与并行发布踩坑记录
 date: 2026-05-03 09:40:00
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [CI/CD, Composer, Docker, Kubernetes, Laravel]description: 结合 Laravel B2C API 的真实改造经验，记录如何把 GitHub Actions 慢流水线从 18 分钟优化到 7 分钟内，重点覆盖变更感知、矩阵拆分、缓存设计、发布锁、回滚保护与真实踩坑记录。
+tags: [CI/CD, Composer, Docker, Kubernetes, Laravel]
+description: 结合 Laravel B2C API 的真实改造经验，记录如何把 GitHub Actions 慢流水线从 18 分钟优化到 7 分钟内，重点覆盖变更感知、矩阵拆分、缓存设计、发布锁、回滚保护与真实踩坑记录。
 ---
 
 Laravel 项目做大之后，CI/CD 变慢几乎是必然的。最常见的坏味道不是“不会写 workflow”，而是**把所有事情都塞进一个 job**：`composer install`、Pest、PHPStan、Docker build、推镜像、部署、健康检查全部串起来。结果就是一个只改了验证规则的小 PR，也要排队十几分钟；更糟糕的是，部署和测试耦合在一起后，失败原因也越来越难定位。

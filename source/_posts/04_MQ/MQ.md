@@ -1,7 +1,8 @@
 ---
 title: MQ面试经
 sticky: 80
-tags: [消息队列]categories:
+tags: [消息队列]
+categories:
   - MQ
 date: 2019-03-20 15:05:07
 description: '*为什么使用消息队列？消息队列的优点和缺点？kafka、activemq、rabbitmq、rocketmq都有什么优缺点？** 面试官角度分析： （1）你知不知道你们系统里为什么要用消息队列这个东西？ （2）既然用了消息队列这个东西，你知…'

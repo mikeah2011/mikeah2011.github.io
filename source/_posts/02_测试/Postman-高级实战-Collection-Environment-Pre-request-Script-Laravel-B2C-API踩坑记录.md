@@ -4,7 +4,8 @@ date: 2026-05-17 06:20:30
 updated: 2026-05-17 06:22:38
 categories:
   - 测试
-tags: [CI/CD, Laravel, 测试]description: >
+tags: [CI/CD, Laravel, 测试]
+description: >
   从基础 API 调试到高级 Collection 编排、多环境变量管理、Pre-request Script 自动化鉴权、Newman CLI 集成 CI 流水线的完整实战指南。基于 30+ Laravel B2C API 仓库的真实踩坑经验，涵盖 Token 自动刷新、动态数据驱动、断言链路设计等进阶技巧。
 ---
 

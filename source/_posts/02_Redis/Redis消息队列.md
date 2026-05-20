@@ -1,6 +1,7 @@
 ---
 title: Redis 队列消费
-tags: [Redis]categories:
+tags: [Redis]
+categories:
   - Redis
 date: 2017-03-20 15:05:07
 description: '数据结构 `list` - 先进先出 - 左进右出 归纳 | 实现方式 | 操作 | 效果 | | :----------: | :--------------------------------: | :-----------------…'

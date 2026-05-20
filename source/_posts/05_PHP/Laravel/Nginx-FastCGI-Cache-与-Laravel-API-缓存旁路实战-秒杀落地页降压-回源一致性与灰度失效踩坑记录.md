@@ -2,9 +2,10 @@
 title: Nginx FastCGI Cache 与 Laravel API 缓存旁路实战：秒杀落地页降压、回源一致性与灰度失效踩坑记录
 date: 2026-05-04 14:48:21
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, Nginx, 微服务, 性能优化, 缓存]description: 结合 Laravel API 在大促落地页场景的真实改造经验，记录如何用 Nginx FastCGI Cache 扛住高频读流量，重点覆盖缓存键设计、登录态绕过、主动失效、灰度发布与线上踩坑。
+tags: [Laravel, Nginx, 微服务, 性能优化, 缓存]
+description: 结合 Laravel API 在大促落地页场景的真实改造经验，记录如何用 Nginx FastCGI Cache 扛住高频读流量，重点覆盖缓存键设计、登录态绕过、主动失效、灰度发布与线上踩坑。
 ---
 
 大促前我接手过一个很典型的热点接口：`GET /api/campaigns/{slug}/landing`。它聚合活动配置、价格标签、库存摘要和推荐商品，峰值接近 3k RPS，但内容通常 30 秒内不会变化。继续扩 PHP-FPM 只是硬扛，CPU、Redis、MySQL 都在跟着抖。最后真正把延迟打下来的，不是再加一层 Redis，而是把匿名读流量先挡在 Nginx：**FastCGI Cache 命中直接回 JSON，Laravel 只处理未命中和个性化请求**。

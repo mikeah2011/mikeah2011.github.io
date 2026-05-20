@@ -1,6 +1,7 @@
 ---
 title: SQL语句性能分析工具 - explain
-tags: [MySQL]categories:
+tags: [MySQL]
+categories:
   - SQL
 date: 2019-03-20 15:05:07
 description: '通过explain，如以下例子： | id | select_type | table | partitions | type | possible_keys | key | key_len | ref | filtered | rows…'

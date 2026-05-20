@@ -2,8 +2,9 @@
 title: Laravel-Dusk-浏览器自动化E2E测试实战-CI流水线集成-动态等待与选择器治理踩坑记录
 date: 2026-05-05 00:05:58
 updated: 2026-05-05 00:09:22
-tags: [CI/CD, Laravel, macOS, 测试]categories:
-  - 05_PHP/Laravel
+tags: [CI/CD, Laravel, macOS, 测试]
+categories:
+  - Laravel
 description: 结合 Laravel B2C 项目的线上实战，记录如何用 Dusk 搭建浏览器自动化 E2E 测试，覆盖下单全流程、SPA 组件交互、CI/CD Headless 集成、动态等待策略与选择器可维护性的真实踩坑。
 ---
 

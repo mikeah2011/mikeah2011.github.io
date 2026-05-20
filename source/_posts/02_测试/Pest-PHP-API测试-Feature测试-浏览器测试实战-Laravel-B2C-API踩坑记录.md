@@ -5,7 +5,8 @@ updated: 2026-05-17 01:49:40
 categories:
   - 测试
   - Laravel
-tags: [Laravel, PHP, 测试]description: >
+tags: [Laravel, PHP, 测试]
+description: >
   在 KKday B2C Backend Team，我们用 Pest 统一了 Unit/Feature/API 三层测试，
   并在 CI 中配合 Laravel Dusk 跑关键用户流程的浏览器 E2E 测试。
   本文记录了从 PHPUnit 迁移到 Pest 的 API 断言链写法、Feature 测试的数据库事务回滚策略、

@@ -3,8 +3,9 @@ title: CDN 配置实战-静态资源加速缓存策略与回源配置-Laravel-B2
 date: 2026-05-05 08:50:56
 updated: 2026-05-05 08:53:49
 categories:
-  - 00_架构
-tags: [AWS, DevOps, Laravel, Nginx, 性能优化, 缓存]description: "在 30+ 仓库的 Laravel B2C API 项目中，CDN 不只是「套一层缓存」这么简单。本文涵盖 CloudFront/Cloudflare 实战配置、缓存 Key 设计、回源策略、多区域部署、缓存失效机制与真实踩坑记录，是中高级开发者落地 CDN 加速的完整指南。"
+  - 架构
+tags: [AWS, DevOps, Laravel, Nginx, 性能优化, 缓存]
+description: "在 30+ 仓库的 Laravel B2C API 项目中，CDN 不只是「套一层缓存」这么简单。本文涵盖 CloudFront/Cloudflare 实战配置、缓存 Key 设计、回源策略、多区域部署、缓存失效机制与真实踩坑记录，是中高级开发者落地 CDN 加速的完整指南。"
 ---
 
 # CDN 配置实战：静态资源加速、缓存策略、回源配置

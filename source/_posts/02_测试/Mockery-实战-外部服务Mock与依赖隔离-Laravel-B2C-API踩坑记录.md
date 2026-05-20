@@ -4,7 +4,8 @@ date: 2026-05-16 17:11:05
 updated: 2026-05-16 17:16:43
 categories:
   - 测试
-tags: [Laravel, 测试]description: 在 Laravel B2C 电商项目中，外部服务（支付网关、物流API、邮件推送）是测试的重灾区。本文记录了 30+ 仓库中使用 Mockery 进行外部服务 Mock 与依赖隔离的实战经验，涵盖 Partial Mock、Expectation 声明、接口隔离、第三方 SDK Mock 等核心场景。
+tags: [Laravel, 测试]
+description: 在 Laravel B2C 电商项目中，外部服务（支付网关、物流API、邮件推送）是测试的重灾区。本文记录了 30+ 仓库中使用 Mockery 进行外部服务 Mock 与依赖隔离的实战经验，涵盖 Partial Mock、Expectation 声明、接口隔离、第三方 SDK Mock 等核心场景。
 ---
 
 # Mockery 实战：外部服务 Mock 与依赖隔离 Laravel B2C API 踩坑记录

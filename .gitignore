@@ -10,11 +10,12 @@ _multiconfig.yml
 # IDE
 .idea/
 
-# alternative theme configs (kept locally for future migration)
-_config.aurora.yml
+# Theme configs (aurora is the active one, tracked separately)
+_config.butterfly.yml
+_config.landscape.yml
 _config.obsidian.yml
 
-# alternative theme source (clone, not tracked)
+# Aurora theme (installed via npm, not tracked)
 themes/aurora/
 
 # yarn lock (project uses npm/package-lock.json)

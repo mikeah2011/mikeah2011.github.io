@@ -4,7 +4,8 @@ date: 2026-05-05 10:10:56
 updated: 2026-05-05 10:13:47
 categories:
   - 前端开发
-tags: [Vue, uni-app, 前端]description: "基于奇乐MAX（qile-max）电商项目的实战经验，拆解 uni-app 在 H5、微信小程序、App 三端适配中的架构设计、条件编译、平台差异踩坑与性能优化方案。从 Vue 3 + uni-app 项目搭建到生产部署的完整工作流。"
+tags: [Vue, uni-app, 前端]
+description: "基于奇乐MAX（qile-max）电商项目的实战经验，拆解 uni-app 在 H5、微信小程序、App 三端适配中的架构设计、条件编译、平台差异踩坑与性能优化方案。从 Vue 3 + uni-app 项目搭建到生产部署的完整工作流。"
 ---
 
 # uni-app 多端适配实战：H5/微信小程序/App 一套代码搞定踩坑记录

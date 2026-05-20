@@ -3,8 +3,9 @@ title: Confluence-团队技术文档管理最佳实践-权限模板生命周期�
 date: 2026-05-17 06:00:53
 updated: 2026-05-17 06:02:54
 categories:
-  - 10_文档规范
-tags: [Laravel, macOS, 工程管理]description: 在 30+ Laravel 仓库的团队中，Confluence 不只是"写文档的地方"——它是团队知识的中枢神经。本文从权限模型、页面模板、文档生命周期、自动化集成四个维度，分享 B2C 后端团队的真实落地经验。
+  - 文档规范
+tags: [Laravel, macOS, 工程管理]
+description: 在 30+ Laravel 仓库的团队中，Confluence 不只是"写文档的地方"——它是团队知识的中枢神经。本文从权限模型、页面模板、文档生命周期、自动化集成四个维度，分享 B2C 后端团队的真实落地经验。
 ---
 
 # Confluence 团队技术文档管理最佳实践：权限、模板、生命周期与 Laravel 多仓库协作踩坑记录
@@ -137,7 +138,7 @@ roles:
 # 检查所有 Space 的权限配置
 
 CONFLUENCE_URL="https://your-domain.atlassian.net"
-AUTH="your-email:your-api-token"
+AUTH="your-e...oken"
 
 # 获取所有 Space
 spaces=$(curl -s -u "$AUTH" \
@@ -326,7 +327,7 @@ from datetime import datetime, timedelta
 import json
 
 CONFLUENCE_URL = "https://your-domain.atlassian.net/wiki"
-AUTH = ("your-email", "your-api-token")
+AUTH=*** "your-api-token")
 STALE_DAYS = 90  # 超过 90 天未更新视为过期
 
 
@@ -590,7 +591,7 @@ import markdown
 import re
 
 CONFLUENCE_URL = "https://your-domain.atlassian.net/wiki"
-AUTH = ("your-email", "your-api-token")
+AUTH=*** "your-api-token")
 SPACE_KEY = "B2C-Backend"
 PARENT_PAGE_ID = "12345678"  # ADR 页面的父页面 ID
 

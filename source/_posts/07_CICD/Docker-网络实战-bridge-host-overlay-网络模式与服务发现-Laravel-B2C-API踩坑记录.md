@@ -3,8 +3,9 @@ title: Docker 网络实战：bridge/host/overlay 网络模式与服务发现 —
 date: 2026-05-16 22:35:17
 updated: 2026-05-16 22:39:35
 categories:
-  - 07_CICD
-tags: [DevOps, Docker, Laravel, 微服务]description: >
+  - CI/CD
+tags: [DevOps, Docker, Laravel, 微服务]
+description: >
   在 Laravel B2C 项目中，Docker Compose 编排 PHP-FPM、MySQL、Redis、Nginx 等服务时，
   网络配置不当会导致容器间通信失败、DNS 解析延迟、跨主机部署不通等问题。
   本文从 bridge/host/overlay 三种网络模式的底层原理出发，结合 30+ 仓库的真实踩坑记录，

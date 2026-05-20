@@ -4,7 +4,8 @@ date: 2026-05-17 05:30:22
 updated: 2026-05-17 05:34:33
 categories:
   - HTML
-tags: [BFF, Docker, Laravel, Vite, Vue]description: >
+tags: [BFF, Docker, Laravel, Vite, Vue]
+description: >
   Laravel 9.x 起默认前端构建工具从 Mix（Webpack）切换到 Vite。本文基于 30+ 仓库的实际迁移经验，
   覆盖从零搭建 Vite + Laravel 前后端分离工作流的完整链路：npm 配置、vite.config.js 核心配置、
   Blade 模板集成、开发服务器代理、Docker/Sail 环境适配、生产构建优化，以及迁移过程中遇到的

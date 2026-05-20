@@ -3,9 +3,10 @@ title: Laravel-Notifications-多通道实战-邮件短信Slack企业微信集成
 date: 2026-05-05 12:00:20
 updated: 2026-05-05 12:02:58
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [CI/CD, Laravel, 工程管理]description: >
+tags: [CI/CD, Laravel, 工程管理]
+description: >
   Laravel Notifications 多通道实战：在 KKday B2C API 中如何用统一的通知抽象层同时接入邮件、短信、Slack、企业微信，以及通道降级、优先级路由、模板管理与真实踩坑记录。
 ---
 

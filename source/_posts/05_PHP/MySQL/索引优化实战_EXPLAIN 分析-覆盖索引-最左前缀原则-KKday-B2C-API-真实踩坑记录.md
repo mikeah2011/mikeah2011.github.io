@@ -3,9 +3,10 @@ title: MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀�
 date: 2026-05-03
 description: "MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则 - KKday B2C API 真实踩坑记录"
 categories:
-  - 05_PHP
+  - PHP
   - MySQL
-tags: [Laravel, MySQL]简介: |
+tags: [Laravel, MySQL]
+简介: |
   KKday B2C API 处理数万笔订单查询，MySQL 是核心数据源。本文基于真实踩坑记录分享索引优化实战经验：从 EXPLAIN 分析、覆盖索引应用、最左前缀原则到索引失效场景，每个技巧都配有 Before/After 代码对比，配合 Docker Compose 环境一键复现测试案例。
 ---
 

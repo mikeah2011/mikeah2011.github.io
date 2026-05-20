@@ -4,7 +4,8 @@ date: 2026-05-02
 categories:
   - PHP
   - Laravel
-tags: [Laravel, 支付]description: KKday B2C API 双通道支付实战：从 Stripe + AliPay 集成到回调/幂等性/重试机制的全流程解析，包含真实踩坑记录与代码示例。
+tags: [Laravel, 支付]
+description: KKday B2C API 双通道支付实战：从 Stripe + AliPay 集成到回调/幂等性/重试机制的全流程解析，包含真实踩坑记录与代码示例。
 ---
 
 # Laravel + Stripe + AliPay 双通道支付实现：回调处理、幂等性、重试机制

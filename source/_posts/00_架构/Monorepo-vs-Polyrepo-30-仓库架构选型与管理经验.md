@@ -3,8 +3,9 @@ title: Monorepo vs Polyrepo - 30+ 仓库架构选型与管理经验
 date: 2026-05-05 06:30:55
 updated: 2026-05-05 06:33:13
 categories:
-  - 00_架构
-tags: [CI/CD, Composer, Git, Laravel, macOS, 工程管理, 微服务]description: 基于 30+ 仓库的真实管理经验，深度对比 Monorepo 与 Polyrepo 的优劣势、迁移策略、CI/CD 配置差异，以及在 Laravel B2C 项目中的实际踩坑记录。
+  - 架构
+tags: [CI/CD, Composer, Git, Laravel, macOS, 工程管理, 微服务]
+description: 基于 30+ 仓库的真实管理经验，深度对比 Monorepo 与 Polyrepo 的优劣势、迁移策略、CI/CD 配置差异，以及在 Laravel B2C 项目中的实际踩坑记录。
 ---
 
 # Monorepo vs Polyrepo：30+ 仓库架构选型与管理经验

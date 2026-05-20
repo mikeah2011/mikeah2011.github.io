@@ -5,7 +5,8 @@ updated: 2026-05-16 20:28:29
 categories:
   - PHP
   - Laravel
-tags: [CI/CD, Composer, DevOps, PHP, 测试]description: >
+tags: [CI/CD, Composer, DevOps, PHP, 测试]
+description: >
   在 30+ Laravel 仓库的日常维护中，Composer scripts 是最被低估的自动化利器。
   本文基于 KKday B2C 后端团队真实项目经验，深入讲解 Composer 脚本的事件机制、
   工具链编排、并行执行、CI/CD 集成，以及那些文档里不会告诉你的踩坑记录。

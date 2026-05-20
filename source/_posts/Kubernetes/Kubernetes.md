@@ -1,6 +1,7 @@
 ---
 title: Kubernetes 基础操作命令
-tags: [Kubernetes]categories:
+tags: [Kubernetes]
+categories:
   - kubernetes
   - command
 date: 2021-03-20 10:23:13

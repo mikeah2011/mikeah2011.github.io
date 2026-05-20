@@ -3,8 +3,9 @@ title: MiMo-v2.5-pro 实战：小米 AI 模型接入与使用——Laravel 开�
 date: 2026-05-17 06:25:05
 updated: 2026-05-17 06:28:31
 categories:
-  - 09_macOS
-tags: [AI, Laravel]---
+  - macOS
+tags: [AI, Laravel, macOS]
+---
 
 ## 前言：为什么 Laravel 开发者需要关注 MiMo-v2.5-pro？
 

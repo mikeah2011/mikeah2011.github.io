@@ -3,9 +3,10 @@ title: Laravel 缓存策略全解：Route/Config/View/Query 缘存最佳实践�
 date: 2026-05-05 07:55:56
 updated: 2026-05-05 07:57:44
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, PHP, Redis, 性能优化, 缓存]description: 在 KKday B2C API 项目中，缓存不是"加一层 Redis"这么简单。本文从 Laravel 内置的四层缓存（Route/Config/View/Query）出发，结合 30+ 仓库的真实踩坑经验，讲清每一层缓存的原理、配置、失效机制和生产环境中的陷阱。
+tags: [Laravel, PHP, Redis, 性能优化, 缓存]
+description: 在 KKday B2C API 项目中，缓存不是"加一层 Redis"这么简单。本文从 Laravel 内置的四层缓存（Route/Config/View/Query）出发，结合 30+ 仓库的真实踩坑经验，讲清每一层缓存的原理、配置、失效机制和生产环境中的陷阱。
 ---
 
 # Laravel 缓存策略全解：Route/Config/View/Query 缓存最佳实践踩坑记录

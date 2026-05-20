@@ -4,7 +4,8 @@ date: 2026-05-05 12:30:11
 updated: 2026-05-05 12:34:25
 categories:
   - MySQL
-tags: [Laravel, MySQL]description: 基于 Laravel B2C 后台真实树形分类与运营报表场景，拆解 MySQL 8 Recursive CTE 在层级展开、路径聚合、子树汇总中的落地方式，重点记录索引设计、环数据防护、路径截断与临时表放大的真实踩坑。
+tags: [Laravel, MySQL]
+description: 基于 Laravel B2C 后台真实树形分类与运营报表场景，拆解 MySQL 8 Recursive CTE 在层级展开、路径聚合、子树汇总中的落地方式，重点记录索引设计、环数据防护、路径截断与临时表放大的真实踩坑。
 ---
 
 ## 前言：为什么我会把树形遍历从 PHP 挪回 SQL

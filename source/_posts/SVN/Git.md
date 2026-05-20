@@ -1,6 +1,7 @@
 ---
 title: Git基础
-tags: [Git]categories:
+tags: [Git]
+categories:
   - git
 date: 2020-03-20 15:05:07
 description: 'GIT 以行的模式查看提交日志： git log --pretty=oneline 撤销某次提交，并保留修改 –soft git reset --soft d3c2257b08ffefd69130d9e2bdd1d0328c7d4085 将…'

@@ -3,8 +3,9 @@ title: 数据库索引优化实战-覆盖索引联合索引与索引下推-Larav
 date: 2026-05-17 05:15:30
 updated: 2026-05-17 05:17:34
 categories:
-  - 01_MySQL
-tags: [Laravel, MySQL, 性能优化]description: 深入实战覆盖索引、联合索引设计与索引下推（ICP），基于 KKday B2C API 真实场景的 EXPLAIN 分析、踩坑记录与性能对比。
+  - MySQL
+tags: [Laravel, MySQL, 性能优化]
+description: 深入实战覆盖索引、联合索引设计与索引下推（ICP），基于 KKday B2C API 真实场景的 EXPLAIN 分析、踩坑记录与性能对比。
 ---
 
 # 数据库索引优化实战：覆盖索引、联合索引与索引下推

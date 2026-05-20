@@ -1,6 +1,7 @@
 ---
 title: Vue
-tags: [JavaScript, Vue, 前端]categories:
+tags: [JavaScript, Vue, 前端]
+categories:
   - HTML
 date: 2020-03-20 15:05:07
 description: 'Vue 是渐进式 JavaScript 框架，由尤雨溪创建，主打"易学易上手 + 响应式 + 模板语法"。Vue 3 的 Composition API + `<script setup>` 让大型项目的组织更清晰。'

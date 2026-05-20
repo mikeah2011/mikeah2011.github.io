@@ -3,9 +3,10 @@ title: Laravel-Firebase-Cloud-Messaging-Web-Push-Service-Worker-推送通知实�
 date: 2026-05-05 01:31:05
 updated: 2026-05-05 01:37:02
 categories:
-  - 05_PHP/Laravel
-  - 02_Redis
-tags: [KKday, Laravel, 前端]description: 在 KKday B2C 旅行平台落地 FCM Web Push 的完整方案：从 Firebase 项目配置、Service Worker 注册、Laravel 后端 topic 订阅与消息发送，到静默推送失效、Token 轮换、多端去重等真实踩坑记录。
+  - Laravel
+  - Redis
+tags: [KKday, Laravel, 前端]
+description: 在 KKday B2C 旅行平台落地 FCM Web Push 的完整方案：从 Firebase 项目配置、Service Worker 注册、Laravel 后端 topic 订阅与消息发送，到静默推送失效、Token 轮换、多端去重等真实踩坑记录。
 ---
 
 > 一句话总结：**Web Push 不是「注册 Service Worker + 调 sendNotification」就完事**——FCM Token 生命周期管理、Topic 订阅一致性、静默推送限制、多端去重每一步都有坑。本文是我在 KKday B2C 旅行平台落地 FCM Web Push 的完整复盘。

@@ -3,8 +3,9 @@ title: 云服务器选型实战-AWS-阿里云-腾讯云-B2C电商场景对比与
 date: 2026-05-05 09:07:25
 updated: 2026-05-05 09:11:43
 categories:
-  - 00_架构
-tags: [AWS, DevOps, KKday, 微服务]description: "在 KKday B2C 电商场景下，基于 30+ 仓库的多云部署经验，对比 AWS、阿里云、腾讯云在计算、存储、网络、CDN、数据库、成本六大维度的真实差异，附带 Terraform IaC 配置、架构图与踩坑记录。"
+  - 架构
+tags: [AWS, DevOps, KKday, 微服务]
+description: "在 KKday B2C 电商场景下，基于 30+ 仓库的多云部署经验，对比 AWS、阿里云、腾讯云在计算、存储、网络、CDN、数据库、成本六大维度的真实差异，附带 Terraform IaC 配置、架构图与踩坑记录。"
 author: Michael
 ---
 

@@ -2,9 +2,10 @@
 title: Laravel + gRPC 微服务通信实战：Proto 定义、Deadline 透传与连接复用踩坑记录
 date: 2026-05-03 08:40:00
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [BFF, Laravel, 微服务]description: 结合 Laravel BFF 调用 Go 评价服务的真实改造经验，记录 gRPC 在 Proto 契约、超时控制、连接复用、灰度兼容与排障上的一套生产可用实践。
+tags: [BFF, Laravel, 微服务]
+description: 结合 Laravel BFF 调用 Go 评价服务的真实改造经验，记录 gRPC 在 Proto 契约、超时控制、连接复用、灰度兼容与排障上的一套生产可用实践。
 ---
 
 在 BFF 场景里，最耗时的通常不是 Laravel 自己，而是它后面串起来的 3~5 个下游服务。我们把一个商品详情接口从 REST 改成 gRPC，不是为了“追新”，而是因为原本 JSON over HTTP 在高峰期很容易被序列化、连接建立和 Nginx 超时拖慢。改造后，同样一条评价聚合链路，P95 从 **230ms** 降到 **68ms**，但过程中真正难的不是生成代码，而是**契约演进、deadline 透传、连接复用和错误码治理**。

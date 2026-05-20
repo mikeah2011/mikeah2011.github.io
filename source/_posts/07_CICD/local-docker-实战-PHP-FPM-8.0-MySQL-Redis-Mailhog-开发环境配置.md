@@ -3,8 +3,9 @@ title: local-docker 实战 — PHP-FPM 8.0 + MySQL/Redis + Mailhog 开发环境�
 date: 2026-05-05 02:05:09
 updated: 2026-05-05 02:07:40
 categories:
-  - 07_CICD
-tags: [Docker, Laravel, PHP, 工程管理]description: KKday B2C 后端 30+ 仓库统一开发环境的完整配置指南 —— 从零搭建 local-docker，解决 MySQL/Redis/Mailhog 常见坑位，新成员 10 分钟跑起来。
+  - CI/CD
+tags: [Docker, Laravel, PHP, 工程管理]
+description: KKday B2C 后端 30+ 仓库统一开发环境的完整配置指南 —— 从零搭建 local-docker，解决 MySQL/Redis/Mailhog 常见坑位，新成员 10 分钟跑起来。
 ---
 
 # local-docker 实战：PHP-FPM 8.0 + MySQL/Redis + Mailhog 开发环境配置

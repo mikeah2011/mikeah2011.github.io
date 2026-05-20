@@ -3,8 +3,9 @@ title: Prometheus + Grafana 实战：Laravel 应用监控——指标采集、�
 date: 2026-05-17 00:20:31
 updated: 2026-05-17 00:24:20
 categories:
-  - 00_架构
-tags: [Laravel, 监控]description: 基于 KKday B2C API 的真实生产环境，记录 Prometheus + Grafana 在 Laravel 项目中的落地实践：自定义指标中间件、四黄金指标看板、PHP-FPM 进程监控、告警规则设计，以及 label 基数爆炸、指标重复注册、Grafana 变量联动等生产踩坑。
+  - 架构
+tags: [Laravel, 监控]
+description: 基于 KKday B2C API 的真实生产环境，记录 Prometheus + Grafana 在 Laravel 项目中的落地实践：自定义指标中间件、四黄金指标看板、PHP-FPM 进程监控、告警规则设计，以及 label 基数爆炸、指标重复注册、Grafana 变量联动等生产踩坑。
 ---
 
 # Prometheus + Grafana 实战：Laravel 应用监控——指标采集、告警与可视化踩坑记录

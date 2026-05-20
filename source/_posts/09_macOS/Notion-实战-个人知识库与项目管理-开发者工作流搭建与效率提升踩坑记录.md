@@ -5,7 +5,8 @@ updated: 2026-05-17 05:27:53
 categories:
   - macOS
   - 效率工具
-tags: [macOS, 工程管理, 架构]description: "从 Laravel 后端开发者的视角，深入实践 Notion 个人知识库搭建、项目管理模板设计、API 集成自动化。涵盖 Database 关联、Relation/Rollup、模板引擎、快捷键体系、与 Obsidian/GitHub 联动方案，以及团队协作中踩过的 15+ 个真实坑。"
+tags: [macOS, 工程管理, 架构]
+description: "从 Laravel 后端开发者的视角，深入实践 Notion 个人知识库搭建、项目管理模板设计、API 集成自动化。涵盖 Database 关联、Relation/Rollup、模板引擎、快捷键体系、与 Obsidian/GitHub 联动方案，以及团队协作中踩过的 15+ 个真实坑。"
 keywords: Notion, 知识管理, 项目管理, PKM, GTD, Database, 开发者工作流, Laravel, API
 ---
 

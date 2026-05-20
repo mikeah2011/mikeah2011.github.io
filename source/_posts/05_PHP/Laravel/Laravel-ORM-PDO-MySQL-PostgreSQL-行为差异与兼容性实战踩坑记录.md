@@ -3,9 +3,10 @@ title: Laravel-ORM-PDO-MySQL-PostgreSQL-行为差异与兼容性实战踩坑记�
 date: 2026-05-05 00:40:36
 updated: 2026-05-05 00:43:48
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, MySQL, PostgreSQL]description: 在 KKday B2C 同一 Laravel 代码库中同时支持 MySQL 和 PostgreSQL 的真实踩坑记录——从 Eloquent Query Builder 的 SQL 生成差异、PDO 驱动行为、Schema Migration 到类型映射，30+ 仓库的兼容性实战经验总结。
+tags: [Laravel, MySQL, PostgreSQL]
+description: 在 KKday B2C 同一 Laravel 代码库中同时支持 MySQL 和 PostgreSQL 的真实踩坑记录——从 Eloquent Query Builder 的 SQL 生成差异、PDO 驱动行为、Schema Migration 到类型映射，30+ 仓库的兼容性实战经验总结。
 ---
 
 # Laravel ORM + PDO：MySQL 与 PostgreSQL 的行为差异与兼容性实战

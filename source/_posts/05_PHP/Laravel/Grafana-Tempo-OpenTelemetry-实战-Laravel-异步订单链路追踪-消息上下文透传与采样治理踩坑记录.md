@@ -3,9 +3,10 @@ title: Grafana Tempo + OpenTelemetry 实战：Laravel 异步订单链路追踪�
 date: 2026-05-03 10:55:06
 updated: 2026-05-03 10:56:22
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, 微服务, 消息队列, 监控]description: 结合 Laravel 订单链路的线上经验，记录如何用 OpenTelemetry + Tempo 打通 HTTP、Queue 与日志关联，重点覆盖 traceparent 透传、Horizon 常驻进程上下文清理与采样治理的真实踩坑。
+tags: [Laravel, 微服务, 消息队列, 监控]
+description: 结合 Laravel 订单链路的线上经验，记录如何用 OpenTelemetry + Tempo 打通 HTTP、Queue 与日志关联，重点覆盖 traceparent 透传、Horizon 常驻进程上下文清理与采样治理的真实踩坑。
 ---
 
 很多团队把“链路追踪”做成了请求日志增强版：入口有 request_id，出口有慢 SQL，Grafana 上也能看到接口耗时，但一旦业务穿过 **HTTP → Queue → 支付回调 → 库存预留**，链路就断了。我这次补的不是一个 APM 面板，而是把订单创建、支付确认、库存冻结三段真正串成同一条 Trace。

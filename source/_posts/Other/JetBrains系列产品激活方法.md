@@ -1,6 +1,7 @@
 ---
 title: JetBrains系列产品激活方法
-tags: [macOS]categories:
+tags: [macOS]
+categories:
   - PhpStorm
 date: 2022-10-20 15:05:07
 description: '首先，自行下载JetBrains的产品，通常推荐JetBrains ToolBox。 其次，访问网站选择对当前网络环境访问效率最好的域名站点。 下载``jetbra.zip`包，首行第一句话就是下载。查看`readme.txt`，有具体破解…'

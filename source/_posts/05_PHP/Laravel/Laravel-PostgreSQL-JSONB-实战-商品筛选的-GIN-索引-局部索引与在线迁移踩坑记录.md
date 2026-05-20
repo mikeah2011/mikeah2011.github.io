@@ -3,9 +3,10 @@ title: Laravel + PostgreSQL JSONB 实战：商品筛选的 GIN 索引、局部�
 date: 2026-05-03 09:55:09
 updated: 2026-05-03 09:59:00
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, MySQL, PostgreSQL]description: 结合电商商品筛选场景，记录一套在 Laravel 中落地 PostgreSQL JSONB 的实战方案，重点覆盖动态属性建模、GIN/局部索引、Eloquent 查询封装、在线迁移与真实踩坑。
+tags: [Laravel, MySQL, PostgreSQL]
+description: 结合电商商品筛选场景，记录一套在 Laravel 中落地 PostgreSQL JSONB 的实战方案，重点覆盖动态属性建模、GIN/局部索引、Eloquent 查询封装、在线迁移与真实踩坑。
 ---
 
 在电商商品中心里，最容易失控的不是订单，而是**越来越多的筛选属性**。服饰要颜色、尺码、材质，3C 要容量、网络制式、发货仓，活动页还会临时加“次日达”“可开发票”。我之前在 Laravel 项目里走过一条弯路：为了让后台筛选快一点，给 `products` 连续补了十几个 nullable 列，结果 schema 越来越脆，索引越加越乱。后来迁到 PostgreSQL 后，真正有效的做法不是“把字段都塞进 JSONB”，而是把**变化快的属性放进 JSONB，把高频查询路径做成可命中的索引**。

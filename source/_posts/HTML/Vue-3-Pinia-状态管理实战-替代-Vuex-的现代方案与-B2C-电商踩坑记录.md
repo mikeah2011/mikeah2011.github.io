@@ -5,7 +5,8 @@ updated: 2026-05-16 21:37:51
 categories:
   - 前端
   - Vue
-tags: [TypeScript, Vue, 前端, 架构]description: 从 Vuex 迁移到 Pinia 的完整实战指南，涵盖 Store 设计模式、Composition API 集成、TypeScript 类型推导、插件开发，以及在 B2C 电商项目中遇到的真实踩坑记录。
+tags: [TypeScript, Vue, 前端, 架构]
+description: 从 Vuex 迁移到 Pinia 的完整实战指南，涵盖 Store 设计模式、Composition API 集成、TypeScript 类型推导、插件开发，以及在 B2C 电商项目中遇到的真实踩坑记录。
 ---
 
 ## 为什么从 Vuex 迁移到 Pinia？

@@ -2,8 +2,9 @@
 title: Docker Compose 5.x 实战：多服务编排、健康检查与开发环境搭建踩坑记录
 date: 2026-05-16 22:00:37
 updated: 2026-05-16 22:04:36
-tags: [DevOps, Docker, Laravel]categories:
-  - 07_CICD
+tags: [DevOps, Docker, Laravel]
+categories:
+  - CI/CD
 description: 'Docker Compose 5.x 多服务编排实战：PHP-FPM + MySQL + Redis + Elasticsearch + Mailpit 的 Laravel 开发环境搭建，涵盖健康检查、depends_on 条件启动、Volume 持久化、网络隔离、Init 脚本等核心踩坑记录。'
 ---
 

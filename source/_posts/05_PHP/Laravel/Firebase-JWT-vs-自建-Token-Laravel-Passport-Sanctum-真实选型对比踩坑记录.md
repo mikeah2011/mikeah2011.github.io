@@ -3,9 +3,10 @@ title: "Firebase JWT vs 自建 Token：Laravel Passport/Sanctum 的真实选型�
 date: 2026-05-05 01:05:47
 updated: 2026-05-05 01:08:54
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, 前端]description: "在 KKday B2C 微服务架构下，对比 Firebase JWT（第三方签发）与 Laravel Passport/Sanctum（自建 Token）的真实选型经验。涵盖 JWKS 旋转、RSA/ECDSA 算法选型、多服务 Token 验证、性能基准测试，以及我们从 Passport 迁移到 Sanctum + Firebase JWT 混合方案的完整踩坑记录。"
+tags: [Laravel, 前端]
+description: "在 KKday B2C 微服务架构下，对比 Firebase JWT（第三方签发）与 Laravel Passport/Sanctum（自建 Token）的真实选型经验。涵盖 JWKS 旋转、RSA/ECDSA 算法选型、多服务 Token 验证、性能基准测试，以及我们从 Passport 迁移到 Sanctum + Firebase JWT 混合方案的完整踩坑记录。"
 ---
 
 # Firebase JWT vs 自建 Token：Laravel Passport/Sanctum 的真实选型对比踩坑记录

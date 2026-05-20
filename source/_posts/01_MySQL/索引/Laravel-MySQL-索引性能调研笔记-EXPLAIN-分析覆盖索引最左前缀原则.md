@@ -2,9 +2,10 @@
 title: Laravel + MySQL 索引性能调研笔记：EXPLAIN 分析、覆盖索引、最左前缀原则
 date: 2026-05-02
 categories:
-  - 01_MySQL
+  - MySQL
   - 索引优化
-tags: [Laravel, MySQL]description: 在 KKday B2C API 项目中，通过 EXPLAIN 分析、覆盖索引和最左前缀原则优化慢查询的真实踩坑记录
+tags: [Laravel, MySQL]
+description: 在 KKday B2C API 项目中，通过 EXPLAIN 分析、覆盖索引和最左前缀原则优化慢查询的真实踩坑记录
 ---
 
 # Laravel + MySQL 索引性能调研笔记：EXPLAIN 分析、覆盖索引、最左前缀原则

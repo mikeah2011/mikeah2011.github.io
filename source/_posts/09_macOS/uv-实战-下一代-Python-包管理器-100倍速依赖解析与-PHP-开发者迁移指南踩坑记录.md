@@ -2,8 +2,9 @@
 title: uv-实战-下一代-Python-包管理器-100倍速依赖解析与-PHP-开发者迁移指南踩坑记录
 date: 2026-05-17 00:50:43
 updated: 2026-05-17 00:53:43
-tags: [AI, Composer, macOS]categories:
-  - 09_macOS
+tags: [AI, Composer, macOS]
+categories:
+  - macOS
 description: "uv 是 Astral（Ruff 团队）用 Rust 打造的下一代 Python 包管理器，号称比 pip 快 100 倍。本文从 PHP/Composer 开发者视角出发，深度实战 uv 的依赖解析、虚拟环境管理、项目工作流、CI/CD 集成，以及从 pip/poetry/pipenv 迁移的完整踩坑记录。"
 keywords:
   - uv

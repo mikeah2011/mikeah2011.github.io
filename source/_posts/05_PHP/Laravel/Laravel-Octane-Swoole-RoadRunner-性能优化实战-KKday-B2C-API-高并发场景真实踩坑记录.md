@@ -2,9 +2,10 @@
 title: Laravel Octane 性能优化实战：从 FPM 到 Swoole/RoadRunner 的高并发之路 - KKday B2C API 真实踩坑记录
 date: 2026-05-03
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, PHP, Redis, 微服务, 性能优化]description: 在 KKday B2C API 团队面对每秒 5000+ 请求的促销场景下，我们通过 Laravel Octane 从 FPM 迁移到 Swoole/RoadRunner，实现了 QPS 提升 300% 的实战经验。本文包含完整架构图、性能测试数据、连接池配置、协程安全陷阱与生产环境部署方案。
+tags: [Laravel, PHP, Redis, 微服务, 性能优化]
+description: 在 KKday B2C API 团队面对每秒 5000+ 请求的促销场景下，我们通过 Laravel Octane 从 FPM 迁移到 Swoole/RoadRunner，实现了 QPS 提升 300% 的实战经验。本文包含完整架构图、性能测试数据、连接池配置、协程安全陷阱与生产环境部署方案。
 ---
 
 ## 一、为什么我们需要 Laravel Octane？

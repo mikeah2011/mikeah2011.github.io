@@ -5,7 +5,9 @@ updated: 2026-05-05 11:57:28
 categories:
   - PHP
   - Laravel
-tags: [KKday, Laravel, 架构]---
+tags: [KKday, Laravel, 架构]
+description: 在 B2C 电商项目中，一个「下单」动作往往牵连大量后续逻辑：扣减库存、发送通知、更新统计、记录日志。Laravel 的 Events & Listeners 系统提供了优雅的解耦方案。本文从 30+ 仓库的真实经验出发，分享事件驱动架构的正确打开方式与踩坑记录。
+---
 
 ## 前言
 

@@ -6,7 +6,8 @@ categories:
   - Editor
   - 文档规范
   - 工程管理
-tags: [工程管理, 架构]description: 从零开始用 Mermaid 代码画架构图、流程图、时序图、ER 图，结合 Laravel B2C API 真实场景，分享 Confluence/GitHub 集成经验与踩坑记录。
+tags: [工程管理, 架构]
+description: 从零开始用 Mermaid 代码画架构图、流程图、时序图、ER 图，结合 Laravel B2C API 真实场景，分享 Confluence/GitHub 集成经验与踩坑记录。
 ---
 
 > 画图这件事，我以前用 draw.io、ProcessOn、甚至 PPT。直到开始用 Mermaid，才发现"代码即图"才是后端工程师的最佳拍档——版本可控、Review 友好、不用切窗口。

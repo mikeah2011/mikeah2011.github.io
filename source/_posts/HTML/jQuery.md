@@ -1,6 +1,7 @@
 ---
 title: jQuery
-tags: [JavaScript, 前端]categories:
+tags: [JavaScript, 前端]
+categories:
   - HTML
 date: 2019-03-20 15:05:07
 description: 'jQuery 是 2006 年发布的 JavaScript 库，"write less, do more"，曾经统治整个前端时代。如今被现代框架取代，但维护老项目仍绕不开它。'

@@ -2,9 +2,10 @@
 title: Laravel 消息幂等性设计模式实战：订单事件消费的去重表、Inbox/Outbox 与重试补偿踩坑记录
 date: 2026-05-03 09:45:00
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, MySQL, 消息队列]description: 结合订单支付完成后的库存扣减、积分发放与通知投递场景，记录一套在 Laravel 中真正可落地的消息幂等性设计方案，覆盖 Outbox、消费者去重表、状态机保护、失败补偿与真实踩坑记录。
+tags: [Laravel, MySQL, 消息队列]
+description: 结合订单支付完成后的库存扣减、积分发放与通知投递场景，记录一套在 Laravel 中真正可落地的消息幂等性设计方案，覆盖 Outbox、消费者去重表、状态机保护、失败补偿与真实踩坑记录。
 ---
 
 在 Laravel 订单系统里，我最不信的一句话就是“这条消息只会消费一次”。Kafka rebalance、消费者重启、手动重放，都会把 `OrderPaid` 再送一遍。真正可靠的方案不是追求 MQ 恰好一次，而是让**重复消息只生效一次**。

@@ -5,7 +5,8 @@ updated: 2026-05-16 13:20:09
 categories:
   - PHP
   - Laravel
-tags: [Laravel, PHP, 性能优化]description: 从 PHP-FPM 到 Swoole 的架构跃迁实战：Laravel Octane 配置调优、内存泄漏排查、协程安全、连接池治理，以及 B2C 电商场景下的真实性能对比与踩坑记录。
+tags: [Laravel, PHP, 性能优化]
+description: 从 PHP-FPM 到 Swoole 的架构跃迁实战：Laravel Octane 配置调优、内存泄漏排查、协程安全、连接池治理，以及 B2C 电商场景下的真实性能对比与踩坑记录。
 ---
 
 # Laravel Octane + Swoole 高性能 PHP 应用架构实战踩坑记录

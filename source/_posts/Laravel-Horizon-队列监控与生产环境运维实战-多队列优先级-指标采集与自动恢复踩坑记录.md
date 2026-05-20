@@ -3,7 +3,8 @@ title: Laravel-Horizon-队列监控与生产环境运维实战-多队列优先�
 date: 2026-05-04 23:16:04
 description: "Laravel-Horizon-队列监控与生产环境运维实战-多队列优先级-指标采集与自动恢复踩坑记录"
 updated: 2026-05-04 23:17:57
-tags: [Laravel, Redis, 消息队列, 监控]categories:
+tags: [Laravel, Redis, 消息队列, 监控]
+categories:
   - PHP
   - Laravel
 ---

@@ -3,9 +3,10 @@ title: Laravel Vapor / Bref Serverless 实战：报表导出与异步任务拆�
 date: 2026-05-04 15:31:03
 updated: 2026-05-04 15:33:43
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [AWS, Laravel, PHP, 消息队列]description: 结合 Laravel 报表导出与异步任务的线上改造经验，记录如何用 Vapor/Bref 把 API、队列与对象存储拆到 Serverless，重点覆盖冷启动、临时文件、批处理与成本控制踩坑。
+tags: [AWS, Laravel, PHP, 消息队列]
+description: 结合 Laravel 报表导出与异步任务的线上改造经验，记录如何用 Vapor/Bref 把 API、队列与对象存储拆到 Serverless，重点覆盖冷启动、临时文件、批处理与成本控制踩坑。
 ---
 
 我们把一段后台“订单报表导出”链路从常驻 ECS 迁到 Serverless，不是为了追热点，而是因为这类流量非常典型：**平时很低、月底和活动后暴涨、单次执行又特别吃 CPU / IO**。继续把它塞在 Laravel FPM 或常驻 worker 里，结果就是机器长期空转，但一到高峰又把 API 实例拖慢。

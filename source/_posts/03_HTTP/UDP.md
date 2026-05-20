@@ -1,6 +1,7 @@
 ---
 title: UDP
-tags: [Laravel]categories:
+tags: [Laravel]
+categories:
   - 网络编程
 date: 2016-03-20 15:05:07
 description: '用户数据报协议 UDP（User Datagram Protocol）:无连接；尽最大努力的交付；面向报文；无拥塞控制；支持一对一、一对多、多对一、多对多的交互通信；首部开销小(只有四个字段：源端口、目的端口、长度、检验和)。UDP是面向报…'

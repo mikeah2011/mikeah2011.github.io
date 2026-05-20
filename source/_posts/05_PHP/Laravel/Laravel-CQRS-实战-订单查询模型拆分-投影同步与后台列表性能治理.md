@@ -2,9 +2,10 @@
 title: Laravel CQRS 实战：订单查询模型拆分、投影同步与后台列表性能治理
 date: 2026-05-03 08:15:00
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, MySQL, Redis, 架构]description: 结合 Laravel B2C API 后台订单场景，记录一套可落地的 CQRS 读写分离方案，覆盖命令侧建模、查询侧投影、异步同步、列表性能优化与真实踩坑记录。
+tags: [Laravel, MySQL, Redis, 架构]
+description: 结合 Laravel B2C API 后台订单场景，记录一套可落地的 CQRS 读写分离方案，覆盖命令侧建模、查询侧投影、异步同步、列表性能优化与真实踩坑记录。
 ---
 
 在 B2C 订单后台里，最先出问题的通常不是“下单”，而是**订单列表**：运营要按渠道、支付状态、出行日期、退款状态、关键字、供应商一起筛，SQL 很快就会演变成一条 8~10 个 JOIN 的巨兽。我们在一个 Laravel 订单后台里遇到过同样问题：写入链路本来不慢，但后台列表 P95 长期在 1.8s 以上，导出任务还会把主库拖抖。

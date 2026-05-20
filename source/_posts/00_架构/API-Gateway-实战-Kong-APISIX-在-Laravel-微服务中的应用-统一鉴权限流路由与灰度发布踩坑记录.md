@@ -3,8 +3,9 @@ title: API-Gateway-实战-Kong-APISIX-在-Laravel-微服务中的应用-统一�
 date: 2026-05-16 18:20:19
 updated: 2026-05-16 18:23:07
 categories:
-  - 00_架构
-tags: [Laravel, 微服务]description: 从单体 Laravel 演进到微服务后，API Gateway 成了绕不开的基础设施。本文以 Kong 和 Apache APISIX 为主线，结合 KKday B2C 真实场景，覆盖网关选型、路由分发、JWT 鉴权、限流熔断、灰度发布、可观测性等核心能力，附带完整配置示例与踩坑记录。
+  - 架构
+tags: [Laravel, 微服务]
+description: 从单体 Laravel 演进到微服务后，API Gateway 成了绕不开的基础设施。本文以 Kong 和 Apache APISIX 为主线，结合 KKday B2C 真实场景，覆盖网关选型、路由分发、JWT 鉴权、限流熔断、灰度发布、可观测性等核心能力，附带完整配置示例与踩坑记录。
 ---
 
 # API Gateway 实战：Kong/APISIX 在 Laravel 微服务中的应用

@@ -3,9 +3,10 @@ title: PHP-83-类型化类常量实战-枚举增强与类型安全-Laravel-B2C-A
 date: 2026-05-16 17:30:32
 updated: 2026-05-16 17:39:33
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, PHP]description: KKday B2C API 30+ 仓库实战 | PHP 8.3 Typed Class Constants 如何替代魔术常量与字符串硬编码 | 与 Enum 深度集成 | 继承约束与接口契约 | 真实踩坑记录
+tags: [Laravel, PHP]
+description: KKday B2C API 30+ 仓库实战 | PHP 8.3 Typed Class Constants 如何替代魔术常量与字符串硬编码 | 与 Enum 深度集成 | 继承约束与接口契约 | 真实踩坑记录
 ---
 
 # PHP 8.3 类型化类常量实战：枚举增强与类型安全

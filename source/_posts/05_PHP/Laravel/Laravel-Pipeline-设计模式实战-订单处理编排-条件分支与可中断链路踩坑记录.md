@@ -3,9 +3,10 @@ title: Laravel Pipeline 设计模式实战 - 订单处理编排、条件分支�
 date: 2026-05-04 23:59:59
 updated: 2026-05-05 00:01:30
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel]description: 从 B2C 订单提交流程出发，记录在 Laravel 中使用 Illuminate\Pipeline 编排复杂业务逻辑的实战方案，涵盖条件分支、可中断链路、错误收集与真实踩坑记录。
+tags: [Laravel]
+description: 从 B2C 订单提交流程出发，记录在 Laravel 中使用 Illuminate\Pipeline 编排复杂业务逻辑的实战方案，涵盖条件分支、可中断链路、错误收集与真实踩坑记录。
 ---
 
 Laravel 的中间件就是 Pipeline 模式的经典实现，但很多开发者只在 HTTP 层用过它，很少有人把 `Illuminate\Pipeline\Pipeline` 拿出来编排业务逻辑。直到我在一个 B2C 电商平台的订单提交模块踩了一个大坑——`CreateOrderService` 从 300 行膨胀到 1800 行，每次加一种新的校验规则都要在三个 if-else 嵌套里找位置——才意识到：**订单提交本质上就是一条管道：校验 → 库存 → 优惠 → 定价 → 创建，每一步都可能中断，每一步的顺序都不能乱。**

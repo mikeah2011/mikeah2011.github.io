@@ -3,9 +3,10 @@ title: Laravel-Redis-Queue-Horizon-实战-队列监控失败重试与性能调�
 date: 2026-05-05 09:36:00
 updated: 2026-05-05 09:38:26
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, Redis, 性能优化, 消息队列]description: Laravel Redis Queue + Horizon 完整实战：队列架构设计、Horizon 监控仪表盘配置、失败重试策略、Dead Letter Queue、生产环境性能调优，基于 B2C 电商 30+ 仓库的真实踩坑经验。
+tags: [Laravel, Redis, 性能优化, 消息队列]
+description: Laravel Redis Queue + Horizon 完整实战：队列架构设计、Horizon 监控仪表盘配置、失败重试策略、Dead Letter Queue、生产环境性能调优，基于 B2C 电商 30+ 仓库的真实踩坑经验。
 ---
 
 # Laravel Redis Queue + Horizon 实战：队列监控、失败重试与性能调优

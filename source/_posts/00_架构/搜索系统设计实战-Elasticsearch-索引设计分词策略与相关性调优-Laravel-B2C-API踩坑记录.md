@@ -4,7 +4,8 @@ date: 2026-05-16 20:41:01
 updated: 2026-05-16 20:48:35
 categories:
   - 架构
-tags: [Elasticsearch, KKday, Laravel, MySQL]description: 基于 KKday B2C 旅游电商真实项目，记录从 MySQL LIKE 演进到 Elasticsearch 搜索系统的完整过程——涵盖索引 Mapping 设计、IK 中英文分词策略、相关性评分调优、Suggest 自动补全、聚合过滤，以及生产环境的性能踩坑与优化方案。
+tags: [Elasticsearch, KKday, Laravel, MySQL]
+description: 基于 KKday B2C 旅游电商真实项目，记录从 MySQL LIKE 演进到 Elasticsearch 搜索系统的完整过程——涵盖索引 Mapping 设计、IK 中英文分词策略、相关性评分调优、Suggest 自动补全、聚合过滤，以及生产环境的性能踩坑与优化方案。
 ---
 
 # 搜索系统设计实战：Elasticsearch 索引设计、分词策略与相关性调优

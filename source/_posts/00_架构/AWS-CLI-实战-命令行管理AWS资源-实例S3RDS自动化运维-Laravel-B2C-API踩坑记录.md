@@ -4,7 +4,8 @@ date: 2026-05-17 04:20:41
 updated: 2026-05-17 04:23:55
 categories:
   - 架构
-tags: [AWS, DevOps, Laravel]description: >
+tags: [AWS, DevOps, Laravel]
+description: >
   在管理 30+ Laravel B2C 项目的 AWS 基础设施时，手动在 Console 点来点去既慢又容易出错。
   本文记录了 AWS CLI 从安装配置到实战脚本的完整经验：多 Profile 管理、EC2 实例批量操作、
   S3 同步与生命周期策略、RDS 快照备份自动化，以及如何用 CLI 脚本替代重复的运维操作。

@@ -4,7 +4,8 @@ date: 2026-05-05 09:15:36
 updated: 2026-05-05 09:18:15
 categories:
   - 架构
-tags: [Laravel, OpenAPI, 架构]description: "在 KKday B2C Backend Team 的 30+ 仓库实战中，我们逐步建立了 OpenAPI 文档驱动开发（DDD - Document-Driven Development）的完整工作流：从 PRD → OpenAPI YAML → Mock Server → 前后端并行开发 → Contract Test → Code Review。本文分享这条链路的真实落地经验与踩坑记录。"
+tags: [Laravel, OpenAPI, 架构]
+description: "在 KKday B2C Backend Team 的 30+ 仓库实战中，我们逐步建立了 OpenAPI 文档驱动开发（DDD - Document-Driven Development）的完整工作流：从 PRD → OpenAPI YAML → Mock Server → 前后端并行开发 → Contract Test → Code Review。本文分享这条链路的真实落地经验与踩坑记录。"
 ---
 
 ## 前言：为什么需要文档驱动开发？

@@ -1,6 +1,7 @@
 ---
 title: MySQL - MVCC
-tags: [MySQL]categories:
+tags: [MySQL]
+categories:
   - SQL
 date: 2019-03-20 15:05:07
 description: '`MVCC`叫做**多版本控制**，实现MVCC时用到了**一致性视图**，用于支持**读提交**和**可重复读**的实现。 对于一行数据若是想实现可重复读取或者能够读取数据的另一个事务未提交前的原始值，那么必须对原始数据进行保存或者对更新…'

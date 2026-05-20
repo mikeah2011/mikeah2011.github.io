@@ -4,7 +4,8 @@ date: 2026-05-17 06:35:34
 updated: 2026-05-17 06:38:35
 categories:
   - HTML
-tags: [Vue, uni-app, 前端]description: >
+tags: [Vue, uni-app, 前端]
+description: >
   在 uni-app 多端开发中，条件编译是处理平台差异的核心机制。本文基于奇乐MAX电商系统和 KKday B2C 项目的实战经验，深入讲解 #ifdef、#ifndef 的使用技巧、平台专属 API 差异处理、组件级条件编译、CSS 平台适配策略，以及如何用架构设计减少条件编译的维护成本。包含真实代码示例、踩坑记录和最佳实践。
 ---
 

@@ -3,9 +3,10 @@ title: "PHP-FPM 长连接与短连接实战：数据库连接池性能差异与 
 date: 2026-05-05 07:25:58
 updated: 2026-05-05 07:28:28
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, MySQL, PHP, Redis, WebSocket, 性能优化]description: "在 Laravel B2C API 高并发场景下，PHP-FPM 的数据库连接策略直接影响吞吐量和稳定性。本文从真实踩坑出发，深度对比长连接与短连接的性能差异，涵盖连接风暴、max_connections 瓶颈、PDO 持久连接陷阱、连接池中间件选型，并给出可落地的配置方案。"
+tags: [Laravel, MySQL, PHP, Redis, WebSocket, 性能优化]
+description: "在 Laravel B2C API 高并发场景下，PHP-FPM 的数据库连接策略直接影响吞吐量和稳定性。本文从真实踩坑出发，深度对比长连接与短连接的性能差异，涵盖连接风暴、max_connections 瓶颈、PDO 持久连接陷阱、连接池中间件选型，并给出可落地的配置方案。"
 ---
 
 # PHP-FPM 长连接与短连接实战：数据库连接池性能差异与 MySQL 踩坑记录

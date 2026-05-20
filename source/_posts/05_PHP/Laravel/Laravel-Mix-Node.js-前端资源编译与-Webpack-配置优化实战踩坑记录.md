@@ -3,8 +3,9 @@ title: "Laravel-Mix-Node.js-前端资源编译与-Webpack-配置优化实战踩�
 date: 2026-05-05 02:40:38
 updated: 2026-05-05 02:42:06
 categories:
-  - 05_PHP/Laravel
-tags: [JavaScript, Webpack, 前端, 性能优化]description: "Laravel Mix 从入门到深入：webpack.mix.js 配置实战、多入口分包、CSS/JS 压缩、版本号缓存清除、与 Vite 的迁移取舍，以及 KKday B2C 项目中遇到的真实踩坑记录。"
+  - Laravel
+tags: [JavaScript, Webpack, 前端, 性能优化]
+description: "Laravel Mix 从入门到深入：webpack.mix.js 配置实战、多入口分包、CSS/JS 压缩、版本号缓存清除、与 Vite 的迁移取舍，以及 KKday B2C 项目中遇到的真实踩坑记录。"
 ---
 
 # Laravel Mix + Node.js：前端资源编译与 Webpack 配置优化实战踩坑记录

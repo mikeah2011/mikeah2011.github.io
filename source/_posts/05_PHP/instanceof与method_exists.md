@@ -3,7 +3,8 @@ title: instanceof 与 method_exists
 date: 2023-03-05 10:00:00
 categories:
   - PHP
-tags: [PHP]description: '`instanceof`與`method_exists`的用法區別。參考StackoverFlow `instanceof`為保留關鍵字，用於檢查對象是否屬於某個類。如果對象是類的實例，則比較返回`true`，否則返回 `false`。通常…'
+tags: [PHP]
+description: '`instanceof`與`method_exists`的用法區別。參考StackoverFlow `instanceof`為保留關鍵字，用於檢查對象是否屬於某個類。如果對象是類的實例，則比較返回`true`，否則返回 `false`。通常…'
 ---
 [`instanceof`](https://www.php.net/manual/zh/language.operators.type.php)與[`method_exists`](https://www.php.net/manual/zh/function.method-exists.php)的用法區別。[參考StackoverFlow](https://stackoverflow.com/questions/28767294/instanceof-or-method-exist-which-one-should-use)
 

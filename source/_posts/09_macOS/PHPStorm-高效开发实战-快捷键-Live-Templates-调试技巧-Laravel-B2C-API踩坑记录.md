@@ -3,8 +3,9 @@ title: PHPStorm-高效开发实战-快捷键-Live-Templates-调试技巧-Laravel
 date: 2026-05-16 23:20:08
 updated: 2026-05-16 23:23:54
 categories:
-  - 09_macOS
-tags: [Laravel, macOS]description: >
+  - macOS
+tags: [Laravel, macOS]
+description: >
   在 30+ Laravel 仓库的 B2C 后端日常开发中，PHPStorm 是不可替代的生产力工具。
   本文从真实项目经验出发，涵盖 macOS 键位映射、Laravel 专属 Live Templates、
   数据库面板直连调试、Xdebug 远程断点、代码导航黑魔法等高频场景，

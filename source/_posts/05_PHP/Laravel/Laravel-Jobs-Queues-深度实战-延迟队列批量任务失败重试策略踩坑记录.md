@@ -3,9 +3,10 @@ title: Laravel Jobs & Queues 深度实战：延迟队列、批量任务与失败
 date: 2026-05-16 17:51:16
 updated: 2026-05-16 17:55:11
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, Redis, 消息队列]description: 深入 Laravel Jobs & Queues 的三个高阶场景：延迟队列实现订单超时取消、Bus::batch 批量任务编排、以及生产级失败重试策略。来自 KKday B2C API 的真实踩坑记录。
+tags: [Laravel, Redis, 消息队列]
+description: 深入 Laravel Jobs & Queues 的三个高阶场景：延迟队列实现订单超时取消、Bus::batch 批量任务编排、以及生产级失败重试策略。来自 KKday B2C API 的真实踩坑记录。
 ---
 
 # Laravel Jobs & Queues 深度实战：延迟队列、批量任务与失败重试策略

@@ -4,7 +4,8 @@ date: 2026-05-17 06:30:19
 updated: 2026-05-17 06:33:58
 categories:
   - macOS
-tags: [Composer, macOS]description: "作为 Laravel/PHP 开发者，为什么需要关注 Python 工具链？从 AI 辅助脚本到数据处理管道，pyenv 管多版本 + poetry 管依赖的组合已成为 macOS 上 Python 开发的黄金搭档。本文覆盖安装配置、版本管理、依赖隔离、Lock File、与 uv 的对比、以及在 PHP 项目中的实际集成踩坑。"
+tags: [Composer, macOS]
+description: "作为 Laravel/PHP 开发者，为什么需要关注 Python 工具链？从 AI 辅助脚本到数据处理管道，pyenv 管多版本 + poetry 管依赖的组合已成为 macOS 上 Python 开发的黄金搭档。本文覆盖安装配置、版本管理、依赖隔离、Lock File、与 uv 的对比、以及在 PHP 项目中的实际集成踩坑。"
 ---
 
 # pyenv + poetry 实战：Python 版本与依赖管理——macOS 开发者迁移指南

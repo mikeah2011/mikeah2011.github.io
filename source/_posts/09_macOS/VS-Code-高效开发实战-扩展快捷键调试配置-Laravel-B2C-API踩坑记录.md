@@ -5,7 +5,8 @@ updated: 2026-05-17 04:28:02
 categories:
   - macOS
   - 开发工具
-tags: [Laravel, PHP, macOS, 工程管理]description: >
+tags: [Laravel, PHP, macOS, 工程管理]
+description: >
   在 30+ 仓库的 Laravel B2C 项目中深度使用 VS Code 的实战经验：扩展选型、快捷键体系、
   Xdebug 调试配置、远程开发、性能优化，以及团队协作中踩过的坑。
 keywords:

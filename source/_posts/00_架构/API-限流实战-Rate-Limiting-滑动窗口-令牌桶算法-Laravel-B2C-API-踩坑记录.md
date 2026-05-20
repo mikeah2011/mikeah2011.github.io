@@ -3,10 +3,11 @@ title: API-限流实战-Rate-Limiting-滑动窗口-令牌桶算法-Laravel-B2C-A
 date: 2026-05-16 23:05:07
 updated: 2026-05-16 23:07:00
 categories:
-  - 00_架构
-  - 06_Redis
-  - 05_PHP/Laravel
-tags: [Laravel, Redis]description: 从固定窗口到滑动窗口再到令牌桶，Laravel B2C API 三种限流策略的选型、实现与生产踩坑记录，含 Redis Lua 脚本、中间件实战、分布式场景方案。
+  - 架构
+  - Redis
+  - PHP/Laravel
+tags: [Laravel, Redis]
+description: 从固定窗口到滑动窗口再到令牌桶，Laravel B2C API 三种限流策略的选型、实现与生产踩坑记录，含 Redis Lua 脚本、中间件实战、分布式场景方案。
 ---
 
 # API 限流实战：Rate Limiting、滑动窗口、令牌桶算法

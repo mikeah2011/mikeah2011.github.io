@@ -3,9 +3,10 @@ title: Laravel + ClickHouse 实战：埋点宽表、物化视图与漏斗报表�
 date: 2026-05-04 14:30:56
 updated: 2026-05-04 14:32:11
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, MySQL, 工程管理, 性能优化]description: 记录一次 Laravel 后台报表从 MySQL 迁移到 ClickHouse 的真实落地过程，重点覆盖埋点宽表设计、批量写入、物化视图、漏斗查询优化与生产踩坑修复。
+tags: [Laravel, MySQL, 工程管理, 性能优化]
+description: 记录一次 Laravel 后台报表从 MySQL 迁移到 ClickHouse 的真实落地过程，重点覆盖埋点宽表设计、批量写入、物化视图、漏斗查询优化与生产踩坑修复。
 ---
 
 在后台运营报表场景里，最容易被低估的不是“写接口”，而是**行为埋点查询**。我接手过一个 Laravel B2C 后台，商品浏览、加购、提交订单、支付成功都先落在 MySQL，运营每天查漏斗、渠道转化、活动效果。数据量上来后，问题很快出现：单日埋点 1200 万行，读库高峰期 P95 超过 **6.8s**，导出一跑，业务查询也跟着抖。

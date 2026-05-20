@@ -5,7 +5,8 @@ updated: 2026-05-16 18:51:52
 categories:
   - PHP
   - Laravel
-tags: [KKday, Laravel, 安全]description: 基于 KKday B2C API 30+ 仓库实战经验，详解 OWASP Top 10 中最高频的四类攻击（SQL 注入、XSS、CSRF、SSRF）在 Laravel 项目中的防护策略、真实踩坑记录与防御纵深方案。
+tags: [KKday, Laravel, 安全]
+description: 基于 KKday B2C API 30+ 仓库实战经验，详解 OWASP Top 10 中最高频的四类攻击（SQL 注入、XSS、CSRF、SSRF）在 Laravel 项目中的防护策略、真实踩坑记录与防御纵深方案。
 ---
 
 # OWASP Top 10 防护实战：SQL 注入 / XSS / CSRF / SSRF — Laravel B2C API 安全加固踩坑记录

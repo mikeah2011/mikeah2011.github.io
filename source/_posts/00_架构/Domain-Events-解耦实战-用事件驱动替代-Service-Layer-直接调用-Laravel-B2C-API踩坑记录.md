@@ -3,9 +3,11 @@ title: Domain-Events-解耦实战-用事件驱动替代-Service-Layer-直接调�
 date: 2026-05-05 08:20:19
 updated: 2026-05-05 08:22:17
 categories:
-  - 00_架构
-  - 05_PHP
-tags: [KKday, Laravel, 架构]---
+  - 架构
+  - PHP
+tags: [KKday, Laravel, 架构]
+description: 在 30+ 仓库的 Laravel B2C 项目中，Service Layer 膨胀是常见问题。Domain Events 用事件驱动替代直接调用，实现订单、库存、通知的彻底解耦。本文记录从胖 Service 到事件驱动架构的演进实战与踩坑经验。
+---
 
 ## 前言：Service Layer 胖到什么程度你会考虑重构？
 

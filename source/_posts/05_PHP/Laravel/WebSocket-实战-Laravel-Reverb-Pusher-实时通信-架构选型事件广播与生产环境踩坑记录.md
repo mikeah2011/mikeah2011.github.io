@@ -3,9 +3,10 @@ title: WebSocket-实战-Laravel-Reverb-Pusher-实时通信-架构选型事件广
 date: 2026-05-17 03:35:37
 updated: 2026-05-17 03:37:35
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, WebSocket]description: >
+tags: [Laravel, WebSocket]
+description: >
   Laravel 项目中 WebSocket 实时通信的完整实战指南：从 Pusher 到 Laravel Reverb 的迁移路径、Broadcasting 驱动配置、Private/Presence Channel 权限控制、前端 Echo 集成、生产部署踩坑记录。基于 KKday B2C API 真实场景——订单状态推送、客服聊天、实时库存变更。
 ---
 

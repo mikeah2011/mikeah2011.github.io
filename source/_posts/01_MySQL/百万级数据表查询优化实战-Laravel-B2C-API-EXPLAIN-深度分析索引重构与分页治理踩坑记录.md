@@ -4,7 +4,8 @@ date: 2026-05-05 00:45:46
 updated: 2026-05-05 00:50:30
 categories:
   - MySQL
-tags: [Laravel, MySQL, 性能优化]description: 在 KKday B2C API 中面对千万级订单表和百万级商品表的真实查询优化实战——从 EXPLAIN 逐行分析到覆盖索引设计、从 OFFSET 分页风暴到游标分页、从慢查询埋点到归档策略，完整还原一次「P1 级慢查询治理」的全过程。
+tags: [Laravel, MySQL, 性能优化]
+description: 在 KKday B2C API 中面对千万级订单表和百万级商品表的真实查询优化实战——从 EXPLAIN 逐行分析到覆盖索引设计、从 OFFSET 分页风暴到游标分页、从慢查询埋点到归档策略，完整还原一次「P1 级慢查询治理」的全过程。
 ---
 
 ## 前言：当 API 响应从 200ms 飙到 8s

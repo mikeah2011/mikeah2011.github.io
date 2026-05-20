@@ -3,9 +3,10 @@ title: 不用 Elasticsearch：Laravel + PostgreSQL 原生搜索实战，tsvector
 date: 2026-05-04 14:59:31
 updated: 2026-05-04 15:01:18
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Elasticsearch, Laravel, PostgreSQL]description: 结合 Laravel 商品后台与站内搜索场景，记录一套不用 Elasticsearch、直接基于 PostgreSQL 原生全文检索落地搜索、拼写纠错与高亮摘要的实战方案。
+tags: [Elasticsearch, Laravel, PostgreSQL]
+description: 结合 Laravel 商品后台与站内搜索场景，记录一套不用 Elasticsearch、直接基于 PostgreSQL 原生全文检索落地搜索、拼写纠错与高亮摘要的实战方案。
 ---
 
 很多团队一提到“搜索”就先上 Elasticsearch，我也这么干过。但在一个 Laravel 商品后台里复盘后发现：真实需求只是按标题、SKU、标签搜索，再加错别字兜底；搜索量不高，却要维护同步链路、索引重建、别名切换和补数任务。最后我们把搜索收回 PostgreSQL，事务提交后立即可查，排障链路也短很多。

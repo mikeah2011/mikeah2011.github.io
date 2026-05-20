@@ -4,7 +4,8 @@ date: 2026-05-05 08:11:02
 updated: 2026-05-05 08:13:59
 categories:
   - macOS 开发工具
-tags: [Laravel, macOS]description: >
+tags: [Laravel, macOS]
+description: >
   在 KKday B2C Backend 团队的日常开发中，Charles 是连接前端、移动端与 Laravel API 之间最关键的调试利器。
   本文记录了 30+ 仓库实战中积累的 Charles 高级用法：SSL 代理配置、Breakpoints 断点调试、
   Map Local/Map Remote Mock、Bandwidth Throttle 弱网模拟、以及与 Laravel BFF 联调的完整工作流。

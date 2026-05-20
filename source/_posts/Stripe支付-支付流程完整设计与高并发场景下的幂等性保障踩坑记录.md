@@ -3,7 +3,8 @@ title: "Stripe 支付 - 支付流程完整设计与高并发场景下的幂等�
 date: 2026-05-04 12:01:45
 description: "Stripe 支付 - 支付流程完整设计与高并发场景下的幂等性保障踩坑记录"
 updated: null
-tags: [Laravel, 支付]categories: "06_金融支付"
+tags: [Laravel, 支付]
+categories: "06_金融支付"
 ---
 
 ## 前言：为什么要深入研究 Stripe 支付？

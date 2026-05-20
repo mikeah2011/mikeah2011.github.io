@@ -4,7 +4,8 @@ date: 2026-05-16 16:51:25
 updated: 2026-05-16 16:57:14
 categories:
   - PHP
-tags: [Laravel, PHP, 架构]description: 深入 PHP 8.1 Fibers 机制，从底层原理到 Laravel B2C API 实战落地，涵盖并发 HTTP 请求编排、超时控制、错误处理与 Swoole 协程对比。
+tags: [Laravel, PHP, 架构]
+description: 深入 PHP 8.1 Fibers 机制，从底层原理到 Laravel B2C API 实战落地，涵盖并发 HTTP 请求编排、超时控制、错误处理与 Swoole 协程对比。
 ---
 
 # PHP 8.1 Fibers 实战：协程并发请求与异步任务编排踩坑记录

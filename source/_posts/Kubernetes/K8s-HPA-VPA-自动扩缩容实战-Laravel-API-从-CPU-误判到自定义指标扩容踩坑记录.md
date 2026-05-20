@@ -5,7 +5,8 @@ categories:
   - Kubernetes
   - Laravel
   - 架构
-tags: [Kubernetes, Laravel, 监控]description: 结合 Laravel B2C API 在 Kubernetes 上的真实压测与生产经验，记录一套 HPA + VPA 落地方案，重点解决 CPU 指标失真、扩容抖动、资源请求不准与队列任务被错误伸缩的问题。
+tags: [Kubernetes, Laravel, 监控]
+description: 结合 Laravel B2C API 在 Kubernetes 上的真实压测与生产经验，记录一套 HPA + VPA 落地方案，重点解决 CPU 指标失真、扩容抖动、资源请求不准与队列任务被错误伸缩的问题。
 ---
 
 我们最早在 Kubernetes 上跑 Laravel API 时，扩缩容策略其实很“教科书”：`requests.cpu=500m`、HPA 按 CPU 70% 扩容、每个 Pod 512Mi 内存。结果压测一上来就翻车：接口 P95 已经接近 2 秒，但 CPU 只跑到 38%；另一边队列 Worker 明明 CPU 不高，却不断被 OOMKilled。

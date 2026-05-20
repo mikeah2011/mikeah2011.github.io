@@ -5,7 +5,8 @@ updated: 2026-05-16 21:23:08
 categories:
   - 前端工程化
   - Vue
-tags: [TypeScript, Vue, 前端]description: 从 Options API 迁移到 Composition API 的实战经验，覆盖 ref/reactive/computed/watch 的最佳实践、响应式陷阱、TypeScript 类型推导、可组合函数封装，以及在 vue-pure-admin 管理后台和 uni-app 跨平台项目中的真实踩坑记录。
+tags: [TypeScript, Vue, 前端]
+description: 从 Options API 迁移到 Composition API 的实战经验，覆盖 ref/reactive/computed/watch 的最佳实践、响应式陷阱、TypeScript 类型推导、可组合函数封装，以及在 vue-pure-admin 管理后台和 uni-app 跨平台项目中的真实踩坑记录。
 ---
 
 # Vue 3 Composition API 实战：ref、reactive、computed 最佳实践与响应式踩坑记录

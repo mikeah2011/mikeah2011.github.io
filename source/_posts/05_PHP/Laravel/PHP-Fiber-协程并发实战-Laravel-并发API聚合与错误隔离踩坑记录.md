@@ -5,7 +5,8 @@ updated: 2026-05-04 23:14:17
 categories:
   - PHP
   - Laravel
-tags: [BFF, Laravel, PHP, 架构]description: "PHP 8.1 Fiber 在 Laravel BFF 层的真实落地经验：并发调用 6 个下游服务、错误隔离、超时控制与 Swoole 协程的取舍分析"
+tags: [BFF, Laravel, PHP, 架构]
+description: "PHP 8.1 Fiber 在 Laravel BFF 层的真实落地经验：并发调用 6 个下游服务、错误隔离、超时控制与 Swoole 协程的取舍分析"
 ---
 
 # PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离踩坑记录

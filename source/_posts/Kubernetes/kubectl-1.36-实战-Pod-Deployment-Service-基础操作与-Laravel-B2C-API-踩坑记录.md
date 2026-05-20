@@ -4,7 +4,8 @@ date: 2026-05-16 23:00:27
 updated: 2026-05-16 23:03:36
 categories:
   - Kubernetes
-tags: [KKday, Kubernetes, Laravel]description: 从零开始掌握 kubectl 核心命令，以 Laravel B2C API 为例，覆盖 Pod 生命周期、Deployment 滚动更新、Service 服务发现的真实操作与踩坑记录。
+tags: [KKday, Kubernetes, Laravel]
+description: 从零开始掌握 kubectl 核心命令，以 Laravel B2C API 为例，覆盖 Pod 生命周期、Deployment 滚动更新、Service 服务发现的真实操作与踩坑记录。
 ---
 
 # kubectl 1.36 实战：Pod、Deployment、Service 基础操作与 Laravel B2C API 踩坑记录

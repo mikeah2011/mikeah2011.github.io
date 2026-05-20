@@ -3,8 +3,9 @@ title: 新人-Onboarding-指南-30-仓库快速上手路径设计-Laravel-B2C-AP
 date: 2026-05-05 08:31:06
 updated: 2026-05-05 08:35:17
 categories:
-  - 11_工程管理
-tags: [KKday, Laravel, 工程管理]description: 在 30+ Laravel 仓库的团队中，新人 Onboarding 效率直接决定前三个月的产出。本文分享从环境搭建、代码导读到首个 PR 的完整路径设计，附真实踩坑记录与可复用的 Checklist 模板。
+  - 工程管理
+tags: [KKday, Laravel, 工程管理]
+description: 在 30+ Laravel 仓库的团队中，新人 Onboarding 效率直接决定前三个月的产出。本文分享从环境搭建、代码导读到首个 PR 的完整路径设计，附真实踩坑记录与可复用的 Checklist 模板。
 ---
 
 # 新人 Onboarding 指南：30+ 仓库的快速上手路径设计

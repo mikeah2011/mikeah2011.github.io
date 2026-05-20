@@ -6,7 +6,8 @@ categories:
   - 测试
   - PHP
   - Laravel
-tags: [KKday, Laravel, 测试]description: >
+tags: [KKday, Laravel, 测试]
+description: >
   Laravel 11 默认搭载 PHPUnit 11，但大多数团队只是 `composer update` 之后继续用 PHPUnit 10 的写法。本文基于 KKday B2C Backend Team 在 30+ 仓库升级 PHPUnit 11.x 的实战经验，深入讲解 Attributes 语法、Expectation API、new assertions、数据提供者改进、废弃项处理，以及如何在大型 Laravel API 项目中建立分层测试架构。
 ---
 

@@ -3,9 +3,10 @@ title: Laravel + PostgreSQL SKIP LOCKED 实战：不用 Redis 也能做任务出
 date: 2026-05-03 10:35:34
 updated: 2026-05-03 10:39:12
 categories:
-  - 05_PHP
+  - PHP
   - Laravel
-tags: [Laravel, PostgreSQL, 架构, 消息队列]description: 结合支付补单与库存对账任务，记录如何在 Laravel 中基于 PostgreSQL 的 FOR UPDATE SKIP LOCKED 实现数据库队列，重点覆盖出队并发、超时回收、批处理索引与死锁规避。
+tags: [Laravel, PostgreSQL, 架构, 消息队列]
+description: 结合支付补单与库存对账任务，记录如何在 Laravel 中基于 PostgreSQL 的 FOR UPDATE SKIP LOCKED 实现数据库队列，重点覆盖出队并发、超时回收、批处理索引与死锁规避。
 ---
 
 很多团队一提到异步任务，第一反应就是 Redis、RabbitMQ 或 Kafka。但我在一个 Laravel 后台里做过一类很“尴尬”的任务：支付补单、库存对账、第三方回查，量级不算大，却要求**强一致、可审计、失败可回放**。这类任务如果再引入一套外部 MQ，维护成本不低；直接塞进 `jobs` 表又容易被并发 worker 抢成一团。后来真正稳定跑起来，靠的不是“轮询 + status 字段”，而是 PostgreSQL 的 `FOR UPDATE SKIP LOCKED`。

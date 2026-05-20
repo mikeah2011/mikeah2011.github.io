@@ -3,8 +3,9 @@ title: phpunit.jenkins.xml 实战：Laravel 项目自动化测试流水线配置
 date: 2026-05-05 02:00:14
 updated: 2026-05-05 02:02:25
 categories:
-  - 07_CICD
-tags: [CI/CD, Laravel, 测试]description: >
+  - CI/CD
+tags: [CI/CD, Laravel, 测试]
+description: >
   从零搭建 Jenkins + phpunit.jenkins.xml 流水线的真实踩坑记录。
   包含多环境配置分离、并行测试拆分、覆盖率报告集成、
   以及在 30+ Laravel 微服务仓库中统一 CI 配置的工程化方案。

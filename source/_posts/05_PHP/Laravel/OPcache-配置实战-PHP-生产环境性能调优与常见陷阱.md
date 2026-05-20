@@ -6,7 +6,8 @@ categories:
   - PHP
   - Laravel
   - 性能优化
-tags: [Laravel, PHP, 性能优化, 监控]description: 从 PHP 编译原理出发，详解 OPcache 每项配置参数的工程意义，覆盖 Laravel B2C API 生产环境的真实踩坑记录——包括文件缓存回退、CLI 不生效、预加载内存碎片、K8s 滚动更新缓存失效等高频问题。
+tags: [Laravel, PHP, 性能优化, 监控]
+description: 从 PHP 编译原理出发，详解 OPcache 每项配置参数的工程意义，覆盖 Laravel B2C API 生产环境的真实踩坑记录——包括文件缓存回退、CLI 不生效、预加载内存碎片、K8s 滚动更新缓存失效等高频问题。
 ---
 
 ## 一、为什么 OPcache 是 PHP 性能的「第一优先级」

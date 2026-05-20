@@ -1,6 +1,7 @@
 ---
 title: 分布式之 CAP 与 BASE
-tags: [微服务, 架构]categories:
+tags: [微服务, 架构]
+categories:
   - 架构
 date: 2020-07-20 11:15:49
 description: 分布式系统设计绕不开的两个理论：CAP（一致性/可用性/分区容错性三选二）与 BASE（基本可用 + 最终一致性）。本文用例子讲清楚怎么取舍、为什么 P 必选。

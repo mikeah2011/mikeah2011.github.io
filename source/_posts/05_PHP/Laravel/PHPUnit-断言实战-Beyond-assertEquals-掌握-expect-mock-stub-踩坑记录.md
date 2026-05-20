@@ -5,7 +5,8 @@ updated: 2026-05-05 00:22:27
 categories:
   - PHP
   - Testing
-tags: [Laravel, 测试]description: 在 30+ 仓库的 Laravel B2C 项目中，assertEquals 只是起点。本文基于 KKday B2C API 真实测试场景，深入讲解 PHPUnit 的 expect() 链式断言、Mock 对象的行为验证、Stub 的依赖注入测试，以及在实际项目中踩过的坑。
+tags: [Laravel, 测试]
+description: 在 30+ 仓库的 Laravel B2C 项目中，assertEquals 只是起点。本文基于 KKday B2C API 真实测试场景，深入讲解 PHPUnit 的 expect() 链式断言、Mock 对象的行为验证、Stub 的依赖注入测试，以及在实际项目中踩过的坑。
 keywords: PHPUnit, assertEquals, expect, mock, stub, 单元测试, Laravel, 断言, 行为验证, 依赖注入
 ---
 

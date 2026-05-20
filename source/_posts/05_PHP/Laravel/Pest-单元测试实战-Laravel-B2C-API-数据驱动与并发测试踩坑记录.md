@@ -1,8 +1,9 @@
 ---
 date: 2026-05-04 07:37:42
 description: "Pest 单元测试实战：Laravel B2C API 数据驱动与并发测试踩坑记录"
-tags: [KKday, Laravel, 测试]categories:
-  - 05_PHP
+tags: [KKday, Laravel, 测试]
+categories:
+  - PHP
   - Laravel
 title: Pest 单元测试实战：Laravel B2C API 数据驱动与并发测试踩坑记录
 author: Michael

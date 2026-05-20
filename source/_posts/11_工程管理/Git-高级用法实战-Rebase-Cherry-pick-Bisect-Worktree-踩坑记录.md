@@ -3,8 +3,9 @@ title: Git 高级用法实战：Rebase、Cherry-pick、Bisect、Worktree 踩坑�
 date: 2026-05-16 18:30:46
 updated: 2026-05-16 18:34:57
 categories:
-  - 11_工程管理
-tags: [Git, 工程管理]description: >
+  - 工程管理
+tags: [Git, 工程管理]
+description: >
   在 30+ 仓库的 Laravel B2C 项目中，Git 不只是 commit/push/pull。
   本文记录 Rebase 保持线性历史、Cherry-pick 跨分支移植修复、
   Bisect 二分法定位回归 Bug、Worktree 并行开发多分支的实战经验与踩坑记录。

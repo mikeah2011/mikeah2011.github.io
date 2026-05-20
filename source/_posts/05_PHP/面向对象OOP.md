@@ -1,6 +1,7 @@
 ---
 title: OOP - 面向对象
-tags: [Laravel, PHP]categories:
+tags: [Laravel, PHP]
+categories:
   - PHP
 date: 2021-03-20 15:05:07
 description: 面向对象的三大特性（封装/继承/多态）与 SOLID 五大原则，配 PHP 代码示例与实际工程取舍。OOP 不是银弹，知道何时不用比何时用更重要。

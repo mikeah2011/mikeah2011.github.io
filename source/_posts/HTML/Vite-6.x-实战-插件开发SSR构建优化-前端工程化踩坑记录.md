@@ -4,7 +4,8 @@ date: 2026-05-17 02:30:32
 updated: 2026-05-17 02:32:33
 categories:
   - HTML
-tags: [Vite, Webpack, 前端]description: "从 Vite 5 升级到 6.x 的真实踩坑经验：Environment API 插件开发、SSR 构建优化、Rolldown 预览、Tree-shaking 调优，以及在 Laravel B2C 前后端分离项目中的落地方案。"
+tags: [Vite, Webpack, 前端]
+description: "从 Vite 5 升级到 6.x 的真实踩坑经验：Environment API 插件开发、SSR 构建优化、Rolldown 预览、Tree-shaking 调优，以及在 Laravel B2C 前后端分离项目中的落地方案。"
 ---
 
 ## 前言
