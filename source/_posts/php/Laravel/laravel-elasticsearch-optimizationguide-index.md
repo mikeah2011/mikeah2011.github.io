@@ -1,0 +1,302 @@
+---
+title: Laravel + Elasticsearch 全文搜索优化实战：商品搜索召回、同义词与零停机重建索引踩坑记录
+date: 2026-05-03 10:20:00
+categories:
+  - PHP
+  - Laravel
+tags: [Elasticsearch, KKday, Laravel]
+description: 结合 Laravel B2C 商品搜索改造经验，记录 Elasticsearch 在索引设计、召回排序、同义词扩展、增量同步与零停机重建索引上的一套可落地方案。
+
+
+
+---
+商品搜索这件事，最容易被低估。项目早期大家通常先用 MySQL `like '%关键字%'` 顶着，数据量一上来就会同时出现三个问题：**查得慢、召回差、排序乱**。我在一个旅游商品 B2C API 里把搜索链路从 MySQL 迁到 Elasticsearch，真正带来收益的不是“换了个引擎”，而是把**索引结构、查询意图、同步机制和重建流程**一次性理顺。上线后，搜索接口 P95 从 420ms 降到 85ms，最关键的是“东京迪士尼”“迪士尼 东京票券”“disney tokyo”这类混合搜索终于能稳定命中。
+
+## 一、先别急着建索引，先把搜索链路拆开
+
+我们的落地结构如下：
+
+```text
+App / Web
+   │
+   ▼
+Laravel SearchController
+   │
+   ▼
+ProductSearchService
+   ├── QueryBuilder：关键词清洗、同义词扩展、过滤条件组装
+   ├── Elasticsearch：全文召回 + function_score 排序
+   └── MySQL：兜底详情与价格校验
+   │
+   ▼
+Queue Worker
+   └── ProductSearchSyncJob：商品变更后增量同步 ES
+
+Alias: products_read / products_write
+   │
+   ├── products_v20260501
+   └── products_v20260503
+```
+
+这里最重要的设计不是 ES 本身，而是 **read alias / write alias**。只要你准备做 mapping 调整、分词器变更、同义词重建，就一定会用到别名切换，不然每次重建索引都得停机。
+
+## 二、索引设计别照着数据库字段平移
+
+一开始我们把商品表字段几乎原样塞进 ES，结果 `title`、`subtitle`、`tags` 权重完全失控，筛选字段还被错误分词。后来改成“可搜索字段”和“可过滤字段”分离：
+
+```json
+PUT /products_v20260503
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "product_synonym": {
+          "type": "synonym_graph",
+          "synonyms": [
+            "迪士尼, disney",
+            "环球影城, usj, universal studios japan",
+            "一日券, day pass"
+          ]
+        }
+      },
+      "analyzer": {
+        "product_text": {
+          "tokenizer": "standard",
+          "filter": ["lowercase", "product_synonym"]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "id": {"type": "keyword"},
+      "title": {"type": "text", "analyzer": "product_text", "copy_to": "_all_text"},
+      "subtitle": {"type": "text", "analyzer": "product_text", "copy_to": "_all_text"},
+      "tags": {"type": "keyword"},
+      "destination": {"type": "keyword"},
+      "depart_city": {"type": "keyword"},
+      "price": {"type": "scaled_float", "scaling_factor": 100},
+      "sold_count": {"type": "integer"},
+      "score": {"type": "float"},
+      "is_active": {"type": "boolean"},
+      "_all_text": {"type": "text", "analyzer": "product_text"}
+    }
+  }
+}
+```
+
+两个经验非常关键：
+
+1. `destination`、`depart_city` 这类筛选字段必须用 `keyword`，不要让它们参与分词。
+2. 排序字段要单独存数值，不要指望运行时脚本从文本里扣。
+
+## 三、Laravel 查询层要把“召回”和“排序”分开
+
+很多搜索接口做坏，不是因为 ES 不行，而是把一个 `multi_match` 当万能钥匙。我的做法是先尽量召回，再用 `function_score` 修正排序：
+
+```php
+<?php
+
+namespace App\Services\Search;
+
+use Elastic\Elasticsearch\Client;
+
+final class ProductSearchService
+{
+    public function __construct(private Client $client) {}
+
+    public function search(string $keyword, array $filters = []): array
+    {
+        $params = [
+            'index' => 'products_read',
+            'body' => [
+                'from' => 0,
+                'size' => 20,
+                'query' => [
+                    'function_score' => [
+                        'query' => [
+                            'bool' => [
+                                'must' => [
+                                    [
+                                        'multi_match' => [
+                                            'query' => trim($keyword),
+                                            'fields' => ['title^5', 'subtitle^2', '_all_text'],
+                                            'type' => 'best_fields'
+                                        ]
+                                    ]
+                                ],
+                                'filter' => array_values(array_filter([
+                                    ['term' => ['is_active' => true]],
+                                    $filters['destination'] ?? null
+                                        ? ['term' => ['destination' => $filters['destination']]]
+                                        : null,
+                                    $filters['depart_city'] ?? null
+                                        ? ['term' => ['depart_city' => $filters['depart_city']]]
+                                        : null,
+                                ])),
+                            ],
+                        ],
+                        'field_value_factor' => [
+                            'field' => 'sold_count',
+                            'modifier' => 'log1p',
+                            'missing' => 0
+                        ],
+                        'boost_mode' => 'sum',
+                        'functions' => [
+                            [
+                                'filter' => ['range' => ['score' => ['gte' => 4.5]]],
+                                'weight' => 2
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ];
+
+        return $this->client->search($params)->asArray();
+    }
+}
+```
+
+这段代码解决了一个很真实的问题：标题命中优先，但销量和评分也能参与排序。否则搜索“东京”时，新建但无销量的测试商品会跑到第一页，运营会直接来找你。
+
+## 四、同步链路一定走异步，不要在写请求里直塞 ES
+
+商品上下架、改价、补库存时，我们最早是直接在 Laravel Service 里同步 ES。结果只要 ES 抖一下，后台保存商品就跟着超时。后来改成 **DB 提交成功后丢队列**：
+
+```php
+<?php
+
+final class SyncProductToSearchJob implements ShouldQueue
+{
+    use Dispatchable, Queueable, SerializesModels;
+
+    public function __construct(public int $productId) {}
+
+    public function handle(ProductIndexer $indexer): void
+    {
+        $indexer->sync($this->productId);
+    }
+}
+```
+
+```php
+DB::afterCommit(function () use ($productId) {
+    SyncProductToSearchJob::dispatch($productId)->onQueue('search');
+});
+```
+
+`afterCommit()` 很关键。我们踩过一个坑：事务还没提交，Job 先执行，ES 里读到旧数据，最终搜索结果比后台看到的晚半拍，排查起来特别恶心。
+
+## 五、回填阶段不要单条写入，直接走 Bulk
+
+全量重建时如果还一笔一笔 `index()`，速度会非常差，还容易把 queue worker 打满。我的做法是按 500~1000 笔切块，批次写入：
+
+```php
+<?php
+
+final class ProductIndexer
+{
+    public function __construct(private Client $client) {}
+
+    public function bulkIndex(iterable $products, string $index): void
+    {
+        $body = [];
+
+        foreach ($products as $product) {
+            $body[] = [
+                'index' => [
+                    '_index' => $index,
+                    '_id' => (string) $product->id,
+                ],
+            ];
+
+            $body[] = [
+                'id' => (string) $product->id,
+                'title' => $product->title,
+                'subtitle' => $product->subtitle,
+                'tags' => $product->tags,
+                'destination' => $product->destination_code,
+                'depart_city' => $product->depart_city_code,
+                'price' => (float) $product->price,
+                'sold_count' => (int) $product->sold_count,
+                'score' => (float) $product->review_score,
+                'is_active' => (bool) $product->is_active,
+            ];
+        }
+
+        $response = $this->client->bulk(['body' => $body])->asArray();
+
+        if (($response['errors'] ?? false) === true) {
+            throw new RuntimeException('bulk index contains failed items');
+        }
+    }
+}
+```
+
+这一步的重点不是“快一点”而已，而是**控制重建窗口**。如果 80 万商品要回填 3 小时，任何中途 schema 变更、同义词回滚都会拖垮发布节奏；如果能压到 20~30 分钟，索引治理才真正可操作。
+
+## 六、零停机重建索引的核心是 alias 切换
+
+只要 mapping 改了，就不要试图“在线修”。正确姿势是新建版本索引、回填、切别名：
+
+```bash
+curl -X POST http://localhost:9200/_aliases -H 'Content-Type: application/json' -d '
+{
+  "actions": [
+    {"remove": {"index": "products_v20260501", "alias": "products_read"}},
+    {"add":    {"index": "products_v20260503", "alias": "products_read"}},
+    {"remove": {"index": "products_v20260501", "alias": "products_write"}},
+    {"add":    {"index": "products_v20260503", "alias": "products_write"}}
+  ]
+}'
+```
+
+我通常会先全量回灌，再比对文档数、抽样搜索、检查热门关键词 Top20，确认没问题才切。切 alias 是秒级动作，真正耗时的是回填和验收，不是切换本身。
+
+## 七、踩坑记录：这三类问题最容易在生产上炸
+
+### 1. 同义词一改就想热更新
+很多团队把同义词文件一改就当配置发布，但 analyzer 往往不会自动对历史文档生效。**查询侧同义词**和**索引侧同义词**要分清，不然你以为修好了，实际老文档还是旧分词结果。
+
+### 2. 只看命中，不看误召回
+“上海”搜出“上海出发东京”可能是对的，但搜“迪士尼”把“日本乐园通票”全部打上来就不对。我们后来把 `title^5` 拉高，同时降低 `subtitle` 权重，误召回率才下来。
+
+### 3. 用 ES 当唯一真相源
+价格、库存、上下架状态最终还是 MySQL 为准。ES 适合查找，不适合承担交易真相。搜索命中后我仍会按 ID 回表做一次关键字段校验，避免脏索引直接卖货。
+
+## 八、一次真实事故：别名切了，但写流量还打到旧索引
+
+这个坑非常典型。我们有一次重建 `products_v20260420` 到 `products_v20260503`，只切了 `products_read`，忘了把后台写入用的 `products_write` 一起切走。结果线上表现很诡异：
+
+- 前台搜索短时间正常
+- 新上架商品搜不到
+- 后台看到同步任务成功，但 ES 文档数不增长
+
+最后排查发现，增量同步 Job 还在往旧索引写，新索引只吃到了全量回填，没有吃到增量变更。修复方式很简单，但教训很深：**读写 alias 要成对切换，并在切换后做一次增量抽样验证。**
+
+我后来把发布检查固定成下面这几步：
+
+```bash
+# 1. 检查 alias 指向
+curl http://localhost:9200/_cat/aliases?v
+
+# 2. 检查新旧索引文档数
+curl http://localhost:9200/_cat/indices/products_v20260503?v
+curl http://localhost:9200/_cat/indices/products_v20260420?v
+
+# 3. 选一笔刚更新的商品，确认写入新索引
+curl http://localhost:9200/products_v20260503/_doc/123456
+```
+
+这类问题最麻烦的地方在于，它不会像 500 错误那样马上报警，而是以“搜索结果逐步变旧”的方式慢慢出血。所以搜索系统的验收不能只有接口通不通，还要验证**新数据是否持续进入当前写索引**。
+
+## 九、我现在的上线清单
+
+- mapping 变更一定走新索引版本
+- 写链路统一 `afterCommit + Queue`
+- 读写 alias 分离
+- 热门关键词单独做回归样本
+- 搜索监控至少看 P95、0 结果率、点击率、Top miss keyword
+
+全文搜索优化做到后面，其实已经不是“会不会写 DSL”，而是你能不能把**索引演进、业务权重和数据一致性**同时管住。ES 很强，但真正让它稳定发挥价值的，永远是工程化细节。

@@ -1,0 +1,118 @@
+---
+title: 覆盖索引（Covering Index）
+tags: [MySQL, 性能优化]
+categories: Databases
+date: 2019-05-15 10:00:00
+description: 覆盖索引 = 查询所需字段全在二级索引里，不用回表查主键。本文讲清原理、EXPLAIN 怎么看 Using index、什么时候该故意建联合索引来"覆盖"查询。
+
+
+
+---
+# 一句话
+
+> **覆盖索引 = 一个 SELECT 需要的所有字段，都能从二级索引里直接拿到，不需要回表。** EXPLAIN 显示 `Using index` 就是覆盖了。
+
+# 一、为什么需要覆盖
+
+InnoDB 的二级索引存的是 **主键值**，不是数据行：
+
+```
+SELECT name FROM users WHERE age = 25;
+
+-- 走 idx_age 二级索引
+-- → 拿到主键 id 列表
+-- → 用 id 回到聚簇索引取整行 ← 这一步叫"回表"
+-- → 取出 name
+```
+
+**回表 = 一次随机 IO**。如果二级索引里直接就有 `name`，就省了这一步。
+
+# 二、用联合索引覆盖
+
+```sql
+-- ❌ 普通索引，需要回表
+ALTER TABLE users ADD INDEX idx_age (age);
+SELECT name FROM users WHERE age = 25;
+
+-- ✅ 覆盖索引，name 直接在索引里
+ALTER TABLE users ADD INDEX idx_age_name (age, name);
+SELECT name FROM users WHERE age = 25;
+-- EXPLAIN: Using index
+```
+
+# 三、EXPLAIN 怎么看
+
+```sql
+EXPLAIN SELECT name FROM users WHERE age = 25;
+```
+
+| Extra 字段 | 含义 |
+|---|---|
+| **Using index** | ✅ 覆盖索引，没回表 |
+| **Using where; Using index** | 用了索引过滤 + 覆盖 |
+| **Using index condition** | 索引下推（ICP），过滤了一部分但仍回表 |
+| 空 / `Using where` | ❌ 回表了 |
+
+# 四、典型应用场景
+
+## 1. 列表页只查少数字段
+
+```sql
+-- 商品列表只展示 id, title, price
+ALTER TABLE products ADD INDEX idx_cover (category_id, price, title);
+
+SELECT id, title, price FROM products
+WHERE category_id = 1 ORDER BY price LIMIT 20;
+-- Using index + Using filesort 避免（如果排序也命中索引）
+```
+
+## 2. COUNT 优化
+
+```sql
+-- ❌ COUNT(*) 在 InnoDB 要扫聚簇索引（数据行）
+-- ✅ COUNT(id) 走最小的二级索引就行
+SELECT COUNT(*) FROM users WHERE status = 1;
+-- 建 idx_status 后，MySQL 自动选最小的覆盖索引
+```
+
+## 3. 延迟关联（Late Join）
+
+```sql
+-- ❌ 直接 LIMIT 100000, 20，要回表 10w+ 次
+SELECT * FROM products ORDER BY price LIMIT 100000, 20;
+
+-- ✅ 先用覆盖索引拿到 20 个 id，再 join 回主表
+SELECT p.* FROM products p
+JOIN (
+    SELECT id FROM products ORDER BY price LIMIT 100000, 20
+) t ON p.id = t.id;
+```
+
+# 五、什么时候不该用
+
+| 场景 | 原因 |
+|---|---|
+| 查询字段太多 | 索引列太多 = 索引体积大 = 写入慢 + 内存挤占 |
+| 字段很大（TEXT/BLOB） | 不能放到索引 |
+| 表很小（< 1k 行） | 全表扫描比走索引还快 |
+| 写入远多于查询 | 多一个索引就多一份维护成本 |
+
+# 六、与索引下推（ICP）的关系
+
+| 特性 | 何时生效 | 效果 |
+|---|---|---|
+| **覆盖索引** | 所有 SELECT 字段都在索引里 | 完全不回表 |
+| **索引下推** | WHERE 含索引非前缀列 | 过滤后再回表，回表次数减少 |
+
+二者都是减少 IO，但**覆盖索引更彻底**。
+
+# 七、踩坑
+
+1. **`SELECT *` 几乎不可能覆盖** —— 想覆盖就别 *
+2. **加字段后突然变慢** —— 之前覆盖的查询现在要回表了
+3. **联合索引顺序** —— `(a, b, c)` 能覆盖 `SELECT b, c WHERE a=?`，但不能覆盖 `WHERE b=?`（违反最左前缀）
+
+# 参考
+
+- MySQL 文档 - Covering Index: <https://dev.mysql.com/doc/refman/8.0/en/explain-output.html#explain-extra-information>
+- 高性能 MySQL 第三版 第 5 章

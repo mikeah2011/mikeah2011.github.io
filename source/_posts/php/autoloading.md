@@ -1,0 +1,73 @@
+---
+title: PHP自动加载类机制
+tags: [PHP]
+categories: PHP
+date: 2019-03-20 15:05:07
+description: '自动加载 在 PHP 开发过程中，如果希望从外部引入一个 class，通常会使用 include 和 require 方法，去把定义这个 class 的文件包含进来； PHP5 提供了一个类的自动装载 (autoload) 机制。 auto…'
+
+
+
+---
+> 自动加载
+
+在 PHP 开发过程中，如果希望从外部引入一个 class，通常会使用 include 和 require 方法，去把定义这个 class 的文件包含进来；
+
+PHP5 提供了一个类的自动装载 (autoload) 机制。
+
+autoload 机制可以使得 PHP 程序有可能在使用类时才自动包含类文件，
+
+而不是一开始就将所有的类文件 include 进来，这种机制也称为 lazy loading。
+
+
+
+```php
+function __autoload($className) {
+  echo '__autload class:', $className, '<br />';
+}
+```
+
+
+
+
+
+```php
+function __autoload($className) {
+  require_once($className . "class.php"); 
+}
+```
+
+
+
+autoload 至少要做三件事情：
+
+1. 根据类名确定类文件名；
+
+2. 确定类文件所在的磁盘路径
+
+    在我们的例子是最简单的情况，类与调用它们的 PHP 程序文件在同一个文件夹下；
+
+3. 将类从磁盘文件中加载到系统中。
+
+
+
+优点：
+
+1. 使用类之前无需 include 或者 require。
+2. 使用类的时候才会 require/include 文件，实现了 lazy loading，避免了 require/include 多余文件。
+3. 无需考虑引入类的实际磁盘地址，实现了逻辑和实体文件的分离。
+
+
+
+SPL Autoload 具体有几个函数：
+
+`spl_autoload_register`：注册 _autoload () 函数
+
+`spl_autoload_unregister`：注销已注册的函数
+
+`spl_autoload_functions`：返回所有已注册的函数
+
+`spl_autoload_call`：尝试所有已注册的函数来加载类
+
+`spl_autoload` ：_autoload () 的默认实现
+
+`spl_autoload_extionsions`： 注册并返回 spl_autoload 函数使用的默认文件扩展名。

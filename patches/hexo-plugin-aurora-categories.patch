@@ -1,0 +1,11 @@
+--- a/node_modules/hexo-plugin-aurora/lib/generators/index.js
++++ b/node_modules/hexo-plugin-aurora/lib/generators/index.js
+@@ -23,7 +23,7 @@
+ 
+ module.exports = function (hexo) {
+   let apiData = [];
+-  const defaultPages = ['Tags', 'Archives', 'Links'];
++  const defaultPages = ['Tags', 'Archives', 'Links', 'Categories'];
+ 
+   // Remove hexo default generators
+   ['page', 'archive', 'category', 'tag', 'links'].forEach(

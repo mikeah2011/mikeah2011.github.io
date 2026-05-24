@@ -1,0 +1,235 @@
+---
+title: PHP代码洁癖心得
+tags: [性能优化]
+categories: PHP
+date: 2019-10-06 15:06:38
+feature: true
+cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/5ea38ff8793f7854-20221006153725317.jpg
+description: '`if`的使用洁癖 1. 给定初始值 2. 简单的判断使用`&&`代替 3. 三元运算符 4. 简化三元运算符`?:`或`??` 5. 去掉多此一举的 6. 对同一对象，含有多层逻辑，使用`switch`代替`elseif` 7. 表驱动法…'
+
+
+
+---
+![img](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/5ea38ff8793f7854-20221006153725317.jpg)
+
+
+
+>   `if`的使用洁癖
+
+1.   给定初始值
+
+     ```php
+     if ($orderStatus == 1) {
+         $orderDesc = '已支付';
+     # 其他的elseif ...
+     } else {
+         $orderDesc = '未支付';
+     }
+     
+     // 优化后
+     $orderDesc = '未支付';
+     if ($orderStatus == 1) {
+         $orderDesc = '已支付';
+     }
+     ```
+
+     
+
+2.   简单的判断使用`&&`代替
+
+     ```php
+     if (strlen($newPwd) < 6) {
+         $message = '密码长度不足！';
+     }
+     
+     // 优化后
+     strlen($newPwd) < 6 && $message = '密码长度不足！';
+     ```
+
+     
+
+3.   三元运算符
+
+     ```php
+     if (empty($_POST['action'])) {
+         $action = 'default';
+     } else {
+         $action = $_POST['action'];
+     }
+     
+     // 优化后
+     $action = empty($_POST['action']) ? 'default' : $_POST['action'];
+     ```
+
+     
+
+4.   简化三元运算符`?:`或`??`
+
+     ```php
+     $action = empty($_POST['action']) ? 'default' : $_POST['action'];
+     
+     // 简写后
+     $action = $_POST['action'] ?: 'default'; # 可保证$_POST下存在action
+     # 或
+     $action = $_POST['action'] ?? 'default';
+     ```
+
+     
+
+5.   去掉多此一举的
+
+     ```php
+     /**
+      * 
+      * @desc 是否为闰年
+      * 
+      * @params int $year 年份
+      *
+      * @return bool
+      */
+     function isLeapYear(int $year):bool
+     {
+         if (($year % 4 == 0 && 100 !=0) || ($year % 400 == 0)) {
+             return true;
+         } else {
+             return false;
+         }
+     }
+     
+     //优化后
+     function isLeapYear(int $year):bool
+     {
+         return ($year % 4 == 0 && 100 !=0) || ($year % 400 == 0);
+     }
+     ```
+
+     
+
+6.   对同一对象，含有多层逻辑，使用`switch`代替`elseif`
+
+     ```php
+     if ('玄幻' == $sortname) {
+         $sort = 1;
+     } else if ('武侠' == $sortname) {
+         $sort = 2;
+     } else if ('言情' == $sortname) {
+         $sort = 3;
+     } else if ('其他' == $sortname) {
+         $sort = 10;
+     }
+     
+     //优化后
+     switch ($sortname) {
+         case '玄幻':
+             $sort = 1;
+             break;
+         case '武侠':
+             $sort = 2;
+             break;
+         case '言情':
+             $sort = 3;
+             break;
+         case '其他':
+             $sort = 10;
+             break;
+     }
+     ```
+
+     
+
+7.   表驱动法
+
+     ```php
+     // 对上述逻辑修改，也可以声明数组选项，如遇复杂逻辑处理，也可以使用匿名函数
+     $sortTable = [
+         '玄幻' => 1,
+         '武侠' => 2,
+         '言情' => 3,
+         '其他' => function ($name) {},
+     ];
+     
+     $sortId = $sortTable[$sortname]($name) ?? 10;
+     ```
+
+     
+
+>   循环语句
+
+1.   `while(true)`标识无限死循环，别用`for`；
+2.   特定情况下，如发邮件、采集内容时，要加延时`sleep`；
+3.   循环体内，尽可能的避免调用复杂逻辑的函数或更多资源的调用；
+4.   `foreach`代替`while`和`for`循环；
+5.   避免空循环；
+6.   只做一件事，尽可能短，控制在 `line ≤ 50`；
+7.   循环嵌套限制在3层以内；
+8.   循环条件内不做运算；
+
+
+
+>   函数体
+
+1.   函数的最佳最大长度是 `50 ≤ line ≤ 150`；
+2.   函数形参最多不超过 7 个；
+3.   短小函数更容易理解，也方便修改/维护；
+4.   只做一件事的函数，更易于复用；
+5.   短小函数测试更方便；
+
+
+
+>   其他
+
+1.   避免使用幻数`magic numbers`；
+
+     ```php+HTML
+     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+     
+     //优化后
+     define('APP_CHARSET', 'UTF-8');
+     <meta http-equiv="Content-Type" content="text/html;charset={APP_CHARSET}" />
+     ```
+
+     [幻数浅析（Magic Number）](http://blog.csdn.net/yinshitaoyuan/article/details/51233157)
+
+     将一些比较难理解的东西，定义的常量（类中），这样代码可读性高
+
+
+
+2.   中间结果赋值给变量；
+
+     ```php
+     $str     = 'this_is_a_test';
+     $humpstr = implode('', array_map('ucfirst', explode('_', $str)));
+     
+     // 优化后
+     $str     = 'this_is_a_test';
+     $words   = explode('_', $str);
+     $uWords  = array_map('ucfirst', $words);
+     $humpstr = implode('', $uWords);
+     ```
+
+     
+
+3.   复杂的逻辑表达式做成布尔函数；
+
+     ```php
+     if (!$hasone && $ddisfirst = 1 && $litpic == '' && empty($litpicname)) {
+         $litpcname = GetImageMapDD($iurl, $cfg_ddimg_width);;
+     }
+     
+     // 优化后
+     $emptyPic = ($litpic == '' && empty($litpicname));
+     $validFirstPic = (!$hasone && $ddisfirst);
+     if ($validFirstPic && $emptyPic) {
+         $litpcname = GetImageMapDD($iurl, $cfg_ddimg_width);;
+     }
+     ```
+
+     
+
+4.   永远不要CV雷同的代码；
+
+     相同的代码放一起让以后修改更轻松
+
+     可以让全局的统计和过滤器等实现方便
+
+     可复用的带参函数是解决雷同代码的好办法

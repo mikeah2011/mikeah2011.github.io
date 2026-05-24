@@ -1,0 +1,50 @@
+---
+title: 创建索引
+tags: [MySQL]
+categories: Databases
+date: 2016-10-03 20:15:24
+description: '1. 在执行CREATE TABLE时创建索引 2. 使用ALTER TABLE命令去增加索引。 ALTER TABLE用来创建普通索引、UNIQUE索引或PRIMARY KEY索引。 其中table_name是要增加索引的表名，colum…'
+
+
+
+---
+1. 在执行CREATE TABLE时创建索引
+
+```sql
+CREATE TABLE user_index2 (
+ id INT auto_increment PRIMARY KEY,
+ first_name VARCHAR (16),
+ last_name VARCHAR (16),
+ id_card VARCHAR (18),
+ information text,
+ KEY name (first_name, last_name),
+ FULLTEXT KEY (information),
+ UNIQUE KEY (id_card)
+);
+```
+
+2. 使用ALTER TABLE命令去增加索引。
+
+```sql
+ALTER TABLE table_name ADD INDEX index_name (column_list);
+```
+
+ALTER TABLE用来创建普通索引、UNIQUE索引或PRIMARY KEY索引。
+
+其中table_name是要增加索引的表名，column_list指出对哪些列进行索引，多列时各列之间用逗号分隔。
+
+索引名index_name可自己命名，缺省时，MySQL将根据第一个索引列赋一个名称。另外，ALTER TABLE允许在单个语句中更改多个表，因此可以在同时创建多个索引。
+
+3. 使用CREATE INDEX命令创建。
+
+```sql
+CREATE INDEX index_name ON table_name (column_list);
+```
+
+
+
+> 注意点
+
+- 非空字段：应该指定列为NOT NULL，除非你想存储NULL。在mysql中，含有空值的列很难进行查询优化，因为它们使得索引、索引的统计信息以及比较运算更加复杂。你应该用0、一个特殊的值或者一个空串代替空值；
+- 取值离散大的字段：（变量各个取值之间的差异程度）的列放到联合索引的前面，可以通过count()函数查看字段的差异值，返回值越大说明字段的唯一值越多字段的离散程度高；
+- 索引字段越小越好：数据库的数据存储以页为单位一页存储的数据越多一次IO操作获取的数据越大效率越高。

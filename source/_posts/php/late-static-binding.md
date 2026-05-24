@@ -1,0 +1,88 @@
+---
+title: 后期静态变量绑定
+tags: [PHP]
+categories: PHP
+date: 2019-03-20 15:05:07
+description: "PHP 5.3 引入的后期静态绑定（Late Static Binding）原理与 self::、static:: 区别详解，结合继承场景示例。"
+
+
+
+---
+# 一句话
+
+`self::` 在「定义时」就锁死指向当前类，`static::` 在「运行时」根据实际调用的类决定，这就是 **后期静态绑定（Late Static Binding，LSB）**，PHP 5.3 引入。
+
+# 问题：self:: 的"早绑定"
+
+```php
+class A {
+    public static function create() {
+        return new self();   // ← 永远是 A
+    }
+}
+class B extends A {}
+
+var_dump(B::create());   // object(A)  ❌ 不是 B
+```
+
+`self` 在编译期就被解析为定义它的类 `A`，子类继承后行为不会改变——这通常不是我们想要的。
+
+# 解决：static:: 的"后期绑定"
+
+```php
+class A {
+    public static function create() {
+        return new static();  // ← 调用谁就是谁
+    }
+}
+class B extends A {}
+
+var_dump(B::create());   // object(B)  ✅
+var_dump(A::create());   // object(A)
+```
+
+`static` 关键字在**运行时**才决定指向，谁调用就指向谁，这就是"后期"绑定的含义。
+
+# 三者对比
+
+| 关键字     | 解析时机 | 指向                   |
+| ---------- | -------- | ---------------------- |
+| `self::`   | 编译期   | 当前定义所在的类       |
+| `parent::` | 编译期   | 父类                   |
+| `static::` | 运行期   | 实际被调用的那个子类   |
+
+# 典型应用场景
+
+**1. 工厂方法 / 单例**
+
+```php
+abstract class Model {
+    public static function find($id) {
+        $instance = new static();   // 子类各自实例
+        return $instance->load($id);
+    }
+}
+class User extends Model {}
+User::find(1);   // 返回 User 实例
+```
+
+**2. 模板方法配合常量**
+
+```php
+class Base {
+    const TABLE = 'base';
+    public static function table() {
+        return static::TABLE;   // 而不是 self::TABLE
+    }
+}
+class Order extends Base {
+    const TABLE = 'orders';
+}
+echo Order::table();   // orders ✅
+```
+
+# 小结
+
+- 写库/抽象类，几乎都该用 `static::`，给子类留扩展空间
+- 写"绝不允许子类覆盖"的内部细节，才用 `self::`
+- 这是 PHP OOP 里**最容易被忽略却最常踩坑**的特性之一

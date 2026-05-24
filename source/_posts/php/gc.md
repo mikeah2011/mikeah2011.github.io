@@ -1,0 +1,120 @@
+---
+title: PHP 垃圾回收机制（GC）
+tags: [PHP, 性能优化]
+categories: PHP
+date: 2021-04-10 10:00:00
+description: PHP 垃圾回收 = 引用计数 + 循环引用收集器。本文讲清 refcount 怎么涨怎么减、5.3 引入的循环引用算法怎么跑、什么时候手动 gc_collect_cycles，配合实际内存泄漏排查思路。
+
+
+
+---
+# 一句话
+
+> **PHP GC = 引用计数为主 + 循环引用收集器为辅。** 引用计数归零立刻释放，解决不了的循环引用由后台收集器周期清理。
+
+# 一、引用计数（refcount）
+
+PHP 的每个变量底层是 `zval`，里面有 `refcount` 和 `is_ref` 两个字段。
+
+```php
+$a = 'hello';   // refcount = 1
+$b = $a;        // refcount = 2 （写时复制，COW）
+unset($a);      // refcount = 1
+unset($b);      // refcount = 0 → 立即释放
+```
+
+用 `xdebug_debug_zval()` 或 `debug_zval_refcount()` 可以看到 refcount。
+
+> 注意：PHP 7+ 的 zval 实现有重大改动（zval 嵌入栈、引用单独 zend_reference），但**算法语义没变**。
+
+# 二、引用计数解决不了的：循环引用
+
+```php
+class Node {
+    public $next;
+}
+$a = new Node();
+$b = new Node();
+$a->next = $b;   // b refcount=2
+$b->next = $a;   // a refcount=2
+
+unset($a);       // a refcount=1（b 还指着它）
+unset($b);       // b refcount=1（a 还指着它）
+// 谁也不为 0，但外部已经访问不到 → 内存泄漏
+```
+
+PHP 5.3 引入 **循环引用收集器（Cycle Collector）**，定期扫描这些"孤岛"。
+
+# 三、循环收集算法（同步 GC）
+
+整套算法基于 IBM 的论文 *"Concurrent Cycle Collection in Reference Counted Systems"*：
+
+1. **Roots Buffer**：每次 refcount 减少但 ≠ 0 的 zval，被加入"可疑列表"
+2. 列表满了（默认 10000 个）触发：
+   - **Mark**：从可疑根出发，遍历能到达的所有 zval，refcount 全部 -1
+   - **Scan**：再遍历一次，refcount > 0 的还原（说明是外部引用）
+   - **Collect**：refcount = 0 的真正释放
+
+```ini
+; php.ini
+zend.enable_gc = On  ; 默认开
+```
+
+# 四、手动控制
+
+```php
+gc_enabled();          // GC 是否开启
+gc_enable();           // 开
+gc_disable();          // 关
+gc_collect_cycles();   // 手动触发收集，返回回收数量
+gc_status();           // PHP 7.3+ 看 GC 统计
+```
+
+## 何时手动调？
+
+- **CLI 长任务**（队列消费者、daemon）：每 N 个任务调一次，避免缓冲区慢慢撑爆
+- **内存敏感的循环**：处理大数组后立刻 `unset()` + `gc_collect_cycles()`
+- **Swoole / Workerman**：常驻进程必须关注 GC
+
+# 五、内存泄漏排查思路
+
+```php
+// 1. 看当前内存
+echo memory_get_usage(true);   // 实际向 OS 申请的
+echo memory_get_peak_usage(true);
+
+// 2. 在循环里打点
+foreach ($items as $i => $item) {
+    process($item);
+    if ($i % 1000 === 0) {
+        echo "i=$i mem=" . memory_get_usage(true) . PHP_EOL;
+    }
+}
+
+// 3. 配合 gc_status 看回收次数
+print_r(gc_status());
+```
+
+**典型泄漏源**：
+
+| 场景 | 现象 | 修复 |
+|---|---|---|
+| 单例里挂 listener，listener 反向引用单例 | 长跑后 OOM | 用 `WeakMap`（PHP 8+）或显式 `unset` |
+| 全局数组缓存无上限 | 内存稳步上涨 | LRU + 限容 |
+| ORM 里 entity 互相 hasMany | 批量处理后没释放 | 处理完一批 detach |
+| `static` 局部变量累积 | 每次调用都涨 | 改成实例属性或外部缓存 |
+
+# 六、PHP 8 新特性：WeakMap
+
+```php
+$cache = new WeakMap();
+$obj = new SomeBigObject();
+$cache[$obj] = '元数据';   // $obj 被 unset 后，$cache 里的条目自动消失
+```
+
+专门为缓存/装饰器场景设计，**不影响目标对象的引用计数**。
+
+# 参考
+
+- PHP 手册 - GC: <https://www.php.net/manual/zh/features.gc.php>
+- *Concurrent Cycle Collection in Reference Counted Systems*: <https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf>
