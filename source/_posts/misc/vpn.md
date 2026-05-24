@@ -1,10 +1,12 @@
 ---
-
-## title: VPN & 机场笔记
-date: 2022-06-03 10:00:00
+feature: true
+cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg
+title: VPN & 机场笔记
+date: 2026-05-25 10:00:00
 categories: Misc
 tags: [macOS, VPN, Proxy]
 description: '科学上网工具与机场订阅汇总'
+---
 
 > 数据来源：[GitHub - DiningFactory/panda-vpn-pro](https://github.com/DiningFactory/panda-vpn-pro) (10k+ ★)
 >

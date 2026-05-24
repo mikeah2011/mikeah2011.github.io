@@ -1,6 +1,8 @@
 ---
+feature: true
+cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/docker-containers.jpg
 title: Colima vs Lima vs Docker Desktop：macOS 容器运行时选型对比实战
-date: 2026-05-17 08:10:19
+date: 2026-05-22 10:00:00
 updated: 2026-05-17 08:14:15
 categories:
   - DevOps

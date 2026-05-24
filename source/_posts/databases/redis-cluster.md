@@ -5,7 +5,6 @@ categories:
   - Databases
   - Redis
 date: 2020-07-25 20:55:57
-feature: true
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/image-20221004222258747.png
 description: 'Redis Cluster hash(key) % 16384 = slot 哈希槽 = hash(key) & 2^n^ slot - hash槽分布范围[0-5460] 、 [5461-10922]、[10923-16383] | 序号…'
 
