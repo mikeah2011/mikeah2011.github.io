@@ -2,6 +2,7 @@
  * Postinstall patch: fix hexo-plugin-aurora issues.
  * 1. Add 'Categories' to defaultPages (fixes /categories 404)
  * 2. Change featureCapacity from 3 to 5 (more featured posts)
+ * 3. Strip directory prefix from slug (fixes %2F encoding in URLs)
  */
 const fs = require('fs');
 const path = require('path');
@@ -26,5 +27,30 @@ if (fs.existsSync(postFile)) {
     content = content.replace('featureCapacity = 3;', 'featureCapacity = 5;');
     fs.writeFileSync(postFile, content, 'utf8');
     console.log('Patched: featureCapacity 3 → 5');
+  }
+}
+
+// Patch 3: Strip directory prefix from slug (fix %2F in URLs)
+const mapperFile = path.join(__dirname, 'node_modules/hexo-plugin-aurora/lib/helpers/mapper.js');
+if (fs.existsSync(mapperFile)) {
+  let content = fs.readFileSync(mapperFile, 'utf8');
+  const oldCode = `  const pathSlug =
+    configs.theme_config.site.pathSlug !== undefined
+      ? configs.theme_config.site.pathSlug === 'uid'
+        ? uid
+        : post.slug
+      : post.slug;`;
+  const newCode = `  const rawSlug = post.slug || '';
+  const flatSlug = rawSlug.includes('/') ? rawSlug.split('/').pop() : rawSlug;
+  const pathSlug =
+    configs.theme_config.site.pathSlug !== undefined
+      ? configs.theme_config.site.pathSlug === 'uid'
+        ? uid
+        : flatSlug
+      : flatSlug;`;
+  if (content.includes(oldCode)) {
+    content = content.replace(oldCode, newCode);
+    fs.writeFileSync(mapperFile, content, 'utf8');
+    console.log('Patched: stripped directory prefix from slug in mapper');
   }
 }

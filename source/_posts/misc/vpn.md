@@ -1,12 +1,12 @@
 ---
-
-## feature: true
-cover: [https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg)
+feature: true
+cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg
 title: VPN & 机场笔记
 date: 2026-05-25 10:00:00
 categories: Misc
 tags: [macOS, VPN, Proxy]
-description: '科学上网工具与机场订阅汇总'
+description: 科学上网工具与机场订阅汇总
+---
 
 > 数据来源：[GitHub - mikeah2011/panda-vpn-pro](https://github.com/mikeah2011/panda-vpn-pro)（fork 自 [DiningFactory/panda-vpn-pro](https://github.com/DiningFactory/panda-vpn-pro)，upstream 10k+ ★）
 >
@@ -20,6 +20,16 @@ description: '科学上网工具与机场订阅汇总'
 | [魔戒](https://mojie.cyou/#/register?code=JpioTJTy)                       | 不限时 | ¥19.9  | 130GB | 不限时 | ✅ 在用 |
 | [赔钱机场](https://xn--mes358aby2apfg.com/register?code=sH45wJ14&cover=sfw) | 不限时 | ¥18.90 | 1TB   | 不限时 | ✅ 在用 |
 | [一分机场](https://xn--4gqx1hgtfdmt.com/#/register?code=L0GnsJbK)           | 不限时 | ¥11.88 | 100GB | 不限时 | ✅ 在用 |
+
+
+## 可试用机场（先体验再决定）
+
+
+| 机场 | 类型 | 试用内容 | 月付 | 不限时套餐 | 备注 |
+| --- | --- | --- | --- | --- | --- |
+| [iNetS](https://inets.io/#/register?code=51JJlDFB) | 直连+ | 1天试用 | ¥6 / 50GB | - | 适合测试 |
+| [兔兔云](https://www.tutuyun.uk/auth/register?code=*** | 中转 | 12小时试用 | ¥11.88 / 140GB | ¥18 / 60GB | 时间短，快速体验 |
+| [FlyBit](https://flybit.vip/#/register?code=munD7XGx) `*A` | 中转 | 2GB 流量 | ¥15 / 128GB | ¥36 / 128GB | 按量试用 |
 
 
 ## 低价机场推荐（2025-2026，按性价比排序）
@@ -85,17 +95,15 @@ description: '科学上网工具与机场订阅汇总'
 > 注：以下机场信息整理于 2022 年，部分可能已过期或跑路，请以实际为准。
 
 
-| 序号  | 机场                                                                     | 基础价    | 流量     | 时长  | 推荐         |
-| --- | ---------------------------------------------------------------------- | ------ | ------ | --- | ---------- |
-| 1   | [QuickQ](https://www.quickq.io/apps?code=***)                          | $15    | -      | 30天 | ⭐️         |
-| 2   | [Veee](https://veee401.vip/register)                                   | $12.99 | -      | 90天 | ⭐️         |
-| 3   | [追風島](https://zfd.ink/auth/register?code=***)                          | ¥19    | 1000GB | 30天 | ⭐️⭐️       |
-| 4   | [CGRAY](https://portal.cgray.net/#/auth/register?code=MNs0IMkE&intro=) | ¥16    | 80GB   | 30天 | ⭐️⭐️       |
-| 5   | [AgentNEO](https://agneo.co/?rc=w5d9uyle)                              | ¥18    | 20GB   | 30天 | ⭐️⭐️       |
-| 6   | [RABBITPRO](https://rabbitpro.net/)                                    | ¥29    | 200GB  | 30天 | ⭐️⭐️       |
-| 7   | [Conyss](https://conyss.com/#/register?code=93OpmlRN)                  | ¥30    | 20GB   | 30天 | ⭐️⭐️       |
-| 8   | [超跑](https://paoche.info/#/register?code=7xRwd9ZX)                     | ¥9.9   | 30GB   | 30天 | ⭐️⭐️⭐️     |
-| 9   | [Hutao](https://hutao.cloud/auth/register?code=***)                    | ¥9     | 50GB   | 31天 | ⭐️⭐️⭐️     |
-| 10  | [魔戒](https://mojie.cyou/#/register?code=JpioTJTy)                      | ¥1     | 1GB    | 不限时 | ⭐️⭐️⭐️⭐️⭐️ |
-
-
+| 机场 | 类型 | 月付 | 流量 | 时长 | 备注 |
+| --- | --- | --- | --- | --- | --- |
+| [QuickQ](https://www.quickq.io/apps?code=***) | 中转 | $15 | - | 30天 | ⭐️ |
+| [Veee](https://veee401.vip/register) | 中转 | $12.99 | - | 90天 | ⭐️ |
+| [追風島](https://zfd.ink/auth/register?code=***) | 中转 | ¥19 | 1000GB | 30天 | ⭐️⭐️ |
+| [CGRAY](https://portal.cgray.net/#/auth/register?code=MNs0IMkE&intro=) | 中转 | ¥16 | 80GB | 30天 | ⭐️⭐️ |
+| [AgentNEO](https://agneo.co/?rc=w5d9uyle) | 中转 | ¥18 | 20GB | 30天 | ⭐️⭐️ |
+| [RABBITPRO](https://rabbitpro.net/) | 中转 | ¥29 | 200GB | 30天 | ⭐️⭐️ |
+| [Conyss](https://conyss.com/#/register?code=93OpmlRN) | 中转 | ¥30 | 20GB | 30天 | ⭐️⭐️ |
+| [超跑](https://paoche.info/#/register?code=7xRwd9ZX) | 中转 | ¥9.9 | 30GB | 30天 | ⭐️⭐️⭐️ |
+| [Hutao](https://hutao.cloud/auth/register?code=***) | 中转 | ¥9 | 50GB | 31天 | ⭐️⭐️⭐️ |
+| [魔戒](https://mojie.cyou/#/register?code=JpioTJTy) | - | ¥1 | 1GB | 不限时 | ⭐️⭐️⭐️⭐️⭐️ |
