@@ -43,6 +43,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Patch Aurora theme
+        run: node scripts/postinstall-patch-aurora.js
+
       - name: Build
         run: npm run build
 
