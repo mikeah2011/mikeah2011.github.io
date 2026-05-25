@@ -28,7 +28,6 @@ description: 科学上网工具与机场订阅汇总
 | 机场 | 类型 | 试用内容 | 月付 | 不限时套餐 | 备注 |
 | --- | --- | --- | --- | --- | --- |
 | [iNetS](https://inets.io/#/register?code=51JJlDFB) | 直连+ | 1天试用 | ¥6 / 50GB | - | 适合测试 |
-| [兔兔云](https://www.tutuyun.uk/auth/register?code=***) | 中转 | 12小时试用 | ¥11.88 / 140GB | ¥18 / 60GB | 时间短，快速体验 |
 | [FlyBit](https://flybit.vip/#/register?code=munD7XGx) `*A` | 中转 | 2GB 流量 | ¥15 / 128GB | ¥36 / 128GB | 按量试用 |
 
 
@@ -54,7 +53,7 @@ description: 科学上网工具与机场订阅汇总
 | [次元雲](https://ciyy.one/#/register?code=tsL8Me6h) `A`           | 中转  | ¥10 / 128GB    | ¥99 / 520GB | 1       | 9折码 `ciyy-999`，8折码 `ciyy-80` |
 | [壹速云](https://www.onesy1.cc/auth/register?code=***)            | 中转  | ¥10.90 / 150GB | ¥188 / 1TB  | 1       | 老牌，限新注册                      |
 | [Doriya](https://rtx.al/#/register?code=hAlv337j) `A`          | 中转  | ¥8 / 100GB     | -           | 1       | -                            |
-| [兔兔云](https://www.tutuyun.uk/auth/register?code=***)           | 中转  | ¥11.88 / 140GB | ¥18 / 60GB  | 1       | 12小时试用                       |
+| [兔兔云](https://www.tutuyun.uk/auth/register?code=HAkrPBbs)      | 中转  | ¥11.88 / 140GB | ¥18 / 60GB  | 1       | -                            |
 | [NyanSS](https://billing.nyanss001.top/register?code=***)      | 中转  | ¥7.50 / 50GB   | ¥25 / 100GB | 1       | -                            |
 | [ofoNET](https://ofotw.org/#/register?code=q3kx6Xt9) `A`       | 中转  | ¥12.87 / 200GB | -           | 1       | -                            |
 | [M78星云](https://m78star.cloud/#/register?code=7IWr2dOP) `A` 🔒 | 中转  | ¥12.80 / 150GB | ¥99 / 300GB | 1       | 需客户端                         |
