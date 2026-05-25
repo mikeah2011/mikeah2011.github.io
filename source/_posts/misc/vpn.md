@@ -1,12 +1,12 @@
 ---
-feature: true
-cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg
+
+## feature: true
+cover: [https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg)
 title: VPN & 机场笔记
 date: 2026-05-25 10:00:00
 categories: Misc
 tags: [macOS, VPN, Proxy]
 description: '科学上网工具与机场订阅汇总'
----
 
 > 数据来源：[GitHub - mikeah2011/panda-vpn-pro](https://github.com/mikeah2011/panda-vpn-pro)（fork 自 [DiningFactory/panda-vpn-pro](https://github.com/DiningFactory/panda-vpn-pro)，upstream 10k+ ★）
 >
@@ -15,11 +15,11 @@ description: '科学上网工具与机场订阅汇总'
 ## 我的订阅
 
 
-| 机场                                                | 套餐  | 价格    | 流量    | 时长  | 状态   |
-| ------------------------------------------------- | --- | ----- | ----- | --- | ---- |
-| [魔戒](https://mojie.cyou/#/register?code=JpioTJTy) | 不限时 | ¥19.9 | 130GB | 不限时 | ✅ 在用 |
-| [赔钱机场](https://xn--mes358aby2apfg.com/register?code=sH45wJ14&cover=sfw) | 不限时 | ¥18.90 | 1TB | 不限时 | ✅ 在用 |
-| [一分机场](https://xn--4gqx1hgtfdmt.com/#/register?code=L0GnsJbK) | 不限时 | ¥11.88 | 100GB | 不限时 | ✅ 在用 |
+| 机场                                                                      | 套餐  | 价格     | 流量    | 时长  | 状态   |
+| ----------------------------------------------------------------------- | --- | ------ | ----- | --- | ---- |
+| [魔戒](https://mojie.cyou/#/register?code=JpioTJTy)                       | 不限时 | ¥19.9  | 130GB | 不限时 | ✅ 在用 |
+| [赔钱机场](https://xn--mes358aby2apfg.com/register?code=sH45wJ14&cover=sfw) | 不限时 | ¥18.90 | 1TB   | 不限时 | ✅ 在用 |
+| [一分机场](https://xn--4gqx1hgtfdmt.com/#/register?code=L0GnsJbK)           | 不限时 | ¥11.88 | 100GB | 不限时 | ✅ 在用 |
 
 
 ## 低价机场推荐（2025-2026，按性价比排序）
@@ -31,8 +31,8 @@ description: '科学上网工具与机场订阅汇总'
 | ----------------------------------------------------------------------- | --- | ------------ | -------------- | -------- | ---------------- |
 | [赔钱机场](https://xn--mes358aby2apfg.com/register?code=sH45wJ14&cover=sfw) | 直连  | ¥1.5 / 100GB | ¥18.90 / 1TB   | 0.01 & 1 | 极低价，不限时1TB才18.9元 |
 | [一分机场](https://xn--4gqx1hgtfdmt.com/#/register?code=L0GnsJbK)           | 直连  | ¥2 / 100GB   | ¥11.88 / 100GB | 0.1 & 1  | 最便宜月付            |
-| [良心云](https://xn--9kqz23b19z.com/#/register?code=61Ysg3dm)              | 直连  | ¥2 / 100GB   | ¥21 / 1TB      | 1        | 性价比高             |
-| [iNetS](https://inets.io/#/register?code=YVUGJDrv)                      | 直连+ | ¥6 / 50GB    | -              | 0.2 & 1  | 有7天试用            |
+| [良心云](https://xn--9kqz23b19z.com/#/register?code=9xzIEsj3)              | 直连  | ¥2 / 100GB   | ¥21 / 1TB      | 1        | 性价比高             |
+| [iNetS](https://inets.io/#/register?code=51JJlDFB)                      | 直连+ | ¥7.5 / 50GB  | -              | 0.2 & 1  | 有1天试用            |
 
 
 ### 中转机场（体验更好、速度更稳）
