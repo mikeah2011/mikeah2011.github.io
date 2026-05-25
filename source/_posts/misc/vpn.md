@@ -28,7 +28,7 @@ description: 科学上网工具与机场订阅汇总
 | 机场 | 类型 | 试用内容 | 月付 | 不限时套餐 | 备注 |
 | --- | --- | --- | --- | --- | --- |
 | [iNetS](https://inets.io/#/register?code=51JJlDFB) | 直连+ | 1天试用 | ¥6 / 50GB | - | 适合测试 |
-| [兔兔云](https://www.tutuyun.uk/auth/register?code=*** | 中转 | 12小时试用 | ¥11.88 / 140GB | ¥18 / 60GB | 时间短，快速体验 |
+| [兔兔云](https://www.tutuyun.uk/auth/register?code=***) | 中转 | 12小时试用 | ¥11.88 / 140GB | ¥18 / 60GB | 时间短，快速体验 |
 | [FlyBit](https://flybit.vip/#/register?code=munD7XGx) `*A` | 中转 | 2GB 流量 | ¥15 / 128GB | ¥36 / 128GB | 按量试用 |
 
 
