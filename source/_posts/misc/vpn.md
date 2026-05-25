@@ -8,7 +8,7 @@ tags: [macOS, VPN, Proxy]
 description: '科学上网工具与机场订阅汇总'
 ---
 
-> 数据来源：[GitHub - DiningFactory/panda-vpn-pro](https://github.com/DiningFactory/panda-vpn-pro) (10k+ ★)
+> 数据来源：[GitHub - mikeah2011/panda-vpn-pro](https://github.com/mikeah2011/panda-vpn-pro)（fork 自 [DiningFactory/panda-vpn-pro](https://github.com/DiningFactory/panda-vpn-pro)，upstream 10k+ ★）
 >
 > ⚠️ 永远不要年付！月付或不限时小包最安全。
 
