@@ -1,8 +1,7 @@
 /**
  * Postinstall patch: fix hexo-plugin-aurora issues.
  * 1. Add 'Categories' to defaultPages (fixes /categories 404)
- * 2. Change featureCapacity from 3 to 5 (more featured posts)
- * 3. Strip directory prefix from slug (fixes %2F encoding in URLs)
+ * 2. Strip directory prefix from slug (fixes %2F encoding in URLs)
  */
 const fs = require('fs');
 const path = require('path');
@@ -24,20 +23,7 @@ if (fs.existsSync(indexFile)) {
   }
 }
 
-// Patch 2: featureCapacity 3 → 5
-const postFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/generators/post.js');
-if (fs.existsSync(postFile)) {
-  let content = fs.readFileSync(postFile, 'utf8');
-  if (content.includes('featureCapacity = 3;')) {
-    content = content.replace('featureCapacity = 3;', 'featureCapacity = 5;');
-    fs.writeFileSync(postFile, content, 'utf8');
-    console.log('Patched: featureCapacity 3 → 5');
-  } else {
-    console.log('Skip Patch 2: already patched');
-  }
-}
-
-// Patch 3: Strip directory prefix from slug (fix %2F in URLs)
+// Patch 2: Strip directory prefix from slug (fix %2F in URLs)
 const mapperFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/helpers/mapper.js');
 if (fs.existsSync(mapperFile)) {
   let content = fs.readFileSync(mapperFile, 'utf8');
