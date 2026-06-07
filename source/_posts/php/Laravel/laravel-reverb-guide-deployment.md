@@ -1,11 +1,12 @@
 ---
 title: Laravel Reverb 实战：订单状态实时推送与多实例部署踩坑记录
+cover: /images/covers/laravel-reverb-guide-deployment-cover.jpg
 date: 2026-05-03 07:45:00
 categories:
   - PHP
   - Laravel
-tags: [Laravel, Nginx, Redis, WebSocket]
-description: 基于 Laravel 11 + Reverb 的订单状态实时推送实战，覆盖认证、事件广播、多实例部署、前端订阅、Nginx 反向代理与生产环境踩坑记录，适合中高级开发者落地 WebSocket 场景。
+tags: [laravel, nginx, redis, websocket]
+description: 基于 Laravel 11 + Reverb 的订单状态实时推送完整实战指南，涵盖私有频道认证、事件广播与 DB::afterCommit 集成、Redis 多实例消息总线、Nginx 反向代理 WebSocket 配置、Supervisor 进程管理、前端 Echo 订阅与生产环境常见踩坑排查，帮助中高级 PHP 开发者快速落地高可靠的实时 WebSocket 推送架构。
 
 
 
@@ -311,4 +312,9 @@ class ReverbMetrics
 
 这次改造最有价值的不是“用了 WebSocket”，而是把 **状态更新链路** 理顺了：数据库提交、领域事件、广播发送、前端订阅、失败观测，全部串起来后，实时系统才不会只停留在 demo 阶段。Reverb 本身不复杂，真正容易翻车的是事务边界、多实例分发和代理层配置。
 
-如果你已经有 Laravel Broadcasting 经验，我建议下一步直接补两件事：一是接入 Redis 做多节点广播，二是补一套断线重连与在线数监控。生产环境里，这两项比“能不能连上”重要得多。
+如果你已经有 Laravel Broadcasting 经验，我建议下一步直接补两件事：一是接入 Redis 做多节点广播，二是补一套断线重连与在线数监控。生产环境里，这两项比"能不能连上"重要得多。
+## 相关阅读
+
+- [Laravel Firebase Cloud Messaging Web Push 推送通知实战](/php/Laravel/laravel-firebase-cloud-messaging-web-push-service-worker) — 如果你还需要在离线场景推送通知，FCM + Service Worker 是 WebSocket 推送的有力补充，适合跨平台离线触达。
+- [Laravel 消息幂等性设计模式实战：Inbox/Outbox 与重试补偿踩坑记录](/php/Laravel/laravel-design-patternsguide-inbox-outbox) — 实时广播与消息消费的幂等性设计密切相关，Outbox 模式能确保事件在事务提交后可靠投递。
+- [Laravel BFF 中间层聚合实战 — GraphQL 到 JSON 转换优化](/php/Laravel/bff-laravel-guide-graphql-json-optimization) — 前端订阅 WebSocket 后减少轮询，BFF 层的聚合查询同样可以配合实时推送做按需拉取优化。

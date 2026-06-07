@@ -1,13 +1,12 @@
 ---
 title: macOS 开发者云存储选型：哪些文件放哪里？如何保证一致性？
+cover: /images/covers/macos-cloud-storage-cover.jpg
 date: 2026-05-05 03:00:59
 updated: 2026-05-05 03:02:39
 categories: macOS
-tags: [macOS, 工程管理]
+tags: [macos, cloud-storage, icloud, google-drive, rclone, 工程管理]
 description: >
-  作为 macOS 开发者，面对 iCloud、Google Drive、NAS 等多云存储，如何科学地决定"哪个文件放哪里"？
-  本文基于 KKday B2C Backend Team 的真实实践，分享文件分类决策框架、目录结构设计、一致性保障脚本，
-  以及踩过的权限冲突、同步死锁、存储爆盘等坑。
+  macOS 开发者云存储选型指南：对比 iCloud、Google Drive、OneDrive、Dropbox 四大方案的同步机制、免费额度与安全性，详解文件分类决策框架、目录结构模板、rclone 多云同步配置，以及 Git 项目误放云盘、同步冲突、磁盘爆盘等实战踩坑与解决方案。
 
 
 
@@ -460,6 +459,149 @@ Google Drive 偏好设置 → General → Streaming vs Mirroring
 
 ---
 
+## 七、云存储方案对比表
+
+### 7.1 四大云存储核心对比
+
+| 特性 | iCloud Drive | Google Drive | OneDrive | Dropbox |
+|------|-------------|-------------|----------|---------|
+| **免费额度** | 5 GB | 15 GB（共享） | 5 GB | 2 GB |
+| **付费起步** | 50 GB ¥6/月 | 100 GB ¥15/月 | 100 GB ¥13/月 | 2 TB ¥78/月 |
+| **macOS 集成** | ⭐⭐⭐⭐⭐ 原生 | ⭐⭐⭐ File Stream | ⭐⭐⭐ 客户端 | ⭐⭐⭐ 客户端 |
+| **选择性同步** | ✅ 自动驱逐 | ✅ Streaming/Mirror | ✅ 按需文件 | ✅ Smart Sync |
+| **版本历史** | 30 天 | 30 天（Workspace） | 30 天（25版） | 180 天 |
+| **端到端加密** | ❌ | ❌ | ❌（仅 Vault） | ❌（仅 Plus） |
+| **协作编辑** | ⭐⭐ iWork only | ⭐⭐⭐⭐⭐ Google Docs | ⭐⭐⭐⭐ Office 365 | ⭐⭐⭐ Paper |
+| **API 访问** | ❌ 无公开 API | ✅ Drive API v3 | ✅ Graph API | ✅ REST API |
+| **Linux 支持** | ❌ | ✅ | ✅ | ✅ |
+| **最大单文件** | 50 GB | 5 TB | 250 GB | 50 GB |
+
+### 7.2 开发者场景推荐
+
+| 场景 | 推荐方案 | 原因 |
+|------|----------|------|
+| Apple 全家桶用户 | iCloud Drive | 系统级集成，零配置 |
+| 团队协作/企业办公 | Google Drive / OneDrive | 文档协作能力强，权限管理完善 |
+| 跨平台开发（Mac+Linux） | Dropbox / Google Drive | 全平台客户端支持 |
+| 需要 API 集成 | Google Drive / Dropbox | API 生态最成熟 |
+| 大文件传输 | OneDrive | 单文件 250 GB |
+| 隐私敏感 | 本地加密 + rclone 加密远程 | 不依赖任何云商 |
+
+### 7.3 rclone 多云统一管理
+
+rclone 是跨云存储的瑞士军刀，支持 70+ 云存储后端。以下是常用配置：
+
+```bash
+# 安装 rclone
+brew install rclone
+
+# 配置 iCloud（需要 2FA cookie）
+rclone config
+# → n (新建) → name: icloud → 选择 iCloud
+# → 输入 Apple ID 和密码
+# → 完成 2FA 验证
+
+# 配置 Google Drive
+rclone config
+# → n → name: gdrive → 选择 Google Drive
+# → 按提示完成 OAuth 授权
+
+# 配置 OneDrive
+rclone config
+# → n → name: onedrive → 选择 Microsoft OneDrive
+# → 按提示完成 OAuth 授权
+```
+
+```bash
+#!/bin/bash
+# sync-notes.sh - 用 rclone 同步 Obsidian 笔记到多个云
+# 双向同步 iCloud Obsidian 库到 Google Drive 作为备份
+
+VAULT_NAME="Vault-Mike"
+ICLOUD_PATH="icloud:Obsidian/$VAULT_NAME"
+GDRIVE_PATH="gdrive:Backups/Obsidian/$VAULT_NAME"
+LOG_FILE="$HOME/Documents/logs/rclone-sync.log"
+
+echo "[$(date)] Starting Obsidian vault sync..." >> "$LOG_FILE"
+
+# iCloud → Google Drive 增量备份
+rclone sync "$ICLOUD_PATH" "$GDRIVE_PATH" \
+    --verbose \
+    --log-file "$LOG_FILE" \
+    --log-level INFO \
+    --exclude ".obsidian/workspace.json" \
+    --exclude ".obsidian/workspace-mobile.json" \
+    --exclude ".trash/**" \
+    --exclude "*.icloud" \
+    --transfers 4 \
+    --checkers 8 \
+    --min-age 1s
+
+# 也同步到本地 NAS（如果在线）
+if ping -c 1 -t 2 nas.local &>/dev/null; then
+    NAS_PATH="/Volumes/NAS/Backups/Obsidian/$VAULT_NAME"
+    rclone sync "$ICLOUD_PATH" "$NAS_PATH" \
+        --exclude ".obsidian/workspace.json" \
+        --exclude "*.icloud" \
+        --transfers 8
+    echo "[$(date)] NAS sync completed" >> "$LOG_FILE"
+else
+    echo "[$(date)] NAS offline, skipped" >> "$LOG_FILE"
+fi
+```
+
+```bash
+# rclone 常用命令速查
+rclone ls icloud:Obsidian/Vault-Mike/          # 列出所有文件
+rclone size gdrive:Backups/Obsidian/            # 查看总大小
+rclone check icloud:path gdrive:path            # 校验一致性
+rclone mount gdrive: ~/GoogleDrive --vfs-cache-mode full  # 挂载为本地盘
+```
+
+### 7.4 NAS + Syncthing 自建方案
+
+如果你有 Synology/QNAP NAS，可以构建私有云同步：
+
+```bash
+# macOS 安装 Syncthing
+brew install syncthing
+
+# 启动服务
+brew services start syncthing
+
+# Web 管理界面
+open http://127.0.0.1:8384
+```
+
+```
+# Syncthing 典型配置（~/.config/syncthing/config.xml 片段）
+# 仅同步特定项目文件夹，排除构建产物
+<folder id="projects" path="/Users/michael/Projects" type="sendreceive">
+    <ignoreDeleteEnabled>true</ignoreDeleteEnabled>
+    <filesystemType>basic</filesystemType>
+    <!-- .stignore 文件控制排除规则 -->
+</folder>
+```
+
+---
+
+## 八、常见陷阱速查表
+
+| # | 陷阱 | 影响 | 解决方案 |
+|---|------|------|----------|
+| 1 | Git 项目放 iCloud | `.git` 数据损坏，提交丢失 | 永远放 `~/Projects/`，不进云盘 |
+| 2 | `.env` 文件进云盘 | 密钥泄露风险 | 本地加密 DMG + 1Password |
+| 3 | vendor 放 Google Drive | 权限冲突，Docker 挂载失败 | `.stignore` 排除，或用 Streaming 模式 |
+| 4 | iCloud 自动驱逐 | `.icloud` 占位文件，代码报错 | `brctl download` 强制下载，项目移出云盘 |
+| 5 | Obsidian 多端同时编辑 | 笔记冲突，内容丢失 | 启用冲突检测插件，或用 Obsidian Sync |
+| 6 | 云盘缓存爆盘 | 磁盘空间耗尽 | 设置缓存上限，用 Streaming 模式 |
+| 7 | Google Drive 权限继承 | 子文件夹权限无法收紧 | 敏感文档放独立 Team Drive |
+| 8 | `.DS_Store` 同步冲突 | 每次同步产生冲突文件 | `.stignore` / `.gitignore` 排除 |
+| 9 | 符号链接指向云盘 | 软链失效或指向错误路径 | 符号链接只指向本地路径 |
+| 10 | Time Machine 备份云盘 | 备份体积暴增 | 排除云盘缓存目录 |
+
+---
+
 ## 总结
 
 云存储不是"把文件放上去"就完事了。作为 macOS 开发者，你需要：
@@ -471,3 +613,11 @@ Google Drive 偏好设置 → General → Streaming vs Mirroring
 5. **备份 ≠ 同步**——同步是实时的，备份是点快照的，两者都要有
 
 希望这个框架能帮你理清混乱的文件分布。如果你有更好的方案，欢迎在评论区分享。
+
+---
+
+## 相关阅读
+
+- [iCloud-vs-Google-Drive-Laravel-项目同步策略备份还原实战踩坑记录](/categories/macOS/icloud-vs-google-drive-laravel/)
+- [Obsidian 实战-本地优先的 Markdown 知识管理-插件生态与 Laravel 开发者工作流踩坑记录](/categories/macOS/obsidian-guide-markdown-laravel/)
+- [云存储实战：AWS S3/阿里云 OSS/MinIO 三大对象存储深度对比与 Laravel 多驱动集成](/categories/架构/2026-06-01-cloud-storage-aws-s3-alibaba-oss-minio-integration/)

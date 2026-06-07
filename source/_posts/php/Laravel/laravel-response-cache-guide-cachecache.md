@@ -1,5 +1,6 @@
 ---
 title: Laravel Response Cache 实战：全页缓存与局部缓存策略踩坑记录
+cover: /images/covers/laravel-response-cache-guide-cachecache-cover.jpg
 date: 2026-05-16 20:50:45
 updated: 2026-05-16 20:55:31
 categories:

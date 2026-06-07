@@ -1,5 +1,6 @@
 ---
 title: "Notion 实战：个人知识库与项目管理 - 开发者工作流搭建与效率提升踩坑记录"
+cover: /images/covers/notion-guide-cover.jpg
 date: 2026-05-17 05:25:31
 updated: 2026-05-17 05:27:53
 categories:
@@ -570,6 +571,32 @@ async function summarizeNote(pageId) {
 }
 ```
 
+## 八、Notion vs Obsidian vs Logseq 对比
+
+作为一名同时使用过这三款工具的开发者，以下是真实体验对比：
+
+| 维度 | Notion | Obsidian | Logseq |
+|------|--------|----------|--------|
+| **数据存储** | 云端（Notion 服务器） | 本地 Markdown 文件 | 本地 Markdown/Org-mode |
+| **离线能力** | ❌ 极差，需联网 | ✅ 完全离线可用 | ✅ 完全离线可用 |
+| **Database/结构化数据** | ✅ 原生 Database + Relation + Rollup | ⚠️ 需插件（Dataview） | ⚠️ 基础表格，无关联 |
+| **双向链接** | ✅ 支持 | ✅ 核心特性 | ✅ 核心特性 |
+| **图谱视图** | ❌ 无 | ✅ Graph View | ✅ Graph View |
+| **API/自动化** | ✅ REST API 完善 | ⚠️ 插件 API（需 JS） | ⚠️ 插件 API |
+| **团队协作** | ✅ 实时多人协作 | ❌ 需 Git/同步盘 | ❌ 需 Git/同步盘 |
+| **价格** | Free / $10/月 Plus | 核心免费，Sync $4/月 | 免费开源 |
+| **适合场景** | 项目管理、团队 Wiki、结构化数据 | 长文写作、个人知识库、本地优先 | 日记、大纲笔记、块级引用 |
+| **学习曲线** | 中等 | 低（Markdown 熟悉者） | 较高（大纲思维转变） |
+| **性能（大数据量）** | 10 万行后明显卡顿 | 取决于本地硬件，通常流畅 | 中等，图谱大时卡顿 |
+| **数据导出** | Markdown/CSV/HTML/PDF | 原生 Markdown，零锁定 | 原生 Markdown，零锁定 |
+
+**我的选择策略**：
+- **Notion**：项目管理、Sprint 追踪、Bug Tracking、团队协作（结构化数据是核心竞争力）
+- **Obsidian**：技术笔记长文写作、离线场景、隐私敏感内容（本地存储 + 双向链接）
+- **Logseq**：日记、会议速记、大纲式思考（块级引用 + 大纲结构最适合碎片化记录）
+
+不需要三选一——根据场景组合使用才是最优解。我的实际工作流是：**Notion 管项目 + Obsidian 写笔记 + Logseq 记日记**，通过 API 脚本实现三者间的数据流转。
+
 ## 总结：我的 Notion 工作流 Checklist
 
 ```
@@ -586,3 +613,9 @@ async function summarizeNote(pageId) {
 ```
 
 Notion 不是万能的——它的离线能力弱、性能有上限、API 限制多。但它的 Database + Relation + View 组合拳，对于需要管理多个项目、大量技术笔记的开发者来说，依然是最实用的工具之一。关键是找到它和其他工具（Obsidian、GitHub、Slack）的互补点，而不是试图用 Notion 做所有事情。
+
+## 相关阅读
+
+- [Cursor IDE 实战：AI 驱动的代码编辑器深度体验](/categories/macOS/cursor-ide-guide-ai/)
+- [Ghostty 终端实战：下一代 GPU 加速终端配置与 Laravel 开发效率提升](/categories/macOS/ghostty-guide-gpu-emulatorlaravel/)
+- [local-docker 实战：PHP-FPM 8.0 + MySQL/Redis + Mailhog 开发环境配置](/categories/DevOps/local-docker-guide-php-fpm-8-0-mysql-redis-mailhog/)

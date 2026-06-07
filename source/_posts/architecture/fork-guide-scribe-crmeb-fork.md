@@ -2,9 +2,10 @@
 title: "Fork 项目维护与上游同步实战：以 Scribe/CRMEB 为例的 Fork 协作工作流踩坑记录"
 date: 2026-05-05 09:27:40
 updated: 2026-05-05 09:29:10
+cover: /images/covers/fork-guide-scribe-crmeb-fork-cover.jpg
 categories: Architecture
 tags: [Git, Laravel]
-description: 以 Scribe 和 CRMEB 两个真实 fork 项目为例，记录 fork 后如何维护自定义修改、同步上游更新、处理冲突，以及长期维护中的架构决策与踩坑经验。
+description: 以 Scribe（Laravel API文档生成器）和 CRMEB（开源电商商城）两个真实 fork 二次开发项目为例，系统讲解 Fork 后的分支策略、cherry-pick 同步上游、冲突解决实战、GitHub Actions 自动化同步流水线，以及 Composer 依赖冲突、Migration 冲突、Force Push 历史分叉等常见踩坑与长期维护最佳实践。
 
 
 
@@ -439,3 +440,12 @@ Fork 开源项目是 B2C 开发中常见的工程决策，但维护成本常被�
 - **定期评估是否继续 fork**：当维护成本超过收益时，果断独立
 
 在 Scribe 和 CRMEB 的实践中，我们学到了最重要的一课：**fork 的真正成本不是 clone 那一下，而是未来每一天的同步维护。**
+
+## 相关阅读
+
+- [Vue 3 + vue-pure-admin 管理后台实战：从 fork 到定制化的完整踩坑记录](/frontend/vue3-vue-pure-admin-guide-fork) — 同样基于真实电商项目 fork 开源管理后台，从 Vite 分包优化、动态路由权限到 Laravel BFF API 对接的全流程踩坑
+- [Git Worktree + Bare Repo 实战：多分支并行开发](/00_架构/git-worktree-bare-repo-laravel) — Fork 项目的多分支并行开发高效工作流，Worktree + Bare Repo 组合方案
+- [开源项目 License 选型实战：MIT / Apache / GPL 选择策略](/engineering/license-guide-mit-apache-gpl) — Fork 开源项目前必须了解的许可证合规问题，避免 GPL 传染性踩坑
+- [OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON](/architecture/openapi-yaml-testing-mock-fake-response-json) — Scribe 等 API 文档工具的进阶方案，契约驱动开发与 Mock 测试
+- [Laravel API 多版本演进策略：v2 → v3 的平滑迁移](/architecture/laravel-api-v2-v3) — Fork 项目中 API 向后兼容与版本废弃策略
+- [BFF Laravel Guide：GraphQL 与 JSON 优化](/php/Laravel/bff-laravel-guide-graphql-json-optimization) — Scribe 自定义 decorator 背后的 BFF 聚合接口架构设计

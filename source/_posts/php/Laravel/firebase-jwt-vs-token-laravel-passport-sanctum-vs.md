@@ -1,11 +1,12 @@
 ---
 title: "Firebase JWT vs 自建 Token：Laravel Passport/Sanctum 的真实选型对比踩坑记录"
+cover: /images/covers/firebase-jwt-vs-token-laravel-passport-sanctum-vs-cover.jpg
 date: 2026-05-05 01:05:47
 updated: 2026-05-05 01:08:54
 categories:
   - PHP
   - Git
-tags: [Laravel, 前端]
+tags: [Laravel, JWT, 认证, Sanctum, Passport, Firebase, 微服务]
 description: "在 KKday B2C 微服务架构下，对比 Firebase JWT（第三方签发）与 Laravel Passport/Sanctum（自建 Token）的真实选型经验。涵盖 JWKS 旋转、RSA/ECDSA 算法选型、多服务 Token 验证、性能基准测试，以及我们从 Passport 迁移到 Sanctum + Firebase JWT 混合方案的完整踩坑记录。"
 
 
@@ -611,3 +612,9 @@ Web SPA（内部管理）     → Sanctum（Session + CSRF）
 ---
 
 *本文基于 KKday B2C Backend Team 真实项目经验，涉及的代码示例已脱敏处理。如有疑问或补充，欢迎在评论区交流。*
+
+## 相关阅读
+
+- [API Security 深度实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击](/php/Laravel/2026-06-06-api-security-jwt-blacklist-hmac-signature-replay-protection) — JWT 签名验证只是安全的第一步，本文深入讲解 Token 黑名单、请求签名校验与防重放等多层防御的工程化方案，与本文的 Token 选型互补。
+- [Laravel Sanctum / Passport Token 刷新机制实战：多端登录、双 Token 轮换与并发续签踩坑记录](/php/Laravel/laravel-sanctum-passport-token-guide-token-concurrency) — 选定方案后，多端登录下的 Token 刷新与并发续签是另一个高频踩坑点，本文详解双 Token 轮换的实际实现。
+- [FusionAuth 实战：开源身份认证平台——对比 Auth0/WorkOS 的自托管 SSO/MFA/社交登录完整方案](/05_PHP/Laravel/2026-06-07-FusionAuth-实战-开源身份认证平台-自托管SSO-MFA-社交登录-Laravel集成) — 如果你对第三方身份源感兴趣但不想绑定 Google 生态，FusionAuth 是一个值得评估的自托管替代方案。

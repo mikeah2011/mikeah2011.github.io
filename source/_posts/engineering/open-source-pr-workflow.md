@@ -1,10 +1,11 @@
 ---
 title: 开源项目贡献代码实战-PR流程与最佳实践-Laravel-B2C-API踩坑记录
+cover: /images/engineering-cover.png
 date: 2026-05-05 10:40:23
 updated: 2026-05-05 10:42:25
 categories: Engineering
-tags: [Git, Laravel]
-description: 从 Fork 到合并的完整 PR 工作流，结合 scribe、CRMEB、phpseclib 等真实项目贡献经验，详解 commit 规范、测试要求、Review 礼仪与常见踩坑。
+tags: [git, laravel, 开源, code-review, ci-cd, best-practices]
+description: 开源项目贡献代码完整实战指南：从 Fork、分支管理到 PR 合并的全流程详解，涵盖 Conventional Commits 规范、CI/CD 流水线配置、Code Review 礼仪、GitHub 与 GitLab 工作流对比，结合 scribe、CRMEB、phpseclib 等 30+ 仓库真实踩坑经验与 Checklist。
 
 
 
@@ -327,6 +328,110 @@ git push origin fix/the-bug
 ## 进阶：成为项目的持续贡献者
 
 当你成功 merge 了第一个 PR 后，可以考虑：
+GitHub 与 GitLab 的 PR/MR 工作流对比
+
+很多开源项目同时在 GitHub 和 GitLab 上托管，两者的工作流有显著差异：
+
+| 对比维度 | GitHub (PR) | GitLab (MR) |
+|---------|------------|------------|
+| 分支保护 | Branch Protection Rules，支持 require reviews、status checks | Protected Branches，支持 Approvals required、Merge checks |
+| 审核机制 | Requested Reviewers，支持 CODEOWNERS 文件自动分配 | Approval Rules，支持按权重投票（Weighted Approvals） |
+| CI 集成 | GitHub Actions，YAML 在 `.github/workflows/` | GitLab CI/CD，`.gitlab-ci.yml` 在根目录 |
+| 合并策略 | Merge commit / Squash / Rebase 三选一 | Merge commit / Squash / Fast-forward，支持 semi-linear |
+| 必填字段 | PR 模板（.github/PULL_REQUEST_TEMPLATE.md） | MR 模板（`.gitlab/merge_request_templates/`） |
+| Issue 关联 | `Fixes #123` / `Closes #123` 关键字自动关闭 | 同样支持，但格式为 `Closes #123` |
+| 代码建议 | Suggested Changes，维护者可直接 commit | Suggestion 功能类似，支持 commit suggestion |
+| 安全扫描 | Dependabot + CodeQL | SAST/DAST 集成在 Ultimate 版本 |
+
+**实际踩坑**：我给一个同时在 GitHub 和 GitLab 托管的项目提 PR 时，把 `.github/workflows/ci.yml` 推到了 GitLab 仓库，结果 CI 完全没触发。GitLab 用的是 `.gitlab-ci.yml`，格式完全不同。
+
+### GitHub Actions CI 配置示例
+
+一个典型的开源项目 CI 配置（`.github/workflows/ci.yml`）：
+
+```yaml
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.1', '8.2', '8.3']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, xml, ctype, json, bcmath, pdo
+          tools: composer:v2
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --no-progress
+
+      - name: Run Pint (Code Style)
+        run: vendor/bin/pint --test
+
+      - name: Run tests
+        run: vendor/bin/pest --coverage --min=80
+```
+
+### GitLab CI 配置示例
+
+同样的项目在 GitLab 上的配置（`.gitlab-ci.yml`）：
+
+```yaml
+stages:
+  - test
+
+variables:
+  COMPOSER_MEMORY_LIMIT: -1
+
+.php_template: &php_template
+  image: php:${PHP_VERSION}-cli
+  before_script:
+    - docker-php-ext-install pdo pdo_mysql mbstring
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    - composer install --prefer-dist --no-progress
+
+test:php8.1:
+  <<: *php_template
+  variables:
+    PHP_VERSION: "8.1"
+  stage: test
+  script:
+    - vendor/bin/phpstan analyse --no-progress
+    - vendor/bin/pint --test
+    - vendor/bin/pest --coverage --min=80
+
+test:php8.2:
+  <<: *php_template
+  variables:
+    PHP_VERSION: "8.2"
+  stage: test
+  script:
+    - vendor/bin/pest --coverage --min=80
+```
+
+**关键差异**：GitLab CI 的语法更偏向 Docker 原生，而 GitHub Actions 更偏向可复用的 Action 市场。如果你的项目同时维护两个平台，建议用 `Makefile` 封装测试命令，两个 CI 配置都只调用 `make test`，减少维护成本。
 
 1. **认领 `good first issue` 标签**：大多数项目会标记适合新手的 Issue
 2. **参与 Issue 讨论**：帮助其他用户解答问题，建立信任
@@ -353,3 +458,8 @@ sync-upstream() {
 我在维护 30+ 仓库的过程中学到最重要的一课是：**开源贡献的核心不是代码本身，而是信任的建立**。一个规范的 PR、一段清晰的描述、一次及时的回应，比炫技的代码更能赢得维护者的认可。
 
 如果你正在犹豫要不要迈出第一步，记住：每个开源维护者都曾经是新手。去挑一个你日常使用的项目，从修复文档错别字开始，你的第一个 PR 会比你想象中容易得多。
+---
+## 相关阅读
+- [Git 高级用法实战：Rebase、Cherry-pick、Bisect、Worktree 踩坑记录](/engineering/git-guide-rebase-cherry-pick-bisect-worktree/)
+- [代码审查流程设计：如何建立高效的 CR 文化与工具链](/engineering/code-review-process/)
+- [PHPUnit 11.x 实战：新特性与最佳实践——从 Laravel B2C API 的断言、属性到测试架构演进踩坑记录](/engineering/phpunit-11-x-guide-best-practices/)

@@ -1,12 +1,13 @@
 ---
 title: "PHP-FPM 长连接与短连接实战：数据库连接池性能差异与 MySQL 踩坑记录"
+cover: /images/covers/php-fpm-guide-databasemysql-cover.jpg
 date: 2026-05-05 07:25:58
 updated: 2026-05-05 07:28:28
 categories:
   - PHP
   - MySQL
-tags: [Laravel, MySQL, PHP, Redis, WebSocket, 性能优化]
-description: "在 Laravel B2C API 高并发场景下，PHP-FPM 的数据库连接策略直接影响吞吐量和稳定性。本文从真实踩坑出发，深度对比长连接与短连接的性能差异，涵盖连接风暴、max_connections 瓶颈、PDO 持久连接陷阱、连接池中间件选型，并给出可落地的配置方案。"
+tags: [laravel, mysql, php, redis, websocket, 性能优化]
+description: "深入剖析 PHP-FPM 在 Laravel B2C API 高并发场景下的数据库连接策略，涵盖长连接与短连接的性能差异压测对比、PDO 持久连接三大隐藏陷阱（连接状态污染、静默断连、max_connections 计算错误）及解决方案。从 PHP-FPM 进程模型原理出发，对比 ProxySQL、PgBouncer 等外部连接池中间件选型，提供 Laravel Octane + Swoole 协程连接池实现方案，附生产环境可落地的 PHP-FPM、MySQL、ProxySQL 配置模板与监控告警脚本，助你在高并发场景下稳定运行 Laravel API。"
 
 
 
@@ -562,3 +563,12 @@ PHP-FPM 的连接模型决定了它天生没有"真正的连接池"，但通过�
 ---
 
 *本文基于 KKday B2C API 项目真实踩坑经验整理，涉及 MySQL 5.7/8.0、PHP 8.0、Laravel 9/10。*
+
+---
+
+## 相关阅读
+
+- [Go 微服务实战：用 Go 重写 Laravel 高性能热点模块——从 PHP-FPM 到 Go net/http 的迁移路径](/categories/架构/Go-微服务实战-重写Laravel高性能模块-PHP-FPM到Go迁移/)
+- [Laravel + PostgreSQL Advisory Lock 实战：补偿扫描单实例化、会话级互斥与 PgBouncer 踩坑记录](/categories/PHP/laravel-postgresql-advisory-lock-guide-pgbouncer/)
+- [Go 数据库/sql 实战：连接池管理、事务控制与 sqlx/sqlc 代码生成——与 Laravel Eloquent 的对比](/categories/架构/Go-数据库-sql-实战-连接池管理-事务控制与-sqlx-sqlc-代码生成/)
+- [Elixir OTP 实战：Supervisor 树、GenServer、分布式进程——对比 PHP-FPM 无状态模型的并发哲学](/categories/架构/Elixir-OTP-实战-Supervisor树-GenServer-分布式进程-对比PHP-FPM无状态模型的并发哲学/)

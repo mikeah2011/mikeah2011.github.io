@@ -1,5 +1,6 @@
 ---
 title: iCloud-vs-Google-Drive-Laravel-项目同步策略备份还原实战踩坑记录
+cover: /images/covers/icloud-vs-google-drive-laravel-cover.jpg
 date: 2026-05-05 02:20:35
 updated: 2026-05-05 02:22:40
 categories:
@@ -7,9 +8,7 @@ categories:
   - Laravel
 tags: [DevOps, Laravel, macOS]
 description: >
-  macOS 开发者在 Laravel 项目中如何选择 iCloud 或 Google Drive 做文件同步？本文从真实 B2C API 项目出发，
-  覆盖项目目录同步策略、数据库备份/还原、.env 与 vendor 管理、符号链接踩坑、文件一致性保障，
-  以及多设备切换时的冲突解决实战。
+  macOS 开发者在多设备间同步 Laravel 项目时，iCloud Drive 与 Google Drive 该如何选择？本文基于 KKday B2C API 真实项目经验，深度对比两种云存储方案在符号链接兼容性、大文件同步性能、离线访问、API 可编程性等维度的差异。涵盖项目目录同步脚本、mysqldump 数据库备份还原、.env 敏感配置 GPG 加密同步、IDE 配置选择性共享、符号链接踩坑修复等完整实战方案，并附带可直接复用的 shell 脚本与 rclone 自动化配置，帮助你在多台 Mac 之间无缝切换开发环境。
 
 
 
@@ -554,3 +553,11 @@ rclone sync ~/GitHub/my-laravel-project/storage/dumps gdrive:LaravelSync/my-proj
 5. **符号链接优先用 Google Drive，或在 pull 后自动修复**
 
 > 最好的同步策略是：你根本不需要想「我现在在哪台机器上」。
+
+---
+
+## 相关阅读
+
+- [macOS 开发者云存储选型：哪些文件放哪里？如何保证一致性？](/posts/09_macOS/macos-cloud-storage/)
+- [Laravel Herd 实战：macOS 原生 PHP 环境管理——替代 Valet/Homestead 的一键开发体验](/posts/09_macOS/Laravel-Herd-实战-macOS原生PHP环境管理-替代Valet-Homestead一键开发体验/)
+- [brew-php-switcher + Homebrew：macOS 多版本 PHP 管理实战与踩坑记录](/posts/09_macOS/brew-php-switcher-homebrew-php-guide/)

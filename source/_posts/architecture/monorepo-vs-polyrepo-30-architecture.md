@@ -1,10 +1,11 @@
 ---
-title: Monorepo vs Polyrepo - 30+ 仓库架构选型与管理经验
+title: 'Monorepo vs Polyrepo：30+ 仓库架构选型与管理经验'
+cover: /images/covers/monorepo-vs-polyrepo-30-architecture-cover.jpg
 date: 2026-05-05 06:30:55
 updated: 2026-05-05 06:33:13
 categories: Architecture
 tags: [CI/CD, Composer, Git, Laravel, macOS, 工程管理, 微服务]
-description: 基于 30+ 仓库的真实管理经验，深度对比 Monorepo 与 Polyrepo 的优劣势、迁移策略、CI/CD 配置差异，以及在 Laravel B2C 项目中的实际踩坑记录。
+description: "基于 KKday B2C 团队 30+ Git 仓库的真实管理经验，深度对比 Monorepo 与 Polyrepo 的优劣势、决策框架与混合架构选型策略。涵盖 Git filter-repo 历史保留合并、Composer Path Repository 配置、GitHub Actions CI/CD 路径检测矩阵策略、Docker 多阶段构建、Sparse Checkout 优化等完整迁移踩坑记录与最佳实践。"
 
 
 
@@ -489,3 +490,11 @@ Monorepo 不是银弹。以下场景建议保持 Polyrepo：
 ---
 
 > 本文基于 KKday B2C Backend Team 的真实仓库管理经验总结。30+ 仓库的管理不是技术问题，而是团队协作问题——技术方案只是载体。
+
+## 相关阅读
+
+- [Git Worktree + Bare Repo 实战：多分支并行开发——Laravel 大型项目中同时处理多个 feature 的高效工作流](/categories/CICD/Git-Worktree-Bare-Repo-实战-多分支并行开发-Laravel大型项目高效工作流/)
+- [Git Hooks 深度实战：Husky/lint-staged/lefthook 选型——代码风格、提交规范与 CI 门禁的自动化治理](/categories/CICD/Git-Hooks-深度实战-Husky-lint-staged-lefthook-选型-代码风格提交规范与CI门禁的自动化治理/)
+- [Conventional Commits + Semantic Release 实战：自动版本号、CHANGELOG 生成与 npm/Composer 包发布](/categories/CICD/Conventional-Commits-Semantic-Release-实战-自动版本号-CHANGELOG生成与npm-Composer包发布/)
+- [Git Flow vs Trunk-Based：30+ 仓库的分支策略选型与踩坑记录](/categories/架构/git-flow-vs-trunk-based-30/)
+- [微服务拆分策略：从单体 Laravel 到微服务的渐进式演进踩坑记录](/categories/架构/microservices-laravelmicroservices/)

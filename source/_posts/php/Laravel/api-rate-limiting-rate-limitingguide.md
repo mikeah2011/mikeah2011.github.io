@@ -1,13 +1,12 @@
 ---
 title: API Rate Limiting - 接口限流实战 - KKday B2C API 真实踩坑记录
+cover: /images/covers/api-rate-limiting-rate-limitingguide-cover.jpg
 date: 2026-05-03
 categories:
   - PHP
   - API
-tags: [Redis]
-description: 分享 KKday B2C API 接口限流的完整实战经验，涵盖滑动窗口算法、Redis 分布式限流、Token Bucket 令牌桶实现，以及生产环境真实踩坑记录。
-
-
+tags: [Rate Limiting, Token Bucket, Redis, Laravel, API, Sliding Window]
+description: 深入解析 API 接口限流实战方案，涵盖 Token Bucket 令牌桶、Leaky Bucket 漏桶、滑动窗口算法及 Redis Lua 脚本原子操作，结合 KKday B2C 真实踩坑记录，详解分布式限流、IP 指纹识别、连接池优化与监控日志等生产级解决方案。
 
 ---
 ## 背景
@@ -1047,473 +1046,40 @@ LUA;
 }
 ```
 
-## 踩坑记录 #17：限流策略与业务逻辑不匹配导致性能问题
+## 限流算法全面对比
 
-**问题描述**：限流策略与业务逻辑不匹配，导致部分接口被过度限制。
+| 维度 | 固定窗口 (Fixed Window) | 滑动窗口 (Sliding Window) | 令牌桶 (Token Bucket) | 漏桶 (Leaky Bucket) |
+|------|------------------------|--------------------------|----------------------|---------------------|
+| **核心原理** | 固定时间段内计数 | 滑动时间窗口内记录请求时间戳 | 桶中存放令牌，请求消耗令牌 | 桶中存放请求，匀速漏出 |
+| **突发流量处理** | ❌ 窗口边界突发 | ✅ 平滑过渡 | ✅ 允许短暂突发（桶容量内） | ❌ 严格匀速输出 |
+| **实现复杂度** | ⭐ 低 | ⭐⭐ 中 | ⭐⭐⭐ 高（Lua 脚本） | ⭐⭐⭐ 高（Lua 脚本） |
+| **内存占用** | 低（单计数器） | 高（记录时间戳列表） | 中（Hash 结构） | 中（Hash 结构） |
+| **Redis 原子性** | `INCR` + `EXPIRE` | `ZADD` + `ZREMRANGEBYSCORE` | Lua 脚本 | Lua 脚本 |
+| **适用场景** | 简单场景、低并发 | 通用场景、API 限流 | 高并发 API、允许突发 | 严格速率控制、低频接口 |
+| **KKday 使用** | ❌ 已弃用 | ✅ 搜索接口 | ✅ 核心 API | ✅ 价格查询、订单创建 |
 
-**Before**:
+### 选型建议
+
 ```php
-// app/Services/RateLimiter.php - 固定配置，不区分接口类型
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ❌ 错误：所有接口使用相同的限流策略
-        return $this->consumeTokens($ip, $key);
-    }
-}
-```
+// 场景 1：搜索类接口（高并发 + 允许突发） → Token Bucket
+$searchRateLimiter = RateLimiter::for('api_search')
+    ->limit(1000)        // 桶容量 1000
+    ->perSecond();       // 每秒补充 200 令牌
 
-**After**:
-```php
-// app/Services/RateLimiter.php - 支持动态配置 + 业务逻辑解耦
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ✅ 动态读取配置文件，按接口类型分组配置
-        $config = config('rate-limiter.rate_limiters.' . $key);
-        
-        if (!$config) {
-            return ['success' => true]; // 默认不限制
-        }
-        
-        $maxTokens = $config['max_tokens'];
-        $addRate = $config['add_rate'];
-        $windowSize = $config['window_size'] ?? 30;
-        
-        // 使用 Lua 脚本执行限流逻辑
-        $key = "ratelimit:tokens:{$ip}:{$key}";
-        $script = <<<'LUA'
-local key = KEYS[1]
-local maxTokens = tonumber(ARGV[1])
-local addRate = tonumber(ARGV[2])
-local now = tonumber(ARGV[3])
-local currentTokens = tonumber(redis.call('HGET', key, 'tokens') or tostring(maxTokens))
+// 场景 2：价格查询（低频 + 严格速率） → Leaky Bucket
+$priceRateLimiter = RateLimiter::for('api_price')
+    ->limit(50)          // 桶容量 50
+    ->perMinute();       // 每分钟漏出 20 个请求
 
-if currentTokens >= tonumber(ARGV[4]) then
-    local consumed = math.min(ARGV[4], currentTokens)
-    redis.call('HSET', key, 'tokens', tostring(currentTokens - consumed))
-    return {1, tostring(currentTokens - consumed)}
-else
-    local waitTime = math.ceil((ARGV[4] - currentTokens) / addRate)
-    return {0, tostring(waitTime)}
-end
-LUA;
+// 场景 3：通用 API 限流 → Sliding Window
+$generalRateLimiter = RateLimiter::for('api_general')
+    ->limit(100)         // 每分钟 100 次
+    ->perMinute();       // 滑动窗口计算
 
-        $result = $this->redis->eval(
-            $script,
-            [$key, $maxTokens, $addRate, time(), $tokens],
-            1
-        );
-
-        return [
-            'success' => $result[0] == 1,
-            'remaining_tokens' => (float)$result[1],
-            'retry_after' => $result[0] == 0 ? $result[1] : 0,
-        ];
-    }
-}
-```
-
-## 踩坑记录 #18：限流策略与业务逻辑不匹配导致性能问题
-
-**问题描述**：限流策略与业务逻辑不匹配，导致部分接口被过度限制。
-
-**Before**:
-```php
-// app/Services/RateLimiter.php - 固定配置，不区分接口类型
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ❌ 错误：所有接口使用相同的限流策略
-        return $this->consumeTokens($ip, $key);
-    }
-}
-```
-
-**After**:
-```php
-// app/Services/RateLimiter.php - 支持动态配置 + 业务逻辑解耦
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ✅ 动态读取配置文件，按接口类型分组配置
-        $config = config('rate-limiter.rate_limiters.' . $key);
-        
-        if (!$config) {
-            return ['success' => true]; // 默认不限制
-        }
-        
-        $maxTokens = $config['max_tokens'];
-        $addRate = $config['add_rate'];
-        $windowSize = $config['window_size'] ?? 30;
-        
-        // 使用 Lua 脚本执行限流逻辑
-        $key = "ratelimit:tokens:{$ip}:{$key}";
-        $script = <<<'LUA'
-local key = KEYS[1]
-local maxTokens = tonumber(ARGV[1])
-local addRate = tonumber(ARGV[2])
-local now = tonumber(ARGV[3])
-local currentTokens = tonumber(redis.call('HGET', key, 'tokens') or tostring(maxTokens))
-
-if currentTokens >= tonumber(ARGV[4]) then
-    local consumed = math.min(ARGV[4], currentTokens)
-    redis.call('HSET', key, 'tokens', tostring(currentTokens - consumed))
-    return {1, tostring(currentTokens - consumed)}
-else
-    local waitTime = math.ceil((ARGV[4] - currentTokens) / addRate)
-    return {0, tostring(waitTime)}
-end
-LUA;
-
-        $result = $this->redis->eval(
-            $script,
-            [$key, $maxTokens, $addRate, time(), $tokens],
-            1
-        );
-
-        return [
-            'success' => $result[0] == 1,
-            'remaining_tokens' => (float)$result[1],
-            'retry_after' => $result[0] == 0 ? $result[1] : 0,
-        ];
-    }
-}
-```
-
-## 踩坑记录 #19：限流策略与业务逻辑不匹配导致性能问题
-
-**问题描述**：限流策略与业务逻辑不匹配，导致部分接口被过度限制。
-
-**Before**:
-```php
-// app/Services/RateLimiter.php - 固定配置，不区分接口类型
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ❌ 错误：所有接口使用相同的限流策略
-        return $this->consumeTokens($ip, $key);
-    }
-}
-```
-
-**After**:
-```php
-// app/Services/RateLimiter.php - 支持动态配置 + 业务逻辑解耦
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ✅ 动态读取配置文件，按接口类型分组配置
-        $config = config('rate-limiter.rate_limiters.' . $key);
-        
-        if (!$config) {
-            return ['success' => true]; // 默认不限制
-        }
-        
-        $maxTokens = $config['max_tokens'];
-        $addRate = $config['add_rate'];
-        $windowSize = $config['window_size'] ?? 30;
-        
-        // 使用 Lua 脚本执行限流逻辑
-        $key = "ratelimit:tokens:{$ip}:{$key}";
-        $script = <<<'LUA'
-local key = KEYS[1]
-local maxTokens = tonumber(ARGV[1])
-local addRate = tonumber(ARGV[2])
-local now = tonumber(ARGV[3])
-local currentTokens = tonumber(redis.call('HGET', key, 'tokens') or tostring(maxTokens))
-
-if currentTokens >= tonumber(ARGV[4]) then
-    local consumed = math.min(ARGV[4], currentTokens)
-    redis.call('HSET', key, 'tokens', tostring(currentTokens - consumed))
-    return {1, tostring(currentTokens - consumed)}
-else
-    local waitTime = math.ceil((ARGV[4] - currentTokens) / addRate)
-    return {0, tostring(waitTime)}
-end
-LUA;
-
-        $result = $this->redis->eval(
-            $script,
-            [$key, $maxTokens, $addRate, time(), $tokens],
-            1
-        );
-
-        return [
-            'success' => $result[0] == 1,
-            'remaining_tokens' => (float)$result[1],
-            'retry_after' => $result[0] == 0 ? $result[1] : 0,
-        ];
-    }
-}
-```
-
-## 踩坑记录 #20：限流策略与业务逻辑不匹配导致性能问题
-
-**问题描述**：限流策略与业务逻辑不匹配，导致部分接口被过度限制。
-
-**Before**:
-```php
-// app/Services/RateLimiter.php - 固定配置，不区分接口类型
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ❌ 错误：所有接口使用相同的限流策略
-        return $this->consumeTokens($ip, $key);
-    }
-}
-```
-
-**After**:
-```php
-// app/Services/RateLimiter.php - 支持动态配置 + 业务逻辑解耦
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ✅ 动态读取配置文件，按接口类型分组配置
-        $config = config('rate-limiter.rate_limiters.' . $key);
-        
-        if (!$config) {
-            return ['success' => true]; // 默认不限制
-        }
-        
-        $maxTokens = $config['max_tokens'];
-        $addRate = $config['add_rate'];
-        $windowSize = $config['window_size'] ?? 30;
-        
-        // 使用 Lua 脚本执行限流逻辑
-        $key = "ratelimit:tokens:{$ip}:{$key}";
-        $script = <<<'LUA'
-local key = KEYS[1]
-local maxTokens = tonumber(ARGV[1])
-local addRate = tonumber(ARGV[2])
-local now = tonumber(ARGV[3])
-local currentTokens = tonumber(redis.call('HGET', key, 'tokens') or tostring(maxTokens))
-
-if currentTokens >= tonumber(ARGV[4]) then
-    local consumed = math.min(ARGV[4], currentTokens)
-    redis.call('HSET', key, 'tokens', tostring(currentTokens - consumed))
-    return {1, tostring(currentTokens - consumed)}
-else
-    local waitTime = math.ceil((ARGV[4] - currentTokens) / addRate)
-    return {0, tostring(waitTime)}
-end
-LUA;
-
-        $result = $this->redis->eval(
-            $script,
-            [$key, $maxTokens, $addRate, time(), $tokens],
-            1
-        );
-
-        return [
-            'success' => $result[0] == 1,
-            'remaining_tokens' => (float)$result[1],
-            'retry_after' => $result[0] == 0 ? $result[1] : 0,
-        ];
-    }
-}
-```
-
-## 踩坑记录 #21：限流策略与业务逻辑不匹配导致性能问题
-
-**问题描述**：限流策略与业务逻辑不匹配，导致部分接口被过度限制。
-
-**Before**:
-```php
-// app/Services/RateLimiter.php - 固定配置，不区分接口类型
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ❌ 错误：所有接口使用相同的限流策略
-        return $this->consumeTokens($ip, $key);
-    }
-}
-```
-
-**After**:
-```php
-// app/Services/RateLimiter.php - 支持动态配置 + 业务逻辑解耦
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ✅ 动态读取配置文件，按接口类型分组配置
-        $config = config('rate-limiter.rate_limiters.' . $key);
-        
-        if (!$config) {
-            return ['success' => true]; // 默认不限制
-        }
-        
-        $maxTokens = $config['max_tokens'];
-        $addRate = $config['add_rate'];
-        $windowSize = $config['window_size'] ?? 30;
-        
-        // 使用 Lua 脚本执行限流逻辑
-        $key = "ratelimit:tokens:{$ip}:{$key}";
-        $script = <<<'LUA'
-local key = KEYS[1]
-local maxTokens = tonumber(ARGV[1])
-local addRate = tonumber(ARGV[2])
-local now = tonumber(ARGV[3])
-local currentTokens = tonumber(redis.call('HGET', key, 'tokens') or tostring(maxTokens))
-
-if currentTokens >= tonumber(ARGV[4]) then
-    local consumed = math.min(ARGV[4], currentTokens)
-    redis.call('HSET', key, 'tokens', tostring(currentTokens - consumed))
-    return {1, tostring(currentTokens - consumed)}
-else
-    local waitTime = math.ceil((ARGV[4] - currentTokens) / addRate)
-    return {0, tostring(waitTime)}
-end
-LUA;
-
-        $result = $this->redis->eval(
-            $script,
-            [$key, $maxTokens, $addRate, time(), $tokens],
-            1
-        );
-
-        return [
-            'success' => $result[0] == 1,
-            'remaining_tokens' => (float)$result[1],
-            'retry_after' => $result[0] == 0 ? $result[1] : 0,
-        ];
-    }
-}
-```
-
-## 踩坑记录 #22：限流策略与业务逻辑不匹配导致性能问题
-
-**问题描述**：限流策略与业务逻辑不匹配，导致部分接口被过度限制。
-
-**Before**:
-```php
-// app/Services/RateLimiter.php - 固定配置，不区分接口类型
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ❌ 错误：所有接口使用相同的限流策略
-        return $this->consumeTokens($ip, $key);
-    }
-}
-```
-
-**After**:
-```php
-// app/Services/RateLimiter.php - 支持动态配置 + 业务逻辑解耦
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ✅ 动态读取配置文件，按接口类型分组配置
-        $config = config('rate-limiter.rate_limiters.' . $key);
-        
-        if (!$config) {
-            return ['success' => true]; // 默认不限制
-        }
-        
-        $maxTokens = $config['max_tokens'];
-        $addRate = $config['add_rate'];
-        $windowSize = $config['window_size'] ?? 30;
-        
-        // 使用 Lua 脚本执行限流逻辑
-        $key = "ratelimit:tokens:{$ip}:{$key}";
-        $script = <<<'LUA'
-local key = KEYS[1]
-local maxTokens = tonumber(ARGV[1])
-local addRate = tonumber(ARGV[2])
-local now = tonumber(ARGV[3])
-local currentTokens = tonumber(redis.call('HGET', key, 'tokens') or tostring(maxTokens))
-
-if currentTokens >= tonumber(ARGV[4]) then
-    local consumed = math.min(ARGV[4], currentTokens)
-    redis.call('HSET', key, 'tokens', tostring(currentTokens - consumed))
-    return {1, tostring(currentTokens - consumed)}
-else
-    local waitTime = math.ceil((ARGV[4] - currentTokens) / addRate)
-    return {0, tostring(waitTime)}
-end
-LUA;
-
-        $result = $this->redis->eval(
-            $script,
-            [$key, $maxTokens, $addRate, time(), $tokens],
-            1
-        );
-
-        return [
-            'success' => $result[0] == 1,
-            'remaining_tokens' => (float)$result[1],
-            'retry_after' => $result[0] == 0 ? $result[1] : 0,
-        ];
-    }
-}
-```
-
-## 踩坑记录 #23：限流策略与业务逻辑不匹配导致性能问题
-
-**问题描述**：限流策略与业务逻辑不匹配，导致部分接口被过度限制。
-
-**Before**:
-```php
-// app/Services/RateLimiter.php - 固定配置，不区分接口类型
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ❌ 错误：所有接口使用相同的限流策略
-        return $this->consumeTokens($ip, $key);
-    }
-}
-```
-
-**After**:
-```php
-// app/Services/RateLimiter.php - 支持动态配置 + 业务逻辑解耦
-class RateLimiterService {
-    public function checkAndConsume($ip, $key, $tokens = 1): array 
-    {
-        // ✅ 动态读取配置文件，按接口类型分组配置
-        $config = config('rate-limiter.rate_limiters.' . $key);
-        
-        if (!$config) {
-            return ['success' => true]; // 默认不限制
-        }
-        
-        $maxTokens = $config['max_tokens'];
-        $addRate = $config['add_rate'];
-        $windowSize = $config['window_size'] ?? 30;
-        
-        // 使用 Lua 脚本执行限流逻辑
-        $key = "ratelimit:tokens:{$ip}:{$key}";
-        $script = <<<'LUA'
-local key = KEYS[1]
-local maxTokens = tonumber(ARGV[1])
-local addRate = tonumber(ARGV[2])
-local now = tonumber(ARGV[3])
-local currentTokens = tonumber(redis.call('HGET', key, 'tokens') or tostring(maxTokens))
-
-if currentTokens >= tonumber(ARGV[4]) then
-    local consumed = math.min(ARGV[4], currentTokens)
-    redis.call('HSET', key, 'tokens', tostring(currentTokens - consumed))
-    return {1, tostring(currentTokens - consumed)}
-else
-    local waitTime = math.ceil((ARGV[4] - currentTokens) / addRate)
-    return {0, tostring(waitTime)}
-end
-LUA;
-
-        $result = $this->redis->eval(
-            $script,
-            [$key, $maxTokens, $addRate, time(), $tokens],
-            1
-        );
-
-        return [
-            'success' => $result[0] == 1,
-            'remaining_tokens' => (float)$result[1],
-            'retry_after' => $result[0] == 0 ? $result[1] : 0,
-        ];
-    }
-}
+// 场景 4：简单内部服务 → Fixed Window（不推荐生产环境使用）
+$internalRateLimiter = RateLimiter::for('api_internal')
+    ->limit(60)
+    ->perMinute();
 ```
 
 ## 总结
@@ -1558,3 +1124,11 @@ LUA;
 
 ---
 *作者：Michael | KKday RD B2C Backend Team | 2026-05-03*
+
+---
+
+## 📚 延伸阅读
+
+- [AI Agent 限流与配额管理：Token Bucket + 滑动窗口 + 多租户隔离](/post/2026-06-07-ai-agent-rate-limiting-quota-token-bucket-sliding-window-tenant.html) — 面向 AI Agent 场景的限流方案升级，支持多租户配额隔离
+- [API 安全加固实战：JWT 黑名单 · 请求签名 · IP 白名单 · 防重放攻击](/post/API-安全加固实战-JWT-黑名单-请求签名-IP白名单-防重放攻击-Laravel-B2C-API踩坑记录.html) — 限流之外的安全防线，JWT + 签名 + 防重放全链路防护
+- [API Abuse Prevention 实战：Bot 检测 · 速率限制 · 指纹识别](/post/API-Abuse-Prevention-实战-Bot检测-速率限制-指纹识别-Laravel-API反爬与反滥用工程化方案.html) — 从限流到反滥用的工程化演进，Bot 检测 + 指纹识别实战

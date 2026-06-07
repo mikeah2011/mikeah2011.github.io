@@ -1,5 +1,6 @@
 ---
 title: OWASP Top 10 防护实战：SQL 注入/XSS/CSRF/SSRF Laravel B2C API 安全加固踩坑记录
+cover: /images/covers/owasp-top-10-guide-sql-xss-csrf-ssrf-cover.jpg
 date: 2026-05-16 18:40:51
 updated: 2026-05-16 18:51:52
 categories:
@@ -577,3 +578,11 @@ docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
 5. **纵深防御** — 任何单一层级都可能被突破，多层叠加才可靠
 
 Laravel 框架已经帮你挡了 80% 的攻击，但剩下 20% 全在你的业务代码里。希望这篇文章能帮你避开我们在 30+ 仓库中踩过的每一个坑。
+
+---
+
+## 相关阅读
+
+- [API Security 深度实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击](/categories/Laravel/api-security-jwt-blacklist-hmac-signature-replay-protection/)
+- [PHPStan Level 8 实战：静态分析类型安全与渐进式升级踩坑记录](/categories/Laravel/phpstan-level-8-guide/)
+- [Laravel 事务回滚边界控制 - KKday B2C-API 真实踩坑记录](/categories/Laravel/laravel-transaction/)

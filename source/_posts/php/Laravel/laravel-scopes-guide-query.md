@@ -1,11 +1,12 @@
 ---
 title: Laravel-Scopes-实战-查询作用域封装与复杂筛选条件复用踩坑记录
+cover: /images/covers/laravel-scopes-guide-query-cover.jpg
 date: 2026-05-16 12:56:29
 updated: 2026-05-16 12:58:01
 categories:
   - PHP
   - Laravel
-tags: [Laravel]
+tags: [Laravel, Eloquent, 查询优化, PHP, 数据库]
 description: 在 B2C API 中，商品列表、订单查询、后台筛选几乎每个接口都在重复写 where/orderBy/with。Laravel Scopes（本地作用域 + 全局作用域）可以把查询逻辑封装进 Model，让 Controller 和 Service 变薄。本文从 30+ 仓库的真实踩坑出发，拆解 Local Scope、Global Scope、Dynamic Scope 的实战用法与陷阱。
 
 
@@ -508,3 +509,9 @@ public function index(ProductListRequest $request): JsonResponse
 | Dynamic Scope | 运行时传参 | `scopeFilter($params)`、`scopeSorted($sort)` |
 
 **核心原则**：Scope 只负责拼 SQL 条件，不执行查询、不做业务逻辑、不调外部服务。把这三条刻进团队规范，能避免 80% 的 Scope 相关 bug。
+
+## 相关阅读
+
+- [Laravel + PostgreSQL RLS 实战：多租户数据隔离、策略下推与连接池上下文踩坑记录](/categories/PHP/Laravel/laravel-postgresql-rls-guide/)
+- [Laravel 缓存策略全解：Route/Config/View/Query 缓存最佳实践踩坑记录](/categories/PHP/Laravel/laravel-cache-route-config-view-query-cache/)
+- [Laravel Casts & Accessors 实战：数据类型转换与计算属性踩坑记录](/categories/PHP/Laravel/laravel-casts-accessors-guide-data-types/)

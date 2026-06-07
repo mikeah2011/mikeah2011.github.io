@@ -1,5 +1,6 @@
 ---
-title: 新人-Onboarding-指南-30-仓库快速上手路径设计-Laravel-B2C-API实战踩坑记录
+title:
+cover: /images/covers/onboarding-guide-30-cover.jpg 新人-Onboarding-指南-30-仓库快速上手路径设计-Laravel-B2C-API实战踩坑记录
 date: 2026-05-05 08:31:06
 updated: 2026-05-05 08:35:17
 categories:

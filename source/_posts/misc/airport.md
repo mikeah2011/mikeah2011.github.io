@@ -2,13 +2,13 @@
 title: 2026 科学上网机场推荐大全
 date: 2026-05-27 10:00:00
 categories: Misc
-tags: [VPN, 机场, 科学上网, 代理, 推荐]
-description: 2026年最新科学上网机场推荐汇总，涵盖免费试用、低价入门、性价比均衡、高端专线四大类，60+机场详细评测与价格对比
+tags: [vpn, 机场, 科学上网, 代理, 推荐]
+description: 2026年最全科学上网机场推荐指南，精心整理60+款机场服务，按免费试用、入门经济型（¥3-10/月）、性价比均衡型（¥10-20/月）、高端专线（¥20+/月）四大类分级评测。涵盖IEPL/BGP/IPLC专线对比、Netflix与ChatGPT解锁能力、晚高峰稳定性实测数据，附优惠券汇总、客户端推荐（Clash/Shadowrocket/V2rayN）、避坑指南及常见问题解答，助你快速选择最适合的机场方案。
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg
 feature: true
 ---
 
-> 📅 更新时间：2026-05-27
+> 📅 更新时间：2026-06-01
 > 
 > 📊 收录机场：**60+** 款
 > 
@@ -40,10 +40,10 @@ feature: true
 
 | 机场 | 类型 | 试用内容 | 月付价格 | 不限时套餐 | 来源 | 备注 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 🟢 **FlyBit** | 中转 | 2GB 流量 | ¥15 / 128GB | ¥36 / 128GB | [VPN笔记](/misc/vpn/) | 按量试用 |
-| 🟢 **iNetS** | 直连+ | 1天试用 | ¥6 / 50GB | - | [VPN笔记](/misc/vpn/) | 适合测试 |
-| 🟢 **网际快车** | 中转专线 | 试用券 `vpsknow`（1天/5GB） | ¥6.8 / 20GB | 不限时 | [VPSKnow](https://vpsknow.com/airport-recommendations) | 家宽节点、AI全解锁 |
-| 🟢 **Bitz Net** | IEPL专线 | 注册试用（1天/5GB） | - | - | [VPSKnow](https://vpsknow.com/airport-recommendations) | IEPL专线体验 |
+| 🟢 **[FlyBit](https://flybit.vip/#/register?code=munD7XGx)** | 中转 | 2GB 流量 | ¥15 / 128GB | ¥36 / 128GB | [VPN笔记](/post/misc/vpn) | 按量试用 |
+| 🟢 **[iNetS](https://inets.io/#/register?code=51JJlDFB)** | 直连+ | 1天试用 | ¥6 / 50GB | - | [VPN笔记](/post/misc/vpn) | 适合测试 |
+| 🟢 **[网际快车](https://b3.快车.com?c=CDSXDE)** | 中转专线 | 试用券 `vpsknow`（1天/5GB） | ¥6.8 / 20GB | 不限时 | [VPSKnow](https://vpsknow.com/airport-recommendations) | 家宽节点、AI全解锁 |
+| 🟢 **[Bitz Net](https://red.bnaffred.com/#/register?code=krtbYllI)** | IEPL专线 | 注册试用（1天/5GB） | - | - | [VPSKnow](https://vpsknow.com/airport-recommendations) | ⚠️ 试用仅10分钟窗口，套餐仅支持季付，性价比低 |
 | 🟢 **Runway** | BGP专线 | 注册试用（1天/6GB） | ¥9.9 / 100G | - | [VPSKnow](https://vpsknow.com/airport-recommendations) | BGP专线、注册即用 |
 
 ---
@@ -66,7 +66,7 @@ feature: true
 | 🔥 **koodog** | ¥5 / 35G | - | 1 | [二毛](https://www.ermao.net/posts/vpn/) | - |
 | 🔥 **冲上云霄** | ¥5 / 80G | 不限时 | 1 | [二毛](https://www.ermao.net/posts/vpn/) | - |
 | 🔥 **唯兔云** | ¥6 / 45G | 不限时 | 1 | [二毛](https://www.ermao.net/posts/vpn/) | 优惠券 `rabbit` |
-| 🔥 **网际快车** | ¥6.8 / 20GB | 不限时 | 1 | [VPSKnow](https://vpsknow.com/airport-recommendations) | 试用券 `vpsknow` |
+| 🔥 **[网际快车](https://b3.快车.com?c=CDSXDE)** | ¥6.8 / 20GB | 不限时 | 1 | [VPSKnow](https://vpsknow.com/airport-recommendations) | 试用券 `vpsknow` |
 | 🔥 **CAC** | ¥7.9 / 168G | - | 1 | [二毛](https://www.ermao.net/posts/vpn/) | 流量大 |
 | 🔥 **极连云** | ¥8 / 60G | 不限时 | 1 | [二毛](https://www.ermao.net/posts/vpn/) | 优惠券 `JLY888` |
 | 🔥 **XSUS** | ¥8 / 168G | 不限时 | 1 | [二毛](https://www.ermao.net/posts/vpn/) | - |
@@ -175,7 +175,7 @@ feature: true
 
 | 机场 | 专线类型 | 月付价格 | 特点 | 来源 |
 |:---:|:---:|:---:|:---:|:---:|
-| 🔷 **Bitz Net** | IEPL | 试用1天/5GB | 注册即用 | [VPSKnow](https://vpsknow.com/airport-recommendations) |
+| 🔷 **[Bitz Net](https://red.bnaffred.com/#/register?code=krtbYllI)** | IEPL | 试用1天/5GB | ⚠️ 实测：试用窗口仅10分钟，套餐仅季付 | [VPSKnow](https://vpsknow.com/airport-recommendations) |
 | 🔷 **Runway** | BGP | ¥9.9 / 100G | 试用6GB | [VPSKnow](https://vpsknow.com/airport-recommendations) |
 | 🔷 **Bywave** | IEPL | ¥30 / 月起 | - | [VPSKnow](https://vpsknow.com/airport-recommendations) |
 | 🔷 **FlowerCloud** | BGP/IEPL | ¥39 / 月起 | - | [VPSKnow](https://vpsknow.com/airport-recommendations) |
@@ -276,7 +276,7 @@ feature: true
 |:---:|:---:|:---:|
 | 二毛博客 | [ermao.net/posts/vpn](https://www.ermao.net/posts/vpn/) | 50+ 机场详细评测，含优惠券 |
 | VPSKnow | [vpsknow.com/airport-recommendations](https://vpsknow.com/airport-recommendations) | 30+ 机场分类推荐，含试用信息 |
-| 个人笔记 | [VPN & 机场笔记](/misc/vpn/) | 个人订阅记录与使用体验 |
+| 个人笔记 | [VPN & 机场笔记](/post/misc/vpn) | 个人订阅记录与使用体验 |
 
 > ⚠️ **免责声明**：机场信息更新频繁，价格和套餐可能随时变动。请以官网实际信息为准。本文仅供学习参考，不构成任何购买建议。
 
@@ -285,12 +285,22 @@ feature: true
 ## 🔄 更新日志
 
 - **2026-05-27**：初始版本，整合三个来源的机场数据
+- **2026-06-01**：补充 Bitz Net 实测评注（试用窗口仅10分钟、套餐仅季付、性价比低）
+- **2026-06-01**：补充 FlyBit、iNetS 邀请链接（参考 vpn.md）
+- **2026-06-01**：修复内部链接路径（/misc/vpn/ → /post/misc/vpn，适配 SPA 路由）
 - 后续将持续更新价格变动、新增机场、跑路预警等信息
 
 ---
 
-> 📝 **最后更新**：2026-05-27
-> 
+> 📝 **最后更新**：2026-06-01
+>
 > 👨‍💻 **维护者**：Michael
-> 
+>
 > 📧 **反馈建议**：欢迎在评论区留言或通过 GitHub Issues 反馈
+
+---
+
+## 📖 相关阅读
+
+- [VPN & 机场笔记](/categories/Misc/vpn/) — 主流代理协议（Shadowsocks、V2Ray、Trojan、WireGuard）性能与安全性对比，Clash/Shadowrocket 客户端配置教程与 macOS 优化方案
+- [JetBrains系列产品激活方法](/categories/Misc/jetbrains/) — IntelliJ IDEA、WebStorm、PhpStorm 等 IDE 激活方法与合法授权方案对比

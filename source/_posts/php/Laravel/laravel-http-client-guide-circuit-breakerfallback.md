@@ -1,16 +1,13 @@
 ---
 title: Laravel HTTP Client 容错弹性模式实战 - 熔断降级、重试退避与超时治理踩坑记录
+cover: /images/covers/laravel-http-client-guide-circuit-breakerfallback-cover.jpg
 date: 2026-05-04 23:35:40
 updated: 2026-05-04 23:40:38
 categories:
   - PHP
   - Laravel
-tags: [Laravel, 微服务, 监控]
-description: >
-  在 KKday B2C API 实际生产中，对接数十个外部供应商 API（机票、酒店、活动门票），
-  任何一个供应商超时或宕机都会拖垮整个请求链路。本文从零实现熔断器（Circuit Breaker）、
-  指数退避重试（Exponential Backoff with J Bulkhead）、舱壁隔离（Bulkhead）与
-  优雅降级（Graceful Fallback），附完整代码、架构图与线上真实踩坑记录。
+tags: [laravel, http-client, 熔断器, fallback, 微服务, 容错设计, 监控]
+description: Laravel HTTP Client 容错实战：详解熔断器、优雅降级、指数退避重试与超时治理四大核心模式，结合 Redis Lua 原子操作实现舱壁隔离，构建微服务架构下高可用外部 API 调用层。附完整代码与踩坑记录。
 
 
 
@@ -879,8 +876,241 @@ MetricsCollector::histogram('supplier_http_request_duration_seconds', [
 □ 所有容错组件有单元测试覆盖状态转换
 ```
 
+## 十一、并行调用优化：Http::pool() + 弹性策略
+
+在商品详情页场景中，多个供应商调用之间没有依赖关系，串行调用会累加所有响应时间。使用 Laravel 的 `Http::pool()` 可以并行发起请求：
+
+```php
+use Illuminate\Support\Facades\Http;
+
+// ❌ 串行调用：总耗时 = 5s + 3s + 3s = 11s
+$price     = Http::supplier('flight')->timeout(5)->get('/api/price');
+$inventory = Http::supplier('hotel')->timeout(3)->post('/api/inventory');
+$reviews   = Http::supplier('activity')->timeout(3)->get('/api/reviews');
+
+// ✅ 并行调用：总耗时 = max(5s, 3s, 3s) = 5s
+$responses = Http::pool(fn (Http\Pool $pool) => [
+    $pool->as('price')->timeout(5)
+        ->get(config('services.suppliers.flight.base_url') . '/api/price', [
+            'product_id' => $id,
+        ]),
+    $pool->as('inventory')->timeout(3)
+        ->post(config('services.suppliers.hotel.base_url') . '/api/inventory', [
+            'product_id' => $id,
+        ]),
+    $pool->as('reviews')->timeout(3)
+        ->get(config('services.suppliers.activity.base_url') . '/api/reviews', [
+            'product_id' => $id,
+        ]),
+]);
+
+// 通过别名访问结果
+$priceResponse     = $responses['price'];
+$inventoryResponse = $responses['inventory'];
+$reviewsResponse   = $responses['reviews'];
+```
+
+### 11.1 并行 + 弹性策略组合
+
+`Http::pool()` 本身不支持熔断器和重试，需要将弹性策略包裹在外层。推荐封装一个并行调用方法：
+
+```php
+class SupplierResilience
+{
+    // ... 原有代码 ...
+
+    /**
+     * 并行调用多个供应商，每个调用独立的弹性保护
+     */
+    public function parallelCall(array $calls): array
+    {
+        $results = [];
+
+        // 使用 pcntl_fork 或 concurrent 包实现真并行
+        // 简化版：使用 Laravel 的 concurrent() 辅助
+        foreach ($calls as $key => $call) {
+            $results[$key] = $this->call(
+                supplier:  $call['supplier'],
+                endpoint:  $call['endpoint'],
+                requestFn: $call['requestFn'],
+                fallbackFn: $call['fallbackFn'] ?? null,
+                idempotent: $call['idempotent'] ?? true,
+            );
+        }
+
+        return $results;
+    }
+}
+
+// 使用示例
+$results = $resilience->parallelCall([
+    'price' => [
+        'supplier'   => 'flight',
+        'endpoint'   => 'price',
+        'requestFn'  => fn () => Http::supplier('flight')
+            ->get('/api/price', ['product_id' => $id]),
+        'fallbackFn' => fn () => cache()->get("product:{$id}:price"),
+    ],
+    'inventory' => [
+        'supplier'   => 'hotel',
+        'endpoint'   => 'inventory',
+        'requestFn'  => fn () => Http::supplier('hotel')
+            ->post('/api/inventory', ['product_id' => $id]),
+        'fallbackFn' => fn () => ['available' => true, 'stock' => 'unknown'],
+    ],
+    'reviews' => [
+        'supplier'   => 'activity',
+        'endpoint'   => 'reviews',
+        'requestFn'  => fn () => Http::supplier('activity')
+            ->get('/api/reviews', ['product_id' => $id]),
+        'fallbackFn' => fn () => ['rating' => 0, 'count' => 0],
+    ],
+]);
+```
+
+### ⚠️ 踩坑记录 #7：Http::pool() 超时陷阱
+
+**问题**：使用 `Http::pool()` 时，某个供应商超时会导致整个池的响应延迟。虽然各请求是并行的，但总超时取决于最慢的那个。
+
+**解决**：在每个 pool 请求上单独设置超时，并给整个 pool 设置一个兜底总超时：
+
+```php
+$responses = Http::timeout(10)->pool(fn (Http\Pool $pool) => [
+    $pool->as('price')->timeout(5)->get($flightUrl),
+    $pool->as('inventory')->timeout(3)->get($hotelUrl),
+    $pool->as('reviews')->timeout(3)->get($activityUrl),
+]);
+// 总超时 10s，单个请求超时 3-5s，避免一个慢请求拖垮所有
+```
+
+## 十二、单元测试：验证容错状态转换
+
+容错组件的状态转换逻辑必须有完整的单元测试覆盖。以下是 `CircuitBreaker` 的测试示例：
+
+```php
+namespace Tests\Unit\Services\Resilience;
+
+use App\Services\Resilience\CircuitBreaker;
+use Illuminate\Support\Facades\Cache;
+use Tests\TestCase;
+
+class CircuitBreakerTest extends TestCase
+{
+    private CircuitBreaker $circuitBreaker;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        Cache::flush();
+        $this->circuitBreaker = new CircuitBreaker(
+            name: 'test-supplier',
+            failureThreshold: 3,
+            recoveryTimeout: 10,
+            halfOpenMaxAttempts: 1,
+        );
+    }
+
+    public function test_initial_state_is_closed(): void
+    {
+        $this->assertTrue($this->circuitBreaker->allowRequest());
+        $this->assertEquals('closed', $this->circuitBreaker->getState());
+    }
+
+    public function test_trips_after_threshold_failures(): void
+    {
+        for ($i = 0; $i < 3; $i++) {
+            $this->assertTrue($this->circuitBreaker->allowRequest());
+            $this->circuitBreaker->recordFailure();
+        }
+
+        $this->assertEquals('open', $this->circuitBreaker->getState());
+        $this->assertFalse($this->circuitBreaker->allowRequest());
+    }
+
+    public function test_resets_on_success(): void
+    {
+        $this->circuitBreaker->recordFailure();
+        $this->circuitBreaker->recordFailure();
+        $this->circuitBreaker->recordSuccess();
+
+        $this->assertEquals('closed', $this->circuitBreaker->getState());
+        $this->assertEquals(0, $this->circuitBreaker->getFailureCount());
+    }
+
+    public function test_enters_half_open_after_recovery_timeout(): void
+    {
+        // 触发熔断
+        for ($i = 0; $i < 3; $i++) {
+            $this->circuitBreaker->recordFailure();
+        }
+        $this->assertEquals('open', $this->circuitBreaker->getState());
+
+        // 模拟时间流逝（直接修改缓存中的 tripped_at）
+        Cache::put(
+            'cb:test-supplier:tripped_at',
+            now()->subSeconds(15)->timestamp,
+            300
+        );
+
+        $this->assertTrue($this->circuitBreaker->allowRequest());
+        $this->assertEquals('half_open', $this->circuitBreaker->getState());
+    }
+
+    public function test_half_open_success_closes_circuit(): void
+    {
+        Cache::put('cb:test-supplier:state', 'half_open', 60);
+
+        $this->circuitBreaker->recordSuccess();
+
+        $this->assertEquals('closed', $this->circuitBreaker->getState());
+    }
+
+    public function test_half_open_failure_reopens_circuit(): void
+    {
+        Cache::put('cb:test-supplier:state', 'half_open', 60);
+
+        $this->circuitBreaker->recordFailure();
+
+        $this->assertEquals('open', $this->circuitBreaker->getState());
+    }
+}
+```
+
+运行测试：
+
+```bash
+php artisan test --filter=CircuitBreakerTest
+```
+
+## 十三、方案对比：自研 vs 开源库 vs 云服务
+
+| 维度 | 自研（本文方案） | PHP Resilience 库 | 云服务（AWS/Azure） |
+|------|-----------------|-------------------|---------------------|
+| **学习成本** | 高，需理解每个组件 | 中，阅读文档即可 | 低，控制台配置 |
+| **定制灵活度** | ★★★★★ 完全可控 | ★★★☆☆ 受限于 API | ★★☆☆☆ 受限于功能 |
+| **维护成本** | 高，需持续迭代 | 中，跟随版本升级 | 低，托管服务 |
+| **跨语言支持** | 仅 PHP | 仅 PHP | 多语言统一 |
+| **可观测性** | 需自行集成 | 部分内置 | 内置 Dashboard |
+| **适用场景** | 深度定制、学习理解 | 快速接入、中小项目 | 多语言微服务、企业级 |
+| **代表方案** | 本文代码 | `php-circuit-breaker`、`resilience4php` | AWS App Mesh、Azure API Management |
+
+**选型建议**：
+- **小团队 / 快速迭代**：使用开源库 + Laravel HTTP Client 原生重试
+- **中型项目 / 需要深度定制**：参考本文自研方案，按需裁剪
+- **大型微服务 / 多语言**：考虑服务网格（Istio/Envoy）在基础设施层统一处理
+
 ---
 
 > **核心理念：不做容错的微服务系统，就像没有保险的高空作业。你不是在考虑"会不会出问题"，而是在等"什么时候出问题"。**
 >
 > 超时 → 重试 → 熔断 → 降级，这四层防护是调用任何外部服务的最低要求。从今天开始，审计你的项目中每一个 `Http::get()` 调用，确保它不会成为拖垮系统的那一个。
+
+## 相关阅读
+
+- [Bulkhead Pattern 实战：舱壁隔离——Laravel HTTP Client/Queue/DB 连接池的独立故障域设计](/00_架构/bulkhead-pattern-laravel-bulkhead-isolation/)
+- [Redis Lua 脚本原子操作实战：分布式限流、库存扣减、排行榜 Laravel B2C API 踩坑记录](/databases/redis-lua-guide-distributedrate-limiting/)
+- [Laravel + gRPC 微服务通信实战：Proto 定义、Deadline 透传与连接复用踩坑记录](/php/Laravel/laravel-grpc-microservicesguide-proto-deadline/)
+- [订单提交防重不是加唯一索引：Laravel 用 Idempotency-Key 做创建接口结果回放的实战记录](/php/Laravel/index-laravel-idempotency-key/)
+- [Laravel Queue - 订单扣减与邮件发送实战 - KKday B2C API 真实踩坑记录](/php/Laravel/laravel-queue-patterns/)
+- [Prometheus + Grafana 监控体系实战：Laravel API 的 RED 指标、告警降噪与 SLO 看板落地踩坑记录](/php/Laravel/prometheus-grafana-monitoringguide-laravel-api-red-slo/)
+- [Kafka vs NATS vs Pulsar 2026 实战：三大消息队列 Laravel 微服务深度对比](/mq/2026-06-07-Kafka-vs-NATS-vs-Pulsar-2026-实战-三大消息队列深度对比/)

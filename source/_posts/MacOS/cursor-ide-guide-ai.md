@@ -1,4 +1,5 @@
 ---
+cover: /images/covers/cursor-ide-guide-ai-cover.jpg
 title: "Cursor IDE 实战：AI 驱动的代码编辑器深度体验 — Tab 补全、Composer 多文件编辑与 .cursorrules 工程化配置"
 date: 2026-05-17 03:15:22
 updated: 2026-05-17 03:19:59
@@ -500,3 +501,11 @@ jobs:
 迁移后的真实数据：**PR 提交速度提升约 35%**，主要来自 Composer 多文件编辑减少了手动同步 6-8 个文件的时间。Code Review 发现的 AI 生成代码问题率约 15%，主要集中在 Migration 语法和边界条件处理，需要人工把关。
 
 > **一句话总结**：Cursor 让 AI 从「补全工具」进化成了「结对编程伙伴」，而 `.cursorrules` 就是你和这个伙伴之间的「协作协议」。配好它，你的开发效率会有质的飞跃。
+
+## 相关阅读
+
+- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战踩坑记录](/categories/macOS/2026-06-01-Cursor-Claude-Code-Hermes-macOS-开发者多AI协作工作流实战踩坑记录/)
+- [AI Pair Programming 评估实战：Copilot vs Cursor vs Claude Code 的代码质量、开发速度与开发者满意度量化研究](/categories/架构/2026-06-05-AI-Pair-Programming-Copilot-Cursor-Claude-Code-评估实战/)
+- [Windsurf/Augment Code 实战：2026 年 AI-native IDE 新势力——对比 Cursor/Claude Code 的功能、性能与定价](/categories/macOS/Windsurf-Augment-Code-实战-2026年AI-native-IDE新势力-对比Cursor-Claude-Code功能性能定价/)
+- [VS Code 高效开发实战：扩展、快捷键、调试配置](/categories/macOS/vs-code-guide/)
+- [Ollama 实战：本地部署 LLM 与 API 服务 — 隐私优先的 AI 开发工作流踩坑记录](/categories/macOS/ollama-guide-deployment-llm-api-ai/)

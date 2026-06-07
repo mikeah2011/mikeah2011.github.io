@@ -1,12 +1,13 @@
 ---
 title: 性能优化方案
-tags: [MySQL]
+tags: [MySQL, SQL优化, 性能优化, 索引, 查询优化, 数据库]
 categories: Databases
 date: 2020-03-20 15:05:07
-description: '数据量比较大，批量操作数据入库 耗时操作考虑异步处理 恰当使用缓存 优化程序逻辑、代码 SQL优化 压缩传输内容 考虑使用文件/MQ等其他方式暂存，异步再落地DB 跟产品讨论需求最恰当，最舒服的实现方式 本文会提到52条SQL语句性能优化策…'
-
-
-
+cover: /images/covers/databases-1-cover.jpg
+images:
+  - /images/content/databases-1-content-1.jpg
+  - /images/content/databases-1-content-2.jpg
+description: '本文系统总结52条MySQL SQL语句性能优化策略，涵盖索引创建与使用规范、查询写法优化、批量操作、存储过程、慢查询治理、EXPLAIN执行计划分析、表设计与数据类型选择等核心主题，帮助开发者从索引、查询、架构三个层面全面提升MySQL数据库性能。'
 ---
 -   数据量比较大，批量操作数据入库
 -   耗时操作考虑异步处理
@@ -23,7 +24,7 @@ description: '数据量比较大，批量操作数据入库 耗时操作考虑�
 
 本文会提到52条SQL语句性能优化策略。
 
-
+![MySQL性能优化](/images/content/databases-1-content-1.jpg)
 
 1、对查询进行优化，应尽量避免全表扫描，首先应考虑在where及order by涉及的列上建立索引。
 
@@ -245,7 +246,7 @@ Oracle的解析器按照从右到左的顺序处理FROM子句中的表名，FROM
 
 如果有3个以上的表连接查询，那就需要选择交叉表（intersection table）作为基础表，交叉表是指那个被其他表所引用的表。
 
-
+![SQL查询优化](/images/content/databases-1-content-2.jpg)
 
 33、提高GROUP BY语句的效率，可以通过将不需要的记录在GROUP BY之前过滤掉。下面两个查询返回相同结果，但第二个明显就快了许多。 
 
@@ -478,3 +479,9 @@ MySQL可以很好的支持大数据量的存取，但是一般说来，数据库
 
 
 52、任何对列的操作都将导致表扫描，它包括数据库函数、计算表达式等等，查询时要尽可能将操作移至等号右边。
+
+## 相关阅读
+
+- [MySQL优化经验总结](/databases/sql-optimization) — 系统梳理 MySQL SQL 优化核心方法论：从 slow_query_log 慢查询日志采集、EXPLAIN 执行计划解读，到覆盖索引、联合索引最左前缀、分页优化、子查询重写等 16 种优化技巧。
+- [MySQL慢查询治理实战：pt-query-digest 分析、索引优化与 SQL 重写](/databases/slow-query-governance) — 涵盖慢查询日志配置、pt-query-digest 深度分析、EXPLAIN 执行计划解读、索引优化策略与 SQL 重写技巧，帮助建立从发现到修复的慢查询治理闭环。
+- [百万级数据表查询优化实战：EXPLAIN 深度分析、索引重构与分页治理](/databases/query-optimization-explain) — 面对千万级订单表和百万级商品表的真实查询优化实战，从 EXPLAIN 逐行分析到覆盖索引设计、从 OFFSET 分页风暴到游标分页的完整治理过程。

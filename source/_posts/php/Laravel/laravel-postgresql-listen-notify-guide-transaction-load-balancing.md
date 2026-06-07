@@ -1,12 +1,12 @@
 ---
 title: Laravel + PostgreSQL LISTEN/NOTIFY 实战：事务提交后事件广播、连接池与负载均衡踩坑记录
 date: 2026-05-03 11:10:43
+cover: /images/covers/laravel-postgresql-listen-notify-guide-transaction-load-balancing-cover.jpg
 updated: 2026-05-03 11:11:39
 categories:
   - PHP
-  - MySQL
-tags: [Laravel, MySQL, PostgreSQL]
-description: 基于 Laravel 后台审批与订单状态同步场景，记录一套用 PostgreSQL LISTEN/NOTIFY 做事务提交后事件广播的落地方案，重点覆盖触发器设计、常驻监听进程、PgBouncer 兼容、重连与丢消息边界。
+tags: [Laravel, PostgreSQL, PgBouncer, LISTEN/NOTIFY, 消息通知]
+description: 基于 Laravel 后台审批与订单状态同步场景，记录一套用 PostgreSQL LISTEN/NOTIFY 做事务提交后事件广播的落地方案。文章涵盖触发器设计、最小 payload 规范、常驻监听进程实现、PgBouncer 兼容分流、重连与丢消息边界处理，并对比 Redis Pub/Sub 与 Kafka 等方案适用范围，帮助团队在单库场景下用数据库内建能力替代重量级消息中间件。
 
 
 
@@ -202,10 +202,211 @@ NOTIFY 的 payload 上限不是给你传整个实体的。我的经验是只放�
 
 ### 4. 监听进程不能做重活
 
-我一开始在监听循环里直接调第三方 webhook，结果对方抖动时整个监听卡住，后面的通知只能排队。后来改成“监听进程只转发，重活交给队列”，延迟才稳定下来。
+我一开始在监听循环里直接调第三方 webhook，结果对方抖动时整个监听卡住，后面的通知只能排队。后来改成"监听进程只转发，重活交给队列"，延迟才稳定下来。
 
-## 八、什么时候我会放弃它
+## 八、方案对比：LISTEN/NOTIFY vs Redis Pub/Sub vs Kafka
+
+很多团队在选型时会纠结，到底用数据库内建能力还是上独立中间件。下面是我根据实际场景整理的对比：
+
+| 维度 | PostgreSQL LISTEN/NOTIFY | Redis Pub/Sub | Kafka |
+|------|--------------------------|---------------|-------|
+| **消息持久化** | ❌ 不持久化，丢失即丢失 | ❌ 不持久化（Streams 除外） | ✅ 持久化，可重放 |
+| **事务一致性** | ✅ 只有 commit 后才投递 | ❌ 应用层发送，事务回滚仍可能已发 | ❌ 需 Outbox 模式保证 |
+| **运维复杂度** | 极低，数据库自带 | 低，需额外 Redis 实例 | 高，需独立集群 |
+| **消息堆积** | ❌ 不支持 | ❌ 不支持（Streams 支持） | ✅ 按 offset 任意回溯 |
+| **延迟** | 极低（<1ms 本地） | 低（<1ms 本地） | 较高（ms~百ms 级） |
+| **适用规模** | 单库、轻量通知、500 连接内 | 中等，多服务共享状态 | 大规模、跨系统事件流 |
+| **顺序保证** | 单行级别（同一事务内） | 单 channel 内 | 分区内严格有序 |
+| **Laravel 集成** | PDO 原生支持，需常驻进程 | predis/phpredis，Laravel 原生支持 | 需队列驱动（如 kafka-connect） |
+
+**我的选型原则**：
+
+- 如果事件源就在 PostgreSQL，且只需要"通知多进程刷新缓存/推送 UI"→ **LISTEN/NOTIFY 够用**
+- 如果需要多服务共享事件、消息回溯 → **Redis Streams 或 Kafka**
+- 如果需要跨系统、审计可追溯、严格顺序 → **Kafka + Outbox**
+
+## 九、Supervisor 守护监听进程
+
+生产环境不能只靠 `php artisan pg:listen` 手动跑。用 Supervisor 守护是标准做法：
+
+```ini
+; /etc/supervisor/conf.d/pg-listener.conf
+[program:pg-listener]
+command=php /var/www/artisan pg:listen approval_events
+directory=/var/www
+autostart=true
+autorestart=true
+startsecs=5
+stopwaitsecs=10
+user=www-data
+numprocs=1
+redirect_stderr=true
+stdout_logfile=/var/log/supervisor/pg-listener.log
+stdout_logfile_maxbytes=10MB
+stdout_logfile_backups=3
+stopasgroup=true
+killasgroup=true
+```
+
+关键配置说明：
+
+- `startsecs=5`：启动后 5 秒内不退出才算成功，避免启动失败反复重启
+- `autorestart=true`：进程崩溃自动拉起
+- `stopwaitsecs=10`：给监听循环足够时间完成当前通知处理再退出
+- `numprocs=1`：监听进程只需一个，多个反而会重复消费
+
+## 十、健康检查与监控
+
+监听进程"看起来在跑"但实际已经收不到通知，是生产最常见的隐蔽故障。我加了一层简单的心跳检查：
+
+```php
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+
+class PgListenHealthCheck extends Command
+{
+    protected $signature = 'pg:listen:health {channel=approval_events}';
+    protected $description = 'Check if pg listener is alive by inserting a heartbeat row';
+
+    public function handle(): int
+    {
+        $channel = $this->argument('channel');
+        $cacheKey = "pg_listener_heartbeat:{$channel}";
+
+        // 监听进程每次收到通知会更新这个 key
+        // 如果超过 60 秒没更新，说明监听可能卡住
+        $lastHeartbeat = Cache::get($cacheKey);
+
+        if (!$lastHeartbeat) {
+            $this->warn("No heartbeat recorded yet for channel: {$channel}");
+            return self::SUCCESS;
+        }
+
+        $secondsSince = now()->diffInSeconds($lastHeartbeat);
+
+        if ($secondsSince > 60) {
+            $this->error("Listener stale! Last heartbeat {$secondsSince}s ago");
+            // 这里可以接告警：发钉钉、Slack、PagerDuty
+            return self::FAILURE;
+        }
+
+        $this->info("Listener healthy. Last heartbeat {$secondsSince}s ago");
+        return self::SUCCESS;
+    }
+}
+```
+
+对应地，在监听命令里加一行心跳更新：
+
+```php
+// 在 ListenPostgresNotifications 的 while 循环里，每次处理完通知后加：
+Cache::put("pg_listener_heartbeat:{$channel}", now(), 120);
+```
+
+## 十一、多 channel 订阅模式
+
+实际项目中，一个监听进程往往要订阅多个 channel（如 `approval_events`、`order_events`、`inventory_events`）。修改监听命令支持多 channel：
+
+```php
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use PDO;
+use Throwable;
+
+class ListenPostgresMultiChannel extends Command
+{
+    protected $signature = 'pg:listen:multi {channels*}';
+    protected $description = 'Listen on multiple PostgreSQL notification channels';
+
+    public function handle(): int
+    {
+        $channels = $this->argument('channels');
+
+        while (true) {
+            try {
+                $pdo = DB::connection('pgsql_listener')->getPdo();
+
+                foreach ($channels as $channel) {
+                    $pdo->exec("LISTEN " . PDO::quote($channel, PDO::PARAM_STR));
+                    $this->info("Subscribed to: {$channel}");
+                }
+
+                while (true) {
+                    $notify = $pdo->pgsqlGetNotify(PDO::FETCH_ASSOC, 5000);
+
+                    if ($notify === false) {
+                        $pdo->query('SELECT 1');
+                        continue;
+                    }
+
+                    $channel = $notify['channel'];
+                    $payload = json_decode($notify['message'], true, flags: JSON_THROW_ON_ERROR);
+
+                    // 根据 channel 分发到不同的处理器
+                    match ($channel) {
+                        'approval_events' => $this->handleApprovalEvent($payload),
+                        'order_events'    => $this->handleOrderEvent($payload),
+                        default            => Log::warning("Unknown channel: {$channel}", $payload),
+                    };
+
+                    // 更新心跳
+                    \Illuminate\Support\Facades\Cache::put(
+                        "pg_listener_heartbeat:{$channel}", now(), 120
+                    );
+                }
+            } catch (Throwable $e) {
+                Log::warning('pg listener reconnecting', [
+                    'error'   => $e->getMessage(),
+                    'channel' => $channels,
+                ]);
+                sleep(2);
+            }
+        }
+    }
+
+    private function handleApprovalEvent(array $payload): void
+    {
+        event(new \App\Events\ApprovalStatusChanged(
+            approvalId: (int) $payload['approval_id'],
+            status: (string) $payload['status'],
+            version: (int) $payload['version'],
+        ));
+    }
+
+    private function handleOrderEvent(array $payload): void
+    {
+        \App\Jobs\SyncOrderStatus::dispatch(
+            orderId: (int) $payload['order_id'],
+            status: (string) $payload['status'],
+        );
+    }
+}
+```
+
+对应 Supervisor 配置只需一条命令：
+
+```ini
+command=php /var/www/artisan pg:listen:multi approval_events order_events inventory_events
+```
+
+## 十二、什么时候我会放弃它
 
 如果需求从“数据库状态变化后，通知几个应用实例刷新缓存/推送页面”升级成“必须可靠投递、失败重放、审计可追溯”，我会直接切 Outbox + MQ。**LISTEN/NOTIFY 的优势是简单，不是万能。**
 
 但在这次 Laravel 后台审批场景里，它刚好命中痛点：不再担心事务回滚后的假广播，也不需要为了一个轻量提交后通知再引进一套更重的基础设施。对已经把 PostgreSQL 当主数据库的团队来说，这是一把非常值钱、但经常被忽略的小刀。
+
+## 相关阅读
+
+- [Laravel + PostgreSQL SKIP LOCKED 实战：不用 Redis 也能做任务出队](/categories/PHP/laravel-postgresql-skip-locked-guide-redis-lock/)
+- [Laravel + PostgreSQL CDC 实战：Debezium 驱动订单变更同步](/categories/PHP/laravel-postgresql-cdc-guide-debezium/)
+- [Laravel Pennant 特性开关实战：多租户分桶、灰度放量与回滚兜底](/categories/PHP/laravel-pennant-guide-canary/)

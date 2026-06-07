@@ -1,12 +1,11 @@
 ---
 title: VS Code 高效开发实战：扩展、快捷键、调试配置 - Laravel B2C API 踩坑记录
+cover: /images/covers/vs-code-guide-cover.jpg
 date: 2026-05-17 04:25:32
 updated: 2026-05-17 04:28:02
 categories: macOS
-tags: [Laravel, PHP, macOS, 工程管理]
-description: >
-  在 30+ 仓库的 Laravel B2C 项目中深度使用 VS Code 的实战经验：扩展选型、快捷键体系、
-  Xdebug 调试配置、远程开发、性能优化，以及团队协作中踩过的坑。
+tags: [Laravel, PHP, macOS, 工程管理, Editor]
+description: "在管理 30+ Laravel B2C 仓库的实战中总结的 VS Code 完全指南：精选 15 个核心扩展选型对比（Intelephense vs PHP IntelliSense、Volar vs Vetur）、macOS 快捷键体系三层进阶、Xdebug 断点调试与 pathMappings 排查、settings.json 性能调优、自定义 Snippets 模板、Remote Containers 容器内开发，以及 7 个真实踩坑案例——从 var_dump 到断点调试的效率跃迁。"
 keywords:
   - VS Code
   - Laravel
@@ -116,6 +115,29 @@ Vue 3 项目必须用 **Volar**，不能用 Vetur：
 ```
 
 如果你的项目从 Vue 2 迁移到 Vue 3，记得在 VS Code 中 **禁用 Vetur**，否则模板类型推断会完全失效。
+
+### IDE 横向对比：VS Code vs PhpStorm vs Cursor vs Zed
+
+在 Laravel PHP 开发中，主流编辑器各有优劣。以下是基于实际使用经验的对比：
+
+| 特性 | VS Code | PhpStorm | Cursor | Zed |
+|------|---------|----------|--------|-----|
+| **PHP 智能提示** | ✅ Intelephense 插件 | ✅ 原生（最强） | ✅ 继承 VS Code 生态 | ⚠️ 有限（LSP） |
+| **Xdebug 调试** | ✅ php-debug 扩展 | ✅ 原生支持 | ✅ 继承 VS Code 生态 | ❌ 不支持 |
+| **Blade 模板** | ✅ laravel-goto-view | ✅ 原生支持 | ✅ 继承 VS Code 生态 | ⚠️ 基础高亮 |
+| **AI 补全** | ⚠️ 需 Copilot 扩展 | ⚠️ 需 AI Assistant 插件 | ✅ 原生 AI（最强） | ✅ 内置 AI |
+| **启动速度** | ⚠️ 中等（扩展多时慢） | ❌ 较慢（Java 运行时） | ⚠️ 同 VS Code | ✅ 极快（Rust） |
+| **内存占用** | ⚠️ 中等 | ❌ 较高（1-2GB） | ⚠️ 同 VS Code | ✅ 低 |
+| **价格** | 免费 | $89/年起 | $20/月 | 免费 |
+| **远程开发** | ✅ Remote-SSH/Container | ⚠️ Gateway（体验一般） | ✅ Remote-SSH | ⚠️ 有限 |
+
+**选型建议**：
+- **纯 Laravel 后端**：PhpStorm 的原生 PHP 支持最完整，但资源消耗大
+- **PHP + Vue 全栈**：VS Code 生态最均衡，插件丰富
+- **AI 辅助开发优先**：Cursor 在 AI 代码补全和对话方面领先
+- **追求极致性能**：Zed 启动最快、内存最低，但 PHP 支持有限
+
+> 💡 我的策略：主力 VS Code + Cursor 轮换，大型重构时切 PhpStorm（原生重构能力最强）。详见 [JetBrains Toolbox 指南](/categories/macos/jetbrains-toolbox-guide-phpstorm-webstorm-goland/) 和 [Cursor IDE 指南](/categories/macos/cursor-ide-guide-ai/)。
 
 ## 二、快捷键体系：从鼠标依赖到键盘流
 
@@ -634,3 +656,12 @@ xdebug.client_host=vscode-host
 ```
 
 VS Code 的强大不在于功能多，而在于**配置可以精确匹配你的工作流**。30+ 仓库管理下来，我的经验是：先用最简配置跑通，遇到痛点再针对性优化——别一开始就追求「完美配置」，那只是另一种形式的拖延症。
+
+## 相关阅读
+
+- [JetBrains Toolbox 实战：多 IDE 配置同步、插件管理、版本切换](/categories/macos/jetbrains-toolbox-guide-phpstorm-webstorm-goland/) — VS Code 的"互补方案"，大型重构和原生 PHP 重构时 PhpStorm 是更好的选择
+- [PhpStorm Live Templates 实战：代码模板、快速生成、Laravel 开发提速](/categories/macos/phpstorm-guide-live-templates/) — 如果你同时使用 PhpStorm，Live Templates 能大幅减少重复输入
+- [iTerm2 + Oh My Zsh 终端美化与效率提升](/categories/macos/iterm2-oh-my-zsh-guide/) — VS Code 内置终端之外的独立终端方案，适合复杂 Git 操作和多窗口工作流
+- [Cursor IDE AI 辅助开发指南](/categories/macos/cursor-ide-guide-ai/) — VS Code 的 AI 增强分支，原生 AI 代码补全和对话能力
+- [Zed 编辑器指南：GPU 加速与 Rust 架构](/categories/macos/zed-guide-gpu-rustarchitecturelspmacos/) — 追求极致性能的替代方案，启动速度和内存占用远优于 Electron 系编辑器
+- [Neovim + LSP 配置指南](/categories/macos/neovim-guide-vim-lsp/) — 终端原生编辑器方案，与 VS Code Vim 扩展的体验对比

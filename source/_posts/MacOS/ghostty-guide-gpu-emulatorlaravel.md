@@ -1,15 +1,13 @@
 ---
 title: Ghostty 终端实战：下一代 GPU 加速终端 emulator 配置与 Laravel 开发效率提升踩坑记录
+cover: /images/macos-cover.png
 date: 2026-05-17 00:00:28
 updated: 2026-05-17 00:05:14
 categories:
   - macOS
   - Laravel
-tags: [AI, Laravel, macOS, 工程管理]
-description: >
-  从 iTerm2 迁移到 Ghostty 的完整实战记录：GPU 加速渲染性能对比、配置文件详解、
-  快捷键体系设计、与 Oh My Zsh/Powerlevel10k 集成、Kitty 图片协议、
-  以及在 30+ Laravel 仓库日常运维中的效率提升与踩坑经验。
+tags: [ai, laravel, macos, 工程管理]
+description: "从 iTerm2 迁移到 Ghostty 的完整实战指南：GPU 加速终端 emulator 性能实测（17x 启动、120fps 恒定帧率）、配置文件详解、快捷键体系设计、Oh My Zsh/Powerlevel10k 集成、Kitty 图片协议、多仓库 Laravel 开发工作流、以及 8 大踩坑案例与替代方案。适合管理 30+ 仓库的 macOS 开发者参考。"
 
 
 
@@ -418,3 +416,9 @@ selection-foreground = #cdd6f4
 Ghostty 对于 Laravel 开发者的价值，不只是"快"——而是快到改变了工作方式。当打开大日志文件从"等一下"变成"瞬间"，当切换 Tab 从"有延迟"变成"即时"，当分屏操作从"偶尔卡顿"变成"永远 120fps"，终端就真正变成了透明的工具，而不是需要"照顾"的软件。
 
 两周迁移成本，换来的是每天节省的几十秒零散等待时间的累积。对于管理 30+ 仓库的开发者来说，这个投资回报比是正的。
+
+## 相关阅读
+
+- [iTerm2 + Oh My Zsh 实战：终端美化与效率提升踩坑记录](/categories/09_macOS/iterm2-oh-my-zsh-guide/)
+- [VS Code 高效开发实战：扩展、快捷键、调试配置 - Laravel B2C API 踩坑记录](/categories/09_macOS/vs-code-guide/)
+- [Zed 编辑器实战：下一代 GPU 加速代码编辑器 — Rust 架构、LSP 集成与 macOS 开发效率提升踩坑记录](/categories/09_macOS/zed-guide-gpu-rustarchitecturelspmacos/)

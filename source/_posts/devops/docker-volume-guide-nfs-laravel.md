@@ -1,5 +1,6 @@
 ---
 title: Docker-Volume-实战-数据持久化备份恢复与NFS挂载-Laravel踩坑记录
+cover: /images/covers/docker-volume-guide-nfs-laravel-cover.jpg
 date: 2026-05-16 22:45:13
 updated: 2026-05-16 22:48:11
 tags: [DevOps, Docker, Kubernetes, Laravel]
@@ -421,3 +422,9 @@ Docker Volume 看似简单，但在实际项目中，权限、性能、备份策
 > - [Docker Compose 5.x 实战：多服务编排、健康检查、开发环境搭建](/07_CICD/Docker-Compose-5.x-实战-多服务编排健康检查与开发环境搭建-Laravel踩坑记录)
 > - [Docker 网络实战：bridge、host、overlay 网络模式与服务发现](/07_CICD/Docker-网络实战-bridge-host-overlay-网络模式与服务发现-Laravel-B2C-API踩坑记录)
 > - [Docker 多阶段构建实战：PHP 应用镜像优化](/07_CICD/Docker-多阶段构建实战-PHP-应用镜像优化从500MB到50MB踩坑记录)
+
+## 相关阅读
+
+- [Google Cloud Run 实战：容器化 Laravel 应用的 Serverless 部署——对比 AWS Lambda 冷启动与成本](/categories/DevOps/Google-Cloud-Run-容器化Laravel应用Serverless部署-对比AWS-Lambda/)
+- [K8s HPA/VPA 自动扩缩容实战：Laravel API 从 CPU 误判到自定义指标扩容踩坑记录](/categories/DevOps/k8s-hpa-vpa-guide-laravel-api-cpu/)
+- [Kubernetes-Ingress-实战-Nginx-Traefik-配置与-TLS-Laravel-B2C-API-部署踩坑记录](/categories/DevOps/kubernetes-ingress-guide-nginx-traefik-tls-deployment/)

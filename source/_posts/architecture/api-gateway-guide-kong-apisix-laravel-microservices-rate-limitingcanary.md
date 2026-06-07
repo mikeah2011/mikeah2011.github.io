@@ -5,10 +5,12 @@ updated: 2026-05-16 18:23:07
 categories:
   - Architecture
   - Laravel
-tags: [Laravel, 微服务]
-description: 从单体 Laravel 演进到微服务后，API Gateway 成了绕不开的基础设施。本文以 Kong 和 Apache APISIX 为主线，结合 KKday B2C 真实场景，覆盖网关选型、路由分发、JWT 鉴权、限流熔断、灰度发布、可观测性等核心能力，附带完整配置示例与踩坑记录。
-
-
+tags: [api-gateway, kong, apisix, laravel, 微服务, 限流, 灰度发布, jwt]
+description: 从单体 Laravel 演进到微服务后，API Gateway 成了绕不开的基础设施。本文以 Kong 和 Apache APISIX 为主线，结合 B2C 电商真实场景，深入对比两大网关选型差异，覆盖路由分发、JWT 统一鉴权、多级限流与熔断、Header/流量比例灰度发布、ELK+Prometheus 可观测性集成等核心能力，附带 5 个真实踩坑案例、完整可运行配置示例与落地 Checklist，适合正在评估或落地微服务网关的后端团队参考。
+cover: /images/covers/arch-002-cover.jpg
+images:
+  - /images/content/arch-002-content-1.jpg
+  - /images/diagrams/arch-002-diagram.jpg
 
 ---
 # API Gateway 实战：Kong/APISIX 在 Laravel 微服务中的应用
@@ -78,6 +80,8 @@ description: 从单体 Laravel 演进到微服务后，API Gateway 成了绕不�
 当然 Kong 也是优秀选择，如果你已经在用 Kong，没有必要迁移。两个产品核心能力差异不大，选型重点在于团队熟悉度和运维成本。
 
 ## 核心架构设计
+
+![API Gateway 微服务架构设计](/images/content/arch-002-content-1.jpg)
 
 在 B2C 电商场景下，API Gateway 的核心职责：
 
@@ -272,6 +276,8 @@ class TrustGatewayHeaders
 ```
 
 ## 实战三：限流与熔断
+
+![API Gateway 路由分发与限流架构](/images/diagrams/arch-002-diagram.jpg)
 
 ### APISIX 限流插件
 
@@ -616,3 +622,70 @@ services:
 ```
 
 API Gateway 不是银弹，但在微服务架构中它是不可或缺的「门卫」。选型时不必纠结 Kong 还是 APISIX——核心能力相似，重点在于团队的运维能力和业务场景的匹配度。先用最简单的路由分发 + JWT 鉴权跑起来，再逐步叠加限流、灰度、可观测性，才是最务实的落地路径。
+
+## 附录：Kong 同等功能配置参考
+
+上面的实战示例以 APISIX 为主。如果你选用 Kong，以下是等价配置：
+
+### Kong 路由 + 限流（decK 声明式配置）
+
+```yaml
+# kong.yml (decK 声明式配置)
+_format_version: "3.0"
+
+services:
+  - name: order-service
+    url: http://order-service:8000
+    routes:
+      - name: order-api
+        paths:
+          - /api/v3/orders
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 60
+          policy: redis
+          redis_host: redis-cluster
+          redis_port: 6379
+          fault_tolerant: true
+      - name: jwt
+      - name: cors
+        config:
+          origins:
+            - "*"
+          methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+          headers:
+            - Authorization
+            - Content-Type
+          max_age: 86400
+```
+
+```bash
+# 使用 decK 同步配置到 Kong
+deck sync -s kong.yml --kong-addr http://localhost:8001
+```
+
+### Kong 灰度发布（基于 Canary 插件）
+
+```bash
+# 安装 canary 社区插件后配置
+curl -X POST http://localhost:8001/services/order-service/plugins \
+  --data "name=canary" \
+  --data "config.start=1" \
+  --data "config.duration=3600" \
+  --data "config.percentage=5" \
+  --data "config.upstream_host=order-service-canary" \
+  --data "config.upstream_port=8000" \
+  --data "config.hash=consumer"
+```
+
+## 相关阅读
+
+- [负载均衡实战：Nginx Upstream + Laravel Session 共享](/architecture/load-balancingguide-nginx-upstream-laravel-session/) — API Gateway 下游的负载均衡与 Session 共享方案
+- [链路追踪实战：Jaeger/SkyWalking](/architecture/distributed-tracing-jaeger-skywalking/) — 微服务调用链追踪，与网关可观测性互补
+- [Webhook 集成最佳实践](/architecture/webhook-best-practices/) — 网关层 Webhook 路由与重试策略

@@ -1,11 +1,12 @@
 ---
 title: Laravel-Slack-通知集成实战-部署推送CI结果与告警降噪踩坑记录
+cover: /images/covers/laravel-slack-guide-deploymentci-cover.jpg
 date: 2026-05-05 01:15:58
 updated: 2026-05-05 01:23:43
 categories:
   - DevOps
   - Laravel
-tags: [CI/CD, Laravel, 工程管理, 监控]
+tags: [cicd, Laravel, 工程管理, 监控]
 description: 在 KKday B2C 后端 30+ 仓库中落地 Slack 通知的完整方案：Incoming Webhook vs Slack App Bot 选型、Laravel Notification Channel 封装、GitHub Actions 部署/测试结果推送、生产告警降噪策略，以及踩过的每一个坑。
 
 
@@ -783,3 +784,9 @@ SLACK_BOT_TOKEN: xoxb-xxxx-xxxx-xxxx
 ---
 
 *本文基于 KKday B2C Backend Team 的 Slack 通知落地实践，涉及 Laravel 10+ / GitHub Actions / Slack API v2。*
+
+## 相关阅读
+
+- [Laravel Notifications 多通道实战：邮件短信 Slack 企业微信集成——统一通知抽象与降级策略踩坑记录](/categories/Laravel/laravel-notifications-guide-slack-fallback/)
+- [GitHub-Actions-Composer-Cache-构建时间从20s到5s-优化实战踩坑记录](/categories/DevOps/github-actions-composer-cache-20s5s-optimization/)
+- [工程效能度量实战：DORA 四大指标在 Laravel 团队中的落地——Lead Time、部署频率与 MTTR](/categories/07_CICD/工程效能度量实战-DORA四大指标-Laravel团队落地/)

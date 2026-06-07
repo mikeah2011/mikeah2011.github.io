@@ -1,11 +1,12 @@
 ---
-title: GitHub Actions CI/CD 优化实战：Laravel 单体仓库的矩阵拆分、缓存命中与并行发布踩坑记录
+title: "GitHub Actions CI/CD 优化实战：Laravel 单体仓库的矩阵拆分、缓存命中与并行发布踩坑记录"
+cover: /images/covers/github-actions-ci-cd-optimizationguide-laravel-cache-cover.jpg
 date: 2026-05-03 09:40:00
 categories:
   - PHP
   - CI/CD
 tags: [CI/CD, Composer, Docker, Kubernetes, Laravel]
-description: 结合 Laravel B2C API 的真实改造经验，记录如何把 GitHub Actions 慢流水线从 18 分钟优化到 7 分钟内，重点覆盖变更感知、矩阵拆分、缓存设计、发布锁、回滚保护与真实踩坑记录。
+description: GitHub Actions CI/CD 优化实战指南，基于 Laravel B2C API 单体仓库的真实改造经验，详解如何将流水线从 18 分钟优化到 7 分钟。内容覆盖 dorny/paths-filter 变更感知、Pest/PHPStan 矩阵并行、Composer lock 缓存策略、Docker BuildKit 层缓存、workflow_run 发布解耦、concurrency 防重入锁、Kubernetes rollout 回滚保护等核心技术点，并附真实缓存事故排查记录与踩坑总结，适合 Laravel 团队落地 CI/CD 提速。
 
 
 
@@ -349,7 +350,21 @@ jobs:
 
 有一次我把镜像构建从 3 分钟优化到 1 分 40 秒，自以为很成功，结果主流程总时长几乎没变。最后把每一步耗时摊开后才发现，真正的长尾在 `kubectl rollout status` 和 readiness probe。**先做时间分布分析，再决定优化方向**，这是 CI/CD 调优里最容易被忽略的一步。
 
-## 十、这次改造后，我固定遵守的四条规则
+## 十、CI 缓存策略对比表
+
+| 缓存策略 | 缓存目标 | key 设计 | 命中率 | 适用场景 | 风险 |
+| --- | --- | --- | --- | --- | --- |
+| `actions/cache` + vendor | Composer 依赖目录 | `composer-{os}-{hash(composer.lock)}` | 高 | PHP 项目标准依赖缓存 | lock 文件未更新时命中旧依赖 |
+| `actions/cache` + composer cache | `~/.composer/cache/files` | 同上 | 高 | 补充 vendor 缓存，减少网络下载 | 几乎无风险，仅缓存包下载 |
+| `actions/cache` + node_modules | npm/yarn 依赖 | `npm-{os}-{hash(package-lock.json)}` | 高 | 前端构建场景 | lock 文件变更频繁时命中率下降 |
+| Docker BuildKit GHA cache | Docker 层缓存 | `type=gha,mode=max` | 中高 | 多阶段构建、大镜像 | 首次构建无缓存；cache 过期需手动清理 |
+| `actions/cache` + bootstrap/cache | Laravel 配置缓存 | 按 branch 或 SHA | 低 | ⚠️ 不推荐 | 污染测试环境，串配置到错误数据库 |
+| `actions/cache` + storage/framework | Laravel 框架临时文件 | 按 branch 或 SHA | 低 | ⚠️ 不推荐 | 引入脏状态，导致"假绿色" |
+| npm ci + lockfileOnly | 仅下载不安装 | lockfileOnly: true | 中 | 需要验证 lock 文件一致性 | 不产生可用 node_modules |
+
+> **经验总结**：缓存的核心原则是**只缓存可重复生成且不会串环境的内容**。对 Laravel 项目来说，`composer.lock` 是最稳定的缓存 key 来源，运行态缓存（config cache、session、framework cache）一律不进 CI 缓存。
+
+## 十一、这次改造后，我固定遵守的四条规则
 
 1. **PR 只跑必要校验，不混入生产部署。**  
 2. **缓存只缓存依赖，不缓存运行态目录。**  
@@ -357,3 +372,9 @@ jobs:
 4. **优化目标不是 workflow 更花，而是更快给出可信反馈。**
 
 GitHub Actions 本身并不复杂，复杂的是团队把所有步骤都塞进了一条串行流水线。对于 Laravel 项目来说，真正值得优化的不是 YAML 写法本身，而是**流程切分是否合理、缓存边界是否清晰、发布动作是否安全**。只要把这几个点做对，CI/CD 就不会再是研发效率的阻塞点，而会真正变成交付加速器。
+
+## 相关阅读
+
+- [Laravel Dusk 浏览器自动化 E2E 测试实战：CI 流水线集成、动态等待与选择器治理踩坑记录](/php/Laravel/laravel-dusk-automatione2etestingguide-ci/) — 本文聚焦 CI 中的 E2E 测试集成，与本文的 CI 流水线优化互为补充，覆盖 Dusk 在 GitHub Actions 中的 Headless Chrome 运行与测试稳定性治理。
+- [Laravel Scheduler 定时任务实战：多实例部署下的重入保护、onOneServer 失效与 Kubernetes CronJob 取舍](/php/Laravel/laravel-scheduler-guide-deployment-ononeserver-kubernetes-cronjob/) — 延伸本文第七节的发布后动作，深入讨论 Laravel 调度器在 Kubernetes 多副本场景下的陷阱与替代方案。
+- [Laravel Reverb 实战：订单状态实时推送与多实例部署踩坑记录](/php/Laravel/laravel-reverb-guide-deployment/) — 从 WebSocket 实时推送角度补充 Laravel 应用的多实例部署与健康检查实践，与本文的 Kubernetes 部署与 rollout 策略形成呼应。

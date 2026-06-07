@@ -1,13 +1,14 @@
 ---
-title: Laravel B2C API - JWT/OAuth/Sesssion 多协议认证踩坑记录
+title: "Laravel B2C API - JWT/OAuth/Session 多协议认证踩坑记录"
+cover: /images/covers/jwt-oauth-session-2-cover.jpg
 date: 2026-05-03
 categories:
   - Architecture
   - Auth
 tags: [Laravel]
-description: KKday B2C API 真实踩坑记录：JWT 过期刷新、OAuth 回调循环跳转、Session 与 Token 混合认证的边界控制
+description: KKday B2C API 生产环境认证授权实战踩坑记录，深入剖析 JWT Token 刷新无限循环、OAuth 2.0 回调 CSRF 防护与死循环跳转、Session 与 Token 混合认证边界控制，涵盖 SSO 单点登录架构设计、多种认证协议方案对比分析、性能优化策略与生产环境最佳实践
 
-
+---
 
 ---
 # Laravel B2C API - JWT/OAuth/Session 多协议认证踩坑记录
@@ -793,3 +794,12 @@ class OAuthCallbackExceptionHandling extends Middleware
 ---
 
 *本文基于 KKday B2C API 生产环境真实踩坑记录整理，欢迎参考实践！*
+
+---
+
+## 相关阅读
+
+- [Zero Trust 架构实战：从 VPN 到零信任——Laravel 微服务中的身份验证与网络分段](/posts/Zero-Trust-架构实战-从VPN到零信任-Laravel微服务中的身份验证与网络分段) — 零信任网络架构下的身份验证与服务间认证策略
+- [OpenFGA 实战：细粒度授权引擎（Zanzibar 模型）——Laravel 中的关系型权限控制与 ReBAC 落地](/posts/openfga-zanzibar-rebac-laravel) — 基于 Zanzibar 模型的细粒度授权与权限控制实践
+- [API 生命周期管理实战：Sunset Header 与 Deprecation 标准](/posts/API生命周期管理实战-设计版本控制废弃通知客户端迁移-Sunset-Header与Deprecation标准) — API 版本控制、废弃通知与客户端迁移工程化方案
+- [Secrets Rotation 实战：AWS Secrets Manager + Laravel——自动化密钥轮换](/posts/Secrets-Rotation-实战-AWS-Secrets-Manager-Laravel-自动化密钥轮换) — 认证密钥与 OAuth Client Secret 的自动化轮换实践

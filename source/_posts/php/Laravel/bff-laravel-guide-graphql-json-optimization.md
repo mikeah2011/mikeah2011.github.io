@@ -1,11 +1,12 @@
 ---
 title: Laravel BFF 中间层聚合实战 — GraphQL 到 JSON 转换优化
+cover: /images/covers/bff-laravel-guide-graphql-json-optimization-cover.jpg
 date: 2026-05-02
 categories:
   - PHP
   - Laravel
-tags: [BFF, Laravel, 性能优化]
-description: 在 KKday B2C 项目中，如何在 BFF 层实现 GraphQL 到 JSON 的高效转换，解决多源数据聚合性能瓶颈
+tags: [BFF, Laravel, GraphQL, JSON优化, API聚合, 性能优化, 微服务, Redis]
+description: '基于 KKday B2C API 真实项目，详解 BFF 中间层如何利用 Laravel 实现 GraphQL 到 JSON 的高效转换：批量聚合查询消除 N+1 问题、Redis 缓存分层策略、微服务故障降级设计，响应时间从 850ms 优化至 180ms，附完整 PHP 8 代码示例与性能对比数据'
 
 
 
@@ -599,3 +600,11 @@ src/
 
 *作者：KKday RD B2C Backend Team @ mikeah2011*  
 *技术栈：Laravel 8 + PHP 8 + GraphQL + Redis*
+
+---
+
+## 相关阅读
+
+- [Redis 实战：缓存穿透/击穿/雪崩防护 — KKday B2C API 真实踩坑记录](/databases/redis-guidecache-penetrationbreakdownavalanche/) — BFF 缓存层必备的 Redis 三大防护策略，与本文缓存优化场景互补
+- [Laravel Redis 分布式锁失效场景实战 — KKday B2C API 真实踩坑记录](/databases/laravel-redis-distributedlockguide/) — 高并发下 BFF 层并发写入的一致性保障方案
+- [Hyperf：PHP 微服务框架深度解析](/php/frameworks/hyperf-1/) — 另一种 PHP 微服务架构选型，含服务注册、熔断限流与协程优化

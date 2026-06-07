@@ -1,11 +1,12 @@
 ---
 title: 搜索系统设计实战：Elasticsearch 索引设计、分词策略与相关性调优——Laravel B2C API 踩坑记录
+cover: /images/covers/search-engine-elasticsearch-cover.jpg
 date: 2026-05-16 20:41:01
 updated: 2026-05-16 20:48:35
 categories:
   - Architecture
   - Search
-tags: [Elasticsearch, KKday, Laravel, MySQL]
+tags: [elasticsearch, kkday, laravel, mysql, 搜索, 分词]
 description: 基于 KKday B2C 旅游电商真实项目，记录从 MySQL LIKE 演进到 Elasticsearch 搜索系统的完整过程——涵盖索引 Mapping 设计、IK 中英文分词策略、相关性评分调优、Suggest 自动补全、聚合过滤，以及生产环境的性能踩坑与优化方案。
 
 
@@ -686,3 +687,11 @@ class CachedSearchService
 ---
 
 *搜索系统的核心挑战不在于「能不能搜到」，而在于「搜出来的结果是否符合用户预期」。技术选型只是起点，真正的功夫在相关性调优和业务理解上。*
+
+---
+
+## 相关阅读
+
+- [ELK Stack 实战：Elasticsearch + Logstash + Kibana 集中式日志系统与 Laravel 集成踩坑记录](/categories/架构/elk-stack-guide-elasticsearch-logstash-kibana-logging-laravel/)
+- [CQRS 模式实战：读写分离架构在 Laravel 中的落地——B2C 电商查询性能优化](/categories/架构/cqrs-guide-architecture-laravel-queryperformance/)
+- [微服务拆分策略：从单体 Laravel 到微服务的渐进式演进踩坑记录](/categories/架构/microservices-laravelmicroservices/)

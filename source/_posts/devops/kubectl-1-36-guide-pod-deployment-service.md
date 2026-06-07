@@ -1,11 +1,12 @@
 ---
 title: kubectl-1.36-实战-Pod-Deployment-Service-基础操作与-Laravel-B2C-API-踩坑记录
+cover: /images/covers/kubectl-1-36-guide-pod-deployment-service-cover.jpg
 date: 2026-05-16 23:00:27
 updated: 2026-05-16 23:03:36
 categories:
   - DevOps
   - Kubernetes
-tags: [KKday, Kubernetes, Laravel]
+tags: [kkday, kubernetes, laravel]
 description: 从零开始掌握 kubectl 核心命令，以 Laravel B2C API 为例，覆盖 Pod 生命周期、Deployment 滚动更新、Service 服务发现的真实操作与踩坑记录。
 
 
@@ -639,3 +640,13 @@ roleRef:
 > **草稿来源**：`.writing-backlog.md` → `kubectl 1.36 实战：Pod、Deployment、Service 基础操作`
 > **生成时间**：2026-05-16 23:00:27
 > **生成模型**：MiMo-v2.5-pro
+
+---
+
+## 相关阅读
+
+- [Kubernetes 基础操作命令](/categories/devops/kubernetes-1/)
+- [ArgoCD GitOps 实战：Laravel 应用持续部署与回滚踩坑记录](/categories/devops/argocd-gitops-guide-laravel-cd/)
+- [K8s HPA/VPA 自动扩缩容实战：Laravel API 从 CPU 误判到自定义指标扩容踩坑记录](/categories/devops/k8s-hpa-vpa-guide-laravel-api-cpu/)
+- [Kubernetes ConfigMap/Secret 实战：配置管理与敏感数据处理](/categories/devops/kubernetes-configmap-secret-guide-config-management-laravel-deployment/)
+- [Docker-Volume-实战-数据持久化备份恢复与NFS挂载-Laravel踩坑记录](/categories/devops/docker-volume-guide-nfs-laravel/)

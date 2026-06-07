@@ -1,12 +1,13 @@
 ---
 title: Laravel + NATS JetStream 实战：订单通知削峰、Ack 重投与 KV 配置同步踩坑记录
+cover: /images/covers/laravel-nats-jetstream-guide-ackkv-cover.jpg
 date: 2026-05-04 16:01:38
 updated: 2026-05-04 16:05:52
 categories:
   - PHP
   - Laravel
-tags: [Laravel, 微服务, 消息队列]
-description: 结合 Laravel 在订单通知链路中的真实改造经验，记录 NATS JetStream 在削峰、消息确认、重复投递、消费者并发和 KV 配置同步上的一套可落地实践。
+tags: [Laravel, 微服务, 消息队列, NATS, JetStream, 消息中间件]
+description: 基于 Laravel 订单通知链路的真实改造，详解 NATS JetStream 的削峰填谷、Ack/Nack 消息确认、幂等防重、KV 配置同步及与 RabbitMQ/Redis Streams 的选型对比，附完整可运行代码与踩坑记录。
 
 
 
@@ -70,7 +71,24 @@ description: 结合 Laravel 在订单通知链路中的真实改造经验，记�
 - 有少量 request-reply 场景；
 - 希望运维面尽量轻，不额外引入过重的 broker 集群。
 
-如果你的场景是超长堆积、强顺序分区、大规模回放分析，那还是 Kafka 更顺手；如果你需要复杂路由和成熟插件生态，RabbitMQ 依然稳。**NATS JetStream 更适合“中等吞吐 + 低延迟”这条线。**
+如果你的场景是超长堆积、强顺序分区、大规模回放分析，那还是 Kafka 更顺手；如果你需要复杂路由和成熟插件生态，RabbitMQ 依然稳。**NATS JetStream 更适合"中等吞吐 + 低延迟"这条线。**
+
+下面这张对比表能帮助你快速判断：
+
+| 维度 | NATS JetStream | RabbitMQ | Redis Streams |
+|------|---------------|----------|---------------|
+| 消息持久化 | ✅ 支持（文件/内存） | ✅ 支持 | ⚠️ 依赖 AOF/RDB |
+| 消息确认机制 | ✅ Ack/Nack/In Progress | ✅ Ack/Nack | ✅ XACK |
+| 消费者组 | ✅ Durable Consumer | ✅ Queue + Consumer | ✅ Consumer Group |
+| 延迟消息 | ❌ 需自建 | ⚠️ 插件支持 | ❌ 需自建 |
+| Request-Reply | ✅ 原生支持 | ❌ 需额外实现 | ❌ 需额外实现 |
+| 内置 KV 存储 | ✅ 原生 | ❌ | ⚠️ 可变通但非设计目标 |
+| 运维复杂度 | 低（单二进制） | 中（Erlang + 管理插件） | 低（但持久化需注意） |
+| 适用吞吐量 | 中等（万级 TPS） | 中等 | 中高 |
+| 协议生态 | NATS 协议 | AMQP | RESP |
+| 语言客户端 | Go/Rust/PHP/Java 等 | Erlang/多语言 | 多语言 |
+
+> **选型建议**：如果你的需求是"可靠投递 + 低运维 + request-reply + 轻量 KV"，优先 NATS JetStream；需要复杂路由和死信队列，选 RabbitMQ；已有 Redis 基础设施且对丢失容忍度稍高，Redis Streams 最快上手。
 
 ## 三、Laravel 里的连接封装
 
@@ -284,3 +302,47 @@ $bucket->update('notify.mail.enabled', 'false', $entry->revision);
 - 希望顺手拿到 request-reply、KV 这类配套能力。
 
 但它也不是万能中间件。**真正决定线上稳定性的，不是换了哪个 MQ，而是你有没有把发布幂等、消费幂等、Ack 时机、失败隔离和配置同步边界设计清楚。**这几个点没做好，用什么 broker 都一样会翻车。
+
+### Ack 策略对比速查
+
+| 策略 | 适用场景 | 优点 | 缺点 |
+|------|---------|------|------|
+| `ack()` 立即确认 | 处理成功后 | 简单、不阻塞 | 处理中崩溃会丢消息 |
+| `nack(delay)` 负确认 + 延迟重投 | 可恢复的临时失败 | 自动重试、可设退避 | 需幂等保护，否则重复副作用 |
+| `inProgress()` 续期 | 长耗时任务 | 防止超时被重投 | 需定期调用，实现复杂 |
+| 不确认（超时自动重投） | 消费者崩溃兜底 | 最后一道防线 | 延迟不可控，可能堆积 |
+
+### 线上真实踩坑补充：Supervisor 并发与连接泄漏
+
+把 consumer 脚本交给 Supervisor 管理时，遇到过一个隐蔽问题：**多个 worker 进程复用同一个 NATS 连接对象，当某个 worker 被 Supervisor 重启时，底层 socket 被 close，其他 worker 全部报错退出**。解法是每个 worker 进程独立创建连接：
+
+```bash
+# /etc/supervisor/conf.d/nats-order-mail.conf
+[program:nats-order-mail]
+command=php /var/www/artisan nats:consume-order-mail
+numprocs=3
+process_name=%(program_name)s_%(process_num)02d
+autorestart=true
+startsecs=5
+stopwaitsecs=10
+```
+
+关键配置：`numprocs=3` 表示启动 3 个独立进程，每个进程内部自己 `NatsFactory::make()` 创建独立连接，不要在进程间共享 `Client` 实例。
+
+### 生产环境 Checklist
+
+上线前请逐项确认：
+
+- [ ] Stream 和 Consumer 在部署脚本中统一创建，不依赖客户端自动建
+- [ ] 生产端每条消息都有唯一 `Nats-Msg-Id`
+- [ ] 消费端业务幂等表已建好，有唯一索引
+- [ ] `WORK_QUEUE` 策略下消息不会被多个 consumer 同时消费
+- [ ] Supervisor 或 K8s 正确配置了进程重启策略
+- [ ] 监控了 NATS 的 `ack_pending` 和 `num_pending` 指标
+- [ ] KV bucket 设置了合理的 TTL，避免历史数据堆积
+
+## 相关阅读
+
+- [Laravel 队列完全指南：从基础到生产环境]({% post_path laravel-queue-guide %})
+- [Laravel 失败任务处理与重试策略]({% post_path laravel-failed-job-handling %})
+- [Laravel Redis 队列 + Horizon 监控实战]({% post_path laravel-redis-queue-horizon-guide-monitoring %})

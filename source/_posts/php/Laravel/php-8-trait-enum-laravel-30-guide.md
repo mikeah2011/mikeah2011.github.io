@@ -1,7 +1,8 @@
 ---
 title: PHP 8 + Trait/Enum 重构旧 Laravel 项目：30+ 仓库的实战经验
+cover: /images/covers/php-8-trait-enum-laravel-30-guide-cover.jpg
 date: 2026-05-02
-description: "PHP 8 + Trait/Enum 重构旧 Laravel 项目：30+ 仓库的实战经验"
+description: "基于30+仓库的实战经验，详解PHP 8新特性在Laravel项目中的应用：用Enum枚举替代魔术字符串实现类型安全，用Trait特性聚合Service层共享逻辑，以及Match表达式、Union Types、Readonly等特性的踩坑指南与平滑迁移策略。"
 categories:
   - PHP
   - Laravel
@@ -528,6 +529,14 @@ class PaypalService
 > **3. 最后聚合共享逻辑（Traits/Service）**
 
 PHP 8.0 + Traits/Enum 是工具，不是银弹。关键在于：**用对的场景、按节奏迁移**。
+
+---
+
+## 相关阅读
+
+- [BFF-Laravel-中间层聚合实战]({{ site.baseurl }}/posts/bff-laravel-中间层聚合实战) — Laravel BFF 架构设计与服务聚合模式详解
+- [Rust + PHP FFI 实战：用 Rust 写 PHP 扩展——高性能加密/图像处理/JSON 解析的跨语言集成与性能基准]({{ site.baseurl }}/posts/rust-php-ffi-实战-用rust写php扩展-高性能加密图像处理json解析) — 结合 Rust FFI 进一步提升 PHP 应用性能
+- [OWASP Top 10 2025 版本更新实战：Laravel 应用的新威胁防护指南]({{ site.baseurl }}/posts/owasp-top10-2025-实战-llm漏洞-api安全增强-供应链攻击-laravel防护指南) — 重构后的 Laravel 项目安全加固
 
 ---
 

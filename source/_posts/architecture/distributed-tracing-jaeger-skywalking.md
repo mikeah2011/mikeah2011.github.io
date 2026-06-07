@@ -1,10 +1,11 @@
 ---
 title: 链路追踪实战：Jaeger/SkyWalking 在 Laravel 微服务中的应用
+cover: /images/covers/distributed-tracing-jaeger-skywalking-cover.jpg
 date: 2026-05-16 23:30:13
 updated: 2026-05-16 23:37:23
 categories: Architecture
 tags: [Laravel, 微服务, 监控]
-description: "在 KKday B2C 微服务架构中落地 Jaeger/SkyWalking 链路追踪的实战经验：从 OpenTelemetry SDK 接入、跨服务上下文传播、采样策略，到生产环境性能调优与踩坑记录。"
+description: "深入实战 KKday B2C 微服务架构中 Jaeger 与 SkyWalking 双方案链路追踪落地全过程。涵盖 OpenTelemetry SDK PHP 接入、跨服务 W3C TraceContext 上下文传播、Kafka 异步消息链路续接、Head/Tail 双层采样策略设计、OTel Collector 统一汇聚架构，以及生产环境性能压测数据、Grafana 可视化看板配置与六大踩坑记录。适用于 Laravel/PHP 与 Java 混合微服务团队快速构建分布式可观测性体系。"
 
 
 
@@ -807,3 +808,11 @@ OrderCreated::dispatch($orderId, $orderData);
 ---
 
 > **来自选题池**：`.writing-backlog.md` → `链路追踪实战：Jaeger/SkyWalking 在 Laravel 微服务中的应用`
+
+---
+
+## 相关阅读
+
+- [Platform Engineering 实战：Golden Paths 与服务模板——用 Backstage 自助创建标准化 Laravel 微服务脚手架](/categories/架构/platform-engineering-实战-golden-paths-与服务模板-用backstage自助创建标准化laravel微服务脚手架/)
+- [Sidecar Pattern 实战：Laravel 微服务的 Sidecar 代理——Envoy/Telegraf/Filebeat 的基础设施下沉](/categories/架构/sidecar-pattern-实战-laravel-微服务-sidecar-代理-envoy-telegraf-filebeat-基础设施下沉/)
+- [Choreography vs Orchestration 实战：事件驱动 vs 工作流驱动——Laravel 微服务中的两种分布式编排范式深度对比](/categories/架构/choreography-vs-orchestration-laravel-microservices-distributed-patterns/)

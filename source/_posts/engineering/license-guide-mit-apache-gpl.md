@@ -1,9 +1,10 @@
 ---
 title: 开源项目-License-选型实战-MIT-Apache-GPL-选择策略与合规踩坑记录
+cover: /images/covers/license-guide-mit-apache-gpl-cover.jpg
 date: 2026-05-05 09:21:02
 updated: 2026-05-05 09:24:05
-description: "开源项目 License 选型实战：MIT/Apache/GPL 的选择策略与合规踩坑记录"
-tags: [Git, 安全]
+description: "开源项目License选型实战指南：详解MIT、Apache 2.0、GPL v3、LGPL、AGPL五大主流许可证的核心差异与适用场景，涵盖Copyleft传染性陷阱、专利保护条款、License兼容性矩阵、CI自动化检查方案，以及Laravel/PHP生态依赖扫描脚本，帮助开发者避免GPL合规踩坑与商业风险。"
+tags: [License, 开源, 工程管理, MIT, Apache, GPL, 合规]
 categories:
   - Engineering
   - Process
@@ -409,3 +410,59 @@ License 不是法律部门的事，而是每个开发者都应该理解的工程
 最后，推荐两个实用工具：
 - [choosealicense.com](https://choosealicense.com/)：GitHub 官方的 License 选择器
 - [tldrlegal.com](https://tldrlegal.com/)：用人话解释各种 License 的义务
+
+---
+
+## 九、常见 License 组合的踩坑案例
+
+### 9.1 GPL 混入 MIT 项目的三种典型场景
+
+```
+┌─────────────────────────────────────────────────────────┐
+│          GPL 混入 MIT 项目的三种典型场景                  │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  场景 1：直接 require GPL 包                             │
+│  composer require gnu-some-tool                         │
+│  └─ ❌ 整个项目必须 GPL 开源                             │
+│                                                         │
+│  场景 2：开发依赖中包含 GPL 工具                          │
+│  composer require --dev gpl-testing-tool                │
+│  └─ ⚠️  通常不触发（不随项目分发）                       │
+│     但需确认该工具不会被包含在最终产物中                   │
+│                                                         │
+│  场景 3：通过 exec() 调用 GPL 程序                       │
+│  exec('pdftotext input.pdf output.txt');                 │
+│  └─ ✅ 通常不构成衍生作品，不受 GPL 传染                  │
+│     （但需确保不链接其共享库）                             │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 9.2 项目类型 vs License 选择快速参考
+
+| 项目类型 | 推荐 License | 备选 | 不推荐 | 原因 |
+|---------|-------------|------|--------|------|
+| 个人工具库（npm/composer包） | MIT | Apache 2.0 | GPL | MIT 兼容性最好，用户最愿意引入 |
+| 企业级开源框架 | Apache 2.0 | MPL 2.0 | GPL | 专利保护 + 企业使用无顾虑 |
+| 商业 SaaS 后端 | 不加 License | Proprietary | — | 防止代码泄露和竞品套壳 |
+| 开源 CLI 工具 | MIT | GPL v3 | Apache | 用户偏好简洁条款 |
+| 嵌入式/IoT 固件 | GPL v3 | LGPL v3 | MIT | 需确保修改回馈社区 |
+| 开发者工具库（插件） | Apache 2.0 | MIT | GPL | 让闭源项目也能安全使用 |
+
+### 9.3 License 违规的法律后果等级
+
+| 违规类型 | 严重程度 | 常见后果 | 修复难度 |
+|---------|---------|---------|---------|
+| 忘记附版权声明 | 低 | 被要求补上，通常无惩罚 | 5 分钟修复 |
+| GPL 依赖未开源 | 高 | 被要求公开源码或移除依赖 | 3-4 周迁移 |
+| 专利侵权（MIT 项目） | 极高 | 法律诉讼、赔偿 | 无法自动修复 |
+| 故意移除版权信息 | 中 | DMCA 通知、下架 | 重新添加声明 |
+
+---
+
+## 相关阅读
+
+- [开源项目贡献代码实战：PR 流程与最佳实践](/engineering/open-source-pr-workflow/)
+- [技术债务管理：量化追踪与偿还遗留代码](/engineering/tech-debt-management/)
+- [代码审查流程设计：如何建立高效的 CR 文化与工具链](/engineering/code-review-process/)

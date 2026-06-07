@@ -1,11 +1,12 @@
 ---
 title: Laravel API 多版本演进策略：v2 → v2_1 → v3 的平滑迁移与废弃方案
+cover: /images/covers/laravel-api-v2-v3-cover.jpg
 date: 2026-05-02
-description: "Laravel API 多版本演进策略：v2 → v2_1 → v3 的平滑迁移与废弃方案"
+description: "深入解析 Laravel RESTful API 版本控制实战方案，涵盖 v2、v2_1、v3 多版本演进策略、路由中间件版本协商、独立控制器封装与向后兼容设计，配合 HTTP 410 废弃标记、Feature Flag 灰度发布及 OpenAPI 契约文档，帮助团队实现 API 平滑迁移与有序废弃。"
 categories:
   - Architecture
   - Laravel
-tags: [Laravel]
+tags: [Laravel, API版本控制, RESTful, 向后兼容]
 
 
 
@@ -758,5 +759,16 @@ paths:
 
 **作者**: Michael · KKday RD B2C Backend Team  
 **相关资源**: [OpenAPI Design Guide](docs/openapi/) | [BFF Architecture Patterns](source/_posts/00_架构/BFF-Laravel-中间层聚合实战.md)
+
+---
+
+## 相关阅读
+
+- [API 生命周期管理实战：设计、版本控制、废弃通知与客户端迁移（Sunset Header 与 Deprecation 标准）](/architecture/API生命周期管理实战-设计版本控制废弃通知客户端迁移-Sunset-Header与Deprecation标准/) — 从 API 生命周期视角详解版本控制与废弃通知的标准实践
+- [API 版本废弃策略实战：Sunset Header、Deprecation 通知与客户端迁移的工程化方案](/architecture/API-版本废弃策略实战-Sunset-Header-Deprecation-通知与客户端迁移的工程化方案/) — 聚焦 Sunset/Deprecation HTTP Header 的工程化落地方案
+- [Data Contract Pact-style：Laravel 微服务数据契约版本化验证与 Breaking Change 检测](/architecture/2026-06-05-Data-Contract-Pact-style-Laravel微服务数据契约版本化验证Breaking-Change检测/) — 契约测试视角下的 API 数据版本化与破坏性变更检测
+- [Schema Registry 实战：Confluent Apicurio API 契约演进与 Schema 兼容性治理](/architecture/2026-06-03-Schema-Registry-实战-Confluent-Apicurio-API契约演进-Schema兼容性治理/) — Schema 级别的契约演进与兼容性策略
+- [API Mock 策略实战：WireMock Mockoon MSW 三层 Mock 体系](/architecture/2026-06-06-API-Mock-策略实战-WireMock-Mockoon-MSW-三层Mock体系/) — 多版本 API 并行开发时的 Mock 测试策略
+- [OpenFGA Zanzibar ReBAC Laravel：细粒度授权与 API 版本控制的权限适配](/architecture/openfga-zanzibar-rebac-laravel/) — 结合授权模型适配多版本 API 的权限管理
 
 *本文档基于 30+ 仓库 Laravel 项目的真实踩坑经验，欢迎提交 Issue 讨论演进策略。*

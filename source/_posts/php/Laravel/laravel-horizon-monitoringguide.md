@@ -1,7 +1,8 @@
 ---
 title: Laravel-Horizon-队列监控与生产环境运维实战-多队列优先级-指标采集与自动恢复踩坑记录
+cover: /images/covers/laravel-horizon-monitoringguide-cover.jpg
 date: 2026-05-04 23:16:04
-description: "Laravel-Horizon-队列监控与生产环境运维实战-多队列优先级-指标采集与自动恢复踩坑记录"
+description: "深入讲解 Laravel Horizon 队列监控的生产环境实战经验，涵盖 Redis 驱动的多队列优先级设计与任务调度策略、Prometheus 指标采集与 Grafana 告警集成、Worker 假死检测与自动恢复、K8s 部署冲突排查，帮助你在高并发场景下实现 Queue 性能优化与稳定运维。"
 updated: 2026-05-04 23:17:57
 tags: [Laravel, Redis, 消息队列, 监控]
 categories:
@@ -571,3 +572,14 @@ Horizon 不只是一个好看的 Dashboard，它本质上是一个**基于 Redis
 5. **Job 重试必须幂等**，Horizon 手动重试不等于安全重试
 
 队列是系统的毛细血管，Horizon 是这根血管上的 CT 扫描仪——用好它，你才能在问题爆发前发现堵塞。
+
+---
+
+## 相关阅读
+
+- [Laravel + PostgreSQL SKIP LOCKED 实战：不用 Redis 也能做任务出队、重试回收与死锁规避](/php/Laravel/laravel-postgresql-skip-locked-guide-redis-lock)
+- [kkday/log + kkday/monitor + kkday/tracing 实战：Laravel 可观测性架构——日志聚合、指标采集与分布式追踪踩坑记录](/php/Laravel/kkday-log-monitor-tracing-laravel-architectureguide-loggingdistributed)
+- [PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离踩坑记录](/php/Laravel/php-fiber-concurrencyguide-laravel-concurrencyapi)
+- [Laravel 缓存策略全解：Route/Config/View/Query 缓存最佳实践踩坑记录](/php/Laravel/laravel-cache-route-config-view-query-cache)
+- [数据库读写分离实战：Laravel 中间件 + MySQL 主从复制配置](/databases/2026-06-01-database-read-write-split-laravel-middleware-mysql-replication)
+- [Laravel CQRS 实战：订单查询模型拆分、投影同步与后台列表性能治理](/php/Laravel/laravel-cqrs-guide-query)

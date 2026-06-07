@@ -1,11 +1,12 @@
 ---
 title: Kubernetes-Ingress-实战-Nginx-Traefik-配置与-TLS-Laravel-B2C-API-部署踩坑记录
+cover: /images/covers/kubernetes-ingress-nginx-traefik-cover.jpg
 date: 2026-05-16 22:25:37
 updated: 2026-05-16 22:30:30
 categories:
   - DevOps
   - Kubernetes
-tags: [KKday, Kubernetes, Laravel, Nginx, 安全]
+tags: [KKday, Kubernetes, Laravel, Nginx, Traefik, Ingress, 安全]
 description: Kubernetes Ingress 实战：Nginx/Traefik 配置与 TLS，Laravel B2C API 部署踩坑记录。涵盖 Ingress Controller 选型、Path/Host 路由、cert-manager 自动证书、Rate Limiting、安全头配置，以及生产环境真实踩坑经验。
 
 
@@ -357,6 +358,127 @@ graph LR
 | 社区生态 | 极其丰富 | 快速增长 |
 | 适用场景 | 传统 Web、API 网关 | 微服务、动态路由 |
 
+### 深入对比：扩展维度
+
+| 维度 | Nginx Ingress | Traefik |
+|------|---------------|---------|
+| **负载均衡算法** | 轮询（默认）、IP Hash、最少连接 | 加权轮询（默认）、加权最少连接（Mirroring 支持） |
+| **Sticky Session** | 支持（基于 Cookie） | 支持（基于 Cookie，需配置 sticky middleware） |
+| **Canary 发布** | 支持（`nginx.ingress.kubernetes.io/canary-weight`） | 原生支持（多 Service weight 分配） |
+| **中间件复用** | 需要在每个 Ingress 重复注解 | Middleware CRD 全局复用 |
+| **gRPC 代理** | 支持（需额外注解 `nginx.ingress.kubernetes.io/backend-protocol: "GRPC"`） | 原生支持（gRPC entrypoint） |
+| **TCP/UDP 路由** | 需要单独的 ConfigMap | 原生支持（IngressRouteTCP / IngressRouteUDP） |
+| **自动重载** | 文件变更触发 reload（有短暂延迟） | API 变更即时生效 |
+| **内存占用** | 较低（C 实现） | 中等（Go 实现，含 GC） |
+| **可观测性** | Prometheus metrics + 自定义日志格式 | Prometheus metrics + 内置 Dashboard |
+| **多租户隔离** | 通过 Namespace + Annotation 实现 | 原生支持（CRD + RBAC 精细控制） |
+
+### Nginx Ingress 的 Annotation 管理痛点
+
+当项目规模增长，Ingress 的 Annotation 会变得难以维护：
+
+```yaml
+# 典型的"注解地狱" —— 一个 Ingress 可能有 20+ 条注解
+annotations:
+  # TLS
+  nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  # 超时
+  nginx.ingress.kubernetes.io/proxy-connect-timeout: "10"
+  nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+  nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+  # 限流
+  nginx.ingress.kubernetes.io/limit-rps: "100"
+  nginx.ingress.kubernetes.io/limit-burst-multiplier: "2"
+  nginx.ingress.kubernetes.io/limit-connections: "50"
+  # 请求大小
+  nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+  # 安全头
+  nginx.ingress.kubernetes.io/configuration-snippet: |
+    more_set_headers "X-Frame-Options: DENY";
+    more_set_headers "X-Content-Type-Options: nosniff";
+    more_set_headers "Strict-Transport-Security: max-age=31536000; includeSubDomains";
+    more_set_headers "Content-Security-Policy: default-src 'self'";
+  # CORS（如果在 Ingress 层做）
+  nginx.ingress.kubernetes.io/enable-cors: "true"
+  nginx.ingress.kubernetes.io/cors-allow-origin: "https://www.example.com"
+  nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
+  nginx.ingress.kubernetes.io/cors-allow-headers: "Content-Type, Authorization"
+  # 重试
+  nginx.ingress.kubernetes.io/proxy-next-upstream: "error timeout http_502"
+  nginx.ingress.kubernetes.io/proxy-next-upstream-tries: "3"
+  # 日志
+  nginx.ingress.kubernetes.io/enable-access-log: "true"
+  # 后端协议
+  nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+  # 代理缓冲
+  nginx.ingress.kubernetes.io/proxy-buffering: "on"
+  nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"
+  nginx.ingress.kubernetes.io/proxy-buffers-number: "4"
+```
+
+**管理建议**：
+1. 使用 Helm Chart 封装公共注解，通过 `values.yaml` 参数化
+2. 使用 Kustomize 的 `patches` 统一覆盖注解
+3. 定义团队注解规范文档，避免每个人风格不同
+
+```yaml
+# _helpers.tpl 中定义公共注解模板
+{{- define "app.ingress.annotations" -}}
+nginx.ingress.kubernetes.io/ssl-redirect: "true"
+nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+nginx.ingress.kubernetes.io/proxy-connect-timeout: {{ .Values.proxy.connectTimeout | quote }}
+nginx.ingress.kubernetes.io/proxy-read-timeout: {{ .Values.proxy.readTimeout | quote }}
+nginx.ingress.kubernetes.io/proxy-body-size: {{ .Values.proxy.bodySize | quote }}
+nginx.ingress.kubernetes.io/limit-rps: {{ .Values.rateLimit.rps | quote }}
+{{- if .Values.security.headers }}
+nginx.ingress.kubernetes.io/configuration-snippet: |
+  more_set_headers "X-Frame-Options: DENY";
+  more_set_headers "X-Content-Type-Options: nosniff";
+{{- end }}
+{{- end }}
+```
+
+### Traefik 的 Middleware 链式组合优势
+
+Traefik 的 Middleware 可以自由组合、复用，比 Nginx 的注解方式更灵活：
+
+```yaml
+# 创建一个"通用 API 中间件包"，所有 API IngressRoute 复用
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: api-common
+  namespace: production
+spec:
+  chain:
+    middlewares:
+      - name: rate-limit
+      - name: security-headers
+      - name: request-id        # 自动注入 X-Request-ID
+      - name: compress          # 自动 Gzip/Brotli 压缩
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: request-id
+  namespace: production
+spec:
+  headers:
+    customRequestHeaders:
+      X-Request-ID: "{{.RequestID}}"  # Traefik 内置模板变量
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: compress
+  namespace: production
+spec:
+  compress:
+    excludedContentTypes:
+      - text/event-stream     # SSE 不压缩
+```
+
 **我们的选择**：KKday B2C 项目最终选了 Nginx Ingress，原因：
 1. 团队对 Nginx 配置更熟悉
 2. Annotation 生态成熟，Stack Overflow 答案多
@@ -639,6 +761,434 @@ controller:
 
 **踩坑教训**：Ingress Controller 是流量入口，资源限制要留足余量。建议 CPU limit 至少 2 核，配合 HPA 自动扩缩。
 
+### 踩坑 7：TLS 重定向死循环（Cloud LB + Ingress）
+
+**现象**：访问 `http://api.example.com` 无限重定向，浏览器报 `ERR_TOO_MANY_REDIRECTS`。
+
+**根因**：云负载均衡器（如 AWS ALB）终止 TLS 后以 HTTP 转发给 Ingress，Ingress 检测到非 HTTPS 又做 301 重定向到 HTTPS，形成死循环。
+
+```mermaid
+graph LR
+    Client -->|HTTPS| ALB[Cloud ALB<br/>TLS 终止]
+    ALB -->|HTTP:80| IC[Ingress Controller]
+    IC -->|301 Redirect| Client
+    Client -->|HTTPS| ALB
+    style IC fill:#f66,stroke:#333
+```
+
+```yaml
+# 解决方案 1：设置信任代理头（推荐）
+# Nginx Ingress ConfigMap
+data:
+  use-forwarded-headers: "true"
+  forwarded-for-header: "X-Forwarded-For"
+  compute-full-forwarded-for: "true"
+  # 关键：信任云 LB 的代理 IP
+  proxy-real-ip-cidr: "10.0.0.0/8"  # 替换为实际的 LB 内网 CIDR
+```
+
+```yaml
+# 解决方案 2：Ingress 层关闭 SSL 重定向（让 LB 处理）
+annotations:
+  nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  # 信任 LB 的 X-Forwarded-Proto
+  nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
+```
+
+```yaml
+# Traefik 解决方案：配置 trustedProxies
+# values.yaml
+additionalArguments:
+  - "--entryPoints.web.forwardedHeaders.trustedIPs=10.0.0.0/8"
+  - "--entryPoints.websecure.forwardedHeaders.trustedIPs=10.0.0.0/8"
+```
+
+**踩坑教训**：当有外部负载均衡器时，Ingress 不能再做 TLS 终止的重定向判断。需要信任 LB 传递的 `X-Forwarded-Proto` 头，或者让 LB 全权处理 HTTPS 重定向。
+
+### 踩坑 8：Ingress Path 规则优先级导致路由错乱
+
+**现象**：配置了 `/api/v3` 和 `/api/v3/admin` 两个路由，但 `/api/v3/admin` 始终被 `/api/v3` 拦截。
+
+```yaml
+# ❌ 错误顺序（Nginx Ingress）
+rules:
+  - host: api.example.com
+    http:
+      paths:
+        - path: /api/v3
+          pathType: Prefix
+          backend:
+            service:
+              name: api-v3-public
+              port:
+                number: 80
+        - path: /api/v3/admin
+          pathType: Prefix
+          backend:
+            service:
+              name: api-v3-admin
+              port:
+                number: 80
+# 结果：/api/v3/admin 被第一条规则匹配，永远到不了 api-v3-admin
+```
+
+```yaml
+# ✅ 正确顺序：长路径优先
+rules:
+  - host: api.example.com
+    http:
+      paths:
+        # 先放长路径
+        - path: /api/v3/admin
+          pathType: Prefix
+          backend:
+            service:
+              name: api-v3-admin
+              port:
+                number: 80
+        # 再放短路径
+        - path: /api/v3
+          pathType: Prefix
+          backend:
+            service:
+              name: api-v3-public
+              port:
+                number: 80
+```
+
+**踩坑教训**：
+- **Nginx Ingress**：路径规则按字典序排列，`/api/v3` 在 `/api/v3/admin` 前面会优先匹配。必须手动保证长路径在前。
+- **Traefik**：`PathPrefix` 按路径长度自动排序，长路径优先，不存在此问题。但 `Path`（精确匹配）优先级高于 `PathPrefix`。
+
+### 踩坑 9：Laravel Sanctum SPA 认证在 Ingress 后失效
+
+**现象**：前端 SPA 调用 `/api/user` 返回 401，但直接 curl 后端 Pod 正常。
+
+**根因**：Laravel Sanctum 的 SPA 认证依赖 Cookie 中的 `XSRF-TOKEN`，而 Ingress 的代理可能修改或丢弃 Cookie 相关头。
+
+```yaml
+# Nginx Ingress 修复：确保 Cookie 和 CSRF 头正确传递
+annotations:
+  nginx.ingress.kubernetes.io/proxy-cookie-path: "~*^/(.*)$ /$1"
+  # 不要设置 proxy-cookie-domain（除非有跨域需求）
+  nginx.ingress.kubernetes.io/configuration-snippet: |
+    # 保留 Laravel 的 Set-Cookie 头
+    proxy_cookie_path / "/; Secure; HttpOnly; SameSite=Lax";
+    # 确保 X-CSRF-TOKEN 能从前端传递
+    proxy_set_header X-XSRF-TOKEN $http_x_xsrf_token;
+```
+
+```yaml
+# Laravel Sanctum 配置：config/sanctum.php
+return [
+    'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', sprintf(
+        '%s%s',
+        'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1',
+        env('APP_URL') ? ','.parse_url(env('APP_URL'), PHP_URL_HOST) : ''
+    ))),
+    // 关键：确保 Ingress 传递的 X-Forwarded-* 头被信任
+    // 在 TrustProxies 中间件中配置
+];
+```
+
+```php
+// app/Http/Middleware/TrustProxies.php
+protected $proxies = [
+    '*',  // 信任所有代理（Kubernetes 内部安全），或指定 Ingress Controller Pod CIDR
+];
+
+protected $headers = Request::HEADER_X_FORWARDED_FOR |
+    Request::HEADER_X_FORWARDED_HOST |
+    Request::HEADER_X_FORWARDED_PORT |
+    Request::HEADER_X_FORWARDED_PROTO |
+    Request::HEADER_X_FORWARDED_AWS_ELB;  // 如果用 AWS ALB
+```
+
+### 踩坑 10：cert-manager 触发 Let's Encrypt 速率限制
+
+**现象**：新域名的证书一直 Pending，cert-manager 日志报 `too many certificates already issued`。
+
+**根因**：Let's Encrypt 对每个注册域名有速率限制（每周 50 个证书），测试环境反复删除重建 Certificate 资源会快速消耗配额。
+
+```bash
+# 检查当前速率限制状态
+# 使用 Let's Encrypt 的报告接口
+curl -s "https://crt.sh/?q=example.com&output=json" | \
+  jq '[.[] | select(.issuer_name | contains("Let"))] | length'
+
+# 查看 cert-manager 已缓存的证书
+kubectl get certificates -A -o wide
+kubectl describe order -n production
+kubectl describe challenges -n production
+```
+
+**解决方案**：
+
+```yaml
+# 1. 测试环境使用 staging 环境（不受速率限制）
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging  # 测试专用
+spec:
+  acme:
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: ops@example.com
+    privateKeySecretRef:
+      name: letsencrypt-staging-key
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
+
+---
+# 2. 生产环境使用通配符证书（一个证书覆盖所有子域名）
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-prod
+  namespace: production
+spec:
+  secretName: wildcard-prod-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - "*.example.com"
+    - "example.com"
+  # 自动续期提前 30 天
+  renewBefore: 720h
+```
+
+**踩坑教训**：永远在 staging 环境先验证 cert-manager 配置。生产环境尽量使用通配符证书减少证书数量。另外，删除 Certificate 资源不会撤销已签发的证书（Let's Encrypt 不支持撤销后立即重新签发）。
+
+## 常用调试命令速查
+
+```bash
+# ========== Ingress Controller 状态 ==========
+# 查看 Nginx Ingress Controller Pod 状态
+kubectl get pods -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx
+kubectl logs -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx --tail=100
+
+# 查看 Traefik Pod 状态
+kubectl get pods -n traefik
+kubectl logs -n traefik -l app.kubernetes.io/name=traefik --tail=100
+
+# ========== Ingress 资源排查 ==========
+# 列出所有 Ingress
+kubectl get ingress -A -o wide
+
+# 查看 Ingress 详情（含事件）
+kubectl describe ingress laravel-api-ingress -n production
+
+# 查看 Ingress Controller 的最终 Nginx 配置（Nginx Ingress 专用）
+kubectl exec -n ingress-nginx deploy/ingress-nginx-controller -- cat /etc/nginx/nginx.conf | head -200
+
+# 搜索特定路由是否正确加载
+kubectl exec -n ingress-nginx deploy/ingress-nginx-controller -- \
+  cat /etc/nginx/nginx.conf | grep "api.example.com"
+
+# ========== 证书排查 ==========
+# 查看证书状态
+kubectl get certificates -A -o wide
+kubectl describe certificate wildcard-example-com -n production
+
+# 查看 cert-manager 日志
+kubectl logs -n cert-manager deploy/cert-manager --tail=50
+
+# 查看 ACME challenge 状态
+kubectl get challenges -A
+kubectl describe challenge <challenge-name> -n production
+
+# 查看证书实际内容
+kubectl get secret api-tls-secret -n production -o jsonpath='{.data.tls\.crt}' | \
+  base64 -d | openssl x509 -text -noout | head -20
+
+# ========== 流量测试 ==========
+# 测试路由是否生效（带 Host 头）
+curl -v -H "Host: api.example.com" http://<INGRESS_IP>/api/v3/test
+
+# 测试 TLS
+curl -v https://api.example.com/api/v3/test 2>&1 | grep -E "(subject|expire|issuer)"
+
+# 测试重定向
+curl -v http://api.example.com/ 2>&1 | grep -E "(HTTP|Location)"
+
+# 查看返回的安全头
+curl -sI https://api.example.com/ | grep -iE "(x-frame|x-content|x-xss|strict-transport|referrer)"
+
+# ========== 性能测试 ==========
+# 简单的并发测试
+for i in $(seq 1 100); do
+  curl -s -o /dev/null -w "%{http_code} %{time_total}s\n" \
+    https://api.example.com/api/v3/health &
+done
+wait
+
+# 使用 hey 进行压测（需要安装：go install github.com/rakyll/hey@latest）
+hey -n 1000 -c 50 -H "Host: api.example.com" http://<INGRESS_IP>/api/v3/health
+```
+
+## 完整 Lab：本地 Kind 集群演练
+
+以下是一个可以在本地用 Kind 集群复现的完整 Ingress 实验：
+
+```bash
+#!/bin/bash
+# ingress-lab.sh — 本地 Kind + Nginx Ingress 完整实验
+set -e
+
+# 1. 创建 Kind 集群（带端口映射）
+cat <<EOF | kind create cluster --name ingress-lab --config=-
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    kubeadmConfigPatches:
+      - |
+        kind: InitConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 8080
+        protocol: TCP
+      - containerPort: 443
+        hostPort: 8443
+        protocol: TCP
+EOF
+
+# 2. 安装 Nginx Ingress Controller
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+echo "等待 Ingress Controller 就绪..."
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=120s
+
+# 3. 部署示例应用
+kubectl create namespace lab
+kubectl apply -n lab -f - <<EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-server-v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: echo-v1
+  template:
+    metadata:
+      labels:
+        app: echo-v1
+    spec:
+      containers:
+        - name: echo
+          image: hashicorp/http-echo:0.2.3
+          args: ["-text=Hello from V1"]
+          ports:
+            - containerPort: 5678
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-v1
+spec:
+  selector:
+    app: echo-v1
+  ports:
+    - port: 80
+      targetPort: 5678
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-server-v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo-v2
+  template:
+    metadata:
+      labels:
+        app: echo-v2
+    spec:
+      containers:
+        - name: echo
+          image: hashicorp/http-echo:0.2.3
+          args: ["-text=Hello from V2"]
+          ports:
+            - containerPort: 5678
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-v2
+spec:
+  selector:
+    app: echo-v2
+  ports:
+    - port: 80
+      targetPort: 5678
+EOF
+
+# 4. 创建 Ingress（路径路由 + 限流 + 安全头）
+kubectl apply -n lab -f - <<EOF
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lab-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/limit-rps: "10"
+    nginx.ingress.kubernetes.io/limit-burst-multiplier: "2"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      more_set_headers "X-Lab: ingress-demo";
+      more_set_headers "X-Content-Type-Options: nosniff";
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: lab.local
+      http:
+        paths:
+          - path: /v2
+            pathType: Prefix
+            backend:
+              service:
+                name: echo-v2
+                port:
+                  number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: echo-v1
+                port:
+                  number: 80
+EOF
+
+# 5. 测试路由
+echo "=== 测试 V1 路由 ==="
+curl -s -H "Host: lab.local" http://localhost:8080/
+
+echo "=== 测试 V2 路由 ==="
+curl -s -H "Host: lab.local" http://localhost:8080/v2
+
+echo "=== 测试安全头 ==="
+curl -sI -H "Host: lab.local" http://localhost:8080/ | grep -iE "(x-lab|x-content)"
+
+echo "=== 测试限流（快速连续请求）==="
+for i in $(seq 1 15); do
+  STATUS=$(curl -s -o /dev/null -w "%{http_code}" -H "Host: lab.local" http://localhost:8080/)
+  echo "请求 $i: HTTP $STATUS"
+done
+
+echo "✅ Lab 完成！清理：kind delete cluster --name ingress-lab"
+```
+
 ## 监控与告警
 
 ### Prometheus 指标
@@ -696,3 +1246,11 @@ Ingress 是 Kubernetes 集群的门面，配置不当会成为性能瓶颈和安
 3. **CORS 在应用层处理**，不要在 Ingress 和应用两层都配
 4. **监控 Ingress Controller 本身**，它是单点风险
 5. **预留足够资源**，Ingress Controller 是流量入口，不能被限流
+
+---
+
+## 相关阅读
+
+- [K8s HPA/VPA 自动扩缩容 — Laravel API CPU 策略与配置指南](/devops/k8s-hpa-vpa-guide-laravel-api-cpu/)：Ingress 解决了流量入口，HPA/VPA 解决了后端 Pod 的弹性伸缩，两者配合才能应对流量洪峰。
+- [Docker Compose PHP-FPM 微服务部署](/devops/docker-compose-php-fpmguide-microservicesdeployment/)：从 Docker Compose 起步，理解容器化 PHP 应用的部署模式，再迁移到 Kubernetes。
+- [金丝雀发布实战 — Nginx/Envoy 权重路由与 Laravel 版本共存](/07_CICD/Canary-Deployment-渐进式流量放量-Nginx-Envoy权重路由与Laravel版本共存/)：Ingress 层配合 Canary 策略，实现新版本渐进式发布，降低上线风险。

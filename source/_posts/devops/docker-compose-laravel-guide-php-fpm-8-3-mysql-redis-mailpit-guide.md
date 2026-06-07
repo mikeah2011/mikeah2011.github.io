@@ -7,8 +7,8 @@ updated: 2026-05-17 08:04:43
 categories:
   - DevOps
   - MySQL
-tags: [Docker, Laravel, MySQL, PHP, Redis]
-description: 从零搭建 Laravel 11+ 本地开发环境的完整指南 —— PHP-FPM 8.3 + MySQL 8.0 + Redis 7 + Mailpit，覆盖 Xdebug 远程调试、热重载、数据库初始化、健康检查等实战配置，附 Colima/M 芯片 Mac 专属踩坑记录。
+tags: [docker, laravel, mysql, php, redis]
+description: 从零搭建 Laravel 11+ 本地开发环境的完整指南 —— Docker Compose 编排 PHP-FPM 8.3 + MySQL 8.0 + Redis 7 + Mailpit，覆盖 Xdebug 远程调试、热重载、数据库初始化、健康检查等实战配置，附 Colima/M 芯片 Mac 专属踩坑记录。
 
 
 
@@ -656,3 +656,11 @@ dc exec php-fpm bash     # 进入容器 shell
 ---
 
 *本文基于 KKday B2C Backend Team 的 local-docker 实际使用经验，涉及 PHP-FPM 8.3 / MySQL 8.0 / Redis 7 / Mailpit / Colima / Xdebug 3。所有配置均已在 M2 Pro MacBook 上验证通过。*
+
+## 相关阅读
+
+- [Docker Compose 5.x 实战：多服务编排、健康检查与开发环境搭建踩坑记录](/DevOps/Docker/docker-compose-5-x-guide-orchestration-laravel/)
+- [local-docker 实战 — PHP-FPM 8.0 + MySQL/Redis + Mailhog 开发环境配置](/DevOps/MySQL/local-docker-guide-php-fpm-8-0-mysql-redis-mailhog/)
+- [Docker 网络实战：bridge/host/overlay 网络模式与服务发现](/DevOps/Docker/docker-guide-bridge-host-overlay-service-discovery/)
+- [Colima vs Lima vs Docker Desktop：macOS 容器运行时选型对比实战](/DevOps/Docker/colima-vs-lima-vs-docker-desktop-macos-containervs/)
+- [Docker Compose + PHP-FPM 实战：KKday B2C API 微服务部署经验](/DevOps/Docker/docker-compose-php-fpmguide-microservicesdeployment/)

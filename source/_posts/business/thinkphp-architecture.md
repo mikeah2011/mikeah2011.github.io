@@ -2,9 +2,10 @@
 title: ThinkPHP-电商后端架构设计-盲盒抽奖业务的核心逻辑实战踩坑记录
 date: 2026-05-05 09:50:56
 updated: 2026-05-05 09:55:25
+cover: /images/covers/thinkphp-architecture-cover.jpg
 categories: Business
-tags: [KKday, Laravel, Redis, ThinkPHP, 支付]
-description: 基于奇乐 MAX（qile-max）开源项目的实战经验，拆解 ThinkPHP 6 多应用架构下盲盒/抽奖电商的后端设计，覆盖多模块分层、数据库建模、Redis 分布式锁防超卖、微信/支付宝支付集成、赏级概率计算以及真实生产环境踩坑记录。
+tags: [kkday, laravel, redis, thinkphp, 支付]
+description: 基于奇乐 MAX 开源项目实战，拆解 ThinkPHP 6 多应用架构下盲盒/抽奖电商后端设计，覆盖数据库建模、Redis 分布式锁防超卖、微信支付宝支付集成、赏级概率计算及生产环境踩坑记录，适合电商后端开发者参考。
 
 
 
@@ -629,3 +630,11 @@ if ($remaining < 0) {
 4. **业务扩展**：普通赏、一番赏、福袋共用一套底层，抽象层设计决定扩展成本
 
 如果你也在做类似业务，建议先画清楚数据流，再动手写代码。这比直接 `Ctrl+C` 一套开源项目然后在上面改，要省时间得多。
+
+---
+
+## 相关阅读
+
+- [ThinkPHP 实战指南](/categories/business/thinkphp-guide/)
+- [CRMEB 开源电商系统 Fork 部署指南](/categories/business/crmeb-guide-fork-deployment/)
+- [盲盒抽奖概率合规指南](/categories/business/gacha-probability-compliance/)

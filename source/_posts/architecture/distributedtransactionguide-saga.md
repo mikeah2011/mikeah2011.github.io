@@ -1,12 +1,13 @@
 ---
 title: 分布式事务实战-Saga-模式在订单库存支付中的应用-Laravel-B2C-API踩坑记录
+cover: /images/covers/distributedtransactionguide-saga-cover.jpg
 date: 2026-05-16 16:12:27
 updated: 2026-05-16 16:22:05
 categories:
   - Architecture
   - Microservice
-tags: [KKday, Laravel, 微服务]
-description: 在 B2C 电商场景下，订单创建涉及库存扣减、支付发起、优惠券核销等多个跨服务操作，如何保证数据一致性？本文深入 Saga 模式的编排式与协同式实现，结合 Laravel B2C API 真实项目经验，覆盖补偿事务设计、幂等性保障、悬挂与空回滚处理等核心踩坑点。
+tags: [kkday, laravel, 微服务]
+description: 在 B2C 电商场景下，订单创建涉及库存扣减、支付发起、优惠券核销等多个跨服务操作，如何保证数据一致性？本文深入 Saga 模式的编排式（Orchestration）与协同式（Choreography）两种实现方案对比，结合 Laravel B2C API 真实项目经验，从 SagaStep 接口设计、Context 数据传递、Orchestrator 核心编排到状态持久化，完整覆盖补偿事务设计、幂等性保障、悬挂与空回滚处理、长事务锁优化、补偿失败告警与人工介入等五大生产踩坑点，并提供可运行的 PHPUnit 测试用例与 Saga 执行状态表设计。
 
 
 
@@ -680,6 +681,147 @@ class SendOrderNotificationListener
 }
 ```
 
+## Saga 各步骤失败场景速查表
+
+在实际生产中，不同步骤失败时的补偿行为和影响各不相同。以下是各步骤失败时的速查表：
+
+| 失败步骤 | 已完成操作 | 需要补偿的操作 | 补偿难度 | 潜在风险 |
+|----------|-----------|---------------|---------|---------|
+| InventoryReserve 失败 | 无 | 无 | 无需补偿 | 库存不足被误判为成功 |
+| CouponClaim 失败 | 库存已预留 | 释放库存预留 | 低 | 预留 TTL 过期前补偿完成即可 |
+| OrderCreate 失败 | 库存预留 + 优惠券核销 | 释放库存 + 退还优惠券 | 中 | 优惠券退还可能触发空回滚 |
+| PaymentInitiate 失败 | 库存预留 + 优惠券核销 + 订单已创建 | 释放库存 + 退还优惠券 + 取消订单 | 高 | 订单状态回滚需保证幂等 |
+
+> **经验法则**：步骤越靠后，补偿成本越高。因此将「最可能失败」的步骤放在前面（如库存检查），可以降低整体补偿开销。
+
+## PHPUnit 测试：验证 Saga 补偿流程
+
+以下是一个可运行的测试用例，验证当中间步骤失败时，已完成步骤是否被正确补偿：
+
+```php
+<?php
+// tests/Unit/Saga/OrderSagaOrchestratorTest.php
+
+namespace Tests\Unit\Saga;
+
+use App\Saga\Contracts\SagaStep;
+use App\Saga\OrderSagaOrchestrator;
+use App\Saga\SagaContext;
+use App\Saga\Exceptions\SagaExecutionException;
+use PHPUnit\Framework\TestCase;
+
+class OrderSagaOrchestratorTest extends TestCase
+{
+    /** @test */
+    public function it_compensates_completed_steps_on_failure(): void
+    {
+        $step1 = new FakeStep('inventory', shouldFail: false);
+        $step2 = new FakeStep('coupon', shouldFail: false);
+        $step3 = new FakeStep('order', shouldFail: true); // 此步失败
+
+        $orchestrator = new OrderSagaOrchestrator();
+        $orchestrator->addStep($step1)->addStep($step2)->addStep($step3);
+
+        $this->expectException(SagaExecutionException::class);
+
+        try {
+            $orchestrator->execute(['user_id' => 1]);
+        } finally {
+            // 验证：step1 和 step2 被补偿，step3 未被补偿
+            $this->assertTrue($step1->compensated);
+            $this->assertTrue($step2->compensated);
+            $this->assertFalse($step3->compensated);
+        }
+    }
+
+    /** @test */
+    public function it_executes_all_steps_when_no_failure(): void
+    {
+        $step1 = new FakeStep('inventory', shouldFail: false);
+        $step2 = new FakeStep('coupon', shouldFail: false);
+        $step3 = new FakeStep('order', shouldFail: false);
+
+        $orchestrator = new OrderSagaOrchestrator();
+        $orchestrator->addStep($step1)->addStep($step2)->addStep($step3);
+
+        $context = $orchestrator->execute(['user_id' => 1]);
+
+        $this->assertNull($context->getError());
+        $this->assertFalse($step1->compensated);
+        $this->assertFalse($step2->compensated);
+        $this->assertFalse($step3->compensated);
+    }
+
+    /** @test */
+    public function it_compensates_in_reverse_order(): void
+    {
+        $compensationOrder = [];
+
+        $step1 = new FakeStep('inventory', shouldFail: false, onCompensate: function () use (&$compensationOrder) {
+            $compensationOrder[] = 'inventory';
+        });
+        $step2 = new FakeStep('coupon', shouldFail: false, onCompensate: function () use (&$compensationOrder) {
+            $compensationOrder[] = 'coupon';
+        });
+        $step3 = new FakeStep('order', shouldFail: true);
+
+        $orchestrator = new OrderSagaOrchestrator();
+        $orchestrator->addStep($step1)->addStep($step2)->addStep($step3);
+
+        try {
+            $orchestrator->execute(['user_id' => 1]);
+        } catch (SagaExecutionException) {}
+
+        // 验证补偿顺序：后执行的先回滚
+        $this->assertEquals(['coupon', 'inventory'], $compensationOrder);
+    }
+}
+
+/**
+ * 测试用 Fake Step 实现
+ */
+class FakeStep implements SagaStep
+{
+    public bool $compensated = false;
+    private ?\Closure $onCompensate;
+
+    public function __construct(
+        private string $name,
+        private bool $shouldFail,
+        ?\Closure $onCompensate = null
+    ) {
+        $this->onCompensate = $onCompensate;
+    }
+
+    public function execute(SagaContext $context): SagaContext
+    {
+        if ($this->shouldFail) {
+            throw new \RuntimeException("Step [{$this->name}] failed");
+        }
+        return $context;
+    }
+
+    public function compensate(SagaContext $context): void
+    {
+        $this->compensated = true;
+        if ($this->onCompensate) {
+            ($this->onCompensate)();
+        }
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+}
+```
+
+运行测试：
+
+```bash
+php artisan test --filter=OrderSagaOrchestratorTest
+```
+
 ## 总结
 
 Saga 模式在 B2C 电商场景中的核心价值：
@@ -698,3 +840,11 @@ Saga 模式在 B2C 电商场景中的核心价值：
 - Saga 状态必须持久化，支持断点恢复
 
 分布式事务没有银弹，Saga 模式用「最终一致」换取了「高可用」，这在电商场景下是值得的权衡。
+
+---
+
+## 相关阅读
+
+- [Saga 编排模式深度实战：Choreography vs Orchestration vs Temporal——Laravel 分布式事务的三种实现路线对比](/categories/架构/saga-orchestration-pattern-laravel-distributed-transaction/)
+- [TCC 分布式事务模式实战：Try-Confirm-Cancel 在 Laravel 订单/支付/库存中的落地](/categories/架构/TCC-分布式事务模式实战-Try-Confirm-Cancel-Laravel-订单支付库存落地/)
+- [Choreography vs Orchestration 实战：事件驱动 vs 工作流驱动——Laravel 微服务分布式编排范式深度对比](/categories/架构/choreography-vs-orchestration-event-driven-vs-workflow-driven-laravel-microservices/)

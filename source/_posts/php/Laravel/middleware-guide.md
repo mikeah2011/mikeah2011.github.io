@@ -1,9 +1,10 @@
 ---
 title: Laravel Middleware 实战-KKday B2C API 请求链路追踪与真实踩坑记录
+cover: /images/covers/middleware-guide-cover.jpg
 date: 2026-05-02
 categories: PHP
 tags: [KKday, Laravel, 微服务, 监控]
-description: KKday B2C API 项目中的 Middleware 实战经验，涵盖请求链路追踪、性能优化、真实踩坑记录与解决方案
+description: "Laravel 中间件（Middleware）实战深度指南，基于 KKday B2C API 项目的真实踩坑经验，详解请求拦截、认证鉴权、API 限流、CORS 跨域处理、Sentry 监控埋点与 OpenTelemetry 链路追踪的架构设计与常见陷阱，帮助 PHP 开发者掌握中间件职责分离、性能优化与生产环境可观测性最佳实践。"
 
 
 
@@ -956,6 +957,15 @@ class DatabaseMiddleware
 **KKday B2C API 项目经验总结**：Middleware 是构建高性能、可观测性强的 API 网关的关键，但必须遵循 **职责分离原则** —— 不处理业务逻辑，只做横切关注点。
 
 **踩坑记录**：事务下沉到 Service、SDK 单例模式、采样率合理配置、中间件顺序优化、避免生命周期内数据库操作。
+
+
+---
+
+## 相关阅读
+
+- [API Rate Limiting — 接口限流实战：KKday B2C API 真实踩坑记录](/php/Laravel/api-rate-limiting-rate-limitingguide) — 本文中限流中间件 `ApiRateLimiter` 的完整实现与 Redis 滑动窗口限流策略详解。
+- [Grafana Tempo + OpenTelemetry 实战：Laravel 异步订单链路追踪与采样治理踩坑记录](/php/Laravel/grafana-tempo-opentelemetry-guide-laravel) — OpenTelemetry 链路追踪中间件的完整部署方案与 Grafana Tempo 可视化实战。
+- [OWASP Top 10 防护实战：SQL 注入/XSS/CSRF/SSRF Laravel B2C API 安全加固踩坑记录](/php/Laravel/owasp-top-10-guide-sql-xss-csrf-ssrf) — 认证中间件背后的安全加固策略，涵盖 SQL 注入、XSS、CSRF 与 SSRF 防护。
 
 ---
 

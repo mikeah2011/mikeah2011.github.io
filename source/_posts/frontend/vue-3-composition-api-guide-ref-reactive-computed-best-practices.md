@@ -1,10 +1,11 @@
 ---
 title: Vue 3 Composition API 实战-ref reactive computed 最佳实践与响应式踩坑记录
+cover: /images/covers/vue-3-composition-api-guide-ref-reactive-computed-best-practices-cover.jpg
 date: 2026-05-16 21:20:25
 updated: 2026-05-16 21:23:08
 categories: Frontend
-tags: [TypeScript, Vue, 前端]
-description: 从 Options API 迁移到 Composition API 的实战经验，覆盖 ref/reactive/computed/watch 的最佳实践、响应式陷阱、TypeScript 类型推导、可组合函数封装，以及在 vue-pure-admin 管理后台和 uni-app 跨平台项目中的真实踩坑记录。
+tags: [TypeScript, Vue, Composition API, 前端]
+description: 从 Options API 迁移到 Vue 3 Composition API 的完整实战经验，深度剖析 ref 与 reactive 的选型决策、computed 缓存机制与陷阱、watch/watchEffect 副作用监听最佳实践、可组合函数 Composables 设计模式。覆盖响应式丢失、解构陷阱、请求竞态等常见问题的根因分析与解决方案，结合 vue-pure-admin 管理后台和 uni-app 跨平台项目中的真实踩坑记录，帮助前端开发者少走弯路。
 
 
 
@@ -433,7 +434,62 @@ const canDelete = hasPermission('product:delete')
 
 **关键经验**：`defineOptions` 在 `<script setup>` 中设置组件名称，对于 vue-pure-admin 的路由缓存（keep-alive）至关重要。不设置 name，页面切换时缓存失效。
 
-## 六、在 uni-app 中的适配踩坑
+## 六、ref 的 toRef 和 toRefs 区别
+
+很多开发者分不清 `toRef` 和 `toRefs` 的用途，这在实际项目中会导致困惑：
+
+```typescript
+const state = reactive({ name: 'mike', age: 25 })
+
+// toRef：从 reactive 对象中提取单个属性，保持响应式连接
+const nameRef = toRef(state, 'name')  // Ref<string>
+// 修改 nameRef.value 会同步修改 state.name，反之亦然
+
+// toRefs：将 reactive 对象的所有属性转为 ref，保持响应式连接
+const { name, age } = toRefs(state)  // { name: Ref<string>, age: Ref<number> }
+// 解构后仍然与原对象保持响应式连接
+```
+
+### ⚠️ 踩坑六：toRef 的第三个参数（默认值）
+
+```typescript
+const state = reactive({ config: undefined as string | undefined })
+
+// ❌ 危险：如果属性不存在，toRef 返回 undefined 的 Ref
+const configRef = toRef(state, 'config')  // Ref<string | undefined>
+
+// ✅ Vue 3.3+ 支持第三个参数作为默认值
+const configRef = toRef(state, 'config', 'default-config')  // Ref<string>
+```
+
+### ⚠️ 踩坑七：shallowRef 与 shallowReactive 的使用时机
+
+在处理大型数据结构时，深层响应式追踪会带来性能开销。Vue 提供了浅层响应式 API：
+
+```typescript
+// shallowRef：只追踪 .value 的变化，不追踪内部属性
+const bigList = shallowRef<Data[]>([])
+
+// ❌ 不会触发视图更新
+bigList.value[0].name = 'changed'
+
+// ✅ 必须整体替换 .value
+bigList.value = bigList.value.map(item => ({ ...item, name: 'changed' }))
+
+// shallowReactive：只追踪第一层属性
+const state = shallowReactive({
+  nested: { deep: { value: 1 } }
+})
+state.nested = { deep: { value: 2 } }  // ✅ 触发更新
+state.nested.deep.value = 2             // ❌ 不触发更新
+```
+
+**实战建议**：在以下场景考虑使用 shallow 响应式：
+- 列表数据量大（如 1000+ 条），且主要通过整体替换更新
+- 与第三方库集成（如 ECharts、D3.js），数据由外部管理
+- 性能敏感页面的大型表单或表格数据
+
+## 七、在 uni-app 中的适配踩坑
 
 uni-app 对 Vue 3 Composition API 的支持有部分限制：
 
@@ -474,3 +530,9 @@ uni.request({
 - [x] 跨平台项目用 `JSON.parse(JSON.stringify())` 替代 `toRaw`
 
 Composition API 不是银弹，但在中大型项目中，它的**逻辑复用能力**和**TypeScript 类型推导**优势远超 Options API。关键在于掌握响应式的核心机制，避免这些常见的陷阱。
+
+## 相关阅读
+
+- [Vue 3 + Pinia 状态管理实战-替代 Vuex 的现代方案与 B2C 电商踩坑记录](/categories/frontend/vue-3-pinia-guide-vuex-b2c/)
+- [Vue 3 + TypeScript 实战-类型安全的前端开发与真实踩坑记录](/categories/frontend/vue-3-typescript-guide/)
+- [Vite-Laravel-实战-前后端分离开发工作流踩坑记录](/categories/frontend/vite-laravel-guide/)

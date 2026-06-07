@@ -1,12 +1,13 @@
 ---
 title: "Laravel Observers 实战：模型事件监听与审计日志自动记录——30+ 仓库踩坑记录"
+cover: /images/covers/laravel-observers-guide-logging-cover.jpg
 date: 2026-05-05 11:15:29
 updated: 2026-05-05 11:46:48
 categories:
   - PHP
   - Logging
-tags: [Laravel]
-description: "Laravel Observers 实战踩坑记录：从基础模型事件监听到 B2C 电商审计日志自动记录，覆盖 created/updated/deleted/restored 全生命周期，含 Octane 兼容性、性能陷阱、批量操作盲区、软删除误报等真实问题"
+tags: [Laravel, Observer, 日志, 审计, 模型事件]
+description: "深入讲解 Laravel Observers 模型事件监听机制与审计日志自动记录实战方案，覆盖 created/updated/deleted/restored 全生命周期事件，详解 Octane 兼容性陷阱、批量操作盲区、性能优化与队列异步写入，附完整可运行代码示例与 30+ 仓库真实踩坑总结指南"
 
 
 
@@ -594,3 +595,9 @@ Laravel Observers 是一个轻量但强大的工具，特别适合做模型级�
 5. **审计日志异步化** — 高 QPS 下别同步写表
 
 在我们的实际项目中，审计日志 Observer 帮助解决了一次线上事故：某用户声称自己没有修改过收货地址，但系统显示已更新。通过 `audit_logs` 表精确查到了变更记录（包括操作 IP 和 User-Agent），证明是用户的浏览器自动填充插件导致的。如果没有这套 Observer 自动记录，这类纠纷将无法取证。
+
+## 相关阅读
+
+- [Laravel Event-Listener 事件驱动架构 - 解耦订单处理](/2026/05/05/Laravel-Event-Listener-事件驱动架构-解耦订单处理-KKday-B2C-API-真实踩坑记录/) — Observer 适合单模型 CRUD 监听，Event & Listener 适合跨服务的业务流程编排，本文详解两者选型与踩坑。
+- [Laravel 日志实战：多通道、结构化、日志聚合与生产环境治理踩坑记录](/2026/05/05/Laravel-日志实战-多通道-结构化-日志聚合与生产环境治理踩坑记录/) — Observer 审计日志只是日志体系的一部分，本文覆盖 Laravel Logging 全链路：多通道配置、结构化 JSON、日志聚合与生产治理。
+- [Laravel Horizon 队列监控与生产环境运维实战](/2026/05/05/Laravel-Horizon-队列监控与生产环境运维实战-多队列优先级-指标采集与自动恢复踩坑记录/) — 审计日志异步写入依赖队列，Horizon 是监控队列健康的关键工具，本文详解多队列优先级配置与故障自动恢复。

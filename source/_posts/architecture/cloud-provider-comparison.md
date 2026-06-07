@@ -1,10 +1,11 @@
 ---
 title: 云服务器选型实战-AWS-阿里云-腾讯云-B2C电商场景对比与踩坑记录
+cover: /images/covers/cloud-provider-comparison-cover.jpg
 date: 2026-05-05 09:07:25
 updated: 2026-05-05 09:11:43
 categories: Architecture
-tags: [AWS, DevOps, KKday, 微服务]
-description: "在 KKday B2C 电商场景下，基于 30+ 仓库的多云部署经验，对比 AWS、阿里云、腾讯云在计算、存储、网络、CDN、数据库、成本六大维度的真实差异，附带 Terraform IaC 配置、架构图与踩坑记录。"
+tags: [AWS, DevOps, KKday, 微服务, 云计算, 多云架构, 阿里云, 腾讯云, Terraform, Laravel]
+description: "在 KKday B2C 电商场景下，基于 30+ 仓库的多云部署经验，深度对比 AWS、阿里云、腾讯云在计算资源、对象存储、网络架构、CDN 加速、数据库高可用、成本核算六大维度的真实差异。附带 Terraform IaC 配置、多云灾备架构图、8 个生产环境踩坑记录与选型决策矩阵，适合需要做多云架构选型的技术团队参考。"
 author: Michael
 
 
@@ -419,3 +420,11 @@ class StorageRouter
 > - 上一篇：[负载均衡实战：Nginx Upstream + Laravel Session 共享方案](/00_架构/负载均衡实战-Nginx-Upstream-Laravel-Session-共享方案踩坑记录)
 > - 相关：[AWS S3 + Laravel 文件存储实战](/00_架构/AWS-S3-Laravel-文件存储实战-多云备份-CDN-加速与成本优化踩坑记录)
 > - 相关：[CDN 配置实战：静态资源加速、缓存策略、回源配置](/00_架构/CDN配置实战-静态资源加速缓存策略与回源配置-Laravel-B2C-API踩坑记录)
+
+---
+
+## 相关阅读
+
+- [多区域部署实战：全球化 Laravel 应用——数据库同步、CDN 边缘缓存与跨区域一致性](/06_运维/多区域部署实战-全球化Laravel应用-数据库同步-CDN边缘缓存与跨区域一致性)
+- [Terraform 实战：Laravel 应用基础设施即代码（IaC）— 从手动点 AWS 控制台到代码化部署的踩坑记录](/07_CICD/Terraform-实战-Laravel-应用基础设施即代码-IaC-从手动-AWS-控制台到代码化部署踩坑记录)
+- [云存储实战：AWS S3/阿里云 OSS/MinIO 三大对象存储深度对比与 Laravel 多驱动集成](/architecture/2026-06-01-cloud-storage-aws-s3-alibaba-oss-minio-integration)

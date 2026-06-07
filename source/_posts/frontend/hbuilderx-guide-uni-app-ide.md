@@ -1,5 +1,6 @@
 ---
 title: "HBuilderX 实战：uni-app 官方 IDE 深度使用 — 真机调试、插件开发与多端发布踩坑记录"
+cover: /images/covers/hbuilderx-guide-uni-app-ide-cover.jpg
 date: 2026-05-17 06:45:42
 updated: 2026-05-17 06:49:02
 categories: Frontend
@@ -892,3 +893,10 @@ HBuilderX 作为 uni-app 官方 IDE，在条件编译、真机调试、插件管
 - 开发效率：真机调试时间从 5 分钟/次 → 30 秒/次
 - 包体优化：从 80MB → 45MB（Android）
 - 发布流程：从手动 30 分钟 → CI 自动化 5 分钟
+
+## 相关阅读
+
+- [uni-app App 打包实战：iOS/Android 原生打包与发布 — 从 HBuilderX 到上架全流程踩坑记录](/categories/04_前端/uni-app-app-guide-ios-android/)
+- [uni-app + Vue 3 + Vite 现代跨平台开发工作流实战踩坑记录](/categories/04_前端/uni-app-vue3-vite/)
+- [uni-app 多端适配实战：H5/微信小程序/App 一套代码搞定踩坑记录](/categories/04_前端/uni-app-guide-h5-app/)
+- [Vue 3 + Pinia 状态管理实战-替代 Vuex 的现代方案与 B2C 电商踩坑记录](/categories/04_前端/vue-3-pinia-guide-vuex-b2c/)

@@ -1,5 +1,6 @@
 ---
 title: Vite-vs-Webpack-Laravel-Mix-前端构建工具选型对比实战
+cover: /images/covers/vite-vs-webpack-laravel-mix-vs-cover.jpg
 date: 2026-05-17 04:50:38
 updated: 2026-05-17 04:52:00
 categories:
@@ -405,6 +406,141 @@ mix('js/app.js')  // 自动加 hash
 
 **坑点**：自定义 Nginx 配置中 `try_files` 没包含 `/build/` 路径，导致 Vite 产物 404。
 
+### 踩坑 6：CSS 预处理器兼容性
+
+```javascript
+// Vite 原生支持 Sass/Less，无需额外 loader
+// 但需要安装对应预处理器
+// npm install -D sass
+
+// vite.config.js — 某些旧版 Sass 语法需要全局注入
+export default defineConfig({
+    css: {
+        preprocessorOptions: {
+            scss: {
+                // 注入全局变量文件，避免每个组件手动 @import
+                additionalData: `@import "resources/sass/_variables.scss";`,
+            },
+        },
+    },
+});
+
+// Webpack 5 中同样功能需要更复杂的配置：
+// webpack.config.js
+module.exports = {
+    module: {
+        rules: [{
+            test: /\.scss$/,
+            use: [
+                'style-loader',
+                'css-loader',
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        additionalData: `@import "resources/sass/_variables.scss";`,
+                    },
+                },
+            ],
+        }],
+    },
+};
+```
+
+**坑点**：Sass 1.77+ 弃用了 `/` 作为除法运算符，改为 `math.div()`。旧项目中大量 `width: 100% / 3` 写法会触发大量 Deprecation Warning。Vite 开发模式下 warning 会刷屏，建议全局替换或在 `vite.config.js` 中设置 `css.preprocessorOptions.scss.silenceDeprecations`。
+
+### 踩坑 7：第三方库 CommonJS 兼容问题
+
+```javascript
+// Vite 基于原生 ESM，某些老旧 npm 包只有 CommonJS 格式
+// 典型报错：
+// [vite] Internal server error: Named export 'xxx' not found
+
+// 解决方案 1：在 vite.config.js 中配置 optimizeDeps
+export default defineConfig({
+    optimizeDeps: {
+        include: ['some-old-cjs-package', 'another-package'],
+    },
+});
+
+// 解决方案 2：使用 ssr.noExternal（适用于已预构建但仍有问题的包）
+export default defineConfig({
+    ssr: {
+        noExternal: ['problem-package'],
+    },
+});
+
+// 解决方案 3：如果实在不行，用 vite-plugin-commonjs
+// npm install -D vite-plugin-commonjs
+import commonjs from 'vite-plugin-commonjs';
+export default defineConfig({
+    plugins: [commonjs()],
+});
+```
+
+**坑点**：迁移项目时，优先排查 `node_modules` 中的老依赖。用 `npx vite-bundle-analyzer` 检查哪些包在预构建时被打入，确认 ESM 兼容性。
+
+### 踩坑 8：字体和静态资源路径迁移
+
+```css
+/* Mix 中使用 ~ 引用 node_modules 资源 */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('~@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2');
+}
+
+/* Vite 中 ~ 前缀不需要了，直接用别名或相对路径 */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2');
+}
+```
+
+```javascript
+// 如果 CSS 中的 @import 也有 ~ 前缀，同样需要移除
+// ❌ @import "~bootstrap/dist/css/bootstrap.min.css";
+// ✅ @import "bootstrap/dist/css/bootstrap.min.css";
+
+// vite.config.js 中配置 resolve.alias 确保路径正确
+export default defineConfig({
+    resolve: {
+        alias: {
+            '@': '/resources/js',
+            '~': '/node_modules',
+        },
+    },
+});
+```
+
+**坑点**：混合使用 `~` 和不带 `~` 的引用路径时，Vite 会静默忽略错误路径，导致字体图标不显示但不报错。建议迁移时全局搜索 `~` 并批量替换。
+
+### 踩坑 9：TypeScript 配置差异
+
+```jsonc
+// Vite 项目 tsconfig.json 推荐配置
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",   // 关键：不是 "node"
+        "strict": true,
+        "jsx": "preserve",
+        "resolveJsonModule": true,
+        "isolatedModules": true,         // Vite 要求
+        "esModuleInterop": true,
+        "lib": ["ESNext", "DOM", "DOM.Iterable"],
+        "skipLibCheck": true,
+        "noEmit": true,
+        "paths": {
+            "@/*": ["./resources/js/*"]
+        }
+    },
+    "include": ["resources/js/**/*.ts", "resources/js/**/*.d.ts", "resources/js/**/*.vue"],
+    "exclude": ["node_modules"]
+}
+```
+
+**坑点**：Webpack 的 `moduleResolution: "node"` 在 Vite 中会导致路径解析失败。必须改为 `"bundler"` 或 `"nodenext"`。另外 `isolatedModules: true` 强制要求每个文件独立可编译，某些旧写法如 `export { default } from './Component.vue'` 需要改为具名导出。
+
 ---
 
 ## 六、选型决策树
@@ -442,6 +578,67 @@ mix('js/app.js')  // 自动加 hash
 | 纯后端渲染 + 少量 JS | Mix | 轻量，无需复杂构建 |
 | 大型 SPA + 快速迭代 | Vite | HMR 极快 |
 | 需要深度定制构建流程 | Webpack 5 | 插件生态最全 |
+| 需要 SSR (Nuxt/Inertia) | Vite | 内置 SSR 支持 |
+| Monorepo 多包构建 | Webpack 5 | Module Federation 原生支持 |
+| 渐进式迁移旧项目 | Vite | 兼容 CJS + ESM 混合 |
+
+### 详细性能对比维度
+
+| 对比维度 | Laravel Mix | Webpack 5 | Vite 5 |
+|---------|-------------|-----------|--------|
+| 冷启动时间 (300组件) | ~12s | ~9s | <1s |
+| HMR 响应 (Vue SFC) | ~3.5s | ~2.5s | ~150ms |
+| 生产构建时间 | ~47s | ~38s (首次) / ~6s (缓存) | ~19s |
+| JS 产物体积 | 1.82 MB | 1.45 MB | 1.38 MB |
+| Tree Shaking | 基础 | 改进 | 原生 ESM 自动 |
+| Code Splitting | 手动 | 自动 + 手动 | 自动 + 手动 |
+| CSS 处理 | PostCSS | PostCSS + Loader | PostCSS 原生 |
+| 图片优化 | 需 loader | 需 loader | 原生支持 |
+| 持久化缓存 | 无 | filesystem cache | .vite 缓存 |
+| Docker 环境适配 | 好 | 需配置 cache | 好 |
+| CI/CD 集成复杂度 | 低 | 中 | 低 |
+| 学习曲线 | 平缓 | 陡峭 | 中等 |
+| 社区活跃度 | 维护模式 | 活跃 | 非常活跃 |
+| TypeScript 支持 | 需配置 | 需配置 | 原生支持 |
+| CSS Modules | 需配置 | 需配置 | 原生 `.module.css` |
+
+### 实用调试技巧
+
+```bash
+# Vite 调试模式 — 查看详细编译过程
+npx vite --debug
+
+# Vite 构建产物分析
+npx vite build --mode analyze
+# 配合 rollup-plugin-visualizer
+# npm install -D rollup-plugin-visualizer
+
+# Webpack 构建分析
+npx webpack --profile --json > stats.json
+# 配合 webpack-bundle-analyzer 查看
+npx webpack-bundle-analyzer stats.json
+
+# 对比两个工具的实际产物差异
+diff <(du -sh dist-vite/) <(du -sh dist-webpack/)
+```
+
+```javascript
+// rollup-plugin-visualizer 配置 — 可视化产物构成
+// vite.config.js
+import { visualizer } from 'rollup-plugin-visualizer';
+
+export default defineConfig({
+    plugins: [
+        laravel({ input: 'resources/js/app.js' }),
+        visualizer({
+            open: true,           // 构建后自动打开浏览器
+            gzipSize: true,       // 显示 gzip 后的大小
+            brotliSize: true,     // 显示 brotli 后的大小
+            filename: 'stats.html', // 输出文件
+        }),
+    ],
+});
+```
 
 ---
 
@@ -488,3 +685,9 @@ npm run build  # 生产构建
 | 定制灵活性 | ⭐ | ⭐⭐⭐ | ⭐⭐ |
 
 **一句话总结**：新项目用 Vite，老项目看前端复杂度决定是否迁移，需要微前端/Webpack 独有能力的场景用 Webpack 5。Laravel Mix 已进入维护模式，不再推荐新项目使用。
+
+## 相关阅读
+
+- [Vite Laravel 实战：前后端分离开发工作流踩坑记录](/frontend/vite-laravel-guide/)
+- [uni-app 条件编译实战：平台差异处理与适配策略](/frontend/uni-app-guide/)
+- [Docker Compose + PHP-FPM 微服务部署实战](/devops/docker-compose-php-fpmguide-microservicesdeployment/)

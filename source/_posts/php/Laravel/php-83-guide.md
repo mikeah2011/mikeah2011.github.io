@@ -1,12 +1,13 @@
 ---
 title: PHP-83-类型化类常量实战-枚举增强与类型安全-Laravel-B2C-API踩坑记录
+cover: /images/covers/php-83-guide-cover.jpg
 date: 2026-05-16 17:30:32
 updated: 2026-05-16 17:39:33
 categories:
   - PHP
   - Runtime
 tags: [Laravel, PHP]
-description: KKday B2C API 30+ 仓库实战 | PHP 8.3 Typed Class Constants 如何替代魔术常量与字符串硬编码 | 与 Enum 深度集成 | 继承约束与接口契约 | 真实踩坑记录
+description: PHP 8.3 Typed Class Constants 实战指南：基于 KKday B2C API 30+ 仓库经验，详解类型化类常量替代魔术字符串、与 Enum 深度集成、Interface 契约约束继承链类型安全、Laravel Migration 类型对齐、PHPStan 静态分析配置，附 5 大踩坑记录与渐进式迁移策略
 
 
 
@@ -479,3 +480,10 @@ PHP 8.3 的 Typed Class Constants 看起来是一个小特性，但在大型 B2C
 4. **CI 友好**：配合 PHPStan 6+ 可以在编码阶段发现常量类型错误
 
 唯一的遗憾是 Enum case 值仍然不支持引用常量表达式，这让 Interface + Enum 的组合多了一层冗余声明。但比起以前完全没有类型约束的 `const`，这已经是质的飞跃了。
+
+## 相关阅读
+
+- [PHP 8.2 readonly Classes 实战 — 不可变对象与值对象设计](/categories/PHP/php-82-readonly-classes-guide/)
+- [PHP 8 + Trait/Enum 重构旧 Laravel 项目：30+ 仓库的实战经验](/categories/PHP/PHP-8-trait-enum-laravel-30-guide/)
+- [PHP 8.4 新特性实战：从内存管理到性能提升](/categories/PHP/php-84/)
+- [PHP Enum 替魔术字符串 - 30+ 仓库重构经验与最佳实践](/categories/PHP/php-enum-30/)

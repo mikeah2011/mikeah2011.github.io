@@ -1,11 +1,15 @@
 ---
 title: Redis全部
 sticky: 90
-tags: [Redis]
+tags: [redis]
 categories:
   - Databases
   - Redis
 date: 2022-03-20 15:05:07
+cover: /images/covers/databases-001-cover.jpg
+images:
+  - /images/content/databases-001-content-1.jpg
+  - /images/content/databases-001-content-2.jpg
 description: '基础 1.说说什么是Redis? Redis图标 Redis是一种基于键值对（key-value）的NoSQL数据库。 比一般键值对数据库强大的地方，Redis中的value支持string（字符串）、hash（哈希）、 list（列表）、…'
 
 
@@ -156,6 +160,8 @@ Redis不是说用单线程的吗？怎么6.0成了多线程的？
 Redis6.0的多线程是用多线程来处理数据的**读写和协议解析**，但是Redis**执行命令**还是单线程的。
 
 这样做的⽬的是因为Redis的性能瓶颈在于⽹络IO⽽⾮CPU，使⽤多线程能提升IO读写的效率，从⽽整体提⾼Redis的性能。
+
+![Redis缓存与内存数据结构](/images/content/databases-001-content-1.jpg)
 
 # 持久化
 
@@ -472,6 +478,8 @@ Redis集群的故障转移和哨兵的故障转移类似，但是Redis集群中�
 Redis集群提供了灵活的节点扩容和收缩方案，可以在不影响集群对外服务的情况下，为集群添加节点进行扩容也可以下线部分节点进行缩容。其实，集群扩容和缩容的关键点，就在于槽和节点的对应关系，扩容和缩容就是将一部分`槽`和`数据`迁移给新节点。
 
 例如下面一个集群，每个节点对应若干个槽，每个槽对应一定的数据，如果希望加入1个节点希望实现集群扩容时，需要通过相关命令把一部分槽和内容迁移给新节点。缩容也是类似，先把槽和数据迁移到其它节点，再把对应的节点下线。
+
+![Redis键值存储与分布式架构](/images/content/databases-001-content-2.jpg)
 
 # 缓存设计
 
@@ -1122,3 +1130,9 @@ quicklist由list和ziplist结合而成，它是一个由ziplist充当节点的�
 ## 52.假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如何将它们全部找出来？
 
 使用 `keys` 指令可以扫出指定模式的 key 列表。但是要注意 keys 指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。这个时候可以使用 `scan`指令，`scan` 指令可以无阻塞的提取出指定模式的 `key` 列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用 `keys` 指令长。
+
+## 相关阅读
+
+- [Redis 高并发架构设计：缓存穿透/击穿/雪崩与分布式锁](/databases/high-concurrency/)
+- [分布式限流算法深度对比：滑动窗口、令牌桶、漏桶与 Redis-Cell](/02_Redis/2026-06-03-分布式限流算法深度对比-滑动窗口令牌桶漏桶Redis-Cell与Laravel实现/)
+- [Redis Bitmap 实战指南](/databases/redis-bitmap-guide/)

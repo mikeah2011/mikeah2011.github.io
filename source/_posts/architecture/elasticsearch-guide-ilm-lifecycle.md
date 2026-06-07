@@ -1,11 +1,12 @@
 ---
 title: Elasticsearch 全文搜索深度调优实战：ILM 生命周期管理与冷热数据分离踩坑记录
+cover: /images/covers/elasticsearch-guide-ilm-lifecycle-cover.jpg
 date: 2026-05-04 11:22:00 +0800
-description: "Elasticsearch 全文搜索深度调优实战：ILM 生命周期管理与冷热数据分离踩坑记录"
+description: "深入讲解 Elasticsearch ILM（Index Lifecycle Management）索引生命周期管理，涵盖热温冷三级存储架构设计、ILM Policy 配置实战、索引模板绑定、Rollover 自动切换、Shrink 与 ForceMerge 优化。结合 KKday B2C 真实生产踩坑经验，对比 ILM 与 TSM 方案差异，提供完整的监控告警配置与最佳实践指南。"
 categories:
   - Misc
   - Search
-tags: [Elasticsearch, KKday]
+tags: [elasticsearch, kkday, ilm, 索引生命周期管理, 热温冷架构]
 
 
 
@@ -357,7 +358,120 @@ class ProductSearchService
 }
 ```
 
-### 坑 3：ILM 删除策略导致数据误删（生产事故案例）
+### 坑 3：Rollover 策略不生效（索引未自动切换）
+**问题现象：**
+ILM 策略配置了 rollover 条件，但索引大小早已超过阈值却没有触发滚动切换，导致单个索引膨胀到数百 GB，查询性能急剧下降。
+**根本原因：**
+- Rollover 操作**必须由 ILM 的 check-rollover-ready 条件触发**，而不是在 hot 阶段的 `actions` 中直接声明
+- 如果索引没有设置 `is_write_index: true`，rollover 会静默跳过
+- ILM poll interval 默认为 10 分钟，短时间内写入大量数据不会立即触发
+**踩坑代码示例：**
+```json
+// ❌ 错误：直接在 actions 里加 rollover 但没有正确设置 write index
+PUT _ilm/policy/bad-rollover-policy
+{
+  "policy": {
+    "phases": {
+      "hot": {
+        "actions": {
+          "rollover": {
+            "max_size": "50gb",
+            "max_age": "1d"
+          }
+        }
+      }
+    }
+  }
+}
+// 创建索引时忘记设置 is_write_index
+PUT /logs-2024.01
+{
+  "settings": {
+    "index.lifecycle.name": "bad-rollover-policy"
+    // ❌ 缺少 "index.lifecycle.rollover_alias": "logs-write"
+  }
+}
+```
+**解决方案：**
+1. 创建索引时必须**同时设置 rollover_alias 和 is_write_index**
+2. 使用 Data Stream（Elasticsearch 7.9+）替代手动管理 rollover
+3. 调小 `indices.lifecycle.poll_interval` 加速触发
+```json
+// ✅ 正确：通过别名管理 rollover
+PUT /logs-2024.01
+{
+  "aliases": {
+    "logs-write": {
+      "is_write_index": true
+    }
+  },
+  "settings": {
+    "index.lifecycle.name": "search-hot-cold",
+    "index.lifecycle.rollover_alias": "logs-write"
+  }
+}
+// 验证 rollover 是否就绪
+GET logs-write/_ilm/explain
+```
+---
+### 坑 4：Delete 阶段不生效（索引到期后未被删除）
+**问题现象：**
+索引已经超过 delete.min_age 设定的天数，但仍然存在，磁盘空间持续增长。
+**根本原因：**
+- ILM 的 delete 阶段计算的是**索引进入该阶段的时间**，而非索引创建时间
+- 如果前面的 warm 或 cold 阶段执行失败，索引会卡在前面的阶段，永远到不了 delete
+- 索引处于 ILM ERROR 状态时会暂停所有后续操作
+**排查方法：**
+```json
+// 查看索引的 ILM 状态
+GET /my-index-000001/_ilm/explain
+
+// 返回示例（ERROR 状态）
+{
+  "indices": {
+    "my-index-000001": {
+      "index": "my-index-000001",
+      "managed": true,
+      "policy": "search-hot-cold",
+      "lifecycle_date_millis": 1704067200000,
+      "phase": "warm",
+      "phase_time_millis": 1704153600000,
+      "action": "shrink",
+      "action_status": "ERROR",
+      "step_info": {
+        "type": "illegal_argument_exception",
+        "reason": "the number of target shards [3] must be less than the number of source shards [1]"
+      }
+    }
+  }
+}
+```
+**解决方案：**
+1. 使用 `POST /<index>/_ilm/retry` 手动重试失败的步骤
+2. 检查 shrink 目标分片数必须**小于**源索引分片数
+3. 定期监控 ILM 错误状态，配置告警
+```json
+// 手动重试
+POST /my-index-000001/_ilm/retry
+
+// 跳过当前阶段（谨慎使用）
+POST /my-index-000001/_ilm/move
+{
+  "current_step": {
+    "phase": "warm",
+    "action": "shrink",
+    "name": "ERROR"
+  },
+  "next_step": {
+    "phase": "delete",
+    "action": "delete",
+    "name": "delete"
+  }
+}
+```
+---
+### 坑 5：ILM 删除策略导致数据误删（生产事故案例）
+
 
 **问题现象：**
 ```json
@@ -520,9 +634,112 @@ class IndexManagerWithAudit
 }
 ```
 
-## 四、最佳实践总结
+## 四、索引模板配置实战
+ILM 策略需要与索引模板配合使用，才能实现自动化生命周期管理。以下是完整的索引模板配置示例：
+```json
+PUT _index_template/search-logs-template
+{
+  "index_patterns": ["search-logs-*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 3,
+      "number_of_replicas": 1,
+      "index.lifecycle.name": "search-hot-cold",
+      "index.lifecycle.rollover_alias": "search-logs-write",
+      "index.routing.allocation.require.box_type": "hot",
+      "index.codec": "best_compression",
+      "index.refresh_interval": "5s",
+      "index.translog.durability": "async",
+      "index.translog.sync_interval": "30s"
+    },
+    "mappings": {
+      "dynamic": "strict",
+      "properties": {
+        "@timestamp": { "type": "date" },
+        "query": { "type": "text", "analyzer": "ik_max_word", "search_analyzer": "ik_smart" },
+        "user_id": { "type": "keyword" },
+        "product_id": { "type": "keyword" },
+        "response_time_ms": { "type": "integer" },
+        "result_count": { "type": "integer" },
+        "ip": { "type": "ip" },
+        "user_agent": { "type": "text", "index": false }
+      }
+    },
+    "aliases": {
+      "search-logs-all": {}
+    }
+  },
+  "priority": 500,
+  "composed_of": [],
+  "version": 1
+}
+// 创建初始索引并绑定 write 别名
+PUT /search-logs-000001
+{
+  "aliases": {
+    "search-logs-write": {
+      "is_write_index": true
+    }
+  }
+}
+```
+### Warm/Cold 阶段节点路由配置
+```yaml
+# elasticsearch.yml - Warm 节点配置
+node.roles: ["data_warm", "data_content"]
+node.attr.box_type: "warm"
+# elasticsearch.yml - Cold 节点配置
+node.roles: ["data_cold", "data_frozen"]
+node.attr.box_type: "cold"
+```
+```json
+// 索引级别路由到 warm 节点（ILM warm 阶段自动执行）
+PUT /search-logs-000001/_settings
+{
+  "index.routing.allocation.require.box_type": "warm",
+  "index.number_of_replicas": 0
+}
+```
+## 五、ILM vs TSM（Time Stream Management）对比
+在 Elasticsearch 7.x 之后，官方推荐使用 **Data Stream + ILM** 的组合来管理时序数据。以下是 ILM 与其他常见方案的对比：
+| 特性 | ILM（索引生命周期管理） | TSM/Data Stream | 手动 Curator |
+|------|----------------------|-----------------|-------------|
+| **自动化程度** | 全自动（策略驱动） | 全自动（内置 ILM） | 手动脚本 |
+| **Rollover 支持** | 需要手动配置别名 | 内置自动 rollover | 脚本实现 |
+| **适用版本** | 6.6+ | 7.9+ | 所有版本 |
+| **索引管理粒度** | 单个索引级别 | 整个数据流级别 | 完全自定义 |
+| **冷热分离** | 原生支持 | 原生支持（与 ILM 联动） | 手动实现 |
+| **学习曲线** | 中等 | 低（更简洁） | 高（需运维脚本） |
+| **生产推荐度** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐（推荐） | ⭐⭐（遗留方案） |
+| **冻结索引支持** | 原生支持（7.x+） | 原生支持 | 手动 |
+| **可观测性** | ILM Explain API | Data Stream API + ILM | 依赖外部监控 |
+**推荐选择：**
+- **新项目（ES 7.9+）**：直接使用 Data Stream，自动管理 rollover 和 lifecycle
+- **存量索引迁移**：使用 ILM + 别名方式，逐步迁移到 Data Stream
+- **ES 6.x 环境**：使用 Curator 手动管理，同时规划升级
+```json
+// Data Stream 示例（推荐方式）
+PUT _index_template/logs-data-stream
+{
+  "index_patterns": ["logs-*"],
+  "data_stream": {},
+  "template": {
+    "settings": {
+      "index.lifecycle.name": "search-hot-cold"
+    }
+  }
+}
+// 直接写入，自动创建 Data Stream
+POST logs-myapp/_doc
+{
+  "@timestamp": "2024-01-15T10:30:00Z",
+  "message": "User login successful",
+  "user_id": "U12345"
+}
+```
+## 六、最佳实践总结
 
-### 4.1 ILM Policy 配置检查清单
+### 6.1 ILM Policy 配置检查清单
 
 | 检查项               | 推荐值                           | 说明                     |
 |----------------------|----------------------------------|--------------------------|
@@ -532,7 +749,7 @@ class IndexManagerWithAudit
 | delete.min_age       | ≥120 天（审计要求）             | 合规保留期               |
 | shrink.timeout       | 30-60 分钟                      | 避免长时间阻塞           |
 
-### 4.2 监控告警配置（Grafana + Prometheus）
+### 6.2 监控告警配置（Grafana + Prometheus）
 
 ```yaml
 # prometheus.yml - Elasticsearch 监控
@@ -574,7 +791,7 @@ groups:
           summary: "Shrink 操作待处理中"
 ```
 
-### 4.3 PHP + Elasticsearch 最佳实践
+### 6.3 PHP + Elasticsearch 最佳实践
 
 ```php
 // ✅ 生产环境推荐配置
@@ -597,7 +814,7 @@ $config = [
 $client = new Client($config);
 ```
 
-## 五、生产环境效果对比
+## 七、生产环境效果对比
 
 | 指标           | 优化前       | 优化后       | 提升幅度     |
 |----------------|-------------|-------------|-------------|
@@ -609,13 +826,16 @@ $client = new Client($config);
 
 ---
 
-## 六、踩坑总结与核心要点
+## 八、踩坑总结与核心要点
 
 1. **ILM 策略需要分阶段实施**，避免一次性修改影响生产稳定性
 2. **Shrink 操作是写操作**，会阻塞查询流量，需要在业务低峰期执行
-3. **Cold 索引设置 refresh_interval: -1** 并配合适当缓存策略提升性能
-4. **删除操作前必须验证数据完整性**和审计要求
-5. **建立完善的监控告警机制**，及时发现问题
+3. **Rollover 必须通过别名 + is_write_index 触发**，否则会静默跳过导致索引膨胀
+4. **Delete 阶段依赖前面所有阶段的成功执行**，任何阶段 ERROR 都会阻塞后续流程
+5. **Cold 索引设置 refresh_interval: -1** 并配合适当缓存策略提升性能
+6. **删除操作前必须验证数据完整性**和审计要求
+7. **建立完善的监控告警机制**，及时发现 ILM ERROR 状态
+8. **新项目优先使用 Data Stream**，减少手动管理别名和索引的复杂度
 
 ---
 
@@ -625,4 +845,7 @@ $client = new Client($config);
 > 
 > ⚠️ 本文基于真实生产环境踩坑记录，所有代码均可在生产环境运行（请根据实际情况调整）
 
-如需查看完整内容，可以打开该文件阅读。需要我帮你预览一下开头部分吗？
+## 相关阅读
+- [搜索系统设计实战：Elasticsearch 索引设计、分词策略与相关性调优](/categories/architecture/search-engine-elasticsearch/)
+- [ELK Stack 实战：Elasticsearch + Logstash + Kibana 集中式日志系统与 Laravel 集成](/categories/architecture/elk-stack-guide-elasticsearch-logstash-kibana-logging-laravel/)
+- [Elasticsearch 全文搜索深度调优实战：Laravel 多字段映射、分词策略与高可用架构](/categories/PHP/laravel/elasticsearch-guide-laravel-high-availabilityarchitecture/)

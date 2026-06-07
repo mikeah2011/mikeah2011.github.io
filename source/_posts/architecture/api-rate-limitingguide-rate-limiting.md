@@ -6,10 +6,11 @@ categories:
   - Architecture
   - API
 tags: [Laravel, Redis]
-description: 从固定窗口到滑动窗口再到令牌桶，Laravel B2C API 三种限流策略的选型、实现与生产踩坑记录，含 Redis Lua 脚本、中间件实战、分布式场景方案。
-
-
-
+description: API Rate Limiting 限流实战全攻略：从固定窗口、滑动窗口到令牌桶算法，深入对比三种限流策略的 Redis Lua 原子实现、内存优化与分布式踩坑。含 Laravel 中间件封装、Nginx 双层限流架构、监控告警方案，适用于 B2C 电商 API 高并发防护。
+cover: /images/covers/arch-005-cover.jpg
+images:
+  - /images/content/arch-005-content-1.jpg
+  - /images/content/arch-005-content-2.jpg
 ---
 # API 限流实战：Rate Limiting、滑动窗口、令牌桶算法
 
@@ -39,6 +40,8 @@ graph TD
 ```
 
 实际生产中我们采用**双层限流**：Nginx 层做粗粒度 IP 限流（防 DDoS），Laravel 层做细粒度业务限流（按用户/API Key/接口维度）。
+
+![API 限流架构与流量控制](/images/content/arch-005-content-1.jpg)
 
 ## 策略一：固定窗口（Fixed Window）
 
@@ -443,4 +446,12 @@ Log::channel('rate_limit')->warning('Rate limit hit', [
 4. **按场景区分**：搜索用令牌桶（允许突发）、下单用滑动窗口（严格计数）、回调用固定窗口（粗粒度）
 5. **内存优化**：高 QPS 接口用滑动窗口计数器而非 Sorted Set，否则内存 O(N) 爆炸
 
+![令牌桶算法与限流策略](/images/content/arch-005-content-2.jpg)
+
 选择哪种策略取决于你的业务场景。对于大多数 B2C API，**令牌桶 + Redis Lua** 是最灵活、最实用的方案。
+
+## 相关阅读
+
+- [Redis Lua 脚本原子操作实战：分布式限流、库存扣减、排行榜 — Laravel B2C API 踩坑记录](/databases/redis-lua-guide-distributedrate-limiting/) — 本文限流方案的核心 Redis Lua 脚本详解
+- [电商秒杀系统设计：Redis 预扣减 + 消息队列异步下单 + 限流策略实战踩坑记录](/architecture/2026-06-01-flash-sale-system-design-redis-pre-deduction-mq-async-ordering-rate-limiting/) — 秒杀场景下限流与高并发的完整解决方案
+- [Redis 实战：缓存穿透/击穿/雪崩防护 — KKday B2C API 真实踩坑记录](/databases/redis-guidecache-penetrationbreakdownavalanche/) — 限流之外的 Redis 生产防护策略

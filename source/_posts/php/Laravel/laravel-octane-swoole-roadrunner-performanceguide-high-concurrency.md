@@ -1,11 +1,12 @@
 ---
-title: Laravel Octane 性能优化实战：从 FPM 到 Swoole/RoadRunner 的高并发之路 - KKday B2C API 真实踩坑记录
+title: "Laravel Octane 性能优化实战：从 FPM 到 Swoole/RoadRunner 的高并发之路 - KKday B2C API 真实踩坑记录"
+cover: /images/covers/laravel-octane-swoole-roadrunner-performanceguide-high-concurrency-cover.jpg
 date: 2026-05-03
 categories:
   - PHP
   - Laravel
-tags: [Laravel, PHP, Redis, 微服务, 性能优化]
-description: 在 KKday B2C API 团队面对每秒 5000+ 请求的促销场景下，我们通过 Laravel Octane 从 FPM 迁移到 Swoole/RoadRunner，实现了 QPS 提升 300% 的实战经验。本文包含完整架构图、性能测试数据、连接池配置、协程安全陷阱与生产环境部署方案。
+tags: [Laravel, PHP, Redis, 微服务, 性能优化, Octane, Swoole, RoadRunner, 高并发]
+description: 在 KKday B2C API 团队面对每秒 5000+ 请求的促销场景下，我们通过 Laravel Octane 从 FPM 迁移到 Swoole/RoadRunner，实现了 QPS 提升 300% 的实战经验。本文涵盖完整架构图、性能测试数据、连接池配置、协程安全陷阱与生产环境部署方案，附详细对比分析。
 
 
 
@@ -509,3 +510,10 @@ Event::listen(function (WorkerStopping $event) {
 - Swoole 官方文档：https://wiki.swoole.com/
 - KKday 技术博客：https://tech.kkday.com
 - 基准测试代码：https://github.com/kkday/benchmarks
+
+## 相关阅读
+
+- [PHP-OpCache 调优实战：KKday B2C API 高并发场景下的内存优化](/categories/PHP/Laravel/php-opcache-guide-high-concurrencyoptimization/)
+- [Nginx 配置实战：PHP-FPM 调优、FastCGI 缓存、Gzip 压缩](/categories/architecture/nginx-guide-php-fpm-fastcgi-cache-gzip/)
+- [负载均衡实战：Nginx Upstream + Laravel Session 共享方案](/categories/architecture/load-balancingguide-nginx-upstream-laravel-session/)
+- [PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离](/categories/PHP/Laravel/php-fiber-concurrencyguide-laravel-concurrencyapi/)

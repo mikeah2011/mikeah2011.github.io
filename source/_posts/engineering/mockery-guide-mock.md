@@ -1,12 +1,13 @@
 ---
 title: Mockery 实战：外部服务 Mock 与依赖隔离 Laravel B2C API 踩坑记录
+cover: /images/covers/mockery-guide-mock-cover.jpg
 date: 2026-05-16 17:11:05
 updated: 2026-05-16 17:16:43
 categories:
   - Engineering
   - Testing
-tags: [Laravel, 测试]
-description: 在 Laravel B2C 电商项目中，外部服务（支付网关、物流API、邮件推送）是测试的重灾区。本文记录了 30+ 仓库中使用 Mockery 进行外部服务 Mock 与依赖隔离的实战经验，涵盖 Partial Mock、Expectation 声明、接口隔离、第三方 SDK Mock 等核心场景。
+tags: [Laravel, 测试, Mockery, PHPUnit, PHP]
+description: 在 Laravel B2C 电商项目中，外部服务（支付网关、物流API、邮件推送）是测试的重灾区。本文记录了 30+ 仓库中使用 Mockery 进行外部服务 Mock 与依赖隔离的实战经验，涵盖 shouldReceive/shouldNotReceive 基础用法、接口隔离与面向接口编程、Partial Mock 与 protected 方法、Guzzle MockHandler 第三方 SDK Mock、Laravel Fake vs Mockery 选型对比、Expectation 顺序约束与 Spy 事后验证、Singleton 注入与队列测试等高频踩坑场景，附完整代码示例与架构图。
 
 
 
@@ -585,3 +586,9 @@ $this->app->instance(PaymentGatewayInterface::class, $mock);
 5. **每次 tearDown 必须 Mockery::close()**：否则残留 expectation 会影响后续测试
 
 在 30+ 仓库的实践中，遵循这些原则让我们的单元测试从平均 30 秒跑完缩短到 8 秒，CI 红灯率从 15% 降到 2%（且几乎都是真实的 bug 而非环境问题）。Mock 不是目的，**可信的快速反馈**才是。
+
+## 相关阅读
+
+- [API Mock 策略实战：WireMock/Mockoon/MSW 三层 Mock 体系](/categories/架构/2026-06-06-API-Mock-策略实战-WireMock-Mockoon-MSW-三层Mock体系/) — 从开发到测试到生产的完整 API Mock 方案，与本文的单元级 Mock 互补
+- [Data Contract 实战：Pact-style 数据契约——Laravel 微服务数据契约版本化与 Breaking Change 检测](/categories/架构/2026-06-05-Data-Contract-Pact-style-Laravel微服务数据契约版本化验证Breaking-Change检测/) — 契约测试视角，关注服务间数据格式的自动化守护
+- [六边形架构实战：Laravel 端口与适配器模式落地踩坑记录](/categories/架构/2026-06-01-六边形架构实战-Laravel-端口与适配器模式落地踩坑记录/) — 本文 Mock 的接口隔离策略正是六边形架构的核心实践

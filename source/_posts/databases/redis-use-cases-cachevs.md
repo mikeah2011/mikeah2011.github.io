@@ -1,12 +1,15 @@
 ---
 title: Laravel B2C API 的 Redis 使用场景：会话/购物车/计次/全页缓存对比
 date: 2026-05-02
-description: "Laravel B2C API 的 Redis 使用场景：会话/购物车/计次/全页缓存对比"
+description: "基于 KKday 三年 Laravel B2C API 实战经验，系统对比 Redis 四大核心使用场景：Session 会话管理、购物车 Hash+List 设计、计次功能 Lua 原子操作与全页缓存穿透防护。深入解析各场景的数据结构选型、TTL 策略、并发控制方案，附 Redis 与 Memcached 对比表、redis-cli 监控命令与生产环境告警配置，帮助开发者在电商 B2C 项目中做出最优缓存架构决策。"
 categories:
   - Databases
   - Redis
-tags: [KKday, Laravel, Redis]
-
+tags: [kkday, laravel, redis, b2c, 缓存, 会话, 购物车]
+cover: /images/covers/databases-01-cover.jpg
+images:
+  - /images/content/databases-01-content-1.jpg
+  - /images/content/databases-01-content-2.jpg
 
 
 ---
@@ -25,6 +28,115 @@ tags: [KKday, Laravel, Redis]
 | 计次功能 | String (Lua) | 单 key 简单快速 | 72h~7d | TTL 过期时机 |
 | 全页缓存 | String/List | 响应速度最快 | 1min~5m | 缓存穿透/击穿 |
 
+### 1.1 Redis vs Memcached 全面对比
+
+在 Laravel 项目中选型缓存方案时，Redis 和 Memcached 是最常见的两个选择。以下是针对 B2C 场景的详细对比：
+
+| 对比维度 | Redis | Memcached |
+|---------|-------|-----------|
+| **数据结构** | String / List / Hash / Set / ZSet / Stream / Bitmap | 仅 String（Key-Value） |
+| **持久化** | RDB 快照 + AOF 日志，支持数据恢复 | 无持久化，重启数据丢失 |
+| **内存管理** | 支持 maxmemory + LRU/LFU/TTL 等 8 种淘汰策略 | Slab Allocation，固定块大小 |
+| **线程模型** | 6.0+ 多线程 I/O，核心命令仍单线程保证原子性 | 多线程，高并发吞吐更高 |
+| **集群方案** | Redis Cluster / Sentinel / 代理模式 | 客户端一致性哈希分片 |
+| **发布订阅** | 原生支持 Pub/Sub + Stream 消费组 | 不支持 |
+| **Lua 脚本** | 原生支持 EVAL，可做原子复合操作 | 不支持 |
+| **事务** | MULTI/EXEC 事务 + WATCH 乐观锁 | 仅 CAS（Compare-And-Swap） |
+| **适用场景** | 会话管理、购物车、排行榜、消息队列、分布式锁 | 纯粹的简单缓存加速 |
+| **Laravel 集成** | `predis/predis` + `laravel/framework` Cache/Session 驱动 | `memcached` 扩展 + Cache 驱动 |
+
+**选型建议**：
+- 如果你的 B2C 项目需要 **会话管理 + 购物车 + 计次 + 缓存**，Redis 是唯一选择
+- 如果只需要 **纯缓存** 且对数据丢失不敏感，Memcached 的多线程模型可能有轻微吞吐优势
+- Laravel 的 `CACHE_DRIVER=redis` 和 `SESSION_DRIVER=redis` 开箱即用，集成成本最低
+
+```php
+// config/database.php - Redis 连接配置示例
+'redis' => [
+    'client' => env('REDIS_CLIENT', 'predis'),
+    'options' => [
+        'cluster' => env('REDIS_CLUSTER', 'redis'),
+        'prefix' => env('REDIS_PREFIX', 'b2c:'), // 业务前缀隔离
+    ],
+    'default' => [
+        'url' => env('REDIS_URL'),
+        'host' => env('REDIS_HOST', '127.0.0.1'),
+        'password' => env('REDIS_PASSWORD'),
+        'port' => env('REDIS_PORT', '6379'),
+        'database' => env('REDIS_DB', '0'),
+    ],
+    'cache' => [
+        'url' => env('REDIS_URL'),
+        'host' => env('REDIS_HOST', '127.0.0.1'),
+        'password' => env('REDIS_PASSWORD'),
+        'port' => env('REDIS_PORT', '6379'),
+        'database' => env('REDIS_CACHE_DB', '1'), // 缓存独立 DB
+    ],
+],
+```
+
+### 1.2 TTL 策略设计指南
+
+TTL（Time To Live）是 Redis 使用中最关键也最容易出问题的配置。以下是基于 B2C 场景的 TTL 策略建议：
+
+| 场景 | 推荐 TTL | 理由 | 扩展策略 |
+|------|---------|------|---------|
+| 用户会话 | 15~30 分钟 | 平衡安全与体验 | 滑动过期：每次请求续期 |
+| 购物车（普通） | 1~4 小时 | 关闭浏览器不丢失 | 活跃续期 + 每日凌晨清理 |
+| 购物车（VIP） | 7 天 | VIP 用户长期保留 | 到期前 1 天推送提醒 |
+| 促销倒计时 | 2~72 小时 | 跟随活动周期 | 活动结束主动 DEL |
+| 全页缓存 | 1~5 分钟 | 保证数据新鲜度 | 写入时主动失效 |
+| 热点数据 | 30 秒~2 分钟 | 防击穿，短 TTL + 互斥锁 | Mutex Lock + 延迟双删 |
+| 空值缓存 | 30 秒~1 分钟 | 防穿透，短 TTL 避免脏数据 | NULL 值标记 |
+
+```php
+// app/Services/Cache/TtlStrategy.php
+namespace App\Services\Cache;
+
+class TtlStrategy
+{
+    /**
+     * 根据业务场景返回 TTL（秒）
+     * 支持滑动过期：活跃用户自动续期
+     */
+    public static function forSession(bool $isActive = true): int
+    {
+        // 活跃用户 30 分钟，非活跃 15 分钟
+        return $isActive ? 1800 : 900;
+    }
+
+    public static function forCart(string $userLevel = 'normal'): int
+    {
+        return match ($userLevel) {
+            'vip'     => 7 * 86400,    // 7 天
+            'premium' => 3 * 86400,    // 3 天
+            default   => 4 * 3600,     // 4 小时
+        };
+    }
+
+    public static function forCache(string $dataType = 'page'): int
+    {
+        return match ($dataType) {
+            'hot'     => 60,           // 热点数据 1 分钟
+            'page'    => 300,          // 页面缓存 5 分钟
+            'catalog' => 3600,         // 目录数据 1 小时
+            'static'  => 86400,        // 静态配置 1 天
+            default   => 300,
+        };
+    }
+
+    /**
+     * 添加随机抖动防止缓存雪崩
+     * 在原 TTL 基础上加减 10% 随机值
+     */
+    public static function withJitter(int $ttl, float $jitterPercent = 0.1): int
+    {
+        $jitter = (int) ($ttl * $jitterPercent);
+        return $ttl + random_int(-$jitter, $jitter);
+    }
+}
+```
+
 ## 二、Session：从 Predis 到 Laravel 的实战对比
 
 ### 2.1 Laravel Session + Redis 基础配置
@@ -42,7 +154,73 @@ tags: [KKday, Laravel, Redis]
 'retention' => 1200, // 15 分钟，对应 TTL 策略
 ```
 
-### 2.2 踩坑：会话粘滞与会话迁移
+### 2.2 Laravel Session 中间件与事件监听
+
+```php
+// app/Http/Middleware/RedisSessionExtend.php
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Support\Facades\Redis;
+
+class RedisSessionExtend
+{
+    /**
+     * 滑动过期：每次请求自动续期 Session TTL
+     * 适用于 B2C 用户浏览商品时不被踢出
+     */
+    public function handle($request, Closure $next)
+    {
+        $response = $next($request);
+
+        if ($request->user() && config('session.driver') === 'redis') {
+            $sessionId = $request->session()->getId();
+            $ttl = config('session.retention', 1200);
+
+            // 续期：每次活跃请求延长 TTL
+            Redis::expire("laravel:{$sessionId}", $ttl);
+
+            // 记录最后活跃时间（用于统计在线用户）
+            Redis::hSet('user:last_active', (string) $request->user()->id, now()->timestamp);
+        }
+
+        return $response;
+    }
+}
+
+// app/Providers/EventServiceProvider.php - 监听 Session 事件
+protected $listen = [
+    \Illuminate\Auth\Events\Login::class => [
+        \App\Listeners\LogRedisSessionLogin::class,
+    ],
+    \Illuminate\Auth\Events\Logout::class => [
+        \App\Listeners\CleanupRedisSession::class,
+    ],
+];
+
+// app/Listeners/CleanupRedisSession.php
+namespace App\Listeners;
+
+use Illuminate\Support\Facades\Redis;
+
+class CleanupRedisSession
+{
+    public function handle($event)
+    {
+        $user = $event->user;
+        $sessionId = session()->getId();
+
+        // 登出时主动清理 Redis Session
+        Redis::del("laravel:{$sessionId}");
+        Redis::hDel('user:last_active', (string) $user->id);
+
+        // 清理该用户的其他缓存
+        Redis::del("user_cart:{$user->id}");
+    }
+}
+```
+
+### 2.3 踩坑：会话粘滞与会话迁移
 
 **问题场景**：用户在 A 服务器创建 session，在 B 服务器读取时报错或数据不一致。
 
@@ -64,7 +242,7 @@ $data = unserialize($session);
 | Predis + Redis Hash | 原子性，分布式友好 | 需额外维护客户端 | B2C API/多实例 |
 | Redis Session Adapter | 开箱即用 | 配置复杂 | 快速原型 |
 
-### 2.3 真实案例：会员登录态保持
+### 2.4 真实案例：会员登录态保持
 
 ```php
 // UserLoginService.php
@@ -104,6 +282,8 @@ public function validateSession(string $sessionId)
 
 ## 三、购物车：Hash + List 的优雅设计
 
+![Redis 购物车架构](/images/content/databases-01-content-1.jpg)
+
 ### 3.1 数据结构设计
 
 ```php
@@ -138,7 +318,116 @@ if ($redis->exists($itemKey)) {
 }
 ```
 
-### 3.2 TTL 策略对比
+### 3.2 Laravel Cart Service 完整实现
+
+```php
+// app/Services/Cart/RedisCartService.php
+namespace App\Services\Cart;
+
+use Illuminate\Support\Facades\Redis;
+use App\Services\Cache\TtlStrategy;
+
+class RedisCartService
+{
+    protected string $prefix = 'cart:';
+
+    /**
+     * 添加商品到购物车（幂等操作）
+     */
+    public function addItem(int $userId, int $productId, int $qty = 1, float $price = 0): array
+    {
+        $itemKey = "{$this->prefix}{$userId}:product:{$productId}";
+        $cartKey = "{$this->prefix}{$userId}:items";
+
+        // 使用 HINCRBY 原子递增，避免并发问题
+        $newQty = Redis::hIncrBy($itemKey, 'quantity', $qty);
+
+        if ($newQty === $qty) {
+            // 新商品，写入元数据
+            Redis::hMSet($itemKey, [
+                'product_id' => $productId,
+                'price'      => $price,
+                'added_at'   => now()->timestamp,
+            ]);
+            // 将商品 ID 加入购物车集合
+            Redis::sAdd($cartKey, (string) $productId);
+        }
+
+        // 动态 TTL：根据用户等级
+        $ttl = TtlStrategy::forCart($this->getUserLevel($userId));
+        Redis::expire($itemKey, TtlStrategy::withJitter($ttl));
+        Redis::expire($cartKey, TtlStrategy::withJitter($ttl));
+
+        return $this->getCart($userId);
+    }
+
+    /**
+     * 获取购物车内容
+     */
+    public function getCart(int $userId): array
+    {
+        $cartKey = "{$this->prefix}{$userId}:items";
+        $productIds = Redis::sMembers($cartKey);
+
+        $items = [];
+        foreach ($productIds as $productId) {
+            $itemKey = "{$this->prefix}{$userId}:product:{$productId}";
+            $item = Redis::hGetAll($itemKey);
+            if (!empty($item)) {
+                $items[] = $item;
+            }
+        }
+
+        return $items;
+    }
+
+    /**
+     * 删除商品（使用 Pipeline 批量操作）
+     */
+    public function removeItem(int $userId, int $productId): bool
+    {
+        $cartKey = "{$this->prefix}{$userId}:items";
+        $itemKey = "{$this->prefix}{$userId}:product:{$productId}";
+
+        Redis::pipeline(function ($pipe) use ($cartKey, $itemKey, $productId) {
+            $pipe->sRem($cartKey, (string) $productId);
+            $pipe->del($itemKey);
+        });
+
+        return true;
+    }
+
+    /**
+     * 清空购物车
+     */
+    public function clearCart(int $userId): void
+    {
+        $cartKey = "{$this->prefix}{$userId}:items";
+        $productIds = Redis::sMembers($cartKey);
+
+        $keysToDelete = [$cartKey];
+        foreach ($productIds as $pid) {
+            $keysToDelete[] = "{$this->prefix}{$userId}:product:{$pid}";
+        }
+
+        // Pipeline 批量删除，减少 RTT
+        if (!empty($keysToDelete)) {
+            Redis::del(...$keysToDelete);
+        }
+    }
+
+    /**
+     * 购物车商品数量统计
+     */
+    public function getItemCount(int $userId): int
+    {
+        $cartKey = "{$this->prefix}{$userId}:items";
+        return Redis::sCard($cartKey);
+    }
+}
+```
+
+### 3.3 TTL 策略对比
 
 | TTL | 场景 | 风险 |
 |-----|------|------|
@@ -146,7 +435,7 @@ if ($redis->exists($itemKey)) {
 | 7d | VIP/收藏购物车 | 需定期清理 + 主动通知到期 |
 | 30min | 促销页临时购物车 | 快速过期避免堆积 |
 
-### 3.3 踩坑：购物车数据膨胀
+### 3.4 踩坑：购物车数据膨胀
 
 **问题**：用户长时间不操作，购物车 key 一直占用 Redis 内存。
 
@@ -194,7 +483,74 @@ end
 return redis
 ```
 
-### 4.3 PHP 调用示例
+### 4.3 Laravel 限流器集成 Redis 计次
+
+```php
+// app/Services/RateLimit/RedisRateLimiter.php
+namespace App\Services\RateLimit;
+
+use Illuminate\Support\Facades\Redis;
+
+class RedisRateLimiter
+{
+    /**
+     * 滑动窗口限流（基于 Redis ZSET）
+     * 适用于 API 接口频率限制
+     */
+    public function isAllowed(string $key, int $maxAttempts, int $windowSeconds): bool
+    {
+        $now = microtime(true);
+        $windowStart = $now - $windowSeconds;
+
+        Redis::pipeline(function ($pipe) use ($key, $windowStart, $now) {
+            // 清除窗口外的记录
+            $pipe->zRemRangeByScore($key, 0, $windowStart);
+            // 添加当前请求
+            $pipe->zAdd($key, $now, $now . ':' . mt_rand());
+            // 设置 key 过期
+            $pipe->expire($key, $windowSeconds);
+        });
+
+        $currentCount = Redis::zCard($key);
+        return $currentCount <= $maxAttempts;
+    }
+
+    /**
+     * 优惠券领取限流示例
+     * 每个用户每张券只能领 1 次
+     */
+    public function claimCoupon(int $userId, string $couponId): bool
+    {
+        $key = "coupon:claimed:{$couponId}";
+
+        // SISMEMBER 检查是否已领取
+        if (Redis::sIsMember($key, (string) $userId)) {
+            return false; // 已领取
+        }
+
+        // SADD 原子操作，返回 1 表示成功，0 表示已存在
+        $result = Redis::sAdd($key, (string) $userId);
+
+        if ($result) {
+            // 领取成功，扣减库存（Lua 原子操作）
+            $stockKey = "coupon:stock:{$couponId}";
+            $luaScript = <<<LUA
+                local stock = redis.call('DECRBY', KEYS[1], 1)
+                if stock < 0 then
+                    redis.call('INCRBY', KEYS[1], 1)
+                    return 0
+                end
+                return stock
+            LUA;
+            Redis::eval($luaScript, 1, $stockKey);
+        }
+
+        return (bool) $result;
+    }
+}
+```
+
+### 4.4 PHP 调用示例
 
 ```php
 // CountDownService.php
@@ -215,7 +571,7 @@ $result = $this->incrementCount('promo:summer_2024', 1, 7200);
 
 > ⚠️ **踩坑**：count key 要区分 `counter:{userId}:{type}`，避免全局 counter 膨胀。
 
-### 4.4 TTL vs 手动清理对比
+### 4.5 TTL vs 手动清理对比
 
 | 方案 | 优点 | 缺点 |
 |------|------|------|
@@ -226,6 +582,8 @@ $result = $this->incrementCount('promo:summer_2024', 1, 7200);
 **结论**：优先使用 PEXPIRE（Lua），避免 TTL 竞态问题。
 
 ## 五、全页缓存：String/List 的响应策略
+
+![Redis 缓存策略](/images/content/databases-01-content-2.jpg)
 
 ### 5.1 缓存键设计规范
 
@@ -248,7 +606,92 @@ $cacheKey = "product:{$productId}:details";
 $cache->put($cacheKey, $data, 300);
 ```
 
-### 5.2 缓存穿透/击穿防护
+### 5.2 Laravel Cache 实战：多层缓存架构
+
+```php
+// app/Services/Cache/MultiLayerCache.php
+namespace App\Services\Cache;
+
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
+
+class MultiLayerCache
+{
+    /**
+     * 三级缓存架构：L1(进程) → L2(Redis) → L3(DB)
+     * 适用于高并发商品详情页
+     */
+    public function remember(string $key, int $ttl, callable $callback)
+    {
+        // L1: 进程内缓存（最快，但请求结束即失效）
+        static $localCache = [];
+        if (isset($localCache[$key])) {
+            return $localCache[$key];
+        }
+
+        // L2: Redis 缓存
+        $cached = Cache::store('redis')->get($key);
+        if ($cached !== null) {
+            $localCache[$key] = $cached;
+            return $cached;
+        }
+
+        // L3: 查询数据库（带互斥锁防击穿）
+        $lockKey = "lock:{$key}";
+        $lock = Cache::store('redis')->lock($lockKey, 10); // 10 秒锁超时
+
+        if ($lock->get()) {
+            try {
+                // 二次检查缓存（其他请求可能已写入）
+                $cached = Cache::store('redis')->get($key);
+                if ($cached !== null) {
+                    $localCache[$key] = $cached;
+                    return $cached;
+                }
+
+                // 查询 DB
+                $data = $callback();
+
+                // 写入 Redis（带随机抖动防雪崩）
+                $ttlWithJitter = TtlStrategy::withJitter($ttl);
+                Cache::store('redis')->put($key, $data, $ttlWithJitter);
+
+                $localCache[$key] = $data;
+                return $data;
+            } finally {
+                $lock->release();
+            }
+        }
+
+        // 未获锁，短暂等待后重试
+        usleep(100000); // 100ms
+        return $this->remember($key, $ttl, $callback);
+    }
+
+    /**
+     * 主动失效：写入时清除相关缓存
+     */
+    public function invalidateByTag(string $tag): void
+    {
+        $pattern = "*:{$tag}:*";
+        $cursor = null;
+
+        // 使用 SCAN 而非 KEYS，避免阻塞
+        do {
+            [$cursor, $keys] = Redis::scan($cursor ?? 0, [
+                'match' => $pattern,
+                'count' => 100,
+            ]);
+
+            if (!empty($keys)) {
+                Redis::del(...$keys);
+            }
+        } while ($cursor > 0);
+    }
+}
+```
+
+### 5.3 缓存穿透/击穿防护
 
 **问题场景**：
 - 缓存未命中时，DB 压力大（击穿）
@@ -288,7 +731,7 @@ public function getProductDetails($productId)
 }
 ```
 
-### 5.3 List + Hash 缓存场景对比
+### 5.4 List + Hash 缓存场景对比
 
 | 结构 | 适用场景 | 优点 |
 |------|---------|------|
@@ -340,7 +783,141 @@ redis-cli TIME before
 SLOWLOG GET 10  # 慢查询日志
 ```
 
-### 7.2 告警触发条件
+### 7.2 redis-cli 实用监控命令速查
+
+```bash
+# ========== 基础信息 ==========
+# 查看 Redis 服务信息（内存、客户端、持久化等）
+redis-cli INFO
+
+# 仅查看内存信息
+redis-cli INFO memory
+# 关注：used_memory_human / maxmemory_human / mem_fragmentation_ratio
+# mem_fragmentation_ratio > 1.5 说明内存碎片严重，需考虑重启或碎片整理
+
+# 仅查看客户端连接信息
+redis-cli INFO clients
+# 关注：connected_clients / blocked_clients / rejected_connections
+
+# 仅查看命令统计
+redis-cli INFO commandstats
+# 关注：cmdstat_keys（不应频繁出现）、cmdstat_slowlog
+
+# ========== 实时监控 ==========
+# 实时打印所有命令（生产慎用，仅调试）
+redis-cli MONITOR | head -1000
+
+# 实时监控特定 key 的操作
+redis-cli MONITOR | grep "user_cart"
+
+# 延迟测试（持续监控）
+redis-cli --latency-history -i 5
+# 每 5 秒输出一次延迟统计
+
+# 延迟分布直方图
+redis-cli --latency-dist
+
+# ========== 慢查询分析 ==========
+# 查看最近 20 条慢查询
+redis-cli SLOWLOG GET 20
+
+# 查看慢查询总数
+redis-cli SLOWLOG LEN
+
+# 清空慢查询日志
+redis-cli SLOWLOG RESET
+
+# ========== Key 分析 ==========
+# 查看 key 的类型和 TTL
+redis-cli TYPE user_cart:123
+redis-cli TTL user_cart:123
+redis-cli PTTL user_cart:123  # 毫秒精度
+
+# 查看 key 占用内存
+redis-cli MEMORY USAGE user_cart:123
+
+# 统计 key 数量（按模式匹配，使用 SCAN 避免阻塞）
+redis-cli --scan --pattern "cart:*" | wc -l
+redis-cli --scan --pattern "session:*" | wc -l
+redis-cli --scan --pattern "coupon:*" | wc -l
+
+# ========== 内存分析 ==========
+# 查看内存使用最大的 key（Redis 4.0+）
+redis-cli --bigkeys
+
+# 内存诊断
+redis-cli MEMORY DOCTOR
+
+# 查看最大内存淘汰策略
+redis-cli CONFIG GET maxmemory-policy
+# 推荐 B2C 场景设置为 allkeys-lru 或 volatile-lru
+
+# ========== Pipeline 批量检查 ==========
+# 批量检查多个 key 的 TTL
+for key in $(redis-cli --scan --pattern "cart:*" | head -20); do
+    echo "$key: TTL=$(redis-cli TTL $key)s"
+done
+
+# ========== 集群状态（如使用 Redis Cluster） ==========
+# 查看集群节点信息
+redis-cli CLUSTER NODES
+
+# 查看集群槽位分配
+redis-cli CLUSTER SLOTS
+
+# 检查集群健康状态
+redis-cli CLUSTER INFO
+# 关注：cluster_state（应为 ok）、cluster_slots_fail（应为 0）
+```
+
+### 7.3 Laravel 应用层监控
+
+```php
+// app/Http/Middleware/RedisMonitor.php
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Support\Facades\Log;
+
+class RedisMonitor
+{
+    /**
+     * 记录请求耗时，超过阈值写入告警日志
+     */
+    public function handle($request, Closure $next)
+    {
+        $start = microtime(true);
+        $response = $next($request);
+        $duration = microtime(true) - $start;
+
+        $requestDuration = round($duration * 1000, 2);
+
+        // 超过 200ms 记录慢请求
+        if ($requestDuration > 200) {
+            Log::channel('redis')->warning('Slow request', [
+                'url'       => $request->fullUrl(),
+                'method'    => $request->method(),
+                'duration'  => $requestDuration . 'ms',
+                'user_id'   => $request->user()?->id,
+            ]);
+        }
+
+        return $response;
+    }
+}
+
+// config/logging.php - Redis 专用日志通道
+'channels' => [
+    'redis' => [
+        'driver' => 'daily',
+        'path' => storage_path('logs/redis.log'),
+        'level' => 'warning',
+        'days' => 14,
+    ],
+],
+```
+
+### 7.4 告警触发条件
 
 | 指标 | 阈值 | 告警级别 |
 |------|------|---------|
@@ -370,3 +947,9 @@ Redis 在 Laravel B2C API 中是不可或缺的中间件。不同的业务场景
 ---
 
 > 本文基于 KKday B2C API 真实项目经验整理，代码示例已通过 Laravel + Predis 环境测试。如有疑问欢迎评论交流！
+
+## 相关阅读
+
+- [Redis 缓存：Redis 与 Memcached 全面对比](/databases/vs-redismemcache/) — 数据结构、持久化、集群方案、内存管理等核心差异详解
+- [Predis Laravel 缓存实战：失效、分布式锁与性能调优](/databases/predis-laravel-cacheguide-distributedlock/) — Laravel + Predis 缓存配置、失效策略与分布式锁实现
+- [Redis 实战：缓存失效场景深度解析](/databases/redis-guide-cache/) — 缓存穿透、击穿、雪崩三大经典问题与生产级解决方案

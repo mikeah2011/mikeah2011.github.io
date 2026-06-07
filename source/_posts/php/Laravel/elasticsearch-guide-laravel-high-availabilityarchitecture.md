@@ -1,11 +1,12 @@
 ---
 title: Elasticsearch 全文搜索深度调优实战：Laravel 多字段映射、分词策略与高可用架构踩坑记录
+cover: /images/covers/elasticsearch-guide-laravel-high-availabilityarchitecture-cover.jpg
 date: 2026-05-02
 categories:
   - PHP
   - Laravel
-tags: [Elasticsearch, KKday, 微服务]
-description: 基于 KKday B2C API 真实生产环境，深入剖析 Elasticsearch 全文搜索从入门到精通的完整演进路径，涵盖多字段类型映射设计、分词器组合策略、写入优化方案、查询调优技巧。
+tags: [Elasticsearch, KKday, 微服务, Laravel, PHP, 搜索, 全文检索, 高可用]
+description: 基于 KKday B2C API 真实生产环境，深入剖析 Elasticsearch 全文搜索从入门到精通的完整演进路径，涵盖 Laravel 集成、多字段类型映射设计、分词器组合策略、批量写入优化、查询调优技巧、集群高可用架构设计与生产踩坑记录，适合 PHP 搜索系统开发者参考。
 
 
 
@@ -510,3 +511,79 @@ $client->indices()->putSettings([
     'body' => [
         'number_of_replicas' => 1,
         'refresh_interval' => '5s'
+    ]
+]);
+```
+
+### 📊 分词器对比：选择最适合你场景的方案
+
+| 分词器 | 适用场景 | 优点 | 缺点 | 推荐指数 |
+|--------|---------|------|------|---------|
+| `standard` | 英文为主 | 全文支持，开箱即用 | 中文分词效果差 | ⭐⭐ |
+| `ik_max_word` | 中文全文检索 | 中文分词精准，词典丰富 | 资源消耗较大 | ⭐⭐⭐⭐ |
+| `icu_tokenizer` | 多语言混排 | 支持 Unicode，国际化好 | 中文分词精度一般 | ⭐⭐⭐ |
+| `ngram` | 模糊匹配、自动补全 | 支持部分匹配 | 索引体积膨胀 2-3 倍 | ⭐⭐⭐ |
+| `edge_ngram` | 前缀搜索、搜索建议 | 响应极快，用户体验好 | 仅支持前缀匹配 | ⭐⭐⭐⭐ |
+| `cjk_bigram` | 中日韩混合 | 多语言覆盖广 | 词粒度粗，召回率偏低 | ⭐⭐ |
+
+> **实战建议**：生产环境推荐 `ik_max_word`（索引时）+ `ik_smart`（搜索时）的组合，兼顾召回率与精度。多语言场景使用 `icu_tokenizer` + `cjk_bigram` 作为 fallback。
+
+---
+
+## 📈 五、性能监控与调优清单
+
+### 5.1 关键监控指标
+
+```yaml
+# prometheus exporter 配置（elasticsearch_exporter）
+elasticsearch:
+  cluster_health:
+    status: green           # green/yellow/red
+    active_shards: 15
+    relocating_shards: 0
+  indexing:
+    index_rate: 5000        # 每秒索引文档数
+    index_latency_p99: 20ms # 索引延迟 P99
+  searching:
+    query_rate: 10000       # 每秒查询数
+    query_latency_p99: 50ms # 查询延迟 P99
+    fetch_latency_p99: 10ms # 拉取延迟 P99
+  jvm:
+    heap_used_percent: 75   # JVM 堆内存使用率
+    gc_old_count: 0         # Full GC 次数（应为 0）
+```
+
+### 5.2 调优清单
+
+| 优化项 | 配置建议 | 预期收益 |
+|--------|---------|---------|
+| 分片大小 | 30-50GB/分片 | 减少资源竞争 |
+| refresh_interval | 5s-30s | 写入吞吐提升 3-5 倍 |
+| merge 线程数 | CPU 核数的 1/4 | 合并效率提升 |
+| JVM 堆内存 | 物理内存的 50%，不超过 32GB | 避免 GC 抖动 |
+| bulk 批量大小 | 1000-5000 条/批 | 网络开销降低 80% |
+| 查询缓存 | 启用 request_cache | 重复查询命中率 > 60% |
+
+---
+
+## 🎯 总结
+
+本文基于 KKday B2C API 真实生产环境，完整覆盖了 Elasticsearch 全文搜索从架构搭建到性能调优的全流程。核心要点回顾：
+
+1. **集群设计**：分片数按数据量规划（30-50GB/分片），副本数根据读写比例设置
+2. **映射设计**：多字段映射 + 多语言分词器组合，兼顾搜索精度与召回率
+3. **查询优化**：避免过度使用 fuzziness，善用 filter 缓存提升性能
+4. **批量写入**：关闭自动刷新 + 导入后恢复策略，确保数据一致性
+5. **监控告警**：P99 延迟、JVM 堆内存、GC 次数是三大核心指标
+
+> 搜索系统是一个持续迭代的过程，建议建立搜索质量评估体系（DCG/NDCG），持续监控搜索效果并优化。
+
+---
+
+## 相关阅读
+
+- [搜索系统设计实战：Elasticsearch 索引设计、分词策略与相关性调优](/categories/架构/search-engine-elasticsearch/)
+- [Elasticsearch 全文搜索深度调优实战：ILM 生命周期管理与冷热数据分离踩坑记录](/categories/架构/elasticsearch-guide-ilm-lifecycle/)
+- [ELK Stack 实战：Elasticsearch + Logstash + Kibana 集中式日志系统与 Laravel 集成踩坑记录](/categories/架构/elk-stack-guide-elasticsearch-logstash-kibana-logging-laravel/)
+- [Laravel + MySQL 索引性能调研笔记：EXPLAIN 分析、覆盖索引、最左前缀原则](/categories/Databases/laravel-mysql-index-explain-index/)
+- [Laravel Redis Queue Horizon 实战：队列监控、失败重试与性能调优](/categories/PHP/Laravel/laravel-redis-queue-horizon-guide-monitoring/)

@@ -1,10 +1,11 @@
 ---
 title: 服务注册与发现实战-Consul-Nacos-与-Laravel-集成-微服务动态路由与健康检查踩坑记录
+cover: /images/covers/service-discovery-consul-nacos-cover.jpg
 date: 2026-05-16 19:55:58
 updated: 2026-05-16 19:59:09
 categories: Architecture
-tags: [Laravel, 微服务, 监控]
-description: 从单体 Laravel 演进到微服务后，硬编码的服务地址成了最大的运维痛点。本文以 Consul 和 Nacos 为主线，结合 KKday B2C 真实场景，完整记录服务注册、健康检查、动态路由解析、故障摘除、本地开发联调的实战方案，附带 Laravel 集成代码与踩坑记录。
+tags: [laravel, 微服务, 服务发现, consul, nacos, 监控]
+description: 从单体 Laravel 演进到微服务后，硬编码服务地址成了最大运维痛点。本文以 Consul 和 Nacos 为主线，结合 KKday B2C 真实场景，深入对比两者在健康检查机制、实例摘除速度、配置管理能力、多语言生态支持、云原生容器集成等核心维度的差异，并手把手教你实现 Laravel 服务注册与动态发现、加权随机负载均衡、优雅停机注销、本地开发联调等完整方案，附带七个生产环境踩坑记录与可直接运行的代码示例，帮你避开微服务架构中服务治理最常见的陷阱。
 
 
 
@@ -622,9 +623,18 @@ class NacosRegistrar
 
         return $data['hosts'] ?? [];
     }
+
+    /**
+     * 发送心跳续约定时任务
+     * 在 Laravel Scheduler 中注册即可
+     */
+    public function scheduleHeartbeat(string $serviceName, string $ip, int $port): void
+    {
+        // 临时实例默认 15 秒超时，建议 5 秒发一次心跳
+        $this->heartbeat($serviceName, $ip, $port);
+    }
 }
 ```
-
 **踩坑 3：Nacos 临时实例与持久实例的区别**
 
 Nacos 有两种实例类型：
@@ -632,6 +642,157 @@ Nacos 有两种实例类型：
 - **持久实例（ephemeral=false）**：不依赖客户端心跳，由服务端主动健康检查。适合数据库等有状态服务。
 
 **我们最初设成了持久实例**，结果服务停止后 Nacos 仍然保留实例信息长达 2 分钟（服务端探测周期），导致流量打到已死的实例上。改用临时实例后，15 秒内就自动摘除。
+
+### Nacos 服务发现与 HTTP Client
+
+与 Consul 方案类似，封装 Nacos 的动态发现 + 重试逻辑：
+
+```php
+<?php
+// app/Services/Registry/NacosDiscovery.php
+
+namespace App\Services\Registry;
+
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
+
+class NacosDiscovery
+{
+    private Client $client;
+
+    public function __construct()
+    {
+        $this->client = new Client([
+            'base_uri' => config('services.nacos.url'),
+        ]);
+    }
+
+    /**
+     * 获取健康实例列表（带缓存）
+     */
+    public function getHealthyInstances(string $serviceName): array
+    {
+        $cacheKey = "nacos:instances:{$serviceName}";
+
+        return Cache::store('file')->remember($cacheKey, 5, function () use ($serviceName) {
+            $response = $this->client->get('/nacos/v1/ns/instance/list', [
+                'query' => [
+                    'serviceName' => $serviceName,
+                    'healthyOnly' => 'true',
+                    'groupName'   => config('services.nacos.group', 'DEFAULT_GROUP'),
+                    'namespaceId' => config('services.nacos.namespace'),
+                ],
+            ]);
+
+            $data = json_decode($response->getBody()->getContents(), true);
+            $hosts = $data['hosts'] ?? [];
+
+            return array_map(fn ($h) => [
+                'ip'       => $h['ip'],
+                'port'     => $h['port'],
+                'weight'   => $h['weight'] ?? 1.0,
+                'metadata' => $h['metadata'] ?? [],
+            ], $hosts);
+        });
+    }
+
+    /**
+     * 加权随机选择实例（权重越高被选中概率越大）
+     */
+    public function selectInstance(string $serviceName): ?array
+    {
+        $instances = $this->getHealthyInstances($serviceName);
+        if (empty($instances)) {
+            return null;
+        }
+
+        // 加权随机
+        $totalWeight = array_sum(array_column($instances, 'weight'));
+        $rand = mt_rand(1, (int) ($totalWeight * 100)) / 100;
+        $cumulative = 0;
+
+        foreach ($instances as $instance) {
+            $cumulative += $instance['weight'];
+            if ($rand <= $cumulative) {
+                return $instance;
+            }
+        }
+
+        return end($instances);
+    }
+
+    /**
+     * 构建完整的服务 URL
+     */
+    public function resolve(string $serviceName, string $path = ''): string
+    {
+        $instance = $this->selectInstance($serviceName);
+        if (!$instance) {
+            throw new \RuntimeException("No healthy Nacos instance for: {$serviceName}");
+        }
+
+        return "http://{$instance['ip']}:{$instance['port']}{$path}";
+    }
+
+    /**
+     * 发起服务调用（自带重试 + 缓存清除）
+     */
+    public function call(string $serviceName, string $method, string $path, array $options = [], int $maxRetries = 3): \Illuminate\Http\Client\Response
+    {
+        $lastException = null;
+
+        for ($attempt = 1; $attempt <= $maxRetries; $attempt++) {
+            try {
+                $url = $this->resolve($serviceName, $path);
+                $request = Http::timeout(5)
+                    ->withHeaders([
+                        'X-Request-ID' => request()->header('X-Request-ID', uniqid()),
+                        'X-Caller'     => config('app.name'),
+                    ]);
+
+                return match (strtoupper($method)) {
+                    'GET'    => $request->get($url, $options['query'] ?? []),
+                    'POST'   => $request->post($url, $options['json'] ?? []),
+                    'PUT'    => $request->put($url, $options['json'] ?? []),
+                    'DELETE' => $request->delete($url, $options['query'] ?? []),
+                    default  => throw new \InvalidArgumentException("Unsupported method: {$method}"),
+                };
+            } catch (\Exception $e) {
+                $lastException = $e;
+                cache()->forget("nacos:instances:{$serviceName}");
+                logger()->warning("[NacosClient] Attempt {$attempt} failed for {$serviceName}", [
+                    'error' => $e->getMessage(),
+                ]);
+                if ($attempt < $maxRetries) {
+                    usleep($attempt * 200000);
+                }
+            }
+        }
+
+        throw new \RuntimeException("Nacos call failed after {$maxRetries} attempts: {$serviceName}", 0, $lastException);
+    }
+}
+```
+
+在 Laravel Scheduler 中注册心跳：
+
+```php
+<?php
+// app/Console/Kernel.php
+
+protected function schedule(Schedule $schedule): void
+{
+    // Nacos 心跳续期（每 5 秒）
+    $schedule->call(function () {
+        app(NacosRegistrar::class)->heartbeat(
+            config('app.name'),
+            gethostname(),
+            (int) config('app.port', 8080)
+        );
+    })->everyFiveSeconds()->withoutOverlapping();
+}
+```
 
 ## 踩坑记录汇总
 
@@ -803,7 +964,10 @@ CONSUL_REGISTER_ADDRESS=host.docker.internal
 
 ---
 
-> 📌 **相关文章推荐**：
-> - [API Gateway 实战：Kong/APISIX 在 Laravel 微服务中的应用](/00_架构/API-Gateway-实战-Kong-APISIX-在-Laravel-微服务中的应用-统一鉴权限流路由与灰度发布踩坑记录)
-> - [微服务拆分策略：从单体 Laravel 到微服务的渐进式演进](/00_架构/微服务拆分策略-从单体Laravel到微服务的渐进式演进踩坑记录)
-> - [分布式事务实战：Saga 模式在订单/库存/支付中的应用](/00_架构/分布式事务实战-Saga-模式在订单库存支付中的应用-Laravel-B2C-API踩坑记录)
+## 相关阅读
+
+- [API Gateway 实战：Kong/APISIX 在 Laravel 微服务中的应用——统一鉴权、限流、路由与灰度发布踩坑记录](/architecture/api-gateway-guide-kong-apisix-laravel-microservices-rate-limitingcanary)
+- [微服务拆分策略：从单体 Laravel 到微服务的渐进式演进踩坑记录](/architecture/microservices-laravelmicroservices)
+- [配置中心实战：Apollo/Nacos 动态配置与 Laravel 集成——热更新与多环境治理踩坑记录](/architecture/config-center-apollo-nacos)
+- [分布式事务实战：Saga 模式在订单/库存/支付中的应用——Laravel B2C API 踩坑记录](/architecture/distributedtransactionguide-saga)
+- [链路追踪实战：Jaeger/SkyWalking 在 Laravel 微服务中的应用](/architecture/distributed-tracing-jaeger-skywalking)

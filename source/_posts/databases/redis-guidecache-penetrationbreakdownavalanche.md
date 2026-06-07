@@ -5,9 +5,11 @@ categories:
   - Databases
   - Redis
 tags: [BFF, KKday, Redis, 微服务, 缓存]
-description: 'KKday B2C API 生产环境 Redis 实战：缓存穿透/击穿/雪崩防护策略、布隆过滤器选型、热点 Key 隔离、Jitter 随机过期时间方案'
-
-
+description: 'KKday B2C API 生产环境 Redis 缓存防护实战：详解缓存穿透（布隆过滤器+空值缓存）、缓存击穿（互斥锁/逻辑过期/热点Key隔离）、缓存雪崩（Jitter随机TTL+分级过期+预热告警）三大场景的 PHP 代码实现、监控方案与双11踩坑复盘'
+cover: /images/covers/databases-01-cover.jpg
+images:
+  - /images/content/databases-01-content-1.jpg
+  - /images/content/databases-01-content-2.jpg
 
 ---
 ## 写在前面
@@ -29,6 +31,8 @@ description: 'KKday B2C API 生产环境 Redis 实战：缓存穿透/击穿/雪�
 > 本文基于 **Laravel 8 + PHP 8.0 + Predis 1.1.9 + Redis 7.2** 的真实项目踩坑经验，系统梳理缓存失效三大赛事（穿透/击穿/雪崩）的防护策略、代码实现、监控指标。
 
 ---
+
+![Redis 缓存架构与数据流](/images/content/databases-01-content-1.jpg)
 
 ## 一、概念速览：三种失效模式对比
 
@@ -564,6 +568,8 @@ class ProductCachePreheatCommand extends Command
 
 ---
 
+![代码实现与监控](/images/content/databases-01-content-2.jpg)
+
 ## 二、监控指标：Redis 健康度检查清单
 
 | 指标 | 正常范围 | 告警阈值 | 监控周期 |
@@ -722,3 +728,9 @@ volumes:
 - [Predis GitHub](https://github.com/predis/predis)
 - [Laravel Cache 最佳实践](https://laravel.com/docs/8.x/cache)
 - [布隆过滤器实战（PHP）](https://packagist.org/packages/laminas/laminas-bloom-filter)
+
+## 相关阅读
+
+- [分布式缓存一致性实战：Cache-Aside / Write-Through / Write-Behind 在 Laravel 中的工程化落地](/categories/架构/分布式缓存一致性实战-Cache-Aside-Write-Through-Write-Behind在Laravel中的工程化落地/)
+- [Laravel Response Cache 指南：API 缓存与金丝雀发布](/categories/php/Laravel/laravel-response-cache-guide-cachecache/)
+- [Write-Back Cache Pattern 实战：批量回写缓存策略 - Laravel 高写入场景下的 Redis 缓存治理](/categories/02_Redis/Write-Back-Cache-Pattern-实战-批量回写缓存策略-Laravel高写入场景下的Redis缓存治理与数据一致性/)

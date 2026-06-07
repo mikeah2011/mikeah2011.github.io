@@ -1,12 +1,13 @@
 ---
 title: "DDD 领域驱动设计实战：B2C 电商聚合根、值对象、领域事件在 Laravel 中的落地踩坑记录"
+cover: /images/covers/ddd-guide-laravel-cover.jpg
 date: 2026-05-05 11:50:32
 updated: 2026-05-05 11:53:04
 categories:
   - Architecture
   - Laravel
 tags: [KKday, Laravel, 架构]
-description: "从 Laravel MVC 胖 Controller 到 DDD 分层架构的实战转型：以 KKday B2C 电商订单/库存/商品模块为例，深入讲解聚合根、值对象、领域事件的设计与落地，附完整代码示例和踩坑记录。"
+description: "DDD 领域驱动设计在 Laravel B2C 电商中的完整实战指南。从传统 MVC 胖 Controller 迁移到 DDD 分层架构，以订单聚合根、Money 值对象、领域事件为核心案例，深入讲解限界上下文划分、Repository 模式隔离持久化、Eloquent 与领域实体分离策略。附 5 个真实生产踩坑记录、MVC vs DDD 性能对比数据、目录结构总览与渐进式迁移最佳实践。"
 
 
 
@@ -665,3 +666,9 @@ DDD 不是让代码变复杂，而是让复杂性有明确的归属。在 Larave
 5. **不要追求完美的 DDD**——Eric Evans 自己也说"strategic design"比"tactical patterns"更重要
 
 > **推荐阅读**：《实现领域驱动设计》Vaughn Vernon / 《Domain-Driven Design Distilled》
+
+## 相关阅读
+
+- [六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录](/categories/architecture/2026-06-01-六边形架构实战-Laravel-端口与适配器模式落地踩坑记录/)
+- [Saga 编排模式深度实战：Choreography vs Orchestration vs Temporal](/categories/架构/saga-orchestration-pattern-laravel-distributed-transaction/)
+- [Kafka + Debezium CDC 实战：数据库变更事件流与 Laravel Event Sourcing 互补架构](/categories/架构/2026-06-03-Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构/)

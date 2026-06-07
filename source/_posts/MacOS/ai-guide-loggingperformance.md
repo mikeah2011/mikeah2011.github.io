@@ -1,12 +1,13 @@
 ---
 title: AI 辅助调试实战：错误分析、日志解读与性能优化建议——Laravel B2C API 真实踩坑记录
+cover: /images/covers/ai-guide-loggingperformance-cover.jpg
 date: 2026-05-17 04:35:39
 updated: 2026-05-17 04:38:08
 categories:
   - macOS
   - Logging
-tags: [AI, Laravel, 性能优化, 监控]
-description: 真实项目中用 AI 辅助调试的完整工作流——从堆栈追踪分析、结构化日志解读到性能瓶颈定位，涵盖 Claude Code / ChatGPT / Cursor 三工具链实战踩坑记录。
+tags: [ai, laravel, 性能优化, 监控]
+description: "Laravel B2C 项目中用 Claude Code / ChatGPT / Cursor 辅助调试的完整工作流——涵盖 Sentry 堆栈追踪分析、ELK 结构化日志解读、MySQL EXPLAIN 性能优化，附 6 个实战踩坑与一键调试脚本。"
 
 
 
@@ -569,3 +570,11 @@ AI 辅助调试不是"让 AI 替你 debug"，而是**让 AI 处理模式识别�
 ---
 
 *本文基于 KKday B2C Backend 团队的 30+ Laravel 仓库真实调试经验，使用 Claude Code CLI、ChatGPT、Cursor 三种 AI 工具的实际踩坑记录。*
+
+---
+
+## 相关阅读
+
+- [Claude Code CLI 实战：命令行 AI 编程工作流与 Laravel 开发效率跃升踩坑记录](/2026/05/17/claude-code-cli-guide-commands-ai/) — Claude Code CLI 的命令行工作流详解，与本文的 `ai-debug` / `ai-explain` 脚本一脉相承。
+- [AI Agent 多模型切换实战：Claude/GPT/MiMo 智能路由策略与成本优化踩坑记录](/2026/06/05/ai-agent-guide-claude-gpt-mimo-optimization/) — 多模型路由策略，帮你选择最合适的 AI 工具处理不同调试任务。
+- [Cursor + Claude Code + Hermes 进阶实战：多 AI 协作的高级模式与团队规模化](/2026/06/01/2026-06-01-cursor-claude-code-hermes-advanced-workflow-patterns/) — 多 AI 协作的进阶模式，适合团队级调试流程搭建。

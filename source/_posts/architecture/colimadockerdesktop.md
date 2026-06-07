@@ -1,11 +1,12 @@
 ---
 title: Colima 替代 Docker Desktop：Laravel docker-compose 实战与性能对比
+cover: /images/covers/colima-docker-desktop-cover.jpg
 date: 2026-05-01 21:50:00
 categories:
   - Architecture
   - Docker
-tags: [Docker, Laravel, macOS]
-description: 从 Docker Desktop 切到 Colima 半年多，在 KKday B2C 的 Laravel 8 + PHP-FPM 8.0 项目里跑 docker-compose、Pest/ParaTest、连 MySQL/PostgreSQL/Redis 的真实体验：许可证、性能、踩坑全记录。
+tags: [docker, laravel, macos]
+description: Colima替代Docker Desktop实战指南：基于KKday B2C Laravel 8项目，详解Colima安装配置、vz虚拟化与virtiofs性能优化、docker-compose编排、Pest/ParaTest测试加速，对比Docker Desktop与Rancher Desktop在macOS M系列芯片上的许可证、内存占用与IO性能差异，附常见踩坑与团队迁移方案
 
 
 
@@ -63,6 +64,27 @@ services:
 | K8s | 内置 | `colima start --kubernetes` 一键 |
 | Compose | 自带 | 装 `docker-compose` plugin 即可 |
 | Apple Silicon | 原生 arm64 | 原生 arm64，可 `--arch x86_64` 跑 amd64 镜像 |
+
+### Colima vs Docker Desktop vs Rancher Desktop 三者对比
+
+除了 Colima，macOS 上还有 [Rancher Desktop](https://github.com/rancher-sandbox/rancher-desktop) 可以选择。下表从多个维度做横向对比：
+
+| 维度 | Docker Desktop | Colima | Rancher Desktop |
+| --- | --- | --- | --- |
+| 许可证 | 商业付费（250人+公司） | MIT 免费 | Apache 2.0 免费 |
+| GUI | Electron GUI | 纯 CLI | Electron GUI |
+| 空载内存 | 4~6 GB | 0.8~1.5 GB | 1.5~2.5 GB |
+| 虚拟化 | HyperKit / VirtioFS / QEMU | vz / QEMU | vz / QEMU / gVisor |
+| 容器运行时 | Docker Engine | Docker 或 containerd | containerd（nerdctl） |
+| K8s 支持 | 内置一键开启 | `colima start --kubernetes` | 内置一键开启 |
+| docker compose | 自带 | 需装 plugin | 需装 nerdctl compose |
+| 原生 docker CLI | ✅ 完全兼容 | ✅ 完全兼容 | ❌ 用 nerdctl 替代 |
+| macOS 启动项 | 有 | 无 | 有 |
+| 更新方式 | App 自动更新 | `brew upgrade colima` | App 自动更新 |
+| ARM → x86 兼容 | Rosetta 模式 | `--arch x86_64`（QEMU） | QEMU user-mode |
+| 适用场景 | 重度 GUI 用户 / 企业合规 | CLI 为主的后端开发 | 想要 GUI + containerd 的团队 |
+
+> **选型建议**：如果你是命令行为主的 PHP/Go 后端开发者，Colima 性能最优、内存最省。如果你团队需要 GUI 管理容器且不想付 Docker Desktop 费用，Rancher Desktop 是不错的折中。
 
 ## 3. 一次干净的安装
 
@@ -185,6 +207,188 @@ colima ssh -- sudo fstrim -av
 
 如果要彻底回收，只能 `colima delete` 重建。
 
+### 5.7 容器健康检查配置
+
+迁移到 Colima 后，建议给 `docker-compose.yml` 加上 health check，避免服务还没 ready 就开始请求：
+
+```yaml
+services:
+  mysql:
+    image: mysql:8.0
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+  php-fpm:
+    build: ./local-docker/php-fpm-8.0
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+```
+
+> **注意**：Docker Desktop 的 `depends_on` 默认行为和 Colima 一致（都依赖 Docker Engine），但早期版本的 Compose 不支持 `condition: service_healthy`，需要 Compose V2+。
+
+### 5.8 实战调试案例
+
+#### 案例一：`php artisan migrate` 卡住不动
+
+**症状**：`docker compose exec php-fpm php artisan migrate` 执行后无响应，Ctrl+C 也退不出来。
+
+**排查过程**：
+
+```bash
+# 1. 查看容器资源使用
+docker stats --no-stream
+# 发现 mysql 容器 CPU 100%，内存持续增长
+
+# 2. 进入 MySQL 容器看日志
+docker compose logs mysql --tail 50
+# 发现 InnoDB buffer pool 在初始化，60G 磁盘分配了 1G buffer pool
+
+# 3. 解决：限制 MySQL 内存
+# 在 docker-compose.yml 中加：
+#   command: --innodb-buffer-pool-size=256M --max-connections=50
+```
+
+**修复后的 MySQL 配置**：
+
+```yaml
+mysql:
+  image: mysql:8.0
+  command: >
+    --innodb-buffer-pool-size=256M
+    --max-connections=50
+    --slow-query-log=1
+    --long-query-time=2
+  volumes:
+    - mysql_data:/var/lib/mysql
+    - ./docker/mysql/my.cnf:/etc/mysql/conf.d/custom.cnf
+```
+
+#### 案例二：`composer install` 报 `proc_open(): fork failed`
+
+**症状**：容器内执行 `composer install` 时报 `proc_open(): fork failed - Cannot allocate memory`。
+
+**原因**：Colima VM 内存分配不足，PHP 进程 fork 失败。
+
+**修复**：
+
+```bash
+# 查看当前 VM 配置
+colima status
+
+# 重启并增加内存
+colima stop
+colima start --memory 8  # 从默认 2G 增加到 8G
+
+# 如果已经是 8G，检查宿主机是否内存不足
+# Colima 默认使用 ~60% 可用内存，32G Mac 约分配 19G
+# 确保没有其他大型应用占用内存
+```
+
+#### 案例三：容器间 DNS 解析失败
+
+**症状**：`php-fpm` 容器无法解析 `mysql` 主机名，`ping mysql` 返回 `bad address`。
+
+**排查**：
+
+```bash
+# 1. 检查容器网络
+docker network ls
+docker network inspect <project>_default
+
+# 2. 检查 docker-compose.yml 中网络配置
+# 确保所有服务在同一个网络下
+
+# 3. 重启 Docker 引擎（Colima）
+colima stop
+colima start --cpu 4 --memory 8 --disk 60 --vm-type vz --mount-type virtiofs
+```
+
+**预防措施**：在 `docker-compose.yml` 中显式声明网络：
+
+```yaml
+networks:
+  laravel-net:
+    driver: bridge
+
+services:
+  php-fpm:
+    networks: [laravel-net]
+  mysql:
+    networks: [laravel-net]
+  redis:
+    networks: [laravel-net]
+```
+
+#### 案例四：`Xdebug` 远程调试连不上
+
+**症状**：PhpStorm 配置了 Xdebug 但断点不生效，连接被拒绝。
+
+**原因**：Colima 的端口转发机制与 Docker Desktop 不同，Xdebug 的 `client_host` 需要指向宿主机。
+
+**修复**：
+
+```bash
+# 获取宿主机 IP（Colima 环境下）
+colima ssh -- ip route | grep default | awk '{print $3}'
+# 输出类似 192.168.5.2
+```
+
+```yaml
+# docker-compose.yml 中配置 Xdebug 环境变量
+php-fpm:
+  environment:
+    XDEBUG_MODE: debug
+    XDEBUG_CLIENT_HOST: host.docker.internal
+    XDEBUG_CLIENT_PORT: 9003
+    # 如果 host.docker.internal 不通，用宿主机实际 IP：
+    # XDEBUG_CLIENT_HOST: 192.168.5.2
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+```
+
+### 5.9 常用排查命令速查
+
+```bash
+# 查看 Colima VM 状态
+colima status
+
+# 查看 VM 磁盘使用情况
+colima ssh -- df -h
+
+# 查看 VM 内存使用
+colima ssh -- free -h
+
+# 进入 Colima VM 调试
+colima ssh
+
+# 查看 Docker daemon 日志
+colima ssh -- sudo journalctl -u docker --no-pager -n 50
+
+# 重启 Docker daemon（不重启 VM）
+colima ssh -- sudo systemctl restart docker
+
+# 查看端口占用（宿主机）
+lsof -iTCP -sTCP:LISTEN -P | grep -E '(8080|3306|5432|6379)'
+
+# 完整重建流程
+colima delete
+colima start --cpu 4 --memory 8 --disk 60 --vm-type vz --mount-type virtiofs --mount $HOME/GitHub:w
+docker compose up -d --build
+```
+
 ## 6. 怎么把团队迁过去
 
 我在团队里推这个的步骤，供参考：
@@ -241,3 +445,9 @@ nuke:
 - Colima 跑 Kafka + Schema Registry 的 docker-compose 模板
 - `colima` + `lima` 起一台纯 Linux dev VM 当 staging
 - Tailscale + Colima：让队友直连我本地 BFF
+
+## 相关阅读
+
+- [Docker Compose Laravel 本地开发环境实战：PHP-FPM 8.3 + MySQL + Redis + Mailpit 完整搭建指南](/categories/DevOps/docker-compose-laravel-guide-php-fpm-8-3-mysql-redis-mailpit-guide/)
+- [Docker 多阶段构建实战：PHP 应用镜像从 500MB 优化到 50MB](/categories/DevOps/docker-guide-php-imageoptimization-500mb50mb/)
+- [Kubernetes 本地开发：minikube vs kind vs k3s 选型实战](/categories/DevOps/kubernetes-minikube-kind-k3s-guide-laravel/)

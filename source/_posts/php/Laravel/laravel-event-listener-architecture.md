@@ -1,11 +1,12 @@
 ---
 title: Laravel Event-Listener 事件驱动架构 - 解耦订单处理 - KKday B2C API 真实踩坑记录
+cover: /images/covers/laravel-event-listener-architecture-cover.jpg
 date: 2026-05-03
 categories:
   - PHP
   - Laravel
 tags: [Laravel]
-description: 深入解析 Laravel 事件驱动架构，通过真实踩坑记录分享 KKday B2C API 订单处理的解耦实践与优化方案。
+description: 深入解析 Laravel Event-Listener 事件驱动架构，涵盖事件监听注册、Observer 观察者模式、队列异步处理与 Pipeline 执行顺序控制。通过 KKday B2C API 订单处理真实踩坑记录，详解事务内事件触发、Listener 异常堆积、序列化内存优化等 5 大生产问题与解耦最佳实践。
 
 
 
@@ -923,3 +924,14 @@ class OrderCreatedListener implements ShouldQueue {
 **作者**: Michael (KKday RD B2C Backend Team)
 
 **许可协议**: MIT License
+
+---
+
+## 相关阅读
+
+- [Laravel CQRS 实战：订单查询模型拆分、投影同步与后台列表性能治理](/php/Laravel/laravel-cqrs-guide-query) — Event-Listener 的读写分离进阶，CQRS 命令侧与查询侧架构设计
+- [Redis Stream 实战：消息队列替代方案与消费者组管理 Laravel 踩坑记录](/databases/redis-stream-guide-laravel) — 将事件驱动架构从 Laravel 队列扩展到 Redis Stream 消费者组，实现更可靠的异步事件处理
+- [Outbox Pattern 深度实战：Debezium CDC vs 轮询 vs 事务消息](/databases/2026-06-06-outbox-pattern-debezium-cdc-polling-transactional-message) — 保证数据库与消息队列最终一致性，解决事件发布与事务提交的双写难题
+- [SSE 实战：Server-Sent Events 在 Laravel 中的应用](/php/Laravel/sse-guide-server-sent-events-laravel) — 订单状态实时推送与事件广播的轻量级方案
+- [Web3 集成实战：Laravel DApp 后端的签名验证与事件监听](/misc/Web3-集成实战-ethers-js-web3-php-钱包连接与智能合约交互-Laravel-DApp-后端的签名验证与事件监听) — 事件监听机制在区块链智能合约场景中的应用
+- [依赖注入（DI）与 IoC 容器](/php/dependency-injection) — Laravel 事件监听器依赖注入的底层原理与容器实战

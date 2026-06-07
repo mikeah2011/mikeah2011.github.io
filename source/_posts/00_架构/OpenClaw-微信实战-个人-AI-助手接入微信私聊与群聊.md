@@ -1,9 +1,10 @@
 ---
 title: OpenClaw + 微信实战：个人 AI 助手接入微信私聊与群聊
 date: 2026-06-02 09:00:00
-tags: [OpenClaw, AI Agent, 微信, 聊天机器人, 自动化]
+tags: [openclaw, ai-agent, 微信, 聊天机器人, 自动化]
 categories: [架构]
 cover: /images/covers/openclaw-wechat-cover.jpg
+description: "本文系统拆解 OpenClaw 接入微信私聊与群聊的完整实践，涵盖微信协议选择、AI Agent 适配器设计、多模态消息处理、上下文管理、权限控制、部署运维与常见踩坑。适合希望打造个人聊天机器人或团队微信助手的开发者，用可落地的代码示例帮助你把 OpenClaw、微信、私聊、群聊和自动化工作流真正串起来。"
 ---
 
 # OpenClaw + 微信实战：个人 AI 助手接入微信私聊与群聊
@@ -1940,3 +1941,9 @@ async def handle_command(msg: UnifiedMessage, agent, policy_store):
 ```
 
 如果你能把这份清单做到大部分勾选，那么这个 OpenClaw + 微信的个人 AI 助手，基本已经从“能演示”走到了“能长期使用”。
+
+## 相关阅读
+
+- [OpenClaw + Discord 实战：多频道 AI 助手与社区管理](/categories/架构/OpenClaw-Discord-实战-多频道-AI-助手与社区管理/)
+- [OpenClaw 记忆系统实战：MEMORY.md 长期记忆与日常记忆管理](/categories/架构/OpenClaw-记忆系统实战-MEMORY-md-长期记忆与日常记忆管理/)
+- [OpenClaw + WhatsApp 实战：跨平台消息集成与自动化](/categories/架构/OpenClaw-WhatsApp-实战-跨平台消息集成与自动化/)

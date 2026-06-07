@@ -1,13 +1,15 @@
 ---
 title: Vue-3-Vite-实战-HMR-构建优化与环境变量管理-Laravel-B2C-API前后端分离踩坑记录
+cover: /images/covers/vue-3-vite-guide-hmr-optimization-cover.jpg
 date: 2026-05-17 00:40:43
 updated: 2026-05-17 00:46:16
 categories: Frontend
-tags: [DevOps, Laravel, Vite, Vue]
-description: >
-  在 Laravel B2C 项目中使用 Vue 3 + Vite 构建前后端分离应用，深入实战 HMR 原理与故障排查、
-  构建产物优化（分包策略、Tree-shaking、Gzip/Brotli 压缩）、环境变量类型安全方案，
-  覆盖从开发到生产的完整工程化链路。
+tags: [Vue, Vite, Laravel, 前端, 构建优化, HMR, DevOps]
+description: >-
+  本文基于 Laravel B2C 前后端分离项目实战，全面讲解 Vue 3 与 Vite 的 HMR 热更新原理与故障排查方法，
+  深入剖析 Vite 构建优化策略（Manual Chunks 分包、Tree-shaking、Gzip/Brotli 压缩、依赖预构建调优），
+  涵盖 TypeScript 类型安全的环境变量管理、Nginx 生产部署配置及 GitHub Actions CI/CD 集成，
+  提供 8 个高频踩坑记录与解决方案，帮助前端开发者掌握 Vite 工程化最佳实践，显著提升前端构建性能与开发体验。
 
 
 
@@ -763,3 +765,10 @@ Vue 3 + Vite 在 Laravel BFF 架构下是当前最佳的前端工程化方案。
 ---
 
 *本文基于 KKday B2C Backend Team 真实项目经验整理，适用于 Laravel BFF + Vue 3 前后端分离架构。*
+
+## 相关阅读
+
+- [Vue 3 Composition API 实战：ref reactive computed 最佳实践与响应式踩坑记录](/frontend/vue-3-composition-api-guide-ref-reactive-computed-best-practices) — 深入 Vue 3 响应式系统核心，掌握 Composition API 的正确使用姿势，与本文的 Vue 3 + Vite 工程化实践互补。
+- [Vue 3 + Pinia 状态管理实战：替代 Vuex 的现代方案与 B2C 电商踩坑记录](/frontend/vue-3-pinia-guide-vuex-b2c) — Pinia 是 Vue 3 官方推荐的状态管理库，本文涉及 Pinia HMR 配置，这篇详解 Pinia 的完整用法。
+- [Vite 构建优化实战：Laravel 单仓库后台前端的分包策略、缓存命中与 sourcemap 踩坑记录](/frontend/vite-optimizationguide-laravel-cache-sourcemap) — 更深入的 Vite 分包与缓存优化策略，与本文的构建优化章节形成系列。
+- [Core Web Vitals 实战：LCP/FID/CLS 优化——Vue 3 + Laravel 前后端协同性能治理](/frontend/Core-Web-Vitals实战-LCP-FID-CLS优化-Vue3-Laravel前后端协同性能治理) — 前端性能优化的用户侧指标衡量，构建优化的最终目标就是改善这些指标。

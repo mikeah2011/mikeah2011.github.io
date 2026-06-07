@@ -1,12 +1,13 @@
 ---
 title: AI Agent 多模型切换实战：Claude/GPT/MiMo 智能路由策略与成本优化踩坑记录
+cover: /images/covers/ai-agent-guide-claude-gpt-mimo-optimization-cover.jpg
 date: 2026-05-17 02:50:58
 updated: 2026-05-17 02:54:01
 categories:
   - macOS
   - Tools
-tags: [AI, DevOps]
-description: 从单模型到多模型智能路由的演进实战，涵盖 Claude/GPT/MiMo 的能力差异、路由策略设计、Fallback 机制、成本优化与真实踩坑记录。
+tags: [AI, ai-agent, DevOps, model-routing, cost-optimization]
+description: AI Agent多模型智能路由实战指南——深入对比Claude、GPT-4o、MiMo三大模型的能力差异与适用场景，详解基于任务类型、上下文长度、成本预算的三层路由策略设计，结合Fallback重试机制、提示工程优化、Token估算与自动化成本控制，附30天真实踩坑记录与86%成本节省方案，助你构建高效低成本的AI自动化工作流。
 
 
 
@@ -773,3 +774,32 @@ class CostTracker
 ```
 
 **最终建议**：不要试图用一个模型解决所有问题。投入 2-3 天搭建路由层，长期来看每月能节省 70%-85% 的 AI 调用成本，同时维持 90% 以上的输出质量。关键是 **持续监控** 和 **动态调整** 路由策略，因为各厂商的模型能力在快速迭代。
+
+## 模型能力全景对比表
+
+在选型之前，先看清各模型的核心指标：
+
+| 维度 | Claude Opus 4 | Claude Sonnet 4 | GPT-4o | GPT-4o-mini | MiMo-v2.5-pro |
+|------|---------------|------------------|--------|-------------|---------------|
+| 上下文窗口 | 200K | 200K | 128K | 128K | 32K |
+| 首 Token 延迟 (P50) | ~1.2s | ~0.6s | ~0.8s | ~0.3s | ~0.15s |
+| 完整响应延迟 (P50) | ~2.1s | ~1.2s | ~1.4s | ~0.6s | ~0.4s |
+| 输入价格 ($/1M tokens) | $15.00 | $3.00 | $2.50 | $0.15 | $0.10 |
+| 输出价格 ($/1M tokens) | $75.00 | $15.00 | $10.00 | $0.60 | $0.30 |
+| PHP 代码生成质量 | ★★★★★ | ★★★★☆ | ★★★★☆ | ★★★☆☆ | ★★★☆☆ |
+| Laravel 框架理解 | ★★★★★ | ★★★★☆ | ★★★★☆ | ★★★☆☆ | ★★★☆☆ |
+| 中文理解能力 | ★★★★★ | ★★★★☆ | ★★★★☆ | ★★★☆☆ | ★★★★☆ |
+| 多模态支持 | ✅ | ✅ | ✅（最强） | ✅ | ❌ |
+| 函数调用 / Tool Use | ✅ | ✅ | ✅（最稳定） | ✅ | ⚠️ 有限 |
+| 适合场景 | 复杂推理、安全审计、架构设计 | 日常代码生成、Review、中长上下文 | 多模态、通用任务、文档 | 低风险批量任务、分类 | 快速补全、翻译、格式化 |
+
+> **选型口诀**：质量选 Claude，速度选 MiMo，多模态选 GPT，预算紧选 MiMo + Sonnet 组合。
+
+## 相关阅读
+
+- [AI Agent Skill 开发实战：自定义技能与工作流自动化——Hermes Agent 踩坑记录](/categories/macOS/ai-agent-skill-guide-automation-hermes-agent/)
+- [LM Studio 实战：本地模型管理与推理 — 隐私优先的 AI 开发工作流踩坑记录](/categories/macOS/lm-studio-guide-ai/)
+- [本地 vs 云端 AI 实战：成本隐私性能的权衡与 Laravel 开发者选型指南](/categories/macOS/vs-ai-guide-laravel-guide/)
+- [AI Agent Orchestration Patterns 2026：Supervisor/Router/Swarm/DAG 四种编排模式的适用场景与工程选型](/categories/架构/ai-agent-orchestration-patterns-2026-supervisor-router-swarm-dag-编排模式选型/)
+- [Anthropic Claude Opus 4 / OpenAI o3 实战：最新推理模型接入——思维链输出、Tool Use 与 Laravel 集成](/categories/架构/anthropic-claude-opus4-openai-o3-实战-最新推理模型接入-思维链输出-tool-use与laravel集成/)
+- [OpenHuman TokenJuice 实战：智能 Token 压缩与成本优化](/categories/架构/openhuman-tokenjuice-实战-智能token压缩与成本优化/)

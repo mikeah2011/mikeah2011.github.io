@@ -1,13 +1,14 @@
 ---
 title: Postman 高级实战：Collection、Environment、Pre-request Script 与 Newman CI 集成踩坑记录
+cover: /images/covers/postman-guide-collection-environment-pre-request-script-cover.jpg
 date: 2026-05-17 06:20:30
 updated: 2026-05-17 06:22:38
 categories:
   - Engineering
   - Testing
-tags: [CI/CD, Laravel, 测试]
+tags: [ci/cd, laravel, 测试]
 description: >
-  从基础 API 调试到高级 Collection 编排、多环境变量管理、Pre-request Script 自动化鉴权、Newman CLI 集成 CI 流水线的完整实战指南。基于 30+ Laravel B2C API 仓库的真实踩坑经验，涵盖 Token 自动刷新、动态数据驱动、断言链路设计等进阶技巧。
+  Postman API测试高级实战指南：详解集合(Collection)编排与组织策略、多环境变量管理与切换技巧、Pre-request Script实现自动化鉴权与Token刷新机制、Tests断言链路设计（Schema验证与性能断言）及Newman CLI的CI/CD集成方案。涵盖数据驱动测试与六大踩坑场景，助你从手动调试构建完整的自动化API测试工作流，提升团队协作效率。
 
 
 
@@ -609,3 +610,15 @@ Newman 默认在测试失败时返回非零退出码，这会导致 CI 流水线
 Postman 远不止是一个 API 调试工具。通过合理使用 Collection 组织、Environment 管理、Pre-request Script 自动化、Tests 断言链路和 Newman CI 集成，它可以成为你 API 质量保障体系中**不可或缺的一环**。
 
 关键认知转变：**从「手动发请求」到「自动化 API 契约验证」**。当你把 Postman 的 Collection 当成一份「活的 API 文档 + 自动化测试套件」来维护时，前后端联调效率和 API 质量都会有质的提升。
+
+## 相关阅读
+
+- [Postman/Apifox 实战：API 测试、Mock、自动化测试 — Laravel B2C API 踩坑记录](/engineering/postman-apifox-guide-apitesting-mock-automationtesting/)
+- [Apifox 实战：API 设计、Mock、自动化测试一体化 — Laravel B2C API 踩坑记录](/engineering/apifox-guide-api-mock-automationtesting/)
+- [Apifox vs Postman vs ApiPost vs Mockoon 四件套对比实战](/php/apifoxpostman-apipost-mockoonvs/)
+- [OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON](/architecture/openapi-yaml-testing-mock-fake-response-json/)
+- [Pest PHP API 测试、Feature 测试、浏览器测试实战：Laravel 测试金字塔落地踩坑记录](/engineering/pest-php-apitesting-featuretesting-testingguide/)
+- [API 契约测试实战：Pact/Schemathesis 前后端接口一致性保障](/engineering/2026-06-01-api-contract-testing-pact-schemathesis-frontend-backend-consistency/)
+- [Snapshot Testing 实战：API 响应快照回归测试——用「拍快照」守护接口契约](/php/Laravel/2026-06-01-snapshot-testing-api-response-regression-testing/)
+- [压测实战：k6/Locust/Laravel API 性能基线与瓶颈定位](/engineering/2026-06-01-load-testing-k6-locust-laravel-api-performance-baseline/)
+- [API 生命周期管理实战：设计、版本控制、废弃通知、客户端迁移](/00_架构/API生命周期管理实战-设计版本控制废弃通知客户端迁移-Sunset-Header与Deprecation标准/)

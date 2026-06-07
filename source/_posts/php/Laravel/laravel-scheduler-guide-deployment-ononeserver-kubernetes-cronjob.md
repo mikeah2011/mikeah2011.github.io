@@ -1,12 +1,13 @@
 ---
 title: Laravel Scheduler 定时任务实战：多实例部署下的重入保护、onOneServer 失效与 Kubernetes CronJob 取舍
+cover: /images/covers/laravel-scheduler-guide-deployment-ononeserver-kubernetes-cronjob-cover.jpg
 date: 2026-05-03 11:00:13
 updated: 2026-05-03 11:01:35
 categories:
   - PHP
   - Kubernetes
-tags: [DevOps, Kubernetes, Laravel]
-description: 结合 Laravel 订单超时关闭、库存回补与报表汇总场景，记录 Scheduler 在多实例部署下的拆分策略、重入保护、onOneServer 约束、Kubernetes CronJob 取舍与真实踩坑记录。
+tags: [DevOps, Kubernetes, Laravel, 定时任务, Scheduler, onOneServer]
+description: 结合 Laravel 订单超时关闭、库存回补与报表汇总场景，深度记录 Scheduler 在多实例部署下的拆分策略、重入保护与 withoutOverlapping 陷阱、onOneServer 依赖共享缓存锁的前提条件、Kubernetes CronJob 的 concurrencyPolicy 与失败重试配置，以及从单机迁移到容器化部署过程中的真实踩坑记录与监控告警方案。
 
 
 
@@ -204,3 +205,123 @@ spec:
 Laravel Scheduler 本身没问题，问题通常出在我们把它当成“万能任务平台”。它更适合做**应用内编排器**，不适合吞掉所有批处理。我的实践标准很简单：**轻触发留在 Scheduler，重执行下沉到 Queue，重批处理交给 CronJob，业务幂等放在数据更新语义里。**
 
 这样改完之后，超时关单不再重复回补库存，财务对账也不再因为滚动发布中断；更重要的是，任务责任边界终于清楚了：Laravel 负责业务上下文，Kubernetes 负责运行时隔离，队列负责削峰，数据库负责最终状态幂等。这套组合比单独依赖某一个 `withoutOverlapping()` 稳得多。
+这样改完之后，超时关单不再重复回补库存，财务对账也不再因为滚动发布中断；更重要的是，任务责任边界终于清楚了：Laravel 负责业务上下文，Kubernetes 负责运行时隔离，队列负责削峰，数据库负责最终状态幂等。这套组合比单独依赖某一个 `withoutOverlapping()` 稳得多。
+
+## 八、补充：完整的 `Kernel` 配置与 `schedule:work` Deployment 示例
+
+很多文章只贴 `routes/console.php` 片段，却不提怎么把 `schedule:work` 跑进 Pod。下面是我实际用的 Kubernetes Deployment 和 Dockerfile 片段：
+
+```yaml
+# schedule-work-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: schedule-work
+spec:
+  replicas: 1   # 只需要一个副本，多副本必须配合 onOneServer + Redis
+  selector:
+    matchLabels:
+      app: schedule-work
+  template:
+    metadata:
+      labels:
+        app: schedule-work
+    spec:
+      containers:
+        - name: php
+          image: registry.example.com/blog-api:latest
+          command: ["php", "artisan", "schedule:work"]
+          env:
+            - name: CACHE_STORE
+              value: redis
+            - name: REDIS_HOST
+              value: redis-master.default.svc.cluster.local
+```
+
+对应的 Dockerfile 关键片段：
+
+```dockerfile
+FROM registry.example.com/php:8.3-cli
+WORKDIR /var/www/html
+COPY . .
+RUN composer install --no-dev --optimize-autoloader
+# schedule:work 不需要 supervisor，直接前台运行
+CMD ["php", "artisan", "schedule:work"]
+```
+
+## 九、补充：Kubernetes CronJob 高级配置
+
+前面第五节的 CronJob 示例只展示了最简配置。下面补一个带资源限制、超时控制和环境变量注入的完整版本：
+
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: rebuild-daily-report
+spec:
+  schedule: "0 2 * * *"           # 每天凌晨 2 点
+  concurrencyPolicy: Forbid       # 上一次没跑完就跳过本次
+  startingDeadlineSeconds: 300     # 错过调度窗口 5 分钟内仍可补跑
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 5
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 3600  # 最长跑 1 小时，超时自动终止
+      backoffLimit: 2              # 失败重试 2 次
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: artisan
+              image: registry.example.com/blog-api:v1.2.3  # 固定版本，不用 latest
+              command: ["php", "artisan", "report:rebuild-daily"]
+              resources:
+                requests:
+                  cpu: "500m"
+                  memory: "512Mi"
+                limits:
+                  cpu: "1000m"
+                  memory: "1Gi"
+              envFrom:
+                - secretRef:
+                    name: app-secrets   # DB_PASSWORD 等敏感变量
+                - configMapRef:
+                    name: app-config    # APP_ENV 等非敏感变量
+```
+
+**关键配置解读：**
+
+| 字段 | 作用 | 常见坑 |
+|---|---|---|
+| `concurrencyPolicy: Forbid` | 阻止并发执行 | 误设为 `Allow` 导致多个 Job 同时改同一张表 |
+| `startingDeadlineSeconds: 300` | 错过调度窗口的补跑时限 | 不设则 Controller Manager 恢复后立即补跑所有错过的历史任务 |
+| `activeDeadlineSeconds: 3600` | 单次执行超时强制终止 | 不设则任务挂死，永远不会结束 |
+| `backoffLimit: 2` | 失败重试次数 | 默认 6 次，对幂等任务够用，对有副作用的任务可能重复 |
+| `restartPolicy: Never` | 与 backoffLimit 配合 | 设为 `Always` 会让 kubelet 直接重启容器，绕过 Job 层重试逻辑 |
+| 固定镜像版本 | 避免 `latest` 指向意外代码 | 发布新版本后需更新 CronJob YAML 或用 Helm 变量注入 |
+
+## 十、真实踩坑案例汇总
+
+### 案例 1：时区不一致导致任务在错误时间执行
+
+`schedule` 字段用的是 **Controller Manager 所在节点的本地时区**，而不是 UTC。如果集群节点设为 CST（Asia/Shanghai），`0 2 * * *` 就是凌晨 2 点 CST；但如果节点是 UTC，同样的表达式就变成凌晨 2 点 UTC（北京时间上午 10 点）。建议统一用 `CRON_TZ` 环境变量显式指定，或者在 CronJob YAML 中用 `timeZone` 字段（Kubernetes 1.27+ 支持）。
+
+```yaml
+spec:
+  schedule: "0 2 * * *"
+  timeZone: "Asia/Shanghai"
+```
+
+### 案例 2：CronJob 保留数量过多导致 etcd 膨胀
+
+`successfulJobsHistoryLimit` 和 `failedJobsHistoryLimit` 合计越大，etcd 里存的 Job 和 Pod 元数据越多。如果每小时跑一次、保留 10 个成功记录，一天就多出 240 个 Job 对象。建议成功记录保留 2-3 个，失败记录保留 3-5 个即可。
+
+### 案例 3：schedule:work Pod 被 OOMKill 后静默消失
+
+`schedule:work` 是长驻进程，如果任务触发的 artisan command 有内存泄漏，Pod 最终会被 OOMKill。关键是要给 Deployment 加 `restartPolicy: Always`（Deployment 默认就是），并配合 Prometheus 监控 `container_memory_working_set_bytes`。我在生产环境加了一个 `memory` limit 为 `256Mi` 的 sidecar exporter，内存超过 200Mi 就告警。
+
+## 相关阅读
+
+- [Kubernetes HPA 自动扩缩容实战：Laravel API 的 CPU 指标驱动与自定义 Metrics 配置](/devops/k8s-hpa-guide-laravel-api-cpu/)
+- [Argo CD GitOps 实战：Laravel 应用的 GitOps 持续部署流水线](/devops/argocd-gitops-guide-laravel-cd/)
+- [Docker Volume 与 NFS 持久化实战：Kubernetes 环境下 Laravel 应用的文件存储方案](/devops/docker-volume-guide-nfs-laravel/)

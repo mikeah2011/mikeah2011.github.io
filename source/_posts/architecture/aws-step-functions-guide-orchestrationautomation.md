@@ -7,8 +7,10 @@ categories:
   - AWS
 tags: [AWS, KKday, Laravel, 架构]
 description: 在 B2C 电商系统中，下单流程涉及多服务协调。AWS Step Functions 提供可视化工作流编排，原生支持并行、等待、重试、回调。本文记录在 KKday B2C 项目中将 Step Functions 引入 Laravel 后端的真实踩坑经验。
-
-
+cover: /images/covers/architecture-01-cover.jpg
+images:
+  - /images/content/architecture-01-content-1.jpg
+  - /images/content/architecture-01-content-2.jpg
 
 ---
 ## 前言
@@ -65,6 +67,8 @@ graph LR
     S3 --> |并行| S1
     S4 --> |延迟| S1
 ```
+
+![AWS Step Functions 工作流架构](/images/content/architecture-01-content-1.jpg)
 
 - **State Machine**：工作流的顶层容器
 - **Task**：执行实际工作的单元（调用 Lambda、ECS、API Gateway 等）
@@ -247,6 +251,8 @@ graph LR
 4. **轮询支付回调**：用 `Wait` + `Choice` + `Pass` 组合实现轮询，比 Lambda 轮询更省成本
 
 ## 实战二：Laravel 触发状态机
+
+![Laravel 与 AWS 集成](/images/content/architecture-01-content-2.jpg)
 
 在 Laravel Controller 中触发 Step Functions 执行：
 

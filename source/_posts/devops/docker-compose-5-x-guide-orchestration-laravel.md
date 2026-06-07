@@ -1,8 +1,9 @@
 ---
 title: Docker Compose 5.x 实战：多服务编排、健康检查与开发环境搭建踩坑记录
+cover: /images/covers/docker-compose-5-x-guide-orchestration-laravel-cover.jpg
 date: 2026-05-16 22:00:37
 updated: 2026-05-16 22:04:36
-tags: [DevOps, Docker, Laravel]
+tags: [devops, docker, laravel]
 categories:
   - DevOps
   - Docker
@@ -787,3 +788,9 @@ services:
 6. **别在 docker-compose.yml 里写死密码**：用 `.env` + `.env.example`，`.env` 加入 `.gitignore`
 
 Docker Compose 的核心价值不是"一键启动"，而是"任何人 clone 项目后都能用相同的方式启动"。把编排文件当代码维护，review 时也看看 docker-compose.yml 的变更，团队协作会顺畅很多。
+
+## 相关阅读
+
+- [Docker Compose Laravel 本地开发环境实战：PHP-FPM 8.3 + MySQL 8.0 + Redis 7 + Mailpit 完整搭建指南](/categories/06_运维/docker-compose-laravel-guide-php-fpm-8-3-mysql-redis-mailpit-guide/)
+- [Docker 多阶段构建实战：PHP 应用镜像优化 500MB 到 50MB 踩坑记录](/categories/06_运维/docker-guide-php-imageoptimization-500mb50mb/)
+- [Docker Volume 实战：数据持久化、备份恢复与 NFS 挂载 Laravel 踩坑记录](/categories/06_运维/docker-volume-guide-nfs-laravel/)

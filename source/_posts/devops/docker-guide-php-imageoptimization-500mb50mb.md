@@ -1,11 +1,12 @@
 ---
 title: "Docker-多阶段构建实战-PHP-应用镜像优化-500MB到50MB踩坑记录"
+cover: /images/covers/docker-guide-php-imageoptimization-500mb50mb-cover.jpg
 date: 2026-05-05 10:56:07
 updated: 2026-05-05 10:59:21
 categories:
   - DevOps
   - Docker
-tags: [CI/CD, DevOps, Docker, Laravel, PHP]
+tags: [ci/cd, devops, docker, laravel, php, 镜像优化, 多阶段构建]
 description: "在 KKday B2C 项目中，PHP-FPM 镜像从 520MB 优化到 48MB 的完整过程：多阶段构建、依赖裁剪、.dockerignore、层缓存治理、Alpine vs Debian 选型，以及 CI 流水线中的镜像推送踩坑记录。"
 
 
@@ -450,3 +451,11 @@ Docker 多阶段构建不是什么高深技术，但要做到"真的瘦下来"�
 5. **CI 缓存治理**：BuildKit + GHA Cache 才能发挥多阶段的优势
 
 最终成果：镜像从 530MB → 48MB，CI 推送时间从 3 分钟 → 20 秒，K8s Pod 启动从 15 秒 → 2 秒。对 30+ 个仓库来说，这个优化的规模效应是显著的。
+
+---
+
+## 相关阅读
+
+- [Docker 29.x 实战：BuildKit、多阶段构建与镜像优化策略踩坑记录](/categories/06_运维/docker-29-x-guide-buildkit-imageoptimization/)
+- [Docker Compose Laravel 本地开发环境实战：PHP-FPM 8.3 + MySQL 8.0 + Redis 7 完整搭建指南](/categories/06_运维/docker-compose-laravel-guide-php-fpm-8-3-mysql-redis-mailpit-guide/)
+- [GitHub Actions Composer Cache：构建时间从 20s 到 5s 优化实战踩坑记录](/categories/06_运维/github-actions-composer-cache-20s5s-optimization/)

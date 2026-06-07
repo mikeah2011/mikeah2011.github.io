@@ -1,12 +1,13 @@
 ---
 title: Scribe vs SwaggerPHP-Laravel API 文档生成工具对比实战踩坑记录
+cover: /images/covers/scribe-vs-swaggerphp-laravel-api-vs-cover.jpg
 date: 2026-05-05 08:40:22
 updated: 2026-05-05 08:43:28
 categories:
   - PHP
   - Laravel
-tags: [Laravel, OpenAPI]
-description: 在 30+ 仓库的 Laravel B2C API 项目中，如何选择 API 文档生成工具？本文深度对比 Scribe 与 SwaggerPHP 的架构差异、注解风格、生成效率、定制能力，并结合 KKday 真实项目踩坑经验给出选型建议。
+tags: [Laravel, OpenAPI, Swagger, API文档, Scribe]
+description: 在 30+ Laravel API 仓库中如何选型 API 文档工具？本文从架构设计、注解风格、OpenAPI 兼容性、CI 集成、前端代码生成五个维度深度对比 Scribe 与 SwaggerPHP，结合 KKday B2C 真实踩坑经验给出混合策略选型建议，附完整配置与代码示例。
 
 
 
@@ -543,6 +544,33 @@ jobs:
 | Laravel 集成 | ✅ 深度 | ⚠️ 需要 l5-swagger |
 
 **一句话建议**：如果是新建项目且重视标准化，选 SwaggerPHP；如果是存量项目快速补文档，选 Scribe。最重要的是——**一定要有文档，工具选哪个是次要的**。
+
+---
+
+## 八、功能对比总览
+
+| 功能维度 | Scribe | SwaggerPHP | 备注 |
+|----------|--------|------------|------|
+| **安装复杂度** | ✅ 一条命令 + publish | ⚠️ 需配合 l5-swagger | Scribe 开箱即用 |
+| **注解风格** | `@bodyParam` docblock | `#[OA\Attribute]` PHP 8 原生 | Attribute 类型安全更佳 |
+| **参数自动推断** | ✅ 从 FormRequest/Validator 自动推断 | ❌ 必须手动声明 | 大幅减少样板代码 |
+| **OpenAPI 3.0 兼容** | ⚠️ 二次转换，`$ref`/`oneOf` 有限 | ✅ 原生 1:1 映射 | 标准合规性差异明显 |
+| **Postman 集成** | ✅ 内置 Collection 导出 | ❌ 需第三方工具 | 快速联调优势 |
+| **前端代码生成** | ⚠️ 需额外 OpenAPI 校验步骤 | ✅ 直接接入 openapi-generator | 全链路类型安全 |
+| **Laravel 深度集成** | ✅ Route / FormRequest / Validator | ⚠️ 需手动声明路由参数 | Scribe 更贴合 Laravel 生态 |
+| **框架无关性** | ❌ 仅 Laravel/Dingo | ✅ 任意 PHP 框架 | SwaggerPHP 可用于 Symfony 等 |
+| **生成速度（200+ Controller）** | ✅ 快（基于路由） | ⚠️ 慢（AST 全量扫描） | 大项目需限制扫描目录 |
+| **IDE 类型检查** | ⚠️ docblock 无类型约束 | ✅ Attribute 完整类型提示 | 减少注解 typo |
+| **Blade HTML 文档** | ✅ 内置自定义模板 | ❌ 仅 Swagger UI / Redoc | 非技术同学友好 |
+| **多格式输出** | HTML + Postman + OpenAPI | OpenAPI YAML/JSON | Scribe 输出格式更多 |
+
+---
+
+## 相关阅读
+
+- [API Security 深度实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击](/Laravel/2026-06-06-api-security-jwt-blacklist-hmac-signature-replay-protection/)
+- [GraphQL 实战：Laravel Lighthouse 与前端集成踩坑记录](/Laravel/graphql-guide-laravel-lighthouse/)
+- [Laravel Sanctum / Passport Token 刷新机制实战：多端登录、双 Token 轮换与并发续签踩坑记录](/Laravel/laravel-sanctum-passport-token-guide-token-concurrency/)
 
 ---
 

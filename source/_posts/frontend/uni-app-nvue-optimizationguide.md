@@ -1,10 +1,11 @@
 ---
 title: uni-app-nvue-原生渲染优化实战-页面性能调优与踩坑记录
+cover: /images/covers/uni-app-nvue-optimizationguide-cover.jpg
 date: 2026-05-17 06:50:33
 updated: 2026-05-17 06:53:22
 tags: [uni-app, 前端, 性能优化]
 categories: Frontend
-description: 在 uni-app 多端项目中，当 Vue 页面的 WebView 渲染性能无法满足复杂列表和高频动画需求时，nvue（基于 Weex 原生渲染引擎）成为 App 端性能优化的关键路径。本文记录 nvue 渲染管线、CSS 子集限制、recycle-list 长列表优化、BindingX 高性能动画、dom 模块命令式操作的实战经验与踩坑。
+description: 在 uni-app 多端项目中，当 Vue 页面的 WebView 渲染性能无法满足复杂列表和高频动画需求时，nvue（基于 Weex 原生渲染引擎）成为 App 端性能优化的关键路径。本文从渲染管线架构对比出发，深入讲解 nvue CSS 子集限制、recycle-list 长列表回收机制、BindingX 高性能动画、dom 模块命令式操作五大核心主题，附完整代码示例、性能实测数据（首屏渲染提速 52%、滚动 FPS 提升 47%）与 8 条实战踩坑记录，助你高效完成从 Vue 到 nvue 的迁移决策与落地。
 
 
 
@@ -559,7 +560,6 @@ export function safeExecute(fn, fallback) {
 ```
 
 ## 总结
-
 | 场景 | 推荐方案 |
 |------|---------|
 | 纯表单/静态页面 | Vue（开发效率高） |
@@ -571,3 +571,10 @@ export function safeExecute(fn, fallback) {
 nvue 是 uni-app 在 App 端性能优化的终极武器，但它的 CSS 子集限制、调试困难、双端差异也意味着更高的开发成本。**建议只在性能瓶颈页面使用 nvue，其余页面保持 Vue**，通过条件编译（`#ifdef APP-NVUE`）处理双端差异。
 
 迁移的第一步是识别性能瓶颈：用 Chrome DevTools 的 Performance 面板（Vue 页面）或 App 端原生 Profiler 找到掉帧页面，再决定是否值得为它付出 nvue 的迁移成本。
+
+## 相关阅读
+
+- [uni-app 性能优化实战：首屏加载、分包加载、图片懒加载策略——从 5s 到 800ms 的性能治理全链路](/categories/前端/2026-06-01-uni-app-performance-optimization-first-screen-subpackage-lazy-loading/)
+- [uni-app 离线存储实战：SQLite/IndexedDB 数据同步与冲突解决——从本地持久化到多端一致性的完整工程方案](/categories/前端/2026-06-01-uni-app-offline-storage-sqlite-indexeddb-data-sync-conflict-resolution/)
+- [uni-app + ThinkPHP 商品详情页性能优化与预加载策略实战踩坑记录](/categories/业务设计/2026-06-01-uni-app-thinkphp-product-detail-performance-preload/)
+- [Core Web Vitals 实战：LCP/FID/CLS 优化——Vue 3 + Laravel 前后端协同性能治理](/categories/前端/Core-Web-Vitals实战-LCP-FID-CLS优化-Vue3-Laravel前后端协同性能治理/)

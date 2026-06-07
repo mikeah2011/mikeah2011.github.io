@@ -1,10 +1,11 @@
 ---
 title: "uni-app Native.js 原生插件开发实战：原生 SDK 集成与多平台踩坑记录"
+cover: /images/covers/uni-app-native-js-guide-sdk-cover.jpg
 date: 2026-05-17 07:00:11
-updated: 2026-05-17 07:02:53
+updated: 2026-06-07 00:00:00
 categories: Frontend
-tags: [uni-app, 前端]
-description: "uni-app 开发中，有些功能 uni API 无法覆盖——蓝牙硬件通信、自定义相机、原生支付 SDK 等场景必须调用原生能力。本文以真实项目经验，详解 Native.js + 原生插件的开发流程、iOS/Android 双平台集成、常见陷阱与性能优化。"
+tags: [uni-app, native.js, sdk, 跨平台开发, 原生插件]
+description: "uni-app 跨平台开发中遇到原生能力瓶颈？本文从 Native.js 快速调用到原生插件深度开发，覆盖 Android/iOS 双平台 SDK 集成实战，详解支付宝等第三方 SDK 接入、蓝牙通信、自定义相机等场景，附带 9 大常见踩坑案例与调试技巧，助你打通 uni-app 与原生 JS 的最后一公里。"
 
 
 
@@ -1037,3 +1038,201 @@ myPlugin.scanBluetooth = function (...args) {
 4. **Android 版本适配是大坑**：API 21→33 行为差异巨大，做好版本判断
 5. **离线打包一定要测**：云打包能过不代表离线打包能过
 6. **Debug/Release 都要测**：ProGuard 混淆和 SDK 版本是常见差异源
+
+---
+
+## 十、进阶实战：Native.js 与原生 SDK 完整交互示例
+
+### 10.1 Android 调用原生 SDK（以 Toast + SharedPreferences 为例）
+
+```javascript
+// 封装 Android SharedPreferences 读写
+class AndroidStorage {
+  // #ifdef APP-PLUS
+  constructor() {
+    const Context = plus.android.importClass('android.content.Context');
+    this.activity = plus.android.runtimeMainActivity();
+    this.prefs = this.activity.getSharedPreferences(
+      'app_config',
+      Context.MODE_PRIVATE
+    );
+  }
+
+  get(key, defaultVal = '') {
+    return this.prefs.getString(key, defaultVal);
+  }
+
+  set(key, value) {
+    const editor = this.prefs.edit();
+    editor.putString(key, value);
+    editor.apply(); // 异步写入，commit() 同步但阻塞
+  }
+
+  remove(key) {
+    this.prefs.edit().remove(key).apply();
+  }
+  // #endif
+}
+
+// 使用
+const storage = new AndroidStorage();
+storage.set('user_token', 'abc123');
+const token = storage.get('user_token');
+```
+
+### 10.2 iOS 调用原生 SDK（以 Keychain 存取为例）
+
+```javascript
+// iOS Keychain 存储（简化版，生产建议用原生插件）
+function setKeychainItem(key, value) {
+  // #ifdef APP-PLUS
+  const NSMutableDictionary = plus.ios.importClass('NSMutableDictionary');
+  const NSData = plus.ios.importClass('NSData');
+  const NSString = plus.ios.importClass('NSString');
+
+  const query = new NSMutableDictionary();
+  const kSecClass = plus.ios.importClass('kSecClass');
+  const kSecClassGenericPassword = NSString.stringWithString_('genp');
+
+  query.setValueForKey_(kSecClassGenericPassword, 'class');
+  query.setValueForKey_(NSString.stringWithString_(key), 'acct');
+
+  const valueData = NSString.stringWithString_(value)
+    .dataUsingEncoding_(4); // NSUTF8StringEncoding
+
+  query.setValueForKey_(valueData, 'v_Data');
+
+  // 调用 SecItemAdd（需要通过 invoke 方式）
+  plus.ios.invoke('Security', 'SecItemAdd', query, null);
+
+  // 手动释放
+  plus.ios.deleteObject(query);
+  plus.ios.deleteObject(valueData);
+  // #endif
+}
+```
+
+### 10.3 跨平台 SDK 调用封装模式
+
+```javascript
+// 统一接口封装：屏蔽 Android/iOS 差异
+const platformBridge = {
+  // #ifdef APP-PLUS
+  async scanQRCode() {
+    return new Promise((resolve, reject) => {
+      uni.scanCode({
+        scanType: ['qrCode'],
+        success: (res) => resolve(res.result),
+        fail: (err) => reject(err)
+      });
+    });
+  },
+
+  async getDeviceInfo() {
+    // uni API 能获取的优先用 uni
+    return new Promise((resolve) => {
+      uni.getSystemInfo({
+        success: (info) => {
+          resolve({
+            platform: info.platform,
+            model: info.model,
+            system: info.system,
+            // 补充原生层信息
+            deviceId: this._getNativeDeviceId()
+          });
+        }
+      });
+    });
+  },
+
+  _getNativeDeviceId() {
+    // #ifdef APP-PLUS-ANDROID
+    const Settings = plus.android.importClass('android.provider.Settings');
+    return Settings.Secure.getString(
+      plus.android.runtimeMainActivity().getContentResolver(),
+      Settings.Secure.ANDROID_ID
+    );
+    // #endif
+
+    // #ifdef APP-PLUS-ANDROID
+    const device = plus.ios.importClass('UIDevice');
+    const current = device.currentDevice();
+    const uuid = current.identifierForVendor().UUIDString();
+    plus.ios.deleteObject(current);
+    return uuid;
+    // #endif
+  }
+  // #endif
+};
+```
+
+---
+
+## 十一、调试技巧补充
+
+### 11.1 Native.js 调用异常定位
+
+```javascript
+// 包装 Native.js 调用，统一捕获异常
+function safeNativeCall(fn, fallback = null) {
+  try {
+    return fn();
+  } catch (e) {
+    console.error('[Native.js Error]', {
+      message: e.message,
+      stack: e.stack,
+      // Android 特有的 Java 异常信息
+      nativeStack: e.nativeException?.toString?.() || ''
+    });
+    return fallback;
+  }
+}
+
+// 使用
+const brightness = safeNativeCall(() => {
+  const screen = plus.ios.importClass('UIScreen');
+  const main = screen.mainScreen();
+  const val = main.brightness();
+  plus.ios.deleteObject(main);
+  return val;
+}, 0.5);
+```
+
+### 11.2 插件通信数据验证
+
+```javascript
+// 原生返回数据可能为 null/undefined，做好防御
+function parsePluginResult(result) {
+  if (!result) {
+    console.warn('[Plugin] 返回空结果');
+    return null;
+  }
+
+  // Android 可能返回 Java JSONObject，需要转换
+  if (typeof result === 'object' && result.toJSONString) {
+    return JSON.parse(result.toJSONString());
+  }
+
+  // iOS 可能返回 NSDictionary，直接用
+  return result;
+}
+```
+
+### 11.3 真机调试快速排查清单
+
+| 现象 | 检查项 |
+|------|--------|
+| 插件方法 undefined | manifest.json 是否声明、插件目录名是否正确 |
+| 调用无响应 | 是否在主线程（Android uiThread 参数） |
+| 崩溃无日志 | 开启 ProGuard 保留规则、检查 logcat 崩溃栈 |
+| 真机正常云包崩溃 | ProGuard 混淆、SDK 版本、权限声明 |
+| iOS 闪退 | URL Scheme 配置、Bitcode 开关、CocoaPods 版本 |
+| 回调不触发 | 检查 callback 是否一次性的（需 keep-alive） |
+
+---
+
+## 相关阅读
+
+- [uni-app 自定义组件实战：跨平台原生组件封装与插件市场发布](/categories/frontend/2026-06-01-uni-app-custom-component-cross-platform-native-plugin-marketplace/)
+- [uni-app 性能优化实战：首屏加载、分包加载、图片懒加载](/categories/frontend/2026-06-01-uni-app-performance-optimization-first-screen-subpackage-lazy-loading/)
+- [uni-app 离线存储实战：SQLite/IndexedDB 数据同步与冲突解决](/categories/frontend/2026-06-01-uni-app-offline-storage-sqlite-indexeddb-data-sync-conflict-resolution/)

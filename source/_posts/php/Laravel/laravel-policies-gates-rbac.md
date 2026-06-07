@@ -1,13 +1,14 @@
 ---
 title: Laravel-Policies-Gates-RBAC-权限管理与多租户隔离实战
+cover: /images/covers/laravel-policies-gates-rbac-cover.jpg
 date: 2026-05-05 12:15:10
 updated: 2026-05-05 12:17:53
 categories:
   - PHP
   - Laravel
-tags: [Laravel]
+tags: [laravel, rbac, permission, policies, gates, 多租户, 授权, spatie]
 description: >
-  基于 Laravel 后台与 B2B/B2C 混合业务的真实改造经验，记录如何用 Policies、Gates 与角色权限表落地 RBAC，并在多租户场景下补上 tenant_id 隔离、超级管理员旁路、批量查询性能与队列串租等关键细节。
+  深入实战 Laravel Policies、Gates 与 RBAC 权限控制方案。涵盖 Policy 对象级授权、路由中间件与 FormRequest 集成、API Resource 字段级权限、Spatie Permission 多租户缓存优化、队列越权防护与 PHPUnit 测试，附踩坑案例，助你构建企业级 Laravel 授权体系。
 
 
 
@@ -332,6 +333,552 @@ AuditLog::create([
 
 这样真正出问题时，至少能追出“谁在什么租户下，用什么条件导出了哪些数据”。权限系统如果没有审计，很多时候只是心理安慰。
 
+## 八、Spatie Permission 集成：从自建角色表到生产级 RBAC
+
+自建角色表在项目初期足够灵活，但当权限数量超过 50 个、角色需要动态配置时，手动维护 `role_permission` 关联表会变成负担。这时我会引入 `spatie/laravel-permission`：
+
+```bash
+composer require spatie/laravel-permission
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan migrate
+```
+
+核心模型改造：
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
+
+class User extends Authenticatable
+{
+    use HasRoles;
+
+    // Spatie 默认使用 Guard 名称做隔离，多租户场景需要指定
+    protected $guard_name = 'web';
+
+    /**
+     * 重写获取角色方法，加入租户过滤
+     */
+    public function getRoleNames(): Collection
+    {
+        return $this->roles()
+            ->wherePivot('tenant_id', $this->tenant_id)
+            ->pluck('name');
+    }
+}
+```
+
+Spatie 的 `team_id` 参数从 v5 开始原生支持多租户，但我的经验是：**直接用 `team_id` 字段不如用 `tenant_id` + 自定义中间件来得可控**。原因是 `team_id` 默认绑定到 `team` 模型，而我们的租户可能是组织、代理商、部门等多种形态。
+
+配置 `config/permission.php`：
+
+```php
+'teams' => true,  // 启用团队模式
+
+'models' => [
+    'permission' => Spatie\Permission\Models\Permission::class,
+    'role' => Spatie\Permission\Models\Role::class,
+],
+```
+
+在 AuthServiceProvider 中桥接 Spatie 与 Laravel Gate：
+
+```php
+public function boot(): void
+{
+    $this->registerPolicies();
+
+    // Gate::before 仍然保留超级管理员旁路
+    Gate::before(function ($user, string $ability) {
+        if ($user->hasRole('super-admin')) {
+            return true;
+        }
+        return null; // 继续走后续判断
+    });
+
+    // 将 Spatie 权限映射为 Gate 能力
+    Gate::define('order.export', function ($user) {
+        return $user->hasPermissionTo('order.export');
+    });
+
+    Gate::define('order.view', function ($user) {
+        return $user->hasPermissionTo('order.view');
+    });
+}
+```
+
+权限缓存是 Spatie 的隐藏优势。手动建表方案每次请求都要查 3 张表（user → role → permission），而 Spatie 内置的缓存层会把权限列表序列化到 Redis/文件，首次查询后后续请求零数据库开销：
+
+```php
+// 清除权限缓存（角色/权限变更后必须调用）
+app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+```
+
+### Spatie 与自建方案的选择标准
+
+| 维度 | 自建角色表 | Spatie Permission |
+|---|---|---|
+| 权限数量 | < 30 个，够用 | > 50 个，建议引入 |
+| 运维界面 | 需自行开发 CRUD | 配合 filament-shield 或 backpack 即可 |
+| 缓存策略 | 需自行实现 | 内置缓存，配置即生效 |
+| 多租户 | 完全可控 | 需启用 `teams` 并理解其默认行为 |
+| 升级风险 | 无依赖 | 关注大版本迁移（v5 → v6 有 breaking change） |
+
+## 九、PHPUnit 授权测试：Policy 和 Gate 的回归保障
+
+权限逻辑如果没有测试覆盖，重构时就是在走钢丝。我通常会为每个 Policy 建一个测试类，覆盖「允许 / 拒绝 / 边界」三种场景：
+
+```php
+<?php
+
+namespace Tests\Feature\Policies;
+
+use App\Models\Order;
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class OrderPolicyTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function test_finance_can_view_order_in_same_tenant(): void
+    {
+        $user = User::factory()->create(['tenant_id' => 1]);
+        $user->assignRole('finance');
+
+        $order = Order::factory()->create(['tenant_id' => 1]);
+
+        $this->assertTrue($user->can('view', $order));
+    }
+
+    public function test_user_cannot_view_order_in_different_tenant(): void
+    {
+        $user = User::factory()->create(['tenant_id' => 1]);
+        $user->assignRole('finance');
+
+        $order = Order::factory()->create(['tenant_id' => 2]);
+
+        $this->assertFalse($user->can('view', $order));
+    }
+
+    public function test_supplier_can_only_view_own_supplier_orders(): void
+    {
+        $user = User::factory()->create([
+            'tenant_id' => 1,
+            'supplier_id' => 100,
+        ]);
+        $user->assignRole('supplier');
+
+        $ownOrder = Order::factory()->create([
+            'tenant_id' => 1,
+            'supplier_id' => 100,
+        ]);
+
+        $otherOrder = Order::factory()->create([
+            'tenant_id' => 1,
+            'supplier_id' => 200,
+        ]);
+
+        $this->assertTrue($user->can('view', $ownOrder));
+        $this->assertFalse($user->can('view', $otherOrder));
+    }
+
+    public function test_super_admin_can_bypass_all_policies(): void
+    {
+        $admin = User::factory()->create(['tenant_id' => 1]);
+        $admin->assignRole('super-admin');
+
+        $order = Order::factory()->create(['tenant_id' => 999]);
+
+        $this->assertTrue($admin->can('view', $order));
+    }
+
+    public function test_user_without_role_cannot_export(): void
+    {
+        $user = User::factory()->create(['tenant_id' => 1]);
+
+        $this->assertFalse($user->can('export', Order::class));
+    }
+}
+```
+
+Gate 级别的测试可以更轻量，直接用 `Gate::allows` 断言：
+
+```php
+<?php
+
+namespace Tests\Feature\Gates;
+
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Gate;
+use Tests\TestCase;
+
+class OrderExportGateTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function test_user_with_permission_can_export(): void
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo('order.export');
+
+        $this->assertTrue(Gate::forUser($user)->allows('order.export'));
+    }
+
+    public function test_user_without_permission_cannot_export(): void
+    {
+        $user = User::factory()->create();
+
+        $this->assertFalse(Gate::forUser($user)->allows('order.export'));
+    }
+
+    public function test_gate_before_super_admin_bypasses(): void
+    {
+        $admin = User::factory()->create();
+        $admin->assignRole('super-admin');
+
+        // 即使没有单独授权 order.export，super-admin 也应通过
+        $this->assertTrue(Gate::forUser($admin)->allows('order.export'));
+    }
+}
+```
+
+### 测试策略总结
+
+| 测试类型 | 覆盖目标 | 建议数量 |
+|---|---|---|
+| Policy 单元测试 | 每个 Policy 方法的允许/拒绝 | 每个 Policy 5-8 个用例 |
+| Gate 集成测试 | Gate::allows / denies 断言 | 每个 Gate 2-3 个用例 |
+| HTTP 集成测试 | 403 响应码与 JSON 结构 | 关键接口全覆盖 |
+| 多租户边界测试 | 跨租户越权场景 | 每种资源 2 个用例 |
+
+> **实战建议**：在 CI 中把权限测试单独分组（`@group authorization`），每次改动权限配置后跑一遍，比手动点页面验证靠谱得多。
+
+## 十、常见反模式与修复方案
+
+### 反模式 1：Controller 里散落 if-else 判断
+
+```php
+// ❌ 错误做法：权限逻辑写死在 Controller
+public function update(Request $request, Order $order)
+{
+    if (! auth()->user()->is_admin && $order->tenant_id !== auth()->user()->tenant_id) {
+        abort(403);
+    }
+    if (auth()->user()->role === 'supplier' && $order->status !== 'pending') {
+        abort(403);
+    }
+    // 业务逻辑...
+}
+
+// ✅ 正确做法：统一走 Policy
+public function update(UpdateOrderRequest $request, Order $order)
+{
+    $this->authorize('update', $order);  // Policy 中集中处理
+    // 业务逻辑...
+}
+```
+
+### 反模式 2：用 `@can` 隐藏按钮代替接口鉴权
+
+前端 `@can('refund.approve')` 只是 UI 层隐藏，接口必须独立鉴权：
+
+```php
+// Blade 模板
+@can('refund.approve', $order)
+    <button>审批退款</button>
+@endcan
+
+// Controller 中必须同步鉴权 —— 不能假设前端已经过滤
+public function approve(RefundRequest $request, Order $order)
+{
+    $this->authorize('refund.approve', $order);  // 不可省略
+    // ...
+}
+```
+
+### 反模式 3：Policy 中做复杂查询
+
+```php
+// ❌ 错误：Policy 里拼查询条件
+public function viewAny(User $user): bool
+{
+    return Order::where('tenant_id', $user->tenant_id)->exists();  // 副作用
+}
+
+// ✅ 正确：Policy 只做布尔判断，查询交给 Scope
+public function viewAny(User $user): bool
+{
+    return $user->canUse('order.view');  // 纯布尔
+}
+```
+
+### 反模式 4：忘记 `withoutGlobalScope` 导致统计报表数据缺失
+
+```php
+// ❌ 财务日报被 TenantScope 过滤，数据天然少了其他租户
+$total = Order::whereDate('created_at', today())->sum('amount');
+
+// ✅ 跨租户统计需要显式移除 Scope
+$total = Order::withoutGlobalScope(TenantScope::class)
+    ->whereDate('created_at', today())
+    ->sum('amount');
+```
+
+## 十一、方案选型对比：Policies vs Gates vs Spatie Permission vs Bouncer
+
+| 维度 | Laravel Policies | Laravel Gates | Spatie Permission | Bouncer |
+|---|---|---|---|---|
+| 粒度 | 模型实例级 | 通用能力级 | 角色 + 权限表 | 角色 + 能力 |
+| 数据库依赖 | 无（纯 PHP 类） | 无（闭包/回调） | 需要 migrations | 需要 migrations |
+| 多租户支持 | 需自行实现 | 需自行实现 | team_id 原生支持 | 需自行实现 |
+| 缓存 | 无 | 无 | 内置权限缓存 | 内置缓存 |
+| 适用场景 | CRUD 对象级授权 | 菜单/按钮级判断 | 中大型 RBAC 全表管理 | 轻量角色能力映射 |
+| 学习曲线 | 低 | 低 | 中 | 中 |
+| 审计友好 | 可自行埋点 | 可自行埋点 | 需扩展 | 需扩展 |
+
+> **选型建议**：小项目用 Policies + Gates 足够；需要可视化管理角色权限时引入 Spatie Permission；Bouncer 适合偏好能力（ability）模型的团队。本文方案是 Policies + Gates + 自建角色表的组合，兼顾灵活性与可控性。
+
+## 十二、路由中间件授权与 FormRequest 集成
+
+除了在 Controller 方法里手动调用 `$this->authorize()`，Laravel 还提供了两种更自动化的授权写法，适合标准化 CRUD 场景。
+
+### 路由中间件 `can:`
+
+在 `routes/api.php` 中直接挂载 Policy 能力，Controller 里就不用重复写了：
+
+```php
+Route::middleware(['auth:sanctum'])->group(function () {
+    // 单模型实例授权
+    Route::get('/orders/{order}', [OrderController::class, 'show'])
+        ->middleware('can:view,order');
+
+    // 类级别授权（不需要模型实例）
+    Route::post('/orders/export', [OrderController::class, 'export'])
+        ->middleware('can:export,App\Models\Order');
+
+    // 多能力 OR 逻辑
+    Route::put('/orders/{order}', [OrderController::class, 'update'])
+        ->middleware('can:update,order');
+});
+```
+
+这里的 `order` 是路由参数名，Laravel 会自动解析模型实例并注入到 Policy。但有一个真实坑：**如果路由参数名和 Policy 方法的参数名不一致，会直接跳过授权判断而不报错**。我曾经因为把路由参数叫 `{order}` 但 Policy 方法第二个参数叫 `$post`，导致整个 Policy 形同虚设。
+
+```php
+// ❌ 参数名不匹配，Laravel 找不到模型实例，静默跳过
+public function view(User $user, Order $target): bool  // 应该叫 $order
+
+// ✅ 参数名一致
+public function view(User $user, Order $order): bool
+```
+
+### `authorizeResource` 便捷方法
+
+在 Controller 构造方法里统一声明，Laravel 会根据方法名自动映射 Policy 能力：
+
+```php
+class OrderController extends Controller
+{
+    public function __construct()
+    {
+        $this->authorizeResource(Order::class, 'order');
+    }
+
+    // 自动映射：index→viewAny, show→view, create→create, store→create,
+    //           edit→update, update→update, destroy→delete
+}
+```
+
+好处是省代码，坏处是不透明——新人看 `show` 方法时不会意识到有授权逻辑在构造函数里。我的建议是：**内部后台可以用 `authorizeResource`，对外 API 保持显式 `$this->authorize()` 以便代码审查。**
+
+### FormRequest 集成 Policy
+
+如果已经在用 FormRequest 做参数校验，可以把授权逻辑也放进去，让 Controller 彻底归零：
+
+```php
+<?php
+
+namespace App\Http\Requests;
+
+use App\Models\Order;
+use Illuminate\Foundation\Http\FormRequest;
+
+class UpdateOrderRequest extends FormRequest
+{
+    public function authorize(): bool
+    {
+        /** @var Order $order */
+        $order = $this->route('order');
+
+        return $this->user()->can('update', $order);
+    }
+
+    public function rules(): array
+    {
+        return [
+            'status' => 'required|in:pending,confirmed,shipped',
+            'remark' => 'nullable|string|max:500',
+        ];
+    }
+}
+```
+
+Controller 变成纯业务调用：
+
+```php
+public function update(UpdateOrderRequest $request, Order $order): JsonResponse
+{
+    // 到这里授权已通过，直接执行业务
+    $order->update($request->validated());
+
+    return response()->json(OrderResource::make($order));
+}
+```
+
+> **注意**：不要同时在 FormRequest 的 `authorize()` 和 Controller 里都做授权判断，会重复执行 Policy，增加不必要的开销。选一个入口即可。
+
+### 三种授权入口对比
+
+| 方式 | 适用场景 | 优点 | 缺点 |
+|---|---|---|---|
+| `$this->authorize()` | 需要灵活控制的场景 | 显式、可审查 | 每个方法都要写 |
+| `authorizeResource` | 标准 CRUD Controller | 省代码、自动映射 | 不透明、参数名必须匹配 |
+| FormRequest `authorize()` | 有参数校验的接口 | 校验+授权合一 | 授权逻辑藏在 Request 里 |
+
+## 十三、API Resource 字段级权限控制
+
+前面讨论的都是「能不能访问」，但实际项目中更常见的是「能看哪些字段」。同一个订单详情接口，财务能看金额和佣金，客服只能看状态和物流。
+
+很多团队的做法是在 Controller 里拼数组，但更好的做法是把字段级权限放进 API Resource：
+
+```php
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class OrderResource extends JsonResource
+{
+    public function toArray($request): array
+    {
+        $data = [
+            'id'          => $this->id,
+            'order_no'    => $this->order_no,
+            'status'      => $this->status,
+            'created_at'  => $this->created_at->toIso8601String(),
+        ];
+
+        // 金额字段：只有具备 order.view.amount 权限的角色可见
+        if ($request->user()?->can('viewAmount', $this->resource)) {
+            $data['amount']     = $this->amount;
+            $data['commission'] = $this->commission;
+            $data['currency']   = $this->currency;
+        }
+
+        // 物流字段：客服和供应商可见
+        if ($request->user()?->can('viewShipping', $this->resource)) {
+            $data['tracking_no']   = $this->tracking_no;
+            $data['shipped_at']    = $this->shipped_at?->toIso8601String();
+            $data['carrier']       = $this->carrier;
+        }
+
+        // 关联数据按需加载
+        $data['customer'] = new CustomerResource($this->whenLoaded('customer'));
+
+        return $data;
+    }
+}
+```
+
+对应的 Policy 方法保持简洁：
+
+```php
+public function viewAmount(User $user, Order $order): bool
+{
+    return $user->tenant_id === $order->tenant_id
+        && $user->canUse('order.view.amount');
+}
+
+public function viewShipping(User $user, Order $order): bool
+{
+    return $user->tenant_id === $order->tenant_id
+        && $user->canUseAny(['order.view', 'order.view.shipping']);
+}
+```
+
+这样做的好处是：**前端不需要做任何权限判断，拿到的 JSON 结构天然就是脱敏后的**。即使是同一个接口、同一个 URL，不同角色拿到的字段集合完全不同。
+
+> **踩坑提示**：如果用 `$this->when()` 方法（Laravel 内置的条件字段），要注意它返回的是 `MissingValue` 对象而不是 `null`。序列化时 `MissingValue` 字段会被整个省略，而 `null` 字段会保留 key。这两种行为对前端的影响完全不同，要根据接口文档约定来选择。
+
+## 十四、Spatie Permission 高频踩坑补充
+
+### 缓存导致权限更新不立即生效
+
+Spatie 默认会缓存权限列表到缓存驱动（Redis / file），手动修改数据库中的角色权限关联后，如果不清缓存，用户侧感知不到变化：
+
+```php
+// ❌ 直接操作数据库后忘记清缓存
+DB::table('role_has_permissions')->insert([...]);
+// 用户下次请求仍然拿到旧权限
+
+// ✅ 方案一：用 Spatie 提供的方法操作，自动清缓存
+$role->givePermissionTo('order.export');
+
+// ✅ 方案二：手动操作数据库后主动清缓存
+app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+```
+
+在部署脚本中跑 Seeder / Migration 后也要记得清缓存，否则线上环境会拿到过期数据。
+
+### `Gate::before` 与 Spatie 的优先级冲突
+
+如果同时使用了 `Gate::before` 做超级管理员旁路和 Spatie 的 `hasPermissionTo`，要注意执行顺序。`Gate::before` 返回 `true` 会直接短路，后续的 Policy 和 Gate 都不会再执行：
+
+```php
+Gate::before(function ($user, string $ability) {
+    // 如果这里返回 true，所有 Policy 都被跳过，包括你自定义的租户判断
+    if ($user->hasRole('super-admin')) {
+        return true;
+    }
+    return null; // 返回 null 继续走后续判断
+});
+```
+
+我的建议是：**`Gate::before` 只对内部排障账号开放，且限制可用能力范围**。不要让它返回 `true` 给所有能力，否则审计日志和租户隔离形同虚设。
+
+### 同一用户多租户下角色混乱
+
+Spatie 的 `model_has_roles` 表默认没有 `tenant_id` 字段。如果一个用户在租户 A 是管理员、在租户 B 是普通客服，直接调用 `hasRole('admin')` 会返回 `true`，因为它不区分租户。
+
+解决方案有两种：
+
+```php
+// 方案一：启用 Spatie 的 teams 模式
+// config/permission.php: 'teams' => true
+// model_has_roles 表增加 team_id 字段
+$user->hasRole('admin', 'tenant-a');
+
+// 方案二：自己在中间件里维护 tenant_id 上下文，自定义 hasRole 方法
+public function hasRole(string $role, ?int $tenantId = null): bool
+{
+    $tenantId = $tenantId ?? $this->tenant_id;
+    return $this->roles()
+        ->wherePivot('tenant_id', $tenantId)
+        ->where('name', $role)
+        ->exists();
+}
+```
+
+方案一更规范但需要理解 Spatie 的 team 概念；方案二更灵活但需要自己维护。
+
 ## 结语
 
 Laravel 的 Policies 和 Gates 本身不复杂，真正难的是把它们放进**RBAC、租户隔离、查询性能、审计追踪**这一整套工程化上下文里。我的最终原则只有三条：
@@ -340,4 +887,15 @@ Laravel 的 Policies 和 Gates 本身不复杂，真正难的是把它们放进*
 2. **数据边界前推到查询层，别等查出来再逐条判。**
 3. **多租户上下文要能脱离 Web 请求存在，尤其是 Job、Command、Cron。**
 
-做到这一步，权限系统才算从“页面能不能点”升级成“数据能不能看、任务能不能跑、事故能不能追”。这也是 Laravel 后台进入中大型项目后，最值得尽早补上的基础设施。
+做到这一步，权限系统才算从"页面能不能点"升级成"数据能不能看、任务能不能跑、事故能不能追"。这也是 Laravel 后台进入中大型项目后，最值得尽早补上的基础设施。
+
+## 相关阅读
+
+- [Laravel 多租户 SaaS 实战：共享库与独立库混合架构下的租户识别、连接切换与队列串租踩坑记录](/php/Laravel/laravel-saas-guide-architecture/)
+- [Laravel Scopes 实战：查询作用域封装与复杂筛选条件复用踩坑记录](/php/Laravel/laravel-scopes-guide-query/)
+- [OpenFGA 实战：细粒度授权引擎（Zanzibar 模型）——Laravel 中的关系型权限控制与 ReBAC 落地](/00_架构/openfga-zanzibar-rebac-laravel/)
+- [Laravel Sanctum / Passport Token 刷新机制实战：多端登录、双 Token 轮换与并发续签踩坑记录](/php/Laravel/laravel-sanctum-passport-token-guide-token-concurrency/)
+- [Laravel Jobs & Queues 深度实战：队列驱动选型、失败重试与 Supervisor 进程管理](/php/Laravel/laravel-jobs-queues-deep-dive/)
+- [Laravel 中间件实战：请求生命周期、Kernel 注册顺序与自定义鉴权中间件踩坑记录](/php/Laravel/middleware-guide/)
+- [Laravel 授权模型深度对比：RBAC vs ABAC vs ReBAC](/05_PHP/Laravel/RBAC-vs-ABAC-vs-ReBAC-权限模型实战-Laravel中的三种授权范式/)
+- [数据库多租户模式对比实战：共享库 Row-Level vs Schema-per-Tenant vs 独立库](/01_MySQL/数据库多租户模式对比实战-共享库Row-Level-vs-Schema-per-Tenant-vs-独立库-Laravel中的三种方案深度权衡/)

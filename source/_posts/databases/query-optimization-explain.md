@@ -5,8 +5,12 @@ updated: 2026-05-05 00:50:30
 categories:
   - Databases
   - MySQL
-tags: [Laravel, MySQL, 性能优化]
+tags: [Laravel, MySQL, 性能优化, EXPLAIN, 索引优化, 覆盖索引, 游标分页]
 description: 在 KKday B2C API 中面对千万级订单表和百万级商品表的真实查询优化实战——从 EXPLAIN 逐行分析到覆盖索引设计、从 OFFSET 分页风暴到游标分页、从慢查询埋点到归档策略，完整还原一次「P1 级慢查询治理」的全过程。
+cover: /images/covers/databases-021-cover.jpg
+images:
+  - /images/content/databases-021-content-1.jpg
+  - /images/content/databases-021-content-2.jpg
 
 
 
@@ -63,6 +67,8 @@ MySQL 8.0.18+ 才支持 `EXPLAIN ANALYZE`，它会**实际执行**查询并返�
 
 ## 二、索引重构：覆盖索引 + 排序索引的组合拳
 
+![索引重构与覆盖索引设计](/images/content/databases-021-content-1.jpg)
+
 ### 2.1 原始索引的问题
 
 ```sql
@@ -108,6 +114,8 @@ LIMIT 20;
 ---
 
 ## 三、分页治理：OFFSET 是万恶之源
+
+![游标分页与OFFSET性能对比](/images/content/databases-021-content-2.jpg)
 
 ### 3.1 OFFSET 的本质问题
 
@@ -168,11 +176,18 @@ $nextCursor = $last
 
 **性能对比**：
 
-| 分页深度 | OFFSET 分页 | 游标分页 |
-|---------|------------|---------|
-| 第 1 页 | 0.5ms | 0.5ms |
-| 第 1000 页 | 45ms | 0.5ms |
-| 第 25000 页 | 2200ms | 0.5ms |
+| 指标 | OFFSET 分页 | 游标分页 | 说明 |
+|------|------------|---------|------|
+| 第 1 页延迟 | 0.5ms | 0.5ms | 起点相同 |
+| 第 100 页延迟 | 5ms | 0.5ms | OFFSET 开始显现差距 |
+| 第 1000 页延迟 | 45ms | 0.5ms | 差 90 倍 |
+| 第 25000 页延迟 | 2200ms | 0.5ms | 差 4400 倍，前端已不可用 |
+| 时间复杂度 | O(N) | O(1) | N = OFFSET 偏移量 |
+| 索引扫描行数 | offset + limit | limit | 游标永远只扫 limit 行 |
+| 是否支持跳页 | ✅ | ❌ | 游标只能上一页/下一页 |
+| 深分页内存消耗 | 高（需临时表排序） | 极低 | OFFSET 越大临时表越大 |
+| 网络传输量 | 恒定（只返回 limit 行） | 恒定 | 两者返回量相同 |
+| 适用场景 | 后台管理（页数有限） | C 端列表/无限滚动 | 按业务场景选择 |
 
 ### 踩坑 3：游标分页不支持「跳页」
 
@@ -358,3 +373,9 @@ public function boot(): void
 ```
 
 **核心原则**：百万级数据表的优化不是某一个银弹，而是「索引 + 分页策略 + 查询裁剪 + 归档」的组合拳。每一步都有 10-100 倍的收益，叠加起来才是最终的效果。
+
+## 相关阅读
+
+- [数据库索引优化实战：覆盖索引、联合索引与索引下推——Laravel B2C API 踩坑记录](/categories/Databases/index-optimization-explain/)
+- [MySQL 窗口函数实战：ROW_NUMBER / RANK / DENSE_RANK 在运营报表中的应用](/categories/Databases/mysql-guide-row-number-rank-dense-rank/)
+- [TiDB 实战：分布式 SQL 数据库在 Laravel 中的集成——MySQL 兼容的 NewSQL 选型指南](/categories/MySQL/TiDB-实战-分布式SQL数据库在Laravel中的集成-MySQL兼容的NewSQL选型指南/)

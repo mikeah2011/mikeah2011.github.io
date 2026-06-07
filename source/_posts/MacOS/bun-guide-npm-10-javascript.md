@@ -1,10 +1,11 @@
 ---
 title: Bun 实战-比 npm 快 10 倍的 JavaScript 运行时踩坑记录
+cover: /images/covers/bun-guide-npm-10-javascript-cover.jpg
 date: 2026-05-16 23:40:12
 updated: 2026-05-16 23:43:00
 categories: macOS
-tags: [JavaScript, 前端, 性能优化]
-description: 从 npm/pnpm 迁移到 Bun 的完整实战记录，涵盖包管理、构建、测试、运行时替换，以及在 Laravel + Vue 3 + Vite 项目中踩过的坑。
+tags: [javascript, 前端, 性能优化, bun, node.js, npm]
+description: Bun 是基于 JavaScriptCore 引擎的全新 JavaScript/TypeScript 运行时与工具链，集成包管理器、构建工具和测试运行器于一体。本文详细记录在 macOS Apple Silicon 环境下，从 npm/pnpm 迁移到 Bun 的完整实战过程，涵盖 bun install 包管理速度对比（比 npm 快 10 倍）、bun build 构建优化、bun test 测试运行、与 Node.js/Deno 的性能基准对比、Laravel + Vue 3 + Vite 项目踩坑案例及 CI/CD 配置，帮助前端开发者快速上手 Bun 并规避常见问题。
 
 
 
@@ -677,8 +678,35 @@ bun --filter web run build
 | 生产环境（前端） | 标准 JS 产物 | 产物与工具无关 |
 | 生产环境（后端） | Node.js | 稳定性和生态兼容性 |
 
+### Bun vs Node.js vs Deno 全面对比
+
+| 特性 | Bun 1.2 | Node.js 22 | Deno 2.x |
+|------|---------|------------|----------|
+| JS 引擎 | JavaScriptCore (Safari) | V8 (Chrome) | V8 (Chrome) |
+| 编写语言 | Zig | C++ | Rust |
+| 包管理器 | `bun install`（内置） | npm / pnpm（需单独安装） | 内置 URL 导入 + npm 兼容 |
+| 冷安装速度（380 依赖） | ~4s | ~45s (npm) | ~30s |
+| TypeScript 支持 | 原生内置，零配置 | 需 ts-node / tsx / 编译 | 原生内置 |
+| 测试运行器 | `bun test`（内置） | 需 jest / vitest | `deno test`（内置） |
+| 内置 SQLite | ✅ `bun:sqlite` | ❌ 需 better-sqlite3 | ❌ 需第三方库 |
+| Fetch API | ✅ 内置 | ✅ 18+ 内置 | ✅ 内置 |
+| .env 支持 | ✅ 内置加载 | ❌ 需 dotenv | ❌ 需第三方 |
+| Node.js 兼容性 | 高（持续改进中） | 原生 | 中等（通过 npm: 前缀） |
+| 生产环境成熟度 | ⚠️ 前端构建推荐，后端慎用 | ✅ 最成熟 | ⚠️ 边缘场景推荐 |
+| Workspaces 支持 | ✅ 原生 | ✅ npm 7+ | ✅ 支持 |
+| License | MIT | MIT | MIT |
+
+> **选型建议**：新前端项目优先选 Bun 加速开发体验；后端 API 服务暂留 Node.js；边缘计算和安全敏感场景考虑 Deno。三者并非互斥，可在同一项目中组合使用。
+
 Bun 是一个令人兴奋的工具链革新，但它并不意味着要完全替代 Node.js。在实际项目中，**开发阶段用 Bun 加速，生产环境保持 Node.js** 是目前最稳妥的策略。随着 Bun 生态的成熟，这个边界会逐渐模糊。
 
 ---
+
+## 相关阅读
+
+- [pnpm 实战：高效磁盘空间利用与 Workspace Monorepo 包管理踩坑记录](/macos/pnpm-guide-workspace-monorepo/) — 另一款高性能包管理器的对比选择
+- [npm-workspace 实战：Monorepo 项目管理与多包协作 Laravel 前后端分离踩坑记录](/macos/npm-workspace-guide-monorepo-laravel/) — npm 原生 Workspaces 的使用方式
+- [Bun 全栈实战：HTTP Server + File I/O + SQLite 内置能力——对比 Node.js 的性能优势与 Laravel 开发者迁移指南](/04_前端/Bun-全栈实战-HTTP-Server-File-IO-SQLite内置能力-对比Node.js的性能优势与Laravel开发者迁移指南/) — Bun 后端全栈能力深入探索
+- [Deno 2.x 实战：安全优先的 JavaScript 运行时——与 Node.js/Bun 的三选一决策](/04_前端/Deno-2x-实战-安全优先的JavaScript运行时-与Node.js-Bun的三选一决策/) — 三大 JS 运行时的选型决策指南
 
 *本文基于 Bun 1.2.x + macOS Apple Silicon 环境测试。如果你在迁移过程中遇到其他问题，欢迎留言讨论。*

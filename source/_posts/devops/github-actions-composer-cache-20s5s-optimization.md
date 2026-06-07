@@ -1,11 +1,12 @@
 ---
 title: GitHub-Actions-Composer-Cache-构建时间从20s到5s-优化实战踩坑记录
+cover: /images/covers/github-actions-composer-cache-20s5s-optimization-cover.jpg
 date: 2026-05-05 02:30:33
 updated: 2026-05-05 02:31:49
 categories:
   - DevOps
   - Docker
-tags: [CI/CD, Composer, Laravel, 性能优化, 缓存]
+tags: [CI/CD, composer, laravel, 性能优化, 缓存]
 description: 在 Laravel B2C 项目中，通过 GitHub Actions 的 Composer 缓存策略，将 CI 构建时间从 20s 优化到 5s 的完整实战记录，涵盖 actions/cache、dependency caching、Lock 文件管理与踩坑经验。
 
 
@@ -323,3 +324,40 @@ jobs:
 | `dump-autoload` | 缓存命中后 | 确保 autoload 正确 |
 
 CI 优化不是一次性的事，而是一个持续观察、迭代的过程。建议先加 `actions/cache` 跑一周，观察缓存命中率（GitHub Actions → Insights → Caches），再针对性调整 key 策略。
+
+## 常见 CI 缓存排查清单
+在实际项目中，缓存策略上线后往往会遇到各种意想不到的问题。以下是我们团队在多个 Laravel 项目中总结出的排查清单，遇到缓存相关问题时可以逐项检查：
+### 缓存命中率持续偏低
+如果在 GitHub Insights → Caches 页面发现命中率低于 50%，优先排查以下几点：
+
+- **key 包含了不稳定变量**：不要在 key 中使用 `github.run_id`、`github.run_number` 等每次构建都变化的变量，这会导致每次都是新缓存。正确的 key 应该基于 `composer.lock` 的 hash 值。
+- **restore-keys 缺失或过于严格**：`restore-keys` 应该保留足够宽泛的前缀回退。如果设置得太精确，一旦 lock 文件变更就完全无法回退到旧缓存。
+- **多分支缓存互相挤占**：GitHub Actions 的缓存按分支 scope 隔离，但缓存总量有 10GB 上限。如果团队分支很多，老分支的缓存会优先被清除。建议使用 `actions/cache/restore` 在 CI 开头读取主分支缓存作为回退源。
+### 缓存命中但安装仍然很慢
+缓存命中了 `vendor/` 目录，但 `composer install` 仍然耗时 8-10 秒？常见原因：
+
+- **lock 文件变更导致全量解析**：即使 vendor 目录已缓存，`composer.lock` 变化后 Composer 仍会重新解析依赖树。建议在缓存命中时使用 `composer install --no-scripts` 跳过脚本执行，但前提是项目不依赖 post-install-cmd 生成的文件。
+- **缺少 `--prefer-dist` 参数**：没有这个参数，Composer 会尝试从源码安装而非下载 zip 包，速度差距可达 3-5 倍。在 CI 环境中应该始终加上 `--prefer-dist`。
+- **autoload 生成耗时**：大型项目的 `composer dump-autoload --optimize` 可能需要 2-3 秒。如果项目对 autoload 优化没有强需求，可以去掉 `--optimize` 参数。
+### 缓存导致构建结果不一致
+这是最隐蔽的问题——缓存命中后测试通过，但清缓存后测试失败，或反过来。排查方向：
+
+- **版本漂移**：缓存的 `vendor/` 中某些包版本与 lock 文件不一致。确保 key 严格绑定 `composer.lock` 的完整 hash，不要用模糊匹配。
+- **平台扩展变化**：如果 `phpunit.xml` 或环境变量因 CI 配置变更而不同，缓存的 vendor 可能不兼容。建议在 key 中加入 `php-version` 后缀。
+- **IDE 和本地环境同步问题**：本地开发者执行了 `composer update` 但没有提交 lock 文件，CI 缓存中仍是旧版本。团队应约定：修改 `composer.json` 后必须一并提交 `composer.lock`。
+### 缓存大小的实用经验值
+不同项目类型的缓存大小参考：
+
+| 项目规模 | composer.json 包数 | vendor/ 目录大小 | cache-dir 大小 | 建议策略 |
+|---------|-------------------|-----------------|---------------|---------|
+| 小型项目 | 20-40 个 | 30-60 MB | 10-20 MB | 两者皆可，差异不大 |
+| 中型项目（Laravel 标准） | 80-120 个 | 100-200 MB | 40-80 MB | 缓存 vendor/ 更快 |
+| 大型企业项目 | 200+ 个 | 300-500 MB | 100-200 MB | 缓存 vendor/ + 限制分支缓存量 |
+
+当缓存总量接近 GitHub 的 10GB 限制时，优先清理 `cache-dir` 而非 `vendor/` 缓存，因为后者对安装速度的提升更直接。
+
+## 相关阅读
+
+- [Ansible 实战：Laravel 应用自动化部署与配置管理——从 SSH 手工操作到声明式基础设施踩坑记录](/categories/CI_CD/Ansible-实战-Laravel-应用自动化部署与配置管理踩坑记录/)
+- [Trunk-Based Development 深度实战：Feature Flag 替代长生命周期分支的工程化落地](/categories/CI_CD/Trunk-Based-Development-深度实战-Feature-Flag-替代长生命周期分支的工程化落地/)
+- [PR Review Checklist 自动化实战：Danger.js/lint-staged/Husky 的组合拳——从代码风格到架构规范的 CI 门禁](/categories/CI_CD/PR-Review-Checklist-自动化实战-Danger-js-lint-staged-Husky组合拳-CI门禁/)

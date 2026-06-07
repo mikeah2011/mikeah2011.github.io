@@ -1,12 +1,13 @@
 ---
 title: AI Agent Skill 开发实战：自定义技能与工作流自动化——Hermes Agent 踩坑记录
+cover: /images/covers/ai-agent-skill-guide-automation-hermes-agent-cover.jpg
 date: 2026-05-17 03:41:03
 updated: 2026-05-17 03:44:15
 categories:
   - macOS
   - Tools
-tags: [AI, macOS, 架构]
-description: 深入 Hermes Agent Skill 系统的实战开发经验——从 SKILL.md 格式规范、Progressive Disclosure 机制、条件激活、环境变量管理，到真实 Skill 编写与 Cron 自动化工作流集成，完整踩坑记录。
+tags: [ai, agent, hermes, skill, automation, macos, 工作流, 自动化, 架构]
+description: Hermes Agent Skill 系统深度实战指南——从 SKILL.md 格式规范、Progressive Disclosure 三级渐进加载机制、条件激活与 fallback 策略、环境变量安全管理，到完整的 Hexo 博客写作 Skill 开发流程与 Cron 无人值守自动化工作流集成。包含 9 个真实踩坑案例、架构设计图、方案对比表与最佳实践清单，帮助 AI Agent 开发者快速上手自定义 Skill 开发，实现工作流自动化。
 
 
 
@@ -420,6 +421,136 @@ Skill 作为 Slash Command 时，内容是以 **user message**（而非 system p
 ✅ Cron 兼容：无人值守场景，指令必须确定性，包含兜底策略
 ✅ 版本管理：更新 Skill 时递增 version 字段
 ```
+
+---
+
+## 十一、实战踩坑详解：Cron 无人值守场景的确定性指令设计
+
+在第七节提到 Cron 任务需要"确定性指令"，这里展开一个真实案例，展示**模糊指令 vs 确定性指令**的差异。
+
+### 反面教材：模糊指令导致 Agent 空转
+
+```markdown
+## Procedure
+### Step 1: 选题
+从选题池中选一个好题目来写。
+
+### Step 2: 写文章
+写一篇高质量的技术文章。
+
+### Step 3: 发布
+保存并发布。
+```
+
+问题：
+- "好题目"没有量化标准，Agent 可能随机选择
+- "高质量"没有长度、结构约束
+- "发布"没有具体的 git commit + deploy 命令
+- 没有兜底策略——选题池为空时 Agent 会卡住或乱写
+
+### 正面教材：确定性指令
+
+```markdown
+## Procedure
+### Step 1: 选题
+1. 读取 `.writing-backlog.md`，筛选所有 `- [ ]` 未完成项
+2. 如果未完成项为空 → 输出 `[SILENT] No pending topics. Stopping.` 并终止
+3. 按优先级（行号靠前优先）选择第一个未完成项
+4. 检查 `source/_posts/` 下所有 `.md` 文件的 title 字段，确保无重复（标题相似度 < 60%）
+
+### Step 2: 写文章
+1. 字数：1500-2500 字（不含代码块）
+2. 必须包含：至少 2 个可运行代码示例、1 个架构图（ASCII）、至少 3 条踩坑记录
+3. 语气：面向中高级开发者，不要写入门概念
+4. 标题格式：`{关键词}-{方向}`
+
+### Step 3: 保存与发布
+1. 保存到 `source/_posts/{category}/{slug}.md`
+2. frontmatter 必须包含：title, date, updated, categories, tags, description
+3. 更新 `.writing-backlog.md`：`- [ ]` → `- [x] | path: {path} | date: {date}`
+4. 输出通知模板（包含文章标题、路径、字数统计）
+```
+
+**核心差异**：确定性指令为每一步都提供了量化标准和失败处理路径，Agent 不需要"猜测"或"判断"。
+
+### Skill 开发决策矩阵
+
+在实际开发中，经常需要在 Skill、Tool、Plugin 之间做选择。以下是决策参考：
+
+| 维度 | Skill（技能） | Tool（工具） | Plugin（插件） |
+|------|--------------|-------------|---------------|
+| **实现方式** | Markdown 指令文件 | Python 代码 | 第三方 SDK 集成 |
+| **开发成本** | 低（写文档即可） | 中（需要编码） | 高（需要理解 SDK） |
+| **修改成本** | 极低（改 Markdown） | 中（改代码+测试） | 高（可能要改架构） |
+| **适用场景** | 流程驱动、指令型 | 数据处理、API 调用 | 外部服务集成 |
+| **调试方式** | 读文本即可排查 | 需要日志+断点 | 需要网络抓包 |
+| **Token 效率** | 高（Progressive Disclosure） | 低（每次注入代码） | 低（注入 SDK 文档） |
+| **典型例子** | 博客写作、Git 工流 | 浏览器自动化、TTS | Slack/Telegram 集成 |
+
+**经验法则**：先尝试用 Skill 解决，如果发现需要大量条件判断和数据处理逻辑，再升级为 Tool。
+
+---
+
+## 十二、从 Skill 到工作流：端到端自动化实战
+
+Skill 最大的价值不只是单次任务的标准化，而是可以**串联成工作流**。下面是一个完整的端到端自动化示例——从代码提交到博客发布：
+
+```yaml
+# ~/.hermes/config.yaml - 完整工作流配置示例
+cron:
+  jobs:
+    # 每周日写一篇博客
+    - name: weekly-blog
+      schedule: "0 3 * * 0"
+      message: "使用 hexo-blog-writer skill 写一篇博客文章，完成后使用 hexo-deployer skill 部署"
+      destination: telegram
+
+    # 每天检查 GitHub Issues
+    - name: daily-issue-triage
+      schedule: "0 9 * * *"
+      message: "使用 github-issue-triage skill 检查最近 24 小时的新 issue，分类并生成摘要"
+      destination: slack
+
+    # 每周一生成周报
+    - name: weekly-report
+      schedule: "0 18 * * 1"
+      message: "使用 weekly-report skill 汇总本周 git commits、PR、issue 处理情况"
+      destination: telegram
+```
+
+工作流串联的关键是**上一个任务的输出作为下一个任务的输入**。在 Cron 场景中，这通过文件系统实现——前一个 Skill 写入文件，后一个 Skill 读取文件。
+
+```markdown
+## hexo-deployer Skill 的 When to Use
+- User asks to deploy/build Hexo blog
+- Previous Skill wrote a new blog post and needs deployment
+- Scheduled cron job triggers blog deployment
+
+## Procedure
+### Step 1: 检查是否有新内容
+Run `git -C {blog.repo_path} status --porcelain`
+If no changes → output `[SILENT] No changes to deploy.` and stop
+
+### Step 2: 构建
+Run `cd {blog.repo_path} && npx hexo clean && npx hexo generate`
+
+### Step 3: 部署
+Run `cd {blog.repo_path} && npx hexo deploy`
+
+### Step 4: 确认
+Verify deployment by checking the output for "Deploy done"
+```
+
+这种"Skill 链"模式让你可以用纯 Markdown 编排复杂的自动化流程，无需写一行 Python 代码。
+
+---
+
+## 相关阅读
+
+- [三大框架技能系统对比：Hermes Skill Hub vs OpenClaw ClawdHub vs OpenHuman Composio](/post/三大框架技能系统对比-Hermes-Skill-Hub-vs-OpenClaw-ClawdHub-vs-OpenHuman-Composio.html)
+- [Hermes 技能同步机制：bundled skills → user space 的增量同步与用户修改保留策略](/post/Hermes-技能同步机制-bundled-skills-到-user-space-增量同步与用户修改保留策略.html)
+- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战踩坑记录](/post/2026-06-01-Cursor-Claude-Code-Hermes-macOS-开发者多AI协作工作流实战踩坑记录.html)
+- [Hermes MCP 集成架构：动态工具发现、stdio/SSE/HTTP 传输与 prompt injection 检测](/post/Hermes-MCP-集成架构-动态工具发现-stdio-SSE-HTTP传输-prompt-injection检测.html)
 
 ---
 

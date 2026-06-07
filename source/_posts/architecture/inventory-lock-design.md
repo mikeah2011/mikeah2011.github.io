@@ -1,5 +1,6 @@
 ---
 title: 电商库存系统设计-防超卖分布式锁与库存预扣减-Laravel-B2C-API实战踩坑记录
+cover: /images/covers/inventory-lock-design-cover.jpg
 date: 2026-05-05 07:50:29
 updated: 2026-05-05 07:52:21
 categories: Architecture
@@ -507,3 +508,12 @@ Redis::setex("inventory:{$id}:stock", $ttl, $stock);
 5. **定时对账**：Redis 和 MySQL 之间的数据不一致必须有检测和修复机制
 
 > 库存系统没有银弹，只有权衡。选择哪个方案取决于你的并发量、一致性要求和运维能力。
+
+---
+
+## 相关阅读
+
+- [Eventual Consistency 实战：最终一致性在电商场景中的工程化——反压、冲突解决与用户感知延迟](/categories/架构/Eventual-Consistency-实战-最终一致性在电商场景中的工程化-反压冲突解决与用户感知延迟/)
+- [Saga 编排模式深度实战：Choreography vs Orchestration vs Temporal——Laravel 分布式事务的三种实现路线对比](/categories/架构/saga-orchestration-pattern-laravel-distributed-transaction/)
+- [分布式缓存一致性实战：Cache-Aside/Write-Through/Write-Behind 在 Laravel 中的工程化落地](/categories/架构/分布式缓存一致性实战-Cache-Aside-Write-Through-Write-Behind在Laravel中的工程化落地/)
+- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/categories/架构/Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构/)

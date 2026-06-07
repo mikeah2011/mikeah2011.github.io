@@ -1,9 +1,10 @@
 ---
 title: OpenClaw 记忆系统实战：MEMORY.md 长期记忆与日常记忆管理
 date: 2026-06-02 09:00:00
-tags: [OpenClaw, AI Agent, 记忆系统, MEMORY.md, 长期记忆]
+tags: [openclaw, ai agent, 记忆系统, memory.md, 长期记忆]
 categories: [架构]
 cover: /images/covers/openclaw-memory-system-cover.jpg
+description: "本文系统讲解 OpenClaw 记忆系统的落地方法，围绕 MEMORY.md、长期记忆、日常记忆、AI Agent 的上下文管理与跨会话协作展开，覆盖记忆写入、读取、压缩、遗忘与容量控制策略，并结合代码示例、配置片段和实战场景说明如何构建透明、可维护、可审计的持久化记忆机制。"
 ---
 
 # OpenClaw 记忆系统实战：MEMORY.md 长期记忆与日常记忆管理
@@ -1270,4 +1271,10 @@ OpenClaw 通过 `MEMORY.md` 把 Agent 的长期记忆从“抽象能力”落到
 ```
 
 如果你正在构建自己的 Agent，不妨从一个简单的 `MEMORY.md` 开始。把用户偏好、项目规则和关键经验先记录下来，再逐步引入 daily note、摘要压缩和遗忘策略。很多时候，真正让 Agent 变得可靠的，不是更长的 prompt，而是一套经过设计的记忆系统。
+
+## 相关阅读
+
+- [OpenClaw + 微信实战：个人 AI 助手接入微信私聊与群聊](/categories/架构/OpenClaw-微信实战-个人-AI-助手接入微信私聊与群聊/)
+- [OpenClaw + Discord 实战：多频道 AI 助手与社区管理](/categories/架构/OpenClaw-Discord-实战-多频道-AI-助手与社区管理/)
+- [OpenClaw + WhatsApp 实战：跨平台消息集成与自动化](/categories/架构/OpenClaw-WhatsApp-实战-跨平台消息集成与自动化/)
 

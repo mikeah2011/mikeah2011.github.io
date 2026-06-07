@@ -1,11 +1,12 @@
 ---
 title: Laravel + Elasticsearch 全文搜索优化实战：商品搜索召回、同义词与零停机重建索引踩坑记录
+cover: /images/covers/laravel-elasticsearch-optimizationguide-index-cover.jpg
 date: 2026-05-03 10:20:00
 categories:
   - PHP
   - Laravel
-tags: [Elasticsearch, KKday, Laravel]
-description: 结合 Laravel B2C 商品搜索改造经验，记录 Elasticsearch 在索引设计、召回排序、同义词扩展、增量同步与零停机重建索引上的一套可落地方案。
+tags: [elasticsearch, kkday, laravel, 全文搜索, 同义词]
+description: 结合 Laravel B2C 商品搜索改造经验，详细记录 Elasticsearch 在索引设计、召回排序、function_score 权重调优、同义词扩展、Bulk 批量回填、增量同步与零停机重建索引（alias 切换）上的一套可落地方案。涵盖索引 mapping 设计原则、查询层召回与排序分离、afterCommit 异步同步、生产事故排查等实战踩坑，帮助团队把搜索接口 P95 从 420ms 降到 85ms，适合需要对 Laravel + Elasticsearch 搜索链路做系统性优化的后端工程师参考。
 
 
 
@@ -300,3 +301,96 @@ curl http://localhost:9200/products_v20260503/_doc/123456
 - 搜索监控至少看 P95、0 结果率、点击率、Top miss keyword
 
 全文搜索优化做到后面，其实已经不是“会不会写 DSL”，而是你能不能把**索引演进、业务权重和数据一致性**同时管住。ES 很强，但真正让它稳定发挥价值的，永远是工程化细节。
+
+## 十、方案对比：ES vs 数据库全文搜索 vs PostgreSQL 原生搜索
+
+在决定是否引入 Elasticsearch 之前，很多团队会纠结"到底要不要上 ES"。下面这张表来自我们实际评估后的结论：
+
+| 维度 | MySQL FULLTEXT | PostgreSQL tsvector | Laravel Scout | Elasticsearch |
+|------|---------------|---------------------|---------------|---------------|
+| 中文分词 | ngram 粗粒度，准确率低 | zhparser / pg_jieba 需插件 | 依赖数据库驱动或 Meili | ICU / ik / 自定义分词器，灵活度最高 |
+| 查询延迟（10 万级） | 50~150ms | 20~80ms | 与数据库一致 | 5~30ms |
+| 同义词支持 | 不支持 | 需手动维护词典 | 不支持 | synonym\_graph 原生支持 |
+| 运维成本 | 无额外组件 | 无额外组件 | 低 | 需维护集群（JVM 堆、分片策略） |
+| 推荐场景 | < 5 万记录、轻量搜索 | < 50 万、愿接受中等分词质量 | 快速原型 | > 10 万、需要精细分词与排序调优 |
+
+**选型建议**：如果搜索是你的核心业务路径（电商、旅游、内容平台），直接上 ES；如果是后台管理系统的模糊查找，PostgreSQL tsvector 足够。
+
+## 十一、Laravel 配置层封装：Elasticsearch Client 服务注册
+
+在 Laravel 项目中接入 ES，推荐通过 Service Provider 封装，方便测试时 mock：
+
+```php
+<?php
+
+namespace App\Providers;
+
+use Elastic\Elasticsearch\Client;
+use Elastic\Elasticsearch\ClientBuilder;
+use Illuminate\Support\ServiceProvider;
+
+final class ElasticsearchServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        $this->app->singleton(Client::class, function () {
+            $builder = ClientBuilder::create()
+                ->setHosts([config('services.elasticsearch.host')])
+                ->setRetries(2);
+
+            if (app()->environment('local', 'testing')) {
+                $builder->setSSLVerification(false);
+            }
+
+            return $builder->build();
+        });
+    }
+}
+```
+
+对应 `.env` 配置：
+
+```env
+ELASTICSEARCH_HOST=http://localhost:9200
+```
+
+`config/services.php` 中添加：
+
+```php
+'elasticsearch' => [
+    'host' => env('ELASTICSEARCH_HOST', 'http://localhost:9200'),
+],
+```
+
+## 十二、增量同步的幂等保障
+
+队列任务可能被重试，所以同步 Job 必须幂等。ES 的 `index` API 本身就是 upsert 语义（相同 `_id` 会覆盖），但要注意**删除场景**：商品下架后如果只做增量更新而不标记删除，旧文档会残留在搜索结果里。我们最终的做法是：
+
+```php
+public function sync(int $productId): void
+{
+    $product = Product::find($productId);
+
+    if (!$product || !$product->is_active) {
+        // 软删除：从 ES 移除，而非物理删除 DB 记录
+        $this->client->delete([
+            'index' => 'products_read',
+            'id'    => (string) $productId,
+            'ignore' => [404],  // 不存在时不抛异常
+        ]);
+        return;
+    }
+
+    $this->client->index([
+        'index' => 'products_read',
+        'id'    => (string) $productId,
+        'body'  => $this->mapToDocument($product),
+    ]);
+}
+```
+
+## 相关阅读
+
+- [Laravel Full-Text Search 实战：数据库原生全文搜索与 Laravel Scout 深度对比](/categories/Laravel/PHP/laravel-full-text-search-database-native-vs-scout-comparison/)
+- [Elasticsearch 全文搜索深度调优实战：Laravel 多字段映射、分词策略与高可用架构](/categories/PHP/laravel/elasticsearch-guide-laravel-high-availabilityarchitecture/)
+- [Laravel + PostgreSQL 原生搜索实战：tsvector 排名、pg_trgm 纠错与高亮摘要](/categories/PHP/laravel/laravel-postgresql-guide-elasticsearch-tsvector-pg-trgm/)

@@ -1,10 +1,11 @@
 ---
 title: Laravel-Firebase-Cloud-Messaging-Web-Push-Service-Worker-推送通知实战
+cover: /images/covers/laravel-firebase-cloud-messaging-web-push-service-worker-cover.jpg
 date: 2026-05-05 01:31:05
 updated: 2026-05-05 01:37:02
 categories:
   - PHP
-  - Git
+  - Laravel
 tags: [KKday, Laravel, 前端]
 description: 在 KKday B2C 旅行平台落地 FCM Web Push 的完整方案：从 Firebase 项目配置、Service Worker 注册、Laravel 后端 topic 订阅与消息发送，到静默推送失效、Token 轮换、多端去重等真实踩坑记录。
 
@@ -719,3 +720,198 @@ class FcmMetrics
 6. **开发环境先清 SW 缓存**——否则会怀疑人生
 
 Web Push 是一个「看起来简单、细节很多」的功能。希望这篇踩坑记录能帮你少走弯路。
+
+## 9. 推送通知服务横向对比
+
+在选型阶段，除了 FCM，我们还评估了 OneSignal 和 Pusher Beams。以下是三者的关键差异：
+
+| 维度 | Firebase Cloud Messaging (FCM) | OneSignal | Pusher Beams |
+|------|-------------------------------|-----------|--------------|
+| **免费额度** | 完全免费，无消息数限制 | 免费版 10K 订阅者，有水印 | 免费 2K 订阅者/月，100K 消息/月 |
+| **后端集成** | 官方 Admin SDK（kreait/firebase-php） | REST API / 官方 PHP SDK | REST API / PHP SDK |
+| **前端 SDK** | firebase/messaging（官方） | OneSignal SDK（独立） | Pusher JS SDK |
+| **Topic/Segment** | Topic 订阅（服务端管理） | Segments + Tags（控制台可视化） | Interest 订阅（API 管理） |
+| **多平台** | Web + Android + iOS + Flutter | Web + Android + iOS + Email + SMS | Web + Android + iOS |
+| **离线推送** | ✅ 浏览器关闭仍可推送 | ✅ 支持 | ✅ 支持 |
+| **数据分析** | Firebase Analytics（基础） | 丰富的报表 + A/B 测试 | 基础送达率统计 |
+| **自定义程度** | Data Payload 完全自定义 | 高（支持自定义模板） | 中等 |
+| **Safari 支持** | 需要 PWA 模式 | 原生支持（Safari 推送 API） | 需要 PWA 模式 |
+| **运维成本** | 低（Google 托管） | 低（SaaS） | 低（SaaS） |
+
+**选型建议**：
+- **已有 Firebase 生态**（Auth、Analytics、Firestore）→ 选 FCM，集成成本最低
+- **需要营销能力**（A/B 测试、用户分群、多渠道）→ 选 OneSignal
+- **已有 Pusher 生态**（实时聊天、Presence Channels）→ 选 Pusher Beams，统一技术栈
+
+## 10. Service Worker 注册最佳实践
+
+以下是一个带错误处理和重试机制的 Service Worker 注册实现：
+
+```javascript
+// src/utils/registerServiceWorker.js
+
+/**
+ * 注册 FCM Service Worker，带重试和版本管理
+ * 踩坑点：SW 注册是异步的，且可能因网络/CSP策略失败
+ */
+export async function registerFCMServiceWorker() {
+    if (!('serviceWorker' in navigator)) {
+        console.warn('[SW] 当前浏览器不支持 Service Worker');
+        return null;
+    }
+
+    try {
+        // 检查是否已注册
+        const existingRegistration = await navigator.serviceWorker.getRegistration('/');
+        if (existingRegistration) {
+            console.log('[SW] 已存在注册，更新中...');
+            existingRegistration.update();
+            return existingRegistration;
+        }
+
+        // 注册新的 Service Worker
+        const registration = await navigator.serviceWorker.register(
+            '/firebase-messaging-sw.js',
+            { scope: '/' }
+        );
+
+        console.log('[SW] 注册成功:', registration.scope);
+
+        // 监听 SW 状态变化
+        registration.installing?.addEventListener('statechange', (event) => {
+            console.log('[SW] 状态变更:', event.target.state);
+        });
+
+        // 等待 SW 激活
+        await navigator.serviceWorker.ready;
+        console.log('[SW] Service Worker 已激活');
+
+        return registration;
+    } catch (error) {
+        console.error('[SW] 注册失败:', error);
+        if (error.message.includes('404')) {
+            console.error('[SW] 请确认 firebase-messaging-sw.js 放在 public/ 根目录');
+        }
+        return null;
+    }
+}
+```
+
+## 11. FCM Token 生命周期管理
+
+Token 是 FCM 推送的核心，完整生命周期需要闭环管理：
+
+```php
+<?php
+// app/Services/FcmTokenManager.php
+
+namespace App\Services;
+
+use Illuminate\Support\Facades\DB;
+use Kreait\Firebase\Messaging;
+
+class FcmTokenManager
+{
+    public function __construct(
+        private readonly Messaging $messaging
+    ) {}
+
+    /**
+     * 注册新 Token：验证 + 存储 + 订阅 Topic
+     */
+    public function registerToken(
+        int $userId,
+        string $token,
+        string $topic,
+        array $deviceMeta = []
+    ): array {
+        // 1. 验证 Token 有效性
+        if (!$this->validateToken($token)) {
+            return ['success' => false, 'error' => 'invalid_token'];
+        }
+
+        // 2. 存储到数据库（持久化，不依赖 Cache）
+        DB::table('fcm_tokens')->updateOrInsert(
+            ['token' => $token],
+            [
+                'user_id'      => $userId,
+                'device_type'  => $deviceMeta['device_type'] ?? 'web',
+                'user_agent'   => $deviceMeta['user_agent'] ?? null,
+                'last_used_at' => now(),
+                'updated_at'   => now(),
+            ]
+        );
+
+        // 3. 订阅 Topic
+        $this->messaging->subscribeToTopic($topic, $token);
+
+        return ['success' => true, 'topic' => $topic];
+    }
+
+    public function validateToken(string $token): bool
+    {
+        try {
+            $this->messaging->validateRegistrationTokens($token);
+            return true;
+        } catch (\Throwable) {
+            return false;
+        }
+    }
+
+    /**
+     * 批量清理失效 Token（定时任务调用）
+     */
+    public function cleanupExpiredTokens(int $batchSize = 500): int
+    {
+        $removed = 0;
+        DB::table('fcm_tokens')
+            ->orderBy('last_used_at')
+            ->limit($batchSize)
+            ->each(function ($record) use (&$removed) {
+                if (!$this->validateToken($record->token)) {
+                    DB::table('fcm_tokens')->where('token', $record->token)->delete();
+                    $removed++;
+                }
+            });
+
+        return $removed;
+    }
+
+    /**
+     * Token 刷新：前端 getToken() 返回新 Token 时调用
+     */
+    public function refreshToken(int $userId, string $oldToken, string $newToken): void
+    {
+        DB::table('fcm_tokens')
+            ->where('token', $oldToken)
+            ->update(['token' => $newToken, 'updated_at' => now()]);
+
+        // 迁移 Topic 订阅
+        $topics = DB::table('fcm_subscriptions')
+            ->where('token', $oldToken)->pluck('topic')->toArray();
+
+        foreach ($topics as $topic) {
+            $this->messaging->unsubscribeFromTopic($topic, $oldToken);
+            $this->messaging->subscribeToTopic($topic, $newToken);
+        }
+    }
+}
+```
+
+Token 生命周期状态流转：
+
+```
+用户授权通知 → getToken() → 注册到后端 → 订阅 Topic
+                    ↓
+            Token 失效（清除数据/权限变更/2个月未使用）
+                    ↓
+            推送失败 → 捕获 NotFound → 清理失效 Token
+                    ↓
+            前端 getToken() → 新 Token → 重新注册 + 订阅
+```
+
+## 相关阅读
+
+- [Laravel Precognition 实战：表单预验证与前后端实时校验](/posts/Laravel-Precognition-实战-表单预验证-前后端实时校验的全新交互范式) — 本文涉及前端与 Laravel 后端的实时交互，与 FCM 推送的前后端协同方案互补
+- [SSE vs WebSocket vs HTTP Streaming：实时通信方案工程选型](/posts/2026-06-03-SSE-vs-WebSocket-vs-HTTP-Streaming-实时通信方案工程选型) — Web Push 之外的其他实时通信方案对比，帮助你根据场景选择最合适的技术
+- [Server-Driven UI + Laravel BFF：后端驱动前端的架构实践](/posts/server-driven-ui-laravel-bff) — 与本文的 BFF 层推送架构思路一致，适合想深入了解 Laravel 前后端分离架构的读者

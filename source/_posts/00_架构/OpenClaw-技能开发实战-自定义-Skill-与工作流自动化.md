@@ -1,7 +1,8 @@
 ---
 title: OpenClaw 技能开发实战：自定义 Skill 与工作流自动化
 date: 2026-06-02 09:00:00
-tags: [OpenClaw, AI Agent, Skill开发, 工作流, 自动化]
+tags: [OpenClaw, AI-Agent, Skill开发, 工作流, 自动化, Agent开发]
+description: "深入讲解 OpenClaw Skill 体系架构与开发实战，涵盖 Skill 生命周期管理、元数据契约定义、文件处理与 API 调用两大实战案例、工作流编排、参数校验、错误处理、社区共享机制与设计模式，帮助开发者从零构建可扩展的 AI Agent 能力平台。"
 categories: [架构]
 cover: /images/covers/openclaw-skill-development-cover.jpg
 ---
@@ -1877,3 +1878,9 @@ class LogNotifyStrategy(NotifyStrategy):
 4. 最后建立团队内部的 Skill 目录和复用规范。
 
 这样走下来，你会明显感受到：Agent 不再只是“会聊天的程序”，而是开始拥有像操作系统一样的能力插槽与自动化编排能力。这，也正是 OpenClaw Skill 体系最有价值的地方。
+
+## 相关阅读
+
+- [OpenClaw 隐私感知记忆分区：MEMORY.md 主会话隔离 vs 群聊上下文的安全边界](/categories/架构/OpenClaw-隐私感知记忆分区-MEMORY-md-主会话隔离-vs-群聊上下文的安全边界/)
+- [OpenClaw WhatsApp 实战：跨平台消息集成与自动化](/categories/架构/OpenClaw-WhatsApp-实战-跨平台消息集成与自动化/)
+- [OpenHuman vs Hermes vs OpenClaw：三大开源 AI Agent 框架深度对比](/categories/架构/OpenHuman-vs-Hermes-vs-OpenClaw-三大开源AI-Agent框架深度对比/)

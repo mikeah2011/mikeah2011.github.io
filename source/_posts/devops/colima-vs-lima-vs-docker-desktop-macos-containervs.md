@@ -7,7 +7,7 @@ updated: 2026-05-17 08:14:15
 categories:
   - DevOps
   - Docker
-tags: [Docker, Laravel, macOS]
+tags: [Docker, Laravel, macOS, Colima, Lima, 容器化, 开发环境]
 description: 从架构原理、启动性能、磁盘 IO、网络模式、Volume 挂载、GPU 支持六个维度，横向对比 macOS 上三大容器运行时（Docker Desktop / Colima / Lima），附带 KKday B2C Laravel 项目的真实基准测试与选型决策矩阵。
 
 
@@ -421,3 +421,9 @@ colima restart
 ---
 
 *本文基准测试数据来自 M2 Max MacBook Pro 32GB / macOS 26.4 / Docker Desktop 4.40 / Colima 0.8.1 / Lima 1.1.0，实际数据可能因硬件和版本差异而不同。*
+
+## 相关阅读
+
+- [Docker 网络深度解析：Bridge、Host、Overlay 与服务发现](/post/docker-guide-bridge-host-overlay-service-discovery.html) — 理解 Docker 网络模式，配合 Colima/Lima 的网络配置更得心应手
+- [Docker Compose 部署 Laravel：PHP-FPM 8.3 + MySQL + Redis + Mailpit 完整指南](/post/docker-compose-laravel-guide-php-fpm-8-3-mysql-redis-mailpit-guide.html) — 使用 Docker Compose 编排 Laravel 全栈开发环境
+- [本地 Docker 开发环境搭建：PHP-FPM 8.0 + MySQL + Redis + MailHog](/post/local-docker-guide-php-fpm-8-0-mysql-redis-mailhog.html) — Docker 本地开发环境的基础配置与最佳实践

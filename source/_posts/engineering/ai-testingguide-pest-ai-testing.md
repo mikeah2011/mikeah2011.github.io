@@ -1,12 +1,13 @@
 ---
 title: "AI 驱动测试生成实战：Pest + AI 自动生成单元测试的最佳实践"
+cover: /images/covers/ai-testingguide-pest-ai-testing-cover.jpg
 date: 2026-05-05 08:45:30
 updated: 2026-05-05 08:48:08
 categories:
   - Engineering
   - Testing
-tags: [AI, Laravel, 测试]
-description: "在 30+ Laravel 仓库的维护中，手写单元测试是最大的时间黑洞。本文记录如何用 Claude/GPT 结合 Pest 框架，将测试覆盖率从 35% 提升到 85%+ 的完整工作流，包括 Prompt 工程、生成质量控制、CI 集成与真实踩坑。"
+tags: [AI, Laravel, Pest, Testing, CI-CD]
+description: "在 30+ Laravel 仓库的维护中，手写单元测试是最大的时间黑洞。本文记录如何用 Claude/GPT 结合 Pest 框架，将单元测试覆盖率从 35% 提升到 85%+ 的完整工作流，涵盖 Prompt 工程设计、AI 生成质量控制、Mock 策略、CI/CD 覆盖率门禁集成与真实踩坑复盘。"
 
 
 
@@ -407,3 +408,9 @@ dataset('quantities', [
 5. **从 Service 层开始，不要从 Controller 开始。** Service 层依赖少、逻辑集中，AI 生成的成功率最高。
 
 AI 驱动的测试生成不是银弹，但在 B2C 电商这种业务逻辑复杂、迭代速度快的场景下，它把"写测试"从痛苦变成了可接受的工作量。关键是建立**生成-审查-执行-反馈**的闭环，而不是把 AI 当作测试的替代品。
+
+## 相关阅读
+
+- [Pest PHP API 测试、Feature 测试、浏览器测试实战：Laravel B2C API 测试金字塔落地踩坑记录](/engineering/pest-php-apitesting-featuretesting-testingguide/)
+- [PHPUnit 11.x 实战：新特性与最佳实践——从 Laravel B2C API 的断言、属性到测试架构演进踩坑记录](/engineering/phpunit-11-x-guide-best-practices/)
+- [Mockery 实战：外部服务 Mock 与依赖隔离 Laravel B2C API 踩坑记录](/engineering/mockery-guide-mock/)

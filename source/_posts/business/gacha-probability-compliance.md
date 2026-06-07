@@ -1,10 +1,11 @@
 ---
 title: 盲盒抽奖业务-概率算法与合规设计-B2C电商公平性验证踩坑记录
+cover: /images/business-cover.png
 date: 2026-05-05 08:55:36
 updated: 2026-05-05 09:01:09
 categories: Business
 tags: [KKday, Laravel, PHP, 安全]
-description: 在 B2C 电商中，盲盒与抽奖是提升用户活跃度的核心玩法。本文从概率算法设计、公平性验证、合规法律要求三个维度，分享在真实项目中遇到的坑与解决方案，涵盖加权随机、密码学安全随机数、概率公示、审计日志等关键技术点。
+description: 在 B2C 电商中，盲盒与抽奖是提升用户活跃度的核心玩法，但看似简单的随机出结果背后涉及复杂的概率算法设计、防作弊验证与法律合规要求。本文从加权随机算法、概率池动态归一化、蓄水池抽样三大概率模型出发，深入讲解 Provably Fair 可验证随机性、链式哈希审计日志等公平性验证方案，并结合《规范促销行为暂行规定》《反不正当竞争法》等法规，分享概率公示、奖品价值上限、未成年人保护等合规设计要点，附带高并发超卖、缓存不一致、伪随机可预测性等真实踩坑记录与完整测试策略。
 
 
 
@@ -678,3 +679,9 @@ class WeightedRandomTest extends TestCase
 | 可预测性 | 密码学安全随机数 | `random_int()` 替代 `rand()` |
 
 盲盒/抽奖看似是简单的「转盘」，背后涉及概率论、分布式一致性、密码学、法律法规多个领域。希望这篇文章能帮到做类似业务的开发者，少踩一些坑。
+
+## 相关阅读
+
+- [ThinkPHP 电商后端架构设计：盲盒抽奖业务的核心逻辑实战踩坑记录](/categories/Business/thinkphp-architecture/)
+- [ThinkPHP 电商系统支付集成实战：支付宝微信支付回调幂等与多业务路由踩坑记录](/categories/Business/thinkphp-guide/)
+- [会员积分系统设计：积分获取/消耗/过期/兑换的完整业务闭环](/categories/业务架构/2026-06-01-membership-points-system-design-earn-expire-redeem/)

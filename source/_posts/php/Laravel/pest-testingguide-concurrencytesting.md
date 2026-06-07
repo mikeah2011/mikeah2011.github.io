@@ -1,7 +1,8 @@
 ---
+cover: /images/covers/pest-testingguide-concurrencytesting-cover.jpg
 date: 2026-05-04 07:37:42
-description: "Pest 单元测试实战：Laravel B2C API 数据驱动与并发测试踩坑记录"
-tags: [KKday, Laravel, 测试]
+description: "Pest 单元测试测试框架在 Laravel B2C API 项目中的实战指南，涵盖数据驱动测试（Data-Driven）、并发测试防超卖、异步队列 Wait 插件、工厂模式批量创建、数据库连接泄漏修复等核心踩坑记录，附完整 PHPUnit vs Pest 对比与最佳实践清单，帮助 PHP 开发者提升测试覆盖率至 87%。"
+tags: [Laravel, Pest, PHP, PHPUnit, 测试, 并发测试, KKday]
 categories:
   - PHP
   - Testing
@@ -593,6 +594,22 @@ vendor/bin/pest --coverage --coverage-report=html --output-directory=coverage-re
 4. **异步等待**：对涉及队列的任务使用 `wait()` 非阻塞等待
 5. **Mock 外部依赖**：使用 `Mockery` 或 Laravel Mock 隔离第三方服务
 
+## 📋 PHPUnit vs Pest 对比一览
+
+| 特性 | PHPUnit | Pest |
+|------|---------|------|
+| **语法风格** | 类 + 方法声明 | `it()` / `test()` DSL |
+| **数据驱动** | `@dataProvider` 注解 | `->with()` 链式调用 |
+| **异步等待** | 需自行实现 | 内置 `wait()` 插件 |
+| **断言语义** | `$this->assertEquals()` | `expect()->toBe()` |
+| **Laravel 集成** | 手动 `setUp` | `pest-plugin-laravel` 一键 |
+| **并发测试** | 需第三方包或手动并发 | 原生支持 `parallel()` |
+| **代码覆盖率** | `phpunit --coverage` | `pest --coverage` |
+| **学习曲线** | 低（PHP 标准） | 极低（读起来像自然语言） |
+| **社区生态** | 成熟稳定 | 快速增长，Laravel 官方推荐 |
+
+> 💡 **选型建议**：新项目直接用 Pest；已有 PHPUnit 项目可渐进迁移，Pest 底层兼容 PHPUnit，二者可共存。
+
 ## 🎉 总结
 
 Pest 相比 PHPUnit 的优势：
@@ -602,6 +619,14 @@ Pest 相比 PHPUnit 的优势：
 - ✅ 与 Laravel 生态无缝集成
 
 在 KKday B2C API 项目中引入 Pest 后，单元测试执行时间从原来的 **45 秒** 缩短至 **18 秒**，代码覆盖率提升至 **87%**（原 PHPUnit 为 **62%**）。通过数据驱动测试和并发场景模拟，我们成功拦截了多个线上问题，显著提升了 API 的可靠性。
+
+---
+
+## 相关阅读
+
+- [Laravel Dusk 自动化 E2E 测试指南与 CI 集成实战](/php/Laravel/laravel-dusk-automatione2etestingguide-ci/)
+- [Laravel 事务机制深入详解与 Pest 单元测试示例](/php/Laravel/laravel-transaction/)
+- [Laravel Phone SDK 国际手机号验证实战：Pest 测试用例与跨境业务踩坑](/php/Laravel/laravel-phone-sdk-guide/)
 
 ---
 

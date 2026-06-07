@@ -1,10 +1,11 @@
 ---
 title: "OpenAPI 文档驱动开发实战：从文档到代码的完整工作流与 Laravel B2C API 踩坑记录"
+cover: /images/covers/openapi-guide-cover.jpg
 date: 2026-05-05 09:15:36
 updated: 2026-05-05 09:18:15
 categories: Architecture
 tags: [Laravel, OpenAPI, 架构]
-description: "在 KKday B2C Backend Team 的 30+ 仓库实战中，我们逐步建立了 OpenAPI 文档驱动开发（DDD - Document-Driven Development）的完整工作流：从 PRD → OpenAPI YAML → Mock Server → 前后端并行开发 → Contract Test → Code Review。本文分享这条链路的真实落地经验与踩坑记录。"
+description: "在 KKday B2C Backend Team 的 30+ 仓库实战中，我们逐步建立了 OpenAPI 文档驱动开发（DDD - Document-Driven Development）的完整工作流：从 PRD → OpenAPI YAML 契约设计 → Prism Mock Server 自动生成 → 前后端并行开发 → Pest Contract Test 契约校验 → GitHub Actions CI Gate 验证 → Scribe 文档发布。本文以 Laravel + PHP 8 为技术栈，详细讲解 OpenAPI YAML 目录拆分、Fake Response 手写校验、FormRequest/DTO 契约绑定、$ref 路径踩坑、nullable vs required 语义陷阱等 5 大真实生产事故案例，附完整的 CI 流水线配置与中小团队最小化落地 Checklist，帮助 API 设计者和后端工程师建立可维护、可测试、可 Mock 的文档驱动开发体系。"
 
 
 
@@ -713,3 +714,11 @@ createdAt:
 - [Scribe — Laravel API Documentation Generator](https://scribe.knuckles.wtf/)
 - [spatie/laravel-data — DTO for Laravel](https://github.com/spatie/laravel-data)
 - [OpenAPI Generator — TypeScript Client](https://openapi-generator.tech/)
+
+---
+
+## 相关阅读
+
+- [BFF-Laravel 中间层聚合实战](/Architecture/bff-laravel/) — 如何用 Laravel 构建 API 聚合层，统一调用微服务
+- [OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON](/Architecture/openapi-yaml-testing-mock-fake-response-json/) — Fake Response 设计与 Mock Server 工具对比
+- [API-Gateway 实战：Kong/APISIX 在 Laravel 微服务中的应用](/Architecture/api-gateway-guide-kong-apisix-laravel-microservices-rate-limitingcanary/) — 统一鉴权、限流、路由与灰度发布

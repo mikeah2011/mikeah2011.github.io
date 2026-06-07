@@ -1,12 +1,13 @@
 ---
 title: "Hermes Agent 定时任务实战：自动化博客写作、系统监控与代码更新踩坑记录"
+cover: /images/covers/hermes-agent-guide-automationmonitoring-cover.jpg
 date: 2026-05-17 03:55:18
 updated: 2026-05-17 03:57:41
 categories:
   - macOS
   - Observability
-tags: [AI, Laravel, 测试]
-description: "从零搭建 Hermes Agent 定时任务体系：自动化 Hexo 博客写作、macOS 系统监控、Git 仓库自动更新。涵盖 cron 表达式设计、Skill 编排、错误处理、通知分发的完整实战方案。"
+tags: [hermes-agent, ai-agent, 自动化, cron, 监控, macos]
+description: "Hermes Agent 自动化监控完整实战指南：从零搭建 AI Agent 定时任务体系，涵盖 cron 表达式设计、Skill 编排、Hexo 博客自动写作、macOS 系统监控告警、Git 仓库自动同步、多通道通知分发（Telegram/Slack/邮件）。深入讲解 Hermes Agent 配置文件结构、APScheduler 调度引擎、告警降噪策略、任务超时与幂等性设计、monitor-state.json 状态持久化，附 5 个真实踩坑案例与完整代码示例，帮助开发者用 AI Agent 实现 7×24 无人值守自动化运维。"
 
 
 
@@ -535,6 +536,498 @@ hermes cron stats
 
 ---
 
+## 八、Hermes Agent 配置文件详解
+
+Hermes Agent 的配置文件位于 `~/.hermes/config.yaml`，以下是自动化监控场景的完整配置示例：
+
+```yaml
+# ~/.hermes/config.yaml
+# Hermes Agent 主配置文件
+
+# 模型提供者配置
+providers:
+  default:
+    type: openai
+    model: gpt-4o
+    api_key: ${OPENAI_API_KEY}
+    max_tokens: 4096
+    temperature: 0.7
+
+  # 备用模型（当主模型不可用时自动切换）
+  fallback:
+    type: ollama
+    model: llama3.1:70b
+    base_url: http://localhost:11434
+
+# 定时任务全局配置
+cron:
+  timezone: "Asia/Shanghai"          # 全局时区（重要！）
+  misfire_policy: "skip"             # 错过执行策略：skip / run_once / coalesce
+  max_instances: 1                   # 同一任务最大并发数
+  job_defaults:
+    coalesce: true                   # 合并错过的执行
+    max_instances: 1
+    misfire_grace_time: 300          # 错过 5 分钟内仍可执行
+
+# 通知配置
+notify:
+  telegram:
+    bot_token: ${TELEGRAM_BOT_TOKEN}
+    chat_id: ${TELEGRAM_CHAT_ID}
+    parse_mode: "Markdown"
+  slack:
+    webhook_url: ${SLACK_WEBHOOK_URL}
+    channel: "#hermes-alerts"
+  email:
+    smtp_host: "smtp.gmail.com"
+    smtp_port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    to: "michael@example.com"
+
+# 日志配置
+logging:
+  level: INFO
+  file: ~/.hermes/logs/hermes.log
+  max_size: "50MB"
+  backup_count: 5
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+
+# 安全配置
+security:
+  allowed_commands:                  # 允许 Agent 执行的命令白名单
+    - "brew"
+    - "git"
+    - "docker"
+    - "df"
+    - "uptime"
+  blocked_paths:                     # 禁止 Agent 访问的路径
+    - "~/.ssh"
+    - "~/.aws"
+    - "~/.gnupg"
+```
+
+### 8.1 配置热加载
+
+```bash
+# 修改配置后无需重启，Agent 会自动检测变更
+hermes config reload
+
+# 验证配置是否生效
+hermes config validate
+
+# 查看当前生效的完整配置（敏感信息脱敏）
+hermes config show --mask-secrets
+```
+
+### 8.2 环境变量管理
+
+```bash
+# 敏感信息通过环境变量注入，不要写入配置文件
+# 推荐使用 .env 文件 + direnv 管理
+cat > ~/.hermes/.env << 'EOF'
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
+TELEGRAM_BOT_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+TELEGRAM_CHAT_ID=-1001234567890
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/T00/B00/xxxx
+EOF
+
+# direnv 集成（进入 ~/.hermes 目录自动加载）
+cat > ~/.hermes/.envrc << 'EOF'
+dotenv
+EOF
+```
+
+---
+
+## 九、监控告警实战代码
+
+### 9.1 完整的监控 Skill 文件
+
+创建 `~/.hermes/skills/advanced-system-monitor.md`：
+
+```markdown
+# Advanced System Monitor Skill
+
+你是系统监控 Agent，负责 macOS 系统的全面健康检查。
+
+## 执行流程
+
+### Step 1: 系统基础指标
+```bash
+# CPU 和内存
+top -l 1 -n 0 | head -10
+vm_stat | head -8
+
+# 磁盘空间
+df -h /
+diskutil info / | grep "Volume Free Space"
+
+# 系统负载
+uptime
+sysctl -n hw.ncpu  # CPU 核心数
+```
+
+### Step 2: 进程监控
+```bash
+# CPU 占用 Top 10
+ps aux --sort=-%cpu | head -11
+
+# 内存占用 Top 10
+ps aux --sort=-%mem | head -11
+
+# 僵尸进程检查
+ps aux | awk '$8=="Z" {print}'
+```
+
+### Step 3: 网络状态
+```bash
+# 网络连接数
+netstat -an | wc -l
+
+# DNS 解析测试
+dig +short google.com
+
+# 端口占用检查
+lsof -i -P -n | grep LISTEN | head -20
+```
+
+### Step 4: Docker 容器状态
+```bash
+# 所有容器状态
+docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+# 容器资源使用
+docker stats --no-stream --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
+
+# 容器日志异常检测（最近 1 小时）
+docker ps -q | xargs -I {} sh -c 'echo "=== {} ===" && docker logs --since 1h {} 2>&1 | grep -i "error\|fatal\|panic" | tail -5'
+```
+
+### Step 5: 告警规则判断
+根据收集的数据，按以下规则判断告警级别：
+
+| 指标 | 正常 | 警告 | 紧急 |
+|------|------|------|------|
+| 磁盘使用率 | < 80% | 80-90% | > 90% |
+| CPU 持续负载 | < 70% | 70-90% | > 90% |
+| 内存压力 | < 75% | 75-90% | > 90% |
+| Docker unhealthy | 0 | 1-2 | > 2 |
+| 僵尸进程 | 0 | 1-3 | > 3 |
+
+### Step 6: 生成报告
+输出格式化的监控报告，包含 emoji 状态标记和建议操作。
+```
+
+### 9.2 告警状态持久化脚本
+
+Agent 执行监控时，通过以下逻辑实现告警降噪：
+
+```python
+#!/usr/bin/env python3
+"""
+monitor_state.py - 告警状态管理器
+用于 Hermes Agent 监控任务的告警去重和状态追踪
+"""
+
+import json
+import time
+from pathlib import Path
+from datetime import datetime, timedelta
+
+STATE_FILE = Path.home() / ".hermes" / "monitor-state.json"
+ALERT_COOLDOWN = timedelta(hours=24)  # 同一告警 24h 内不重复
+
+
+def load_state() -> dict:
+    """加载监控状态"""
+    if STATE_FILE.exists():
+        return json.loads(STATE_FILE.read_text(encoding="utf-8"))
+    return {}
+
+
+def save_state(state: dict):
+    """保存监控状态"""
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    STATE_FILE.write_text(
+        json.dumps(state, indent=2, ensure_ascii=False),
+        encoding="utf-8"
+    )
+
+
+def should_alert(key: str, current_status: str) -> tuple[bool, str]:
+    """
+    判断是否需要发送告警
+    返回: (是否需要告警, 告警类型: new/recovered/repeat/silent)
+    """
+    state = load_state()
+    now = datetime.now()
+
+    if key not in state:
+        # 首次出现异常 → 新告警
+        if current_status != "ok":
+            state[key] = {
+                "status": current_status,
+                "since": now.isoformat(),
+                "notified_at": now.isoformat(),
+                "alert_count": 1
+            }
+            save_state(state)
+            return True, "new"
+        return False, "silent"
+
+    prev = state[key]
+    prev_status = prev["status"]
+
+    # 异常恢复 → 恢复通知
+    if prev_status != "ok" and current_status == "ok":
+        del state[key]
+        save_state(state)
+        return True, "recovered"
+
+    # 持续异常 → 检查冷却期
+    if current_status != "ok":
+        last_notified = datetime.fromisoformat(prev["notified_at"])
+        if now - last_notified > ALERT_COOLDOWN:
+            prev["notified_at"] = now.isoformat()
+            prev["alert_count"] = prev.get("alert_count", 0) + 1
+            save_state(state)
+            return True, "repeat"
+
+    save_state(state)
+    return False, "silent"
+
+
+# 使用示例
+if __name__ == "__main__":
+    # 检查 Docker 容器状态
+    need_alert, alert_type = should_alert("docker-mysql-dev", "unhealthy")
+    if need_alert:
+        print(f"🚨 告警类型: {alert_type}")
+        print(f"需要发送通知！")
+    else:
+        print(f"✅ 状态正常或在冷却期内，无需通知")
+```
+
+### 9.3 自定义告警通知模板
+
+```python
+#!/usr/bin/env python3
+"""
+alert_formatter.py - 告警通知格式化器
+生成 Telegram/Slack/邮件兼容的告警消息
+"""
+
+from datetime import datetime
+from dataclasses import dataclass
+from enum import Enum
+
+
+class AlertLevel(Enum):
+    INFO = "ℹ️"
+    WARNING = "⚠️"
+    CRITICAL = "🚨"
+    RECOVERY = "✅"
+
+
+@dataclass
+class Alert:
+    level: AlertLevel
+    title: str
+    metric: str
+    value: str
+    threshold: str
+    suggestion: str
+
+
+def format_telegram(alert: Alert) -> str:
+    """格式化 Telegram 消息（Markdown）"""
+    return f"""
+{alert.level.value} *{alert.title}*
+
+📊 指标: `{alert.metric}`
+📈 当前值: `{alert.value}`
+🎯 阈值: `{alert.threshold}`
+
+💡 建议: {alert.suggestion}
+
+🕐 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+""".strip()
+
+
+def format_slack(alert: Alert) -> dict:
+    """格式化 Slack Block Kit 消息"""
+    color_map = {
+        AlertLevel.INFO: "#36a64f",
+        AlertLevel.WARNING: "#ff9900",
+        AlertLevel.CRITICAL: "#ff0000",
+        AlertLevel.RECOVERY: "#36a64f",
+    }
+    return {
+        "attachments": [{
+            "color": color_map[alert.level],
+            "blocks": [
+                {
+                    "type": "header",
+                    "text": {
+                        "type": "plain_text",
+                        "text": f"{alert.level.value} {alert.title}"
+                    }
+                },
+                {
+                    "type": "section",
+                    "fields": [
+                        {"type": "mrkdwn", "text": f"*指标:*\n{alert.metric}"},
+                        {"type": "mrkdwn", "text": f"*当前值:*\n{alert.value}"},
+                        {"type": "mrkdwn", "text": f"*阈值:*\n{alert.threshold}"},
+                        {"type": "mrkdwn", "text": f"*建议:*\n{alert.suggestion}"},
+                    ]
+                }
+            ]
+        }]
+    }
+
+
+# 使用示例
+if __name__ == "__main__":
+    alert = Alert(
+        level=AlertLevel.CRITICAL,
+        title="磁盘空间不足",
+        metric="根分区使用率",
+        value="92%",
+        threshold="90%",
+        suggestion="运行 `brew cleanup` 和 `docker system prune` 释放空间"
+    )
+    print(format_telegram(alert))
+```
+
+### 9.4 Cron Job 高级配置实战
+
+以下是实际生产中使用的 cron 配置，展示 Hermes Agent cron 的高级用法：
+
+```bash
+# 场景 1：链式任务（任务 B 依赖任务 A 的结果）
+hermes cron add \
+  --name "daily-backup" \
+  --schedule "0 3 * * *" \
+  --timezone "Asia/Shanghai" \
+  --timeout 600 \
+  --on-success "daily-blog-writer" \
+  --task "备份 ~/.hermes/ 目录到 iCloud，成功后触发博客写作任务"
+
+# 场景 2：带重试的任务（网络请求容易失败）
+hermes cron add \
+  --name "api-health-check" \
+  --schedule "*/15 * * * *" \
+  --timezone "Asia/Shanghai" \
+  --timeout 60 \
+  --max-retries 3 \
+  --retry-delay 30 \
+  --task "检查生产 API 端点 /health 的响应时间和状态码，异常时告警"
+
+# 场景 3：条件执行任务（仅在工作日运行）
+hermes cron add \
+  --name "daily-standup-summary" \
+  --schedule "0 9 * * 1-5" \
+  --timezone "Asia/Shanghai" \
+  --timeout 120 \
+  --task "扫描 GitHub 通知、Jira 看板、Slack 未读消息，生成每日站会摘要"
+
+# 场景 4：长间隔任务（每月清理）
+hermes cron add \
+  --name "monthly-cleanup" \
+  --schedule "0 2 1 * *" \
+  --timezone "Asia/Shanghai" \
+  --timeout 900 \
+  --task "清理 Docker 镜像、Homebrew 缓存、npm 缓存、旧日志文件，生成清理报告"
+
+# 场景 5：带标签的任务分组管理
+hermes cron add \
+  --name "hourly-log-rotate" \
+  --schedule "0 * * * *" \
+  --timezone "Asia/Shanghai" \
+  --timeout 30 \
+  --tags "infra,log" \
+  --task "检查日志文件大小，超过 100MB 自动轮转压缩"
+```
+
+### 9.5 任务执行日志分析
+
+```bash
+# 查看任务执行历史（含耗时和状态码）
+hermes cron history daily-blog-writer --limit 20
+
+# 输出示例：
+# ┌───────────────────────┬──────────┬──────────┬────────┐
+# │ Time                  │ Status   │ Duration │ Code   │
+# ├───────────────────────┼──────────┼──────────┼────────┤
+# │ 2026-06-07 04:00:03   │ success  │ 4m 12s   │ 0      │
+# │ 2026-06-06 04:00:01   │ success  │ 3m 58s   │ 0      │
+# │ 2026-06-05 04:00:02   │ failed   │ 8m 30s   │ 1      │
+# │ 2026-06-04 04:00:01   │ success  │ 5m 02s   │ 0      │
+# └───────────────────────┴──────────┴──────────┴────────┘
+
+# 导出任务执行数据（用于 Grafana 等可视化）
+hermes cron export daily-blog-writer --format csv --output ~/Desktop/task-history.csv
+
+# 异常任务诊断
+hermes cron diagnose daily-blog-writer
+# 输出：
+# ✅ Schedule: 有效
+# ✅ Timeout: 600s（足够）
+# ⚠️ Last failure: 2026-06-05 - OOM (内存不足)
+# 💡 建议: 检查是否有内存泄漏，或增加 timeout
+```
+
+---
+
+## 十、进阶：多任务编排与依赖管理
+
+当任务之间存在依赖关系时，需要设计合理的编排策略：
+
+```mermaid
+graph TB
+    subgraph "每日工作流 (04:00)"
+        BACKUP[📦 数据备份<br/>04:00] --> BLOG[📝 博客写作<br/>04:05]
+        BLOG --> BUILD[🔨 Hexo 构建<br/>04:15]
+        BUILD --> DEPLOY[🚀 自动部署<br/>04:20]
+    end
+    
+    subgraph "持续监控 (每小时)"
+        MONITOR[🔍 系统监控] --> ALERT{异常?}
+        ALERT -->|是| NOTIFY[📢 发送告警]
+        ALERT -->|否| LOG[📋 静默日志]
+    end
+    
+    subgraph "每周维护 (周一 09:00)"
+        GIT_SYNC[🔄 Git 同步] --> BREW[🍺 Homebrew 更新]
+        BREW --> REPORT[📊 周报生成]
+    end
+```
+
+### 10.1 依赖任务的 Skill 文件写法
+
+```markdown
+# Daily Pipeline Skill
+
+你是每日自动化流水线协调 Agent。
+
+## 执行步骤
+1. 执行 `hermes cron run daily-backup`，等待完成
+2. 检查备份结果，如果失败则终止并告警
+3. 执行 `hermes cron run daily-blog-writer`
+4. 等待写作完成后，运行 `cd ~/GitHub/mikeah2011.github.io && hexo generate`
+5. 如果构建成功，执行 `hexo deploy`
+6. 汇总报告：备份状态 + 文章标题 + 部署结果
+
+## 错误处理
+- 任何步骤失败：立即停止后续步骤，发送告警
+- 超时处理：单步超过 10 分钟视为失败
+- 回滚策略：部署失败时恢复上一次的 public/ 目录
+```
+
+---
+
 ## 总结
 
 通过 Hermes Agent 的定时任务系统，我实现了：
@@ -549,5 +1042,15 @@ hermes cron stats
 - **Skill 文件是核心**：好的 Skill 文件决定了任务的执行质量
 - **降噪很重要**：不是所有事情都值得通知，设计好告警规则
 - **macOS 特有坑**：时区、防火墙、休眠唤醒都需要额外处理
+- **状态持久化是关键**：没有状态文件，告警降噪就无从谈起
+- **配置文件要版本管理**：`~/.hermes/config.yaml` 应纳入 dotfiles 仓库
 
 如果你也有重复性的开发工作，不妨试试用 AI Agent 来自动化——它不只是"聊天机器人"，更是一个**能干活的数字同事**。
+
+---
+
+## 相关阅读
+
+- [AI Agent Skill 开发实战：自定义技能与工作流自动化——Hermes Agent 踩坑记录](/categories/macos/ai-agent-skill-guide-automation-hermes-agent/) — Skill 文件编写规范、Progressive Disclosure 三级加载、条件激活与 fallback 策略的完整指南
+- [Hermes 子代理架构：leaf vs orchestrator 角色模型、工具屏蔽、审批策略](/categories/架构/Hermes-子代理架构-leaf-vs-orchestrator-角色模型-工具屏蔽-审批策略/) — 当单个 Agent 不够用时，如何通过子代理架构实现任务分解与并行执行
+- [OpenHuman vs Hermes vs OpenClaw：三大开源 AI Agent 框架深度对比](/categories/架构/OpenHuman-vs-Hermes-vs-OpenClaw-三大开源AI-Agent框架深度对比/) — 从架构哲学、核心能力到适用场景，帮你选对 AI Agent 框架

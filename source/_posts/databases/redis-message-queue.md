@@ -5,9 +5,11 @@ categories:
   - Databases
   - Redis
 date: 2022-08-20 16:05:07
-description: '为了便于大家查找问题，了解全貌，整理个目录，我们可以快速全局了解关于Redis 缓存，面试官一般喜欢问哪些问题？ 接下来，我们逐条来看看每个问题及解决方案 *Redis 有哪些特性？** 性能高， 读的速度是100000次/s，写的速度是8…'
-
-
+description: '为了便于大家查找问题，了解全貌，本文整理了Redis常见面试问题及解决方案，涵盖数据结构、持久化、集群、消息队列、分布式锁等核心知识点。同时对比Redis List、Pub/Sub与Stream三种消息队列方案，附Laravel队列驱动配置与死信队列实践，帮助你全面掌握Redis消息队列的应用与最佳实践。'
+cover: /images/covers/databases-001-cover.jpg
+images:
+  - /images/content/databases-001-content-1.jpg
+  - /images/content/databases-001-content-2.jpg
 
 ---
 为了便于大家查找问题，了解全貌，整理个目录，我们可以快速全局了解关于Redis 缓存，面试官一般喜欢问哪些问题？
@@ -41,6 +43,8 @@ description: '为了便于大家查找问题，了解全貌，整理个目录，
 
 
 **Redis 底层的基础数据结构有哪些？**
+
+![Redis数据结构](/images/content/databases-001-content-1.jpg)
 
 - 字符串。没有采用C语言的传统字符串，而是自己实现的一个简单动态字符串SDS的抽象类型，并保存了长度信息。
 - 链表（linkedlist）。双向无环链表结构，每个链表的节点由一个listNode结构来表示，每个节点都有前置和后置节点的指针
@@ -127,6 +131,8 @@ Redis的多线程主要是处理数据的读写、协议解析。执行命令还
 
 
 **Redis 持久化有哪些方式？**
+
+![Redis持久化](/images/content/databases-001-content-2.jpg)
 
 1、快照RDB。将某个时间点上的数据库状态保存到`RDB文件`中，RDB文件是一个压缩的二进制文件，保存在磁盘上。当Redis崩溃时，可用于恢复数据。通过`SAVE`或`BGSAVE`来生成RDB文件。
 
@@ -318,3 +324,127 @@ Redis事务中没有像Mysql关系型数据库事务隔离级别的概念，不�
 - 3、SET的扩展命令（SET key value [EX][PX] [NX|XX]）
 - 4、Redlock 框架
 - 5、Zookeeper Curator框架提供了现成的分布式锁
+
+
+
+## Redis 消息队列方案对比：List vs Pub/Sub vs Stream
+
+| 特性 | List | Pub/Sub | Stream |
+|------|------|---------|--------|
+| 持久化 | ✅ 支持（列表存储在内存中，可配合AOF/RDB） | ❌ 不支持，消息不存储 | ✅ 支持，消息持久存储 |
+| 消费者组 | ❌ 不支持 | ❌ 不支持 | ✅ 原生支持 |
+| ACK 确认机制 | ❌ 需自行实现 | ❌ 不支持 | ✅ 支持（XACK） |
+| 消息回溯/重放 | ❌ 消费后移除 | ❌ 不支持 | ✅ 支持按ID回溯 |
+| 消息堆积 | ⚠️ 可以但会越来越大 | ❌ 不支持 | ✅ 支持，可设置MAXLEN |
+| 适用场景 | 简单任务队列 | 实时通知、广播 | 可靠消息队列、事件溯源 |
+
+> **推荐**：生产环境优先使用 Stream，兼具持久化、消费者组和 ACK 机制，是替代 List 和 Pub/Sub 做消息队列的最佳选择。
+
+
+
+## Laravel Queue 驱动配置（Redis）
+
+在 `.env` 文件中配置：
+
+```env
+QUEUE_CONNECTION=redis
+```
+
+在 `config/queue.php` 中配置 Redis 队列连接：
+
+```php
+'connections' => [
+    'redis' => [
+        'driver' => 'redis',
+        'connection' => 'default',
+        'queue' => env('REDIS_QUEUE', 'default'),
+        'retry_after' => 90,          // 任务执行超时时间（秒）
+        'block_for' => null,           // 阻塞等待新任务的秒数
+        'after_commit' => false,       // 是否在数据库事务提交后再分发任务
+    ],
+],
+```
+
+启动队列消费者：
+
+```bash
+php artisan queue:work redis --tries=3 --backoff=5
+```
+
+
+
+## 死信队列（Dead Letter Queue）模式
+
+当消息多次重试仍然失败时，将其转入死信队列，避免阻塞正常消费流程。
+
+```php
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Log;
+
+class RetryWithDeadLetter
+{
+    public function handle(string $stream, string $group, string $consumer): void
+    {
+        $messages = Redis::xReadGroup($group, $consumer, ['mystream' => '>'], 1, 1000);
+
+        foreach ($messages['mystream'] ?? [] as $id => $fields) {
+            $retryCount = (int) ($fields['retry_count'] ?? 0);
+
+            try {
+                // 业务处理
+                $this->process($fields);
+                Redis::xack($stream, $group, $id);
+            } catch (\Throwable $e) {
+                if ($retryCount >= 3) {
+                    // 超过最大重试次数，移入死信队列
+                    Redis::xadd('mystream:dead_letter', '*', ...$fields, 'original_id', $id, 'error', $e->getMessage());
+                    Redis::xack($stream, $group, $id);
+                    Log::error("消息 {$id} 移入死信队列", ['error' => $e->getMessage()]);
+                } else {
+                    // 更新重试计数，等待重新消费
+                    Redis::xadd("mystream:retry", '*', ...$fields, 'retry_count', $retryCount + 1);
+                    Redis::xack($stream, $group, $id);
+                }
+            }
+        }
+    }
+}
+```
+
+
+
+## 错误处理与重试模式
+
+```php
+// 使用指数退避重试策略
+$maxRetries = 5;
+$baseDelay  = 2; // 秒
+
+for ($attempt = 1; $attempt <= $maxRetries; $attempt++) {
+    try {
+        $result = $redis->xReadGroup($group, $consumer, ['mystream' => '>'], 10);
+        // 处理消息...
+        break;
+    } catch (\RedisException $e) {
+        $delay = $baseDelay * pow(2, $attempt - 1); // 指数退避
+        Log::warning("Redis 操作失败，第 {$attempt} 次重试，等待 {$delay}s", [
+            'error' => $e->getMessage(),
+        ]);
+        sleep($delay);
+
+        if ($attempt === $maxRetries) {
+            Log::error('Redis 操作最终失败，已耗尽重试次数', ['error' => $e->getMessage()]);
+            throw $e;
+        }
+    }
+}
+```
+
+
+
+## 相关阅读
+
+- [Redis HyperLogLog 实战：UV 统计与基数估算](/categories/Databases/redis-hyperloglog-guide-uv/)
+- [Redis Stream 实战：消息队列替代方案](/categories/Databases/redis-stream-guide-laravel/)
+- [Redis Lua 脚本原子操作实战](/categories/Databases/redis-lua-guide-distributedrate-limiting/)
+- [Redis 缓存击穿](/categories/Databases/cache-breakdown/)

@@ -1,5 +1,6 @@
 ---
 title: 支付系统设计实战-多通道集成对账退款与异常处理-Laravel-B2C-API踩坑记录
+cover: /images/covers/payment-system-cover.jpg
 date: 2026-05-16 21:25:31
 updated: 2026-05-16 21:31:10
 tags: [KKday, Laravel, 支付]
@@ -775,3 +776,9 @@ class PaymentChannelRouter
 ---
 
 > 本文基于 KKday B2C API 真实项目经验整理，涉及 Stripe、Alipay 等多个支付通道的生产环境实践。如有疑问，欢迎交流探讨支付系统架构设计。
+
+## 相关阅读
+
+- [Stripe 支付：支付流程完整设计与高并发场景下的幂等性保障踩坑记录](/categories/架构/stripe-high-concurrency/) —— Stripe 集成的深度实践
+- [分布式事务实战：Saga 模式在订单、库存、支付中的应用——Laravel B2C API 踩坑记录](/categories/架构/distributedtransactionguide-saga/) —— 跨服务支付事务的一致性保障
+- [电商库存系统设计：防超卖分布式锁与库存预扣减——Laravel B2C API 实战踩坑记录](/categories/架构/inventory-lock-design/) —— 支付与库存的联动设计

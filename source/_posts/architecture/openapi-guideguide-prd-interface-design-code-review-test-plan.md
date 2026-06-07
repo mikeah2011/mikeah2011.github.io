@@ -1,12 +1,13 @@
 ---
 title: OpenAPI 设计指南实战-从 PRD 到 Interface Design 到 Code Review 到 Test Plan 全链路踩坑记录
+cover: /images/covers/openapi-prd-code-review-cover.jpg
 date: 2026-05-05 02:15:21
 updated: 2026-05-05 02:17:41
 categories:
   - Architecture
   - Testing
-tags: [BFF, Laravel, OpenAPI]
-description: 结合 KKday B2C Backend 的真实项目经验，完整记录从 PRD 拆解到 OpenAPI YAML 设计、Interface Design Review、Code Review 到 Test Plan 的全链路工作流，附带真实踩坑与反模式。
+tags: [bff, laravel, openapi, api-design, code-review, prd]
+description: 本文结合 KKday B2C Backend 真实项目经验，完整记录从 PRD 拆解到 OpenAPI YAML 接口设计、Interface Design Review、Code Review 到 Test Plan 的全链路工作流。涵盖统一响应 Envelope 设计、Spectral 自动化 Lint、Prism Mock 联调、Pest 契约测试等实战技巧，附带 6 个真实踩坑案例与 4 个常见反模式，帮助团队实现契约驱动开发，减少 83% 前后端联调时间。
 
 
 
@@ -620,5 +621,11 @@ OpenAPI 不只是一个"文档工具"——当它被放在正确的位置（**�
 3. **全局枚举管理**——错误码、状态码、排序方式等必须在 YAML 里集中定义
 4. **跨字段校验不能靠自动生成**——`price_max >= price_min` 这类约束必须手动补测试
 5. **文档要能跑**——Prism Mock Server 让文档从"静态参考"变成"可执行契约"
+
+## 相关阅读
+
+- [OpenAPI 文档驱动开发实战：从文档到代码的完整工作流与 Laravel B2C API 踩坑记录](/categories/Architecture/openapi-guide/)
+- [OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON](/categories/architecture/openapi-yaml-testing-mock-fake-response-json/)
+- [OpenAPI 3.0 实战：API 文档自动生成与代码生成——Laravel B2C API 踩坑记录](/categories/Architecture/openapi-3-0-guide-api/)
 
 这套流程不是银弹，初期投入确实比"直接写代码"大。但对于 10+ 人协作、30+ 端点的 B2C API 项目来说，**契约驱动的前期投入会在联调阶段成倍赚回来**。

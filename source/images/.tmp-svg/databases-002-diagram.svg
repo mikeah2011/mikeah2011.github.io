@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#06101f"/><stop offset="100%" stop-color="#102139"/></linearGradient>
+    <marker id="arrw" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#5fd0ff"/></marker>
+    <marker id="arro" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#ffb24d"/></marker>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g stroke="#1c3557" stroke-width="1" opacity="0.35"><path d="M0 70H1200M0 140H1200M0 210H1200M0 280H1200M0 350H1200M0 420H1200M0 490H1200M0 560H1200"/></g>
+  <g fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="2"><rect x="90" y="240" width="180" height="150" rx="14"/></g>
+  <g fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="2"><rect x="455" y="240" width="220" height="150" rx="16"/></g>
+  <g fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="2"><rect x="860" y="120" width="170" height="100" rx="12"/><rect x="860" y="290" width="170" height="100" rx="12"/></g>
+  <g fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="2"><rect x="860" y="450" width="170" height="100" rx="12"/></g>
+  <g stroke-width="8" fill="none" stroke-linecap="round">
+    <path d="M270 315H455" stroke="#5fd0ff" marker-end="url(#arrw)"/>
+    <path d="M675 275C760 245 790 170 860 170" stroke="#ffb24d" marker-end="url(#arro)"/>
+    <path d="M675 315C760 315 790 340 860 340" stroke="#5fd0ff" marker-end="url(#arrw)"/>
+    <path d="M675 355C760 385 790 500 860 500" stroke="#5fd0ff" marker-end="url(#arrw)"/>
+  </g>
+</svg>

@@ -1,5 +1,6 @@
 ---
 title: Laravel 日志实战：多通道、结构化、日志聚合与生产环境治理踩坑记录
+cover: /images/covers/laravel-loggingguide-logging-cover.jpg
 date: 2026-05-17 00:30:56
 updated: 2026-05-17 00:34:10
 categories:

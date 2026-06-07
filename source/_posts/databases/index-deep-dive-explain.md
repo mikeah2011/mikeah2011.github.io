@@ -1,11 +1,15 @@
 ---
 title: MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则 - KKday B2C API 真实踩坑记录
 date: 2026-05-03
-description: "MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则 - KKday B2C API 真实踩坑记录"
+description: "MySQL 索引深度优化实战指南，基于 KKday B2C API 真实踩坑记录，系统讲解 EXPLAIN 查询计划分析方法、覆盖索引设计策略、最左前缀原则应用技巧、索引失效三大典型场景避坑方案与慢查询治理完整解决方案。每个优化技巧均配有详细的 Before/After 代码对比、Docker Compose 一键复现测试环境与性能基准数据，帮助后端工程师全面掌握从全表扫描 type=ALL 到覆盖索引 Using index 的完整性能调优路径，实现查询速度提升 7 倍、P99 延迟降低 93%、CPU 使用率降低 82% 的显著优化效果。"
+cover: /images/covers/databases-007-cover.jpg
+images:
+  - /images/content/databases-007-content-1.jpg
+  - /images/content/databases-007-content-2.jpg
 categories:
   - Databases
   - MySQL
-tags: [Laravel, MySQL]
+tags: [laravel, mysql]
 简介: |
   KKday B2C API 处理数万笔订单查询，MySQL 是核心数据源。本文基于真实踩坑记录分享索引优化实战经验：从 EXPLAIN 分析、覆盖索引应用、最左前缀原则到索引失效场景，每个技巧都配有 Before/After 代码对比，配合 Docker Compose 环境一键复现测试案例。
 
@@ -103,6 +107,8 @@ mysql> EXPLAIN SELECT * FROM orders WHERE user_id = 50 AND status = 'PAID';
 
 ---
 
+![MySQL 索引优化 - 查询性能](/images/content/databases-007-content-1.jpg)
+
 ## 三、核心优化技巧一：最左前缀原则（Leftmost Prefix）
 
 ### 真实踩坑案例：联合索引使用误区
@@ -181,6 +187,8 @@ mysql> EXPLAIN SELECT * FROM products WHERE category_id = 100 ORDER BY price LIM
 **注意**：`ORDER BY` 会导致文件排序（Using filesort），因为索引不包含 `price`。
 
 ---
+
+![覆盖索引优化](/images/content/databases-007-content-2.jpg)
 
 ## 四、核心优化技巧二：覆盖索引（Covering Index）
 
@@ -715,3 +723,18 @@ update orders 訂單總價計算邏輯優化-索引提升查詢效能從28k行�
 ---
 
 > 📝 **本文基于 KKday B2C API 真实项目经验，所有案例均可在 Docker Compose 环境复现。**
+
+## 相关阅读
+
+- [覆盖索引（Covering Index）](/databases/index/covering-index/)
+- [索引的最左前缀原则](/databases/index/leftmost-prefix-rule/)
+- [索引失效的 12 种原因](/databases/index/ineffective-cases/)
+- [前缀索引：长字符串字段的索引优化利器——EXPLAIN 验证与选择性计算](/databases/index/prefix-index/)
+- [MySQL 慢查询治理实战：pt-query-digest 分析、索引优化与 SQL 重写](/databases/slow-query-governance/)
+- [MySQL 优化经验总结](/databases/sql-optimization/)
+- [MySQL Invisible Index 实战：线上索引安全验证——对比 EXPLAIN 与实际执行计划的索引生效分析](/01_MySQL/2026-06-06-MySQL-Invisible-Index-实战-线上索引安全验证-EXPLAIN-实际执行计划索引生效分析/)
+- [pg_stat_statements + MySQL Performance Schema 实战：数据库慢查询的生产级监控——从 EXPLAIN 到等待事件的根因分析](/01_MySQL/2026-06-05-pg-stat-statements-MySQL-Performance-Schema-慢查询监控实战/)
+- [读写分离中间件实战：ProxySQL/MaxScale + Laravel——透明路由、连接池复用与主从延迟的工程化治理](/01_MySQL/2026-06-05-读写分离中间件实战-ProxySQL-MaxScale-Laravel透明路由连接池主从延迟治理/)
+- [数据库分区表实战：MySQL Range/List/Hash 分区——Laravel 中的月度订单表分区策略与查询路由](/01_MySQL/2026-06-05-MySQL-分区表实战-Range-List-Hash-Laravel月度订单分区策略与查询路由/)
+- [MySQL 9.x 新特性实战：向量搜索、JSON 增强、性能改进与 Laravel 适配](/01_MySQL/2026-06-02-MySQL-9-x-新特性实战-向量搜索-JSON增强-性能改进与Laravel适配/)
+- [Laravel 缓存实战：Query Cache、Route Cache、Config Cache、View Cache 深度优化](/php/Laravel/laravel-cache-route-config-view-query-cache/)

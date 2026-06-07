@@ -1,12 +1,13 @@
 ---
 title: ELK Stack 实战：Elasticsearch + Logstash + Kibana 集中式日志系统与 Laravel 集成踩坑记录
+cover: /images/covers/elk-stack-guide-elasticsearch-logstash-kibana-logging-laravel-cover.jpg
 date: 2026-05-17 03:06:55
 updated: 2026-05-17 03:10:28
 categories:
   - Architecture
   - Logging
-tags: [Elasticsearch, Laravel, 监控]
-description: 从零搭建 ELK Stack 集中式日志系统，与 Laravel B2C API 深度集成。涵盖 Docker Compose 编排、Logstash Pipeline 配置、Kibana 可视化仪表板、日志字段结构化、慢查询追踪、生产环境性能调优，以及 30+ 仓库日志治理的真实踩坑经验。
+tags: [elasticsearch, Laravel, 监控]
+description: 从零搭建 ELK Stack 集中式日志系统，与 Laravel B2C API 深度集成。涵盖 Docker Compose 编排、Logstash Pipeline 配置、Kibana 可视化仪表板、日志字段结构化、慢查询追踪、生产环境性能调优，以及 30+ 仓库日志治理的真实踩坑经验。适合 Laravel 中高级开发者与运维工程师参考。
 
 
 
@@ -744,3 +745,9 @@ ES 节点数 = 总存储 / 每节点推荐存储(500GB~1TB)
 | 扩展 | 多节点集群 + 副本 | 网络分区导致脑裂 |
 
 ELK 不是银弹，但它是目前最成熟的集中式日志方案。如果你的日志量 < 5GB/天，可以先用 Loki + Grafana（更轻量）；如果 > 100GB/天，考虑 ClickHouse + Vector（更高性能）。但对大多数 B2C 项目来说，ELK + ILM 策略足矣。
+
+## 相关阅读
+
+- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/categories/架构/kafka-debezium-cdc-实战-数据库变更事件流-Laravel互补架构/)
+- [Platform Engineering 实战：Golden Paths 与服务模板——用 Backstage 自助创建标准化 Laravel 微服务脚手架](/categories/架构/Platform-Engineering-实战-Golden-Paths-与服务模板-用Backstage自助创建标准化Laravel微服务脚手架/)
+- [Sidecar Pattern 实战：Laravel 微服务的 Sidecar 代理——Envoy/Telegraf/Filebeat 的基础设施下沉](/categories/架构/2026-06-06-Sidecar-Pattern-实战-Laravel-微服务-Sidecar-代理-Envoy-Telegraf-Filebeat-基础设施下沉/)

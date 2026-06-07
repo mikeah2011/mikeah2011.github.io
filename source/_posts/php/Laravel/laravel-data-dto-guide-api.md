@@ -1,11 +1,12 @@
 ---
 title: "spatie/laravel-data DTO 实战 - 强类型数据传输与 API 响应规范化踩坑记录"
+cover: /images/covers/laravel-data-dto-guide-api-cover.jpg
 date: 2026-05-04 23:20:52
 updated: 2026-05-04 23:26:39
 categories:
   - PHP
   - Laravel
-tags: [Laravel]
+tags: [Laravel, PHP, DTO, spatie/laravel-data, API]
 description: "在 B2C API 项目中引入 spatie/laravel-data 做 DTO 层的完整实战记录，涵盖强类型请求绑定、嵌套验证、Lazy 属性延迟加载、API Resource 替代、序列化陷阱与性能压测踩坑。"
 
 
@@ -836,3 +837,11 @@ class CreateOrderData extends Data
 ---
 
 *本文基于 Laravel 11 + spatie/laravel-data v4.6 + PHP 8.3 实战记录，所有代码和数据均来自生产环境。*
+
+---
+
+## 相关阅读
+
+- [Laravel Casts & Accessors 实战：数据类型转换与计算属性踩坑记录](/categories/PHP/Laravel-Casts-Accessors-实战-数据类型转换与计算属性踩坑记录/)
+- [PHPStan Level 8 实战：静态分析类型安全与渐进式升级 Laravel B2C API 踩坑记录](/categories/PHP/PHPStan-Level-8-实战-静态分析类型安全与渐进式升级-Laravel-B2C-API踩坑记录/)
+- [Scribe vs SwaggerPHP：Laravel API 文档生成工具对比实战踩坑记录](/categories/PHP/Scribe-vs-SwaggerPHP-Laravel-API-文档生成工具对比实战踩坑记录/)

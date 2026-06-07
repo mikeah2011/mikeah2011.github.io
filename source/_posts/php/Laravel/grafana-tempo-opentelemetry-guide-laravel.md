@@ -1,12 +1,13 @@
 ---
-title: Grafana Tempo + OpenTelemetry 实战：Laravel 异步订单链路追踪、消息上下文透传与采样治理踩坑记录
+title: "Grafana Tempo + OpenTelemetry 实战：Laravel 异步订单链路追踪、消息上下文透传与采样治理踩坑记录"
+cover: /images/covers/grafana-tempo-opentelemetry-guide-laravel-cover.jpg
 date: 2026-05-03 10:55:06
 updated: 2026-05-03 10:56:22
 categories:
   - PHP
   - Laravel
-tags: [Laravel, 微服务, 消息队列, 监控]
-description: 结合 Laravel 订单链路的线上经验，记录如何用 OpenTelemetry + Tempo 打通 HTTP、Queue 与日志关联，重点覆盖 traceparent 透传、Horizon 常驻进程上下文清理与采样治理的真实踩坑。
+tags: [laravel, 微服务, 消息队列, 监控, opentelemetry, grafana, tempo, trace]
+description: 本文基于 Laravel B2C 订单系统的线上实战经验，详细讲解如何使用 Grafana Tempo + OpenTelemetry 构建跨 HTTP、队列与回调的完整链路追踪体系。内容涵盖 traceparent 在 Laravel Queue 中的透传机制、Horizon 常驻进程的上下文清理与 trace 污染治理、Monolog 日志与 Trace ID 的关联查询、Collector 采样策略配置，以及采样率过高导致可观测性系统自身成为瓶颈的真实踩坑与优化方案，适合需要在 Laravel 微服务架构中落地分布式追踪的后端工程师参考。
 
 
 
@@ -243,6 +244,50 @@ request_id 只能做日志聚合，不能恢复父子 span。结果就是日志�
 
 ## 七、我最后保留的落地原则
 
-这套方案上线后，最明显的变化不是“图更漂亮”，而是排障路径被缩短了：先看 Prometheus 知道症状，再进 Tempo 找哪一段慢，最后落到 Loki 看对应 trace_id 的业务日志。对于 Laravel 这种既有同步 HTTP、又有 Horizon 异步任务的系统，**真正决定链路追踪是否可用的，不是 SDK 装没装，而是跨 Queue 的上下文透传、常驻进程的作用域回收，以及采样策略是不是能撑住高峰流量。**
+值班信息量反而更稳定。
+
+## 八、常见故障排查
+
+### 症状：Tempo 中只有入口 span，Queue Job 全部丢失
+
+**排查步骤：**
+
+1. 检查 `Queue::createPayloadUsing()` 是否在 ServiceProvider 的 `boot()` 中注册
+2. 在消费者侧 `JobProcessing` 事件中断点，确认 `$event->job->payload()` 包含 `traceparent` 字段
+3. 检查 Collector 日志是否有 `RESOURCE_EXHAUSTED` 或 `FAILED_PRECONDITION`，通常是 batch 队列积压
+
+```bash
+# 快速验证 payload 是否携带 traceparent
+php artisan tinker
+>>> dispatch(function() { dump(app('queue.trace.span')); });
+```
+
+### 症状：两个不同订单拥有同一个父 span
+
+这是 Horizon/Octane 常驻进程的典型 trace 污染问题。确保 `JobProcessed` 和 `JobExceptionOccurred` 事件中都正确调用了 `$scope->detach()` 和 `$span->end()`。如果使用了 `dispatch(fn() => ...)` 闭包任务，闭包内部也会继承上一次的 Context，需要在闭包开头手动重置：
+
+```php
+<?php
+
+use OpenTelemetry\Context\Context;
+
+// 在闭包任务开头重置上下文，防止 trace 污染
+$scope = Context::storage()->attach(Context::getCurrent());
+try {
+    // 业务逻辑
+} finally {
+    $scope->detach();
+}
+```
+
+### 症状：Grafana Trace to Logs 功能点击后跳转 Loki 无结果
+
+确认三边 trace_id 格式一致：Tempo 存储的 hex 格式（32 位无短横线）、Loki label 中的 `traceID`、以及应用日志 `extra.trace_id` 字段。常见问题是日志层对 trace_id 做了 `Uuid::toString()` 格式化（带短横线），导致 Grafana 正则匹配失败。统一使用 `Span::getCurrent()->getContext()->getTraceId()` 原始值即可。
 
 如果只让我保留一个经验，那就是：先把订单、支付、库存这种最关键的异步链路打通，再谈全站埋点。全站铺开不难，难的是第一条真正能拿来值班的 Trace。
+
+## 相关阅读
+
+- [Prometheus + Grafana 监控体系实战：Laravel API 的 RED 指标、告警降噪与 SLO 看板落地踩坑记录](/php/Laravel/prometheus-grafana-monitoringguide-laravel-api-red-slo/) — 链路追踪定位到慢接口后，如何用 Prometheus RED 指标量化并设置 SLO 告警
+- [Laravel Telescope 开发调试实战：请求追踪、队列监控与慢查询定位踩坑记录](/php/Laravel/laravel-telescope-guide-monitoringslow-query/) — 本地开发阶段用 Telescope 快速定位队列与慢查询问题
+- [Laravel Event-Listener 事件驱动架构 - 解耦订单处理](/php/Laravel/laravel-event-listener-architecture/) — 本文追踪的订单链路中事件驱动架构的设计与踩坑

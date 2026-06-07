@@ -1,11 +1,12 @@
 ---
 title: Webpack/Vite 构建优化实战：Laravel BFF 缓存命中与分包策略踩坑记录
+cover: /images/covers/vite-optimizationguide-laravel-bff-cache-cover.jpg
 date: 2026-05-03 13:35:38
 categories:
   - Frontend
   - Laravel
-tags: [Vite, 缓存]
-description: 基于 KKday B2C API 真实踩坑经验，记录一套针对 Laravel BFF 架构下的构建优化方案，重点覆盖分包路由、长生命周期缓存与 sourcemap 生产环境处理。
+tags: [Vite, Webpack, 前端构建, Laravel, 缓存, 分包策略]
+description: 基于 KKday B2C API 真实踩坑经验，深入剖析 Laravel BFF 架构下的 Vite/Webpack 构建优化方案，涵盖分包策略、manualChunks 路由级懒加载、长生命周期缓存命中、Nginx Cache-Control 配置、CDN 资源失效排查与 sourcemap 生产环境取舍，附 5 个真实踩坑记录与解决方案。
 
 
 
@@ -331,6 +332,60 @@ done | grep -v "200" && echo "有子应用不可达"
 - **Laravel 负责缓存注入，CDN 资源单独管理过期策略**
 
 如果团队还做不到子应用独立测试、独立回滚、独立部署，其实建议先别拆分；那只是在单体前端外面再包一层复杂度。真正值得拆分的，是边界清楚、发布频繁、多人协作的中后台场景。
+
+## 八、Nginx Cache-Control 配置实战
+
+很多团队只关注 Vite 构建层面的分包与 hash 命名，却忽略了 Nginx 的缓存头配置。如果 Nginx 返回 `Cache-Control: no-cache` 或者干脆没有设置，CDN 边缘节点不会缓存静态资源，用户每次访问都会回源——**分包策略再好也白搭**。
+
+```nginx
+# /etc/nginx/conf.d/static-assets.conf
+server {
+    listen 443 ssl;
+    server_name cdn.example.com;
+
+    # 带 hash 的 JS/CSS —— 长期缓存（1年）
+    location ~* \.(js|css)$ {
+        expires 1y;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        add_header X-Content-Type-Options "nosniff";
+        access_log off;
+    }
+
+    # 带 hash 的图片/字体 —— 中期缓存（30天）
+    location ~* \.(png|jpg|jpeg|gif|ico|svg|woff2?|ttf|eot)$ {
+        expires 30d;
+        add_header Cache-Control "public, max-age=2592000";
+        access_log off;
+    }
+
+    # HTML 入口文件 —— 不缓存，每次都回源
+    location ~* \.html$ {
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+        add_header Pragma "no-cache";
+        add_header Expires "0";
+    }
+}
+```
+
+**关键原则**：文件名带 `[hash]` 的资源可以放心设为 immutable，因为 hash 变了 URL 就变了；而 `index.html` 等入口文件必须每次回源，否则用户永远拿不到新的 hash 映射。
+
+## 九、踩坑速查表
+
+| # | 问题 | 根因 | 解决方案 |
+|---|------|------|----------|
+| 1 | 子应用 404 | `vite.config.ts` 的 `base` 路径与 Nginx location 不匹配 | 每个子应用的 `base` 必须与其部署路径一一对应 |
+| 2 | 刷新后路由丢失 | 主应用拦截了子应用路径，Vue Router 不接管历史模式 | Nginx `try_files` 直接 fallback 到 `index.html` |
+| 3 | 缓存命中率低 | CI 每次清理 `.vite/cache`，依赖解析全部重来 | cache 目录挂载到共享卷；生产环境显式 `rm -rf .vite` |
+| 4 | Bundle 体积膨胀 35% | inline sourcemap 全量内联到 JS bundle | 生产环境关闭 sourcemap，仅调试环境保留 inline |
+| 5 | CDN 白屏 | CDN 上的子应用资源未过期，`Cache-Control` 未配置 | Nginx 为带 hash 文件设 `immutable`，HTML 设 `no-cache` |
+
+---
+
+## 相关阅读
+
+- [Vite vs Webpack vs Laravel Mix：前端构建工具选型对比实战](/frontend/vite-vs-webpack-laravel-mix-vs/) — 从开发体验、构建速度、生态兼容三个维度对比三大构建工具
+- [Vite + Laravel 前后端分离开发工作流踩坑记录](/frontend/vite-laravel-guide/) — Vite 与 Laravel 集成的 HMR、Proxy 与环境变量配置
+- [qiankun 微前端实战：Laravel 后台拆分中的路由、鉴权与样式隔离踩坑记录](/frontend/qiankun-guide-laravel/) — 微前端架构下 Laravel 后台拆分的路由与鉴权方案
 
 ---
 

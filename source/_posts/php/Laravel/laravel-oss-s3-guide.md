@@ -1,11 +1,12 @@
 ---
 title: Laravel + OSS/S3 对象存储实战：前端直传、临时签名与回源踩坑记录
 date: 2026-05-02 09:20:00
+cover: /images/covers/laravel-oss-s3-guide-cover.jpg
 categories:
   - PHP
   - Laravel
-tags: [AWS, Laravel]
-description: 结合 Laravel B2C API 真实落地经验，记录阿里云 OSS 与 AWS S3 在前端直传、临时签名下载、回源鉴权、目录规划与踩坑处理中的一套生产可用方案。
+tags: [aws, laravel, oss, s3, 对象存储]
+description: 本文基于 Laravel B2C API 生产实战，完整覆盖阿里云 OSS 与 AWS S3 对象存储集成方案，包括前端直传、临时签名上传与下载、S3 presigned URL 生成、CDN 回源鉴权、Media 元数据表设计、踩坑案例（CORS、Content-Type 检测、文件大小限制）及多云选型对比，适合需要在 Laravel 中落地对象存储的后端与全栈开发者参考。
 
 
 
@@ -417,3 +418,466 @@ class GenerateProductThumbnail implements ShouldQueue
 - 生命周期和孤儿清理是否落地
 
 对象存储最怕的不是不会用 `Storage::put()`，而是把应用层硬生生做成文件中转站。只要你把直传、签名、元数据和清理机制这四步补齐，OSS 和 S3 都能跑得很稳。
+
+## 十二、完整前端直传示例（Presigned URL + Vue/JS）
+
+下面是一个完整的前端直传流程，基于 Laravel 后端生成 presigned URL，前端使用原生 `fetch` + `XMLHttpRequest` 完成上传。
+
+### 后端：生成 S3/OSS Presigned URL
+
+```php
+// app/Http/Controllers/Api/PresignedUploadController.php
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Services\UploadPathService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Aws\S3\S3Client;
+
+class PresignedUploadController extends Controller
+{
+    public function store(Request $request, UploadPathService $pathService)
+    {
+        $request->validate([
+            'product_id'  => ['required', 'integer'],
+            'filename'    => ['required', 'string', 'max:255'],
+            'mime_type'   => ['required', 'in:image/jpeg,image/png,image/webp,application/pdf'],
+            'size'        => ['required', 'integer', 'max:10485760'], // 10MB
+        ]);
+
+        $ext     = pathinfo($request->string('filename'), PATHINFO_EXTENSION);
+        $path    = $pathService->makeProductImagePath($request->integer('product_id'), $ext);
+        $expires = now()->addMinutes(15);
+
+        // Laravel 11+ 内置方式（Flysystem S3 adapter）
+        $presignedUrl = Storage::disk('public_assets')->temporaryUploadUrl(
+            $path,
+            $expires,
+            [
+                'ContentType'        => $request->string('mime_type'),
+                'ContentDisposition' => 'inline',
+            ]
+        );
+
+        return response()->json([
+            'upload_url'  => $presignedUrl,
+            'object_key'  => $path,
+            'expires_at'  => $expires->toIso8601String(),
+            'max_size'    => 10 * 1024 * 1024,
+        ]);
+    }
+}
+```
+
+如果你使用的是原生 AWS SDK（Laravel < 11 或需要更细粒度控制），可以手动创建 presigned command：
+
+```php
+// 手动构建 PutObject presigned request
+$s3 = new S3Client([
+    'version'  => 'latest',
+    'region'   => env('S3_REGION', 'ap-southeast-1'),
+    'endpoint' => env('S3_ENDPOINT'), // OSS/MinIO 兼容端点
+    'credentials' => [
+        'key'    => env('S3_ACCESS_KEY_ID'),
+        'secret' => env('S3_ACCESS_KEY_SECRET'),
+    ],
+]);
+
+$command = $s3->getCommand('PutObject', [
+    'Bucket'      => env('S3_PRIVATE_BUCKET'),
+    'Key'         => $path,
+    'ContentType' => $request->string('mime_type'),
+    'ACL'         => 'private',
+]);
+
+$presignedRequest = $s3->createPresignedRequest($command, '+15 minutes');
+$presignedUrl     = (string) $presignedRequest->getUri();
+```
+
+### 前端：JavaScript 直传
+
+```javascript
+// utils/uploadToS3.js
+export async function directUpload(file, productId) {
+  // 1. 向后端请求 presigned URL
+  const policyRes = await fetch('/api/upload/presign', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      product_id: productId,
+      filename: file.name,
+      mime_type: file.type,
+      size: file.size,
+    }),
+  });
+
+  if (!policyRes.ok) {
+    throw new Error('获取上传凭证失败');
+  }
+
+  const { upload_url, object_key } = await policyRes.json();
+
+  // 2. 直传到 S3/OSS
+  const uploadRes = await fetch(upload_url, {
+    method: 'PUT',
+    headers: { 'Content-Type': file.type },
+    body: file,
+  });
+
+  if (!uploadRes.ok) {
+    throw new Error('文件上传失败');
+  }
+
+  // 3. 通知后端确认上传完成
+  const confirmRes = await fetch('/api/upload/confirm', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ object_key, origin_name: file.name, visibility: 'public' }),
+  });
+
+  if (!confirmRes.ok) {
+    throw new Error('上传确认失败');
+  }
+
+  return confirmRes.json();
+}
+```
+
+前端带进度的版本（使用 XMLHttpRequest）：
+
+```javascript
+export function directUploadWithProgress(file, productId, onProgress) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const policyRes = await fetch('/api/upload/presign', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          product_id: productId,
+          filename: file.name,
+          mime_type: file.type,
+          size: file.size,
+        }),
+      });
+
+      const { upload_url, object_key } = await policyRes.json();
+
+      const xhr = new XMLHttpRequest();
+      xhr.open('PUT', upload_url, true);
+      xhr.setRequestHeader('Content-Type', file.type);
+
+      xhr.upload.addEventListener('progress', (e) => {
+        if (e.lengthComputable) {
+          onProgress({
+            loaded: e.loaded,
+            total: e.total,
+            percent: Math.round((e.loaded / e.total) * 100),
+          });
+        }
+      });
+
+      xhr.onload = async () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          const confirmRes = await fetch('/api/upload/confirm', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ object_key, origin_name: file.name }),
+          });
+          resolve(await confirmRes.json());
+        } else {
+          reject(new Error(`上传失败: ${xhr.status}`));
+        }
+      };
+
+      xhr.onerror = () => reject(new Error('网络错误'));
+      xhr.send(file);
+    } catch (err) {
+      reject(err);
+    }
+  });
+}
+```
+
+### 前端：Vue 3 组件示例
+
+```vue
+<template>
+  <div class="upload-area">
+    <input type="file" accept="image/*,.pdf" @change="handleFileChange" />
+    <div v-if="uploading" class="progress-bar">
+      <div class="progress-fill" :style="{ width: progress + '%' }"></div>
+      <span>{{ progress }}%</span>
+    </div>
+    <div v-if="result" class="upload-result">
+      上传成功：{{ result.object_key }}
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { directUploadWithProgress } from '@/utils/uploadToS3';
+
+const props = defineProps({ productId: { type: Number, required: true } });
+const uploading = ref(false);
+const progress = ref(0);
+const result = ref(null);
+
+async function handleFileChange(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  uploading.value = true;
+  progress.value = 0;
+
+  try {
+    result.value = await directUploadWithProgress(file, props.productId, (p) => {
+      progress.value = p.percent;
+    });
+  } catch (err) {
+    alert(err.message);
+  } finally {
+    uploading.value = false;
+  }
+}
+</script>
+```
+
+## 十三、踩坑案例
+
+### 案例 1：CORS 配置缺失导致前端直传跨域失败
+
+**现象：** 本地开发正常，部署到生产环境后，前端通过 presigned URL 直传 OSS/S3 时报 `No 'Access-Control-Allow-Origin' header is present on the requested resource`。
+
+**根因：** OSS/S3 bucket 未配置 CORS 规则，或配置的 `AllowedOrigin` 与实际域名不匹配。本地开发用 `localhost:3000`，生产用 `app.example.com`，但 CORS 只配了 localhost。
+
+**修复：**
+
+```json
+// OSS/S3 CORS 配置（阿里云 OSS 示例）
+[
+  {
+    "AllowedOrigin": ["https://app.example.com", "https://admin.example.com"],
+    "AllowedMethod": ["PUT", "POST", "GET"],
+    "AllowedHeader": ["*"],
+    "ExposeHeader": ["ETag", "x-oss-request-id"],
+    "MaxAgeSeconds": 3600
+  }
+]
+```
+
+AWS S3 等价配置通过 `PutBucketCors` API 或 AWS Console 设置。注意：**不要把 `AllowedOrigin` 设为 `*` 在生产环境**，否则任何站点都能跨域请求你的存储桶。
+
+### 案例 2：Content-Type 检测错误导致图片无法在浏览器内联显示
+
+**现象：** 用户上传 `.jpg` 文件，上传完成后通过 CDN URL 访问时浏览器强制下载而不是预览。
+
+**根因：** 前端直传 presigned URL 时未在签名中指定 `ContentType`，或前端 PUT 请求未设置 `Content-Type` header。服务端回退到 `application/octet-stream`，浏览器收到后触发下载行为。
+
+**修复：** 必须在 presigned URL 生成时固定 `ContentType`，并在前端 PUT 请求中设置一致的 `Content-Type` header。上传完成后在 `confirm` 阶段再做一次服务端 `mimeType` 检测，如不一致则更新记录：
+
+```php
+// confirm 阶段校验 MIME
+$serverMimeType = $adapter->mimeType($objectKey);
+$expectedMime   = $payload['mime_type'] ?? '';
+
+if ($serverMimeType !== $expectedMime) {
+    // 记录警告，但不阻断——OSS/S3 返回的 mimeType 才是权威值
+    logger()->warning('MIME mismatch after upload', [
+        'expected'   => $expectedMime,
+        'actual'     => $serverMimeType,
+        'object_key' => $objectKey,
+    ]);
+}
+```
+
+### 案例 3：大文件分片上传时 parts 数量超限
+
+**现象：** 用户上传 4GB 视频文件，分片上传到一半时 API 报错 `EntityTooSmall` 或 `InvalidPart`。
+
+**根因：** AWS S3 和阿里云 OSS 对分片上传的 part 大小和总 part 数量有限制。S3 限制 10,000 个 part，每个 part 最小 5MB（最后一个除外）。如果 part 大小设为 5MB，最多支持约 48.8GB。但如果你的前端分片逻辑把 part 大小设为 1MB，4GB 文件会生成 4000+ 个 part，在某些场景下可能触发限制。
+
+**修复：**
+
+```php
+// config/services.php 中定义分片策略
+'upload' => [
+    'presigned_ttl'  => 60,      // 分片上传凭证有效期（分钟）
+    'part_size'      => 10 * 1024 * 1024, // 10MB per part
+    'max_file_size'  => 5 * 1024 * 1024 * 1024, // 5GB
+],
+```
+
+前端分片逻辑要根据文件大小动态选择 part size：小文件（< 100MB）用 5MB，大文件用 10MB 或更大。同时上传完成后必须调用 `CompleteMultipartUpload`，否则会留下未清理的 part 占用存储费用。
+
+## 十四、阿里云 OSS vs AWS S3 vs MinIO 选型对比
+
+| 维度 | 阿里云 OSS | AWS S3 | MinIO |
+|------|-----------|--------|-------|
+| **定价模型** | 按量付费：存储 ¥0.12/GB/月，流量 ¥0.50/GB（国内） | 按量付费：$0.023/GB/月（Standard），数据传出 $0.09/GB | 开源自部署，仅硬件成本 |
+| **API 兼容性** | S3 兼容（大部分 API 可互通） | S3 原生 | 完整 S3 兼容 |
+| **最大对象大小** | 48.8 TB | 5 TB（单次 PUT），分片上传无上限 | 5 TB |
+| **分片上传限制** | 最多 10,000 part | 最多 10,000 part | 可配置，通常无硬限制 |
+| **CDN 集成** | 深度集成阿里云 CDN，回源鉴权开箱即用 | CloudFront 集成 | 需自行配置 Nginx/CDN |
+| **回源鉴权** | 原生支持，Token/URL 签名 | CloudFront Signed URL/Cookie | 无原生支持，需自行实现 |
+| **跨区域复制** | 支持，同账号跨区域自动同步 | Cross-Region Replication (CRR) | 支持 site replication |
+| **生命周期管理** | 支持过期删除、归档、低频存储转换 | 支持 Lifecycle Rules，IA/Glacier 分层 | 支持对象锁定和过期策略 |
+| **国内访问速度** | 极快（多地域节点） | 较慢（需走国际线路或使用宁夏/北京区域） | 取决于部署位置 |
+| **适用场景** | 国内业务、成本敏感、阿里云生态 | 全球化业务、AWS 生态、合规需求 | 私有化部署、内网高速访问、开发测试 |
+| **Laravel 集成** | `league/flysystem-aws-s3-v3`（S3 兼容模式） | `league/flysystem-aws-s3-v3`（原生） | `league/flysystem-aws-s3-v3`（S3 兼容模式） |
+
+**选型建议：**
+
+- **纯国内业务、预算敏感** → 阿里云 OSS，配合国内 CDN 性价比最高
+- **全球化或多区域部署** → AWS S3，CloudFront 全球边缘节点覆盖好
+- **私有化/内网场景或开发测试** → MinIO，单机 Docker 一键启动，完全兼容 S3 SDK
+- **混合方案** → 公开资源用 CDN 托管（阿里云 CDN / CloudFront），私有资源用 S3/OSS + 临时签名，开发环境统一用 MinIO
+
+## 十五、CDN 回源鉴权完整配置
+
+### 阿里云 OSS + CDN 回源鉴权
+
+阿里云 OSS 支持 CDN 回源鉴权（Type A / Type B），开启后 CDN 回源到 OSS 时必须携带签名，防止绕过 CDN 直接访问 OSS。
+
+```php
+// 生成 CDN 鉴权 URL（Type A 示例）
+function generateCdnAuthUrl(string $objectKey, string $cdnDomain, int $ttl = 3600): string
+{
+    $rand       = rand(1000, 9999);
+    $expire     = time() + $ttl;
+    $uid        = env('CDN_AUTH_KEY_ID');
+    $authKey    = env('CDN_AUTH_KEY_SECRET');
+
+    // Type A: md5(uid-rand-expire-path-authKey)
+    $hash = md5("{$uid}-{$rand}-{$expire}-/{$objectKey}-{$authKey}");
+
+    return sprintf(
+        'https://%s/%s?auth_key=%s-%s-%s',
+        $cdnDomain,
+        $objectKey,
+        $expire,
+        $rand,
+        $hash
+    );
+}
+```
+
+### AWS CloudFront Signed URL
+
+```php
+use Aws\CloudFront\CloudFrontClient;
+
+function generateCloudFrontSignedUrl(string $objectKey, string $keyPairId, int $ttl = 3600): string
+{
+    $client = new CloudFrontClient([
+        'version'     => 'latest',
+        'region'      => 'us-east-1',
+        'credentials' => [
+            'key'    => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_ACCESS_KEY_SECRET'),
+        ],
+    ]);
+
+    $expires     = time() + $ttl;
+    $resourceUrl = env('CLOUDFRONT_DOMAIN') . '/' . $objectKey;
+
+    $signedUrl = $client->getSignedUrl([
+        'url'         => $resourceUrl,
+        'expires'     => $expires,
+        'private_key' => base_path(env('CLOUDFRONT_PRIVATE_KEY_PATH')),
+        'key_pair_id' => $keyPairId,
+    ]);
+
+    return $signedUrl;
+}
+```
+
+### Nginx 回源路径隔离
+
+```nginx
+# 公开资源：直接代理到 OSS/S3，长缓存
+location /assets/products/ {
+    proxy_pass https://oss-cn-hangzhou.aliyuncs.com/public-bucket/;
+    proxy_set_header Host oss-cn-hangzhou.aliyuncs.com;
+    add_header Cache-Control "public, max-age=31536000, immutable";
+    add_header Access-Control-Allow-Origin "https://app.example.com";
+}
+
+# 私有资源：代理到 Laravel API，由 API 生成临时 URL 并 302
+location /assets/private/ {
+    proxy_pass https://api.example.com;
+    add_header Cache-Control "private, no-store, no-cache, must-revalidate";
+}
+
+# CDN 回源鉴权失败时返回 403，而非暴露 OSS 地址
+error_page 403 = @fallback;
+location @fallback {
+    return 403 '{"error":"access_denied"}';
+    add_header Content-Type application/json;
+}
+```
+
+## 十六、资源清理与生命周期管理
+
+生产环境中，存储桶会快速膨胀。必须配置生命周期策略，自动清理临时文件和过期数据。
+
+```php
+// app/Jobs/CleanupOrphanMedia.php
+namespace App\Jobs;
+
+use App\Models\Media;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
+
+class CleanupOrphanMedia implements ShouldQueue
+{
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    public function handle(): void
+    {
+        // 清理 24 小时内未绑定 owner 的上传文件
+        $orphans = Media::query()
+            ->whereNull('owner_id')
+            ->where('created_at', '<', now()->subDay())
+            ->limit(200)
+            ->get();
+
+        foreach ($orphans as $media) {
+            try {
+                Storage::disk($media->disk)->delete($media->object_key);
+                // 同时删除缩略图
+                $thumbKey = str_replace('products/', 'products/thumbs/', $media->object_key);
+                Storage::disk($media->disk)->delete($thumbKey);
+                $media->delete();
+            } catch (\Throwable $e) {
+                logger()->warning('Failed to cleanup orphan media', [
+                    'media_id' => $media->id,
+                    'error'    => $e->getMessage(),
+                ]);
+            }
+        }
+    }
+}
+```
+
+配合 Laravel 的任务调度，每天凌晨执行：
+
+```php
+// routes/console.php (Laravel 11+) 或 app/Console/Kernel.php
+use App\Jobs\CleanupOrphanMedia;
+use Illuminate\Support\Facades\Schedule;
+
+Schedule::job(CleanupOrphanMedia::class)->dailyAt('03:00');
+```
+
+---
+
+## 相关阅读
+
+- [云存储实战：AWS S3 / 阿里云 OSS / MinIO 集成方案](/categories/Architecture/2026-06-01-cloud-storage-aws-s3-alibaba-oss-minio-integration/)
+- [对象存储与文件上传：CDN 与权限控制](/categories/Architecture/2026-06-01-object-storage-file-upload-cdn-permission-control-laravel-b2c-api/)

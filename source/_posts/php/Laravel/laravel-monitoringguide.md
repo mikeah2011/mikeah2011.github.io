@@ -1,5 +1,6 @@
 ---
 title: Laravel 健康檢查與監控實戰-KKday-B2C-API-生產環境穩定性保障方案
+cover: /images/covers/laravel-monitoringguide-cover.jpg
 date: 2026-05-03
 categories:
   - PHP

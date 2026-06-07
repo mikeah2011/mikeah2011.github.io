@@ -1,11 +1,12 @@
 ---
 title: 领域驱动设计 (DDD) 在 Laravel 中的实践
-tags: [Laravel, 架构]
+cover: /images/covers/ddd-in-laravel-guidearchitecture-cover.jpg
+tags: [Laravel, DDD, 领域驱动设计, 聚合根, 值对象, 领域事件, 限界上下文, 架构]
 categories:
   - Misc
   - Laravel
 date: 2026-05-03 11:46:40
-description: "领域驱动设计 (DDD) 在 Laravel 中的实践"
+description: "本文深入探讨领域驱动设计（DDD）在 Laravel 项目中的落地实践，涵盖聚合根、值对象、领域事件、限界上下文等核心概念的完整代码实现。通过真实的踩坑案例，详解 Eloquent ORM 与 DDD 的冲突解决、跨聚合边界访问、领域事件可靠性保证等难题，提供从贫血模型到富领域模型的渐进式迁移方案与性能优化策略。"
 updated: 2026-05-03 11:54:57
 
 
@@ -117,6 +118,83 @@ class Address implements ValueObject {
     }
 }
 ```
+
+### 限界上下文（Bounded Context）
+
+在大型系统中，同一个概念在不同上下文中可能有不同含义。例如"用户"在**订单上下文**中是买家，在**客服上下文**中是投诉人，在**营销上下文**中是推广目标。将这些不同的语义隔离开来，就是限界上下文的核心思想。
+
+```php
+// 订单上下文中的 User —— 关注购买能力和收货地址
+namespace App\Domain\OrderContext\Entities;
+
+class Buyer {
+    public function __construct(
+        private string $id,
+        private string $name,
+        private CreditLimit $creditLimit,
+        private Address $defaultShippingAddress
+    ) {}
+
+    public function canAfford(Money $amount): bool {
+        return $this->creditLimit->isEnoughFor($amount);
+    }
+
+    public function getShippingAddress(): Address {
+        return $this->defaultShippingAddress;
+    }
+}
+
+// 客服上下文中的 User —— 关注工单和投诉历史
+namespace App\Domain\CustomerService\Entities;
+
+class Customer {
+    public function __construct(
+        private string $id,
+        private string $name,
+        private TicketCollection $openTickets,
+        private ComplaintHistory $complaintHistory
+    ) {}
+
+    public function hasOpenComplaints(): bool {
+        return $this->openTickets->hasType(TicketType::COMPLAINT);
+    }
+
+    public function isHighRisk(): bool {
+        return $this->complaintHistory->count() > 5;
+    }
+}
+```
+
+**限界上下文之间的通信**通过领域事件或防腐层（Anti-Corruption Layer）实现：
+
+```php
+// 防腐层：订单上下文 → 库存上下文 的适配器
+namespace App\Domain\OrderContext\Gateways;
+
+class InventoryGateway {
+    public function __construct(
+        private InventoryHttpClient $client  // 基础设施层的 HTTP 客户端
+    ) {}
+
+    public function checkAvailability(string $sku, int $quantity): bool {
+        // 调用库存微服务 API，而非直接查库——避免上下文耦合
+        $response = $this->client->get("/api/inventory/{$sku}");
+        return $response['available'] >= $quantity;
+    }
+
+    public function reserve(string $sku, int $quantity, string $orderId): ReservationId {
+        $response = $this->client->post('/api/inventory/reserve', [
+            'sku'      => $sku,
+            'quantity' => $quantity,
+            'order_id' => $orderId,
+        ]);
+
+        return new ReservationId($response['reservation_id']);
+    }
+}
+```
+
+> **经验法则**：一个限界上下文 = 一个独立的 Domain 子目录 = 一套独立的数据库表（微服务场景下为独立 schema）。如果两个模块频繁产生"共享模型"的冲动，说明它们应该被划分到不同的限界上下文中，通过事件或防腐层进行通信。
 
 ### 聚合根设计
 
@@ -272,26 +350,117 @@ class OrderPaidEvent extends DomainEvent {
 
 // 事件订阅器实现（配合 Event Dispatcher）
 class OrderPaidEventHandler implements ShouldHandleDomainEvents {
-    
+
     public function handle(OrderPaidEvent $event): void {
         // 异步发送短信通知
         Notification::send($event->orderId, new PaymentSuccessNotification());
-        
+
         // 创建物流订单
         LogisticsService::createOrder(
             orderNumber: 'EXP-' . $event->orderId,
             recipientAddressId: Order::fromOrderId($event->orderId)->shippingAddress->id
         );
-        
+
         // 更新库存（扣减已下单但未发货的商品）
         Inventory::reserveToOrder($event->orderId);
     }
-    
+
     public function shouldHandle(OrderPaidEvent $event): bool {
         return true;
     }
 }
 ```
+
+### 领域服务（Domain Service）vs 应用服务
+
+初学者最容易混淆领域服务和应用服务。两者的核心区别如下：
+
+| 维度 | 领域服务（Domain Service） | 应用服务（Application Service） |
+|------|---------------------------|-------------------------------|
+| **职责** | 封装不自然属于任何实体的领域逻辑 | 编排用例流程，协调多个聚合 |
+| **依赖** | 只依赖领域层接口 | 依赖领域层 + 基础设施层 |
+| **示例** | 价格计算引擎、风控策略、折扣策略 | 订单下单流程、转账编排 |
+| **可测试性** | 纯单元测试，无需 Mock 框架 | 需要 Mock Repository/Gateway |
+| **是否感知框架** | 否（纯 PHP 类） | 可以感知 Laravel（如事务管理） |
+
+```php
+// ✅ 领域服务：跨聚合的纯业务逻辑，不依赖任何框架
+namespace App\Domain\Services;
+
+class PricingService {
+    public function __construct(
+        private DiscountPolicyInterface $discountPolicy,
+        private TaxCalculatorInterface $taxCalculator
+    ) {}
+
+    public function calculateOrderTotal(
+        Collection $items,
+        ?CouponCode $coupon,
+        Address $shippingAddress
+    ): OrderTotal {
+        $subtotal = $items->reduce(
+            fn(Money $carry, OrderItem $item) => $carry->add($item->getSubtotal()),
+            Money::zero('CNY')
+        );
+
+        // 应用折扣策略（策略模式）
+        $discount = $this->discountPolicy->calculate($subtotal, $coupon);
+        $afterDiscount = $subtotal->subtract($discount);
+
+        // 计算税费（根据收货地址的税务规则）
+        $tax = $this->taxCalculator->calculate($afterDiscount, $shippingAddress);
+
+        return new OrderTotal(
+            subtotal: $subtotal,
+            discount: $discount,
+            tax: $tax,
+            grandTotal: $afterDiscount->add($tax)
+        );
+    }
+}
+
+// ✅ 应用服务：编排用例流程，协调多个领域对象
+class PlaceOrderCommand {
+    public function __construct(
+        private OrderRepositoryInterface $orderRepo,
+        private PricingService $pricingService,       // 领域服务
+        private InventoryGateway $inventoryGateway,    // 基础设施
+        private EventDispatcherInterface $dispatcher   // 领域事件
+    ) {}
+
+    public function execute(PlaceOrderDTO $dto): OrderId {
+        // 1. 验证库存（通过基础设施层）
+        foreach ($dto->items as $item) {
+            if (!$this->inventoryGateway->checkAvailability($item->sku, $item->quantity)) {
+                throw new InsufficientStockException($item->sku);
+            }
+        }
+
+        // 2. 计算价格（领域服务，纯业务逻辑）
+        $pricingResult = $this->pricingService->calculateOrderTotal(
+            OrderItem::fromDTOs($dto->items),
+            $dto->couponCode ? CouponCode::fromString($dto->couponCode) : null,
+            Address::fromDTO($dto->shippingAddress)
+        );
+
+        // 3. 创建订单（聚合根）
+        $order = Order::place(
+            OrderId::generate(),
+            $dto->userId,
+            OrderItem::fromDTOs($dto->items),
+            $pricingResult
+        );
+
+        // 4. 持久化 + 事件发布
+        $this->orderRepo->save($order);
+        $this->dispatcher->dispatchAll($order->pullDomainEvents());
+
+        return $order->getId();
+    }
+}
+```
+
+> **关键原则**：领域服务不应该知道"谁调用了它"。它接收纯领域对象（Entity、ValueObject），返回纯领域对象。所有与外部世界的交互（数据库、HTTP、队列）都交给应用服务和基础设施层处理。
 
 ## Laravel 中的架构分层
 
@@ -764,6 +933,23 @@ class OrderCommand {
 }
 ```
 
+## 架构方案对比
+
+在 Laravel 项目中，常见的架构方案有三种。以下是它们在关键维度上的横向对比，帮助你根据项目阶段做出务实的选择：
+
+| 维度 | 传统 MVC + Service Layer | 领域驱动设计（DDD） | CQRS + Event Sourcing |
+|------|------------------------|--------------------|-----------------------|
+| **适用场景** | CRUD 为主、业务逻辑简单 | 业务复杂、领域规则多 | 高并发读写分离、需审计追踪 |
+| **学习成本** | ★★☆☆☆ | ★★★★☆ | ★★★★★ |
+| **代码量** | 少（脚手架即可生成） | 多（显式建模开销） | 最多（读写双模型 + 事件存储） |
+| **业务规则归属** | 散落在 Controller/Service | 内聚在 Entity/Domain Service | 命令处理器 + 聚合根 |
+| **可测试性** | 差（强依赖 Laravel 框架） | 好（纯 PHP 单元测试） | 好（事件可回放验证） |
+| **数据库耦合** | 高（Eloquent 到处使用） | 低（通过 Repository 抽象） | 极低（事件存储即真理源） |
+| **团队要求** | 初级即可上手 | 需要领域建模经验 | 需要事件驱动架构经验 |
+| **推荐项目** | 后台管理系统、CMS | 电商、金融、SaaS 平台 | 金融交易、订单履约 |
+
+> **务实建议**：不必在项目一开始就全面引入 DDD。当 `app/Services/` 下的文件超过 30 个、业务规则开始交叉耦合、一个 Service 改动引发多处回归时，再逐步将核心模块迁移到领域模型。
+
 ## 总结与最佳实践
 
 1. **领域层是核心**：保持纯粹的 PHP 类，不依赖 Laravel 的 Eloquent、Facades、Services。使用 Repository 抽象所有数据访问。
@@ -780,6 +966,12 @@ class OrderCommand {
 5. **逐步迁移**：不必一次性重构整个项目，选择边界清晰的业务模块逐步引入 DDD。
 
 DDD 不是银弹，但对于复杂业务系统，它能帮助团队建立清晰的领域模型，让代码真正反映业务知识，而非仅仅是 CRUD 操作。在实践中，关键是保持耐心、持续迭代，并根据团队能力逐步深入。
+
+## 相关阅读
+
+- [六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录](/categories/架构/2026-06-01-六边形架构实战-Laravel-端口与适配器模式落地踩坑记录/) —— DDD 的领域层如何通过端口与适配器实现依赖反转
+- [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现](/categories/架构/CQRS-Event-Sourcing-完整实战-从事件存储到读模型投影-Laravel订单系统的端到端实现/) —— 将本文的领域事件进一步升级为完整的事件溯源架构
+- [Event Storming 实战：从业务事件到代码实现的领域建模方法论](/categories/架构/Event-Storming-实战-从业务事件到代码实现的领域建模方法论-Laravel-B2C-API踩坑记录/) —— 在动手写代码之前，如何用 Event Storming 工作坊发现聚合和限界上下文的边界
 
 ---
 

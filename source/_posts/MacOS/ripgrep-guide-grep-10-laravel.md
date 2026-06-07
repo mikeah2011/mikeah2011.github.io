@@ -1,12 +1,13 @@
 ---
 title: ripgrep-实战-比-grep-快10倍的代码搜索-正则引擎并行扫描与-Laravel-大型仓库搜索踩坑记录
+cover: /images/covers/ripgrep-guide-grep-10-laravel-cover.jpg
 date: 2026-05-17 00:11:07
 updated: 2026-05-17 00:14:47
 categories:
   - macOS
   - Laravel
 tags: [macOS, 工程管理]
-description: ripgrep (rg) 实战深度指南：正则引擎原理、并行文件扫描、.gitignore 感知、与 grep/ag/fd 对比、Laravel 30+ 仓库大规模代码搜索、IDE 集成、自定义 alias 与 CI 流水线集成，附真实性能基准与踩坑记录。
+description: ripgrep (rg) 实战深度指南：Rust 正则引擎原理与 SIMD 并行扫描机制详解、.gitignore 感知自动跳过 vendor 目录、与 GNU grep/ag/ast-grep 全维度性能对比、Laravel 30+ 仓库大规模代码搜索实战、VS Code/Vim/Neovim/PHPStorm IDE 集成配置、GitHub Actions CI 流水线安全扫描与 debug 语句检测、自定义 shell alias 与 fzf 交互式搜索，附 MacBook M2 真实性能基准数据与六个常见踩坑记录解决方案。
 
 
 
@@ -600,3 +601,9 @@ rgf() {
 4. **零配置开箱即用**：`.gitignore` 感知意味着大部分场景不需要额外参数
 
 如果你还在用 `grep -r` 或 `find | xargs grep`，现在就 `brew install ripgrep` 开始体验吧。
+
+## 相关阅读
+
+- [Neovim 实战：现代 Vim 配置与 LSP 集成——Laravel API 开发效率提升踩坑记录](/categories/macOS/neovim-guide-vim-lsp/)
+- [Cursor IDE 实战：AI 驱动的代码编辑器深度体验 — Tab 补全、Composer 多文件编辑与 .cursorrules 工程化配置](/categories/macOS/cursor-ide-guide-ai/)
+- [Git Worktree + Bare Repo 实战：多分支并行开发——Laravel 大型项目中同时处理多个 feature 的高效工作流](/categories/07_CICD/Git-Worktree-Bare-Repo-实战-多分支并行开发-Laravel大型项目高效工作流/)

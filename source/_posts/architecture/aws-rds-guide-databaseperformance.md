@@ -7,8 +7,10 @@ categories:
   - AWS
 tags: [AWS, MySQL, PostgreSQL, 监控]
 description: "AWS RDS 在 Laravel B2C API 项目中的实战经验：多可用区部署、自动备份与时间点恢复、读写分离 Proxy、Performance Insights 慢查询治理、参数组调优、以及从自建 MySQL 迁移到 RDS 的完整踩坑记录。"
-
-
+cover: /images/covers/architecture-01-cover.jpg
+images:
+  - /images/content/architecture-01-content-1.jpg
+  - /images/content/architecture-01-content-2.jpg
 
 ---
 # AWS RDS 实战：数据库托管、备份恢复与性能优化
@@ -48,6 +50,8 @@ description: "AWS RDS 在 Laravel B2C API 项目中的实战经验：多可用�
 │  └──────────────────────────────────────┘                │
 └─────────────────────────────────────────────────────────┘
 ```
+
+![AWS RDS 多可用区架构](/images/content/architecture-01-content-1.jpg)
 
 ## 一、为什么选 RDS 而不是自建？
 
@@ -345,6 +349,8 @@ aws rds delete-db-instance \
 - 500GB 数据库恢复大约需要 20-30 分钟，1TB 可能需要 1 小时以上
 
 ## 五、Performance Insights 慢查询治理
+
+![Performance Insights 慢查询监控](/images/content/architecture-01-content-2.jpg)
 
 ### 5.1 开启 Performance Insights
 

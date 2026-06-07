@@ -1,10 +1,11 @@
 ---
 title: 网络编程
+cover: /images/covers/network-programming-cover.jpg
 sticky: 100
-tags: [Laravel]
+tags: [计算机网络, TCP/IP, HTTP, Socket, 网络编程, 面试]
 categories: Network
 date: 2018-03-20 15:05:07
-description: '1.说下计算机网络体系结构 计算机网络体系结构，一般有三种：OSI 七层模型、TCP/IP 四层模型、五层结构。 三种网络体系结构 简单说，OSI是一个理论上的网络通信模型，TCP/IP是实际上的网络通信模型，五层结构就是为了介绍网络原理而…'
+description: '本文系统梳理计算机网络核心知识，涵盖OSI七层模型、TCP/IP四层体系结构、TCP三次握手与四次挥手、UDP协议、HTTP/HTTPS原理、Socket网络编程、ARP与DNS协议、加密算法RSA/AES等高频面试考点。深入解析网络编程中的常见问题与底层原理，适合后端开发与网络工程师面试复习，帮助全面掌握计算机网络与网络编程核心技能。'
 
 
 
@@ -1368,4 +1369,12 @@ XSS 攻击一般分三种类型：**存储型 、反射型 、DOM 型 XSS**
 
 
 [参考](https://mp.weixin.qq.com/s/CwFPCfqDXPnD2ZUfVxewdA)
+
+---
+
+### 相关阅读
+
+- [TCP 三次握手详解](/categories/Network/three-way-handshake/) — 深入理解TCP连接建立过程与抓包分析
+- [TCP 四次挥手详解](/categories/Network/four-way-close/) — TCP连接释放过程与常见面试问题
+- [Socket 编程](/categories/Network/socket/) — PHP Socket编程实战与WebSocket、Swoole应用
 

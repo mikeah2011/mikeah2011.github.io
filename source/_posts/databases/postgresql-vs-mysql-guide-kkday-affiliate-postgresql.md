@@ -5,11 +5,15 @@ updated: 2026-05-05 01:13:41
 categories:
   - Databases
   - MySQL
-tags: [KKday, Laravel, MySQL, PostgreSQL]
+tags: [kkday, laravel, mysql, postgresql]
 description: "KKday Affiliate 项目从 MySQL 迁移到 PostgreSQL 的真实决策过程，涵盖 JSONB、全文搜索、GIS 能力、CTE 递归查询等场景对比，以及哪些场景 PostgreSQL 反而不如 MySQL 的边界踩坑记录。"
 
 
 
+cover: /images/covers/databases-018-cover.jpg
+images:
+  - /images/content/databases-018-content-1.jpg
+  - /images/content/databases-018-content-2.jpg
 ---
 ## 前言
 
@@ -22,6 +26,8 @@ description: "KKday Affiliate 项目从 MySQL 迁移到 PostgreSQL 的真实决�
 ---
 
 ## 一、决策背景：Affiliate 项目的特殊需求
+
+![databases-018-content-1](/images/content/databases-018-content-1.jpg)
 
 Affiliate 项目的核心业务模型：
 
@@ -272,6 +278,8 @@ MySQL 8.0 有 `ST_Distance_Sphere`，但**不支持 GiST 索引**，范围查询
 
 ## 四、PostgreSQL 反而踩坑的场景（边界在哪里）
 
+![databases-018-content-2](/images/content/databases-018-content-2.jpg)
+
 ### 踩坑 1：连接数管理
 
 PostgreSQL 每个连接是**独立进程**（fork），不像 MySQL 的线程模型。100 个连接 = 100 个进程，内存占用显著。
@@ -436,3 +444,13 @@ PostgreSQL 不是「更好的 MySQL」，而是一个**能力边界不同**的�
 但如果你的项目不需要 JSONB 深度查询、GIS 空间索引、或复杂递归 CTE，MySQL 8.0 在运维成熟度、连接模型、工具生态上仍然是更稳妥的选择。
 
 **选型不是技术竞赛，是需求匹配。**
+
+---
+
+## 相关阅读
+
+- [PostgreSQL 高级特性实战：Window Functions + CTE + JSONB + pg_trgm——Laravel 中的复杂查询重写与性能调优](/categories/数据库/postgresql-advanced-features-window-cte-jsonb-pgtrgm-laravel/)
+- [ClickHouse vs PostgreSQL 分析查询对比：OLAP 场景下的选型决策与 Laravel 集成](/categories/MySQL/2026-06-02-clickhouse-vs-postgresql-olap-selection-laravel-integration/)
+- [pg_stat_statements + MySQL Performance Schema 实战：数据库慢查询的生产级监控](/categories/MySQL/2026-06-05-pg-stat-statements-MySQL-Performance-Schema-慢查询监控实战/)
+- [PostgreSQL Logical Replication 实战：零停机数据迁移与实时数据同步](/categories/MySQL/PostgreSQL-Logical-Replication-实战-零停机数据迁移与实时数据同步/)
+- [数据库多租户模式对比实战：共享库 Row-Level vs Schema-per-Tenant vs 独立库](/categories/01_MySQL/数据库多租户模式对比实战-共享库Row-Level-vs-Schema-per-Tenant-vs-独立库-Laravel中的三种方案深度权衡/)

@@ -1,12 +1,13 @@
 ---
 title: Laravel-ORM-PDO-MySQL-PostgreSQL-行为差异与兼容性实战踩坑记录
+cover: /images/covers/laravel-orm-pdo-mysql-postgresql-cover.jpg
 date: 2026-05-05 00:40:36
 updated: 2026-05-05 00:43:48
 categories:
   - PHP
   - MySQL
 tags: [Laravel, MySQL, PostgreSQL]
-description: 在 KKday B2C 同一 Laravel 代码库中同时支持 MySQL 和 PostgreSQL 的真实踩坑记录——从 Eloquent Query Builder 的 SQL 生成差异、PDO 驱动行为、Schema Migration 到类型映射，30+ 仓库的兼容性实战经验总结。
+description: 在 KKday B2C 同一 Laravel 代码库中同时支持 MySQL 和 PostgreSQL 的真实踩坑记录——从 Eloquent Query Builder 的 SQL 生成差异、PDO 驱动行为、Schema Migration 到类型映射，涵盖大小写敏感、JSON 查询、NULL 语义、事务隔离级别等 10 大常见陷阱与生产级解决方案。
 
 
 
@@ -942,6 +943,27 @@ jobs:
 └──────────────────────┴─────────────────────┴──────────────────────────┘
 ```
 
+## Eloquent 常见方法行为对照表
+
+以下表格汇总了 Eloquent 常用方法在 MySQL 与 PostgreSQL 下的行为差异，方便快速查阅：
+
+| Eloquent / Query Builder 方法 | MySQL 生成的 SQL | PostgreSQL 生成的 SQL | 常见陷阱 |
+|---|---|---|---|
+| `where('name', 'Hotel')` | `WHERE name = 'Hotel'`（不区分大小写） | `WHERE name = 'Hotel'`（严格区分大小写） | PG 下可能查不到预期结果 |
+| `where('name', 'LIKE', '%hotel%')` | `LIKE '%hotel%'`（ci） | `LIKE '%hotel%'`（cs） | PG 需改用 `ILIKE` |
+| `whereNull('deleted_at')` | `WHERE deleted_at IS NULL` | `WHERE deleted_at IS NULL` | 行为一致，但 NULL 排序相反 |
+| `where('amount', '!=', 0)` | 排除 0 和 NULL | 只排除 0，保留 NULL 行 | PG 下可能返回意外的 NULL 行 |
+| `whereJsonContains('tags', 'a')` | `JSON_CONTAINS(tags, '"a"')` | `tags @> '"a"'::jsonb` | 嵌套路径在 PG 某些版本不一致 |
+| `whereJsonLength('tags', '>', 3)` | `JSON_LENGTH(tags) > 3` | `jsonb_array_length(tags) > 3` | PG 可用 GIN 索引加速 |
+| `upsert([...], ['id'], ['val'])` | `ON DUPLICATE KEY UPDATE` | `ON CONFLICT DO UPDATE SET` | PG 要求冲突目标有唯一约束 |
+| `selectRaw("CONCAT(a, b)")` | 正常工作 | 报错：`CONCAT` 不存在 | PG 需用 `\|\|` 运算符 |
+| `->groupBy('date')->orderBy('date')` | NULL 排最前 | NULL 排最后 | 排序结果不一致 |
+| `DB::raw("NOW()")` | `NOW()` | `NOW()` | 行为一致，但时区处理可能不同 |
+| `chunkById(1000)` | `WHERE id > ? ORDER BY id` | 同左 | 行为一致 ✅ |
+| `lockForUpdate()` | `FOR UPDATE` | `FOR UPDATE` | PG 下必须在事务中使用 |
+
+> **提示**：在双数据库场景下，建议对所有 `where()` 查询中涉及用户输入的字段统一使用 `scopeWhereCi()` 包装，避免大小写敏感问题在线上悄然出现。
+
 ---
 
 ## 结语
@@ -957,3 +979,11 @@ jobs:
 我们的经验是：**尽量用 Query Builder 的抽象方法，少写 Raw SQL；需要写 Raw SQL 时，封装兼容层；CI/CD 中同时跑两个数据库的测试。** 这三板斧让我们在 30+ 仓库中保持了代码的数据库无关性。
 
 > 💡 **最终建议**：如果你的项目不需要同时支持两种数据库，**就不要主动做兼容**。选择最适合业务场景的数据库，充分利用其特性（PostgreSQL 的 JSONB、全文搜索、RLS；MySQL 的全文索引、内存表等）。过度抽象反而会让代码变得难以维护。
+
+---
+
+## 相关阅读
+
+- [Laravel + PgBouncer 连接池实战：PostgreSQL 连接风暴治理](/categories/php/Laravel/laravel-pgbouncer-guide-postgresql-transaction-prepared-statement/)
+- [Laravel + PostgreSQL 分区表实战：订单流水月分区、分区裁剪与冷热归档踩坑记录](/categories/php/Laravel/laravel-postgresql-guide/)
+- [数据库索引优化实战-覆盖索引联合索引与索引下推](/categories/databases/index-optimization-explain/)

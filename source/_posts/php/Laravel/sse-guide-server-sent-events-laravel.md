@@ -1,12 +1,18 @@
 ---
 title: SSE-实战-Server-Sent-Events-在-Laravel-中的应用-实时推送轻量方案与踩坑记录
+cover: /images/covers/sse-guide-server-sent-events-laravel-cover.jpg
 date: 2026-05-16 18:02:58
 updated: 2026-05-16 18:15:17
 categories:
   - PHP
   - Laravel
-tags: [KKday, Laravel, WebSocket]
-description: SSE (Server-Sent Events) 在 Laravel B2C API 中的实战应用：订单状态实时推送、后台任务进度通知、库存变更广播。涵盖 EventSource API、Laravel StreamedResponse、Nginx 缓冲坑、心跳保活、断线重连策略，以及与 WebSocket/Poller 的选型对比。
+tags: [Laravel, SSE, Server-Sent-Events, WebSocket, 实时推送, B2C]
+description: >-
+  Laravel SSE 实战指南：Server-Sent Events 在 B2C 电商 API 中的完整应用方案。
+  详解订单状态实时推送、后台任务进度通知、库存变更广播等场景，涵盖 EventSource API 前端集成、
+  Laravel StreamedResponse 后端实现、Nginx 反向代理缓冲避坑、心跳保活机制与 Last-Event-ID 断线重连策略。
+  深入对比 SSE vs WebSocket vs Long Polling 的选型差异，附带 PHP-FPM 独立池配置、Redis Pub/Sub 非阻塞轮询等生产级踩坑记录，
+  助你快速落地 Server-Sent Events 实时推送方案。
 
 
 
@@ -624,7 +630,29 @@ foreach ($pubsub as $message) {
 }
 ```
 
-## 四、SSE vs WebSocket vs Polling 选型决策树
+## 四、SSE vs WebSocket vs Long Polling 选型决策树
+
+### 4.1 三种方案全面对比
+
+| 维度 | Long Polling | SSE (Server-Sent Events) | WebSocket |
+|------|-------------|-------------------------|-----------|
+| 通信方向 | 客户端 → 服务端（轮询） | **单向**（Server → Client） | **双向** |
+| 协议 | 普通 HTTP | 普通 HTTP | `ws://` / `wss://` |
+| 连接模型 | 短连接，反复建立/断开 | **长连接**，一次握手持续推送 | **长连接**，持久双工通道 |
+| 服务端推送 | 模拟（响应后立即重连） | 原生支持，事件流持续推送 | 原生支持 |
+| 自动重连 | 需手动实现（JS 定时器） | **浏览器原生支持** | 需手动实现 |
+| 断线补发 | 需自建消息队列 | **Last-Event-ID 协议级支持** | 需自行实现 |
+| 心跳保活 | 每次请求自带 | 需实现（`:` 注释行） | 需实现（Ping/Pong） |
+| Nginx/代理兼容 | ✅ 标准 HTTP | ✅ 标准 HTTP（需禁用缓冲） | ⚠️ 需特殊配置（Upgrade） |
+| 浏览器兼容性 | 所有浏览器 | 所有现代浏览器（IE 除外） | 所有现代浏览器 |
+| 服务端资源消耗 | **高**（频繁建立连接） | **低**（单连接持续推送） | **中**（需维护有状态连接） |
+| 适用场景 | 低频轮询、简单通知 | **通知、进度条、状态推送、日志流** | 聊天、协同编辑、游戏、双向交互 |
+| 实现复杂度 | 低 | 中 | 高 |
+| 延迟 | 受轮询间隔影响（秒级） | **实时**（毫秒级推送） | **实时**（毫秒级） |
+
+> **选型口诀**：单向推送选 SSE，双向交互选 WebSocket，简单场景用 Long Polling。SSE 在 B2C 电商场景（订单状态、库存变更、任务进度）中性价比最高——无需 WebSocket 的复杂基础设施，却能获得接近实时的推送体验。
+
+### 4.2 决策流程图
 
 ```
 你的场景需要客户端 → 服务器的通信吗？
@@ -681,3 +709,9 @@ SSE 是"单向推送"场景的最佳选择——比 WebSocket 简单，比 Polli
 5. **Last-Event-ID + 事件日志表**保证断线不丢消息
 
 如果你的场景是双向通信（聊天、协同编辑），请用 WebSocket（Laravel Reverb / Pusher）。如果是单向推送，SSE 就够了。
+
+## 相关阅读
+
+- [SSE vs WebSocket vs HTTP Streaming 实战：实时通信方案的工程选型](/categories/架构/2026-06-03-SSE-vs-WebSocket-vs-HTTP-Streaming-实时通信方案工程选型/)
+- [Long Polling vs SSE vs WebSocket vs HTTP Streaming 实战：实时通信方案对比](/categories/架构/Long-Polling-vs-SSE-vs-WebSocket-vs-HTTP-Streaming-实战-实时通信方案对比/)
+- [Laravel Echo 2.x 实战：Reverb + Presence Channel 在 B2C 电商中的在线客服与协同编辑](/categories/前端/Laravel-Echo-2x-Reverb-Presence-Channel-B2C在线客服与协同编辑/)

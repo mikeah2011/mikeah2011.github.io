@@ -1,12 +1,13 @@
 ---
 title: Laravel Phone SDK 实战：国际手机号验证（+86/44/33/91/…）
+cover: /images/covers/laravel-phone-sdk-guide-cover.jpg
 date: 2026-05-02
-description: "Laravel Phone SDK 实战：国际手机号验证（+86/44/33/91/…）"
+description: "深入讲解 Laravel Phone SDK（spatie/laravel-phone）在跨境业务中的实战应用，覆盖国际手机号验证、E.164 格式化、归一化存储、VoIP 号码识别、Redis 防抖、多国号码格式兼容等核心场景，附 KKday B2C 真实踩坑记录与 Pest 测试用例，帮助 PHP 开发者快速构建支持 180+ 国家和地区手机号校验的后端服务。"
 categories:
   - PHP
   - Laravel
-tags: [Laravel, 安全]
-简介: KKday B2C 团队在处理跨境用户注册时，遇到大量国际电话号格式问题。本文详解 Laravel Phone SDK 如何优雅解决 +86/44/33/91/等全球号码验证、格式化与归一化，附真实踩坑记录。
+tags: [Laravel, PHP, SDK, 手机号验证, 国际化, 安全]
+
 
 
 
@@ -494,3 +495,9 @@ it('应拒绝 VoIP 号码', function (PhoneService $phoneService) {
 ---
 
 > **作者备注**：本文基于 KKday B2C 后端团队的真实项目经验编写。Phone SDK 已作为生产环境标配，处理日均百万级跨境用户注册请求。
+
+## 相关阅读
+
+- [Data Contract 实战：Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测](/post/Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测.html)
+- [Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点](/post/Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点与 Laravel 落地踩坑记录.html)
+- [OpenFGA 实战：细粒度授权引擎——Laravel 中的关系型权限控制与 ReBAC 落地](/post/OpenFGA 实战：细粒度授权引擎（Zanzibar 模型）——Laravel 中的关系型权限控制与 ReBAC 落地.html)

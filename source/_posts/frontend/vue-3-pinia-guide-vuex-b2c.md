@@ -3,8 +3,9 @@ title: Vue 3 + Pinia 状态管理实战-替代 Vuex 的现代方案与 B2C 电�
 date: 2026-05-16 21:35:11
 updated: 2026-05-16 21:37:51
 categories: Frontend
-tags: [TypeScript, Vue, 前端, 架构]
-description: 从 Vuex 迁移到 Pinia 的完整实战指南，涵盖 Store 设计模式、Composition API 集成、TypeScript 类型推导、插件开发，以及在 B2C 电商项目中遇到的真实踩坑记录。
+tags: [TypeScript, Vue, Pinia, Vuex, 前端, 状态管理]
+description: 从 Vuex 迁移到 Pinia 的完整实战指南，深度讲解 Vue 3 状态管理核心概念。涵盖 Pinia Store 设计模式（Setup Store 与 Options Store）、Composition API 集成技巧、TypeScript 类型推导与类型安全实践、自定义插件开发（Token 刷新、日志）、持久化存储方案、性能优化策略，以及在真实 B2C 电商项目中从 Vuex 4 迁移到 Pinia 过程中遇到的 6 大踩坑记录与解决方案。
+cover: /images/covers/vue-3-pinia-guide-vuex-b2c-cover.jpg
 
 
 
@@ -716,3 +717,11 @@ Pinia 不只是 Vuex 的"简化版"，它的设计理念是 **Composition-first*
 - **开发体验显著提升**：DevTools 直接显示每个 Store 的 state 变化
 
 如果你的项目还在用 Vuex，强烈建议迁移。迁移成本低，收益大，而且 Pinia 是 Vue 官方推荐的未来方向。
+
+---
+
+## 相关阅读
+
+- [Signals 范式对比：Angular Signals vs Vue Reactivity vs Solid Reactivity vs Preact Signals](/categories/前端/2026-06-05-Signals-范式对比-Angular-Vue-Solid-Preact-响应式原理/)
+- [Micro-Frontend 深度实战：Module Federation 2.0——Vue 3 微前端架构与 Laravel BFF 聚合层集成](/categories/前端/2026-06-06-micro-frontend-module-federation-2-vue3-laravel-bff/)
+- [Laravel Echo 2.x 实战：Reverb + Presence Channel 在 B2C 电商中的在线客服与协同编辑](/categories/前端/Laravel-Echo-2x-Reverb-Presence-Channel-B2C在线客服与协同编辑/)

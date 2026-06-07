@@ -1,10 +1,11 @@
 ---
+cover: /images/covers/uni-app-guide-h5-app-cover.jpg
 title: "uni-app 多端适配实战：H5/微信小程序/App 一套代码搞定踩坑记录"
 date: 2026-05-05 10:10:56
 updated: 2026-05-05 10:13:47
 categories: Frontend
 tags: [Vue, uni-app, 前端]
-description: "基于奇乐MAX（qile-max）电商项目的实战经验，拆解 uni-app 在 H5、微信小程序、App 三端适配中的架构设计、条件编译、平台差异踩坑与性能优化方案。从 Vue 3 + uni-app 项目搭建到生产部署的完整工作流。"
+description: "uni-app 跨平台前端开发实战指南：基于奇乐MAX电商项目，深度拆解 uni-app H5、微信小程序、App 三端适配中的架构设计、条件编译技巧、平台差异踩坑与性能优化方案。涵盖网络请求封装、支付登录多端适配、rich-text 兼容处理、分包加载策略等核心痛点，附 uni-app H5 与原生 H5 的全面对比表格，从 Vue 3 + Vite 项目搭建到多端生产部署的完整工程化工作流。"
 
 
 
@@ -807,7 +808,252 @@ npm run build:app         # App 产物 → dist/build/app
 # 3. 微信公众平台提交审核
 ```
 
-## 八、总结与建议
+## 八、uni-app H5 与原生 H5 对比
+
+在实际开发中，很多团队会纠结"直接写原生 H5"还是"用 uni-app 输出 H5"。以下从多个维度对比：
+
+| 对比维度 | uni-app H5 | 原生 H5（Vue 3 SPA） |
+|---------|-----------|-------------------|
+| **开发语言** | Vue 3 + uni-app API（需遵守 uni-app 组件规范） | Vue 3 / React，自由选择 |
+| **组件体系** | `<view>` `<text>` `<image>` 等 uni-app 组件 | 标准 HTML 标签 `<div>` `<span>` `<img>` |
+| **路由** | `pages.json` 声明式路由，不支持 vue-router | vue-router / react-router，灵活度高 |
+| **CSS 能力** | 限制较多（不支持部分选择器），rpx 自动转换 | 完整 CSS 能力，任意预处理器 |
+| **第三方库** | 不能直接用 DOM 类库（jQuery、D3 等） | 自由引入任意 npm 包 |
+| **跨端能力** | ✅ 一套代码输出 H5 + 小程序 + App | ❌ 仅 H5 |
+| **SEO** | SPA 模式，SEO 较差（可集成 uni-app SSR） | 可用 Nuxt SSR/SSG，SEO 灵活 |
+| **性能** | 框架层有额外开销，首屏略慢 | 原生性能，Vite 极速构建 |
+| **包体积** | 框架运行时 + 组件库，基础包 200KB+ | 按需引入，可做到 50KB 以内 |
+| **调试体验** | HBuilderX + Chrome DevTools | Chrome DevTools，生态成熟 |
+| **适用场景** | 多端项目，H5 作为补充渠道 | 纯 Web 项目，对 SEO/性能有极致要求 |
+
+**结论**：如果你的项目**只做 H5**，原生 Vue 3 SPA 是更好的选择；如果需要**H5 + 小程序 + App 多端覆盖**，uni-app 的 H5 输出是性价比最高的方案。
+
+## 九、常见兼容性问题与解决方案
+
+### 9.1 CSS 兼容性问题
+
+| 问题 | 平台 | 解决方案 |
+|-----|------|---------|
+| `rpx` 在 H5 端的换算误差 | H5 | 配置 `designWidth`（默认 750），在 `manifest.json` 中调整 |
+| `position: fixed` 在小程序 `scroll-view` 内失效 | MP-WEIXIN | 用 `position: absolute` + 外层容器 `transform` 模拟 |
+| `overflow: scroll` 在 iOS 小程序端卡顿 | MP-WEIXIN | 改用 `<scroll-view>` 组件，添加 `-webkit-overflow-scrolling: touch` |
+| `env(safe-area-inset-bottom)` 部分机型不生效 | H5/APP | 同时写 `constant()` 和 `env()` 两个版本 |
+| 字体图标在小程序端不显示 | MP-WEIXIN | 将字体文件转为 base64 内联，或用图片替代 |
+| `1px` 边框在 Retina 屏显示过粗 | 全端 | 使用 `transform: scaleY(0.5)` 方案或 rpx 单位 |
+
+```scss
+/* 1px 边框 Retina 适配 mixin */
+@mixin hairline-bottom($color: #e5e5e5) {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: $color;
+    transform: scaleY(0.5);
+    transform-origin: 0 100%;
+  }
+}
+```
+
+### 9.2 JavaScript API 兼容性问题
+
+| 问题 | 平台 | 解决方案 |
+|-----|------|---------|
+| `window` / `document` 对象在小程序端不存在 | MP-WEIXIN | 用条件编译隔离 DOM 操作，或使用 `uni.` API 替代 |
+| `localStorage` 在小程序端映射为同步存储 | 全端 | 统一使用 `uni.setStorageSync` / `uni.getStorageSync` |
+| `FormData` 在小程序端不可用 | MP-WEIXIN | 文件上传用 `uni.uploadFile`，不要手动构建 FormData |
+| `Promise.allSettled` 在低版本 WebView 不支持 | H5 | 引入 polyfill 或自行实现 |
+| `crypto.randomUUID()` 部分环境不支持 | 全端 | 使用第三方 `uuid` 库替代 |
+
+```typescript
+// utils/uuid.ts — 跨端 UUID 生成
+export function generateUUID(): string {
+  // #ifdef H5
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return crypto.randomUUID()
+  }
+  // #endif
+
+  // 通用 fallback
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0
+    const v = c === 'x' ? r : (r & 0x3) | 0x8
+    return v.toString(16)
+  })
+}
+```
+
+### 9.3 真机调试中的典型坑
+
+| 问题 | 现象 | 解决方案 |
+|-----|------|---------|
+| 小程序真机调试白屏 | 开发者工具正常，真机白屏 | 检查基础库版本，降低 `miniprogramRoot` 兼容版本 |
+| H5 端微信 OAuth 回调丢失 | 微信授权后页面空白 | 检查 `redirect_uri` 是否已备案，URL 是否正确 encode |
+| App 端相机权限弹窗不触发 | Android 12+ 权限模型变化 | 使用 `uni.authorize` 预请求权限，配合 `manifest.json` 声明 |
+
+## 十、H5 端专项性能优化
+
+### 10.1 首屏加载优化
+
+uni-app H5 端首屏加载通常比原生 SPA 慢，因为框架运行时 + 组件库体积较大。以下策略可显著改善：
+
+```typescript
+// vite.config.ts — H5 端构建优化
+import { defineConfig } from 'vite'
+import uni from '@dcloudio/vite-plugin-uni'
+
+export default defineConfig({
+  plugins: [uni()],
+  build: {
+    // #ifdef H5
+    rollupOptions: {
+      output: {
+        // 分包策略：框架运行时单独一个 chunk，长期缓存
+        manualChunks: {
+          'uni-vendor': [
+            '@dcloudio/uni-h5',
+            'vue',
+            'pinia'
+          ],
+          'ui-vendor': [
+            '@dcloudio/uni-ui'
+          ]
+        }
+      }
+    },
+    // 开启 gzip 预压缩
+    // 配合 Nginx 的 gzip_static on 使用
+    // #endif
+  }
+})
+```
+
+### 10.2 路由懒加载与预加载
+
+```typescript
+// pages.json 中配置分包预加载（小程序端生效）
+// H5 端需自行实现路由级别的代码分割
+
+// utils/preload.ts — H5 端预加载关键资源
+export function preloadCriticalResources() {
+  // #ifdef H5
+  // 预加载首屏关键图片
+  const criticalImages = [
+    '/static/images/banner-1.webp',
+    '/static/images/logo.webp'
+  ]
+
+  criticalImages.forEach((src) => {
+    const link = document.createElement('link')
+    link.rel = 'preload'
+    link.as = 'image'
+    link.href = src
+    document.head.appendChild(link)
+  })
+
+  // 预连接 API 域名
+  const preconnect = document.createElement('link')
+  preconnect.rel = 'preconnect'
+  preconnect.href = 'https://api.qile-max.com'
+  document.head.appendChild(preconnect)
+  // #endif
+}
+```
+
+### 10.3 列表虚拟滚动
+
+商品列表等长列表场景，H5 端需要虚拟滚动避免 DOM 节点过多：
+
+```vue
+<!-- components/VirtualProductList.vue -->
+<template>
+  <!-- #ifdef H5 -->
+  <scroll-view
+    scroll-y
+    :style="{ height: '100vh' }"
+    @scrolltolower="loadMore"
+  >
+    <view
+      v-for="item in visibleList"
+      :key="item.id"
+      class="product-item"
+    >
+      <ProductCard :product="item" />
+    </view>
+    <view v-if="loading" class="loading-tip">加载中...</view>
+  </scroll-view>
+  <!-- #endif -->
+
+  <!-- #ifdef MP-WEIXIN -->
+  <!-- 小程序端使用 recycle-view 组件 -->
+  <recycle-view :list="productList" :size="20">
+    <template #default="{ item }">
+      <ProductCard :product="item" />
+    </template>
+  </recycle-view>
+  <!-- #endif -->
+</template>
+
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+
+const props = defineProps<{
+  productList: any[]
+  loading: boolean
+}>()
+
+const emit = defineEmits<{
+  loadMore: []
+}>()
+
+// #ifdef H5
+// 简单的可视区域裁剪（生产环境建议用 vue-virtual-scroller）
+const scrollTop = ref(0)
+const visibleList = computed(() => {
+  // 实际项目中应根据滚动位置计算可视区域
+  return props.productList.slice(0, 50)
+})
+// #endif
+
+function loadMore() {
+  emit('loadMore')
+}
+</script>
+```
+
+### 10.4 长列表图片优化
+
+```typescript
+// utils/imageOptimize.ts — H5 端图片优化策略
+export function getOptimizedImageUrl(
+  src: string,
+  options: { width?: number; quality?: number; format?: string } = {}
+): string {
+  const { width = 400, quality = 80, format = 'webp' } = options
+  const cdnBase = 'https://cdn.qile-max.com'
+
+  // #ifdef H5
+  // 检测浏览器是否支持 WebP
+  const supportsWebP = (() => {
+    const canvas = document.createElement('canvas')
+    return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0
+  })()
+
+  const finalFormat = supportsWebP ? format : 'jpg'
+  return `${cdnBase}${src}?w=${width}&q=${quality}&f=${finalFormat}`
+  // #endif
+
+  // #ifndef H5
+  return `${cdnBase}${src}?w=${width}&q=${quality}&f=${format}`
+  // #endif
+}
+```
+
+## 十一、总结与建议
 
 | 维度 | 建议 |
 |------|------|
@@ -817,5 +1063,15 @@ npm run build:app         # App 产物 → dist/build/app
 | 样式方案 | SCSS + rpx 单位，避免用 px |
 | 调试 | H5 用 Chrome DevTools，小程序用微信开发者工具 |
 | 真机测试 | 每个版本至少在 1 台 iOS + 1 台 Android 真机测试 |
+| H5 性能 | 分包 + 路由懒加载 + 虚拟滚动 + CDN 图片优化 |
+| 兼容性 | 避免直接使用 DOM API，统一用 `uni.*` 封装 |
 
 **最重要的一条经验**：不要试图在代码里消灭所有 `#ifdef`。条件编译是 uni-app 的核心范式，接受它而不是绕过它。把平台差异集中在 `utils/` 和 `components/` 里管理，而不是散落在每个页面中，就能保持代码的可维护性。
+
+---
+
+## 相关阅读
+
+- [uni-app 条件编译实战：平台差异处理与适配策略踩坑记录](/categories/Frontend/uni-app-guide/)
+- [uni-app 性能优化实战：首屏加载、分包加载、图片懒加载的工程化治理](/categories/Frontend/2026-06-01-uni-app-performance-optimization-first-screen-subpackage-image-lazy-load/)
+- [uni-app + Vue 3 + Vite 现代跨平台开发工作流实战踩坑记录](/categories/Frontend/uni-app-vue3-vite/)

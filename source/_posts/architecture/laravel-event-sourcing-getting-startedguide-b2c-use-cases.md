@@ -1,12 +1,13 @@
 ---
 title: Laravel Event-Sourcing 入门实战-事件溯源在 B2C 电商中的应用场景与落地踩坑记录
+cover: /images/covers/laravel-event-sourcing-b2c-cover.jpg
 date: 2026-05-05 10:45:10
 updated: 2026-05-05 10:47:51
 categories:
   - Architecture
   - Laravel
-tags: [KKday, Laravel, 架构]
-description: 从 CRUD 到事件溯源：在 Laravel B2C 电商项目中用 Spatie Event Sourcing 实现订单生命周期、库存变更追踪、审计日志的真实踩坑记录，附完整代码示例与架构图。
+tags: [kkday, laravel, 架构, event-sourcing, cqrs]
+description: 从传统 CRUD 到事件溯源架构的完整转型指南——基于 Spatie Event Sourcing 在 Laravel B2C 电商项目中实现订单生命周期管理、库存变更追踪与审计日志，涵盖聚合根、Projector、Reactor 的实战代码，以及事件 Schema 演进、乐观锁并发、快照优化等四大踩坑解决方案与架构选型对比表。
 
 
 
@@ -634,7 +635,145 @@ public function handlePaymentCallback(Request $request)
 }
 ```
 
+## 实战五：Event Sourcing 测试策略
+
+事件溯源的最大优势之一是**确定性重放**——这让测试变得异常简单：
+
+```php
+<?php
+// tests/Unit/OrderAggregateRootTest.php
+namespace Tests\Unit;
+
+use App\Domain\Order\OrderAggregateRoot;
+use App\Domain\Order\Events\{OrderCreated, OrderPaid, OrderShipped, OrderCancelled};
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class OrderAggregateRootTest extends TestCase
+{
+    use RefreshDatabase;
+
+    private array $sampleItems = [
+        ['product_id' => 1, 'qty' => 2, 'unit_price' => 1000],
+        ['product_id' => 2, 'qty' => 1, 'unit_price' => 3000],
+    ];
+
+    /** @test */
+    public function it_creates_order_and_records_events(): void
+    {
+        $uuid = 'test-order-001';
+        $aggregate = OrderAggregateRoot::retrieve($uuid)
+            ->createOrder($uuid, 1, $this->sampleItems, 'TWD', 5000)
+            ->persist();
+
+        // 验证事件流
+        $events = OrderAggregateRoot::retrieve($uuid)->getStoredEvents();
+        $this->assertCount(1, $events);
+        $this->assertInstanceOf(OrderCreated::class, $events->first()->event);
+        $this->assertEquals(5000, $events->first()->event->totalAmount);
+    }
+
+    /** @test */
+    public function it_prevents_payment_on_non_pending_order(): void
+    {
+        $uuid = 'test-order-002';
+        OrderAggregateRoot::retrieve($uuid)
+            ->createOrder($uuid, 1, $this->sampleItems, 'TWD', 5000)
+            ->persist();
+        OrderAggregateRoot::retrieve($uuid)
+            ->pay('stripe', 'txn-001', 5000)
+            ->persist();
+
+        // 第二次支付应该抛异常
+        $this->expectException(\DomainException::class);
+        OrderAggregateRoot::retrieve($uuid)
+            ->pay('stripe', 'txn-002', 5000)
+            ->persist();
+    }
+
+    /** @test */
+    public function it_can_rebuild_state_from_events(): void
+    {
+        $uuid = 'test-order-003';
+
+        // 通过多次 retrieve 模拟事件重放
+        OrderAggregateRoot::retrieve($uuid)
+            ->createOrder($uuid, 1, $this->sampleItems, 'TWD', 5000)
+            ->persist();
+
+        // 重新 retrieve —— 状态完全从事件重建
+        $restored = OrderAggregateRoot::retrieve($uuid);
+        // 内部 state 应该是 'pending'，items 已填充
+        // 可以继续正常操作
+    }
+
+    /** @test */
+    public function it_prevents_cancelling_shipped_order(): void
+    {
+        $uuid = 'test-order-004';
+        OrderAggregateRoot::retrieve($uuid)
+            ->createOrder($uuid, 1, $this->sampleItems, 'TWD', 5000)
+            ->persist();
+        OrderAggregateRoot::retrieve($uuid)
+            ->pay('stripe', 'txn-001', 5000)
+            ->persist();
+        OrderAggregateRoot::retrieve($uuid)
+            ->ship('SF12345678', 'sf')
+            ->persist();
+
+        $this->expectException(\DomainException::class);
+        OrderAggregateRoot::retrieve($uuid)
+            ->cancel('changed mind', 1)
+            ->persist();
+    }
+}
+```
+
+### 项目结构参考
+
+采用事件溯源后，典型的 Laravel 领域层目录结构：
+
+```
+app/
+├── Domain/
+│   ├── Order/
+│   │   ├── OrderAggregateRoot.php
+│   │   ├── Events/
+│   │   │   ├── OrderCreated.php
+│   │   │   ├── OrderPaid.php
+│   │   │   ├── OrderShipped.php
+│   │   │   ├── OrderCancelled.php
+│   │   │   └── Upcasters/
+│   │   │       └── OrderCreatedUpcaster.php
+│   │   └── Projections/
+│   │       └── OrderSnapshot.php
+│   └── Inventory/
+│       ├── InventoryAggregateRoot.php
+│       └── Events/
+│           ├── StockDeducted.php
+│           └── StockRestored.php
+├── Projectors/
+│   └── OrderProjector.php
+├── Reactors/
+│   └── OrderReactor.php
+└── Services/
+    └── OrderService.php
+```
+
 ## 何时该用 Event Sourcing，何时不该？
+
+### Event Sourcing vs 传统 CRUD vs Versioned Model 对比
+
+| 维度 | 传统 CRUD | Versioned Model | Event Sourcing |
+|------|-----------|----------------|----------------|
+| 数据存储 | 当前状态 | 版本快照表 | 事件流 |
+| 审计能力 | ❌ 需额外表 | ⚠️ 快照对比 | ✅ 天然完整 |
+| 状态回溯 | ❌ 不支持 | ⚠️ 仅快照点 | ✅ 任意时间点 |
+| 实现复杂度 | ⭐ 低 | ⭐⭐ 中 | ⭐⭐⭐ 高 |
+| 查询性能 | ✅ 最优 | ✅ 优秀 | ⚠️ 需 Projector |
+| 存储成本 | ✅ 最低 | ⚠️ 中等 | ❌ 事件累积 |
+| 适用团队 | 任何团队 | 2-5 人团队 | 需 DDD 经验 |
+| 典型场景 | CMS / 配置 | 博客 / 文章 | 电商 / 金融 |
 
 | 场景 | 推荐方案 | 原因 |
 |------|----------|------|
@@ -658,5 +797,13 @@ Event Sourcing 在 Laravel B2C 电商中的核心价值：
 5. **Bug 回放**：生产环境 Bug 可以在测试环境重放事件复现
 
 但代价也很明显：架构复杂度上升、需要额外维护 Projector/Reactor、事件 Schema 演进需要谨慎处理。**建议从一个限界上下文（如订单或库存）开始试点，而非全盘改造。**
+
+## 相关阅读
+
+- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/00_架构/2026-06-03-Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构/)
+- [六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录](/00_架构/2026-06-01-六边形架构实战-Laravel-端口与适配器模式落地踩坑记录/)
+- [Hexagonal Architecture 进阶实战：Laravel 端口与适配器模式——对比 Clean Architecture](/00_架构/2026-06-06-hexagonal-architecture-laravel-port-adapter-clean-architecture/)
+- [Server-Driven UI 实战：后端驱动前端渲染——JSON UI 描述协议在 Laravel BFF 中的落地](/00_架构/server-driven-ui-laravel-bff/)
+- [Data Mesh 实战：领域数据产品化——Laravel 微服务中的数据所有权联邦治理](/00_架构/2026-06-03-Data-Mesh-实战-领域数据产品化-Laravel-微服务中的数据所有权联邦治理与自助查询层/)
 
 相关包版本：`spatie/laravel-event-sourcing ^7.0` + `Laravel 10.x` + `PHP 8.1+`

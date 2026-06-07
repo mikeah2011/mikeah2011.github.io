@@ -1,5 +1,6 @@
 ---
 title: HTTPS-实战-Let-s-Encrypt-Nginx-SSL-TLS-配置与自动续期-Laravel-B2C-API踩坑记录
+cover: /images/covers/https-guide-let-s-encrypt-nginx-ssl-tls-cover.jpg
 date: 2026-05-16 22:51:09
 updated: 2026-05-16 22:54:14
 categories:
@@ -390,6 +391,25 @@ fastcgi_param HTTP_X_FORWARDED_FOR $remote_addr;
 └──────────┴─────────────────────────────────────────────┘
 ```
 
+### 5.1 SSL Labs 评级对比速查
+
+不同评级之间的差距往往只在一两个配置项，下面是各评级的核心差异：
+
+| 评级 | 协议 | 密钥 | 前向保密 | HSTS | OCSP Stapling | 证书链 | 典型场景 |
+|------|------|------|----------|------|---------------|--------|----------|
+| A+ | TLS 1.2 + 1.3 | RSA 2048+ / ECDSA 256+ | ECDHE | ≥ 2年 + includeSubDomains + preload | ✅ | 完整 fullchain | 生产环境标准配置 |
+| A | TLS 1.2 + 1.3 | RSA 2048+ / ECDSA 256+ | ECDHE | 无或 max-age < 2年 | ✅ | 完整 | 缺少 HSTS 或未提交 preload |
+| B | TLS 1.0/1.1 + 1.2 | RSA 2048+ | 可选 | 无 | 可选 | 完整 | 向后兼容旧客户端 |
+| C | TLS 1.0 | RSA 1024+ | 无 | 无 | 无 | 可能不完整 | 已废弃的旧系统 |
+| F | 无 TLS / 已知漏洞 | < RSA 1024 | 无 | 无 | 无 | 缺失 | 配置错误或未部署 |
+
+**从 A 升级到 A+ 的关键操作：**
+1. `add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;`
+2. 到 [hstspreload.org](https://hstspreload.org/) 提交域名
+3. 等待浏览器厂商审核（通常 1-4 周）
+
+> ⚠️ **注意**：提交 HSTS Preload 前，确保所有子域名（包括开发/测试环境）都已支持 HTTPS，否则将被锁死在 HTTPS 上。
+
 验证命令：
 
 ```bash
@@ -536,6 +556,19 @@ sudo systemctl restart nginx
 echo | openssl s_client -connect example.com:443 2>/dev/null | openssl x509 -noout -serial
 ```
 
+## 常见问题快速排查表
+
+| 问题 | 现象 | 原因 | 修复 |
+|------|------|------|------|
+| 证书过期 | 浏览器报"连接不安全"、ERR_CERT_DATE_INVALID | 自动续期失败、cron/timer 未运行 | `certbot renew --force-renewal`；检查定时任务 |
+| 证书链不完整 | 旧浏览器/Android 报 SSLHandshakeException，Chrome 正常 | 使用了 `cert.pem` 而非 `fullchain.pem` | `ssl_certificate` 改为 `fullchain.pem` |
+| 混合内容 | HTTPS 页面部分资源被拦截，控制台 Mixed Content 警告 | HTML/JS 中硬编码了 `http://` 链接 | Nginx 加 `upgrade-insecure-requests`；Laravel 加 `URL::forceScheme('https')` |
+| HSTS 预加载锁死 | 提交 preload 后子域名 HTTP 无法访问 | 所有子域名必须先支持 HTTPS | 无法快速撤销，需等待浏览器更新（数月） |
+| 续期失败（Rate Limit） | 报 `too many certificates already issued` | Let's Encrypt 每周限 50 张/域名 | 先用 `--staging` 测试；合并多域名为 SAN 证书 |
+| OCSP Stapling 超时 | 首次连接延迟高、`ssl_stapling_verify` 报错 | DNS 解析慢或上游 CA 不可达 | 配置 `resolver 8.8.8.8 1.1.1.1 valid=300s` |
+| 证书续期后旧证书残留 | 部分请求仍返回旧证书 | Nginx reload 时旧 worker 未退出 | `systemctl restart nginx` 而非 `reload` |
+| TLS 握手失败 | 客户端报 handshake_failure | ssl_ciphers 过于严格、客户端不支持 | 保留 TLS 1.2 兼容套件；用 `nmap --script ssl-enum-ciphers` 验证 |
+
 ## 七、Laravel B2C API 特殊场景
 
 ### 7.1 支付回调必须 HTTPS
@@ -594,6 +627,53 @@ if ($http_x_forwarded_proto = 'https') {
 fastcgi_param HTTPS $fe_https;
 ```
 
+## 八、HSTS Preload 提交流程
+
+配置好 HSTS 头之后，还可以将域名提交到浏览器厂商的 HSTS Preload List，确保浏览器在**首次访问**时就强制使用 HTTPS（而不是等第一次 HTTPS 响应后才记住 HSTS）。
+
+### 8.1 提交前提条件
+
+| 条件 | 要求 |
+|------|------|
+| HSTS 头 | `max-age >= 63072000`（2年） |
+| includeSubDomains | 必须包含 |
+| preload | 必须包含 |
+| 所有子域名 | 必须全部支持 HTTPS（包括开发/测试环境） |
+| 根域名 | 必须可访问 HTTPS |
+| 重定向 | HTTP → HTTPS 301 重定向（非 302） |
+
+### 8.2 提交步骤
+
+```bash
+# 1. 确认 HSTS 头已正确配置
+curl -sI https://example.com | grep -i strict-transport
+# Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+# 2. 确认所有子域名都支持 HTTPS
+curl -sI http://api.example.com | grep -i strict-transport
+curl -sI http://admin.example.com | grep -i strict-transport
+
+# 3. 确认 HTTP → HTTPS 重定向
+curl -sI http://example.com | head -1
+# HTTP/1.1 301 Moved Permanently
+```
+
+然后到 [hstspreload.org](https://hstspreload.org/) 提交：
+1. 输入域名 `example.com`
+2. 点击 "Submit Domain"
+3. 等待浏览器厂商审核（Chrome/Edge/Firefox/Safari 会定期同步列表）
+4. 审核通过后，下次浏览器更新时你的域名就会被加入预加载列表
+
+### 8.3 撤销 HSTS Preload（高风险操作）
+
+如果需要撤销，流程非常漫长：
+1. 从 Nginx 配置中移除 `preload` 指令（保留 `max-age=63072000; includeSubDomains`）
+2. 在 hstspreload.org 提交移除请求
+3. 等待浏览器厂商更新列表（可能需要数月）
+4. **在此期间，已缓存 HSTS 的浏览器仍会强制 HTTPS**
+
+> ⚠️ 这就是为什么我在前面强调：**提交 HSTS Preload 前务必确认所有子域名都已支持 HTTPS**。一旦提交，撤销成本极高。
+
 ## 总结
 
 ```
@@ -613,6 +693,14 @@ HTTPS 落地检查清单：
 HTTPS 不是一劳永逸的事情。证书会过期、配置会过时、新的攻击向量会出现。把它当作持续运维的一部分——配置好自动续期、加上监控告警、定期跑一次 SSL Labs 检查——才是生产环境的正确姿势。
 
 ---
+
+## 相关阅读
+
+- [Nginx 配置实战：PHP-FPM 调优、FastCGI 缓存、Gzip 压缩](/architecture/nginx-guide-php-fpm-fastcgi-cache-gzip) — Nginx 性能优化的完整指南，与本文的 SSL 配置形成互补
+- [CSP 内容安全策略实战：防御 XSS 攻击](/architecture/csp-guide-xss-laravel-nonce-strict-dynamic) — CSP 与 HSTS 同为安全响应头，本文提到的 `add_header` 配置可结合 CSP 一起落地
+- [CORS 跨域资源共享配置与安全策略](/architecture/cors-guide) — CORS 配置中的安全头与本文的 HTTPS 安全头相互配合
+- [负载均衡实战：Nginx Upstream + Laravel Session 共享](/architecture/load-balancingguide-nginx-upstream-laravel-session) — 负载均衡场景下的 SSL 终止与本文第七节内容直接相关
+- [Webhook 集成最佳实践：签名验证、重试与幂等处理](/architecture/webhook-best-practices) — Stripe/AliPay 的 Webhook 回调必须走 HTTPS，签名验证依赖证书有效性
 
 > 📌 **参考链接**
 > - [Let's Encrypt Rate Limits](https://letsencrypt.org/docs/rate-limits/)

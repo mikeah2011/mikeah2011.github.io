@@ -1,5 +1,6 @@
 ---
 title: Webhook 集成最佳实践：签名验证、重试与幂等处理——Laravel B2C API 踩坑记录
+cover: /images/covers/webhook-best-practices-cover.jpg
 date: 2026-05-17 00:55:27
 updated: 2026-05-17 00:59:34
 categories:
@@ -573,3 +574,9 @@ Webhook 集成看起来简单，但在生产环境中需要处理的问题远超
 顺序很重要：**先验签 → 再幂等 → 最后入队**。如果顺序反了（先入队再验签），恶意请求会填满你的队列。
 
 > 💡 **一句话总结**：Webhook 不是"收到就处理"，而是"验了签才能收、查了重才能做、返回了才算完"。
+
+## 相关阅读
+
+- [幂等性 API 设计：RESTful 接口的安全网与三层防护实战](/architecture/api-restful/)
+- [消息推送系统设计实战：多通道、优先级、失败重试、降级策略——Laravel B2C API 踩坑记录](/architecture/push-notification-design/)
+- [Laravel HTTP Client 容错弹性模式实战——熔断降级、重试退避与超时治理踩坑记录](/php/Laravel/laravel-http-client-guide-circuit-breakerfallback/)

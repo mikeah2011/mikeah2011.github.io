@@ -1,9 +1,10 @@
 ---
 title: Controller-Service-Repository 三層架構設計與大項目職責分離 - 真實踩坑記錄
+cover: /images/covers/controller-service-repository-cover.jpg
 date: 2026-05-03
 categories: PHP
-tags: [BFF, 架构]
-description: KKday B2C API 團隊在多個 Laravel 倉庫中實踐 C-S-R 三層架構，本文分享從小項目到大項目的演進路徑、真實踩坑記錄與最佳實踐。
+tags: [laravel, controller, service, repository, 设计模式, php, bff, 架构]
+description: Laravel Controller-Service-Repository 三层架构实战指南，详解服务层（Service）业务逻辑聚合、仓储层（Repository）数据访问抽象与接口化设计，覆盖 BFF 聚合场景的事务管理、跨服务补偿策略、Repository Interface 多数据源切换、单元测试策略，以及从小项目到大项目的架构演进路径与踩坑记录。
 
 
 
@@ -58,6 +59,19 @@ public function index()
     ]);
 }
 ```
+
+### 架構模式對比：傳統 MVC vs CSR vs CQRS
+
+| 維度 | 傳統 MVC | Controller-Service-Repository (CSR) | CQRS |
+|------|----------|--------------------------------------|------|
+| **分層數量** | 3 層（Controller → Model → View） | 3 層（Controller → Service → Repository） | 4+ 層（Command/Query Handler → Read/Write Model） |
+| **Controller 職責** | HTTP 入口 + 業務邏輯混雜 | 純 HTTP 入口，僅參數驗證 + Response | 純 HTTP 入口，轉發到 Command Bus |
+| **業務邏輯位置** | Controller 或 Model 中散落 | Service 層集中管理 | Command Handler（寫）/ Query Handler（讀） |
+| **數據訪問** | Model 直接操作 DB | Repository 抽象，支持多數據源 | Write Model + Read Model 獨立優化 |
+| **可測試性** | ⭐⭐ 需啟動 HTTP + DB | ⭐⭐⭐⭐ Service 可 Mock Repository 單元測試 | ⭐⭐⭐⭐⭐ 讀寫分離，各自獨立測試 |
+| **適用場景** | 小型項目（<5K LOC） | 中大型項目（5K-100K LOC） | 超大型項目（>100K LOC，讀寫比 >10:1） |
+| **Laravel 實現** | 原生路由 + Eloquent | Service + Repository Interface + IoC | Command Bus + Event + ReadModel 投影 |
+| **學習成本** | 低 | 中（需理解依賴注入與接口設計） | 高（需理解事件溯源與最終一致性） |
 
 ### C-S-R 三層架構的核心優勢
 
@@ -885,10 +899,10 @@ class ProductSearchServiceTest extends TestCase
 
 ```php
 // tests/Repositories/ProductRepositoryTest.php
-namespace Tests\Repositories;
+namespace Tests\\Repositories;
 
-use App\Models\Product;
-use App\Repositories\ProductRepository;
+use App\\Models\\Product;
+use App\\Repositories\\ProductRepository;
 
 class ProductRepositoryTest extends TestCase
 {
@@ -904,10 +918,333 @@ class ProductRepositoryTest extends TestCase
         $result = $repository->search('帳篷', 1, 10);
         
         expect($result['items'][0]['name'])->toBe('帳篷 A'); // ✅ 正確匹配
-        expect(count($result['items'])).toBe(1); // ✅ 已下架的不顯示
+        expect(count($result['items']))->toBe(1); // ✅ 已下架的不顯示
     }
 }
 ```
+
+### Repository 層的進階測試策略
+
+#### 策略一：Mock Repository（隔離 Service 層測試）
+
+當測試 Service 層業務邏輯時，**不需要啟動真實數據庫**，透過 Mock Repository 依賴注入實現：
+
+```php
+// tests/Unit/Services/OrderServiceWithMockTest.php
+namespace Tests\\Unit\\Services;
+
+use App\\Services\\OrderService;
+use App\\Repositories\\Interfaces\\OrderRepositoryInterface;
+use App\\Repositories\\Interfaces\\InventoryRepositoryInterface;
+use Mockery;
+
+class OrderServiceWithMockTest extends TestCase
+{
+    public function test_place_order_reduces_inventory_when_stock_available()
+    {
+        // 🔥 Mock 所有 Repository 依賴，Service 層業務邏輯隔離測試
+        $orderRepoMock = Mockery::mock(OrderRepositoryInterface::class);
+        $inventoryRepoMock = Mockery::mock(InventoryRepositoryInterface::class);
+
+        $service = new OrderService($orderRepoMock, $inventoryRepoMock);
+
+        // 設定 Mock 行為：庫存充足
+        $inventoryRepoMock->shouldReceive('getAvailableQuantity')
+            ->with(1001)
+            ->andReturn(50);
+
+        $inventoryRepoMock->shouldReceive('decrement')
+            ->with(1001, 3)
+            ->andReturn(true);
+
+        $orderRepoMock->shouldReceive('create')
+            ->with(Mockery::on(fn($data) => $data['product_id'] === 1001 && $data['quantity'] === 3))
+            ->andReturn(new \App\Models\Order(['id' => 1, 'status' => 'pending']));
+
+        $result = $service->placeOrder([
+            'product_id' => 1001,
+            'quantity' => 3,
+        ]);
+
+        expect($result->status)->toBe('pending');
+        // ✅ 驗證業務規則是否正確調用了 Repository 方法
+    }
+
+    public function test_place_order_throws_when_stock_insufficient()
+    {
+        $orderRepoMock = Mockery::mock(OrderRepositoryInterface::class);
+        $inventoryRepoMock = Mockery::mock(InventoryRepositoryInterface::class);
+
+        $service = new OrderService($orderRepoMock, $inventoryRepoMock);
+
+        // 🔥 設定庫存不足的場景
+        $inventoryRepoMock->shouldReceive('getAvailableQuantity')
+            ->with(1001)
+            ->andReturn(2);
+
+        $this->expectException(BusinessException::class);
+        $this->expectExceptionMessage('庫存不足');
+
+        $service->placeOrder([
+            'product_id' => 1001,
+            'quantity' => 5, // 需要 5，僅剩 2
+        ]);
+    }
+}
+```
+
+**Mock Repository 的優勢：**
+
+| 面向 | 真實 Repository | Mock Repository |
+|------|----------------|-----------------|
+| 測試速度 | 慢（需啟動 DB） | ⚡ 極快（純 PHP 計算） |
+| 適用場景 | Repository 自身方法正確性 | Service 業務邏輯正確性 |
+| 依賴 | MySQL / SQLite | 無外部依賴 |
+| 覆蓋目標 | 數據層 CRUD | 業務規則、異常處理 |
+
+#### 策略二：SQLite 內存數據庫測試（Repository 集成測試）
+
+Repository 層需要驗證真實 SQL 查詢正確性，此時使用 **SQLite 內存數據庫** 替代 MySQL，兼顧速度與真實性：
+
+```php
+// tests/Repositories/ProductRepositorySQLiteTest.php
+namespace Tests\\Repositories;
+
+use Tests\\TestCase;
+use Illuminate\\Foundation\\Testing\\RefreshDatabase;
+use App\\Repositories\\ProductRepository;
+use App\\Models\\Product;
+
+class ProductRepositorySQLiteTest extends TestCase
+{
+    use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        // 🔥 關鍵：使用 SQLite 內存模式替代 MySQL
+        config(['database.default' => 'sqlite_testing']);
+        config(['database.connections.sqlite_testing' => [
+            'driver'   => 'sqlite',
+            'database' => ':memory:',  // 🔥 純內存，每次測試自動重置
+            'prefix'   => '',
+        ]]);
+
+        // 🔥 自動建表（使用 Laravel Migration）
+        $this->artisan('migrate');
+    }
+
+    public function test_search_filters_by_status_and_keyword()
+    {
+        // 真實寫入數據庫（SQLite 內存）
+        Product::create(['id' => 1, 'name' => '帳篷 A', 'status' => 'published', 'price' => 299]);
+        Product::create(['id' => 2, 'name' => '帳篷 B', 'status' => 'draft', 'price' => 399]);
+        Product::create(['id' => 3, 'name' => '睡袋 C', 'status' => 'published', 'price' => 199]);
+
+        $repo = new ProductRepository(new Product());
+        $result = $repo->search('帳篷', 1, 10);
+
+        // ✅ 驗證：只返回 published 狀態且關鍵字匹配的商品
+        expect(count($result['items']))->toBe(1);
+        expect($result['items'][0]['name'])->toBe('帳篷 A');
+        expect($result['total'])->toBe(1);
+    }
+
+    public function test_batch_find_useswhereIn_optimization()
+    {
+        Product::create(['id' => 10, 'name' => '背包', 'status' => 'published']);
+        Product::create(['id' => 20, 'name' => '水壺', 'status' => 'published']);
+        Product::create(['id' => 30, 'name' => '營燈', 'status' => 'draft']);
+
+        $repo = new ProductRepository(new Product());
+        $result = $repo->batchFind([10, 20, 30]);
+
+        // ✅ 批量查詢返回所有狀態的商品（Repository 不做業務過濾）
+        expect(count($result))->toBe(3);
+    }
+}
+```
+
+```php
+// config/database.php — 在 phpunit.xml 中切換測試驅動
+// .env.testing
+DB_CONNECTION=sqlite_testing
+DB_DATABASE=:memory:
+```
+
+**SQLite 內存測試 vs MySQL 測試：**
+
+| 面向 | SQLite :memory: | MySQL (真實) |
+|------|----------------|-------------|
+| 啟動速度 | ⚡ <100ms | 500ms+ |
+| 事務支援 | ✅ 基本支援 | ✅ 完整支援 |
+| JSON 函數 | ⚠️ 有限 | ✅ 完整 |
+| 索引行為 | 基本一致 | 完全一致 |
+| 生產模擬度 | 85% | 100% |
+
+> **最佳實踐建議**：Repository 層使用 SQLite 內存測試覆蓋核心 CRUD 路徑（80%），保留少量 MySQL 真實測試驗證特殊索引和 JSON 查詢（20%）。
+
+---架构演进路徑 ---
+## 九、從 C-S-R 演進到 CQRS 的路徑
+
+當項目從三層架構繼續增長，遇到**讀寫不對稱**（查詢遠多於寫入）、**查詢性能瓶頸**、**領域複雜度爆炸**時，可以考慮演進到 **CQRS（Command Query Responsibility Segregation）**。
+
+### 觸發演進的信號
+
+| 信號 | C-S-R 架構的瓶頸 | CQRS 的解決方案 |
+|------|-------------------|-----------------|
+| **讀取延遲** | Repository 返回完整 Model，查詢慢 | 獨立的 Read Model（投影/物化視圖） |
+| **寫入複雜** | Service 層同時處理讀寫，事務混雜 | Command Handler 專注寫入，Event 負責同步 |
+| **團隊協作** | 讀寫在同一倉庫衝突多 | 讀寫分離倉庫/分支，並行開發 |
+| **審計需求** | Service 層難以追蹤完整操作軌跡 | Command 自帶事件溯源（Event Sourcing） |
+
+### 演進路徑（三步走）
+
+#### Step 1：引入 Read Model（最小侵入）
+
+不改變現有 C-S-R 結構，為**熱點查詢**添加專用的 Read Model：
+
+```php
+// 🔥 新增：Read Model（不改變現有 Repository）
+class OrderReadModel
+{
+    /**
+     * 專用查詢方法（物化視圖/寬表查詢）
+     * 不走 Eloquent ORM，直接 SQL 查詢優化性能
+     */
+    public function getOrderSummary(int $userId): array
+    {
+        return DB::select('
+            SELECT o.id, o.status, o.total_price, p.name as product_name
+            FROM orders o
+            JOIN products p ON o.product_id = p.id
+            WHERE o.user_id = ?
+            ORDER BY o.created_at DESC
+            LIMIT 20
+        ', [$userId]);
+    }
+}
+
+// Service 層切換：查詢走 ReadModel，寫入走 Repository
+class OrderService extends BaseService
+{
+    public function getOrderHistory(int $userId): array
+    {
+        // 🔥 讀取：走 Read Model（高性能）
+        return $this->orderReadModel->getOrderSummary($userId);
+    }
+
+    public function placeOrder(array $params): Order
+    {
+        // 🔥 寫入：走原有 Repository（不變）
+        return DB::transaction(fn() => $this->orderRepo->create($params));
+    }
+}
+```
+
+#### Step 2：引入 Command / Query 分離
+
+將 Service 層的方法明確分為 **Command**（寫入）和 **Query**（讀取）：
+
+```php
+// 🔥 Commands（寫入操作）
+class PlaceOrderCommand
+{
+    public function __construct(
+        public int $userId,
+        public int $productId,
+        public int $quantity,
+    ) {}
+}
+
+class PlaceOrderHandler
+{
+    public function __construct(
+        protected OrderRepositoryInterface $orderRepo,
+        protected InventoryRepositoryInterface $inventoryRepo,
+    ) {}
+
+    public function handle(PlaceOrderCommand $command): Order
+    {
+        return DB::transaction(function () use ($command) {
+            $inventory = $this->inventoryRepo->get($command->productId);
+            if ($inventory->available < $command->quantity) {
+                throw new BusinessException('庫存不足');
+            }
+            $this->inventoryRepo->decrement($command->productId, $command->quantity);
+            return $this->orderRepo->create([...]);
+        });
+    }
+}
+
+// 🔥 Queries（讀取操作）
+class GetOrderHistoryQuery
+{
+    public function __construct(public int $userId) {}
+}
+
+class GetOrderHistoryHandler
+{
+    public function __construct(protected OrderReadModel $readModel) {}
+
+    public function handle(GetOrderHistoryQuery $query): array
+    {
+        return $this->readModel->getOrderSummary($query->userId);
+    }
+}
+```
+
+#### Step 3：事件驅動的讀寫同步（最終一致性）
+
+```php
+// 🔥 事件發布（Command Handler 內）
+class PlaceOrderHandler
+{
+    public function handle(PlaceOrderCommand $command): Order
+    {
+        return DB::transaction(function () use ($command) {
+            $order = $this->orderRepo->create([...]);
+
+            // 🔥 寫入完成後，發布事件同步 Read Model
+            event(new OrderCreated(
+                orderId: $order->id,
+                userId: $command->userId,
+                total: $order->total_price,
+            ));
+
+            return $order;
+        });
+    }
+}
+
+// 🔥 Read Model 由事件自動更新（投影器）
+class OrderProjection
+{
+    public function handleOrderCreated(OrderCreated $event): void
+    {
+        DB::table('order_read_models')->insert([
+            'order_id'    => $event->orderId,
+            'user_id'     => $event->userId,
+            'total_price' => $event->total,
+            'status'      => 'pending',
+            'created_at'  => now(),
+        ]);
+    }
+}
+```
+
+### C-S-R → CQRS 演進檢查表
+
+| 檢查項 | ✅ 可以演進 | ❌ 暫不需要 |
+|--------|-----------|-----------|
+| 項目 LOC | >50K，多團隊協作 | <20K，單團隊 |
+| 讀寫比 | 讀取:寫入 > 10:1 | 讀寫均衡 |
+| 查詢延遲 | 熱點查詢 P99 > 500ms | 查詢均 < 200ms |
+| 事件驅動 | 已有事件系統（Laravel Event） | 無事件需求 |
+| 領域複雜度 | 多聚合根交互 | 單一聚合 |
+
+> **建議**：先走 Step 1（Read Model），觀察效果。Step 2/3 只在讀寫分離真正帶來收益時才引入，避免過度設計。
 
 ---
 
@@ -1023,3 +1360,12 @@ class ProductRepository implements ProductRepositoryInterface
 
 *本文基於 KKday B2C API 團隊在多個 Laravel 倉庫中的實際實踐經驗，持續更新中。*  
 *如需 SA/SD 模板或更多細節，請參考 [KKday 內網文檔](https://wiki.kkday.com/knowledge-center) 或 [Confluence 開發指南](../docs/architecture.md)。*
+
+---
+
+## 相关阅读
+
+- [Laravel 事务管理实战](/categories/PHP/laravel-transaction/) — 深入 DB::transaction、嵌套事务与 Savepoint 在 Service 层的最佳实践
+- [Laravel CQRS 实战：订单查询模型拆分、投影同步与后台列表性能治理](/categories/PHP/laravel-cqrs-guide-query/) — 从 Controller-Service-Repository 演进到 CQRS 的完整路径与实战案例
+- [Laravel API Resource 实战：BFF 架构下的数据转换与格式化](/categories/PHP/laravel-api-resource-bff-architectureguide/) — KKday B2C API 多端适配、嵌套资源与 N+1 优化的真实踩坑记录
+- [Controller 薄 + Service 厚：Laravel 大项目中职责分离的真实踩坑记录](/categories/PHP/controller-service-laravel/) — 从单文件 Controller 拆分到 Service 层的演进步骤与代码模板

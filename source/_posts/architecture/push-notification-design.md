@@ -1,14 +1,11 @@
 ---
 title: 消息推送系统设计实战：多通道、优先级、失败重试、降级策略 — Laravel B2C API 踩坑记录
+cover: /images/covers/push-notification-design-cover.jpg
 date: 2026-05-16 21:10:35
 updated: 2026-05-16 21:14:39
 categories: Architecture
-tags: [KKday, Laravel, WebSocket, 微服务, 架构, 消息队列]
-description: >
-  在 KKday B2C 电商项目中从零搭建消息推送系统的真实经验：多通道（FCM/短信/邮件/企业微信/站内信）架构设计、优先级队列分层、失败重试与死信处理、通道降级策略、频率控制与幂等保障。包含完整代码示例、Mermaid 架构图与生产环境踩坑记录。
-
-
-
+tags: [KKday, Laravel, 微服务, 架构, 消息队列, Redis, FCM, 推送系统]
+description: "KKday B2C 电商项目从零搭建消息推送系统完整实战：多通道（FCM、短信、邮件、企业微信、站内信）统一架构设计、ChannelRegistry 通道注册中心、优先级队列分层调度、失败指数退避重试与死信处理、通道自动降级策略、Redis 滑动窗口频率控制与幂等保障。含完整 PHP 代码示例、Mermaid 架构图、通道特性对比表与 6 条生产环境踩坑记录。"
 ---
 ## 前言
 
@@ -139,7 +136,91 @@ enum ChannelType: string
 }
 ```
 
-### 2.3 FCM Push 通道实现示例
+### 2.3 ChannelRegistry：通道注册中心
+
+```php
+<?php
+
+namespace App\Notification;
+
+use App\Notification\Channels\NotificationChannelInterface;
+use App\Notification\Enums\ChannelType;
+use Illuminate\Support\Collection;
+
+class ChannelRegistry
+{
+    /** @var array<ChannelType, NotificationChannelInterface> */
+    private array $channels = [];
+
+    /** @var array<ChannelType, ChannelType[]> 降级映射 */
+    private array $fallbackMap = [];
+
+    public function register(NotificationChannelInterface $channel): void
+    {
+        $this->channels[$channel->getType()] = $channel;
+    }
+
+    public function get(ChannelType $type): NotificationChannelInterface
+    {
+        if (!isset($this->channels[$type])) {
+            throw new \InvalidArgumentException("Channel [{$type->value}] not registered");
+        }
+        return $this->channels[$type];
+    }
+
+    /**
+     * 根据模板配置获取可用通道列表
+     */
+    public function getChannelsForTemplate(string $templateCode): array
+    {
+        $template = \App\Models\NotificationTemplate::where('code', $templateCode)->firstOrFail();
+        return array_map(
+            fn(string $ch) => ChannelType::from($ch),
+            json_decode($template->channels, true)
+        );
+    }
+
+    /**
+     * 获取备用通道列表（用于降级）
+     */
+    public function getFallbackChannels(ChannelType $type): array
+    {
+        return $this->fallbackMap[$type] ?? [];
+    }
+
+    public function setFallbackMap(array $map): void
+    {
+        $this->fallbackMap = $map;
+    }
+
+    /**
+     * 获取所有健康通道
+     */
+    public function getHealthyChannels(): Collection
+    {
+        return collect($this->channels)->filter(
+            fn(NotificationChannelInterface $ch) => $ch->isHealthy()
+        );
+    }
+}
+```
+
+### 2.4 通道特性对比
+
+| 维度 | FCM Push | 短信 SMS | 邮件 Email | 企业微信 | 站内信 |
+|------|----------|----------|-----------|---------|--------|
+| **送达率** | 70-85%（依赖用户授权） | 95-99% | 85-95%（可能进垃圾箱） | 98%+ | 100%（应用内） |
+| **延迟** | <1s | 1-10s | 5-60s | <2s | <500ms |
+| **单条成本** | 免费 | ¥0.04-0.06 | ¥0.001-0.01 | 免费 | 免费 |
+| **适合场景** | 实时通知 | 紧急/关键通知 | 详尽内容通知 | 内部/企业通知 | 普通通知兜底 |
+| **限流策略** | 500/min | 按运营商配额 | 按 ESP 配额 | 20/min | 基本不限 |
+| **用户可关闭** | 是 | 否 | 否 | 否 | 否 |
+| **内容长度** | ≤4KB data payload | 70 字/条 | 无限制 | ≤2048 字 | 无限制 |
+| **富媒体支持** | 图片/声音/点击动作 | 仅文本 | HTML 全支持 | Markdown + 卡片 | HTML 全支持 |
+
+> **选型建议**：不要只依赖 FCM——用户关闭推送权限的比例在 30-50%。关键消息必须走短信或邮件作为 backup 通道。
+
+### 2.5 FCM Push 通道实现示例
 
 ```php
 <?php
@@ -220,6 +301,95 @@ class FcmPushChannel implements NotificationChannelInterface
 ```
 
 **踩坑 #1**：FCM 的 `messaging/registration-token-not-registered` 错误不应该重试——说明用户卸载了 App 或换了设备。必须在重试逻辑中排除这类错误，否则会无限重试。
+
+### 2.6 SMS 短信通道实现示例
+
+```php
+<?php
+
+namespace App\Notification\Channels;
+
+use App\Notification\DTOs\NotificationMessage;
+use App\Notification\DTOs\DeliveryResult;
+use App\Notification\Enums\ChannelType;
+use App\Notification\Enums\DeliveryStatus;
+use Twilio\Rest\Client as TwilioClient;
+use Twilio\Exceptions\TwilioException;
+
+class SmsChannel implements NotificationChannelInterface
+{
+    private int $failureCount = 0;
+    private const HEALTH_THRESHOLD = 5; // 短信通道更敏感，5 次就标记不健康
+
+    public function __construct(
+        private readonly TwilioClient $twilio,
+        private readonly string $fromNumber,
+    ) {}
+
+    public function getType(): ChannelType
+    {
+        return ChannelType::SMS;
+    }
+
+    public function send(NotificationMessage $message): DeliveryResult
+    {
+        try {
+            // 短信内容截断：单条短信 70 字（纯 ASCII 160 字符）
+            $body = mb_substr($message->getBody(), 0, 70);
+
+            $result = $this->twilio->messages->create(
+                $message->getRecipientPhone(),
+                [
+                    'from' => $this->fromNumber,
+                    'body' => $body,
+                ]
+            );
+
+            $this->failureCount = 0;
+
+            return new DeliveryResult(
+                status: DeliveryStatus::SENT,
+                channelType: $this->getType(),
+                externalId: $result->sid,
+                sentAt: now(),
+            );
+        } catch (TwilioException $e) {
+            $this->failureCount++;
+
+            return new DeliveryResult(
+                status: DeliveryStatus::FAILED,
+                channelType: $this->getType(),
+                errorMessage: $e->getMessage(),
+                shouldRetry: $this->isRetryableError($e),
+            );
+        }
+    }
+
+    public function isHealthy(): bool
+    {
+        return $this->failureCount < self::HEALTH_THRESHOLD;
+    }
+
+    public function supportedPriorities(): array
+    {
+        return ['critical', 'high', 'normal']; // 营销短信走独立通道
+    }
+
+    public function rateLimit(): int
+    {
+        return 100; // 短信每分钟 100 条（受运营商配额限制）
+    }
+
+    private function isRetryableError(TwilioException $e): bool
+    {
+        // Twilio 错误码：20429 = Too Many Requests, 30001 = Queue Overflow
+        $retryableCodes = [20429, 30001, 30002, 30003];
+        return in_array($e->getCode(), $retryableCodes, true);
+    }
+}
+```
+
+**踩坑 #6**：短信模板需要提前在运营商报备，如果消息内容与报备模板不一致会被直接丢弃（不返回错误）。我们曾经因为模板中多了一个感叹号，导致 3000 条短信"发送成功"但用户一条都没收到。**解决方案**：在发送前做模板匹配校验，不匹配的内容自动回退到邮件通道。
 
 ---
 
@@ -304,6 +474,19 @@ enum NotificationPriority: int
 ```
 
 **关键点**：queue 数组的顺序就是优先级——Laravel Queue Worker 会优先消费 `notifications-critical`，只有该队列空了才消费下一个。这比在代码中手动排序更可靠。
+
+### 3.3 重试策略对比
+
+| 优先级 | 最大重试次数 | 重试间隔策略 | 总最长重试窗口 | 重试失败处理 |
+|--------|------------|-------------|--------------|-------------|
+| **CRITICAL** | 10 次 | 5s → 15s → 30s → 1m → 2m → 5m → 10m → 30m → 1h → 2h | ~4 小时 | 进入死信队列 + P1 告警 |
+| **HIGH** | 5 次 | 10s → 30s → 1m → 5m → 15m | ~21 分钟 | 进入死信队列 + P2 告警 |
+| **NORMAL** | 3 次 | 30s → 2m → 10m | ~12 分钟 | 记录日志，不告警 |
+| **LOW** | 1 次 | 5min | 5 分钟 | 静默丢弃 |
+
+> **指数退避 vs 固定间隔**：CRITICAL 和 HIGH 使用**指数退避**（exponential backoff），避免在下游服务故障时持续冲击。LOW 使用固定间隔，因为营销消息不值得反复重试。
+
+**踩坑补充**：Laravel 的 `backoff()` 方法接收的是一个数组（每次重试的延迟秒数），而不是增长因子。如果你想要真正的指数退避，需要自己计算数组：`[pow(2, i) * baseDelay for i in 0..maxRetries]`。
 
 ---
 
@@ -789,6 +972,7 @@ DB::table('notification_templates')->insert([
 | 3 | 降级路径不区分优先级 | CRITICAL 降级到短信+邮件双通道，NORMAL 降级到站内信 |
 | 4 | 频率限制 key 粒度不够 | key = `userId + channelType`，避免营销限流影响订单通知 |
 | 5 | "发送成功"≠"用户收到" | 送达回执回调 + Grafana 告警阈值 |
+| 6 | 短信模板不匹配导致静默丢弃 | 发送前做模板匹配校验，不匹配回退邮件通道 |
 
 ### 架构决策建议
 
@@ -812,3 +996,11 @@ DB::table('notification_templates')->insert([
 - **可观测性**：每个环节都有指标，失败率超阈值自动告警
 
 如果你正在从零搭建推送系统，建议先做好通道抽象和优先级队列，这两个地基打好了，后面的降级和监控都是顺理成章的事情。
+
+---
+
+## 相关阅读
+
+- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/categories/architecture/2026-06-03-Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构/) — 推送系统的事件源头来自数据库变更，本文详解 CDC 技术如何与 Laravel 事件驱动架构互补
+- [Event Notification vs Event-Carried State Transfer 实战：Laravel 事件驱动的两种模式](/categories/architecture/2026-06-06-event-notification-vs-event-carried-state-transfer/) — 推送系统选择"通知型"还是"携带状态型"事件模式，直接影响解耦程度与数据一致性
+- [Eventual Consistency 实战：最终一致性在电商场景中的工程化——反压、冲突解决与用户感知延迟](/categories/architecture/Eventual-Consistency-实战-最终一致性在电商场景中的工程化-反压冲突解决与用户感知延迟/) — 推送消息的最终送达保障与电商场景中的最终一致性设计一脉相承，本文深入分布式一致性工程实践

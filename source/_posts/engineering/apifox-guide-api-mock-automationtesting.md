@@ -1,5 +1,6 @@
 ---
 title: "Apifox 实战：API 设计、Mock、自动化测试一体化 — Laravel B2C API 踩坑记录"
+cover: /images/covers/apifox-guide-api-mock-automationtesting-cover.jpg
 date: 2026-05-17 07:50:38
 updated: 2026-05-17 07:53:10
 categories:
@@ -608,3 +609,9 @@ Apifox 的核心价值在于 **Design-First 理念的工具化落地**——同�
 5. **CI 阶段**：Apifox CLI 在每次 PR 时自动运行回归测试
 
 工具本身不解决所有问题，但 **Schema 作为 Single Source of Truth** 的理念，配合 Apifox 的一体化能力，确实能把 API 协作的摩擦降到最低。
+
+## 相关阅读
+
+- [Postman/Apifox 实战：API 测试、Mock、自动化测试 — Laravel B2C API 踩坑记录](/categories/Engineering/Testing/postman-apifox-guide-apitesting-mock-automationtesting/) — 从 Postman 迁移到 Apifox 的完整路径，对比两款工具的七维差异与选型决策
+- [API Mock 策略实战：WireMock、Mockoon、MSW 三层 Mock 体系](/categories/架构/API-Mock-策略实战-WireMock-Mockoon-MSW三层Mock体系/) — 从单元测试到端到端测试的三层 Mock 架构设计，Apifox 之外的 Mock 方案对比
+- [Postman 实战：Collection、环境变量、Pre-request Script](/categories/Engineering/Testing/postman-guide-collection-environment-pre-request-script/) — Postman 核心功能详解，适合 Apifox 之外仍需 Postman 辅助探索式测试的场景

@@ -1,5 +1,6 @@
 ---
 title: 负载均衡实战：Nginx Upstream + Laravel Session 共享方案踩坑记录
+cover: /images/covers/nginx-load-balancing-session-cover.jpg
 date: 2026-05-05 07:30:03
 updated: 2026-05-05 07:32:58
 categories:
@@ -490,3 +491,11 @@ log_format upstream_log '$remote_addr - $remote_user [$time_local] '
 从单机到负载均衡，最大的挑战不是 Nginx 配置本身，而是 **Session 一致性**。Redis Session 是最稳妥的方案，但必须注意：读写分离带来的主从延迟、独立 Redis DB 避免误操作、Cookie 大小限制这三大陷阱。
 
 一句话总结：**先解决 Session 共享，再上负载均衡，顺序不能反**。
+
+---
+
+## 相关阅读
+
+- [Go 微服务实战：用 Go 重写 Laravel 高性能热点模块——从 PHP-FPM 到 Go net/http 的迁移路径](/Architecture/Go-微服务实战-重写Laravel高性能模块-PHP-FPM到Go迁移/) —— 当负载均衡也无法解决 PHP-FPM 性能瓶颈时，用 Go 重写热点模块是进阶之路
+- [六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录](/Architecture/2026-06-01-六边形架构实战-Laravel-端口与适配器模式落地踩坑记录/) —— 从架构层面解耦 Laravel 业务逻辑，让负载均衡下的多实例部署更健壮
+- [Cell-Based Architecture 实战：单元化架构在 Laravel 微服务中的落地](/Architecture/Cell-Based-Architecture-单元化架构Laravel微服务落地/) —— 当单组负载均衡不够时，单元化架构实现故障隔离与独立扩缩

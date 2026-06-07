@@ -1,12 +1,13 @@
 ---
 title: 数据库索引优化实战-覆盖索引联合索引与索引下推-Laravel-B2C-API踩坑记录
+cover: /images/databases-cover.png
 date: 2026-05-17 05:15:30
 updated: 2026-05-17 05:17:34
 categories:
   - Databases
   - MySQL
-tags: [Laravel, MySQL, 性能优化]
-description: 深入实战覆盖索引、联合索引设计与索引下推（ICP），基于 KKday B2C API 真实场景的 EXPLAIN 分析、踩坑记录与性能对比。
+tags: [mysql, laravel, 性能优化, EXPLAIN, 索引优化, 覆盖索引, 联合索引, ICP]
+description: MySQL 索引优化全攻略——覆盖索引（Covering Index）、联合索引最左前缀设计、索引下推（ICP）原理与实战。基于 KKday B2C API 真实场景，通过 EXPLAIN 执行计划深度分析回表机制，手把手演示如何消除 SELECT *、优化列顺序、利用 Using index 与 Using index condition 将查询性能提升数万倍，附完整踩坑记录与 Laravel 代码示例。
 
 
 
@@ -471,3 +472,85 @@ Artisan::call('db:seed', ['--class' => 'OrderSeeder', '--force' => true]);
 4. **EXPLAIN 是唯一真理**——不看执行计划的优化都是盲猜
 
 记住：`Using index` > `Using index condition` > `Using where`。看到 `Using index` 就说明你的查询已经做到了极致优化。
+
+## 附录：可运行的建表与测试代码
+
+以下 SQL 可直接在 MySQL 5.7+ / 8.0+ 中执行，用于复现本文中的所有场景：
+
+```sql
+-- 1. 建表
+CREATE TABLE `orders` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint unsigned NOT NULL,
+  `event_id` bigint unsigned NOT NULL DEFAULT 0,
+  `order_status` varchar(20) NOT NULL DEFAULT 'pending',
+  `total_amount` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_user_status_created` (`user_id`, `order_status`, `created_at`),
+  KEY `idx_user_cover` (`user_id`, `order_status`, `created_at`, `total_amount`, `id`),
+  KEY `idx_event_report` (`event_id`, `created_at`, `order_status`, `total_amount`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 2. 生成 10 万行测试数据
+DELIMITER //
+CREATE PROCEDURE generate_orders(IN num INT)
+BEGIN
+  DECLARE i INT DEFAULT 0;
+  DECLARE statuses VARCHAR(100) DEFAULT 'pending,paid,shipped,completed,cancelled';
+  WHILE i < num DO
+    INSERT INTO orders (user_id, event_id, order_status, total_amount, created_at)
+    VALUES (
+      FLOOR(1 + RAND() * 10000),
+      FLOOR(1 + RAND() * 500),
+      ELT(FLOOR(1 + RAND() * 5), 'pending','paid','shipped','completed','cancelled'),
+      ROUND(RAND() * 5000 + 10, 2),
+      DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)
+    );
+    SET i = i + 1;
+  END WHILE;
+END //
+DELIMITER ;
+
+CALL generate_orders(100000);
+
+-- 3. 对比测试：关闭 ICP 前后
+SET optimizer_switch = 'index_condition_pushdown=on';
+EXPLAIN SELECT * FROM orders WHERE user_id = 1001 AND order_status LIKE '%paid%' AND total_amount > 100;
+-- Extra: Using index condition ✅
+
+SET optimizer_switch = 'index_condition_pushdown=off';
+EXPLAIN SELECT * FROM orders WHERE user_id = 1001 AND order_status LIKE '%paid%' AND total_amount > 100;
+-- Extra: Using where ❌ 回表次数大幅增加
+
+SET optimizer_switch = 'index_condition_pushdown=on'; -- 恢复
+
+-- 4. 覆盖索引 vs SELECT * 对比
+EXPLAIN SELECT user_id, order_status, created_at FROM orders WHERE user_id = 1001;
+-- Extra: Using index ✅ 覆盖索引，零回表
+
+EXPLAIN SELECT * FROM orders WHERE user_id = 1001;
+-- Extra: Using where ❌ 需要回表
+```
+
+## 附录：EXPLAIN 各字段速查表
+
+| 字段 | 关注重点 | 优化方向 |
+|------|---------|---------|
+| **type** | const > eq_ref > ref > range > index > ALL | 尽量达到 ref 以上 |
+| **key** | 实际使用的索引名 | NULL 表示全表扫描 |
+| **rows** | 预估扫描行数 | 越小越好 |
+| **Extra** | Using index > Using index condition > Using where | 覆盖索引最优 |
+| **key_len** | 使用的索引字节长度 | 判断联合索引用了几列 |
+| **ref** | 索引关联的列或常量 | const 表示等值匹配 |
+
+> **速记口诀**：type 看级别，rows 看规模，Extra 看优化层次。
+
+## 相关阅读
+
+- [百万级数据表查询优化实战：EXPLAIN 深度分析索引重构与分页治理](/categories/Databases/query-optimization-explain/)
+- [MySQL 慢查询治理实战：pt-query-digest 分析、索引优化与 SQL 重写](/categories/Databases/slow-query-governance/)
+- [覆盖索引（Covering Index）原理与实践](/categories/Databases/covering-index/)
+- [索引下推（Index Condition Pushdown）](/categories/Databases/index-condition-pushdown/)
+- [索引的最左前缀原则](/categories/Databases/leftmost-prefix-rule/)

@@ -1,11 +1,12 @@
 ---
-title: Laravel Reverb WebSocket 实时通信系统实战：从入门到生产级部署
+title: "Laravel Reverb WebSocket 实时通信系统实战：从入门到生产级部署"
+cover: /images/covers/laravel-reverb-websocket-cover.jpg
 date: 2026-05-02
 categories:
   - Misc
   - Laravel
-tags: [KKday, Laravel, WebSocket]
-description: Laravel 官方 WebSocket 解决方案 Reverb 的实战经验，涵盖架构解析、配置优化、故障排查及与 Swoole 的对比实践。
+tags: [laravel, reverb, websocket, swoole, 实时通信]
+description: Laravel Reverb WebSocket 实时通信系统完整实战指南：从架构原理、Swoole 协程服务器配置到生产环境 Docker 部署，深入剖析 Reverb 事件广播系统、私有频道认证、Redis 消息代理配置与 Nginx 反向代理 WebSocket 优化。包含四个真实踩坑案例——Redis 未启动、Swoole 进程数不匹配、内存泄漏、SSL 证书配置错误的完整排查过程。附 Reverb vs Swoole vs Ratchet 性能基准测试对比、Prometheus 加 Grafana 监控方案及快速故障排查命令速查。
 
 
 
@@ -286,6 +287,160 @@ pusher.connection.bind('disconnected', () => {
 
 ---
 
+## 三·五、私有频道认证与 Laravel Echo 集成
+
+### 1. 私有频道广播认证
+
+公开频道适合通知推送等无需鉴权的场景，但涉及用户隐私数据（如订单状态、私聊消息）时，必须使用 **私有频道（Private Channel）**。Reverb 通过 HTTP API 调用 Laravel 应用的 `/broadcasting/auth` 路由完成鉴权：
+
+```php
+// routes/channels.php — 定义频道授权规则
+use Illuminate\Support\Facades\Broadcast;
+
+// 私有频道：仅允许对应用户访问
+Broadcast::channel('user.{id}', function ($user, $id) {
+    return (int) $user->id === (int) $id;
+});
+
+// 私有频道：订单详情，仅订单所有者可订阅
+Broadcast::channel('order.{orderId}', function ($user, $orderId) {
+    $order = \App\Models\Order::find($orderId);
+    return $order && $order->user_id === $user->id;
+});
+
+// Presence 频道：可感知在线成员列表
+Broadcast::channel('chatroom.{roomId}', function ($user, $roomId) {
+    if ($user->cannot('join-chatroom', $roomId)) {
+        return false;
+    }
+    return [
+        'id' => $user->id,
+        'name' => $user->name,
+        'avatar' => $user->avatar_url,
+    ];
+});
+```
+
+> **注意**：`/broadcasting/auth` 路由默认由 `RouteServiceProvider` 注册。如果使用了自定义路由前缀，请确保 Reverb 配置中的 `REVERB_APP_SECRET` 与 `.env` 中一致，否则鉴权请求会返回 403。
+
+### 2. 广播认证中间件配置
+
+```php
+// routes/web.php（Laravel 11+）
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    // 如果使用 Sanctum Token 认证，需确保广播认证也走同一 Guard
+    Route::post('/broadcasting/auth', function (\Illuminate\Http\Request $request) {
+        return \Illuminate\Support\Facades\Broadcast::auth($request);
+    });
+});
+```
+
+### 3. Laravel Echo 完整集成示例
+
+相比直接使用 `pusher-js`，**Laravel Echo** 封装了频道订阅、事件监听、自动重连等逻辑，是 Laravel 官方推荐的前端方案：
+
+```bash
+# 安装 Laravel Echo 和 Pusher JS Client
+npm install laravel-echo pusher-js
+```
+
+```javascript
+// resources/js/bootstrap.js
+import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
+
+window.Pusher = Pusher;
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: import.meta.env.VITE_REVERB_APP_KEY,
+    wsHost: import.meta.env.VITE_REVERB_HOST,
+    wsPort: import.meta.env.VITE_REVERB_PORT ?? 6001,
+    wssPort: import.meta.env.VITE_REVERB_PORT ?? 6001,
+    forceTLS: (import.meta.env.VITE_REVERB_SCHEME === 'https'),
+    disableStats: true,
+    enabledTransports: ['ws', 'wss'],
+});
+```
+
+```javascript
+// 订阅私有频道 — Echo 自动处理 /broadcasting/auth 请求
+window.Echo.private(`user.${userId}`)
+    .listen('.OrderStatusUpdated', (event) => {
+        console.log('订单状态更新：', event.order.status);
+        updateOrderUI(event.order);
+    })
+    .listen('.PaymentReceived', (event) => {
+        showNotification(`收到付款 ¥${event.amount}`);
+    });
+
+// 订阅 Presence 频道 — 可感知在线成员
+window.Echo.join(`chatroom.${roomId}`)
+    .here((users) => {
+        console.log('当前在线：', users);
+        renderOnlineUsers(users);
+    })
+    .joining((user) => {
+        addOnlineUser(user);
+        showNotification(`${user.name} 加入了聊天室`);
+    })
+    .leaving((user) => {
+        removeOnlineUser(user);
+    })
+    .listen('.NewMessage', (event) => {
+        appendMessage(event.message);
+    });
+```
+
+### 4. 前端环境变量配置
+
+```env
+# .env（前端构建环境）
+VITE_REVERB_APP_KEY=your-app-key
+VITE_REVERB_HOST=your-domain.com
+VITE_REVERB_PORT=443
+VITE_REVERB_SCHEME=https
+```
+
+### 5. Reverb 配置参数速查表
+
+| 配置项 | `.env` 键名 | 默认值 | 说明 |
+|--------|-------------|--------|------|
+| App ID | `REVERB_APP_ID` | — | 应用唯一标识，用于广播认证 |
+| App Key | `REVERB_APP_KEY` | — | 前端 Pusher SDK 使用的公钥 |
+| App Secret | `REVERB_APP_SECRET` | — | 服务端签名密钥，**切勿暴露** |
+| 连接数上限 | `REVERB_MAX_CONNECTIONS` | 10000 | 单实例最大 WebSocket 连接数 |
+| 消息大小限制 | `REVERB_MAX_REQUEST_SIZE` | 1000000 | 单条消息最大字节数 |
+| 心跳间隔 | `REVERB_RECONNECT_INTERVAL` | 3000 | 断线重连间隔（毫秒） |
+| 广播前缀 | `REVERB_BROADCAST_PREFIX` | `App` | 事件类命名空间前缀 |
+| 日志级别 | `LOG_LEVEL` | `debug` | 生产环境建议设为 `error` |
+
+### 6. WebSocket 连接生命周期
+
+```
+客户端                         Reverb Server                    Laravel App
+  │                                │                               │
+  │──── WS Upgrade Request ───────►│                               │
+  │◄─── 101 Switching Protocols ───│                               │
+  │                                │                               │
+  │──── subscribe: private-user.1 ─►│                               │
+  │                                │──── HTTP POST /broadcasting ──►│
+  │                                │◄─── { auth: "signed_value" } ──│
+  │◄─── subscription_succeeded ────│                               │
+  │                                │                               │
+  │                                │◄── broadcast(OrderUpdated) ────│
+  │◄── event: OrderUpdated ────────│                               │
+  │                                │                               │
+  │──── ping ──────────────────────►│                               │
+  │◄─── pong ──────────────────────│                               │
+  │                                │                               │
+  │──── disconnect ────────────────►│                               │
+  │                                │──── 清理连接资源 ──────────────│
+```
+
+---
+
 ## 四、踩坑记录：生产环境真实问题
 
 ### 坑一：Redis 未启动导致广播失败
@@ -440,6 +595,69 @@ php artisan reverb:metrics
 
 ---
 
+## 六·五、生产环境部署检查清单与常见错误码速查
+
+### 部署前检查清单
+
+在将 Reverb 部署到生产环境之前，逐项确认以下配置：
+
+- [ ] `APP_ENV=production` 已设置，避免 Reverb 回退到开发模式
+- [ ] `APP_KEY` 已生成且 32 字符以上
+- [ ] Redis 服务正常运行且可连接
+- [ ] `REVERB_APP_SECRET` 使用随机生成的高强度密钥
+- [ ] Nginx 反向代理已配置 `Upgrade` 和 `Connection` 头
+- [ ] `proxy_read_timeout` 和 `proxy_send_timeout` 设置为 86400s
+- [ ] SSL 证书有效且配置正确（`fullchain.pem` + `privkey.pem`）
+- [ ] Supervisor 已配置自动重启（`autorestart=true`）
+- [ ] 防火墙已放行 WebSocket 端口（默认 6001）
+- [ ] `LOG_LEVEL` 设置为 `error` 或 `warning`（避免 debug 日志撑爆磁盘）
+- [ ] PHP OPcache 已启用并预加载 Composer autoloader
+- [ ] `max_connections` 根据并发量合理设置（推荐 1000-5000）
+
+### 常见错误码速查表
+
+| 错误码/错误信息 | 原因 | 解决方案 |
+|----------------|------|----------|
+| `403 Forbidden` on `/broadcasting/auth` | 频道授权回调返回 false，或 `REVERB_APP_SECRET` 不匹配 | 检查 `routes/channels.php` 授权逻辑；核对 `.env` 中的密钥一致性 |
+| `Connection refused` on WebSocket | Reverb 进程未启动或端口被占用 | `php artisan reverb:start`；检查 Supervisor 状态 `supervisorctl status` |
+| `Broadcast failed: Redis connection is not available` | Redis 服务未启动或连接配置错误 | 启动 Redis：`redis-cli ping`；检查 `config/database.php` Redis 配置 |
+| `WebSocket connection closed` 反复断开 | Nginx 未正确传递 WebSocket Upgrade 头 | 添加 `proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection "upgrade";` |
+| 内存持续增长导致 OOM | Swoole Worker 进程内存泄漏 | 设置 Supervisor `stopwaitsecs` 定期重启；监控内存使用 |
+| `ERR_CONNECTION_TIMED_OUT` | 防火墙未放行 WebSocket 端口 | 放行 6001 端口：`ufw allow 6001` 或配置云安全组 |
+| 前端 `undefined` config error | `VITE_REVERB_*` 环境变量未注入前端 | 确保 `.env` 前缀为 `VITE_`，运行 `npm run build` 重新构建 |
+| `pusher-js` 连接成功但收不到事件 | 事件类未实现 `ShouldBroadcast` 接口 | 在 Event 类上添加 `implements ShouldBroadcast` |
+| 广播延迟超过 3 秒 | Redis 队列积压或 Worker 数不足 | 增加 `queue:work --tries=3` 的并发数；检查 Redis 队列长度 |
+
+### Supervisor 完整配置示例
+
+```ini
+; /etc/supervisor/conf.d/reverb.conf
+[program:reverb]
+process_name=%(program_name)s
+command=php /var/www/app/artisan reverb:start
+autostart=true
+autorestart=true
+stopasgroup=true
+killasgroup=true
+user=www-data
+redirect_stderr=true
+stdout_logfile=/var/log/supervisor/reverb.log
+stopwaitsecs=3600
+; 每小时自动重启一次，防止内存泄漏
+```
+
+```bash
+# 重载 Supervisor 配置
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl start reverb
+
+# 查看运行状态
+sudo supervisorctl status reverb
+```
+
+---
+
 ## 七、总结与建议
 
 1. **生产环境必须使用 Swoole** —— Ratchet 不适合高并发场景
@@ -469,3 +687,11 @@ php artisan reverb:status
 ```
 
 希望本文能帮助你成功部署 Laravel Reverb WebSocket 系统。如有问题，欢迎在评论区留言交流！
+
+---
+
+## 相关阅读
+
+- [Laravel Reverb 实战：订单状态实时推送与多实例部署踩坑记录](/php/Laravel/laravel-reverb-guide-deployment/) — 深入讲解 Reverb 在订单推送场景的私有频道认证、DB::afterCommit 集成与 Supervisor 进程管理
+- [WebSocket 实战：Laravel Reverb + Pusher 架构选型、事件广播与生产环境踩坑记录](/php/Laravel/websocket-guide-laravel-reverb-pusher-architecture/) — 从架构选型角度对比 Reverb 与 Pusher，详解事件广播系统设计与生产部署经验
+- [SSE vs WebSocket vs HTTP Streaming 实战：实时通信方案的工程选型](/00_架构/2026-06-03-SSE-vs-WebSocket-vs-HTTP-Streaming-实时通信方案工程选型/) — 横向对比三种实时通信方案的协议原理、Laravel 实现与性能基准

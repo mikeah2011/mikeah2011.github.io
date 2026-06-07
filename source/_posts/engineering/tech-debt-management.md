@@ -1,12 +1,13 @@
 ---
 title: 技术债务管理-量化追踪与偿还遗留代码-Laravel-B2C-API实战踩坑记录
+cover: /images/covers/tech-debt-management-cover.jpg
 date: 2026-05-05 07:00:50
 updated: 2026-05-05 07:04:13
 categories:
   - Engineering
   - Process
 tags: [KKday, Laravel, 代码质量, 工程管理]
-description: 在 30+ Laravel 仓库的实战中，技术债务不是「要不要还」的问题，而是「怎么量化、排优先级、持续偿还」的工程问题。本文分享从度量指标、追踪工具到偿还策略的完整方法论，附真实踩坑记录。
+description: 技术债务管理实战指南——在30+ Laravel仓库中如何量化债务指标、建立周度记分卡追踪系统、用Impact/Effort公式精准排优先级，并通过童子军规则、绞杀者模式与Sprint预算制持续偿还。含PHPStan质量门禁、DEBT注释规范、GitHub Actions自动化守护完整方案与5个真实踩坑记录。
 
 
 
@@ -663,3 +664,9 @@ jobs:
 5. **文化**：Tech Debt Friday + ADR，让技术债务成为团队共识而非个人抱怨
 
 在 30+ 仓库的实践中，我学到最重要的一课是：**技术债务的敌人不是烂代码，而是不可见**。一旦你能让它在 Dashboard 上显示出来，团队自然会开始认真对待它。
+
+## 相关阅读
+
+- [代码审查流程设计：如何建立高效的 CR 文化与工具链](/categories/Engineering/code-review-process/)
+- [PHPUnit 11.x 实战：新特性与最佳实践——从 Laravel B2C API 的断言、属性到测试架构演进踩坑记录](/categories/Engineering/phpunit-11-x-guide-best-practices/)
+- [Developer Productivity Metrics 实战：SPACE 框架度量开发者效能——DORA 之外的代码质量、协作效率与满意度追踪](/categories/Engineering/Developer-Productivity-Metrics-SPACE框架度量开发者效能-DORA之外的代码质量协作效率与满意度追踪/)

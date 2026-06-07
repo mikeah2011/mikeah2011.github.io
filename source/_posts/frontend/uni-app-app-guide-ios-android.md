@@ -1,10 +1,11 @@
 ---
 title: "uni-app App 打包实战：iOS/Android 原生打包与发布 — 从 HBuilderX 到上架全流程踩坑记录"
+cover: /images/covers/uni-app-app-guide-ios-android-cover.jpg
 date: 2026-05-17 06:40:07
 updated: 2026-05-17 06:42:11
 categories: Frontend
-tags: [uni-app]
-description: "uni-app 一套代码跑多端是它的核心卖点，但从 HBuilderX 点击「原生App-云打包」到真正上架 App Store / Google Play，中间的坑远比你想象的多。本文基于奇乐MAX电商项目的真实打包发布经验，覆盖 iOS 签名体系、Android 签名与多渠道、自定义基座调试、离线打包、应用市场审核踩坑记录。"
+tags: [uni-app, iOS, Android, 跨平台, 移动开发, Vue3, App打包]
+description: "uni-app 一套代码跑 iOS、Android 双平台，但跨平台移动开发的打包发布流程远比 H5 和小程序复杂。本文基于奇乐MAX电商项目真实经验，详解 uni-app 云打包、离线打包、iOS 签名证书管理、Android 多渠道打包、自定义基座真机调试、应用市场审核被拒等全流程踩坑记录，附 GitHub Actions CI/CD 自动化打包方案。"
 
 
 
@@ -438,6 +439,25 @@ jobs:
 | 热更新失效 | versionCode 未递增 | 每次发布前自动递增 versionCode |
 | 原生插件不生效 | 未使用自定义基座调试 | 制作自定义基座后再测试 |
 
+## 八、跨平台框架对比：uni-app vs React Native vs Flutter
+
+选型阶段，团队经常纠结用哪个框架。以下是基于实际项目经验的对比：
+
+| 维度 | uni-app | React Native | Flutter |
+|------|---------|-------------|---------|
+| **语言** | Vue 3 + TypeScript | JavaScript/TypeScript | Dart |
+| **学习曲线** | ⭐ 低（Vue 开发者秒上手） | ⭐⭐ 中（需了解原生桥接） | ⭐⭐⭐ 高（Dart 语言 + Widget 体系） |
+| **多端支持** | App + H5 + 小程序 + 快应用 | App + H5（React Native Web） | 仅 App + Web（无小程序） |
+| **包体积** | 较小（约 5-8MB 增量） | 中等（约 7-15MB 增量） | 较大（约 10-20MB 增量） |
+| **性能** | 接近原生（nvue 模式） | 接近原生（新架构 Hermes） | 高性能（自绘引擎） |
+| **生态** | uni_modules 中国市场为主 | npm 全球生态丰富 | pub.dev 国际生态良好 |
+| **原生插件** | Native.js + 原生插件市场 | Turbo Modules / 原生模块 | Platform Channels |
+| **热更新** | 内置支持（App 热更新） | CodePush（微软方案） | 无官方方案 |
+| **适用场景** | 电商/小程序优先/中国市场 | 复杂交互动画/海外市场 | 高性能 UI/定制渲染 |
+| **维护状态** | DCloud 持续维护 | Meta 重点投入 | Google 持续投入 |
+
+> **选型建议**：如果项目需要同时覆盖国内微信小程序 + App，uni-app 是唯一选择；如果只做海外 App 且追求极致性能，Flutter 更优；React Native 适合已有 React 技术栈的团队。
+
 ## 总结
 
 uni-app 的 App 打包发布是一个系统工程，核心要点：
@@ -449,3 +469,11 @@ uni-app 的 App 打包发布是一个系统工程，核心要点：
 5. **CI/CD 是长期收益**——手动打包在 3 次之后就会让你崩溃
 
 从 HBuilderX 云打包入门，到离线打包进阶，再到 CI/CD 自动化，这是一条必经之路。希望本文的踩坑记录能帮你少走弯路。
+
+## 相关阅读
+
+- [uni-app 条件编译实战：平台差异处理与适配策略踩坑记录](/categories/uni-app-conditionally-compile/) — 深入讲解 #ifdef 条件编译语法与多端差异处理
+- [uni-app + Vue 3 + Vite 现代跨平台开发工作流实战踩坑记录](/categories/uni-app-vue3-vite/) — 从 Vue 2 迁移到 Vue 3 + Vite 的完整实战经验
+- [uni-app Native.js 原生插件开发实战：原生 SDK 集成与多平台踩坑记录](/categories/uni-app-native-js-sdk/) — Native.js + 原生插件开发流程与 iOS/Android 双平台集成
+- [HBuilderX 实战：uni-app 官方 IDE 深度使用](/categories/hbuilderx-uni-app-ide/) — 真机调试、插件开发与多端发布踩坑记录
+- [uni-app 性能优化实战：首屏加载、分包加载、图片懒加载策略](/categories/uni-app-performance-optimization/) — 从 5s 到 800ms 的性能治理全链路

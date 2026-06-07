@@ -1,11 +1,12 @@
 ---
 title: Controller 薄 + Service 厚：Laravel 大项目中职责分离的真实踩坑记录
+cover: /images/covers/controller-service-laravel-cover.jpg
 date: 2026-05-02
 categories:
   - PHP
   - Laravel
 tags: [KKday, Laravel, 架构]
-description: KKday B2C 后端团队在 Laravel 大项目中遇到的 Controller 臃肿、Service 缺失的真实踩坑记录，以及最终的重构方案与最佳实践。
+description: Laravel 大项目中 Controller 与 Service 服务层职责分离的架构设计实战指南。基于 KKday B2C 真实踩坑记录，详解 Controller 薄 + Service 厚的业务逻辑分层方案，涵盖 Repository 层数据访问抽象、依赖注入、单元测试提升至 85%+ 覆盖率的重构路径与最佳实践。
 
 
 
@@ -50,7 +51,7 @@ description: KKday B2C 后端团队在 Laravel 大项目中遇到的 Controller 
 
 在 KKday B2C Backend Team 负责 Search 模块时，我们有一个 `ResultsControllerController`，它的代码结构如下：
 
-```bash
+```php
 # ❌ Before: Controller 臃肿版（547 行）
 // app/Http/Controllers/API/ResultsControllerController.php
 class ResultsControllerController extends Controller {
@@ -415,9 +416,13 @@ Laravel 大项目的 Controller+Service+Repository 三层架构不是银弹，�
 
 ---
 
-**相关链接**
+## 相关阅读
 
-- [Laravel BFF 模式详解](/source/_posts/00_架构/BFF-Laravel-中间层聚合实战.md)
-- [PHP Unit 断言实战：Beyond assertEquals，掌握 expect、mock、stub](/source/_posts/05_PHP/Pest-单元测试实战-Laravel-B2C-API-100-覆盖率.md)
+- [Controller-Service-Repository 三层架构设计与大项目职责分离](/php/Laravel/controller-service-repository.html) — 进阶：仓储层接口化、事务补偿、多数据源切换的完整实战
+- [Laravel Service Container 实战：依赖注入、上下文绑定与延迟加载](/php/Laravel/service-container-guide-dependency-injection.html) — 深入理解本文 Service 构造函数注入背后的容器机制
+- [Laravel Pipeline 设计模式实战：订单处理编排与条件分支](/php/Laravel/laravel-pipeline-design-patternsguide-orchestration.html) — 当 Service 层 if-else 膨胀时，用 Pipeline 解耦
+- [Laravel Event-Listener 事件驱动架构：解耦订单处理](/php/Laravel/laravel-event-listener-architecture.html) — Service 层跨模块通信的事件驱动方案
+- [Laravel DDD 实战：聚合边界、值对象与 afterCommit 领域事件](/php/Laravel/laravel-ddd-guide-aftercommit.html) — 从三层架构演进到领域驱动设计
+- [PHPUnit 断言实战：expect、mock、stub 踩坑记录](/php/Laravel/phpunit-guide-beyond-assertequals-expect-mock-stub.html) — 本文重构后单元测试的具体编写技巧
 
 **作者备注**：本文基于 KKday B2C Backend Team 的 Laravel 项目实战经验整理而成。在重构过程中，我们共完成了 7+ 个 Controller 的重构，将整体测试覆盖率从 35% 提升至 85%+。

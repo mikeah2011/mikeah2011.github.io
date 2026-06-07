@@ -1,14 +1,11 @@
 ---
 title: uni-app 条件编译实战：平台差异处理与适配策略踩坑记录
+cover: /images/covers/uni-app-guide-cover.jpg
 date: 2026-05-17 06:35:34
 updated: 2026-05-17 06:38:35
 categories: Frontend
-tags: [Vue, uni-app, 前端]
-description: >
-  在 uni-app 多端开发中，条件编译是处理平台差异的核心机制。本文基于奇乐MAX电商系统和 KKday B2C 项目的实战经验，深入讲解 #ifdef、#ifndef 的使用技巧、平台专属 API 差异处理、组件级条件编译、CSS 平台适配策略，以及如何用架构设计减少条件编译的维护成本。包含真实代码示例、踩坑记录和最佳实践。
-
-
-
+tags: [Vue, uni-app, 跨平台, 条件编译, 前端开发]
+description: "uni-app 跨平台开发中，条件编译是处理微信小程序、App、H5 等多端差异的核心机制。本文基于 Vue 3 + uni-app 实战经验，深入讲解 #ifdef 条件编译语法、平台专属 API 差异处理（支付/文件/导航）、组件级与 CSS 平台适配策略，以及用适配器模式减少维护成本的架构设计。附真实代码示例与踩坑记录，适合跨平台开发者进阶。"
 ---
 ## 前言
 
@@ -829,9 +826,177 @@ export function getUploader() {
 
 ---
 
-## 七、常见踩坑总结
+## 七、网络请求的跨平台封装
 
-### 7.1 条件编译不生效
+### 7.1 统一请求拦截器
+
+网络请求是跨平台差异最大的领域之一。不同平台的请求库、拦截器机制、cookie 处理完全不同：
+
+```javascript
+// utils/request.js
+// 统一的请求封装，处理平台差异
+
+const BASE_URL = 'https://api.example.com'
+const TIMEOUT = 15000
+
+// 请求拦截器
+function interceptRequest(config) {
+  // 添加 token
+  const token = uni.getStorageSync('access_token')
+  if (token) {
+    config.header = config.header || {}
+    config.header['Authorization'] = `Bearer ${token}`
+  }
+
+  // 添加平台标识
+  // #ifdef MP-WEIXIN
+  config.header['X-Platform'] = 'mp-weixin'
+  // #endif
+  // #ifdef H5
+  config.header['X-Platform'] = 'h5'
+  // #endif
+  // #ifdef APP-PLUS
+  config.header['X-Platform'] = 'app'
+  // #endif
+
+  return config
+}
+
+// 响应拦截器
+function interceptResponse(response) {
+  const { statusCode, data } = response
+
+  // 401 未授权
+  if (statusCode === 401) {
+    uni.removeStorageSync('access_token')
+    uni.navigateTo({ url: '/pages/login/index' })
+    return Promise.reject(new Error('未授权，请重新登录'))
+  }
+
+  // 业务错误
+  if (data.code !== 0 && data.code !== 200) {
+    return Promise.reject(new Error(data.message || '请求失败'))
+  }
+
+  return data
+}
+
+// 核心请求函数
+export function request(options) {
+  const config = interceptRequest({
+    url: `${BASE_URL}${options.url}`,
+    method: options.method || 'GET',
+    data: options.data,
+    header: options.header,
+    timeout: TIMEOUT,
+  })
+
+  return new Promise((resolve, reject) => {
+    uni.request({
+      ...config,
+      success: (res) => {
+        try {
+          const result = interceptResponse(res)
+          resolve(result)
+        } catch (err) {
+          reject(err)
+        }
+      },
+      fail: (err) => {
+        // 踩坑：小程序网络超时的错误信息与 H5 不同
+        // #ifdef MP-WEIXIN
+        if (err.errMsg && err.errMsg.includes('timeout')) {
+          uni.showToast({ title: '网络超时，请检查网络', icon: 'none' })
+        }
+        // #endif
+        // #ifdef H5
+        if (err.errMsg && err.errMsg.includes('Failed to fetch')) {
+          uni.showToast({ title: '网络连接失败', icon: 'none' })
+        }
+        // #endif
+        reject(new Error(err.errMsg || '网络请求失败'))
+      },
+    })
+  })
+}
+
+export const http = {
+  get: (url, data) => request({ url, method: 'GET', data }),
+  post: (url, data) => request({ url, method: 'POST', data }),
+  put: (url, data) => request({ url, method: 'PUT', data }),
+  delete: (url, data) => request({ url, method: 'DELETE', data }),
+}
+```
+
+### 7.2 各平台网络差异速查表
+
+| 差异项 | 微信小程序 | H5 | App |
+|--------|-----------|-----|-----|
+| **请求 API** | `wx.request` / `uni.request` | `fetch` / `axios` / `uni.request` | `uni.request` |
+| **Cookie** | 自动管理，每个域名独立 | 浏览器自动管理 | 需手动管理 `uni.setStorageSync` |
+| **并发限制** | 同域名最大 10 个 | 浏览器 6 个（HTTP/2 无限制） | 无限制 |
+| **HTTPS** | 必须（开发工具可关闭验证） | 非强制但推荐 | 必须 |
+| **超时默认** | 60s | 无默认 | 60s |
+| **文件上传** | `wx.uploadFile` | `XMLHttpRequest` / `fetch` | `uni.uploadFile` |
+| **WebSocket** | `wx.connectSocket` | `WebSocket` | `uni.connectSocket` |
+| **证书校验** | 可配置信任自签证书 | 由浏览器处理 | 可自定义证书校验 |
+
+### 7.3 踩坑：请求超时处理策略
+
+```javascript
+// utils/retry.js
+// 带重试的请求封装（适用于弱网场景）
+
+export async function requestWithRetry(options, maxRetries = 3) {
+  let lastError
+
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await request(options)
+    } catch (err) {
+      lastError = err
+
+      // 只对网络错误重试，业务错误不重试
+      if (err.message && !err.message.includes('网络') && !err.message.includes('timeout')) {
+        throw err
+      }
+
+      // 指数退避
+      if (i < maxRetries - 1) {
+        const delay = Math.pow(2, i) * 1000
+        await new Promise((resolve) => setTimeout(resolve, delay))
+      }
+    }
+  }
+
+  throw lastError
+}
+```
+
+---
+
+## 八、跨平台框架对比
+
+在选择跨平台方案时，uni-app 常与 React Native、Flutter 进行比较：
+
+| 维度 | uni-app | React Native | Flutter |
+|------|---------|-------------|---------|
+| **技术栈** | Vue.js + 条件编译 | React + JS Bridge | Dart + 自绘引擎 |
+| **小程序支持** | ✅ 微信/支付宝/百度/抖音等 10+ 小程序 | ❌ 不支持 | ❌ 不支持 |
+| **H5 支持** | ✅ 原生支持 | ⚠️ 需 react-native-web | ⚠️ Flutter Web 仍在完善 |
+| **原生性能** | nvue 接近原生，vue 页面有差距 | 中等，新架构有提升 | 高，自绘引擎无桥接开销 |
+| **学习成本** | 低（Vue 开发者上手快） | 中（需了解 React + 原生） | 中高（需学 Dart） |
+| **生态插件** | DCloud 插件市场丰富 | npm 生态庞大 | pub.dev 生态完善 |
+| **热更新** | ✅ 支持（wgt 包） | ⚠️ 部分支持 | ❌ 受限于商店政策 |
+| **适合场景** | 小程序+App+H5 一体化、电商/内容 | 复杂交互、已有 React 团队 | 高性能 UI、品牌级 App |
+
+> **选型建议**：如果团队主力是 Vue 技术栈且需要同时覆盖小程序和 App，uni-app 是性价比最高的选择；追求极致原生体验可选 Flutter；已有 React 技术栈则选 React Native。
+
+---
+
+## 九、常见踩坑总结
+
+### 9.1 条件编译不生效
 
 ```
 ❌ 问题：条件编译注释被当作普通注释
@@ -839,7 +1004,7 @@ export function getUploader() {
 ✅ 检查：编译后查看 dist 目录中的产物，确认目标代码是否被正确包含/排除
 ```
 
-### 7.2 变量作用域问题
+### 9.2 变量作用域问题
 
 ```javascript
 // ❌ 错误：条件编译块内的 let/const 变量可能影响外部作用域
@@ -855,7 +1020,7 @@ platform = 'weixin'
 // #endif
 ```
 
-### 7.3 import 语句的条件编译
+### 9.3 import 语句的条件编译
 
 ```javascript
 // ✅ 正确：import 也可以条件编译
@@ -879,7 +1044,7 @@ export function pay(options) {
 }
 ```
 
-### 7.4 第三方库的平台兼容性
+### 9.4 第三方库的平台兼容性
 
 ```javascript
 // 踩坑记录：某些 npm 包在小程序中无法使用
@@ -899,15 +1064,300 @@ const http = {
 // #endif
 ```
 
+### 9.5 踩坑：页面路由与生命周期差异
+
+```javascript
+// 踩坑记录：
+// 1. 微信小程序的页面栈上限为 10 层，超出后 navigateTo 静默失败
+// 2. H5 端 navigateTo 不会触发 onUnload（用 beforeRouteLeave 替代）
+// 3. App 端的 onBackPress 返回 true 可拦截返回，小程序端不行
+
+// utils/router.js
+export function safeNavigateTo(url) {
+  // #ifdef MP-WEIXIN
+  const pages = getCurrentPages()
+  if (pages.length >= 9) {
+    // 页面栈接近上限，使用 redirectTo 替代
+    uni.redirectTo({ url })
+    return
+  }
+  // #endif
+  uni.navigateTo({ url })
+}
+
+// 踩坑：Tab 页面只能用 switchTab，navigateTo 对 tab 页无效
+export function switchToTab(url) {
+  // 必须用 switchTab，其他 API 无效
+  uni.switchTab({ url })
+}
+```
+
+### 9.6 踩坑：Storage API 的序列化差异
+
+```javascript
+// 踩坑记录：
+// 1. uni.setStorageSync 存对象时自动 JSON.stringify
+// 2. 但存储的 key 不能包含特殊字符（小程序限制）
+// 3. 单个 key 的 value 大小限制：小程序 1MB，H5 5MB
+
+// ✅ 推荐：统一封装 Storage 工具
+// utils/storage.js
+export const storage = {
+  set(key, value, expireMs = null) {
+    const data = {
+      value,
+      timestamp: Date.now(),
+      expire: expireMs ? Date.now() + expireMs : null,
+    }
+    try {
+      uni.setStorageSync(key, JSON.stringify(data))
+    } catch (err) {
+      // 踩坑：存储满时 setStorageSync 会抛异常，不会静默失败
+      console.error(`Storage write failed for key "${key}":`, err)
+      // 存储满时清理过期数据
+      this._cleanExpired()
+      try {
+        uni.setStorageSync(key, JSON.stringify(data))
+      } catch (retryErr) {
+        console.error('Storage still full after cleanup:', retryErr)
+      }
+    }
+  },
+
+  get(key) {
+    try {
+      const raw = uni.getStorageSync(key)
+      if (!raw) return null
+      const data = JSON.parse(raw)
+      // 检查过期
+      if (data.expire && Date.now() > data.expire) {
+        uni.removeStorageSync(key)
+        return null
+      }
+      return data.value
+    } catch {
+      return null
+    }
+  },
+
+  _cleanExpired() {
+    // 清理所有过期 key
+    try {
+      const { keys } = uni.getStorageInfoSync()
+      keys.forEach((key) => {
+        const raw = uni.getStorageSync(key)
+        if (!raw) return
+        try {
+          const data = JSON.parse(raw)
+          if (data.expire && Date.now() > data.expire) {
+            uni.removeStorageSync(key)
+          }
+        } catch { /* skip non-JSON keys */ }
+      })
+    } catch { /* ignore */ }
+  },
+}
+```
+
 ---
 
-## 八、最佳实践清单
+## 十、TypeScript + 条件编译实战
+
+### 10.1 给适配器定义统一类型
+
+在大型项目中，TypeScript 能大幅降低条件编译带来的类型风险：
+
+```typescript
+// types/platform.d.ts
+
+/** 统一的平台适配器接口 */
+export interface IPlatformAdapter {
+  /** 获取系统信息 */
+  getSystemInfo(): Promise<SystemInfo>
+  /** 显示提示 */
+  showToast(message: string, icon?: 'success' | 'error' | 'none'): void
+  /** 确认弹窗，返回用户是否点击确认 */
+  showModal(title: string, content: string): Promise<boolean>
+  /** 文件上传 */
+  uploadFile(filePath: string, url: string, formData?: Record<string, string>): Promise<UploadResult>
+  /** 获取存储路径（H5 返回 null） */
+  getStoragePath(): string | null
+}
+
+export interface SystemInfo {
+  platform: 'mp-weixin' | 'h5' | 'app'
+  brand: string
+  model: string | null
+  system: string
+  windowWidth: number
+  windowHeight: number
+  statusBarHeight: number
+  safeArea: { top: number; bottom: number; left: number; right: number } | null
+}
+
+export interface UploadResult {
+  success: boolean
+  url?: string
+  error?: string
+}
+```
+
+```typescript
+// adapters/weixin.ts
+import type { IPlatformAdapter, SystemInfo, UploadResult } from '@/types/platform'
+
+export class WeixinAdapter implements IPlatformAdapter {
+  async getSystemInfo(): Promise<SystemInfo> {
+    const info = wx.getSystemInfoSync()
+    return {
+      platform: 'mp-weixin',
+      brand: info.brand,
+      model: info.model,
+      system: info.system,
+      windowWidth: info.windowWidth,
+      windowHeight: info.windowHeight,
+      statusBarHeight: info.statusBarHeight,
+      safeArea: info.safeArea ?? null,
+    }
+  }
+
+  showToast(message: string, icon: 'success' | 'error' | 'none' = 'none'): void {
+    wx.showToast({ title: message, icon })
+  }
+
+  showModal(title: string, content: string): Promise<boolean> {
+    return new Promise((resolve) => {
+      wx.showModal({
+        title,
+        content,
+        success: (res) => resolve(!!res.confirm),
+        fail: () => resolve(false),
+      })
+    })
+  }
+
+  uploadFile(filePath: string, url: string, formData?: Record<string, string>): Promise<UploadResult> {
+    return new Promise((resolve, reject) => {
+      const task = wx.uploadFile({
+        url,
+        filePath,
+        name: 'file',
+        formData,
+        success: (res) => {
+          if (res.statusCode === 200) {
+            const data = JSON.parse(res.data)
+            resolve({ success: true, url: data.url })
+          } else {
+            resolve({ success: false, error: `HTTP ${res.statusCode}` })
+          }
+        },
+        fail: (err) => reject(new Error(err.errMsg)),
+      })
+    })
+  }
+
+  getStoragePath(): string | null {
+    return wx.env.USER_DATA_PATH
+  }
+}
+```
+
+**踩坑记录**：如果 `tsconfig.json` 中 `strict: true`，条件编译后的代码树摇（tree-shaking）可能导致类型声明丢失。解决方法是在 `tsconfig.json` 中添加别名映射并关闭 strict 对条件编译文件的检查：
+
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```
+
+### 10.2 Vue 2 vs Vue 3 在 uni-app 中的条件编译差异
+
+| 维度 | uni-app + Vue 2 | uni-app + Vue 3 |
+|------|-----------------|-----------------|
+| **组合式 API** | ❌ 仅 Options API | ✅ Composition API + `<script setup>` |
+| **响应式原理** | `Object.defineProperty` | `Proxy`（性能更好） |
+| **条件编译语法** | 相同（`#ifdef` / `#endif`） | 相同 |
+| **模板指令** | `v-for` 中 `key` 必须绑定 | 同，但 `v-if` 优先级变化 |
+| **Pinia 支持** | 需 `vuex` | 原生支持 `pinia` |
+| **TypeScript** | 需额外配置 | 内置支持 |
+| **nvue 页面** | weex 渲染，CSS 受限大 | 同，但推荐用 Vue 页面替代 |
+| **首包大小** | 约 200KB（gzip） | 约 150KB（tree-shaking 优化） |
+| **编译速度** | 较慢 | 较快（Vite 支持） |
+
+> **迁移建议**：新项目务必选择 Vue 3 + Vite，Vue 2 已进入维护模式。存量项目可以逐步迁移，条件编译语法无需修改，主要工作在 Options API → Composition API 的重构。
+
+### 10.3 调试条件编译的实用技巧
+
+```javascript
+// utils/debug-platform.js
+// 开发阶段快速确认当前平台编译结果
+
+export function logPlatformInfo() {
+  const info = {
+    // #ifdef MP-WEIXIN
+    platform: 'MP-WEIXIN',
+    // #endif
+    // #ifdef H5
+    platform: 'H5',
+    // #endif
+    // #ifdef APP-PLUS
+    platform: 'APP-PLUS',
+    // #endif
+    // #ifdef APP-NVUE
+    platform: 'APP-NVUE',
+    // #endif
+    // #ifdef MP-ALIPAY
+    platform: 'MP-ALIPAY',
+    // #endif
+    timestamp: Date.now(),
+    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'N/A',
+  }
+
+  console.table(info)
+  return info
+}
+```
+
+**调试清单**：
+1. 编译后检查 `dist/dev/mp-weixin`（小程序）或 `dist/dev/h5`（H5）目录，确认 `#ifdef` 块是否被正确裁剪
+2. 在 `manifest.json` 中开启 `vueConfig.performance: true` 查看编译耗时
+3. 微信小程序真机调试时，打开「调试器 → Console」搜索平台相关变量
+4. App 端使用 `uni.getSystemInfoSync().platform` 验证运行时平台判断
+
+### 10.4 跨平台 UI 组件库选型对比
+
+| 组件库 | 小程序 | H5 | App (vue) | App (nvue) | 特点 |
+|--------|--------|-----|-----------|------------|------|
+| **uni-ui** (官方) | ✅ | ✅ | ✅ | ⚠️ 部分 | DCloud 维护，兼容性最好 |
+| **uView UI** | ✅ | ✅ | ✅ | ❌ | 组件丰富，社区活跃，Vue 2 为主 |
+| **uView Plus** | ✅ | ✅ | ✅ | ❌ | uView 的 Vue 3 版本 |
+| **tmui** | ✅ | ✅ | ✅ | ✅ | 支持 nvue，主题定制强 |
+| **ThorUI** | ✅ | ✅ | ✅ | ❌ | 电商场景组件丰富 |
+| **Vant Weapp** | ✅ (仅微信) | ❌ | ❌ | ❌ | 有赞出品，仅限微信小程序 |
+
+> **选型建议**：通用场景首选 `uni-ui`（官方维护最稳定）；需要 nvue 支持选 `tmui`；电商类项目可搭配 `ThorUI` 补充业务组件。
+
+---
+
+## 十一、最佳实践清单
 
 1. **收口原则**：将条件编译集中在 `adapters/` 目录，业务代码通过适配器接口调用，避免到处散落 `#ifdef`
 2. **测试策略**：每个条件编译块都要在对应平台真机测试，H5 可以用浏览器，小程序用开发者工具，App 用真机调试
 3. **注释规范**：在条件编译块开头加一行注释说明为什么需要平台区分
 4. **渐进适配**：先做 H5 + 微信小程序两个平台，再逐步扩展到 App 和其他小程序
 5. **类型安全**：如果使用 TypeScript，给适配器定义统一的 interface，确保各平台实现一致
+6. **CI 集成**：在 CI 流程中分别编译各平台产物，确保条件编译不引入语法错误
+7. **文档化差异**：维护一个 `PLATFORM_DIFF.md` 记录已知的平台差异和解决方案，新人 onboarding 时极大降低踩坑成本
+8. **性能监控**：条件编译可能导致不同平台的包大小差异显著，定期对比各平台打包体积
+9. **版本锁定**：`package.json` 中锁定 uni-app 和相关插件的大版本，避免条件编译行为因版本变化而失效
+10. **代码审查**：PR review 时重点关注新增的 `#ifdef` 块，确保有充分的注释和平台测试覆盖
 
 ---
 
@@ -924,3 +1374,11 @@ const http = {
 ---
 
 *本文基于 uni-app 3.x + Vue 3 实践总结，部分 API 细节可能随版本更新变化，请以 [uni-app 官方文档](https://uniapp.dcloud.net.cn/tutorial/platform.html) 为准。*
+
+---
+
+## 相关阅读
+
+- [uni-app 自定义组件跨平台与原生插件市场实战](/categories/frontend/uni-app-custom-component-cross-platform-native-plugin-marketplace/)
+- [uni-app 离线存储方案：SQLite、IndexedDB 与数据同步冲突解决](/categories/frontend/uni-app-offline-storage-sqlite-indexeddb-data-sync-conflict-resolution/)
+- [uni-app 性能优化：首屏加载、分包策略与图片懒加载](/categories/frontend/uni-app-performance-optimization-first-screen-subpackage-image-lazy-load/)

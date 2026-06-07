@@ -1,11 +1,12 @@
 ---
 title: Laravel 服务容器深度解析-KKday-B2C-API-10 个真实踩坑记录
+cover: /images/covers/laravel-container-cover.jpg
 date: 2026-05-02
 categories:
   - PHP
-  - Docker
-tags: [Laravel]
-description: Laravel 服务容器（Service Container）是 Laravel 的核心组件之一，它通过依赖注入和 IoC 原理实现松耦合。本文基于 KKday B2C API 项目中 10 个真实踩坑记录，深入解析服务容器的使用技巧与最佳实践。
+  - Laravel
+tags: [Laravel, 依赖注入, IoC, 服务容器, ServiceProvider, PHP]
+description: Laravel 服务容器（Service Container）是 Laravel 框架的核心依赖注入容器，通过 IoC（控制反转）原理实现类与类之间的松耦合管理。本文基于 KKday B2C API 项目实战，汇总 10 个真实踩坑记录——包括循环依赖、单例状态污染、绑定时机错误、extend 调用链断裂、内存泄漏、中间件依赖注入失效、类型声明冲突、多工厂配置混乱、环境配置不一致、register/boot 顺序遗漏等常见问题，并给出可直接复用的解决方案与最佳实践，适合中高级 Laravel 开发者深入理解服务容器的内部机制。
 
 
 
@@ -920,3 +921,10 @@ Laravel 服务容器是构建可维护、可测试大型项目的基础设施。
 **作者**：Michael  
 **项目**：KKday B2C API  
 **日期**：2026-05-02
+
+## 相关阅读
+
+- [Laravel-Service-Container-实战-依赖注入上下文绑定延迟加载踩坑记录](/post/service-container-guide-dependency-injection.html)
+- [六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录](/post/2026-06-01-六边形架构实战-Laravel-端口与适配器模式落地踩坑记录.html)
+- [Laravel 消息幂等性设计模式实战：订单事件消费的去重表、Inbox/Outbox 与重试补偿踩坑记录](/post/laravel-design-patternsguide-inbox-outbox.html)
+- [Laravel-Casts-Accessors-实战-数据类型转换与计算属性踩坑记录](/post/laravel-casts-accessors-guide-data-types.html)

@@ -1,7 +1,8 @@
 ---
 title: PHP 8.4 新特性实战 - Laravel B2C-API 升级踩坑记录
+cover: /images/covers/php-8-4-guide-cover.jpg
 date: 2026-05-03 07:10:00
-tags: [DevOps, Laravel, PHP, 性能优化]
+tags: [devops, Laravel, PHP, 性能优化]
 categories:
   - PHP
   - Runtime
@@ -786,6 +787,27 @@ class SafeFiberScheduler
 
 ---
 
+## 九、常见迁移问题速查表
+
+在升级过程中，以下是最常遇到的兼容性问题及其快速解决方案：
+
+| 问题 | 症状 | 解决方案 | 严重程度 |
+|------|------|----------|----------|
+| 属性钩子 + `serialize()` | `Maximum function nesting level` 致命错误 | 使用私有属性存储原始值，钩子中不直接读写自身 | 🔴 高 |
+| 属性钩子 + Doctrine 注解 | ORM 无法识别带钩子的属性 | 改用 PHPDoc `@ORM\Column` 注解 | 🔴 高 |
+| Fiber + Xdebug | Fiber 调度崩溃/段错误 | 升级 Xdebug 至 3.3+，或调试时临时禁用 Fiber | 🟡 中 |
+| Composer 依赖版本锁定 | `requirements could not be resolved` | 逐个更新依赖，使用 `composer why-not php:8.4` 排查 | 🟡 中 |
+| `DOM\Text` 中文乱码 | 中文字符显示为 `&#xxx;` 实体 | `mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8')` | 🟡 中 |
+| 第三方库弃用警告 | 生产日志大量 `E_DEPRECATED` | `error_reporting` 中过滤 `E_DEPRECATED` | 🟢 低 |
+| Fiber 栈溢出 | 深度嵌套 Fiber 导致段错误 | 限制 Fiber 嵌套深度（建议 ≤ 50 层） | 🔴 高 |
+| `#[\NoDiscard]` 误报 | CI 中大量 Warning | 检查所有返回 `PaymentResult` 等关键对象的方法调用 | 🟢 低 |
+| 类型系统收紧 | 之前隐式转换的代码报错 | 逐一修复类型声明，启用 `strict_types` | 🟡 中 |
+| `readonly` 属性 + 钩子 | `Cannot reinitialize readonly property` | 避免在 `readonly` 属性上同时使用 set 钩子 | 🟡 中 |
+
+> **提示**：建议在升级前先运行 `php -d error_reporting=E_ALL -l src/` 静态检查所有文件，提前发现兼容性问题。
+
+---
+
 ## 参考资料
 - [PHP 8.4 官方文档](https://www.php.net/manual/en/migration84.php)
 - [Laravel 11 升级指南](https://laravel.com/docs/11.x/upgrade)
@@ -793,3 +815,11 @@ class SafeFiberScheduler
 - [KKday 技术博客](https://tech.kkday.com)
 
 > 本文基于 KKday B2C-API 项目真实升级经验整理，所有代码已在生产环境验证。
+
+---
+
+## 相关阅读
+
+- [PHP 8.4 新特性实战：从内存管理到性能提升](/categories/php/php-84/)
+- [PHP OPcache JIT 联合调优实战：JIT buffer 预热、opcache.jit 参数组合与生产环境性能基准](/categories/php/PHP-OPcache-JIT-联合调优实战-JIT-buffer预热-opcache.jit参数组合与生产环境性能基准/)
+- [PHP5与PHP7](/categories/php/php5php7/)

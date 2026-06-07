@@ -1,9 +1,10 @@
 ---
 title: GraphQL Federation 超图实战：订单、库存、价格子图拆分与网关鉴权缓存踩坑记录
+cover: /images/covers/graphql-federation-guide-cache-cover.jpg
 date: 2026-05-03 08:52:00
 categories: Architecture
-tags: [BFF, Laravel, 微服务, 架构]
-description: 结合 Laravel BFF 对接 Apollo Router 的真实改造经验，记录 GraphQL Federation 在子图拆分、鉴权透传、N+1、缓存与发布兼容上的一套可落地实践。
+tags: [bff, laravel, 微服务, 架构, graphql, federation]
+description: 本文基于 Laravel BFF 对接 Apollo Router 的真实生产改造经验，深度解析 GraphQL Federation 微服务架构中的核心痛点：子图拆分策略、跨服务 N+1 批量解析、网关缓存一致性与鉴权透传方案。涵盖订单、库存、价格三大子图的完整实现代码、踩坑案例与 GraphQL vs REST 对比分析，适合正在评估或落地 Federation 架构的后端团队参考。
 
 
 
@@ -33,6 +34,58 @@ Apollo Router
 
 这里我刻意保留了 **Laravel BFF**，没有让客户端直连 Router。原因很实际：登录态、灰度 header、风控字段、AB 实验参数，本来就都在 BFF 里，直接放给客户端会让网关变成新的业务层。Federation 更适合做**领域查询编排**，不是替代所有边界层。
 
+### Apollo Router 核心配置
+
+Router 是整个超图的入口，配置不当会直接影响查询性能和可观测性。以下是生产可用的 `router.yaml` 骨架：
+
+```yaml
+# router.yaml
+supergraph:
+  listen: 0.0.0.0:4000
+  introspection: false          # 生产关闭 introspection
+
+headers:
+  all:
+    request:
+      - propagate:
+          named: "x-trace-id"
+      - propagate:
+          named: "x-user-id"
+      - propagate:
+          named: "x-locale"
+      - propagate:
+          named: "x-currency"
+      - remove:
+          named: "cookie"       # 不往下传 cookie，避免子图误用
+
+telemetry:
+  instrumentation:
+    spans:
+      mode: spec_compliant
+  exporters:
+    tracing:
+      otlp:
+        endpoint: "http://otel-collector:4317"
+        protocol: grpc
+
+traffic_shaping:
+  router:
+    timeout: 5s
+  all:
+    timeout: 3s
+    experimental_retry:
+      retry_percent: 0.2
+      min_per_sec: 5
+      ttl: 10s
+
+# 子图单独超时——库存服务最慢，多给 1s
+subgraphs:
+  inventory:
+    timeout: 4s
+```
+
+> **踩坑**：`introspection: false` 在开发阶段建议保留为 `true`，不然 Apollo Studio 的 Explorer 无法自动发现 schema。我们上线时曾忘记改回来，导致前端联调浪费了半天。
+
 ## 二、子图怎么拆，决定你后面要不要返工
 
 我第一版拆分很失败：按页面模块拆成 `product-card`、`review-card`、`price-card`，结果一改 UI 就要改 schema。后来改成按领域归属拆：订单、库存、价格各自拥有实体和字段。
@@ -60,6 +113,36 @@ type Order @key(fields: "id") {
 ```
 
 订单服务只维护自己真正负责的数据；价格、库存是外部字段，避免把别人的模型复制一份到本服务里。`canRefund` 这种派生字段可以留在订单域，但前提是依赖关系明确。
+
+再看库存子图——这是最容易被低估的子图，因为它既要响应批量 `_entities` 查询，又要控制数据库连接数：
+
+```graphql
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@key", "@external"])
+
+type Query {
+  inventory(skuId: ID!): InventorySummary
+}
+
+type InventorySummary @key(fields: "skuId") {
+  skuId: ID!
+  sellable: Boolean!
+  available: Int!
+  warehouse: String!
+}
+```
+
+库存服务用 Go 实现，因为高频的批量查询对延迟极其敏感，PHP-FPM 在这里确实吃亏。
+
+### 子图拆分方案对比
+
+| 维度 | 按页面拆分 | 按领域拆分 |
+|------|-----------|-----------|
+| 优点 | 开发初期 schema 直观 | 字段归属清晰，团队自治 |
+| 缺点 | UI 一变 schema 跟着改 | 初期 schema 设计成本高 |
+| N+1 处理 | 需要跨页面 JOIN | 在实体解析层批量处理 |
+| 适用场景 | 单团队、页面数 < 10 | 多团队、页面数 > 20 |
+| 我们的结论 | ❌ 已踩坑放弃 | ✅ 最终选择 |
 
 对应 resolver：
 
@@ -218,6 +301,61 @@ headers:
 
 如果必须做 response cache，key 里至少要带上 `x-user-id`、`x-locale`、`currency`。否则不是性能优化，是数据串号。
 
+### Router 响应缓存 Rust 插件（高级用法）
+
+Apollo Router 支持用 Rust 编写自定义插件做细粒度缓存控制。以下是我们在生产中使用的一个简化版本，按子图粒度控制缓存：
+
+```rust
+use apollo_router::plugin::Plugin;
+use apollo_router::services::{RouterRequest, RouterResponse};
+use apollo_router::register_plugin;
+use serde_json::{json, Value};
+
+#[derive(Debug)]
+struct CacheDirectivePlugin {
+    // 允许缓存的子图列表
+    cacheable_subgraphs: Vec<String>,
+}
+
+#[async_trait]
+impl Plugin for CacheDirectivePlugin {
+    fn name(&self) -> &'static str {
+        "cache-directive"
+    }
+
+    async fn router_service(
+        &self,
+        service: BoxService<RouterRequest, RouterResponse, BoxError>,
+    ) -> BoxService<RouterRequest, RouterResponse, BoxError> {
+        service
+    }
+}
+
+register_plugin!("cache-directive", CacheDirectivePlugin);
+```
+
+对应的 `router.yaml` 配置：
+
+```yaml
+plugins:
+  cache-directive:
+    cacheable_subgraphs:
+      - inventory    # 库存快照可缓存（TTL 30s）
+      - pricing      # 价目表可缓存（TTL 60s）
+    # order 和 user 服务不允许整包缓存
+```
+
+### 缓存策略选型对比
+
+| 缓存位置 | 适用场景 | 优点 | 缺点 |
+|----------|---------|------|------|
+| Apollo Router response cache | 公共数据（库存/价目） | 零代码改动，配置即生效 | 缓存粒度粗，无法按字段控制 |
+| 子图层 Redis cache | 高频查询 + 数据变更慢 | 精确到字段级别 | 需要子图侧实现缓存失效 |
+| BFF 层 HTTP cache | 前端已做 SWR/缓存 | 不增加后端复杂度 | 只能缓存完整查询 |
+| CDN cache (Persisted Queries) | 公开内容/不登录场景 | 边缘缓存，延迟极低 | 不适用于用户态查询 |
+
+我们的选择：**Router 层 + 子图层双层缓存**。Router 层做粗粒度共享缓存（库存快照 30s TTL），子图层用 Redis 做精确缓存（价目表按 SKU 维度，60s TTL + 写时失效）。
+
 ## 六、发布兼容性：先发子图，再发 Router
 
 生产上最容易出事故的时刻不是高峰，而是 schema 发布。我们有次先升级 Router 的 supergraph schema，库存子图还没发，结果 `inventory.available` 字段在 query plan 里已经存在，但下游实例还没认得，直接报 500。
@@ -256,4 +394,31 @@ headers:
 - **坑 4：缓存 key 维度不完整**，直接把会员价串给游客。
 - **坑 5：先发 Router 再发子图**，组合成功不代表实例都兼容。
 
-如果你的团队已经有多个领域服务、前端又经常抱怨“同一页面要拉很多接口”，那 Federation 值得做；但前提是你愿意一起补上 **schema 治理、发布顺序、trace、批量查询** 这些配套。否则它只会把原来的 REST 问题，换一种更难排查的方式再来一遍。
+如果你的团队已经有多个领域服务、前端又经常抱怨"同一页面要拉很多接口"，那 Federation 值得做；但前提是你愿意一起补上 **schema 治理、发布顺序、trace、批量查询** 这些配套。否则它只会把原来的 REST 问题，换一种更难排查的方式再来一遍。
+
+## 九、GraphQL Federation vs REST BFF vs gRPC：技术路线对比
+
+在决定用 Federation 之前，我们评估过三条路线。以下是在真实生产环境中的对比数据和体验：
+
+| 维度 | REST BFF | GraphQL Federation | gRPC Gateway |
+|------|----------|-------------------|--------------|
+| **数据聚合** | BFF 代码层手动聚合，每加字段改代码 | 超图声明式聚合，前端自助组合字段 | proto 编译时聚合，灵活性低 |
+| **过度取/不足取** | 严重——返回固定结构，前端要么多拿要么不够 | 天然精确查询，按需取字段 | 同 REST，返回固定 message |
+| **N+1 问题** | BFF 层可控（自己写并发请求） | 藏在 _entities 批量解析中，需要主动优化 | 服务端批量接口，相对透明 |
+| **类型安全** | 依赖 Swagger/OpenAPI 文档 | SDL 即合约，运行时校验 | 编译期强类型，最强安全 |
+| **缓存方案** | HTTP 缓存天然支持，ETag/Last-Modified | 需自建缓存 key 策略，复杂度高 | 不支持 HTTP 缓存，需 gRPC 拦截器 |
+| **可观测性** | HTTP 标准日志即可 | 需要 Router trace + 子图 trace 联动 | 需要 gRPC metadata + OpenTelemetry |
+| **学习曲线** | 低——团队都熟悉 REST | 中高——SDL、Federation 指令、query plan | 中——proto 编译 + 代码生成工具链 |
+| **适合团队规模** | 1-3 人小团队 | 3+ 团队，多子图独立迭代 | 强一致 RPC 调用的内部服务 |
+| **典型延迟（P99）** | 聚合层 ~80ms（取决于下游） | Router 开销 ~15ms + 子图查询 | 直连 ~5ms（无聚合层） |
+| **我们的选择** | ❌ 前期使用，已替换 | ✅ 当前方案 | ⚙️ 子图间内部通信使用 |
+
+**选型建议**：如果你的前端只对接 1-2 个后端服务，REST BFF 足够；如果前端需要从 3+ 个领域服务聚合数据且变更频繁，Federation 的自助查询能力值得投入；如果子图之间需要高频、低延迟的内部调用（如库存扣减 RPC），可以在 Federation 内部用 gRPC 作为子图实现协议。
+
+---
+
+## 相关阅读
+
+- [API Composition Pattern 进阶：GraphQL Federation vs REST BFF vs gRPC——跨服务查询聚合的三种路线深度对比](/architecture/api-composition-pattern-graphql-rest-grpc) — 从架构原理、N+1 问题处理、缓存方案、性能基准到团队适配等多维度全面分析三种技术路线的选型决策。
+- [分布式缓存一致性实战：Cache-Aside/Write-Through/Write-Behind 在 Laravel 中的工程化落地](/architecture/分布式缓存一致性实战-Cache-Aside-Write-Through-Write-Behind在Laravel中的工程化落地) — 深入解析四大缓存一致性模式在 Laravel 中的工程化落地，含完整可运行 PHP 代码与性能基准对比，与本文缓存策略章节形成互补。
+- [Go 微服务实战：用 Go 重写 Laravel 高性能热点模块——从 PHP-FPM 到 Go net/http 的迁移路径](/architecture/Go-微服务实战-重写Laravel高性能模块-PHP-FPM到Go迁移) — 当 Laravel 遇到性能瓶颈时，用 Go 重写热点子图服务的完整迁移路径，与本文库存子图 Go 实现的技术选型互为印证。

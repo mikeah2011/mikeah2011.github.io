@@ -5,10 +5,12 @@ updated: 2026-05-05 06:38:03
 categories:
   - Databases
   - Redis
-tags: [Laravel, Redis, 微服务]
-description: 深入 Redis Lua 脚本在 Laravel B2C API 中的三个核心场景：滑动窗口分布式限流、库存扣减防超卖、实时排行榜。涵盖 EVALSHA 管道优化、Predis 客户端踩坑、脚本缓存策略与生产环境真实问题。
-
-
+tags: [Laravel, Redis, lua, 分布式限流, 库存扣减]
+description: "Redis Lua 脚本原子操作实战指南，深入讲解分布式限流、库存扣减、排行榜等 B2C 电商核心场景。涵盖 EVALSHA 脚本缓存策略、KEYS 命令避坑、redis.call 与 pcall 错误处理、Laravel 中间件集成方案与生产环境真实踩坑经验，帮助开发者用最低成本实现 Redis 原子性操作。"
+cover: /images/covers/databases-1-cover.jpg
+images:
+  - /images/content/databases-1-content-1.jpg
+  - /images/content/databases-1-content-2.jpg
 
 ---
 # Redis Lua 脚本原子操作实战：分布式限流、库存扣减、排行榜
@@ -47,6 +49,8 @@ Redis 的 `WATCH/MULTI/EXEC` 乐观锁虽然也能解决，但它需要重试循
 │             │     │  └─────────────────────────────────┘ │
 └─────────────┘     └──────────────────────────────────────┘
 ```
+
+![Redis Lua 脚本分布式限流架构](/images/content/databases-1-content-1.jpg)
 
 ## 场景一：滑动窗口分布式限流
 
@@ -163,9 +167,83 @@ class SlidingWindowRateLimiter
 
 Predis 的 `evalsha` 签名是 `evalsha($sha, $script, $numkeys, ...$keys, ...$args)`，不是直觉的 `evalsha($sha, $numkeys, ...)`。第一个参数是 SHA，第二个**必须是完整脚本**（用于 NOSCERR 时自动回退）。我们一开始只传了 SHA 和 numkeys，结果每次请求都走 EVAL，完全没有脚本缓存效果。
 
+### Laravel Middleware 集成
+
+将限流器封装为中间件，可以在路由层直接使用：
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use App\Services\RateLimit\SlidingWindowRateLimiter;
+use Symfony\Component\HttpFoundation\Response;
+
+class RateLimitByApiCaller
+{
+    public function __construct(
+        private SlidingWindowRateLimiter $limiter
+    ) {}
+
+    public function handle(Request $request, Closure $next, int $limit = 100): Response
+    {
+        // 以 API Key 或 IP 作为限流标识
+        $identifier = $request->header('X-API-Key')
+            ?? $request->ip();
+
+        $result = $this->limiter->attempt($identifier, $limit);
+
+        // 写入标准 Rate Limit 响应头
+        $headers = [
+            'X-RateLimit-Limit'     => $limit,
+            'X-RateLimit-Remaining' => $result['remaining'],
+        ];
+
+        if (!$result['allowed']) {
+            $retryAfterSec = ceil(($result['retry_after_ms'] ?? 1000) / 1000);
+            $headers['Retry-After'] = $retryAfterSec;
+
+            return response()->json([
+                'message' => '请求过于频繁，请稍后重试',
+                'retry_after_seconds' => $retryAfterSec,
+            ], 429, $headers);
+        }
+
+        $response = $next($request);
+
+        // 将限流头附加到正常响应
+        foreach ($headers as $key => $value) {
+            $response->headers->set($key, $value);
+        }
+
+        return $response;
+    }
+}
+```
+
+在 `app/Http/Kernel.php` 中注册：
+
+```php
+// 路由中间件别名
+protected $middlewareAliases = [
+    // ...
+    'rate-limit.api' => \App\Http\Middleware\RateLimitByApiCaller::class,
+];
+
+// routes/api.php
+Route::middleware(['rate-limit.api:100'])->group(function () {
+    Route::get('/products', [ProductController::class, 'index']);
+    Route::post('/orders', [OrderController::class, 'store']);
+});
+```
+
 **坑 2：`ZCARD` 在空 key 上返回 0 而不是 error**
 
 这不是 bug，但容易忽略——第一次请求进来时 key 不存在，`ZCARD` 返回 0 是正确的。但如果你用了 `EXISTS` 判断来做优化分支，要注意 Lua 里的 `EXISTS` 判断和 `ZCARD` 之间也有竞态（不过在 Lua 内部不会，因为原子执行）。
+
+![Redis 库存扣减防超卖](/images/content/databases-1-content-2.jpg)
 
 ## 场景二：库存扣减（秒杀防超卖）
 
@@ -657,6 +735,21 @@ lua-time-limit 5000  # 5秒超时，超过后 Redis 会接受 SCRIPT KILL 命令
 
 Lua 脚本在高竞争场景下性能是乐观锁的 **2-3 倍**，因为没有重试开销。
 
+### 方案特性对比
+
+| 特性 | Lua 脚本 | WATCH/MULTI/EXEC | 分布式锁 (SETNX) |
+|------|---------|-------------------|-------------------|
+| **原子性保证** | ✅ 服务端单线程原子执行 | ⚠️ 乐观锁，WATCH 后可能失败 | ✅ 互斥锁保证 |
+| **条件分支** | ✅ 支持 if/else/循环 | ❌ 只能顺序执行命令 | ✅ 业务代码自由控制 |
+| **高竞争性能** | ✅ 无重试，QPS 最高 | ❌ 竞争越大重试越多 | ❌ 锁获取/释放开销大 |
+| **网络往返** | ✅ 1 次 RTT | ⚠️ WATCH + EXEC 至少 2 次 | ⚠️ 加锁 + 操作 + 解锁 3 次 |
+| **实现复杂度** | ⚠️ 需学 Lua 语法 | ✅ PHP 原生支持 | ✅ Laravel 原生支持 |
+| **调试难度** | ⚠️ Lua 调试工具少 | ✅ 常规调试 | ✅ 常规调试 |
+| **主从一致性** | ⚠️ failover 可能重放 | ⚠️ WATCH 在主从切换时失效 | ⚠️ 锁可能在主从切换时丢失 |
+| **适用场景** | 需要原子性 + 条件逻辑 | 简单的批量命令提交 | 跨进程/跨服务互斥 |
+
+> **选型建议**：如果你的原子逻辑只有 2-3 个简单命令且无条件分支，优先用 `INCR`、`SETNX` 等内置原子命令。如果需要条件判断（如"库存够才扣减"），Lua 脚本是最优解。分布式锁适合跨多个 Redis 实例或需要长时间持有锁的场景。
+
 ## 决策树：什么时候用 Lua 脚本？
 
 ```
@@ -673,3 +766,11 @@ Lua 脚本在高竞争场景下性能是乐观锁的 **2-3 倍**，因为没有�
 ## 一句话总结
 
 Redis Lua 脚本是 B2C 电商场景下 **成本最低、收益最高** 的原子性方案。核心原则：脚本尽量短小（< 100 行）、避免 `KEYS` 命令、用 `EVALSHA` 缓存、加安全阀防负数。踩过的坑比写的脚本多，但性能收益是实打实的。
+
+## 相关阅读
+
+- [Redis Stream 实战：Laravel 消息队列与事件驱动](/categories/Databases/redis-stream-guide-laravel/) — 使用 Redis Stream 实现可靠的异步消息处理
+- [Redis Geo 实战：Laravel 附近搜索与地理围栏](/categories/Databases/redis-geo-guide/) — 基于 Redis GEO 的地理位置查询方案
+- [Redis HyperLogLog 实战：UV 统计](/categories/Databases/redis-hyperloglog-guide-uv/) — 用 HyperLogLog 实现百万级 UV 去重统计
+- [Redis 高并发场景实战](/categories/Databases/high-concurrency/) — Redis 在高并发电商场景中的架构设计与优化策略
+- [Laravel Redis 分布式锁失效场景实战](/categories/Databases/laravel-redis-distributedlockguide/) — 深入分析分布式锁在主从切换、GC 停顿等场景下的失效问题

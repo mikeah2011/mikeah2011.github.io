@@ -1,12 +1,13 @@
 ---
 title: Prometheus + Grafana 监控体系实战：Laravel API 的 RED 指标、告警降噪与 SLO 看板落地踩坑记录
+cover: /images/covers/prometheus-grafana-monitoringguide-laravel-api-red-slo-cover.jpg
 date: 2026-05-03 09:50:17
 updated: 2026-05-03 09:51:28
 categories:
   - PHP
   - Laravel
-tags: [Laravel, 监控]
-description: 结合 Laravel B2C API 的真实线上经验，记录一套 Prometheus + Grafana 可观测性落地方案，重点覆盖 RED 指标埋点、PromQL 看板、Alertmanager 告警降噪以及高并发场景下的真实踩坑。
+tags: [Laravel, 监控, Prometheus, Grafana, RED, SLO, APM, 可观测性, Alertmanager, PromQL]
+description: "一线 Laravel B2C API 项目的 Prometheus + Grafana 可观测性实战全记录：从 RED 指标中间件埋点、Recording Rules 聚合、Grafana SLO 看板搭建，到 Alertmanager 告警降噪三件套（for 持续时间 + 最小流量门槛 + group_by 合并），完整覆盖踩坑与修复过程。附监控方案对比表与可直接复用的 Laravel 代码示例，帮你把有监控升级成能值班的监控，夜间无效告警降低 60%。"
 
 
 
@@ -269,4 +270,68 @@ receivers:
 ### 3. 告警必须和处置动作绑定
 我后来要求每条 critical 告警都写 `description`，至少告诉值班同学先看哪里。没有行动建议的告警，只是在制造额外焦虑。
 
-如果你已经有 Laravel 监控，但还停留在“CPU 高了报警、磁盘满了报警”，那离真正可用的可观测性还差一大截。先别想着一口吃成全链路 APM，先把 **RED 指标、核心接口 SLO、告警降噪** 三件事做好，值班体验会立刻不一样。这套体系上线后，我们夜间无效告警数量大约降了 60% 左右，而真实故障的平均发现时间反而更短了。对业务系统来说，这才是监控该产生的价值。
+如果你已经有 Laravel 监控，但还停留在"CPU 高了报警、磁盘满了报警"，那离真正可用的可观测性还差一大截。先别想着一口吃成全链路 APM，先把 **RED 指标、核心接口 SLO、告警降噪** 三件事做好，值班体验会立刻不一样。这套体系上线后，我们夜间无效告警数量大约降了 60% 左右，而真实故障的平均发现时间反而更短了。对业务系统来说，这才是监控该产生的价值。
+
+## 附录一、监控方案横向对比：Prometheus vs Datadog vs New Relic
+
+选型时我们也评估过商业方案，最后选了 Prometheus 自建。这里把三家核心差异列出来，方便你根据团队规模和预算做决策：
+
+| 维度 | Prometheus + Grafana | Datadog | New Relic |
+|------|---------------------|---------|-----------|
+| **部署方式** | 自建，K8s / 裸机均可 | SaaS 全托管 | SaaS 全托管 |
+| **数据采集** | Pull 模型，/metrics 端点 | Agent Push，自动发现 | Agent Push，自动注入 |
+| **存储成本** | 本地 TSDB + Thanos/Cortex 可扩展，成本可控 | 按主机+自定义指标计费，高并发下费用飙升 | 按数据量计费，免费额度有限 |
+| **Laravel 集成** | 需手动中间件埋点（本文方案） | dd-trace-php 自动注入，零代码 | PHP Agent 自动注入 |
+| **告警能力** | Alertmanager 灵活但需自行配置 | 开箱即用，支持 anomaly detection | 开箱即用，NRQL 强大 |
+| **Dashboard** | Grafana 开源免费，社区面板丰富 | 内置 APM Dashboard | 内置 APM Dashboard |
+| **链路追踪** | 需集成 Jaeger / Tempo | 内置 APM Trace | 内置 APM Trace |
+| **适合团队** | 有运维能力的中小团队，或对成本敏感的大流量项目 | 快速上手，预算充裕的团队 | 需要全栈 APM 的中大型团队 |
+
+**我们的结论**：Laravel API 的 RED 指标场景，Prometheus 自建在成本和灵活性上优势明显。如果你团队没有专职运维且预算充足，Datadog 的自动注入和开箱即用体验确实省心。New Relic 适合需要深度代码级 Trace 的场景，但数据量大时账单不好控。
+
+## 附录二、可复用的 Laravel Service Provider 注册代码
+
+上面的中间件和 metrics 路由需要注册到 Laravel 里，下面是完整的注册方式：
+
+```php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Prometheus\CollectorRegistry;
+use Prometheus\Storage\Redis;
+
+class PrometheusServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        // 生产环境推荐 Redis 适配器，避免文件锁竞争
+        $this->app->singleton(CollectorRegistry::class, function () {
+            $redisAdapter = new Redis([
+                'host' => config('database.redis.default.host', '127.0.0.1'),
+                'port' => config('database.redis.default.port', 6379),
+                'prefix' => 'prometheus:',
+            ]);
+            return new CollectorRegistry($redisAdapter);
+        });
+    }
+}
+```
+
+然后在 `app/Http/Kernel.php` 的全局中间件里注册：
+
+```php
+protected $middleware = [
+    // ...其他中间件
+    \App\Http\Middleware\HttpMetricsMiddleware::class,
+];
+```
+
+> **注意**：如果并发量不高，也可以用默认的文件存储适配器（`APC` 或 `InMemory`），但多 FPM 进程下建议用 Redis 避免竞态。
+
+## 相关阅读
+
+- [PHP 性能基准测试：xhprof / Blackfire / Tideways 实战对比与 Laravel 生产环境 Profile 落地方案](/php/Laravel/php-testing-xhprof-blackfire-tideways-guidevs-laravel-profile/) — 本篇解决"接口慢了怎么发现"，这篇解决"发现后怎么定位到具体函数"
+- [PHP OPcache JIT 联合调优实战：JIT buffer 预热、opcache.jit 参数组合与生产环境性能基准](/php/PHP-OPcache-JIT-联合调优实战-JIT-buffer预热-opcache.jit参数组合与生产环境性能基准/) — 监控能告诉你慢在哪，OPcache JIT 调优能直接帮你把 PHP 执行速度提上去
+- [PHP-FPM 长连接与短连接实战：数据库连接池性能差异与 MySQL 踩坑记录](/php/Laravel/php-fpm-guide-databasemysql/) — P95 延迟飙升时，数据库连接池配置往往是隐藏元凶

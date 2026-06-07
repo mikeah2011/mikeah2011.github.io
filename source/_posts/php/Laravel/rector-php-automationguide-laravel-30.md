@@ -1,5 +1,6 @@
 ---
 title: Rector-PHP-自动化代码重构与升级实战-Laravel-30仓库批量治理踩坑记录
+cover: /images/covers/rector-php-automationguide-laravel-30-cover.jpg
 date: 2026-05-16 20:15:46
 updated: 2026-05-16 20:20:00
 categories:

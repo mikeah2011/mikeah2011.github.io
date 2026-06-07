@@ -1,11 +1,12 @@
 ---
 title: Laravel 事务回滚边界控制 - KKday B2C-API 真实踩坑记录
+cover: /images/covers/laravel-transaction-cover.jpg
 date: 2026-05-02
 categories:
   - PHP
   - Laravel
 tags: [Kubernetes, Laravel]
-description: Laravel 事务回滚的常见误区：多操作分支、异常捕获后回滚不生效、Eloquent 模型内部事务等，结合 KKday B2C-API 真实踩坑记录分析。
+description: 深入解析 Laravel 事务（Transaction）回滚边界控制，涵盖 DB::transaction 使用方法、嵌套事务合并机制、Eloquent 模型事务冲突、异步队列与数据库事务交互等六大踩坑场景，结合 KKday B2C-API 项目真实经验，帮助开发者掌握 Laravel 数据库事务的最佳实践，避免分布式事务环境下的数据一致性问题。
 
 
 
@@ -713,6 +714,16 @@ class OrderControllerTransactionIntegrationTest extends TestCase
 - [Laravel 服务容器深度解析 - KKday B2C-API](05_PHP/Laravel/Laravel-服务容器深度解析-KKday-B2C-API-十个真实踩坑记录.md)
 - [Laravel Queue 订单扣减与邮件发送实战 - KKday B2C-API](05_PHP/Laravel/Laravel-Queue-订单扣减与邮件发送实战-KKday-B2C-API-真实踩坑记录.md)
 - [HTTP/2 vs HTTP/3 在 BFF 场景性能对比](05_PHP/Laravel/HTTP-2-vs-HTTP-3-在-BFF-場景性能對比與真實踩坑記錄.md)
+
+---
+
+## 相关阅读
+
+- [Laravel PostgreSQL SKIP LOCKED 高并发队列与 Redis 分布式锁实战](/php/Laravel/laravel-postgresql-skip-locked-guide-redis-lock)
+- [Laravel 缓存策略全面指南 - Route/Config/View/Query Cache](/php/Laravel/laravel-cache-route-config-view-query-cache)
+- [PHP Fibers 与 Laravel Concurrency API 并发编程指南](/php/Laravel/php-fiber-concurrencyguide-laravel-concurrencyapi)
+- [Laravel Data DTO 指南 - API 数据传输对象最佳实践](/php/Laravel/laravel-data-dto-guide-api)
+- [高并发系统设计与数据库优化](/databases/high-concurrency)
 
 ---
 

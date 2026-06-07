@@ -2,13 +2,15 @@
 title: Redis Bitmap 实战：用户签到/在线状态/特征标记 — Laravel B2C API 踩坑记录
 date: 2026-05-16 15:15:19
 updated: 2026-05-16 15:20:02
+cover: /images/covers/databases-015-cover.jpg
+images:
+  - /images/content/databases-015-content-1.jpg
+  - /images/content/databases-015-content-2.jpg
 categories:
   - Databases
   - Redis
-tags: [Laravel, Redis, WebSocket, 性能优化]
+tags: [Laravel, redis, WebSocket, 性能优化]
 description: 在 B2C 电商场景中，用户签到、在线状态、特征标记是高频需求。用传统数据库存储每天几千万条记录既浪费空间又慢。Redis Bitmap 用 1 bit 表示一个状态，1 亿用户一年签到数据仅占 4.5 GB，读写 O(1)。本文基于 KKday B2C API 真实项目，覆盖 SETBIT/GETBIT/BITCOUNT/BITOP 四大命令的实战用法、Laravel 封装、踩坑记录与性能调优。
-
-
 
 ---
 # Redis Bitmap 实战：用户签到/在线状态/特征标记 — Laravel B2C API 踩坑记录
@@ -45,6 +47,8 @@ description: 在 B2C 电商场景中，用户签到、在线状态、特征标�
 ```
 
 核心思路：**每个 Bitmap 是一个 Redis String 类型的 key**，通过 offset（位偏移量）来定位每个 bit。我们可以将 user_id 直接映射为 offset，实现 O(1) 的读写。
+
+![Redis Bitmap 架构示意](/images/content/databases-015-content-1.jpg)
 
 ---
 
@@ -465,6 +469,8 @@ public function onlineCountSharded(): int
 
 ---
 
+![Redis Bitmap 特征标记与数据分析](/images/content/databases-015-content-2.jpg)
+
 ## 三、特征标记系统
 
 ### 3.1 业务场景
@@ -736,6 +742,28 @@ class SignController extends Controller
 
 **结论**：Bitmap 在布尔场景下比 MySQL 快 **10-100 倍**，内存占用仅为 Redis String 的 **1/64**。
 
+## 附录：Bitmap vs Set vs String 存储方案对比
+
+在 Redis 中存储布尔/集合状态有多种方案，以下是三种常见方案的详细对比（以 1 亿用户签到场景为例）：
+
+| 维度 | Redis Bitmap | Redis Set | Redis String（每个用户一个 key） |
+|------|-------------|-----------|--------------------------------|
+| **单条写入** | `SETBIT key offset 1` O(1) | `SADD key member` O(1) | `SET user:{id}:sign 1` O(1) |
+| **单条读取** | `GETBIT key offset` O(1) | `SISMEMBER key member` O(1) | `GET user:{id}:sign` O(1) |
+| **统计总数** | `BITCOUNT key` O(N/64) | `SCARD key` O(1) | 需要遍历所有 key 或维护计数器 |
+| **交集/并集** | `BITOP AND/OR` O(N/64) | `SINTER/SUNION` O(N*M) | 不支持，需应用层实现 |
+| **1 亿用户内存** | **~12 MB**（1 bit/人） | **~4 GB**（每个 member 约 40 bytes） | **~8 GB**（每个 key 约 80 bytes dict 开销） |
+| **查询某用户连续 N 天** | BITFIELD 1 次 roundtrip | 需 N 次 SISMEMBER 或 SSCAN | 需 N 次 GET |
+| **支持非整数 ID** | ❌ 需要 ID 映射 | ✅ 直接用任意字符串 | ✅ 直接用任意字符串 |
+| **单个元素过期** | ❌ 不支持 | ❌ 不支持（仅 key 级 TTL） | ✅ 每个 key 独立 TTL |
+| **适用规模** | 亿级用户，高频布尔状态 | 百万级集合，需要成员遍历 | 小规模或需要复杂值存储 |
+
+**选型建议**：
+- **签到/在线/特征标记** → Bitmap（内存最优，位运算强大）
+- **关注列表/好友关系** → Set（需要遍历成员、支持随机取样）
+- **需要单个元素独立过期** → String + TTL（如用户 session）
+- **混合场景** → Bitmap（布尔状态） + Set（补充需要遍历的场景）
+
 ---
 
 ## 六、总结与最佳实践
@@ -765,3 +793,11 @@ class SignController extends Controller
 ---
 
 > 📌 **系列文章**：本文是 Redis 数据结构实战系列的第五篇。前四篇分别介绍了 HyperLogLog（UV 统计）、Geo（地理位置）、Pipeline（批量优化）、Stream（消息队列）。下一期将介绍 Redis Pub/Sub 实战。
+
+---
+
+## 相关阅读
+
+- [Redis HyperLogLog 实战：UV 统计去重](/categories/Databases/redis-hyperloglog-guide-uv/) — 百万级 UV 去重统计，仅需 12 KB 内存，与 Bitmap 互补的基数统计方案
+- [Redis Lua 脚本原子操作实战](/categories/Databases/redis-lua-guide-distributedrate-limiting/) — 用 Lua 脚本实现分布式限流，保证 Bitmap 签到 + 积分发放的原子性
+- [Redis Pipeline 批量命令优化](/categories/Databases/redis-pipeline-guide-commandsoptimization/) — 批量 SETBIT/GETBIT 的性能优化利器，与本文的 Pipeline 签到方案配合使用

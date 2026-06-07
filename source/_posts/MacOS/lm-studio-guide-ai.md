@@ -1,12 +1,13 @@
 ---
 title: "LM Studio 实战：本地模型管理与推理 — 隐私优先的 AI 开发工作流踩坑记录"
+cover: /images/covers/lm-studio-guide-ai-cover.jpg
 date: 2026-05-17 05:40:05
 updated: 2026-05-17 05:42:40
 categories:
   - macOS
   - Tools
-tags: [AI, macOS, 安全]
-description: "从 Ollama 迁移到 LM Studio 的完整实战记录：GUI 模型管理、Local Server API 兼容 OpenAI、M 芯片 Metal 加速推理、多模型切换策略，以及在 Laravel B2C 项目中如何用本地 LLM 做代码审查和文档生成。"
+tags: [LM Studio, AI, macOS, 本地模型, Ollama, Laravel, HuggingFace, Metal, 安全, GGUF]
+description: "从 Ollama 迁移到 LM Studio 的完整实战记录：涵盖 GUI 模型管理、HuggingFace 一键下载 GGUF 模型、Local Server OpenAI 兼容 API、Apple Silicon M 芯片 Metal 加速推理、量化级别选择指南、多模型切换策略，以及在 Laravel B2C 项目中集成本地 LLM 实现代码审查、文档生成与自然语言转 SQL 的完整方案，附性能基准测试与安全合规策略。"
 
 
 
@@ -653,3 +654,10 @@ ln -s /Volumes/NAS/AI-Models ~/.lmstudio/models
 3. **模型选择 Q4_K_M**：质量与速度的最佳平衡点
 4. **敏感代码用本地模型**：数据不出机，满足资安合规
 5. **大文件用流式输出**：减少等待时间，提升体验
+
+## 相关阅读
+
+- [Hermes Agent 实战指南](/categories/macos/hermes-agent-guide-ai/)：用 AI Agent 实现自动化运维与代码生成
+- [LM Studio + Ollama + M 系列芯片：本地大模型 Laravel BFF 架构指南](/categories/macos/lm-studio-ollama-m-guide-laravel-bff/)：本地 LLM 与 Laravel BFF 的深度集成
+- [Cursor IDE 实战指南](/categories/macos/cursor-ide-guide-ai/)：AI 辅助编码的高效工作流
+- [brew 使用指南](/categories/macos/brew/)：macOS 包管理器完整教程

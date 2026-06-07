@@ -5,8 +5,9 @@ updated: 2026-05-05 08:29:14
 categories:
   - macOS
   - Tools
-tags: [macOS, 测试]
-description: "macOS 开发者 Homebrew 自动更新脚本开发实战：brew upgrade 无人值守、Launchd 定时调度、多 Tap 同步策略、更新报告生成与生产环境踩坑记录。基于 KKday 30+ 仓库 macOS 开发团队真实经验。"
+tags: [Homebrew, 自动化, macOS, 脚本开发, 开发环境]
+description: "macOS 开发者必备：Homebrew 自动更新脚本开发全流程实战，涵盖 LaunchAgent 定时调度、brew pin 版本锁定、Brewfile 团队协作、更新失败回滚策略与 Slack 通知。基于 KKday 30+ 仓库团队真实踩坑经验，助你实现无人值守的 Homebrew 依赖管理。"
+cover: /images/covers/homebrew-macos-automation-cover.jpg
 
 
 
@@ -533,7 +534,282 @@ cask "postman"
 
 > 如果团队规模 < 5 人，本文方案足够。如果 > 10 人或有合规审计需求，建议考虑 Nix 或 Mise。
 
-## 10. 总结
+## 10. 更新失败回滚策略
+
+自动更新最怕的就是「更新完环境炸了」。生产环境中，一次错误的 `brew upgrade` 可能导致编译失败、服务无法启动。以下是我们的回滚策略：
+
+### 10.1 brew switch — 快速版本切换
+
+Homebrew 保留了旧版本的 Cellar，可以直接切换：
+
+```bash
+# 查看已安装的所有版本
+brew list --versions php
+# php 8.0.30_1 8.1.31 8.3.6
+
+# 切换回 8.0
+brew switch php 8.0.30_1
+
+# 重新链接
+brew unlink php@8.3 && brew link php@8.0 --force
+```
+
+> ⚠️ **注意**：`brew switch` 在 Homebrew 4.0+ 已被移除，取而代之的是直接使用 `brew unlink` / `brew link` 操作不同版本的 keg。
+
+### 10.2 升级前快照脚本
+
+在自动更新脚本中加入升级前快照，确保随时可回退：
+
+```bash
+#!/usr/bin/env bash
+# brew-snapshot.sh — 升级前保存当前状态
+
+SNAPSHOT_DIR="$HOME/.brew-auto-update/snapshots"
+TODAY=$(date '+%Y-%m-%d_%H%M%S')
+SNAPSHOT_FILE="${SNAPSHOT_DIR}/${TODAY}.json"
+
+mkdir -p "$SNAPSHOT_DIR"
+
+# 保存当前所有已安装 formula 的版本
+brew info --json=v2 --installed | jq '{
+  timestamp: now | todate,
+  formulae: [.formulae[] | {
+    name: .name,
+    installed: .installed_versions,
+    pinned: .pinned
+  }],
+  casks: [.casks[] | {
+    name: .name,
+    installed: .version
+  }]
+}' > "$SNAPSHOT_FILE"
+
+echo "📸 快照已保存: $SNAPSHOT_FILE"
+
+# 保留最近 10 个快照
+ls -t "$SNAPSHOT_DIR"/*.json | tail -n +11 | xargs rm -f 2>/dev/null
+```
+
+### 10.3 回滚脚本
+
+```bash
+#!/usr/bin/env bash
+# brew-rollback.sh — 根据快照回滚
+set -euo pipefail
+
+SNAPSHOT_FILE="$1"
+
+if [[ ! -f "$SNAPSHOT_FILE" ]]; then
+  echo "❌ 快照文件不存在: $SNAPSHOT_FILE"
+  echo "可用快照:"
+  ls -lt "$HOME/.brew-auto-update/snapshots/"
+  exit 1
+fi
+
+echo "🔄 正在根据快照回滚: $SNAPSHOT_FILE"
+
+# 解析快照，逐个 formula 回滚
+jq -r '.formulae[] | "\(.name) \(.installed[-1])"' "$SNAPSHOT_FILE" | while read -r name version; do
+  current=$(brew list --versions "$name" 2>/dev/null | awk '{print $NF}')
+  if [[ "$current" != "$version" ]]; then
+    echo "  🔄 $name: $current → $version"
+    # 如果目标版本还在 Cellar 中，直接切换
+    if [[ -d "$(brew --cellar)/$name/$version" ]]; then
+      brew unlink "$name" 2>/dev/null || true
+      brew link "$name" --version="$version" --force 2>/dev/null || true
+      echo "  ✅ $name 已回滚到 $version"
+    else
+      echo "  ⚠️  $name 的 $version 版本已被清理，需手动安装"
+    fi
+  fi
+done
+
+echo ""
+echo "✅ 回滚完成。建议运行 brew doctor 检查环境。"
+```
+
+### 10.4 自动回滚集成
+
+在主更新脚本中集成自动回滚机制：
+
+```bash
+# 在 brew-auto-update.sh 的 Step 4 之前加入
+# 升级前自动快照
+SNAPSHOT_FILE="$HOME/.brew-auto-update/snapshots/pre-upgrade-${TODAY}.json"
+brew info --json=v2 --installed > "$SNAPSHOT_FILE" 2>/dev/null
+log "📸 升级前快照: $SNAPSHOT_FILE"
+
+# 升级后验证
+if [[ "$FAILED" -gt 0 ]]; then
+  log "⚠️  有 $FAILED 个 formula 升级失败，建议检查日志"
+  # 发送告警
+  if [[ -n "$SLACK_WEBHOOK" && "$SLACK_WEBHOOK" != "null" ]]; then
+    ALERT_MSG="🚨 *Homebrew 升级告警*\n📅 $TODAY\n❌ $FAILED 个 formula 升级失败\n📋 日志: $LOG_FILE\n💡 可用回滚: \`brew-rollback.sh $SNAPSHOT_FILE\`"
+    curl -s -X POST -H 'Content-type: application/json' \
+      --data "{\"text\": \"$ALERT_MSG\"}" \
+      "$SLACK_WEBHOOK" >> "$LOG_FILE" 2>&1 || true
+  fi
+fi
+```
+
+> **最佳实践**：`brew cleanup` 会删除旧版本的缓存。建议在确认升级无问题后再执行 cleanup，或者在 cleanup 前先创建快照。我们的脚本将 cleanup 放在最后一步，就是为了给回滚留窗口。
+
+## 11. 多人团队 Homebrew 版本同步方案
+
+团队协作中，最容易出现的问题就是「我的机器上跑得好好的」。以下是我们的版本同步方案：
+
+### 11.1 三层依赖声明体系
+
+```
+┌─────────────────────────────────────────────┐
+│              三层依赖声明                     │
+├─────────────────────────────────────────────┤
+│  Layer 1: 全局 Brewfile (~/.Brewfile)       │
+│  → 基础工具：git, wget, jq, htop 等         │
+│  → 所有人共享，放到 dotfiles 仓库            │
+├─────────────────────────────────────────────┤
+│  Layer 2: 项目 Brewfile (项目根/Brewfile)   │
+│  → 项目特定依赖：php@8.0, mysql@8.0 等      │
+│  → 跟着代码走，code review 审查              │
+├─────────────────────────────────────────────┤
+│  Layer 3: .brew-requirements (精确版本)      │
+│  → 锁定精确版本号：php=8.0.30               │
+│  → 配合 CI 检查，不匹配则告警               │
+└─────────────────────────────────────────────┘
+```
+
+### 11.2 brew bundle check — CI 集成
+
+在项目的 CI pipeline 中加入依赖检查：
+
+```yaml
+# .github/workflows/brew-check.yml (macOS CI)
+name: Brewfile Check
+on: [push, pull_request]
+
+jobs:
+  brew-check:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Brewfile
+        run: |
+          brew bundle check --file=Brewfile || {
+            echo "❌ Brewfile 不满足，请运行: brew bundle --file=Brewfile"
+            exit 1
+          }
+```
+
+### 11.3 brew-bundle-dump 自动同步
+
+```bash
+#!/usr/bin/env bash
+# brew-sync.sh — 同步团队依赖
+
+PROJECT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
+BREWFILE="${PROJECT_ROOT}/Brewfile"
+
+echo "🔄 同步项目依赖..."
+
+# 1. 检查当前环境
+if [[ -f "$BREWFILE" ]]; then
+  echo "📋 检查 Brewfile..."
+  if ! brew bundle check --file="$BREWFILE" 2>/dev/null; then
+    echo "⚠️  有缺失的依赖，是否安装？[y/N]"
+    read -r answer
+    if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+      brew bundle --file="$BREWFILE"
+    fi
+  else
+    echo "✅ 所有依赖已满足"
+  fi
+fi
+
+# 2. 检查是否有新增依赖需要更新 Brewfile
+INSTALLED=$(brew list --formula | sort)
+BREWFILE_LIST=$(grep "^brew " "$BREWFILE" 2>/dev/null | sed 's/brew "//;s/".*//' | sort)
+NEW_DEPS=$(comm -23 <(echo "$INSTALLED") <(echo "$BREWFILE_LIST"))
+
+if [[ -n "$NEW_DEPS" ]]; then
+  echo ""
+  echo "📦 以下依赖已安装但不在 Brewfile 中："
+  echo "$NEW_DEPS" | while read -r dep; do
+    echo "  + $dep"
+  done
+  echo ""
+  echo "是否添加到 Brewfile？[y/N]"
+  read -r answer
+  if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+    echo "$NEW_DEPS" | while read -r dep; do
+      echo "brew \"$dep\"" >> "$BREWFILE"
+    done
+    echo "✅ 已更新 Brewfile"
+  fi
+fi
+```
+
+### 11.4 版本对齐检查脚本
+
+```bash
+#!/usr/bin/env bash
+# brew-align-check.sh — 检查团队成员版本是否对齐
+
+REQUIREMENTS_FILE="$1"
+
+echo "🔍 版本对齐检查"
+echo "==============="
+
+MISALIGNED=0
+
+while IFS='=' read -r formula version; do
+  [[ -z "$formula" || "$formula" == \#* ]] && continue
+
+  installed=$(brew list --versions "$formula" 2>/dev/null | awk '{print $2}')
+
+  if [[ -z "$installed" ]]; then
+    echo "❌ $formula: 未安装 (要求 $version)"
+    ((MISALIGNED++))
+  elif [[ "$installed" != "$version"* ]]; then
+    echo "❌ $formula: $installed ≠ $version"
+    ((MISALIGNED++))
+  else
+    echo "✅ $formula: $installed"
+  fi
+done < "$REQUIREMENTS_FILE"
+
+echo ""
+if [[ "$MISALIGNED" -gt 0 ]]; then
+  echo "⚠️  有 $MISALIGNED 个依赖版本不一致"
+  echo "💡 建议运行: brew bundle --file=Brewfile"
+  exit 1
+else
+  echo "✅ 所有依赖版本对齐"
+fi
+```
+
+### 11.5 新人 Onboarding 流程
+
+```bash
+# 新人入职，一条命令搞定开发环境
+# 1. 安装 Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 2. Clone dotfiles（包含全局 Brewfile）
+git clone https://github.com/your-org/dotfiles.git ~/.dotfiles
+brew bundle --file=~/.dotfiles/Brewfile
+
+# 3. 进入项目目录，安装项目依赖
+cd ~/GitHub/project-name
+brew bundle --file=Brewfile
+
+# 4. 验证
+brew doctor
+brew-auto-safe-upgrade.sh  # 检查版本是否对齐
+```
+
+> **踩坑 7**：不同 macOS 版本的 Homebrew formula 仓库可能不同。建议团队统一 macOS 版本（至少大版本一致），否则可能出现 formula 找不到的情况。我们的做法是在 `.brew-requirements` 中注释最低 macOS 版本要求。
+
+## 12. 总结
 
 Homebrew 自动更新看起来简单，但实际落地时会遇到 PATH 问题、版本号规范、LaunchAgent 缓存等一堆坑。核心经验：
 
@@ -542,7 +818,18 @@ Homebrew 自动更新看起来简单，但实际落地时会遇到 PATH 问题�
 3. **日志 + 报告** — 每次更新都有据可查，出问题能快速定位
 4. **项目级 Brewfile** — 让依赖声明跟着代码走，新人 onboard 一条命令搞定
 5. **LaunchAgent 注意 PATH** — 这是最常见的坑，务必在 plist 里设置 EnvironmentVariables
+6. **升级前快照，清理后移** — 回滚是自动更新的最后一道防线，cleanup 要放在最后
+7. **三层依赖声明** — 全局 / 项目 / 精确版本，团队协作的基石
 
 ---
 
 *本文基于 macOS Sonoma + Apple M2 芯片 + Homebrew 4.x 实战编写。Intel Mac 路径为 `/usr/local/` 而非 `/opt/homebrew/`，其余逻辑相同。*
+
+---
+
+## 📚 相关阅读
+
+- [JetBrains Toolbox 深度实战：PHPStorm/WebStorm/GoLand 选型与配置](/categories/macOS/jetbrains-toolbox-guide-phpstorm-webstorm-goland/) — macOS 开发工具链选型，与 Homebrew 管理 IDE 版本的协同实践
+- [pnpm 深度实战：Workspace/Monorepo 工程化管理](/categories/macOS/pnpm-guide-workspace-monorepo/) — 前端依赖管理的进阶方案，与 Homebrew 的多项目管理思路相通
+- [Hermes Agent 实战：AI 自动化助手与监控](/categories/macOS/hermes-agent-guide-automationmonitoring/) — 用 AI Agent 实现更多 macOS 自动化场景
+- [LM Studio 本地 AI 模型部署实战](/categories/macOS/lm-studio-guide-ai/) — 在 macOS 上部署本地 AI 模型，依赖 Homebrew 管理运行环境

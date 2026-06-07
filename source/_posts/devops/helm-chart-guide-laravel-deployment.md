@@ -1,12 +1,13 @@
 ---
 title: Helm-Chart-实战-Laravel-应用打包与部署踩坑记录
+cover: /images/covers/helm-chart-guide-laravel-deployment-cover.jpg
 date: 2026-05-16 23:10:35
 updated: 2026-05-16 23:12:59
 categories:
   - DevOps
   - Kubernetes
-tags: [DevOps, Kubernetes, Laravel]
-description: 从零构建 Laravel 应用的 Helm Chart，覆盖 values.yaml 分层设计、多环境模板化、Secret 注入、健康检查、HPA 联动、ArgoCD GitOps 集成，以及 30+ 仓库批量部署的真实踩坑记录。
+tags: [devops, kubernetes, laravel]
+description: 深入讲解 Helm Chart 构建 Laravel 应用部署的完整实战流程。涵盖 Chart 目录结构设计、values.yaml 分层覆盖策略、Nginx Sidecar 双容器 Pod 编排、ConfigMap/Secret 注入、HPA 自动扩缩、ArgoCD GitOps 集成，以及 PHP-FPM 健康检查、storage 权限、多副本 Session 共享、数据库迁移竞争等 30+ 仓库生产级踩坑记录与解决方案，适合 K8s 运维与 Laravel 开发者参考。
 
 
 
@@ -544,3 +545,9 @@ Helm 解决的核心问题是 **模板化 + 版本化 + 多环境分层**。对�
 6. **values 分层设计** — 公共默认 + 环境覆盖 + `--set` 微调
 
 从 30+ 仓库的实践来看，一套通用 Helm Chart + 各仓库的 values 文件，比每个仓库维护独立 YAML 高效得多。维护成本从 O(n) 降到 O(1)，这才是 Helm 的真正价值。
+
+## 相关阅读
+
+- [ArgoCD GitOps 实战：Laravel 应用持续部署与回滚踩坑记录](/categories/06_运维/argocd-gitops-guide-laravel-cd/)
+- [Kubernetes 本地开发：minikube vs kind vs k3s 选型实战](/categories/06_运维/kubernetes-minikube-kind-k3s-guide-laravel/)
+- [Argo Rollouts 渐进式发布实战：Laravel 在 K8s 上的金丝雀发布与自动分析](/categories/06_运维/argo-rollouts-guide-laravel-k8s/)

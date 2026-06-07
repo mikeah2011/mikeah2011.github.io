@@ -7,8 +7,10 @@ categories:
   - AWS
 tags: [AWS, DevOps, KKday, Kubernetes, Laravel, 架构]
 description: 从 KKday B2C Backend Team 的真实部署经验出发，深度讲解 AWS EC2 实例选型、安全组精细化配置、Auto Scaling Group 扩缩容策略，以及 Laravel 应用在 EC2 上的生产级部署架构，附带多个真实踩坑案例。
-
-
+cover: /images/covers/architecture-002-cover.jpg
+images:
+  - /images/content/architecture-002-content-1.jpg
+  - /images/content/architecture-002-content-2.jpg
 
 ---
 # AWS EC2 实战：实例管理、安全组与自动扩展——Laravel B2C API 部署踩坑记录
@@ -53,6 +55,8 @@ description: 从 KKday B2C Backend Team 的真实部署经验出发，深度讲�
 ```
 
 关键决策：**API 服务和队列 Worker 分开部署在不同的 ASG 中**，因为它们的负载特征完全不同——API 是 CPU + 网络密集型，Worker 是内存 + IO 密集型。
+
+![AWS EC2 服务器与数据中心架构](/images/content/architecture-002-content-1.jpg)
 
 ---
 
@@ -354,6 +358,8 @@ resource "aws_autoscaling_policy" "predictive" {
 ```
 
 ### 4.3 踩坑：ASG 缩容时 Laravel Session 丢失
+
+![EC2 部署与代码终端操作](/images/content/architecture-002-content-2.jpg)
 
 **现象**：用户在结账流程中，ASG 缩容把某台 EC2 干掉了，用户被登出，购物车清空。
 

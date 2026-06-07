@@ -1,18 +1,13 @@
 ---
 title: Docker 网络实战：bridge/host/overlay 网络模式与服务发现 — Laravel B2C API 踩坑记录
+cover: /images/covers/docker-network-service-discovery-cover.jpg
 date: 2026-05-16 22:35:17
 updated: 2026-05-16 22:39:35
 categories:
   - DevOps
   - Docker
-tags: [DevOps, Docker, Laravel, 微服务]
-description: >
-  在 Laravel B2C 项目中，Docker Compose 编排 PHP-FPM、MySQL、Redis、Nginx 等服务时，
-  网络配置不当会导致容器间通信失败、DNS 解析延迟、跨主机部署不通等问题。
-  本文从 bridge/host/overlay 三种网络模式的底层原理出发，结合 30+ 仓库的真实踩坑记录，
-  详解 Docker 网络在 Laravel 开发与生产环境中的最佳实践。
-
-
+tags: [DevOps, Docker, Laravel, 网络, 服务发现, 容器化, 微服务]
+description: "Docker 网络模式深度实战：bridge、host、overlay 三大网络模型对比与选型指南。详解自定义 bridge DNS 服务发现、overlay 跨主机通信、internal 网络隔离策略，结合 Laravel B2C API 真实踩坑经验，覆盖从本地开发到 Swarm 集群的全链路网络配置。"
 
 ---
 ## 前言
@@ -53,14 +48,14 @@ description: >
 
 ### 三种模式对比
 
-| 特性 | bridge | host | overlay |
-|------|--------|------|---------|
-| 网络隔离 | ✅ 完全隔离 | ❌ 共享宿主机 | ✅ 跨主机隔离 |
-| 性能 | 中等（NAT 开销） | 最高（无 NAT） | 较低（VXLAN 封装） |
-| 端口映射 | 需要 `-p` | 不需要（直接使用） | 需要 ingress |
-| 跨主机通信 | ❌ 不支持 | ❌ 不支持 | ✅ 支持 |
-| DNS 服务发现 | ✅ 内置 | ❌ 需自行实现 | ✅ 内置 |
-| 适用场景 | 本地开发/单机部署 | 高性能网络需求 | Swarm/K8s 集群 |
+| 特性 | bridge | host | overlay | macvlan |
+|------|--------|------|---------|---------|
+| 网络隔离 | ✅ 完全隔离 | ❌ 共享宿主机 | ✅ 跨主机隔离 | ✅ 独立二层子网 |
+| 性能 | 中等（NAT 开销） | 最高（无 NAT） | 较低（VXLAN 封装） | 高（无 NAT，直通 MAC） |
+| 端口映射 | 需要 `-p` | 不需要（直接使用） | 需要 ingress | 不需要（直接分配子网 IP） |
+| 跨主机通信 | ❌ 不支持 | ❌ 不支持 | ✅ 支持 | ✅ 支持（需物理网络配合） |
+| DNS 服务发现 | ✅ 内置 | ❌ 需自行实现 | ✅ 内置 | ❌ 需自行实现 |
+| 适用场景 | 本地开发/单机部署 | 高性能网络需求 | Swarm/K8s 集群 | 需要容器独立 IP、直连物理网络 |
 
 ---
 
@@ -429,6 +424,38 @@ networks:
     external: true  # ✅ 使用已存在的外部网络
 ```
 
+### 5.4 Docker 服务发现排障流程
+
+很多团队知道“服务名可以互相访问”，但出了问题时往往只会重启容器。更稳妥的方式是按**名称解析 → 网络归属 → 端口监听 → 应用协议**四层排查。
+
+| 排查层级 | 检查命令 | 典型现象 | 常见根因 | 修复动作 |
+|----------|----------|----------|----------|----------|
+| 名称解析 | `docker exec app getent hosts mysql` | 找不到主机 | 不在同一网络、服务名写错 | 挂到同一自定义网络，统一服务名 |
+| 网络归属 | `docker inspect app` | 目标网络缺失 | compose 配置遗漏 networks | 显式声明服务所属网络 |
+| 端口监听 | `docker exec mysql ss -lnt` | 3306 未监听 | 服务未启动、启动失败 | 先修复容器健康状态 |
+| 应用协议 | `mysql -hmysql -uroot -p` | TCP 通但认证失败 | 密码/权限/认证插件不匹配 | 校准账号权限与驱动配置 |
+
+可直接复用下面这组排查命令：
+
+```bash
+# 1) 看容器加入了哪些网络
+docker inspect php-fpm --format '{{json .NetworkSettings.Networks}}'
+
+# 2) 在业务容器中解析服务名
+docker exec php-fpm getent hosts mysql
+docker exec php-fpm getent hosts redis
+
+# 3) 测试 TCP 层连通性
+docker exec php-fpm sh -lc 'nc -zv mysql 3306'
+docker exec php-fpm sh -lc 'nc -zv redis 6379'
+
+# 4) 测试应用层
+docker exec php-fpm php artisan tinker --execute="DB::select('SELECT 1')"
+docker exec php-fpm php artisan tinker --execute="Redis::ping()"
+```
+
+这套流程的价值在于：你可以明确知道问题是出在 Docker 网络、容器服务本身，还是 Laravel 应用配置，而不是把所有故障都归因于“Compose 不稳定”。
+
 ---
 
 ## 六、性能对比实测
@@ -464,6 +491,20 @@ docker exec php-fpm php artisan tinker --execute="
 | bridge   | 0.82ms   | 2.1ms    | 1215 req/s |
 | host     | 0.61ms   | 1.3ms    | 1639 req/s |
 | overlay  | 1.25ms   | 4.8ms    | 801 req/s |
+
+### 性能与适用性决策表
+
+| 维度 | bridge | host | overlay |
+|------|--------|------|---------|
+| 网络路径 | veth + bridge + NAT | 直接走宿主机网络栈 | VXLAN 封装跨主机转发 |
+| 单机吞吐 | 中等偏高 | 最高 | 中等 |
+| 时延稳定性 | 较稳 | 最稳 | 易受跨主机链路影响 |
+| 端口管理 | 需映射，灵活 | 易冲突 | 入口层需额外设计 |
+| 可迁移性 | 本地/单机最好 | 强依赖 Linux 宿主机 | 集群最佳 |
+| 运维复杂度 | 低 | 中 | 高 |
+| 推荐场景 | 开发、测试、单机生产 | 高性能代理、节点级采集 | Swarm、多机服务编排 |
+
+如果你的目标是 **Laravel 单机部署**，优先级通常是 `自定义 bridge > host > overlay`；如果是 **多节点服务编排**，则是 `overlay > bridge（单节点局部） > host`。不要只因为 host 快就无脑切换，它在端口冲突、可观测性隔离和迁移成本上会很快把性能收益吃掉。
 
 ---
 
@@ -635,6 +676,173 @@ networks:
         - subnet: 10.0.10.0/24  # ✅ 固定子网，便于防火墙规则
 ```
 
+### 7.4 可直接运行的最小示例：Laravel + Nginx + MySQL + Redis
+
+如果你想快速验证本文结论，下面这份 compose 配置可以直接运行，重点展示了**自定义 bridge 网络、健康检查、服务名发现、端口暴露最小化**四个实践。
+
+```yaml
+# compose.yaml
+services:
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - .:/var/www/html
+    depends_on:
+      php:
+        condition: service_started
+    networks:
+      - app-net
+
+  php:
+    image: php:8.3-fpm-alpine
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_ENV: local
+      DB_HOST: mysql
+      DB_PORT: 3306
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - app-net
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: secret
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-psecret"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-net
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge
+
+volumes:
+  mysql-data:
+```
+
+对应的 Nginx 配置也尽量保持简单：
+
+```nginx
+server {
+    listen 80;
+    server_name _;
+    root /var/www/html/public;
+    index index.php index.html;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass php:9000;
+    }
+}
+```
+
+启动与验证命令：
+
+```bash
+docker compose up -d
+
+# 验证 PHP 能解析 MySQL / Redis 服务名
+docker compose exec php getent hosts mysql redis
+
+# 验证服务健康状态
+docker compose ps
+
+# 验证网络
+docker network inspect $(basename "$PWD")_app-net
+```
+
+这个示例还有一个隐含好处：Nginx 只暴露 8080，MySQL 和 Redis 完全留在内部网络中，默认就比“所有服务都 ports 暴露到宿主机”更安全。
+
+### 7.5 常见踩坑案例补充
+
+#### 踩坑 1：把 `localhost` 当成数据库地址
+
+```env
+# ❌ 错误：容器里的 localhost 指向容器自己
+DB_HOST=127.0.0.1
+
+# ✅ 正确：使用 Compose 服务名
+DB_HOST=mysql
+```
+
+这是 Laravel 新手最常见的问题之一。容器内的 `127.0.0.1` 不是宿主机，也不是其他容器，而是当前容器本身。
+
+#### 踩坑 2：同时使用 `container_name` 和扩缩容
+
+```yaml
+# ❌ 不推荐：固定 container_name 会影响 compose 扩容和服务发现一致性
+php:
+  container_name: my-php
+
+# ✅ 推荐：让 Compose 自动生成名称，应用统一通过服务名访问
+php:
+  image: php:8.3-fpm-alpine
+```
+
+在需要 `docker compose up --scale php=3` 时，固定 `container_name` 会直接把你锁死在单实例模式，后续切换 Swarm/Kubernetes 时也不利于迁移。
+
+#### 踩坑 3：滥用固定 IP
+
+固定 IP 可以绕过 DNS，但并不适合作为默认方案。因为一旦网络重建、子网调整、多个项目并存，IP 冲突会明显增加。更稳妥的策略是：
+
+1. 开发环境优先服务名
+2. 高频短连接场景先上连接池/持久连接
+3. 只有在 overlay DNS 确实成为瓶颈时，再局部引入固定 IP
+
+#### 踩坑 4：把生产数据库直接放进 host 网络
+
+host 网络不是“更专业”的标志。数据库放进 host 网络后，会直接暴露在宿主机端口管理与安全策略之下，审计、隔离、迁移都更麻烦。对 MySQL/Redis 这类后端组件，更建议使用 `internal: true` 的 bridge 或 overlay 网络。
+
+### 7.6 bridge / host / overlay 选型速查表
+
+| 场景 | 推荐网络 | 原因 | 不推荐做法 |
+|------|----------|------|------------|
+| 本地 Laravel 开发 | 自定义 bridge | DNS 服务发现稳定、端口映射灵活 | 依赖默认 bridge |
+| CI 集成测试 | 自定义 bridge | 环境可复现、容器隔离清晰 | 所有服务都跑 host |
+| 单机高性能网关 | host 或 bridge + 少量映射 | 减少中间层开销 | 应用和数据库全部 host 化 |
+| 多机部署 / Swarm | overlay | 原生跨主机通信与服务发现 | 跨主机硬编码 IP |
+| 数据库 / Redis 内网服务 | internal bridge/overlay | 默认更安全，暴露面更小 | 直接 `ports` 到公网 |
+
+实际落地时可以按这条经验法则来判断：
+
+1. **先选 bridge**：只要还是单机或单节点环境，自定义 bridge 通常就是性价比最高的方案。
+2. **再看是否必须 host**：只有在明确测出 NAT 或端口转发成为瓶颈时，才引入 host。
+3. **最后才是 overlay**：overlay 是为多主机编排服务的，不该为了“看起来更高级”而在单机环境强行使用。
+
 ---
 
 ## 八、常见问题排查清单
@@ -692,6 +900,35 @@ docker network create \
   laravel-overlay-optimized
 ```
 
+### 8.4 宿主机可以访问，容器却访问失败
+
+这类问题通常不是服务没启动，而是**访问路径不同**：宿主机访问走的是端口映射，容器间访问走的是内部网络。
+
+```bash
+# 宿主机可以访问 localhost:3307，不代表容器里也应该连 3307
+services:
+  mysql:
+    ports:
+      - "3307:3306"
+
+# 容器内正确连接方式仍然是 mysql:3306
+DB_HOST=mysql
+DB_PORT=3306
+```
+
+一个非常常见的误区是：开发者在本机 Navicat 用 `127.0.0.1:3307` 连得通，就把 Laravel `.env` 也写成 `127.0.0.1:3307`。结果本地 GUI 正常，应用容器却始终报超时。
+
+### 8.5 排查命令速查
+
+| 目标 | 命令 | 说明 |
+|------|------|------|
+| 看网络列表 | `docker network ls` | 检查是否真的创建了自定义网络 |
+| 看网络详情 | `docker network inspect app-net` | 查看子网、容器成员、驱动 |
+| 看容器网络 | `docker inspect php-fpm` | 确认容器是否挂到目标网络 |
+| 测 DNS | `docker exec php-fpm getent hosts mysql` | 比 `ping` 更适合测名称解析 |
+| 测端口 | `docker exec php-fpm nc -zv mysql 3306` | 确认 TCP 是否真正可达 |
+| 看监听 | `docker exec mysql ss -lnt` | 确认服务是否已监听目标端口 |
+
 ---
 
 ## 总结
@@ -712,3 +949,11 @@ Docker 网络看似简单，但在 Laravel B2C 项目的实际部署中，从本
 ---
 
 *本文基于 Laravel B2C API 项目的真实踩坑经验整理，涵盖 30+ 仓库的 Docker 网络配置实践。如有疑问或补充，欢迎在评论区讨论。*
+
+## 相关阅读
+
+- [Docker Compose + PHP-FPM 实战](/categories/DevOps/docker-compose-php-fpmguide-microservicesdeployment/)
+- [Docker-Compose-Laravel 本地开发环境实战](/categories/DevOps/docker-compose-laravel-guide-php-fpm-8-3-mysql-redis-mailpit-guide/)
+- [Docker 29.x 实战](/categories/DevOps/docker-29-x-guide-buildkit-imageoptimization/)
+- [Docker Compose 5.x 实战](/categories/DevOps/docker-compose-5-x-guide-orchestration-laravel/)
+- [Kubernetes ConfigMap/Secret 实战](/categories/DevOps/kubernetes-configmap-secret-guide-config-management-laravel-deployment/)

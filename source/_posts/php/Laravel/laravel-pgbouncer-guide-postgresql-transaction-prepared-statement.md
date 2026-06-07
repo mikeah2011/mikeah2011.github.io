@@ -1,12 +1,13 @@
 ---
 title: Laravel + PgBouncer 连接池实战：PostgreSQL 连接风暴治理、事务池模式与 Prepared Statement 踩坑记录
+cover: /images/covers/laravel-pgbouncer-guide-postgresql-transaction-prepared-statement-cover.jpg
 date: 2026-05-03 10:10:28
 updated: 2026-05-03 10:12:38
 categories:
   - PHP
-  - MySQL
-tags: [Laravel, MySQL, PostgreSQL, 性能优化, 监控]
-description: 结合 Laravel 订单与后台查询混跑场景，记录如何用 PgBouncer 解决 PostgreSQL 连接风暴、空闲连接过多、事务池模式兼容性与 prepared statement 失效等一组真实生产问题。
+  - PostgreSQL
+tags: [Laravel, PostgreSQL, PgBouncer, 连接池, 数据库连接, 性能优化, 监控]
+description: Laravel 连接 PostgreSQL 遇到连接风暴？本文详解 PgBouncer 事务池模式配置、PDO prepared statement 踩坑修复、session vs transaction 池模式对比、监控指标与参数基线，附 Docker Compose 与 Laravel config 完整示例，帮你把数据库连接数压到稳定水位。
 
 
 
@@ -191,9 +192,102 @@ DB::connection('pgsql_direct')->transaction(function () use ($tenantSchema) {
 
 PgBouncer 不是性能魔法。它只能减少连接建立和空闲连接浪费，**不能修复坏 SQL**。我们上线第一周，连接错误消失了，但后台订单列表一到高峰还是排队。最后查到是一个 `order_items` 聚合查询没走索引，单条事务占连接 600ms 以上，导致 `cl_waiting` 持续升高。
 
-所以我的经验是：PgBouncer 解决“连接风暴”，索引和查询治理解决“事务占用时间”，两个问题必须分开看。
+所以我的经验是：PgBouncer 解决"连接风暴"，索引和查询治理解决"事务占用时间"，两个问题必须分开看。
 
-## 六、一套我验证过的参数基线
+## 六、PgBouncer vs ProxySQL：该选哪个
+
+很多人会问，连接池方案这么多，为什么选 PgBouncer？下面做一个直接对比：
+
+| 维度 | PgBouncer | ProxySQL |
+|------|-----------|----------|
+| 支持数据库 | PostgreSQL | MySQL / MariaDB（PostgreSQL 支持实验性） |
+| 连接池模式 | session / transaction / statement | transaction / session |
+| 配置复杂度 | 极简，单个 ini 文件 | 中等，支持运行时 SQL 管理 |
+| 查询路由/读写分离 | 不支持，需配合 HAProxy 或应用层 | 原生支持规则路由 |
+| Prepared Statement | transaction 模式需应用层适配 | MySQL 协议天然支持 |
+| 资源占用 | 极低（~2MB 内存起步） | 中等（需 SQLite 后端） |
+| 适用场景 | PostgreSQL 专用，纯连接复用 | MySQL 生态，需要路由/缓存 |
+
+**结论**：如果你的数据库是 PostgreSQL，PgBouncer 是首选；如果 MySQL 且需要读写分离，ProxySQL 更合适。
+
+## 七、三种池模式速查对比
+
+| 特性 | session 模式 | transaction 模式 | statement 模式 |
+|------|-------------|-----------------|---------------|
+| 连接绑定时机 | 客户端连接即分配 | 事务开始分配，结束归还 | 每条 SQL 分配 |
+| 连接复用率 | 低 | 高 | 最高 |
+| Session 状态支持 | ✅ 完整 | ❌ 不可靠 | ❌ 不可用 |
+| Prepared Statement | ✅ 正常 | ⚠️ 需 emulate | ❌ 不可用 |
+| `SET` / `LISTEN` / `NOTIFY` | ✅ 正常 | ❌ 不可靠 | ❌ 不可用 |
+| 适合场景 | 长连接、WebSocket、需要 session 变量 | 高并发 API、CRUD、队列消费 | 极端短查询（几乎不用） |
+| Laravel 推荐 | 低并发后台、报表脚本 | **API / Queue / 默认** | 不推荐 |
+
+> **实际选择**：大部分 Laravel 项目用 `transaction` 模式作为默认连接，少量依赖 session 状态的脚本单独走 `session` 模式或直连 PostgreSQL。
+
+## 八、真实踩坑：LISTEN/NOTIFY 在 transaction 模式失效
+
+Laravel 的 `Event::listen` + PostgreSQL `NOTIFY` 机制依赖持久会话。在 transaction pool 模式下，`LISTEN channel` 注册后连接归还，下一条消息到来时可能分到别的连接，导致收不到通知。
+
+**解决方案**：需要 `LISTEN/NOTIFY` 的进程（如实时通知 worker）必须走直连或 session 模式：
+
+```php
+// .env
+DB_CONNECTION=pgsql          // transaction pool，给 API/Queue
+DB_DIRECT_CONNECTION=pgsql_direct  // session 直连，给 NOTIFY worker
+```
+
+```php
+// app/Jobs/RealtimeNotificationListener.php
+class RealtimeNotificationListener
+{
+    public function handle(): void
+    {
+        $pdo = DB::connection('pgsql_direct')->getPdo();
+        $pdo->exec('LISTEN order_status_changed');
+
+        while (true) {
+            $pdo->pgsqlGetNotify(\PDO::FETCH_ASSOC, 30_000);
+            // 处理通知...
+        }
+    }
+}
+```
+
+## 九、真实踩坑：PgBouncer 重启时的连接断裂
+
+PgBouncer 本身重启或升级时，所有客户端连接会被断开。Laravel 默认会报 `server closed the connection unexpectedly`。
+
+**缓解措施**：
+
+1. **Laravel 层**：在 `config/database.php` 加 `reconnect` 选项或使用 `sticky` 中间件
+2. **PgBouncer 层**：用 `SO_REUSEPORT` 启动新进程再 graceful shutdown 旧进程（zero-downtime 重启）
+3. **应用层**：队列 worker 加 `--tries=3 --backoff=5` 自动重试
+
+```bash
+# 队列 worker 启动命令，加重试保护
+php artisan queue:work --tries=3 --backoff=5 --max-time=3600
+```
+
+## 十、上线 Checklist：部署前必须确认的 5 件事
+
+1. ✅ `PDO::ATTR_EMULATE_PREPARES => true` 已设置
+2. ✅ 所有 `SET search_path` 改为 `SET LOCAL` 或 schema 前缀
+3. ✅ `LISTEN/NOTIFY`、`PREPARE` 等 session 依赖代码走直连
+4. ✅ PgBouncer `server_reset_query = DISCARD ALL` 已配置
+5. ✅ 队列 worker 已加 `--tries` 重试机制
+
+```bash
+# 快速验证：连 PgBouncer 端口执行简单查询
+psql "host=127.0.0.1 port=6432 dbname=app user=app" -c "SELECT 1 AS ok;"
+
+# 验证池模式
+psql "host=127.0.0.1 port=6432 dbname=pgbouncer user=pgbouncer" -c "SHOW CONFIG;" | grep pool_mode
+
+# 验证 emulate prepares（Laravel Tinker）
+php artisan tinker --execute="dd(DB::connection()->getPdo()->getAttribute(PDO::ATTR_EMULATE_PREPARES));"
+```
+
+## 十一、一套我验证过的参数基线
 
 这不是通用最优解，但对中型 Laravel API 很好用：
 
@@ -223,7 +317,7 @@ stats_users = app
 
 我一般先反推 PostgreSQL 能稳定承受多少活跃连接，再给 PgBouncer 留出池上限。比如数据库稳态 100 个活跃连接没问题，那 `max_db_connections` 就先卡在 100 左右，再根据 API、worker、后台任务的流量分布调 `default_pool_size`。
 
-## 七、上线后的实际效果
+## 十二、上线后的实际效果
 
 这次改造后，指标确实稳定了：
 
@@ -234,8 +328,15 @@ stats_users = app
 
 最重要的是，数据库终于能把资源花在执行查询上，而不是维护大量短生命周期连接。
 
-## 八、我的结论
+## 十三、我的结论
 
 如果你的 Laravel 服务已经出现下面任意两个症状：数据库连接数长期偏高、`idle` 连接很多、PHP-FPM/worker 一扩容数据库就不稳、数据库 CPU 不高却老报连接满，就该认真看 PgBouncer 了。
 
 但要记住，PgBouncer 真正难的不是装起来，而是**识别哪些代码依赖 session 状态、哪些 SQL 会长时间占住事务、哪些流量必须拆直连**。这层想明白了，连接池才会是增益。
+
+## 相关阅读
+
+- [Laravel + PostgreSQL 完整开发指南：从入门到生产实践](/post/laravel-postgresql-guide.html)
+- [PostgreSQL Advisory Lock 在 Laravel 中的实战：PgBouncer 环境下的分布式锁方案](/post/laravel-postgresql-advisory-lock-guide-pgbouncer.html)
+- [数据库连接池全面对比：PgBouncer vs ProxySQL vs Supabase 选型指南](/post/database-connection-pool-pgbouncer-proxysql-supabase-comparison.html)
+

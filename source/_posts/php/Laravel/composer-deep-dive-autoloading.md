@@ -1,11 +1,12 @@
 ---
 title: Composer-深度实战-自动加载插件开发私有仓库踩坑记录
+cover: /images/covers/composer-deep-dive-autoloading-cover.jpg
 date: 2026-05-16 19:10:33
 updated: 2026-05-16 19:13:25
 categories:
   - PHP
   - Docker
-tags: [Composer, PHP]
+tags: [Composer, PHP, 自动加载, PSR-4, 依赖管理, Packagist]
 description: Composer 是 PHP 生态的基石，但多数开发者只停留在 `composer require` 和 `composer update` 层面。本文从 30+ 仓库的真实运维经验出发，深度拆解 PSR-4 自动加载原理、依赖解析机制、Composer 插件开发、私有仓库（Satis/Packagist）配置，以及 CI/CD 中的依赖治理踩坑记录。
 
 
@@ -608,3 +609,11 @@ jobs:
 | 安全审计 | `composer audit` 定期运行 | 从不检查已知漏洞 |
 
 Composer 看似简单，但背后涉及依赖求解、自动加载机制、私有仓库基础设施等多个层面。30+ 仓库的运维经验告诉我们：把 Composer 的配置和 CI 流程治理好，能减少 80% 的"环境问题"。
+
+---
+
+## 相关阅读
+
+- [GitHub Actions Composer Cache 构建时间从 20s 到 5s 优化实战](/categories/DevOps/github-actions-composer-cache-20s5s-optimization/) — 深入讲解 CI 环境中 Composer 依赖缓存的配置与踩坑，与本文的 CI/CD 章节互补
+- [Docker 多阶段构建实战 — PHP 应用镜像优化从 500MB 到 50MB](/categories/DevOps/docker-guide-php-imageoptimization500mb50mb/) — 涵盖 Docker 中 Composer 缓存复用、Alpine 基础镜像选型，与本文的容器化部署场景紧密相关
+- [Laravel Herd 实战：macOS 原生 PHP 环境管理](/categories/macOS/Laravel-Herd-实战-macOS原生PHP环境管理-替代Valet-Homestead一键开发体验/) — 本地 PHP 开发环境搭建，Herd 内置 Composer 支持，适合搭配本文阅读

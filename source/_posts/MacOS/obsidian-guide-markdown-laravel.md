@@ -5,8 +5,9 @@ updated: 2026-05-17 05:13:03
 categories:
   - macOS
   - Docs
-tags: [macOS, 工程管理]
-description: 从 Notion/Confluence 迁移到 Obsidian 的完整实战记录，涵盖 Vault 结构设计、核心插件配置、Laravel 项目文档工作流、Git 同步方案，以及 30+ 仓库的知识管理踩坑经验。
+tags: [macOS, Obsidian, Markdown, 知识管理, 工程管理, Laravel]
+description: 本文是一篇面向 Laravel 开发者的 Obsidian 本地优先知识管理实战指南。从 Notion 和 Confluence 的迁移痛点出发，深入讲解 Vault 结构设计、Markdown 原生工作流、核心插件生态（Dataview、Templater、Excalidraw 等）配置与踩坑经验、Laravel 项目文档模板与 Code Review 笔记管理、基于 Git 同步的多设备协作方案，以及大 Vault 性能优化。涵盖 10+ 真实踩坑案例与可复用脚本，帮助开发者构建可版本控制的本地知识管理体系。
+cover: /images/covers/obsidian-guide-markdown-laravel-cover.jpg
 
 
 
@@ -124,6 +125,22 @@ nice_to_have:
   - Periodic Notes:  # 周记/月记模板
   - Tag Wrangler:    # 批量管理标签
 ```
+
+### 核心插件推荐表格
+
+| 插件名称 | 用途 | 推荐配置 / 备注 |
+|---------|------|-----------------|
+| **Dataview** | 用 SQL-like 查询语法聚合笔记，自动生成项目索引、踩坑清单等动态视图 | `FROM` 后跟文件夹路径或标签，不是表名；复杂查询建议限制 `LIMIT` 避免超时 |
+| **Templater** | 模板引擎，支持 JS 脚本，自动填充 front matter、日期、文件名等 | 语法 `<% %>` 与 JS 模板字面量 `${}` 冲突时用 `tp.file.cursor()` 处理 |
+| **Obsidian Git** | 自动定时 commit/pull/push，实现 Vault 的 Git 多设备同步 | `autoSaveInterval: 10`，`syncMethod: merge`（不要用 rebase） |
+| **Excalidraw** | 在 Markdown 中嵌入架构图，数据以 JSON 存储，Git 可追踪 | 大图 50KB+，建议 `.gitignore` 排除或定期清理历史 |
+| **Kanban** | 看板视图管理任务，适合 Sprint 任务跟踪 | 每张卡片对应一个 Markdown 文件，可关联双向链接 |
+| **Admonition** | 创建警告/提示/踩坑/信息等彩色卡片，增强文档可读性 | 自定义类型可配合 CSS 主题美化 |
+| **Code Block Enhancer** | 代码块添加行号、复制按钮、语法高亮增强 | 对写技术文档和代码笔记非常实用 |
+| **Linter** | 自动格式化 Markdown（空行、列表缩进、front matter 排序等） | 可配合 CI 实现 Git pre-commit hook 自动 lint |
+| **Calendar** | 日历视图管理每日笔记，快速跳转到指定日期 | 配合 Periodic Notes 插件使用效果更佳 |
+| **Periodic Notes** | 周记/月记/季度回顾模板，建立周期性复盘习惯 | 模板放在 Templates/ 目录下，通过 Templater 渲染 |
+| **Tag Wrangler** | 批量重命名、合并、删除标签，维护标签体系一致性 | 在标签上右键即可操作，迁移旧笔记时特别有用 |
 
 ### 3.2 Dataview：用 SQL 查询笔记
 
@@ -559,3 +576,11 @@ Obsidian 对开发者的核心价值在于三点：
 对于 Laravel 开发者来说，Obsidian 的最佳实践是：**把项目文档和代码放在同一个 Git 工作流里管理**。技术决策、API 设计、踩坑记录……这些都跟代码一样重要，值得用版本控制来管理。
 
 > 最后一个建议：不要花太多时间在配置 Obsidian 上。工具是为人服务的，而不是反过来。先用默认配置开始写，遇到痛点再逐步优化。半年后你会发现，最有价值的不是 Vault 的结构设计，而是你积累下来的那些真实的踩坑记录。
+
+---
+
+## 相关阅读
+
+- [Notion 实战：个人知识库与项目管理 - 开发者工作流搭建与效率提升踩坑记录](/categories/macOS/notion-guide/)
+- [Technical Writing 实战：技术博客的写作方法论——从选题到发布的完整工作流与 Markdown 工程化](/categories/架构/Technical-Writing-实战-技术博客写作方法论-从选题到发布的完整工作流与Markdown工程化/)
+- [Raycast 实战：macOS 效率启动器自定义脚本与开发工作流踩坑记录](/categories/macOS/Raycast-实战-macOS-效率启动器-自定义脚本与开发工作流踩坑记录/)

@@ -1,12 +1,13 @@
 ---
 title: Laravel Octane + Swoole 高性能 PHP 应用架构实战踩坑记录
+cover: /images/covers/laravel-octane-swoole-high-performancephparchitecture-cover.jpg
 date: 2026-05-16 13:06:43
 updated: 2026-05-16 13:20:09
 categories:
   - PHP
   - Laravel
-tags: [Laravel, PHP, 性能优化]
-description: 从 PHP-FPM 到 Swoole 的架构跃迁实战：Laravel Octane 配置调优、内存泄漏排查、协程安全、连接池治理，以及 B2C 电商场景下的真实性能对比与踩坑记录。
+tags: [Laravel, PHP, Swoole, Octane, 性能优化]
+description: 从 PHP-FPM 到 Swoole 的架构跃迁实战指南：详解 Laravel Octane 核心配置调优、Swoole 协程安全、内存泄漏排查与修复、数据库连接池治理，附 B2C 电商高并发聚合接口的协程并发改造方案与真实生产踩坑记录。涵盖 Worker 常驻内存模型下的状态污染、静态变量累积、阻塞 I/O 替换等关键问题，提供可直接复用的 Supervisor 配置、内存监控中间件和生产环境 Checklist。
 
 
 
@@ -502,3 +503,11 @@ Laravel Octane + Swoole 不是银弹，但在**高并发聚合接口、实时推
 4. **渐进式迁移**：先在非核心接口验证，再逐步推广到全站
 
 对于 B2C 电商场景，推荐先将**商品详情、推荐聚合、搜索接口**这类读多写少的热点接口迁移到 Octane，支付、订单等写操作保持 PHP-FPM 或使用 Task Worker 异步处理，做到风险可控的性能升级。
+
+---
+
+## 相关阅读
+
+- [Swoole 常驻内存踩坑深度剖析：全局变量污染、静态属性残留、连接泄漏——PHP-FPM 到 Octane 的思维模式迁移](/05_PHP/Laravel/swoole-resident-memory-pitfalls-deep-dive/) — 更系统地梳理 Swoole 驻留内存模型下的内存泄漏检测、GC 回收策略与 Laravel Octane 请求隔离机制，是本文踩坑记录的深度延伸。
+- [PHP Fiber 深度实战：从零实现一个协程调度器——理解 Swoole/Octane 的底层原理](/05_PHP/Laravel/2026-06-02-php-fiber-deep-dive-coroutine-scheduler-swoole-octane-internals/) — 从 Fiber 栈切换、事件循环到协程调度器实现，深入理解 Swoole/Octane 高性能背后的底层原理。
+- [PHP 8.5 异步生态全景实战：Fibers + Swoole + ReactPHP + AMPHP——PHP 异步编程的四条路线对比与选型指南](/05_PHP/Laravel/PHP-8.5-异步生态全景实战-Fibers-Swoole-ReactPHP-AMPHP/) — 如果你在 Swoole 之外还想了解 ReactPHP、AMPHP 等替代方案的异步编程路线，本文提供了完整的横向对比与选型决策树。

@@ -1,12 +1,13 @@
 ---
 title: "GitHub Copilot 实战：代码补全、测试生成、文档编写——Laravel B2C API 全场景深度踩坑记录"
+cover: /images/covers/github-copilot-guide-testing-cover.jpg
 date: 2026-05-16 23:45:56
 updated: 2026-05-16 23:49:46
 categories:
   - macOS
   - Testing
-tags: [AI, KKday, Laravel, 工程管理, 测试]
-description: 从 Chat 到 Workspace Agent，深度实战 GitHub Copilot 在 Laravel B2C API 项目中的代码补全、Pest 测试生成、Scribe 文档编写、PR Review 等全场景，附带真实踩坑记录与 Prompt 工程技巧。
+tags: [ai, kkday, laravel, 工程管理, 测试]
+description: 深入实战 GitHub Copilot 在 Laravel B2C API 项目中的全场景应用：从 .github/copilot-instructions.md 项目级指令配置到代码补全接受率 55-65% 的实测数据，从 Pest 测试自动生成与 Mock 陷阱修复到 Scribe v4 文档注解一键生成，从 PR Review 自动检测 N+1 查询与 SQL 注入漏洞到 /workspace 模式跨文件项目级问答。本文基于 KKday B2C API 团队 3 个月实测经验，总结 8 个真实踩坑案例与 Prompt 工程模板库，附带 Cursor、Claude Code 等多 AI 工具分层协作策略，帮助 Laravel 开发者高效利用 AI 辅助编程。
 
 
 
@@ -874,3 +875,9 @@ GitHub Copilot 不是万能的，但它在 Laravel B2C API 开发中的 5 个核
 4. **配合 Claude Code 使用**：Copilot 负责"写"，Claude Code 负责"改"，分工明确
 
 > 💡 **一句话总结**：Copilot 是一个需要调教的实习生——你给的上下文越精确，它的产出质量越高。
+
+## 相关阅读
+
+- [Ollama 实战：本地部署 LLM 与 API 服务 — 隐私优先的 AI 开发工作流踩坑记录](/macos/ollama-guide-deployment-llm-api-ai/)
+- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战](/macos/cursor-claude-code-hermes-macos-multi-ai-workflow/)
+- [VS Code 高效开发实战：扩展、快捷键、调试配置 - Laravel B2C API 踩坑记录](/macos/vs-code-guide/)

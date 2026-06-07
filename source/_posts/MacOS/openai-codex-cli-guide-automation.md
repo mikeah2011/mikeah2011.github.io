@@ -5,8 +5,9 @@ updated: 2026-05-17 05:47:02
 categories:
   - macOS
   - Tools
-tags: [AI, Laravel]
-description: OpenAI Codex CLI 是 2025 年开源的终端 AI 编程代理，本文从安装配置到实际项目中批量重构 Laravel 代码、生成测试、处理遗留代码的真实踩坑记录，对比 Claude Code 的使用差异。
+tags: [AI, Laravel, OpenAI, Codex, CLI]
+description: OpenAI Codex CLI 是 2025 年开源的终端 AI 编程代理，本文涵盖安装配置、三种审批模式详解、Laravel 项目批量重构与测试生成实战、安全最佳实践（自动审批 vs 手动审查）、Codex CLI vs Claude Code vs Cursor 详细对比，以及常见故障排查指南。
+cover: /images/covers/openai-codex-cli-guide-automation-cover.jpg
 
 
 
@@ -222,6 +223,146 @@ codex "重构 app/Http/Controllers/ 目录下的订单状态魔术字符串"
 codex "重构 app/Jobs/ 目录下的订单状态魔术字符串"
 ```
 
+### 3.5 实战：用 Codex CLI 重构 Laravel Controller
+
+除了 Enum 替换，Controller 重构也是 Codex CLI 的高频场景。以一个典型的"胖 Controller"为例：
+
+**重构前**（业务逻辑混在 Controller 中）：
+
+```php
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+
+class OrderController extends Controller
+{
+    public function store(Request $request)
+    {
+        // 手动验证（应该用 FormRequest）
+        if (!$request->has('product_id')) {
+            return response()->json(['error' => '缺少 product_id'], 422);
+        }
+
+        // 业务逻辑直接写在 Controller 里
+        $product = DB::table('products')->where('id', $request->product_id)->first();
+        if (!$product || $product->stock < $request->quantity) {
+            return response()->json(['error' => '库存不足'], 400);
+        }
+
+        $orderId = DB::table('orders')->insertGetId([
+            'user_id' => auth()->id(),
+            'product_id' => $request->product_id,
+            'quantity' => $request->quantity,
+            'amount' => $product->price * $request->quantity,
+            'status' => '1',  // 魔术字符串
+            'created_at' => now(),
+        ]);
+
+        // 直接 HTTP 调用外部服务
+        Http::post('https://payment.example.com/charge', [
+            'order_id' => $orderId,
+            'amount' => $product->price * $request->quantity,
+        ]);
+
+        return response()->json(['id' => $orderId]);
+    }
+}
+```
+
+**用 Codex CLI 重构的指令**：
+
+```bash
+codex --approval-mode auto-edit \
+    "重构 app/Http/Controllers/Api/OrderController.php：
+     1. 将业务逻辑提取到 app/Services/OrderService.php
+     2. 创建 app/Http/Requests/StoreOrderRequest.php 用于表单验证
+     3. 将魔术字符串 '1','2','3' 替换为 OrderStatus Enum
+     4. 将直接 HTTP 调用替换为 app/Services/PaymentGateway 封装
+     5. Controller 只保留路由、参数注入和响应返回
+     6. 保持所有现有 API 端点的请求和响应格式不变"
+```
+
+**重构后**（清晰的职责分离）：
+
+```php
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Requests\StoreOrderRequest;
+use App\Services\OrderService;
+use Illuminate\Http\JsonResponse;
+
+class OrderController extends Controller
+{
+    public function __construct(
+        private readonly OrderService $orderService
+    ) {}
+
+    public function store(StoreOrderRequest $request): JsonResponse
+    {
+        $order = $this->orderService->create($request->validated());
+
+        return response()->json($order, 201);
+    }
+}
+```
+
+对应的 `OrderService`：
+
+```php
+<?php
+
+namespace App\Services;
+
+use App\Enums\OrderStatus;
+use App\Models\Order;
+
+class OrderService
+{
+    public function __construct(
+        private readonly PaymentGateway $paymentGateway,
+    ) {}
+
+    public function create(array $data): Order
+    {
+        $product = $this->getProduct($data['product_id']);
+
+        $this->validateStock($product, $data['quantity']);
+
+        $order = Order::create([
+            'user_id' => auth()->id(),
+            'product_id' => $product->id,
+            'quantity' => $data['quantity'],
+            'amount' => $product->price * $data['quantity'],
+            'status' => OrderStatus::Pending,
+        ]);
+
+        return $order;
+    }
+
+    private function getProduct(int $productId): object
+    {
+        return DB::table('products')->where('id', $productId)->firstOrFail();
+    }
+
+    private function validateStock(object $product, int $quantity): void
+    {
+        if ($product->stock < $quantity) {
+            throw new InsufficientStockException(
+                "商品 {$product->id} 库存不足，当前库存: {$product->stock}"
+            );
+        }
+    }
+}
+```
+
+**关键点**：Codex CLI 会自动识别 Controller 中的业务逻辑，并按照 `.codex/instructions.md` 中的约定（如"Controller 只做参数校验和路由，业务逻辑放 Service"）进行重构。如果项目没有配置该文件，重构质量会明显下降。
+
 ## 4. 实战：自动化测试生成
 
 ### 4.1 为遗留 Service 生成 Pest 测试
@@ -376,20 +517,46 @@ codex --approval-mode suggest \
   → 建议：添加 Policy 授权
 ```
 
-## 6. Codex CLI vs Claude Code CLI 对比
+## 6. Codex CLI vs Claude Code vs Cursor 详细对比表
 
-在同一个 Laravel 项目上测试，对比两个工具的表现：
+在同一个 Laravel 项目上测试，对比三款 AI 编程工具的表现：
 
-| 维度 | Codex CLI | Claude Code CLI |
-|------|-----------|-----------------|
-| **代码生成质量** | ★★★★☆ 结构清晰，但有时过度工程化 | ★★★★★ 更贴近项目风格 |
-| **上下文理解** | ★★★☆☆ 大项目容易丢失上下文 | ★★★★☆ 长上下文表现更好 |
-| **批量重构** | ★★★★★ 沙箱机制更安全 | ★★★☆☆ 需要更谨慎 |
-| **执行速度** | ★★★★☆ 响应快 | ★★★★☆ 响应快 |
-| **开源程度** | ★★★★★ 完全开源 | ★☆☆☆☆ 闭源 |
-| **成本** | 按 API token 计费 | 按订阅/Token 计费 |
+### 6.1 核心特性对比
 
-### 6.1 选择建议
+| 维度 | Codex CLI | Claude Code CLI | Cursor |
+|------|-----------|-----------------|--------|
+| **定位** | 终端 AI 编程代理 | 终端 AI 编程代理 | AI-native IDE |
+| **底层模型** | o4-mini / o3 | Claude 4 Sonnet / Opus | 多模型可选（GPT-4o, Claude 等） |
+| **开源** | ✅ Apache 2.0 完全开源 | ❌ 闭源 | ❌ 闭源 |
+| **运行环境** | 终端 / CI | 终端 / CI | GUI 桌面应用 |
+| **沙箱执行** | ✅ 文件操作沙箱隔离 | ❌ 直接操作文件系统 | ⚠️ 工作区隔离，非沙箱 |
+| **上下文窗口** | 128K tokens（o4-mini） | 200K tokens | 取决于所选模型 |
+| **审批模式** | suggest / auto-edit / full-auto | 三种权限级别 | 内联确认 + Composer |
+| **批量重构** | ★★★★★ 沙箱+自动审批 | ★★★☆☆ 需手动确认 | ★★★☆☆ 多文件编辑但无沙箱 |
+| **代码生成质量** | ★★★★☆ 结构清晰 | ★★★★★ 贴近项目风格 | ★★★★☆ 依赖模型选择 |
+| **上下文理解** | ★★★☆☆ 大项目易丢失 | ★★★★☆ 长上下文更强 | ★★★★☆ 索引整个代码库 |
+
+### 6.2 定价对比
+
+| 项目 | Codex CLI | Claude Code CLI | Cursor |
+|------|-----------|-----------------|--------|
+| **免费层** | 无（需 API Key） | 无（需 API Key 或订阅） | 免费版有限额度 |
+| **付费方式** | OpenAI API 按 token 计费 | Anthropic API 按 token 计费 | $20/月 Pro，$40/月 Business |
+| **典型单次成本** | $0.01 ~ $0.10（取决于任务） | $0.02 ~ $0.20 | 包含在订阅中 |
+| **批量任务成本** | 较低（o4-mini 便宜） | 较高（Claude 4 较贵） | 受限于 Fast Requests 配额 |
+| **企业方案** | OpenAI Enterprise | Anthropic Enterprise | Cursor Business |
+
+### 6.3 沙箱模式对比
+
+| 安全特性 | Codex CLI | Claude Code CLI | Cursor |
+|---------|-----------|-----------------|--------|
+| **文件操作隔离** | ✅ macOS Seatbelt 沙箱 | ❌ 无沙箱 | ⚠️ 工作区限制 |
+| **网络隔离** | ✅ 可配置禁止网络访问 | ❌ 无网络隔离 | ❌ 无网络隔离 |
+| **命令执行限制** | ✅ 可配置白名单 | ⚠️ 基本权限控制 | ⚠️ 终端权限控制 |
+| **误操作回滚** | ✅ 沙箱内可安全回滚 | ⚠️ 依赖 git 手动回滚 | ⚠️ 依赖 git 手动回滚 |
+| **CI 安全性** | ★★★★★ 天然适合 | ★★★☆☆ 需要额外配置 | ★☆☆☆☆ 不适合 CI |
+
+### 6.4 选择建议
 
 ```mermaid
 graph TD
@@ -470,10 +637,189 @@ jobs:
             });
 ```
 
-## 8. 踩坑记录汇总
+## 8. 安全最佳实践
+
+Codex CLI 的三种审批模式决定了自动化的边界。以下是经验证的分类指南：
+
+### 8.1 可以自动审批的任务 ✅
+
+| 操作类型 | 推荐模式 | 原因 |
+|---------|---------|------|
+| **代码格式化** | full-auto | 只改变格式，不影响逻辑 |
+| **生成测试文件** | auto-edit | 新增文件，不影响现有代码 |
+| **创建 Enum / DTO** | auto-edit | 新增文件，风险低 |
+| **重构单文件内部逻辑** | auto-edit | 范围可控，可 diff 审查 |
+| **添加类型声明** | auto-edit | PHP 类型声明不影响运行时行为 |
+| **生成 API 文档注释** | full-auto | 只修改注释，无副作用 |
+
+### 8.2 必须手动审查的任务 ⚠️
+
+| 操作类型 | 推荐模式 | 原因 |
+|---------|---------|------|
+| **修改数据库迁移** | suggest | 数据迁移不可逆，必须逐行审查 |
+| **修改认证/授权逻辑** | suggest | 安全关键路径，误改可导致漏洞 |
+| **重构多个文件** | auto-edit | 范围大，需逐文件确认 diff |
+| **涉及外部 API 调用的变更** | suggest | 可能影响外部服务行为 |
+| **删除文件** | suggest | full-auto 模式下删除操作不可逆 |
+| **修改 .env / 配置文件** | suggest | 误改配置可能导致服务不可用 |
+
+### 8.3 安全配置建议
+
+```toml
+# ~/.codex/config.toml - 推荐的安全配置
+model = "o4-mini"
+approval_mode = "suggest"  # 默认使用最安全的模式
+
+# 仅在需要批量任务时临时切换
+# codex --approval-mode auto-edit "..."
+```
+
+**最佳实践**：
+1. **永远不要在生产环境使用 full-auto 模式**
+2. **批量任务前先用 suggest 模式预览 diff**
+3. **对数据库操作始终使用 suggest 模式**
+4. **在 `.codex/instructions.md` 中明确禁止危险操作**（如禁止 `DB::raw()`、禁止删除迁移文件）
+5. **CI 流水线中使用 suggest 模式**，只做代码审查不自动修改
+
+### 8.4 权限控制命令行参数
+
+```bash
+# 限制 Codex 只能读取文件，不能写入
+codex --approval-mode suggest "审查代码"
+
+# 允许自动写入文件，但命令执行需要确认（推荐日常使用）
+codex --approval-mode auto-edit "重构这个 Controller"
+
+# 全自动模式（仅用于低风险批量任务，且最好在 CI 中使用）
+codex --approval-mode full-auto "格式化所有 PHP 文件"
+```
+
+## 9. 故障排查：常见错误与解决方案
+
+### 9.1 API 认证错误
+
+```
+Error: Invalid API key provided
+```
+
+**原因**：`OPENAI_API_KEY` 未设置或已过期。
+
+**解决**：
+```bash
+# 检查环境变量
+echo $OPENAI_API_KEY
+
+# 重新设置
+export OPENAI_API_KEY="sk-proj-xxxx"
+
+# 或检查配置文件
+cat ~/.codex/config.toml
+```
+
+### 9.2 上下文窗口溢出
+
+```
+Error: Context window exceeded (128K tokens)
+```
+
+**原因**：项目文件太多，超出模型上下文限制。
+
+**解决**：
+```bash
+# ❌ 错误：一次性扫描整个项目
+codex "重构整个项目的所有代码"
+
+# ✅ 正确：分模块、分目录执行
+codex "重构 app/Services/ 目录"
+codex "重构 app/Http/Controllers/ 目录"
+
+# ✅ 更好：使用 .codex/instructions.md 缩小范围
+# 在 instructions.md 中指定只关注特定目录
+```
+
+### 9.3 API 限流 (429)
+
+```
+Error: Rate limit exceeded (HTTP 429)
+```
+
+**原因**：批量任务请求过快，触发 API 限流。
+
+**解决**：
+```bash
+# 方案一：在脚本中加入延迟
+for dir in app/Services app/Http/Controllers app/Jobs; do
+    codex --approval-mode auto-edit "重构 $dir 目录下的魔术字符串"
+    sleep 5  # 等待 5 秒再执行下一个
+done
+
+# 方案二：减少并发
+codex --max-tokens 4096 "重构这个文件"
+```
+
+### 9.4 沙箱权限不足
+
+```
+Error: Permission denied (sandbox)
+```
+
+**原因**：沙箱限制了文件操作权限，可能尝试访问了沙箱外的路径。
+
+**解决**：
+```bash
+# 确保在项目根目录下运行
+cd ~/GitHub/my-project
+codex .
+
+# 如果需要访问项目外的文件，使用 suggest 模式
+codex --approval-mode suggest "..."
+```
+
+### 9.5 生成的代码不符合项目规范
+
+**原因**：缺少 `.codex/instructions.md` 配置文件。
+
+**解决**：
+```bash
+# 在项目根目录创建配置文件
+mkdir -p .codex
+cat > .codex/instructions.md << 'EOF'
+# 项目规范
+- 使用 Laravel 10 + PHP 8.1
+- 所有 Enum 必须是 backed enum
+- 测试使用 Pest 语法
+- Controller 只做路由和参数校验
+- 业务逻辑放 Service 层
+- 禁止使用 DB::raw()，除非经过 Review
+EOF
+
+# 然后重新运行 Codex CLI
+codex --approval-mode auto-edit "重构这个模块"
+```
+
+### 9.6 Node.js 版本不兼容
+
+```
+Error: Codex CLI requires Node.js 22+
+```
+
+**解决**：
+```bash
+# 使用 nvm 切换 Node.js 版本
+nvm install 22
+nvm use 22
+
+# 验证版本
+node --version  # 应显示 v22.x.x
+
+# 重新安装 Codex CLI
+npm install -g @openai/codex
+```
+
+## 10. 踩坑记录汇总
 
 | # | 问题 | 原因 | 解决方案 |
-|---|------|------|---------|
+|---|------|------|---------| 
 | 1 | 上下文窗口溢出 | 项目文件太多 | 分模块执行，缩小范围 |
 | 2 | 生成代码风格不一致 | 不了解项目约定 | 配置 `.codex/instructions.md` |
 | 3 | Mock 策略不准确 | 缺乏业务上下文 | 提供现有测试作参考 |
@@ -481,15 +827,23 @@ jobs:
 | 5 | API 限流 (429) | 批量任务请求过快 | 加 `--max-tokens` 限制 |
 | 6 | 生成的 Enum 没有 backing type | 默认生成纯 Enum | 明确指定 `backed enum` |
 
-## 9. 总结
+## 11. 总结
 
 Codex CLI 的核心价值在于**安全的批量自动化**——沙箱机制让你敢放手让它跑批量任务，开源代码让你能审计它的每一步操作。但它的上下文理解能力目前不如 Claude Code，复杂业务逻辑的重构仍需人工把关。
 
 **推荐工作流**：
 1. 用 Codex CLI 做批量重构、测试生成等"机械性"工作
 2. 用 Claude Code 做需要深度理解业务的代码审查和架构建议
-3. 两者互补，而不是二选一
+3. 用 Cursor 做日常编码和多文件编辑
+4. 三者互补，而不是互斥
 
 ---
 
 *本文基于 OpenAI Codex CLI 2025.x 版本，Laravel 10 + PHP 8.1 项目实测。如有更新会同步修正。*
+
+## 相关阅读
+
+- [Claude Code CLI 实战](/categories/macOS/claude-code-cli-guide-commands-ai/)
+- [Cursor IDE 实战](/categories/macOS/cursor-ide-guide-ai/)
+- [GitHub Copilot 实战](/categories/macOS/github-copilot-guide-testing/)
+- [Hermes Agent 实战](/categories/macOS/hermes-agent-guide-ai/)

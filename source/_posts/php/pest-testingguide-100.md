@@ -1,11 +1,12 @@
 ---
 title: Pest + PHPUnit + ParaTest：如何在 Laravel B2C API 上跑满 100% 覆盖率？
+cover: /images/covers/pest-testingguide-100-cover.jpg
 date: 2026-05-02
-description: "Pest + PHPUnit + ParaTest：如何在 Laravel B2C API 上跑满 100% 覆盖率？"
+description: "Pest + PHPUnit + ParaTest：如何在 Laravel B2C API 上跑满 100% 覆盖率？本文从零到一分享实战踩坑记录，涵盖 Pest 语法迁移、Mock/Stub 高级用法、RefreshDatabase 数据隔离、ParaTest 并行测试加速及 CI 覆盖率集成方案，助你构建高置信度测试体系。"
 categories:
   - PHP
   - Testing
-tags: [Laravel, 测试]
+tags: [Laravel, 测试, Pest, PHPUnit, ParaTest, TDD, 自动化测试, 单元测试, 覆盖率]
 简介: |
   KKday B2C API 团队使用 Pest + PHPUnit + ParaTest 构建高覆盖率测试体系。本文分享实战踩坑记录：从 0 到跑满 100% 覆盖率的完整路径，包括断言库选择、Mock/Stubs、并行测试优化与 CI 集成方案。
 
@@ -369,7 +370,12 @@ jobs:
 
 ## 九、下一步：从单元测试到契约测试（TBD）
 
-**推荐阅读：**
+**相关阅读：**
+- [Pest PHP API 测试、Feature 测试、浏览器测试实战](/engineering/pest-php-apitesting-featuretesting-testingguide) — 测试金字塔落地踩坑记录
+- [PHPUnit 11.x 实战：新特性与最佳实践](/engineering/phpunit-11-x-guide-best-practices) — 断言、属性到测试架构演进
+- [PHPUnit 断言实战：Beyond assertEquals](/php/Laravel/phpunit-guide-beyond-assertequals-expect-mock-stub) — 掌握 expect、mock、stub 踩坑记录
+
+**官方文档：**
 - [Laravel Testing Documentation](https://laravel.com/docs/testing)
 - [Pest PHP Official](https://pestphp.com/)
 - [ParaTest GitHub](https://github.com/para-test/paratest)

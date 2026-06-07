@@ -1,12 +1,13 @@
 ---
 title: Laravel-Dusk-浏览器自动化E2E测试实战-CI流水线集成-动态等待与选择器治理踩坑记录
+cover: /images/covers/laravel-dusk-automatione2etestingguide-ci-cover.jpg
 date: 2026-05-05 00:05:58
 updated: 2026-05-05 00:09:22
-tags: [CI/CD, Laravel, macOS, 测试]
+tags: [ci/cd, laravel, macos, 测试]
 categories:
   - PHP
   - Testing
-description: 结合 Laravel B2C 项目的线上实战，记录如何用 Dusk 搭建浏览器自动化 E2E 测试，覆盖下单全流程、SPA 组件交互、CI/CD Headless 集成、动态等待策略与选择器可维护性的真实踩坑。
+description: 结合 Laravel B2C 项目线上实战，全面记录 Laravel Dusk 浏览器自动化 E2E 测试的搭建与落地。涵盖完整下单流程测试、Page Object 选择器治理、GitHub Actions CI/CD Headless Chrome 集成、动态等待策略（waitFor vs waitForText）避坑、数据库事务冲突排查、SPA 异步渲染处理、移动端 Viewport 测试，以及 CI 字体渲染差异、并行测试端口冲突等真实踩坑经验，适合 Laravel 团队快速搭建可靠的端到端自动化测试体系。
 
 
 
@@ -652,3 +653,9 @@ Dusk 的价值不在于替代 API 测试，而在于捕获那些只有真实浏�
 3. **CI 里失败的截图一定要存档**，这是排查 E2E 失败的唯一线索
 4. **优先用 `[data-testid]` 选择器**，让前端团队配合加，比用 CSS class 稳定得多
 5. **Dusk 测试是最后一道防线**，不是第一道——单元测试和 API 测试覆盖 90%，Dusk 兜底最后 10%
+
+## 相关阅读
+
+- [Git Bisect 实战：二分法定位生产回归——结合 Pest 测试与 CI 的自动化 bug 猎手](/categories/CI-CD/Git-Bisect-Automated-Bug-Finding-实战-二分法定位生产回归-Pest测试-CI自动化bug猎手/)
+- [GitHub Actions 矩阵策略实战：多 PHP 版本、多数据库的并行测试与条件发布](/categories/CI-CD/GitHub-Actions-矩阵策略实战-多PHP版本多数据库并行测试与条件发布/)
+- [phpunit.jenkins.xml 实战：Laravel 项目自动化测试流水线配置](/categories/DevOps/phpunit-jenkins-xml-guide-laravel-automationtesting/)

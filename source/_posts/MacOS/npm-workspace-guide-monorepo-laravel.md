@@ -1,5 +1,6 @@
 ---
 title: npm-workspace-实战-Monorepo-项目管理与多包协作-Laravel前后端分离踩坑记录
+cover: /images/covers/npm-workspace-guide-monorepo-laravel-cover.jpg
 date: 2026-05-17 07:05:31
 updated: 2026-05-17 07:08:05
 categories:
@@ -7,8 +8,7 @@ categories:
   - Laravel
 tags: [JavaScript, Laravel, macOS]
 description: >
-  npm workspace 实战：从零搭建 Monorepo 项目、多包依赖管理、脚本编排、
-  与 Laravel 前后端分离项目的集成经验，以及 30+ 仓库管理中的真实踩坑记录。
+  npm Workspace 实战指南：在 Laravel 前后端分离项目中搭建 Monorepo，实现前端多包管理与依赖共享。涵盖项目结构设计、根 package.json 配置、子包依赖声明与 symlink 机制、拓扑排序构建脚本编写、幽灵依赖排查与 .npmrc 配置、CI/CD 集成中的 npm ci 最佳实践。对比 pnpm workspace、Yarn Berry、Turborepo 四大方案，附 7 大踩坑记录与选型决策建议。
 
 
 
@@ -37,7 +37,7 @@ description: >
 - 修改 `shared-components` 一个按钮样式，要发 5 个 PR、等 5 次 CI
 - 版本号管理混乱，`api-sdk@1.2.3` 到底兼容哪个 `shared-types`？
 - 每个仓库独立的 `node_modules`，磁盘占用翻倍
-- 新人 onboarding 要 clone 6 个仓库、配 6 奡环境
+- 新人 onboarding 要 clone 6 个仓库、配 6 套环境
 
 Monorepo 的核心价值：**一个仓库、一套依赖、一次构建、统一发布**。
 
@@ -503,3 +503,13 @@ npm workspace 不是最强大的 Monorepo 工具，但它是**零成本**的选�
 ---
 
 *本文基于 30+ 仓库的 Monorepo 实践经验，涵盖 Vue 3 + Laravel 前后端分离场景。如有疑问欢迎讨论。*
+
+## 相关阅读
+
+- [Monorepo vs Polyrepo：30+ 仓库架构选型与管理经验](/architecture/monorepo-vs-polyrepo-30-architecture) — Monorepo 与 Polyrepo 的全面对比，帮你做出正确的架构选型
+- [pnpm 实战：高效磁盘空间利用与 Workspace Monorepo 包管理踩坑记录](/macos/pnpm-guide-workspace-monorepo) — 如果你对幽灵依赖和硬链接节省空间感兴趣，pnpm workspace 是更好的选择
+- [Composer 深入：自动加载机制与 PSR-4 原理](/php/Laravel/composer-deep-dive-autoloading) — 后端包管理的自动加载原理，与前端 npm workspace 形成对照
+- [GitHub Actions CI/CD 优化：Laravel 缓存策略](/php/Laravel/github-actions-ci-cd-optimizationguide-laravel-cache) — CI/CD 缓存优化技巧，适用于 Monorepo 多包构建场景
+- [Laravel Mix 与 Node.js Webpack 优化指南](/php/Laravel/laravel-mix-node-js-webpack-optimization) — Laravel 前端构建工具链的演进与优化
+- [Bun 实战：比 npm 快 10 倍的 JavaScript 运行时踩坑记录](/macos/bun-guide-npm-10-javascript) — 了解下一代 JavaScript 运行时如何提升包安装和构建速度
+- [Monorepo 深度实战：Nx vs Turborepo vs Pants——大型 Laravel + 前端项目的构建缓存与任务编排](/architecture/monorepo-deep-dive-nx-turborepo-pants) — 当 npm workspace 不够用时，深入了解三大构建工具的缓存机制与任务编排

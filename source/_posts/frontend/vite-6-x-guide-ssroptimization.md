@@ -1,10 +1,11 @@
 ---
+cover: /images/covers/vite-6-x-guide-ssroptimization-cover.jpg
 title: Vite 6.x 实战：插件开发、SSR、构建优化——前端工程化踩坑记录
 date: 2026-05-17 02:30:32
 updated: 2026-05-17 02:32:33
 categories: Frontend
-tags: [Vite, Webpack, 前端]
-description: "从 Vite 5 升级到 6.x 的真实踩坑经验：Environment API 插件开发、SSR 构建优化、Rolldown 预览、Tree-shaking 调优，以及在 Laravel B2C 前后端分离项目中的落地方案。"
+tags: [Vite, Webpack, 前端, SSR, Rolldown, Tree-shaking]
+description: "从 Vite 5 升级到 6.x 的真实踩坑经验：Environment API 插件开发、SSR 构建优化、Rolldown 预览、Tree-shaking 调优，以及在 Laravel B2C 前后端分离项目中的落地方案。涵盖 Vite 6 核心架构变化、升级迁移步骤、常见构建性能问题排查清单，附完整生产环境配置示例，帮助前端团队快速落地 Vite 6。"
 
 
 
@@ -497,6 +498,223 @@ cat dist/.vite/manifest.json
 2. 跑一遍 build，修 manifest 路径
 3. 检查自定义插件是否适配 Environment API
 4. 最后尝试 Rolldown（可选）
+
+---
+
+## 八、Vite 6 vs Vite 5 核心差异对比
+
+| 特性 | Vite 5 | Vite 6 | 影响 |
+|------|--------|--------|------|
+| 打包器 | Rollup | Rolldown（实验性，Rust 实现） | 构建速度提升 6-10 倍 |
+| 环境 API | 无，插件共享全局 config | Environment API，插件按环境配置 | 多环境构建不再需要 hack |
+| SSR | 外部模块直接 require | Vite 完全管理 SSR 模块图 | Tree-shaking 生效，产物更小 |
+| CSS Modules | `localsConvention` 默认值 | 默认值调整，需显式指定 | 升级后可能样式错乱 |
+| `defineConfig` | 仅支持同步 | 支持异步函数 | 可在 config 阶段做异步操作 |
+| `import.meta.env` | SSR 构建时替换 | SSR 运行时注入 | `process.env` polyfill 失效 |
+| manifest 路径 | `dist/manifest.json` | `dist/.vite/manifest.json` | CI/CD 脚本需更新路径 |
+| Tree-shaking | 基础支持 | 更激进的 unused export 删除 + `preset` 选项 | 产物更精简 |
+| HMR | 稳定 | 模块级 HMR，更精确的热更新 | 开发体验提升 |
+| JSON 导入 | 基础支持 | 增强（命名导出） | `import { name } from './config.json'` |
+
+---
+
+## 九、Rolldown 打包器原理与使用
+
+### 9.1 Rolldown 是什么？
+
+Rolldown 是 Vite 团队用 Rust 重写的 Rollup 替代品，目标是在保持 Rollup 插件兼容性的同时，将构建性能提升一个数量级。其核心设计：
+
+```
+┌─────────────────────────────────────────────┐
+│               Rolldown 架构                  │
+├─────────────────────────────────────────────┤
+│  ┌──────────┐   ┌──────────┐   ┌─────────┐ │
+│  │  Parser   │ → │  AST     │ → │ Transform│ │
+│  │ (SWC/原生)│   │ (增量)   │   │ (Rust)  │ │
+│  └──────────┘   └──────────┘   └────┬────┘ │
+│                                      │      │
+│  ┌──────────┐   ┌──────────┐   ┌────▼────┐ │
+│  │  Output   │ ← │ Module   │ ← │ Resolve │ │
+│  │  (ESM/CJS)│   │ Graph    │   │ (Rust)  │ │
+│  └──────────┘   └──────────┘   └─────────┘ │
+└─────────────────────────────────────────────┘
+```
+
+**为什么快？** Rust 的内存管理和并行处理能力，让解析、转换、代码生成阶段都比 JS 实现快 5-10 倍。
+
+### 9.2 启用 Rolldown
+
+```typescript
+// vite.config.ts
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [vue()],
+  // 方式一：环境变量启用
+  // VITE_ROLDOWN=true vite build
+
+  // 方式二：配置文件启用（Vite 6.1+）
+  experimental: {
+    rolldown: true,
+  },
+
+  build: {
+    // Rolldown 兼容 Rollup 的大部分配置
+    rollupOptions: {
+      output: {
+        format: 'esm',
+        manualChunks: {
+          'vue-vendor': ['vue', 'vue-router', 'pinia'],
+        },
+      },
+    },
+  },
+})
+```
+
+### 9.3 兼容性处理
+
+```typescript
+// 如果 Rolldown 下某个插件报错，可以条件回退
+import { defineConfig } from 'vite'
+
+const useRolldown = process.env.VITE_ROLDOWN === 'true'
+
+export default defineConfig({
+  experimental: {
+    rolldown: useRolldown,
+  },
+  plugins: [
+    // 某些插件在 Rolldown 下不兼容，用条件加载
+    ...(!useRolldown ? [legacyPlugin()] : []),
+    vue(),
+  ],
+})
+```
+
+---
+
+## 十、常见构建性能问题排查清单
+
+| # | 问题 | 症状 | 解决方案 |
+|---|------|------|----------|
+| 1 | **冷构建时间过长** | `vite build` 超过 30s | 启用 Rolldown；检查 `node_modules` 是否有大型预构建依赖；用 `--debug` 查看瓶颈 |
+| 2 | **增量构建无加速** | 修改一个文件后 HMR 很慢 | 检查 `optimizeDeps.include` 是否遗漏常用依赖；开启文件系统缓存 |
+| 3 | **chunk 过大警告** | 构建输出 `chunk size limit exceeded` | 优化 `manualChunks` 分包策略；检查是否有未做 code splitting 的大型库 |
+| 4 | **SSR 构建产物过大** | SSR bundle 超过 1MB | 关闭 SSR minify；配置 `external` 排除不需要打包的 node_modules；按路由分包 |
+| 5 | **Tree-shaking 不生效** | 产物中包含未使用的代码 | 检查 `sideEffects` 字段；确认模块未被标记为有副作用；升级到 Vite 6 的 `preset: 'recommended'` |
+| 6 | **内存溢出 (OOM)** | 构建时 `JavaScript heap out of memory` | 增加 Node 内存 `NODE_OPTIONS=--max-old-space-size=4096`；分包减少单次处理量 |
+| 7 | **TypeScript 类型检查慢** | `vue-tsc` 耗时超过 20s | 使用 `vue-tsc --noEmit --skipLibCheck`；考虑只在 CI 做完整类型检查 |
+| 8 | **CSS 预处理器编译慢** | Sass/Less 编译占用大量时间 | 升级预处理器版本；使用 `api: 'modern-compiler'`；减少 `@import` 嵌套 |
+
+---
+
+## 十一、生产环境完整配置示例
+
+```typescript
+// vite.config.ts - 适用于 Vue 3 + SSR + Laravel 前后端分离的生产配置
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
+
+export default defineConfig(async ({ mode }) => {
+  const isProd = mode === 'production'
+
+  return {
+    base: '/',
+    plugins: [vue()],
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, 'src'),
+      },
+    },
+    css: {
+      modules: {
+        localsConvention: 'camelCaseOnly',
+      },
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "@/styles/variables" as *;`,
+        },
+      },
+    },
+    build: {
+      outDir: '../laravel-project/public/frontend',
+      emptyOutDir: true,
+      manifest: true,
+      target: 'es2020',
+      chunkSizeWarningLimit: 500,
+      rollupOptions: {
+        treeshake: {
+          moduleSideEffects: (id) => {
+            if (id.includes('polyfill') || id.includes('register')) return true
+            return false
+          },
+          preset: 'recommended',
+        },
+        output: {
+          format: 'esm',
+          manualChunks(id) {
+            if (id.includes('node_modules/vue/') ||
+                id.includes('node_modules/vue-router/') ||
+                id.includes('node_modules/pinia/')) {
+              return 'vue-vendor'
+            }
+            if (id.includes('node_modules/element-plus/') ||
+                id.includes('node_modules/ant-design-vue/')) {
+              return 'ui-vendor'
+            }
+            if (id.includes('node_modules/lodash/') ||
+                id.includes('node_modules/date-fns/') ||
+                id.includes('node_modules/axios/')) {
+              return 'utils-vendor'
+            }
+            if (id.includes('node_modules/')) {
+              return 'vendor'
+            }
+            if (id.includes('/views/') || id.includes('/pages/')) {
+              const match = id.match(/\/(?:views|pages)\/([^/]+)\//)
+              return match ? `page-${match[1]}` : undefined
+            }
+          },
+          chunkFileNames: 'assets/js/[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js',
+          assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+        },
+      },
+    },
+    // SSR 环境配置
+    environments: {
+      ssr: {
+        build: {
+          rollupOptions: {
+            output: { format: 'esm' },
+            external: (id) => {
+              if (['vue-router', 'pinia', '@vueuse/core'].includes(id)) return false
+              return id.includes('node_modules')
+            },
+          },
+          minify: false,
+          sourcemap: true,
+        },
+      },
+    },
+    // Rolldown 实验性启用（可选）
+    experimental: {
+      rolldown: isProd,
+    },
+  }
+})
+```
+
+---
+
+## 相关阅读
+
+- [Vite vs Webpack vs Laravel Mix 前端构建工具选型对比实战](/categories/Frontend/vite-vs-webpack-laravel-mix-vs/)
+- [Vite + Laravel 实战：前后端分离开发工作流踩坑记录](/categories/Frontend/vite-laravel-guide/)
+- [Vue 3 + TypeScript 实战：类型安全的前端开发与真实踩坑记录](/categories/Frontend/vue-3-typescript-guide/)
 
 ---
 

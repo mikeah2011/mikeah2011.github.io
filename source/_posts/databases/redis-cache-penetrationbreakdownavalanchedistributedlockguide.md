@@ -4,10 +4,14 @@ date: 2026-05-02
 categories:
   - Databases
   - Redis
-tags: [KKday, Redis, 缓存]
-description: KKday B2C API 项目中 Redis 缓存实战踩坑记录：缓存穿透/击穿/雪崩的防护方案与分布式锁失效场景深度解析
+tags: [kkday, redis, 缓存, 缓存穿透, 缓存击穿, 缓存雪崩, 分布式锁, 布隆过滤器, 高并发, PHP]
+description: 基于 KKday B2C API 高并发真实踩坑记录，系统讲解 Redis 缓存穿透（布隆过滤器+空值缓存双层防护）、缓存击穿（互斥锁+随机TTL+逻辑过期）、缓存雪崩（分时段过期+随机TTL分散）三大经典问题的生产级解决方案，深入剖析 Redis 分布式锁失效场景与 RedLock 防护策略，含完整 PHP 8 代码实战与高并发架构最佳实践
 
 
+cover: /images/covers/databases-redis-cache-shield-cover.jpg
+images:
+  - /images/content/databases-redis-cache-shield-content-1.jpg
+  - /images/content/databases-redis-cache-shield-content-2.jpg
 
 ---
 # Redis 缓存三大问题防护与分布式锁实战
@@ -73,6 +77,8 @@ public function getOrderProducts($orderId)
 ---
 
 ## 🎯 缓存穿透：空数据也缓存？
+
+![缓存穿透防护](/images/content/databases-redis-cache-shield-content-1.jpg)
 
 ### ❌ Before：经典缓存穿透问题
 
@@ -1247,3 +1253,14 @@ REDIS_DB=0
 ---
 
 *本文基于 KKday B2C API 真实项目踩坑记录整理，已应用于生产环境验证。*
+
+---
+
+## 相关阅读
+
+- [穿透 & 雪崩 & 击穿：Redis 缓存三大问题全面对比与防护方案选型](/post/vs-penetrationavalanche.html)
+- [Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh 三重防御](/post/Cache-Stampede-防护深度实战-Lock-Probabilistic-Early-Expiration-Background-Refresh-Laravel高并发缓存击穿三重防御.html)
+- [Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录](/post/laravel-redis-distributedlockguide.html)
+- [Predis Laravel 缓存实战与分布式锁性能调优](/post/predis-laravel-cacheguide-distributedlock.html)
+- [Laravel Task Scheduling 进阶实战：Redis 互斥实现多实例任务去重](/post/2026-06-07-Laravel-Task-Scheduling-进阶实战-Redis互斥多实例任务去重原理.html)
+- [API 限流实战：滑动窗口、令牌桶算法 - Redis Lua 原子实现](/post/api-rate-limitingguide-rate-limiting.html)

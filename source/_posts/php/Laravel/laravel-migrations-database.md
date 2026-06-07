@@ -1,12 +1,13 @@
 ---
 title: Laravel-Migrations-零停机数据库变更与回滚策略实战
+cover: /images/covers/laravel-migrations-database-cover.jpg
 date: 2026-05-06 11:23:35
 updated: 2026-05-06 11:34:49
-tags: [Kubernetes, Laravel, MySQL, 工程管理]
+tags: [Laravel, MySQL, 零停机, 工程管理]
 categories:
   - PHP
   - Laravel
-description: 基于 Laravel B2C API 的真实发布经验，拆解零停机数据库变更的落地方法：Expand-Contract、独立回填、功能开关切流、双写兼容，以及真正安全的生产回滚策略。
+description: 基于 Laravel B2C API 高并发真实发布经验，系统拆解零停机数据库变更的四段式落地方法（Expand-Contract 模式）、独立回填命令与进度追踪设计、功能开关切流与双写兼容策略、生产环境安全回滚五步法，附完整 Migration 代码示例与三种方案对比表，覆盖大表加索引、字段类型迁移、唯一约束等高频场景。
 
 
 
@@ -174,3 +175,215 @@ $order->fill([
 我的结论只有四句：Migration 只做短平快 schema 变更；回填拆成可暂停、可续跑命令；切读靠开关、切写靠双写；回滚优先回代码。
 
 一句话总结：**先让数据库兼容未来，再让代码兼容过去，最后再清理历史。**
+
+## 七、完整 Expand-Contract 实战：orders 表字段类型迁移
+
+下面把四段式完整串起来。场景：把 `orders.total_amount` 从 `DECIMAL(10,2)` 改成整数分（`BIGINT`），避免浮点精度问题。
+
+### Step 1 — Expand：加新字段
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('orders', function (Blueprint $table) {
+            $table->unsignedBigInteger('total_amount_cents')
+                ->nullable()
+                ->after('total_amount');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('total_amount_cents');
+        });
+    }
+};
+```
+
+### Step 2 — Backfill：分批转换
+
+```php
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
+
+class BackfillOrderAmountCentsCommand extends Command
+{
+    protected $signature = 'orders:backfill-amount-cents {--chunk=2000}';
+
+    public function handle(): int
+    {
+        $chunk = (int) $this->option('chunk');
+
+        while (true) {
+            $rows = DB::table('orders')
+                ->whereNull('total_amount_cents')
+                ->orderBy('id')
+                ->limit($chunk)
+                ->pluck('id');
+
+            if ($rows->isEmpty()) {
+                break;
+            }
+
+            DB::table('orders')
+                ->whereIn('id', $rows)
+                ->update([
+                    'total_amount_cents' => DB::raw('CAST(total_amount * 100 AS SIGNED)'),
+                ]);
+
+            $this->info("Backfilled {$rows->count()} rows (last id: {$rows->last()})");
+
+            usleep(50_000); // 50ms 限速，降低主从延迟
+        }
+
+        return self::SUCCESS;
+    }
+}
+```
+
+### Step 3 — Switch + Contract：切读写后删旧列
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        // 先加 NOT NULL 约束 + 默认值
+        Schema::table('orders', function (Blueprint $table) {
+            $table->unsignedBigInteger('total_amount_cents')
+                ->default(0)
+                ->change();
+        });
+
+        // 再删旧列（至少延后一个发布周期）
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('total_amount');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('orders', function (Blueprint $table) {
+            $table->decimal('total_amount', 10, 2)->nullable();
+        });
+    }
+};
+```
+
+## 八、三种方案对比
+
+| 维度 | Expand-Contract（本文方案） | 直接 Migration | Online DDL 工具（gh-ost / pt-osc） |
+|---|---|---|---|
+| 停机时间 | 零 | 取决于表大小 | 零 |
+| 实现复杂度 | 中等，需多步 Migration + Command | 低，一条 Migration | 中等，需额外部署工具 |
+| 回滚风险 | 低，旧字段保留可切回 | 高，DDL 回滚成本大 | 中等，需手动处理影子表 |
+| 适用场景 | 逻辑变更（字段语义、类型迁移） | 小表 / 索引操作 | 大表物理结构变更（加列、改类型） |
+| 对线上流量影响 | 可控，分批限速 | 不可控，可能全表锁 | 可控，工具自动限速 |
+| Laravel 集成度 | 原生，无外部依赖 | 原生 | 需 Shell 调用或 CI 集成 |
+
+**经验法则**：小表 (<50万行) 直接 Migration；大表逻辑变更用 Expand-Contract；大表物理结构变更优先考虑 gh-ost。
+
+## 九、回填策略进阶
+
+### 策略 1：带进度追踪的回填命令
+
+```php
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
+
+class TrackedBackfillCommand extends Command
+{
+    protected $signature = 'orders:tracked-backfill {--chunk=1000} {--resume}';
+
+    public function handle(): int
+    {
+        $lastId = $this->option('resume')
+            ? (int) Cache::get('backfill:orders:last_id', 0)
+            : 0;
+
+        $total = DB::table('orders')->where('id', '>', $lastId)->count();
+        $bar = $this->output->createProgressBar($total);
+        $bar->start();
+
+        while (true) {
+            $rows = DB::table('orders')
+                ->where('id', '>', $lastId)
+                ->whereNull('status_code')
+                ->orderBy('id')
+                ->limit((int) $this->option('chunk'))
+                ->get();
+
+            if ($rows->isEmpty()) {
+                break;
+            }
+
+            foreach ($rows as $row) {
+                DB::table('orders')->where('id', $row->id)->update([
+                    'status_code' => match ($row->status) {
+                        'pending' => 0, 'paid' => 1, 'cancelled' => 2, 'refunded' => 3, default => 0,
+                    },
+                ]);
+            }
+
+            $lastId = $rows->last()->id;
+            Cache::put('backfill:orders:last_id', $lastId, 86400);
+            $bar->advance($rows->count());
+        }
+
+        $bar->finish();
+        $this->newLine();
+        Cache::forget('backfill:orders:last_id');
+
+        return self::SUCCESS;
+    }
+}
+```
+
+特点：`--resume` 支持断点续跑；Cache 记录进度；进度条直观展示。
+
+### 策略 2：分段并行回填
+
+当表超过千万行时，单进程回填太慢。可以用多个子任务并行：
+
+```php
+// 在 Laravel Schedule 中按 ID 段分发
+Schedule::command('orders:backfill-status-code', ['--from' => 1, '--to' => 1000000])
+    ->withoutOverlapping()
+    ->runInBackground();
+
+Schedule::command('orders:backfill-status-code', ['--from' => 1000001, '--to' => 2000000])
+    ->withoutOverlapping()
+    ->runInBackground();
+```
+
+关键：每个分段加 `--from` / `--to` 参数，用 `whereBetween('id', ...)` 限定范围，避免重复扫描。
+
+## 相关阅读
+
+- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/categories/架构/Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构/)
+- [PHP-FPM 长连接与短连接实战：数据库连接池性能差异与 MySQL 踩坑记录](/categories/PHP/php-fpm-guide-databasemysql/)
+- [Data Contract 实战：Laravel 微服务数据契约版本化验证与 Breaking Change 检测](/categories/架构/2026-06-05-Data-Contract-Pact-style-Laravel微服务数据契约版本化验证Breaking-Change检测/)

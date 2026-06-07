@@ -7,8 +7,8 @@ updated: 2026-05-17 07:39:49
 categories:
   - macOS
   - Tools
-tags: [AI, DevOps, macOS, 前端]
-description: "从零搭建 Hermes Agent 多平台 AI 助手的完整实战记录——涵盖 macOS/Linux/WSL 安装配置、多 Provider 接入（OpenAI/Anthropic/Ollama/LM Studio）、模型路由策略、CLI 交互模式、Skill 系统集成，以及 30+ 仓库真实使用场景的踩坑经验。"
+tags: [ai, devops, macos, ai-agent, hermes-agent, llm]
+description: "从零搭建 Hermes Agent 多平台 AI 助手的完整实战记录——涵盖 macOS/Linux/WSL 三平台安装配置、多 Provider 接入（OpenAI/Anthropic/Ollama/Xiaomi MiMo）、智能模型路由策略与成本优化、CLI 交互与单次命令模式、Skill 系统项目级与全局级集成、GitHub Actions CI/CD 自动代码审查、数据敏感度分级安全方案、日志审计与隐私保护，以及在 30+ Laravel 仓库中积累的真实踩坑经验与性能对比实测数据。"
 
 
 
@@ -565,3 +565,11 @@ Hermes Agent 作为统一的 AI 助手中间层，解决了多工具碎片化的
 - **安全第一**：敏感文件自动路由到本地模型，日志定期清理
 
 下一篇我会深入讲解 Hermes Agent 的 Skill 开发高级技巧——条件激活、Progressive Disclosure、多 Skill 编排等进阶用法。
+
+---
+
+## 相关阅读
+
+- [AI Agent Skill 开发实战：自定义技能与工作流自动化——Hermes Agent 踩坑记录](/categories/macOS/ai-agent-skill-guide-automation-hermes-agent/)
+- [Ollama 实战：本地部署 LLM 与 API 服务 — 隐私优先的 AI 开发工作流踩坑记录](/categories/macOS/ollama-guide-deployment-llm-api-ai/)
+- [Hermes Agent vs Claude Code vs Cursor：开发者 AI 助手深度对比](/categories/macOS/2026-06-01-hermes-agent-vs-claude-code-vs-cursor-developer-ai-assistant-comparison/)

@@ -1,9 +1,10 @@
 ---
 title: "Stripe 支付 - 支付流程完整设计与高并发场景下的幂等性保障踩坑记录"
 date: 2026-05-04 12:01:45
-description: "Stripe 支付 - 支付流程完整设计与高并发场景下的幂等性保障踩坑记录"
+cover: /images/covers/stripe-high-concurrency-cover.jpg
+description: "Stripe 支付系统完整设计实战：涵盖 PaymentIntent 支付流程、Webhook 签名验证与队列异步处理、幂等性保障（Idempotency-Key）、3D Secure 超时踩坑、高并发连接池复用等核心方案，来自 KKday B2C API 高并发场景的真实生产踩坑与架构优化记录。"
 updated: null
-tags: [Laravel, 支付]
+tags: [Laravel, Stripe, 支付, 高并发, Webhook, 幂等性, PaymentIntent, B2C]
 categories:
   - Misc
   - Payment
@@ -530,7 +531,21 @@ class StripeWebhookHandler extends Queueable implements Contracts\PaymentGateway
 
 ---
 
-## 七、扩展阅读与参考资料
+## 七、解决方案对比：幂等性保障策略
+
+| 方案 | 实现复杂度 | 可靠性 | 适用场景 | 缺点 |
+|------|-----------|--------|---------|------|
+| **数据库唯一索引** | 低 | 高 | 单库单表 | 分布式场景需额外处理 |
+| **Redis SET NX** | 中 | 中 | 高并发短时幂等 | 需处理过期与 Redis 宕机 |
+| **Idempotency-Key（Stripe 原生）** | 低 | 高 | 第三方支付集成 | 依赖外部服务 |
+| **状态机 + 版本号（乐观锁）** | 中 | 高 | 多步骤状态流转 | 并发冲突需重试 |
+| **Inbox-Outbox 模式** | 高 | 极高 | 事件驱动 / 微服务 | 架构复杂，需消息中间件 |
+
+> **选型建议：** 与第三方支付对接推荐 **Idempotency-Key + 数据库唯一索引** 双保险；内部服务间推荐 **Inbox-Outbox** 模式。
+
+---
+
+## 八、扩展阅读与参考资料
 
 - [Stripe API Documentation](https://stripe.com/docs/api)
 - [Laravel Stripe Guide](https://laravel-packages.com/stripe)
@@ -541,3 +556,11 @@ class StripeWebhookHandler extends Queueable implements Contracts\PaymentGateway
 
 **本文档由 KKday B2C API 团队整理，实战踩坑记录真实有效。**  
 如有疑问，欢迎交流探讨支付系统架构设计。
+
+---
+
+## 相关阅读
+
+- [支付系统设计实战：多通道集成、对账退款与异常处理](/categories/Payment/payment-system-design/)
+- [Webhook 集成最佳实践：签名验证、重试与幂等处理](/categories/API/webhook-best-practices/)
+- [电商秒杀系统设计：Redis 预扣减 + 消息队列异步下单 + 限流策略实战](/categories/架构/2026-06-01-flash-sale-system-design-redis-pre-deduction-mq-async-ordering-rate-limiting/)

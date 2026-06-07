@@ -1,12 +1,13 @@
 ---
 title: Ollama 实战：本地部署 LLM 与 API 服务 — 隐私优先的 AI 开发工作流踩坑记录
+cover: /images/covers/ollama-guide-deployment-llm-api-ai-cover.jpg
 date: 2026-05-17 04:00:28
 updated: 2026-05-17 04:02:56
 categories:
   - macOS
   - Tools
-tags: [AI, Laravel, macOS]
-description: 从零搭建 Ollama 本地 LLM 服务，涵盖模型选型、API 集成、性能调优、与 Laravel 项目联动的完整实战经验。
+tags: [Ollama, LLM, Laravel, macOS, AI部署, 本地推理, API集成]
+description: 从零搭建 Ollama 本地 LLM 服务的完整实战指南。涵盖 macOS Metal 加速部署、主流开源模型选型对比（Llama 3、Qwen 2.5、DeepSeek Coder）、REST API 与 OpenAI 兼容接口调用、Laravel 项目深度集成代码审查功能、流式响应与向量嵌入、性能调优与踩坑经验。适用于 B2C 电商、内网离线部署、敏感数据处理等场景，帮助开发者构建隐私优先的 AI 开发工作流。
 
 
 
@@ -123,6 +124,23 @@ EOF
 ollama create code-review -f ~/Modelfile-code-review
 ```
 
+## Ollama vs llama.cpp vs vLLM：本地推理方案对比
+
+选型时经常在这三个方案间纠结，以下是基于实际部署经验的对比：
+
+| 维度 | Ollama | llama.cpp | vLLM |
+|------|--------|-----------|------|
+| **易用性** | ⭐⭐⭐⭐⭐ 一行命令安装运行 | ⭐⭐⭐ 需手动编译、量化 | ⭐⭐ 配置复杂，依赖多 |
+| **推理性能** | ⭐⭐⭐⭐ 基于 llama.cpp，性能优秀 | ⭐⭐⭐⭐⭐ 原生性能最佳 | ⭐⭐⭐⭐⭐ 吞吐量最高（PagedAttention） |
+| **GPU 支持** | Metal/CUDA 自动检测，零配置 | 需编译时启用 CUDA/Metal | 仅支持 NVIDIA CUDA |
+| **macOS 兼容** | ✅ 原生支持，Metal 加速 | ✅ 支持 Metal | ❌ 不支持 macOS |
+| **API 兼容性** | ✅ OpenAI 兼容 + 自有 API | ❌ 无内置 API 服务器 | ✅ OpenAI 兼容 |
+| **多模型管理** | ✅ 内置模型仓库、一键拉取 | ❌ 需自行管理 GGUF 文件 | ⚠️ 支持但配置复杂 |
+| **并发处理** | ⭐⭐⭐ 有限并发 | ⭐⭐ 单请求 | ⭐⭐⭐⭐⭐ 连续批处理 |
+| **适用场景** | 个人/小团队开发、快速原型 | 极致性能调优、嵌入式部署 | 生产级高并发服务 |
+
+> **结论**：对大多数开发者而言，**Ollama 是最佳起步选择**——安装简单、API 兼容、模型管理方便。当需要极致性能或高并发时，再考虑迁移到 llama.cpp（CPU/GPU 优化）或 vLLM（NVIDIA GPU 集群）。
+
 ## REST API 集成
 
 ### 基础 API 调用
@@ -158,6 +176,62 @@ curl http://localhost:11434/v1/chat/completions -d '{
     {"role": "user", "content": "Hello!"}
   ]
 }'
+```
+
+### Python requests 调用示例
+
+不依赖任何 SDK，用原生 `requests` 库即可调用 Ollama API，适合轻量脚本和快速验证：
+
+```python
+import requests
+import json
+
+# 基础生成（非流式）
+def generate(prompt: str, model: str = "qwen2.5:14b") -> dict:
+    resp = requests.post(
+        "http://localhost:11434/api/generate",
+        json={"model": model, "prompt": prompt, "stream": False},
+        timeout=120,
+    )
+    resp.raise_for_status()
+    return resp.json()
+
+# 流式生成（逐 token 输出）
+def generate_stream(prompt: str, model: str = "qwen2.5:14b"):
+    with requests.post(
+        "http://localhost:11434/api/generate",
+        json={"model": model, "prompt": prompt, "stream": True},
+        stream=True,
+        timeout=120,
+    ) as resp:
+        for line in resp.iter_lines():
+            if line:
+                chunk = json.loads(line)
+                print(chunk.get("response", ""), end="", flush=True)
+                if chunk.get("done"):
+                    print()  # 换行
+                    break
+
+# 对话模式（OpenAI 兼容格式）
+def chat(messages: list, model: str = "qwen2.5:14b") -> str:
+    resp = requests.post(
+        "http://localhost:11434/v1/chat/completions",
+        json={"model": model, "messages": messages},
+        timeout=120,
+    )
+    resp.raise_for_status()
+    return resp.json()["choices"][0]["message"]["content"]
+
+# 使用示例
+if __name__ == "__main__":
+    result = generate("用 PHP 写一个单例模式")
+    print(f"模型: {result['model']}")
+    print(f"耗时: {result['total_duration'] / 1e6:.0f}ms")
+    print(f"输出: {result['response']}")
+
+    # 流式输出
+    print("\n--- 流式输出 ---")
+    generate_stream("解释 Laravel 中间件的执行顺序")
 ```
 
 ### Laravel 集成示例
@@ -477,6 +551,78 @@ ollama list
 
 ## 踩坑总结
 
+### 详细踩坑案例
+
+#### 案例一：模型下载失败 / 速度极慢
+
+国内网络环境下拉取大模型（7B 以上约 4-8GB）经常超时或速度只有几十 KB/s：
+
+```bash
+# 方案 1：设置 HTTPS 代理
+export HTTPS_PROXY="http://127.0.0.1:7890"
+ollama pull qwen2.5:14b
+
+# 方案 2：断点续传——Ollama pull 支持断点续传，中断后重新执行即可
+ollama pull qwen2.5:14b
+# 提示：pulling manifest / pulling abc123... 会从上次断点继续
+
+# 方案 3：手动下载 GGUF 后通过 Modelfile 导入
+# 从 HuggingFace 下载 GGUF 文件，然后创建 Modelfile
+cat > ~/Modelfile << 'EOF'
+FROM ./qwen2.5-14b-q4_k_m.gguf
+EOF
+ollama create my-qwen -f ~/Modelfile
+```
+
+> **经验**：如果公司有 HuggingFace 镜像，先下载 GGUF 再导入比直接 `ollama pull` 更稳定。
+
+#### 案例二：GPU 显存不足（OOM）导致推理失败
+
+16GB 内存的 MacBook Pro 加载 14B 模型 + 大上下文窗口时容易 OOM：
+
+```bash
+# 症状：调用 API 返回 500 错误，日志显示 "out of memory"
+# 查看当前显存占用
+ollama ps
+
+# 解决方案 1：减小上下文窗口
+curl http://localhost:11434/api/generate -d '{
+  "model": "qwen2.5:14b",
+  "prompt": "...",
+  "options": { "num_ctx": 2048 }
+}'
+
+# 解决方案 2：使用更小的量化版本
+ollama pull qwen2.5:14b-q4_0   # Q4_0 比 Q4_K_M 更省显存
+
+# 解决方案 3：换用更小的模型
+ollama pull qwen2.5:7b          # 7B 模型显存约 4.5GB
+
+# 解决方案 4：减少同时加载的模型数
+export OLLAMA_MAX_LOADED_MODELS=1
+```
+
+> **经验**：macOS 上统一内存（Unified Memory）的显存上限是物理内存的 70% 左右。16GB 机器实际可用约 11GB，建议最大加载 7B 模型；32GB 可跑 14B；64GB+ 才考虑 34B。
+
+#### 案例三：中文输出乱码或夹杂英文
+
+部分模型（特别是 Llama 系列）在中文 prompt 下输出乱码或中英混杂：
+
+```bash
+# 症状：明明用中文提问，模型却返回 "The answer is...你好" 这种混杂输出
+# 原因：Llama 3 的中文微调不足，tokenizer 对中文 token 切分效率低
+
+# 推荐方案：使用中文优化的模型
+ollama pull qwen2.5:14b         # 阿里通义千问，中文最佳
+ollama pull deepseek-coder-v2:16b  # 代码场景下的中文理解优秀
+ollama pull glm4:9b             # 智谱 ChatGLM，中文对话流畅
+
+# 如果必须用 Llama 系列，在 system prompt 中明确要求中文输出
+# "请始终用中文回答，不要使用英文。"
+```
+
+> **经验**：中文场景首选 Qwen 2.5 系列，其次 DeepSeek 和 GLM。Llama 3 的英文能力虽强，但中文体验差距明显。
+
 | # | 问题 | 解决方案 |
 |---|------|----------|
 | 1 | 局域网无法访问 | 设置 `OLLAMA_HOST="0.0.0.0:11434"` |
@@ -485,6 +631,9 @@ ollama list
 | 4 | `num_ctx` 导致 OOM | 根据显存调整，16GB 机器用 4096 |
 | 5 | 模型下载慢 | 用 `HTTPS_PROXY` 设置代理 |
 | 6 | 并发请求排队 | 设置 `OLLAMA_MAX_LOADED_MODELS=2` |
+| 7 | 中文输出乱码/混杂英文 | 换用 Qwen 2.5 或 DeepSeek 等中文优化模型 |
+| 8 | 统一内存 OOM | 根据物理内存选模型：16GB→7B，32GB→14B，64GB+→34B |
+| 9 | 模型导入失败 | 确认 GGUF 格式正确，Modelfile 路径用绝对路径 |
 
 ## 写在最后
 
@@ -500,3 +649,11 @@ ollama list
 ---
 
 *本文基于 macOS M3 Max + Ollama 0.6.8 实测，所有代码示例均来自真实项目。*
+
+---
+
+## 相关阅读
+
+- [Anthropic Claude Opus4 / OpenAI o3 实战 — 最新推理模型接入、思维链输出、Tool Use 与 Laravel 集成](/categories/架构/Anthropic-Claude-Opus4-OpenAI-o3-实战-最新推理模型接入-思维链输出-Tool-Use与Laravel集成/) — 如果你需要更强的推理能力，本文介绍如何在 Laravel 中接入 Claude Opus 4 和 OpenAI o3，实现思维链输出与 Tool Use。
+- [OpenHuman Ollama 实战 — 本地 AI 模型部署与隐私优先推理](/categories/macOS/OpenHuman-Ollama-实战-本地AI模型部署与隐私优先推理/) — Ollama 的更多实战场景，包括隐私优先推理架构和多模型编排。
+- [AI Agent 框架的未来趋势 — 记忆系统、多模态、工具标准化、本地推理的发展方向](/categories/架构/AI-Agent-框架的未来趋势-记忆系统-多模态-工具标准化-本地推理的发展方向/) — 从宏观视角看 AI Agent 框架演进，了解本地推理在整个 AI 生态中的定位。

@@ -1,13 +1,14 @@
 ---
 title: 本地 vs 云端 AI 实战：成本隐私性能的权衡与 Laravel 开发者选型指南
+cover: /images/covers/vs-ai-guide-laravel-guide-cover.jpg
 date: 2026-05-17 05:50:38
 updated: 2026-05-17 05:53:29
 categories:
   - macOS
   - Laravel
-tags: [AI, DevOps, Laravel, 安全]
+tags: [ai, devops, laravel, 安全]
 description: >
-  本地 AI 模型 vs 云端 API 的真实选型决策指南。涵盖 Ollama/LM Studio 本地部署、Claude/GPT 云端调用的成本核算、隐私合规、推理性能对比，以及在 Laravel B2C 项目中如何混合使用本地与云端 AI 的实战架构方案。
+  AI辅助Laravel开发指南：本地Ollama与云端Claude/GPT真实选型决策，涵盖代码生成、成本核算、隐私合规、推理性能对比。GitHub Copilot与Cursor等AI工具在Laravel项目中的混合架构实战，实现41%成本节省与敏感数据零泄露。
 
 
 
@@ -125,6 +126,148 @@ curl http://localhost:1234/v1/chat/completions \
 - 但**复杂架构设计**、**跨文件重构**、**安全审计**仍然需要云端大模型
 - 33B 模型质量接近云端，但推理速度只有 8 tokens/s，开发体验差
 
+### 1.4 Docker 部署 Ollama（团队共享方案）
+
+当团队多人使用本地 AI 时，可以用 Docker 统一管理 Ollama 实例：
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama-server
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_NUM_PARALLEL=2        # 并发请求数
+      - OLLAMA_MAX_LOADED_MODELS=2   # 同时加载的模型数
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  ollama_data:
+```
+
+```bash
+# 启动服务
+docker compose up -d
+
+# 预加载常用模型（避免首次请求卡顿）
+docker exec ollama-server ollama pull deepseek-coder:6.7b
+docker exec ollama-server ollama pull qwen2.5-coder:7b
+
+# 查看已加载模型
+curl http://localhost:11434/api/tags | jq '.models[] | {name, size}'
+
+# 监控模型加载状态
+watch -n 2 'curl -s http://localhost:11434/api/ps | jq .'
+```
+
+**踩坑记录 ①b**：Docker 环境下 Ollama 默认绑定 `0.0.0.0`，如果 Mac 没有配置防火墙规则，局域网内任何人都能访问你的模型服务。建议在 Docker network 中设置 `internal: true`，仅允许特定容器访问。
+
+### 1.5 模型版本管理与自动降级
+
+生产环境中，模型需要版本管理和自动降级策略：
+
+```php
+<?php
+
+namespace App\Services\AiGateway;
+
+class ModelVersionManager
+{
+    private string $ollamaHost;
+
+    // 模型版本配置：每个任务类型对应多个候选模型
+    private array $modelTiers = [
+        'code_completion' => [
+            ['model' => 'deepseek-coder:6.7b',   'tier' => 1, 'min_ram_gb' => 8],
+            ['model' => 'qwen2.5-coder:7b',      'tier' => 2, 'min_ram_gb' => 8],
+            ['model' => 'codellama:7b-code',      'tier' => 3, 'min_ram_gb' => 6],
+        ],
+        'code_review' => [
+            ['model' => 'deepseek-coder:33b',     'tier' => 1, 'min_ram_gb' => 32],
+            ['model' => 'codellama:13b',           'tier' => 2, 'min_ram_gb' => 16],
+        ],
+    ];
+
+    public function __construct(string $ollamaHost = 'http://localhost:11434')
+    {
+        $this->ollamaHost = $ollamaHost;
+    }
+
+    /**
+     * 选择当前可用的最佳模型
+     * 自动降级：如果首选模型未加载或内存不足，依次降级
+     */
+    public function selectModel(string $taskType): ?string
+    {
+        $tiers = $this->modelTiers[$taskType] ?? [];
+        $loadedModels = $this->getLoadedModels();
+
+        foreach ($tiers as $candidate) {
+            // 检查模型是否已加载
+            if (in_array($candidate['model'], $loadedModels)) {
+                return $candidate['model'];
+            }
+
+            // 尝试加载模型（如果系统内存允许）
+            if ($this->hasEnoughMemory($candidate['min_ram_gb'])) {
+                $this->loadModel($candidate['model']);
+                return $candidate['model'];
+            }
+        }
+
+        return null; // 所有本地模型都不可用，需降级到云端
+    }
+
+    private function getLoadedModels(): array
+    {
+        $response = \Http::get("{$this->ollamaHost}/api/ps");
+        $models = $response->json('models', []);
+
+        return array_map(fn($m) => $m['name'], $models);
+    }
+
+    private function hasEnoughMemory(int $requiredGb): bool
+    {
+        $memInfo = shell_exec('sysctl -n hw.memsize') ?? '0';
+        $totalGb = (int) ($memInfo / 1024 / 1024 / 1024);
+        $freeGb = (int) (disk_free('/') / 1024 / 1024 / 1024);
+
+        return ($totalGb - $freeGb) >= $requiredGb;
+    }
+
+    private function loadModel(string $model): void
+    {
+        \Log::info("Loading local model: {$model}");
+        \Http::post("{$this->ollamaHost}/api/generate", [
+            'model' => $model,
+            'prompt' => '',
+            'stream' => false,
+            'keep_alive' => '30m', // 保持加载30分钟
+        ]);
+    }
+}
+```
+
+**踩坑记录 ①c**：Ollama 默认 5 分钟不使用就卸载模型，下次请求需要重新加载（首token延迟 10-30 秒）。设置 `keep_alive: 30m` 可以避免频繁加载卸载，但需要更多内存常驻。
+
 ## 二、云端 API 成本核算
 
 ### 2.1 真实账单数据
@@ -217,6 +360,172 @@ class AiCostReport extends Command
 ```
 
 **核心结论**：将代码补全和简单问答迁移到本地后，月费用从 $157.50 降到 $92.40，节省 41%。
+
+### 2.3 本地 vs 云端全维度成本对比
+
+```
+┌──────────────┬───────────────────────┬───────────────────────┬──────────────────────┐
+│ 维度          │ 本地 AI (Ollama)       │ 云端 AI (Claude/GPT)   │ 混合策略 (推荐)       │
+├──────────────┼───────────────────────┼───────────────────────┼──────────────────────┤
+│ 一次性硬件    │ Mac M2 Pro 32GB       │ $0                    │ $0                   │
+│              │ ~¥15,000 (已有)        │                       │                      │
+├──────────────┼───────────────────────┼───────────────────────┼──────────────────────┤
+│ 月度 API 费用 │ $0                    │ $157.50               │ $92.40               │
+├──────────────┼───────────────────────┼───────────────────────┼──────────────────────┤
+│ 6个月累计     │ $0                    │ $945                  │ $554.40              │
+├──────────────┼───────────────────────┼───────────────────────┼──────────────────────┤
+│ 年度总成本    │ $0                    │ $1,890                │ $1,108.80            │
+├──────────────┼───────────────────────┼───────────────────────┼──────────────────────┤
+│ 隐私风险      │ 零泄露                │ 需脱敏，仍有风险       │ 敏感数据零泄露       │
+├──────────────┼───────────────────────┼───────────────────────┼──────────────────────┤
+│ 代码质量      │ ~70% 云端水平          │ 100%                  │ 95%                  │
+├──────────────┼───────────────────────┼───────────────────────┼──────────────────────┤
+│ 首 token 延迟 │ 0.3-2s (取决于模型)    │ 0.5-2s (网络延迟)     │ 0.3-2s              │
+├──────────────┼───────────────────────┼───────────────────────┼──────────────────────┤
+│ 可用性        │ 断网可用，硬件依赖     │ 需联网，服务可能中断   │ 云端降级兜底         │
+├──────────────┼───────────────────────┼───────────────────────┼──────────────────────┤
+│ 适合团队规模  │ 1-5 人                │ 不限                  │ 1-20 人              │
+└──────────────┴───────────────────────┴───────────────────────┴──────────────────────┘
+```
+
+### 2.4 Token 预算管理系统
+
+对于成本敏感的团队，建议实现 Token 预算管理：
+
+```php
+<?php
+
+namespace App\Services\AiBudget;
+
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+
+class TokenBudgetManager
+{
+    private array $monthlyLimits = [
+        'claude-sonnet'   => 5_000_000,  // 500万 tokens/月
+        'gpt-4o'          => 3_000_000,  // 300万 tokens/月
+        'gpt-4o-mini'     => 10_000_000, // 1000万 tokens/月
+        'deepseek-v3'     => 8_000_000,  // 800万 tokens/月
+    ];
+
+    private array $dailyLimits = [
+        'claude-sonnet'   => 300_000,
+        'gpt-4o'          => 200_000,
+        'gpt-4o-mini'     => 500_000,
+        'deepseek-v3'     => 400_000,
+    ];
+
+    /**
+     * 检查是否超出预算，返回是否允许调用
+     */
+    public function canAfford(string $model, int $estimatedTokens): bool
+    {
+        $monthKey = 'ai_budget:' . $model . ':month:' . date('Y-m');
+        $dayKey = 'ai_budget:' . $model . ':day:' . date('Y-m-d');
+
+        $monthUsed = Cache::get($monthKey, 0);
+        $dayUsed = Cache::get($dayKey, 0);
+
+        $monthLimit = $this->monthlyLimits[$model] ?? 1_000_000;
+        $dayLimit = $this->dailyLimits[$model] ?? 100_000;
+
+        if (($monthUsed + $estimatedTokens) > $monthLimit) {
+            \Log::warning("AI budget exceeded for {$model} (monthly)", [
+                'used' => $monthUsed,
+                'limit' => $monthLimit,
+            ]);
+            return false;
+        }
+
+        if (($dayUsed + $estimatedTokens) > $dayLimit) {
+            \Log::warning("AI budget exceeded for {$model} (daily)", [
+                'used' => $dayUsed,
+                'limit' => $dayLimit,
+            ]);
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * 记录 Token 使用量
+     */
+    public function recordUsage(string $model, int $inputTokens, int $outputTokens): void
+    {
+        $totalTokens = $inputTokens + $outputTokens;
+
+        // 更新内存缓存
+        $monthKey = 'ai_budget:' . $model . ':month:' . date('Y-m');
+        $dayKey = 'ai_budget:' . $model . ':day:' . date('Y-m-d');
+        $hourKey = 'ai_budget:' . $model . ':hour:' . date('Y-m-d-H');
+
+        Cache::increment($monthKey, $totalTokens);
+        Cache::increment($dayKey, $totalTokens);
+        Cache::increment($hourKey, $totalTokens);
+
+        // 设置过期时间
+        Cache::put($monthKey, Cache::get($monthKey), now()->endOfMonth());
+        Cache::put($dayKey, Cache::get($dayKey), now()->endOfDay());
+        Cache::put($hourKey, Cache::get($hourKey), now()->addHours(2));
+
+        // 写入数据库持久化
+        DB::table('ai_usage_logs')->insert([
+            'model' => $model,
+            'input_tokens' => $inputTokens,
+            'output_tokens' => $outputTokens,
+            'created_at' => now(),
+        ]);
+    }
+
+    /**
+     * 获取预算使用报告
+     */
+    public function getReport(): array
+    {
+        $report = [];
+        foreach ($this->monthlyLimits as $model => $limit) {
+            $used = Cache::get("ai_budget:{$model}:month:" . date('Y-m'), 0);
+            $report[$model] = [
+                'used' => $used,
+                'limit' => $limit,
+                'usage_percent' => round(($used / $limit) * 100, 1),
+                'remaining' => $limit - $used,
+                'estimated_cost' => $this->estimateCost($model, $used),
+            ];
+        }
+        return $report;
+    }
+
+    private function estimateCost(string $model, int $tokens): float
+    {
+        $pricing = [
+            'claude-sonnet' => 15.0 / 1_000_000,
+            'gpt-4o'        => 10.0 / 1_000_000,
+            'gpt-4o-mini'   => 0.6 / 1_000_000,
+            'deepseek-v3'   => 1.1 / 1_000_000,
+        ];
+
+        return round($tokens * ($pricing[$model] ?? 0.01 / 1_000_000), 2);
+    }
+}
+```
+
+```bash
+# Artisan 命令查看预算报告
+php artisan ai:budget-report
+
+# 输出示例：
+# ┌──────────────┬──────────┬──────────┬───────────┬──────────┬───────────┐
+# │ 模型          │ 已用      │ 月限额    │ 使用率     │ 剩余      │ 预估费用   │
+# ├──────────────┼──────────┼──────────┼───────────┼──────────┼───────────┤
+# │ claude-sonnet│ 2,150,000│ 5,000,000│   43.0%   │2,850,000 │   $32.25  │
+# │ gpt-4o       │   850,000│ 3,000,000│   28.3%   │2,150,000 │    $8.50  │
+# │ gpt-4o-mini  │ 3,200,000│10,000,000│   32.0%   │6,800,000 │    $1.92  │
+# │ deepseek-v3  │ 1,500,000│ 8,000,000│   18.8%   │6,500,000 │    $1.65  │
+# └──────────────┴──────────┴──────────┴───────────┴──────────┴───────────┘
+```
 
 ## 三、隐私合规：哪些代码不能上云？
 
@@ -525,6 +834,229 @@ class AiAssist extends Command
 
 **踩坑记录 ③**：本地 Ollama 的默认超时是 30 秒，但 33B 模型生成长代码经常需要 60-90 秒。务必在 HTTP 客户端设置 `timeout(120)`，否则你会得到一堆 "Connection timed out" 错误。
 
+### 4.3 Laravel HTTP 中间件：自动路由 AI 请求
+
+如果你的 Laravel 项目通过 API 提供 AI 功能，可以用中间件自动处理路由：
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use App\Services\AiGateway\{ModelRouter, TaskType, SanitizeGateway};
+
+class AiRoutingMiddleware
+{
+    public function __construct(
+        private ModelRouter $router,
+        private SanitizeGateway $gateway,
+    ) {}
+
+    public function handle(Request $request, Closure $next, string $taskType)
+    {
+        $content = $request->input('content', '');
+        $task = TaskType::from($taskType);
+
+        // 路由决策
+        $target = $this->router->route($task, $content);
+
+        // 脱敏处理
+        if (!$target->isLocal) {
+            $sanitized = $this->gateway->sanitize($content);
+            $request->merge(['content' => $sanitized, '_sanitized' => true]);
+        }
+
+        // 注入路由信息供控制器使用
+        $request->merge([
+            '_ai_target' => $target,
+            '_ai_task_type' => $task,
+        ]);
+
+        // 记录请求（异步，不阻塞响应）
+        dispatch(fn() => $this->logRoutingDecision($target, $task, $content));
+
+        return $next($request);
+    }
+
+    private function logRoutingDecision($target, TaskType $task, string $content): void
+    {
+        \DB::table('ai_routing_logs')->insert([
+            'task_type' => $task->value,
+            'model' => $target->model,
+            'platform' => $target->platform->value,
+            'content_length' => strlen($content),
+            'was_sanitized' => !empty($content) && $this->gateway->shouldBeLocalOnly($content),
+            'created_at' => now(),
+        ]);
+    }
+}
+```
+
+路由注册示例：
+
+```php
+// routes/api.php
+Route::post('/ai/code-review', function (Request $request) {
+    $target = $request->get('_ai_target');
+    $task = $request->get('_ai_task_type');
+
+    // 根据路由结果调用对应模型
+    $response = app(AiController::class)->process(
+        $target,
+        $request->input('content'),
+        $task
+    );
+
+    return response()->json([
+        'model_used' => $target->model,
+        'platform' => $target->platform->value,
+        'result' => $response,
+    ]);
+})->middleware('ai:code_review');
+
+Route::post('/ai/test-gen', function (Request $request) {
+    // ...
+})->middleware('ai:test_generation');
+
+Route::post('/ai/doc-gen', function (Request $request) {
+    // ...
+})->middleware('ai:doc_generation');
+```
+
+### 4.4 Ollama 健康检查与监控
+
+在生产环境中，需要持续监控本地模型的可用性：
+
+```php
+<?php
+
+namespace App\Services\AiGateway;
+
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+
+class OllamaHealthChecker
+{
+    private string $host;
+    private int $timeout = 5;
+
+    public function __construct(string $host = 'http://localhost:11434')
+    {
+        $this->host = $host;
+    }
+
+    /**
+     * 完整健康检查：服务状态 + 模型加载 + 响应延迟
+     */
+    public function check(): array
+    {
+        $status = [
+            'service_up' => false,
+            'loaded_models' => [],
+            'response_latency_ms' => null,
+            'memory_usage_mb' => null,
+            'errors' => [],
+        ];
+
+        // 1. 检查服务是否在线
+        try {
+            $start = microtime(true);
+            $health = Http::timeout($this->timeout)->get("{$this->host}/api/tags");
+            $status['response_latency_ms'] = round((microtime(true) - $start) * 1000);
+            $status['service_up'] = $health->successful();
+        } catch (\Exception $e) {
+            $status['errors'][] = "Service unreachable: {$e->getMessage()}";
+            return $status;
+        }
+
+        // 2. 获取已加载模型
+        try {
+            $ps = Http::timeout($this->timeout)->get("{$this->host}/api/ps");
+            $models = $ps->json('models', []);
+            $status['loaded_models'] = array_map(fn($m) => [
+                'name' => $m['name'],
+                'size_gb' => round($m['size'] / 1e9, 2),
+                'processor' => $m['details']['processor'] ?? 'unknown',
+            ], $models);
+        } catch (\Exception $e) {
+            $status['errors'][] = "Failed to get loaded models: {$e->getMessage()}";
+        }
+
+        // 3. 检查系统内存
+        $memUsage = shell_exec('memory_pressure 2>/dev/null | grep "System-wide" || echo "N/A"');
+        if (preg_match('/(\d+)%/', $memUsage ?? '', $matches)) {
+            $status['memory_usage_mb'] = (int) $matches[1];
+            if ((int) $matches[1] > 90) {
+                $status['errors'][] = "Warning: Memory usage above 90% — model inference may be slow";
+            }
+        }
+
+        return $status;
+    }
+
+    /**
+     * 快速冒烟测试：用最小 prompt 测模型是否能正常响应
+     */
+    public function smokeTest(string $model = 'deepseek-coder:6.7b'): bool
+    {
+        try {
+            $response = Http::timeout(30)->post("{$this->host}/api/generate", [
+                'model' => $model,
+                'prompt' => 'Say "ok"',
+                'stream' => false,
+                'options' => ['num_predict' => 5],
+            ]);
+
+            return $response->successful() && !empty($response->json('response'));
+        } catch (\Exception $e) {
+            Log::error("Ollama smoke test failed for {$model}: {$e->getMessage()}");
+            return false;
+        }
+    }
+}
+```
+
+**踩坑记录 ④**：Ollama 进程偶尔会因内存不足被 macOS 的 OOM Killer 终止。建议用 `launchd` 创建守护进程自动重启：
+
+```xml
+<!-- ~/Library/LaunchAgents/com.ollama.serve.plist -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.ollama.serve</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/ollama</string>
+        <string>serve</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/tmp/ollama.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/ollama.err</string>
+</dict>
+</plist>
+```
+
+```bash
+# 加载守护进程
+launchctl load ~/Library/LaunchAgents/com.ollama.serve.plist
+
+# 验证运行状态
+launchctl list | grep ollama
+```
+
 ## 五、实际使用体验对比
 
 ### 5.1 各场景实际表现
@@ -587,6 +1119,144 @@ Input: PaymentService.php 完整类（200+ 行）
 }
 ```
 
+### 5.3 延迟基准测试：可运行的测量工具
+
+以下是可以直接运行的延迟测试脚本，帮助你找到本地和云端模型的真实延迟差异：
+
+```php
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Http;
+
+class AiLatencyBenchmark extends Command
+{
+    protected $signature = 'ai:benchmark
+        {--runs=5 : 每个模型测试次数}
+        {--prompt= : 自定义测试提示词}';
+
+    private array $localEndpoints = [
+        'deepseek-coder:6.7b' => 'http://localhost:11434/api/generate',
+        'qwen2.5-coder:7b'    => 'http://localhost:11434/api/generate',
+    ];
+
+    private array $cloudEndpoints = [
+        'gpt-4o-mini' => 'https://api.openai.com/v1/chat/completions',
+        'deepseek-v3' => 'https://api.deepseek.com/v1/chat/completions',
+    ];
+
+    public function handle(): int
+    {
+        $runs = (int) $this->option('runs');
+        $prompt = $this->option('prompt') ?? 'Write a Laravel Eloquent scope for filtering active users';
+
+        $this->info("🔄 Running benchmark with {$runs} iterations per model...");
+        $this->newLine();
+
+        $results = [];
+
+        // 测试本地模型
+        foreach ($this->localEndpoints as $model => $url) {
+            $results[$model] = $this->benchmarkLocal($model, $url, $prompt, $runs);
+        }
+
+        // 测试云端模型
+        foreach ($this->cloudEndpoints as $model => $url) {
+            $results[$model] = $this->benchmarkCloud($model, $url, $prompt, $runs);
+        }
+
+        // 输出结果表格
+        $this->table(
+            ['模型', '平均延迟(ms)', 'P95延迟(ms)', '首token(ms)', '输出tokens', 'tokens/s'],
+            array_map(fn($r) => [
+                $r['model'],
+                round($r['avg_latency']),
+                round($r['p95_latency']),
+                round($r['first_token_ms']),
+                $r['output_tokens'],
+                round($r['tokens_per_sec'], 1),
+            ], $results)
+        );
+
+        return 0;
+    }
+
+    private function benchmarkLocal(string $model, string $url, string $prompt, int $runs): array
+    {
+        $latencies = [];
+        $outputTokensList = [];
+
+        for ($i = 0; $i < $runs; $i++) {
+            $start = microtime(true);
+            $response = Http::timeout(120)->post($url, [
+                'model' => $model,
+                'prompt' => $prompt,
+                'stream' => false,
+                'options' => ['num_predict' => 512, 'temperature' => 0.1],
+            ]);
+
+            $latency = (microtime(true) - $start) * 1000;
+            $latencies[] = $latency;
+            $output = $response->json('response', '');
+            $outputTokensList[] = str_word_count($output); // 近似估算
+        }
+
+        return $this->computeStats($model, $latencies, $outputTokensList);
+    }
+
+    private function benchmarkCloud(string $model, string $url, string $prompt, int $runs): array
+    {
+        $latencies = [];
+        $outputTokensList = [];
+        $apiKey = $model === 'deepseek-v3'
+            ? config('services.deepseek.key')
+            : config('services.openai.key');
+
+        for ($i = 0; $i < $runs; $i++) {
+            $start = microtime(true);
+            $response = Http::withHeaders([
+                'Authorization' => "Bearer {$apiKey}",
+                'Content-Type' => 'application/json',
+            ])->timeout(60)->post($url, [
+                'model' => $model,
+                'messages' => [['role' => 'user', 'content' => $prompt]],
+                'max_tokens' => 512,
+                'temperature' => 0.1,
+            ]);
+
+            $latency = (microtime(true) - $start) * 1000;
+            $latencies[] = $latency;
+            $tokens = $response->json('usage.completion_tokens', 0);
+            $outputTokensList[] = $tokens;
+        }
+
+        return $this->computeStats($model, $latencies, $outputTokensList);
+    }
+
+    private function computeStats(string $model, array $latencies, array $outputTokens): array
+    {
+        sort($latencies);
+        $avg = array_sum($latencies) / count($latencies);
+        $p95Index = (int) ceil(count($latencies) * 0.95) - 1;
+        $avgOutput = array_sum($outputTokens) / count($outputTokens);
+        $tps = $avgOutput / ($avg / 1000);
+
+        return [
+            'model' => $model,
+            'avg_latency' => $avg,
+            'p95_latency' => $latencies[$p95Index] ?? $avg,
+            'first_token_ms' => $latencies[0] * 0.3, // 近似首 token
+            'output_tokens' => round($avgOutput),
+            'tokens_per_sec' => $tps,
+        ];
+    }
+}
+```
+
+**踩坑记录 ⑤**：基准测试时发现本地模型在连续请求时延迟会逐渐升高（模型从磁盘重新加载缓存）。建议先用 `ollama run model "warmup"` 预热，等模型完全加载到内存后再跑基准测试。
+
 ## 六、踩坑汇总与决策指南
 
 ### 6.1 踩坑清单
@@ -600,6 +1270,11 @@ Input: PaymentService.php 完整类（200+ 行）
 | 5 | 本地模型不理解项目上下文 | 补全不准 | 配合 Cursor IDE 的 @codebase |
 | 6 | 33B 模型并发受限 | 多人使用卡顿 | 限制并发为 2，排队处理 |
 | 7 | 云端 API 限流 | 批量任务失败 | 实现指数退避重试 |
+| 8 | Docker Ollama 端口暴露 | 局域网未授权访问 | 设置 `internal: true` 网络 |
+| 9 | Ollama 模型 5 分钟自动卸载 | 重启请求延迟 10-30s | 设置 `keep_alive: 30m` |
+| 10 | Ollama 被 macOS OOM 终止 | 服务中断 | launchd 守护进程自动重启 |
+| 11 | 基准测试时模型未预热 | 测试结果偏低 | 先 `ollama run` 预热再测 |
+| 12 | 本地模型不支持 function calling | 工具调用失败 | 降级到支持的云端模型 |
 
 ### 6.2 最终决策指南
 
@@ -641,6 +1316,19 @@ Input: PaymentService.php 完整类（200+ 行）
 | **适合场景** | 补全、简单QA、敏感数据 | 审查、架构、测试、文档 |
 
 **我们的最终选择**：70% 的日常任务（代码补全、简单问答）走本地，30% 的高价值任务（审查、架构、测试）走云端。月费用降低 41%，同时敏感数据零泄露。
+
+## 相关阅读
+
+- [AI 辅助代码审查实战：用 Claude GPT 提升 Code Review 效率与质量](/categories/php/ai-guide-claude-gpt-code-review/)
+- [AI 辅助调试实战：错误分析、日志解读与性能优化建议](/categories/macos/ai-guide-loggingperformance/)
+- [AI 辅助代码审查实战：CodeRabbit Codeium 集成与自动化 CI 门禁](/categories/engineering/ai-guide-coderabbit-codeium-automationci/)
+- [AI Agent 多模型切换实战：Claude/GPT/MiMo 智能路由策略与成本优化踩坑记录](/categories/macos/ai-agent-guide-claude-gpt-mimo-optimization/)
+- [LM Studio 实战：本地模型管理与推理 — 隐私优先的 AI 开发工作流踩坑记录](/categories/macos/lm-studio-guide-ai/)
+- [MiMo-v2.5-pro 实战：小米 AI 模型接入与 Laravel 开发实战](/categories/macos/mimo-v2-5-pro-guide-ai-laravel/)
+- [Cursor IDE 实战：AI 驱动的代码编辑器深度体验 — Tab 补全、Composer 多文件编辑与 .cursorrules 工程化配置](/categories/macos/cursor-ide-guide-ai/)
+- [GitHub Copilot 实战：代码补全、测试生成、文档编写——Laravel B2C API 全场景深度踩坑记录](/categories/macos/github-copilot-guide-testing/)
+- [Hermes Agent vs Claude Code vs Cursor：开发者 AI 助手选型与工作流对比实战踩坑记录](/categories/macos/2026-06-01-hermes-agent-vs-claude-code-vs-cursor-developer-ai-assistant-comparison/)
+- [Rector + LLM 代码重构实战：AI 辅助识别重构机会与自动生成 PR——Laravel 30+ 仓库的批量治理](/categories/php/2026-06-06-rector-llm-ai-refactoring-laravel-batch-governance/)
 
 ---
 

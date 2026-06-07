@@ -1,13 +1,12 @@
 ---
 title: uni-app + Vue 3 + Vite 现代跨平台开发工作流实战踩坑记录
+cover: /images/covers/uni-app-vue3-vite-cover.jpg
 date: 2026-05-17 07:20:49
 updated: 2026-05-17 07:25:12
 categories: Frontend
-tags: [Vite, Vue, uni-app, 前端]
+tags: [vite, vue, uni-app, 前端]
 description: >-
-  从 Vue 2 + Webpack 的旧 uni-app 项目迁移到 Vue 3 + Vite 现代工作流的完整实战经验，
-  包括 Composition API 改造、Vite 插件配置、多端条件编译、TypeScript 集成，
-  以及 30+ 仓库批量迁移中遇到的真实踩坑记录。
+  从 Vue 2 + Webpack 迁移到 Vue 3 + Vite 现代 uni-app 跨平台开发工作流的完整实战指南。深入讲解 Composition API 改造策略、Vite 插件与构建配置、Pinia 状态管理替代 Vuex、TypeScript 类型安全集成、多端条件编译最佳实践，涵盖 5 个项目 120+ 组件的真实踩坑记录，附性能对比数据与避坑指南。
 
 
 
@@ -651,3 +650,9 @@ Vue 3 + Vite 给 uni-app 带来的最大收益不是构建速度（虽然 13x �
 4. **分包策略**：小程序主包 2MB 限制是硬约束，从项目初期就规划好分包。建议用 `preloadRule` 配置预加载策略，平衡首屏速度和后续页面加载体验。
 
 这套工作流已在 5 个项目中稳定运行 6 个月，覆盖 H5、微信小程序、iOS/Android App 三端，累计服务 200 万+ 用户。希望这些踩坑经验能帮你少走弯路。
+
+## 相关阅读
+
+- [Vue 3 + Pinia 状态管理实战-替代 Vuex 的现代方案与 B2C 电商踩坑记录](/categories/frontend/vue-3-pinia-guide-vuex-b2c/)
+- [Vue 3 Composition API 实战-ref reactive computed 最佳实践与响应式踩坑记录](/categories/frontend/vue-3-composition-api-guide-ref-reactive-computed-best-practices/)
+- [前端构建优化实战：Vite/Webpack 分包策略与缓存优化踩坑记录](/categories/frontend/build-optimization-vite-webpack/)

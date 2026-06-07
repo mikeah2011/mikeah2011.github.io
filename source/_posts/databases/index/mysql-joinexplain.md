@@ -4,8 +4,12 @@ date: 2026-05-03
 categories:
   - Databases
   - MySQL
-tags: [KKday, MySQL]
-description: KKday B2C API 真實踩坑記錄 - 多表 JOIN、子查詢性能調優，EXPLAIN 聯合分析完整案例
+tags: [KKday, MySQL, JOIN, 索引, Explain, 查询优化, 性能优化, B+Tree]
+description: 基于KKday B2C API真实项目经验，详解MySQL多表JOIN查询优化、子查询转JOIN、覆盖索引设计与最左前缀原则。通过EXPLAIN执行计划深入分析type、key、rows字段，结合B+Tree索引底层原理，将慢查询从3.5s优化至0.045s，包含4个完整的MySQL性能优化实战案例与索引设计最佳实践。
+cover: /images/covers/databases-019-cover.jpg
+images:
+  - /images/content/databases-019-content-1.jpg
+  - /images/content/databases-019-content-2.jpg
 
 
 
@@ -18,6 +22,8 @@ description: KKday B2C API 真實踩坑記錄 - 多表 JOIN、子查詢性能調
 ## 📋 背景說明
 
 在 KKday B2C API 開發過程中，我們遇到了多個複雜查詢性能問題。特別是涉及訂單系統、用戶信息、商品數據的多表 JOIN，以及大量的子查詢場景。本文基於真實項目踩坑記錄，分享 MySQL 索引優化實戰經驗。
+
+![MySQL 多表 JOIN 性能優化](/images/content/databases-019-content-1.jpg)
 
 ## 🎯 核心結論
 
@@ -314,6 +320,8 @@ flowchart LR
 ```
 
 ---
+
+![覆蓋索引設計](/images/content/databases-019-content-2.jpg)
 
 ## 📊 案例三：覆蓋索引設計實戰
 
@@ -618,17 +626,22 @@ flowchart LR
 
 - [MySQL EXPLAIN 詳細說明](https://dev.mysql.com/doc/refman/8.0/en/explain.html)
 - [Laravel Eloquent ORM 最佳實踐](https://laravel.com/docs/eloquent)
-- [KKday B2C API 內部分享會記錄](./../../../internal-meetings/mysql-performance-2026.md)
 
 ---
 
 ## 🔗 相關文章連結
 
-- [MySQL 基礎索引類型解析](./../數據類型.md)
-- [Laravel MySQL-索引性能調優筆記](./EXPLAIN-分析覆蓋索引最左前綴原則.md)
-- [Laravel 服務容器深度解構 - KKday B2C API 真實踩坑記錄](../Laravel-服務容器深度解析-KKday-B2C-API-三個真實踩坑記錄.md)
+- [索引采用的算法：B+Tree 原理解析](/categories/databases/index/b-tree/)
+- [MySQL 优化经验总结：EXPLAIN 与索引优化实战](/categories/databases/sql-optimization/)
 
 ---
 
 *本文基於 KKday B2C API 真實項目經驗整理，內容持續更新中。  
 如有問題或建議，請於 [GitHub Issues](../../..) 提出討論。*
+
+## 相关阅读
+
+- [Laravel + MySQL 索引性能调研笔记：EXPLAIN 分析、覆盖索引、最左前缀原则](/categories/databases/index/laravel-mysql-index-explain-index/)
+- [百万级数据表查询优化实战：EXPLAIN 深度分析、索引重构与分页治理](/categories/databases/query-optimization-explain/)
+- [覆盖索引（Covering Index）深入解析：B+Tree 原理与回表优化](/categories/databases/index/covering-index/)
+- [索引的最左前缀原则：联合索引匹配规则与 EXPLAIN 实战](/categories/databases/index/leftmost-prefix-rule/)

@@ -1,12 +1,13 @@
 ---
 title: Laravel EventSauce 事件溯源实战：订单状态机、快照重建与读模型投影踩坑记录
+cover: /images/covers/laravel-eventsauce-guide-cover.jpg
 date: 2026-05-05 00:15:06
 updated: 2026-05-05 00:17:52
 categories:
   - PHP
   - Laravel
 tags: [Laravel, 架构]
-description: 用 EventSauce 在 Laravel 中落地事件溯源，覆盖聚合根建模、事件持久化、快照机制、读模型投影、并发冲突处理与生产环境踩坑记录。
+description: 深入实战指南：如何在 Laravel 中使用 EventSauce 实现事件溯源（Event Sourcing）与 DDD 领域驱动设计。本文以 B2C 退单流程为案例，详细讲解聚合根建模、事件持久化适配器、快照机制优化、CQRS 读模型投影、乐观锁并发冲突处理及生产环境踩坑记录，助你掌握 Laravel 事件溯源的完整落地方案。
 
 
 
@@ -694,3 +695,9 @@ it('cannot approve already rejected refund', function () {
 实话说，不是所有模块都需要事件溯源。退单流程有明确的状态机、需要审计追溯、有并发冲突——适合。但像用户资料修改这种 CRUD，用事件溯源就是过度设计。
 
 判断标准很简单：**如果你需要回答"为什么变成了这样"，用事件溯源；如果只需要知道"现在是什么样"，用传统 CRUD。**
+
+## 相关阅读
+
+- [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现](/posts/00_架构/CQRS-Event-Sourcing-完整实战-从事件存储到读模型投影-Laravel订单系统的端到端实现/) — 更完整的 CQRS + Event Sourcing 架构实现，包含 Saga 编排与投影器重建
+- [Event Storming 实战：从业务事件到代码实现的领域建模方法论——Laravel B2C API 踩坑记录](/posts/00_架构/Event-Storming-实战-从业务事件到代码实现的领域建模方法论-Laravel-B2C-API踩坑记录/) — 从 Event Storming 事件风暴到 DDD 领域建模的完整方法论
+- [事件驱动架构全景实战：EventBridge、NATS、Pulsar 统一事件总线设计](/posts/00_架构/事件驱动架构全景实战-EventBridge-NATS-Pulsar-统一事件总线设计/) — 宏观视角理解事件溯源在事件驱动架构中的定位

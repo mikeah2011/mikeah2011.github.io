@@ -1,10 +1,11 @@
 ---
 title: Vue3-组件库开发实战-自定义UI组件库设计与发布踩坑记录
+cover: /images/covers/vue3-guide-ui-cover.jpg
 date: 2026-05-17 04:06:20
 updated: 2026-05-17 04:09:52
 categories: Frontend
 tags: [JavaScript, TypeScript, Vite, Vue]
-description: 从零搭建 Vue 3 自定义 UI 组件库的完整实战：组件设计模式（props/slots/events）、TypeScript 类型导出、CSS Variables 主题方案、Vite Library Mode 构建、Vitest 单元测试、VitePress 文档站点、npm 发布与版本管理。基于 vue-pure-admin 二次开发的真实踩坑经验。
+description: Vue 3 组件库开发实战教程：从零搭建自定义 UI 组件库 @mikeah/ui 完整指南。涵盖 Monorepo 架构设计、Props/Slots/Events 组件设计模式、TypeScript 类型导出、CSS Variables 多主题切换、Vite Library Mode 构建配置、Vitest 单元测试、VitePress 文档站点搭建、npm 发布与版本管理、pnpm workspace 配置、Element Plus 集成及 CI/CD 自动化发布流程。基于 vue-pure-admin 二次开发的真实踩坑经验，前端工程师必备的组件库工程化实战指南。
 
 
 
@@ -628,6 +629,12 @@ dist/
 7. **用 files 白名单替代 .npmignore**，避免新文件误发布
 
 组件库开发看似是「写几个组件」，实际涉及构建工程、类型系统、主题设计、测试策略、文档规范、版本管理六大维度。建议从小做起——先封装 3-5 个最高频组件，验证发布流程跑通后，再逐步扩充。
+
+## 相关阅读
+
+- [Vue 3 TypeScript 实战：类型安全的前端开发与真实踩坑记录](/categories/Frontend/vue-3-typescript-guide/)
+- [Vite vs Webpack vs Laravel Mix：前端构建工具选型对比实战](/categories/Frontend/vite-vs-webpack-laravel-mix-vs/)
+- [Nuxt 4 实战：Vue 全栈框架的新范式——服务器组件、自动导入与 SEO 优化](/categories/Frontend/2026-06-02-nuxt-4-vue-fullstack-server-components-auto-import-seo/)
 
 ---
 

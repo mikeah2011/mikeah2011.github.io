@@ -1,9 +1,10 @@
 ---
 title: Vue-3-TypeScript-实战-类型安全的前端开发与真实踩坑记录
+cover: /images/covers/vue-3-typescript-guide-cover.jpg
 date: 2026-05-16 22:21:05
 updated: 2026-05-16 22:23:27
 categories: Frontend
-tags: [Laravel, TypeScript, Vue]
+tags: [TypeScript, Vue]
 description: 从 Vue 3 + TypeScript 项目搭建到生产落地的完整实战经验，涵盖 ref/reactive 类型推断陷阱、Pinia 类型化 Store、API 响应类型体系、组件 Props 强类型设计，以及 30+ 仓库积累的常见类型错误与修复方案。
 
 
@@ -653,6 +654,45 @@ wait
 
 ---
 
+## TypeScript 类型体操速查表
+
+在 Vue 3 + TypeScript 项目中，掌握以下几个内置工具类型能显著提升日常开发效率：
+
+| 工具类型 | 用途 | 示例 |
+|---------|------|------|
+| `Partial<T>` | 所有属性变为可选 | `Partial<UserInfo>` → 更新表单只需传部分字段 |
+| `Required<T>` | 所有属性变为必选 | `Required<Partial<UserInfo>>` → 恢复必填约束 |
+| `Pick<T, K>` | 从类型中选取部分属性 | `Pick<UserInfo, 'id' \| 'name'>` → 列表只取需要的字段 |
+| `Omit<T, K>` | 从类型中排除部分属性 | `Omit<UserInfo, 'createdAt'>` → 创建时不传时间戳 |
+| `Record<K, V>` | 构造键值对类型 | `Record<string, ApiResponse<UserInfo>>` → 缓存对象类型 |
+| `ReturnType<T>` | 获取函数返回值类型 | `ReturnType<typeof getUserInfo>` → 推断 API 返回类型 |
+| `Parameters<T>` | 获取函数参数类型 | `Parameters<typeof login>` → 推断登录接口参数 |
+
+**实战技巧：组合使用**
+
+```typescript
+// 从完整类型派生表单类型（去掉只读/自动生成的字段）
+type UserForm = Omit<UserInfo, 'id' | 'createdAt' | 'roles'>
+
+// API 更新接口：必填 id + 其余字段可选
+type UpdateParams = Pick<UserInfo, 'id'> & Partial<Omit<UserInfo, 'id' | 'createdAt'>>
+
+// 类型守卫：运行时安全检查
+function isUserInfo(obj: unknown): obj is UserInfo {
+  return typeof obj === 'object' && obj !== null && 'id' in obj && 'name' in obj
+}
+
+// 使用示例
+const data: unknown = await get<unknown>('/api/user/info')
+if (isUserInfo(data)) {
+  console.log(data.name)  // ✅ 类型安全
+}
+```
+
+> 💡 **进阶推荐**：如果需要更复杂的类型操作（如深层 Partial、联合类型转交叉类型），可以引入 [`type-fest`](https://github.com/sindresorhus/type-fest) 库，它提供了 200+ 高质量工具类型。
+
+---
+
 ## 总结
 
 Vue 3 + TypeScript 的类型安全不是一蹴而就的。建议采用**渐进式类型化**策略：
@@ -666,3 +706,11 @@ Vue 3 + TypeScript 的类型安全不是一蹴而就的。建议采用**渐进�
 ---
 
 > 本文基于 Vue 3.4+ / TypeScript 5.x / Vite 5.x / Pinia 2.x 版本编写。如果你的项目版本较老，部分 API（如 `generic` 属性、`defineEmits` 类型语法）可能需要调整。
+
+---
+
+## 相关阅读
+
+- [Vue 3 Composition API 实战-ref reactive computed 最佳实践与响应式踩坑记录](/categories/Frontend/vue-3-composition-api-guide-ref-reactive-computed-best-practices/)
+- [Vue 3 + Pinia 状态管理实战-替代 Vuex 的现代方案与 B2C 电商踩坑记录](/categories/Frontend/vue-3-pinia-guide-vuex-b2c/)
+- [Vue3-组件库开发实战-自定义UI组件库设计与发布踩坑记录](/categories/Frontend/vue3-guide-ui/)

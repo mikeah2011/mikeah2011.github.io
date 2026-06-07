@@ -1,15 +1,13 @@
 ---
 title: Kubernetes 本地开发-minikube-kind-k3s-选型实战-Laravel踩坑记录
+cover: /images/covers/kubernetes-minikube-kind-k3s-guide-laravel-cover.jpg
 date: 2026-05-16 23:25:38
 updated: 2026-05-16 23:28:41
 categories:
   - DevOps
   - Kubernetes
-tags: [Docker, Kubernetes, Laravel, macOS]
-description: >
-  在 macOS 上搭建本地 Kubernetes 开发环境时，minikube、kind、k3s 三大方案各有优劣。
-  本文基于 Laravel B2C API 项目的真实踩坑经验，从启动速度、资源占用、
-  功能完整度、CI/CD 集成四个维度进行深度对比，给出不同场景下的选型建议。
+tags: [docker, kubernetes, laravel, macos, devops, helm]
+description: macOS上搭建本地Kubernetes开发环境，深度对比minikube、kind、k3s三大工具的启动速度、资源占用、功能完整度与Apple Silicon兼容性。基于Laravel B2C API项目真实踩坑经验，包含YAML部署清单、Helm Chart打包、GitHub Actions/GitLab CI集成示例及Laravel K8s适配完整方案。
 
 
 
@@ -428,6 +426,28 @@ k3d kubeconfig merge laravel-dev --kubeconfig-switch-context
 | Apple Silicon | ⭐⭐⭐⭐⭐ | 原生支持 |
 | CI/CD 集成 | ⭐⭐⭐⭐ | k3d 在 CI 中表现优秀 |
 
+### 三工具统一对比表
+
+| 特性 | minikube | kind | k3s (k3d) |
+|------|----------|------|-----------|
+| **底层架构** | VM 或 Docker 容器 | Docker 容器 | 原生二进制 / Docker 容器 |
+| **启动时间** | 30-60s | 10-20s | 15-30s |
+| **内存占用** | 2-4GB | 1-2GB (单节点) | 1-3GB |
+| **多节点支持** | ❌ 单节点 | ✅ 多节点 | ✅ 多节点 |
+| **内置 Ingress** | ✅ addon | ❌ 需手动安装 | ✅ Traefik 默认 |
+| **内置 Metrics** | ✅ addon | ❌ 需手动安装 | ✅ 内置 |
+| **内置 Registry** | ✅ addon | ❌ 需手动安装 | ✅ 内置 |
+| **本地镜像加载** | `minikube docker-env` | `kind load docker-image` | `k3d image import` |
+| **Apple Silicon** | ⚠️ 需指定架构 | ✅ 原生支持 | ✅ 原生支持 |
+| **CI/CD 推荐度** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| **生产相似度** | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **存储支持** | hostPath, CSI | hostPath | local-path-provisioner |
+| **网络模型** | 标准 CNI | 标准 CNI | Flannel (内置) |
+| **社区活跃度** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **学习曲线** | 低 | 低 | 中 |
+
+> 💡 **选型口诀**：功能全选 minikube，CI 测试选 kind，贴近生产选 k3s。
+
 ---
 
 ## 四、深度对比：三个维度选型决策
@@ -566,7 +586,88 @@ spec:
           emptyDir: {}
 ```
 
+### 5.1.1 ConfigMap 与 Secret 配置
+
+```yaml
+# laravel-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: laravel-config
+data:
+  APP_ENV: "local"
+  APP_DEBUG: "true"
+  APP_URL: "http://laravel-service"
+  DB_HOST: "mysql-service"
+  DB_PORT: "3306"
+  DB_DATABASE: "laravel"
+  CACHE_DRIVER: "redis"
+  QUEUE_CONNECTION: "redis"
+  SESSION_DRIVER: "redis"
+  REDIS_HOST: "redis-service"
+```
+
+```yaml
+# laravel-secret.yaml（生产环境建议用 Sealed Secrets 或 External Secrets Operator）
+apiVersion: v1
+kind: Secret
+metadata:
+  name: laravel-secrets
+type: Opaque
+stringData:
+  APP_KEY: "base64:your-app-key-here"
+  DB_USERNAME: "laravel"
+  DB_PASSWORD: "secret-password"
+  REDIS_PASSWORD: "redis-password"
+```
+
+```bash
+# 创建 ConfigMap 和 Secret
+kubectl apply -f laravel-configmap.yaml
+kubectl create secret generic laravel-secrets \
+  --from-literal=APP_KEY=base64:$(openssl rand -base64 32) \
+  --from-literal=DB_PASSWORD=$(openssl rand -base64 16) \
+  --from-literal=REDIS_PASSWORD=$(openssl rand -base64 16)
+
+# 验证
+kubectl get configmap laravel-config -o yaml
+kubectl get secret laravel-secrets -o jsonpath='{.data.APP_KEY}' | base64 -d
+```
+
 ### 5.2 本地镜像构建与加载
+
+```dockerfile
+# Dockerfile.k8s — Laravel K8s 优化镜像（多阶段构建）
+FROM php:8.3-fpm-alpine AS base
+RUN apk add --no-cache \
+    nginx supervisor libzip-dev oniguruma-dev icu-dev \
+    && docker-php-ext-install pdo_mysql zip opcache bcmath intl pcntl
+
+FROM base AS composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+WORKDIR /app
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
+
+FROM base AS build
+WORKDIR /app
+COPY --from=composer /app/vendor ./vendor
+COPY . .
+RUN composer dump-autoload --optimize \
+    && php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache
+
+FROM base AS production
+WORKDIR /var/www/html
+COPY --from=build /app .
+RUN chown -R www-data:www-data storage bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
+EXPOSE 9000
+CMD ["php-fpm"]
+```
+
+> ⚠️ **坑点提醒**：K8s 环境中不要在 Dockerfile 里运行 `php artisan migrate`，数据库迁移应通过 Kubernetes Job 或 initContainer 执行，避免多 Pod 并发迁移导致锁表。
 
 ```makefile
 # Makefile
@@ -642,6 +743,88 @@ spec:
           restartPolicy: OnFailure
 ```
 
+### 5.4 常用调试命令速查
+
+```bash
+# 查看 Pod 状态与详情
+kubectl get pods -l app=laravel-api -o wide
+kubectl describe pod <pod-name>
+
+# 查看容器日志（实时跟踪）
+kubectl logs -l app=laravel-api --tail=100 -f
+kubectl logs <pod-name> --previous  # 查看上一次崩溃的日志
+
+# 进入容器调试
+kubectl exec -it <pod-name> -- sh
+kubectl exec -it <pod-name> -- php artisan tinker
+kubectl exec -it <pod-name> -- php artisan migrate:status
+
+# 查看 Laravel 应用日志
+kubectl exec -it <pod-name> -- tail -f storage/logs/laravel.log
+
+# 端口转发（本地访问 Service）
+kubectl port-forward service/laravel-service 8080:80
+curl http://localhost:8080/api/health
+
+# 查看资源使用
+kubectl top pods -l app=laravel-api
+kubectl top nodes
+
+# 排查常见错误
+kubectl get events --sort-by='.lastTimestamp' | tail -20
+kubectl get events --field-selector reason=Failed
+
+# 强制重启 Deployment
+kubectl rollout restart deployment/laravel-api
+kubectl rollout status deployment/laravel-api --watch
+
+# 临时调试容器（K8s 1.25+）
+kubectl debug <pod-name> -it --image=busybox --target=laravel
+kubectl debug node/<node-name> -it --image=busybox  # 调试节点
+```
+
+### 5.5 PersistentVolumeClaim 持久化存储
+
+```yaml
+# laravel-pvc.yaml — 用于需要持久化的 storage（如文件上传）
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: laravel-storage-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-path  # k3d 内置 storage class
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel-api
+spec:
+  template:
+    spec:
+      containers:
+        - name: laravel
+          volumeMounts:
+            - name: storage
+              mountPath: /var/www/html/storage/app/public
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: laravel-storage-pvc
+```
+
+```bash
+# 查看 StorageClass
+kubectl get storageclass
+
+# 查看 PVC 状态
+kubectl get pvc laravel-storage-pvc
+```
+
 ---
 
 ## 六、最终选型建议
@@ -701,3 +884,9 @@ spec:
 ---
 
 *本文基于 macOS Sonoma 15.x + Apple Silicon M2 Pro 实测，Docker Desktop 4.x / Colima 0.x 环境。如有更新，以各工具官方文档为准。*
+
+## 相关阅读
+
+- [kubectl 1.36 实战：Pod、Deployment、Service 基础操作与 Laravel B2C API 踩坑记录](/categories/devops/kubectl-1-36-guide-pod-deployment-service/) — K8s 核心资源操作，本文的前置基础
+- [Helm Chart 实战：Laravel 应用打包与部署踩坑记录](/categories/devops/helm-chart-guide-laravel-deployment/) — 用 Helm 管理 Laravel K8s 部署，与本地开发环境配合使用
+- [ArgoCD GitOps 实战：Laravel 应用持续部署与回滚踩坑记录](/categories/devops/argocd-gitops-guide-laravel-cd/) — 从本地开发到 GitOps 持续部署的进阶之路

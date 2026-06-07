@@ -1,19 +1,13 @@
 ---
 title: "Pest PHP API 测试、Feature 测试、浏览器测试实战：Laravel B2C API 测试金字塔落地踩坑记录"
+cover: /images/covers/pest-php-apitesting-featuretesting-testingguide-cover.jpg
 date: 2026-05-17 01:20:17
 updated: 2026-05-17 01:49:40
 categories:
   - Engineering
   - Testing
 tags: [Laravel, PHP, 测试]
-description: >
-  在 KKday B2C Backend Team，我们用 Pest 统一了 Unit/Feature/API 三层测试，
-  并在 CI 中配合 Laravel Dusk 跑关键用户流程的浏览器 E2E 测试。
-  本文记录了从 PHPUnit 迁移到 Pest 的 API 断言链写法、Feature 测试的数据库事务回滚策略、
-  Dusk 浏览器测试在 CI Headless Chrome 中的坑，以及测试金字塔在真实 B2C 项目中的平衡策略。
-
-
-
+description: "Pest PHP 测试指南：详解 Laravel B2C 项目中 API 测试、功能测试与 Dusk 浏览器 E2E 测试实战，涵盖 PHPUnit 迁移 Pest、断言链写法、RefreshDatabase 选型、Http::fake/Queue::fake 三件套、测试金字塔策略与 CI 集成踩坑记录，适用于 PHP Laravel 工程师构建高置信度测试体系。"
 ---
 ## 前言：为什么需要完整的测试金字塔？
 
@@ -454,4 +448,116 @@ Http::fake(['payment.api.com/*' => Http::response(['status' => 'ok'], 200)]);
 
 ---
 
+## 六、CI/CD 集成：GitHub Actions 实战配置
+
+### 6.1 完整的测试工作流
+
+```yaml
+# .github/workflows/tests.yml
+name: Tests
+on: [push, pull_request]
+
+jobs:
+  unit-and-feature:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.2', '8.3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, dom, fileinfo
+          coverage: xdebug
+
+      - name: Install Dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: Run Unit & Feature Tests
+        run: |
+          php artisan test --parallel --coverage --min=80
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
+
+  dusk-e2e:
+    runs-on: ubuntu-latest
+    needs: unit-and-feature
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: stable
+
+      - name: Run Dusk Tests
+        run: |
+          php artisan serve &
+          sleep 3
+          php artisan dusk --parallel=4
+        env:
+          APP_URL: http://127.0.0.1:8000
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
+```
+
+### 6.2 测试覆盖率报告集成
+
+```bash
+# 生成 HTML 覆盖率报告并上传
+php artisan test --coverage --min=80 --coverage-html=coverage
+
+# 集成 Coveralls
+vendor/bin/phpunit --coverage-clover=coverage.xml
+COVERALLS_REPO_TOKEN=*** php vendor/bin/php-coveralls
+```
+
+### 6.3 性能基准：Parallel Testing 加速
+
+```bash
+# Pest 并行测试（Laravel 11+）
+php artisan test --parallel=8
+
+# 自定义并行进程数
+php artisan test --parallel=16 --processes=8
+```
+
+| 并行策略 | 仓库规模 | 耗时优化 | 注意事项 |
+|---------|---------|---------|---------|
+| 串行（默认） | 300 测试 | ~120s | 无数据库冲突 |
+| `--parallel=4` | 300 测试 | ~35s | 需要独立 DB 或 SQLite |
+| `--parallel=8` | 300 测试 | ~20s | CI runner 需 4GB+ 内存 |
+| ParaTest | 300 测试 | ~15s | 需额外安装 `brianium/paratest` |
+
+### 6.4 Mock 策略速查表
+
+| 外部依赖 | 推荐 Mock 方式 | 代码示例 |
+|---------|--------------|---------|
+| HTTP API | `Http::fake()` | `Http::fake(['api.com/*' => Http::response([...], 200)])` |
+| Queue Jobs | `Queue::fake()` | `Queue::fake(); ... Queue::assertPushed(Job::class)` |
+| Event | `Event::fake()` | `Event::fake(); ... Event::assertDispatched(Event::class)` |
+| Mail | `Mail::fake()` | `Mail::fake(); ... Mail::assertSent(Mailable::class)` |
+| Storage | `Storage::fake()` | `Storage::fake('s3'); ... Storage::disk('s3')->assertExists(...)` |
+| Time | `Carbon::setTestNow()` | `Carbon::setTestNow('2026-01-01'); ... Carbon::setTestNow(null)` |
+
+---
 > 本文基于 KKday B2C Backend Team 的 30+ 个 Laravel 仓库实践，覆盖 Pest v2/v3、Laravel 10/11、GitHub Actions CI 环境。如有问题欢迎在评论区讨论。
+
+---
+
+## 相关阅读
+
+- [Pest + PHPUnit + ParaTest：如何在 Laravel B2C API 上跑满 100% 覆盖率？](/posts/php/pest-testingguide-100) — Unit 测试层的完整实战，覆盖 Pest 基础语法、ParaTest 并行测试配置与覆盖率提升策略
+- [Pest PHP 3.x 实战：简洁优雅的 PHP 测试框架深度剖析](/posts/php/2026-06-01-pest-php-3x-elegant-php-testing-framework) — 从设计哲学到 Arch Testing、Mutation Testing、Datasets 数据驱动与并行测试性能优化
+- [Pest PHP 实战：自定义 Expectations、Arch Testing、Mutation Testing 深度剖析](/posts/php/2026-06-01-pest-php-custom-expectations-arch-testing-mutation-testing) — 自定义断言扩展、架构守护测试与变异测试的系统化实践
+- [Pest 并发测试与 PHPUnit 对比：Laravel B2C API 测试踩坑记录](/posts/php/Laravel/pest-testingguide-concurrencytesting) — 数据驱动测试、并发防超卖、异步队列 Wait 插件与工厂模式批量创建
+- [PHPUnit 断言实战：Beyond assertEquals——掌握 expect、mock、stub 踩坑记录](/posts/php/Laravel/phpunit-guide-beyond-assertequals-expect-mock-stub) — PHPUnit 高级断言与 Mock/Stub 深度用法，为迁移 Pest 打好基础
+- [Laravel Dusk 浏览器自动化 E2E 测试实战：CI 流水线集成与动态等待治理](/posts/php/Laravel/laravel-dusk-automatione2etestingguide-ci) — Dusk 浏览器测试的深入配置，包括 Headless Chrome 调试与 CI 最佳实践
+- [Mockery 实战：外部服务 Mock 与依赖隔离 Laravel B2C API 踩坑记录](/posts/engineering/mockery-guide-mock) — Mock 策略的系统化讲解，解决测试中外部依赖隔离的常见痛点
+- [AI 驱动测试生成实战：Pest + AI 自动生成单元测试的最佳实践](/posts/engineering/ai-testingguide-pest-ai-testing) — 利用 AI 自动生成 Pest 测试代码，提升测试覆盖率的工程化方案
+- [Snapshot Testing 实战：API 响应快照回归测试](/posts/php/Laravel/2026-06-01-snapshot-testing-api-response-regression-testing) — 用快照守护接口契约，与 Pest API 测试互补的回归测试策略

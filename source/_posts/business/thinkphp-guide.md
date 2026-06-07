@@ -1,10 +1,11 @@
 ---
 title: ThinkPHP-电商系统支付集成实战-支付宝微信支付回调幂等与多业务路由踩坑记录
+cover: /images/covers/thinkphp-guide-cover.jpg
 date: 2026-05-05 10:30:21
 updated: 2026-05-05 10:34:22
 categories: Business
-tags: [KKday, Laravel, ThinkPHP, 支付]
-description: 基于奇乐 MAX（qile-max）开源项目的生产环境真实代码，拆解 ThinkPHP 6 下支付宝/微信支付双通道集成的完整实现，覆盖统一下单、签名验签、多业务回调路由（盲盒/充值/商城/提货）、Redis 防重锁与事务回滚，以及从代码中发现的 7 个真实踩坑与重构方案。
+tags: [ThinkPHP, 支付, 支付宝, 微信支付, 电商, 踩坑]
+description: 基于奇乐 MAX（qile-max）开源项目的生产环境真实代码，深度拆解 ThinkPHP 6 下支付宝与微信支付双通道集成的完整实现。覆盖统一下单、MD5/RSA2 签名验签、多业务回调路由（盲盒/充值/商城/提货/优惠卡）、Redis 防重锁与事务回滚机制，详细剖析支付回调幂等性、金额单位不一致、策略模式重构等 7 个生产环境真实踩坑与对应重构方案，适合 ThinkPHP 电商支付集成开发者参考。
 
 
 
@@ -713,3 +714,12 @@ NotifyController → PayNotifyRouter → HandlerInterface
 ---
 
 > 📌 本文所有代码来自 [奇乐 MAX](https://github.com/mikeah2011/qile-max) 开源项目，已在生产环境运行。
+
+---
+
+## 相关阅读
+
+- [ThinkPHP 电商后端架构设计——盲盒抽奖业务的核心逻辑实战踩坑记录](/post/thinkphp-architecture.html)
+- [ThinkPHP 事件驱动架构实战：观察者模式与领域事件解耦业务逻辑](/post/2026-06-01-thinkphp-event-driven-architecture-observer-pattern-domain-event.html)
+- [uni-app + ThinkPHP 商品详情页性能优化与预加载策略](/post/2026-06-01-uni-app-thinkphp-product-detail-performance-preload.html)
+- [ThinkPHP 8 多租户架构设计](/post/2026-06-01-thinkphp-8-multi-tenant-architecture-design.html)

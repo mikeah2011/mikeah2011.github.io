@@ -3,16 +3,20 @@ title: AWS CLI 实战：命令行管理 AWS 资源 — 实例/S3/RDS 自动化�
 date: 2026-05-17 04:20:41
 updated: 2026-05-17 04:23:55
 categories:
-  - Architecture
-  - Linux
-tags: [AWS, DevOps, Laravel]
+  - 00_架构
+  - 06_运维
+tags: [aws, devops, laravel]
 description: >
   在管理 30+ Laravel B2C 项目的 AWS 基础设施时，手动在 Console 点来点去既慢又容易出错。
-  本文记录了 AWS CLI 从安装配置到实战脚本的完整经验：多 Profile 管理、EC2 实例批量操作、
-  S3 同步与生命周期策略、RDS 快照备份自动化，以及如何用 CLI 脚本替代重复的运维操作。
-  包含真实踩坑记录和可复用的 Shell 脚本。
+  本文系统记录了 AWS CLI 从安装配置到生产级实战脚本的完整运维经验：多 Profile 环境管理与安全切换、
+  EC2 实例批量查询与自动化操作、S3 存储桶同步备份与生命周期策略配置、RDS 数据库快照自动备份与
+  跨区域灾备复制、IAM 最小权限策略设计与临时凭证管理。文中包含 5 个真实生产踩坑记录和可直接复用的
+  Shell 自动化脚本，帮助中大型团队用 AWS CLI 实现高效云资源自动化运维。
 
-
+cover: /images/covers/architecture-1-cover.jpg
+images:
+  - /images/content/architecture-1-content-1.jpg
+  - /images/content/architecture-1-content-2.jpg
 
 ---
 ## 前言：为什么不用 Console 而用 CLI？
@@ -69,6 +73,8 @@ graph TB
 ```
 
 ---
+
+![AWS CLI 终端操作与服务器管理](/images/content/architecture-1-content-1.jpg)
 
 ## 一、安装与多 Profile 配置
 
@@ -254,6 +260,8 @@ aws ec2 describe-security-group-rules \
 ---
 
 ## 三、S3 存储管理实战
+
+![S3 存储与自动化基础设施](/images/content/architecture-1-content-2.jpg)
 
 ### 3.1 文件同步与备份
 
@@ -673,3 +681,9 @@ AWS CLI 不是银弹，但它解决了 Console 的三个核心痛点：
 - 🏗️ **架构类变更**：先用 Console 理解，再用 CLI/Terraform 自动化
 
 > 💡 **进阶提示**：如果你管理的 AWS 资源越来越多，建议从 CLI 脚本迁移到 **Terraform** 或 **AWS CDK**。CLI 适合日常运维脚本，但基础设施定义应该用 Infrastructure as Code 工具管理。
+
+## 相关阅读
+
+- [Terraform 实战：Laravel 应用基础设施即代码（IaC）— 从手动点 AWS 控制台到代码化部署的踩坑记录](/categories/07_CICD/Terraform-实战-Laravel-应用基础设施即代码-IaC-从手动-AWS-控制台到代码化部署踩坑记录/) — 从 CLI 脚本升级到 IaC 的最佳路径，用代码管理 VPC、EC2、RDS、S3 等全套 AWS 资源
+- [Secrets Rotation 实战：AWS Secrets Manager + Laravel——自动化密钥轮换、版本管理与热加载的工程化方案](/categories/06_运维/Secrets-Rotation-实战-AWS-Secrets-Manager-Laravel-自动化密钥轮换/) — 深入 AWS 密钥管理，配合 CLI 实现自动化密钥轮换与安全合规
+- [Ansible 实战：Laravel 应用自动化部署与配置管理踩坑记录](/categories/07_CICD/Ansible-实战-Laravel-应用自动化部署与配置管理踩坑记录/) — 配合 AWS CLI 实现全自动化部署流水线与配置管理

@@ -1,12 +1,13 @@
 ---
 title: Laravel Pipeline 设计模式实战 - 订单处理编排、条件分支与可中断链路踩坑记录
+cover: /images/covers/laravel-pipeline-design-patternsguide-orchestration-cover.jpg
 date: 2026-05-04 23:59:59
 updated: 2026-05-05 00:01:30
 categories:
   - PHP
   - Laravel
-tags: [Laravel]
-description: 从 B2C 订单提交流程出发，记录在 Laravel 中使用 Illuminate\Pipeline 编排复杂业务逻辑的实战方案，涵盖条件分支、可中断链路、错误收集与真实踩坑记录。
+tags: [Laravel, Pipeline, 设计模式, 重构, PHP, 中间件]
+description: 深入讲解 Laravel Illuminate\Pipeline 在 B2C 电商订单提交场景中的实战编排方案。从 Service 加 if-else 膨胀到一千八百行的真实痛点出发，对比 Pipeline 架构的优劣差异，详解 OrderBag 上下文对象设计、条件分支动态管道组装、可中断链路与统一错误收集机制。结合四个线上踩坑案例——DB 事务边界与高并发连接池冲突、Pipe 间数据隐式耦合污染原始输入、并行执行状态不确定、审计日志因提前返回而丢失——逐一给出修复方案与代码示例，附单元测试策略与适用场景选型指南。
 
 
 
@@ -67,6 +68,37 @@ class CreateOrderService
 2. **步骤顺序散落在 if-else 里**，风控应该在库存之前还是之后？每次都要翻代码确认
 3. **无法为不同渠道定制流程**——App 下单要风控，后台补单不要；跨境订单要关税计算，国内不需要
 4. **单元测试必须跑完整个方法**，无法独立测试每一步
+
+### 两种方案对比
+
+| 对比维度 | Service + if-else | Pipeline |
+|---|---|---|
+| 新增步骤 | 修改核心方法，违反 OCP | 新建 Pipe 类 + 注册配置 |
+| 步骤顺序 | 散落在代码中，隐式 | 配置数组显式声明 |
+| 条件分支 | 代码内 if/switch 嵌套 | 按渠道组装不同管道 |
+| 单元测试 | 必须跑完整方法 | 每个 Pipe 独立测试 |
+| 可中断性 | try-catch 或提前 return | `$bag->stopped()` 统一机制 |
+| 错误收集 | 异常中断后丢失后续信息 | 管道跑完，所有错误统一收集 |
+| 事务边界 | 难以精确控制 | 仅写库 Pipe 开事务 |
+| 代码膨胀 | 方法 300→1800 行 | 每个 Pipe 30-50 行，职责清晰 |
+
+### 重构前后代码量对比
+
+```
+重构前 CreateOrderService.php    → 1800 行（单文件）
+重构后 OrderPipeline.php         →  30 行（编排）
+          OrderBag.php            →  80 行（上下文）
+          OrderConfig.php         →  40 行（配置）
+          ValidateInputPipe.php   →  35 行
+          CheckBlacklistPipe.php  →  25 行
+          RiskAssessmentPipe.php  →  45 行
+          ValidateInventoryPipe.php → 40 行
+          ApplyCouponPipe.php     →  50 行
+          CalculatePricingPipe.php → 60 行
+          PersistOrderPipe.php    →  45 行
+          ─────────────────────────────
+          合计：~450 行，10 个文件，每个职责单一
+```
 
 ## 二、用 Pipeline 重构的架构
 
@@ -378,8 +410,65 @@ test('整条 Pipeline 端到端：正常订单创建成功', function () {
 
 Pipeline 不是银弹。如果下一步的逻辑高度依赖上一步的结果（不是简单的"通过/不通过"，而是"用上一步的返回值来决定自己怎么走"），Pipeline 的 `OrderBag` 会退化成一个万能上下文，反而更乱。这种场景用 DDD 的 Application Service 编排更清晰。
 
+## 常见错误与排查清单
+
+| 现象 | 原因 | 修复方案 |
+|---|---|---|
+| Pipe 之间数据丢失 | 直接修改 `$bag->input`，下游读不到 | 使用 `$bag->setComputed()` / `$bag->computed()` |
+| 审计日志不完整 | `stopped()` 后直接 return，跳过后续 Pipe | 始终调用 `$next($bag)`，审计 Pipe 检查 `stopped()` |
+| 高并发下 DB 连接池耗尽 | 整条 Pipeline 包在 `DB::transaction` 里 | 仅 `PersistOrderPipe` 内部开事务 |
+| 并行 Pipe 状态不确定 | 两个校验 Pipe 同时修改 `stopReason` | 校验类 Pipe 必须串行，只有纯读 Pipe 可并行 |
+| 管道未按预期顺序执行 | `OrderConfig` 数组键顺序错误 | 用 `array_values()` 确保顺序，添加集成测试验证 |
+| Dependency Injection 失效 | Pipe 构造函数未注册到容器 | 确保 Pipe 类在 `AppServiceProvider` 或 `管道配置` 中正确绑定 |
+
+### 动态添加/移除 Pipe 的运行时技巧
+
+```php
+// 运行时根据条件移除某个 Pipe
+$pipes = $this->config->pipesFor($channel);
+
+if ($input['skip_risk_check'] ?? false) {
+    $pipes = array_values(array_filter(
+        $pipes,
+        fn($pipe) => $pipe !== RiskAssessmentPipe::class
+    ));
+}
+
+// 运行时在指定位置插入 Pipe
+$insertAt = array_search(ValidateInventoryPipe::class, $pipes);
+array_splice($pipes, $insertAt, 0, [CustomValidationPipe::class]);
+```
+
+### 使用 Pipeline 实现请求预处理中间件
+
+Pipeline 不仅能编排业务逻辑，还能用于 API 请求预处理：
+
+```php
+class ApiRequestPipeline
+{
+    public function handle(Request $request, Closure $next): JsonResponse
+    {
+        return app(Pipeline::class)
+            ->send($request)
+            ->through([
+                RateLimitPipe::class,
+                AuthSanctumPipe::class,
+                RequestLoggingPipe::class,
+                FormatValidationPipe::class,
+            ])
+            ->then(fn($req) => $next($req));
+    }
+}
+```
+
 ## 总结
 
 `Illuminate\Pipeline\Pipeline` 是 Laravel 内置的、被严重低估的设计模式工具。它最大的价值不是代码结构的美化，而是**让业务流程的编排变成配置而非代码**——新增步骤写一个 Pipe 类、新增渠道加一行配置、移除步骤删一行配置，核心编排逻辑永远不动。
 
 但要注意：事务边界要缩到最小、stopped 状态下仍要保持管道完整传递、中间数据与原始输入必须隔离、并行执行要谨慎评估。这些坑，只有在线上跑过才知道。
+
+## 相关阅读
+
+- [Laravel Pipeline 源码剖析：闭包洋葱模型——对比 Symfony Pipeline 与 Java Filter Chain 的中间件栈实现](/categories/PHP/Laravel/2026-06-05-laravel-pipeline-source-closure-onion-model/)
+- [Laravel 12.x Pipeline 实战：复杂业务流程编排与条件分支——从 if-else 地狱到管道模式的重构之路](/categories/Laravel/PHP/Laravel-12x-Pipeline-重构实战/)
+- [Choreography vs Orchestration 实战：事件驱动 vs 工作流驱动——Laravel 微服务中的两种分布式编排范式深度对比](/categories/架构/Choreography-vs-Orchestration-事件驱动vs工作流驱动-Laravel微服务分布式编排范式深度对比/)

@@ -1,10 +1,11 @@
 ---
 title: Laravel-Kafka 消息队列异步解耦实战-KKday B2C API 订单处理与库存扣减真实踩坑记录
 date: 2026-05-03
+cover: /images/covers/laravel-kafka-guide-cover.jpg
 categories:
   - MQ
   - Laravel
-tags: [KKday, Laravel, 消息队列]
+tags: [KKday, Laravel, 消息队列, kafka, php]
 description: KKday B2C API 项目中 Kafka 与 Laravel 集成分享：Producer/Consumer 配置、消息可靠性保障、事务性消息、死信队列、真实踩坑记录与最佳实践
 
 
@@ -1063,3 +1064,9 @@ class KafkaHealthCheck
 ---
 
 📌 **总结**：本文详细介绍了 KKday B2C API 项目中引入 Kafka 消息队列解决订单处理异步解耦的实际经验，包括 Producer 配置、Consumer 消费与重试机制、消息可靠性保障（ACK/幂等性/事务性）、监控与告警等内容。建议在生产环境中启用 `acks=all`、实现 Consumer 端幂等性检查、定期检查 Dead Letter Queue。
+
+## 相关阅读
+
+- [MQ 消息队列深度对比：RabbitMQ vs Kafka vs RocketMQ 选型指南](/categories/MQ/mq-comparison/)
+- [RabbitMQ 实战：AMQP 协议、死信队列、延迟消息与 Laravel 集成——对比 Redis Queue 的选型决策](/categories/消息队列/RabbitMQ-AMQP-死信队列-延迟消息-Laravel-集成-对比Redis-Queue选型/)
+- [Laravel 消息幂等性设计模式实战：订单事件消费的去重表、Inbox/Outbox 与重试补偿踩坑记录](/categories/Laravel/laravel-design-patternsguide-inbox-outbox/)

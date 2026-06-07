@@ -5,11 +5,15 @@ updated: 2026-05-05 08:08:13
 categories:
   - Architecture
   - Laravel
-tags: [AWS, DevOps, Laravel]
-description: "结合 B2C 电商项目真实场景，记录 Laravel + AWS S3 文件存储的完整实战方案，覆盖多 Disk 配置、多云备份（GCS/OSS）、CloudFront CDN 加速、Presigned URL 安全访问、成本优化策略与生产环境踩坑记录。"
+tags: [aws, s3, cloudfront, cdn, laravel, devops, 对象存储, 多云备份, presigned-url, 成本优化]
+description: "结合 B2C 电商项目真实场景，完整记录 Laravel + AWS S3 文件存储实战方案。涵盖 Filesystem 多 Disk 配置、阿里云 OSS 兼容 S3 协议踩坑、CloudFront CDN 全球加速与缓存策略、Presigned URL 私有文件安全访问、多云备份异步架构设计、S3 存储类型成本优化（Standard/IA/Glacier）、Transfer Acceleration 实战。附带 7 个生产环境真实踩坑记录、Terraform IaC 配置、Laravel FileUploadService 封装代码，是从本地存储迁移到对象存储 + CDN 架构的完整避坑指南。"
 
 
 
+cover: /images/covers/architecture-1-cover.jpg
+images:
+  - /images/content/architecture-1-content-1.jpg
+  - /images/content/architecture-1-content-2.jpg
 ---
 ## 为什么不能只用本地磁盘？
 
@@ -177,6 +181,8 @@ class FileUploadService
 - **备份**：异步 Queue Job 写入异地 S3 或阿里云 OSS
 - **访问控制**：公开文件走 CDN，私有文件走 Presigned URL
 
+
+![AWS S3 多云架构总览](/images/content/architecture-1-content-1.jpg)
 ---
 
 ## 三、CloudFront CDN 加速配置
@@ -258,6 +264,8 @@ return response()->json(['download_url' => $url]);
 
 我们的策略是**主 AWS + 备份阿里云 OSS**，国内用户走 OSS + 阿里 CDN，海外走 S3 + CloudFront。
 
+![多云备份策略架构](/images/content/architecture-1-content-2.jpg)
+
 ### 5.2 异步备份实现
 
 ```php
@@ -327,7 +335,115 @@ class BackupFileToCloudJob implements ShouldQueue
 // aws_s3_bucket_lifecycle_configuration
 ```
 
-### 6.2 CloudFront 成本控制
+以下是完整的 Terraform IaC 配置，生产环境推荐使用代码化管理：
+
+```hcl
+# terraform/s3-lifecycle.tf
+resource "aws_s3_bucket_lifecycle_configuration" "app_storage" {
+  bucket = aws_s3_bucket.app.id
+
+  rule {
+    id     = "transition-to-ia"
+    status = "Enabled"
+
+    filter {
+      prefix = "uploads/"
+    }
+
+    transition {
+      days          = 90
+      storage_class = "STANDARD_IA"
+    }
+
+    transition {
+      days          = 365
+      storage_class = "GLACIER"
+    }
+
+    expiration {
+      days = 1825  # 5 年后自动删除
+    }
+  }
+
+  rule {
+    id     = "cleanup-multipart-uploads"
+    status = "Enabled"
+
+    filter {
+      prefix = ""
+    }
+
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+  }
+}
+```
+
+> **踩坑 #6**：S3 Lifecycle 的 `abort_incomplete_multipart_upload` 非常重要——如果大文件上传中断，S3 会保留 Part 数据并持续计费。我们曾因未配置此规则，一个月多出 $120 的隐藏费用。务必在 Terraform 中显式添加。
+
+### 6.2 上传文件校验与安全防护
+
+在 B2C 场景中，用户上传文件必须做安全校验：
+
+```php
+<?php
+// app/Services/FileValidationService.php
+
+namespace App\Services;
+
+use Illuminate\Http\UploadedFile;
+use RuntimeException;
+
+class FileValidationService
+{
+    private array $allowedMimes = [
+        'image/jpeg', 'image/png', 'image/webp', 'image/gif',
+        'application/pdf',
+    ];
+
+    private int $maxFileSizeMB = 20;
+
+    /**
+     * 校验文件类型和大小
+     * 注意：不能只信任客户端 MIME，要用文件头检测
+     */
+    public function validate(UploadedFile $file): void
+    {
+        // 1. 检查文件大小
+        $maxBytes = $this->maxFileSizeMB * 1024 * 1024;
+        if ($file->getSize() > $maxBytes) {
+            throw new RuntimeException(
+                "文件大小 {$this->maxFileSizeMB}MB 超过限制"
+            );
+        }
+
+        // 2. 用 fileinfo 检测真实 MIME（不信任客户端 Header）
+        $realMime = $file->getClientMimeType();
+        $finfo    = finfo_open(FILEINFO_MIME_TYPE);
+        $detected = finfo_file($finfo, $file->getPathname());
+        finfo_close($finfo);
+
+        if (!in_array($detected, $this->allowedMimes)) {
+            throw new RuntimeException(
+                "文件类型 {$detected} 不允许上传"
+            );
+        }
+
+        // 3. 图片文件额外校验：确保是真实图片（防止伪装扩展名）
+        if (str_starts_with($detected, 'image/')) {
+            $imageInfo = @getimagesize($file->getPathname());
+            if ($imageInfo === false) {
+                throw new RuntimeException("无效的图片文件");
+            }
+        }
+    }
+}
+```
+
+> **踩坑 #7**：上传文件校验不能只看扩展名，必须用 `finfo` 检测文件头。曾有用户上传 `.jpg` 后缀的 PHP 木马文件，如果没做 MIME 校验就会直接执行。S3 本身不执行代码，但 CDN 回源时如果 Nginx 配置不当可能导致安全问题。
+
+### 6.3 CloudFront 成本控制
 
 - **Price Class**：选择 `PriceClass_200`（不含最贵的南美/澳洲边缘）而非 `PriceClass_All`
 - **Cache 命中率**：目标 > 95%，低于 80% 需要检查 Cache-Control 配置
@@ -335,7 +451,7 @@ class BackupFileToCloudJob implements ShouldQueue
 
 > **踩坑 #4**：我们曾因 Cache-Control 设为 `no-cache` 导致 CloudFront 命中率降到 12%，一个月账单从 $200 飙到 $1800。修复后设置 `max-age=86400` 并配合版本化文件名（UUID），命中率回到 97%。
 
-### 6.3 传输加速（Transfer Acceleration）
+### 6.4 传输加速（Transfer Acceleration）
 
 如果用户上传需要走 AWS 全球骨干网而非公网，可以开启 S3 Transfer Acceleration：
 
@@ -362,6 +478,8 @@ class BackupFileToCloudJob implements ShouldQueue
 | 5 | Transfer Acceleration + 自定义 Endpoint | 加速不生效 | 移除 `endpoint` 参数 |
 | 6 | S3 同名覆盖 | 用户上传同名文件被静默覆盖 | 文件名加 UUID + 时间戳 |
 | 7 | Laravel `Storage::url()` 在 S3 上返回错误域名 | 混合内容警告 | 在 `config/filesystems.php` 的 `s3.url` 中配置 CloudFront 域名 |
+| 8 | 未配置 abort_incomplete_multipart_upload | 隐藏费用 $120/月 | Terraform 中显式添加 Lifecycle 清理规则 |
+| 9 | 仅信任客户端 MIME 类型 | PHP 木马伪装上传 | 用 `finfo` 检测文件头 + `getimagesize` 校验图片 |
 
 ---
 
@@ -384,3 +502,11 @@ class BackupFileToCloudJob implements ShouldQueue
 ## 总结
 
 Laravel + S3 的文件存储不是一个「配置完就忘了」的事。真正影响线上稳定性和成本的，是这些看起来不起眼的细节：Cache-Control 是不是真的被 CDN 尊重了、ContentType 有没有正确设置、私有文件的签名逻辑和 CloudFront OAC 有没有冲突。我的经验是，文件存储这块最容易「先上线再优化」，然后就再也没有优化。把生命周期规则、备份策略、CDN 命中率监控在第一天就配好，后面会省很多钱和时间。
+
+---
+
+## 相关阅读
+
+- [CDN 配置实战：静态资源加速与缓存失效策略](/architecture/cdn-guide-cache/) — 更深入的 CloudFront/Cloudflare CDN 配置指南，涵盖 API 响应缓存、回源风暴防护与 Nginx 本地缓存方案
+- [对象存储实战：文件上传、CDN 加速与权限控制](/architecture/2026-06-01-object-storage-file-upload-cdn-permission-control-laravel-b2c-api/) — 从 Laravel B2C 角度深入剖析大文件分片上传、CDN 缓存失效与权限模型设计
+- [云存储实战：AWS S3/阿里云 OSS/MinIO 三大对象存储深度对比](/architecture/2026-06-01-cloud-storage-aws-s3-alibaba-oss-minio-integration/) — 多驱动集成的统一存储层方案，适合需要在 S3/OSS/MinIO 间切换的团队

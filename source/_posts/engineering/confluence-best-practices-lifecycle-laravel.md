@@ -1,11 +1,12 @@
 ---
 title: Confluence-团队技术文档管理最佳实践-权限模板生命周期与-Laravel-多仓库协作踩坑记录
+cover: /images/covers/confluence-best-practices-lifecycle-laravel-cover.jpg
 date: 2026-05-17 06:00:53
 updated: 2026-05-17 06:02:54
 categories:
   - Engineering
   - Docs
-tags: [Laravel, macOS, 工程管理]
+tags: [Confluence, Laravel, macOS, 工程管理, 文档管理, Jira]
 description: 在 30+ Laravel 仓库的团队中，Confluence 不只是"写文档的地方"——它是团队知识的中枢神经。本文从权限模型、页面模板、文档生命周期、自动化集成四个维度，分享 B2C 后端团队的真实落地经验。
 
 
@@ -746,3 +747,11 @@ Confluence 不是一个"建好就不管"的工具。在 30+ 仓库的团队中�
 6. **定期健康检查**：每周扫描，Slack 通知
 
 文档是团队最重要的资产之一。写好文档不是浪费时间，是给未来的自己和队友省时间。
+
+---
+
+## 相关阅读
+
+- [Ansible 实战：Laravel 应用自动化部署与配置管理——从 SSH 手工操作到声明式基础设施踩坑记录](/DevOps/Ansible-实战-Laravel-应用自动化部署与配置管理踩坑记录/)
+- [开发日志](/Misc/devlog/)
+- [导入&导出优选CSV格式的理由](/Misc/csv/)

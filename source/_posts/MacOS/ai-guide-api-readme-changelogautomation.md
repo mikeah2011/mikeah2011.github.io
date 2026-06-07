@@ -5,6 +5,7 @@ updated: 2026-05-17 05:08:10
 categories: macOS
 tags: [AI, Git, Laravel, OpenAPI, 工程管理]
 description: 在 30+ 仓库的 Laravel B2C 项目中，文档维护一直是老大难问题。本文分享如何用 AI（Claude/GPT/Copilot）结合 Scribe、git-cliff、pandoc 等工具，实现 API 文档、README、CHANGELOG 的半自动生成，并记录真实踩坑经验。
+cover: /images/covers/ai-guide-api-readme-changelogautomation-cover.jpg
 
 
 
@@ -551,6 +552,12 @@ AI 辅助文档生成不是"让 AI 写文档"，而是**让 AI 做文档的 80% 
 3. **人工 Review 不可省**——AI 的输出必须经过至少一人 Review
 4. **定时自动执行**——文档更新不应该依赖人的自觉性
 5. **渐进式推广**——先在一个仓库试点，跑通后再推广到所有仓库
+
+## 相关阅读
+
+- [API 生命周期管理实战：设计、版本控制、废弃通知、客户端迁移 — Sunset Header 与 Deprecation 标准](/architecture/API生命周期管理实战-设计版本控制废弃通知客户端迁移-Sunset-Header与Deprecation标准) — 从 API 设计到下线的完整生命周期管控
+- [AI Pair Programming 评估实战：Copilot、Cursor、Claude Code 横向对比](/architecture/2026-06-05-AI-Pair-Programming-Copilot-Cursor-Claude-Code-评估实战) — 不同 AI 编码工具的能力边界与适用场景
+- [OpenClaw 文档漂移问题剖析：IDENTITY、MEMORY、MODEL、STRATEGY 不一致的根因与治理](/architecture/OpenClaw-文档漂移问题剖析-IDENTITY-MEMORY-MODEL-STRATEGY-不一致的根因与治理) — Agent 系统中文档一致性的系统性治理方案
 
 ---
 

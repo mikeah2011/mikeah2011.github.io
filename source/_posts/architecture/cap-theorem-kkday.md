@@ -2,10 +2,12 @@
 title: "CAP 定理论在 KKday B2C 微服务中的取舍与实战"
 date: 2026-05-03
 categories: Architecture
-tags: [架构]
-description: "基于 KKday B2C API 真实项目的 CAP 定理实践：如何在订单、支付、库存等核心场景中权衡最终一致性与高可用性"
-
-
+tags: [架构, CAP, 分布式, 微服务, KKday, Laravel, Redis, MySQL]
+description: "深入解析 CAP 定理在 KKday B2C 微服务架构中的实战取舍：涵盖订单创建 CP 模式、库存扣减 AP 模式、支付回调幂等性设计，附 PHP/Lua 代码示例与踩坑记录，助你掌握分布式系统一致性与高可用性的平衡之道"
+cover: /images/covers/architecture-1-cover.jpg
+images:
+  - /images/content/architecture-1-content-1.jpg
+  - /images/content/architecture-1-content-2.jpg
 
 ---
 # CAP 定理论在 KKday B2C 微服务中的取舍与实战
@@ -47,6 +49,8 @@ description: "基于 KKday B2C API 真实项目的 CAP 定理实践：如何在�
 | **用户中心 (User)** | 中 | AP | Cache-Aside 策略 + Canal 同步 |
 | **行程推荐 (Trip)** | 低 | AP | Elasticsearch + Redis 缓存 |
 | **营销活动 (Promo)** | 中 | AP | RabbitMQ 延迟队列补偿 |
+
+![KKday 微服务架构概览](/images/content/architecture-1-content-1.jpg)
 
 ---
 
@@ -390,6 +394,8 @@ SYNC_DEAD_LETTER_QUEUE: inventory_sync_dlq
 
 ## 八、性能指标对比（真实数据）
 
+![性能优化监控指标](/images/content/architecture-1-content-2.jpg)
+
 | 维度 | 优化前 | 优化后 | 提升幅度 |
 |------|--------|--------|---------|
 | **订单创建 TPS** | ~200 QPS | ~1800 QPS | **9x** |
@@ -488,4 +494,12 @@ $stream = new ConsumerGroup(['inventory_sync'], function (Message $m) {
 
 ---
 
-**©️ Michael's Blog · KKday B2C API Team · Last Updated: 2026-05-03**
+**©️ Michael's Blog · KKday B2C API Team · Last Updated: 2026-05-03
+
+---
+
+## 相关阅读
+
+- [分布式之 CAP 与 BASE](/categories/architecture/cap-theorem/)
+- [分布式事务实战：Saga 模式在订单库存支付中的应用](/categories/architecture/distributedtransactionguide-saga/)
+- [电商库存系统设计：防超卖分布式锁与库存预扣减](/categories/architecture/inventory-lock-design/)**

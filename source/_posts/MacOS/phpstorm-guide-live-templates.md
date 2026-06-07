@@ -1,16 +1,14 @@
 ---
 title: PHPStorm-高效开发实战-快捷键-Live-Templates-调试技巧-Laravel-B2C-API踩坑记录
+cover: /images/covers/phpstorm-guide-live-templates-cover.jpg
 date: 2026-05-16 23:20:08
 updated: 2026-05-16 23:23:54
 categories:
   - macOS
   - Editor
-tags: [Laravel, macOS]
-description: >
-  在 30+ Laravel 仓库的 B2C 后端日常开发中，PHPStorm 是不可替代的生产力工具。
-  本文从真实项目经验出发，涵盖 macOS 键位映射、Laravel 专属 Live Templates、
-  数据库面板直连调试、Xdebug 远程断点、代码导航黑魔法等高频场景，
-  并附带大量踩坑记录与性能调优建议。
+tags: [laravel, macos]
+description: >-
+  本文基于 KKday 30+ Laravel 仓库实战经验，全面解析 PHPStorm 高效开发工作流。涵盖 macOS 键位映射、Laravel Live Templates、Postfix Completion、Database 面板、Xdebug 远程断点、HTTP Client API 测试、代码导航与性能调优等高频场景，附带 8 个踩坑记录与解决方案，帮助开发者告别鼠标依赖，高效写代码。
 
 
 
@@ -752,8 +750,15 @@ graph LR
 ---
 
 ## 参考资源
-
 - [PHPStorm 官方文档](https://www.jetbrains.com/help/phpstorm/)
 - [Laravel Idea 插件](https://plugins.jetbrains.com/plugin/13859-laravel-idea)
 - [Xdebug 3 文档](https://xdebug.org/docs/upgrade_guide)
 - [PHPStorm Tips & Tricks](https://blog.jetbrains.com/phpstorm/)
+
+---
+
+## 相关阅读
+
+- [JetBrains Toolbox 实战：PhpStorm/WebStorm/GoLand 配置同步踩坑记录](/post/jetbrains-toolbox-guide-phpstorm-webstorm-goland.html) — 同属 JetBrains 生态，详解 Toolbox 多 IDE 配置同步、插件管理与版本切换
+- [VS Code 高效开发实战：扩展、快捷键、调试配置 - Laravel B2C API 踩坑记录](/post/vs-code-guide.html) — PHPStorm 的轻量替代方案对比，含 Xdebug 调试与自定义 Snippets
+- [Charles 抓包工具高级用法实战：SSL 代理 Mock 断点调试与 Laravel API 联调踩坑记录](/post/charles-guide-sslmock-laravel-api.html) — API 联调必备工具，与 PHPStorm HTTP Client 互补使用

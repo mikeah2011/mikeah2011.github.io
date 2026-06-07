@@ -7,7 +7,10 @@ categories:
   - AWS
 tags: [AWS, Laravel, PHP]
 description: "AWS Lambda 无服务器函数计算实战：从 Laravel 开发者视角，覆盖 Lambda 函数开发、API Gateway 集成、冷启动优化、VPC 配置、Layer 管理、异步事件处理、成本控制，基于 B2C 电商场景的真实踩坑经验。"
-
+cover: /images/covers/architecture-01-cover.jpg
+images:
+  - /images/content/architecture-01-content-1.jpg
+  - /images/content/architecture-01-content-2.jpg
 
 
 ---
@@ -66,6 +69,8 @@ graph TB
 ```
 
 ### Bref 安装与配置
+
+![AWS Lambda 无服务器架构](/images/content/architecture-01-content-1.jpg)
 
 ```bash
 # 安装 Bref（Laravel 项目）
@@ -151,6 +156,8 @@ functions:
 ```
 
 ## 踩坑实战
+
+![Lambda 云函数开发](/images/content/architecture-01-content-2.jpg)
 
 ### 踩坑 1：冷启动（Cold Start）是最大的敌人
 
@@ -555,6 +562,12 @@ mindmap
 ```
 
 Lambda 不是银弹，但在正确的场景下（低频、事件驱动、突发流量），它能显著降低成本和运维负担。关键是要理解 Lambda 的执行模型（无状态、事件驱动、冷启动），并针对性地优化代码和架构。
+
+## 相关阅读
+
+- [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/categories/架构/事件驱动架构全景实战-EventBridge-NATS-Pulsar-统一事件总线设计/) — 深入理解 Lambda 背后的事件驱动范式，对比 AWS EventBridge、NATS、Pulsar 三大事件总线
+- [WebAssembly 后端实战：WasmEdge/Wasmtime 在边缘计算与 Serverless 中的应用](/categories/架构/WebAssembly-后端实战-WasmEdge-Wasmtime-边缘计算与Serverless/) — 另一种 Serverless 运行时方案，Wasm 在冷启动和安全性上的优势
+- [Dapr 实战：分布式应用运行时——Laravel 微服务的 Sidecar 模式](/categories/架构/Dapr-实战-分布式应用运行时-Laravel微服务的Sidecar模式服务调用与发布订阅/) — 当 Lambda 不够用时，微服务架构的进阶之路
 
 > **来自选题池**：`.writing-backlog.md` → `AWS Lambda 实战：无服务器函数计算`
 > **草稿路径**：`source/_posts/00_架构/AWS-Lambda-实战-无服务器函数计算-Laravel-B2C-API踩坑记录.md`

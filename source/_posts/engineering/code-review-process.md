@@ -1,5 +1,6 @@
 ---
 title: "代码审查流程设计：如何建立高效的 CR 文化与工具链"
+cover: /images/covers/code-review-process-cover.jpg
 date: 2026-05-05 09:45:41
 updated: 2026-05-05 09:48:50
 tags: [Git, Laravel, 代码质量, 工程管理]
@@ -402,7 +403,8 @@ Level 3：CR 驱动质量     → 团队主动 Review，知识共享，代码质
 
 ---
 
-> 📌 **相关文章推荐**：
-> - [AI 辅助代码审查实战：如何用 AI 提升 Code Review 效率与质量](/posts/AI-辅助代码审查实战-用-Claude-GPT-提升-Code-Review-效率与质量-Laravel-B2C-API踩坑记录)
-> - [PHPStan/Psalm 静态分析实战：Laravel 项目类型安全最佳实践](/posts/PHPStan-Psalm-静态分析实战-Laravel-项目类型安全最佳实践踩坑记录)
-> - [Git Flow vs Trunk-Based：30+ 仓库的分支策略选型与踩坑记录](/posts/Git-Flow-vs-Trunk-Based-30-仓库分支策略选型与踩坑记录)
+## 相关阅读
+
+- [Laravel Pint + Rector + PHPStan 三剑客联动：代码风格+重构+类型安全的一站式质量治理流水线](/categories/07_CICD/Laravel-Pint-Rector-PHPStan-三剑客联动-代码风格重构类型安全一站式质量治理流水线/) —— 代码质量工具链的完整实践
+- [Conventional Commits + Semantic Release 实战：自动版本号、CHANGELOG 生成与 npm/Composer 包发布](/categories/07_CICD/Conventional-Commits-Semantic-Release-实战-自动版本号-CHANGELOG生成与npm-Composer包发布/) —— 提交规范与自动化发布
+- [工程效能度量实战：DORA 四大指标在 Laravel 团队中的落地](/categories/07_CICD/工程效能度量实战-DORA四大指标-Laravel团队落地/) —— 用数据驱动工程效能提升

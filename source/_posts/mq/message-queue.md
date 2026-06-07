@@ -1,12 +1,13 @@
 ---
 title: MQ面试经
+cover: /images/covers/message-queue-cover.jpg
 sticky: 80
-tags: [消息队列]
+tags: [消息队列, Kafka, RabbitMQ, RocketMQ, ActiveMQ, 面试, 幂等性, 分布式]
 categories:
   - MQ
   - EventDriven
 date: 2019-03-20 15:05:07
-description: '*为什么使用消息队列？消息队列的优点和缺点？kafka、activemq、rabbitmq、rocketmq都有什么优缺点？** 面试官角度分析： （1）你知不知道你们系统里为什么要用消息队列这个东西？ （2）既然用了消息队列这个东西，你知…'
+description: '消息队列面试高频题全解析：涵盖为什么使用MQ、解耦异步削峰三大场景、Kafka与RabbitMQ及RocketMQ选型对比、高可用架构设计、消息幂等性与可靠传输、顺序消费、消息积压解决方案。助你系统掌握消息队列核心原理，从容应对大厂MQ面试。'
 
 
 
@@ -377,3 +378,10 @@ rabbitmq如果丢失了数据，主要是因为你消费的时候，刚消费到
 ### （4）能不能支持数据0丢失啊？可以的，参考我们之前说的那个kafka数据零丢失方案
 
 其实一个mq肯定是很复杂的，面试官问你这个问题，其实是个开放题，他就是看看你有没有从架构角度整体构思和设计的思维以及能力。确实这个问题可以刷掉一大批人，因为大部分人平时不思考这些东西。
+
+## 相关阅读
+
+- [MQ 消息队列深度对比：RabbitMQ vs Kafka vs RocketMQ 选型指南](/categories/MQ/mq-comparison/)
+- [RabbitMQ 实战：AMQP 协议、死信队列、延迟消息与 Laravel 集成——对比 Redis Queue 的选型决策](/categories/消息队列/RabbitMQ-AMQP-死信队列-延迟消息-Laravel-集成-对比Redis-Queue选型/)
+- [Laravel-Kafka 消息队列异步解耦实战——KKday B2C API 订单处理与库存扣减真实踩坑记录](/categories/MQ/laravel-kafka-guide/)
+- [Outbox Pattern 实战：保证数据库与消息队列的最终一致性——Laravel + Debezium 的可靠事件发布](/categories/Laravel-PHP/Outbox-Pattern-实战-保证数据库与消息队列的最终一致性-Laravel-Debezium/)

@@ -1,9 +1,10 @@
 ---
 title: PHPStan-Psalm-静态分析实战-Laravel-项目类型安全最佳实践踩坑记录
+cover: /images/covers/phpstan-psalm-guide-laravel-cover.jpg
 date: 2026-05-05 08:00:16
 updated: 2026-05-05 08:02:37
-description: "在 30+ Laravel B2C 仓库中落地 PHPStan 与 Psalm 静态分析的实战经验，涵盖工具选型、Laravel 类型注解、泛型使用、Model 返回类型、Builder 链式调用类型推导、常见误报治理及团队类型安全文化建设。"
-tags: [CI/CD, Laravel, PHP]
+description: "基于 30+ Laravel B2C 仓库的 PHPStan 与 Psalm 静态分析落地实战，涵盖工具选型决策、Laravel Model 泛型注解、Builder 链式调用类型推导、Eloquent 返回类型治理、常见误报 suppression 策略、CI/CD 门禁集成与团队类型安全渐进式文化建设。"
+tags: [ci-cd, laravel, php]
 categories:
   - PHP
   - Laravel
@@ -461,3 +462,9 @@ PHPStan + larastan 是 Laravel 生态中目前最成熟的静态分析方案。P
 ---
 
 *本文基于 KKday RD B2C Backend Team 30+ Laravel 仓库的真实治理经验整理。*
+
+## 相关阅读
+
+- [Laravel Pint + PHPStan CI 集成实战：代码质量门禁自动化与渐进式治理](/devops/laravel-pint-phpstan-ciguide-automation/)
+- [Laravel Pint + Rector + PHPStan 三剑客联动：代码风格+重构+类型安全一站式质量治理流水线](/devops/Laravel-Pint-Rector-PHPStan-三剑客联动-代码风格重构类型安全一站式质量治理流水线/)
+- [AI-Driven Refactoring 实战：用 Rector + Claude Code 批量识别代码坏味道——Laravel 30+ 仓库的渐进式重构策略](/00_架构/AI-Driven-Refactoring-实战-用Rector-Claude-Code批量识别代码坏味道-Laravel仓库渐进式重构策略/)

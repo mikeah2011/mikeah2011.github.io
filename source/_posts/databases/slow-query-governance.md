@@ -1,10 +1,14 @@
 ---
 title: MySQL-慢查询治理实战-pt-query-digest-分析-索引优化与-SQL-重写-Laravel-B2C-API踩坑记录
 date: 2026-05-05 06:55:04
-description: "MySQL-慢查询治理实战-pt-query-digest-分析-索引优化与-SQL-重写-Laravel-B2C-API踩坑记录"
+description: "本文系统介绍 MySQL 慢查询的完整治理方法论，涵盖慢查询日志配置、使用 pt-query-digest 进行深度分析、EXPLAIN 执行计划解读、索引优化策略与 SQL 重写技巧。结合 Laravel B2C 电商 API 的真实踩坑经验，详解 N+1 查询、深分页、隐式类型转换等常见性能陷阱，并提供 CI/CD 慢查询防御、监控告警等生产环境最佳实践，帮助开发者建立从发现到修复的慢查询治理闭环。"
 updated: 2026-05-05 06:58:22
 tags: [Laravel, MySQL, 性能优化]
 categories: Databases
+cover: /images/covers/databases-slow-query-01-cover.jpg
+images:
+  - /images/content/databases-slow-query-01-content-1.jpg
+  - /images/content/databases-slow-query-01-content-2.jpg
 
 
 
@@ -44,6 +48,8 @@ categories: Databases
 │  └──────────────────────────────────────────────┘      │
 └─────────────────────────────────────────────────────────┘
 ```
+
+![慢查询治理闭环架构](/images/content/databases-slow-query-01-content-1.jpg)
 
 ---
 
@@ -191,6 +197,8 @@ tail -100000 /var/log/mysql/slow.log | pt-query-digest -
 ---
 
 ## 四、EXPLAIN 深度分析
+
+![EXPLAIN 执行计划分析](/images/content/databases-slow-query-01-content-2.jpg)
 
 拿到 pt-query-digest 的 Top N 慢查询后，下一步是用 EXPLAIN 分析执行计划。
 
@@ -760,3 +768,11 @@ INNER JOIN (
 ---
 
 *本文基于 KKday B2C Backend Team 真实项目经验，持续更新中。*
+
+---
+
+## 相关阅读
+
+- [数据库索引优化实战](/categories/Databases/index-optimization-explain/) — 从 B+ 树原理出发，系统讲解索引设计与优化策略
+- [MySQL 索引优化实战 EXPLAIN 分析](/categories/Databases/index-deep-dive-explain/) — 深入 EXPLAIN 各字段解读与索引优化案例
+- [SQL 语句性能分析工具 explain](/categories/Databases/explain/) — 掌握 EXPLAIN 工具，快速定位 SQL 性能瓶颈

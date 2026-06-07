@@ -1,12 +1,13 @@
 ---
 title: Laravel + ClickHouse 实战：埋点宽表、物化视图与漏斗报表性能治理踩坑记录
+cover: /images/covers/laravel-clickhouse-guide-cover.jpg
 date: 2026-05-04 14:30:56
 updated: 2026-05-04 14:32:11
 categories:
   - PHP
   - Laravel
-tags: [Laravel, MySQL, 工程管理, 性能优化]
-description: 记录一次 Laravel 后台报表从 MySQL 迁移到 ClickHouse 的真实落地过程，重点覆盖埋点宽表设计、批量写入、物化视图、漏斗查询优化与生产踩坑修复。
+tags: [laravel, mysql, 工程管理, 性能优化]
+description: Laravel + ClickHouse 实战：从 MySQL 迁移到 OLAP 列式存储的完整落地过程。涵盖埋点宽表设计、批量写入优化、物化视图聚合、漏斗查询性能治理（P95 从 6.8s 降至 420ms）与 4 个生产踩坑修复，适合做用户行为分析和运营报表的 Laravel 团队参考。
 
 
 
@@ -267,4 +268,10 @@ SQL;
 
 这套方案最有价值的地方，不是“换了个更快的数据库”，而是把**交易存储**和**分析查询**彻底分开了。Laravel 继续维护业务事务，ClickHouse 专注做聚合、扫描和报表，职责清楚后，排障和扩容都简单很多。
 
-如果你的 Laravel 项目已经出现下面这些信号：运营报表长期拖慢读库、埋点 SQL 越写越像 ETL、导出任务和线上查询互相抢资源，那基本就不是“再补一个索引”能解决的问题了。把报表链路独立到 ClickHouse，通常会比继续在 MySQL 上硬扛更划算。
+如果你的 Laravel 项目已经出现下面这些信号：运营报表长期拖慢读库、埋点 SQL 越写越像 ETL、导出任务和线上查询互相抢资源，那基本就不是"再补一个索引"能解决的问题了。把报表链路独立到 ClickHouse，通常会比继续在 MySQL 上硬扛更划算。
+
+## 相关阅读
+
+- [ClickHouse vs PostgreSQL 分析查询对比：OLAP 场景下的选型决策与 Laravel 集成](/categories/01_MySQL/2026-06-02-clickhouse-vs-postgresql-olap-selection-laravel-integration/) — 千万级订单明细表的真实性能对比，详解行存与列存的本质差异、MergeTree 引擎优化与 TCO 成本分析，帮你决定该选 ClickHouse 还是 PostgreSQL 做 OLAP。
+- [DuckDB + Laravel 实战：嵌入式 OLAP 引擎——在 PHP 进程内做百万级数据分析](/categories/05_PHP/Laravel/2026-06-06-DuckDB-Laravel-实战-嵌入式OLAP引擎-百万级数据分析零基础设施方案/) — 如果数据量在百万级且不想部署独立 OLAP 集群，DuckDB 嵌入式方案可以在 PHP 进程内完成漏斗分析与审计日志聚合，零基础设施成本。
+- [dbt 实战：SQL 优先的数据转换框架——Laravel 项目的数据仓库建模与版本化治理](/categories/架构/dbt-data-build-tool-实战-SQL优先数据转换框架-Laravel数据仓库建模与版本化治理/) — 当 ClickHouse 里的原始宽表越来越多，用 dbt 做 Staging → Marts 分层建模，可以让你的数据仓库像代码一样版本化和可测试。

@@ -1,12 +1,13 @@
 ---
 title: "Laravel-Service-Container-实战-依赖注入上下文绑定延迟加载踩坑记录"
+cover: /images/covers/service-container-guide-dependency-injection-cover.jpg
 date: 2026-05-16 15:41:01
 updated: 2026-05-16 15:51:42
 categories:
   - PHP
   - Docker
-tags: [Laravel, 微服务]
-description: "深入 Laravel Service Container 的三大核心能力——依赖注入、上下文绑定（Contextual Binding）、延迟加载（Deferred Providers），结合 B2C 电商真实场景的踩坑记录与性能优化经验。"
+tags: [laravel, 微服务]
+description: "深入 Laravel Service Container 的五大核心能力：依赖注入与自动解析、接口绑定（Singleton/Transient/Scoped 对比）、上下文绑定（Contextual Binding）消除多实现场景的 if/else 分支、延迟加载（Deferred Providers）实测降低 60% 启动开销、Tagged Bindings 实现插件化消息推送架构。结合 B2C 电商真实踩坑记录，涵盖循环依赖破解、队列中 Contextual Binding 失效、Singleton 在 Worker 中数据过期等七大高频问题及解决方案。"
 
 
 
@@ -638,3 +639,9 @@ Service Container 不只是一个「自动注入工具」，它是 Laravel 架�
 > - [Laravel 官方文档 - Service Container](https://laravel.com/docs/11.x/container)
 > - [Laravel 官方文档 - Service Providers](https://laravel.com/docs/11.x/providers)
 > - [Laravel 源码 - Container.php](https://github.com/laravel/framework/blob/11.x/src/Illuminate/Container/Container.php)
+
+## 相关阅读
+
+- [Laravel Pipeline 设计模式](/php/Laravel/laravel-pipeline-design-patternsguide-orchestration/) — 深入 Laravel Pipeline 的设计模式与实际应用，与 Service Container 配合实现优雅的请求处理链
+- [Laravel 缓存策略全解](/php/Laravel/laravel-cache-route-config-view-query-cache/) — 路由缓存、配置缓存、视图缓存、查询缓存一站式指南，本文中 Singleton 内部缓存 TTL 的进阶实践
+- [Composer 深度实战](/php/Laravel/composer-deep-dive-autoloading/) — 自动加载机制与依赖管理，理解 Service Container 的底层基础

@@ -1,11 +1,19 @@
 ---
 title: BFF-Laravel 中间层聚合实战
 date: 2026-05-04 11:22:00 +0800
-description: "BFF-Laravel 中间层聚合实战"
+description: "深入实战 Laravel BFF（Backend for Frontend）中间层聚合模式。本文以 KKday 真实项目为例，讲解如何用 Laravel 构建 API 聚合层，统一调用 Search、Recommend、Member 等 Java 微服务，实现数据裁剪、Redis 多级缓存、Cache-Stampede 防护、并行 HTTP 请求、降级策略、Request 级缓存等核心能力。涵盖 PHP 8.0 Enum 重构、Pest 契约测试、Docker 开发环境搭建等完整工程实践，适合需要在微服务架构中引入 BFF 中间层的后端与全栈工程师参考。"
 categories:
-  - Architecture
+  - 架构
+tags:
+  - BFF
   - Laravel
-tags: []
+  - API
+  - 微服务
+  - 架构
+cover: /images/covers/architecture-1-cover.jpg
+images:
+  - /images/content/architecture-1-content-1.jpg
+  - /images/content/architecture-1-content-2.jpg
 
 
 
@@ -57,6 +65,9 @@ tags: []
 ---
 
 ## 🏗️ 架构设计：BFF 的核心职责
+
+![Laravel BFF 架构设计](/images/content/architecture-1-content-1.jpg)
+
 
 在 KKday 项目中，我们使用 Laravel 8 + PHP 8.0 构建 BFF 层。核心设计原则是 **薄 Controller + 厚 Service**：
 
@@ -194,6 +205,9 @@ class ProductListService
 ---
 
 ## 🧪 真实踩坑：缓存失效与分布式锁
+
+![BFF 缓存与数据聚合](/images/content/architecture-1-content-2.jpg)
+
 
 ### 场景 1：商品详情页的缓存策略问题
 
@@ -613,3 +627,9 @@ Laravel BFF 模式的核心优势在于 **中间层聚合 + 缓存优化 + 降�
 
 *本文档更新于 2026-05-02，基于 KKday BFF v1.2 实战经验。*
 *参考资料：[SA/SD] BFF-Architecture-Design, Confluence-SA/SD*
+
+## 相关阅读
+
+- [API Composition Pattern 实战：跨服务查询聚合——Laravel BFF 中的 scatter-gather、结果合并与超时裁剪](/categories/架构/2026-06-03-API-Composition-Pattern-实战-跨服务查询聚合-Laravel-BFF-scatter-gather/)——BFF 聚合的进阶模式，scatter-gather 与超时裁剪策略
+- [Server-Driven UI 实战：后端驱动前端渲染——JSON UI 描述协议在 Laravel BFF 中的落地与对比传统 SPA](/categories/架构/server-driven-ui-laravel-bff/)——BFF 层推送 UI 描述而非裸数据的架构演进
+- [Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点](/categories/架构/2026-06-04-Laravel-Modular-Monolith-实战-模块化单体架构-介于单体与微服务之间的最佳平衡点/)——从 BFF 走向模块化单体的架构选择

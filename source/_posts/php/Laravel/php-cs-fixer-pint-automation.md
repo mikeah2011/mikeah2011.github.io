@@ -1,5 +1,6 @@
 ---
 title: PHP-CS-Fixer + Pint 代码风格统一：团队协作的代码规范自动化踩坑记录
+cover: /images/covers/php-cs-fixer-pint-automation-cover.jpg
 date: 2026-05-05 06:45:46
 updated: 2026-05-05 06:47:52
 categories:
@@ -580,3 +581,11 @@ git blame 准确率        低          高
 | 存量治理 | 三阶段渐进式：基线 → 文件级 → 全量门禁 |
 
 代码风格自动化不是终点，而是团队工程化的一个里程碑。当代码风格不再是讨论话题时，Code Review 才能把全部精力放在架构设计和业务逻辑上——这才是它应该在的地方。
+
+---
+
+## 相关阅读
+
+- [Laravel Pint + Rector + PHPStan 三剑客联动：代码风格+重构+类型安全的一站式质量治理流水线](/php/Laravel/Laravel-Pint-Rector-PHPStan-三剑客联动-代码风格重构类型安全的一站式质量治理流水线/) — Pint、Rector、PHPStan 三者如何协同工作，形成完整的代码质量流水线
+- [Rector-PHP 自动化代码重构与升级实战：Laravel 30 仓库批量治理踩坑记录](/php/Laravel/rector-php-automationguide-laravel-30/) — 用 Rector 自动化 PHP 升级和代码重构，与 Pint 配合实现全面的代码现代化
+- [PHPStan-Psalm 静态分析实战：Laravel 项目类型安全最佳实践踩坑记录](/php/Laravel/phpstan-psalm-guide-laravel/) — 代码风格之外，静态分析如何从类型层面保障代码质量

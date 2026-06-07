@@ -1,9 +1,10 @@
 ---
 title: "pnpm 实战：高效磁盘空间利用与 Workspace Monorepo 包管理踩坑记录"
+cover: /images/covers/pnpm-guide-workspace-monorepo-cover.jpg
 date: 2026-05-16 23:55:19
 updated: 2026-05-16 23:58:45
 categories: macOS
-tags: [Composer, JavaScript, Vite, Vue, macOS]
+tags: [pnpm, monorepo, workspace, JavaScript, Vite, Vue, macOS]
 description: "从 npm/yarn 迁移到 pnpm 的完整实战记录：内容寻址存储、硬链接去重、幽灵依赖防护、Workspace Monorepo 管理、CI 缓存优化，以及在 Laravel + Vue 3 + Vite 项目中踩过的坑。"
 
 
@@ -520,3 +521,9 @@ pnpm 不是银弹，但在以下场景收益最大：
 4. **CI 优化**：store 缓存 + 硬链接 = 缓存恢复极快
 
 最大的迁移成本在于**幽灵依赖清理**——但这本就是技术债务，早还比晚还好。
+
+## 相关阅读
+
+- [npm workspace 实战：Monorepo 项目管理与多包协作踩坑记录](/categories/macOS/npm-workspace-guide-monorepo-laravel/)
+- [Bun 实战：比 npm 快 10 倍的 JavaScript 运行时踩坑记录](/categories/macOS/bun-guide-npm-10-javascript/)
+- [Monorepo 深度实战：Nx vs Turborepo vs Pants 构建缓存与任务编排](/categories/架构/2026-06-06-Monorepo-深度实战-Nx-vs-Turborepo-vs-Pants-大型Laravel前端项目构建缓存与任务编排/)

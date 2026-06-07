@@ -1,9 +1,10 @@
 ---
 title: CRMEB-开源商城二次实战-从-fork-到生产部署踩坑记录
+cover: /images/covers/crmeb-guide-fork-deployment-cover.jpg
 date: 2026-05-05 10:15:59
 updated: 2026-05-05 10:23:51
 categories: Business
-tags: [Docker, KKday, Nginx, ThinkPHP, 架构]
+tags: [docker, nginx, thinkphp, 二次开发, crmeb, 架构]
 description: 基于 CRMEB 开源商城系统的真实二次开发经验，完整记录从 fork 上游仓库、本地环境搭建、核心模块定制开发到生产环境部署的全流程实战。覆盖目录结构解析、支付/商品/订单模块改造、Docker 容器化部署、Nginx 反向配置以及上线后踩过的 12 个真实坑点。
 
 
@@ -605,6 +606,102 @@ public void cancelTimeoutOrders() {
 
 ### 核心教训
 
+## 七、环境要求对比
+
+部署 CRMEB 前，务必确认服务器环境满足以下要求。不同版本的 CRMEB 对环境依赖有差异，以下是基于 CRMEB Java 版（v4.x）的实测对比：
+
+| 环境项 | 最低要求 | 推荐配置 | 备注 |
+|--------|---------|---------|------|
+| 操作系统 | CentOS 7+ / Ubuntu 18.04+ | Ubuntu 22.04 LTS | Debian 系优于 RHEL 系，包管理更方便 |
+| Java | JDK 11+ | JDK 17 (Temurin) | JDK 8 已不支持 Spring Boot 3.x |
+| MySQL | 5.7+ | 8.0 | 必须用 utf8mb4 字符集，否则东南亚语言报错 |
+| Redis | 6.0+ | 7.x (Alpine) | 需开启持久化，生产环境建议 512MB+ 内存 |
+| Node.js | 16+ | 18 LTS | 仅管理后台前端构建需要 |
+| Maven | 3.6+ | 3.9.x | 低于 3.8 可能遇到依赖解析问题 |
+| Docker | 20.10+ | 24.x + Compose V2 | 生产环境推荐容器化部署 |
+| 最低内存 | 2GB | 4GB（admin + app 各 1GB） | 单实例 2GB 够用，双实例建议 4GB+ |
+| 磁盘空间 | 20GB | 50GB+ SSD | 含上传文件、日志、MySQL 数据 |
+
+> ⚠️ **注意**：CRMEB 的 PHP 版和 Java 版环境要求差异极大。PHP 版需要 LNMP 环境（PHP 7.4+、Nginx、MySQL），Java 版需要 JDK + Spring Boot 运行时。选型时务必确认版本。
+
+## 八、常见部署问题排查指南
+
+### 8.1 启动报错：`Access denied for user 'root'@'localhost'`
+
+**现象**：应用启动时 MySQL 连接被拒绝。
+
+**排查步骤**：
+1. 确认 MySQL 容器已启动：`docker ps | grep mysql`
+2. 检查 MySQL 健康状态：`docker exec mysql mysqladmin ping -h localhost -uroot -p${PASS}`
+3. 确认 `application-prod.yml` 中的 `DB_USER`、`DB_PASS` 与 MySQL 初始化一致
+4. 检查 MySQL 是否只允许本地连接：`SELECT user, host FROM mysql.user;`
+
+**解决**：如果是密码错误，重建 MySQL 容器并正确设置 `MYSQL_ROOT_PASSWORD` 环境变量。
+
+### 8.2 前端页面空白：API 返回 404
+
+**现象**：后台管理页面打开后一片空白，浏览器控制台显示 `/api/admin/` 请求返回 404。
+
+**排查步骤**：
+1. 检查 Nginx 配置中的 `proxy_pass` 是否指向正确的容器名和端口
+2. 运行 `docker exec nginx curl -v http://crmeb-admin:8080/actuator/health` 测试 Nginx 到后端的连通性
+3. 确认 `crmeb-admin` 容器日志无异常：`docker logs crmeb-admin --tail 50`
+
+**常见原因**：`docker-compose.prod.yml` 中 `depends_on` 不会等待容器完全就绪，需要配合 `healthcheck` 使用。
+
+### 8.3 上传图片失败：`413 Request Entity Too Large`
+
+**现象**：上传商品图片时返回 413 错误。
+
+**解决**：修改 Nginx 配置，增加 `client_max_body_size`：
+```nginx
+client_max_body_size 50m;
+```
+同时检查 Spring Boot 的文件大小限制：
+```yaml
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+```
+
+### 8.4 WebSocket / 小程序实时消息不通
+
+**现象**：WebSocket 连接建立失败，或小程序消息推送不及时。
+
+**排查步骤**：
+1. 确认 Nginx 已配置 WebSocket 升级：
+```nginx
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection "upgrade";
+```
+2. 检查防火墙是否开放了 WebSocket 端口
+3. 证书是否支持 WSS（HTTPS 下的 WebSocket）
+
+### 8.5 Docker 镜像构建失败：`mvn: command not found`
+
+**现象**：CI/CD 构建阶段报找不到 Maven。
+
+**原因**：Dockerfile 中未正确安装 Maven，或使用了精简基础镜像。
+
+**解决**：使用官方 Maven 镜像作为构建阶段：
+```dockerfile
+FROM maven:3.9-eclipse-temurin-17 AS builder
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:17-jre
+COPY --from=builder /app/target/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+
+### 核心教训
+
 | # | 教训 | 代价 |
 |---|------|------|
 | 1 | 永远不要在 main 分支直接改 | 2 天重写 Git 历史 |
@@ -617,3 +714,11 @@ public void cancelTimeoutOrders() {
 | 8 | Redis 加环境 key 前缀 | 缓存数据互相覆盖 |
 
 CRMEB 是一个优秀的开源商城系统，但二次开发的隐性成本在于：**你需要理解它的架构约定，然后在这个约定下做扩展，而不是对抗它。** 如果改动量超过 60 个文件，认真考虑一下自研是否更划算。
+
+---
+
+## 相关阅读
+
+- [Eventual Consistency 实战：最终一致性在电商场景中的工程化](/Eventual-Consistency-实战-最终一致性在电商场景中的工程化-反压冲突解决与用户感知延迟/) — 电商场景中分布式一致性问题的深度剖析
+- [OpenHuman Cloud Deploy 实战：云端部署与多设备同步](/OpenHuman-Cloud-Deploy-实战-云端部署与多设备同步/) — 多环境云部署方案与容器编排经验
+- [WebAssembly (Wasm) 实战：PHP 开发者的跨平台新赛道](/WebAssembly-Wasm实战-用Rust-AssemblyScript编写高性能浏览器模块-PHP开发者的跨平台新赛道/) — PHP 生态的跨平台技术探索

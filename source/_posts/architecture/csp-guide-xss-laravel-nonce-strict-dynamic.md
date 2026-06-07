@@ -1,11 +1,12 @@
 ---
 title: CSP 内容安全策略实战 - 防御 XSS 攻击 - Laravel Nonce、strict-dynamic 与生产踩坑记录
+cover: /images/covers/csp-guide-xss-laravel-nonce-strict-dynamic-cover.jpg
 date: 2026-05-16 22:10:07
 updated: 2026-05-16 22:16:59
 categories:
   - Architecture
   - Laravel
-tags: [Laravel, 安全]
+tags: [Laravel, 安全, OWASP, XSS, CSP]
 description: 从 OWASP Top 10 中 XSS 防护的「最后一道防线」出发，深入实战 CSP（Content-Security-Policy）在 Laravel B2C API 项目中的落地经验。涵盖 nonce 生成与 Blade 集成、strict-dynamic 策略、report-only 灰度、violation reporting 端点、Nginx 层配置，以及生产环境真实踩坑记录。
 
 
@@ -280,6 +281,33 @@ private function buildPolicy(string $nonce): string
 ```
 
 `https: http:` 是给旧浏览器的 fallback——它们不认识 `strict-dynamic`，会忽略它，退回到域名匹配模式。新浏览器看到 `strict-dynamic` 后会忽略 `https: http:`。
+
+## Report-Only vs Enforce 对比
+
+| 维度 | `Content-Security-Policy-Report-Only` | `Content-Security-Policy` |
+|------|---------------------------------------|---------------------------|
+| **行为** | 仅记录违规，不拦截资源 | 拦截违规资源并记录 |
+| **适用场景** | 灰度上线、策略调试、回归测试 | 正式生产环境 |
+| **风险** | 零风险，不影响用户体验 | 配置错误可导致白屏 |
+| **建议周期** | 1–2 周观察期 | 长期使用 |
+| **上报能力** | ✅ 支持 `report-uri` / `report-to` | ✅ 支持 |
+| **浏览器兼容** | CSP Level 2+ | CSP Level 1+ |
+
+**最佳实践**：同时设置两个头（Report-Only 用于新策略灰度，Enforce 用于已验证策略），实现「新策略只观察 + 旧策略已强制」的双轨模式。
+
+## Nonce vs Hash 方案对比
+
+| 维度 | Nonce（推荐） | Hash |
+|------|--------------|------|
+| **原理** | 服务端生成随机数，写入 CSP 头 + `<script nonce="...">` | 对脚本内容计算 SHA-256，写入 CSP 头 |
+| **动态脚本** | ✅ 天然支持（每次请求重新生成） | ❌ 脚本内容变化则 hash 失效 |
+| **实现复杂度** | 中（需中间件 + Blade 集成） | 高（需构建时计算 hash） |
+| **缓存友好** | ⚠️ nonce 每次不同，CDN 缓存需注意 | ✅ 内容不变则 hash 不变 |
+| **安全性** | 高（128-bit 以上随机数不可预测） | 高（SHA-256 碰撞概率极低） |
+| **与 `strict-dynamic`** | ✅ 完美配合 | ⚠️ 需配合 `unsafe-hashes` |
+| **典型场景** | 服务端渲染（Blade、SSR） | 静态站点、构建时确定的脚本 |
+
+**结论**：Laravel 项目推荐使用 **Nonce + strict-dynamic**，因为 Blade 模板天然支持动态 nonce 注入，且能优雅处理第三方脚本加载。
 
 ## Report-Only 灰度上线
 
@@ -569,3 +597,9 @@ https://csp-evaluator.withgoogle.com/
 ```
 
 CSP 不是银弹，但它是 XSS 防护的最后一道防线。在 B2C 电商场景中，用户的支付信息、个人数据都在页面上流转，CSP 的价值远超「安全合规检查表上的一个勾」。先用 Report-Only 模式安全上线，再逐步收紧策略，是最务实的落地路径。
+
+## 相关阅读
+
+- [OWASP Top 10 防护实战：SQL 注入/XSS/CSRF/SSRF Laravel B2C API 安全加固踩坑记录](/categories/PHP/owasp-top-10-guide-sql-xss-csrf-ssrf/)
+- [API 安全加固实战：JWT 黑名单 + 请求签名 + IP 白名单 + 防重放攻击 Laravel B2C API 踩坑记录](/categories/Architecture/API-安全加固实战-JWT-黑名单-请求签名-IP白名单-防重放攻击-Laravel-B2C-API踩坑记录/)
+- [API Gateway 安全实战：WAF + Bot 管理 + mTLS——纵深防御架构](/categories/运维/API-Gateway-安全实战-WAF-Bot管理-mTLS-纵深防御架构/)

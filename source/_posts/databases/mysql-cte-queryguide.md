@@ -5,9 +5,12 @@ updated: 2026-05-05 12:34:25
 categories:
   - Databases
   - MySQL
-tags: [Laravel, MySQL]
+tags: [laravel, mysql]
 description: 基于 Laravel B2C 后台真实树形分类与运营报表场景，拆解 MySQL 8 Recursive CTE 在层级展开、路径聚合、子树汇总中的落地方式，重点记录索引设计、环数据防护、路径截断与临时表放大的真实踩坑。
-
+cover: /images/covers/databases-001-cover.jpg
+images:
+  - /images/content/databases-001-content-1.jpg
+  - /images/content/databases-001-content-2.jpg
 
 
 ---
@@ -20,6 +23,8 @@ description: 基于 Laravel B2C 后台真实树形分类与运营报表场景，
 ---
 
 ## 一、场景建模：分类表 + 商品汇总表
+
+![MySQL CTE 树形结构场景建模](/images/content/databases-001-content-1.jpg)
 
 先看一个线上常见结构，`catalog_categories` 维护树，`product_daily_sales` 存聚合销量：
 
@@ -225,6 +230,8 @@ SQL;
 
 ## 五、真实踩坑记录
 
+![MySQL CTE 递归查询性能优化](/images/content/databases-001-content-2.jpg)
+
 ### 坑 1：没做防环，脏数据直接把查询跑满
 
 曾经有人手工修数据，把 A 的父节点指到 B，B 又指回 A。结果 CTE 一跑，直到命中 `cte_max_recursion_depth` 才报错。后来我固定做两层防护：
@@ -251,7 +258,369 @@ SQL;
 适合：分类树、代理链、组织架构、菜单权限、评论楼层、区域树。  
 不适合：超深层图遍历、频繁跨层复杂统计、强依赖遍历顺序控制的图算法。
 
-如果你的需求已经接近“图数据库查询”，或者递归深度常常几十上百层，MySQL Recursive CTE 能做，但未必是最优解。对大多数后台树形场景，它已经够强；但别把它当图引擎来滥用。
+如果你的需求已经接近"图数据库查询"，或者递归深度常常几十上百层，MySQL Recursive CTE 能做，但未必是最优解。对大多数后台树形场景，它已经够强；但别把它当图引擎来滥用。
+
+---
+
+## 七、更多 CTE 实战场景
+
+### 场景 A：递归构建分类面包屑路径
+
+在电商后台中，给定任意叶子节点 ID，快速生成从根到该节点的完整面包屑路径，常用于商品详情页 SEO 面包屑、后台快速定位分类位置：
+
+```sql
+WITH RECURSIVE breadcrumb AS (
+    SELECT id, parent_id, name, CAST(name AS CHAR(1000)) AS full_path, 0 AS level
+    FROM catalog_categories
+    WHERE id = 8882  -- 任意叶子节点
+
+    UNION ALL
+
+    SELECT c.id, c.parent_id, c.name,
+           CONCAT(c.name, ' > ', b.full_path),
+           b.level + 1
+    FROM catalog_categories c
+    INNER JOIN breadcrumb b ON c.id = b.parent_id
+)
+SELECT full_path, level AS depth
+FROM breadcrumb
+WHERE parent_id IS NULL;
+```
+
+这条 SQL 从叶子向上回溯，直到到达根节点（`parent_id IS NULL`），最终输出形如 `电子产品 > 手机通讯 > 智能手机 > iPhone 15` 的完整路径。注意 `CONCAT` 的拼接方向：从子到父逐级前缀，最终结果自然是从根到叶。
+
+### 场景 B：组织架构层级遍历
+
+企业 HR 系统中常见的组织架构树查询——给定某个部门，递归展开所有下级部门，并标记每级负责人：
+
+```sql
+CREATE TABLE departments (
+    id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    parent_id BIGINT UNSIGNED NULL,
+    name VARCHAR(100) NOT NULL,
+    manager_name VARCHAR(100) NOT NULL DEFAULT '',
+    level_code VARCHAR(200) NOT NULL DEFAULT '',
+    KEY idx_parent (parent_id)
+);
+
+WITH RECURSIVE org_tree AS (
+    SELECT
+        id, parent_id, name, manager_name,
+        0 AS depth,
+        CAST(id AS CHAR(500)) AS path_ids,
+        CONCAT(name, '(', manager_name, ')') AS full_label
+    FROM departments
+    WHERE id = 1
+
+    UNION ALL
+
+    SELECT
+        d.id, d.parent_id, d.name, d.manager_name,
+        ot.depth + 1,
+        CONCAT(ot.path_ids, '/', d.id),
+        CONCAT(ot.full_label, ' > ', d.name, '(', d.manager_name, ')')
+    FROM departments d
+    INNER JOIN org_tree ot ON d.parent_id = ot.id
+    WHERE ot.depth < 20  -- 深度限制：防止无限递归
+)
+SELECT * FROM org_tree ORDER BY path_ids;
+```
+
+注意 `WHERE ot.depth < 20` 这一行——这是**深度限制**的最佳实践。MySQL 8 默认 `cte_max_recursion_depth = 1000`，但在脏数据存在时，1000 次迭代足够打爆 CPU。显式限制深度比依赖全局参数更安全，也更容易在文档里说明"我们最多支持 20 层"。
+
+### 场景 C：物料清单（BOM）展开
+
+制造业和电商中常见的物料清单递归展开——一个成品由哪些组件构成，每个组件又由哪些子组件构成，递归展开后汇总成本：
+
+```sql
+CREATE TABLE bom_items (
+    id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    parent_product_id BIGINT UNSIGNED NULL,
+    product_id BIGINT UNSIGNED NOT NULL,
+    quantity DECIMAL(12,4) NOT NULL DEFAULT 1.0000,
+    unit_cost DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+    KEY idx_parent_product (parent_product_id),
+    KEY idx_product (product_id)
+);
+
+-- 给定成品，递归展开所有子物料，计算每层总成本
+WITH RECURSIVE bom_expand AS (
+    SELECT
+        parent_product_id,
+        product_id,
+        quantity,
+        unit_cost,
+        quantity * unit_cost AS line_cost,
+        0 AS depth,
+        CAST(product_id AS CHAR(500)) AS product_path
+    FROM bom_items
+    WHERE parent_product_id = 1001  -- 成品 ID
+
+    UNION ALL
+
+    SELECT
+        b.parent_product_id,
+        b.product_id,
+        be.quantity * b.quantity AS quantity,
+        b.unit_cost,
+        be.quantity * b.quantity * b.unit_cost AS line_cost,
+        be.depth + 1,
+        CONCAT(be.product_path, '->', b.product_id)
+    FROM bom_items b
+    INNER JOIN bom_expand be ON b.parent_product_id = be.product_id
+    WHERE be.depth < 15
+)
+SELECT
+    product_id,
+    SUM(quantity) AS total_quantity,
+    SUM(line_cost) AS total_cost,
+    MAX(depth) AS max_depth
+FROM bom_expand
+GROUP BY product_id
+ORDER BY total_cost DESC;
+```
+
+### Laravel Eloquent / DB Facade 实现 BOM 展开
+
+```php
+<?php
+
+namespace App\Services;
+
+use Illuminate\Support\Facades\DB;
+
+class BomService
+{
+    /**
+     * 递归展开物料清单，返回每层物料用量和成本
+     */
+    public function expandBom(int $productId, float $baseQuantity = 1.0): array
+    {
+        $sql = <<<'SQL'
+WITH RECURSIVE bom_expand AS (
+    SELECT
+        parent_product_id, product_id,
+        quantity * :base_qty AS quantity,
+        unit_cost,
+        quantity * :base_qty * unit_cost AS line_cost,
+        0 AS depth
+    FROM bom_items
+    WHERE parent_product_id = :product_id
+
+    UNION ALL
+
+    SELECT
+        b.parent_product_id, b.product_id,
+        be.quantity * b.quantity AS quantity,
+        b.unit_cost,
+        be.quantity * b.quantity * b.unit_cost AS line_cost,
+        be.depth + 1
+    FROM bom_items b
+    INNER JOIN bom_expand be ON b.parent_product_id = be.product_id
+    WHERE be.depth < 15
+)
+SELECT product_id, SUM(quantity) AS total_qty, SUM(line_cost) AS total_cost
+FROM bom_expand
+GROUP BY product_id
+ORDER BY total_cost DESC
+SQL;
+
+        return DB::select($sql, [
+            'base_qty'     => $baseQuantity,
+            'product_id'   => $productId,
+        ]);
+    }
+}
+```
+
+注意这里用**命名绑定**（`:base_qty`、`:product_id`）而非位置占位符，可读性更好，也更不容易在参数多时放错位置。
+
+### Laravel 中组织架构查询封装
+
+```php
+<?php
+
+namespace App\Repositories;
+
+use Illuminate\Support\Facades\DB;
+
+class DepartmentRepository
+{
+    /**
+     * 获取指定部门的完整组织架构树
+     */
+    public function getOrgTree(int $rootDeptId, int $maxDepth = 20): array
+    {
+        $sql = <<<'SQL'
+WITH RECURSIVE org_tree AS (
+    SELECT id, parent_id, name, manager_name,
+           0 AS depth,
+           CONCAT(name, '(', manager_name, ')') AS full_label
+    FROM departments
+    WHERE id = :root_id
+
+    UNION ALL
+
+    SELECT d.id, d.parent_id, d.name, d.manager_name,
+           ot.depth + 1,
+           CONCAT(ot.full_label, ' > ', d.name, '(', d.manager_name, ')')
+    FROM departments d
+    INNER JOIN org_tree ot ON d.parent_id = ot.id
+    WHERE ot.depth < :max_depth
+)
+SELECT * FROM org_tree ORDER BY depth, id
+SQL;
+
+        return DB::select($sql, [
+            'root_id'   => $rootDeptId,
+            'max_depth' => $maxDepth,
+        ]);
+    }
+}
+```
+
+---
+
+## 八、CTE vs 子查询 vs 临时表：性能对比
+
+在实际选型时，三者各有取舍。下面这张表汇总了核心差异：
+
+| 维度 | WITH RECURSIVE CTE | 子查询（Subquery） | 临时表（TEMPORARY TABLE） |
+|------|-------------------|-------------------|------------------------|
+| 可读性 | ⭐⭐⭐ 语义清晰，逻辑集中 | ⭐⭐ 嵌套多时难维护 | ⭐ 需要多条独立 SQL |
+| 复用性 | ⭐⭐⭐ 同一查询中可多次引用 | ⭐ 每次必须重写 | ⭐⭐⭐ 存在后可重复查询 |
+| MySQL 物化策略 | 递归部分自动物化到内存表 | 优化器决定是否物化 | 显式物化，可控性强 |
+| 深度控制 | 需手动限制 `depth < N` | 天然一层 | 手动循环或应用层控制 |
+| 防环机制 | `FIND_IN_SET` 或 `depth` 限制 | 不适用 | 不适用 |
+| 适合场景 | 树形遍历、层级展开、路径拼接 | 单层过滤、聚合比较 | 复杂多步分析、需要多次复用中间结果 |
+| 索引要求 | 递归表必须有 `parent_id` 索引 | 取决于具体写法 | 取决于建表语句 |
+| 典型风险 | 脏数据导致无限递归 | 子查询标量不一致报错 | 锁竞争、事务中使用受限 |
+
+**选型建议**：如果是单次树形查询且深度有限（分类树、组织树、BOM），优先用 CTE；如果需要多次复用中间结果集做多维度分析，临时表更合适；如果只是简单的一层过滤聚合，子查询足够。
+
+---
+
+## 九、递归 CTE 索引优化要点
+
+递归 CTE 的性能瓶颈通常不在递归本身，而在于**每次迭代的 JOIN 效率**。以下索引策略直接决定递归速度：
+
+### 必须有的索引
+
+```sql
+-- 递归 JOIN 的核心条件：c.parent_id = ct.id
+-- 因此 parent_id 列必须有索引
+ALTER TABLE catalog_categories ADD INDEX idx_parent_id (parent_id);
+
+-- 如果递归 WHERE 中有额外过滤条件（如 is_enabled）
+-- 组合索引更高效
+ALTER TABLE catalog_categories ADD INDEX idx_enabled_parent (is_enabled, parent_id);
+```
+
+### 关联表的索引
+
+递归 CTE 的结果集关联其他表时，关联列同样需要索引：
+
+```sql
+-- product_daily_sales 的 JOIN 条件：category_id = ct.id
+-- 已有主键 (stat_date, category_id)，但如果 CTE 结果不带日期过滤
+-- 则需要单独的 category_id 索引
+ALTER TABLE product_daily_sales ADD INDEX idx_category (category_id);
+```
+
+### 防环查询中的索引
+
+如果使用 `FIND_IN_SET(c.id, REPLACE(ct.path_ids, '/', ','))` 做防环，注意这是一个**逐行计算**，MySQL 无法对它使用索引。替代方案是用 `depth` 限制 + 应用层约束来替代字符串匹配防环，性能提升明显：
+
+```sql
+-- 推荐：depth 限制 + parent_id 约束（应用层保证无环）
+WHERE ot.depth < 20
+
+-- 不推荐：字符串查找防环（每行都要执行 FIND_IN_SET）
+WHERE FIND_IN_SET(c.id, REPLACE(ct.path_ids, '/', ',')) = 0
+```
+
+### EXPLAIN 分析递归 CTE
+
+MySQL 8 对 `WITH RECURSIVE` 的 EXPLAIN 输出中，你通常会看到一个 `递归` 类型的派生表。关键关注点：
+
+```sql
+EXPLAIN WITH RECURSIVE category_tree AS (
+    SELECT id, parent_id, name, 0 AS depth
+    FROM catalog_categories WHERE id = 1001
+    UNION ALL
+    SELECT c.id, c.parent_id, c.name, ct.depth + 1
+    FROM catalog_categories c
+    INNER JOIN category_tree ct ON c.parent_id = ct.id
+)
+SELECT * FROM category_tree;
+```
+
+EXPLAIN 结果解读：
+
+| 字段 | 正常值 | 异常值及含义 |
+|------|--------|-------------|
+| type（递归行） | `ref` 或 `eq_ref` | `ALL` 说明 parent_id 索引缺失 |
+| rows（初始行） | 1（根节点） | 大于 1 说明 WHERE 条件不精确 |
+| rows（递归行） | 逐步递增但有限 | 每层翻倍且无界说明可能有环 |
+| Extra | `Using index` 或无特殊标记 | `Using filesort` 需要检查 ORDER BY |
+| filtered | 100% 或接近 | 低于 50% 说明索引过滤效率差 |
+
+**核心原则**：如果递归部分的 `type` 是 `ALL`，几乎可以确定是缺少 `parent_id` 索引。在生产环境执行前，务必用 `EXPLAIN` 确认递归 JOIN 走索引。
+
+---
+
+## 十、常见陷阱：环检测与深度限制
+
+### 环检测（Cycle Detection）
+
+树形数据中如果存在环（A→B→A），递归 CTE 会无限循环直到命中 `cte_max_recursion_depth`。MySQL 8.0.14+ 支持 `CYCLE` 子句自动检测：
+
+```sql
+WITH RECURSIVE category_tree AS (
+    SELECT id, parent_id, name, 0 AS depth
+    FROM catalog_categories
+    WHERE id = 1001 AND is_enabled = 1
+
+    UNION ALL
+
+    SELECT c.id, c.parent_id, c.name, ct.depth + 1
+    FROM catalog_categories c
+    INNER JOIN category_tree ct ON c.parent_id = ct.id
+    WHERE c.is_enabled = 1
+) CYCLE id SET is_cycle TO 'Y' DEFAULT 'N'
+SELECT * FROM category_tree WHERE is_cycle = 'N';
+```
+
+`CYCLE id` 会自动检测 `id` 列是否形成循环，并添加 `is_cycle` 标记。但注意：**生产中不要仅依赖 CYCLE 子句**，因为：
+1. 环数据本身是脏数据，应该在写入时拦截
+2. CYCLE 检测会增加内存开销（需要维护 visited 集合）
+3. 一旦检测到环，后续所有行的递归也会被标记为 `is_cycle = 'Y'`
+
+**最佳实践是三层防护**：
+1. **应用层**：保存分类时校验 parent_id 不能形成环（DFS 检测）
+2. **数据库层**：加触发器或约束防止 `parent_id = id`
+3. **SQL 层**：`depth < N` 作为最后兜底
+
+### 深度限制（Depth Limiting）
+
+`cte_max_recursion_depth` 默认 1000，可通过以下方式调整：
+
+```sql
+-- 会话级别调整（推荐）
+SET SESSION cte_max_recursion_depth = 100;
+
+-- 全局级别（不推荐，影响所有会话）
+SET GLOBAL cte_max_recursion_depth = 100;
+```
+
+但更推荐在 SQL 本身限制深度，而非依赖全局参数：
+
+```sql
+-- 在递归部分加 WHERE depth < N
+WHERE ot.depth < 20
+```
+
+理由：全局参数是"一刀切"的防护，不同业务的树深度差异很大。分类树可能 5 层，组织树可能 10 层，BOM 可能 15 层。在 SQL 中显式限制深度，既是性能保护，也是业务约束的体现。
 
 ---
 
@@ -259,4 +628,12 @@ SQL;
 
 MySQL 8 的 `WITH RECURSIVE` 对 Laravel 项目最大的价值，不是语法新，而是**把原本散落在 Controller、Service、Collection 里的树形逻辑收回数据库**：节点展开、层级深度、完整路径、子树汇总一次完成。这样接口更稳定，导出口径更统一，性能问题也更容易定位。
 
-我自己的经验是：**先把树查对，再把索引补对，最后再考虑结果整形。** 很多所谓“递归查询慢”，本质上不是 CTE 慢，而是后面的 JOIN、聚合和排序没有设计好。
+我自己的经验是：**先把树查对，再把索引补对，最后再考虑结果整形。** 很多所谓"递归查询慢"，本质上不是 CTE 慢，而是后面的 JOIN、聚合和排序没有设计好。
+
+---
+
+## 相关阅读
+
+- [数据库索引优化实战](/categories/Databases/index-optimization-explain/)
+- [MySQL主从复制与读写分离](/categories/Databases/replication/)
+- [数据库读写分离实战](/categories/Databases/2026-06-01-database-read-write-split-laravel-middleware-mysql-replication/)

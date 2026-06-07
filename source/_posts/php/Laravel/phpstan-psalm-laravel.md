@@ -1,10 +1,11 @@
 ---
 title: PHPStan/Psalm 大型 Laravel 項目靜態分析最佳實踐-KKday-B2C-API 真實踩坑記錄
+cover: /images/covers/phpstan-psalm-laravel-cover.jpg
 date: 2026-05-02
 categories:
   - PHP
   - Laravel
-tags: [CI/CD]
+tags: [CI/CD, Laravel, PHP, PHPStan, Psalm, 静态分析, 代码质量]
 description: 基於 KKday B2C API 項目經驗，深入解析 PHPStan 和 Psalm 在大型 Laravel 應用中的配置技巧、性能優化與真實踩坑記錄。從 10 個實際問題出發，提供可落地的代碼品質提升方案。
 
 
@@ -595,6 +596,14 @@ jobs:
 > **Michael**：「引入靜態分析後，我們發現了很多隱蔽的 Bug。特別是類型不匹配的問題，在運行時才會暴露出來。」
 
 > **Team Lead**：「PHPStan 已經成為我們代碼審查的第二雙眼睛。現在合併請求時，如果 PHPStan Level 5 不通過，直接回退。」
+
+---
+
+## 📖 相关阅读
+
+- [PHPStan-Psalm 静态分析实战：Laravel 项目类型安全最佳实践踩坑记录](/categories/PHP/Laravel/phpstan-psalm-guide-laravel/)
+- [PHPStan Level 8 实战：静态分析类型安全与渐进式升级 Laravel B2C API 踩坑记录](/categories/PHP/phpstan-level-8-guide/)
+- [Laravel Pint + Rector + PHPStan 三剑客联动：代码风格+重构+类型安全的一站式质量治理流水线](/categories/Laravel/PHP/Laravel-Pint-Rector-PHPStan-三剑客联动-代码风格重构类型安全的一站式质量治理流水线/)
 
 ---
 

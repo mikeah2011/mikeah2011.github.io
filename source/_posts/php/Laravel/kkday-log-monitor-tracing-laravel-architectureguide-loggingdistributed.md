@@ -1,12 +1,13 @@
 ---
 title: kkday/log + kkday/monitor + kkday/tracing 实战：Laravel 可观测性架构——日志聚合、指标采集与分布式追踪踩坑记录
+cover: /images/covers/kkday-log-monitor-tracing-laravel-architectureguide-loggingdistributed-cover.jpg
 date: 2026-05-05 01:40:51
 updated: 2026-05-05 01:43:32
 categories:
   - PHP
-  - Logging
-tags: [KKday, Laravel, 微服务, 监控]
-description: 基于 KKday B2C Backend 真实项目，记录 kkday/log、kkday/monitor、kkday/tracing 三个内部包如何在 Laravel 中落地日志聚合、指标采集与分布式追踪，覆盖 Structured Logging 规范、Monolog Handler 定制、Prometheus RED 指标暴露、Trace Context 跨队列透传的完整链路与踩坑经验。
+  - Laravel
+tags: [KKday, Laravel, 微服务, 监控, 可观测性, Prometheus, OpenTelemetry, 日志, Monolog, 分布式追踪]
+description: "基于 KKday B2C Backend 30+ 仓库真实生产项目，深度拆解 Laravel 可观测性架构落地实战全记录。本文从三大核心模块出发，系统讲解 kkday/log 结构化日志规范与 Monolog 自定义处理器链定制、kkday/monitor Prometheus RED 指标采集与高基数标签防护策略、kkday/tracing OpenTelemetry 分布式追踪与 Trace Context 跨队列透传机制。涵盖完整的 PHP 可运行代码示例、生产部署检查清单、Grafana 告警规则配置、真实线上排查案例与踩坑速查表，助你构建日志、指标、追踪三位一体的可观测性体系，适合需要搭建 Laravel 监控告警体系的 PHP 开发者参考。"
 
 
 
@@ -58,6 +59,17 @@ Log::info("User 12345 created order ORD-20260430-001, amount: 5999");
 ```
 
 问题在于：要在 Loki 里搜「哪些订单金额超过 5000」，只能靠正则，误报率极高。
+
+### 日志方案对比：字符串 vs Structured vs Contextual
+
+| 方案 | 日志格式 | 可查询性 | 上下文注入 | 性能开销 | 适用场景 |
+|------|----------|----------|------------|----------|----------|
+| `Log::info("string")` | 纯文本 | ❌ 需正则 | ❌ 手动拼接 | 低 | 本地调试 |
+| `Log::info('msg', $data)` | 数组上下文 | ⚠️ 部分字段可查 | ❌ 手动 | 低 | 小项目 |
+| **kkday/log JSON** | 结构化 JSON | ✅ 全字段可查 | ✅ Processor 自动注入 | 中 | 生产环境 |
+| Contextual Logging (Laravel 11+) | 数组上下文 | ✅ | ✅ `Log::context()` | 低 | Laravel 11+ 新项目 |
+
+> **选型建议**：如果团队已在 Laravel 11+，优先评估 Contextual Logging；如果需要跨服务统一格式、自定义 Processor 链，kkday/log 的 Monolog Processor 机制更灵活。
 
 ### 2.2 Structured Logging 的正确姿势
 
@@ -140,6 +152,67 @@ Log::channel('kkday')->info('order.created', [
   }
 }
 ```
+
+### 2.2.1 敏感字段自动脱敏
+
+生产环境中，日志里混入密码、Token、信用卡号是安全合规的红线。`kkday/log` 内置了 SensitiveDataProcessor，支持正则规则自动脱敏：
+
+```php
+// packages/kkday-log/src/Processor/SensitiveDataProcessor.php
+namespace Kkday\Log\Processor;
+
+use Monolog\Processor\ProcessorInterface;
+
+class SensitiveDataProcessor implements ProcessorInterface
+{
+    private array $patterns = [
+        '/password/i'          => '***REDACTED***',
+        '/token/i'             => '***REDACTED***',
+        '/card_number/i'       => '****-****-****-####',
+        '/email/i'             => '***@***.com',
+    ];
+
+    public function __invoke(array $record): array
+    {
+        $record['context'] = $this->sanitize($record['context']);
+        $record['extra']   = $this->sanitize($record['extra']);
+        return $record;
+    }
+
+    private function sanitize(array $data): array
+    {
+        foreach ($data as $key => $value) {
+            if (!is_string($value)) continue;
+            foreach ($this->patterns as $pattern => $replacement) {
+                if (preg_match($pattern, $key)) {
+                    $data[$key] = $replacement;
+                }
+            }
+        }
+        return $data;
+    }
+}
+```
+
+在 `config/logging.php` 的 processors 数组中注册即可全局生效：
+
+```php
+'processors' => [
+    \Kkday\Log\Processor\RequestContextProcessor::class,
+    \Kkday\Log\Processor\MemoryUsageProcessor::class,
+    \Kkday\Log\Processor\SensitiveDataProcessor::class,  // 放在最后，确保脱敏
+],
+```
+
+### Monolog Handler 选型对比
+
+| Handler | 写入方式 | 适用场景 | 注意事项 |
+|---------|----------|----------|----------|
+| StreamHandler | 每条立即写入 | 队列 Worker、高可靠性场景 | I/O 开销较高 |
+| BufferHandler | 缓冲后批量写 | Web 请求、低频写入 | 长驻进程不触发 close() |
+| RotatingFileHandler | 按天轮转 | 本地日志文件 | 需配 `daily` 轮转策略 |
+| SyslogHandler | 写入 syslog | Docker/K8s 容器环境 | 需要 syslog 服务 |
+| SocketHandler | TCP/UDP 发送 | 远程日志聚合（如 Logstash） | 网络中断丢日志 |
 
 ### 2.3 踩坑：Monolog Buffer Handler 与队列消费者的死锁
 
@@ -243,6 +316,36 @@ class CreateOrderService
 }
 ```
 
+### Prometheus 指标类型速查
+
+| 类型 | 用途 | PHP Client 方法 | 典型场景 |
+|------|------|----------------|----------|
+| **Counter** | 只增不减的累加计数 | `incrementCounter()` | 请求总数、订单创建数、错误次数 |
+| **Gauge** | 可增可减的瞬时值 | `setGauge()` | 队列长度、内存使用、在线用户数 |
+| **Histogram** | 值分布统计 | `observeHistogram()` | 请求延迟、订单金额分布 |
+| **Summary** | 客户端分位数计算 | `observeSummary()` | P50/P95/P99 延迟（注意：不推荐跨实例聚合） |
+
+> **Histogram vs Summary**：生产环境优先选 Histogram，因为分位数在 Prometheus Server 端聚合更准确；Summary 在客户端计算，跨实例无法聚合。
+
+### Grafana PromQL 实用查询
+
+```promql
+# 请求 QPS（按路由分组）
+sum(rate(http_requests_total[5m])) by (route)
+
+# P99 延迟（95 分位）
+histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le, route))
+
+# 错误率（5xx / 总请求）
+sum(rate(http_requests_total{status=~"5.."}[5m])) / sum(rate(http_requests_total[5m]))
+
+# 订单创建速率（按币种）
+sum(rate(orders_created_total[5m])) by (currency)
+
+# 内存使用趋势
+process_resident_memory_bytes / 1024 / 1024
+```
+
 ### 3.3 踩坑：High Cardinality 指标把 Prometheus 打爆
 
 **场景**：初期把 `user_id` 作为 label 放进 Counter，30 万注册用户产生了 30 万条时间序列，Prometheus 内存 OOM。
@@ -303,6 +406,29 @@ public function boot(): void
     });
 }
 ```
+
+### OpenTelemetry 采样策略对比
+
+| 策略 | 说明 | 采样率 | 适用场景 |
+|------|------|--------|----------|
+| **AlwaysOn** | 100% 采集 | 全量 | 压测、本地调试 |
+| **AlwaysOff** | 0% 采集 | 全弃 | 临时关闭追踪 |
+| **TraceIdRatioBased** | 按 Trace ID 比例采样 | 可配置 | 生产环境（推荐 5-10%） |
+| **ParentBased** | 子 Span 跟随父 Span 决策 | 继承 | 跨服务调用链 |
+| **ParentBased + Ratio** | 根 Span 比例采样，子 Span 跟随 | 根采样 + 继承 | **生产推荐** |
+
+```php
+// packages/kkday-tracing/src/config/tracing.php
+return [
+    'service_name' => env('OTEL_SERVICE_NAME', 'b2c-api'),
+    'sample_rate' => env('OTEL_SAMPLE_RATE', 0.1), // 生产 10%
+    'error_sample_rate' => 1.0, // 错误请求 100% 采样
+    'exporter' => env('OTEL_EXPORTER', 'otlp'), // otlp | zipkin | none
+    'endpoint' => env('OTEL_ENDPOINT', 'http://otel-collector:4318'),
+];
+```
+
+> **最佳实践**：生产环境用 `ParentBased(TraceIdRatioBased(0.1))`，保证根 Span 10% 采样，子 Span 跟随父决策；错误请求走兜底规则 100% 采样，确保线上问题可追溯。
 
 ### 4.2 跨队列 Trace 透传
 
@@ -410,6 +536,21 @@ Event::listen(RequestTerminated::class, function () {
 
 **解法**：支付回调改为乐观锁 + 队列串行化，延迟立刻回落。
 
+## 踩坑速查表
+
+| 模块 | 踩坑场景 | 根因 | 解法 |
+|------|----------|------|------|
+| kkday/log | BufferHandler 在队列中日志丢失 | 常驻进程不触发 `close()` | 队列场景改用 StreamHandler |
+| kkday/log | 敏感数据泄露到日志 | 业务字段未脱敏 | 注册 SensitiveDataProcessor |
+| kkday/log | 日志文件无限增长 | 未配置轮转 | 使用 RotatingFileHandler + `daily` |
+| kkday/monitor | High Cardinality 打爆 Prometheus | `user_id` 等高基数字段做 label | 用分桶/白名单机制限制 label 基数 |
+| kkday/monitor | /metrics 端点暴露到公网 | 未配置访问控制 | 仅内网可达 + IP 白名单 |
+| kkday/monitor | Summary 跨实例聚合不准 | Summary 在客户端计算分位数 | 改用 Histogram，服务端聚合 |
+| kkday/tracing | 队列 Job Trace 断链 | `createPayloadUsing` 在 sync 驱动不触发 | 基类构造时捕获上下文 |
+| kkday/tracing | Bus::batch 后续 Job 丢 trace_context | 序列化时只有第一个 Job 完整构建 | Batch 回调中手动创建新 Span |
+| kkday/tracing | Octane Span 泄漏 | Swoole 协程复用未清理 | `RequestTerminated` 事件中 `forceFlush()` + `resetContext()` |
+| kkday/tracing | 采样率过高导致存储爆掉 | 生产环境用 100% 采样 | 降为 5-10%，错误请求兜底 100% |
+
 ## 六、生产部署 Checklist
 
 ```text
@@ -438,3 +579,9 @@ Event::listen(RequestTerminated::class, function () {
 ## 总结
 
 可观测性不是「接个 Sentry 就完了」。`kkday/log` 解决的是「发生了什么」，`kkday/monitor` 解决的是「系统状态如何」，`kkday/tracing` 解决的是「问题在哪里」。三者缺一不可，而且必须共享同一个 `trace_id` 才能串联起来。最深的教训是：**队列场景的 Context 透传**是整个链路最容易断的地方，也是排查异步问题时最救命的环节。
+
+## 相关阅读
+
+- [Prometheus + Grafana 监控体系实战：Laravel API 的 RED 指标、告警降噪与 SLO 看板落地踩坑记录](/categories/PHP/prometheus-grafana-monitoringguide-laravel-api-red-slo/)
+- [Laravel Horizon 队列监控与生产环境运维实战：多队列优先级、指标采集与自动恢复踩坑记录](/categories/Misc/laravel-horizon-monitoringguide/)
+- [Laravel Telescope 开发调试实战：请求追踪、队列监控与慢查询定位踩坑记录](/categories/PHP/laravel-telescope-guide-monitoringslow-query/)

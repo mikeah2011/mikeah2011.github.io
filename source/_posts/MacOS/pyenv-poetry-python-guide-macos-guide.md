@@ -1,10 +1,11 @@
 ---
 title: "pyenv + poetry 实战：Python 版本与依赖管理——macOS 开发者从 pip 到现代工具链的迁移指南踩坑记录"
+cover: /images/covers/pyenv-poetry-python-guide-macos-guide-cover.jpg
 date: 2026-05-17 06:30:19
 updated: 2026-05-17 06:33:58
 categories: macOS
-tags: [Composer, macOS]
-description: "作为 Laravel/PHP 开发者，为什么需要关注 Python 工具链？从 AI 辅助脚本到数据处理管道，pyenv 管多版本 + poetry 管依赖的组合已成为 macOS 上 Python 开发的黄金搭档。本文覆盖安装配置、版本管理、依赖隔离、Lock File、与 uv 的对比、以及在 PHP 项目中的实际集成踩坑。"
+tags: [composer, macOS]
+description: "macOS 上 Python 多版本管理与依赖隔离的完整实战指南。从 Laravel/PHP 开发者视角出发，详解 pyenv 安装配置、版本解析机制、poetry 依赖分组与 Lock File 最佳实践，覆盖 AI 脚本、CI/CD 集成、Apple Silicon 编译等 10 大踩坑场景，并对比 uv 新一代包管理器的选型建议。"
 
 
 
@@ -746,3 +747,11 @@ pyenv + poetry 的组合对于 macOS 上的 Python 开发已经足够成熟和�
 6. **CI 中用 `pipx install poetry`**——避免 pip 安装的循环依赖问题
 
 工具链的选择没有银弹，关键是**团队统一 + 流程自动化**。pyenv + poetry 能覆盖 90% 的场景，剩下 10% 交给 uv 或直接 Docker。
+
+---
+
+## 相关阅读
+
+- [uv 实战：下一代 Python 包管理器——100 倍速依赖解析与 PHP 开发者迁移指南](/categories/macOS/uv-guide-python-100-php-guide/)
+- [pipx 实战：Python CLI 工具隔离安装——告别依赖冲突的全局工具管理方案](/categories/macOS/pipx-python-cli-guide/)
+- [brew-php-switcher + Homebrew：macOS 多版本 PHP 管理实战与踩坑记录](/categories/macOS/brew-php-switcher-homebrew-php-guide/)

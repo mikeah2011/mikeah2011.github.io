@@ -1,11 +1,12 @@
 ---
 title: K8s HPA/VPA 自动扩缩容实战：Laravel API 从 CPU 误判到自定义指标扩容踩坑记录
+cover: /images/devops-cover.png
 date: 2026-05-03 08:35:00
 categories:
   - DevOps
   - Kubernetes
 tags: [Kubernetes, Laravel, 监控]
-description: 结合 Laravel B2C API 在 Kubernetes 上的真实压测与生产经验，记录一套 HPA + VPA 落地方案，重点解决 CPU 指标失真、扩容抖动、资源请求不准与队列任务被错误伸缩的问题。
+description: 结合 Laravel B2C API 在 Kubernetes 上的真实压测与生产经验，详解 HPA 与 VPA 自动扩缩容落地方案，涵盖 CPU 指标误判修复、自定义指标接入、Prometheus Adapter 配置、成本优化建议及常见故障排查，帮助你在生产环境安全落地自动扩缩容策略。
 
 
 
@@ -296,7 +297,23 @@ spec:
 - 原本内存 `request` 偏低，节点调度太激进
 - 某些批量导出接口会让单 Pod 瞬时 RSS 冲高，limit 太紧容易被杀
 
-## 六、队列 Worker 不要套 API 的伸缩逻辑
+## 六、HPA vs VPA 对比速查
+
+在实际落地前，先搞清楚 HPA 和 VPA 各自适合什么场景，避免选错方向：
+
+| 维度 | HPA (Horizontal Pod Autoscaler) | VPA (Vertical Pod Autoscaler) |
+| --- | --- | --- |
+| 扩容方向 | 水平（增加 Pod 副本数） | 垂直（调整单 Pod 的 requests/limits） |
+| 适用场景 | 无状态服务、HTTP API、队列 Worker | 有状态服务、数据库、单实例应用 |
+| 是否中断服务 | 不中断，Pod 不重建 | Auto 模式下会重建 Pod，可能短暂中断 |
+| 指标来源 | CPU/Memory/自定义指标 | 历史资源用量分析 |
+| 与 Laravel 配合 | API 服务首选，响应快 | 适合资源基线校准，建议先用 Off 模式 |
+| 扩容速度 | 秒级～分钟级 | 需要观察窗口，通常小时级 |
+| 限制 | 受节点资源总量限制 | 受单 Pod 物理上限限制 |
+
+> **实战建议**：API 服务用 HPA 做实时扩容，VPA 设成 Off 模式只提建议；等 VPA 观察 7 天数据稳定后，再人工调整 requests/limits 基线。
+
+## 七、队列 Worker 不要套 API 的伸缩逻辑
 
 Laravel Queue Worker 是另一类负载。它往往表现为：单任务执行长、内存增长慢、CPU 不稳定。我们最早也给 Worker 配了 CPU HPA，结果队列堆积 2 万条时几乎没扩容，因为 job 多数在等 IO。
 
@@ -349,7 +366,112 @@ spec:
 
 这里也有坑：队列深度适合反映“积压”，但不一定反映“单任务成本”。如果一个 job 平均 300ms，和一个 job 平均 45 秒，扩容模型完全不同。所以我一般会把长任务拆队列，像发券、出票、回调补偿分开处理，不让短任务被长任务拖死。
 
-## 七、发布前我会做的校验清单
+## 八、metrics-server 安装与验证
+
+HPA 的基础指标（CPU/Memory）依赖 metrics-server。很多团队 HPA 不生效，第一步就卡在这里。安装后务必验证：
+
+```bash
+# 安装 metrics-server（官方最新版）
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+# 如果是自签证书的集群，需要加 --kubelet-insecure-tls 参数
+kubectl patch deployment metrics-server -n kube-system \
+  --type='json' \
+  -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'
+
+# 等待 Pod 就绪
+kubectl -n kube-system rollout status deployment/metrics-server
+
+# 验证：能拿到节点指标
+kubectl top nodes
+
+# 验证：能拿到 Pod 指标
+kubectl top pods -n default
+
+# 验证：API 资源组可用
+kubectl get apiservice v1beta1.metrics.k8s.io
+# 期望输出：Available=True
+```
+
+如果 `kubectl top nodes` 返回 `error: Metrics not available`，先检查 metrics-server Pod 是否 Running，再看日志是否有 RBAC 或证书问题。
+
+## 九、自定义指标接入：Prometheus Adapter 完整配置
+
+前面第三章已经给出了 Prometheus Adapter 的规则片段，这里补充完整安装和验证流程：
+
+```bash
+# 安装 Prometheus Adapter（Helm 方式）
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+helm install prometheus-adapter prometheus-community/prometheus-adapter \
+  --namespace monitoring \
+  --create-namespace \
+  -f prometheus-adapter-values.yaml
+```
+
+`prometheus-adapter-values.yaml` 核心配置：
+
+```yaml
+prometheus:
+  url: http://prometheus-server.monitoring.svc.cluster.local
+  port: 9090
+
+rules:
+  default: false
+  custom:
+    - seriesQuery: 'php_fpm_active_processes{namespace!=""}'
+      resources:
+        overrides:
+          namespace: { resource: namespace }
+          pod: { resource: pod }
+      name:
+        matches: "php_fpm_active_processes"
+        as: "php_fpm_active_processes"
+      metricsQuery: 'avg_over_time(php_fpm_active_processes{<<.LabelMatchers>>}[2m])'
+
+    # 也可以暴露 Laravel 请求延迟 P95 作为参考指标
+    - seriesQuery: '{__name__=~"^laravel_http_request_duration_seconds_bucket$",namespace!=""}'
+      resources:
+        overrides:
+          namespace: { resource: namespace }
+      name:
+        matches: "laravel_http_request_duration_seconds_bucket"
+        as: "laravel_request_p95"
+      metricsQuery: 'histogram_quantile(0.95, sum(rate(laravel_http_request_duration_seconds_bucket{<<.LabelMatchers>>}[5m])) by (le, <<.GroupBy>>))'
+```
+
+安装后验证自定义指标是否可用：
+
+```bash
+# 查看 Prometheus Adapter 是否注册了自定义指标 API
+kubectl get apiservice v1beta1.custom.metrics.k8s.io
+# 期望输出：Available=True
+
+# 列出所有自定义指标
+kubectl get --raw "/apis/custom.metrics.k8s.io/v1beta1" | python3 -m json.tool
+
+# 查看特定 Pod 的 php_fpm_active_processes
+kubectl get --raw "/apis/custom.metrics.k8s.io/v1beta1/namespaces/default/pods/*/php_fpm_active_processes" | python3 -m json.tool
+
+# 在 HPA 中验证指标是否正常读取
+kubectl describe hpa b2c-api
+# 期望看到自定义指标的 TARGET 和 CURRENT 不是 <unknown>
+```
+
+## 十、成本优化建议
+
+自动扩缩容做好了，接下来要关注成本，避免"能扩就扩"把预算打爆：
+
+1. **设置合理的 minReplicas 和 maxReplicas**：min 不要设太低影响可用性，max 不要设太高防止意外账单。建议 maxReplicas = 预估峰值的 1.5 倍。
+2. **善用 `behavior` 策略控制缩容速度**：缩容比扩容慢是正确策略，但也要避免 Pod 长时间空跑浪费资源。`stabilizationWindowSeconds` 设 300～600 秒即可。
+3. **requests 按 VPA 建议校准，不要拍脑袋**：requests 设太高 = 浪费钱（节点调度不满），设太低 = 抖动 + throttling。VPA Off 模式观察 7 天后按建议值的 P90 来设。
+4. **利用节点亲和性和拓扑分散降低开销**：同可用区节点之间带宽免费，跨区流量计费。HPA 扩出来的新 Pod 尽量在同区节点调度。
+5. **队列 Worker 用 Spot/抢占式实例**：API Pod 不建议用 Spot，但队列 Worker 天然可中断（job 会重新入队），Spot 实例可以省 60%～70% 成本。
+6. **定期清理无用 HPA 和 ScaledObject**：项目下线后遗留的 HPA 不会自动删除，会持续查询指标浪费资源。
+7. **非高峰时段主动降副本**：如果业务有明显波谷（如凌晨），可以用 CronJob 定时调低 minReplicas，避免最低副本数虚耗资源。
+
+## 十一、发布前我会做的校验清单
 
 自动扩缩容最怕“配置写对了，运行时却全错”。所以每次改 HPA/VPA，我都会在预发环境跑一遍下面这套检查：
 
@@ -378,7 +500,58 @@ livenessProbe:
   failureThreshold: 3
 ```
 
-## 八、三次真实踩坑
+## 十二、常见问题排查（Troubleshooting）
+
+### HPA 不生效，一直显示 `<unknown>`
+
+```bash
+# 1. 检查 metrics-server
+kubectl top nodes
+# 如果报错 → metrics-server 没装或没就绪
+
+# 2. 检查 HPA 事件
+kubectl describe hpa b2c-api
+# 看 Events 部分是否有 "failed to get cpu utilization" 之类的错误
+
+# 3. 检查 Pod 是否有 requests 设置
+kubectl get deploy b2c-api -o jsonpath='{.spec.template.spec.containers[0].resources.requests}'
+# 如果 requests 为空，HPA 的 Resource 类型指标无法计算利用率
+```
+
+### HPA 自定义指标显示 `<unknown>`
+
+```bash
+# 1. 确认 Prometheus Adapter 是否注册
+kubectl get apiservice v1beta1.custom.metrics.k8s.io
+
+# 2. 检查指标是否被 Prometheus 采集到
+kubectl port-forward svc/prometheus-server -n monitoring 9090
+# 浏览器打开 http://localhost:9090，搜索 php_fpm_active_processes
+
+# 3. 检查 Adapter 规则是否匹配
+kubectl get --raw "/apis/custom.metrics.k8s.io/v1beta1/namespaces/default/pods/*/php_fpm_active_processes"
+# 如果返回空，说明 seriesQuery 或 name.matches 配置有误
+```
+
+### HPA 频繁抖动（flapping）
+
+1. 检查 `stabilizationWindowSeconds` 是否过短（建议 scaleDown 至少 300 秒）
+2. 检查是否有多个指标互相矛盾（一个说扩，一个说缩）
+3. 检查指标是否有尖刺噪音，考虑用 `avg_over_time` 做平滑
+
+### VPA Auto 模式下 Pod 频繁重建
+
+1. API 服务建议用 `Off` 模式，只看建议值
+2. 如果必须用 `Auto`，设置合理的 `minAllowed` / `maxAllowed` 防止极端调整
+3. 确认没有同时开 HPA 和 VPA 调同一个资源维度
+
+### Pod 扩出来了但延迟没降
+
+1. `kubectl top pod` 确认新 Pod 的 CPU/Memory 已正常分配
+2. 检查 readinessProbe 是否通过，新 Pod 是否已接入流量
+3. 检查下游依赖（MySQL、Redis）是否达到瓶颈，瓶颈不在计算层
+
+## 十三、三次真实踩坑
 
 ### 坑 1：HPA 和 VPA 同时改 CPU request，副本数疯狂抖动
 
@@ -392,7 +565,7 @@ livenessProbe:
 
 平均 CPU 65% 看起来没问题，但其实常常是两个 Pod 很忙、两个 Pod 很闲。后来我们在 Grafana 上单独看 `php_fpm_active_processes by pod` 和 P95 latency，才发现是某些节点网络抖动，导致个别 Pod 排队严重。**自动扩缩容不是监控替代品，反而更依赖细粒度监控。**
 
-## 九、落地后的效果
+## 十四、落地后的效果
 
 这套方案上线后，比较稳定的数据是：
 
@@ -408,4 +581,11 @@ livenessProbe:
 3. **API、Queue、Cron 三类 Pod 分开建策略**
 4. **HPA 负责横向，VPA 优先负责建议，不要一锅炖**
 
-如果你的 Laravel 服务已经进了 Kubernetes，下一次扩容策略评审时，我最建议先看两个图：**每 Pod 活跃进程数** 和 **P95 延迟**。很多“CPU 很低却很慢”的真相，都会从这两个指标里冒出来。
+如果你的 Laravel 服务已经进了 Kubernetes，下一次扩容策略评审时，我最建议先看两个图：**每 Pod 活跃进程数** 和 **P95 延迟**。很多"CPU 很低却很慢"的真相，都会从这两个指标里冒出来。
+
+## 相关阅读
+
+- [Kubernetes Ingress 实战：Nginx/Traefik 配置与 TLS](/categories/DevOps/kubernetes-ingress-guide-nginx-traefik-tls-deployment/)
+- [Kubernetes ConfigMap/Secret 实战](/categories/DevOps/kubernetes-configmap-secret-guide-config-management-laravel-deployment/)
+- [Docker Compose + PHP-FPM 实战](/categories/DevOps/docker-compose-php-fpmguide-microservicesdeployment/)
+- [Kubernetes HPA 实战](/categories/DevOps/kubernetes-hpa-guide-laravel/)

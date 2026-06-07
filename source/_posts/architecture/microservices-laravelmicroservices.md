@@ -1,12 +1,13 @@
 ---
 title: 微服务拆分策略：从单体 Laravel 到微服务的渐进式演进踩坑记录
+cover: /images/covers/microservices-laravelmicroservices-cover.jpg
 date: 2026-05-05 07:40:27
 updated: 2026-05-05 07:43:36
 categories:
   - Architecture
   - Laravel
 tags: [Laravel, 微服务, 架构]
-description: "基于 KKday 30+ Laravel 仓库的真实拆分经验：如何判断拆分时机、识别服务边界、选择通信模式，以及从单体到微服务的渐进式演进策略与踩坑记录。"
+description: "基于 KKday 30+ Laravel 仓库的实战经验，深入剖析微服务（Microservices）架构设计的核心决策链：服务拆分时机判断与反信号识别、Bounded Context 边界划分与 Event Storming 领域建模、Strangler Fig 渐进式迁移四阶段、API Gateway 与 BFF 聚合层设计、数据库拆分与 CDC 同步、分布式事务状态机补偿方案、熔断降级策略，含完整踩坑记录与架构总览图。"
 
 
 
@@ -761,3 +762,16 @@ class InventoryClient
 ---
 
 *本文基于 KKday B2C 后端团队在 2023-2025 年间的架构演进实践，涉及 30+ Laravel 仓库的真实经验。*
+
+---
+
+## 相关阅读
+
+- [Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点](/post/2026-06-04-Laravel-Modular-Monolith-实战-模块化单体架构-介于单体与微服务之间的最佳平衡点.html) — 本文提到的「先用模块化单体验证边界」的最佳实践
+- [API Gateway 实战：Kong/APISIX 在 Laravel 微服务中的应用](/post/api-gateway-guide-kong-apisix-laravel-microservices-rate-limitingcanary.html) — BFF 层背后的 API Gateway 鉴权、限流与灰度发布
+- [DDD 领域驱动设计实战：B2C 电商聚合根、值对象、领域事件在 Laravel 中的落地](/post/ddd-guide-laravel.html) — Event Storming 与 Bounded Context 的深入展开
+- [BFF Laravel 中间层聚合实战](/post/bff-laravel.html) — 本文架构图中 BFF 聚合层的完整实现方案
+- [Data Contract 实战：Pact-style 数据契约——Laravel 微服务间 Breaking Change 检测](/post/2026-06-05-Data-Contract-Pact-style-Laravel微服务数据契约版本化验证Breaking-Change检测.html) — 微服务拆分后的 API 契约治理
+- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构](/post/2026-06-03-Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构.html) — 本文阶段二数据库拆分中 CDC 同步的完整方案
+- [Outbox Pattern 实战：保证数据库与消息队列的最终一致性](/post/Outbox-Pattern-实战-保证数据库与消息队列的最终一致性-Laravel-Debezium.html) — 分布式事件发布的可靠投递模式
+- [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/post/事件驱动架构全景实战-EventBridge-NATS-Pulsar-统一事件总线设计.html) — 本文通信模式选型的事件总线深入参考

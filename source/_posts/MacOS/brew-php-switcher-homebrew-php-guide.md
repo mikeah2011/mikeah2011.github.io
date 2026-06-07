@@ -1,11 +1,12 @@
 ---
 title: brew-php-switcher + Homebrew：macOS 多版本 PHP 管理实战与踩坑记录
+cover: /images/covers/brew-php-switcher-homebrew-php-guide-cover.jpg
 date: 2026-05-05 00:55:55
 updated: 2026-05-05 00:59:30
 categories:
   - macOS
   - Tools
-tags: [Git, Laravel, PHP, macOS]
+tags: [Laravel, PHP, macOS, Homebrew, brew-php-switcher, 多版本管理, Apple Silicon]
 description: KKday 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.2/8.3 多版本共存的完整方案 | brew-php-switcher 与 Homebrew 原生方式对比 | 真实踩坑记录
 
 
@@ -122,6 +123,21 @@ brew link php@8.3 --force --overwrite
 # 重启 FPM
 brew services restart php@8.3
 ```
+
+### 2.3 brew-php-switcher vs Homebrew 原生方式对比
+
+| 维度 | brew-php-switcher (`phpswitch`) | Homebrew 原生 (`brew link/unlink`) |
+|------|---------------------------------|-------------------------------------|
+| **命令数量** | 1 条命令搞定 | 需要 3 条（unlink → link → restart FPM） |
+| **CLI 切换** | ✅ 自动切换 symlink | ✅ 通过 link 切换 |
+| **FPM 切换** | ✅ 同时切换 FPM 版本 | ❌ 需手动 `brew services restart` |
+| **扩展切换** | ✅ 自动重编译 pecl 扩展 | ❌ 扩展可能跟错版本 |
+| **学习成本** | 低，一个命令记住 | 需要理解 link/unlink 机制 |
+| **灵活性** | 中等，只能整体切换 | 高，可单独操作 CLI 或 FPM |
+| **适用场景** | 开发机快速切版本 | 脚本化/CI 环境精细控制 |
+| **安装依赖** | 额外安装一个 formula | 无额外依赖 |
+
+> 💡 **建议**：日常开发用 `phpswitch` 一键切换；CI/CD 或脚本化场景用 `brew link/unlink` 精细控制。两者不冲突，可以混用。
 
 > ⚠️ **踩坑 #2**：`brew link` 在 Apple Silicon 上的路径是 `/opt/homebrew/` 而非 `/usr/local/`。如果你的 `PATH` 里混了两个路径，会出现 `php -v` 显示一个版本、`which php` 指向另一个版本的诡异情况。解决方法：
 >
@@ -421,3 +437,9 @@ Listening Ports:
 ---
 
 *本文基于 macOS Ventura / Sonoma + Apple M2 芯片 + Homebrew 4.x 实战编写。Intel Mac 用户路径为 `/usr/local/` 而非 `/opt/homebrew/`，其余逻辑相同。*
+
+## 相关阅读
+
+- [Hermes Agent 实战：多平台 AI 助手配置与使用——从零搭建个人 AI 工作流踩坑记录](/categories/macOS/hermes-agent-guide-ai/)
+- [LM Studio + Ollama：M 芯片 Mac 上的本地大模型实战（Laravel BFF 开发者视角）](/categories/macOS/lm-studio-ollama-m-guide-laravel-bff/)
+- [Ghostty 终端实战：下一代 GPU 加速终端 emulator 配置与 Laravel 开发效率提升踩坑记录](/categories/macOS/ghostty-guide-gpu-emulatorlaravel/)

@@ -1,5 +1,6 @@
 ---
 title: EFK 日志聚合实战 - Laravel B2C API 分布式日志收集与查询优化
+cover: /images/covers/efk-loggingguide-distributedloggingqueryoptimization-cover.jpg
 date: 2026-05-03
 categories:
   - DevOps
@@ -898,3 +899,9 @@ class OrderService
 ---
 
 *本文基于 KKday B2C API 项目真实踩坑经验总结，适用于日均请求量 1000 万+ 的微服务架构。*
+
+## 相关阅读
+
+- [K8s HPA/VPA 自动扩缩容实战：Laravel API 从 CPU 误判到自定义指标扩容踩坑记录](/categories/DevOps/k8s-hpa-vpa-guide-laravel-api-cpu/)
+- [Kubernetes-Ingress-实战-Nginx-Traefik-配置与-TLS-Laravel-B2C-API-部署踩坑记录](/categories/DevOps/kubernetes-ingress-guide-nginx-traefik-tls-deployment/)
+- [Colima vs Lima vs Docker Desktop：macOS 容器运行时选型对比实战](/categories/DevOps/colima-vs-lima-vs-docker-desktop-macos-containervs/)

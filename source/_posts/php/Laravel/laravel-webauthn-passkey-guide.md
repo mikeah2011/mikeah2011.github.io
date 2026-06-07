@@ -1,12 +1,13 @@
 ---
 title: Laravel WebAuthn / Passkey 实战：后台无密码登录、设备绑定与挑战过期踩坑记录
+cover: /images/covers/laravel-webauthn-passkey-guide-cover.jpg
 date: 2026-05-04 15:15:59
 updated: 2026-05-04 15:17:45
 categories:
   - PHP
   - Laravel
-tags: [Laravel, 安全]
-description: 结合 Laravel 后台账号安全改造的真实经验，记录如何落地 WebAuthn / Passkey 无密码登录，覆盖挑战生成、设备绑定、签名校验、计数器回放防护与线上踩坑处理。
+tags: [Laravel, 安全, WebAuthn, Passkey, FIDO2, 无密码登录]
+description: Laravel 后台 WebAuthn / Passkey 无密码登录完整实战指南：涵盖 FIDO2 设备注册、签名验证、挑战过期处理、多设备绑定管理、signCount 回放防护、会话升级策略及线上踩坑记录，附可运行代码示例与 Passkey vs 传统认证方案对比表。
 
 
 
@@ -24,6 +25,20 @@ description: 结合 Laravel 后台账号安全改造的真实经验，记录如�
 3. 短信本质仍是共享秘密，抗钓鱼能力很弱。
 
 WebAuthn 的价值是把认证秘密放进系统钥匙串、安全芯片或硬件密钥里，服务端只保存公钥材料。即使后台登录页被仿冒，没有正确的 `rpId` 也签不出来。
+
+### 认证方案对比一览
+
+| 维度 | 密码 + 短信验证码 | TOTP (Google Authenticator) | WebAuthn / Passkey |
+|---|---|---|---|
+| 抗钓鱼 | ❌ 弱，用户仍可能输入到假站 | ❌ 弱，TOTP 码可被实时钓鱼 | ✅ 强，签名绑定 rpId + origin |
+| 抗中间人 | ❌ 短信可被劫持（SS7/钓鱼） | ❌ 码可被实时转发 | ✅ 签名含 origin，无法中转 |
+| 用户体验 | 😐 需记密码 + 等短信 | 😐 需手动输入 6 位码 | ✅ 指纹/面容/设备一键认证 |
+| 设备依赖 | 无（短信依赖手机号） | 手机 App（丢失需恢复） | 设备安全芯片/平台认证器 |
+| 密码泄露影响 | 🔴 一泄全泄 | 🟡 OTP 可被钓鱼转发 | 🟢 无私钥泄露风险 |
+| 恢复难度 | 简单（重置密码） | 中等（备份码） | 需预设备份凭证 |
+| FIDO2 合规 | ❌ | ❌ | ✅ |
+
+选择 WebAuthn 的核心理由是 **抗钓鱼**。后台系统一旦暴露登录页面 URL，传统方案的钓鱼风险是 100% 的，而 WebAuthn 在浏览器层面就拦住了。
 
 ## 二、落地后的架构图
 
@@ -283,8 +298,120 @@ public function destroy(WebAuthnCredential $credential): JsonResponse
 
 这段逻辑不复杂，但非常值钱。它能把“账户永久锁死”这种低频高危事故，提前拦在管理台上。
 
-## 十、我的最终结论
+## 十一、注册流程完整代码参考
+
+注册（Registration）和登录（Authentication）是两个独立的 WebAuthn 流程，很多人只实现了登录，注册却写得草率。这里给一个可运行的注册端到端参考。
+
+**前端注册（JavaScript）：**
+
+```js
+async function registerPasskey(userId, challengeOptions) {
+  const publicKeyCredentialCreationOptions = {
+    challenge: Uint8Array.from(atob(challengeOptions.challenge), c => c.charCodeAt(0)),
+    rp: {
+      name: challengeOptions.rpName,
+      id: challengeOptions.rpId,
+    },
+    user: {
+      id: Uint8Array.from(atob(challengeOptions.userId), c => c.charCodeAt(0)),
+      name: challengeOptions.userName,
+      displayName: challengeOptions.displayName,
+    },
+    pubKeyCredParams: [
+      { alg: -7,   type: 'public-key' },  // ES256
+      { alg: -257, type: 'public-key' },  // RS256
+    ],
+    authenticatorSelection: {
+      authenticatorAttachment: 'platform',  // 使用设备内置认证器
+      userVerification: 'required',
+      residentKey: 'preferred',
+    },
+    timeout: 60000,
+    attestation: 'direct',
+  };
+
+  const credential = await navigator.credentials.create({
+    publicKey: publicKeyCredentialCreationOptions,
+  });
+
+  await fetch('/admin/webauthn/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      request_id: challengeOptions.requestId,
+      credential_id: btoa(String.fromCharCode(...new Uint8Array(credential.rawId))),
+      attestation_object: btoa(String.fromCharCode(...new Uint8Array(credential.response.attestationObject))),
+      client_data_json: btoa(String.fromCharCode(...new Uint8Array(credential.response.clientDataJSON))),
+      device_name: navigator.userAgent.includes('Mac') ? 'Mac Safari' : 'Other Device',
+    }),
+  });
+}
+```
+
+**后端注册控制器（PHP）：**
+
+```php
+public function register(RegisterRequest $request, WebAuthnVerifier $verifier): JsonResponse
+{
+    $userId = Auth::id();
+    $expectedChallenge = $this->challengeService->pullRegisterChallenge($userId);
+    abort_if(!$expectedChallenge, 422, 'Registration challenge expired');
+
+    $result = $verifier->verifyAttestation(
+        expectedChallenge: $expectedChallenge,
+        attestationObject: $request->string('attestation_object')->toString(),
+        clientDataJson: $request->string('client_data_json')->toString(),
+    );
+
+    abort_unless($result->passed(), 422, $result->message());
+
+    WebAuthnCredential::create([
+        'user_id'       => $userId,
+        'credential_id' => $result->credentialId(),
+        'public_key'    => $result->publicKey(),
+        'sign_count'    => 0,
+        'transports'    => $request->string('transports')->toString(),
+        'aaguid'        => $result->aaguid(),
+        'device_name'   => $request->string('device_name', 'Unknown Device'),
+    ]);
+
+    AuditLog::create([
+        'actor_id' => $userId,
+        'action'   => 'webauthn_credential_registered',
+        'metadata' => [
+            'credential_id' => $result->credentialId(),
+            'device_name'   => $request->string('device_name'),
+            'ip'            => $request->ip(),
+        ],
+    ]);
+
+    return response()->json(['ok' => true, 'message' => 'Passkey registered successfully']);
+}
+```
+
+注意 `pubKeyCredParams` 里同时声明 ES256 和 RS256，是为了兼容不同平台的认证器——iOS/macOS 优先用 ES256，部分 Windows Hello 设备用 RS256。
+
+## 十二、WebAuthn PHP 库选型对比
+
+在 Laravel 里落地 WebAuthn，主要有以下几种技术路线：
+
+| 库/方案 | 维护状态 | 优点 | 缺点 | 适用场景 |
+|---|---|---|---|---|
+| `web-auth/webauthn-lib` (Spomky-Labs) | ✅ 活跃维护 | 功能最全，支持 attestation + assertion，社区活跃 | 学习曲线较陡，配置项多 | 生产环境首选 |
+| `asbiin/laravel-webauthn` | ✅ 维护中 | Laravel 生态集成好，开箱即用 | 定制灵活性稍弱 | 快速接入、中小项目 |
+| 自己封装 CBOR/COSE 解析 | ❌ 不推荐 | 完全可控 | 极易出错，安全风险高，维护成本大 | 不推荐生产使用 |
+| `Laravel Fortify` + Passkey | ✅ 官方支持 (11.x+) | 与 Jetstream 深度集成 | 仅支持完整认证流程，定制二次验证较难 | 新项目快速搭建 |
+
+我个人倾向于 `web-auth/webauthn-lib` 作为底层库，再自己封装一层 Laravel Service。原因有二：一是后台权限系统往往有大量定制逻辑，开箱即用的包反而会碍手；二是出了安全问题时，你需要能快速定位到底是哪层校验没过。
+
+## 十三、我的最终结论
 
 WebAuthn / Passkey 在 Laravel 里并不难接，难的是把它当成**认证系统**而不是“前端弹一次系统框”。真正决定它是否能上线的，是这五件事：**设备建模、challenge 生命周期、origin/rpId 校验、signCount 更新、审计闭环**。
 
-如果你的后台已经有高风险操作，我很建议从“敏感动作二次验证”开始，而不是一次性全站替换密码登录。这样既能尽快拿到安全收益，也更容易把浏览器兼容性、设备迁移和运营流程一点点补齐。
+如果你的后台已经有高风险操作，我很建议从"敏感动作二次验证"开始，而不是一次性全站替换密码登录。这样既能尽快拿到安全收益，也更容易把浏览器兼容性、设备迁移和运营流程一点点补齐。
+
+## 相关阅读
+
+- [OWASP Top 10 安全漏洞实战指南：SQL 注入、XSS、CSRF、SSRF 详解](/post/owasp-top-10-guide-sql-xss-csrf-ssrf.html) — 理解 Web 应用常见攻击面，WebAuthn 能有效防御其中的钓鱼与凭证泄露类攻击
+- [Laravel Sanctum 与 Passport Token 认证全指南：并发、刷新与选型](/post/laravel-sanctum-passport-token-guide-token-concurrency.html) — API Token 认证方案对比，适合需要同时支持 Web 登录与 API 认证的项目
+- [Firebase JWT vs Token：Laravel Passport、Sanctum 深度对比](/post/firebase-jwt-vs-token-laravel-passport-sanctum-vs.html) — JWT 与 Session Token 选型分析，理解不同认证策略的适用场景

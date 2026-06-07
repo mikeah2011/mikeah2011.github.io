@@ -1,5 +1,6 @@
 ---
 title: Git Flow vs Trunk-Based：30+ 仓库的分支策略选型与踩坑记录
+cover: /images/covers/git-flow-vs-trunk-based-30-cover.jpg
 date: 2026-05-05 06:50:50
 updated: 2026-05-05 06:53:31
 categories:
@@ -175,6 +176,199 @@ git cherry-pick <commit-hash>
 ```
 
 **教训**：Git Flow 的分支同步成本被严重低估了。在 30+ 仓库中，这个成本是**乘以 30**的。
+
+### 2.4 Git Flow 完整 CI/CD 流水线示例
+
+以下是 Git Flow 模式下针对不同分支类型的完整 `.gitlab-ci.yml` 配置，展示了多分支流水线的复杂度：
+
+```yaml
+# .gitlab-ci.yml - Git Flow 模式下的多分支 CI 配置
+# 复杂度远高于 TBD 的单主干流水线
+
+stages:
+  - lint
+  - test
+  - build
+  - deploy-staging
+  - deploy-production
+
+variables:
+  PHP_VERSION: "8.2"
+  COMPOSER_CACHE_DIR: "$CI_PROJECT_DIR/.composer-cache"
+
+# ---- Lint 阶段 ----
+phpstan:
+  stage: lint
+  only:
+    - merge_requests
+    - main
+    - develop
+    - /^release\/.*$/
+  script:
+    - composer install --no-dev --optimize-autoloader --no-progress
+    - ./vendor/bin/phpstan analyse --memory-limit=2G
+  cache:
+    key: "$CI_COMMIT_REF_SLUG"
+    paths:
+      - .composer-cache/
+
+pint:
+  stage: lint
+  only:
+    - merge_requests
+    - main
+    - develop
+  script:
+    - ./vendor/bin/pint --test
+
+# ---- Test 阶段 ----
+# ⚠️ Git Flow 的痛点：需要为多个分支分别配置触发规则
+test:
+  stage: test
+  only:
+    - main
+    - develop
+    - /^release\/.*$/
+    - merge_requests
+  script:
+    - php artisan test --parallel --processes=4
+  coverage: '/Statements:\s*(\d+\.\d+)%/'
+  artifacts:
+    reports:
+      junit: report.xml
+    when: always
+  cache:
+    key: "$CI_COMMIT_REF_SLUG"
+    paths:
+      - .composer-cache/
+
+# ---- Build 阶段 ----
+build:
+  stage: build
+  only:
+    - main
+    - develop
+    - /^release\/.*$/
+  script:
+    - php artisan config:cache
+    - php artisan route:cache
+    - php artisan view:cache
+    - tar -czf build.tar.gz --exclude=.git --exclude=vendor .
+  artifacts:
+    paths:
+      - build.tar.gz
+    expire_in: 1 week
+
+# ---- Staging 部署 ----
+# release 和 develop 分支都部署到 staging
+deploy:staging:
+  stage: deploy
+  only:
+    - develop
+    - /^release\/.*$/
+  script:
+    - php artisan migrate --force
+    - scp build.tar.gz $STAGING_HOST:/var/www/app/
+    - ssh $STAGING_HOST "cd /var/www/app && tar -xzf build.tar.gz && php artisan config:cache"
+  environment:
+    name: staging
+  when: on_success
+
+# ---- 生产部署 ----
+# ⚠️ Git Flow 的复杂点：只有 main 分支合入后才触发生产部署
+deploy:production:
+  stage: deploy
+  only:
+    - main
+  script:
+    - php artisan migrate --force
+    - scp build.tar.gz $PROD_HOST:/var/www/app/
+    - ssh $PROD_HOST "cd /var/www/app && tar -xzf build.tar.gz && php artisan config:cache"
+  environment:
+    name: production
+  when: manual
+  allow_failure: false
+
+# ---- Release 分支的特殊处理 ----
+# ⚠️ 当 release 分支合并到 main 后，需要打 tag
+tag:release:
+  stage: build
+  only:
+    - main
+  when: on_success
+  script:
+    - |
+      # 检查最近一次合并是否来自 release 分支
+      LAST_MERGE_MSG=$(git log -1 --pretty=%B)
+      if echo "$LAST_MERGE_MSG" | grep -q "^Merge branch 'release/"; then
+        VERSION=$(echo "$LAST_MERGE_MSG" | grep -oP "release/\K[0-9]+\.[0-9]+\.[0-9]+")
+        git tag -a "v$VERSION" -m "Release $VERSION"
+        git push origin "v$VERSION"
+        echo "🏷️ 已创建 tag: v$VERSION"
+      else
+        echo "非 release 合并，跳过打 tag"
+      fi
+```
+
+**对比：TBD 模式下的 CI/CD 流水线**（同等功能，配置量减半）：
+
+```yaml
+# .gitlab-ci.yml - TBD 模式（同等功能的精简版）
+stages:
+  - quality
+  - test
+  - build
+  - deploy
+
+# 所有 MR 和 main 分支统一走同一条流水线
+quality:
+  stage: quality
+  script:
+    - composer install --no-dev --optimize-autoloader
+    - ./vendor/bin/pint --test
+    - ./vendor/bin/phpstan analyse --memory-limit=2G
+  only:
+    - merge_requests
+    - main
+
+test:
+  stage: test
+  script:
+    - php artisan test --parallel --processes=4
+  only:
+    - merge_requests
+    - main
+
+deploy:staging:
+  stage: deploy
+  script:
+    - php artisan migrate --force
+  environment:
+    name: staging
+  only:
+    - main
+  when: on_success
+
+deploy:production:
+  stage: deploy
+  script:
+    - php artisan migrate --force
+  environment:
+    name: production
+  only:
+    - main
+  when: manual
+```
+
+**两种模式 CI/CD 对比小结**：
+
+| 对比维度 | Git Flow 流水线 | TBD 流水线 |
+|----------|----------------|-----------|
+| 配置行数 | 150+ 行 | 60 行 |
+| 需匹配的分支 | 5+ 种（main/develop/release/hotfix/feature） | 2 种（main + MR） |
+| 部署目标 | 3 个（staging × develop/release, production × main） | 2 个（staging + production） |
+| 打 tag 逻辑 | 手动或额外 CI job | 自动化（semantic-release） |
+| 新人上手难度 | 高（需理解分支生命周期） | 低（只需知道 main） |
 
 ---
 
@@ -820,3 +1014,11 @@ git log --merges --since="30 days ago" --oneline | grep -i conflict | wc -l
 ---
 
 **标签**：Git, Git Flow, Trunk-Based Development, 分支策略, CI/CD, 团队协作
+
+---
+
+## 相关阅读
+
+- [Monorepo vs Polyrepo：30+ 仓库架构选型与管理经验](/architecture/monorepo-vs-polyrepo-30-architecture/)
+- [Fork 项目维护与上游同步实战：以 Scribe/CRMEB 为例的 Fork 协作工作流踩坑记录](/architecture/fork-guide-scribe-crmeb-fork/)
+- [Trunk-Based Development 深度实战：Feature Flag 替代长生命周期分支的工程化落地](/07_CICD/Trunk-Based-Development-深度实战-Feature-Flag-替代长生命周期分支的工程化落地/)

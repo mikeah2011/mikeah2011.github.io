@@ -1,11 +1,12 @@
 ---
 title: PHP 8 Trait + Enum 大型项目重构实战 -30+ Laravel 仓库经验
+cover: /images/covers/php-8-trait-enum-laravel-30-cover.jpg
 date: 2026-05-02 17:30
 categories:
   - PHP
   - Laravel
 tags: [Laravel, PHP]
-description: PHP 8 Trait 和 Enum 在 Laravel 大型项目中的深度应用与重构实战经验，基于 30+ 仓库的真实踩坑记录。
+description: 深入讲解 PHP 8 新特性 Trait 和 Enum（枚举）在 Laravel 大型项目中的实战应用，基于 30+ 个 Laravel 仓库的真实重构经验。涵盖 Service 层 Trait 编排模式、Enum + Trait 组合实现 API 响应标准化、Repository 层多租户数据隔离等三大场景，附性能对比数据、踩坑记录与最佳实践，帮助 PHP 开发者掌握组合优于继承的现代 Laravel 架构设计。
 
 
 
@@ -612,11 +613,11 @@ class GoodExample {
 ✅ **Trait 编排模式** - 复用代码，避免复制粘贴  
 ✅ **组合优于继承** - 更符合 Laravel 设计理念  
 
-### 建议阅读顺序
+### 相关阅读
 
-1. [PHPStan-Psalm-大型 Laravel 项目静态分析最佳实践](PHPStan-Psalm-大型 Laravel 項目靜態分析最佳實踐.md)
-2. 本文（PHP 8 Trait + Enum）
-3. [Controller-Service-Laravel-大项目职责分离](Controller-Service-Laravel-大项目职责分离 - 真实踩坑记录.md)
+- [PHP Enum 替魔术字符串 - 30+ 仓库重构经验与最佳实践](/php/Laravel/php-enum-30) — 深入讲解 Backed Enum 与原生 Enum 选型、状态机验证、Eloquent Cast 集成及批量迁移策略
+- [Controller-Service-Repository 三层架构设计与大项目职责分离](/php/Laravel/controller-service-repository) — C-S-R 三层架构的演进路径、真实踩坑记录与最佳实践
+- [PHPStan-Psalm 静态分析实战 - Laravel 项目类型安全最佳实践](/php/Laravel/phpstan-psalm-guide-laravel) — 在 30+ Laravel 仓库中落地 PHPStan 与 Psalm 的类型安全经验
 
 ---
 
