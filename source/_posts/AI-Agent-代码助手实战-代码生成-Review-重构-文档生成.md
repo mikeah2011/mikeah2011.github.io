@@ -1,6 +1,6 @@
 ---
 title: AI Agent 代码助手实战：代码生成、Review、重构、文档生成
-description: 本文从后端工程师视角系统拆解 AI Agent 在后端研发中的落地路径，围绕代码助手能力建设，深入讲透代码生成、Code Review、重构、文档生成四大核心场景，结合 AST 解析、Prompt Engineering、工具编排、验证闭环与真实踩坑案例，帮助你快速判断哪些方案真能进生产、哪些只适合演示，适合想提升研发效率与工程质量的后端团队收藏实践。
+description: 后端视角拆解 AI Agent 代码助手：代码生成、Review、重构、文档生成四大场景，含 AST 解析与 Prompt Engineering 实战。
 date: 2026-06-02 00:00:00
 tags: [AI Agent, 代码助手, Code Review, 重构, 文档生成]
 categories: [AI Agent]

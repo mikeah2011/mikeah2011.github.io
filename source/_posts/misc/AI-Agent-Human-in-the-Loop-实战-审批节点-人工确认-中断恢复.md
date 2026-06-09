@@ -22,6 +22,8 @@ description: '深入解析 AI Agent Human-in-the-Loop（HITL）三种核心模�
 
 本文将从实战角度出发，深入三种核心 HITL 模式——**审批节点**（Approval Node）、**人工确认**（Human Confirmation）、**中断恢复**（Interrupt & Resume）——以 LangGraph 为主线框架，给出完整的代码实现、架构设计和生产环境踩坑记录。
 
+<!-- more -->
+
 ---
 
 ## 一、HITL 架构全景

@@ -6,8 +6,7 @@ categories:
   - PHP
   - Laravel
 tags: [laravel, nginx, redis, websocket]
-description: 基于 Laravel 11 + Reverb 的订单状态实时推送完整实战指南，涵盖私有频道认证、事件广播与 DB::afterCommit 集成、Redis 多实例消息总线、Nginx 反向代理 WebSocket 配置、Supervisor 进程管理、前端 Echo 订阅与生产环境常见踩坑排查，帮助中高级 PHP 开发者快速落地高可靠的实时 WebSocket 推送架构。
-
+description: Laravel Reverb 订单实时推送实战：私有频道认证、afterCommit 事务广播、Redis 多实例总线、Nginx WebSocket 代理、Supervisor 托管及三个生产踩坑，快速落地 WebSocket 推送架构。
 
 
 ---

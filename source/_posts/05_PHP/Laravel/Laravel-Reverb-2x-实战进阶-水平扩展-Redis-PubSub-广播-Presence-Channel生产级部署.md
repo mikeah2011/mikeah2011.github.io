@@ -4,6 +4,7 @@ date: 2026-06-07 11:00:00
 tags: [Laravel, Reverb, WebSocket, Redis, 实时通信, 部署]
 categories: [Laravel/PHP]
 cover: /images/covers/laravel-reverb-2x-production-cover.jpg
+description: Laravel Reverb 2.x 生产级部署全攻略：架构原理、Redis Pub/Sub 水平扩展、Presence Channel 跨节点同步、Nginx/Supervisor 配置、负载均衡策略及真实踩坑排障指南。
 ---
 
 Laravel Reverb 从 1.x 正式迈入 2.x 时代后，带来了许多关键性改进：原生水平扩展能力、更成熟的 Redis Pub/Sub 广播机制、Presence Channel 的全面优化，以及对生产环境更友好的连接管理。如果你已经用 Reverb 跑通了本地 demo，却在部署到生产环境时遇到了"连不上""丢消息""多节点不同步"等问题，那么这篇文章就是为你准备的。

@@ -1,8 +1,9 @@
 ---
 title: 前缀索引
 tags: [MySQL, 前缀索引, 性能优化, EXPLAIN]
-categories: Databases
+categories: [数据库]
 date: 2015-03-20 15:05:07
+updated: 2026-06-09 07:21:00
 description: '前缀索引是 MySQL 中针对长字符串字段的性能优化利器，通过只索引字段的前 N 个字符来大幅减少索引占用的内存和磁盘空间。本文详解前缀索引的 B+ 树存储原理、如何用选择性（selectivity）计算最优前缀长度、EXPLAIN 验证索引效果，并分析其不能用于 ORDER BY、GROUP BY 和覆盖索引的局限性，附带完整 MySQL 示例与踩坑案例。'
 cover: /images/covers/db-index-01-cover.jpg
 images:
@@ -241,6 +242,7 @@ SELECT * FROM users WHERE email LIKE 'user123%';
 - 字段本身较短（如 VARCHAR(20)），直接建完整索引即可
 - 需要 ORDER BY / GROUP BY 的查询字段
 - 高并发写入场景下，前缀索引的回表操作会增加额外开销
+- 需要覆盖索引（Covering Index）优化的高频查询
 
 ## 踩坑案例：前缀长度选错导致索引失效
 
@@ -298,6 +300,24 @@ CREATE INDEX idx_product_code ON products (product_code(15));
 
 > **前缀长度的选择必须基于实际数据的分布特征，不能凭直觉拍脑袋。** 不同数据分布下，相同的前缀长度可能产生天壤之别的效果。务必通过 `COUNT(DISTINCT LEFT(col, N)) / COUNT(*)` 计算验证。
 
+## MySQL 8.0+ 的变化
+
+MySQL 8.0 引入了 **Descending Index**（降序索引）和 **Invisible Index**（不可见索引），与前缀索引配合使用时有一些值得注意的点：
+
+```sql
+-- 8.0+：用不可见索引安全测试前缀索引效果
+-- 先将索引设为不可见，观察查询计划变化
+ALTER TABLE users ALTER INDEX idx_email_prefix INVISIBLE;
+
+-- 执行查询，确认性能退化程度
+EXPLAIN SELECT * FROM users WHERE email = 'test@gmail.com';
+
+-- 恢复可见
+ALTER TABLE users ALTER INDEX idx_email_prefix VISIBLE;
+```
+
+> **注意**：MySQL 8.0 的 Hash Join 优化对前缀索引没有直接影响，但如果你的查询涉及 JOIN 且被驱动表的连接字段使用了前缀索引，区分度不足可能导致 Hash 桶分布不均，影响 JOIN 性能。
+
 ## 总结
 
 | 要点 | 说明 |
@@ -308,6 +328,7 @@ CREATE INDEX idx_product_code ON products (product_code(15));
 | 主要限制 | 不支持 ORDER BY、GROUP BY、覆盖索引 |
 | 必做验证 | 创建后用 EXPLAIN 确认索引确实被使用 |
 | 常见坑 | 前缀长度太短导致选择性极低，索引形同虚设 |
+| 8.0+ 增强 | Invisible Index 可安全测试前缀效果 |
 
 ---
 

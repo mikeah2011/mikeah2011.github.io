@@ -9,25 +9,17 @@ description: '深入解析PHP工作原理，涵盖CGI、FastCGI协议与PHP-FPM�
 
 
 ---
-> 概述
+## 概述
 
-CGI，通用网关接口，
+CGI（通用网关接口）用于 WEB 服务器和应用程序间的交互，定义输入输出规范。用户的请求通过 WEB 服务器转发给 FastCGI 进程，FastCGI 进程再调用应用程序进行处理（如 PHP 解析器），应用程序的处理结果（如 HTML）返回给 FastCGI，FastCGI 返回给 Nginx 进行输出。
 
-用于WEB服务器和应用程序间的交互，定义输入输出规范，
+假设这里 WEB 服务器是 Nginx，应用程序是 PHP，而 php-fpm 是管理 FastCGI 的，这也就是 php-fpm、FastCGI 和 Nginx 之间的关系。
 
-用户的请求通过WEB服务器转发给FastCGI进程，
+FastCGI 用来提高 CGI 程序性能，启动一个 master，再启动多个 worker，不需要每次解析 php.ini。而 php-fpm 实现了 FastCGI 协议，是 FastCGI 的进程管理器，支持平滑重启，可以启动的时候预先生成多个进程。
 
-FastCGI进程再调用应用程序进行处理，如php解析器，应用程序的处理结果如html返回给FastCGI，FastCGI返回给Nginx 进行输出。
+<!-- more -->
 
-假设这里WEB服务器是Nginx，应用程序是 PHP，而 php-fpm 是管理 FastCGI 的，这也就是 php-fpm，FastCGI，和 Nginx 之间的关系。
-
-FastCGI 用来提高 cgi 程序性能，启动一个master，再启动多个 worker，不需要每次解析 php.ini. 
-
-而 php-fpm 实现了 FastCGI 协议，是 FastCGI 的进程管理器，支持平滑重启，可以启动的时候预先生成多个进程。
-
-
-
-> 协议模式
+## 协议模式
 
 | 协议模式 |                  定义                  |                       用途                        |                             备注                             |
 | :------: | :------------------------------------: | :-----------------------------------------------: | :----------------------------------------------------------: |
@@ -40,21 +32,24 @@ FastCGI 用来提高 cgi 程序性能，启动一个master，再启动多个 wor
 
 
 
-> Fast-CGI的工作原理
+## Fast-CGI 的工作原理
 
-web服务器fast-cgi进程管理器初始化->预先fork n个进程
+1. WEB 服务器启动 Fast-CGI 进程管理器，预先 fork N 个进程
+2. 用户请求到达 → WEB 服务器接收请求 → 交给 Fast-CGI 进程管理器
+3. 进程管理器将请求分配给一个空闲的 Fast-CGI 进程处理
+4. 处理完成，Fast-CGI 进程变为空闲状态，等待下次请求
+5. WEB 服务器接收处理结果 → 返回给用户
 
-用户请求->web服务器接收请求->交给fast-cgi进程管理器->fast-cgi进程管理区接收,给其中一个空闲fast-cgi进程处理->处理完成，fast-cgi进程变为空闲状态，等待下次请求->web服务器接收内容->返回给用户。
 
 
+## PHP-FPM 的工作原理
 
-> PHP-FPM的工作原理
+1. PHP-FPM 启动 → 生成 N 个 Fast-CGI 协议处理进程 → 监听端口等待任务
+2. 用户请求 → WEB 服务器接收请求 → 请求转发给 PHP-FPM
+3. PHP-FPM 交给一个空闲进程处理 → 进程处理完成
+4. PHP-FPM 返回给 WEB 服务器 → WEB 服务器接收数据 → 返回给用户
 
-php-fpm启动->生成n个fast-cgi协议处理进程->监听一个端口等待任务
-
-用户请求->web服务器接收请求->请求转发给php-fpm->php-fpm交给一个空闲进程处理->进程处理完成->php-fpm返回给web服务器->web服务器接收数据->返回给用户。
-
-> Nginx + PHP-FPM 请求处理完整流程
+## Nginx + PHP-FPM 请求处理完整流程
 
 ```
 用户浏览器
@@ -94,9 +89,9 @@ php-fpm启动->生成n个fast-cgi协议处理进程->监听一个端口等待任
 用户浏览器 (渲染HTML页面)
 ```
 
-> PHP 7/8 的性能改进
+## PHP 7/8 的性能改进
 
-**Zend Engine 的演进：**
+### Zend Engine 的演进
 
 PHP 5.x 使用 Zend Engine II，PHP 7.0 引入了 **Zend Engine 3**（也称 PHPNG - PHP Next Generation），对内部数据结构进行了全面重写，核心改进包括：
 
@@ -124,9 +119,9 @@ opcache.jit=1255
 ; 1255 含义：1=启用 2=在JIT编译器触发时 5=使用寄存器分配 5=使用AVX2指令集
 ```
 
-> OPcache 的工作原理与配置
+## OPcache 的工作原理与配置
 
-**OPcache 原理：**
+### OPcache 原理
 
 PHP 是解释型语言，每次请求都要经历 **词法分析 → 语法分析 → AST → opcode** 的编译过程。OPcache 将编译后的 opcode 缓存在共享内存中，后续请求直接执行缓存的 opcode，省去重复编译开销。
 
@@ -151,7 +146,7 @@ opcache.save_comments=1             ; 保留注释(某些框架依赖注解)
 opcache.max_wasted_percentage=10    ; 浪费内存超过10%时自动重启
 ```
 
-> PHP-FPM 配置调优实战
+## PHP-FPM 配置调优实战
 
 PHP-FPM 的进程管理有三种模式：**static**、**dynamic**、**ondemand**。
 
@@ -197,7 +192,7 @@ php_admin_value[memory_limit] = 256M
 
 **ondemand 模式**适用于低流量或开发环境，按需创建进程，空闲时自动回收，内存占用最低。
 
-> CLI 模式 vs FPM 模式
+## CLI 模式 vs FPM 模式
 
 |    特性    |           CLI 模式            |              FPM 模式               |
 | :--------: | :---------------------------: | :---------------------------------: |
@@ -215,9 +210,9 @@ php_admin_value[memory_limit] = 256M
 - **FPM 模式**适合：所有 HTTP 请求处理、REST API、Web 页面渲染
 - 两者读取的 `php.ini` 可能不同（CLI 用 `/etc/php/8.x/cli/php.ini`，FPM 用 `/etc/php/8.x/fpm/php.ini`），配置修改时需注意
 
-> 实际踩坑案例
+## 实际踩坑案例
 
-**案例一：502 Bad Gateway 排查**
+### 案例一：502 Bad Gateway 排查
 
 症状：Nginx 返回 502 Bad Gateway，错误日志出现 `connect() failed (111: Connection refused)` 或 `upstream prematurely closed connection`。
 
@@ -254,7 +249,7 @@ ss -tlnp | grep 9000
 3. **资源耗尽**：`pm.max_children` 设置过小，所有 worker 忙碌时新请求被拒绝
 4. **PHP 致命错误**：`php.ini` 配置错误导致 FPM 无法启动
 
-**案例二：进程数不够导致请求阻塞**
+### 案例二：进程数不够导致请求阻塞
 
 症状：高峰期页面响应时间从 200ms 飙升到 10s+，部分请求超时，Nginx 错误日志出现 `upstream timed out (110: Connection timed out)`。
 
@@ -290,7 +285,7 @@ pm.min_spare_servers = 10
 pm.max_spare_servers = 30
 ```
 
-**案例三：内存泄漏导致 FPM 周期性重启**
+### 案例三：内存泄漏导致 FPM 周期性重启
 
 症状：每隔几小时出现一波 502，FPM 日志显示 `server reached pm.max_requests setting`。
 
@@ -316,13 +311,13 @@ register_shutdown_function(function() {
 });
 ```
 
-> 总结
+## 总结
 
 理解 PHP 工作原理的关键在于把握请求的完整链路：**Nginx → FastCGI协议 → PHP-FPM Master → Worker进程 → Zend Engine (词法分析→AST→opcode→执行)**。性能优化的核心是让这条链路的每个环节都高效运转：OPcache 减少编译开销、JIT 提升执行效率、合理配置 FPM 进程参数避免资源瓶颈。
 
 ---
 
-> 相关阅读
+## 相关阅读
 
 - [PHP版本区别](/categories/PHP/vs-php/)
 - [PHP生命周期](/categories/PHP/lifecycle/)

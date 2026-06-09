@@ -3,6 +3,7 @@ title: 'PHP 8.5 Fiber 调度器深度实战：手动调度 vs 自动让出——
 date: 2026-06-07 11:30:00
 tags: [PHP, Fiber, 协程, Swoole, 异步编程, PHP 8.5]
 categories: [Laravel/PHP]
+description: "从 PHP 5.5 Generator 到 8.5 Fiber Scheduler 的协程演化路径，深入 C 层实现原理，对比手动调度与自动让出两种模式的工程取舍，剖析 Swoole 与 Native Fiber 的架构差异与性能基准，并给出 Laravel 生产环境的并发实战方案与迁移策略。"
 cover: /images/covers/php-fiber-scheduler-cover.jpg
 ---
 
