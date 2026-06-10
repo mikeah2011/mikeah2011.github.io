@@ -2230,58 +2230,49 @@
 > source/_posts/05_PHP/2026-06-10-gdpr-cookie-consent-laravel-practical.md | 2026-06-10
 
 ### 🤖 AI/LLM 工程化（补全新角度）
-- [x] DeepSeek API 实战：国产推理模型接入——思维链输出、Tool Use、低成本推理与 Laravel 集成的最佳实践
-- [x] Vercel AI SDK 实战：TypeScript 的 LLM 统一抽象——Streaming/Tool Calls/Structured Output 与 Laravel 后端的混合架构
+- [ ] DeepSeek API 实战：国产推理模型接入——思维链输出、Tool Use、低成本推理与 Laravel 集成的最佳实践
+- [ ] Vercel AI SDK 实战：TypeScript 的 LLM 统一抽象——Streaming/Tool Calls/Structured Output 与 Laravel 后端的混合架构
 
 ## 🔥 补充选题（2026-06-07 选题池扩充）
 
 ### 🐘 Laravel 高级模式与内部机制（新角度）
-- [x] Laravel Ephemeral Cache 实战：无持久化的高速缓存——高频计数器、实时排行与请求级数据的内存缓存策略
-  → 05_PHP/2026-06-10-laravel-ephemeral-cache-in-memory-high-frequency-counter-realtime-ranking.md (2026-06-10)
-- [x] Laravel Lazy Collection 深度实战：惰性迭代的大数据处理——内存 O(1) 的 CSV 导入、数据库游标与生成器管道 → source/_posts/05_PHP/2026-06-10-Laravel-Lazy-Collection-深度实战-惰性迭代的大数据处理.md (2026-06-10)
-- [x] Laravel Database Retry 与断路器实战：云 RDS 瞬态连接失败的自动恢复——重试策略、退避算法与熔断降级 → source/_posts/00_架构/2026-06-10-laravel-database-retry-circuit-breaker.md (2026-06-10)
-- [x] Laravel 子域名路由多租户实战：通配符子域识别、租户解析中间件与共享 Session 的跨域认证
-  → source/_posts/00_架构/2026-06-10-laravel-subdomain-multitenant-route-tenant-resolution-middleware-shared-session.md (2026-06-10)
-- [x] Laravel Performance Budget 实战进阶：Eloquent 查询计数、N+1 自动检测、内存峰值 CI 门禁——从响应时间到资源预算的全链路治理 → `05_PHP/2026-06-10-Laravel-Performance-Budget-全链路治理-Eloquent-查询计数-N1检测-内存CI门禁.md` (2026-06-10)
-- [x] Laravel API Response 嵌入式资源实战：嵌套 Resource、条件加载与稀疏字段集——对比 GraphQL 灵活性的 RESTful 实现
-→ `source/_posts/05_PHP/2026-06-10-Laravel-API-Response-嵌入式资源实战-嵌套Resource-条件加载与稀疏字段集.md` (2026-06-10)
+- [ ] Laravel Ephemeral Cache 实战：无持久化的高速缓存——高频计数器、实时排行与请求级数据的内存缓存策略
+- [ ] Laravel Lazy Collection 深度实战：惰性迭代的大数据处理——内存 O(1) 的 CSV 导入、数据库游标与生成器管道
+- [ ] Laravel Database Retry 与断路器实战：云 RDS 瞬态连接失败的自动恢复——重试策略、退避算法与熔断降级
+- [ ] Laravel 子域名路由多租户实战：通配符子域识别、租户解析中间件与共享 Session 的跨域认证
+- [ ] Laravel Performance Budget 实战进阶：Eloquent 查询计数、N+1 自动检测、内存峰值 CI 门禁——从响应时间到资源预算的全链路治理
+- [ ] Laravel API Response 嵌入式资源实战：嵌套 Resource、条件加载与稀疏字段集——对比 GraphQL 灵活性的 RESTful 实现
 
 ### 🐘 PHP 语言与运行时（新角度）
-- [x] PHP 原生 fetch() 实战：PHP 8.5 内置 HTTP 客户端——对比 cURL/Guzzle/Laravel HttpClient 的开发体验与性能基准 → source/_posts/05_PHP/2026-06-10-php-fetch-http-client-comparison.md (2026-06-10)
-- [x] PHP 生产环境调试实战：strace/dtrace/gdb 三板斧——不改代码就能定位死锁、内存泄漏与系统调用瓶颈
-  > source/_posts/05_PHP/PHP-生产环境调试实战-strace-dtrace-gdb-三板斧.md (2026-06-10)
-- [x] PHP Opcache 预加载 (Preloading) 深度实战：opcache.preload 精确控制——Laravel 框架级预加载 vs 按需加载的性能收益量化 → source/_posts/05_PHP/2026-06-10-php-opcache-preloading-deep-dive.md (2026-06-10)
-- [x] PHP Enum 序列化实战：Enum 与 JSON/Database/Queue 的互转——Laravel Cast、Job 序列化与 API 响应的类型安全闭环  > source/_posts/05_PHP/2026-06-10-php-enum.md (2026-06-10)
-- [x] PHP Fibers + DNS 实战：非阻塞 DNS 解析——PHP 协程化的域名查询与 Laravel HTTP Client 的 DNS 缓存优化
+- [ ] PHP 原生 fetch() 实战：PHP 8.5 内置 HTTP 客户端——对比 cURL/Guzzle/Laravel HttpClient 的开发体验与性能基准
+- [ ] PHP 生产环境调试实战：strace/dtrace/gdb 三板斧——不改代码就能定位死锁、内存泄漏与系统调用瓶颈
+- [ ] PHP Opcache 预加载 (Preloading) 深度实战：opcache.preload 精确控制——Laravel 框架级预加载 vs 按需加载的性能收益量化
+- [ ] PHP Enum 序列化实战：Enum 与 JSON/Database/Queue 的互转——Laravel Cast、Job 序列化与 API 响应的类型安全闭环
+- [ ] PHP Fibers + DNS 实战：非阻塞 DNS 解析——PHP 协程化的域名查询与 Laravel HTTP Client 的 DNS 缓存优化
 
 ### 🗄️ 数据库深度（新角度）
-- [x] MySQL 递归 CTE vs 闭包表 vs 嵌套集：商品分类/组织架构的树形数据存储方案选型——查询性能与维护成本的工程权衡
-- [x] PostgreSQL vs MySQL 2026 全面选型指南：JSONB/全文搜索/向量/扩展生态——从 B2C 电商到 SaaS 的决策矩阵
-^- [x] SQLite WAL 模式深度实战：并发读写、检查点调优、读副本 → databases/2026-06-10-SQLite-WAL-Mode-Deep-Dive.md (2026-06-10)
-- [x] MySQL 单主模式 vs InnoDB Cluster：Group Replication 的两种形态——自动故障切换、读扩展与 Laravel 适配对比
-→ source/_posts/01_MySQL/2026-06-10-mysql-single-primary-vs-innocluster-group-replication-laravel.md | 2026-06-10
-- [x] 数据库 Schema 冲突治理实战 → 11_工程管理/2026-06-10-laravel-migration-conflict-resolution.md (2026-06-10)：Laravel Migration 合并冲突检测、顺序依赖分析与团队协作的最佳实践
+- [ ] MySQL 递归 CTE vs 闭包表 vs 嵌套集：商品分类/组织架构的树形数据存储方案选型——查询性能与维护成本的工程权衡
+- [ ] PostgreSQL vs MySQL 2026 全面选型指南：JSONB/全文搜索/向量/扩展生态——从 B2C 电商到 SaaS 的决策矩阵
+- [ ] SQLite WAL 模式深度实战：并发读写、检查点调优、读副本——边缘应用与嵌入式场景的工程化高可用方案
+- [ ] MySQL 单主模式 vs InnoDB Cluster：Group Replication 的两种形态——自动故障切换、读扩展与 Laravel 适配对比
+- [ ] 数据库 Schema 冲突治理实战：Laravel Migration 合并冲突检测、顺序依赖分析与团队协作的最佳实践
 
 ### 🤖 AI 工程化（新角度）
-- [x] AI Agent 工具设计模式实战：参数校验、错误分类、重试策略与降级方案——从工具注册到生产可用的完整工程闭环
-<!-- 原文路径：source/_posts/10_AI/2026-06-10-ai-agent-tool-design-patterns-practice.md | 完成日期：2026-06-10 -->
-- [x] LLM Tokenizer 工程实战：BPE/tiktoken/Tokenizer.js 应用级 Token 计数——精确预算、Prompt 裁剪与多语言 Token 效率对比 → source/_posts/10_AI/2026-06-10-llm-tokenizer-engineering-bpe-tiktoken.md (2026-06-10)
-- [x] AI 生成代码合规性实战：Copilot/Cursor 产出的 License 审计、安全漏洞扫描与代码溯源——开发者的法律风险管理 → source/_posts/10_AI/2026-06-10-AI-Generated-Code-Compliance-License-Audit-Security-Scanning.md (2026-06-10)
-- [x] LLM Structured Output 实战进阶：JSON Mode vs Function Calling vs Constrained Decoding——三种强制输出格式的原理、可靠性与 Laravel 集成方案 | 10_AI/2026-06-10-llm-structured-output-json-mode-function-calling-constrained-decoding.md | 2026-06-10
-- [x] AI Agent Memory 实战：对话记忆的五种工程实现——Buffer/Summary/Vector/Entity/Hybrid 策略的 Token 成本与召回精度权衡
-→ `source/_posts/10_AI/2026-06-10-AI-Agent-Memory-Five-Engineerings-Buffer-Summary-Vector-Entity-Hybrid.md` | 2026-06-10
+- [ ] AI Agent 工具设计模式实战：参数校验、错误分类、重试策略与降级方案——从工具注册到生产可用的完整工程闭环
+- [ ] LLM Tokenizer 工程实战：BPE/tiktoken/Tokenizer.js 应用级 Token 计数——精确预算、Prompt 裁剪与多语言 Token 效率对比
+- [ ] AI 生成代码合规性实战：Copilot/Cursor 产出的 License 审计、安全漏洞扫描与代码溯源——开发者的法律风险管理
+- [ ] LLM Structured Output 实战进阶：JSON Mode vs Function Calling vs Constrained Decoding——三种强制输出格式的原理、可靠性与 Laravel 集成方案
+- [ ] AI Agent Memory 实战：对话记忆的五种工程实现——Buffer/Summary/Vector/Entity/Hybrid 策略的 Token 成本与召回精度权衡
 
 ### 🏗️ 架构与系统设计（新角度）
-- [x] Eloquent vs DB Facade 性能实战 → `source/_posts/05_PHP/2026-06-10-eloquent-vs-db-facade-performance.md` (2026-06-10)：ORM 开销量化——什么时候该绕过 Eloquent 直接写 SQL？Laravel 查询性能的工程决策
-- [x] REST API 终结者模式实战：PATCH vs PUT vs POST 的语义边界——Laravel 中的幂等设计与客户端缓存一致性
-  → source/_posts/00_架构/2026-06-10-rest-api-patch-put-post-idempotent-design.md (2026-06-10)
-- [x] 服务降级清单设计实战：Laravel SaaS 的功能优先级矩阵——核心/重要/可选功能在资源受限时的优雅降级策略 → source/_posts/00_架构/2026-06-10-laravel-saas-service-degradation-strategy.md (2026-06-10)
-- [x] 本地优先架构实战：SQLite + 边缘同步 + 离线队列——Laravel 应用的 Offline-First 设计模式与冲突解决策略
-- [x] API 限流与计费联动实战：Redis Cell + Stripe Usage Records——按 API 调用量计费的 SaaS 流量治理与账单闭环 → `source/_posts/02_Redis/2026-06-10-api-rate-limiting-billing-redis-cell-stripe.md` (2026-06-10)
+- [ ] Eloquent vs DB Facade 性能实战：ORM 开销量化——什么时候该绕过 Eloquent 直接写 SQL？Laravel 查询性能的工程决策
+- [ ] REST API 终结者模式实战：PATCH vs PUT vs POST 的语义边界——Laravel 中的幂等设计与客户端缓存一致性
+- [ ] 服务降级清单设计实战：Laravel SaaS 的功能优先级矩阵——核心/重要/可选功能在资源受限时的优雅降级策略
+- [ ] 本地优先架构实战：SQLite + 边缘同步 + 离线队列——Laravel 应用的 Offline-First 设计模式与冲突解决策略
+- [ ] API 限流与计费联动实战：Redis Cell + Stripe Usage Records——按 API 调用量计费的 SaaS 流量治理与账单闭环
 
 ### 💻 开发者效能与工具链（新角度）
-- [x] Cursor .cursorrules 工程化实战：Laravel 项目级 AI 配置——Eloquent 规范、测试策略、架构约束的版本控制与团队共享
-> path: source/_posts/05_PHP/2026-06-10-cursor-cursorrules-laravel.md | date: 2026-06-10
+- [ ] Cursor .cursorrules 工程化实战：Laravel 项目级 AI 配置——Eloquent 规范、测试策略、架构约束的版本控制与团队共享
 - [x] Biome vs Oxc vs Ruff 2026 选型：Rust 驱动的 Linter/Formatter 统一工具链——JS/TS/Python 项目的性能革命与 Laravel 前端集成
 ^- [x] Testcontainers 实战：Docker 容器化集成测试——Laravel 测试中的真实 MySQL/Redis/Elasticsearch 环境与 CI 并行策略
 - [x] SonarQube + CodeClimate 实战：代码质量量化治理——Laravel 30+ 仓库的技术债务仪表盘与 CI 门禁自动化
@@ -2296,63 +2287,49 @@
 - [x] GDPR Cookie Consent 实战：Cookie Banner、Consent 存储、第三方脚本按需加载——Laravel 应用的隐私合规工程化方案
 
 ### 🏗️ 部署与基础设施（新角度）
-- [x] Lambda Function URLs 实战：替代 API Gateway 的轻量方案 
-  → source/_posts/00_架构/2026-06-10-lambda-function-urls-laravel-bref.md (2026-06-10)——Laravel Bref 的直接 HTTPS 端点、冷启动与成本优化
+- [ ] Lambda Function URLs 实战：替代 API Gateway 的轻量方案——Laravel Bref 的直接 HTTPS 端点、冷启动与成本优化
 - [x] Vercel AI SDK 实战：TypeScript 的 LLM 统一抽象——Streaming/Tool Calls/Structured Output 与 Laravel 后端的混合架构
- → source/_posts/ai/2026-06-10-vercel-ai-sdk-typescript-llm-unified-abstraction-streaming-tool-calls-structured-output-laravel-hybrid-architecture.md (2026-06-10)
 
 ## 🔥 补充选题（2026-06-07 选题池扩充 第四轮）
 
 ### 🐘 PHP/Laravel 深度补全
-- [x] Laravel Eloquent Relationship 源码剖析：HasMany/BelongsTo/MorphMany 的底层机制与性能陷阱——从关系定义到 SQL 生成的完整链路
-<!-- file: source/_posts/05_PHP/2026-06-10-laravel-eloquent-relationship-source-code-analysis.md | date: 2026-06-10 | wordcount: ~4200 -->
-<!-- file: source/_posts/05_PHP/2026-06-10-laravel-eloquent-relationship-source-code-analysis.md | date: 2026-06-10 -->
-- [x] Laravel Eloquent N+1 治理深度实战：eager loading、chunk、cursor、lazy collection 的选型与性能基准——30+ 仓库的关联查询优化方法论
-- [x] PHP Fiber vs Generator vs Swoole Coroutine 深度对比：三种异步模式的底层机制、调度策略与适用场景决策树
-  → source/_posts/05_PHP/2026-06-10-php-fiber-vs-generator-vs-swoole-coroutine-deep-comparison.md (2026-06-10)
-- [x] PHP Streams 深度剖析：流式读写、Wrapper 自定义与大文件处理——Laravel 中的底层 I/O 机制与性能优化 → source/_posts/05_PHP/2026-06-10-php-streams-deep-dive.md (2026-06-10)
-- [x] Laravel Sail 深度实战：Docker 开发环境的官方方案——替代 docker-compose 的一键启动、定制化与生产环境一致性保障 // source/_posts/05_PHP/2026-06-10-Laravel-Sail-深度实战-Docker开发环境的官方方案.md (2026-06-10)
+- [ ] Laravel Eloquent Relationship 源码剖析：HasMany/BelongsTo/MorphMany 的底层机制与性能陷阱——从关系定义到 SQL 生成的完整链路
+- [ ] Laravel Eloquent N+1 治理深度实战：eager loading、chunk、cursor、lazy collection 的选型与性能基准——30+ 仓库的关联查询优化方法论
+- [ ] PHP Fiber vs Generator vs Swoole Coroutine 深度对比：三种异步模式的底层机制、调度策略与适用场景决策树
+- [ ] PHP Streams 深度剖析：流式读写、Wrapper 自定义与大文件处理——Laravel 中的底层 I/O 机制与性能优化
+- [ ] Laravel Sail 深度实战：Docker 开发环境的官方方案——替代 docker-compose 的一键启动、定制化与生产环境一致性保障
 
 ### 🗄️ 数据库底层深度
-- [x] MySQL InnoDB Buffer Pool 深度调优：LRU 算法、预读策略、热数据治理与 SHOW ENGINE INNODB STATUS 实战解读 → source/_posts/01_MySQL/2026-06-10-mysql-innodb-buffer-pool-deep-dive.md (2026-06-10)
-- [x] PostgreSQL WAL 深度剖析：Write-Ahead Log 的底层机制、归档配置、PITR 恢复与流复制延迟治理
-# path: source/_posts/01_MySQL/2026-06-10-postgresql-wal-deep-dive-mechanism-archive-pitr-streaming-replication.md | date: 2026-06-10
-- [x] PostgreSQL pg_stat_activity 深度实战：连接池监控、锁等待链分析与慢查询实时追踪——生产环境的数据库诊断工具箱 | databases/2026-06-10 | 2026-06-10
+- [ ] MySQL InnoDB Buffer Pool 深度调优：LRU 算法、预读策略、热数据治理与 SHOW ENGINE INNODB STATUS 实战解读
+- [ ] PostgreSQL WAL 深度剖析：Write-Ahead Log 的底层机制、归档配置、PITR 恢复与流复制延迟治理
+- [ ] PostgreSQL pg_stat_activity 深度实战：连接池监控、锁等待链分析与慢查询实时追踪——生产环境的数据库诊断工具箱
 
 ### 🎨 前端新标准与底层原理
-- [x] Vue 3 Reactivity 源码剖析：Proxy 拦截、依赖收集与批量更新的底层实现——从 effect() 到 trigger() 的响应式全链路
-> 📝 source/_posts/12_Vue/2026-06-10-vue3-reactivity-source-code.md | 2026-06-10
-- [x] CSS Subgrid 实战：嵌套网格布局、响应式设计与浏览器兼容性策略——Grid 布局的下一代进化 → 04_前端/2026-06-10-css-subgrid-guide.md (2026-06-10)
-- [x] CSS Houdini 深度实战：Paint API/Layout API/Worklets——浏览器渲染引擎的可编程化与自定义布局方案
-> 文件: source/_posts/04_前端/2026-06-10-css-houdini-deep-dive-paint-layout-worklets.md | 日期: 2026-06-10
-- [x] TypeScript satisfies 深度实战：类型收窄与类型断言的替代方案——Laravel 前端的类型安全新工具与 best practices | source/_posts/04_前端/2026-06-10-typescript-satisfies-deep-dive.md | 2026-06-10
-- [x] Nuxt DevTools 深度实战：Vue 应用的性能分析、组件树检查与 Pinia 状态追踪——开发调试的瑞士军刀 → source/_posts/frontend/2026-06-10-nuxt-devtools-performance-profiling-pinia-tracing.md (2026-06-10)
+- [ ] Vue 3 Reactivity 源码剖析：Proxy 拦截、依赖收集与批量更新的底层实现——从 effect() 到 trigger() 的响应式全链路
+- [ ] CSS Subgrid 实战：嵌套网格布局、响应式设计与浏览器兼容性策略——Grid 布局的下一代进化
+- [ ] CSS Houdini 深度实战：Paint API/Layout API/Worklets——浏览器渲染引擎的可编程化与自定义布局方案
+- [ ] TypeScript satisfies 深度实战：类型收窄与类型断言的替代方案——Laravel 前端的类型安全新工具与 best practices
+- [ ] Nuxt DevTools 深度实战：Vue 应用的性能分析、组件树检查与 Pinia 状态追踪——开发调试的瑞士军刀
 
 ### ⚙️ DevOps 与基础设施
-- [x] GitHub Actions Reusable Workflows 实战：跨仓库复用 CI/CD 组件、版本化发布与参数化模板——团队级流水线的工程化治理
-  → 文件: source/_posts/07_CICD/2026-06-10-github-actions-reusable-workflows.md | 日期: 2026-06-10
-- [x] Docker BuildKit Cache Mount 实战：编译缓存持久化——PHP/Node.js/Rust 依赖安装的极速构建与 CI 时间优化
-→ source/_posts/06_运维/2026-06-10-docker-buildkit-cache-mount.md (2026-06-10)
-- [x] Kubernetes NetworkPolicy 实战：Pod 间网络隔离——微服务的零信任网络策略与 Calico/Cilium 集成 → source/_posts/00_架构/2026-06-10-kubernetes-networkpolicy-zero-trust.md (2026-06-10)
-- [x] Kubernetes Pod Disruption Budget 实战：滚动更新与节点维护的服务可用性保障——生产环境的最小可用副本数策略
-  - source/_posts/06_运维/2026-06-10-kubernetes-pod-disruption-budget-pdb-rolling-update-node-drain.md (2026-06-10)
+- [ ] GitHub Actions Reusable Workflows 实战：跨仓库复用 CI/CD 组件、版本化发布与参数化模板——团队级流水线的工程化治理
+- [ ] Docker BuildKit Cache Mount 实战：编译缓存持久化——PHP/Node.js/Rust 依赖安装的极速构建与 CI 时间优化
+- [ ] Kubernetes NetworkPolicy 实战：Pod 间网络隔离——微服务的零信任网络策略与 Calico/Cilium 集成
+- [ ] Kubernetes Pod Disruption Budget 实战：滚动更新与节点维护的服务可用性保障——生产环境的最小可用副本数策略
 
 ### 🔐 安全与合规
-- [x] PHP Security Hardening 实战：disable_functions、open_basedir、Session 安全、错误日志关闭——生产环境的完整加固清单 → `source/_posts/08_安全/2026-06-10-php-security-hardening-production.md` (2026-06-10)
-- [x] Laravel API Security Audit 实战：OWASP ASVS Level 2 | source/_posts/08_安全/2026-06-10-laravel-api-security-audit-owasp-asvs-level2.md | 2026-06-10 合规检查清单——从开发到渗透测试的完整安全治理框架
-- [x] Chrome Extension Manifest V3 实战：Service Worker 生命周期、存储 API 与 Laravel 后端集成——浏览器扩展的完整开发流程
-  → source/_posts/04_前端/2026-06-10-chrome-extension-manifest-v3-laravel.md (2026-06-10)
+- [ ] PHP Security Hardening 实战：disable_functions、open_basedir、Session 安全、错误日志关闭——生产环境的完整加固清单
+- [ ] Laravel API Security Audit 实战：OWASP ASVS Level 2 合规检查清单——从开发到渗透测试的完整安全治理框架
+- [ ] Chrome Extension Manifest V3 实战：Service Worker 生命周期、存储 API 与 Laravel 后端集成——浏览器扩展的完整开发流程
 
 ### 🤖 AI 工程化补全
-- [x] RAG System Anti-Patterns 实战：Chunking 陷阱、幻觉传播、检索质量下降、向量漂移——10 个常见错误与系统性修复方案 → source/_posts/10_AI/2026-06-10-rag-system-anti-patterns-practical-guide.md (2026-06-10)
-- [x] AI Agent Tool Design 深度实战 → source/_posts/10_AI/2026-06-10-ai-agent-tool-design.md (2026-06-10)：工具定义规范、参数校验、错误分类、重试策略与降级方案——从工具注册到生产可用的完整工程闭环
+- [ ] RAG System Anti-Patterns 实战：Chunking 陷阱、幻觉传播、检索质量下降、向量漂移——10 个常见错误与系统性修复方案
+- [ ] AI Agent Tool Design 深度实战：工具定义规范、参数校验、错误分类、重试策略与降级方案——从工具注册到生产可用的完整工程闭环
 
 ### 💻 开发者工具
-- [x] VS Code Extension 开发实战：Language Server Protocol、Webview API 与 Laravel 项目定制化工具——从 HelloWorld 到发布 Marketplace
-  → source/_posts/05_PHP/2026-06-10-vscode-extension-lsp-webview-laravel-tools.md | 2026-06-10
-- [x] Laravel Queue Worker 优雅停止深度实战：SIGTERM 信号处理、内存回收策略与任务完成等待——生产环境的零丢失停止方案
-- [x] GitHub Copilot Extensions 实战：自定义扩展开发——从 MCP Server 到 Copilot Chat 的工具集成与团队级 Prompt 治理
-→ source/_posts/10_AI/2026-06-10-github-copilot-extensions-mcp-server-custom-development.md (2026-06-10)
+- [ ] VS Code Extension 开发实战：Language Server Protocol、Webview API 与 Laravel 项目定制化工具——从 HelloWorld 到发布 Marketplace
+- [ ] Laravel Queue Worker 优雅停止深度实战：SIGTERM 信号处理、内存回收策略与任务完成等待——生产环境的零丢失停止方案
+- [ ] GitHub Copilot Extensions 实战：自定义扩展开发——从 MCP Server 到 Copilot Chat 的工具集成与团队级 Prompt 治理
   - File: source/_posts/05_PHP/2026-06-09-FrankenPHP-2x-Advanced-Practice.md
   - Date: 2026-06-09
 - [x] UnoCSS
