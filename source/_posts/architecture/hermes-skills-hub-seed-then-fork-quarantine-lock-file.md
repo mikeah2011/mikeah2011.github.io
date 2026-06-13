@@ -750,9 +750,9 @@ Hermes Skills Hub 的分发架构通过三个核心机制解决了 AI Agent 技�
 
 ## 相关阅读
 
-- [Hermes 技能同步机制：bundled skills → user space 的增量同步与用户修改保留策略](/post/Hermes-技能同步机制-bundled-skills-到-user-space-增量同步与用户修改保留策略.html)
-- [Hermes Skill vs Plugin 扩展点对比：什么时候用 Skill，什么时候用 Plugin？](/post/Hermes-Skill-vs-Plugin-扩展点对比-什么时候用-Skill-什么时候用-Plugin.html)
-- [Hermes 子代理架构：leaf vs orchestrator 角色模型、工具屏蔽、审批策略](/post/Hermes-子代理架构-leaf-vs-orchestrator-角色模型-工具屏蔽-审批策略.html)
+- [Hermes 技能同步机制：bundled skills → user space 的增量同步与用户修改保留策略](/post/hermes-bundled-skills-user-space/)
+- [Hermes Skill vs Plugin 扩展点对比：什么时候用 Skill，什么时候用 Plugin？](/post/hermes-skill-plugin/)
+- [Hermes 子代理架构：leaf vs orchestrator 角色模型、工具屏蔽、审批策略](/post/hermes-leaf-orchestrator/)
 
 ---
 

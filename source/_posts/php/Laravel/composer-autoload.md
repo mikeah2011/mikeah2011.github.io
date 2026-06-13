@@ -1485,11 +1485,11 @@ test:
 
 ## 📚 相關閱讀
 
-- [Composer-深度實戰-自動加載插件開發私有倉庫踩坑記錄](/post/Composer-%E6%B7%B1%E5%BA%A6%E5%AF%A6%E6%88%B0-%E8%87%AA%E5%8B%95%E5%8A%A0%E8%BC%89%E6%8F%92%E4%BB%B6%E9%96%8B%E7%99%BC%E7%A7%81%E6%9C%89%E5%80%89%E5%BA%AB%E8%B8%A9%E5%9D%91%E8%A8%98%E9%8C%84.html)
-- [Composer 脚本实战：自动化构建、测试、部署流程踩坑记录](/post/Composer%20%E8%84%9A%E6%9C%AC%E5%AE%9E%E6%88%98%EF%BC%9A%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E3%80%81%E6%B5%8B%E8%AF%95%E3%80%81%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95.html)
-- [PHP-OpCache 调优实战-KKday-B2C-API 高并发场景下的内存优化与真实踩坑记录](/post/PHP-OpCache%20%E8%B0%83%E4%BC%98%E5%AE%9E%E6%88%98-KKday-B2C-API%20%E9%AB%98%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%E4%B8%8E%E7%9C%9F%E5%AE%9E%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95.html)
-- [GitHub Actions CI/CD 优化实战：Laravel 单体仓库的矩阵拆分、缓存命中与并行发布踩坑记录](/post/GitHub%20Actions%20CI/CD%20%E4%BC%98%E5%8C%96%E5%AE%9E%E6%88%98%EF%BC%9ALaravel%20%E5%8D%95%E4%BD%93%E4%BB%93%E5%BA%93%E7%9A%84%E7%9F%A9%E9%98%B5%E6%8B%86%E5%88%86%E3%80%81%E7%BC%93%E5%AD%98%E5%91%BD%E4%B8%AD%E4%B8%8E%E5%B9%B6%E8%A1%8C%E5%8F%91%E5%B8%83%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95.html)
-- [PHP OPcache 缓存预热实战：生产环境冷启动治理与自动化 Warmup 全攻略](/post/PHP%20OPcache%20%E7%BC%93%E5%AD%98%E9%A2%84%E7%83%AD%E5%AE%9E%E6%88%98%EF%BC%9A%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E5%86%B7%E5%90%AF%E5%8A%A8%E6%B2%BB%E7%90%86%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%96%20Warmup%20%E5%85%A8%E6%94%BB%E7%95%A5.html)
+- [Composer-深度實戰-自動加載插件開發私有倉庫踩坑記錄](/post/supply-chain-security-npm-audit-composer-slsa-laravel-ci/)
+- [Composer 脚本实战：自动化构建、测试、部署流程踩坑记录](/post/supply-chain-security-npm-audit-composer-slsa-laravel-ci/)
+- PHP-OpCache 调优实战-KKday-B2C-API 高并发场景下的内存优化与真实踩坑记录
+- GitHub Actions CI/CD 优化实战：Laravel 单体仓库的矩阵拆分、缓存命中与并行发布踩坑记录
+- PHP OPcache 缓存预热实战：生产环境冷启动治理与自动化 Warmup 全攻略
 - [PHP OPcache 高并发优化](/categories/PHP/php-opcache-guide-high-concurrencyoptimization/)
 - [PHP Fiber 并发指南](/categories/PHP/php-fiber-concurrencyguide-laravel-concurrencyapi/)
 - [Laravel 缓存策略实战](/categories/PHP/laravel-cache-route-config-view-query-cache/)

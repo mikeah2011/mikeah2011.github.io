@@ -533,6 +533,6 @@ private function deepDiff(array $before, array $after): array
 
 ## 相关阅读
 
-- [API 安全加固实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击——Laravel B2C API 多层防御深度踩坑记录](/post/API-安全加固实战-JWT-黑名单-请求签名-IP白名单-防重放攻击-Laravel-B2C-API踩坑记录.html)
-- [Secrets Management 实战：HashiCorp Vault/SOPS/age 密钥管理——Laravel 应用的密钥轮换与审计日志](/post/Secrets-Management-HashiCorp-Vault-SOPS-age-密钥管理-Laravel密钥轮换与审计日志.html)
-- [GDPR/个人信息保护法合规实战：Laravel 应用中的数据主体权利、同意管理与跨境传输](/post/2026-06-02-GDPR-个人信息保护法合规实战-Laravel-数据主体权利-同意管理与跨境传输.html)
+- [API 安全加固实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击——Laravel B2C API 多层防御深度踩坑记录](/post/api-jwt-ip-laravel-b2c/)
+- [Secrets Management 实战：HashiCorp Vault/SOPS/age 密钥管理——Laravel 应用的密钥轮换与审计日志](/post/secrets-management-hashicorp-vault-aws-manager-doppler-laravel/)
+- [GDPR/个人信息保护法合规实战：Laravel 应用中的数据主体权利、同意管理与跨境传输](/post/gdpr-laravel/)

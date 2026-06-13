@@ -753,6 +753,6 @@ API 测试的核心不是工具选哪个，而是**建立契约优先的工作�
 
 ## 相关阅读
 
-- [API Mock 策略实战：WireMock/Mockoon/MSW 三层 Mock 体系——从开发到测试到生产的接口隔离](/post/2026-06-06-API-Mock-策略实战-WireMock-Mockoon-MSW-三层Mock体系.html)
-- [Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测](/post/2026-06-05-Data-Contract-Pact-style-Laravel微服务数据契约版本化验证Breaking-Change检测.html)
-- [GitHub Actions CI/CD 优化实战：Laravel 单体仓库的矩阵拆分、缓存命中与并行发布踩坑记录](/post/github-actions-ci-cd-optimizationguide-laravel-cache.html)
+- [API Mock 策略实战：WireMock/Mockoon/MSW 三层 Mock 体系——从开发到测试到生产的接口隔离](/post/api-mock-wiremock-mockoon-msw/)
+- [Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测](/post/data-contract-pact-style-laravel-breaking-change/)
+- [GitHub Actions CI/CD 优化实战：Laravel 单体仓库的矩阵拆分、缓存命中与并行发布踩坑记录](/post/github-actions-ci-cd-optimizationguide-laravel-cache/)

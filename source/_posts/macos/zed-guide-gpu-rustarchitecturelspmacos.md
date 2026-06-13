@@ -504,6 +504,6 @@ Zed 代表了编辑器的一个新方向：**用系统级语言重写编辑器�
 
 ## 相关阅读
 
-- [Cursor IDE 实战：AI 驱动的代码编辑器深度体验 — Tab 补全、Composer 多文件编辑与 .cursorrules 工程化配置](/post/cursor-ide-guide-ai.html) — 同为下一代编辑器，Cursor 的 AI 原生体验与 Zed 有何不同？
-- [Neovim 实战：现代 Vim 配置与 LSP 集成-Laravel-B2C-API-开发效率提升踩坑记录](/post/neovim-guide-vim-lsp.html) — Zed 内置 Vim 模式之外，深度定制 Neovim 的另一种终端编辑思路。
-- [Windsurf/Augment Code 实战：2026 年 AI-native IDE 新势力——对比 Cursor/Claude Code 的功能、性能与定价](/post/Windsurf-Augment-Code-实战-2026年AI-native-IDE新势力-对比Cursor-Claude-Code功能性能定价.html) — 2026 年 AI-native IDE 横评，含 Zed 在内的多编辑器对比。
+- [Cursor IDE 实战：AI 驱动的代码编辑器深度体验 — Tab 补全、Composer 多文件编辑与 .cursorrules 工程化配置](/post/cursor-ide-guide-ai/) — 同为下一代编辑器，Cursor 的 AI 原生体验与 Zed 有何不同？
+- [Neovim 实战：现代 Vim 配置与 LSP 集成-Laravel-B2C-API-开发效率提升踩坑记录](/post/neovim-guide-vim-lsp/) — Zed 内置 Vim 模式之外，深度定制 Neovim 的另一种终端编辑思路。
+- [Windsurf/Augment Code 实战：2026 年 AI-native IDE 新势力——对比 Cursor/Claude Code 的功能、性能与定价](/post/windsurf-augment-code-ai-native-ide-cursor-claude-macos/) — 2026 年 AI-native IDE 横评，含 Zed 在内的多编辑器对比。

@@ -886,7 +886,7 @@ strace -e trace=open,openat php script.php 2>&1 | grep "\.php"
 
 # 相关阅读
 
-- [PHP 自动加载类机制](/post/php/autoloading.html) — 从 `__autoload` 到 Composer PSR-4，详解 PHP 自动加载原理与 SPL 注册机制
-- [Opcache 深入理解与配置](/post/php/opcache-1.html) — OPcache 工作原理、JIT 编译器、生产环境配置最佳实践
-- [常见的设计模式](/post/php/design-patterns.html) — 设计模式中的类加载策略与依赖管理实践
-- [依赖注入（DI）与 IoC 容器](/post/php/dependency-injection.html) — 理解如何用 DI 替代手动 require 管理对象依赖
+- [PHP 自动加载类机制](/post/autoloading/) — 从 `__autoload` 到 Composer PSR-4，详解 PHP 自动加载原理与 SPL 注册机制
+- [Opcache 深入理解与配置](/post/opcache-1/) — OPcache 工作原理、JIT 编译器、生产环境配置最佳实践
+- [常见的设计模式](/post/design-patterns/) — 设计模式中的类加载策略与依赖管理实践
+- [依赖注入（DI）与 IoC 容器](/post/dependency-injection/) — 理解如何用 DI 替代手动 require 管理对象依赖

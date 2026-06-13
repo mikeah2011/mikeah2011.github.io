@@ -1619,6 +1619,6 @@ API Gateway 插件开发是微服务架构中实现"横切关注点下沉"的核
 
 ## 相关阅读
 
-- [Nginx + Lua (OpenResty) 实战：高性能自定义网关——对比 Kong/APISIX 的流量治理与边缘计算](/post/Nginx-Lua-OpenResty-实战-高性能自定义网关-对比Kong-APISIX的流量治理与边缘计算.html)
-- [服务网格 Sidecar 模式实战：Envoy Proxy + Laravel——流量镜像、熔断、重试的基础设施下沉与应用层解耦](/post/Service-Mesh-Sidecar-Envoy-Proxy-Laravel-流量镜像熔断重试.html)
-- [Secrets Management 实战：HashiCorp Vault/SOPS/age 密钥管理——Laravel 应用的密钥轮换与审计日志](/post/Secrets-Management-HashiCorp-Vault-SOPS-age-密钥管理-Laravel密钥轮换与审计日志.html)
+- [Nginx + Lua (OpenResty) 实战：高性能自定义网关——对比 Kong/APISIX 的流量治理与边缘计算](/post/nginx-lua-openresty-kong-apisix/)
+- [服务网格 Sidecar 模式实战：Envoy Proxy + Laravel——流量镜像、熔断、重试的基础设施下沉与应用层解耦](/post/service-mesh-sidecar-ambient-istio-laravel-mtls/)
+- [Secrets Management 实战：HashiCorp Vault/SOPS/age 密钥管理——Laravel 应用的密钥轮换与审计日志](/post/secrets-management-hashicorp-vault-aws-manager-doppler-laravel/)

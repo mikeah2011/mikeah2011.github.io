@@ -614,6 +614,6 @@ impl MessageHandler for HandlerWrapper {
 
 ## 相关阅读
 
-- [Rust 错误处理哲学：Result/Option/thiserror/anyhow——对比 PHP Exception 和 Go error 的设计权衡](/post/Rust-错误处理哲学-Result-Option-thiserror-anyhow-对比PHP-Exception与Go-error的设计权衡.html)
-- [Rust + PHP FFI 实战：用 Rust 写 PHP 扩展——高性能加密/图像处理/JSON 解析](/post/Rust-PHP-FFI-实战-用Rust写PHP扩展-高性能加密图像处理JSON解析.html)
-- [Go for PHP Developers：goroutine/channel 并发模型](/post/Go-for-PHP-Developers-goroutine-channel-Laravel-队列对比.html)
+- [Rust 错误处理哲学：Result/Option/thiserror/anyhow——对比 PHP Exception 和 Go error 的设计权衡](/post/rust-result-option-thiserror-anyhow-php-exception-go-error/)
+- [Rust + PHP FFI 实战：用 Rust 写 PHP 扩展——高性能加密/图像处理/JSON 解析](/post/php-ffi-c-rust-shared-library-high-performance/)
+- Go for PHP Developers：goroutine/channel 并发模型

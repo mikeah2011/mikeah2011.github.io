@@ -923,7 +923,7 @@ Laravel 服务容器是构建可维护、可测试大型项目的基础设施。
 
 ## 相关阅读
 
-- [Laravel-Service-Container-实战-依赖注入上下文绑定延迟加载踩坑记录](/post/service-container-guide-dependency-injection.html)
-- [六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录](/post/2026-06-01-六边形架构实战-Laravel-端口与适配器模式落地踩坑记录.html)
-- [Laravel 消息幂等性设计模式实战：订单事件消费的去重表、Inbox/Outbox 与重试补偿踩坑记录](/post/laravel-design-patternsguide-inbox-outbox.html)
-- [Laravel-Casts-Accessors-实战-数据类型转换与计算属性踩坑记录](/post/laravel-casts-accessors-guide-data-types.html)
+- [Laravel-Service-Container-实战-依赖注入上下文绑定延迟加载踩坑记录](/post/service-container-guide-dependency-injection/)
+- [六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录](/post/postgresql-row-level-security-laravel-multi-tenant/)
+- [Laravel 消息幂等性设计模式实战：订单事件消费的去重表、Inbox/Outbox 与重试补偿踩坑记录](/post/laravel-design-patternsguide-inbox-outbox/)
+- [Laravel-Casts-Accessors-实战-数据类型转换与计算属性踩坑记录](/post/laravel-casts-accessors-guide-data-types/)

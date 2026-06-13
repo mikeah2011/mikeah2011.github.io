@@ -942,6 +942,6 @@ clusters:
 
 ## 相关阅读
 
-- [分布式追踪上下文传播实战：W3C Trace Context + Baggage](/post/Distributed-Tracing-W3C-Trace-Context-Baggage-Laravel微服务跨进程追踪.html)
-- [Kubernetes Debugging 实战：kubectl-debug + ephemeral-container](/post/Kubernetes-Debugging-实战-kubectl-debug-ephemeral-container-Lens-Laravel-K8s-生产级故障排查工具箱.html)
-- [Azure Container Apps 实战：Laravel 微服务部署与自动扩缩容](/post/Azure-Container-Apps-实战-Laravel-微服务-Azure-部署与自动扩缩容.html)
+- [分布式追踪上下文传播实战：W3C Trace Context + Baggage](/post/distributed-tracing-trace-context-baggage-sampling-laravel/)
+- [Kubernetes Debugging 实战：kubectl-debug + ephemeral-container](/post/kubernetes-debugging-kubectl-debug-ephemeral-container-lens-laravel-k8s/)
+- [Azure Container Apps 实战：Laravel 微服务部署与自动扩缩容](/post/azure-container-apps-laravel/)

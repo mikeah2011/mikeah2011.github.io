@@ -2255,6 +2255,6 @@ Bun 不是要取代一切，而是为 JavaScript/TypeScript 开发者提供了�
 
 ## 相关阅读
 
-- [Deno 2.x 实战：安全优先的 JavaScript 运行时——与 Node.js/Bun 的三选一决策](/post/2026-06-02-deno-2x-javascript-runtime-nodejs-bun-decision.html)
-- [Bun 实战：比 npm 快 10 倍的 JavaScript 运行时踩坑记录](/post/bun-guide-npm-10-javascript.html)
-- [Biome 实战：替代 ESLint + Prettier 的下一代前端工具链](/post/Biome-实战-替代-ESLint-Prettier-的下一代前端工具链-Rust-驱动的超快格式化与检查.html)
+- [Deno 2.x 实战：安全优先的 JavaScript 运行时——与 Node.js/Bun 的三选一决策](/post/deno-2x-javascript-runtime-nodejs-bun-decision/)
+- [Bun 实战：比 npm 快 10 倍的 JavaScript 运行时踩坑记录](/post/bun-guide-npm-10-javascript/)
+- [Biome 实战：替代 ESLint + Prettier 的下一代前端工具链](/post/biome-eslint-prettier-rust/)

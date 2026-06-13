@@ -835,7 +835,7 @@ PostgreSQL 的 `PREPARE`/`EXECUTE` 在 PgBouncer transaction 模式下同样会�
 > - [PostgreSQL Documentation: Advisory Locks](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADVISORY-LOCKS)
 > - [PgBouncer Documentation: Pool Configuration](https://www.pgbouncer.org/config.html)
 > - [Martin Kleppmann: How to do distributed locking](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html)
-> - [Laravel + PostgreSQL Advisory Lock 实战：补偿扫描单实例化、会话级互斥与 PgBouncer 踩坑记录](/post/laravel-postgresql-advisory-lock-guide-pgbouncer.html)
+> - [Laravel + PostgreSQL Advisory Lock 实战：补偿扫描单实例化、会话级互斥与 PgBouncer 踩坑记录](/post/laravel-postgresql-advisory-lock-guide-pgbouncer/)
 
 ---
 

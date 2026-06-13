@@ -795,7 +795,7 @@ vendor/bin/phpstan analyse src/ --level=8
 
 ## 相关阅读
 
-- [PHP 8.4 新特性实战：从内存管理到性能提升](/post/php-84.html) — 深入解析 PHP 8.4 的 JIT 优化、协程支持与 OPcache 调优
-- [OPcache 深度解析](/post/opcache-1.html) — PHP 生产环境性能优化的第一道关卡，涵盖 JIT 与预加载
-- [PHP5与PHP7核心差异对比](/post/php5php7.html) — PHP 5 到 PHP 7 的性能优化原理与新特性详解
-- [PHP 垃圾回收机制（GC）](/post/gc.html) — zval 引用计数、循环引用检测与内存泄漏排查
+- [PHP 8.4 新特性实战：从内存管理到性能提升](/post/php-84/) — 深入解析 PHP 8.4 的 JIT 优化、协程支持与 OPcache 调优
+- [OPcache 深度解析](/post/opcache-1/) — PHP 生产环境性能优化的第一道关卡，涵盖 JIT 与预加载
+- [PHP5与PHP7核心差异对比](/post/php5php7/) — PHP 5 到 PHP 7 的性能优化原理与新特性详解
+- [PHP 垃圾回收机制（GC）](/post/gc/) — zval 引用计数、循环引用检测与内存泄漏排查

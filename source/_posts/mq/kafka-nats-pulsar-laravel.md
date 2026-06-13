@@ -1253,7 +1253,7 @@ public function register(): void
 
 如果你对消息队列的其他方案和实战经验感兴趣，推荐以下文章：
 
-- [RabbitMQ 实战：AMQP 协议、死信队列、延迟消息与 Laravel 集成](/post/RabbitMQ-AMQP-死信队列-延迟消息-Laravel-集成-对比Redis-Queue选型.html) — RabbitMQ 交换机类型、死信队列、延迟消息与 Laravel 集成的完整方案，适合中低吞吐的传统企业场景
-- [Laravel-Kafka 消息队列异步解耦实战](/post/laravel-kafka-guide.html) — KKday 项目中 Kafka 与 Laravel 集成的完整踩坑记录，涵盖 Producer/Consumer 配置与消息可靠性保障
-- [Redis Stream 实战：消息队列替代方案与消费者组管理 Laravel 踩坑记录](/post/redis-stream-guide-laravel.html) — Redis Stream 在 Laravel 中的实战应用，零额外运维成本的事件驱动异步架构方案
-- [MQ 消息队列深度对比：RabbitMQ vs Kafka vs RocketMQ 选型指南](/post/mq-comparison.html) — 四大主流消息队列的吞吐量、延迟、可靠性与适用场景对比
+- [RabbitMQ 实战：AMQP 协议、死信队列、延迟消息与 Laravel 集成](/post/rabbitmq-amqp-laravel-redis-queue/) — RabbitMQ 交换机类型、死信队列、延迟消息与 Laravel 集成的完整方案，适合中低吞吐的传统企业场景
+- [Laravel-Kafka 消息队列异步解耦实战](/post/laravel-kafka-guide/) — KKday 项目中 Kafka 与 Laravel 集成的完整踩坑记录，涵盖 Producer/Consumer 配置与消息可靠性保障
+- [Redis Stream 实战：消息队列替代方案与消费者组管理 Laravel 踩坑记录](/post/redis-stream-guide-laravel/) — Redis Stream 在 Laravel 中的实战应用，零额外运维成本的事件驱动异步架构方案
+- [MQ 消息队列深度对比：RabbitMQ vs Kafka vs RocketMQ 选型指南](/post/mq-comparison/) — 四大主流消息队列的吞吐量、延迟、可靠性与适用场景对比

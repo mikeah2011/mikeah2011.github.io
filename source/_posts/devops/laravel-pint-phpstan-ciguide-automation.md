@@ -664,6 +664,6 @@ Pint + PHPStan CI 门禁不是「配置一下就完事」的工程，而是一�
 
 ## 相关阅读
 
-- [Laravel Pint + Rector + PHPStan 三剑客联动：代码风格重构类型安全一站式质量治理流水线](/post/Laravel-Pint-Rector-PHPStan-三剑客联动-代码风格重构类型安全一站式质量治理流水线.html) — 在 Pint 基础上引入 Rector 自动重构，构建完整的代码质量自动化流水线
-- [PHPStan Level 8 完全指南：从入门到类型安全](/post/phpstan-level-8-guide.html) — 深入理解 PHPStan 各级别检查规则，掌握从 level 5 到 level 8 的渐进式迁移策略
-- [PHP-CS-Fixer 与 Pint 自动化集成实战](/post/php-cs-fixer-pint-automation.html) — 对比 PHP-CS-Fixer 和 Pint 的配置方式，适用于需要跨框架统一代码规范的团队
+- [Laravel Pint + Rector + PHPStan 三剑客联动：代码风格重构类型安全一站式质量治理流水线](/post/laravel-pint-rector-phpstan/) — 在 Pint 基础上引入 Rector 自动重构，构建完整的代码质量自动化流水线
+- [PHPStan Level 8 完全指南：从入门到类型安全](/post/phpstan-level-8-guide/) — 深入理解 PHPStan 各级别检查规则，掌握从 level 5 到 level 8 的渐进式迁移策略
+- [PHP-CS-Fixer 与 Pint 自动化集成实战](/post/php-cs-fixer-pint-automation/) — 对比 PHP-CS-Fixer 和 Pint 的配置方式，适用于需要跨框架统一代码规范的团队

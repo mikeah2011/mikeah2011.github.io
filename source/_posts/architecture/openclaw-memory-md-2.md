@@ -1320,5 +1320,5 @@ OpenClaw 的隐私感知记忆分区机制，通过 MEMORY.md 的分区结构、
 
 ## 相关阅读
 
-- [三大框架模型路由对比：Hermes ProviderProfile vs OpenClaw Fallback Chain vs OpenHuman Hint Router](/post/三大框架模型路由对比-Hermes-ProviderProfile-vs-OpenClaw-Fallback-Chain-vs-OpenHuman-Hint-Router.html)
-- [AI Agent 数据分析实战：自然语言转 SQL、图表生成、报告自动化](/post/AI-Agent-数据分析实战-自然语言转SQL-图表生成-报告自动化.html)
+- [三大框架模型路由对比：Hermes ProviderProfile vs OpenClaw Fallback Chain vs OpenHuman Hint Router](/post/openclaw-hermes-providerprofile-fallback-chain/)
+- [AI Agent 数据分析实战：自然语言转 SQL、图表生成、报告自动化](/post/ai-agent-sql/)

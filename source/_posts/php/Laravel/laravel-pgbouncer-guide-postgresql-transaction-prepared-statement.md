@@ -336,7 +336,7 @@ stats_users = app
 
 ## 相关阅读
 
-- [Laravel + PostgreSQL 完整开发指南：从入门到生产实践](/post/laravel-postgresql-guide.html)
-- [PostgreSQL Advisory Lock 在 Laravel 中的实战：PgBouncer 环境下的分布式锁方案](/post/laravel-postgresql-advisory-lock-guide-pgbouncer.html)
-- [数据库连接池全面对比：PgBouncer vs ProxySQL vs Supabase 选型指南](/post/database-connection-pool-pgbouncer-proxysql-supabase-comparison.html)
+- [Laravel + PostgreSQL 完整开发指南：从入门到生产实践](/post/laravel-postgresql-guide/)
+- [PostgreSQL Advisory Lock 在 Laravel 中的实战：PgBouncer 环境下的分布式锁方案](/post/laravel-postgresql-advisory-lock-guide-pgbouncer/)
+- [数据库连接池全面对比：PgBouncer vs ProxySQL vs Supabase 选型指南](/post/database-connection-pool-pgbouncer-proxysql-supabase-comparison/)
 

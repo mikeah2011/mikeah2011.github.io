@@ -941,7 +941,7 @@ OpenHuman 的三层安全模型——OS Keychain 密钥管理、OAuth Token 代�
 
 ## 相关阅读
 
-- [三大框架安全模型对比：工具隔离、记忆分区、隐私边界、数据主权](/post/三大框架安全模型对比-工具隔离-记忆分区-隐私边界-数据主权.html) — 从工具隔离、记忆分区、隐私边界三个维度系统对比 OpenHuman、Hermes、OpenClaw 的安全设计
-- [OpenHuman 安全实战：本地加密、数据主权、隐私合规](/post/OpenHuman-安全实战-本地加密-数据主权-隐私合规.html) — 聚焦 OpenHuman 的本地加密方案与 GDPR/SOC 2 合规实践
-- [AI Coding Agent 安全实战：沙箱隔离、权限边界、代码审计](/post/AI-Coding-Agent-安全实战.html) — AI 编码助手的沙箱隔离方案与防止"越狱"风险的工程实践
-- [OpenHuman vs Hermes vs OpenClaw：三大开源 AI Agent 框架深度对比](/post/OpenHuman-vs-Hermes-vs-OpenClaw-三大开源AI-Agent框架深度对比.html) — 架构、能力、适用场景的全方位对比，帮助你选择合适的框架
+- [三大框架安全模型对比：工具隔离、记忆分区、隐私边界、数据主权](/post/go-wasi/) — 从工具隔离、记忆分区、隐私边界三个维度系统对比 OpenHuman、Hermes、OpenClaw 的安全设计
+- [OpenHuman 安全实战：本地加密、数据主权、隐私合规](/post/openhuman/) — 聚焦 OpenHuman 的本地加密方案与 GDPR/SOC 2 合规实践
+- [AI Coding Agent 安全实战：沙箱隔离、权限边界、代码审计](/post/ai-coding-agent/) — AI 编码助手的沙箱隔离方案与防止"越狱"风险的工程实践
+- [OpenHuman vs Hermes vs OpenClaw：三大开源 AI Agent 框架深度对比](/post/prompt-cache-hermes-ephemeral-injection-openclaw-volatile-tier-openhuman-local-core/) — 架构、能力、适用场景的全方位对比，帮助你选择合适的框架

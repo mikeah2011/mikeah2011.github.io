@@ -879,6 +879,6 @@ RLS 很适合以下场景：共享库多租户、报表 SQL 多、开发者人�
 
 ## 相关阅读
 
-- [数据库多租户模式对比实战：共享库 Row-Level vs Schema-per-Tenant vs 独立库——Laravel 中的三种方案深度权衡](/post/数据库多租户模式对比实战-共享库Row-Level-vs-Schema-per-Tenant-vs-独立库-Laravel中的三种方案深度权衡.html) — 如果你在纠结多租户选型，这篇从安全性、性能、运维成本、扩展性四个维度深度对比了三种主流方案，提供了 Laravel 完整实现代码
-- [Laravel + PostgreSQL Advisory Lock 实战：补偿扫描单实例化、会话级互斥与 PgBouncer 踩坑记录](/post/laravel-postgresql-advisory-lock-guide-pgbouncer.html) — PostgreSQL Advisory Lock 在 Laravel 补偿任务中的实战经验，涵盖会话锁释放、连接池模式不兼容与异常退出恢复
-- [PostgreSQL 高级特性实战：Window Functions + CTE + JSONB + pg_trgm——Laravel 中的复杂查询重写与性能调优](/post/postgresql-advanced-features-window-cte-jsonb-pgtrgm-laravel.html) — 掌握 PostgreSQL 四大高级特性，用 Window Functions 一条 SQL 替代 PHP 三重循环，响应时间从 8 秒降到 200 毫秒
+- [数据库多租户模式对比实战：共享库 Row-Level vs Schema-per-Tenant vs 独立库——Laravel 中的三种方案深度权衡](/post/row-level-schema-per-tenant-laravel/) — 如果你在纠结多租户选型，这篇从安全性、性能、运维成本、扩展性四个维度深度对比了三种主流方案，提供了 Laravel 完整实现代码
+- [Laravel + PostgreSQL Advisory Lock 实战：补偿扫描单实例化、会话级互斥与 PgBouncer 踩坑记录](/post/laravel-postgresql-advisory-lock-guide-pgbouncer/) — PostgreSQL Advisory Lock 在 Laravel 补偿任务中的实战经验，涵盖会话锁释放、连接池模式不兼容与异常退出恢复
+- [PostgreSQL 高级特性实战：Window Functions + CTE + JSONB + pg_trgm——Laravel 中的复杂查询重写与性能调优](/post/postgresql-advanced-features-window-cte-jsonb-pgtrgm-laravel/) — 掌握 PostgreSQL 四大高级特性，用 Window Functions 一条 SQL 替代 PHP 三重循环，响应时间从 8 秒降到 200 毫秒

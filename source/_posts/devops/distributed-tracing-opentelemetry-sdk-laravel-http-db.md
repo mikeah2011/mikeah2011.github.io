@@ -847,6 +847,6 @@ $span->setAttribute('user.tier', 'vip');
 
 ## 相关阅读
 
-- [OpenTelemetry 实战：统一日志/指标/追踪的可观测性标准——Laravel 应用全链路埋点](/post/2026-06-02-opentelemetry-unified-observability-laravel-full-stack-instrumentation.html)
-- [Grafana Loki 实战：轻量级日志聚合替代 ELK——Laravel 应用的日志采集与查询优化](/post/2026-06-02-grafana-loki-lightweight-log-aggregation-laravel.html)
-- [Sentry 实战：2026 年版错误追踪深度使用——性能监控、Session Replay 与 Laravel 集成](/post/2026-06-02-sentry-error-tracking-performance-monitoring-session-replay-laravel.html)
+- [OpenTelemetry 实战：统一日志/指标/追踪的可观测性标准——Laravel 应用全链路埋点](/post/opentelemetry-unified-observability-laravel-full-stack-instrumentation/)
+- [Grafana Loki 实战：轻量级日志聚合替代 ELK——Laravel 应用的日志采集与查询优化](/post/grafana-loki-lightweight-log-aggregation-laravel/)
+- [Sentry 实战：2026 年版错误追踪深度使用——性能监控、Session Replay 与 Laravel 集成](/post/sentry-error-tracking-performance-monitoring-session-replay-laravel/)

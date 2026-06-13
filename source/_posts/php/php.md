@@ -951,5 +951,5 @@ PHP 的内存管理机制可以概括为三个层次：
 
 ## 相关阅读
 
-- [Dependency Injection 容器深度对比：Laravel Container vs Symfony DI vs PHP-DI](/post/Dependency-Injection-容器深度对比-Laravel-Container-vs-Symfony-DI-vs-PHP-DI-的设计哲学.html)
-- [PHP 8.5 新特性前瞻：属性钩子、JIT 改进与异步生态演进](/post/2026-06-02-PHP-8.5-新特性前瞻-属性钩子-JIT改进与异步生态演进.html)
+- [Dependency Injection 容器深度对比：Laravel Container vs Symfony DI vs PHP-DI](/post/dependency-injection-laravel-container-symfony-di-php-di/)
+- [PHP 8.5 新特性前瞻：属性钩子、JIT 改进与异步生态演进](/post/php-jit-tracing-laravel-openbenchmark/)

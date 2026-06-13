@@ -411,6 +411,6 @@ WebAuthn / Passkey 在 Laravel 里并不难接，难的是把它当成**认证�
 
 ## 相关阅读
 
-- [OWASP Top 10 安全漏洞实战指南：SQL 注入、XSS、CSRF、SSRF 详解](/post/owasp-top-10-guide-sql-xss-csrf-ssrf.html) — 理解 Web 应用常见攻击面，WebAuthn 能有效防御其中的钓鱼与凭证泄露类攻击
-- [Laravel Sanctum 与 Passport Token 认证全指南：并发、刷新与选型](/post/laravel-sanctum-passport-token-guide-token-concurrency.html) — API Token 认证方案对比，适合需要同时支持 Web 登录与 API 认证的项目
-- [Firebase JWT vs Token：Laravel Passport、Sanctum 深度对比](/post/firebase-jwt-vs-token-laravel-passport-sanctum-vs.html) — JWT 与 Session Token 选型分析，理解不同认证策略的适用场景
+- [OWASP Top 10 安全漏洞实战指南：SQL 注入、XSS、CSRF、SSRF 详解](/post/owasp-top-10-guide-sql-xss-csrf-ssrf/) — 理解 Web 应用常见攻击面，WebAuthn 能有效防御其中的钓鱼与凭证泄露类攻击
+- [Laravel Sanctum 与 Passport Token 认证全指南：并发、刷新与选型](/post/laravel-sanctum-passport-token-guide-token-concurrency/) — API Token 认证方案对比，适合需要同时支持 Web 登录与 API 认证的项目
+- [Firebase JWT vs Token：Laravel Passport、Sanctum 深度对比](/post/firebase-jwt-vs-token-laravel-passport-sanctum-vs/) — JWT 与 Session Token 选型分析，理解不同认证策略的适用场景

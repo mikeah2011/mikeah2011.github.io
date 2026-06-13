@@ -1057,6 +1057,6 @@ Laravel Volt 不是革命性的技术创新，而是工程体验的优化。它�
 
 ## 相关阅读
 
-- [TALL Stack 全栈实战：Tailwind + Alpine.js + Livewire + Laravel——快速原型开发的全 PHP 方案对比 Vue/React SPA](/post/TALL Stack 全栈实战：Tailwind + Alpine.js + Livewire + Laravel——快速原型开发的全 PHP 方案对比 Vue/React SPA.html)
-- [Laravel Folio 实战：页面路由替代传统 Controller 的新范式——从源码剖析到 B2C 电商落地踩坑记录](/post/Laravel Folio 实战：页面路由替代传统 Controller 的新范式——从源码剖析到 B2C 电商落地踩坑记录.html)
-- [Laravel + Inertia.js 实战：Vue 3/React 单页应用的全新全栈范式——对比传统 SPA 前后端分离的开发体验](/post/Laravel + Inertia.js 实战：Vue 3/React 单页应用的全新全栈范式——对比传统 SPA 前后端分离的开发体验.html)
+- [TALL Stack 全栈实战：Tailwind + Alpine.js + Livewire + Laravel——快速原型开发的全 PHP 方案对比 Vue/React SPA](/post/tall-stack-tailwind-alpine-js-livewire-laravel-php-vue-react-spa/)
+- [Laravel Folio 实战：页面路由替代传统 Controller 的新范式——从源码剖析到 B2C 电商落地踩坑记录](/post/laravel-folio-page-routing-replaces-traditional-controller/)
+- [Laravel + Inertia.js 实战：Vue 3/React 单页应用的全新全栈范式——对比传统 SPA 前后端分离的开发体验](/post/tall-stack-tailwind-alpine-js-livewire-laravel-php-vue-react-spa/)

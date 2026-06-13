@@ -1793,6 +1793,6 @@ Agent 互联网的时代正在到来，而 A2A 和 MCP 正是这个新时代的 
 
 ## 相关阅读
 
-- [AI Agent Tool Composition 实战：工具组合与编排——单工具调用 vs 多工具链 vs 并行工具的架构设计](/post/AI%20Agent%20Tool%20Composition%20实战：工具组合与编排——单工具调用%20vs%20多工具链%20vs%20并行工具的架构设计.html)
-- [AI Agent Debugging 实战：MCP Inspector/LangSmith Trace/日志回放——从黑盒到可调试的 Agent 开发工作流](/post/AI%20Agent%20Debugging%20实战：MCP%20Inspector/LangSmith%20Trace/日志回放——从黑盒到可调试的%20Agent%20开发工作流.html)
-- [OpenClaw vs Hermes Agent：开源 AI Agent 框架选型对比](/post/OpenClaw%20vs%20Hermes%20Agent：开源%20AI%20Agent%20框架选型对比.html)
+- [AI Agent Tool Composition 实战：工具组合与编排——单工具调用 vs 多工具链 vs 并行工具的架构设计](/post/ai-agent-tool-composition-orchestration/)
+- [AI Agent Debugging 实战：MCP Inspector/LangSmith Trace/日志回放——从黑盒到可调试的 Agent 开发工作流](/post/ai-agent-guide-claude-gpt-mimo-optimization/)
+- [OpenClaw vs Hermes Agent：开源 AI Agent 框架选型对比](/post/openhuman-hermes-openclaw-ai-agent/)

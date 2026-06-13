@@ -1026,6 +1026,6 @@ curl http://gateway:8000/api/orders \
 
 ## 相关阅读
 
-- [Grafana Tempo 实战：分布式追踪后端——OpenTelemetry 采集 + TraceQL 查询的因果可观测性](/post/Grafana-Tempo-实战-分布式追踪后端-OpenTelemetry-采集-TraceQL-查询的因果可观测性.html)
-- [OpenTelemetry 实战：统一日志/指标/追踪的可观测性标准——Laravel 应用全链路埋点](/post/2026-06-02-opentelemetry-unified-observability-laravel-full-stack-instrumentation.html)
-- [Grafana Pyroscope 实战：持续性能剖析——Laravel 应用的生产环境火焰图与根因定位方法论](/post/Grafana-Pyroscope-实战-持续性能剖析-Laravel应用的生产环境火焰图与根因定位方法论.html)
+- [Grafana Tempo 实战：分布式追踪后端——OpenTelemetry 采集 + TraceQL 查询的因果可观测性](/post/grafana-tempo-opentelemetry-traceql/)
+- [OpenTelemetry 实战：统一日志/指标/追踪的可观测性标准——Laravel 应用全链路埋点](/post/opentelemetry-unified-observability-laravel-full-stack-instrumentation/)
+- [Grafana Pyroscope 实战：持续性能剖析——Laravel 应用的生产环境火焰图与根因定位方法论](/post/grafana-pyroscope-laravel/)

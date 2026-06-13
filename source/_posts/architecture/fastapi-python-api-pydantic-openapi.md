@@ -971,6 +971,6 @@ FastAPI 以其优雅的类型提示驱动设计、强大的依赖注入系统和
 
 ## 相关阅读
 
-- [Go + gRPC 实战：高性能微服务间通信——Proto 定义、流式调用与 Laravel 集成](/post/Go-gRPC-实战-高性能微服务通信-Proto定义流式调用Laravel集成.html)
-- [Python asyncio 深度实战：事件循环、协程调度与 aiohttp——PHP Fibers 开发者的异步编程对比](/post/Python-asyncio-深度实战-事件循环-协程调度与-aiohttp.html)
-- [Swift Vapor 实战：用 Swift 写后端 API——与 Laravel 的架构对比与性能基准](/post/2026-06-02-Swift-Vapor-实战-用-Swift-写后端-API-与-Laravel-架构对比与性能基准.html)
+- [Go + gRPC 实战：高性能微服务间通信——Proto 定义、流式调用与 Laravel 集成](/post/go-grpc-proto-laravel/)
+- [Python asyncio 深度实战：事件循环、协程调度与 aiohttp——PHP Fibers 开发者的异步编程对比](/post/python-asyncio-aiohttp-php-fibers/)
+- [Swift Vapor 实战：用 Swift 写后端 API——与 Laravel 的架构对比与性能基准](/post/swift-vapor-api-laravel/)

@@ -886,5 +886,5 @@ class RepositoryServiceProvider extends ServiceProvider
 
 ## 相关阅读
 
-- [PHP 内存模型深度剖析：引用计数、写时复制、垃圾回收的底层机制与性能调优](/post/PHP-内存模型深度剖析-引用计数-写时复制-垃圾回收的底层机制与性能调优.html)
-- [PHP 8.5 新特性前瞻：属性钩子、JIT 改进与异步生态演进](/post/2026-06-02-PHP-8.5-新特性前瞻-属性钩子-JIT改进与异步生态演进.html)
+- [PHP 内存模型深度剖析：引用计数、写时复制、垃圾回收的底层机制与性能调优](/post/php/)
+- [PHP 8.5 新特性前瞻：属性钩子、JIT 改进与异步生态演进](/post/php-jit-tracing-laravel-openbenchmark/)

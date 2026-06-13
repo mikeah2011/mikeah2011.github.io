@@ -1061,5 +1061,5 @@ DeepSeek 的 API 仍在快速迭代中，建议持续关注其[官方文档](htt
 
 ## 相关阅读
 
-- [RAG Reranking 实战：Cross-Encoder 重排序与 ColBERT 延迟交互——检索质量的最后一公里优化](/post/RAG-Reranking-Cross-Encoder-ColBERT-延迟交互-检索质量优化.html) — 配合 DeepSeek API 构建高质量 RAG 检索增强生成系统
-- [AI Agent 数据分析实战：自然语言转 SQL、图表生成、报告自动化](/post/AI-Agent-数据分析实战-自然语言转SQL-图表生成-报告自动化.html) — 将 DeepSeek API 应用于 Text-to-SQL 数据分析 Agent
+- [RAG Reranking 实战：Cross-Encoder 重排序与 ColBERT 延迟交互——检索质量的最后一公里优化](/post/rag-reranking-cross-encoder-colbert/) — 配合 DeepSeek API 构建高质量 RAG 检索增强生成系统
+- [AI Agent 数据分析实战：自然语言转 SQL、图表生成、报告自动化](/post/ai-agent-sql/) — 将 DeepSeek API 应用于 Text-to-SQL 数据分析 Agent

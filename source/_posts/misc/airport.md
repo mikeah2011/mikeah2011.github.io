@@ -48,8 +48,8 @@ feature: true
 
 | 机场 | 类型 | 试用内容 | 月付价格 | 不限时套餐 | 来源 | 备注 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 🟢 **[FlyBit](https://flybit.vip/#/register?code=munD7XGx)** | 中转 | 2GB 流量 | ¥15 / 128GB | ¥36 / 128GB | [VPN笔记](/post/misc/vpn) | 按量试用 |
-| 🟢 **[iNetS](https://inets.io/#/register?code=51JJlDFB)** | 直连+ | 1天试用 | ¥6 / 50GB | - | [VPN笔记](/post/misc/vpn) | 适合测试 |
+| 🟢 **[FlyBit](https://flybit.vip/#/register?code=munD7XGx)** | 中转 | 2GB 流量 | ¥15 / 128GB | ¥36 / 128GB | [VPN笔记](/post/vpn/) | 按量试用 |
+| 🟢 **[iNetS](https://inets.io/#/register?code=51JJlDFB)** | 直连+ | 1天试用 | ¥6 / 50GB | - | [VPN笔记](/post/vpn/) | 适合测试 |
 | 🟢 **[网际快车](https://b3.快车.com?c=CDSXDE)** | 中转专线 | 试用券 `vpsknow`（1天/5GB） | ¥6.8 / 20GB | 不限时 | [VPSKnow](https://vpsknow.com/airport-recommendations) | 家宽节点、AI全解锁 |
 | 🟢 **[Bitz Net](https://red.bnaffred.com/#/register?code=krtbYllI)** | IEPL专线 | 注册试用（1天/5GB） | - | - | [VPSKnow](https://vpsknow.com/airport-recommendations) | ⚠️ 试用仅10分钟窗口，套餐仅支持季付，性价比低 |
 | 🟢 **Runway** | BGP专线 | 注册试用（1天/6GB） | ¥9.9 / 100G | - | [VPSKnow](https://vpsknow.com/airport-recommendations) | BGP专线、注册即用 |
@@ -284,7 +284,7 @@ feature: true
 |:---:|:---:|:---:|
 | 二毛博客 | [ermao.net/posts/vpn](https://www.ermao.net/posts/vpn/) | 50+ 机场详细评测，含优惠券 |
 | VPSKnow | [vpsknow.com/airport-recommendations](https://vpsknow.com/airport-recommendations) | 30+ 机场分类推荐，含试用信息 |
-| 个人笔记 | [VPN & 机场笔记](/post/misc/vpn) | 个人订阅记录与使用体验 |
+| 个人笔记 | [VPN & 机场笔记](/post/vpn/) | 个人订阅记录与使用体验 |
 
 > ⚠️ **免责声明**：机场信息更新频繁，价格和套餐可能随时变动。请以官网实际信息为准。本文仅供学习参考，不构成任何购买建议。
 

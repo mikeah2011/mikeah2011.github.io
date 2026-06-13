@@ -1268,6 +1268,6 @@ trivy image --skip-dirs /usr/share/doc --skip-dirs /usr/share/man myapp:latest
 
 ## 相关阅读
 
-- [PCI DSS 合规实战：支付系统安全标准落地——Laravel 应用中的 Token 化、审计日志与网络分段](/post/2026-06-02-PCI-DSS-合规实战-支付系统安全标准落地-Laravel-Token化-审计日志与网络分段.html)
-- [GDPR/个人信息保护法合规实战：Laravel 应用中的数据主体权利、同意管理与跨境传输](/post/2026-06-02-GDPR-个人信息保护法合规实战-Laravel-数据主体权利-同意管理与跨境传输.html)
-- [Docker 29.x 实战：BuildKit、多阶段构建与镜像优化策略踩坑记录](/post/docker-29-x-guide-buildkit-imageoptimization.html)
+- [PCI DSS 合规实战：支付系统安全标准落地——Laravel 应用中的 Token 化、审计日志与网络分段](/post/pci-dss-laravel-token/)
+- [GDPR/个人信息保护法合规实战：Laravel 应用中的数据主体权利、同意管理与跨境传输](/post/gdpr-laravel/)
+- [Docker 29.x 实战：BuildKit、多阶段构建与镜像优化策略踩坑记录](/post/docker-29-x-guide-buildkit-imageoptimization/)

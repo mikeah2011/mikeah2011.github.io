@@ -294,14 +294,14 @@ SELECT * FROM orders WHERE user_id = 12345 ORDER BY created_at DESC LIMIT 20;
 
 # 参考
 
-- [创建索引](/post/creation.html) — CREATE INDEX / ALTER TABLE 三种方式详解
-- [覆盖索引（Covering Index）](/post/covering-index.html) — 用联合索引实现免回表查询
-- [索引失效的 12 种原因](/post/ineffective-cases.html) — 建了索引却不走？排查指南
+- [创建索引](/post/creation/) — CREATE INDEX / ALTER TABLE 三种方式详解
+- [覆盖索引（Covering Index）](/post/covering-index/) — 用联合索引实现免回表查询
+- [索引失效的 12 种原因](/post/ineffective-cases/) — 建了索引却不走？排查指南
 - MySQL 文档 - Optimization and Indexes: <https://dev.mysql.com/doc/refman/8.0/en/optimization-indexes.html>
 - 《高性能 MySQL》第 5 章
 
 ## 相关阅读
 
-- [索引的类型](/post/types.html) — MySQL 索引分类全解析：B+Tree、Hash、全文索引的适用场景
-- [索引的最左前缀原则](/post/leftmost-prefix-rule.html) — 复合索引如何排列才能命中查询
-- [百万级数据表查询优化实战](/post/query-optimization-explain.html) — 从 EXPLAIN 分析到索引重构的完整踩坑记录
+- [索引的类型](/post/types/) — MySQL 索引分类全解析：B+Tree、Hash、全文索引的适用场景
+- [索引的最左前缀原则](/post/leftmost-prefix-rule/) — 复合索引如何排列才能命中查询
+- [百万级数据表查询优化实战](/post/query-optimization-explain/) — 从 EXPLAIN 分析到索引重构的完整踩坑记录

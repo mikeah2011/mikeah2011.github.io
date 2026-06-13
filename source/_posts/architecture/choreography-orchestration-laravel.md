@@ -963,6 +963,6 @@ class OrderAggregate
 
 ## 相关阅读
 
-- [Saga 编排模式深度实战：Choreography vs Orchestration vs Temporal——Laravel 分布式事务的三种实现路线对比](/post/saga-orchestration-pattern-laravel-distributed-transaction.html)
-- [Data Consistency Patterns 实战：Saga/TCC/2PC/XA 在 Laravel 中的选型决策树](/post/data-consistency-patterns-laravel-saga-tcc-2pc-xa.html)
-- [Kafka vs NATS vs Pulsar 2026 实战：三大消息队列深度对比——Laravel 微服务选型](/post/kafka-vs-nats-vs-pulsar-2026-laravel-microservice-mq-comparison.html)
+- [Saga 编排模式深度实战：Choreography vs Orchestration vs Temporal——Laravel 分布式事务的三种实现路线对比](/post/saga-orchestration-pattern-laravel-distributed-transaction/)
+- [Data Consistency Patterns 实战：Saga/TCC/2PC/XA 在 Laravel 中的选型决策树](/post/data-consistency-patterns-laravel-saga-tcc-2pc-xa/)
+- [Kafka vs NATS vs Pulsar 2026 实战：三大消息队列深度对比——Laravel 微服务选型](/post/kafka-nats-pulsar-laravel/)

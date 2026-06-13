@@ -1215,6 +1215,6 @@ echo App\Models\Report::count() . PHP_EOL;
 
 ## 相关阅读
 
-- [Laravel Task Scheduling 深度实战：多服务器调度、分布式锁、任务分片与监控告警](/post/Laravel-Task-Scheduling-深度实战-多服务器调度-分布式锁-任务分片与监控告警.html) — 从单机 Cron 到分布式调度的完整解决方案，涵盖 Leader Election 高可用选主、任务分片内存优化、Prometheus/Grafana 监控告警集成等高级话题。
-- [分布式锁深度对比：Redis Redlock vs Zookeeper vs etcd](/post/Distributed-Lock-深度对比-Redis-Redlock-vs-Zookeeper-vs-etcd-PHP分布式互斥选型.html) — 全面对比三大分布式锁方案的 CAP 定位、一致性模型与性能基准，附 PHP 实战代码与生产环境踩坑案例。
-- [Laravel Scheduled Closure 实战：任务调度的可测试性设计](/post/Laravel-Scheduled-Closure-Testability-Scheduler-Unit-Test.html) — 剖析 Scheduler 闭包任务的可测试性缺陷，手把手教你重构为可单元测试的 Artisan Command 与 Invokable Class。
+- [Laravel Task Scheduling 深度实战：多服务器调度、分布式锁、任务分片与监控告警](/post/laravel-task-scheduling/) — 从单机 Cron 到分布式调度的完整解决方案，涵盖 Leader Election 高可用选主、任务分片内存优化、Prometheus/Grafana 监控告警集成等高级话题。
+- [分布式锁深度对比：Redis Redlock vs Zookeeper vs etcd](/post/laravel-redis-distributedlockguide/) — 全面对比三大分布式锁方案的 CAP 定位、一致性模型与性能基准，附 PHP 实战代码与生产环境踩坑案例。
+- [Laravel Scheduled Closure 实战：任务调度的可测试性设计](/post/laravel-scheduled-closure-testability-scheduler-unit-test/) — 剖析 Scheduler 闭包任务的可测试性缺陷，手把手教你重构为可单元测试的 Artisan Command 与 Invokable Class。

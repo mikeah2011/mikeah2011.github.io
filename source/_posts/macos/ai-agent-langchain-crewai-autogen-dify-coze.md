@@ -1400,6 +1400,6 @@ def safe_tool_executor(tool_name: str, **kwargs):
 
 ## 相关阅读
 
-- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战踩坑记录](/post/2026-06-01-Cursor-Claude-Code-Hermes-macOS-开发者多AI协作工作流实战踩坑记录.html)
-- [Windsurf/Augment Code 实战：2026 年 AI-native IDE 新势力——对比 Cursor/Claude Code 的功能、性能与定价](/post/Windsurf-Augment-Code-实战-2026年AI-native-IDE新势力-对比Cursor-Claude-Code功能性能定价.html)
-- [Lazygit 实战：终端 Git GUI 与高效分支管理踩坑记录](/post/Lazygit-实战-终端-Git-GUI-与高效分支管理踩坑记录.html)
+- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战踩坑记录](/post/cursor-claude-code-hermes-macos-ai/)
+- [Windsurf/Augment Code 实战：2026 年 AI-native IDE 新势力——对比 Cursor/Claude Code 的功能、性能与定价](/post/windsurf-augment-code-ai-native-ide-cursor-claude-macos/)
+- [Lazygit 实战：终端 Git GUI 与高效分支管理踩坑记录](/post/lazygit-git-gui/)

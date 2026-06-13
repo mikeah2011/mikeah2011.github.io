@@ -465,7 +465,7 @@ Event::listen(Migrating::class, function ($event) {
 
 ## 相关阅读
 
-- [Laravel 缓存策略全指南：Route / Config / View / Query Cache 实战](/post/laravel-cache-route-config-view-query-cache.html) — 多租户项目中缓存隔离是安全的关键一环，本文详解 Laravel 各层缓存的使用与优化
-- [Redis 分布式锁在 Laravel 中的完整实践指南](/post/laravel-redis-distributedlockguide.html) — 租户间的并发操作需要分布式锁保护，避免跨租户数据竞争
-- [PHP Fiber 并发与 Laravel Concurrency API 深度指南](/post/php-fiber-concurrencyguide-laravel-concurrencyapi.html) — 多租户批量操作场景下，利用并发提升报表生成与数据导出效率
-- [Laravel API Resource 与 BFF 架构实战指南](/post/laravel-api-resource-bff-architecture.html) — SaaS 系统对外暴露 API 时，BFF 层可以统一处理租户感知的数据转换与聚合
+- [Laravel 缓存策略全指南：Route / Config / View / Query Cache 实战](/post/laravel-cache-route-config-view-query-cache/) — 多租户项目中缓存隔离是安全的关键一环，本文详解 Laravel 各层缓存的使用与优化
+- [Redis 分布式锁在 Laravel 中的完整实践指南](/post/laravel-redis-distributedlockguide/) — 租户间的并发操作需要分布式锁保护，避免跨租户数据竞争
+- [PHP Fiber 并发与 Laravel Concurrency API 深度指南](/post/php-fiber-concurrencyguide-laravel-concurrencyapi/) — 多租户批量操作场景下，利用并发提升报表生成与数据导出效率
+- [Laravel API Resource 与 BFF 架构实战指南](/post/laravel-api-resource-bff-architectureguide/) — SaaS 系统对外暴露 API 时，BFF 层可以统一处理租户感知的数据转换与聚合

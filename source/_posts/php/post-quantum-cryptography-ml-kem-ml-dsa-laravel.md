@@ -1297,6 +1297,6 @@ Phase 4: 清理（1-2 月）
 
 ## 相关阅读
 
-- [Laravel Passport OAuth2 自定义 Grant Type 与第三方登录实战](/post/Laravel-Passport-OAuth2-自定义-Grant-Type-与第三方登录实战.html)
-- [PCI DSS 合规实战：支付系统安全标准落地——Laravel 应用中的 Token 化、审计日志与网络分段](/post/2026-06-02-PCI-DSS-合规实战-支付系统安全标准落地-Laravel-Token化-审计日志与网络分段.html)
-- [重试与退避策略实战：Exponential Backoff/Jitter——Laravel HTTP Client 韧性设计模式](/post/重试与退避策略实战-Exponential-Backoff-Jitter-Laravel-HTTP-Client韧性设计模式.html)
+- [Laravel Passport OAuth2 自定义 Grant Type 与第三方登录实战](/post/oauth-laravel-passport-grant-type/)
+- [PCI DSS 合规实战：支付系统安全标准落地——Laravel 应用中的 Token 化、审计日志与网络分段](/post/pci-dss-laravel-token/)
+- [重试与退避策略实战：Exponential Backoff/Jitter——Laravel HTTP Client 韧性设计模式](/post/exponential-backoff-jitter-laravel-http-client/)

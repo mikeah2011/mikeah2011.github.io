@@ -1407,6 +1407,6 @@ LangGraph 为构建有状态的 AI Agent 提供了一个强大而灵活的图编
 
 ## 相关阅读
 
-- [AI Agent 可观测性实战：LangSmith/LangFuse 追踪、调试、评估](/post/2026-06-02-ai-agent-observability-langsmith-langfuse-tracing-evaluation.html)
-- [AI Agent 推理模式实战：ReAct/Tree-of-Thought/Graph-of-Thought 规划能力](/post/2026-06-02-ai-agent-reasoning-patterns-react-tot-got-planning.html)
-- [AI Agent 编排模式实战：ReAct/Plan-and-Execute/Multi-Agent 协作架构设计](/post/2026-05-31-ai-agent-orchestration-patterns-react-plan-execute-multi-agent.html)
+- [AI Agent 可观测性实战：LangSmith/LangFuse 追踪、调试、评估](/post/ai-agent-observability-langsmith-langfuse-tracing-evaluation/)
+- [AI Agent 推理模式实战：ReAct/Tree-of-Thought/Graph-of-Thought 规划能力](/post/ai-agent-reasoning-patterns-react-tot-got-planning/)
+- [AI Agent 编排模式实战：ReAct/Plan-and-Execute/Multi-Agent 协作架构设计](/post/ai-agent-orchestration-patterns-react-plan-execute-multi-agent/)

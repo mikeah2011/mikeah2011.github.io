@@ -1389,6 +1389,6 @@ graph LR
 
 如果你对本文涉及的技术话题感兴趣，以下文章也值得一读：
 
-- [Eventual Consistency 实战：最终一致性在电商场景中的工程化——反压、冲突解决与用户感知延迟](/post/Eventual-Consistency-实战-最终一致性在电商场景中的工程化-反压冲突解决与用户感知延迟.html) — 从 CAP 理论到库存扣减乐观锁、订单状态机、支付回调幂等，构建高可用分布式电商系统的完整方案
-- [订单状态机实战：用 Laravel + XState 实现复杂订单流转——可视化状态图与事件驱动](/post/订单状态机实战-用Laravel-XState实现复杂订单流转-可视化状态图与事件驱动.html) — 订单状态流转是积分获取/返还的触发源，理解状态机有助于设计更健壮的积分生命周期
-- [ThinkPHP 事件驱动架构实战：观察者模式与领域事件解耦业务逻辑](/post/2026-06-01-thinkphp-event-driven-architecture-observer-pattern-domain-event.html) — 积分系统中的事件驱动设计模式，从观察者到领域事件的演进之路
+- [Eventual Consistency 实战：最终一致性在电商场景中的工程化——反压、冲突解决与用户感知延迟](/post/eventual-consistency/) — 从 CAP 理论到库存扣减乐观锁、订单状态机、支付回调幂等，构建高可用分布式电商系统的完整方案
+- [订单状态机实战：用 Laravel + XState 实现复杂订单流转——可视化状态图与事件驱动](/post/laravel-xstate/) — 订单状态流转是积分获取/返还的触发源，理解状态机有助于设计更健壮的积分生命周期
+- [ThinkPHP 事件驱动架构实战：观察者模式与领域事件解耦业务逻辑](/post/thinkphp-event-driven-architecture-observer-pattern-domain-event/) — 积分系统中的事件驱动设计模式，从观察者到领域事件的演进之路

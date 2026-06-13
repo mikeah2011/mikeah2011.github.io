@@ -1765,6 +1765,6 @@ Function Calling 的这些高级特性，是从「Demo 能跑」到「生产能�
 
 ## 相关阅读
 
-- [AI Agent 工具调用实战：Function Calling 标准化与错误处理](/post/2026-06-02-ai-agent-function-calling-standardization-error-handling.html) — Function Calling 标准化实践、MCP 协议与错误处理策略，本文的姊妹篇
-- [Structured Output 实战：让 LLM 返回结构化 JSON](/post/Structured-Output-实战.html) — Function Calling 的互补技术，用 JSON Schema 约束 LLM 输出，确保返回可预测的结构化数据
-- [Hermes MCP 集成架构：动态工具发现、stdio/SSE/HTTP 传输、prompt injection 检测](/post/Hermes-MCP-集成架构-动态工具发现-stdio-SSE-HTTP传输-prompt-injection检测.html) — 从 MCP 协议角度理解工具注册与动态发现，Agent 工具生态的基础设施
+- [AI Agent 工具调用实战：Function Calling 标准化与错误处理](/post/ai-agent-function-calling-standardization-error-handling/) — Function Calling 标准化实践、MCP 协议与错误处理策略，本文的姊妹篇
+- [Structured Output 实战：让 LLM 返回结构化 JSON](/post/vercel-ai-sdk-typescript-llm-unified-abstraction-streaming-tool-calls-structured-output-laravel-hybrid-architecture/) — Function Calling 的互补技术，用 JSON Schema 约束 LLM 输出，确保返回可预测的结构化数据
+- Hermes MCP 集成架构：动态工具发现、stdio/SSE/HTTP 传输、prompt injection 检测 — 从 MCP 协议角度理解工具注册与动态发现，Agent 工具生态的基础设施

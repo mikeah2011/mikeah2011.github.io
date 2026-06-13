@@ -720,7 +720,7 @@ NotifyController → PayNotifyRouter → HandlerInterface
 
 ## 相关阅读
 
-- [ThinkPHP 电商后端架构设计——盲盒抽奖业务的核心逻辑实战踩坑记录](/post/thinkphp-architecture.html)
-- [ThinkPHP 事件驱动架构实战：观察者模式与领域事件解耦业务逻辑](/post/2026-06-01-thinkphp-event-driven-architecture-observer-pattern-domain-event.html)
-- [uni-app + ThinkPHP 商品详情页性能优化与预加载策略](/post/2026-06-01-uni-app-thinkphp-product-detail-performance-preload.html)
-- [ThinkPHP 8 多租户架构设计](/post/2026-06-01-thinkphp-8-multi-tenant-architecture-design.html)
+- [ThinkPHP 电商后端架构设计——盲盒抽奖业务的核心逻辑实战踩坑记录](/post/thinkphp-architecture/)
+- [ThinkPHP 事件驱动架构实战：观察者模式与领域事件解耦业务逻辑](/post/thinkphp-event-driven-architecture-observer-pattern-domain-event/)
+- [uni-app + ThinkPHP 商品详情页性能优化与预加载策略](/post/uni-app-thinkphp-product-detail-performance-preload/)
+- [ThinkPHP 8 多租户架构设计](/post/thinkphp-8-multi-tenant-architecture-design/)

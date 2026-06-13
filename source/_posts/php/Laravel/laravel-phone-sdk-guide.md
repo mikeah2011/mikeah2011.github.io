@@ -497,6 +497,6 @@ it('应拒绝 VoIP 号码', function (PhoneService $phoneService) {
 
 ## 相关阅读
 
-- [Data Contract 实战：Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测](/post/Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测.html)
-- [Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点](/post/Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点与 Laravel 落地踩坑记录.html)
-- [OpenFGA 实战：细粒度授权引擎——Laravel 中的关系型权限控制与 ReBAC 落地](/post/OpenFGA 实战：细粒度授权引擎（Zanzibar 模型）——Laravel 中的关系型权限控制与 ReBAC 落地.html)
+- [Data Contract 实战：Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测](/post/data-contract-pact-style-laravel-breaking-change/)
+- [Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点](/post/laravel-modular-monolith/)
+- [OpenFGA 实战：细粒度授权引擎——Laravel 中的关系型权限控制与 ReBAC 落地](/post/openfga-zanzibar-rebac-laravel/)

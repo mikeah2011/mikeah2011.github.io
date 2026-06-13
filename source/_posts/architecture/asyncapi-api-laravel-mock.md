@@ -1241,7 +1241,7 @@ AsyncAPI 为事件驱动架构提供了标准化的契约描述方式。对 Lara
 
 ## 相关阅读
 
-- [Schema Registry 实战：Confluent/Apicurio API 契约演进——事件驱动系统中的 Schema 兼容性治理](/post/2026-06-03-Schema-Registry-实战-Confluent-Apicurio-API契约演进-Schema兼容性治理.html)
-- [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/post/事件驱动架构全景实战-EventBridge-NATS-Pulsar-统一事件总线设计.html)
-- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/post/2026-06-03-Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构.html)
-- [SSE vs WebSocket vs HTTP Streaming 实战：实时通信方案的工程选型](/post/2026-06-03-SSE-vs-WebSocket-vs-HTTP-Streaming-实时通信方案工程选型.html)
+- [Schema Registry 实战：Confluent/Apicurio API 契约演进——事件驱动系统中的 Schema 兼容性治理](/post/schema-registry-confluent-apicurio-api/)
+- [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/post/eventbridge-nats-pulsar/)
+- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/post/kafka-debezium-cdc-laravel-event-sourcing/)
+- [SSE vs WebSocket vs HTTP Streaming 实战：实时通信方案的工程选型](/post/sse-websocket-http-streaming-laravel/)

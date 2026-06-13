@@ -1921,8 +1921,8 @@ Firebase 在 Flutter 中的坑，很多都不是“不会写代码”，而是�
 
 ## 相关阅读
 
-- [Flutter 网络请求实战：Dio 封装拦截器错误处理与 Token 刷新踩坑记录](/post/Flutter-网络请求实战-Dio-封装拦截器错误处理与-Token-刷新踩坑记录.html)
-- [Flutter 本地存储实战：Hive、Isar、SQLite 数据持久化方案对比](/post/Flutter-本地存储实战-Hive-Isar-SQLite-数据持久化方案对比.html)
-- [Flutter CI/CD 实战：GitHub Actions 自动化构建测试发布](/post/Flutter-CICD-实战-GitHub-Actions-自动化构建测试发布.html)
-- [Flutter Laravel API 实战：RESTful 对接、认证、分页、错误处理](/post/Flutter-Laravel-API-实战-RESTful-对接-认证-分页-错误处理.html)
-- [Flutter WebSocket 实战：实时聊天、通知推送、长连接管理](/post/Flutter-WebSocket-实战-实时聊天-通知推送-长连接管理.html)
+- [Flutter 网络请求实战：Dio 封装拦截器错误处理与 Token 刷新踩坑记录](/post/flutter-dio-token-api-http/)
+- [Flutter 本地存储实战：Hive、Isar、SQLite 数据持久化方案对比](/post/flutter-hive-isar-sqlite/)
+- Flutter CI/CD 实战：GitHub Actions 自动化构建测试发布
+- [Flutter Laravel API 实战：RESTful 对接、认证、分页、错误处理](/post/flutter-laravel-api-restful/)
+- [Flutter WebSocket 实战：实时聊天、通知推送、长连接管理](/post/flutter-websocket/)

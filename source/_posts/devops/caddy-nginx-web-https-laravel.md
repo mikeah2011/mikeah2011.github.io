@@ -1062,5 +1062,5 @@ Caddy 2 是一个真正意义上的「下一代」Web 服务器。它的自动 H
 
 ## 相关阅读
 
-- [Coolify 实战：开源 Heroku/Vercel 替代——自托管 PaaS 平台与 Laravel 一键部署](/post/2026-06-02-Coolify-实战-开源Heroku-Vercel替代-自托管PaaS平台与Laravel一键部署.html)
-- [监控告警实战：Prometheus + Alertmanager + Grafana 告警规则设计](/post/监控告警实战-Prometheus-Alertmanager-Grafana-告警规则设计.html)
+- [Coolify 实战：开源 Heroku/Vercel 替代——自托管 PaaS 平台与 Laravel 一键部署](/post/coolify-heroku-vercel-paas-laravel/)
+- [监控告警实战：Prometheus + Alertmanager + Grafana 告警规则设计](/post/prometheus-alertmanager-grafana/)

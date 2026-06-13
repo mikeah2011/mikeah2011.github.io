@@ -680,5 +680,5 @@ SvelteKit 2.x 的成熟度已经足以支撑生产级应用。它的编译时优
 
 ## 相关阅读
 
-- [Biome 实战：替代 ESLint + Prettier 的下一代前端工具链](/post/Biome-实战-替代-ESLint-Prettier-的下一代前端工具链-Rust-驱动的超快格式化与检查.html)
-- [HTMX 实战：不用 JavaScript 框架也能做交互](/post/2026-06-02-HTMX-实战-不用JavaScript框架也能做交互-Laravel-HTMX超轻量前后端方案.html)
+- [Biome 实战：替代 ESLint + Prettier 的下一代前端工具链](/post/biome-eslint-prettier-rust/)
+- [HTMX 实战：不用 JavaScript 框架也能做交互](/post/htmx-laravel-hx-boost-oob-swaps-sse-javascript/)

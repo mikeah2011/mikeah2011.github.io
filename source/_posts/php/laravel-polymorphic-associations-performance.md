@@ -918,6 +918,6 @@ class CommentReader
 
 ## 相关阅读
 
-- [Laravel 数据导入导出实战：Excel/CSV 大文件处理与队列化踩坑记录](/post/Laravel-数据导入导出实战-Excel-CSV-大文件处理与队列化踩坑记录.html)
-- [Dependency Injection 容器深度对比：Laravel Container vs Symfony DI vs PHP-DI 的设计哲学](/post/Dependency-Injection-容器深度对比-Laravel-Container-vs-Symfony-DI-vs-PHP-DI-的设计哲学.html)
-- [PHP 8.6 属性钩子 (Property Hooks) 深度实战](/post/PHP-8.6-属性钩子-Property-Hooks-深度实战-Laravel-Eloquent-声明式数据验证革命.html)
+- [Laravel 数据导入导出实战：Excel/CSV 大文件处理与队列化踩坑记录](/post/laravel-excel-csv/)
+- [Dependency Injection 容器深度对比：Laravel Container vs Symfony DI vs PHP-DI 的设计哲学](/post/dependency-injection-laravel-container-symfony-di-php-di/)
+- [PHP 8.6 属性钩子 (Property Hooks) 深度实战](/post/php-property-hooks-get-set-laravel-eloquent/)

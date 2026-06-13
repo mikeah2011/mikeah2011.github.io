@@ -1396,8 +1396,8 @@ let liveSocket = new LiveSocket("/live", Socket, {
 
 ## 相关阅读
 
-- [Elixir OTP 实战：Supervisor 树、GenServer、分布式进程——对比 PHP-FPM 无状态模型的并发哲学](/post/Elixir-OTP-实战-Supervisor树-GenServer-分布式进程-对比PHP-FPM无状态模型的并发哲学.html)
-- [Laravel Reverb 实战：WebSocket 实时通信](/post/laravel-reverb-websocket.html)
-- [SSE 实战：Server-Sent Events 在 Laravel 中的应用](/post/sse-guide-server-sent-events-laravel.html)
-- [Go for PHP Developers：goroutine/channel/Laravel 队列对比](/post/Go-for-PHP-Developers-goroutine-channel-Laravel-队列对比.html)
+- [Elixir OTP 实战：Supervisor 树、GenServer、分布式进程——对比 PHP-FPM 无状态模型的并发哲学](/post/elixir-otp-supervisor-genserver-php-fpm/)
+- [Laravel Reverb 实战：WebSocket 实时通信](/post/laravel-reverb-websocket/)
+- [SSE 实战：Server-Sent Events 在 Laravel 中的应用](/post/sse-guide-server-sent-events-laravel/)
+- Go for PHP Developers：goroutine/channel/Laravel 队列对比
 

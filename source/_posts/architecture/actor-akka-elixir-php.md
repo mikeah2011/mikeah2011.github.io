@@ -2781,6 +2781,6 @@ end
 
 ## 相关阅读
 
-- [gRPC vs Connect 实战：Protobuf 通信的新旧对比——gRPC-Web 的替代方案与 Laravel/Go/TypeScript 三端集成](/post/gRPC-vs-Connect实战-Protobuf通信的新旧对比-gRPC-Web替代方案与三端集成.html)
-- [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/post/事件驱动架构全景实战-EventBridge-NATS-Pulsar-统一事件总线设计.html)
-- [WebTransport 实战：HTTP/3 上的双向通信——对比 WebSocket 的低延迟传输协议与 Laravel 实时应用集成](/post/WebTransport-实战-HTTP3-双向通信-对比WebSocket低延迟传输协议-Laravel实时应用集成.html)
+- [gRPC vs Connect 实战：Protobuf 通信的新旧对比——gRPC-Web 的替代方案与 Laravel/Go/TypeScript 三端集成](/post/grpc-connect-protobuf-grpc-web-laravel-go-typescript/)
+- [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/post/eventbridge-nats-pulsar/)
+- [WebTransport 实战：HTTP/3 上的双向通信——对比 WebSocket 的低延迟传输协议与 Laravel 实时应用集成](/post/webtransport-http-websocket-laravel/)

@@ -1397,7 +1397,7 @@ gh pr checks <PR_NUMBER>
 
 ## 相关阅读
 
-- [容器安全扫描实战：Trivy/Snyk/Grype CI 集成——镜像漏洞检测、SBOM 生成与修复工作流](/post/容器安全扫描实战-Trivy-Snyk-Grype-CI集成-镜像漏洞检测-SBOM生成与修复工作流.html)
-- [GitHub Actions 矩阵策略实战：多 PHP 版本、多数据库的并行测试与条件发布](/post/GitHub-Actions-矩阵策略实战-多PHP版本多数据库并行测试与条件发布.html)
-- [Trunk-Based Development 深度实战：Feature Flag 替代长生命周期分支的工程化落地](/post/Trunk-Based-Development-深度实战-Feature-Flag-替代长生命周期分支的工程化落地.html)
-- [Progressive Delivery 实战：Feature Flag + 渐进式发布——Unleash + Argo Rollouts 的完整工程化工作流](/post/Progressive-Delivery-实战-Feature-Flag-渐进式发布-Unleash-Argo-Rollouts完整工程化工作流.html)
+- [容器安全扫描实战：Trivy/Snyk/Grype CI 集成——镜像漏洞检测、SBOM 生成与修复工作流](/post/trivy-snyk-grype-ci-sbom/)
+- [GitHub Actions 矩阵策略实战：多 PHP 版本、多数据库的并行测试与条件发布](/post/github-actions-php/)
+- [Trunk-Based Development 深度实战：Feature Flag 替代长生命周期分支的工程化落地](/post/trunk-based-development-feature-flag/)
+- [Progressive Delivery 实战：Feature Flag + 渐进式发布——Unleash + Argo Rollouts 的完整工程化工作流](/post/progressive-delivery-feature-flag-unleash-argo-rollouts/)

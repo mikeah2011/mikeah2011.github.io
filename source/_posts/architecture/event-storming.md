@@ -1040,8 +1040,8 @@ class EloquentOrderRepository implements OrderRepositoryInterface
 
 如果你对 Event Storming 和领域建模感兴趣，以下文章可能会对你有帮助：
 
-- [DDD 领域驱动设计实战：B2C 电商聚合根、值对象、领域事件在 Laravel 中的落地踩坑记录](/post/DDD 领域驱动设计实战：B2C 电商聚合根、值对象、领域事件在 Laravel 中的落地踩坑记录.html) — 本文的前置文章，详解 DDD 分层架构在 Laravel 中的落地，是理解 Event Storming 代码产出的基础
-- [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现](/post/CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现.html) — Event Storming 产出的领域事件如何与 CQRS + Event Sourcing 架构结合，实现事件存储与读模型投影
-- [Domain Events 解耦实战：用事件驱动替代 Service Layer 直接调用](/post/Domain-Events-解耦实战-用事件驱动替代-Service-Layer-直接调用-Laravel-B2C-API踩坑记录.html) — Event Storming 中的 Policy 在 Laravel 中如何通过 Domain Events 实现跨聚合的事件驱动解耦
-- [六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录](/post/六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录.html) — Event Storming 产出的聚合边界和领域服务，如何用六边形架构实现端口与适配器分离
-- [Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点](/post/Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点.html) — Event Storming 识别出的限界上下文，如何映射为 Laravel 模块化单体的模块边界
+- [DDD 领域驱动设计实战：B2C 电商聚合根、值对象、领域事件在 Laravel 中的落地踩坑记录](/post/laravel-ddd-guide-aftercommit/) — 本文的前置文章，详解 DDD 分层架构在 Laravel 中的落地，是理解 Event Storming 代码产出的基础
+- [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现](/post/cqrs-event-sourcing-snapshot-projection-version-migration/) — Event Storming 产出的领域事件如何与 CQRS + Event Sourcing 架构结合，实现事件存储与读模型投影
+- [Domain Events 解耦实战：用事件驱动替代 Service Layer 直接调用](/post/domain-events-guide-service-layer/) — Event Storming 中的 Policy 在 Laravel 中如何通过 Domain Events 实现跨聚合的事件驱动解耦
+- [六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录](/post/postgresql-row-level-security-laravel-multi-tenant/) — Event Storming 产出的聚合边界和领域服务，如何用六边形架构实现端口与适配器分离
+- [Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点](/post/laravel-modular-monolith/) — Event Storming 识别出的限界上下文，如何映射为 Laravel 模块化单体的模块边界

@@ -2539,6 +2539,6 @@ Anti-Entropy 数据对账是微服务架构中数据一致性的最后一道防�
 
 如果你对本文涉及的分布式一致性话题感兴趣，以下文章也值得一读：
 
-1. [Eventual Consistency 实战：最终一致性在电商场景中的工程化——反压、冲突解决与用户感知延迟](/post/Eventual-Consistency-实战-最终一致性在电商场景中的工程化-反压冲突解决与用户感知延迟.html) — 与 Anti-Entropy 互补的一致性保障方案，详解最终一致性的工程化落地、CRDT 冲突自动解决与反压策略
-2. [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现](/post/CQRS-Event-Sourcing-完整实战-从事件存储到读模型投影-Laravel订单系统的端到端实现.html) — 从另一视角解决数据一致性：通过事件溯源保证因果一致性，与 Anti-Entropy 的定期对账形成互补
-3. [Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测](/post/Data-Contract-Pact-style-Laravel微服务数据契约版本化验证Breaking-Change检测.html) — 数据对账的前提是双方数据格式一致，本文详解微服务数据契约的版本化治理与 Breaking Change 检测
+1. [Eventual Consistency 实战：最终一致性在电商场景中的工程化——反压、冲突解决与用户感知延迟](/post/eventual-consistency/) — 与 Anti-Entropy 互补的一致性保障方案，详解最终一致性的工程化落地、CRDT 冲突自动解决与反压策略
+2. [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现](/post/cqrs-event-sourcing-laravel/) — 从另一视角解决数据一致性：通过事件溯源保证因果一致性，与 Anti-Entropy 的定期对账形成互补
+3. [Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测](/post/data-contract-pact-style-laravel-breaking-change/) — 数据对账的前提是双方数据格式一致，本文详解微服务数据契约的版本化治理与 Breaking Change 检测

@@ -811,6 +811,6 @@ Laravel 的 Session 系统看似简单——`session()` 函数一调用即完成
 
 ## 相关阅读
 
-- [Laravel Sanctum 实战：SPA/API 令牌认证与移动端适配](/post/Laravel-Sanctum-实战-SPA-API-令牌认证与移动端适配.html)
-- [Laravel Passport OAuth2 自定义 Grant Type 与第三方登录](/post/Laravel-Passport-OAuth2-自定义-Grant-Type-与第三方登录实战.html)
-- [Laravel Request Lifecycle 深度剖析：Kernel、Middleware、Terminable 执行时序](/post/laravel-request-lifecycle-kernel-middleware-terminable.html)
+- [Laravel Sanctum 实战：SPA/API 令牌认证与移动端适配](/post/laravel-sanctum-spa-api/)
+- [Laravel Passport OAuth2 自定义 Grant Type 与第三方登录](/post/oauth-laravel-passport-grant-type/)
+- [Laravel Request Lifecycle 深度剖析：Kernel、Middleware、Terminable 执行时序](/post/laravel-request-lifecycle-deep-dive/)

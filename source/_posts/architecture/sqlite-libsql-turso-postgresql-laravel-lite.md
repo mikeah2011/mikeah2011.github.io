@@ -1273,6 +1273,6 @@ SQLite 曾经是"被低估的数据库"，而现在它正迎来属于自己的�
 
 ## 相关阅读
 
-- [uni-app 离线存储实战：SQLite/IndexedDB 数据同步与冲突解决](/post/2026-06-01-uni-app-offline-storage-sqlite-indexeddb-data-sync-conflict-resolution.html)
-- [Bun 全栈实战：HTTP Server + File I/O + SQLite 内置能力](/post/2026-06-03-Bun-全栈实战-HTTP-Server-File-IO-SQLite-对比Nodejs性能优势与Laravel迁移指南.html)
-- [数据库连接池实战：PgBouncer vs ProxySQL vs Supabase 高并发选型对比](/post/database-connection-pool-pgbouncer-proxysql-supabase-comparison.html)
+- [uni-app 离线存储实战：SQLite/IndexedDB 数据同步与冲突解决](/post/uni-app-offline-storage-sqlite-indexeddb-data-sync-conflict-resolution/)
+- [Bun 全栈实战：HTTP Server + File I/O + SQLite 内置能力](/post/bun-http-server-file-sqlite-node-js-laravel/)
+- [数据库连接池实战：PgBouncer vs ProxySQL vs Supabase 高并发选型对比](/post/database-connection-pool-pgbouncer-proxysql-supabase-comparison/)

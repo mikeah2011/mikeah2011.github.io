@@ -1272,7 +1272,7 @@ if (import.meta.env.DEV) {
 
 ## 相关阅读
 
-- [Web Components 实战：浏览器原生组件标准——跨框架 UI 组件库设计与 Laravel Blade 集成](/post/web-components-cross-framework-ui-laravel-blade.html)
-- [Vue 3.5+ 新特性实战：useId/useTemplateRef/useDeferredValue——Composition API 的最新进化与迁移指南](/post/Vue-3.5-新特性实战-useId-useTemplateRef-useDeferredValue-Composition-API最新进化与迁移指南.html)
-- [Laravel Echo 2.x 实战：Reverb + Presence Channel 在 B2C 电商中的在线客服与协同编辑](/post/Laravel-Echo-2x-Reverb-Presence-Channel-B2C在线客服与协同编辑.html)
-- [Astro 5.x 实战：内容优先的 Web 框架——Islands Architecture 与 Laravel Headless CMS 后端集成](/post/astro-5x-islands-architecture-laravel-headless-cms.html)
+- [Web Components 实战：浏览器原生组件标准——跨框架 UI 组件库设计与 Laravel Blade 集成](/post/web-components-cross-framework-ui-laravel-blade/)
+- [Vue 3.5+ 新特性实战：useId/useTemplateRef/useDeferredValue——Composition API 的最新进化与迁移指南](/post/vue-useid-usetemplateref-usedeferredvalue-composition-api/)
+- [Laravel Echo 2.x 实战：Reverb + Presence Channel 在 B2C 电商中的在线客服与协同编辑](/post/laravel-echo-reverb-presence-channel-b2c/)
+- [Astro 5.x 实战：内容优先的 Web 框架——Islands Architecture 与 Laravel Headless CMS 后端集成](/post/astro-5x-islands-architecture-laravel-headless-cms/)

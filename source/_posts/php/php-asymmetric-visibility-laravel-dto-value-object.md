@@ -1589,6 +1589,6 @@ PHP 在类型安全和面向对象设计的道路上又迈出了坚实的一大�
 
 ## 相关阅读
 
-- [PHP 8.5 新特性前瞻：属性钩子、JIT 改进与异步生态演进](/post/2026-06-02-PHP-8.5-新特性前瞻-属性钩子-JIT改进与异步生态演进.html)
-- [PHP 8.5 Pipe Operator 实战：链式数据处理管道——告别嵌套回调的函数式编程新范式](/post/PHP-8.5-Pipe-Operator-实战-链式数据处理管道-告别嵌套回调的函数式编程新范式.html)
-- [Laravel Action Pattern 实战：用单一职责的 Action 类替代胖 Service 的大型项目重构经验](/post/Laravel-Action-Pattern-实战.html)
+- [PHP 8.5 新特性前瞻：属性钩子、JIT 改进与异步生态演进](/post/php-jit-tracing-laravel-openbenchmark/)
+- [PHP 8.5 Pipe Operator 实战：链式数据处理管道——告别嵌套回调的函数式编程新范式](/post/php85-pipe-operator-chain-data-processing-laravel-pipeline/)
+- [Laravel Action Pattern 实战：用单一职责的 Action 类替代胖 Service 的大型项目重构经验](/post/laravel-action-pattern-service/)

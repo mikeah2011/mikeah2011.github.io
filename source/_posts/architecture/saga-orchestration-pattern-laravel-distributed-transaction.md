@@ -1254,6 +1254,6 @@ Saga 模式是解决分布式事务的核心手段，三种实现各有千秋：
 
 ## 相关阅读
 
-- [Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测](/post/Data-Contract-实战-Pact-style-数据契约-Laravel微服务数据格式版本化验证与Breaking-Change检测.html)
-- [Progressive Delivery 实战：Feature Flag + 渐进式发布——Unleash + Argo Rollouts 的完整工程化工作流](/post/Progressive-Delivery-实战-Feature-Flag-渐进式发布-Unleash-Argo-Rollouts完整工程化工作流.html)
-- [Ansible 实战：Laravel 应用自动化部署与配置管理踩坑记录](/post/Ansible-实战-Laravel-应用自动化部署与配置管理踩坑记录.html)
+- [Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测](/post/data-contract-pact-style-laravel-breaking-change/)
+- [Progressive Delivery 实战：Feature Flag + 渐进式发布——Unleash + Argo Rollouts 的完整工程化工作流](/post/progressive-delivery-feature-flag-unleash-argo-rollouts/)
+- [Ansible 实战：Laravel 应用自动化部署与配置管理踩坑记录](/post/ansible-laravel-ssh/)

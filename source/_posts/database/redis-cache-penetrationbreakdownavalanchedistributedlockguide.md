@@ -1267,9 +1267,9 @@ REDIS_DB=0
 
 ## 相关阅读
 
-- [穿透 & 雪崩 & 击穿：Redis 缓存三大问题全面对比与防护方案选型](/post/vs-penetrationavalanche.html)
-- [Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh 三重防御](/post/Cache-Stampede-防护深度实战-Lock-Probabilistic-Early-Expiration-Background-Refresh-Laravel高并发缓存击穿三重防御.html)
-- [Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录](/post/laravel-redis-distributedlockguide.html)
-- [Predis Laravel 缓存实战与分布式锁性能调优](/post/predis-laravel-cacheguide-distributedlock.html)
-- [Laravel Task Scheduling 进阶实战：Redis 互斥实现多实例任务去重](/post/2026-06-07-Laravel-Task-Scheduling-进阶实战-Redis互斥多实例任务去重原理.html)
-- [API 限流实战：滑动窗口、令牌桶算法 - Redis Lua 原子实现](/post/api-rate-limitingguide-rate-limiting.html)
+- [穿透 & 雪崩 & 击穿：Redis 缓存三大问题全面对比与防护方案选型](/post/vs-penetrationavalanche/)
+- [Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh 三重防御](/post/cache-stampede-lock-probabilistic-early-expiration-background-refresh-laravel/)
+- [Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录](/post/laravel-redis-distributedlockguide/)
+- [Predis Laravel 缓存实战与分布式锁性能调优](/post/predis-laravel-cacheguide-distributedlock/)
+- [Laravel Task Scheduling 进阶实战：Redis 互斥实现多实例任务去重](/post/laravel-task-scheduling/)
+- [API 限流实战：滑动窗口、令牌桶算法 - Redis Lua 原子实现](/post/api-rate-limitingguide-rate-limiting/)

@@ -3146,6 +3146,6 @@ Web3 技术栈正在快速成熟，但其核心原理——密码学签名验证
 
 ## 相关阅读
 
-- [AI Agent 多租户实战：SaaS 场景下的 Agent 隔离、用量计量与按租户路由](/post/AI-Agent-多租户实战-SaaS场景下的Agent隔离用量计量与按租户路由-Laravel-LLM的工程化方案.html)
-- [Coze 实战：字节跳动 AI Bot 平台与插件生态集成](/post/Coze-实战-字节跳动-AI-Bot-平台与插件生态集成.html)
-- [API Composition Pattern 实战：跨服务查询聚合——Laravel BFF](/post/2026-06-03-API-Composition-Pattern-实战-跨服务查询聚合-Laravel-BFF-scatter-gather.html)
+- [AI Agent 多租户实战：SaaS 场景下的 Agent 隔离、用量计量与按租户路由](/post/ai-agent-saas-laravel-llm/)
+- [Coze 实战：字节跳动 AI Bot 平台与插件生态集成](/post/coze-ai-bot/)
+- [API Composition Pattern 实战：跨服务查询聚合——Laravel BFF](/post/api-composition-pattern-laravel-bff-scatter-gather/)

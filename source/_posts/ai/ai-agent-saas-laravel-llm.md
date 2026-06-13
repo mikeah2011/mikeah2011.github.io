@@ -2465,6 +2465,6 @@ Laravel 作为一个成熟的 PHP 框架，提供了优雅的 ORM、灵活的中
 
 ## 相关阅读
 
-- [AI Agent 数据分析实战：自然语言转 SQL、图表生成、报告自动化](/post/AI-Agent-数据分析实战-自然语言转SQL-图表生成-报告自动化.html)
-- [Coze 实战：字节跳动 AI Bot 平台与插件生态集成](/post/Coze-实战-字节跳动-AI-Bot-平台与插件生态集成.html)
-- [Web3 集成实战：ethers.js/web3.php 钱包连接与智能合约交互](/post/web3-ethersjs-web3php-wallet-smart-contract.html)
+- [AI Agent 数据分析实战：自然语言转 SQL、图表生成、报告自动化](/post/ai-agent-sql/)
+- [Coze 实战：字节跳动 AI Bot 平台与插件生态集成](/post/coze-ai-bot/)
+- [Web3 集成实战：ethers.js/web3.php 钱包连接与智能合约交互](/post/web3-ethersjs-web3php-wallet-smart-contract/)

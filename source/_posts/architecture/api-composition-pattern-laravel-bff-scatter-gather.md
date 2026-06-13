@@ -2398,7 +2398,7 @@ API Composition Pattern 并不是银弹，它适用于**读密集**、**数据�
 
 ## 相关阅读
 
-- [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现](/post/CQRS-Event-Sourcing-完整实战-从事件存储到读模型投影-Laravel订单系统的端到端实现.html)
-- [Server-Driven UI + Laravel BFF：前端零逻辑的动态界面渲染](/post/server-driven-ui-laravel-bff.html)
-- [Cell-Based Architecture 实战：单元化架构在 Laravel 微服务中的落地](/post/Cell-Based-Architecture-实战-单元化架构在Laravel微服务中的落地-故障隔离独立扩缩与跨单元路由.html)
-- [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/post/事件驱动架构全景实战-EventBridge-NATS-Pulsar-统一事件总线设计.html)
+- [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现](/post/cqrs-event-sourcing-laravel/)
+- [Server-Driven UI + Laravel BFF：前端零逻辑的动态界面渲染](/post/server-driven-ui-laravel-bff/)
+- [Cell-Based Architecture 实战：单元化架构在 Laravel 微服务中的落地](/post/cell-based-architecture-laravel/)
+- [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/post/eventbridge-nats-pulsar/)

@@ -1097,6 +1097,6 @@ Pest 不仅仅是 PHPUnit 的语法糖——它重新定义了 PHP 测试的编�
 
 ## 相关阅读
 
-- [Laravel Dusk 浏览器自动化 E2E 测试实战与 CI 流水线集成](/post/laravel-dusk-automatione2etestingguide-ci.html) — 如果你需要在 Pest 单元测试之外补充端到端测试，Laravel Dusk 是最佳搭档
-- [PHP 性能基准测试：xhprof、Blackfire、Tideways 实战对比与 Laravel 生产环境 Profile 方案](/post/php-testing-xhprof-blackfire-tideways-guidevs-laravel-profile.html) — 测试不仅关乎正确性，也关乎性能；本文详解 PHP 主流 Profiling 工具
-- [Go 测试实战：表驱动测试、Testify 断言、httptest 与 Mock](/post/Go-测试实战-表驱动测试-Testify断言-httptest-Mock.html) — 跨语言视角对比，了解 Go 的测试哲学与 Pest 的函数式风格有何异同
+- [Laravel Dusk 浏览器自动化 E2E 测试实战与 CI 流水线集成](/post/laravel-dusk-automatione2etestingguide-ci/) — 如果你需要在 Pest 单元测试之外补充端到端测试，Laravel Dusk 是最佳搭档
+- [PHP 性能基准测试：xhprof、Blackfire、Tideways 实战对比与 Laravel 生产环境 Profile 方案](/post/php-testing-xhprof-blackfire-tideways-guidevs-laravel-profile/) — 测试不仅关乎正确性，也关乎性能；本文详解 PHP 主流 Profiling 工具
+- [Go 测试实战：表驱动测试、Testify 断言、httptest 与 Mock](/post/go-testify-httptest-mock-pest-php/) — 跨语言视角对比，了解 Go 的测试哲学与 Pest 的函数式风格有何异同

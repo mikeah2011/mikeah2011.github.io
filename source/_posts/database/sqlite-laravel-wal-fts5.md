@@ -1722,6 +1722,6 @@ SQLite 在 2026 年已经不再是「玩具数据库」，而是一个功能完�
 
 ## 相关阅读
 
-- [SQLite 现代化实战：libSQL/Turso 边缘数据库——对比 PostgreSQL 的嵌入式数据层与 Laravel Lite 集成](/post/2026-06-03-SQLite-现代化实战-libSQL-Turso-边缘数据库-Laravel集成.html)
-- [Litestream 实战：SQLite 流式复制与灾难恢复——本地优先应用的零依赖高可用方案](/post/2026-06-03-Litestream-实战-SQLite流式复制与灾难恢复-零依赖高可用方案.html)
-- [OpenHuman 本地优先架构：Memory Tree SQLite 本地存储 vs 后端代理的隐私边界分析](/post/OpenHuman-本地优先架构-Memory-Tree-SQLite本地存储-vs-后端代理的隐私边界分析.html)
+- [SQLite 现代化实战：libSQL/Turso 边缘数据库——对比 PostgreSQL 的嵌入式数据层与 Laravel Lite 集成](/post/sqlite-libsql-turso-postgresql-laravel-lite/)
+- [Litestream 实战：SQLite 流式复制与灾难恢复——本地优先应用的零依赖高可用方案](/post/litestream-sqlite/)
+- [OpenHuman 本地优先架构：Memory Tree SQLite 本地存储 vs 后端代理的隐私边界分析](/post/openhuman-memory-tree-sqlite/)

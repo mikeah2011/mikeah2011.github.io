@@ -557,10 +557,10 @@ Verify deployment by checking the output for "Deploy done"
 
 ## 相关阅读
 
-- [三大框架技能系统对比：Hermes Skill Hub vs OpenClaw ClawdHub vs OpenHuman Composio](/post/三大框架技能系统对比-Hermes-Skill-Hub-vs-OpenClaw-ClawdHub-vs-OpenHuman-Composio.html)
-- [Hermes 技能同步机制：bundled skills → user space 的增量同步与用户修改保留策略](/post/Hermes-技能同步机制-bundled-skills-到-user-space-增量同步与用户修改保留策略.html)
-- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战踩坑记录](/post/2026-06-01-Cursor-Claude-Code-Hermes-macOS-开发者多AI协作工作流实战踩坑记录.html)
-- [Hermes MCP 集成架构：动态工具发现、stdio/SSE/HTTP 传输与 prompt injection 检测](/post/Hermes-MCP-集成架构-动态工具发现-stdio-SSE-HTTP传输-prompt-injection检测.html)
+- [三大框架技能系统对比：Hermes Skill Hub vs OpenClaw ClawdHub vs OpenHuman Composio](/post/hermes-skills-hub-seed-then-fork-quarantine-lock-file/)
+- [Hermes 技能同步机制：bundled skills → user space 的增量同步与用户修改保留策略](/post/hermes-bundled-skills-user-space/)
+- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战踩坑记录](/post/cursor-claude-code-hermes-macos-ai/)
+- Hermes MCP 集成架构：动态工具发现、stdio/SSE/HTTP 传输与 prompt injection 检测
 
 ---
 

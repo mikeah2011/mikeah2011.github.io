@@ -939,7 +939,7 @@ MCP 目前还在早期阶段，但已经能看到几个重要趋势：
 
 ## 相关阅读
 
-- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战（基础篇）](/post/cursor-claude-code-hermes-macos-multi-ai-workflow.html)
-- [Cursor + Claude Code + Hermes：从单工具到三引擎协同的架构演进](/post/cursor-claude-code-hermes-multi-ai-collaboration-workflow.html)
-- [Hermes Agent vs Claude Code vs Cursor：开发者 AI 助手选型与工作流对比](/post/hermes-agent-vs-claude-code-vs-cursor-developer-ai-assistant-comparison.html)
-- [Claude Code CLI 实战：命令行 AI 编程工作流与 Laravel 开发效率跃升](/post/claude-code-cli-guide-commands-ai.html)
+- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战（基础篇）](/post/cursor-claude-code-hermes-macos-ai/)
+- [Cursor + Claude Code + Hermes：从单工具到三引擎协同的架构演进](/post/cursor-claude-code-hermes-macos-ai/)
+- [Hermes Agent vs Claude Code vs Cursor：开发者 AI 助手选型与工作流对比](/post/hermes-agent-vs-claude-code-vs-cursor-developer-ai-assistant-comparison/)
+- [Claude Code CLI 实战：命令行 AI 编程工作流与 Laravel 开发效率跃升](/post/claude-code-cli-guide-commands-ai/)

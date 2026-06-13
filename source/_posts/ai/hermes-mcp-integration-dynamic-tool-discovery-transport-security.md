@@ -1285,10 +1285,10 @@ MCP 正在成为 AI Agent 生态的事实标准。随着越来越多的服务提
 
 ## 相关阅读
 
-- [Hermes 记忆安全机制：sanitize_context 防止记忆泄漏 + StreamingContextScrubber](/post/hermes-memory-security-sanitize-context-streaming-scrubber.html)
-- [Hermes Skill vs Plugin 扩展点对比：什么时候用 Skill，什么时候用 Plugin？](/post/Hermes-Skill-vs-Plugin-扩展点对比-什么时候用-Skill-什么时候用-Plugin.html)
-- [MCP (Model Context Protocol) 实战：AI Agent 工具标准化与生态集成深度剖析](/post/mcp-model-context-protocol-ai-agent-tool-standardization.html)
-- [Hermes 插件系统深度剖析：PluginContext 注册、tool/CLI/slash command 扩展点](/post/hermes-plugin-system-plugincontext-extension-points.html)
+- [Hermes 记忆安全机制：sanitize_context 防止记忆泄漏 + StreamingContextScrubber](/post/hermes-memory-security-sanitize-context-streaming-scrubber/)
+- [Hermes Skill vs Plugin 扩展点对比：什么时候用 Skill，什么时候用 Plugin？](/post/hermes-skill-plugin/)
+- [MCP (Model Context Protocol) 实战：AI Agent 工具标准化与生态集成深度剖析](/post/mcp-model-context-protocol-ai-agent-tool-standardization/)
+- [Hermes 插件系统深度剖析：PluginContext 注册、tool/CLI/slash command 扩展点](/post/hermes-plugin-system-plugincontext-extension-points/)
 
 ---
 

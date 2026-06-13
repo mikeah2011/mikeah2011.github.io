@@ -953,10 +953,10 @@ Hermes 的记忆安全机制通过两道防线构建了完整的安全体系：
 
 ## 相关阅读
 
-- [Hermes 记忆系统双层架构：MemoryProvider 插件化 + MemoryManager 编排模式](/post/hermes-memory-system-dual-layer-architecture.html)
-- [Hermes Honcho 集成深度剖析：两层召回模型（base context + dialectic supplement）](/post/hermes-honcho-integration-two-layer-retrieval-model.html)
-- [AI Agent 安全实战：Prompt Injection 防护、权限控制、输出过滤](/post/ai-agent-security-prompt-injection-permission-control.html)
-- [Hermes 上下文注入策略：为什么注入 user message 而非 system prompt？](/post/hermes-context-injection-strategy-prompt-cache-optimization.html)
+- [Hermes 记忆系统双层架构：MemoryProvider 插件化 + MemoryManager 编排模式](/post/hermes-memory-system-dual-layer-architecture/)
+- [Hermes Honcho 集成深度剖析：两层召回模型（base context + dialectic supplement）](/post/hermes-honcho-integration-two-layer-retrieval-model/)
+- [AI Agent 安全实战：Prompt Injection 防护、权限控制、输出过滤](/post/ai-agent-security-prompt-injection-permission-control/)
+- [Hermes 上下文注入策略：为什么注入 user message 而非 system prompt？](/post/hermes-context-injection-strategy-prompt-cache-optimization/)
 
 ---
 

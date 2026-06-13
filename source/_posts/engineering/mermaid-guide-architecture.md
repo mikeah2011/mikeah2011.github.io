@@ -1035,7 +1035,7 @@ Mermaid 不是银弹——复杂的 UI 原型图、自由布局的架构图，�
 
 ## 相关阅读
 
-- [Markdown 基础语法与进阶技巧](/post/markdown.html) — Mermaid 的基础是 Markdown，扎实的 Markdown 技能让文档更高效
-- [代码审查流程最佳实践](/post/code-review-process.html) — Mermaid 画流程图 + 代码审查 = 团队协作的最佳组合
-- [开源贡献 PR 工作流](/post/open-source-pr-workflow.html) — 在 GitHub 上用 Mermaid 图表让 PR 描述更清晰
-- [SPACE 框架度量开发者效能](/post/Developer-Productivity-Metrics-SPACE框架度量开发者效能-DORA之外的代码质量协作效率与满意度追踪.html) — 用 Mermaid 甘特图可视化效能度量与改进计划
+- [Markdown 基础语法与进阶技巧](/post/markdown/) — Mermaid 的基础是 Markdown，扎实的 Markdown 技能让文档更高效
+- [代码审查流程最佳实践](/post/code-review-process/) — Mermaid 画流程图 + 代码审查 = 团队协作的最佳组合
+- [开源贡献 PR 工作流](/post/open-source-pr-workflow/) — 在 GitHub 上用 Mermaid 图表让 PR 描述更清晰
+- [SPACE 框架度量开发者效能](/post/developer-productivity-metrics-space-dora/) — 用 Mermaid 甘特图可视化效能度量与改进计划

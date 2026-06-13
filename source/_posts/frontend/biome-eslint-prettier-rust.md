@@ -950,5 +950,5 @@ Biome 是前端工具链的一次重大升级。它的 Rust 底层带来的性�
 
 ## 相关阅读
 
-- [SvelteKit 2.x 实战：全栈框架新选择——与 Next.js/Nuxt 的性能对比与开发体验评测](/post/SvelteKit-2x-实战-全栈框架新选择-与-Next.js-Nuxt-性能对比与开发体验评测.html)
-- [HTMX 实战：不用 JavaScript 框架也能做交互](/post/2026-06-02-HTMX-实战-不用JavaScript框架也能做交互-Laravel-HTMX超轻量前后端方案.html)
+- [SvelteKit 2.x 实战：全栈框架新选择——与 Next.js/Nuxt 的性能对比与开发体验评测](/post/sveltekit-next-js-nuxt/)
+- [HTMX 实战：不用 JavaScript 框架也能做交互](/post/htmx-laravel-hx-boost-oob-swaps-sse-javascript/)

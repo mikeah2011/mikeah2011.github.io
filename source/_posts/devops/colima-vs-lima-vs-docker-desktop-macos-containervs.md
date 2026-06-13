@@ -424,6 +424,6 @@ colima restart
 
 ## 相关阅读
 
-- [Docker 网络深度解析：Bridge、Host、Overlay 与服务发现](/post/docker-guide-bridge-host-overlay-service-discovery.html) — 理解 Docker 网络模式，配合 Colima/Lima 的网络配置更得心应手
-- [Docker Compose 部署 Laravel：PHP-FPM 8.3 + MySQL + Redis + Mailpit 完整指南](/post/docker-compose-laravel-guide-php-fpm-8-3-mysql-redis-mailpit-guide.html) — 使用 Docker Compose 编排 Laravel 全栈开发环境
-- [本地 Docker 开发环境搭建：PHP-FPM 8.0 + MySQL + Redis + MailHog](/post/local-docker-guide-php-fpm-8-0-mysql-redis-mailhog.html) — Docker 本地开发环境的基础配置与最佳实践
+- [Docker 网络深度解析：Bridge、Host、Overlay 与服务发现](/post/docker-guide-bridge-host-overlay-service-discovery/) — 理解 Docker 网络模式，配合 Colima/Lima 的网络配置更得心应手
+- [Docker Compose 部署 Laravel：PHP-FPM 8.3 + MySQL + Redis + Mailpit 完整指南](/post/docker-compose-laravel-guide-php-fpm-8-3-mysql-redis-mailpit-guide/) — 使用 Docker Compose 编排 Laravel 全栈开发环境
+- [本地 Docker 开发环境搭建：PHP-FPM 8.0 + MySQL + Redis + MailHog](/post/local-docker-guide-php-fpm-8-0-mysql-redis-mailhog/) — Docker 本地开发环境的基础配置与最佳实践

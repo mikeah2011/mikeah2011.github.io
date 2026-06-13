@@ -228,7 +228,7 @@ while (true) {
 - 需要**双向通信 + 最大兼容性** → WebSocket（全平台支持，生态最成熟）
 - 需要**微服务间强类型 RPC** → gRPC-Web（Protobuf 序列化、代码生成、流式调用）
 
-> 想了解更多 SSE、Long Polling、HTTP Streaming 的延迟与吞吐量量化对比，请参考[这篇文章](/post/Long-Polling-vs-SSE-vs-WebSocket-vs-HTTP-Streaming-实战-实时通信方案对比.html)。
+> 想了解更多 SSE、Long Polling、HTTP Streaming 的延迟与吞吐量量化对比，请参考这篇文章。
 
 ### 4.2 队头阻塞问题深度解析
 
@@ -1428,9 +1428,9 @@ WebTransport 已经不再是实验室中的提案。随着 HTTP/3 在全球主�
 
 ## 相关阅读
 
-- [Long Polling vs SSE vs WebSocket vs HTTP Streaming 实战：实时通信方案的延迟、吞吐与资源消耗量化对比](/post/Long-Polling-vs-SSE-vs-WebSocket-vs-HTTP-Streaming-实战-实时通信方案对比.html) — 四种实时通信方案的量化 Benchmark 对比，覆盖延迟、吞吐与资源消耗，附 Laravel 集成与 Nginx 配置
-- [HTTP/3 (QUIC) 实战：Caddy/H2O 服务器配置——Laravel 应用的协议升级与多路复用性能收益量化](/post/2026-06-05-http3-quic-caddy-h2o-laravel-protocol-upgrade.html) — WebTransport 底层协议 HTTP/3 与 QUIC 的部署实践，Caddy 和 H2O 服务器完整配置
-- [PartyKit 实战：实时协作后端——多人编辑、在线状态、实时光标与 Laravel 应用集成](/post/PartyKit-实战-实时协作后端-多人编辑在线状态实时光标与Laravel应用集成.html) — 基于 WebSocket 的实时协作完整方案，CRDT/Yjs 多人编辑与 Laravel 深度集成
+- Long Polling vs SSE vs WebSocket vs HTTP Streaming 实战：实时通信方案的延迟、吞吐与资源消耗量化对比 — 四种实时通信方案的量化 Benchmark 对比，覆盖延迟、吞吐与资源消耗，附 Laravel 集成与 Nginx 配置
+- [HTTP/3 (QUIC) 实战：Caddy/H2O 服务器配置——Laravel 应用的协议升级与多路复用性能收益量化](/post/http3-quic-caddy-h2o-laravel-protocol-upgrade/) — WebTransport 底层协议 HTTP/3 与 QUIC 的部署实践，Caddy 和 H2O 服务器完整配置
+- [PartyKit 实战：实时协作后端——多人编辑、在线状态、实时光标与 Laravel 应用集成](/post/partykit-laravel/) — 基于 WebSocket 的实时协作完整方案，CRDT/Yjs 多人编辑与 Laravel 深度集成
 
 ---
 

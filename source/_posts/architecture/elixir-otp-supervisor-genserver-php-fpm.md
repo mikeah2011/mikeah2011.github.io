@@ -1400,7 +1400,7 @@ Elixir 社区也在持续创新：LiveView 技术使得开发者可以用纯 Eli
 
 ## 相关阅读
 
-- [Elixir Phoenix LiveView 实战：函数式语言做实时 Web，对比 Laravel Reverb 与 WebSocket 的开发体验](/post/Elixir-Phoenix-LiveView-实战-函数式语言做实时Web-对比Laravel-Reverb与WebSocket的开发体验.html) — 从 Elixir 实时 Web 开发角度对比 Laravel，了解 OTP 生态在 Web 层的实战能力
-- [Kotlin Coroutines 深度实战：挂起函数、结构化并发、Flow 与 PHP Fibers / Go goroutine 并发模型对比](/post/Kotlin-Coroutines-深度实战-挂起函数结构化并发Flow与PHP-Fibers-Go-goroutine并发模型对比.html) — 另一种并发模型的深度对比，涵盖 Kotlin、PHP、Go 三种语言的协程实现
-- [Rust Tokio 异步运行时深度实战：事件循环、任务调度、背压控制，对比 PHP Fibers 与 Go goroutine](/post/Rust-Tokio-异步运行时深度实战-事件循环-任务调度-背压控制-对比PHP-Fibers与Go-goroutine.html) — Rust 异步运行时的深入剖析，与 PHP/Go 并发模型形成互补视角
-- [Go 微服务实战：重写 Laravel 高性能模块，PHP-FPM 到 Go 迁移](/post/Go-微服务实战-重写Laravel高性能模块-PHP-FPM到Go迁移.html) — 如果你正在考虑用其他语言替换 PHP 的性能瓶颈模块，这篇提供了从 PHP 迁移到 Go 的完整路径
+- [Elixir Phoenix LiveView 实战：函数式语言做实时 Web，对比 Laravel Reverb 与 WebSocket 的开发体验](/post/elixir-phoenix-liveview-web-laravel-reverb-websocket/) — 从 Elixir 实时 Web 开发角度对比 Laravel，了解 OTP 生态在 Web 层的实战能力
+- [Kotlin Coroutines 深度实战：挂起函数、结构化并发、Flow 与 PHP Fibers / Go goroutine 并发模型对比](/post/kotlin-coroutines-flow-php-fibers-go-goroutine/) — 另一种并发模型的深度对比，涵盖 Kotlin、PHP、Go 三种语言的协程实现
+- [Rust Tokio 异步运行时深度实战：事件循环、任务调度、背压控制，对比 PHP Fibers 与 Go goroutine](/post/rust-tokio-php-fibers-go-goroutine/) — Rust 异步运行时的深入剖析，与 PHP/Go 并发模型形成互补视角
+- [Go 微服务实战：重写 Laravel 高性能模块，PHP-FPM 到 Go 迁移](/post/docker-compose-laravel-guide-php-fpm-8-3-mysql-redis-mailpit-guide/) — 如果你正在考虑用其他语言替换 PHP 的性能瓶颈模块，这篇提供了从 PHP 迁移到 Go 的完整路径

@@ -767,11 +767,11 @@ class InventoryClient
 
 ## 相关阅读
 
-- [Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点](/post/2026-06-04-Laravel-Modular-Monolith-实战-模块化单体架构-介于单体与微服务之间的最佳平衡点.html) — 本文提到的「先用模块化单体验证边界」的最佳实践
-- [API Gateway 实战：Kong/APISIX 在 Laravel 微服务中的应用](/post/api-gateway-guide-kong-apisix-laravel-microservices-rate-limitingcanary.html) — BFF 层背后的 API Gateway 鉴权、限流与灰度发布
-- [DDD 领域驱动设计实战：B2C 电商聚合根、值对象、领域事件在 Laravel 中的落地](/post/ddd-guide-laravel.html) — Event Storming 与 Bounded Context 的深入展开
-- [BFF Laravel 中间层聚合实战](/post/bff-laravel.html) — 本文架构图中 BFF 聚合层的完整实现方案
-- [Data Contract 实战：Pact-style 数据契约——Laravel 微服务间 Breaking Change 检测](/post/2026-06-05-Data-Contract-Pact-style-Laravel微服务数据契约版本化验证Breaking-Change检测.html) — 微服务拆分后的 API 契约治理
-- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构](/post/2026-06-03-Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构.html) — 本文阶段二数据库拆分中 CDC 同步的完整方案
-- [Outbox Pattern 实战：保证数据库与消息队列的最终一致性](/post/Outbox-Pattern-实战-保证数据库与消息队列的最终一致性-Laravel-Debezium.html) — 分布式事件发布的可靠投递模式
-- [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/post/事件驱动架构全景实战-EventBridge-NATS-Pulsar-统一事件总线设计.html) — 本文通信模式选型的事件总线深入参考
+- [Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点](/post/laravel-modular-monolith/) — 本文提到的「先用模块化单体验证边界」的最佳实践
+- [API Gateway 实战：Kong/APISIX 在 Laravel 微服务中的应用](/post/api-gateway-guide-kong-apisix-laravel-microservices-rate-limitingcanary/) — BFF 层背后的 API Gateway 鉴权、限流与灰度发布
+- [DDD 领域驱动设计实战：B2C 电商聚合根、值对象、领域事件在 Laravel 中的落地](/post/ddd-guide-laravel/) — Event Storming 与 Bounded Context 的深入展开
+- [BFF Laravel 中间层聚合实战](/post/bff-laravel/) — 本文架构图中 BFF 聚合层的完整实现方案
+- [Data Contract 实战：Pact-style 数据契约——Laravel 微服务间 Breaking Change 检测](/post/data-contract-pact-style-laravel-breaking-change/) — 微服务拆分后的 API 契约治理
+- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构](/post/kafka-debezium-cdc-laravel-event-sourcing/) — 本文阶段二数据库拆分中 CDC 同步的完整方案
+- [Outbox Pattern 实战：保证数据库与消息队列的最终一致性](/post/outbox-pattern-laravel-debezium/) — 分布式事件发布的可靠投递模式
+- [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/post/eventbridge-nats-pulsar/) — 本文通信模式选型的事件总线深入参考

@@ -1193,10 +1193,10 @@ uni-app 性能优化的核心是**资源加载策略**：
 
 ## 相关阅读
 
-- [uni-app 微信小程序实战：登录、支付、分享完整流程](/post/uni-app-guide-1.html)
-- [uni-app + Vue 3 + Vite 现代跨平台开发工作流实战踩坑记录](/post/uni-app-vue3-vite.html)
-- [uni-app Native.js 原生插件开发实战](/post/uni-app-native-js-guide-sdk.html)
-- [uni-app + ThinkPHP 商品详情页性能优化与预加载策略](/post/2026-06-01-uni-app-thinkphp-product-detail-performance-preload.html)
+- [uni-app 微信小程序实战：登录、支付、分享完整流程](/post/uni-app-guide-1/)
+- [uni-app + Vue 3 + Vite 现代跨平台开发工作流实战踩坑记录](/post/uni-app-vue3-vite/)
+- [uni-app Native.js 原生插件开发实战](/post/uni-app-native-js-guide-sdk/)
+- [uni-app + ThinkPHP 商品详情页性能优化与预加载策略](/post/uni-app-thinkphp-product-detail-performance-preload/)
 
 ---
 

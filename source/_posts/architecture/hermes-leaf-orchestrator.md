@@ -993,9 +993,9 @@ Hermes 的子代理架构通过以下设计实现了高效、安全的多 Agent 
 
 ## 相关阅读
 
-- [Hermes Cron 调度器深度剖析：agent-native 调度 vs shell cron 的本质区别](/post/Hermes-Cron-调度器深度剖析-agent-native-调度-vs-shell-cron-本质区别.html)
-- [Hermes Skill vs Plugin 扩展点对比：什么时候用 Skill，什么时候用 Plugin？](/post/Hermes-Skill-vs-Plugin-扩展点对比-什么时候用-Skill-什么时候用-Plugin.html)
-- [AI Agent 编排模式实战：ReAct/Plan-and-Execute/Multi-Agent 协作架构设计](/post/ai-agent-orchestration-patterns-react-plan-execute-multi-agent.html)
+- [Hermes Cron 调度器深度剖析：agent-native 调度 vs shell cron 的本质区别](/post/hermes-security-model-cron-context-subagent-isolation-prompt-injection/)
+- [Hermes Skill vs Plugin 扩展点对比：什么时候用 Skill，什么时候用 Plugin？](/post/hermes-skill-plugin/)
+- [AI Agent 编排模式实战：ReAct/Plan-and-Execute/Multi-Agent 协作架构设计](/post/ai-agent-orchestration-patterns-react-plan-execute-multi-agent/)
 
 ---
 

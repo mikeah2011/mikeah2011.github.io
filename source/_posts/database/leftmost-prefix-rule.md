@@ -709,7 +709,7 @@ SELECT * FROM orders WHERE YEAR(create_time) = 2024;
 
 ## 相关阅读
 
-- [MySQL 覆盖索引、联合索引与索引下推深度解析](/post/index-optimization-explain.html)
-- [MySQL 主从复制原理与实战](/post/replication.html)
-- [MySQL 分库分表方案与 30 个开源项目推荐](/post/sharding-30-repos.html)
-- [Redis 高并发场景下的缓存策略与优化](/post/high-concurrency.html)
+- [MySQL 覆盖索引、联合索引与索引下推深度解析](/post/index-optimization-explain/)
+- [MySQL 主从复制原理与实战](/post/replication/)
+- [MySQL 分库分表方案与 30 个开源项目推荐](/post/sharding-30-repos/)
+- [Redis 高并发场景下的缓存策略与优化](/post/high-concurrency/)

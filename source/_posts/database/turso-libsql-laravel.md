@@ -1409,6 +1409,6 @@ Turso 的嵌入式副本模式为全球 Laravel 应用提供了一种**成本极
 
 ## 相关阅读
 
-- [Litestream 实战：SQLite 流式复制与灾难恢复——本地优先应用的零依赖高可用方案](/post/Litestream-实战-SQLite流式复制与灾难恢复-零依赖高可用方案.html) — 另一种 SQLite 复制方案，使用 Litestream 实现流式备份与灾难恢复，适合单机部署场景
-- [分布式缓存一致性实战：Cache-Aside/Write-Through/Write-Behind 在 Laravel 中的工程化落地](/post/分布式缓存一致性实战-Cache-Aside-Write-Through-Write-Behind在Laravel中的工程化落地.html) — 理解数据一致性模式，对设计 Turso 多区域同步策略有重要参考价值
-- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/post/Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构.html) — 当 Turso 的 WAL 流不够用时，CDC 可以提供更灵活的数据库变更事件处理方案
+- [Litestream 实战：SQLite 流式复制与灾难恢复——本地优先应用的零依赖高可用方案](/post/litestream-sqlite/) — 另一种 SQLite 复制方案，使用 Litestream 实现流式备份与灾难恢复，适合单机部署场景
+- [分布式缓存一致性实战：Cache-Aside/Write-Through/Write-Behind 在 Laravel 中的工程化落地](/post/cache-aside-write-through-write-behind-laravel/) — 理解数据一致性模式，对设计 Turso 多区域同步策略有重要参考价值
+- [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/post/kafka-debezium-cdc-laravel-event-sourcing/) — 当 Turso 的 WAL 流不够用时，CDC 可以提供更灵活的数据库变更事件处理方案

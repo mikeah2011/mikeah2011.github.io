@@ -1632,7 +1632,7 @@ Laravel Herd 是目前 macOS 上最优秀的 PHP 开发环境管理工具，它�
 
 ## 相关阅读
 
-- [Raycast 实战：macOS 效率启动器自定义脚本与开发工作流踩坑记录](/post/Raycast-实战-macOS-效率启动器-自定义脚本与开发工作流踩坑记录.html)
-- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战踩坑记录](/post/2026-06-01-Cursor-Claude-Code-Hermes-macOS-开发者多AI协作工作流实战踩坑记录.html)
-- [Nix 实战：声明式开发环境管理——替代 Homebrew 的可复现 macOS 开发环境配置](/post/2026-06-03-Nix-实战-声明式开发环境管理-替代Homebrew的可复现macOS开发环境.html)
-- [mise (rtx) 实战：多语言版本管理替代 nvm/rbenv/pyenv 的统一方案](/post/mise-rtx-实战-多语言版本管理替代-nvm-rbenv-pyenv.html)
+- [Raycast 实战：macOS 效率启动器自定义脚本与开发工作流踩坑记录](/post/raycast-macos/)
+- [Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战踩坑记录](/post/cursor-claude-code-hermes-macos-ai/)
+- [Nix 实战：声明式开发环境管理——替代 Homebrew 的可复现 macOS 开发环境配置](/post/nix-homebrew-macos/)
+- [mise (rtx) 实战：多语言版本管理替代 nvm/rbenv/pyenv 的统一方案](/post/mise-rtx-nvm-rbenv-pyenv/)

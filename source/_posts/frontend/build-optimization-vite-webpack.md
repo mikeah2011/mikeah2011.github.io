@@ -1006,7 +1006,7 @@ runtime           | 1 KB       | ✅ 必须  | Webpack 运行时
 
 ## 相关阅读
 
-- [Vite vs Webpack vs Laravel Mix：前端构建工具选型指南](/post/vite-vs-webpack-laravel-mix-vs.html) — 三种构建工具的全面对比，帮你选择最适合项目的方案
-- [Vite + Laravel 实战：从零搭建现代化前端工作流](/post/vite-laravel-guide.html) — Vite 与 Laravel 深度整合的完整教程
-- [Laravel Mix 与 Webpack 优化：Node.js 构建性能调优](/post/laravel-mix-node-js-webpack-optimization.html) — Laravel Mix 项目中 Webpack 构建速度与产出体积的优化技巧
-- [Vue 3 + TypeScript 完全指南](/post/vue-3-typescript-guide.html) — Vue 3 项目中 TypeScript 的最佳实践，与构建优化配合使用效果更佳
+- [Vite vs Webpack vs Laravel Mix：前端构建工具选型指南](/post/vite-vs-webpack-laravel-mix-vs/) — 三种构建工具的全面对比，帮你选择最适合项目的方案
+- [Vite + Laravel 实战：从零搭建现代化前端工作流](/post/vite-laravel-guide/) — Vite 与 Laravel 深度整合的完整教程
+- [Laravel Mix 与 Webpack 优化：Node.js 构建性能调优](/post/laravel-mix-node-js-webpack-optimization/) — Laravel Mix 项目中 Webpack 构建速度与产出体积的优化技巧
+- [Vue 3 + TypeScript 完全指南](/post/vue-3-typescript-guide/) — Vue 3 项目中 TypeScript 的最佳实践，与构建优化配合使用效果更佳

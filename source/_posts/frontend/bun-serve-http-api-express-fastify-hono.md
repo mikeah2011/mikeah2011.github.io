@@ -2247,6 +2247,6 @@ my-bun-api/
 
 ## 相关阅读
 
-- [Kotlin Coroutines 深度实战：挂起函数、结构化并发、Flow——与 PHP Fibers/Go goroutine 的并发模型对比](/post/2026-06-03-Kotlin-Coroutines-深度实战-挂起函数结构化并发Flow并发模型对比.html)
-- [AI Pair Programming 评估实战：Copilot vs Cursor vs Claude Code](/post/AI-Pair-Programming-评估实战-Copilot-vs-Cursor-vs-Claude-Code.html)
-- [Micro-Frontend 实战：Module Federation 2.0——Vue 3 微前端架构与 Laravel BFF 聚合层集成](/post/micro-frontend-module-federation-2-vue3-laravel-bff.html)
+- [Kotlin Coroutines 深度实战：挂起函数、结构化并发、Flow——与 PHP Fibers/Go goroutine 的并发模型对比](/post/kotlin-coroutines-flow-php-fibers-go-goroutine/)
+- [AI Pair Programming 评估实战：Copilot vs Cursor vs Claude Code](/post/ai-pair-programming-copilot-cursor-claude-code/)
+- [Micro-Frontend 实战：Module Federation 2.0——Vue 3 微前端架构与 Laravel BFF 聚合层集成](/post/micro-frontend-module-federation-vue3-laravel-bff/)

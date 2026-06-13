@@ -1469,10 +1469,10 @@ spec:
 
 ## 相关阅读
 
-- [AI Coding Agent 安全实战](/post/AI-Coding-Agent-安全实战.html) — AI 代码生成代理的安全攻防与防护策略
-- [OpenHuman 安全模型深度剖析：OS keychain 密钥管理、OAuth token 代理、workspace 沙箱](/post/OpenHuman-安全模型深度剖析-OS-keychain-密钥管理-OAuth-token代理-workspace沙箱.html) — 开源 AI Agent 框架的沙箱安全架构设计
-- [企业级 AI Agent 部署：Hermes / OpenClaw / OpenHuman 生产环境适用性分析](/post/企业级-AI-Agent-部署-Hermes-OpenClaw-OpenHuman-生产环境适用性分析.html) — 三大框架在企业生产环境中的部署方案对比
-- [Hermes MCP 集成架构：动态工具发现、stdio/SSE/HTTP 传输、prompt-injection 检测](/post/Hermes-MCP-集成架构-动态工具发现-stdio-SSE-HTTP传输-prompt-injection检测.html) — MCP 协议集成与 prompt injection 安全检测
+- [AI Coding Agent 安全实战](/post/ai-coding-agent/) — AI 代码生成代理的安全攻防与防护策略
+- [OpenHuman 安全模型深度剖析：OS keychain 密钥管理、OAuth token 代理、workspace 沙箱](/post/openhuman-os-keychain-oauth-token-workspace/) — 开源 AI Agent 框架的沙箱安全架构设计
+- [企业级 AI Agent 部署：Hermes / OpenClaw / OpenHuman 生产环境适用性分析](/post/ai-agent-hermes-openclaw-openhuman/) — 三大框架在企业生产环境中的部署方案对比
+- Hermes MCP 集成架构：动态工具发现、stdio/SSE/HTTP 传输、prompt-injection 检测 — MCP 协议集成与 prompt injection 安全检测
 
 > **参考资源**：
 >

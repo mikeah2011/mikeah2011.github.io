@@ -1588,9 +1588,9 @@ Flutter 自定义 Widget 的真正价值，不在于“能画出一个炫酷 Dem
 
 ## 相关阅读
 
-- [Flutter 性能优化实战：DevTools 分析、渲染优化、包体积裁剪](/post/Flutter-性能优化实战-DevTools-分析-渲染优化-包体积裁剪.html)
-- [Flutter 3.x 实战：Dart 语言基础与 Widget 体系详解](/post/Flutter-3x-实战-Dart-语言基础与-Widget-体系详解.html)
-- [Flutter 状态管理实战：Riverpod、Bloc、GetX 选型对比与最佳实践](/post/Flutter-状态管理实战-Riverpod-Bloc-GetX-选型对比与最佳实践.html)
-- [Flutter 响应式布局实战：屏幕适配、折叠屏、平板适配策略](/post/Flutter-响应式布局实战-屏幕适配-折叠屏-平板适配策略.html)
-- [Flutter 测试实战：Unit、Widget、Integration 三层测试体系](/post/Flutter-测试实战-Unit-Widget-Integration-三层测试体系.html)
+- [Flutter 性能优化实战：DevTools 分析、渲染优化、包体积裁剪](/post/flutter-devtools/)
+- [Flutter 3.x 实战：Dart 语言基础与 Widget 体系详解](/post/flutter-dart-widget/)
+- [Flutter 状态管理实战：Riverpod、Bloc、GetX 选型对比与最佳实践](/post/flutter-riverpod-bloc-getx/)
+- [Flutter 响应式布局实战：屏幕适配、折叠屏、平板适配策略](/post/flutter/)
+- [Flutter 测试实战：Unit、Widget、Integration 三层测试体系](/post/flutter-unit-widget-integration/)
     

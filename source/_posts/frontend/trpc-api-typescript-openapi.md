@@ -2219,6 +2219,6 @@ tRPC 的核心优势可以归纳为：
 
 ## 相关阅读
 
-- [Jetpack Compose 实战：Android 声明式 UI 开发——与 SwiftUI/Flutter 的三端对比](/post/Jetpack-Compose-实战-Android-声明式UI-开发-SwiftUI-Flutter-三端对比.html)
-- [Deno Deploy 实战：零配置边缘 JavaScript 部署——对比 Cloudflare Workers 的开发体验与性能](/post/Deno-Deploy-实战-零配置边缘JavaScript部署-对比Cloudflare-Workers-开发体验与性能.html)
-- [Deno 2.x 实战：安全优先的 JavaScript 运行时——与 Node.js/Bun 的三选一决策](/post/Deno-2x-实战-安全优先的JavaScript运行时-与Node.js-Bun的三选一决策.html)
+- Jetpack Compose 实战：Android 声明式 UI 开发——与 SwiftUI/Flutter 的三端对比
+- [Deno Deploy 实战：零配置边缘 JavaScript 部署——对比 Cloudflare Workers 的开发体验与性能](/post/deno-deploy-javascript-cloudflare-workers/)
+- [Deno 2.x 实战：安全优先的 JavaScript 运行时——与 Node.js/Bun 的三选一决策](/post/deno-2x-javascript-runtime-nodejs-bun-decision/)

@@ -1129,6 +1129,6 @@ $internalRateLimiter = RateLimiter::for('api_internal')
 
 ## 📚 延伸阅读
 
-- [AI Agent 限流与配额管理：Token Bucket + 滑动窗口 + 多租户隔离](/post/2026-06-07-ai-agent-rate-limiting-quota-token-bucket-sliding-window-tenant.html) — 面向 AI Agent 场景的限流方案升级，支持多租户配额隔离
-- [API 安全加固实战：JWT 黑名单 · 请求签名 · IP 白名单 · 防重放攻击](/post/API-安全加固实战-JWT-黑名单-请求签名-IP白名单-防重放攻击-Laravel-B2C-API踩坑记录.html) — 限流之外的安全防线，JWT + 签名 + 防重放全链路防护
-- [API Abuse Prevention 实战：Bot 检测 · 速率限制 · 指纹识别](/post/API-Abuse-Prevention-实战-Bot检测-速率限制-指纹识别-Laravel-API反爬与反滥用工程化方案.html) — 从限流到反滥用的工程化演进，Bot 检测 + 指纹识别实战
+- [AI Agent 限流与配额管理：Token Bucket + 滑动窗口 + 多租户隔离](/post/ai-agent-rate-limiting-quota-token-bucket-sliding-window-tenant-quota/) — 面向 AI Agent 场景的限流方案升级，支持多租户配额隔离
+- [API 安全加固实战：JWT 黑名单 · 请求签名 · IP 白名单 · 防重放攻击](/post/api-jwt-ip-laravel-b2c/) — 限流之外的安全防线，JWT + 签名 + 防重放全链路防护
+- [API Abuse Prevention 实战：Bot 检测 · 速率限制 · 指纹识别](/post/api-abuse-prevention-bot-laravel/) — 从限流到反滥用的工程化演进，Bot 检测 + 指纹识别实战

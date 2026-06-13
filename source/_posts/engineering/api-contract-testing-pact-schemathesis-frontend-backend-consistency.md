@@ -1208,6 +1208,6 @@ public function testGetProductV3(): void
 
 ## 相关阅读
 
-- [Mockoon 实战：本地 Mock 服务器快速搭建与 Laravel B2C 前后端联调踩坑记录](/post/mockoon-guide-mock-laravel-b2c.html) — 本地 Mock 工具选型与实战，解决前后端联调阻塞问题
-- [OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON](/post/openapi-yaml-testing-mock-fake-response-json.html) — 从 OpenAPI 规范出发设计可 Mock 的 Fake Response 工作流
-- [OpenAPI + Fake Response + Cypress 契约测试实战——前后端联调的完整测试工作流](/post/openapi-fake-response-cypress-testing.html) — 端到端契约测试工作流：OpenAPI → Mock → Cypress 验证
+- [Mockoon 实战：本地 Mock 服务器快速搭建与 Laravel B2C 前后端联调踩坑记录](/post/mockoon-guide-mock-laravel-b2c/) — 本地 Mock 工具选型与实战，解决前后端联调阻塞问题
+- [OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON](/post/openapi-yaml-testing-mock-fake-response-json/) — 从 OpenAPI 规范出发设计可 Mock 的 Fake Response 工作流
+- [OpenAPI + Fake Response + Cypress 契约测试实战——前后端联调的完整测试工作流](/post/openapi-fake-response-cypress-testing/) — 端到端契约测试工作流：OpenAPI → Mock → Cypress 验证

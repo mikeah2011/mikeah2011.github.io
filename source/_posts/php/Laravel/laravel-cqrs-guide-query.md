@@ -362,9 +362,9 @@ final class OrderProjector
 
 ## 相关阅读
 
-- [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现](/post/CQRS-Event-Sourcing-完整实战-从事件存储到读模型投影-Laravel订单系统的端到端实现.html) — 本文的进阶篇，从事件存储、聚合根重建到 Saga 编排，完整实现 Event Sourcing 驱动的 CQRS 架构
-- [Laravel EventSauce 事件溯源实战：订单状态机、快照重建与读模型投影踩坑记录](/post/laravel-eventsauce-guide.html) — 使用 EventSauce 实现事件溯源与 DDD 领域驱动设计，聚合根建模、快照优化与乐观锁并发控制
-- [Eventual Consistency 实战：最终一致性在电商场景中的工程化](/post/eventual-consistency-in-ecommerce-engineering.html) — 订单状态机、支付回调防重、Saga 补偿等与 CQRS 查询侧一致性密切相关的工程化方案
-- [Laravel DDD 实战：聚合边界、值对象与 afterCommit 领域事件](/post/laravel-ddd-guide-aftercommit.html) — 详解写侧聚合根建模、值对象设计与 afterCommit 领域事件机制，与本文写侧 Command Handler 设计互补
-- [Event Storming 实战：从业务事件到代码实现的领域建模方法论](/post/Event-Storming-实战-从业务事件到代码实现的领域建模方法论-Laravel-B2C-API踩坑记录.html) — 从便签纸头脑风暴到领域事件提取、聚合根识别，掌握 CQRS 架构的前置建模方法论
-- [Laravel 消息幂等性设计模式实战：Inbox/Outbox 与重试补偿](/post/laravel-design-patternsguide-inbox-outbox.html) — 投影 Job 的事件消费可靠性保障，Outbox 可靠投递、Inbox 去重表与失败补偿机制
+- [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现](/post/cqrs-event-sourcing-laravel/) — 本文的进阶篇，从事件存储、聚合根重建到 Saga 编排，完整实现 Event Sourcing 驱动的 CQRS 架构
+- [Laravel EventSauce 事件溯源实战：订单状态机、快照重建与读模型投影踩坑记录](/post/laravel-eventsauce-guide/) — 使用 EventSauce 实现事件溯源与 DDD 领域驱动设计，聚合根建模、快照优化与乐观锁并发控制
+- Eventual Consistency 实战：最终一致性在电商场景中的工程化 — 订单状态机、支付回调防重、Saga 补偿等与 CQRS 查询侧一致性密切相关的工程化方案
+- [Laravel DDD 实战：聚合边界、值对象与 afterCommit 领域事件](/post/laravel-ddd-guide-aftercommit/) — 详解写侧聚合根建模、值对象设计与 afterCommit 领域事件机制，与本文写侧 Command Handler 设计互补
+- Event Storming 实战：从业务事件到代码实现的领域建模方法论 — 从便签纸头脑风暴到领域事件提取、聚合根识别，掌握 CQRS 架构的前置建模方法论
+- [Laravel 消息幂等性设计模式实战：Inbox/Outbox 与重试补偿](/post/laravel-design-patternsguide-inbox-outbox/) — 投影 Job 的事件消费可靠性保障，Outbox 可靠投递、Inbox 去重表与失败补偿机制

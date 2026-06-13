@@ -1098,8 +1098,8 @@ $result = $users
 
 ## 相关阅读
 
-- [Laravel Pipeline 源码剖析：闭包洋葱模型——对比 Symfony Pipeline 与 Java Filter Chain 的中间件栈实现](/post/2026-06-05-laravel-pipeline-source-closure-onion-model.html)
-- [Functional Core Imperative Shell 实战：Laravel 中的函数式核心——纯函数业务逻辑与副作用隔离](/post/Functional-Core-Imperative-Shell-实战-Laravel-函数式核心-纯函数业务逻辑与副作用隔离.html)
-- [Laravel 12.x Pipeline 实战：复杂业务流程编排与条件分支——从 if-else 地狱到管道模式的重构之路](/post/Laravel-12x-Pipeline-重构实战.html)
-- [Request Lifecycle 深度剖析：Laravel 从 HTTP 入口到 Response 输出的完整管道——Kernel、Middleware、Terminable 的执行时序](/post/2026-06-06-laravel-request-lifecycle-kernel-middleware-terminable.html)
-- [PHP 8.5 Property Hooks 实战：计算属性与数据验证的声明式编程——替代 Accessor/Mutator 的底层原理与 Laravel 适配](/post/2026-06-04-php85-property-hooks-computed-properties-laravel.html)
+- [Laravel Pipeline 源码剖析：闭包洋葱模型——对比 Symfony Pipeline 与 Java Filter Chain 的中间件栈实现](/post/laravel-pipeline-source-closure-onion-model/)
+- [Functional Core Imperative Shell 实战：Laravel 中的函数式核心——纯函数业务逻辑与副作用隔离](/post/functional-core-imperative-shell-laravel/)
+- [Laravel 12.x Pipeline 实战：复杂业务流程编排与条件分支——从 if-else 地狱到管道模式的重构之路](/post/laravel-data-pipeline-etl-api/)
+- [Request Lifecycle 深度剖析：Laravel 从 HTTP 入口到 Response 输出的完整管道——Kernel、Middleware、Terminable 的执行时序](/post/laravel-request-lifecycle-deep-dive/)
+- [PHP 8.5 Property Hooks 实战：计算属性与数据验证的声明式编程——替代 Accessor/Mutator 的底层原理与 Laravel 适配](/post/php85-property-hooks-computed-properties-laravel/)

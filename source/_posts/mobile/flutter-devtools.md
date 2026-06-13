@@ -1534,8 +1534,8 @@ Flutter 的性能优化并不神秘。难点不在于 API 本身，而在于很�
 
 ## 相关阅读
 
-- [Flutter 状态管理实战：Riverpod、Bloc、GetX 选型对比与最佳实践](/post/Flutter-状态管理实战-Riverpod-Bloc-GetX-选型对比与最佳实践.html)
-- [Flutter 响应式布局实战：屏幕适配、折叠屏、平板适配策略](/post/Flutter-响应式布局实战-屏幕适配-折叠屏-平板适配策略.html)
-- [Flutter 测试实战：Unit、Widget、Integration 三层测试体系](/post/Flutter-测试实战-Unit-Widget-Integration-三层测试体系.html)
-- [Flutter CI/CD 实战：GitHub Actions 自动化构建测试发布](/post/Flutter-CICD-实战-GitHub-Actions-自动化构建测试发布.html)
-- [Flutter 自定义 Widget 实战：CustomPainter、动画、手势处理](/post/Flutter-自定义-Widget-实战-CustomPainter-动画-手势处理.html)
+- [Flutter 状态管理实战：Riverpod、Bloc、GetX 选型对比与最佳实践](/post/flutter-riverpod-bloc-getx/)
+- [Flutter 响应式布局实战：屏幕适配、折叠屏、平板适配策略](/post/flutter/)
+- [Flutter 测试实战：Unit、Widget、Integration 三层测试体系](/post/flutter-unit-widget-integration/)
+- Flutter CI/CD 实战：GitHub Actions 自动化构建测试发布
+- [Flutter 自定义 Widget 实战：CustomPainter、动画、手势处理](/post/flutter-widget-custompainter/)

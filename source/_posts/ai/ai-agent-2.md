@@ -2002,7 +2002,7 @@ if __name__ == "__main__":
 
 ## 相关阅读
 
-- [AI Agent 代码助手实战：代码生成、Review、重构、文档生成](/post/AI-Agent-代码助手实战-代码生成-Review-重构-文档生成.html)
-- [AI Agent 客服系统实战：多轮对话、知识库检索、工单流转](/post/AI-Agent-客服系统实战-多轮对话-知识库检索-工单流转.html)
-- [AI Agent 数据分析实战：自然语言转SQL、图表生成、报告自动化](/post/AI-Agent-数据分析实战-自然语言转SQL-图表生成-报告自动化.html)
-- [AI Agent 运维助手实战：日志分析、告警处理、故障自愈](/post/AI-Agent-运维助手实战-日志分析-告警处理-故障自愈.html)
+- [AI Agent 代码助手实战：代码生成、Review、重构、文档生成](/post/ai-agent-review/)
+- [AI Agent 客服系统实战：多轮对话、知识库检索、工单流转](/post/ai-agent/)
+- [AI Agent 数据分析实战：自然语言转SQL、图表生成、报告自动化](/post/ai-agent-sql/)
+- [AI Agent 运维助手实战：日志分析、告警处理、故障自愈](/post/ai-agent/)

@@ -611,8 +611,8 @@ setInterval(() => { if (ws.readyState === WebSocket.OPEN) ws.send('{"type":"ping
 
 ## 相关阅读
 
-- [Long Polling vs SSE vs WebSocket vs HTTP Streaming 实战：延迟、吞吐与资源消耗量化对比](/post/Long-Polling-vs-SSE-vs-WebSocket-vs-HTTP-Streaming-实战-实时通信方案对比.html) — 四种方案的 Node.js 量化基准测试，含延迟 P99 与内存泄漏排查
-- [WebTransport 实战：HTTP/3 上的双向通信——对比 WebSocket 的低延迟传输协议](/post/WebTransport-实战-HTTP3-双向通信-对比WebSocket低延迟传输协议-Laravel实时应用集成.html) — 基于 QUIC 的下一代实时传输协议，多流复用消除队头阻塞
-- [PartyKit 实战：实时协作后端——多人编辑、在线状态、实时光标与 Laravel 集成](/post/PartyKit-实战-实时协作后端-多人编辑在线状态实时光标与Laravel应用集成.html) — WebSocket 驱动的 CRDT 协同编辑完整实战
-- [AI SDK for PHP：统一 LLM 调用、流式响应与工具调用的抽象层设计](/post/AI-SDK-for-PHP-Vercel-AI-SDK-PHP版-统一LLM调用流式响应与工具调用的抽象层设计.html) — 本文 HTTP Streaming 场景的 PHP SDK 封装方案
-- [RoadRunner 实战：Go 驱动的 PHP 高性能应用服务器——对比 Octane/Swoole/FrankenPHP](/post/RoadRunner-实战-Go驱动的PHP高性能应用服务器-对比Octane-Swoole-FrankenPHP进程模型与选型决策.html) — 突破 PHP-FPM 并发瓶颈的替代运行时方案
+- Long Polling vs SSE vs WebSocket vs HTTP Streaming 实战：延迟、吞吐与资源消耗量化对比 — 四种方案的 Node.js 量化基准测试，含延迟 P99 与内存泄漏排查
+- [WebTransport 实战：HTTP/3 上的双向通信——对比 WebSocket 的低延迟传输协议](/post/webtransport-http-websocket-laravel/) — 基于 QUIC 的下一代实时传输协议，多流复用消除队头阻塞
+- [PartyKit 实战：实时协作后端——多人编辑、在线状态、实时光标与 Laravel 集成](/post/partykit-laravel/) — WebSocket 驱动的 CRDT 协同编辑完整实战
+- AI SDK for PHP：统一 LLM 调用、流式响应与工具调用的抽象层设计 — 本文 HTTP Streaming 场景的 PHP SDK 封装方案
+- [RoadRunner 实战：Go 驱动的 PHP 高性能应用服务器——对比 Octane/Swoole/FrankenPHP](/post/roadrunner-go-php-octane-swoole-frankenphp/) — 突破 PHP-FPM 并发瓶颈的替代运行时方案

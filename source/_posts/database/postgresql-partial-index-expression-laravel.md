@@ -1729,7 +1729,7 @@ PostgreSQL 的 Partial Index 和 Expression Index 是两个被严重低估的优
 
 ## 相关阅读
 
-- [PostgreSQL Vacuum 调优实战：autovacuum 参数、表膨胀治理、索引碎片整理](/post/PostgreSQL-Vacuum-调优实战-autovacuum参数表膨胀治理索引碎片整理.html)
-- [MySQL Invisible Index 实战：线上索引安全验证、EXPLAIN 实际执行计划索引生效分析](/post/2026-06-06-MySQL-Invisible-Index-实战-线上索引安全验证-EXPLAIN-实际执行计划索引生效分析.html)
-- [PostgreSQL 高级特性实战：Window Functions、CTE、JSONB、pg_trgm 与 Laravel 性能调优](/post/postgresql-advanced-features-window-cte-jsonb-pgtrgm-laravel.html)
-- [pg_stat_statements vs MySQL Performance Schema：慢查询监控实战](/post/2026-06-05-pg-stat-statements-MySQL-Performance-Schema-慢查询监控实战.html)
+- [PostgreSQL Vacuum 调优实战：autovacuum 参数、表膨胀治理、索引碎片整理](/post/postgresql-vacuum-autovacuum-laravel/)
+- [MySQL Invisible Index 实战：线上索引安全验证、EXPLAIN 实际执行计划索引生效分析](/post/mysql-invisible-index-explain/)
+- [PostgreSQL 高级特性实战：Window Functions、CTE、JSONB、pg_trgm 与 Laravel 性能调优](/post/postgresql-advanced-features-window-cte-jsonb-pgtrgm-laravel/)
+- [pg_stat_statements vs MySQL Performance Schema：慢查询监控实战](/post/pg-stat-statements-mysql-performance-schema-explain/)

@@ -1578,11 +1578,11 @@ find .github/workflows -name '*.yml' -exec grep -l 'composer install' {} \; | wc
 
 ## 相关阅读
 
-- [GitHub Actions 矩阵策略实战：多 PHP 版本、多数据库的并行测试与条件发布](/post/GitHub-Actions-矩阵策略实战-多PHP版本多数据库并行测试与条件发布.html) — 深入讲解 matrix strategy 在多维度测试中的应用，与本文的 Composite Action 封装形成互补
-- [PR Review Checklist 自动化实战：Danger.js/lint-staged/Husky 的组合拳——CI 门禁](/post/PR-Review-Checklist-自动化实战-Danger-js-lint-staged-Husky组合拳-CI门禁.html) — 将代码规范检查集成到 CI 工作流，与本文的 Action 封装思路一致
-- [Dagger 实战：用代码定义 CI/CD 流水线——Go SDK 驱动的可移植 Pipeline 与 GitHub Actions 选型对比](/post/Dagger-实战-用代码定义CICD流水线-Go-SDK驱动的可移植Pipeline与GitHub-Actions选型对比.html) — 从另一个维度看 CI/CD 流水线定义，对比 GitHub Actions 与 Dagger 的优劣
-- [Supply Chain Security 实战：npm audit、composer audit、SLSA 框架](/post/Supply-Chain-Security-实战-npm-audit-composer-audit-SLSA-框架.html) — CI/CD 流水线中的安全扫描环节，与本文的 Action 封装紧密相关
-- [容器安全扫描实战：Trivy/Snyk/Grype CI 集成](/post/容器安全扫描实战-Trivy-Snyk-Grype-CI集成-镜像漏洞检测-SBOM生成与修复工作流.html) — 在 GitHub Actions 中集成容器安全扫描，丰富 CI/CD 工作流能力
+- [GitHub Actions 矩阵策略实战：多 PHP 版本、多数据库的并行测试与条件发布](/post/github-actions-php/) — 深入讲解 matrix strategy 在多维度测试中的应用，与本文的 Composite Action 封装形成互补
+- [PR Review Checklist 自动化实战：Danger.js/lint-staged/Husky 的组合拳——CI 门禁](/post/pr-review-checklist-danger-js-lint-staged-husky-ci/) — 将代码规范检查集成到 CI 工作流，与本文的 Action 封装思路一致
+- Dagger 实战：用代码定义 CI/CD 流水线——Go SDK 驱动的可移植 Pipeline 与 GitHub Actions 选型对比 — 从另一个维度看 CI/CD 流水线定义，对比 GitHub Actions 与 Dagger 的优劣
+- [Supply Chain Security 实战：npm audit、composer audit、SLSA 框架](/post/supply-chain-security-npm-audit-composer-slsa-laravel-ci/) — CI/CD 流水线中的安全扫描环节，与本文的 Action 封装紧密相关
+- [容器安全扫描实战：Trivy/Snyk/Grype CI 集成](/post/trivy-snyk-grype-ci-sbom/) — 在 GitHub Actions 中集成容器安全扫描，丰富 CI/CD 工作流能力
 
 ---
 

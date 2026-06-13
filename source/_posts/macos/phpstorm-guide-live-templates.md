@@ -760,6 +760,6 @@ graph LR
 
 ## 相关阅读
 
-- [JetBrains Toolbox 实战：PhpStorm/WebStorm/GoLand 配置同步踩坑记录](/post/jetbrains-toolbox-guide-phpstorm-webstorm-goland.html) — 同属 JetBrains 生态，详解 Toolbox 多 IDE 配置同步、插件管理与版本切换
-- [VS Code 高效开发实战：扩展、快捷键、调试配置 - Laravel B2C API 踩坑记录](/post/vs-code-guide.html) — PHPStorm 的轻量替代方案对比，含 Xdebug 调试与自定义 Snippets
-- [Charles 抓包工具高级用法实战：SSL 代理 Mock 断点调试与 Laravel API 联调踩坑记录](/post/charles-guide-sslmock-laravel-api.html) — API 联调必备工具，与 PHPStorm HTTP Client 互补使用
+- [JetBrains Toolbox 实战：PhpStorm/WebStorm/GoLand 配置同步踩坑记录](/post/jetbrains-toolbox-guide-phpstorm-webstorm-goland/) — 同属 JetBrains 生态，详解 Toolbox 多 IDE 配置同步、插件管理与版本切换
+- [VS Code 高效开发实战：扩展、快捷键、调试配置 - Laravel B2C API 踩坑记录](/post/vs-code-guide/) — PHPStorm 的轻量替代方案对比，含 Xdebug 调试与自定义 Snippets
+- [Charles 抓包工具高级用法实战：SSL 代理 Mock 断点调试与 Laravel API 联调踩坑记录](/post/charles-guide-sslmock-laravel-api/) — API 联调必备工具，与 PHPStorm HTTP Client 互补使用
