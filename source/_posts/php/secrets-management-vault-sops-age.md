@@ -1139,3 +1139,5 @@ ui = true
 - [Post-Quantum Cryptography 实战：后量子密码算法在 Laravel 中的预研](/categories/Laravel/Post-Quantum-Cryptography-实战-后量子密码算法-ML-KEM-ML-DSA在Laravel中的预研与迁移路径/)
 - [重试与退避策略实战：Exponential Backoff/Jitter 韧性设计](/categories/Laravel/重试与退避策略实战-Exponential-Backoff-Jitter-Laravel-HTTP-Client韧性设计模式/)
 - [PCI DSS 合规实战：支付系统安全标准落地](/categories/运维/2026-06-02-PCI-DSS-合规实战-支付系统安全标准落地-Laravel-Token化-审计日志与网络分段/)
+
+```

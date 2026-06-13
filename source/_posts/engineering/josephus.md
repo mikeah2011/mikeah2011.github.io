@@ -469,3 +469,5 @@ console.log('✅ 所有 JavaScript 测试通过');
 - [快速排序](/engineering/quicksort/) — 分治思想的经典应用，平均 O(n log n)
 - [插入排序](/engineering/insertion-sort/) — 适合小规模数据的稳定排序算法
 - [查找重复字符](/engineering/dedup/) — 多种去重策略对比，含哈希与排序方案
+
+```

@@ -1118,3 +1118,5 @@ OpenAPI YAML + Fake Response JSON 的核心价值是：**把「真实接口」�
 - [BFF-Laravel 中间层聚合实战](/architecture/bff-laravel/) — 以 KKday 真实项目为例，讲解如何用 Laravel 构建 BFF API 聚合层，统一调用 Java 微服务并实现多级缓存与降级策略。
 - [Contract-First API Development 实战：从 OpenAPI/AsyncAPI 规范生成代码](/categories/架构/Contract-First-API-Development-实战-从OpenAPI-AsyncAPI规范生成代码-Stoplight-Studio-oapi-codegen的设计优先工作流/) — 设计优先工作流：Stoplight Studio 可视化编辑 + oapi-codegen 代码生成 + oasdiff Breaking Change 检测 + Schemathesis 属性测试。
 - [API Mock 策略实战：WireMock/Mockoon/MSW 三层 Mock 体系](/categories/架构/2026-06-06-API-Mock-策略实战-WireMock-Mockoon-MSW-三层Mock体系/) — 从开发层 MSW 到联调层 Mockoon 到测试层 WireMock 的完整 Mock 策略，含环境变量路由与 CI 卡点配置。
+
+```

@@ -1745,3 +1745,5 @@ protected $middlewareGroups = [
 - [AI Agent Streaming 实战：SSE/WebSocket 实时流式响应——Laravel 后端的 Token-by-Token 推送与前端渲染](/ai/AI-Agent-Streaming-实战-SSE-WebSocket实时流式响应-Laravel后端的Token-by-Token推送与前端渲染/)
 - [AI Agent Error Recovery 实战：工具调用失败、LLM 幻觉、上下文溢出的自动降级与重试策略](/ai/2026-06-05-ai-agent-error-recovery-tool-failure-hallucination-overflow-degradation-retry/)
 - [AI Agent Debugging 实战：MCP Inspector、LangSmith Trace 与日志回放——构建可观测的 AI Agent 系统](/ai/2026-06-05-ai-agent-debugging-mcp-inspector-langsmith-trace-log-replay/)
+
+```

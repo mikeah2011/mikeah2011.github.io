@@ -1579,3 +1579,4 @@ NODE_OPTIONS="--max-old-space-size=8192" pnpm tauri build
 - [OpenHuman 实战：开源 AI 超级智能框架入门与 macOS 安装](/2026/06/02/OpenHuman-实战-开源AI超级智能框架入门与macOS安装/)
 - [OpenHuman 插件开发实战：自定义集成与 OAuth 流程](/2026/06/02/OpenHuman-插件开发实战-自定义集成与-OAuth-流程/)
 - [OpenHuman 安全实战：本地加密、数据主权、隐私合规](/2026/06/02/OpenHuman-安全实战-本地加密-数据主权-隐私合规/)
+```

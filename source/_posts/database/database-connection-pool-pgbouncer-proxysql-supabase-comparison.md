@@ -867,3 +867,5 @@ SET mysql-monitor_connect_interval = 500;
 ---
 
 *本文测试基于 PgBouncer 1.21、ProxySQL 2.6、Supavisor 1.0、Laravel 12。*
+
+```

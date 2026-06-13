@@ -507,3 +507,5 @@ Laravel Events & Listeners 不是银弹，但在正确的场景下，它是解�
 - [CQRS + Event Sourcing 完整实战：从事件存储到读模型投影](/categories/架构/CQRS-Event-Sourcing-完整实战-从事件存储到读模型投影-Laravel订单系统的端到端实现/) — 事件溯源架构的端到端实现，Events & Listeners 的进阶形态
 - [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/categories/架构/事件驱动架构全景实战-EventBridge-NATS-Pulsar-统一事件总线设计/) — 从 Laravel 进阶到微服务级别的事件驱动架构全景
 - [消息推送系统设计实战：多通道、优先级、失败重试、降级策略](/categories/架构/消息推送系统设计实战-多通道-优先级-失败重试-降级策略-Laravel-B2C-API-踩坑记录/) — 异步通知的完整实现方案，涵盖多通道与降级策略
+
+```

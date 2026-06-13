@@ -494,3 +494,5 @@ pipx 的核心价值很简单：**把 Python CLI 工具当作独立应用来管�
 - [uv 实战：下一代 Python 包管理器——100 倍速依赖解析与 PHP 开发者迁移指南](/macos/uv-guide-python-100-php-guide/)
 - [pyenv + poetry 实战：Python 版本与依赖管理——macOS 开发者从 pip 到现代工具链的迁移指南](/macos/pyenv-poetry-python-guide-macos-guide/)
 - [Homebrew 自动更新脚本开发：macOS 开发环境自动化实战踩坑记录](/macos/homebrew-macos-automation/)
+
+```

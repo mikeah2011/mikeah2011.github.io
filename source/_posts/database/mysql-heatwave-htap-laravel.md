@@ -1091,3 +1091,5 @@ MySQL HeatWave 是数据库技术在 HTAP 方向上的一个重要实践。它�
 - [CockroachDB 实战：分布式 SQL 数据库——Laravel 中的全球分布式事务与强一致性选型指南](/post/cockroachdb-vs-tidb-vs-yugabytedb-newsql-laravel/)
 - [MySQL 9.x 新特性实战：向量搜索、JSON 增强、性能改进与 Laravel 适配](/post/mysql-json-laravel/)
 - [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/post/kafka-debezium-cdc-laravel-event-sourcing/)
+
+```
