@@ -302,7 +302,7 @@ Webhook URL: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxx
 
 ```
 Type: DingDing
-Webhook URL: https://oapi.dingtalk.com/robot/send?access_token=xxxxx
+Webhook URL: https://oapi.dingtalk.com/robot/send?access_token=YOUR_TOKENxx
 ```
 
 ### 通知策略

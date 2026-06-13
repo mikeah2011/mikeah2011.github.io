@@ -50,7 +50,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: false
 highlight:
@@ -72,7 +72,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 20
   order_by: -date
 
 # Category & Tag
@@ -95,11 +95,12 @@ category_map:
   DevOps: devops
   Network: network
   Kafka: mq
-  frameworks: php
+  MQ: mq
   Rust: rust
   Swift: swift
   Web3: web3
-  MQ: mq
+  # 废弃分类别名（兼容旧文章）
+  frameworks: php
   05_php/laravel: php
   Laravel/PHP: php
   PHP/Laravel: php
@@ -120,7 +121,7 @@ updated_option: 'mtime'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 10
+per_page: 20
 pagination_dir: page
 
 # Include / Exclude file(s)

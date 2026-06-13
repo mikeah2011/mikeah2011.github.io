@@ -442,7 +442,7 @@ OAuth 2.1 明确禁止在 URI 查询参数中传递 Bearer Token：
 
 ```
 # 不允许
-GET /api/user?access_token=xxx
+GET /api/user?access_token=YOUR_TOKEN
 
 # 正确方式
 GET /api/user

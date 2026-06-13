@@ -117,7 +117,7 @@ return [
         // Primary 连接 — 所有写操作走这里
         'turso_primary' => [
             'driver' => 'libsql',
-            'url' => env('TURSO_PRIMARY_URL'),        // libsql://your-db.turso.io?authToken=xxx
+            'url' => env('TURSO_PRIMARY_URL'),        // libsql://your-db.turso.io?authToken=YOUR_TOKEN
             'auth_token' => env('TURSO_AUTH_TOKEN'),
             'mode' => 'remote',
             'options' => [

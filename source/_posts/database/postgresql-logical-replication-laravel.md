@@ -112,7 +112,7 @@ CREATE PUBLICATION my_pub FOR TABLE orders, products;
 
 -- Subscriber 端：创建订阅
 CREATE SUBSCRIPTION my_sub
-    CONNECTION 'host=pub_host dbname=mydb user=replicator password=xxx'
+    CONNECTION 'host=pub_host dbname=mydb user=replicator password=your_password'
     PUBLICATION my_pub;
 ```
 

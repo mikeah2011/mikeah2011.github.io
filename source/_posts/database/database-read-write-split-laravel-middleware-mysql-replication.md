@@ -649,7 +649,7 @@ class ProcessOrder implements ShouldQueue
 pt-table-checksum \
   --host=10.0.1.10 \
   --user=root \
-  --password=xxx \
+  --password=your_password \
   --databases=kkday_b2c \
   --replicate=percona.checksums \
   --no-check-binlog-format

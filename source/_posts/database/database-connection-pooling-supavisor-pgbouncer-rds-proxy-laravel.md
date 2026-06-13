@@ -462,7 +462,7 @@ curl -X POST http://supavisor:4000/api/tenants \
   -d '{
     "tenant": {
       "external_id": "tenant_abc",
-      "db_host": "pg-tenant-abc.cluster-xxx.rds.amazonaws.com",
+      "db_host": "pg-tenant-abc.cluster-xxxxxx.rds.amazonaws.com",
       "db_port": 5432,
       "db_database": "tenant_db",
       "db_user": "tenant_user",

@@ -321,7 +321,7 @@ CREATE PUBLICATION cdc_pub FOR TABLE orders, products;
 
 -- 在订阅端创建订阅（可以是同一实例的不同数据库）
 CREATE SUBSCRIPTION cdc_sub
-    CONNECTION 'host=localhost dbname=mydb user=cdc_user password=xxx'
+    CONNECTION 'host=localhost dbname=mydb user=cdc_user password=your_password'
     PUBLICATION cdc_pub;
 ```
 

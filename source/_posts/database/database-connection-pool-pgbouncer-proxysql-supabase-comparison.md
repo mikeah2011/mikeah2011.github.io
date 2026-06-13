@@ -459,7 +459,7 @@ Supavisor 的特点：
 // config/database.php
 'pgsql' => [
     'driver' => 'pgsql',
-    'host' => env('SUPABASE_HOST'),      // db.xxxxx.supabase.co
+    'host' => env('SUPABASE_HOST'),      // db.xxyour-project.supabase.co
     'port' => env('SUPABASE_PORT', '6543'),  // Supavisor 端口
     'database' => env('SUPABASE_DB', 'postgres'),
     'username' => env('SUPABASE_USER'),

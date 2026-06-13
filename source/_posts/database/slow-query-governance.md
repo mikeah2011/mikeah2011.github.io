@@ -165,7 +165,7 @@ pt-query-digest 输出的报告分为三个主要部分：
 # 从 MySQL 直接分析（推荐，不依赖日志文件）
 pt-query-digest \
     --user=monitor \
-    --password=xxx \
+    --password=your_password \
     --review h=localhost,D=slow_query,t=query_review \
     --history h=localhost,D=slow_query,t=query_review_history \
     /var/log/mysql/slow.log

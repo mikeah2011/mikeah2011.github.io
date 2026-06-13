@@ -1690,7 +1690,7 @@ console.log('✅ Realtime 订阅已启动，等待事件...')
 
 **步骤 3：运行**
 ```bash
-SUPABASE_URL=https://xxx.supabase.co SUPABASE_ANON_KEY=xxx node realtime-demo.js
+SUPABASE_URL=https://your-project.supabase.co SUPABASE_ANON_KEY=xxx node realtime-demo.js
 ```
 
 **步骤 4：Laravel 后端发送广播（在 Artisan 命令中测试）**

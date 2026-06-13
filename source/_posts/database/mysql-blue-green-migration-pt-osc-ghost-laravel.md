@@ -127,7 +127,7 @@ pt-online-schema-change \
   --alter "DROP INDEX idx_user_status" \
   --host=127.0.0.1 \
   --user=dba \
-  --password='xxx' \
+  --password='your_password' \
   --execute \
   D=mydb,t=orders
 ```
@@ -139,7 +139,7 @@ pt-online-schema-change \
   --alter "MODIFY COLUMN remark VARCHAR(500) DEFAULT '' COMMENT '备注'" \
   --host=127.0.0.1 \
   --user=dba \
-  --password='xxx' \
+  --password='your_password' \
   --execute \
   D=mydb,t=orders
 ```
@@ -213,7 +213,7 @@ gh-ost \
 
 ```bash
 gh-ost \
-  --host=rm-xxx.mysql.rds.aliyuncs.com \
+  --host=rm-xxxxxx.mysql.rds.aliyuncs.com \
   --port=3306 \
   --user=dba_user \
   --password='YourPassword' \
@@ -221,7 +221,7 @@ gh-ost \
   --table=orders \
   --alter="ADD COLUMN status TINYINT NOT NULL DEFAULT 0" \
   --allow-on-master \
-  --assume-master-host="rm-xxx.mysql.rds.aliyuncs.com:3306" \
+  --assume-master-host="rm-xxxxxx.mysql.rds.aliyuncs.com:3306" \
   --chunk-size=500 \
   --execute
 ```
@@ -251,7 +251,7 @@ echo panic | nc -U /tmp/gh-ost.sock
 gh-ost \
   --host=127.0.0.1 \
   --user=dba \
-  --password='xxx' \
+  --password='your_password' \
   --database=mydb \
   --table=orders \
   --alter="ADD INDEX idx_created (created_at)" \

@@ -135,11 +135,11 @@ class CheckReplicationLag extends Command
 ```bash
 # 主库端：定期写入心跳记录
 pt-heartbeat --update --database heartbeat --create-table --daemonize \
-  --interval 1 --user=root --password=xxx
+  --interval 1 --user=root --password=your_password
 
 # 从库端：检查延迟
 pt-heartbeat --check --database heartbeat --master-server-id=1 \
-  --user=root --password=xxx
+  --user=root --password=your_password
 ```
 
 Laravel 中封装：

@@ -858,7 +858,7 @@ contact_points:
 # 钉钉通知
   - name: dingtalk-backend
     webhook_configs:
-      - url: https://oapi.dingtalk.com/robot/send?access_token=xxx
+      - url: https://oapi.dingtalk.com/robot/send?access_token=YOUR_TOKEN
         send_resolved: true
 ```
 
