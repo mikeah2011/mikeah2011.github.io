@@ -1,5 +1,5 @@
 ---
-title: Socket
+title: Socket 编程实战：TCP/UDP 网络通信与 Laravel WebSocket 集成
 cover: /images/covers/socket-cover.jpg
 tags:
 - Socket
@@ -16,6 +16,7 @@ description: 本文全面解析Socket网络编程技术，从Socket在TCP/IP协�
   Socket编程示例（服务端与客户端）。重点讲解WebSocket与传统Socket的本质差异，演示多进程Socket服务的实现方式，以及如何在Laravel框架中结合Laravel
   Reverb实现WebSocket实时通信。同时涵盖Socket编程常见错误排查方法和调试工具，适合PHP开发者系统掌握Socket编程。
 ---
+
 
 
 ## 什么是 Socket

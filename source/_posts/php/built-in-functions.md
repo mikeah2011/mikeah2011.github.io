@@ -1,5 +1,5 @@
 ---
-title: PHP内置系统函数
+title: PHP 内置系统函数精选：字符串、数组、文件处理常用 API
 cover: /images/covers/built-in-functions-cover.jpg
 tags:
 - PHP
@@ -14,6 +14,7 @@ description: PHP 内置函数是日常开发中最常用的工具，涵盖字符
   PHP 内置函数的分类与用法，提供可运行的代码示例，深入分析 isset 与 empty、strpos 与 str_contains 等常见易混淆点，对比 PHP
   8.x 新增函数的性能优势，并给出生产环境下的最佳实践建议，帮助开发者写出更高效、更安全的 PHP 代码。
 ---
+
 
 
 # PHP 内置系统函数完全指南

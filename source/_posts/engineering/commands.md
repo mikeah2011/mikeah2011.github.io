@@ -1,13 +1,19 @@
 ---
-title: Linux基础
+title: Linux 基础命令速查：文件操作、进程管理与网络调试
 cover: /images/covers/commands-cover.jpg
-tags: [Linux, 命令行, DevOps, 运维, Shell]
+tags:
+- Linux
+- 命令行
+- DevOps
+- 运维
+- Shell
 categories:
-  - engineering
-  - linux
+- engineering
+- linux
 date: 2019-03-20 15:05:07
-description: 'Linux命令行是运维工程师和开发者日常工作的核心工具。本文系统整理了文件操作、网络调试、进程管理、磁盘存储、系统监控、权限管理等常用Linux命令，涵盖实用示例与真实踩坑案例，帮助你快速掌握DevOps与系统管理必备的命令行技能，提升服务器运维效率。'
+description: Linux命令行是运维工程师和开发者日常工作的核心工具。本文系统整理了文件操作、网络调试、进程管理、磁盘存储、系统监控、权限管理等常用Linux命令，涵盖实用示例与真实踩坑案例，帮助你快速掌握DevOps与系统管理必备的命令行技能，提升服务器运维效率。
 ---
+
 ## 基础命令速查
 
 [参考](https://mp.weixin.qq.com/s/LxuwP-f-PivzmaKeN5bcZA)

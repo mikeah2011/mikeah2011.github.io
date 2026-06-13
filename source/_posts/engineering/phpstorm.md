@@ -1,16 +1,24 @@
 ---
-title: PhpStorm
+title: PhpStorm 高效使用技巧：快捷键、插件与调试配置
 cover: /images/covers/phpstorm-cover.jpg
-tags: [PhpStorm, IDE, 开发工具, JetBrains, 调试, 重构, macOS, PHP, Xdebug]
+tags:
+- PhpStorm
+- IDE
+- 开发工具
+- JetBrains
+- 调试
+- 重构
+- macOS
+- PHP
+- Xdebug
 categories:
-  - engineering
-  - editor
+- engineering
+- editor
 date: 2019-03-20 15:05:07
-description: 'PhpStorm 是 JetBrains 出品的 PHP 集成开发环境，被视为 PHP 生态最强 IDE。智能补全、深度重构、内置数据库 / Git / Docker / Vagrant / Composer / 调试器一站式整合。'
-
-
-
+description: PhpStorm 是 JetBrains 出品的 PHP 集成开发环境，被视为 PHP 生态最强 IDE。智能补全、深度重构、内置数据库
+  / Git / Docker / Vagrant / Composer / 调试器一站式整合。
 ---
+
 ## 一、PhpStorm 是什么
 
 PhpStorm 是 **JetBrains** 公司基于 IntelliJ 平台为 PHP 开发者打造的 IDE。和 VSCode + 插件相比，它的核心优势是：

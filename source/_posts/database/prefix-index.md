@@ -1,16 +1,23 @@
 ---
-title: 前缀索引
-tags: [MySQL, 前缀索引, 性能优化, EXPLAIN]
+title: MySQL 前缀索引：长字符串字段的索引优化策略
+tags:
+- MySQL
+- 前缀索引
+- 性能优化
+- EXPLAIN
 categories:
-  - database
+- database
 date: 2015-03-20 15:05:07
 updated: 2026-06-09 07:21:00
-description: '前缀索引是 MySQL 中针对长字符串字段的性能优化利器，通过只索引字段的前 N 个字符来大幅减少索引占用的内存和磁盘空间。本文详解前缀索引的 B+ 树存储原理、如何用选择性（selectivity）计算最优前缀长度、EXPLAIN 验证索引效果，并分析其不能用于 ORDER BY、GROUP BY 和覆盖索引的局限性，附带完整 MySQL 示例与踩坑案例。'
+description: 前缀索引是 MySQL 中针对长字符串字段的性能优化利器，通过只索引字段的前 N 个字符来大幅减少索引占用的内存和磁盘空间。本文详解前缀索引的
+  B+ 树存储原理、如何用选择性（selectivity）计算最优前缀长度、EXPLAIN 验证索引效果，并分析其不能用于 ORDER BY、GROUP BY 和覆盖索引的局限性，附带完整
+  MySQL 示例与踩坑案例。
 cover: /images/covers/db-index-01-cover.jpg
 images:
-  - /images/content/db-index-01-content-1.jpg
-  - /images/content/db-index-01-content-2.jpg
+- /images/content/db-index-01-content-1.jpg
+- /images/content/db-index-01-content-2.jpg
 ---
+
 
 ## 什么是前缀索引
 

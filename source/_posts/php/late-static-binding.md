@@ -1,5 +1,5 @@
 ---
-title: 后期静态变量绑定
+title: PHP 后期静态绑定：static 关键字与继承中的方法解析
 cover: /images/covers/php-late-static-binding-cover.jpg
 tags:
 - PHP
@@ -14,6 +14,7 @@ description: '深入解析 PHP 后期静态绑定（Late Static Binding）的核
   在运行期解析为实际调用类。本文从底层 Opcode 机制出发，结合 Laravel Eloquent 源码、trait 冲突案例和继承链踩坑实战，全面讲解 LSB
   在工厂方法、单例、模板方法等场景中的最佳实践与常见陷阱。'
 ---
+
 
 
 

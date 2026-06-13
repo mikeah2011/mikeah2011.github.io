@@ -1,21 +1,22 @@
 ---
-title: 索引创建的原则
+title: MySQL 索引创建原则：何时建索引与索引失效场景
 tags:
-  - MySQL
-  - 索引
-  - 性能优化
-  - 数据库优化
-  - Laravel
+- MySQL
+- 索引
+- 性能优化
+- 数据库优化
+- Laravel
 categories:
-  - database
+- database
 date: 2018-03-20 15:05:07
-description: 'MySQL 索引创建的黄金法则与实战指南。深入讲解索引创建的六大原则：选择性高的列优先、覆盖查询减少回表、联合索引遵循最左前缀、避免冗余索引与重复索引。结合 Laravel Migration 代码示例和 EXPLAIN 分析，详解在线 DDL 加索引的踩坑经验，帮助开发者在百万级数据表上安全高效地创建索引。'
+description: MySQL 索引创建的黄金法则与实战指南。深入讲解索引创建的六大原则：选择性高的列优先、覆盖查询减少回表、联合索引遵循最左前缀、避免冗余索引与重复索引。结合
+  Laravel Migration 代码示例和 EXPLAIN 分析，详解在线 DDL 加索引的踩坑经验，帮助开发者在百万级数据表上安全高效地创建索引。
 cover: /images/covers/databases-creation-principles-cover.jpg
 images:
-  - /images/content/databases-creation-principles-content-1.jpg
-  - /images/content/databases-creation-principles-content-2.jpg
-
+- /images/content/databases-creation-principles-content-1.jpg
+- /images/content/databases-creation-principles-content-2.jpg
 ---
+
 # 索引创建的原则
 
 索引是 MySQL 性能优化的核心武器。创建合理的索引可以让查询性能提升几个数量级，而错误的索引策略不仅浪费存储空间，还会拖慢写入性能。本文将系统性地讲解索引创建的原则、最佳实践以及生产环境中的注意事项。

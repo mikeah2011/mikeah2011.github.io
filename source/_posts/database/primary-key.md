@@ -1,17 +1,23 @@
 ---
-title: MySQL主键
-tags: [MySQL, 主键, UUID, 性能优化, 数据库, 雪花算法, 分布式ID]
+title: MySQL 主键设计：自增 vs UUID vs 雪花算法选型
+tags:
+- MySQL
+- 主键
+- UUID
+- 性能优化
+- 数据库
+- 雪花算法
+- 分布式ID
 categories:
-  - database
+- database
 date: 2019-03-20 15:05:07
-description: '深入对比MySQL主键设计方案：自增ID vs UUID vs ULID vs Snowflake雪花算法，从InnoDB B+Tree页分裂原理、存储空间开销、INSERT性能Benchmark到分布式ID生成策略，详解联合主键踩坑案例与主键选择最佳实践。无论单库还是分库分表场景，一文搞懂MySQL主键设计的核心要点与性能优化技巧。'
+description: 深入对比MySQL主键设计方案：自增ID vs UUID vs ULID vs Snowflake雪花算法，从InnoDB B+Tree页分裂原理、存储空间开销、INSERT性能Benchmark到分布式ID生成策略，详解联合主键踩坑案例与主键选择最佳实践。无论单库还是分库分表场景，一文搞懂MySQL主键设计的核心要点与性能优化技巧。
 cover: /images/covers/databases-1-cover.jpg
 images:
-  - /images/content/databases-1-content-1.jpg
-  - /images/content/databases-1-content-2.jpg
-
-
+- /images/content/databases-1-content-1.jpg
+- /images/content/databases-1-content-2.jpg
 ---
+
 ## 主键选择的核心问题
 
 在MySQL中，主键的选择直接影响数据库的**写入性能**、**存储效率**和**查询速度**。常见的主键方案有：自增ID（AUTO_INCREMENT）、UUID、ULID和Snowflake。本文从InnoDB底层存储结构出发，深入分析各方案的优劣。

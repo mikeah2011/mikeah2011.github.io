@@ -1,5 +1,5 @@
 ---
-title: 进程、线程和协程
+title: 进程、线程和协程对比：PHP Fibers、Go goroutine 与 Swoole 协程
 cover: /images/covers/php-vs-comparison-cover.jpg
 tags:
 - PHP
@@ -10,6 +10,7 @@ date: 2019-03-20 15:05:07
 description: 本文深入对比进程、线程和协程三大并发模型的核心差异，结合 PHP 生态中的 pcntl 多进程、pthreads 多线程、Swoole 协程及
   PHP 8.1 Fiber 等实际代码示例，详解各模型的适用场景、性能对比与常见踩坑问题，帮助 PHP 开发者在高并发场景下做出合理的技术选型。
 ---
+
 
 
 进程、线程和协程是并发编程中三种最核心的执行单元模型。理解它们的区别，是做好 PHP 高并发架构设计的基础。本文将从概念、PHP 代码实践、性能对比、选型指南四个维度进行系统梳理。

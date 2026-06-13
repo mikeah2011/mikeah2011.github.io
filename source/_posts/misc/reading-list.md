@@ -1,5 +1,5 @@
 ---
-title: 书单
+title: 技术书单与学习资源推荐
 tags:
 - 工程管理
 - 书单
@@ -19,6 +19,7 @@ images:
 - /images/content/misc-001-content-1.jpg
 - /images/content/misc-001-content-2.jpg
 ---
+
 
 
 **软技能 代码之外的生存指南**	约翰 Z.森梅兹 著

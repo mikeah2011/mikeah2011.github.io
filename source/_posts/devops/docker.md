@@ -1,5 +1,5 @@
 ---
-title: Docker
+title: Docker 基础入门：镜像、容器、Dockerfile 核心概念
 cover: /images/covers/docker-cover.jpg
 tags:
 - Docker
@@ -11,6 +11,7 @@ categories:
 date: 2020-03-20 15:05:07
 description: Docker 是一个开源的容器化平台，通过 Linux Namespace + Cgroups 把进程打包成可移植的镜像，做到「一次构建、到处运行」。本文梳理核心概念、常用命令和踩坑笔记。
 ---
+
 
 ## 一、Docker 是什么
 

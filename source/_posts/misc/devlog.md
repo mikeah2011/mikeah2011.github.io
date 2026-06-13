@@ -1,12 +1,17 @@
 ---
-title: 开发日志
+title: 开发日志与踩坑记录
 date: 2024-09-01 10:00:00
 categories:
-  - 博客
-tags: [开发日志, 博客, Hexo, CI/CD]
+- 博客
+tags:
+- 开发日志
+- 博客
+- Hexo
+- CI/CD
 description: 博客开发运维日志，记录 AI Agent 写作流水线、GitHub Actions 自动部署、Hexo 主题配置调优及选题管理系统的完整迭代过程，持续更新。
 cover: /images/covers/devlog-cover.jpg
 ---
+
 ## 什么是开发日志？
 
 这份开发日志记录了 [mikeah2011.github.io](https://mikeah2011.github.io) 博客站点的每一次重要变更——从写作流水线的自动化调度执行，到 CI/CD 部署流程的迭代优化，再到 Hexo 主题配置和选题管理系统的演进。

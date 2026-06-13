@@ -1,5 +1,5 @@
 ---
-title: 创建索引
+title: MySQL 创建索引的正确姿势：ALTER TABLE vs CREATE INDEX
 tags:
 - MySQL
 - 索引
@@ -15,6 +15,7 @@ images:
 - /images/content/databases-001-content-1.jpg
 - /images/content/databases-001-content-2.jpg
 ---
+
 
 ## 1. 在执行 CREATE TABLE 时创建索引
 

@@ -1,5 +1,5 @@
 ---
-title: ThinkPHP
+title: ThinkPHP 框架入门：国内主流 PHP 框架快速上手
 cover: /images/covers/thinkphp-1-cover.jpg
 tags:
 - PHP
@@ -12,6 +12,7 @@ description: ThinkPHP（TP）是国内使用最广的 PHP 框架，基于 MVC �
   核心特性、ORM、中间件、事件系统、队列、验证器、缓存配置，并对比 TP6 与 TP8 差异及 ThinkPHP 与 Laravel 选型，附实战踩坑与安全防护经验，是国内
   PHP 开发者的实用参考指南。
 ---
+
 
 ## 一、ThinkPHP 简介
 

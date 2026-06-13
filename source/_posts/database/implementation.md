@@ -1,5 +1,5 @@
 ---
-title: 索引底层实现
+title: MySQL 索引底层实现：B+Tree 数据结构与存储引擎原理
 tags:
 - MySQL
 - 索引
@@ -14,6 +14,7 @@ images:
 - /images/content/databases-016-content-1.jpg
 - /images/content/databases-016-content-2.jpg
 ---
+
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Yaf
+title: Yaf 框架入门：鸟哥的 C 扩展级 PHP 框架
 cover: /images/covers/yaf-1-cover.jpg
 tags:
 - PHP
@@ -15,6 +15,7 @@ description: Yaf（Yet Another Framework）是鸟哥 Laruence 用 C 编写的高
   QPS 可达 6000+。本文详解 Yaf 路由系统、插件机制、Swoole 协程化方案、RESTful API 实战及性能调优技巧，并与 Hyperf、Webman
   等现代框架进行全面对比，帮你判断 Yaf 是否适合你的项目。
 ---
+
 
 ## 一、Yaf 是什么
 

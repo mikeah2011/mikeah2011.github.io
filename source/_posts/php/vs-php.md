@@ -1,5 +1,5 @@
 ---
-title: PHP版本区别
+title: PHP 版本对比：PHP 5.x vs 7.x vs 8.x 新特性与性能差异
 cover: /images/covers/vs-php-cover.jpg
 tags:
 - PHP
@@ -15,6 +15,7 @@ date: 2021-03-20 15:05:07
 description: 全面梳理PHP版本演进历程，从PHP 4到PHP 8.4各版本新特性深度对比分析。涵盖命名参数、JIT即时编译器原理与配置、枚举类型与回标枚举、只读属性与只读类、match模式匹配表达式、纤程Fiber协程编程、属性钩子Property
   Hooks等PHP8核心新特性。附完整可运行代码示例、JIT编译原理详解与性能基准测试数据、各版本内存占用与请求吞吐量对比，以及从PHP7到PHP8的完整迁移指南与各版本破坏性变更排查清单，帮助开发者快速掌握PHP8新特性及版本升级要点。
 ---
+
 
 
 

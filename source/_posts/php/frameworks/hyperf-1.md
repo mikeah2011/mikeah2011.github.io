@@ -1,5 +1,5 @@
 ---
-title: Hyperf
+title: Hyperf 框架入门：Swoole 驱动的高性能 PHP 协程框架
 cover: /images/covers/hyperf-1-cover.jpg
 tags:
 - PHP
@@ -15,6 +15,7 @@ description: Hyperf 是基于 Swoole 4.5+ 的高性能、协程驱动、企业�
   AOP 面向切面编程，对标 Java Spring Boot 生态。本文全面介绍 Hyperf 框架的核心组件、配置中心（Nacos）、服务注册与发现、熔断限流、链路追踪（Zipkin/Jaeger）、消息队列（AMQP/Nats）、数据库连接池与协程事务，并对比
   EasySwoole、Webman、Laravel Octane 等方案，附踩坑笔记与内存优化实战，适合 PHP 微服务架构选型参考。
 ---
+
 
 ## 一、Hyperf 的定位
 

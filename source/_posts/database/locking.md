@@ -1,15 +1,22 @@
 ---
-title: MySQL - 锁
-tags: [MySQL, 锁, InnoDB, 并发控制, 事务]
+title: MySQL 锁机制详解：行锁、表锁、间隙锁与死锁处理
+tags:
+- MySQL
+- 锁
+- InnoDB
+- 并发控制
+- 事务
 categories:
-  - database
+- database
 date: 2021-03-20 15:05:07
-description: 'MySQL锁机制是数据库并发控制的核心基础。本文系统讲解InnoDB存储引擎的锁体系：从表级锁与行级锁的对比，到共享锁（S锁）、排他锁（X锁）、意向锁的工作原理；深入剖析Record Lock、Gap Lock、Next-Key Lock三种行锁算法及其在可重复读隔离级别下防止幻读的机制；详解死锁的产生条件、排查方法与预防策略，并对比乐观锁与悲观锁在高并发场景下的选型思路。结合实际踩坑案例，帮助开发者理解锁等待超时处理、大事务锁表、索引失效导致锁升级等常见问题的解决方案。'
+description: MySQL锁机制是数据库并发控制的核心基础。本文系统讲解InnoDB存储引擎的锁体系：从表级锁与行级锁的对比，到共享锁（S锁）、排他锁（X锁）、意向锁的工作原理；深入剖析Record
+  Lock、Gap Lock、Next-Key Lock三种行锁算法及其在可重复读隔离级别下防止幻读的机制；详解死锁的产生条件、排查方法与预防策略，并对比乐观锁与悲观锁在高并发场景下的选型思路。结合实际踩坑案例，帮助开发者理解锁等待超时处理、大事务锁表、索引失效导致锁升级等常见问题的解决方案。
 cover: /images/covers/databases-01-cover.jpg
 images:
-  - /images/content/databases-01-content-1.jpg
-  - /images/content/databases-01-content-2.jpg
+- /images/content/databases-01-content-1.jpg
+- /images/content/databases-01-content-2.jpg
 ---
+
 [TOC]
 
 ## 锁机制

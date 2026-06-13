@@ -1,14 +1,20 @@
 ---
-title: Kafka
+title: Kafka 入门：分区、副本、消费者组与高吞吐消息架构
 cover: /images/mq-cover.png
-tags: [Kafka, 消息队列, 消息中间件, PHP, Laravel, 分布式, 高吞吐]
+tags:
+- Kafka
+- 消息队列
+- 消息中间件
+- PHP
+- Laravel
+- 分布式
+- 高吞吐
 categories:
-  - mq
+- mq
 date: 2019-03-20 15:05:07
-description: '深入解析Apache Kafka消息队列核心架构与原理：Broker集群、Topic与Partition分区机制、Consumer Group消费组与Rebalance重平衡、Producer生产者分区策略与acks确认机制。附PHP/Laravel实战代码示例，涵盖消息顺序性保证、死信队列DLQ处理、Exactly-Once语义、监控运维方案与生产环境踩坑案例总结，帮助后端工程师全面掌握Kafka高吞吐异步解耦架构设计。'
-
-
+description: 深入解析Apache Kafka消息队列核心架构与原理：Broker集群、Topic与Partition分区机制、Consumer Group消费组与Rebalance重平衡、Producer生产者分区策略与acks确认机制。附PHP/Laravel实战代码示例，涵盖消息顺序性保证、死信队列DLQ处理、Exactly-Once语义、监控运维方案与生产环境踩坑案例总结，帮助后端工程师全面掌握Kafka高吞吐异步解耦架构设计。
 ---
+
 ## 一、为什么需要 Kafka？
 
 在现代分布式系统架构中，消息队列（Message Queue）是实现**异步解耦**、**流量削峰**和**数据缓冲**的核心基础设施。Apache Kafka 作为 LinkedIn 于 2011 年开源的分布式流处理平台，凭借其**超高吞吐量**（单集群可达百万级 TPS）、**持久化存储**和**水平扩展**能力，已成为大数据与微服务架构中最受欢迎的消息中间件之一。

@@ -1,5 +1,5 @@
 ---
-title: PHP代码洁癖心得
+title: PHP 代码优化心得：性能调优与编码规范最佳实践
 tags:
 - PHP
 - 性能优化
@@ -13,6 +13,7 @@ cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/5ea38ff8793f7854-202
 description: '`if`的使用洁癖 1. 给定初始值 2. 简单的判断使用`&&`代替 3. 三元运算符 4. 简化三元运算符`?:`或`??` 5.
   去掉多此一举的 6. 对同一对象，含有多层逻辑，使用`switch`代替`elseif` 7. 表驱动法…'
 ---
+
 
 ![img](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/5ea38ff8793f7854-20221006153725317.jpg)
 

@@ -1,16 +1,20 @@
 ---
-title: Redis高并发
-tags: [Redis, 高并发, 分布式锁, 缓存优化]
+title: Redis 高并发场景实战：缓存策略与性能优化
+tags:
+- Redis
+- 高并发
+- 分布式锁
+- 缓存优化
 categories:
-  - database
+- database
 date: 2021-03-20 15:05:07
-description: '本文深入探讨Redis高并发架构设计，涵盖单线程模型与I/O多路复用原理、缓存穿透/击穿/雪崩解决方案、基于SETNX与Redlock的分布式锁实现、Pipeline与Lua脚本优化技巧，以及Redis集群方案选型对比，助你全面掌握Redis高并发场景下的最佳实践。'
+description: 本文深入探讨Redis高并发架构设计，涵盖单线程模型与I/O多路复用原理、缓存穿透/击穿/雪崩解决方案、基于SETNX与Redlock的分布式锁实现、Pipeline与Lua脚本优化技巧，以及Redis集群方案选型对比，助你全面掌握Redis高并发场景下的最佳实践。
 cover: /images/covers/databases-001-cover.png
 images:
-  - /images/content/databases-001-content-1.png
-  - /images/diagrams/databases-001-diagram.png
-
+- /images/content/databases-001-content-1.png
+- /images/diagrams/databases-001-diagram.png
 ---
+
 > 背景
 
 Redis是不会存在并发问题的，因为他是单进程的，再多的命令都是一个接一个地执行的。

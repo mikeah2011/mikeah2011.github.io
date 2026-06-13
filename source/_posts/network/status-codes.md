@@ -1,5 +1,5 @@
 ---
-title: HTTP状态码
+title: HTTP 状态码大全：2xx/3xx/4xx/5xx 分类与 RESTful 最佳实践
 cover: /images/covers/status-codes-cover.jpg
 tags:
 - HTTP
@@ -14,6 +14,7 @@ description: 全面解析 HTTP 状态码，涵盖 1xx 到 5xx 五大类别的设
   等高频状态码在 Nginx、Apache 及 Laravel 框架中的处理方式，包含代码示例、重定向对比表、常见踩坑案例与排查思路，适合 RESTful API
   开发者和后端工程师参考。
 ---
+
 
 ## 什么是 HTTP 状态码
 

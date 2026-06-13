@@ -1,5 +1,5 @@
 ---
-title: TCP/IP
+title: TCP/IP 协议栈详解：三次握手、四次挥手与拥塞控制
 cover: /images/covers/tcp-ip-cover.jpg
 tags:
 - TCP
@@ -18,6 +18,7 @@ keywords:
 date: 2016-03-20 15:05:07
 description: 深入解析TCP/IP协议栈架构与工作原理，详细讲解TCP三次握手与四次挥手过程、TCP状态机转换、拥塞控制四大算法（慢启动、拥塞避免、快重传、快恢复），对比TCP与UDP差异，剖析HTTP/1.1至HTTP/3的演进及其与TCP的关系，并提供Wireshark抓包分析、netstat/ss命令实战及Socket编程代码示例。
 ---
+
 
 
 TCP/IP（Transmission Control Protocol/Internet Protocol，传输控制协议/网际协议）

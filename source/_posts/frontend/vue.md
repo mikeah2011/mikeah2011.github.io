@@ -1,5 +1,5 @@
 ---
-title: Vue
+title: Vue.js 核心概念：响应式数据、组件化与生命周期
 cover: /images/covers/vue-cover.jpg
 tags:
 - JavaScript
@@ -13,6 +13,7 @@ description: Vue 是渐进式 JavaScript 框架，由尤雨溪创建，主打"�
   API + `<script setup>` 让大型项目的组织更清晰。本文从 Hello Vue 到响应式原理、组件通信、Vue Router 路由守卫、Pinia
   状态管理、性能优化（懒加载、虚拟滚动）进行系统讲解，附 Vue 2 vs Vue 3 对比表和高频踩坑记录。
 ---
+
 
 
 ## 一、Vue 简介

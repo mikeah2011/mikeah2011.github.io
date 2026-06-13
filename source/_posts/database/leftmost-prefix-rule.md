@@ -1,5 +1,5 @@
 ---
-title: 索引的最左前缀原则
+title: MySQL 联合索引最左前缀原则：查询优化的核心规则
 tags:
 - MySQL
 - 索引优化
@@ -17,6 +17,7 @@ images:
 - /images/content/databases-index-2-content-1.jpg
 - /images/content/databases-index-2-content-2.jpg
 ---
+
 
 ## 什么是最左前缀原则
 

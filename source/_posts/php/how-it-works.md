@@ -1,5 +1,5 @@
 ---
-title: PHP的工作原理
+title: PHP 工作原理：SAPI、FPM、OPcache 与请求生命周期
 cover: /images/covers/how-it-works-cover.jpg
 tags:
 - PHP
@@ -14,6 +14,7 @@ description: 深入解析PHP工作原理，涵盖CGI、FastCGI协议与PHP-FPM�
   7/8 JIT编译器、Zend Engine性能改进、OPcache缓存原理与配置优化。对比CLI模式与FPM模式的区别，提供PHP-FPM调优实战参数配置与502
   Bad Gateway等常见问题排查方案。
 ---
+
 
 ## 概述
 

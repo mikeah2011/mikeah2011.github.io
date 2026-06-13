@@ -1,5 +1,5 @@
 ---
-title: PHP5与PHP7
+title: PHP 5 到 PHP 7 升级指南：语法变更与性能提升
 cover: /images/covers/php5-vs-php7-cover.jpg
 tags:
 - PHP
@@ -16,6 +16,7 @@ description: 深入对比 PHP5、PHP7 与 PHP8 三代版本核心差异与新特
   PHP5 到 PHP7/PHP8 的迁移实战指南、已移除函数替代方案、常见踩坑陷阱与代码改写示例，附 PHP8 属性注解、match 表达式、联合类型及 WordPress/Magento
   性能基准测试数据。
 ---
+
 
 
 ## 概述

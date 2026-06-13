@@ -1,5 +1,5 @@
 ---
-title: Yii2
+title: Yii2 框架入门：Gii 代码生成与 ActiveRecord 实战
 cover: /images/covers/yii2-1-cover.jpg
 tags:
 - PHP
@@ -15,6 +15,7 @@ description: Yii2 是一款高性能 PHP 框架，以 Active Record ORM、Gii �
   API 开发、数据库迁移、缓存系统、国际化方案，以及与 Laravel、ThinkPHP 的对比分析和常见踩坑解决方案，适合 PHP 开发者快速上手企业级 Web
   应用开发。
 ---
+
 
 ## 一、Yii2 简介
 

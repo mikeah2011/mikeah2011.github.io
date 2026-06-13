@@ -1,13 +1,23 @@
 ---
-title: HTTPS
+title: HTTPS 深度解析：TLS 握手、证书链与 Laravel HTTPS 配置
 cover: /images/covers/https-cover.jpg
-tags: [HTTPS, TLS, SSL, 网络安全, HTTP, Laravel, 证书, CA]
+tags:
+- HTTPS
+- TLS
+- SSL
+- 网络安全
+- HTTP
+- Laravel
+- 证书
+- CA
 categories:
-  - network
-  - infra
+- network
+- infra
 date: 2017-03-20 15:05:07
-description: "HTTPS全称Hyper Text Transfer Protocol over SecureSocket Layer，是以安全为目标的HTTP通道。通过TLS/SSL加密层保护数据传输的机密性与完整性，防止中间人攻击与数据窃听。本文深入讲解HTTPS原理、TLS握手流程、证书类型对比、Let's Encrypt实战配置及PHP/Laravel强制HTTPS方案。"
+description: HTTPS全称Hyper Text Transfer Protocol over SecureSocket Layer，是以安全为目标的HTTP通道。通过TLS/SSL加密层保护数据传输的机密性与完整性，防止中间人攻击与数据窃听。本文深入讲解HTTPS原理、TLS握手流程、证书类型对比、Let's
+  Encrypt实战配置及PHP/Laravel强制HTTPS方案。
 ---
+
 HTTPS（Hyper Text Transfer Protocol over SecureSocket Layer）是以安全为目标的HTTP通道，简单讲是HTTP的安全版，即HTTP下加入SSL/TLS层。HTTPS的安全基础是SSL（Secure Socket Layer）及其继任者TLS（Transport Layer Security），因此加密的详细内容就需要SSL/TLS。HTTPS协议的主要作用可以分为两种：一种是建立一个信息安全通道，来保证数据传输的安全；另一种就是确认网站的真实性。
 
 <!-- more -->

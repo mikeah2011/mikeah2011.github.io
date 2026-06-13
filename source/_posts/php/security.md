@@ -1,5 +1,5 @@
 ---
-title: PHP安全
+title: PHP 安全防护：XSS、SQL 注入、CSRF 与文件上传漏洞
 cover: /images/covers/security-php-cover.jpg
 tags:
 - PHP
@@ -10,6 +10,7 @@ date: 2019-03-20 15:05:07
 description: 全面解析PHP安全常见漏洞与防范策略，涵盖SQL注入、XSS、CSRF、密码哈希、命令注入、XXE等十大安全问题，提供PDO预处理、htmlspecialchars、bcrypt、Laravel
   CSRF Token等实战代码示例与最佳实践清单，助你构建安全可靠的PHP应用。
 ---
+
 
 
 

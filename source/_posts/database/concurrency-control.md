@@ -1,5 +1,5 @@
 ---
-title: 控制并发
+title: MySQL 并发控制：乐观锁、悲观锁与 MVCC 原理
 tags:
 - MySQL
 - 并发控制
@@ -17,6 +17,7 @@ images:
 - /images/content/databases-013-content-1.jpg
 - /images/content/databases-013-content-2.jpg
 ---
+
 
 
 Mysql内部通过锁机制实现对资源的并发访问控制，保证数据的一致性，锁机制的类型和引擎的种类有关，MyISAM中默认支持的表级锁有两种：共享读锁和独占写锁。表级锁在MyISAM和InnoDB的存储引擎中都支持，但是InnoDB默认支持的是行锁。

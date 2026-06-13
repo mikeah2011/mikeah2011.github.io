@@ -1,5 +1,5 @@
 ---
-title: 穿透&雪崩&击穿
+title: Redis 缓存穿透、击穿、雪崩：三大问题对比与防护方案
 tags:
 - Redis
 - 缓存穿透
@@ -18,6 +18,7 @@ images:
 - /images/content/databases-1-content-1.jpg
 - /images/content/databases-1-content-2.jpg
 ---
+
 
 
 ## 概述

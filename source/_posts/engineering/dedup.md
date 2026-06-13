@@ -1,13 +1,18 @@
 ---
-title: 查找重复字符
+title: 算法实战：查找重复字符的多种解法对比
 cover: /images/covers/dedup-cover.jpg
-tags: [PHP, 算法, 字符串处理, 数据结构]
+tags:
+- PHP
+- 算法
+- 字符串处理
+- 数据结构
 categories:
-  - engineering
-  - algorithms
+- engineering
+- algorithms
 date: 2019-03-20 15:05:07
-description: '深入讲解查找重复字符与行程长度编码（RLE）算法，涵盖PHP多种实现方式（正则、数组计数、迭代对比）、性能对比、边界处理、PHPUnit单元测试及真实应用场景，助你全面掌握字符串压缩与重复字符检测技术。'
+description: 深入讲解查找重复字符与行程长度编码（RLE）算法，涵盖PHP多种实现方式（正则、数组计数、迭代对比）、性能对比、边界处理、PHPUnit单元测试及真实应用场景，助你全面掌握字符串压缩与重复字符检测技术。
 ---
+
 # 查找重复字符
 
 ## 问题描述
