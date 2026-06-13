@@ -1,5 +1,6 @@
 ---
 title: LLM 本地部署实战：Ollama/vLLM/llama.cpp 选型与 GPU 优化
+keywords: [LLM]
 date: 2026-06-02 03:00:00
 tags:
 - LLM

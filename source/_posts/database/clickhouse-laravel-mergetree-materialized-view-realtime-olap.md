@@ -2,6 +2,7 @@
 title: ClickHouse + Laravel 实战进阶：MergeTree 引擎、物化视图与实时 OLAP——电商埋点分析的高性能查询方案
 date: 2026-06-07 10:00:00
 tags: [ClickHouse, Laravel, OLAP, 物化视图, MergeTree]
+keywords: [ClickHouse, Laravel, OLAP, 物化视图, MergeTree]
 categories:
   - database
 description: '深入实战 ClickHouse + Laravel 集成方案：MergeTree 引擎家族选型、物化视图实时聚合、电商埋点 OLAP 分析，覆盖分片策略、写入优化与生产运维监控。'

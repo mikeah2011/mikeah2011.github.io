@@ -1,5 +1,6 @@
 ---
 title: Kubernetes Debugging 实战：kubectl debug/ephemeral container/Lens——Laravel K8s
+keywords: [Kubernetes, Debugging]
   集群的生产级故障排查工具箱
 description: 深入实战 Kubernetes 集群中 Laravel 应用的生产级故障排查方案，涵盖 kubectl debug、Ephemeral Container、Lens/OpenLens、k9s、Telepresence
   等工具的完整使用指南。通过 Octane 内存泄漏、队列工作者崩溃、OOMKilled、网络抓包、Service Mesh 调试等真实场景，手把手教你零重启定位问题。附自定义调试镜像

@@ -1,5 +1,6 @@
 ---
 title: Kubernetes NetworkPolicy 实战：Pod 间网络隔离——微服务的零信任网络策略与 Calico/Cilium 集成
+keywords: [Kubernetes, NetworkPolicy]
 date: 2026-06-10 09:03:00
 categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

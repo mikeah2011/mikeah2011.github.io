@@ -1,5 +1,6 @@
 ---
 title: 电商库存系统设计-防超卖分布式锁与库存预扣减-Laravel-B2C-API实战踩坑记录
+keywords: [Laravel, API]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

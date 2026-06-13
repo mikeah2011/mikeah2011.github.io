@@ -1,5 +1,6 @@
 ---
 title: ELK Stack 实战：Elasticsearch + Logstash + Kibana 集中式日志系统与 Laravel 集成踩坑记录
+keywords: [ELK, Stack]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

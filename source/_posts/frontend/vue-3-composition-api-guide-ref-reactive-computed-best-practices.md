@@ -1,5 +1,6 @@
 ---
 title: Vue 3 Composition API 实战-ref reactive computed 最佳实践与响应式踩坑记录
+keywords: [Vue, Composition, API]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

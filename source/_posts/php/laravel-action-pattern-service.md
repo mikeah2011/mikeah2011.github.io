@@ -1,5 +1,6 @@
 ---
 title: Laravel Action Pattern 实战：用单一职责的 Action 类替代胖 Service 的大型项目重构经验
+keywords: [Laravel, Action, Pattern]
 date: 2026-06-02 10:00:00
 tags:
 - Laravel

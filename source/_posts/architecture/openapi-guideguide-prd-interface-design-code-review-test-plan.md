@@ -1,5 +1,6 @@
 ---
 title: OpenAPI 设计指南实战-从 PRD 到 Interface Design 到 Code Review 到 Test Plan 全链路踩坑记录
+keywords: [OpenAPI, PRD, Interface]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: MySQL 主键设计：自增 vs UUID vs 雪花算法选型
+keywords: [MySQL]
 tags:
 - MySQL
 - 主键

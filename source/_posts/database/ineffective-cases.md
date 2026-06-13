@@ -1,6 +1,7 @@
 ---
 title: 索引失效的 12 种原因
 tags: [MySQL, 索引, 性能优化, EXPLAIN, 慢查询]
+keywords: [MySQL, 索引, 性能优化, EXPLAIN, 慢查询]
 categories:
   - database
 date: 2019-05-20 10:00:00

@@ -1,5 +1,6 @@
 ---
 title: Predis-Laravel-缓存实战-失效分布式锁性能调优
+keywords: [Predis, Laravel]
 date: 2026-05-02
 description: 基于 KKday B2C API 百万级订单实战经验，深度解析 Predis 与 Laravel Redis 缓存体系。涵盖缓存穿透、雪崩、击穿三大失效模式的工程解决方案，SET
   NX 与 Redlock 分布式锁的 Lua 原子实现与续期机制，Predis vs PhpRedis 性能基准对比，以及连接池优化、TTL 随机化、大 Key

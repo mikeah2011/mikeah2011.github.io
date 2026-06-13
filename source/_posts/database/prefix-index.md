@@ -1,5 +1,6 @@
 ---
 title: MySQL 前缀索引：长字符串字段的索引优化策略
+keywords: [MySQL]
 tags:
 - MySQL
 - 前缀索引

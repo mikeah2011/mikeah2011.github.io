@@ -1,5 +1,6 @@
 ---
 title: MCP Authorization 规范实战：OAuth 2.1 + PKCE 的 MCP Server 鉴权——企业级工具访问控制的工程化方案
+keywords: [MCP, Authorization]
 date: 2026-06-10 02:00:00
 categories:
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

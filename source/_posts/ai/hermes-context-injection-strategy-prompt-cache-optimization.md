@@ -1,5 +1,6 @@
 ---
 title: Hermes 上下文注入策略：为什么注入 user message 而非 system prompt？（prompt cache 优化）
+keywords: [Hermes]
 date: 2026-06-02 12:00:00
 tags:
 - Hermes

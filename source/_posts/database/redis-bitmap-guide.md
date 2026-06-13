@@ -1,5 +1,6 @@
 ---
 title: Redis Bitmap 实战：用户签到/在线状态/特征标记 — Laravel B2C API 踩坑记录
+keywords: [Redis, Bitmap]
 date: 2026-05-16 15:15:19
 updated: 2026-05-16 15:20:02
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

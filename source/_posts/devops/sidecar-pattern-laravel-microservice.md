@@ -2,6 +2,7 @@
 title: Sidecar Pattern 实战：Laravel 微服务的 Sidecar 代理——Envoy/Telegraf/Filebeat 的基础设施下沉
 date: 2026-06-06 10:00:00
 tags: [Sidecar, 微服务, Envoy, Laravel, DevOps]
+keywords: [Sidecar, 微服务, Envoy, Laravel, DevOps, Pattern]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

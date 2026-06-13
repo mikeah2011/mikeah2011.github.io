@@ -1,5 +1,6 @@
 ---
 title: Hermes Agent vs Claude Code vs Cursor：开发者 AI 助手选型与工作流对比实战踩坑记录
+keywords: [Hermes, Agent, Claude]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

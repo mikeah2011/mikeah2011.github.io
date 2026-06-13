@@ -2,6 +2,7 @@
 title: RoadRunner 实战：Go 驱动的 PHP 高性能应用服务器——对比 Octane/Swoole/FrankenPHP 的进程模型与选型决策
 date: 2026-06-03 09:00:00
 tags: [RoadRunner, PHP, Octane, Swoole, FrankenPHP, 高性能]
+keywords: [RoadRunner, PHP, Octane, Swoole, FrankenPHP]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

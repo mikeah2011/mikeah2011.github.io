@@ -1,5 +1,6 @@
 ---
 title: HTTP/2 vs HTTP/3 在 BFF 場景性能對比與真實踩坑記錄
+keywords: [HTTP, BFF]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

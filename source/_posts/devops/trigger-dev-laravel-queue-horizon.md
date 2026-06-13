@@ -1,5 +1,6 @@
 ---
 title: Trigger.dev 实战：开源背景任务平台——对比 Laravel Queue/Horizon 的可视化编排与可观测性优势
+keywords: [Trigger.dev]
 date: 2026-06-04 12:00:00
 tags:
 - trigger.dev

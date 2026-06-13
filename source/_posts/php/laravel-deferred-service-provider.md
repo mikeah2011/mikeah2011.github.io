@@ -1,5 +1,6 @@
 ---
 title: Laravel Deferred Service Provider 实战进阶：按需加载 Provider 的冷启动优化
+keywords: [Laravel, Deferred, Service]
 date: 2026-06-10 04:45:00
 categories:
   - php

@@ -3,6 +3,7 @@ title: 'Anthropic Claude Opus 4 / OpenAI o3 实战：最新推理模型接入—
 date: 2026-06-06 10:00:00
 description: '深入实战 Anthropic Claude Opus 4 与 OpenAI o3 两大最新推理模型的 Laravel 集成方案。涵盖 Extended Thinking 与 Chain of Thought 思维链输出原理、Tool Use 函数调用完整流程、流式 SSE 推送、错误重试与 Rate Limit 应对策略，附带完整可运行代码与成本优化建议，帮助后端工程师快速将推理模型接入生产级应用。'
 tags: [AI, LLM, Claude, OpenAI, Laravel, Tool Use]
+keywords: [AI, LLM, Claude, OpenAI, Laravel, Anthropic, Opus]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

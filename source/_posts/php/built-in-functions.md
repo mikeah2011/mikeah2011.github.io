@@ -1,5 +1,6 @@
 ---
 title: PHP 内置系统函数精选：字符串、数组、文件处理常用 API
+keywords: [PHP]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: CORS-跨域资源共享配置与安全策略-Laravel-B2C-API实战踩坑记录
+keywords: [CORS, Laravel, API]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -3,6 +3,7 @@ title: 'PostgreSQL pg_cron + pg_partman 实战：数据库内定时任务与自�
 description: '深度解析 PostgreSQL 数据库原生定时任务扩展 pg_cron 与自动分区管理工具 pg_partman 的实战应用。从传统 Laravel Scheduler 链路过长、故障点多的痛点出发，详解 pg_cron 安装配置、权限管理与四大核心场景（分批清理过期数据、统计预计算、物化视图刷新、数据完整性检查），以及 pg_partman 的时间/ID 范围分区配置与自动保留策略。通过联合实战构建全自动分区生命周期管理系统，提供完整 Laravel 集成方案，包含 6 个生产踩坑案例、性能调优建议与迁移路线图。'
 date: 2026-06-06 10:00:00
 tags: [PostgreSQL, pg_cron, pg_partman, 分区表, 定时任务, Laravel]
+keywords: [PostgreSQL, pg_cron, pg_partman, 分区表, 定时任务]
 categories:
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

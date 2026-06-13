@@ -1,5 +1,6 @@
 ---
 title: AI Agent Observability 进阶：LangSmith vs LangFuse vs Helicone 实战——成本追踪、延迟分析与回归测试闭环
+keywords: [AI, Agent, Observability]
 date: 2026-06-05 10:00:00
 tags:
 - AI Agent

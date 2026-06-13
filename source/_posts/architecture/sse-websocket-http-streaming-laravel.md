@@ -2,6 +2,7 @@
 title: SSE vs WebSocket vs HTTP Streaming 实战：实时通信方案的工程选型——Laravel 中的三种推送架构深度对比
 date: 2026-06-03 10:00:00
 tags: [SSE, WebSocket, HTTP-Streaming, Laravel, 实时通信, Reverb]
+keywords: [SSE, WebSocket, HTTP-Streaming, Laravel, 实时通信, HTTP]
 categories:
   - architecture
 description: "深入对比 SSE、WebSocket、HTTP Streaming 三种实时通信方案的协议原理、工程实现与生产部署。涵盖 Laravel Reverb WebSocket 实战、原生 SSE 流式推送、AI 场景下的 HTTP Streaming 实现，附 Node.js 与 Go 语言示例代码。从自动重连、负载均衡、Nginx 代理配置到 PHP-FPM 进程瓶颈，详解六大踩坑场景与解决方案。包含完整的选型决策树与性能基准数据，助你在 Laravel 项目中精准选型实时通信架构。"

@@ -1,5 +1,6 @@
 ---
 title: Docker BuildKit Cache Mount 实战：编译缓存持久化——PHP/Node.js/Rust 依赖安装的极速构建与 CI 时间优化
+keywords: [Docker, BuildKit, Cache]
 date: 2026-06-10 08:56:00
 categories:
   - devops

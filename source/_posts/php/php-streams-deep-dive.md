@@ -1,5 +1,6 @@
 ---
 title: PHP Streams 深度剖析：流式读写、Wrapper 自定义与大文件处理
+keywords: [PHP, Streams]
 date: 2026-06-10 08:36:00
 categories:
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

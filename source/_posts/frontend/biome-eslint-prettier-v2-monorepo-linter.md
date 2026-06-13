@@ -1,5 +1,6 @@
 ---
 title: Biome 2.x 实战：替代 ESLint + Prettier 的下一代前端工具链 v2——Monorepo 支持、Linter 规则自定义与性能基准
+keywords: [Biome]
 date: 2026-06-09 19:12:00
 tags:
 - Biome

@@ -1,5 +1,6 @@
 ---
 title: Terratest 实战：基础设施即代码的自动化测试——Terraform 模块的单元测试、集成测试与 CI 门禁
+keywords: [Terratest]
 date: 2026-06-05 08:00:00
 tags:
 - Terratest

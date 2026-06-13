@@ -2,6 +2,7 @@
 title: 'MCP Server 开发实战：用 TypeScript/Python 构建自定义 MCP 工具服务器——stdio/SSE/Streamable HTTP 三种传输'
 date: 2026-06-06 12:00:00
 tags: [MCP, AI Agent, TypeScript, Python, SSE, Streamable HTTP, LLM]
+keywords: [MCP, AI Agent, TypeScript, Python, SSE, Server]
 categories:
   - architecture
 description: "MCP Server 开发实战指南：从零到一用 TypeScript 和 Python 构建自定义 MCP 工具服务器，完整覆盖 stdio、SSE、Streamable HTTP 三种传输方式的架构差异与工程权衡。手把手实现 PostgreSQL 数据库查询 Server 与文件系统操作 Server，深入讲解 MCP 协议的工具、资源、提示词三大原语，结合安全校验、错误处理与部署最佳实践，帮助开发者为 AI Agent 和 LLM 应用构建标准化的外部工具集成层。"

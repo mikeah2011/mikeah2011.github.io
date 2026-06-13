@@ -2,6 +2,7 @@
 title: Flutter + Laravel API 实战：RESTful 对接、认证、分页、错误处理
 date: 2026-06-02 10:00:00
 tags: [Flutter, Laravel, RESTful, API, Dio, Freezed]
+keywords: [Flutter, Laravel, RESTful, API, Dio]
 categories:
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

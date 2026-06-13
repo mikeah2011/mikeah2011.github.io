@@ -1,5 +1,6 @@
 ---
 title: TCP 三次握手详解：SYN、SYN-ACK、ACK 的完整流程
+keywords: [TCP]
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop

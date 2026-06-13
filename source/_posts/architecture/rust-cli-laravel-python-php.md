@@ -1,5 +1,6 @@
 ---
 title: Rust CLI 工具开发实战：为 Laravel 项目构建自定义命令行工具——性能对比 Python/PHP
+keywords: [Rust, CLI]
 date: 2026-06-02 00:00:00
 tags:
 - Rust

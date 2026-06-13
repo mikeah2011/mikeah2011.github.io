@@ -9,6 +9,7 @@ categories:
   - architecture
   - runtime
 tags: [Laravel, Nginx, PHP, 性能优化]
+keywords: [Laravel, Nginx, PHP, 性能优化]
 description: "深入 Laravel B2C API 生产环境的 Nginx 性能优化实战：详解 PHP-FPM 进程池调优与 Unix Socket 连接选型、FastCGI 缓存策略从零到百分之八十命中率的完整路径、Gzip 压缩级别基准测试与隐藏陷阱排查。涵盖 upstream keepalive 连接复用、request_terminate_timeout 超时协调、缓存穿透防护与 X-Cache-Status 监控等七大踩坑记录，附可直接复用的生产级 Nginx 配置模板，助你系统性掌握 PHP-FPM 与 Nginx 协同调优的核心方法论。"
 
 

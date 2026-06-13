@@ -1,5 +1,6 @@
 ---
 title: Composer 依賴管理優化與 autoload 快取清理實戰 - KKday-B2C-API 真實踩坑記錄
+keywords: [Composer, KKday, API]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

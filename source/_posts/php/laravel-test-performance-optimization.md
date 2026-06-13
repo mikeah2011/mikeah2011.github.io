@@ -1,5 +1,6 @@
 ---
 title: Laravel 测试性能优化实战：并行测试、数据库内存模式、测试数据共享——从 30 分钟到 3 分钟的测试套件加速
+keywords: [Laravel]
 date: 2026-06-09 23:18:00
 categories:
   - php

@@ -1,5 +1,6 @@
 ---
 title: 新人 Onboarding 自动化实战：devcontainer + Seed 数据 + 文档生成——Laravel 团队的零摩擦入职方案
+keywords: [Onboarding]
 date: 2026-06-09
 categories:
   - engineering

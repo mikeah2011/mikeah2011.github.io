@@ -7,6 +7,7 @@ date: 2026-05-02
 categories:
   - php
 tags: [CI/CD, Laravel, PHP, PHPStan, Psalm, 静态分析, 代码质量]
+keywords: [CI/CD, Laravel, PHP, PHPStan, Psalm]
 description: 基於 KKday B2C API 項目經驗，深入解析 PHPStan 和 Psalm 在大型 Laravel 應用中的配置技巧、性能優化與真實踩坑記錄。從 10 個實際問題出發，提供可落地的代碼品質提升方案。
 
 
@@ -590,7 +591,7 @@ jobs:
 
 1. [PHPStan Laravel 最佳實踐](https://phpstan.org/user-guide/laravel)
 2. [Psalm PHPDoc Type Annotations](https://psalm.dev/3/docs/annotating-types)
-3. [KKday-B2C-API 代碼規範手冊](./.github/contributing.md)
+3. KKday-B2C-API 代碼規範手冊
 
 ### 💬 開發者評論
 

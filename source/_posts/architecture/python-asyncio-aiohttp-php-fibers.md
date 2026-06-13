@@ -1,5 +1,6 @@
 ---
 title: Python asyncio 深度实战：事件循环、协程调度与 aiohttp——PHP Fibers 开发者的异步编程对比
+keywords: [Python]
 date: 2026-06-02 10:00:00
 tags:
 - Python

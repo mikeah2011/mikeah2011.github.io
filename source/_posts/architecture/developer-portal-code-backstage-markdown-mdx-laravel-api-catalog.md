@@ -1,5 +1,6 @@
 ---
 title: "Developer Portal as Code 实战：Backstage + Markdown/MDX——Laravel 团队的内部文档站自动化构建与 API Catalog 集成"
+keywords: [Developer, Portal, Code]
 date: 2026-06-09 17:01:00
 categories:
   - architecture

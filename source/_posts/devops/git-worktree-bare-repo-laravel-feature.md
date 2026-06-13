@@ -1,5 +1,6 @@
 ---
 title: Git Worktree + Bare Repo 实战：多分支并行开发——Laravel 大型项目中同时处理多个 feature 的高效工作流
+keywords: [Git, Worktree, Bare]
 date: 2026-06-04 10:00:00
 tags:
 - Git

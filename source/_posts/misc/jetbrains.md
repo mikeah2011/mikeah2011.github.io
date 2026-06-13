@@ -1,5 +1,6 @@
 ---
 title: JetBrains系列产品激活方法
+keywords: [JetBrains]
 tags:
 - macOS
 - JetBrains

@@ -2,6 +2,7 @@
 title: 'Laravel 12.x Casts 进阶实战：自定义 Cast 类的底层原理——InboundCasts/OutboundCasts 与 Eloquent 序列化管道'
 date: 2026-06-06 10:00:00
 tags: [Laravel, Eloquent, PHP, Casts, ORM]
+keywords: [Laravel, Eloquent, PHP, Casts, ORM]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

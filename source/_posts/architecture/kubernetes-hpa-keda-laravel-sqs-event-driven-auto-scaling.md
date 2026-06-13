@@ -1,5 +1,6 @@
 ---
 title: Kubernetes HPA KEDA 实战：事件驱动自动扩缩——Laravel 队列深度/SQS 消息数驱动的精细扩缩策略
+keywords: [Kubernetes, HPA, KEDA]
 date: 2026-06-09 16:31:00
 categories:
   - architecture

@@ -1,5 +1,6 @@
 ---
 title: TypeScript 高级类型体操实战：Template Literal Types、Conditional Types、Mapped Types——从
+keywords: [TypeScript]
   any 到类型安全的进阶之路
 date: 2026-06-07 10:00:00
 tags:

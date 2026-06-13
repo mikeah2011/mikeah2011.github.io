@@ -1,5 +1,6 @@
 ---
 title: Laravel Livewire 3 实战：Wireable DTO、Computed Properties、Lazy Loading——对比 Inertia.js
+keywords: [Laravel, Livewire]
   的全栈交互新范式
 date: 2026-06-10 05:18:00
 categories:

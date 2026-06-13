@@ -2,6 +2,7 @@
 title: Laravel Modular Monolith 实战：模块化单体架构——介于单体与微服务之间的最佳平衡点与 Laravel 落地踩坑记录
 date: 2026-06-04 12:00:00
 tags: [Laravel, modular-monolith, 架构设计, 模块化, 微服务]
+keywords: [Laravel, modular-monolith, 架构设计, 模块化, 微服务, Modular, Monolith]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Rust procedural macro 实战：derive 宏与编译期代码生成——PHP Attribute/Annotation 的 Rust
+keywords: [Rust]
   等价物
 date: 2026-06-07 12:00:00
 tags:

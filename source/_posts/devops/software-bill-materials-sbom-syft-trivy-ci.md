@@ -2,6 +2,7 @@
 title: 'Software Bill of Materials (SBOM) 实战：Syft/Trivy 生成依赖清单——供应链安全合规与 CI 集成踩坑记录'
 date: 2026-06-03 01:12:12
 tags: [SBOM, 供应链安全, Syft, Trivy, CI/CD, 合规]
+keywords: [SBOM, 供应链安全, Syft, Trivy, CI/CD, Software, Bill, Materials]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Git Hooks 深度实战：Husky/lint-staged/lefthook 选型——代码风格、提交规范与 CI 门禁的自动化治理
+keywords: [Git, Hooks]
 date: 2026-06-06 12:00:00
 tags:
 - Git

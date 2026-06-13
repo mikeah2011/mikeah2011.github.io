@@ -1,5 +1,6 @@
 ---
 title: Screenshot Testing 实战：Percy/Chromatic/BackstopJS 视觉回归——Vue 3 组件库的 UI 变更自动检测与
+keywords: [Screenshot, Testing]
   CI 集成
 description: 深入对比 Percy、Chromatic、BackstopJS 三大截图测试工具在 Vue 3 组件库中的视觉回归实践。涵盖完整可运行代码示例、Storybook
   8 集成、GitHub Actions CI 流水线配置、动态内容遮罩策略、阈值调优与团队协作工作流，帮助前端团队零到一搭建自动化 UI 变更检测体系，杜绝像素级设计回归。

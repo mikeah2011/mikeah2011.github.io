@@ -1,5 +1,6 @@
 ---
 title: Laravel Data Object 深度实战：spatie/laravel-data 的 Inertia/Form Request/API Response
+keywords: [Laravel, Data, Object]
   三端复用——DTO 驱动的全栈类型安全
 date: 2026-06-07 10:00:00
 tags:

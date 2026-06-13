@@ -2,6 +2,7 @@
 title: AI Agent 框架的未来趋势：记忆系统、多模态、工具标准化、本地推理的发展方向
 date: 2026-06-02 09:00:00
 tags: [AI Agent, 记忆系统, 多模态, MCP, 本地推理, 未来趋势]
+keywords: [AI Agent, 记忆系统, 多模态, MCP, 本地推理, AI, Agent]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: MySQL 联合索引最左前缀原则：查询优化的核心规则
+keywords: [MySQL]
 tags:
 - MySQL
 - 索引优化

@@ -1,5 +1,6 @@
 ---
 title: OpenClaw + 微信实战：个人 AI 助手接入微信私聊与群聊
+keywords: [OpenClaw]
 date: 2026-06-02 09:00:00
 tags:
 - OpenClaw

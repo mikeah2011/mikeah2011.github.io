@@ -1,5 +1,6 @@
 ---
 title: Laravel Package 开发实战：从 artisan make:package 到 Packagist 发布——Service Provider、Facade、Config
+keywords: [Laravel, Package]
   合并与测试隔离
 description: Laravel Package 开发全流程实战：从 artisan make:package 脚手架到 Packagist 发布，详解 Service
   Provider 注册与引导生命周期、Facade 动态代理原理、Config mergeConfigFrom 合并策略，Orchestra Testbench

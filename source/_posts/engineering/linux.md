@@ -4,6 +4,7 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags: [DevOps, Linux, 运维, Shell]
+keywords: [DevOps, Linux, 运维, Shell]
 categories:
   - engineering
   - linux

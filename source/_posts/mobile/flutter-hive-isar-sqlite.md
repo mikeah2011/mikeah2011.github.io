@@ -2,6 +2,7 @@
 title: Flutter 本地存储实战：Hive/Isar/SQLite 数据持久化方案对比
 date: 2026-06-01 09:00:00
 tags: [Flutter, Hive, Isar, SQLite, 本地存储, 数据持久化, SharedPreferences, 数据迁移]
+keywords: [Flutter, Hive, Isar, SQLite, 本地存储]
 description: 本文从 Flutter 实战角度系统对比本地存储方案，围绕 Hive、Isar、SQLite 展开安装、CRUD、数据迁移、加密存储、性能 benchmark 与离线缓存设计，帮助你结合数据结构、查询复杂度与长期维护成本完成数据持久化方案对比与选型落地。
 categories:
   - mobile

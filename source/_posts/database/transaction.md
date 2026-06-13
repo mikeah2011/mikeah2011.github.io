@@ -1,5 +1,6 @@
 ---
 title: MySQL 事务详解：ACID 特性、隔离级别与 MVCC 实现
+keywords: [MySQL]
 tags:
 - MySQL
 - 事务

@@ -1,5 +1,6 @@
 ---
 title: Redis 8.0 Valkey 分叉深度对比：2026 年 Redis 生态分裂后的选型决策——性能基准、功能差异与 Laravel 兼容性
+keywords: [Redis, Valkey]
 date: 2026-06-07 17:39:00
 tags:
 - Redis

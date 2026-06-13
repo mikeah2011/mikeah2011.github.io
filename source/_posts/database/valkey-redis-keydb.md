@@ -1,5 +1,6 @@
 ---
 title: Valkey 实战：Redis 开源分叉的独立演进——2026 年 Redis/Valkey/KeyDB 三足鼎立的选型决策树
+keywords: [Valkey]
 date: 2026-06-10 05:33:00
 categories:
   - database

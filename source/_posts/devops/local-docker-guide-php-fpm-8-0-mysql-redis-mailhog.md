@@ -1,5 +1,6 @@
 ---
 title: local-docker 实战 — PHP-FPM 8.0 + MySQL/Redis + Mailhog 开发环境配置
+keywords: [PHP, FPM, MySQL]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

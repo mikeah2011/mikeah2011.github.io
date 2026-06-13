@@ -9,6 +9,7 @@ categories:
   - engineering
   - php
 tags: [CI/CD, Laravel, PHP, 测试]
+keywords: [CI/CD, Laravel, PHP, 测试, Xdebug, Coveralls]
 description: 代码覆盖率不是"数字越高越好"的KPI游戏。本文以KKday B2C API真实项目为背景，完整走通Xdebug采集→PHPUnit报告→Coveralls.io集成→CI自动上报的全链路，覆盖PHP 8.x + Xdebug 3.x配置踩坑、HTML/Clover/Cobertura多格式报告对比、排除策略设计、以及覆盖率治理中团队协作的真实经验。
 
 

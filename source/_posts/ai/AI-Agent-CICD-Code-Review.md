@@ -2,6 +2,7 @@
 title: AI Agent + CI/CD 实战：智能 Code Review、自动化修复、发布决策
 date: 2026-06-02 02:31:05
 tags: [AI Agent, CI/CD, Code Review, GitHub Actions, 自动化]
+keywords: [AI Agent, CI/CD, Code Review, GitHub Actions, 自动化, AI, Agent, CI]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

@@ -7,6 +7,7 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags: [SEO, Hexo, Schema.org, Sitemap, Core Web Vitals, 工程化, 自动化, Pug, Node.js]
+keywords: [SEO, Hexo, Schema.org, Sitemap, Core Web Vitals]
 description: 将 SEO 优化从手动调参变成工程化流水线：Hexo 插件自动生成 Schema.org 结构化数据、Sitemap 提交自动化、Core Web Vitals 持续监控，附完整可运行代码。
 ---
 

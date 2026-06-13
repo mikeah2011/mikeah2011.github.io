@@ -1,5 +1,6 @@
 ---
 title: Application Rollback 策略实战：数据库回滚、功能开关降级、流量切换——Laravel 零数据丢失回滚的工程化方案
+keywords: [Application, Rollback]
 date: 2026-06-05 12:00:00
 tags:
 - rollback

@@ -1,5 +1,6 @@
 ---
 title: TCC 分布式事务模式实战：Try-Confirm-Cancel 在 Laravel 订单/支付/库存中的落地
+keywords: [TCC]
 date: 2026-06-06 09:00:00
 tags:
 - TCC

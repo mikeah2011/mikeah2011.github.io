@@ -1,5 +1,6 @@
 ---
 title: ThinkPHP 框架入门：国内主流 PHP 框架快速上手
+keywords: [ThinkPHP]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

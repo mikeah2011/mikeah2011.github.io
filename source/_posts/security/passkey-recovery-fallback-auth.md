@@ -1,5 +1,6 @@
 ---
 title: Passkey Recovery 实战：设备丢失后的账号恢复——Recovery Code/Backup Key/Legacy Auth 的降级认证方案
+keywords: [Passkey, Recovery]
 date: 2026-06-10 01:44:00
 categories:
   - security

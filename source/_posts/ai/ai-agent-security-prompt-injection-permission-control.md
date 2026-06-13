@@ -2,6 +2,7 @@
 title: AI Agent 安全实战：Prompt Injection 防护、权限控制、输出过滤
 date: 2026-06-02 12:00:00
 tags: [AI Agent, 安全, Prompt Injection, 权限控制, 输出过滤]
+keywords: [AI Agent, 安全, Prompt Injection, 权限控制, 输出过滤, AI, Agent]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

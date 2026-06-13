@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL 18 新特性前瞻：异步 I/O、增量备份、虚拟 WAL——Laravel 开发者的升级指南与性能收益量化
+keywords: [PostgreSQL]
 date: 2026-06-07 10:00:00
 tags:
 - PostgreSQL

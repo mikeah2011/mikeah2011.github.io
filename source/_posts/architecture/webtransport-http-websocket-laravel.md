@@ -1,5 +1,6 @@
 ---
 title: WebTransport 实战：HTTP/3 上的双向通信——对比 WebSocket 的低延迟传输协议与 Laravel 实时应用集成
+keywords: [WebTransport]
 date: 2026-06-05 14:40:00
 tags:
 - WebTransport

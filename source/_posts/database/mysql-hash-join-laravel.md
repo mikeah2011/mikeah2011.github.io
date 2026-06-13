@@ -1,5 +1,6 @@
 ---
 title: MySQL 8.0 到 9.0 升级实战：不可见索引、直方图、Hash Join、向量搜索——Laravel 项目的平滑迁移路径
+keywords: [MySQL]
 date: 2026-06-06 10:00:00
 tags:
 - MySQL

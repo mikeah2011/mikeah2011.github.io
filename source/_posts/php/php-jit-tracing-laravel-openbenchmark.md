@@ -2,6 +2,7 @@
 title: 'PHP JIT 实战：Tracing JIT 在 Laravel 高吞吐场景的真实性能提升测量——OpenBenchmark 与生产环境对比'
 date: 2026-06-06 12:00:00
 tags: [PHP, JIT, Laravel, 性能优化, Tracing JIT]
+keywords: [PHP, JIT, Laravel, 性能优化, Tracing JIT]
 categories:
   - php
 description: 深入实测 PHP JIT（Tracing JIT）在 Laravel 高吞吐场景中的真实性能提升：CPU 密集型 API 吞吐提升 22%，I/O 密集型仅 5%。涵盖 opcache.jit 参数解析、OpenBenchmark 基准对比、JIT buffer 监控告警、Octane 优化策略与生产环境部署预热方案，帮你科学决策是否启用 JIT。

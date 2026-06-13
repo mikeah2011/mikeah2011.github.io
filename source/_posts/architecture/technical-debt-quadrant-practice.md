@@ -1,5 +1,6 @@
 ---
 title: Technical Debt Quadrant 实战：象限法分类技术债务——Laravel 项目中 reckless/prudent/deliberate/inadvertent
+keywords: [Technical, Debt, Quadrant]
   的治理策略
 date: 2026-06-06 12:00:00
 tags:

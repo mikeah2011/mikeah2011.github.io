@@ -1,5 +1,6 @@
 ---
 title: Go Context 深度实战：超时控制、取消传播与请求作用域——PHP 开发者的并发思维重塑
+keywords: [Go, Context]
 date: 2026-06-02 08:00:00
 tags:
 - Go

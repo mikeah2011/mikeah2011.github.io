@@ -1,5 +1,6 @@
 ---
 title: Go embed + 单二进制部署实战：静态资源内嵌与零依赖发布——对比 Laravel 的前端资源编译部署
+keywords: [Go]
 date: 2026-06-07 08:00:00
 tags:
 - Go

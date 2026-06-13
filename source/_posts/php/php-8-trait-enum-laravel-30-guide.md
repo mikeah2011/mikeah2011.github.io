@@ -8,6 +8,7 @@ description: "基于30+仓库的实战经验，详解PHP 8新特性在Laravel项
 categories:
   - php
 tags: [Laravel, PHP, 代码质量]
+keywords: [Laravel, PHP, 代码质量, Trait, Enum]
 
 
 

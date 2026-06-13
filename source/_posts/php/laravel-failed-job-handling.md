@@ -1,5 +1,6 @@
 ---
 title: Laravel-失败任务处理策略-重试机制死信队列与告警通知实战踩坑记录
+keywords: [Laravel]
 date: 2026-05-05 06:25:43
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

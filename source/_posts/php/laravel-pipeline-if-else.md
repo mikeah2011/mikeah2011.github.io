@@ -1,5 +1,6 @@
 ---
 title: Laravel 12.x Pipeline 实战：复杂业务流程编排与条件分支——从 if-else 地狱到管道模式的重构之路
+keywords: [Laravel, Pipeline]
 date: 2026-06-02 10:00:00
 tags:
 - Laravel

@@ -8,6 +8,7 @@ updated: 2026-05-03 10:52:45
 categories:
   - php
 tags: [Laravel, PostgreSQL, RLS, 多租户, 数据隔离, PgBouncer]
+keywords: [Laravel, PostgreSQL, RLS, 多租户, 数据隔离]
 description: Laravel 多租户项目完整 RLS 落地指南：从 PostgreSQL Row Level Security 策略配置、Laravel 中间件与 ServiceProvider 集成、PgBouncer 连接池适配、队列 Job 租户上下文恢复，到管理员越权审计与多租户隔离方案对比，附完整 SQL 脚本与 PHP 代码示例。
 
 

@@ -1,6 +1,7 @@
 ---
 title: MySQL 数据类型选型
 tags: [MySQL, 数据库, SQL, Laravel, 数据类型]
+keywords: [MySQL, 数据库, SQL, Laravel, 数据类型]
 categories:
   - database
 date: 2019-04-20 10:00:00

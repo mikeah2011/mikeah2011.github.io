@@ -1,5 +1,6 @@
 ---
 title: Spot Instance 实战：Laravel 工作负载用竞价实例省钱——中断处理、混合调度与 K8s 自动迁移踩坑记录
+keywords: [Spot, Instance]
 date: 2026-06-03 11:00:00
 tags:
 - spot-instance

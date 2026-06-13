@@ -1,5 +1,6 @@
 ---
 title: Laravel + Google Gemini API 实战：多模态 LLM 集成——图文理解、视频分析与 PHP 后端接入
+keywords: [Laravel, Google, Gemini]
 date: 2026-06-09 08:28:00
 categories:
   - ai

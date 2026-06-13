@@ -4,6 +4,7 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags: [Git, 版本控制, 工程化]
+keywords: [Git, 版本控制, 工程化]
 categories:
   - engineering
   - git

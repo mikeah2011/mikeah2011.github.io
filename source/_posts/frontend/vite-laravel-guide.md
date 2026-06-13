@@ -1,5 +1,6 @@
 ---
 title: Vite-Laravel-实战-前后端分离开发工作流踩坑记录
+keywords: [Vite, Laravel]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

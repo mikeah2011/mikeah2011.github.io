@@ -1,5 +1,6 @@
 ---
 title: Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh——Laravel
+keywords: [Cache, Stampede]
   高并发缓存击穿的三重防御
 date: 2026-06-07 22:00:00
 description: 深入解析Laravel高并发场景下的缓存击穿（Cache Stampede）问题，系统讲解分布式锁、概率性提前过期（XFetch算法）和后台异步刷新三重防御策略的完整实现。包含Redis

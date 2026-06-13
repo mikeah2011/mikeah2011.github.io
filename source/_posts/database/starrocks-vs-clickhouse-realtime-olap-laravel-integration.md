@@ -1,5 +1,6 @@
 ---
 title: StarRocks 实战：高性能 OLAP 引擎——对比 ClickHouse 的实时分析查询与 Laravel 数据平台集成
+keywords: [StarRocks]
 date: 2026-06-09 14:27:00
 categories:
   - database

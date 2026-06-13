@@ -1,5 +1,6 @@
 ---
 title: PHP Opcode 深度剖析：Zend VM 指令集、编译阶段与运行时执行——从源码理解 include/require 的性能差异
+keywords: [PHP, Opcode]
 date: 2026-06-06 12:00:00
 tags:
 - PHP

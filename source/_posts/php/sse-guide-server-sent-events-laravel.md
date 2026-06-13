@@ -8,6 +8,7 @@ updated: 2026-05-16 18:15:17
 categories:
   - php
 tags: [Laravel, SSE, Server-Sent-Events, WebSocket, 实时推送, B2C]
+keywords: [Laravel, SSE, Server-Sent-Events, WebSocket, 实时推送, Server, Sent]
 description: >-
   Laravel SSE 实战指南：Server-Sent Events 在 B2C 电商 API 中的完整应用方案。
   详解订单状态实时推送、后台任务进度通知、库存变更广播等场景，涵盖 EventSource API 前端集成、

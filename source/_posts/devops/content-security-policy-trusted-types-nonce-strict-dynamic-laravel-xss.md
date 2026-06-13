@@ -1,5 +1,6 @@
 ---
 title: Content Security Policy 进阶实战：Trusted Types + Nonce + strict-dynamic 的深度组合——Laravel 应用的 XSS 纵深防御
+keywords: [Content, Security, Policy]
 date: 2026-06-09 16:25:00
 categories:
   - devops

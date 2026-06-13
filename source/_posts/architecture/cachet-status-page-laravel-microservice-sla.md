@@ -1,5 +1,6 @@
 ---
 title: Cachet 实战：开源状态页面——Incident 管理、组件状态、订阅通知与 Laravel 微服务的对外 SLA 展示
+keywords: [Cachet]
 date: 2026-06-10 05:49:00
 categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

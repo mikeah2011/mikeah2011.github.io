@@ -4,6 +4,7 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags: [Laravel, DDD, 领域驱动设计, 聚合根, 值对象, 领域事件, 限界上下文, 架构]
+keywords: [Laravel, DDD, 领域驱动设计, 聚合根, 值对象]
 categories:
   - misc
   - php

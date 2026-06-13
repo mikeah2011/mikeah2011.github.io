@@ -1,5 +1,6 @@
 ---
 title: Monorepo vs Polyrepo：30+ 仓库架构选型与管理经验
+keywords: [Monorepo, Polyrepo]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Laravel Database Seeder 工程化实战：Seed/Faker/Factory 的生产级数据初始化
+keywords: [Laravel, Database, Seeder]
 date: 2026-06-10 04:49:00
 categories:
   - php

@@ -1,5 +1,6 @@
 ---
 title: "LLM Structured Generation 实战：Outlines/LMQL/Instructor——强制 JSON Schema 输出的底层原理与 Laravel 集成"
+keywords: [LLM, Structured, Generation]
 date: 2026-06-09 08:35:00
 categories:
   - ai

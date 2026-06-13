@@ -1,5 +1,6 @@
 ---
 title: AI Coding Agent 安全实战：沙箱隔离、权限边界、代码审计——防止 AI 助手的"越狱"风险
+keywords: [AI, Coding, Agent]
 date: 2026-06-02 08:00:00
 description: AI Coding Agent 安全实战指南，系统讲解沙箱隔离、权限边界设计与代码审计三大防护维度。涵盖 Docker/nsjail/Firejail
   沙箱方案对比、文件系统与 API Key 权限边界配置、Prompt Injection 检测、CI/CD 安全门禁集成，以及统一安全网关的 Python 实现。帮助

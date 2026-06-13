@@ -1,5 +1,6 @@
 ---
 title: 覆盖索引（Covering Index）
+keywords: [Covering, Index]
 tags:
 - MySQL
 - 性能优化

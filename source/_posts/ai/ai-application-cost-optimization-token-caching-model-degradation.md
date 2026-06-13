@@ -1,5 +1,6 @@
 ---
 title: AI 应用成本优化实战：Token 计费、缓存策略、模型降级路由
+keywords: [AI]
 date: 2026-06-02 03:00:00
 tags:
 - AI成本优化

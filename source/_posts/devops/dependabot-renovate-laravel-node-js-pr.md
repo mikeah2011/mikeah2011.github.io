@@ -2,6 +2,7 @@
 title: Dependabot vs Renovate 实战：依赖自动更新策略——Laravel/Node.js 项目的自动 PR 与安全补丁工作流
 date: 2026-06-04 09:00:00
 tags: [Dependabot, Renovate, CI/CD, Laravel, 依赖管理, 安全]
+keywords: [Dependabot, Renovate, CI/CD, Laravel, 依赖管理]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: OAuth 2.1 实战：从 OAuth 2.0 到 2.1 的迁移指南——PKCE 强制、隐式流废弃与安全加固
+keywords: [OAuth]
 date: 2026-06-02 12:00:00
 tags:
 - OAuth

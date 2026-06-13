@@ -1,5 +1,6 @@
 ---
 title: Laravel + Elasticsearch 全文搜索优化实战：商品搜索召回、同义词与零停机重建索引踩坑记录
+keywords: [Laravel, Elasticsearch]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

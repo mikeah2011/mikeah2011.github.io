@@ -1,5 +1,6 @@
 ---
 title: ScyllaDB 实战：C++ 重写的高性能 NoSQL——Laravel 分布式缓存与高吞吐写入选型对比
+keywords: [ScyllaDB]
 date: 2026-06-02 12:00:00
 tags:
 - ScyllaDB

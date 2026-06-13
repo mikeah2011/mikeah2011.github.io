@@ -1,5 +1,6 @@
 ---
 title: MiMo-v2.5-pro 实战：小米 AI 模型接入与使用——Laravel 开发者 AI 工具链选型踩坑记录
+keywords: [MiMo]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

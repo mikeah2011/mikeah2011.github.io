@@ -2,6 +2,7 @@
 title: LLM Function Calling 进阶实战：Parallel Tool Calls/Forced Tool Use/Tool Choice 策略——AI Agent 工具调用的工程化深度优化
 date: 2026-06-05 10:00:00
 tags: [AI Agent, LLM, Function Calling, 工具调用, Tool Use]
+keywords: [AI Agent, LLM, Function Calling, 工具调用, Tool Use, Function, Calling]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

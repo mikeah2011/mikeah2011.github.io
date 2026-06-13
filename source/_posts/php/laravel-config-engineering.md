@@ -1,5 +1,6 @@
 ---
 title: Laravel 配置管理工程化实战：多环境配置合并、加密配置、运行时热更新
+keywords: [Laravel]
 date: 2026-06-09 22:18:00
 categories:
   - php

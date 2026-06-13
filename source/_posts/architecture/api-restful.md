@@ -1,5 +1,6 @@
 ---
 title: 幂等性 API 设计：RESTful 接口的安全网与三层防护实战
+keywords: [API]
 slug: 幂等性-api-设计-restful-接口安全网与三层防护实战
 categories:
 - architecture

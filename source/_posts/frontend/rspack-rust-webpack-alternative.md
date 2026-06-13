@@ -1,5 +1,6 @@
 ---
 title: Rspack 实战：Rust 驱动的 Webpack 兼容打包器——10x 构建速度提升与 Laravel 前端迁移路径
+keywords: [Rspack]
 date: 2026-06-10 03:27:00
 categories:
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

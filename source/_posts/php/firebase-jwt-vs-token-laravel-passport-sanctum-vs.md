@@ -9,6 +9,7 @@ categories:
   - php
   - git
 tags: [Laravel, JWT, 认证, Sanctum, Passport, Firebase, 微服务]
+keywords: [Laravel, JWT, 认证, Sanctum, Passport, Firebase, Token]
 description: "在 KKday B2C 微服务架构下，对比 Firebase JWT（第三方签发）与 Laravel Passport/Sanctum（自建 Token）的真实选型经验。涵盖 JWKS 旋转、RSA/ECDSA 算法选型、多服务 Token 验证、性能基准测试，以及我们从 Passport 迁移到 Sanctum + Firebase JWT 混合方案的完整踩坑记录。"
 
 

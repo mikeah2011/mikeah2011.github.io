@@ -1,5 +1,6 @@
 ---
 title: Nginx + Lua (OpenResty) 实战：高性能自定义网关——对比 Kong/APISIX 的流量治理与边缘计算
+keywords: [Nginx, Lua, OpenResty]
 date: 2026-06-06 12:00:00
 tags:
 - Nginx

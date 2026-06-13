@@ -1,5 +1,6 @@
 ---
 title: 数据可视化 Dashboard 实战：ECharts/ApexCharts + Laravel API——运营数据实时大屏与自助分析
+keywords: [Dashboard]
 date: 2026-06-06 00:00:00
 tags:
 - echarts

@@ -1,5 +1,6 @@
 ---
 title: Htmx + Laravel 实战：不用 JavaScript 框架也能做交互——超轻量前后端方案对比 Livewire/Turbo 的渐进增强路线
+keywords: [Htmx, Laravel]
 date: 2026-06-07 10:00:00
 tags:
 - HTMX

@@ -1,5 +1,6 @@
 ---
 title: Vue 3 + Pinia 状态管理实战-替代 Vuex 的现代方案与 B2C 电商踩坑记录
+keywords: [Vue, Pinia, Vuex]
 date: 2026-05-16 21:35:11
 updated: 2026-05-16 21:37:51
 categories:

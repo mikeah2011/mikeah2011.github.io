@@ -1,5 +1,6 @@
 ---
 title: Server-Driven UI 实战：后端驱动前端渲染——JSON UI 描述协议在 Laravel BFF 中的落地与对比传统 SPA
+keywords: [Server, Driven, UI]
 date: 2026-06-03 00:00:00
 tags:
 - server-driven-ui

@@ -1,5 +1,6 @@
 ---
 title: Laravel 幂等性设计模式实战：请求去重、支付回调防重复、队列消息 Exactly-Once——B2C 电商的防重放工程化方案
+keywords: [Laravel]
 date: 2026-06-05 10:30:00
 tags:
 - Laravel

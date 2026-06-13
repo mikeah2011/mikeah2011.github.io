@@ -1,5 +1,6 @@
 ---
 title: Dev Container + GitHub Codespaces 实战：云端开发环境——Laravel 项目的一键环境搭建与跨设备无缝切换
+keywords: [Dev, Container, GitHub]
 date: 2026-06-07 16:24:45
 tags:
 - Dev Container

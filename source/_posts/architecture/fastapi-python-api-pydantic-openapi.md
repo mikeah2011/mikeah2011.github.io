@@ -2,6 +2,7 @@
 title: FastAPI 实战：高性能 Python API 框架——Pydantic 校验、依赖注入与 OpenAPI 自动生成
 date: 2026-06-02 10:00:00
 tags: [FastAPI, Python, Pydantic, OpenAPI, REST API, 依赖注入]
+keywords: [FastAPI, Python, Pydantic, OpenAPI, REST API]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

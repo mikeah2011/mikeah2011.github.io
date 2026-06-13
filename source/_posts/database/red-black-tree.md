@@ -1,6 +1,7 @@
 ---
 title: MySQL索引数据结构原理
 tags: [MySQL, 索引, B+Tree, InnoDB, 数据结构]
+keywords: [MySQL, 索引, B+Tree, InnoDB, 数据结构]
 categories:
   - database
 date: 2021-07-23 09:45:07

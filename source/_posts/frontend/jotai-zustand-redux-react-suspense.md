@@ -1,5 +1,6 @@
 ---
 title: Jotai 实战：原子化状态管理——对比 Zustand/Redux 的细粒度响应式与 React Suspense 集成
+keywords: [Jotai]
 date: 2026-06-05 12:00:00
 tags:
 - jotai

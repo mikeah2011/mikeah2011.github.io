@@ -2,6 +2,7 @@
 title: 'Tech Lead 实战：从 Senior Engineer 到 Tech Lead 的角色跃迁——架构决策、Code Review 与团队赋能'
 date: 2026-06-02 10:00:00
 tags: [Tech Lead, 工程管理, Code Review, 架构决策, 团队赋能]
+keywords: [Tech Lead, 工程管理, Code Review, 架构决策, 团队赋能, Tech, Lead]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

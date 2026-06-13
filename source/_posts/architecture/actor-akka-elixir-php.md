@@ -1,5 +1,6 @@
 ---
 title: Actor 模型实战：从 Akka 到 Elixir 到 PHP——用消息传递替代共享状态的并发架构演进（深度实践指南）
+keywords: [Actor]
 date: 2026-06-04 09:00:00
 tags:
 - Actor模型

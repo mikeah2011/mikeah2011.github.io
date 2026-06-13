@@ -1,5 +1,6 @@
 ---
 title: OpenHuman 后台作业系统：持久化队列、3 worker 池、信号量限流、lease 恢复机制
+keywords: [OpenHuman]
 date: 2026-06-02 12:00:00
 tags:
 - OpenHuman

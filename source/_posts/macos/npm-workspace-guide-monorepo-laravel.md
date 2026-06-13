@@ -9,6 +9,7 @@ categories:
   - macos
   - php
 tags: [JavaScript, Laravel, macOS]
+keywords: [JavaScript, Laravel, macOS, Monorepo]
 description: >
   npm Workspace 实战指南：在 Laravel 前后端分离项目中搭建 Monorepo，实现前端多包管理与依赖共享。涵盖项目结构设计、根 package.json 配置、子包依赖声明与 symlink 机制、拓扑排序构建脚本编写、幽灵依赖排查与 .npmrc 配置、CI/CD 集成中的 npm ci 最佳实践。对比 pnpm workspace、Yarn Berry、Turborepo 四大方案，附 7 大踩坑记录与选型决策建议。
 

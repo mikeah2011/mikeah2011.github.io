@@ -1,5 +1,6 @@
 ---
 title: OpenFGA 实战：细粒度授权引擎（Zanzibar 模型）——Laravel 中的关系型权限控制与 ReBAC 落地
+keywords: [OpenFGA]
 description: 本文深入探讨如何在 Laravel 项目中集成 OpenFGA 细粒度授权引擎，基于 Google Zanzibar 论文实现 ReBAC（基于关系的访问控制）。涵盖
   Zanzibar 模型核心概念、ReBAC 与 RBAC/ABAC 的对比分析、OpenFGA Docker 部署、授权模型设计、Laravel 中间件与 Eloquent
   Trait 集成、多级缓存策略、批量权限检查优化、异步写入队列以及生产环境常见陷阱与踩坑案例，附完整可运行代码示例，适合需要构建复杂多租户权限系统的 PHP 开发者。

@@ -1,5 +1,6 @@
 ---
 title: "Laravel Volt 实战：单文件 Blade 组件与 Livewire 集成深度剖析"
+keywords: [Laravel, Volt]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

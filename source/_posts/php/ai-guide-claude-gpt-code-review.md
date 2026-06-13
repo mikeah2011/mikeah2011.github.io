@@ -9,6 +9,7 @@ categories:
   - php
   - process
 tags: [AI, Laravel]
+keywords: [AI, Laravel, Claude, GPT]
 description: 在 30+ 仓库的 Laravel B2C API 项目中，如何将 AI（Claude/GPT）系统性地融入 Code Review 流程？本文涵盖 Prompt 工程、自动化集成、踩坑记录与成本控制，是团队落地 AI 辅助审查的完整实战指南。
 
 

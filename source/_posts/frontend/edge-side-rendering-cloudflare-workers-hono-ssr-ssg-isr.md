@@ -1,5 +1,6 @@
 ---
 title: Edge-Side Rendering 实战：Cloudflare Workers + Hono 在边缘渲染动态页面——对比 SSR/SSG/ISR
+keywords: [Edge, Side, Rendering]
   的新范式
 date: 2026-06-03 09:00:00
 tags:

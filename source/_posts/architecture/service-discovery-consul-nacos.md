@@ -1,5 +1,6 @@
 ---
 title: 服务注册与发现实战-Consul-Nacos-与-Laravel-集成-微服务动态路由与健康检查踩坑记录
+keywords: [Consul, Nacos, Laravel]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

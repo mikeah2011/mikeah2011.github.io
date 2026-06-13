@@ -8,6 +8,7 @@ updated: 2026-05-16 13:20:09
 categories:
   - php
 tags: [Laravel, PHP, Swoole, Octane, 性能优化]
+keywords: [Laravel, PHP, Swoole, Octane, 性能优化]
 description: 从 PHP-FPM 到 Swoole 的架构跃迁实战指南：详解 Laravel Octane 核心配置调优、Swoole 协程安全、内存泄漏排查与修复、数据库连接池治理，附 B2C 电商高并发聚合接口的协程并发改造方案与真实生产踩坑记录。涵盖 Worker 常驻内存模型下的状态污染、静态变量累积、阻塞 I/O 替换等关键问题，提供可直接复用的 Supervisor 配置、内存监控中间件和生产环境 Checklist。
 
 

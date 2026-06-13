@@ -1,5 +1,6 @@
 ---
 title: Hermes 多 Profile 架构：_job_profile_context 临时切换与环境隔离机制
+keywords: [Hermes, Profile]
 date: 2026-06-02 08:00:00
 tags:
 - Hermes

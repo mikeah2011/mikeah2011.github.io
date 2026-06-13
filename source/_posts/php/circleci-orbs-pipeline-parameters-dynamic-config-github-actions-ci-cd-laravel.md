@@ -1,5 +1,6 @@
 ---
 title: CircleCI 实战：Orbs、Pipeline Parameters、Dynamic Config——对比 GitHub Actions 的 CI/CD 选型与 Laravel 集成
+keywords: [CircleCI]
 date: 2026-06-10 05:35:00
 categories:
   - php

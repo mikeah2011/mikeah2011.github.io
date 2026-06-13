@@ -1,5 +1,6 @@
 ---
 title: Zig + WebAssembly 实战：用 Zig 编写高性能 Wasm 模块——浏览器与边缘计算的系统级前端方案
+keywords: [Zig, WebAssembly]
 date: 2026-06-07 12:00:00
 tags:
 - Zig

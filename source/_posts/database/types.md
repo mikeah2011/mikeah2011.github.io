@@ -1,5 +1,6 @@
 ---
 title: MySQL 索引类型：主键索引、唯一索引、联合索引与全文索引
+keywords: [MySQL]
 tags:
 - MySQL
 - 索引

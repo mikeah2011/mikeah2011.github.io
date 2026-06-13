@@ -1,5 +1,6 @@
 ---
 title: WebAssembly (Wasm) 实战：用 Rust/AssemblyScript 编写高性能浏览器模块——PHP 开发者的跨平台新赛道
+keywords: [WebAssembly, Wasm]
 date: 2026-06-02 00:00:00
 tags:
 - WebAssembly

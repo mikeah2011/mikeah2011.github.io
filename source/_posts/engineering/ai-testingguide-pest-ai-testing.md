@@ -1,5 +1,6 @@
 ---
 title: AI 驱动测试生成实战：Pest + AI 自动生成单元测试的最佳实践
+keywords: [AI]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

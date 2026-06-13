@@ -2,6 +2,7 @@
 title: 'Windsurf/Augment Code 实战：2026 年 AI-native IDE 新势力——对比 Cursor/Claude Code 的功能、性能与定价（macOS 深度体验版）'
 date: 2026-06-05 09:00:00
 tags: [Windsurf, Augment Code, AI IDE, Cursor, Claude Code, AI 编程, macOS, 开发工具]
+keywords: [Windsurf, Augment Code, AI IDE, Cursor, Claude Code, Augment, Code]
 categories:
   - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: 30+ Laravel 仓库的 Monorepo 迁移实战：pnpm workspace + Turborepo + 共享包治理——从 Polyrepo
+keywords: [Laravel, Monorepo]
   到 Monorepo 的工程化路径
 date: 2026-06-09 23:22:00
 categories:

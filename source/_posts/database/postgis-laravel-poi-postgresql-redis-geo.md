@@ -1,5 +1,6 @@
 ---
 title: PostGIS + Laravel 实战：空间数据查询——地理围栏、路径规划与附近 POI 的 PostgreSQL 原生方案，对比 Redis Geo
+keywords: [PostGIS, Laravel]
 date: 2026-06-06 15:00:00
 tags:
 - PostGIS

@@ -1,5 +1,6 @@
 ---
 title: ETL 实战：Laravel + Apache Airflow 数据管道构建
+keywords: [ETL]
 description: 详解 Laravel 与 Apache Airflow 协同构建 ETL 数据管道的完整实战方案，覆盖 DAG 设计、任务调度对接、增量抽取、数据转换加载、幂等重试、质量校验、监控告警、补数回填与性能优化，帮助团队搭建可观察、可扩展、可追溯的数据工程体系。
 date: 2026-06-01 22:45:00
 tags:

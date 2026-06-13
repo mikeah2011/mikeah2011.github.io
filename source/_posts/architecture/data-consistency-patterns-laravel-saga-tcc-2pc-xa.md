@@ -1,5 +1,6 @@
 ---
 title: Data Consistency Patterns 实战：Saga/TCC/2PC/XA 在 Laravel 中的选型决策树——从理论到生产落地的完整路径
+keywords: [Data, Consistency, Patterns]
 date: 2026-06-06 10:00:00
 tags:
 - 分布式

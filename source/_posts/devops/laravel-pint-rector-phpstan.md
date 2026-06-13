@@ -1,5 +1,6 @@
 ---
 title: Laravel Pint + Rector + PHPStan 三剑客联动：代码风格+重构+类型安全的一站式质量治理流水线
+keywords: [Laravel, Pint, Rector]
 date: 2026-06-03 00:00:00
 tags:
 - Laravel

@@ -1,5 +1,6 @@
 ---
 title: Vue3-组件库开发实战-自定义UI组件库设计与发布踩坑记录
+keywords: [Vue, UI]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

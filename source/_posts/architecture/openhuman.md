@@ -1,5 +1,6 @@
 ---
 title: OpenHuman 安全实战：本地加密、数据主权、隐私合规
+keywords: [OpenHuman]
 description: 本文结合 OpenHuman 本地优先架构，系统拆解本地加密、数据主权、隐私合规与审计治理的实战方案，覆盖 AES-256-GCM、Keychain、SQLite、日志脱敏、密钥轮换、数据删除与常见踩坑案例，帮助你构建真正可落地、可验证、可审计的
   AI Agent 安全底座。
 date: 2026-06-02 10:00:00

@@ -1,5 +1,6 @@
 ---
 title: Laravel Defer 实战：请求结束后异步执行——对比 Queue/afterResponse/callback 的资源回收与执行时机
+keywords: [Laravel, Defer]
 date: 2026-06-06 12:00:00
 tags:
 - Laravel

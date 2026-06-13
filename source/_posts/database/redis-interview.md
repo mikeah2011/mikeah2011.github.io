@@ -1,5 +1,6 @@
 ---
 title: Redis 面试高频题汇总：数据结构、持久化、集群、分布式锁
+keywords: [Redis]
 sticky: 90
 tags:
 - Redis

@@ -1,5 +1,6 @@
 ---
 title: React Native 0.76 实战：New Architecture + Hermes 引擎——对比 Flutter/uni-app 的原生移动端选型决策
+keywords: [React, Native]
 date: 2026-06-09 19:26:00
 categories:
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

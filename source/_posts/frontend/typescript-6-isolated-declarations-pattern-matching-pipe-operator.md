@@ -1,5 +1,6 @@
 ---
 title: TypeScript 6.0 前瞻：Isolated Declarations、Pattern Matching、Pipe Operator——PHP
+keywords: [TypeScript]
   开发者视角的类型系统进化
 date: 2026-06-09 18:44:00
 categories:

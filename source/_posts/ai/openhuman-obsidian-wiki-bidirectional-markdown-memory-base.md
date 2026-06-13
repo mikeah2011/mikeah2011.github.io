@@ -1,5 +1,6 @@
 ---
 title: OpenHuman Obsidian Wiki 深度剖析：双向 Markdown 记忆基底与用户编辑回流机制
+keywords: [OpenHuman, Obsidian, Wiki]
 date: 2026-06-02 00:00:00
 tags:
 - OpenHuman

@@ -1,5 +1,6 @@
 ---
 title: OpenClaw 心跳机制实战：HEARTBEAT.md 主动检查与定时任务
+keywords: [OpenClaw]
 date: 2026-06-02 10:00:00
 tags:
 - OpenClaw

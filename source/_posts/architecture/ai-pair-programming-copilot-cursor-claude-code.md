@@ -1,5 +1,6 @@
 ---
 title: AI Pair Programming 评估实战：Copilot vs Cursor vs Claude Code 的代码质量、开发速度与开发者满意度量化研究
+keywords: [AI, Pair, Programming]
 date: 2026-06-05 12:00:00
 tags:
 - AI

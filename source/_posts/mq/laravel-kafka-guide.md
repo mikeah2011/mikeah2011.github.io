@@ -1,5 +1,6 @@
 ---
 title: Laravel-Kafka 消息队列异步解耦实战-KKday B2C API 订单处理与库存扣减真实踩坑记录
+keywords: [Laravel, Kafka, KKday]
 date: 2026-05-03
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:

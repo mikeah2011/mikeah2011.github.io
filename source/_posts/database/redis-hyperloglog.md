@@ -1,5 +1,6 @@
 ---
 title: "Redis HyperLogLog 的正确用法与常见误区"
+keywords: [Redis, HyperLogLog]
 date: 2026-06-10 04:52:00
 categories:
   - database

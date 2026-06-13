@@ -1,5 +1,6 @@
 ---
 title: "Podman 5.x 实战：无 Daemon 容器运行时——对比 Docker 的 Rootless、Quadlet 与 Laravel docker-compose 迁移"
+keywords: [Podman]
 date: 2026-06-09 16:41:00
 categories:
   - architecture

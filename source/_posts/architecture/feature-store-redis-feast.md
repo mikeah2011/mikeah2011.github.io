@@ -1,5 +1,6 @@
 ---
 title: Feature Store 实战：实时特征工程与在线推理——Redis + Feast 在电商推荐中的落地
+keywords: [Feature, Store]
 date: 2026-06-02 00:00:00
 tags:
 - feature store

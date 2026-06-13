@@ -2,6 +2,7 @@
 title: Flutter 性能优化实战：DevTools 分析、渲染优化、包体积裁剪
 date: 2026-06-02 10:00:00
 tags: [Flutter, 性能优化, DevTools, 渲染优化, 包体积]
+keywords: [Flutter, 性能优化, DevTools, 渲染优化, 包体积]
 categories:
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

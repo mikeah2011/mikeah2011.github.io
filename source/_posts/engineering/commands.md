@@ -1,5 +1,6 @@
 ---
 title: Linux 基础命令速查：文件操作、进程管理与网络调试
+keywords: [Linux]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

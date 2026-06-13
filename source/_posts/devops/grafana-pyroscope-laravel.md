@@ -1,5 +1,6 @@
 ---
 title: Grafana Pyroscope 实战：持续性能剖析——Laravel 应用的生产环境火焰图与根因定位方法论
+keywords: [Grafana, Pyroscope]
 date: 2026-06-04 10:00:00
 tags:
 - Pyroscope

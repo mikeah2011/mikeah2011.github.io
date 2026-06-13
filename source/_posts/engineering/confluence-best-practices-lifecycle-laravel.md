@@ -9,6 +9,7 @@ categories:
   - engineering
   - docs
 tags: [Confluence, Laravel, macOS, 工程管理, 文档管理, Jira]
+keywords: [Confluence, Laravel, macOS, 工程管理, 文档管理]
 description: 在 30+ Laravel 仓库的团队中，Confluence 不只是"写文档的地方"——它是团队知识的中枢神经。本文从权限模型、页面模板、文档生命周期、自动化集成四个维度，分享 B2C 后端团队的真实落地经验。
 
 

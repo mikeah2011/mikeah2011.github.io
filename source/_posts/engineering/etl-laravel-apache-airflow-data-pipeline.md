@@ -1,5 +1,6 @@
 ---
 title: ETL 实战：Laravel + Apache Airflow 数据管道构建——从手动 Cron 到声明式 DAG 的踩坑记录
+keywords: [ETL]
 date: 2026-06-01 10:00:00
 updated: 2026-06-01 10:00:00
 categories:

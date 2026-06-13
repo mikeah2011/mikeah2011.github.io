@@ -1,5 +1,6 @@
 ---
 title: Vector Database 选型实战：Pinecone vs Qdrant vs Weaviate vs pgvector——RAG 应用的向量存储深度对比
+keywords: [Vector, Database]
 date: 2026-06-03 08:00:00
 tags:
 - 数据库

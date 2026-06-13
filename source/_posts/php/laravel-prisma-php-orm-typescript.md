@@ -1,5 +1,6 @@
 ---
 title: Laravel 对比 Prisma 2026：PHP ORM 与 TypeScript ORM 的查询构建器、迁移管理、类型安全全维度对比
+keywords: [Laravel, Prisma]
 date: 2026-06-04 14:00:00
 tags:
 - Laravel

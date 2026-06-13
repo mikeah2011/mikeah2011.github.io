@@ -1,5 +1,6 @@
 ---
 title: "Eloquent Observer 性能陷阱深度剖析：afterCommit/afterCreate 的 N+1 与事务边界——30+ 仓库的生产级最佳实践"
+keywords: [Eloquent, Observer]
 date: 2026-06-09 15:19:00
 categories:
   - php

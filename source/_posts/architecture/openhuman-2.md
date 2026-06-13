@@ -1,5 +1,6 @@
 ---
 title: OpenHuman 潜意识循环：后台认知、任务评估、"做梦"离线整合的技术实现
+keywords: [OpenHuman]
 date: 2026-06-02 12:00:00
 tags:
 - OpenHuman

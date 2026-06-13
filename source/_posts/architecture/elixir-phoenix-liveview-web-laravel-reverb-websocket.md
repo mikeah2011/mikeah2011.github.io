@@ -1,5 +1,6 @@
 ---
 title: Elixir + Phoenix LiveView 实战：函数式语言做实时 Web——对比 Laravel Reverb 与 WebSocket 的开发体验
+keywords: [Elixir, Phoenix, LiveView]
 date: 2026-06-03 01:12:12
 tags:
 - Elixir

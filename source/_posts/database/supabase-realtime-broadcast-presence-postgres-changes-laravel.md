@@ -1,5 +1,6 @@
 ---
 title: Supabase Realtime 实战：数据库变更实时推送——Broadcast/Presence/Postgres Changes 与 Laravel
+keywords: [Supabase, Realtime]
   后端的实时架构集成
 date: 2026-06-07 10:00:00
 tags:

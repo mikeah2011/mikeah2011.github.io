@@ -1,5 +1,6 @@
 ---
 title: Go 测试实战：表驱动测试、Testify 断言、httptest Mock——从 Pest PHP 到 Go 的测试思维迁移
+keywords: [Go]
 date: 2026-06-02 10:00:00
 tags:
 - Go

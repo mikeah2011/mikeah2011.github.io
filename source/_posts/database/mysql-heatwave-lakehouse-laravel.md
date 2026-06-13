@@ -1,5 +1,6 @@
 ---
 title: MySQL HeatWave Lakehouse 实战：对象存储上的直接查询——Laravel 中的冷数据分析与数据湖架构
+keywords: [MySQL, HeatWave, Lakehouse]
 date: 2026-06-09 15:28:00
 categories:
   - database

@@ -1,5 +1,6 @@
 ---
 title: "Laravel Eloquent 批量操作性能陷阱深度剖析：insert/insertOrIgnore/upsert/chunk 的内存占用与锁行为"
+keywords: [Laravel, Eloquent]
 date: 2026-06-09 22:03:00
 categories:
   - php

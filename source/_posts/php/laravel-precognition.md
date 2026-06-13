@@ -1,5 +1,6 @@
 ---
 title: Laravel Precognition 实战：表单预验证——前后端实时校验的全新交互范式
+keywords: [Laravel, Precognition]
 date: 2026-06-06 02:08:57
 tags:
 - Laravel

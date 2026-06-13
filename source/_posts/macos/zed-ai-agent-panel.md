@@ -1,5 +1,6 @@
 ---
 title: Zed 2.x 实战：AI 原生代码编辑器——协作编辑、Agent Panel 与本地模型集成的深度使用体验
+keywords: [Zed]
 date: 2026-06-07 10:00:00
 tags:
 - Zed

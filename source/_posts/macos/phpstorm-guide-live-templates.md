@@ -1,5 +1,6 @@
 ---
 title: PHPStorm-高效开发实战-快捷键-Live-Templates-调试技巧-Laravel-B2C-API踩坑记录
+keywords: [PHPStorm, Live, Templates]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

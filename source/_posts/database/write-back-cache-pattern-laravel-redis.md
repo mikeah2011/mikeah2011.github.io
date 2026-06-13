@@ -1,5 +1,6 @@
 ---
 title: Write-Back Cache Pattern 实战：批量回写缓存策略——Laravel 高写入场景下的 Redis 缓存治理与数据一致性
+keywords: [Write, Back, Cache]
 date: 2026-06-04 10:00:00
 tags:
 - write-back-cache

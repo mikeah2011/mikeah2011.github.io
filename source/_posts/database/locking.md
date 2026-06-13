@@ -1,5 +1,6 @@
 ---
 title: MySQL 锁机制详解：行锁、表锁、间隙锁与死锁处理
+keywords: [MySQL]
 tags:
 - MySQL
 - 锁

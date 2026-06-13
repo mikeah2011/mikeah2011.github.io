@@ -1,5 +1,6 @@
 ---
 title: Kubernetes-HPA-实战-Laravel-应用自动扩缩容策略与踩坑记录
+keywords: [Kubernetes, HPA, Laravel]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

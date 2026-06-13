@@ -9,6 +9,7 @@ categories:
   - php
   - logging
 tags: [Laravel, 监控]
+keywords: [Laravel, 监控]
 description: 深入 Laravel 日志系统实战：多通道分级策略、JSON 结构化输出、Log Context 与 Tag 追踪、日志聚合对接 ELK、生产环境轮转与治理踩坑记录。
 
 

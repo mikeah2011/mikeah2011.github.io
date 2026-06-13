@@ -1,5 +1,6 @@
 ---
 title: Laravel Middleware 实战-KKday B2C API 请求链路追踪与真实踩坑记录
+keywords: [Laravel, Middleware, KKday]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

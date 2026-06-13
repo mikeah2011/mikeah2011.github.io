@@ -1,6 +1,7 @@
 ---
 title: MySQL 面试题速查
 tags: [MySQL, 面试, 索引, 事务, 锁, 性能优化]
+keywords: [MySQL, 面试, 索引, 事务, 锁]
 categories:
   - database
 date: 2021-03-20 15:05:07

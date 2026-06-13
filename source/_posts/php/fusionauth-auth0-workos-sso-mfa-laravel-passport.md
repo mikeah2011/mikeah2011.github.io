@@ -1,5 +1,6 @@
 ---
 title: FusionAuth 实战：开源身份认证平台——对比 Auth0/WorkOS 的自托管 SSO/MFA/社交登录完整方案与 Laravel Passport
+keywords: [FusionAuth]
   互补
 date: 2026-06-07 10:00:00
 description: FusionAuth 开源身份认证平台实战指南：自托管部署 SSO 单点登录、MFA 多因素认证、社交登录（Google/GitHub/微信），完整

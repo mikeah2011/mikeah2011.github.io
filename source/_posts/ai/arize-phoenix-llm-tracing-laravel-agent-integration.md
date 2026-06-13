@@ -1,5 +1,6 @@
 ---
 title: Arize Phoenix 实战：开源 LLM 可观测性——Trace/Prompt/Embedding 的全链路调试与 Laravel Agent 集成
+keywords: [Arize, Phoenix]
 date: 2026-06-10 00:10:00
 categories:
   - ai

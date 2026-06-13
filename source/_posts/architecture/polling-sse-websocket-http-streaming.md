@@ -1,5 +1,6 @@
 ---
 title: Long Polling vs SSE vs WebSocket vs HTTP Streaming 实战：实时通信方案的延迟、吞吐与资源消耗量化对比
+keywords: [Long, Polling, SSE]
 date: 2026-06-04 12:00:00
 description: 深入对比 Long Polling、SSE、WebSocket、HTTP Streaming 四种实时通信方案，通过 Node.js 量化
   Benchmark 测试延迟与吞吐量，结合 Laravel 集成实战、Nginx 代理配置、心跳重连与内存泄漏排查，提供完整的选型决策树与生产环境踩坑指南。

@@ -1,5 +1,6 @@
 ---
 title: "LLM Router 实战：OpenRouter/Portkey/LiteLLM 统一模型路由——多提供商 Failover、成本优化与延迟感知的工程化网关"
+keywords: [LLM, Router]
 date: 2026-06-09 17:49:00
 categories:
   - ai

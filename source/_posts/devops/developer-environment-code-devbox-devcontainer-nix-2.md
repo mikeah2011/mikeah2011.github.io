@@ -1,5 +1,6 @@
 ---
 title: Developer Environment as Code 实战：Devbox + devcontainer + Nix——从"在我机器上能跑"到"在所有机器上都能跑"
+keywords: [Developer, Environment, Code]
 date: 2026-06-05 09:00:00
 tags:
 - Devbox

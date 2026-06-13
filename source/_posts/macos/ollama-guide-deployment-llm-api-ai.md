@@ -9,6 +9,7 @@ categories:
   - macos
   - tools
 tags: [Ollama, LLM, Laravel, macOS, AI部署, 本地推理, API集成]
+keywords: [Ollama, LLM, Laravel, macOS, AI部署]
 description: 从零搭建 Ollama 本地 LLM 服务的完整实战指南。涵盖 macOS Metal 加速部署、主流开源模型选型对比（Llama 3、Qwen 2.5、DeepSeek Coder）、REST API 与 OpenAI 兼容接口调用、Laravel 项目深度集成代码审查功能、流式响应与向量嵌入、性能调优与踩坑经验。适用于 B2C 电商、内网离线部署、敏感数据处理等场景，帮助开发者构建隐私优先的 AI 开发工作流。
 
 

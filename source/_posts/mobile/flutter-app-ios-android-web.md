@@ -1,5 +1,6 @@
 ---
 title: Flutter App 打包实战：iOS/Android/Web/桌面多平台发布流程
+keywords: [Flutter, App]
 date: 2026-06-02 00:00:00
 tags:
 - Flutter

@@ -2,6 +2,7 @@
 title: PCI DSS 合规实战：支付系统安全标准落地——Laravel 应用中的 Token 化、审计日志与网络分段
 date: 2026-06-02 10:00:00
 tags: [PCI-DSS, 支付安全, Laravel, 合规, 运维]
+keywords: [PCI-DSS, 支付安全, Laravel, 合规, 运维, PCI, DSS]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

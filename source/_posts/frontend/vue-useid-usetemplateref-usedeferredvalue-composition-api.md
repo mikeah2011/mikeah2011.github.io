@@ -1,5 +1,6 @@
 ---
 title: Vue 3.5+ 新特性实战：useId/useTemplateRef/useDeferredValue——Composition API 的最新进化与迁移指南
+keywords: [Vue]
 date: 2026-06-05 10:00:00
 tags:
 - Vue

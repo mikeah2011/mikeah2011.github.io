@@ -2,6 +2,7 @@
 title: OpenHuman Obsidian Wiki 实战：Markdown 知识库与数据同步
 date: 2026-06-02 00:00:00
 tags: [OpenHuman, Obsidian, Markdown, 知识管理]
+keywords: [OpenHuman, Obsidian, Markdown, 知识管理, Wiki]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

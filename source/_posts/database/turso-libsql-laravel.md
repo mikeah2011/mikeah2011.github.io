@@ -1,5 +1,6 @@
 ---
 title: Turso + libSQL 实战进阶：边缘数据库的嵌入式副本、多节点复制与 Laravel 多区域读写分离架构
+keywords: [Turso, SQL]
 date: 2026-06-07 17:39:00
 tags:
 - Turso

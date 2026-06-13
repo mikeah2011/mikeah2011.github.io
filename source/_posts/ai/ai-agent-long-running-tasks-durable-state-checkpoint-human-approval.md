@@ -1,5 +1,6 @@
 ---
 title: AI Agent Long-Running Tasks 实战：持久化状态、断点恢复、人机审批节点——生产级 Agent 的长时间运行任务编排
+keywords: [AI, Agent, Long]
 date: 2026-06-05 10:00:00
 tags:
 - AI Agent

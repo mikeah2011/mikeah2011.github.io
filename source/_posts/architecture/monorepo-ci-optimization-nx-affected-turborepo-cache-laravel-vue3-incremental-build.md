@@ -1,5 +1,6 @@
 ---
 title: Monorepo CI Optimization 实战：Nx Affected + Turborepo Cache——Laravel + Vue 3
+keywords: [Monorepo, CI, Optimization]
   大型 Monorepo 的增量构建策略
 date: 2026-06-09 16:53:00
 categories:

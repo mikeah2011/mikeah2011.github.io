@@ -1,5 +1,6 @@
 ---
 title: Claude Agent SDK 实战：Anthropic 官方 Agent 开发框架——MCP 原生集成、子代理编排与 Laravel 后端接入
+keywords: [Claude, Agent, SDK]
 date: 2026-06-07 12:00:00
 tags:
 - Claude

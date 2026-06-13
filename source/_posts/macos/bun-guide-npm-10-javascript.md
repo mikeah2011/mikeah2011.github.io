@@ -1,5 +1,6 @@
 ---
 title: Bun 实战-比 npm 快 10 倍的 JavaScript 运行时踩坑记录
+keywords: [Bun, JavaScript]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

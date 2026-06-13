@@ -3,6 +3,7 @@ title: AI Agent + GitHub Actions 实战：CI/CD 智能化与自动化决策
 date: 2026-06-02 10:00:00
 description: 本文深入探讨如何将 AI Agent 集成到 GitHub Actions 构建智能化 CI/CD 流水线，涵盖 AI Code Review、智能测试选择、自动化部署决策、CI 失败自动修复等核心场景，结合实际 YAML 工作流与 Python 代码示例，帮助 DevOps 团队实现从自动化到智能化的升级，提升代码质量与发布效率。
 tags: [AI Agent, GitHub Actions, CI/CD, 自动化, DevOps]
+keywords: [AI Agent, GitHub Actions, CI/CD, 自动化, DevOps, AI, Agent, GitHub]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

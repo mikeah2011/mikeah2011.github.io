@@ -9,6 +9,7 @@ categories:
   - architecture
   - infra
 tags: [Laravel, Nginx, 安全, 监控]
+keywords: [Laravel, Nginx, 安全, 监控, HTTPS, Let, Encrypt]
 description: 从零到 A+ 评级的 HTTPS 全链路实战。覆盖 Let's Encrypt 证书申请与自动续期、Nginx TLS 1.3 配置、OCSP Stapling、HSTS 安全头、通配符证书 DNS-01 Challenge、Laravel 强制 HTTPS 与安全 Cookie，以及生产环境中踩过的证书链、混合内容、续期失败等真实坑。
 
 

@@ -1,5 +1,6 @@
 ---
 title: 依赖注入（DI）与 IoC 容器
+keywords: [DI, IoC]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

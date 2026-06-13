@@ -1,5 +1,6 @@
 ---
 title: CDN 配置实战：静态资源加速与缓存失效策略
+keywords: [CDN]
 date: 2026-05-31 10:00:00
 categories:
   - architecture

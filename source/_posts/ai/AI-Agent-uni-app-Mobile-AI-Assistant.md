@@ -1,5 +1,6 @@
 ---
 title: AI Agent + uni-app 实战：移动端 AI 助手集成与离线推理
+keywords: [AI, Agent]
 date: 2026-06-02 02:31:05
 tags:
 - AI

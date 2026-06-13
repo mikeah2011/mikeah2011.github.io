@@ -1,5 +1,6 @@
 ---
 title: MySQL 索引概念详解：为什么需要索引与索引类型
+keywords: [MySQL]
 tags:
 - MySQL
 - 索引

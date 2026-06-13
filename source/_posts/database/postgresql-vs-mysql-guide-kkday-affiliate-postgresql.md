@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL-vs-MySQL-选型实战-KKday-Affiliate-项目为什么选 PostgreSQL 以及边界在哪里
+keywords: [PostgreSQL, MySQL, KKday]
 date: 2026-05-05 01:11:02
 updated: 2026-05-05 01:13:41
 categories:

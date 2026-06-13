@@ -1,5 +1,6 @@
 ---
 title: Laravel Pennant 2.x 进阶实战：自定义 Driver、Feature 分组与租户级灰度策略——多租户 SaaS 的功能开关治理
+keywords: [Laravel, Pennant]
 date: 2026-06-05 10:00:00
 tags:
 - Pennant

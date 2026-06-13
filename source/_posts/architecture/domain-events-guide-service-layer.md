@@ -9,6 +9,7 @@ categories:
   - architecture
   - ddd
 tags: [DDD, Domain-Events, Laravel, 微服务, 架构]
+keywords: [DDD, Domain-Events, Laravel, 微服务, 架构, Domain, Events, Service]
 description: 在 30+ 仓库的 Laravel B2C 项目中，Service Layer 膨胀是常见问题。本文详解如何用 Domain Events 替代 Service Layer 直接调用，实现订单、库存、通知的彻底解耦。包含完整重构代码对比、事件版本控制、生产踩坑（事件顺序/死信/调试）与 Pest 测试实战。
 
 

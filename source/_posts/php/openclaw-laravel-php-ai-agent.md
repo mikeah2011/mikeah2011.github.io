@@ -1,5 +1,6 @@
 ---
 title: OpenClaw 与 Laravel 集成：在 PHP 项目中调用 AI Agent 能力
+keywords: [OpenClaw, Laravel]
 date: 2026-06-02 10:00:00
 tags:
 - OpenClaw

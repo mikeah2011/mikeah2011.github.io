@@ -2,6 +2,7 @@
 title: Laravel Session 深度实战：驱动选型、分布式 Session、CSRF Token 生成——从 Cookie 到 Redis 的会话管理全链路
 date: 2026-06-07 14:00:00
 tags: [Laravel, Session, Redis, CSRF, 安全, PHP]
+keywords: [Laravel, Session, Redis, CSRF, 安全]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

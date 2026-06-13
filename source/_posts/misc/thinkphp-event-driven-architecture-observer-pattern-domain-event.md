@@ -1,5 +1,6 @@
 ---
 title: "ThinkPHP 事件驱动架构实战：观察者模式与领域事件解耦业务逻辑——基于奇乐 MAX 电商的真实重构踩坑记录"
+keywords: [ThinkPHP]
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop

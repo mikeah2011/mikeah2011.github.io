@@ -1,5 +1,6 @@
 ---
 title: AI Agent Self-Healing 实战：工具调用失败自动诊断与替代——Fallback Chain + Error Pattern Matching
+keywords: [AI, Agent, Self]
   的自治架构
 date: 2026-06-10 00:45:00
 categories:

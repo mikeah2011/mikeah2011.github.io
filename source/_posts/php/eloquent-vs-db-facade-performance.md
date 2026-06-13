@@ -1,5 +1,6 @@
 ---
 title: "Eloquent vs DB Facade 性能实战：ORM 开销量化——什么时候该绕过 Eloquent 直接写 SQL？"
+keywords: [Eloquent, DB, Facade]
 date: 2026-06-10 08:13:00
 categories:
   - php

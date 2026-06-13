@@ -1,5 +1,6 @@
 ---
 title: LLM Embedding 实战：OpenAI/Cohere/Jina 嵌入模型选型——RAG 系统的向量质量、维度与成本权衡
+keywords: [LLM, Embedding]
 date: 2026-06-06 12:00:00
 tags:
 - LLM

@@ -9,6 +9,7 @@ categories:
   - engineering
   - testing
 tags: [Laravel, PHP, 测试]
+keywords: [Laravel, PHP, 测试, Pest, API]
 description: "Pest PHP 测试指南：详解 Laravel B2C 项目中 API 测试、功能测试与 Dusk 浏览器 E2E 测试实战，涵盖 PHPUnit 迁移 Pest、断言链写法、RefreshDatabase 选型、Http::fake/Queue::fake 三件套、测试金字塔策略与 CI 集成踩坑记录，适用于 PHP Laravel 工程师构建高置信度测试体系。"
 ---
 ## 前言：为什么需要完整的测试金字塔？

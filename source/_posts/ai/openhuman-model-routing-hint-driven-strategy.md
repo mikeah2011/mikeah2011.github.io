@@ -2,6 +2,7 @@
 title: OpenHuman 模型路由架构：hint:reasoning/fast/vision/summarize 任务驱动路由策略
 date: 2026-06-02 12:00:00
 tags: [OpenHuman, 模型路由, AI Agent, 架构设计, 任务调度]
+keywords: [OpenHuman, 模型路由, AI Agent, 架构设计, 任务调度]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

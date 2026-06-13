@@ -2,6 +2,7 @@
 title: PHP 内存模型深度剖析：引用计数、写时复制、垃圾回收的底层机制与性能调优
 date: 2026-06-02 12:00:00
 tags: [PHP, 内存管理, 垃圾回收, 性能优化, 底层原理]
+keywords: [PHP, 内存管理, 垃圾回收, 性能优化, 底层原理]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

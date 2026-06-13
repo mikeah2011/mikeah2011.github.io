@@ -1,5 +1,6 @@
 ---
 title: "MCP (Model Context Protocol) 实战：AI Agent 工具标准化与生态集成深度剖析"
+keywords: [MCP, Model, Context]
 date: 2026-06-01 10:00:00
 categories:
   - ai

@@ -3,6 +3,7 @@ title: Schema Registry 实战：Confluent/Apicurio API 契约演进——事件�
 description: "深入实战 Schema Registry 在事件驱动架构中的完整治理方案：对比 Confluent Schema Registry 与 Apicurio Registry 的架构差异、存储后端选型与许可证策略；详解 Avro/Protobuf/JSON Schema 三种序列化格式的兼容性规则与选型决策框架；覆盖 BACKWARD/FORWARD/FULL 兼容性策略的部署顺序影响；附 Laravel PHP 生态的完整集成代码（Schema Registry 客户端、Avro 序列化器、Kafka Producer/Consumer）、Confluent Wire Format 字节序踩坑、GitOps 工作流设计及七个真实生产事故案例，帮助构建可演进的数据契约治理体系。"
 date: 2026-06-03 03:39:38
 tags: [schema registry, confluent, apicurio, 事件驱动, api 治理]
+keywords: [schema registry, confluent, apicurio, 事件驱动, api 治理, Schema, Registry]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

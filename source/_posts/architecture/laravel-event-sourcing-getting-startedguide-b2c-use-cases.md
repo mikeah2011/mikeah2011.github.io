@@ -1,5 +1,6 @@
 ---
 title: Laravel Event-Sourcing 入门实战-事件溯源在 B2C 电商中的应用场景与落地踩坑记录
+keywords: [Laravel, Event, Sourcing]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

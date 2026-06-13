@@ -6,6 +6,7 @@ images:
 date: 2026-05-16 22:45:13
 updated: 2026-05-16 22:48:11
 tags: [DevOps, Docker, Kubernetes, Laravel]
+keywords: [DevOps, Docker, Kubernetes, Laravel, Volume, NFS]
 categories:
   - devops
   - docker

@@ -1,5 +1,6 @@
 ---
 title: AI Agent Knowledge Distillation 实战：大模型蒸馏到小模型——Laravel 项目中的成本驱动模型降级路径
+keywords: [AI, Agent, Knowledge]
 date: 2026-06-09 13:42:00
 categories:
   - ai

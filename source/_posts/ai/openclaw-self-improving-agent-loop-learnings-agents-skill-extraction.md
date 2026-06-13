@@ -1,5 +1,6 @@
 ---
 title: OpenClaw 自改进 Agent 循环：.learnings/ 结构化日志 → AGENTS.md 提升 → 技能提取
+keywords: [OpenClaw, Agent]
 date: 2026-06-02 08:00:00
 tags:
 - OpenClaw

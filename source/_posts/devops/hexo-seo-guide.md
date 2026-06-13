@@ -7,6 +7,7 @@ cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 tags: [SEO, Hexo, Sitemap, Schema.org, Core Web Vitals, 搜索引擎优化]
+keywords: [SEO, Hexo, Sitemap, Schema.org, Core Web Vitals]
 description: 从 Sitemap 生成、Schema.org 结构化数据、Core Web Vitals 优化到外链建设，手把手打造对搜索引擎友好的 Hexo 技术博客。
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "Laravel + AWS Bedrock 实战：Amazon 托管 LLM 服务——Claude/Llama/Titan 模型的统一接入与成本优化"
+keywords: [Laravel, AWS, Bedrock]
 date: 2026-06-09 06:51:00
 categories:
   - ai

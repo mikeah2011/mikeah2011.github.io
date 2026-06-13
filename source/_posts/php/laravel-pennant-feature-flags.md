@@ -1,5 +1,6 @@
 ---
 title: Laravel Pennant + Feature Flags 深度实战：灰度放量回滚兜底的完整闭环——从 1% 到 100% 的渐进式发布工程化
+keywords: [Laravel, Pennant, Feature]
 date: 2026-06-09 15:30:00
 categories:
   - php

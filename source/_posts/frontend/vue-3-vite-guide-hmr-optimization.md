@@ -1,5 +1,6 @@
 ---
 title: Vue-3-Vite-实战-HMR-构建优化与环境变量管理-Laravel-B2C-API前后端分离踩坑记录
+keywords: [Vue, Vite, HMR]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

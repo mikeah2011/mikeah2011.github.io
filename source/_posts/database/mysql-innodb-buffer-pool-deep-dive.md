@@ -1,5 +1,6 @@
 ---
 title: MySQL InnoDB Buffer Pool 深度调优：LRU 算法、预读策略、热数据治理与 SHOW ENGINE INNODB STATUS
+keywords: [MySQL, InnoDB, Buffer]
   实战解读
 date: 2026-06-10 08:41:00
 categories:

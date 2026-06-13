@@ -1,5 +1,6 @@
 ---
 title: OpenClaw 记忆系统实战：MEMORY.md 长期记忆与日常记忆管理
+keywords: [OpenClaw]
 date: 2026-06-02 09:00:00
 tags:
 - OpenClaw

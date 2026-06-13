@@ -1,5 +1,6 @@
 ---
 title: ClickHouse vs PostgreSQL 分析查询对比：OLAP 场景下的选型决策与 Laravel 集成
+keywords: [ClickHouse, PostgreSQL]
 date: 2026-06-02 10:00:00
 description: ClickHouse vs PostgreSQL OLAP 选型实战指南，基于千万级订单明细表的真实性能对比。详解行存与列存的本质差异、ClickHouse
   MergeTree 引擎优化技巧、PostgreSQL 物化视图与列存扩展方案，以及 Debezium CDC 实时同步架构。包含 Laravel 集成代码、硬件成本对比（TCO

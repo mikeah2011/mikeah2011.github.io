@@ -1,5 +1,6 @@
 ---
 title: Web Push API (VAPID) 实战：浏览器原生推送通知——Laravel 后端 Service Worker 注册、订阅管理与消息分发
+keywords: [Web, Push, API]
 date: 2026-06-05 14:40:00
 tags:
 - web-push

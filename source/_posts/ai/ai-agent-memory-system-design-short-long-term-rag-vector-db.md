@@ -1,5 +1,6 @@
 ---
 title: AI Agent 记忆系统设计：短期/长期记忆、RAG 与向量数据库选型实战
+keywords: [AI, Agent]
 date: 2026-06-01 12:00:00
 categories:
 - ai

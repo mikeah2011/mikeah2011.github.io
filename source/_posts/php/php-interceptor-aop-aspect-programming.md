@@ -2,6 +2,7 @@
 title: PHP Interceptor 拦截器实战：AOP 切面编程在 PHP 中的实现——Laravel 中间件之外的方法级横切关注点
 date: 2026-06-07 10:00:00
 tags: [PHP, AOP, Interceptor, Laravel, 设计模式]
+keywords: [PHP, AOP, Interceptor, Laravel, 设计模式]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

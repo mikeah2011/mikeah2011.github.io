@@ -1,5 +1,6 @@
 ---
 title: 分布式 ID 生成实战：Snowflake/ULID/UUIDv7 在 Laravel 中的选型——对比自增主键的利弊
+keywords: [ID]
 date: 2026-06-02 00:00:00
 tags:
 - 分布式

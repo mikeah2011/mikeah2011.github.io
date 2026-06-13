@@ -1,5 +1,6 @@
 ---
 title: Laravel Scheduled Task 监控实战：spatie/laravel-schedule-monitor + Prometheus 指标
+keywords: [Laravel, Scheduled, Task]
 date: 2026-06-10 04:47:00
 categories:
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

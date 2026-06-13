@@ -1,5 +1,6 @@
 ---
 title: Prompt Template 工程化实战：Jinja2/Mustache/Laravel Blade 模板驱动的系统化 Prompt 管理与 A/B
+keywords: [Prompt, Template]
   测试
 date: 2026-06-06 08:00:00
 description: 深入讲解 Prompt Template 工程化实战，系统对比 Jinja2、Mustache/Handlebars、Laravel Blade

@@ -1,5 +1,6 @@
 ---
 title: Coze 实战：字节跳动 AI Bot 平台与插件生态集成
+keywords: [Coze]
 date: 2026-06-02 09:00:00
 tags:
 - Coze

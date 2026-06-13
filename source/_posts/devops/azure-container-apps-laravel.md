@@ -1,5 +1,6 @@
 ---
 title: Azure Container Apps 实战：Laravel 微服务在 Azure 生态的部署与自动扩缩容
+keywords: [Azure, Container, Apps]
 date: 2026-06-02 00:00:00
 tags:
 - azure

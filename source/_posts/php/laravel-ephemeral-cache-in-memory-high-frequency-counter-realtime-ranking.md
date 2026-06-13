@@ -1,5 +1,6 @@
 ---
 title: Laravel Ephemeral Cache 实战：无持久化的高速缓存——高频计数器、实时排行与请求级数据的内存缓存策略
+keywords: [Laravel, Ephemeral, Cache]
 date: 2026-06-10 06:17:00
 categories:
   - php

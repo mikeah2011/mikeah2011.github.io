@@ -1,5 +1,6 @@
 ---
 title: AI Agent 速率限制与配额治理实战：Token Bucket + 滑动窗口 + 租户级 Quota——多租户 SaaS 的 LLM 调用管控
+keywords: [AI, Agent]
 date: 2026-06-07 15:00:00
 description: 多租户SaaS平台下AI Agent的LLM调用速率限制与配额治理实战指南，深入讲解Token Bucket令牌桶、滑动窗口、滑动窗口计数器三大限流算法原理，结合Laravel+Redis实现全局限流、租户级Quota、用户级Rate
   Limit三级管控体系，涵盖Lua脚本原子操作、Redis与MySQL双写、降级策略、监控告警等生产环境部署要点。

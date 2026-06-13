@@ -1,5 +1,6 @@
 ---
 title: Flutter 响应式布局实战：屏幕适配、折叠屏、平板适配策略
+keywords: [Flutter]
 date: 2026-06-01 10:00:00
 tags:
 - Flutter

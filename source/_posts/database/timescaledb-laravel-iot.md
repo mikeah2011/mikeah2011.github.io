@@ -1,5 +1,6 @@
 ---
 title: TimescaleDB 实战：时序数据库在 Laravel 中的集成——IoT 数据、用户行为分析与物化视图踩坑记录
+keywords: [TimescaleDB]
 date: 2026-06-02 12:00:00
 tags:
 - TimescaleDB

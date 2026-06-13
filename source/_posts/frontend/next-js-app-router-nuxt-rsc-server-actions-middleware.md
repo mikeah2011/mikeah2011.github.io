@@ -1,5 +1,6 @@
 ---
 title: Next.js 15 App Router 深度实战：对比 Nuxt 4 的全栈框架选型——RSC/Server Actions/Middleware
+keywords: [Next.js, App, Router]
   的工程化落地
 date: 2026-06-05 09:00:00
 tags:

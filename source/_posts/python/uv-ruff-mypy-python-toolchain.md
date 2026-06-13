@@ -1,5 +1,6 @@
 ---
 title: uv + Ruff + Mypy Python 工具链实战：Rust 驱动的 Python 开发全流程——100x 速度提升与 Laravel 开发者迁移指南
+keywords: [Ruff, Mypy, Python]
 date: 2026-06-09 06:29:00
 categories:
 - python

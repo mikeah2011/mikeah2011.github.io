@@ -1,5 +1,6 @@
 ---
 title: PhpStorm 高效使用技巧：快捷键、插件与调试配置
+keywords: [PhpStorm]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

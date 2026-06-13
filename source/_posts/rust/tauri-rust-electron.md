@@ -1,5 +1,6 @@
 ---
 title: Tauri 2.x 实战：Rust 驱动的桌面应用开发——对比 Electron 的内存占用、包体积与原生能力深度评测
+keywords: [Tauri]
 date: 2026-06-10 03:20:00
 categories:
   - rust

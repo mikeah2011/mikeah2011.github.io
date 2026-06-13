@@ -2,6 +2,7 @@
 title: AI Agent 多模态实战：图文理解、语音交互、视觉推理集成
 date: 2026-06-02 09:00:00
 tags: [AI Agent, 多模态, 图文理解, 语音交互, 视觉推理]
+keywords: [AI Agent, 多模态, 图文理解, 语音交互, 视觉推理, AI, Agent]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

@@ -1,5 +1,6 @@
 ---
 title: 前端 Bundle 分析工程化实战：rollup-plugin-visualizer + source-map-explorer + CI 门禁——防止前端包体积膨胀的自动化守护
+keywords: [Bundle]
 date: 2026-06-10 03:09:00
 categories:
   - frontend

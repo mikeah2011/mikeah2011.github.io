@@ -1,5 +1,6 @@
 ---
 title: AI Agent Debugging 实战：MCP Inspector/LangSmith Trace/日志回放——从黑盒到可调试的 Agent 开发工作流
+keywords: [AI, Agent, Debugging]
 date: 2026-06-05 09:00:00
 description: AI Agent 开发中，不确定性输出、多轮工具调用依赖链和黑盒推理过程让传统调试手段彻底失效。本文通过 MCP Inspector 实时检查工具调用参数与返回值，LangSmith
   Trace 全链路可视化追踪 Agent 推理决策树，以及结构化日志与日志回放机制实现生产问题的可复现调试，帮助你从黑盒猜谜走向可观测的 Agent 开发工作流，系统性提升调试效率。

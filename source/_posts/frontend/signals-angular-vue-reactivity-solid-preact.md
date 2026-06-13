@@ -1,5 +1,6 @@
 ---
 title: Signals 范式对比：Angular Signals vs Vue Reactivity vs Solid Reactivity vs Preact
+keywords: [Signals]
   Signals——响应式底层原理深度剖析
 date: 2026-06-05 09:00:00
 tags:

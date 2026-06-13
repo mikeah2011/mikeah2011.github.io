@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL Logical Decoding 实战：wal2json/pgoutput 的自定义变更流——对比 Debezium 的轻量级 CDC 方案
+keywords: [PostgreSQL, Logical, Decoding]
 date: 2026-06-09 18:28:00
 categories:
   - database

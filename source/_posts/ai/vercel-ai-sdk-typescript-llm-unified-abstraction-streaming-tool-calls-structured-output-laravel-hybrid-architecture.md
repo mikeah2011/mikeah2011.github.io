@@ -1,5 +1,6 @@
 ---
 title: Vercel AI SDK 实战：TypeScript 的 LLM 统一抽象——Streaming/Tool Calls/Structured Output 与 Laravel 后端的混合架构
+keywords: [Vercel, AI, SDK]
 date: 2026-06-10 06:15:00
 categories:
   - ai

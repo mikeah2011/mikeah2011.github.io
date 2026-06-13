@@ -1,5 +1,6 @@
 ---
 title: Rust 异步生态全景：Tokio vs async-std vs smol vs glommio——运行时选型、io_uring 集成与 PHP/Go
+keywords: [Rust]
   开发者迁移路径
 date: 2026-06-09 06:00:00
 categories:

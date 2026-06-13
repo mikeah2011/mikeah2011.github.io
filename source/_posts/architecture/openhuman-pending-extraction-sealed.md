@@ -1,5 +1,6 @@
 ---
 title: OpenHuman 叶子生命周期深度剖析：pending_extraction 到 sealed 的状态机设计
+keywords: [OpenHuman]
 date: 2026-06-02 07:22:45
 tags:
 - OpenHuman

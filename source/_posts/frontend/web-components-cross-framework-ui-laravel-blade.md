@@ -1,5 +1,6 @@
 ---
 title: Web Components 实战：浏览器原生组件标准——跨框架 UI 组件库设计与 Laravel Blade 集成
+keywords: [Web, Components]
 date: 2026-06-04 08:00:00
 tags:
 - web components

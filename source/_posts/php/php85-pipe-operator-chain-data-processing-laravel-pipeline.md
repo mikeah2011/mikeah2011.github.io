@@ -1,5 +1,6 @@
 ---
 title: PHP 8.5 Pipe Operator 实战进阶：链式数据处理管道与 Laravel Pipeline 的互补设计——告别嵌套回调的函数式编程新范式
+keywords: [PHP, Pipe, Operator]
 date: 2026-06-05 10:00:00
 tags:
 - PHP 8.5

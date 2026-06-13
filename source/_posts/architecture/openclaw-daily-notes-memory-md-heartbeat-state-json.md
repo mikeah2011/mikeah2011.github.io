@@ -2,6 +2,7 @@
 title: OpenClaw 分层记忆架构：daily notes vs MEMORY.md vs heartbeat-state.json
 date: 2026-06-02 09:05:00
 tags: [OpenClaw, AI Agent, 记忆架构, 分层设计, 状态管理]
+keywords: [OpenClaw, AI Agent, 记忆架构, 分层设计, 状态管理]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

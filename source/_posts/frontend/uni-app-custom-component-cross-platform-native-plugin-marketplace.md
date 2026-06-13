@@ -6,6 +6,7 @@ images:
 date: 2026-06-01 09:00:00
 updated: 2026-06-01 09:00:00
 tags: [uni-app, 跨平台, 原生组件, 插件市场, iOS, Android, 微信小程序]
+keywords: [uni-app, 跨平台, 原生组件, 插件市场, iOS]
 categories:
   - frontend
 description: 从 uni-app 组件体系架构出发，深入剖析 Vue 组件与原生组件的渲染差异，手把手封装一个跨平台原生蓝牙扫描组件（覆盖 iOS/Android/微信小程序三端），详解 nvue 原生渲染、Native.js 桥接、Weex BindingX 动画的工程实践，并完整走通 DCloud 插件市场从开发、测试到发布的全链路。

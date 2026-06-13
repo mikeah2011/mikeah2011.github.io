@@ -1,5 +1,6 @@
 ---
 title: Laravel Full-Text Search 实战：不用 Elasticsearch 也能做——数据库原生全文搜索与 Laravel Scout
+keywords: [Laravel, Full, Text]
   深度对比
 date: 2026-06-02 10:00:00
 tags:

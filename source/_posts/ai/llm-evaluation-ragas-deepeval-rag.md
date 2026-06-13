@@ -1,5 +1,6 @@
 ---
 title: LLM Evaluation 实战：RAGAS/DeepEval 评估框架——RAG 系统的忠实度、相关性与答案质量量化方法论
+keywords: [LLM, Evaluation]
 description: 系统性评估 RAG 系统输出质量的完整方法论。深入解析 RAGAS 忠实度、答案相关性、上下文精确度/召回率四大核心指标，以及 DeepEval
   的 GEval 自定义评估与幻觉检测机制。涵盖从评估数据集构建、LLM-as-Judge 校准技术、CI/CD 自动化集成到成本优化策略的全流程实战指南，附完整
   Python 代码示例与 GitHub Actions 配置，帮助团队建立可量化、可追溯、可自动化的 RAG 质量保障体系。

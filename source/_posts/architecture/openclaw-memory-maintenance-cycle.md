@@ -2,6 +2,7 @@
 title: OpenClaw 记忆维护循环：日常日志→长期记忆蒸馏→过时信息修剪
 date: 2026-06-02 09:15:00
 tags: [OpenClaw, AI Agent, 记忆维护, 数据蒸馏, 自动化]
+keywords: [OpenClaw, AI Agent, 记忆维护, 数据蒸馏, 自动化]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

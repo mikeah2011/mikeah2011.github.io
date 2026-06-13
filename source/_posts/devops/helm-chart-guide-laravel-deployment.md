@@ -1,5 +1,6 @@
 ---
 title: Helm-Chart-实战-Laravel-应用打包与部署踩坑记录
+keywords: [Helm, Chart, Laravel]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

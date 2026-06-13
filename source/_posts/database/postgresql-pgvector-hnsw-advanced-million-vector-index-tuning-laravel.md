@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL pgvector + HNSW 实战进阶：百万级向量检索的索引调优——距离函数、ef_search 参数与 Laravel Scout
+keywords: [PostgreSQL, HNSW]
   集成
 date: 2026-06-09 15:35:01
 categories:

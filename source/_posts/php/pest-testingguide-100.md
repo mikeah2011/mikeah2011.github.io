@@ -1,5 +1,6 @@
 ---
 title: Pest + PHPUnit + ParaTest：如何在 Laravel B2C API 上跑满 100% 覆盖率？
+keywords: [Pest, PHPUnit, ParaTest]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

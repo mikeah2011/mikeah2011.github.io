@@ -1,5 +1,6 @@
 ---
 title: SQLite + Laravel 嵌入式应用实战：WAL 模式、FTS5 全文搜索、本地优先架构
+keywords: [SQLite, Laravel]
 date: 2026-06-06 02:08:57
 tags:
 - SQLite

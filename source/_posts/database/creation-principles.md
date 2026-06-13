@@ -1,5 +1,6 @@
 ---
 title: MySQL 索引创建原则：何时建索引与索引失效场景
+keywords: [MySQL]
 tags:
 - MySQL
 - 索引

@@ -4,6 +4,7 @@ date: 2026-05-02
 categories:
   - database
 tags: [Laravel, MySQL, 索引, EXPLAIN, 性能优化]
+keywords: [Laravel, MySQL, 索引, EXPLAIN, 性能优化]
 description: "深入讲解 Laravel + MySQL 索引性能调优三大核心：EXPLAIN 执行计划分析、覆盖索引消除回表、组合索引最左前缀原则。结合 KKday B2C 电商 API 真实案例，手把手演示订单列表慢查询从 1.8s 优化到 45ms 的完整过程，涵盖索引设计、key_len 解读、索引下推与回表原理剖析，附 Redis 缓存协同优化方案、常见踩坑案例与索引设计最佳实践 Checklist"
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

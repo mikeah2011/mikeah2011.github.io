@@ -1,5 +1,6 @@
 ---
 feature: true
+keywords: [Docker, Compose, Laravel]
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/laravel-code.jpg
 images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/laravel-code.jpg

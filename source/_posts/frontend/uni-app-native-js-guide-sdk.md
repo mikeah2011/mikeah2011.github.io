@@ -1,5 +1,6 @@
 ---
 title: uni-app Native.js 原生插件开发实战：原生 SDK 集成与多平台踩坑记录
+keywords: [Native.js]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

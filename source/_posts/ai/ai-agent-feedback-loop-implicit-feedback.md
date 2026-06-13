@@ -1,5 +1,6 @@
 ---
 title: AI Agent Feedback Loop 实战：用户隐式反馈驱动的 Agent 自动改进
+keywords: [AI, Agent, Feedback]
 date: 2026-06-09 15:15:00
 categories:
   - ai

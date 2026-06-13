@@ -1,5 +1,6 @@
 ---
 title: OpenClaw SOUL.md 实战：AI 人格定义与个性化配置
+keywords: [OpenClaw, SOUL.md]
 date: 2026-06-02 03:00:00
 tags:
 - OpenClaw

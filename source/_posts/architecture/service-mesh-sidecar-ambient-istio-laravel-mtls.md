@@ -1,5 +1,6 @@
 ---
 title: "Service Mesh 无 Sidecar 实战：Ambient Mesh（Istio）——Laravel 微服务的零开销 mTLS 与流量管理"
+keywords: [Service, Mesh, Sidecar]
 date: 2026-06-09 15:49:00
 categories:
   - architecture

@@ -1,5 +1,6 @@
 ---
 title: pipx-Python-CLI-工具隔离安装实战-告别依赖冲突的全局工具管理方案
+keywords: [Python, CLI]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

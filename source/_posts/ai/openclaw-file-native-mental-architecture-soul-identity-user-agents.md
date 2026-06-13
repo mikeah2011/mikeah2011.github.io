@@ -1,5 +1,6 @@
 ---
 title: OpenClaw 文件原生心智架构：SOUL.md/IDENTITY.md/USER.md/AGENTS.md 的协作机制
+keywords: [OpenClaw]
 date: 2026-06-02 08:00:00
 tags:
 - OpenClaw

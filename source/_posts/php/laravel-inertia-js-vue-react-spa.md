@@ -1,5 +1,6 @@
 ---
 title: Laravel + Inertia.js 实战：Vue 3/React 单页应用的全新全栈范式——对比传统 SPA 前后端分离的开发体验
+keywords: [Laravel, Inertia.js]
 date: 2026-06-03 08:00:00
 tags:
 - Laravel

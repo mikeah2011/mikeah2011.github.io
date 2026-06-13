@@ -2,6 +2,7 @@
 title: PostgreSQL Logical Replication 实战：零停机数据迁移与实时数据同步——Laravel 多库架构的基石
 date: 2026-06-06 12:00:00
 tags: [PostgreSQL, Logical-Replication, 数据迁移, Laravel, 零停机, 多库架构, CDC]
+keywords: [PostgreSQL, Logical-Replication, 数据迁移, Laravel, 零停机, Logical, Replication]
 description: "PostgreSQL Logical Replication 实战指南：详解零停机迁移 480GB 大表的完整流程，以及如何在 Laravel 多库架构中实现秒级数据同步。涵盖 Publication/Subscription 配置、CDC 管道搭建、Replication Slot 运维、常见踩坑与监控告警，附完整 SQL 与 Laravel 代码示例。"
 categories:
   - database

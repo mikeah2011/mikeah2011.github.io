@@ -1,5 +1,6 @@
 ---
 title: Zig 实战：C 的现代替代——comptime 编译期计算、手动内存管理与 Laravel PHP 扩展的 Zig 重写路径
+keywords: [Zig]
 date: 2026-06-07 12:00:00
 tags:
 - Zig

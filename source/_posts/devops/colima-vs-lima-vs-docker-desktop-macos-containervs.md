@@ -9,6 +9,7 @@ categories:
   - devops
   - docker
 tags: [Docker, Laravel, macOS, Colima, Lima, 容器化, 开发环境]
+keywords: [Docker, Laravel, macOS, Colima, Lima]
 description: 从架构原理、启动性能、磁盘 IO、网络模式、Volume 挂载、GPU 支持六个维度，横向对比 macOS 上三大容器运行时（Docker Desktop / Colima / Lima），附带 KKday B2C Laravel 项目的真实基准测试与选型决策矩阵。
 
 

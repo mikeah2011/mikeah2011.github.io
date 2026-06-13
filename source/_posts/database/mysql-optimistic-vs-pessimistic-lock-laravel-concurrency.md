@@ -1,5 +1,6 @@
 ---
 title: MySQL 乐观锁 vs 悲观锁实战：SELECT FOR UPDATE vs 版本号——Laravel 订单并发更新的选型决策
+keywords: [MySQL]
 date: 2026-06-06 12:00:00
 tags:
 - MySQL

@@ -1,5 +1,6 @@
 ---
 title: "LLM Structured Output 实战进阶：JSON Mode vs Function Calling vs Constrained Decoding"
+keywords: [LLM, Structured, Output]
 date: 2026-06-10 08:09:00
 categories:
   - ai

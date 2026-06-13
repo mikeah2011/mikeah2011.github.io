@@ -1,5 +1,6 @@
 ---
 title: Strangler Fig Pattern 实战：Laravel 单体到微服务的渐进式迁移——用 Anti-Corruption Layer 隔离遗留系统
+keywords: [Strangler, Fig, Pattern]
 date: 2026-06-02 00:00:00
 tags:
 - Strangler Fig

@@ -1,5 +1,6 @@
 ---
 title: 云服务器选型实战-AWS-阿里云-腾讯云-B2C电商场景对比与踩坑记录
+keywords: [AWS]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

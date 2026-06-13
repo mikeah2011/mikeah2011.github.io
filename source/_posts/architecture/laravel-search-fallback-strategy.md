@@ -1,5 +1,6 @@
 ---
 title: Laravel 搜索降级策略实战：Elasticsearch 不可用时自动回退数据库 LIKE/Full-Text
+keywords: [Laravel]
 date: 2026-06-10 02:21:00
 categories:
   - architecture

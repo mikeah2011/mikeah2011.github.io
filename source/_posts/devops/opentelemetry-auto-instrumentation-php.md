@@ -1,5 +1,6 @@
 ---
 title: OpenTelemetry Auto-Instrumentation 实战：PHP 自动埋点——对比手动埋点的开发效率与性能开销权衡
+keywords: [OpenTelemetry, Auto, Instrumentation]
 date: 2026-06-06 10:00:00
 tags:
 - OpenTelemetry

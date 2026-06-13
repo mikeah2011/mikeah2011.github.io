@@ -1,5 +1,6 @@
 ---
 title: Kafka vs NATS vs Pulsar 2026 实战：三大消息队列深度对比——Laravel 微服务中的吞吐量、延迟与运维复杂度选型决策
+keywords: [Kafka, NATS, Pulsar]
 date: 2026-06-07 10:00:00
 tags:
 - Kafka

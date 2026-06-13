@@ -2,6 +2,7 @@
 title: Retry with Dead Letter Queue 深度实战：Laravel 队列的失败消息治理——告警、人工介入与自动修复的闭环
 date: 2026-06-06 09:23:00
 tags: [Laravel, Queue, Dead Letter Queue, 消息队列, 可靠性]
+keywords: [Laravel, Queue, Dead Letter Queue, 消息队列, 可靠性, Retry, Dead, Letter]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

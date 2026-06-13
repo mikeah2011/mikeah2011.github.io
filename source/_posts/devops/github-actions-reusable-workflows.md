@@ -1,5 +1,6 @@
 ---
 title: "GitHub Actions Reusable Workflows 实战：跨仓库复用 CI/CD 组件、版本化发布与参数化模板"
+keywords: [GitHub, Actions, Reusable]
 date: 2026-06-10 08:58:00
 categories:
   - devops

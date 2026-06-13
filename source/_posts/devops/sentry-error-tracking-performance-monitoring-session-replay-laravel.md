@@ -2,6 +2,7 @@
 title: Sentry 实战：2026 年版错误追踪深度使用——性能监控、Session Replay 与 Laravel 集成
 date: 2026-06-02 00:00:00
 tags: [Sentry, 错误追踪, 性能监控, Session Replay, Laravel]
+keywords: [Sentry, 错误追踪, 性能监控, Session Replay, Laravel]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: MySQL-CTE-递归查询实战-树形结构层级分析与路径聚合
+keywords: [MySQL, CTE]
 date: 2026-05-05 12:30:11
 updated: 2026-05-05 12:34:25
 categories:

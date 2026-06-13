@@ -1,5 +1,6 @@
 ---
 title: Hermes 安全模型深度剖析：cron 上下文工具禁用、子代理工具隔离、prompt injection 扫描
+keywords: [Hermes]
 date: 2026-06-02 08:00:00
 tags:
 - Hermes

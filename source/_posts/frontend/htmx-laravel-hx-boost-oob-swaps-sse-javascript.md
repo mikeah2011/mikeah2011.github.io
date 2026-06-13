@@ -1,5 +1,6 @@
 ---
 title: HTMX + Laravel 实战进阶：hx-boost/OOB Swaps/SSE 三合一——不用 JavaScript 框架的超交互全栈方案
+keywords: [HTMX, Laravel]
 date: 2026-06-10 01:30:00
 categories:
   - frontend

@@ -1,5 +1,6 @@
 ---
 title: HTMX 实战：不用 JavaScript 框架也能做交互——Laravel + HTMX 的超轻量前后端方案
+keywords: [HTMX]
 date: 2026-06-02 10:00:00
 tags:
 - HTMX

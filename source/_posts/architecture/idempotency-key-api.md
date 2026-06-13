@@ -1,5 +1,6 @@
 ---
 title: Idempotency Key 深度实战：API 幂等性的三层防护——请求去重、结果缓存与分布式锁的工程化方案
+keywords: [Idempotency, Key]
 date: 2026-06-06 13:08:25
 tags:
 - 幂等性

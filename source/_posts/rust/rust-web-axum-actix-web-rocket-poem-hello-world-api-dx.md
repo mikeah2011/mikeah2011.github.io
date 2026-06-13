@@ -1,5 +1,6 @@
 ---
 title: Rust Web 框架 2026 选型：Axum vs Actix-Web vs Rocket vs Poem——从 Hello World 到生产级
+keywords: [Rust, Web]
   API 的性能基准与 DX 评测
 date: 2026-06-08 00:05:00
 categories:

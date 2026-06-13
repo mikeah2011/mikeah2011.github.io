@@ -8,6 +8,7 @@ description: "深入讲解 Laravel Phone SDK（spatie/laravel-phone）在跨境�
 categories:
   - php
 tags: [Laravel, PHP, SDK, 手机号验证, 国际化, 安全]
+keywords: [Laravel, PHP, SDK, 手机号验证, 国际化, Phone]
 
 
 

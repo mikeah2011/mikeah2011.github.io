@@ -1,5 +1,6 @@
 ---
 title: Kubernetes Gateway API 实战：Ingress 的下一代标准——Laravel 微服务的流量管理新范式
+keywords: [Kubernetes, Gateway, API]
 date: 2026-06-06 12:00:00
 tags:
 - Kubernetes

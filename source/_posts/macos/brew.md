@@ -4,6 +4,7 @@ cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 tags: [macOS, Homebrew, tools]
+keywords: [macOS, Homebrew, tools, OS, APP]
 categories:
   - macos
 date: 2022-12-08 09:11:30

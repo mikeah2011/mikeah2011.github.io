@@ -1,5 +1,6 @@
 ---
 title: Kotlin Multiplatform (KMP) 实战：跨平台共享业务逻辑——与 Flutter/uni-app 的互补定位
+keywords: [Kotlin, Multiplatform, KMP]
 date: 2026-06-02 00:00:00
 tags:
 - kotlin multiplatform

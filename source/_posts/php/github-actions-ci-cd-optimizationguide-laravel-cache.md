@@ -8,6 +8,7 @@ categories:
   - php
   - cicd
 tags: [CI/CD, Composer, Docker, Kubernetes, Laravel]
+keywords: [CI/CD, Composer, Docker, Kubernetes, Laravel, GitHub, Actions, CI]
 description: GitHub Actions CI/CD 优化实战指南，基于 Laravel B2C API 单体仓库的真实改造经验，详解如何将流水线从 18 分钟优化到 7 分钟。内容覆盖 dorny/paths-filter 变更感知、Pest/PHPStan 矩阵并行、Composer lock 缓存策略、Docker BuildKit 层缓存、workflow_run 发布解耦、concurrency 防重入锁、Kubernetes rollout 回滚保护等核心技术点，并附真实缓存事故排查记录与踩坑总结，适合 Laravel 团队落地 CI/CD 提速。
 
 

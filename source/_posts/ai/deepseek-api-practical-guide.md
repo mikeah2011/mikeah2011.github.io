@@ -3,6 +3,7 @@ title: DeepSeek API 实战：国产推理模型接入——思维链输出、Too
 description: "DeepSeek API 实战指南：详解国产AI大模型接口调用全流程，涵盖思维链Chain-of-Thought输出解析、Tool Use函数调用、流式SSE输出、Laravel框架深度集成，对比GPT-4o与Claude实现低成本推理方案，含完整Python与PHP代码示例、错误处理重试策略及生产环境踩坑经验，助你快速接入DeepSeek API构建AI应用。"
 date: 2026-06-07 10:00:00
 tags: [DeepSeek, AI, LLM, Laravel, API, 推理模型]
+keywords: [DeepSeek, AI, LLM, Laravel, API]
 categories: [ai, php]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

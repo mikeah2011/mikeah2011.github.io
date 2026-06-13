@@ -1,5 +1,6 @@
 ---
 title: Rust 异步生态对比：Tokio vs async-std vs Smol——运行时选型、性能基准与 PHP/Go 开发者迁移指南
+keywords: [Rust]
 date: 2026-06-05 10:30:00
 tags:
 - Rust

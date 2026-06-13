@@ -1,5 +1,6 @@
 ---
 title: tRPC 实战：端到端类型安全的 API 层——TypeScript 全栈开发者告别 OpenAPI 代码生成的新范式
+keywords: [RPC]
 date: 2026-06-03 08:00:00
 tags:
 - tRPC

@@ -1,5 +1,6 @@
 ---
 title: AI-Powered Debugging 实战：LLM 辅助 Bug 定位——从错误日志到修复建议的自动化调试工作流与 Laravel 集成
+keywords: [AI, Powered, Debugging]
 date: 2026-06-09 14:51:00
 categories:
   - ai

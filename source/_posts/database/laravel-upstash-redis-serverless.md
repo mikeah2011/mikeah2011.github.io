@@ -1,5 +1,6 @@
 ---
 title: Laravel + Upstash Redis 实战：Serverless Redis 替代方案——无连接池、按请求计费与边缘部署
+keywords: [Laravel, Upstash, Redis]
 date: 2026-06-09 09:52:00
 categories:
   - database

@@ -1,5 +1,6 @@
 ---
 title: PHPStan 2.x 实战：泛型推断增强、Type Alias 与 Conditional Return Type——Laravel 项目的类型安全新高度
+keywords: [PHPStan]
 date: 2026-06-09 14:04:00
 categories:
   - php

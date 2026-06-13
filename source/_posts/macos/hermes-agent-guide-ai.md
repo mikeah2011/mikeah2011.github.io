@@ -1,5 +1,6 @@
 ---
 feature: true
+keywords: [Hermes, Agent]
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/ai-assistant.jpg
 images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/ai-assistant.jpg

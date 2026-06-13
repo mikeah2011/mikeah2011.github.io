@@ -1,5 +1,6 @@
 ---
 title: TanStack Query (React Query) 实战：服务端状态管理——缓存策略、乐观更新与 Laravel API 的最佳配合
+keywords: [TanStack, Query, React]
 date: 2026-06-05 10:00:00
 tags:
 - TanStack Query

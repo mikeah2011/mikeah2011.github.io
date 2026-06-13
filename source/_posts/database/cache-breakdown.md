@@ -1,5 +1,6 @@
 ---
 title: Redis 缓存击穿防护：互斥锁与逻辑过期策略
+keywords: [Redis]
 tags:
 - Redis
 - 缓存击穿

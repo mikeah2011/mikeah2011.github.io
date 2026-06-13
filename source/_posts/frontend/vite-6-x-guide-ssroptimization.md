@@ -1,5 +1,6 @@
 ---
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+keywords: [Vite]
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 title: Vite 6.x 实战：插件开发、SSR、构建优化——前端工程化踩坑记录

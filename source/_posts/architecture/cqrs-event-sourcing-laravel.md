@@ -1,5 +1,6 @@
 ---
 title: CQRS + Event Sourcing 完整实战：从事件存储到读模型投影——Laravel 订单系统的端到端实现
+keywords: [CQRS, Event, Sourcing]
 date: 2026-06-02 08:00:00
 tags:
 - CQRS

@@ -1,5 +1,6 @@
 ---
 title: Docker Compose 5.x 实战：多服务编排、健康检查与开发环境搭建踩坑记录
+keywords: [Docker, Compose]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Laravel CQRS 实战：订单查询模型拆分、投影同步与后台列表性能治理
+keywords: [Laravel, CQRS]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

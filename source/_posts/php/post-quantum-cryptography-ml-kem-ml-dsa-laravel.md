@@ -2,6 +2,7 @@
 title: 'Post-Quantum Cryptography 实战：后量子密码算法（ML-KEM、ML-DSA）在 Laravel 中的预研与迁移路径'
 date: 2026-06-03 01:12:12
 tags: [后量子密码, PQC, ML-KEM, ML-DSA, Laravel, 加密迁移]
+keywords: [后量子密码, PQC, ML-KEM, ML-DSA, Laravel, Post, Quantum, Cryptography]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

@@ -6,6 +6,7 @@ categories:
   - architecture
   - aws
 tags: [AWS, DevOps, KKday, Kubernetes, Laravel, 架构]
+keywords: [AWS, DevOps, KKday, Kubernetes, Laravel, EC]
 description: 从 KKday B2C Backend Team 的真实部署经验出发，深度讲解 AWS EC2 实例选型、安全组精细化配置、Auto Scaling Group 扩缩容策略，以及 Laravel 应用在 EC2 上的生产级部署架构，附带多个真实踩坑案例。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

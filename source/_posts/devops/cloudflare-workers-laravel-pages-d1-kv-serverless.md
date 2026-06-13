@@ -1,5 +1,6 @@
 ---
 title: Cloudflare Workers 实战：边缘计算中的 Laravel——Workers/Pages/D1/KV 的全栈 Serverless 方案
+keywords: [Cloudflare, Workers]
 date: 2026-06-02 12:00:00
 tags:
 - Cloudflare Workers

@@ -1,5 +1,6 @@
 ---
 title: Secrets Management 实战：HashiCorp Vault/SOPS/age 密钥管理——Laravel 应用的密钥轮换与审计日志
+keywords: [Secrets, Management]
 date: 2026-06-03 10:00:00
 tags:
 - Secrets Management

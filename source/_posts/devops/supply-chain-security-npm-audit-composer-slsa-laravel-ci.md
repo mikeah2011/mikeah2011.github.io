@@ -1,5 +1,6 @@
 ---
 title: Supply Chain Security 实战：npm audit + composer audit + SLSA 框架——Laravel 全栈项目的供应链安全治理与
+keywords: [Supply, Chain, Security]
   CI 门禁
 date: 2026-06-06 18:00:00
 tags:

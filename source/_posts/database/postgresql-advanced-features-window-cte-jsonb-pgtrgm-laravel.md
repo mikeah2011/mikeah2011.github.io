@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL 高级特性实战：Window Functions + CTE + JSONB + pg_trgm——Laravel 中的复杂查询重写与性能调优
+keywords: [PostgreSQL]
 date: 2026-06-05 09:00:00
 tags:
 - PostgreSQL

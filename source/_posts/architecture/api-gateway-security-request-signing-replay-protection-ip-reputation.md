@@ -1,5 +1,6 @@
 ---
 title: API 网关安全实战：请求签名验证、重放攻击防护、IP 信誉库——Laravel 微服务的网关层安全治理
+keywords: [API]
 date: 2026-06-09 22:40:00
 categories:
   - architecture

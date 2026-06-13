@@ -1,5 +1,6 @@
 ---
 title: MySQL 索引采用的 B+Tree 算法：原理与磁盘 IO 优化
+keywords: [MySQL, B+Tree]
 tags:
 - MySQL
 - B+树

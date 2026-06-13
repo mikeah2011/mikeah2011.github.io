@@ -1,5 +1,6 @@
 ---
 title: OpenClaw 心跳机制深度剖析：主动检查循环、安静时段、去重通知、记忆策展
+keywords: [OpenClaw]
 date: 2026-06-02 12:00:00
 tags:
 - OpenClaw

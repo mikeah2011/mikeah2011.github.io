@@ -2,6 +2,7 @@
 title: Flutter + CI/CD 实战：GitHub Actions 自动化构建、测试、发布
 date: 2026-06-01 10:00:00
 tags: [Flutter, CI/CD, GitHub Actions, 自动化]
+keywords: [Flutter, CI/CD, GitHub Actions, 自动化, CI, CD]
 categories:
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

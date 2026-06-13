@@ -1,5 +1,6 @@
 ---
 title: PHP 代码优化心得：性能调优与编码规范最佳实践
+keywords: [PHP]
 tags:
 - PHP
 - 性能优化

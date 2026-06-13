@@ -1,5 +1,6 @@
 ---
 title: 索引下推（ICP）深度解析：EXPLAIN 实战与 Laravel 性能优化指南
+keywords: [ICP]
 tags:
 - MySQL
 - 索引下推

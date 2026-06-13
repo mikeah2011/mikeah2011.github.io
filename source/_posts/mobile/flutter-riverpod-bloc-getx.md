@@ -1,5 +1,6 @@
 ---
 title: Flutter 状态管理实战：Riverpod/Bloc/GetX 选型对比与最佳实践
+keywords: [Flutter]
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

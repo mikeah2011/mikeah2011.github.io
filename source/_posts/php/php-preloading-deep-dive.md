@@ -1,5 +1,6 @@
 ---
 title: "PHP Preloading 深度实战：opcache.preload 的加载机制、依赖分析与 Laravel 框架启动加速"
+keywords: [PHP, Preloading]
 date: 2026-06-10 01:00:00
 categories:
   - php

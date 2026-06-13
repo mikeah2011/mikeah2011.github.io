@@ -1,5 +1,6 @@
 ---
 title: Secrets Rotation 实战：AWS Secrets Manager + Laravel——自动化密钥轮换、版本管理与热加载的工程化方案
+keywords: [Secrets, Rotation]
 date: 2026-06-05 10:00:00
 tags:
 - secrets-manager

@@ -1,5 +1,6 @@
 ---
 title: AI SDK for PHP 实战：Vercel AI SDK 的 PHP 版——统一 LLM 调用、流式响应与工具调用的抽象层设计
+keywords: [AI, SDK, PHP]
 date: 2026-06-04 15:00:00
 tags:
 - ai-sdk

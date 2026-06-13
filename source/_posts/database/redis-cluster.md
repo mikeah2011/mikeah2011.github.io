@@ -1,5 +1,6 @@
 ---
 title: Redis Cluster 原理探讨
+keywords: [Redis, Cluster]
 tags:
 - Redis
 - Redis Cluster

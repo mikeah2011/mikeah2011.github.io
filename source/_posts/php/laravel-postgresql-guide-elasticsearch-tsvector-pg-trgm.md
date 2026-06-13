@@ -1,5 +1,6 @@
 ---
 title: 不用 Elasticsearch：Laravel + PostgreSQL 原生搜索实战，tsvector 排名、pg_trgm 纠错与高亮摘要踩坑记录
+keywords: [Elasticsearch]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Composer 脚本实战：自动化构建、测试、部署流程踩坑记录
+keywords: [Composer]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

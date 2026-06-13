@@ -1,5 +1,6 @@
 ---
 title: uni-app + ThinkPHP 商品详情页性能优化与预加载策略实战踩坑记录
+keywords: [ThinkPHP]
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop

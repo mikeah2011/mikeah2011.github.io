@@ -9,6 +9,7 @@ categories:
   - macos
   - php
 tags: [macOS, 工程管理]
+keywords: [macOS, 工程管理, Laravel]
 description: ripgrep (rg) 实战深度指南：Rust 正则引擎原理与 SIMD 并行扫描机制详解、.gitignore 感知自动跳过 vendor 目录、与 GNU grep/ag/ast-grep 全维度性能对比、Laravel 30+ 仓库大规模代码搜索实战、VS Code/Vim/Neovim/PHPStorm IDE 集成配置、GitHub Actions CI 流水线安全扫描与 debug 语句检测、自定义 shell alias 与 fzf 交互式搜索，附 MacBook M2 真实性能基准数据与六个常见踩坑记录解决方案。
 
 

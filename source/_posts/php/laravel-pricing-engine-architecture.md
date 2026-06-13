@@ -1,5 +1,6 @@
 ---
 title: Laravel 定价引擎架构设计实战：动态定价、阶梯折扣、优惠券叠加、价格快照——B2C 电商的价格治理全链路踩坑记录
+keywords: [Laravel]
 date: 2026-06-10 02:13:00
 categories:
   - php

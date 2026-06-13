@@ -1,5 +1,6 @@
 ---
 title: Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计
+keywords: [Kafka, Debezium, CDC]
 date: 2026-06-09 19:30:00
 categories:
 - database

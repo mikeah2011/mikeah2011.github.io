@@ -1,5 +1,6 @@
 ---
 title: AI Agent + 数据库实战：Text-to-SQL、智能查询、数据治理
+keywords: [AI, Agent]
 date: 2026-06-02 02:31:05
 tags:
 - AI

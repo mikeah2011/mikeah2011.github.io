@@ -2,6 +2,7 @@
 title: OpenHuman TokenJuice 实战：智能 Token 压缩与成本优化（降低 80%）
 date: 2026-06-02 00:00:00
 tags: [OpenHuman, TokenJuice, Token压缩, 成本优化]
+keywords: [OpenHuman, TokenJuice, Token压缩, 成本优化]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

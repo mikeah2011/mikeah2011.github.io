@@ -1,5 +1,6 @@
 ---
 title: Raycast 实战：macOS 效率启动器自定义脚本与开发工作流踩坑记录
+keywords: [Raycast]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

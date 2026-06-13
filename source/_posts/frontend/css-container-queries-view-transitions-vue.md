@@ -1,5 +1,6 @@
 ---
 title: CSS Container Queries + View Transitions 实战：响应式设计的范式转变——Vue 3 组件级适配与页面过渡动画
+keywords: [CSS, Container, Queries]
 date: 2026-06-05 15:17:02
 tags:
 - CSS

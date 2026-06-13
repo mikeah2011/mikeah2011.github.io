@@ -1,5 +1,6 @@
 ---
 title: AI Agent Skill 开发实战：自定义技能与工作流自动化——Hermes Agent 踩坑记录
+keywords: [AI, Agent, Skill]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

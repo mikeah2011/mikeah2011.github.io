@@ -1,5 +1,6 @@
 ---
 title: AI Gateway 实战：统一 LLM 调用层——LiteLLM/Kong AI Gateway 的路由、限流与可观测性
+keywords: [AI, Gateway]
 date: 2026-06-02 00:00:00
 tags:
 - ai-gateway

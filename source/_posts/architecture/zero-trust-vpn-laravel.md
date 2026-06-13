@@ -1,5 +1,6 @@
 ---
 title: Zero Trust 架构实战：从 VPN 到零信任——Laravel 微服务中的身份验证与网络分段
+keywords: [Zero, Trust]
 date: 2026-06-02 12:00:00
 tags:
 - zero trust

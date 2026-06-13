@@ -1,5 +1,6 @@
 ---
 title: Data Mesh 深度实践篇：Laravel 微服务数据产品化、联邦治理与自助查询层的工程落地
+keywords: [Data, Mesh]
 date: 2026-06-03 09:00:00
 tags:
 - Data Mesh

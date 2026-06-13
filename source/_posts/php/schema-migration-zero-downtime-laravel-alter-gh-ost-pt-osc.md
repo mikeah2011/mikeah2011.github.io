@@ -3,6 +3,7 @@ title: "Schema Migration Zero-Downtime 实战：Laravel 大表 ALTER 的 gh-ost/
 description: "深入对比 GitHub gh-ost 与 Percona pt-online-schema-change 两大在线 Schema 变更工具在 Laravel 项目中的实战应用。从 MySQL InnoDB 锁机制原理出发，详解 gh-ost 的 Binlog 解析方案与 pt-osc 的触发器方案的架构差异、性能影响与安全性，提供完整的 Laravel Migration 集成代码、CI/CD 流水线配置、生产环境踩坑经验与决策矩阵，帮助开发者实现亿级大表的零停机 ALTER TABLE 变更。"
 date: 2026-06-07 12:00:00
 tags: [MySQL, Schema Migration, gh-ost, pt-osc, Laravel, 零停机]
+keywords: [MySQL, Schema Migration, gh-ost, pt-osc, Laravel, Schema, Migration, Zero]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

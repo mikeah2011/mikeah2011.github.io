@@ -1,5 +1,6 @@
 ---
 title: API 集成测试实战：外部服务 Mock 策略、HTTP 录制回放、Contract 测试——Laravel B2C API 的端到端测试方案
+keywords: [API]
 date: 2026-06-09 23:06:00
 categories:
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

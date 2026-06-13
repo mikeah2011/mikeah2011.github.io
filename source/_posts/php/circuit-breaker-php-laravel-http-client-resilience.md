@@ -1,5 +1,6 @@
 ---
 title: Circuit Breaker 深度实战：PHP 手写熔断器 vs Laravel HTTP Client 的 resilience 模式——从原理到生产落地
+keywords: [Circuit, Breaker]
 date: 2026-06-02 00:00:00
 tags:
 - circuit breaker

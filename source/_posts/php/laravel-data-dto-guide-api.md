@@ -8,6 +8,7 @@ updated: 2026-05-04 23:26:39
 categories:
   - php
 tags: [Laravel, PHP, DTO, spatie/laravel-data, API]
+keywords: [Laravel, PHP, DTO, spatie/laravel-data, API]
 description: "在 B2C API 项目中引入 spatie/laravel-data 做 DTO 层的完整实战记录，涵盖强类型请求绑定、嵌套验证、Lazy 属性延迟加载、API Resource 替代、序列化陷阱与性能压测踩坑。"
 
 

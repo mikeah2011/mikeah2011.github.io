@@ -1,5 +1,6 @@
 ---
 title: Laravel Concurrency 实战进阶：fpm-fork vs Process vs async HTTP 的性能基准——12.x Concurrency
+keywords: [Laravel, Concurrency]
   facade 的真实吞吐量测量
 date: 2026-06-09 15:21:00
 categories:

@@ -1,5 +1,6 @@
 ---
 title: uni-app + Vue 3 + Vite 现代跨平台开发工作流实战踩坑记录
+keywords: [Vue, Vite]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

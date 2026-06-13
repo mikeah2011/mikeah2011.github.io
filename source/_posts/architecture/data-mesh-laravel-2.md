@@ -4,6 +4,7 @@ date: 2026-06-09 20:20:00
 categories:
   - architecture
 tags: [data-mesh, 数据架构, 微服务, Laravel, 数据治理]
+keywords: [data-mesh, 数据架构, 微服务, Laravel, 数据治理, Data, Mesh]
 description: "从传统数据仓库到 Data Mesh 的架构转型实战——在 Laravel 微服务体系中落地领域数据产品化、数据所有权与联邦治理，附完整 PHP/Laravel 代码示例与生产踩坑总结。"
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

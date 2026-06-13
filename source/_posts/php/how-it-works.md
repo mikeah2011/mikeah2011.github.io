@@ -1,5 +1,6 @@
 ---
 title: PHP 工作原理：SAPI、FPM、OPcache 与请求生命周期
+keywords: [PHP]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

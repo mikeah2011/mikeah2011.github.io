@@ -2,6 +2,7 @@
 title: Hermes Skill vs Plugin 扩展点对比：什么时候用 Skill，什么时候用 Plugin？
 date: 2026-06-02 00:00:00
 tags: [Hermes, Skill, Plugin, 扩展机制, AI Agent]
+keywords: [Hermes, Skill, Plugin, 扩展机制, AI Agent]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

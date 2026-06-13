@@ -1,5 +1,6 @@
 ---
 title: "PHP 8.x 前瞻：类型系统进化、新 RFC 解读与异步生态演进——Laravel 开发者的升级路线图"
+keywords: [PHP]
 date: 2026-06-09 13:57:00
 categories:
   - php

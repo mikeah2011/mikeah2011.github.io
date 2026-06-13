@@ -1,5 +1,6 @@
 ---
 title: MySQL 并发控制：乐观锁、悲观锁与 MVCC 原理
+keywords: [MySQL]
 tags:
 - MySQL
 - 并发控制

@@ -1,5 +1,6 @@
 ---
 title: "ClickHouse MergeTree 引擎深度实战：ReplacingMergeTree/CollapsingMergeTree 的电商埋点去重与增量聚合"
+keywords: [ClickHouse, MergeTree]
 date: 2026-06-10 05:15:00
 categories:
   - database

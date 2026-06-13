@@ -9,6 +9,7 @@ categories:
   - devops
   - docker
 tags: [DevOps, Docker, Laravel, PHP]
+keywords: [DevOps, Docker, Laravel, PHP, MB]
 description: Docker 多阶段构建是 PHP 镜像瘦身的核心手段。本文基于 KKday B2C 后端 30+ Laravel 仓库的实战经验，详解 Dockerfile 优化全流程：多阶段构建原理与完整示例、Composer 缓存复用、Alpine 最小化基础镜像选型、镜像层分析工具 dive 的使用、COPY 顺序对构建缓存的影响，以及常见踩坑案例排查。附镜像大小对比表格，从 500MB 压缩到 50MB，部署速度提升 10 倍，CVE 漏洞减少 93%。
 
 

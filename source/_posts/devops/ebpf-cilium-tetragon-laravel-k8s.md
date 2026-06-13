@@ -1,5 +1,6 @@
 ---
 title: eBPF 实战：内核级网络追踪与性能分析——Cilium/Tetragon 在 Laravel K8s 集群中的安全与可观测性
+keywords: [BPF]
 date: 2026-06-03 10:00:00
 tags:
 - eBPF

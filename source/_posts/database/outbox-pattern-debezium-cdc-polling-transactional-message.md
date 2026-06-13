@@ -1,5 +1,6 @@
 ---
 title: Outbox Pattern 深度实战：保证数据库与消息队列的最终一致性——Debezium CDC vs 轮询 vs 事务消息的选型决策
+keywords: [Outbox, Pattern]
 date: 2026-06-06 10:00:00
 tags:
 - Outbox Pattern

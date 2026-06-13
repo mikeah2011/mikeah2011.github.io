@@ -1,5 +1,6 @@
 ---
 title: Laravel Rate Limiting 深度实战：自定义 Limiter、Redis 滑动窗口、多维限流策略——B2C API 的精细流量治理
+keywords: [Laravel, Rate, Limiting]
 date: 2026-06-06 10:00:00
 tags:
 - Laravel

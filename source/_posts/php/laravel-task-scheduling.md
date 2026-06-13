@@ -1,5 +1,6 @@
 ---
 title: Laravel Task Scheduling 深度实战：多服务器调度、分布式锁、任务分片与监控告警
+keywords: [Laravel, Task, Scheduling]
 date: 2026-06-06 10:00:00
 tags:
 - Laravel

@@ -1,5 +1,6 @@
 ---
 title: PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离踩坑记录
+keywords: [PHP, Fiber, Laravel]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

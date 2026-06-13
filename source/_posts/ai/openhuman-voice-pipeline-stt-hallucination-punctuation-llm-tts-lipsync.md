@@ -2,6 +2,7 @@
 title: OpenHuman 语音管线全链路：STT → 幻觉过滤 → 标点恢复 → LLM → TTS → 口型同步
 date: 2026-06-02 12:00:00
 tags: [OpenHuman, 语音管线, STT, TTS, NLP, 口型同步]
+keywords: [OpenHuman, 语音管线, STT, TTS, NLP]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

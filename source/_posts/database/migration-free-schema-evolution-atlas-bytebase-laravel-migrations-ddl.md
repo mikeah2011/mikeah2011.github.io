@@ -1,5 +1,6 @@
 ---
 title: Migration-Free Schema Evolution 实战：Atlas/Bytebase 数据库 Schema 即代码——对比 Laravel
+keywords: [Migration, Free, Schema]
   Migrations 的 DDL 管理新范式
 description: 深入对比数据库 Schema 管理的命令式与声明式范式，以 Atlas 和 Bytebase 为核心实战工具，完整演示 HCL Schema
   定义、自动 Diff 生成迁移、Lint 危险检测、GitHub Actions CI/CD 集成及 Bytebase 审批流配置。涵盖 gh-ost / pt-online-schema-change

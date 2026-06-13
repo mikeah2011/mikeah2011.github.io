@@ -3,6 +3,7 @@ title: DuckDB + Laravel 实战：嵌入式 OLAP 引擎——在 PHP 进程内做
 description: 实战 DuckDB 嵌入式 OLAP 引擎与 Laravel 集成，涵盖 php-duckdb 扩展集成、Service Provider 封装、Query Builder 桥接。通过审计日志分析、订单漏斗、用户行为分析演示百万级数据的零基础设施 OLAP 方案，对比 MySQL/ClickHouse 性能基准与生产环境最佳实践。
 date: 2026-06-06 10:00:00
 tags: [DuckDB, Laravel, OLAP, PHP, 数据分析]
+keywords: [DuckDB, Laravel, OLAP, PHP, 数据分析]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

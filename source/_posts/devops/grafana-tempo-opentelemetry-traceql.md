@@ -1,5 +1,6 @@
 ---
 title: Grafana Tempo 实战：分布式追踪后端——OpenTelemetry 采集 + TraceQL 查询的因果可观测性
+keywords: [Grafana, Tempo]
 date: 2026-06-04 10:00:00
 tags:
 - Grafana

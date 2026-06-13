@@ -1,5 +1,6 @@
 ---
 title: Go 学习笔记：Go 1.25 特性预览（迭代器、WASI、性能提升）
+keywords: [Go]
 date: 2026-06-09 23:45:00
 categories:
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop

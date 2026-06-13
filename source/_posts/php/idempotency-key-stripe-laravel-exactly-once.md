@@ -1,5 +1,6 @@
 ---
 title: 幂等键 (Idempotency Key) 设计模式实战：Stripe 风格的请求去重——Laravel 中间件实现与分布式缓存的 Exactly-Once
+keywords: [Idempotency, Key]
   语义
 date: 2026-06-05 09:00:00
 tags:

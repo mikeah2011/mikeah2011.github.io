@@ -1,5 +1,6 @@
 ---
 title: Lambda Function URLs 实战：替代 API Gateway 的轻量方案——Laravel Bref 的直接 HTTPS 端点、冷启动与成本优化
+keywords: [Lambda, Function, URLs]
 date: 2026-06-10 08:27:00
 categories:
   - architecture

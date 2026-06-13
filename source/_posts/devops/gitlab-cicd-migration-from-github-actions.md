@@ -1,5 +1,6 @@
 ---
 title: "GitLab CI/CD 实战：从 GitHub Actions 迁移——Pipeline DAG、Auto DevOps、安全扫描与 Laravel 项目的完整 CI/CD 方案"
+keywords: [GitLab, CI, CD]
 date: 2026-06-10 05:37:00
 categories:
   - devops

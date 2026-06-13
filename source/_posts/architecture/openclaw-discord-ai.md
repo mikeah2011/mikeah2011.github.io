@@ -1,5 +1,6 @@
 ---
 title: OpenClaw + Discord 实战：多频道 AI 助手与社区管理
+keywords: [OpenClaw, Discord]
 date: 2026-06-02 09:00:00
 tags:
 - OpenClaw

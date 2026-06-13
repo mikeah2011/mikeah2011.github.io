@@ -1,5 +1,6 @@
 ---
 title: Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - KKday B2C API 真实踩坑记录
+keywords: [Redis, KKday, API]
 date: 2026-05-02
 categories:
 - database

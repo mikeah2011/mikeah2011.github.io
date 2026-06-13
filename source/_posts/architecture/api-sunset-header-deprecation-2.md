@@ -1,5 +1,6 @@
 ---
 title: API 生命周期管理实战：设计、版本控制、废弃通知、客户端迁移——Sunset Header 与 Deprecation 标准
+keywords: [API]
 date: 2026-06-02 08:00:00
 tags:
 - API

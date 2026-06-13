@@ -1,5 +1,6 @@
 ---
 title: Biome 实战：替代 ESLint + Prettier 的下一代前端工具链——Rust 驱动的超快格式化与检查
+keywords: [Biome]
 date: 2026-06-02 12:00:00
 tags:
 - Biome

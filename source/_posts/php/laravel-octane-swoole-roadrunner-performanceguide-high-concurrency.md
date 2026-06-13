@@ -7,6 +7,7 @@ date: 2026-05-03
 categories:
   - php
 tags: [Laravel, PHP, Redis, 微服务, 性能优化, Octane, Swoole, RoadRunner, 高并发]
+keywords: [Laravel, PHP, Redis, 微服务, 性能优化, Octane]
 description: 在 KKday B2C API 团队面对每秒 5000+ 请求的促销场景下，我们通过 Laravel Octane 从 FPM 迁移到 Swoole/RoadRunner，实现了 QPS 提升 300% 的实战经验。本文涵盖完整架构图、性能测试数据、连接池配置、协程安全陷阱与生产环境部署方案，附详细对比分析。
 
 

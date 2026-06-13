@@ -1,5 +1,6 @@
 ---
 title: MLOps 实战：MLflow/Kubeflow 模型生命周期管理——从训练到部署的工程化流水线
+keywords: [MLOps]
 date: 2026-06-02 12:00:00
 tags:
 - MLOps

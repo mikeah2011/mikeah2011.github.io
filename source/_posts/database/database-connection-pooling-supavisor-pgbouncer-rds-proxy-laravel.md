@@ -1,5 +1,6 @@
 ---
 title: Database Connection Pooling 进阶实战：Supavisor vs PgBouncer vs AWS RDS Proxy——多租户
+keywords: [Database, Connection, Pooling]
   Laravel 的连接风暴治理与 Session 级隔离
 date: 2026-06-07 10:00:00
 tags:

@@ -1,5 +1,6 @@
 ---
 title: "PostgreSQL 物化视图实战：MATERIALIZED VIEW + REFRESH CONCURRENTLY——Laravel 报表查询的预计算与增量刷新"
+keywords: [PostgreSQL]
 date: 2026-06-10 05:06:00
 categories:
   - database

@@ -1,5 +1,6 @@
 ---
 title: Outbox Pattern 实战：保证数据库与消息队列的最终一致性——Laravel + Debezium 的可靠事件发布
+keywords: [Outbox, Pattern]
 date: 2026-06-02 00:00:00
 tags:
 - Outbox Pattern

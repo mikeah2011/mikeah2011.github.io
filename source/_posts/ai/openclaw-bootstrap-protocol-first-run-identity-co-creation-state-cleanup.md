@@ -1,5 +1,6 @@
 ---
 title: OpenClaw Bootstrap 协议：首次运行身份共创与状态清理的设计模式
+keywords: [OpenClaw, Bootstrap]
 date: 2026-06-02 08:00:00
 tags:
 - OpenClaw

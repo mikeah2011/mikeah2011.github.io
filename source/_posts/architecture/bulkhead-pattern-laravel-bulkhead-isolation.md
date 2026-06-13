@@ -1,5 +1,6 @@
 ---
 title: Bulkhead Pattern 实战：舱壁隔离——Laravel HTTP Client/Queue/DB 连接池的独立故障域设计
+keywords: [Bulkhead, Pattern]
 date: 2026-06-06 10:00:00
 tags:
 - bulkhead

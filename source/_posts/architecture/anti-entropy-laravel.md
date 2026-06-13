@@ -1,5 +1,6 @@
 ---
 title: Anti-Entropy 实战：数据对账与修复机制——Laravel 微服务间的定期数据一致性校验与自动修复
+keywords: [Anti, Entropy]
 date: 2026-06-06 10:00:00
 tags:
 - anti-entropy

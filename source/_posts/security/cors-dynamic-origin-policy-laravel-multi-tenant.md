@@ -1,5 +1,6 @@
 ---
 title: CORS 动态策略实战：基于 Origin 的动态允许列表——Laravel 多租户 API 的精细化跨域治理
+keywords: [CORS]
 date: 2026-06-10 01:53:00
 categories:
   - security

@@ -1,5 +1,6 @@
 ---
 title: Composer Dependency Audit 实战：安全漏洞检测与 License 合规——Laravel 项目的供应链安全工程化治理
+keywords: [Composer, Dependency, Audit]
 date: 2026-06-05 08:00:00
 tags:
 - Composer

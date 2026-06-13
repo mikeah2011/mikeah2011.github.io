@@ -1,5 +1,6 @@
 ---
 title: FrankenPHP 深度实战：Worker 模式下的内存治理——常驻内存泄漏检测、连接复用与对比 PHP-FPM 的运维差异
+keywords: [FrankenPHP]
 date: 2026-06-09 18:00:00
 categories:
   - php

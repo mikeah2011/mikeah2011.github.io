@@ -1,5 +1,6 @@
 ---
 title: Laravel 授权模型深度对比：RBAC vs ABAC vs ReBAC
+keywords: [Laravel]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

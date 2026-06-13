@@ -1,5 +1,6 @@
 ---
 title: PHP 8.5 新特性前瞻：属性钩子、JIT 改进与异步生态演进
+keywords: [PHP]
 date: 2026-06-02 10:00:00
 tags:
 - PHP

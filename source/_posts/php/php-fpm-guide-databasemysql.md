@@ -1,5 +1,6 @@
 ---
 title: PHP-FPM 长连接与短连接实战：数据库连接池性能差异与 MySQL 踩坑记录
+keywords: [PHP, FPM]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

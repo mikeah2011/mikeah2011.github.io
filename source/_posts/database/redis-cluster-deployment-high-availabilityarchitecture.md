@@ -1,5 +1,6 @@
 ---
 title: Redis Cluster 集群部署与故障转移：高可用架构实战踩坑记录
+keywords: [Redis, Cluster]
 date: 2026-05-05 07:10:43
 updated: 2026-05-05 07:13:41
 categories:

@@ -2,6 +2,7 @@
 title: Magic Link 无密码登录实战：邮件/短信一次性链接——Laravel 从零实现与安全防滥用策略
 date: 2026-06-03 00:00:00
 tags: [Magic Link, 无密码登录, Laravel, 安全, 邮件, 认证, Auth]
+keywords: [Magic Link, 无密码登录, Laravel, 安全, 邮件, Magic, Link]
 categories:
   - php
 description: "深入讲解如何在 Laravel 中实现 Magic Link 无密码登录，涵盖一次性 Token 生成与 SHA-256 哈希存储、邮件发送、频率限制、邮箱枚举防护、竞态条件处理等安全防滥用策略，附完整可运行代码、踩坑记录与生产上线检查清单，适合 SaaS 产品和内部工具的认证方案选型参考。"

@@ -1,5 +1,6 @@
 ---
 title: OAuth 2.0 Token Exchange 实战：Laravel 中的服务间令牌交换——RFC 8693 标准与微服务间的最小权限调用
+keywords: [OAuth, Token, Exchange]
 date: 2026-06-06 10:00:00
 tags:
 - OAuth

@@ -1,5 +1,6 @@
 ---
 title: AI Agent Memory 实战：对话记忆的五种工程实现——Buffer/Summary/Vector/Entity/Hybrid 策略的 Token
+keywords: [AI, Agent, Memory]
   成本与召回精度权衡
 date: 2026-06-10 08:06:00
 categories:

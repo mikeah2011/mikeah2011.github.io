@@ -1,5 +1,6 @@
 ---
 title: FerretDB 实战：开源 MongoDB 替代——PostgreSQL 驱动的文档数据库与 Laravel 集成的迁移路径
+keywords: [FerretDB]
 date: 2026-06-07 12:00:00
 tags:
 - FerretDB

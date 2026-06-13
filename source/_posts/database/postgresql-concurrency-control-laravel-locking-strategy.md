@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL 并发控制深度实战：行锁/表锁/Advisory Lock/Serializable 的选型决策树——Laravel 高并发写入的锁治理方法论
+keywords: [PostgreSQL]
 date: 2026-06-10 02:45:00
 categories:
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

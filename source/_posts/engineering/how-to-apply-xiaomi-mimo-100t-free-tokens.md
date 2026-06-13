@@ -1,5 +1,6 @@
 ---
 title: 小米 MiMo 百万亿 Token 免费申请全攻略——从注册到到账的完整指南
+keywords: [MiMo, Token]
 date: 2026-05-26 10:30:00
 updated: 2026-05-26 10:30:00
 categories:

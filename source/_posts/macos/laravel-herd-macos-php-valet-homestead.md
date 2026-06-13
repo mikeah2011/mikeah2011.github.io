@@ -2,6 +2,7 @@
 title: Laravel Herd 实战：macOS 原生 PHP 环境管理——替代 Valet/Homestead 的一键开发体验与多站点配置
 date: 2026-06-04 09:00:00
 tags: [Laravel Herd, macOS, PHP, Valet, 开发环境]
+keywords: [Laravel Herd, macOS, PHP, Valet, 开发环境, Laravel, Herd]
 categories:
   - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

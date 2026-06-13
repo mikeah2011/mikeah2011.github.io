@@ -1,5 +1,6 @@
 ---
 title: Laravel Reverb 实战：订单状态实时推送与多实例部署踩坑记录
+keywords: [Laravel, Reverb]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

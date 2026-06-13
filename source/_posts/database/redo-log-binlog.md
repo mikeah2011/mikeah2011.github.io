@@ -1,5 +1,6 @@
 ---
 title: MySQL的三种日志
+keywords: [MySQL]
 tags:
 - MySQL
 - binlog

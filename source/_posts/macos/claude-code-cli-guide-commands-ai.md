@@ -1,5 +1,6 @@
 ---
 title: Claude Code CLI 实战：命令行 AI 编程工作流与 Laravel 开发效率跃升踩坑记录
+keywords: [Claude, Code, CLI]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

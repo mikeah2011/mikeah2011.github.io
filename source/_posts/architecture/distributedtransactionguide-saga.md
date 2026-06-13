@@ -1,5 +1,6 @@
 ---
 title: 分布式事务实战-Saga-模式在订单库存支付中的应用-Laravel-B2C-API踩坑记录
+keywords: [Saga, Laravel, API]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Dagger 实战：用代码定义 CI/CD 流水线——Go SDK 驱动的可移植 Pipeline 与 GitHub Actions 选型对比
+keywords: [Dagger]
 date: 2026-06-03 00:00:00
 tags:
 - dagger

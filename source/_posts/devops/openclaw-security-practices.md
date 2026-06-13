@@ -1,5 +1,6 @@
 ---
 title: OpenClaw 安全实战：权限控制、隐私保护、群聊行为边界
+keywords: [OpenClaw]
 date: 2026-06-02 10:00:00
 tags:
 - OpenClaw

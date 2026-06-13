@@ -1,5 +1,6 @@
 ---
 title: "PHP Fibers 底层剖析：从 Zend Fiber 到协程调度器"
+keywords: [PHP, Fibers]
 date: 2026-06-10 04:34:00
 categories:
   - php

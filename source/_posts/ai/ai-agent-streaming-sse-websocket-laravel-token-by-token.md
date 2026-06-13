@@ -1,5 +1,6 @@
 ---
 title: AI Agent Streaming 实战：SSE/WebSocket 实时流式响应——Laravel 后端的 Token-by-Token 推送与前端渲染
+keywords: [AI, Agent, Streaming]
 date: 2026-06-03 09:00:00
 tags:
 - AI Agent

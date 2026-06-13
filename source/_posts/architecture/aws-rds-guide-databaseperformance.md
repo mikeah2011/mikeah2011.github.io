@@ -6,6 +6,7 @@ categories:
   - architecture
   - aws
 tags: [AWS, MySQL, PostgreSQL, 监控]
+keywords: [AWS, MySQL, PostgreSQL, 监控, RDS, Laravel]
 description: "AWS RDS 在 Laravel B2C API 项目中的实战经验：多可用区部署、自动备份与时间点恢复、读写分离 Proxy、Performance Insights 慢查询治理、参数组调优、以及从自建 MySQL 迁移到 RDS 的完整踩坑记录。"
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

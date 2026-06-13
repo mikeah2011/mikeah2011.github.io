@@ -1,5 +1,6 @@
 ---
 title: AI 辅助代码审查实战-CodeRabbit-Codeium 集成-自动化 CI 门禁踩坑记录
+keywords: [AI, CodeRabbit, Codeium]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

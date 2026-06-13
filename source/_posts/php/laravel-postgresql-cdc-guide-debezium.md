@@ -9,6 +9,7 @@ categories:
   - php
   - database
 tags: [Laravel, PostgreSQL, 消息队列, Debezium, CDC, Kafka]
+keywords: [Laravel, PostgreSQL, 消息队列, Debezium, CDC]
 description: 结合订单中心与查询侧分离场景，深入记录如何在 Laravel 中用 PostgreSQL CDC + Debezium + Kafka 做变更数据捕获与同步。涵盖 Debezium 完整配置、Laravel Kafka Consumer 消费 CDC 事件、版本闸门乱序修复、补数回放 Artisan 命令，以及乱序、重复投递、DDL 漂移、Initial Snapshot 污染等真实生产踩坑清单。
 
 

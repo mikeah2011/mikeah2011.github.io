@@ -2,6 +2,7 @@
 title: OpenHuman 插件开发实战：自定义集成与 OAuth 流程
 date: 2026-06-02 10:00:00
 tags: [OpenHuman, 插件开发, OAuth, 集成, API, AI Agent]
+keywords: [OpenHuman, 插件开发, OAuth, 集成, API]
 description: 本文是一篇 OpenHuman 插件开发的完整实战指南，系统讲解自定义集成与 OAuth 2.0 授权流程。内容涵盖插件系统架构拆解、插件生命周期管理、PKCE 安全增强、GitHub / Google / Slack 第三方 API 集成示例、token 加密存储与自动刷新、多租户隔离、插件调试测试与灰度发布。无论你是构建 AI Agent 工具链还是扩展企业内部平台集成，都能从中获得可迁移的工程方法与真实踩坑经验。
 categories:
   - architecture

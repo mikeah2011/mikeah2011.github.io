@@ -1,5 +1,6 @@
 ---
 title: Hermes 记忆安全机制：sanitize_context 防止记忆泄漏 + StreamingContextScrubber
+keywords: [Hermes]
 date: 2026-06-02 13:00:00
 description: 深入解析 Hermes Agent 记忆安全机制，涵盖 sanitize_context 静态记忆清洗与 StreamingContextScrubber
   实时流式拦截两道防线。详解 PII 脱敏、Prompt Injection 检测、跨会话隔离、记忆投毒防护等 10 种威胁的应对方案，附完整 TypeScript

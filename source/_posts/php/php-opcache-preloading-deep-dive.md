@@ -1,5 +1,6 @@
 ---
 title: PHP Opcache 预加载 (Preloading) 深度实战：opcache.preload 精确控制——Laravel 框架级预加载 vs 按需加载的性能收益量化
+keywords: [PHP, Opcache, Preloading]
 date: 2026-06-10 06:46:00
 categories:
   - php

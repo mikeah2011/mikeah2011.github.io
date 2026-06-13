@@ -1,5 +1,6 @@
 ---
 feature: true
+keywords: [VPN]
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg
 images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg

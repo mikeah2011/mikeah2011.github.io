@@ -1,5 +1,6 @@
 ---
 title: Hono 框架实战：超轻量边缘 Web 框架——Cloudflare Workers/Deno/Bun 多运行时适配，对比 Express/Fastify
+keywords: [Hono]
   的极致性能
 date: 2026-06-07 10:00:00
 description: 深入实战 Hono 超轻量边缘 Web 框架，涵盖 Cloudflare Workers、Deno、Bun 多运行时部署，内置中间件、Zod

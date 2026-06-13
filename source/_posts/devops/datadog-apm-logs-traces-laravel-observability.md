@@ -1,5 +1,6 @@
 ---
 title: DataDog 实战：APM/Logs/Traces 统一可观测性——Laravel 应用的全栈监控方案与对比 Prometheus+Grafana
+keywords: [DataDog]
   的选型决策
 date: 2026-06-10 06:00:00
 categories:

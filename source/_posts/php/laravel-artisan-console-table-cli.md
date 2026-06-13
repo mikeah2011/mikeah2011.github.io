@@ -2,6 +2,7 @@
 title: Laravel Artisan Console 深度实战：交互式命令、进度条、多态参数与 Table 输出——构建内部运维 CLI 工具箱
 date: 2026-06-06 10:00:00
 tags: [Laravel, Artisan, CLI, PHP, DevOps]
+keywords: [Laravel, Artisan, CLI, PHP, DevOps, Console]
 categories:
   - php
 description: 深入 Laravel Artisan Console 的高级特性，系统讲解交互式命令设计（ask/confirm/choice/secret）、实时进度条控制、Symfony Table 表格渲染、多态参数与选项签名语法解析，并通过构建内部运维 CLI 工具箱实战项目，将数据库巡检、队列监控、健康检查等命令串联成可生产部署的自动化运维工具链。

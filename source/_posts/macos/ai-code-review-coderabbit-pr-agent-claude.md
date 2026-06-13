@@ -1,5 +1,6 @@
 ---
 title: AI Code Review 工作流实战：CodeRabbit + PR-Agent + Claude Review——从人工 Review 到 AI
+keywords: [AI, Code, Review]
   辅助的效率提升量化
 date: 2026-06-06 10:00:00
 tags:

@@ -2,6 +2,7 @@
 title: 'Platform Engineering 实战：Golden Paths 与服务模板——用 Backstage 自助创建标准化 Laravel 微服务脚手架'
 date: 2026-06-03 10:00:00
 tags: [Platform Engineering, Backstage, Golden Paths, 微服务, Laravel, IDP]
+keywords: [Platform Engineering, Backstage, Golden Paths, 微服务, Laravel, Platform, Engineering]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Git Bisect + Automated Bug Finding 实战：二分法定位生产回归——结合 Pest 测试与 CI 的自动化 bug 猎手
+keywords: [Git, Bisect, Automated]
 date: 2026-06-07 10:00:00
 description: Git Bisect 是利用二分法快速定位引入 bug 的 commit 的利器。本文从手动 bisect 入门，深入讲解 git bisect
   run 自动化测试脚本编写，结合 Pest 测试框架与 GitHub Actions CI 管道，实现生产级回归 bug 的全自动定位。涵盖退出码处理、数据库迁移兼容、merge

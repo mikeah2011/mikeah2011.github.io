@@ -1,5 +1,6 @@
 ---
 title: Nix 实战：声明式开发环境管理——替代 Homebrew 的可复现 macOS 开发环境配置
+keywords: [Nix]
 date: 2026-06-03 10:00:00
 description: Nix 是跨平台声明式包管理器，通过 /nix/store 实现可复现开发环境。本文从零搭建 macOS 上基于 Nix Flakes +
   devenv.sh 的开发环境，覆盖 PHP、Node.js、Go、Redis 等工具链，深度对比 Nix vs Homebrew vs mise 方案优劣，附带

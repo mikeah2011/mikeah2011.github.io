@@ -1,5 +1,6 @@
 ---
 title: Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change
+keywords: [Data, Contract]
   检测
 date: 2026-06-05 10:00:00
 tags:

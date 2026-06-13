@@ -1,5 +1,6 @@
 ---
 title: Rust + Axum 实战：用 Rust 构建高性能 HTTP API——路由、中间件、数据库连接池与 Laravel 开发者对比
+keywords: [Rust, Axum]
 date: 2026-06-03 08:00:00
 tags:
 - Rust

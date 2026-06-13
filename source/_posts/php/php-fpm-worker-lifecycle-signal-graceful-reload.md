@@ -1,5 +1,6 @@
 ---
 title: PHP 进程模型深度剖析：PHP-FPM worker 生命周期、信号处理与 graceful reload 的底层机制
+keywords: [PHP]
 date: 2026-06-04 10:00:00
 tags:
 - PHP

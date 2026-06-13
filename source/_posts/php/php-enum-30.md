@@ -1,5 +1,6 @@
 ---
 title: PHP Enum 替魔术字符串 - 30+ 仓库重构经验与最佳实践
+keywords: [PHP, Enum]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -435,7 +436,7 @@ enum OrderStatus: string
 
 - [PHP 8 Enum 官方文档](https://www.php.net/manual/en/language.types.enumerations.php)
 - [Laravel 8+ Enum Support](https://laravel.com/docs/8.x/eloquent-mutators#enum-strategies)
-- [KKday BFF Team 内部规范：Enum Naming Convention](./internal-docs/naming-conventions.md)
+- KKday BFF Team 内部规范：Enum Naming Convention
 
 ---
 

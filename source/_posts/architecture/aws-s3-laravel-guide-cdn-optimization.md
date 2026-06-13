@@ -1,5 +1,6 @@
 ---
 title: AWS-S3-Laravel-文件存储实战-多云备份-CDN 加速与成本优化踩坑记录
+keywords: [AWS, Laravel, CDN]
 date: 2026-05-05 08:05:44
 updated: 2026-05-05 08:08:13
 categories:

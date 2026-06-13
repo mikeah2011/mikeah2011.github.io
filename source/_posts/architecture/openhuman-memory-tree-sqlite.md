@@ -1,5 +1,6 @@
 ---
 title: OpenHuman 本地优先架构：Memory Tree SQLite 本地存储 vs 后端代理的隐私边界分析
+keywords: [OpenHuman]
 date: 2026-06-02 12:00:00
 tags:
 - OpenHuman

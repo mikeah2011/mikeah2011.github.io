@@ -1,5 +1,6 @@
 ---
 title: Redis 缓存穿透、击穿、雪崩：三大问题对比与防护方案
+keywords: [Redis]
 tags:
 - Redis
 - 缓存穿透

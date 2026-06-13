@@ -1,5 +1,6 @@
 ---
 title: OpenClaw 实战：开源 AI Agent 框架入门与 macOS 环境搭建
+keywords: [OpenClaw]
 date: 2026-06-02 03:00:00
 tags:
 - OpenClaw

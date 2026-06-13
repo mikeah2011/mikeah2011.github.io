@@ -1,5 +1,6 @@
 ---
 title: OIDC (OpenID Connect) 深度实战：从 OAuth 2.0 到 OIDC 的身份层——Laravel Socialite + 自建
+keywords: [OIDC, OpenID, Connect]
   OIDC Provider 的完整流程
 date: 2026-06-05 21:25:18
 tags:

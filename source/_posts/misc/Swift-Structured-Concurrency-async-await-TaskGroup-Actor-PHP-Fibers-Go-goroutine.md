@@ -1,5 +1,6 @@
 ---
 title: Swift Structured Concurrency 实战：async/await、TaskGroup、Actor 模型——与 PHP Fibers/Go
+keywords: [Swift, Structured, Concurrency]
   goroutine 的并发模型对比
 date: 2026-06-02 12:00:00
 tags:

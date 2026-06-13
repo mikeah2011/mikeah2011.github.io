@@ -9,6 +9,7 @@ categories:
   - php
   - testing
 tags: [KKday, Laravel, PHP]
+keywords: [KKday, Laravel, PHP, Blackfire, Tideways]
 description: "在 KKday B2C API 项目中，我们面临过一个经典难题：某个商品搜索接口 P99 从 200ms 飙升到 2s，但日志和 APM 看不出异常。本文记录了我们如何用 xhprof、Blackfire、Tideways 三套工具链定位根因，并建立了可持续的性能基准测试工作流。"
 
 

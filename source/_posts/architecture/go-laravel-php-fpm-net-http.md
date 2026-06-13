@@ -2,6 +2,7 @@
 title: Go 微服务实战：用 Go 重写 Laravel 高性能热点模块——从 PHP-FPM 到 Go net/http 的迁移路径
 date: 2026-06-02 10:00:00
 tags: [Go, 微服务, Laravel, PHP-FPM, 性能优化]
+keywords: [Go, 微服务, Laravel, PHP-FPM, 性能优化]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

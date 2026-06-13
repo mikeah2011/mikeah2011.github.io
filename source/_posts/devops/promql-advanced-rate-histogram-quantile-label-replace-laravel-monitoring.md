@@ -1,5 +1,6 @@
 ---
 title: PromQL 进阶实战：rate/histogram_quantile/label_replace——Laravel API 监控的高级查询与告警规则设计
+keywords: [PromQL]
 date: 2026-06-05 08:00:00
 tags:
 - PromQL

@@ -1,5 +1,6 @@
 ---
 title: Laravel HTTP Client 深度实战：Guzzle 封装、中间件链、超时策略、熔断降级——B2C API 的外部调用治理
+keywords: [Laravel, HTTP, Client]
 date: 2026-06-06 12:00:00
 tags:
 - Laravel

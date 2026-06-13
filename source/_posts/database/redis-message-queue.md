@@ -1,5 +1,6 @@
 ---
 title: Redis常见的问题及方案
+keywords: [Redis]
 tags:
 - Redis
 - 消息队列

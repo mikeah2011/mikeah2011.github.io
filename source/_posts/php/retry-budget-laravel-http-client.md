@@ -1,5 +1,6 @@
 ---
 title: Retry Budget 实战：Laravel HTTP Client 的重试预算治理——防止重试风暴的自适应退避与熔断联动方案
+keywords: [Retry, Budget]
 date: 2026-06-10 02:48:00
 categories:
   - php

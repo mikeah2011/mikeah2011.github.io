@@ -1,5 +1,6 @@
 ---
 title: MySQL 索引设计反模式实战：过度索引、冗余索引、幽灵索引——30+ 仓库的索引瘦身与治理方法论
+keywords: [MySQL]
 date: 2026-06-10 02:33:00
 categories:
   - database

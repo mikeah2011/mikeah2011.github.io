@@ -1,5 +1,6 @@
 ---
 title: Colima 替代 Docker Desktop：Laravel docker-compose 实战与性能对比
+keywords: [Colima, Docker, Desktop]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

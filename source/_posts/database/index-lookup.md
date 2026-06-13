@@ -1,5 +1,6 @@
 ---
 title: MySQL 索引回表查询：覆盖索引优化与 EXPLAIN 实战
+keywords: [MySQL]
 tags:
 - MySQL
 - 索引

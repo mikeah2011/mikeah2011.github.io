@@ -1,5 +1,6 @@
 ---
 title: React 19 Compiler 实战：自动记忆化取代 useMemo/useCallback——React 性能优化范式的根本性转变
+keywords: [React, Compiler]
 date: 2026-06-04 08:00:00
 tags:
 - React

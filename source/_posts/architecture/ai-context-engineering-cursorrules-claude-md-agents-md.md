@@ -1,5 +1,6 @@
 ---
 title: AI Context Engineering 实战：系统化管理 AI 上下文——.cursorrules/CLAUDE.md/AGENTS.md 的工程化配置与团队共享
+keywords: [AI, Context, Engineering]
 date: 2026-06-07 11:00:00
 tags:
 - AI

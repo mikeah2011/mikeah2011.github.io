@@ -1,5 +1,6 @@
 ---
 title: PHP WeakMap/WeakReference 实战：弱引用与循环引用治理——Laravel 中的缓存失效与内存泄漏防护
+keywords: [PHP, WeakMap, WeakReference]
 description: 深入解析PHP 8.0 WeakMap与WeakReference弱引用机制，涵盖循环引用原理、引用计数局限、垃圾回收器GC工作流程，结合Laravel
   Octane长驻进程实战，演示Identity Map、缓存自动失效、事件系统弱引用订阅等内存泄漏防护方案，助你构建高可靠性PHP应用。
 date: 2026-06-07 08:00:00

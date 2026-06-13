@@ -1,5 +1,6 @@
 ---
 title: Laravel Batch Job 实战：大数据量批量处理的内存治理、分块策略与进度追踪
+keywords: [Laravel, Batch, Job]
 date: 2026-06-02 10:00:00
 tags:
 - Laravel

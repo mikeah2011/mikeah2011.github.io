@@ -1,5 +1,6 @@
 ---
 title: OpenTelemetry Operator for K8s 实战：自动注入 PHP Agent——Laravel 微服务的零代码变更可观测性
+keywords: [OpenTelemetry, Operator]
 date: 2026-06-09 16:48:00
 categories:
   - architecture

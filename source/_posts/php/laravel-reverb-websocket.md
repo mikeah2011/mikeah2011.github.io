@@ -1,5 +1,6 @@
 ---
 title: Laravel Reverb WebSocket 实时通信系统实战：从入门到生产级部署
+keywords: [Laravel, Reverb, WebSocket]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: MySQL 索引优缺点：空间换时间的工程权衡
+keywords: [MySQL]
 tags:
 - MySQL
 - 索引

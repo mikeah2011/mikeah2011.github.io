@@ -9,6 +9,7 @@ categories:
   - devops
   - kubernetes
 tags: [CI/CD, DevOps, Kubernetes, Laravel, ArgoCD, GitOps]
+keywords: [CI/CD, DevOps, Kubernetes, Laravel, ArgoCD, GitOps]
 description: 从传统 CI/CD push 模式迁移到 ArgoCD GitOps pull 模式，涵盖 Application CRD 定义、Helm Chart 打包、自动同步与手动审批、回滚策略、多环境管理（dev/staging/prod）以及 Laravel 特有的 .env 注入踩坑记录。
 
 

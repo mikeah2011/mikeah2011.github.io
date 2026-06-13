@@ -1,5 +1,6 @@
 ---
 title: 'Laravel Request Lifecycle 实战：从 HTTP 入口到 Response 的完整管道——Kernel、Middleware、Terminable 的执行时序深度剖析'
+keywords: [Laravel, Request, Lifecycle]
 date: 2026-06-10 01:19:00
 categories:
   - architecture

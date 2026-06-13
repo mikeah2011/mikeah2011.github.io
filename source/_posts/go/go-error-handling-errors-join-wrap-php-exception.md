@@ -1,5 +1,6 @@
 ---
 title: Go error handling 深度实战：errors.Join/Wrap/Is/As 与自定义错误类型——对比 PHP Exception 层级的设计哲学
+keywords: [Go]
 date: 2026-06-07 12:00:00
 tags:
 - Go

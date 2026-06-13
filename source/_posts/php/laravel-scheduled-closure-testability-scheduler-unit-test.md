@@ -2,6 +2,7 @@
 title: 'Laravel Scheduled Closure 实战：任务调度的可测试性设计——如何对 Scheduler 中的闭包任务写单元测试'
 date: 2026-06-06 10:30:00
 tags: [Laravel, Scheduler, Closure, Unit Test, Task Scheduling, PHPUnit]
+keywords: [Laravel, Scheduler, Closure, Unit Test, Task Scheduling, Scheduled]
 description: 深入剖析 Laravel Scheduler 中闭包任务的三大可测试性缺陷——隐式依赖、无法 Mock、时间耦合。手把手教你将不可测试闭包重构为 Artisan Command、Invokable Class 和 Service 层，配合 Carbon::setTestNow()、Http::fake() 等测试技巧，附完整 PHPUnit 单元测试与集成测试代码，让你的定时任务从此告别 flaky test。
 categories:
   - php

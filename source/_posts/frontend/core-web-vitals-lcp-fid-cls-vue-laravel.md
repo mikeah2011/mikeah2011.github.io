@@ -1,5 +1,6 @@
 ---
 title: Core Web Vitals 实战：LCP/FID/CLS 优化——Vue 3 + Laravel 前后端协同性能治理
+keywords: [Core, Web, Vitals]
 date: 2026-06-02 00:00:00
 tags:
 - Core Web Vitals

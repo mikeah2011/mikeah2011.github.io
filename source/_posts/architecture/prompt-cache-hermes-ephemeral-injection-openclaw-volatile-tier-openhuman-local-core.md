@@ -2,6 +2,7 @@
 title: 三大框架 Prompt Cache 策略对比：Hermes ephemeral injection vs OpenClaw volatile tier vs OpenHuman local core
 date: 2026-06-02 10:00:00
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, Prompt Cache, 性能优化]
+keywords: [AI Agent, Hermes, OpenClaw, OpenHuman, Prompt Cache, Prompt, Cache]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

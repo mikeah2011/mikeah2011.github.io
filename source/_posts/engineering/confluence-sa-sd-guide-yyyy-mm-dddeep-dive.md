@@ -9,6 +9,7 @@ categories:
   - engineering
   - docs
 tags: [KKday, 工程管理, 技术文档, Laravel]
+keywords: [KKday, 工程管理, 技术文档, Laravel, Confluence, SA, SD]
 description: >
   KKday B2C Backend Team 实战 Confluence SA/SD 文档规范落地：统一 [SA/SD] YYYY-MM-DD 命名、完整文档模板、订单BFF重构与支付幂等性等真实案例，含 PHP/Laravel 可运行代码、踩坑记录与团队协作 Checklist，助你从格式混乱走向标准化技术文档管理。
 

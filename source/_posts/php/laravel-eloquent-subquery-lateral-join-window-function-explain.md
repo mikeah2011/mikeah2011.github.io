@@ -1,5 +1,6 @@
 ---
 title: Laravel Eloquent Subquery 优化实战：关联子查询、Lateral Join、Window Function 的查询重写与 EXPLAIN 验证
+keywords: [Laravel, Eloquent, Subquery]
 date: 2026-06-10 04:11:00
 categories:
   - php

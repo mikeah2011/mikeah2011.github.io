@@ -1,5 +1,6 @@
 ---
 title: PR Review Checklist 自动化实战：Danger.js/lint-staged/Husky 的组合拳——从代码风格到架构规范的 CI
+keywords: [PR, Review, Checklist]
   门禁
 date: 2026-06-06 10:00:00
 tags:

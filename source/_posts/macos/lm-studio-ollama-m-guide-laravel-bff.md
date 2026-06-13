@@ -1,5 +1,6 @@
 ---
 feature: true
+keywords: [LM, Studio, Ollama]
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/local-llm.jpg
 images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/local-llm.jpg

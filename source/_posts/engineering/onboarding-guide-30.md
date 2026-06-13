@@ -9,6 +9,7 @@ categories:
   - engineering
   - process
 tags: [KKday, Laravel, 工程管理]
+keywords: [KKday, Laravel, 工程管理]
 description: 在 30+ Laravel 仓库的团队中，新人 Onboarding 效率直接决定前三个月的产出。本文分享从环境搭建、代码导读到首个 PR 的完整路径设计，附真实踩坑记录与可复用的 Checklist 模板。
 
 

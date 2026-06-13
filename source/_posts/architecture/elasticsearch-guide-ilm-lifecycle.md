@@ -1,5 +1,6 @@
 ---
 title: Elasticsearch 全文搜索深度调优实战：ILM 生命周期管理与冷热数据分离踩坑记录
+keywords: [Elasticsearch]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

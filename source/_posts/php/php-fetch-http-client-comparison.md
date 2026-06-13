@@ -1,5 +1,6 @@
 ---
 title: PHP fetch() 实战：用 fetch-php 打造 JavaScript 风格的 HTTP 客户端——对比 cURL/Guzzle/Laravel
+keywords: [PHP]
   HttpClient
 date: 2026-06-10 08:00:00
 tags:

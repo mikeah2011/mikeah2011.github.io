@@ -2,6 +2,7 @@
 title: 'Rust + PHP FFI 实战：用 Rust 写 PHP 扩展——高性能加密/图像处理/JSON 解析的跨语言集成与性能基准（深度实战版）'
 date: 2026-06-07 10:00:00
 tags: [Rust, PHP, FFI, 性能优化, 扩展开发, simd-json, AES, 图像处理]
+keywords: [Rust, PHP, FFI, 性能优化, 扩展开发]
 categories: [rust, php]
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:

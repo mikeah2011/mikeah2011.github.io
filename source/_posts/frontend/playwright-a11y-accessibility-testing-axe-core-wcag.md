@@ -1,5 +1,6 @@
 ---
 title: Playwright a11y 实战：自动化无障碍测试——axe-core 集成、CI 门禁与 WCAG 2.2 合规检查
+keywords: [Playwright]
 date: 2026-06-09 20:00:00
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

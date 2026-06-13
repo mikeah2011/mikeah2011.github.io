@@ -1,5 +1,6 @@
 ---
 title: vLLM 实战：高吞吐量 LLM 推理引擎部署——PagedAttention、连续批处理与 GPU 优化
+keywords: [LLM]
 date: 2026-06-02 00:00:00
 tags:
 - vLLM

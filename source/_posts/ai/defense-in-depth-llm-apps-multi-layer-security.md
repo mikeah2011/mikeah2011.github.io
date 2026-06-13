@@ -1,5 +1,6 @@
 ---
 title: Defense in Depth for LLM Apps 实战：多层 AI 安全——输入过滤/输出审查/权限沙箱/审计日志的纵深防御架构
+keywords: [Defense, Depth, LLM]
 date: 2026-06-09 14:30:00
 categories:
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

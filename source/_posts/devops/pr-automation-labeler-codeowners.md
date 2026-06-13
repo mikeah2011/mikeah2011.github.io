@@ -1,5 +1,6 @@
 ---
 title: "PR Automation 实战：自动标签/分配/模板检查——GitHub Actions + Labeler + CODEOWNERS 的协作工程化"
+keywords: [PR, Automation]
 date: 2026-06-10 01:33:00
 categories:
   - devops

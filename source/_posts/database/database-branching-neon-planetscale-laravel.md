@@ -1,5 +1,6 @@
 ---
 title: Database Branching 实战：Neon/PlanetScale 分支工作流——Laravel 开发中的数据库 Schema Preview
+keywords: [Database, Branching]
   与 PR Review
 date: 2026-06-04 09:00:00
 tags:

@@ -1,5 +1,6 @@
 ---
 title: Redis 高并发场景实战：缓存策略与性能优化
+keywords: [Redis]
 tags:
 - Redis
 - 高并发

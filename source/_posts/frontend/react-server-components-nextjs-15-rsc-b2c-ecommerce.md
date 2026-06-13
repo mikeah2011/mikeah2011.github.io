@@ -1,5 +1,6 @@
 ---
 title: React Server Components 实战：Next.js 15 RSC 模式在 B2C 电商中的落地踩坑记录
+keywords: [React, Server, Components]
 date: 2026-06-02 10:00:00
 tags:
 - React

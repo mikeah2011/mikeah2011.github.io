@@ -9,6 +9,7 @@ categories:
   - architecture
   - php
 tags: [KKday, Laravel, 架构]
+keywords: [KKday, Laravel, 架构, DDD]
 description: "DDD 领域驱动设计在 Laravel B2C 电商中的完整实战指南。从传统 MVC 胖 Controller 迁移到 DDD 分层架构，以订单聚合根、Money 值对象、领域事件为核心案例，深入讲解限界上下文划分、Repository 模式隔离持久化、Eloquent 与领域实体分离策略。附 5 个真实生产踩坑记录、MVC vs DDD 性能对比数据、目录结构总览与渐进式迁移最佳实践。"
 
 

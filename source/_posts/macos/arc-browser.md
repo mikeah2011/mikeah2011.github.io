@@ -1,5 +1,6 @@
 ---
 title: Arc Browser 实战：开发者友好的浏览器工作区管理
+keywords: [Arc, Browser]
 description: Arc Browser 实战指南：面向 macOS 开发者的浏览器工作区管理完全手册。深入讲解 Spaces 与 Profiles 多项目隔离、命令栏高效操作、DevTools
   调试体验、Boost 环境可视化、快捷键工作流，并附 Chrome/Firefox 对比表格与从 Chrome 迁移到 Arc 的完整踩坑清单，帮你把浏览器从标签堆升级成项目控制台。
 date: 2026-06-01 09:00:00

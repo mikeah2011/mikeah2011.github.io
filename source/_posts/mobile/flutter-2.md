@@ -1,5 +1,6 @@
 ---
 title: Flutter 应用内更新实战：版本检测、强制更新、灰度发布策略
+keywords: [Flutter]
 date: 2026-06-02 09:00:00
 tags:
 - Flutter

@@ -1,5 +1,6 @@
 ---
 title: "Laravel 子域名路由多租户实战：通配符子域识别、租户解析中间件与共享 Session 的跨域认证"
+keywords: [Laravel]
 date: 2026-06-10 06:25:00
 categories:
   - architecture

@@ -1,5 +1,6 @@
 ---
 title: OpenAPI + Fake Response + Cypress 契约测试实战——前后端联调的完整测试工作流踩坑记录
+keywords: [OpenAPI, Fake, Response]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

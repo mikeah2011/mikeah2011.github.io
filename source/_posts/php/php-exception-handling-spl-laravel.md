@@ -1,5 +1,6 @@
 ---
 title: PHP Exception Handling 深度剖析：SPL 异常层级、自定义异常设计模式与 Laravel 异常分层策略
+keywords: [PHP, Exception, Handling]
 date: 2026-06-06 12:00:00
 tags:
 - PHP

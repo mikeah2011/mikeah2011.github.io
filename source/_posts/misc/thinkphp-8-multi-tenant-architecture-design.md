@@ -1,5 +1,6 @@
 ---
 title: ThinkPHP 8 多租户架构设计：数据隔离、权限分级、资源配额实战踩坑记录
+keywords: [ThinkPHP]
 date: 2026-06-01 10:00:00
 categories:
 - misc

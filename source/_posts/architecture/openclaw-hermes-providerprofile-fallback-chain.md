@@ -2,6 +2,7 @@
 title: OpenClaw vs Hermes 模型管理对比：声明式 ProviderProfile 与运维级 Fallback Chain
 date: 2026-06-02 07:22:45
 tags: [OpenClaw, Hermes, AI Agent, 模型管理, 架构对比]
+keywords: [OpenClaw, Hermes, AI Agent, 模型管理, 架构对比]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Laravel B2C API 的 Redis 使用场景：会话/购物车/计次/全页缓存对比
+keywords: [Laravel, API, Redis]
 date: 2026-05-02
 description: 基于 KKday 三年 Laravel B2C API 实战经验，系统对比 Redis 四大核心使用场景：Session 会话管理、购物车
   Hash+List 设计、计次功能 Lua 原子操作与全页缓存穿透防护。深入解析各场景的数据结构选型、TTL 策略、并发控制方案，附 Redis 与 Memcached

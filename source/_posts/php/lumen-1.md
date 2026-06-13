@@ -1,5 +1,6 @@
 ---
 title: Lumen 微框架入门：Laravel 精简版的 API 开发实战
+keywords: [Lumen]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

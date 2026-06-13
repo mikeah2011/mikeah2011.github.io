@@ -1,5 +1,6 @@
 ---
 title: Laravel-Casts-Accessors-实战-数据类型转换与计算属性踩坑记录
+keywords: [Laravel, Casts, Accessors]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

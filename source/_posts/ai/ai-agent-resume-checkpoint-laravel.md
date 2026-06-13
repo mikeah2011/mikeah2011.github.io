@@ -1,5 +1,6 @@
 ---
 title: AI Agent Resume/Checkpoint 实战：长时间运行 Agent 的断点恢复——状态快照 + 上下文重建 + 人机审批恢复点
+keywords: [AI, Agent, Resume]
 date: 2026-06-09 17:30:00
 categories:
   - ai

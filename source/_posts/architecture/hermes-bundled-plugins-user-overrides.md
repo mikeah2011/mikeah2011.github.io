@@ -2,6 +2,7 @@
 title: Hermes 模型发现机制：bundled plugins + user overrides 的优先级覆盖与延迟加载
 date: 2026-06-02 12:00:00
 tags: [Hermes, AI Agent, 模型发现, 插件系统, 延迟加载]
+keywords: [Hermes, AI Agent, 模型发现, 插件系统, 延迟加载]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

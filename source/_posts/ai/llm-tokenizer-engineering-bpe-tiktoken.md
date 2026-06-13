@@ -1,5 +1,6 @@
 ---
 title: LLM Tokenizer 工程实战：BPE/tiktoken/Tokenizer.js 应用级 Token 计数——精确预算、Prompt 裁剪与多语言
+keywords: [LLM, Tokenizer]
   Token 效率对比
 date: 2026-06-10 08:03:00
 categories:

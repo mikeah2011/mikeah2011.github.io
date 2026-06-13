@@ -1,5 +1,6 @@
 ---
 title: OPcache 配置与调优：PHP 生产环境字节码缓存最佳实践
+keywords: [OPcache]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

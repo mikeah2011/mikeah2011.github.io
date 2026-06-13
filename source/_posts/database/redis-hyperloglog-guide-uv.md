@@ -3,6 +3,7 @@ title: Redis-HyperLogLog-实战-UV统计与基数估算-Laravel-B2C-API踩坑记
 date: 2026-05-16 13:25:41
 updated: 2026-05-16 13:28:38
 tags: [Laravel, Redis, 工程管理, 性能优化, HyperLogLog]
+keywords: [Laravel, Redis, 工程管理, 性能优化, HyperLogLog, UV]
 categories:
   - database
 description: 用 Redis HyperLogLog 在 B2C 电商场景中做 UV 统计与基数估算的完整实战指南。涵盖算法原理直觉讲解、Laravel 集成代码（Service 封装 / 中间件 / Artisan 命令）、HyperLogLog vs COUNT DISTINCT vs Bitmap 方案对比、5 个真实生产踩坑案例、精度实测数据与内存优化策略，适合需要处理百万级去重计数的后端工程师参考。

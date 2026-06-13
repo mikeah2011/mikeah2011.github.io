@@ -1,5 +1,6 @@
 ---
 title: Multi-Agent Debate 实战进阶：对抗式推理质量提升——Debate Agent + Verifier Agent 的双角色架构设计
+keywords: [Multi, Agent, Debate]
 date: 2026-06-10 00:29:00
 categories:
   - ai

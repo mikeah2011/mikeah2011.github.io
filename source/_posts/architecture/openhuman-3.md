@@ -3,6 +3,7 @@ title: OpenHuman 模型路由实战：智能选择推理/快速/视觉模型的�
 description: 本文系统拆解 OpenHuman 模型路由在 AI Agent 场景中的真实落地方法，围绕推理模型、快速模型、视觉模型的智能选择、多模型策略、成本优化、延迟控制与 Fallback 机制展开，附带路由规则、代码示例、评估指标与生产排障经验，帮助你把多模型协同真正做成稳定、可观测、可扩展的工程能力。
 date: 2026-06-02 02:30:00
 tags: [OpenHuman, AI Agent, 模型路由, 多模型策略, 成本优化]
+keywords: [OpenHuman, AI Agent, 模型路由, 多模型策略, 成本优化]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

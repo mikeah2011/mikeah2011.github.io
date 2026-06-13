@@ -2,6 +2,7 @@
 title: OpenClaw 文档漂移问题剖析：IDENTITY.md/MEMORY.md/MODEL_STRATEGY.md 不一致的根因与治理
 date: 2026-06-02 09:20:00
 tags: [OpenClaw, AI Agent, 文档治理, 一致性, 配置管理]
+keywords: [OpenClaw, AI Agent, 文档治理, 一致性, 配置管理]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

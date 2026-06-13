@@ -1,5 +1,6 @@
 ---
 title: Laravel Task Scheduling 进阶实战：Schedule::job()->onOneServer() 的 Redis 互斥实现——多实例部署下的任务去重原理
+keywords: [Laravel, Task, Scheduling]
 description: 深入剖析 Laravel onOneServer() 多实例任务去重原理，详解 Redis 分布式互斥锁 SET NX EX 原子操作、锁生命周期管理与故障降级方案。涵盖
   K8s 多 Pod 部署、Sentinel 高可用配置、Watchdog 锁续期实战代码，助你构建不重复执行的健壮定时任务系统。
 date: 2026-06-07 12:00:00

@@ -9,6 +9,7 @@ categories:
   - devops
   - kubernetes
 tags: [DevOps, Kubernetes, Laravel, 配置管理, 容器化, 安全, Sealed-Secrets, GitOps]
+keywords: [DevOps, Kubernetes, Laravel, 配置管理, 容器化, ConfigMap, Secret]
 description: "Kubernetes ConfigMap/Secret 完全实战指南：详解 Laravel 容器化部署中的配置管理全流程，涵盖环境变量注入与 Volume 文件挂载两种方案对比、Sealed Secrets 加密与 External Secrets Operator 对接 AWS、Reloader 配置热更新自动重启机制，附 8 大生产环境踩坑记录与安全最佳实践清单。"
 
 ---

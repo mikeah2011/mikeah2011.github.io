@@ -2,6 +2,7 @@
 title: Bun.serve 实战：构建高性能 HTTP API——与 Express/Fastify/Hono 的性能基准与开发体验对比
 date: 2026-06-03 03:39:38
 tags: [Bun, JavaScript, HTTP Server, 性能对比, 全栈开发]
+keywords: [Bun, JavaScript, HTTP Server, 性能对比, 全栈开发, Bun.serve]
 categories:
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

@@ -2,6 +2,7 @@
 title: AI Agent 工具调用实战：Function Calling 标准化与错误处理
 date: 2026-06-02 12:00:00
 tags: [AI Agent, Function Calling, OpenAI, 工具调用, 错误处理]
+keywords: [AI Agent, Function Calling, OpenAI, 工具调用, 错误处理, AI, Agent]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

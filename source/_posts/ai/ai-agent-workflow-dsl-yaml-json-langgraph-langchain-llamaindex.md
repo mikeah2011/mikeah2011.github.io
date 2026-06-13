@@ -1,5 +1,6 @@
 ---
 title: AI Agent Workflow DSL 实战：用 YAML/JSON 定义 Agent 工作流——LangGraph/LangChain/LlamaIndex
+keywords: [AI, Agent, Workflow]
   的声明式编排对比
 date: 2026-06-07 10:00:00
 tags:

@@ -2,6 +2,7 @@
 title: Neon Serverless PostgreSQL 实战：分支工作流与 Laravel 开发体验——Database Preview 与 PR 级数据库 Review 的工程化落地
 date: 2026-06-05 09:00:00
 tags: [Neon, PostgreSQL, Serverless, Laravel, Database-Branching]
+keywords: [Neon, PostgreSQL, Serverless, Laravel, Database-Branching]
 description: Neon Serverless PostgreSQL 通过存储计算分离与 Copy-on-Write 机制实现轻量级数据库分支，本文深入解析 Neon 架构原理，并在 Laravel 项目中落地完整的分支工作流：开发隔离、Database Preview、PR 级 Schema Review 与自动化 CI/CD 集成。涵盖 Neon API 集成、连接池配置、迁移验证、踩坑记录（冷启动、Pooler、SNI 路由）及与 Supabase、AWS RDS 的性能对比，帮助团队实现数据库变更的工程化闭环。
 categories:
   - database

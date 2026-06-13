@@ -1,5 +1,6 @@
 ---
 title: AI 辅助文档生成实战：API 文档、README、CHANGELOG 自动化踩坑记录
+keywords: [AI]
 date: 2026-05-17 05:05:53
 updated: 2026-05-17 05:08:10
 categories:

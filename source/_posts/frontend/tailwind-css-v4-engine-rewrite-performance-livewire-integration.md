@@ -1,5 +1,6 @@
 ---
 title: Tailwind CSS v4 实战：引擎重写后的性能飞跃与 Laravel Livewire 集成
+keywords: [Tailwind, CSS]
 date: 2026-06-02 10:00:00
 tags:
 - Tailwind CSS

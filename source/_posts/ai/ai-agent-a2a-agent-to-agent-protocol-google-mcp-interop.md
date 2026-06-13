@@ -1,5 +1,6 @@
 ---
 title: AI Agent A2A (Agent-to-Agent) 协议实战：Google A2A 标准与 MCP 的互补——多组织 Agent 互操作的开放协议
+keywords: [AI, Agent]
 date: 2026-06-07 10:00:00
 tags:
 - AI Agent

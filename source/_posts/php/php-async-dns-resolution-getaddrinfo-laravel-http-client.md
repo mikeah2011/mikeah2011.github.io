@@ -1,5 +1,6 @@
 ---
 title: PHP Async DNS Resolution 实战：getaddrinfo 异步化——PHP 8.5+ 的网络 I/O 性能提升与 Laravel HTTP Client 受益分析
+keywords: [PHP, Async, DNS]
 date: 2026-06-10 00:49:00
 categories:
   - php

@@ -1,5 +1,6 @@
 ---
 title: "EdgeDB 实战：下一代数据库——内置 ORM、Schema 即代码、GraphQL 自动生成与 Laravel 集成探索"
+keywords: [EdgeDB]
 date: 2026-06-10 03:49:00
 categories:
   - database

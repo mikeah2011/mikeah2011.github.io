@@ -1,6 +1,7 @@
 ---
 title: SQL查询语句的流程
 tags: [MySQL, SQL查询, 执行流程, 优化器, EXPLAIN, 性能优化]
+keywords: [MySQL, SQL查询, 执行流程, 优化器, EXPLAIN, SQL]
 categories:
   - database
 date: 2021-03-20 15:05:07

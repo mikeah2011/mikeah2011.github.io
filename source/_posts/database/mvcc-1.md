@@ -1,6 +1,7 @@
 ---
 title: MySQL - MVCC
 tags: [MySQL, MVCC, 事务, 锁, undo log]
+keywords: [MySQL, MVCC, 事务, 锁, undo log]
 categories:
   - database
 date: 2019-03-20 15:05:07

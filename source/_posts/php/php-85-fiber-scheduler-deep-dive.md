@@ -1,5 +1,6 @@
 ---
 title: PHP 8.5 Fiber 调度器深度实战：手动调度 vs 自动让出——从 yield 到 Fibers 的协程演化与 Swoole 协程对比
+keywords: [PHP, Fiber]
 date: 2026-06-09 06:15:00
 updated: 2026-06-09 07:25:00
 categories:

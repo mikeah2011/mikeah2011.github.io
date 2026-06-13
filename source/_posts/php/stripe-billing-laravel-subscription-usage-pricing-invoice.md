@@ -1,5 +1,6 @@
 ---
 title: Stripe Billing 实战：订阅计费、Usage-based Pricing、发票管理——Laravel SaaS 的完整计费引擎与账单治理
+keywords: [Stripe, Billing]
 date: 2026-06-10 06:11:00
 categories:
   - php

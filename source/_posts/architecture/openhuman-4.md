@@ -1,5 +1,6 @@
 ---
 title: OpenHuman 知识图谱构建实战：实体索引、关系提取与力导向可视化
+keywords: [OpenHuman]
 date: 2026-06-02 07:22:45
 tags:
 - OpenHuman

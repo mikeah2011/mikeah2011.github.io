@@ -1,5 +1,6 @@
 ---
 title: Rust trait object vs enum dispatch 实战：动态分发与静态分发的性能权衡——PHP 开发者的多态思维重塑
+keywords: [Rust]
 date: 2026-06-07 11:30:00
 tags:
 - Rust

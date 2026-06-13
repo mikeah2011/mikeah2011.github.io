@@ -1,5 +1,6 @@
 ---
 title: AI Agent Evaluation as Code 实战：用 LLM-as-Judge 构建自动化回归测试——Agent 输出质量的持续集成保障
+keywords: [AI, Agent, Evaluation]
 date: 2026-06-05 09:00:00
 tags:
 - AI Agent

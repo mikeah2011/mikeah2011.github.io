@@ -1,5 +1,6 @@
 ---
 title: Vitest 实战：Vite 原生测试框架——对比 Jest 的速度、快照测试、Mock 与 Laravel 前端项目的测试迁移
+keywords: [Vitest]
 date: 2026-06-10 05:40:00
 categories:
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Web 无障碍 (WCAG 2.2) 实战：Vue 3 项目的 a11y 治理——语义化、键盘导航与屏幕阅读器适配
+keywords: [Web, WCAG]
 date: 2026-06-02 10:00:00
 tags:
 - WCAG

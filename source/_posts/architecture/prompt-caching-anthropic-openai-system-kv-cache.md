@@ -2,6 +2,7 @@
 title: 'Prompt Caching 实战：Anthropic/OpenAI 缓存策略对比——System Prompt 复用、KV Cache 与成本优化的工程化落地'
 date: 2026-06-06 10:00:00
 tags: [Prompt Caching, LLM, AI, 成本优化, Anthropic, OpenAI, KV Cache, System Prompt]
+keywords: [Prompt Caching, LLM, AI, 成本优化, Anthropic, Prompt, Caching]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

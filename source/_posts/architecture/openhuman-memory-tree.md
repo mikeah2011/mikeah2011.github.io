@@ -2,6 +2,7 @@
 title: OpenHuman Memory Tree 实战：本地知识图谱与记忆构建
 date: 2026-06-02 00:00:00
 tags: [OpenHuman, Memory Tree, 知识图谱, AI记忆]
+keywords: [OpenHuman, Memory Tree, 知识图谱, AI记忆, Memory, Tree]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

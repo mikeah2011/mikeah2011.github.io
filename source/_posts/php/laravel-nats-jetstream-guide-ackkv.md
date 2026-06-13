@@ -8,6 +8,7 @@ updated: 2026-05-04 16:05:52
 categories:
   - php
 tags: [Laravel, 微服务, 消息队列, NATS, JetStream, 消息中间件]
+keywords: [Laravel, 微服务, 消息队列, NATS, JetStream]
 description: 基于 Laravel 订单通知链路的真实改造，详解 NATS JetStream 的削峰填谷、Ack/Nack 消息确认、幂等防重、KV 配置同步及与 RabbitMQ/Redis Streams 的选型对比，附完整可运行代码与踩坑记录。
 
 

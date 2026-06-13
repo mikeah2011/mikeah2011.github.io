@@ -1,5 +1,6 @@
 ---
 title: GitHub-Actions-Composer-Cache-构建时间从20s到5s-优化实战踩坑记录
+keywords: [GitHub, Actions, Composer]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

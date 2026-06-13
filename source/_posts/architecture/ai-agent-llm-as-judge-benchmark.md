@@ -1,5 +1,6 @@
 ---
 title: AI Agent 评估实战：LLM-as-Judge、Benchmark 设计与回归测试——如何量化 Agent 质量
+keywords: [AI, Agent]
 date: 2026-06-02 12:00:00
 tags:
 - AI Agent

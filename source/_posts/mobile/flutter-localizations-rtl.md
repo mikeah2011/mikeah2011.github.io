@@ -1,5 +1,6 @@
 ---
 title: Flutter 国际化实战：flutter_localizations 多语言与 RTL 支持
+keywords: [Flutter]
 description: 深入讲解 Flutter 国际化实战，覆盖 flutter_localizations、intl、gen_l10n、ARB 多语言资源管理、运行时语言切换、日期货币本地化与
   RTL 适配，帮助你构建可维护的 i18n / 本地化工程体系。
 date: 2026-06-01 10:00:00

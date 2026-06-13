@@ -1,5 +1,6 @@
 ---
 title: Hermes ProviderProfile 架构深度剖析：模型提供者的声明式注册与运行时钩子机制
+keywords: [Hermes, ProviderProfile]
 date: 2026-06-02 10:00:00
 description: 本文深入拆解 Hermes ProviderProfile 的声明式注册、模型提供者抽象、运行时 hooks、优先级覆盖、动态路由、故障转移与降级治理机制，结合
   YAML 配置、可运行 Python 示例、踩坑案例和架构对比，帮助开发者理解 Hermes 如何把多模型接入从零散参数升级为可观测、可扩展、可治理的 AI Agent

@@ -1,5 +1,6 @@
 ---
 title: OpenAPI 文档驱动开发实战：从文档到代码的完整工作流与 Laravel B2C API 踩坑记录
+keywords: [OpenAPI]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

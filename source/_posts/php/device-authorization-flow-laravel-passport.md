@@ -1,5 +1,6 @@
 ---
 title: Device Authorization Flow 实战：智能电视/CLI/IoT 设备的 OAuth 无浏览器授权——Laravel Passport
+keywords: [Device, Authorization, Flow]
   自定义 Grant
 date: 2026-06-03 00:00:00
 tags:

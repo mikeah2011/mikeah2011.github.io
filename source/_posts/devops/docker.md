@@ -1,5 +1,6 @@
 ---
 title: Docker 基础入门：镜像、容器、Dockerfile 核心概念
+keywords: [Docker]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

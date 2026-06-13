@@ -2,6 +2,7 @@
 title: API 版本废弃策略实战：Sunset Header、Deprecation 通知与客户端迁移的工程化方案
 date: 2026-06-02 12:00:00
 tags: [API, REST, 版本管理, Sunset, Deprecation]
+keywords: [API, REST, 版本管理, Sunset, Deprecation]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

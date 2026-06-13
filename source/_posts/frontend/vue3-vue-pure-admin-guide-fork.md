@@ -1,5 +1,6 @@
 ---
 title: Vue 3 + vue-pure-admin 管理后台实战：从 fork 到定制化的完整踩坑记录
+keywords: [Vue]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

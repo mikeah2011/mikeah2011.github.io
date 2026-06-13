@@ -1,5 +1,6 @@
 ---
 title: Laravel Action Job 实战：用 Action 类替代复杂 Job——可测试、可复用、可同步/异步切换的业务逻辑单元
+keywords: [Laravel, Action, Job]
 date: 2026-06-09 18:24:00
 categories:
   - php

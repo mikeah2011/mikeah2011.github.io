@@ -1,5 +1,6 @@
 ---
 title: Graceful Degradation 实战：降级策略设计——Laravel 中的功能降级、数据降级与体验降级的分层方案
+keywords: [Graceful, Degradation]
 date: 2026-06-07 10:00:00
 tags:
 - Laravel

@@ -2,6 +2,7 @@
 title: Caddy 2 实战：替代 Nginx 的下一代 Web 服务器——自动 HTTPS、反向代理与 Laravel 部署
 date: 2026-06-02 12:00:00
 tags: [Caddy, Nginx, Web服务器, HTTPS, 反向代理, Laravel, DevOps]
+keywords: [Caddy, Nginx, Web服务器, HTTPS, 反向代理]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

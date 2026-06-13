@@ -7,6 +7,7 @@ date: 2026-05-03 09:45:00
 categories:
   - php
 tags: [Laravel, MySQL, 消息队列]
+keywords: [Laravel, MySQL, 消息队列]
 description: 结合订单支付完成后的库存扣减、积分发放与通知投递场景，记录一套在 Laravel 中真正可落地的消息幂等性设计方案。覆盖 Outbox 发件箱可靠投递、消费者 Inbox 去重表、状态机条件更新保护、失败补偿机制与七条真实踩坑记录，附完整 DDL、Relay Job 代码与 Outbox/Inbox/幂等键三方案对比表。
 
 

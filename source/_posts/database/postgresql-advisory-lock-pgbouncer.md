@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL Advisory Lock 实战进阶：会话级互斥、分布式任务调度、与 PgBouncer 连接池的兼容性踩坑
+keywords: [PostgreSQL, Advisory, Lock]
 date: 2026-06-06 09:30:00
 tags:
 - PostgreSQL

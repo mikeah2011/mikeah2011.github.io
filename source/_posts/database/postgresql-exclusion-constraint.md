@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL Exclusion Constraint 实战：时间区间不重叠约束——预约/排班/库存独占场景的数据库级保障
+keywords: [PostgreSQL, Exclusion, Constraint]
 date: 2026-06-10 05:03:00
 categories:
   - database

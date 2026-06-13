@@ -1,5 +1,6 @@
 ---
 title: Laravel API Response 嵌入式资源实战：嵌套 Resource、条件加载与稀疏字段集
+keywords: [Laravel, API, Response]
 date: 2026-06-10 06:30:00
 categories:
   - php

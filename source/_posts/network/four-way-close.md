@@ -1,5 +1,6 @@
 ---
 title: TCP四次挥手详解：状态转换、抓包分析与常见面试题
+keywords: [TCP]
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Laravel 12.x 新特性实战：Context、Concurrency、Artisan 改进深度剖析
+keywords: [Laravel]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

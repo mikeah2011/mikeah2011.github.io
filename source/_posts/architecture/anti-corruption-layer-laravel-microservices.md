@@ -1,5 +1,6 @@
 ---
 title: Anti-Corruption Layer 实战进阶：Laravel 微服务间的防腐层设计——DTO 映射、接口适配与遗留系统隔离的工程化方案
+keywords: [Anti, Corruption, Layer]
 date: 2026-06-10 02:50:00
 categories:
   - architecture

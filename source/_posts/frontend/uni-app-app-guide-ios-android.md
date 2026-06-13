@@ -1,5 +1,6 @@
 ---
 title: uni-app App 打包实战：iOS/Android 原生打包与发布 — 从 HBuilderX 到上架全流程踩坑记录
+keywords: [App]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

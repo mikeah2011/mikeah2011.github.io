@@ -1,5 +1,6 @@
 ---
 title: Laravel Event-Listener 事件驱动架构 - 解耦订单处理 - KKday B2C API 真实踩坑记录
+keywords: [Laravel, Event, Listener]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

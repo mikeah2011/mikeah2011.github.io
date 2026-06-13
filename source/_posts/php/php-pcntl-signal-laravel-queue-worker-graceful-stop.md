@@ -1,5 +1,6 @@
 ---
 title: PHP Process Control 实战：pcntl_signal/pcntl_async_signals 深度——Laravel Queue Worker
+keywords: [PHP, Process, Control]
   的优雅停止与信号处理链
 date: 2026-06-10 01:03:00
 categories:

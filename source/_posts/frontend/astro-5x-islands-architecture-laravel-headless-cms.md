@@ -2,6 +2,7 @@
 title: 'Astro 5.x 实战：内容优先的 Web 框架——Islands Architecture 与 Laravel Headless CMS 后端集成'
 date: 2026-06-04 08:00:00
 tags: [Astro, Islands Architecture, 前端框架, Laravel, Headless CMS]
+keywords: [Astro, Islands Architecture, 前端框架, Laravel, Headless CMS]
 categories:
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: AutoGen 实战：微软多 Agent 对话框架与代码执行沙箱
+keywords: [AutoGen]
 date: 2026-06-02 09:00:00
 tags:
 - AutoGen

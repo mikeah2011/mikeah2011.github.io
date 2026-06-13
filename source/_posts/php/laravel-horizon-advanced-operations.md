@@ -1,5 +1,6 @@
 ---
 title: Laravel Horizon 深度实战进阶：自定义 Job 标签、Metrics Dashboard、Silenced Jobs 与多队列优先级的生产级运维
+keywords: [Laravel, Horizon]
 date: 2026-06-10 05:25:00
 categories:
   - php

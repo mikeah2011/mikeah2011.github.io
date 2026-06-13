@@ -1,5 +1,6 @@
 ---
 title: Event Mesh 实战：Solace/NATS 跨云事件路由——Laravel 微服务的跨区域事件驱动架构
+keywords: [Event, Mesh]
 date: 2026-06-09
 categories:
   - architecture

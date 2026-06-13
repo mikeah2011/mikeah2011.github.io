@@ -1,5 +1,6 @@
 ---
 title: Rust + Tokio 异步运行时深度实战：事件循环、任务调度、背压控制——对比 PHP Fibers 与 Go goroutine
+keywords: [Rust, Tokio]
 date: 2026-06-03 01:12:12
 tags:
 - Rust

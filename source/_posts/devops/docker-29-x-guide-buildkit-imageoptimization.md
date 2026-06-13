@@ -1,5 +1,6 @@
 ---
 title: Docker 29.x 实战：BuildKit、多阶段构建与镜像优化策略踩坑记录
+keywords: [Docker]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

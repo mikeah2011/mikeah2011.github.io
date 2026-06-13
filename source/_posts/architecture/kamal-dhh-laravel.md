@@ -1,5 +1,6 @@
 ---
 title: Kamal 2 深度实战：DHH 部署哲学的工程化——Laravel 应用的零停机滚动更新、健康检查与回滚策略
+keywords: [Kamal]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

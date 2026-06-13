@@ -1,5 +1,6 @@
 ---
 title: OpenClaw 技能开发实战：自定义 Skill 与工作流自动化
+keywords: [OpenClaw]
 date: 2026-06-02 09:00:00
 tags:
 - OpenClaw

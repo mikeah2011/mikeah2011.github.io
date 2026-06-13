@@ -1,5 +1,6 @@
 ---
 title: Application Profiling 实战：Blackfire/Tideways production profiling——Laravel 慢请求火焰图分析与根因定位
+keywords: [Application, Profiling]
 date: 2026-06-03 00:00:00
 tags:
 - profiling

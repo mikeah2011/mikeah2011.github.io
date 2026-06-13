@@ -1,5 +1,6 @@
 ---
 title: Trunk-Based Development 深度实战：Feature Flag 替代长生命周期分支的工程化落地
+keywords: [Trunk, Based, Development]
 date: 2026-06-02 12:00:00
 tags:
 - Trunk-Based Development

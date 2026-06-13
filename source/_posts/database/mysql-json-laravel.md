@@ -1,5 +1,6 @@
 ---
 title: MySQL 9.x 新特性实战：向量搜索、JSON 增强、性能改进与 Laravel 适配
+keywords: [MySQL]
 date: 2026-06-02 10:00:00
 tags:
 - MySQL

@@ -2,6 +2,7 @@
 title: Swift 6 实战：PHP 开发者的 iOS/macOS 原生开发入门——async/await、SwiftUI 与 Combine
 date: 2026-06-02 10:00:00
 tags: [Swift, SwiftUI, iOS, macOS, async/await, Combine]
+keywords: [Swift, SwiftUI, iOS, macOS, async/await]
 categories:
   - macos
 description: 为 Laravel/PHP 后端开发者量身定制的 Swift 6 入门实战，通过对比 PHP 的 nullable/Interface/Fiber 等概念快速理解 Swift 的 Optional/Protocol/async。覆盖 SwiftUI 声明式 UI、Combine 响应式编程、MVVM 架构、URLSession 网络请求、Codable JSON 解析等核心知识点，并附带完整的 iOS 待办应用实战代码，帮助全栈开发者独立构建原生 iOS/macOS 应用。

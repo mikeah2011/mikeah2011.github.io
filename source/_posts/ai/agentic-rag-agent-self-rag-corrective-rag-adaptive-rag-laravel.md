@@ -1,5 +1,6 @@
 ---
 title: Agentic RAG 实战：让 Agent 自主决定检索策略——Self-RAG、Corrective-RAG、Adaptive-RAG 在 Laravel
+keywords: [Agentic, RAG]
   中的落地
 date: 2026-06-03 10:00:00
 description: 深入解析 Self-RAG、Corrective-RAG、Adaptive-RAG 三大 Agentic RAG 策略的原理与差异，并在

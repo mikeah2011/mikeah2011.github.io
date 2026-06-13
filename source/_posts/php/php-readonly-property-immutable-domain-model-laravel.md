@@ -1,5 +1,6 @@
 ---
 title: PHP readonly Property 实战深度：Immutable Domain Model 在 Laravel 中的工程化
+keywords: [PHP, Property]
 date: 2026-06-10 04:25:00
 categories:
   - php

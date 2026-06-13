@@ -1,5 +1,6 @@
 ---
 title: PHP Fiber vs Go goroutine vs Rust tokio 2026 并发性能基准对比
+keywords: [PHP, Fiber, Go]
 date: 2026-06-09 13:19:00
 categories:
 - go

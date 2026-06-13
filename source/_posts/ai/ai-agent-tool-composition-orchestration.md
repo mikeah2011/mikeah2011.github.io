@@ -1,5 +1,6 @@
 ---
 title: AI Agent Tool Composition 实战：工具组合与编排——单工具调用 vs 多工具链 vs 并行工具的架构设计
+keywords: [AI, Agent, Tool]
 description: 深入解析 AI Agent Tool Composition（工具组合与编排）的三大核心模式——单工具调用、多工具链顺序编排与并行工具执行。本文通过
   Python 和 Laravel 完整可运行代码示例，详解 Function Calling 的架构设计、错误处理与回滚机制、熔断器与补偿事务、混合编排决策树，帮助开发者将
   AI Agent 从单工具演示升级为生产级多工具编排系统，覆盖可观测性、幂等性与死信队列等工程最佳实践。

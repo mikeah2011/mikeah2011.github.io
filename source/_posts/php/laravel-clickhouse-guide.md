@@ -1,5 +1,6 @@
 ---
 title: Laravel + ClickHouse 实战：埋点宽表、物化视图与漏斗报表性能治理踩坑记录
+keywords: [Laravel, ClickHouse]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

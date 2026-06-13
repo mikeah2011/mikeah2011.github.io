@@ -1,5 +1,6 @@
 ---
 title: Vue 3 Signal Proposal 实战：Vue 的 Signals 实现——对比 Angular/Solid 的细粒度响应式与 Vue Reactivity
+keywords: [Vue, Signal, Proposal]
   的演化方向
 date: 2026-06-10 01:16:00
 tags:

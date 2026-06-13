@@ -1,5 +1,6 @@
 ---
 title: AI Agent 记忆系统对比：Hermes Memory vs OpenClaw MEMORY vs OpenHuman Memory Tree
+keywords: [AI, Agent]
 date: 2026-06-02 12:00:00
 description: 深度对比 2026 年三大开源 AI Agent 框架的记忆系统架构：Hermes Memory 文件即记忆的透明设计、OpenClaw
   MEMORY 三层分层智能记忆、OpenHuman Memory Tree 知识图谱式记忆。从存储架构、检索策略、记忆衰减、上下文注入等维度全面分析，包含 Python/Go/TypeScript

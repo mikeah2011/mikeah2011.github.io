@@ -1,5 +1,6 @@
 ---
 title: Laravel Eloquent Relationship 源码剖析：HasMany/BelongsTo/MorphMany 的底层机制与性能陷阱——从关系定义到 SQL 生成的完整链路
+keywords: [Laravel, Eloquent, Relationship]
 date: 2026-06-10 08:25:00
 categories:
   - php

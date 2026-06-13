@@ -1,5 +1,6 @@
 ---
 title: MySQL Histogram 统计实战：直方图驱动的查询优化器——数据分布感知的索引选择与 Laravel 性能调优
+keywords: [MySQL, Histogram]
 date: 2026-06-10 04:18:00
 categories:
   - database

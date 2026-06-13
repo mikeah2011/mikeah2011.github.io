@@ -1,5 +1,6 @@
 ---
 title: Laravel + AWS SQS FIFO 实战：严格顺序消息队列——订单处理的 Exactly-Once 语义与消息分组
+keywords: [Laravel, AWS, SQS]
 date: 2026-06-09 11:00:00
 categories:
 - php

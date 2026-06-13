@@ -2,6 +2,7 @@
 title: 订单状态机实战：用 Laravel + XState 实现复杂订单流转——可视化状态图与事件驱动
 date: 2026-06-02 00:00:00
 tags: [状态机, Laravel, XState, 订单系统, 事件驱动]
+keywords: [状态机, Laravel, XState, 订单系统, 事件驱动]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

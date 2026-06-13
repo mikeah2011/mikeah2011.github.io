@@ -1,5 +1,6 @@
 ---
 title: AI Agent Intelligent Routing 实战：根据任务复杂度动态选择模型——小模型处理简单任务、大模型处理复杂推理
+keywords: [AI, Agent, Intelligent]
 date: 2026-06-10 00:20:00
 categories:
   - ai

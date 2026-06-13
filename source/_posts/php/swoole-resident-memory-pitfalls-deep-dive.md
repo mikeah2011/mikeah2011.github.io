@@ -1,5 +1,6 @@
 ---
 title: Swoole 常驻内存踩坑深度剖析：全局变量污染、静态属性残留、连接泄漏——PHP-FPM 到 Octane 的思维模式迁移
+keywords: [Swoole]
 date: 2026-06-04 08:00:00
 description: 深入剖析 Swoole 驻留内存模型下的常见内存泄漏陷阱，涵盖全局变量污染、静态属性残留、数据库与 Redis 连接池泄漏、协程上下文污染等核心问题。从
   PHP-FPM 请求级生命周期迁移到 Swoole 常驻内存模式，系统讲解内存泄漏检测代码、GC 回收策略、Laravel Octane 请求隔离机制，附完整排查工具链与生产环境最佳实践

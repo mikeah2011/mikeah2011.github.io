@@ -1,5 +1,6 @@
 ---
 title: HBuilderX 实战：uni-app 官方 IDE 深度使用 — 真机调试、插件开发与多端发布踩坑记录
+keywords: [HBuilderX]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

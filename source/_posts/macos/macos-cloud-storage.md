@@ -1,5 +1,6 @@
 ---
 title: macOS 开发者云存储选型：哪些文件放哪里？如何保证一致性？
+keywords: [OS]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: jQuery 核心 API 速查：DOM 操作、事件处理与 AJAX
+keywords: [Query, API]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

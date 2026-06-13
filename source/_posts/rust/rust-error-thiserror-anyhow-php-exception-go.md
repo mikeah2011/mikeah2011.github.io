@@ -1,5 +1,6 @@
 ---
 title: Rust 错误处理进阶实战：自定义 Error 类型、thiserror/anyhow 选型——对比 PHP Exception 和 Go error 的三层设计哲学
+keywords: [Rust]
 date: 2026-06-07 23:57:00
 categories:
   - rust

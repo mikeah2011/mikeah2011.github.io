@@ -3,6 +3,7 @@ title: 'AI Agent Structured Output 深度实战：JSON Schema 强制、Pydantic/
 date: 2026-06-06 10:00:00
 description: "深入实战 AI Agent Structured Output 全链路方案：从 OpenAI/Anthropic JSON Schema 约束解码，到 Pydantic/Zod 运行时校验，再到 Laravel Response DTO 端到端类型安全。涵盖 Schema 设计、踩坑案例（token 溢出、嵌套校验、nullable 处理）、方案对比与完整代码示例，助你将 AI Agent 从实验推向生产级。"
 tags: [AI, LLM, Structured Output, JSON Schema, Laravel, Pydantic, Zod]
+keywords: [AI, LLM, Structured Output, JSON Schema, Laravel, Agent, Structured]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

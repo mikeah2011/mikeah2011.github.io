@@ -1,5 +1,6 @@
 ---
 title: "Testcontainers 实战：Docker 容器化集成测试——Laravel 测试中的真实 MySQL/Redis/Elasticsearch 环境"
+keywords: [Testcontainers]
 date: 2026-06-10 02:16:00
 categories:
   - architecture

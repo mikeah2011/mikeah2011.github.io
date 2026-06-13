@@ -3,6 +3,7 @@ title: 'Flutter Crashlytics 实战：Sentry/Firebase Crashlytics 错误监控集
 date: 2026-06-02 00:00:00
 description: '系统梳理 Flutter 项目接入 Firebase Crashlytics 与 Sentry 的实战方案，涵盖异常捕获边界、上下文补充、符号化、告警治理、性能追踪、排障清单与平台选型建议。'
 tags: [Flutter, Crashlytics, Sentry, Firebase Crashlytics, 错误监控]
+keywords: [Flutter, Crashlytics, Sentry, Firebase Crashlytics, 错误监控]
 categories:
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

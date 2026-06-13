@@ -1,5 +1,6 @@
 ---
 title: GitHub Actions 矩阵策略实战：多 PHP 版本、多数据库的并行测试与条件发布
+keywords: [GitHub, Actions]
 date: 2026-06-02 12:00:00
 tags:
 - GitHub Actions

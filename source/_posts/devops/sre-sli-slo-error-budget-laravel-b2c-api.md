@@ -1,5 +1,6 @@
 ---
 title: SRE 实战入门：SLI/SLO/Error Budget 在 Laravel B2C API 中的落地——用可靠性指标驱动运维决策
+keywords: [SRE]
 date: 2026-06-02 10:00:00
 tags:
 - SRE

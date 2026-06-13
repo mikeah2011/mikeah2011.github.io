@@ -10,6 +10,7 @@ categories:
   - macos
   - editor
 tags: [macOS, JetBrains, PhpStorm, WebStorm, GoLand, IDE, 工程管理]
+keywords: [macOS, JetBrains, PhpStorm, WebStorm, GoLand, Toolbox]
 简介: |
   Laravel B2C 开发者日常需要在 PhpStorm（PHP）、WebStorm（Vue/前端）、DataGrip（数据库）之间频繁切换。JetBrains Toolbox App 提供了统一的 IDE 管理和 Settings Sync 跨 IDE 配置同步能力。本文基于 KKday 30+ 仓库的实战经验，详解 Toolbox 安装、配置同步、插件管理、版本回滚、CLI 工具等核心功能，以及跨 IDE 快捷键冲突、Settings Repository 冲突、macOS 权限问题等踩坑记录。
 

@@ -1,5 +1,6 @@
 ---
 title: MySQL优化经验总结
+keywords: [MySQL]
 tags:
 - MySQL
 - SQL优化

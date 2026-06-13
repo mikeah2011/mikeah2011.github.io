@@ -1,5 +1,6 @@
 ---
 title: Go 语言基础入门：语法、并发与标准库
+keywords: [Go]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

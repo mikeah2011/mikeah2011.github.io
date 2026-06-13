@@ -1,5 +1,6 @@
 ---
 title: Laravel Validation 深度实战：自定义 Rule 类、Form Request 嵌套验证、API 响应标准化——30+ 仓库的验证治理方法论
+keywords: [Laravel, Validation]
 date: 2026-06-10 04:43:00
 categories:
   - php

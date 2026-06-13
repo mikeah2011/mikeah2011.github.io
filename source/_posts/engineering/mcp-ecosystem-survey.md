@@ -1,5 +1,6 @@
 ---
 title: 2026年AI Agent工具集成标准：MCP生态全景调研
+keywords: [AI, Agent]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

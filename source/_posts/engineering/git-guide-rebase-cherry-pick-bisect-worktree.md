@@ -1,5 +1,6 @@
 ---
 title: Git 高级用法实战：Rebase、Cherry-pick、Bisect、Worktree 踩坑记录
+keywords: [Git]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: 数据库 Schema 冲突治理实战：Laravel Migration 合并冲突检测、顺序依赖分析与团队协作的最佳实践
+keywords: [Schema]
 date: 2026-06-10 07:58:00
 categories:
   - engineering

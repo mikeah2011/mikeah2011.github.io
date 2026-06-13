@@ -1,5 +1,6 @@
 ---
 title: 本地 vs 云端 AI 实战：成本隐私性能的权衡与 Laravel 开发者选型指南
+keywords: [AI]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

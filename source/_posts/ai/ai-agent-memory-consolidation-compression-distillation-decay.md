@@ -1,5 +1,6 @@
 ---
 title: AI Agent Memory Consolidation 实战：短期记忆压缩、长期记忆蒸馏、遗忘曲线衰减——类人记忆系统的工程化实现
+keywords: [AI, Agent, Memory]
 date: 2026-06-05 09:09:27
 tags:
 - AI Agent

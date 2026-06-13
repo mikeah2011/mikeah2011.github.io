@@ -1,5 +1,6 @@
 ---
 title: 用 AI Agent 实现自动化 DevOps：监控、告警、修复、部署闭环
+keywords: [AI, Agent, DevOps]
 date: 2026-06-02 10:00:00
 tags:
 - AI Agent

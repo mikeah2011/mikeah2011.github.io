@@ -1,5 +1,6 @@
 ---
 title: Laravel + PgBouncer 连接池实战：PostgreSQL 连接风暴治理、事务池模式与 Prepared Statement 踩坑记录
+keywords: [Laravel, PgBouncer]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

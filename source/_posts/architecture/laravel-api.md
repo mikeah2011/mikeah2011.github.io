@@ -1,5 +1,6 @@
 ---
 title: Laravel 数据脱敏工程化实战：日志脱敏、API 响应脱敏、数据库字段加密——统一的脱敏注解与序列化器设计
+keywords: [Laravel]
 date: 2026-06-09 22:45:00
 categories:
   - architecture

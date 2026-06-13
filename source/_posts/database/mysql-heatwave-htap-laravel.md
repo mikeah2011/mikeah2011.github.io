@@ -2,6 +2,7 @@
 title: MySQL HeatWave 实战：OLTP+OLAP 一体化——Laravel 中的实时分析查询与 HTAP 架构落地
 date: 2026-06-04 09:00:00
 tags: [MySQL HeatWave, HTAP, OLAP, OLTP, Laravel, 实时分析]
+keywords: [MySQL HeatWave, HTAP, OLAP, OLTP, Laravel, MySQL, HeatWave]
 categories:
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Laravel 审计日志与字段级脱敏实战：后台高风险操作留痕、Diff 快照与合规回放踩坑记录
+keywords: [Laravel]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

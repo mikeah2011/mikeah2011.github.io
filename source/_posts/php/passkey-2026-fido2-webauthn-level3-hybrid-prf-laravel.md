@@ -1,5 +1,6 @@
 ---
 title: Passkey 2026 生态更新实战：FIDO2/WebAuthn Level 3、Hybrid Transport、PRF 扩展——Laravel 无密码登录的最新工程实践
+keywords: [Passkey]
 date: 2026-06-09 16:28:00
 categories:
   - php

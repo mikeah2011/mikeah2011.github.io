@@ -1,5 +1,6 @@
 ---
 title: Supervisor 进程管理实战：PHP-FPM/Queue Worker/Socket Server 的统一进程治理——对比 Docker Compose
+keywords: [Supervisor]
   的进程编排
 date: 2026-06-10 10:00:00
 tags:

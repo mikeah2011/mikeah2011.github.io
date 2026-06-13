@@ -1,5 +1,6 @@
 ---
 title: CSP 进阶实战：Trusted Types + Nonce + strict-dynamic 与 Laravel XSS 纵深防御
+keywords: [CSP]
 date: 2026-06-10 03:06:00
 categories:
   - security

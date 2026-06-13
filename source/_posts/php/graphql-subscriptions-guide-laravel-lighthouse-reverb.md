@@ -1,5 +1,6 @@
 ---
 title: GraphQL Subscriptions 实战：Laravel Lighthouse + Reverb 打通库存变更实时推送与鉴权续期踩坑记录
+keywords: [GraphQL, Subscriptions]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

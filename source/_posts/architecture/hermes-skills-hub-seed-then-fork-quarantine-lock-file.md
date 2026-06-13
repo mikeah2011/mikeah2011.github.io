@@ -1,5 +1,6 @@
 ---
 title: Hermes Skills Hub 分发架构：seed-then-fork 模型、quarantine 审计、lock file 溯源
+keywords: [Hermes, Skills, Hub]
 date: 2026-06-02 00:00:00
 description: 深度解析 Hermes Skills Hub 分发架构的三大核心机制：seed-then-fork 种子分叉模型实现上游更新与用户修改的优雅平衡、quarantine
   隔离审计机制将安全防护从事后补救前移到事前预防、lock file 溯源体系提供完整的技能来源追踪。详解三方合并策略、签名验证、Markdown Skill 文件结构，附完整代码示例，助你理解

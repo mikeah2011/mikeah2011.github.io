@@ -1,5 +1,6 @@
 ---
 title: Laravel Pipeline 源码剖析：闭包洋葱模型——对比 Symfony Pipeline 与 Java Filter Chain 的中间件栈实现
+keywords: [Laravel, Pipeline]
 date: 2026-06-05 12:00:00
 description: 深入剖析 Laravel Pipeline 闭包洋葱模型源码，逐行解读 carry()、pipe()、then() 核心方法，图解 array_reduce
   闭包嵌套构建过程。横向对比 Symfony Pipeline 事件驱动模型与 Java Servlet Filter 责任链模式，附订单处理管道、动态 Pipeline

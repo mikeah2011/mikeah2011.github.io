@@ -1,5 +1,6 @@
 ---
 title: "Effect-TS 实战进阶：Laravel 全栈的 TypeScript 函数式编程——类型安全的错误处理、依赖注入与并发原语的生产落地"
+keywords: [Effect, TS]
 date: 2026-06-10 01:25:00
 categories:
   - frontend

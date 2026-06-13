@@ -1,5 +1,6 @@
 ---
 title: Monorepo 深度实战：Nx vs Turborepo vs Pants——大型 Laravel + 前端项目的构建缓存与任务编排
+keywords: [Monorepo]
 date: 2026-06-06 10:00:00
 description: '深度对比 Monorepo 三大构建工具 Nx、Turborepo 与 Pants 在大型 Laravel + Vue/React 全栈项目中的实战表现。从构建缓存机制（本地缓存、远程缓存、内容寻址存储）、任务编排拓扑排序到受影响分析，逐一拆解核心架构与配置细节。涵盖
   turbo prune Docker 多阶段构建优化、GitHub Actions CI/CD 流水线完整配置、四个真实踩坑案例与修复方案，附决策矩阵与四阶段渐进式迁移路径，助团队根据规模与技术栈快速选型并落地

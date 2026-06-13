@@ -1,5 +1,6 @@
 ---
 title: PostgreSQL WAL 深度剖析：Write-Ahead Log 的底层机制、归档配置、PITR 恢复与流复制延迟治理
+keywords: [PostgreSQL, WAL]
 date: 2026-06-10 08:38:00
 tags:
 - PostgreSQL

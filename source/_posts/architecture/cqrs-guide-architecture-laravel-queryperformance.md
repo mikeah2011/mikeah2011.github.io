@@ -1,5 +1,6 @@
 ---
 title: CQRS-模式实战-读写分离架构在-Laravel-中的落地-B2C电商查询性能优化与事件驱动踩坑记录
+keywords: [CQRS, Laravel]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

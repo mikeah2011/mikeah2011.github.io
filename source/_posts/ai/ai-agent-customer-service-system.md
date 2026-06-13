@@ -3,6 +3,7 @@ title: AI Agent 客服系统实战：多轮对话、知识库检索、工单流�
 description: 后端视角拆解 AI Agent 客服系统：多轮对话状态管理、RAG 知识库检索与混合召回重排、工单状态机流转与 SLA 自动分配，含 Python 代码示例与九大生产踩坑经验。
 date: 2026-06-02 00:00:00
 tags: [AI Agent, 客服系统, 多轮对话, RAG, 工单系统]
+keywords: [AI Agent, 客服系统, 多轮对话, RAG, 工单系统, AI, Agent]
 categories:
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

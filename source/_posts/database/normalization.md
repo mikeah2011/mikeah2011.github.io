@@ -1,5 +1,6 @@
 ---
 title: MySQL 三范式：数据库表设计的规范化理论与实战权衡
+keywords: [MySQL]
 tags:
 - MySQL
 - 数据库

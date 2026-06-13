@@ -1,5 +1,6 @@
 ---
 title: Controller-Service-Repository 三層架構設計與大項目職責分離 - 真實踩坑記錄
+keywords: [Controller, Service, Repository]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

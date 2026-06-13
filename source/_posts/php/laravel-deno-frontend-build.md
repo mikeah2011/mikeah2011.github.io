@@ -1,5 +1,6 @@
 ---
 title: Laravel + Deno 实战：用 Deno 替代 Node.js 做前端构建——HMR、SSR 与安全沙箱
+keywords: [Laravel, Deno]
 date: 2026-06-09 13:34:00
 categories:
   - php

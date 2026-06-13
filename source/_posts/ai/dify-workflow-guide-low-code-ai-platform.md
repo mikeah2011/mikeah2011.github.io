@@ -2,6 +2,7 @@
 title: Dify 实战：低代码 AI 应用平台搭建与工作流编排
 date: 2026-06-02 12:00:00
 tags: [Dify, AI, 低代码, 工作流, Agent]
+keywords: [Dify, AI, 低代码, 工作流, Agent]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

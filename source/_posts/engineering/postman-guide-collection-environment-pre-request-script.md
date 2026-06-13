@@ -1,5 +1,6 @@
 ---
 title: Postman 高级实战：Collection、Environment、Pre-request Script 与 Newman CI 集成踩坑记录
+keywords: [Postman]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

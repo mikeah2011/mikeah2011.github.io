@@ -1,5 +1,6 @@
 ---
 title: MySQL 存储引擎对比：InnoDB vs MyISAM vs Memory
+keywords: [MySQL]
 tags:
 - MySQL
 - InnoDB

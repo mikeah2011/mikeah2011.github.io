@@ -1,5 +1,6 @@
 ---
 title: Hermes vs OpenClaw vs OpenHuman：三种 AI Agent 记忆架构哲学深度对比
+keywords: [Hermes, OpenClaw, OpenHuman]
 date: 2026-06-02 12:00:00
 tags:
 - Hermes

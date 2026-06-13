@@ -8,6 +8,7 @@ categories:
   - devops
   - kubernetes
 tags: [Kubernetes, Laravel, 监控]
+keywords: [Kubernetes, Laravel, 监控, HPA, VPA]
 description: 结合 Laravel B2C API 在 Kubernetes 上的真实压测与生产经验，详解 HPA 与 VPA 自动扩缩容落地方案，涵盖 CPU 指标误判修复、自定义指标接入、Prometheus Adapter 配置、成本优化建议及常见故障排查，帮助你在生产环境安全落地自动扩缩容策略。
 
 

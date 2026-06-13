@@ -1,5 +1,6 @@
 ---
 title: "Laravel Schedule Monitor 实战：任务调度监控与告警——spatie/laravel-schedule-monitor 的生产级运维方案"
+keywords: [Laravel, Schedule, Monitor]
 date: 2026-06-10 01:13:00
 categories:
   - devops

@@ -1,5 +1,6 @@
 ---
 title: Secrets Scanning 实战：gitleaks/trufflehog + pre-commit + CI——Laravel 项目中 API
+keywords: [Secrets, Scanning]
   Key/Token 泄漏的预防与应急响应
 date: 2026-06-09 18:49:00
 categories:

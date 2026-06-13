@@ -1,5 +1,6 @@
 ---
 title: Laravel API Security Audit 实战：OWASP ASVS Level 2 合规检查清单
+keywords: [Laravel, API, Security]
 date: 2026-06-10 09:15:00
 categories:
   - security

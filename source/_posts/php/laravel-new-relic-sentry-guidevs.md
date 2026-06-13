@@ -8,6 +8,7 @@ updated: 2026-05-05 01:29:09
 categories:
   - php
 tags: [Laravel, 监控]
+keywords: [Laravel, 监控, New, Relic]
 description: 在 KKday B2C API 生产环境中同时跑 New Relic + Sentry 双平台的真实经验：配置陷阱、上下文传播、采样策略、告警降噪，以及什么场景该用哪个的决策框架。
 
 

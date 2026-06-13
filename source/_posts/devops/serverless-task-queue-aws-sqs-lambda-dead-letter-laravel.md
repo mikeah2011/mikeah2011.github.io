@@ -1,5 +1,6 @@
 ---
 title: Serverless Task Queue 实战：AWS SQS + Lambda + Dead Letter Queue——Laravel 异步任务的无服务器替代方案与成本对比
+keywords: [Serverless, Task, Queue]
 date: 2026-06-05 08:00:00
 tags:
 - Serverless

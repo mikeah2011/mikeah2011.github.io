@@ -1,5 +1,6 @@
 ---
 title: Go for PHP Developers 实战：goroutine/channel 并发模型与 Laravel 队列的思维对比
+keywords: [Go, PHP, Developers]
 date: 2026-06-02 10:00:00
 tags:
 - Go

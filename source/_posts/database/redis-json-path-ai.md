@@ -1,5 +1,6 @@
 ---
 title: Redis 8.0 新特性实战：向量搜索、JSON Path、性能改进与 AI 场景应用
+keywords: [Redis]
 date: 2026-06-02 10:00:00
 tags:
 - Redis

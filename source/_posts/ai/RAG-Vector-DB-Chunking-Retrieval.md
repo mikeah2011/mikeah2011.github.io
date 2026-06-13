@@ -1,5 +1,6 @@
 ---
 title: RAG 系统实战：向量数据库选型、Chunking 策略、检索优化
+keywords: [RAG]
 date: 2026-06-02 02:31:05
 tags:
 - RAG

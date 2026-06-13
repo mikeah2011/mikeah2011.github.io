@@ -1,5 +1,6 @@
 ---
 title: Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与KKday真实踩坑记录
+keywords: [Laravel, BFF, GraphQL]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

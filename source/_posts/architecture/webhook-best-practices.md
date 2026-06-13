@@ -9,6 +9,7 @@ categories:
   - architecture
   - api
 tags: [KKday, Laravel, 微服务]
+keywords: [KKday, Laravel, 微服务, Webhook]
 description: 基于 KKday B2C API 中 Stripe、AliPay、Slack、GrabPay 等多个 Webhook 集成的真实踩坑，总结一套签名验证、重试策略、幂等处理的落地方案，覆盖 Nginx 转发丢 Header、签名校验失败、重试风暴、并发幂等竞态等生产问题。
 
 

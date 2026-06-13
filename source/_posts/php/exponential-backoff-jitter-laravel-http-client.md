@@ -2,6 +2,7 @@
 title: 重试与退避策略实战：Exponential Backoff + Jitter——Laravel HTTP Client 的韧性设计模式
 date: 2026-06-02 00:00:00
 tags: [重试策略, Exponential Backoff, Jitter, Laravel, HTTP Client, 韧性设计]
+keywords: [重试策略, Exponential Backoff, Jitter, Laravel, HTTP Client]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

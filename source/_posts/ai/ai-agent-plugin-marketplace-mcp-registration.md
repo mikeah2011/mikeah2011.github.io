@@ -1,5 +1,6 @@
 ---
 title: AI Agent Plugin Marketplace 实战：构建可发现的 Agent 工具生态——MCP Server 注册/发现/版本管理的工程化方案
+keywords: [AI, Agent, Plugin]
 date: 2026-06-09 17:21:00
 categories:
   - ai

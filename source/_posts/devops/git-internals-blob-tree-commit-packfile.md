@@ -2,6 +2,7 @@
 title: "Git Internals 深度剖析：对象模型（blob/tree/commit）、packfile 与引用规范——从使用者到理解者"
 date: 2026-06-03 12:00:00
 tags: [Git, 版本控制, 底层原理, DevOps]
+keywords: [Git, 版本控制, 底层原理, DevOps, Internals]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

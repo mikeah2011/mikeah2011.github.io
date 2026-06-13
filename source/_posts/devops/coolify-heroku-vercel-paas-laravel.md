@@ -1,5 +1,6 @@
 ---
 title: Coolify 实战：开源 Heroku/Vercel 替代——自托管 PaaS 平台与 Laravel 一键部署
+keywords: [Coolify]
 date: 2026-06-02 10:00:00
 tags:
 - coolify

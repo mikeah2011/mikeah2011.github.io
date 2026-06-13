@@ -1,5 +1,6 @@
 ---
 title: AI Agent Schema Evolution 实战：工具定义版本化与向后兼容——MCP Server 的 API 演进与 Breaking Change 治理
+keywords: [AI, Agent, Schema]
 date: 2026-06-09 15:05:00
 categories:
   - ai

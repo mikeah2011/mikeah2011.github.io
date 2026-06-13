@@ -1,5 +1,6 @@
 ---
 title: Crossplane 实战：Kubernetes 原生基础设施编排——替代 Terraform 的云资源 GitOps 声明式管理
+keywords: [Crossplane]
 date: 2026-06-04 10:00:00
 tags:
 - crossplane

@@ -1,5 +1,6 @@
 ---
 title: AI Agent Tool Design 深度实战：工具定义规范、参数校验、错误分类、重试策略与降级方案
+keywords: [AI, Agent, Tool]
 date: 2026-06-10 09:27:00
 categories:
   - ai

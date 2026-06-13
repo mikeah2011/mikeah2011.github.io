@@ -2,6 +2,7 @@
 date: 2026-05-04 09:00:42
 description: "深入剖析 Swoole 协程引擎与 Laravel Octane 在 PHP 高性能并发场景下的实战应用。本文从传统 PHP-FPM 的性能瓶颈出发，完整覆盖 Swoole 协程原理、Octane 常驻进程部署、连接池管理、内存泄漏排查、踩坑案例与生产环境调优，并横向对比 FrankenPHP 与 RoadRunner 四种运行时架构的 QPS、内存占用与适用场景，帮助开发者在高并发 PHP 项目中做出最优选型决策。"
 tags: [PHP, Swoole, Laravel, Octane, 协程, 高性能, 并发]
+keywords: [PHP, Swoole, Laravel, Octane, 协程, FPM]
 categories:
   - php
   - runtime

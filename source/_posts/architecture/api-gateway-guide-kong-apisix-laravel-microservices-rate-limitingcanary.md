@@ -1,5 +1,6 @@
 ---
 title: API-Gateway-实战-Kong-APISIX-在-Laravel-微服务中的应用-统一鉴权限流路由与灰度发布踩坑记录
+keywords: [API, Gateway, Kong]
 date: 2026-05-16 18:20:19
 updated: 2026-05-16 18:23:07
 categories:

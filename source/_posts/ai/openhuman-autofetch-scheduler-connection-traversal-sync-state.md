@@ -2,6 +2,7 @@
 title: OpenHuman AutoFetch 调度器：每 20 分钟连接遍历、sync state 管理、去重与预算控制
 date: 2026-06-02 12:00:00
 tags: [OpenHuman, AI Agent, 调度器, 数据同步, 去重]
+keywords: [OpenHuman, AI Agent, 调度器, 数据同步, 去重, AutoFetch]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

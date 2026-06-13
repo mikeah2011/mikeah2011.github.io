@@ -1,5 +1,6 @@
 ---
 title: Hermes Agent 定时任务实战：自动化博客写作、系统监控与代码更新踩坑记录
+keywords: [Hermes, Agent]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

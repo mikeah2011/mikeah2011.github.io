@@ -2,6 +2,7 @@
 title: AI Agent Human-in-the-Loop 实战：审批节点、人工确认、中断恢复——生产级 Agent 的人机协作模式
 date: 2026-06-06 10:00:00
 tags: [AI Agent, HITL, Human-in-the-Loop, LLM, 人机协作]
+keywords: [AI Agent, HITL, Human-in-the-Loop, LLM, 人机协作, AI, Agent, Human]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:

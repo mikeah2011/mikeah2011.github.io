@@ -1,5 +1,6 @@
 ---
 title: MySQL 创建索引的正确姿势：ALTER TABLE vs CREATE INDEX
+keywords: [MySQL]
 tags:
 - MySQL
 - 索引

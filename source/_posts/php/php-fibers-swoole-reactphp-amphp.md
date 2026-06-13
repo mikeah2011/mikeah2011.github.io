@@ -2,6 +2,7 @@
 title: PHP 8.5 异步生态全景实战：Fibers + Swoole + ReactPHP + AMPHP——PHP 异步编程的四条路线对比与选型指南
 date: 2026-06-05 12:00:00
 tags: [PHP, 异步编程, Fibers, Swoole, ReactPHP, AMPHP]
+keywords: [PHP, 异步编程, Fibers, Swoole, ReactPHP]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

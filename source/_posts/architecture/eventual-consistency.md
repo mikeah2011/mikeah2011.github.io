@@ -1,5 +1,6 @@
 ---
 title: Eventual Consistency 实战：最终一致性在电商场景中的工程化——反压、冲突解决与用户感知延迟
+keywords: [Eventual, Consistency]
 description: 深入实战最终一致性在电商系统中的工程化落地。涵盖 Redis Lua 原子库存扣减、RabbitMQ 三级反压架构、LWW/向量时钟/CRDT
   三种冲突解决算法对比、Saga 补偿事务的状态持久化与崩溃恢复、乐观更新与 Read-Your-Writes 的 UX 感知延迟优化。所有代码基于 Laravel
   + Redis + RabbitMQ 给出可运行实现，附监控告警规则与定时对账方案，帮助中大型电商团队在高并发场景下用可控的短暂不一致换取高可用与水平扩展能力。

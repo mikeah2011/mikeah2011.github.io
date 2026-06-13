@@ -1,5 +1,6 @@
 ---
 title: "Flutter 3.x 实战：Dart 语言基础与 Widget 体系详解"
+keywords: [Flutter]
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

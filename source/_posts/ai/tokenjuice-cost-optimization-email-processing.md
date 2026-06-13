@@ -2,6 +2,7 @@
 title: TokenJuice 成本优化实战：6 个月邮件处理从数百美元降至个位数的技术路径
 date: 2026-06-02 12:00:00
 tags: [TokenJuice, 成本优化, AI Agent, 邮件处理, Token压缩]
+keywords: [TokenJuice, 成本优化, AI Agent, 邮件处理, Token压缩]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

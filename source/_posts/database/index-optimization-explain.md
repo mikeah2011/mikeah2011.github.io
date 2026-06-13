@@ -1,5 +1,6 @@
 ---
 title: 数据库索引优化实战-覆盖索引联合索引与索引下推-Laravel-B2C-API踩坑记录
+keywords: [Laravel, API]
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

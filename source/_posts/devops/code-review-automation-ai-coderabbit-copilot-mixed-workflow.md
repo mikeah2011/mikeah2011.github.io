@@ -1,5 +1,6 @@
 ---
 title: Code Review Automation 2026 实战：AI PR Review + 人工确认的混合工作流——CodeRabbit/GitHub
+keywords: [Code, Review, Automation]
   Copilot Review 的规模化落地
 date: 2026-06-09 14:54:00
 categories:

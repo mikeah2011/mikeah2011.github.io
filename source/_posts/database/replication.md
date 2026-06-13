@@ -1,5 +1,6 @@
 ---
 title: MySQL主从复制与读写分离
+keywords: [MySQL]
 tags:
 - MySQL
 - 主从复制

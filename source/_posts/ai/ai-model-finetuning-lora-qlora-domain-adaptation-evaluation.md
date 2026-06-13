@@ -2,6 +2,7 @@
 title: "AI 模型微调实战：LoRA/QLoRA 领域适配与评估指标设计"
 date: 2026-06-02 03:00:00
 tags: [LoRA, qlora, 模型微调, peft, 领域适配, 评估指标]
+keywords: [LoRA, qlora, 模型微调, peft, 领域适配, AI]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

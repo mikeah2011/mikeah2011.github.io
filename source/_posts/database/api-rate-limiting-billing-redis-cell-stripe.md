@@ -3,6 +3,7 @@ title: API 限流与计费联动实战：Redis Cell + Stripe Usage Records——
 date: 2026-06-10 08:20:00
 description: '深入解析SaaS场景下API限流与按量计费的完整联动方案。以Redis Cell模块实现精准令牌桶限流，结合Stripe Usage Records API构建实时用量上报与账单闭环，覆盖多租户配额管理、限流降级策略、计费对账等生产级问题，附完整Laravel实现代码与架构设计。'
 tags: [Redis, Stripe, API限流, SaaS, 按量计费, Redis Cell, Laravel]
+keywords: [Redis, Stripe, API限流, SaaS, 按量计费, API]
 categories:
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

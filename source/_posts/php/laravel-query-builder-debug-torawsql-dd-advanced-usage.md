@@ -1,5 +1,6 @@
 ---
 title: Laravel Query Builder Debug 实战：toRawSql/dd 的高级用法——复杂查询的 SQL 溯源、绑定参数可视化与性能分析
+keywords: [Laravel, Query, Builder]
 date: 2026-06-10 01:09:00
 categories:
   - php

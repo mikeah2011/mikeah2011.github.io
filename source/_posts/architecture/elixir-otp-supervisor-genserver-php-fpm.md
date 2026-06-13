@@ -1,5 +1,6 @@
 ---
 title: Elixir OTP 实战：Supervisor 树、GenServer、分布式进程——对比 PHP-FPM 无状态模型的并发哲学
+keywords: [Elixir, OTP]
 date: 2026-06-03 10:00:00
 tags:
 - Elixir

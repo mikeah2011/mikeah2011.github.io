@@ -2,6 +2,7 @@
 title: 'PHP 扩展开发入门：用 C 写一个自定义 PHP 扩展——从编译到加载的完整流程'
 date: 2026-06-02 10:00:00
 tags: [PHP, C语言, PHP扩展, 内部机制]
+keywords: [PHP, C语言, PHP扩展, 内部机制]
 categories: [php]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

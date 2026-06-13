@@ -1,5 +1,6 @@
 ---
 title: "Phishing-Resistant Authentication 实战：FIDO2/WebAuthn + Passkey 的渐进式迁移——从密码到无密码的 Laravel 认证演进路线"
+keywords: [Phishing, Resistant, Authentication]
 date: 2026-06-09 18:57:00
 categories:
   - architecture

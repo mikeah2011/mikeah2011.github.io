@@ -1,5 +1,6 @@
 ---
 title: Multi-Tenancy Security 实战：共享数据库场景下的行级安全策略——PostgreSQL RLS vs Laravel Scopes
+keywords: [Multi, Tenancy, Security]
   vs 中间件隔离
 date: 2026-06-04 12:00:00
 tags:

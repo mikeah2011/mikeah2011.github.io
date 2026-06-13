@@ -1,5 +1,6 @@
 ---
 title: Laravel Telescope 开发调试实战：请求追踪、队列监控与慢查询定位踩坑记录
+keywords: [Laravel, Telescope]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

@@ -1,5 +1,6 @@
 ---
 title: Laravel 性能预算实战：用 Lighthouse CI + k6 设定 API 响应时间预算——从"事后优化"到"预算驱动开发"的范式转变
+keywords: [Laravel]
 date: 2026-06-06 18:00:00
 tags:
 - 性能预算

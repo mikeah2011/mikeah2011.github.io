@@ -1,5 +1,6 @@
 ---
 title: Laravel + GraphQL Federation 实战：微服务图的统一网关
+keywords: [Laravel, GraphQL, Federation]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

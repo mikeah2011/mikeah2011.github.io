@@ -1,5 +1,6 @@
 ---
 title: OAuth 2.0 实战：Laravel Passport 自定义 Grant Type 与第三方登录
+keywords: [OAuth]
 date: 2026-06-01 09:00:00
 tags:
 - Laravel

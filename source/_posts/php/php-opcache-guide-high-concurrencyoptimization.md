@@ -1,5 +1,6 @@
 ---
 title: PHP-OpCache 调优实战-KKday-B2C-API 高并发场景下的内存优化与真实踩坑记录
+keywords: [PHP, OpCache, KKday]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
