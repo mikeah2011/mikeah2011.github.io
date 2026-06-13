@@ -2062,7 +2062,7 @@ AI Agent 护栏系统正在向以下方向发展：
 
 ## 相关阅读
 
-- [AI Agent 框架的未来趋势：记忆系统、多模态、工具标准化、本地推理的发展方向](/post/ai-agent/)
+- [AI Agent 框架的未来趋势：记忆系统、多模态、工具标准化、本地推理的发展方向](/post/ai-agent-framework-future-trends/)
 - [AI Agent 评估实战：LLM-as-Judge、Benchmark 设计与回归测试](/post/ai-agent-llm-as-judge-benchmark/)
 - [AI Coding Agent 安全实战](/post/ai-coding-agent/)
 - Hermes MCP 集成架构：动态工具发现、stdio/SSE/HTTP 传输与 prompt-injection 检测

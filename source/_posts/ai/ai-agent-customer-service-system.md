@@ -2168,5 +2168,5 @@ def get_cache_key(query: str, knowledge_version: str) -> str:
 
 - [AI Agent 代码助手实战：代码生成、Review、重构、文档生成](/post/ai-agent-review/)
 - [AI Agent 数据分析实战：自然语言转SQL、图表生成、报告自动化](/post/ai-agent-sql/)
-- [AI Agent 运维助手实战：日志分析、告警处理、故障自愈](/post/ai-agent/)
-- [AI Agent 自动化测试实战：测试用例生成、执行、结果分析闭环](/post/ai-agent/)
+- [AI Agent 运维助手实战：日志分析、告警处理、故障自愈](/post/ai-agent-3/)
+- [AI Agent 自动化测试实战：测试用例生成、执行、结果分析闭环](/post/ai-agent-automated-testing-pipeline/)

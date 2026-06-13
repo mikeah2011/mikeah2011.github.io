@@ -2539,6 +2539,6 @@ AI Agent 在数据分析场景中的真正价值，不是把分析师的工作�
 ## 相关阅读
 
 - [AI Agent 代码助手实战：代码生成、Review、重构、文档生成](/post/ai-agent-review/)
-- [AI Agent 客服系统实战：多轮对话、知识库检索、工单流转](/post/ai-agent/)
-- [AI Agent 运维助手实战：日志分析、告警处理、故障自愈](/post/ai-agent/)
-- [AI Agent 自动化测试实战：测试用例生成、执行、结果分析闭环](/post/ai-agent/)
+- [AI Agent 客服系统实战：多轮对话、知识库检索、工单流转](/post/ai-agent-customer-service-system/)
+- [AI Agent 运维助手实战：日志分析、告警处理、故障自愈](/post/ai-agent-3/)
+- [AI Agent 自动化测试实战：测试用例生成、执行、结果分析闭环](/post/ai-agent-automated-testing-pipeline/)
