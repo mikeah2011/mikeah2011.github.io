@@ -1,12 +1,21 @@
 ---
 title: Laravel Stringable 实战：Fluent String API 的链式文本处理——替代 Str::helper 的面向对象字符串操作最佳实践
 date: 2026-06-07 10:00:00
-description: "本文深入讲解 Laravel Stringable（Fluent String API）的链式文本处理实践，涵盖 Str::of() 核心方法详解、自定义 Macro 扩展、与 Laravel Pipeline 结合的数据流处理、性能对比与优化策略、Blade 模板实战、API 数据规范化中间件、敏感信息脱敏等高级用法。适合 PHP 开发者从 Str:: 静态方法平滑迁移到面向对象的链式调用，提升代码可读性与可维护性。"
-tags: [laravel, php, stringable, fluent api, 文本处理]
+description: '本文深入讲解 Laravel Stringable（Fluent String API）的链式文本处理实践，涵盖 Str::of() 核心方法详解、自定义
+  Macro 扩展、与 Laravel Pipeline 结合的数据流处理、性能对比与优化策略、Blade 模板实战、API 数据规范化中间件、敏感信息脱敏等高级用法。适合
+  PHP 开发者从 Str:: 静态方法平滑迁移到面向对象的链式调用，提升代码可读性与可维护性。'
+tags:
+- Laravel
+- PHP
+- Stringable
+- fluent api
+- 文本处理
 categories:
-  - php
+- php
 cover: /images/covers/laravel-stringable-cover.jpg
 ---
+
+
 
 # Laravel Stringable 实战：Fluent String API 的链式文本处理
 

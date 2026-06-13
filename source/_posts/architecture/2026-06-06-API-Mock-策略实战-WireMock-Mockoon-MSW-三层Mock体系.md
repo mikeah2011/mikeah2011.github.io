@@ -1,12 +1,20 @@
 ---
 title: API Mock 策略实战：WireMock/Mockoon/MSW 三层 Mock 体系——从开发到测试到生产的接口隔离
 date: 2026-06-06 04:53:00
-tags: [api-mock, wiremock, mockoon, msw, 前后端联调]
+tags:
+- api-mock
+- wiremock
+- Mockoon
+- msw
+- 前后端联调
 categories:
-  - architecture
-description: "本文系统介绍 WireMock、Mockoon、MSW 三层 API Mock 体系的实战落地。MSW 通过 Service Worker 拦截浏览器请求，实现前端本地开发零配置 Mock；Mockoon 提供 GUI/CLI 快速搭建 Mock 服务，支持动态响应与团队联调；WireMock 提供录制回放、状态机、契约验证等高级能力，保障集成测试质量。涵盖 Vue/TypeScript 集成、环境变量路由、CI 卡点配置、五大踩坑案例，帮助团队在任何阶段不被接口阻塞，实现前后端并行开发。"
+- architecture
+description: 本文系统介绍 WireMock、Mockoon、MSW 三层 API Mock 体系的实战落地。MSW 通过 Service Worker
+  拦截浏览器请求，实现前端本地开发零配置 Mock；Mockoon 提供 GUI/CLI 快速搭建 Mock 服务，支持动态响应与团队联调；WireMock 提供录制回放、状态机、契约验证等高级能力，保障集成测试质量。涵盖
+  Vue/TypeScript 集成、环境变量路由、CI 卡点配置、五大踩坑案例，帮助团队在任何阶段不被接口阻塞，实现前后端并行开发。
 cover: /images/covers/api-mock-three-layer-cover.jpg
 ---
+
 
 ## 为什么现代开发离不开 API Mock？
 

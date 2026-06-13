@@ -1,13 +1,20 @@
 ---
 title: WebTransport 实战：HTTP/3 上的双向通信——对比 WebSocket 的低延迟传输协议与 Laravel 实时应用集成
 date: 2026-06-05 14:40:00
-tags: [webtransport, http3, websocket, laravel, 实时通信]
+tags:
+- WebTransport
+- http3
+- WebSocket
+- Laravel
+- 实时通信
 categories:
-  - architecture
+- architecture
 cover: /images/covers/webtransport-http3-bidirectional-cover.jpg
-description: >-
-  深入对比 WebTransport 与 WebSocket 核心差异：基于 HTTP/3 QUIC 的多流复用与不可靠数据报传输，5% 丢包下延迟降低 8 倍。涵盖浏览器 API 封装、Go/Rust 服务端实现、Laravel 广播集成与渐进式迁移策略，全栈开发者必读的下一代实时通信实战指南。
+description: 深入对比 WebTransport 与 WebSocket 核心差异：基于 HTTP/3 QUIC 的多流复用与不可靠数据报传输，5% 丢包下延迟降低
+  8 倍。涵盖浏览器 API 封装、Go/Rust 服务端实现、Laravel 广播集成与渐进式迁移策略，全栈开发者必读的下一代实时通信实战指南。
 ---
+
+
 
 ## 前言
 

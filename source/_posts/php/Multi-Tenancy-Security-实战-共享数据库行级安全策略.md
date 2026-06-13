@@ -1,12 +1,23 @@
 ---
-title: 'Multi-Tenancy Security 实战：共享数据库场景下的行级安全策略——PostgreSQL RLS vs Laravel Scopes vs 中间件隔离'
+title: Multi-Tenancy Security 实战：共享数据库场景下的行级安全策略——PostgreSQL RLS vs Laravel Scopes
+  vs 中间件隔离
 date: 2026-06-04 12:00:00
-tags: [multi-tenancy, postgresql-rls, laravel-scopes, 行级安全, saas, 租户隔离]
+tags:
+- Multi-Tenancy
+- postgresql-rls
+- laravel-scopes
+- 行级安全
+- SaaS
+- 租户隔离
 categories:
-  - php
-description: "深入解析多租户 SaaS 应用的行级安全策略：PostgreSQL RLS、Laravel Scopes 与中间件隔离三种方案的完整实现与量化对比。涵盖 RLS 策略配置、Global Scope 自动过滤、Repository 模式封装、双层纵深防御架构、十大典型数据泄露漏洞防护（原生 SQL 绕过、队列上下文丢失、关联查询泄露等），以及生产环境监控告警与安全清单。附带完整可运行代码和 Feature Test 测试套件，适合构建金融级多租户数据隔离方案的 Laravel 团队参考。"
+- php
+description: 深入解析多租户 SaaS 应用的行级安全策略：PostgreSQL RLS、Laravel Scopes 与中间件隔离三种方案的完整实现与量化对比。涵盖
+  RLS 策略配置、Global Scope 自动过滤、Repository 模式封装、双层纵深防御架构、十大典型数据泄露漏洞防护（原生 SQL 绕过、队列上下文丢失、关联查询泄露等），以及生产环境监控告警与安全清单。附带完整可运行代码和
+  Feature Test 测试套件，适合构建金融级多租户数据隔离方案的 Laravel 团队参考。
 cover: /images/covers/multi-tenancy-security-cover.jpg
 ---
+
+
 
 # Multi-Tenancy Security 实战：共享数据库场景下的行级安全策略——PostgreSQL RLS vs Laravel Scopes vs 中间件隔离
 

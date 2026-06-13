@@ -1,13 +1,22 @@
 ---
-title: "Database Branching 实战：Neon/PlanetScale 分支工作流——Laravel 开发中的数据库 Schema Preview 与 PR Review"
+title: Database Branching 实战：Neon/PlanetScale 分支工作流——Laravel 开发中的数据库 Schema Preview
+  与 PR Review
 date: 2026-06-04 09:00:00
-tags: [database branching, neon, planetscale, laravel, schema review]
+tags:
+- database branching
+- Neon
+- PlanetScale
+- Laravel
+- schema review
 categories:
-  - database
-description: "Database Branching 数据库分支技术深度实战指南——对比 Neon（Serverless PostgreSQL）与 PlanetScale（Vitess MySQL）两大平台的分支工作流，涵盖 Copy-on-Write 原理、Laravel 集成代码、GitHub Actions CI/CD 自动化、Schema Diff 预览与 PR Review 流程。同时提供 Neon vs PlanetScale vs 传统数据库分支方案的多维度对比表格，包含功能、价格、易用性、迁移难度等选型决策依据，以及实际迁移踩坑案例与最佳实践。"
+- database
+description: Database Branching 数据库分支技术深度实战指南——对比 Neon（Serverless PostgreSQL）与 PlanetScale（Vitess
+  MySQL）两大平台的分支工作流，涵盖 Copy-on-Write 原理、Laravel 集成代码、GitHub Actions CI/CD 自动化、Schema
+  Diff 预览与 PR Review 流程。同时提供 Neon vs PlanetScale vs 传统数据库分支方案的多维度对比表格，包含功能、价格、易用性、迁移难度等选型决策依据，以及实际迁移踩坑案例与最佳实践。
 cover: /images/covers/database-branching-neon-planetscale-cover.jpg
 slug: database-branching-neon-planetscale-laravel
 ---
+
 
 ## 前言：数据库分支——被忽略的开发基础设施
 

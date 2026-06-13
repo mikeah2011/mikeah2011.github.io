@@ -1,12 +1,21 @@
 ---
 title: Vue 3 Teleport + Suspense 实战：模态框、全局通知、异步组件的现代化管理
 date: 2026-06-06 00:00:00
-tags: [Vue3, Teleport, Suspense, 前端, 组件设计]
-description: Vue 3 Teleport 与 Suspense 组件深度实战指南：Teleport 解决模态框/通知弹窗 DOM 层级裁剪问题，Suspense 统一异步组件加载状态管理。包含五个完整实战项目（模态框系统、全局通知中心、异步表单、数据看板、路由级加载），覆盖 CSS 作用域陷阱、事件冒泡差异、v-if/v-show 短暂闪烁、服务器端 Teleport 等踩坑场景，附 Vue 3.5+ defer Teleport、#error 插槽、onBeforeUnmount 清理等新特性解析与 Composition API 最佳实践，帮助前端开发者构建更健壮的 Vue 3 应用。
+tags:
+- Vue 3
+- Teleport
+- Suspense
+- 前端
+- 组件设计
+description: Vue 3 Teleport 与 Suspense 组件深度实战指南：Teleport 解决模态框/通知弹窗 DOM 层级裁剪问题，Suspense
+  统一异步组件加载状态管理。包含五个完整实战项目（模态框系统、全局通知中心、异步表单、数据看板、路由级加载），覆盖 CSS 作用域陷阱、事件冒泡差异、v-if/v-show
+  短暂闪烁、服务器端 Teleport 等踩坑场景，附 Vue 3.5+ defer Teleport、#error 插槽、onBeforeUnmount 清理等新特性解析与
+  Composition API 最佳实践，帮助前端开发者构建更健壮的 Vue 3 应用。
 categories:
-  - frontend
+- frontend
 cover: /images/covers/vue3-teleport-suspense-cover.jpg
 ---
+
 
 ## 一、引言：Vue 3 组件通信的新范式
 

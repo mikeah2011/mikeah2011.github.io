@@ -1,13 +1,22 @@
 ---
-title: 'Linux 安全加固实战：AppArmor/SELinux/seccomp 策略——Docker/K8s 容器逃逸防护与最小权限落地'
+title: Linux 安全加固实战：AppArmor/SELinux/seccomp 策略——Docker/K8s 容器逃逸防护与最小权限落地
 date: 2026-06-03 10:00:00
-tags: [linux, 安全加固, apparmor, selinux, seccomp, docker, kubernetes, 容器安全]
+tags:
+- Linux
+- 安全加固
+- AppArmor
+- SELinux
+- seccomp
+- Docker
+- Kubernetes
+- 容器安全
 categories:
-  - devops
+- devops
 cover: /images/covers/linux-security-hardening-apparmor-selinux-seccomp-cover.jpg
-description: >-
-  Linux安全加固实战指南：深入解析AppArmor路径级访问控制、SELinux安全标签策略、seccomp系统调用白名单三大内核安全模块。结合Docker与Kubernetes容器逃逸CVE防护，提供从镜像构建到运行时监控的纵深防御方案，附完整代码示例与踩坑案例，适合运维工程师与开发者快速掌握容器安全加固技能。
+description: Linux安全加固实战指南：深入解析AppArmor路径级访问控制、SELinux安全标签策略、seccomp系统调用白名单三大内核安全模块。结合Docker与Kubernetes容器逃逸CVE防护，提供从镜像构建到运行时监控的纵深防御方案，附完整代码示例与踩坑案例，适合运维工程师与开发者快速掌握容器安全加固技能。
 ---
+
+
 
 # Linux 安全加固实战：AppArmor/SELinux/seccomp 策略——Docker/K8s 容器逃逸防护与最小权限落地
 

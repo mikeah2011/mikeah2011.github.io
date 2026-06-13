@@ -1,12 +1,18 @@
 ---
 title: ETL 实战：Laravel + Apache Airflow 数据管道构建
-description: "详解 Laravel 与 Apache Airflow 协同构建 ETL 数据管道的完整实战方案，覆盖 DAG 设计、任务调度对接、增量抽取、数据转换加载、幂等重试、质量校验、监控告警、补数回填与性能优化，帮助团队搭建可观察、可扩展、可追溯的数据工程体系。"
+description: 详解 Laravel 与 Apache Airflow 协同构建 ETL 数据管道的完整实战方案，覆盖 DAG 设计、任务调度对接、增量抽取、数据转换加载、幂等重试、质量校验、监控告警、补数回填与性能优化，帮助团队搭建可观察、可扩展、可追溯的数据工程体系。
 date: 2026-06-01 22:45:00
-tags: [etl, laravel, airflow, 数据管道]
+tags:
+- ETL
+- Laravel
+- airflow
+- 数据管道
 categories:
-  - php
+- php
 cover: /images/covers/laravel-airflow-etl-cover.jpg
 ---
+
+
 
 在很多团队里，Laravel 负责业务系统，Airflow 负责调度平台，MySQL、Redis、对象存储和分析库负责承接数据，大家各自都能跑，但真正一到“日报、对账、埋点回流、用户标签、订单宽表、跨系统同步”这些场景时，问题就会迅速暴露：任务散落在 crontab、Laravel Scheduler、队列 Worker、SQL 脚本和临时 Python 文件中，失败没人看见，重跑没有边界，口径不统一，数据晚到时全链路一起乱。
 

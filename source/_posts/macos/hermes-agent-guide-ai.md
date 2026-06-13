@@ -1,18 +1,25 @@
 ---
 feature: true
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/ai-assistant.jpg
-title: "Hermes Agent 实战：多平台 AI 助手配置与使用——从零搭建个人 AI 工作流踩坑记录"
+title: Hermes Agent 实战：多平台 AI 助手配置与使用——从零搭建个人 AI 工作流踩坑记录
 date: 2026-05-23 10:00:00
 updated: 2026-05-17 07:39:49
 categories:
-  - macos
-  - tools
-tags: [ai, devops, macos, ai-agent, hermes-agent, llm]
-description: "从零搭建 Hermes Agent 多平台 AI 助手的完整实战记录——涵盖 macOS/Linux/WSL 三平台安装配置、多 Provider 接入（OpenAI/Anthropic/Ollama/Xiaomi MiMo）、智能模型路由策略与成本优化、CLI 交互与单次命令模式、Skill 系统项目级与全局级集成、GitHub Actions CI/CD 自动代码审查、数据敏感度分级安全方案、日志审计与隐私保护，以及在 30+ Laravel 仓库中积累的真实踩坑经验与性能对比实测数据。"
-
-
-
+- macos
+- tools
+tags:
+- AI
+- DevOps
+- macOS
+- AI Agent
+- Hermes Agent
+- LLM
+description: 从零搭建 Hermes Agent 多平台 AI 助手的完整实战记录——涵盖 macOS/Linux/WSL 三平台安装配置、多 Provider
+  接入（OpenAI/Anthropic/Ollama/Xiaomi MiMo）、智能模型路由策略与成本优化、CLI 交互与单次命令模式、Skill 系统项目级与全局级集成、GitHub
+  Actions CI/CD 自动代码审查、数据敏感度分级安全方案、日志审计与隐私保护，以及在 30+ Laravel 仓库中积累的真实踩坑经验与性能对比实测数据。
 ---
+
+
 ## 前言：为什么需要一个统一的 AI 助手平台？
 
 作为 Laravel B2C 后端开发者，我日常使用的 AI 工具不下 5 个：Cursor 写代码、ChatGPT 查文档、Claude 做 Code Review、GitHub Copilot 补全代码、本地 Ollama 处理敏感数据。问题随之而来：

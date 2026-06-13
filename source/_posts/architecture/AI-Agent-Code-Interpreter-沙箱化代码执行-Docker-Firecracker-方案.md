@@ -1,12 +1,22 @@
 ---
-title: AI Agent with Code Interpreter 实战：沙箱化代码执行——让 Agent 安全运行用户代码的 Docker/Firecracker 方案
+title: AI Agent with Code Interpreter 实战：沙箱化代码执行——让 Agent 安全运行用户代码的 Docker/Firecracker
+  方案
 date: 2026-06-03 09:00:00
-tags: [AI-Agent, Code-Interpreter, Docker, Firecracker, 沙箱, 安全]
+tags:
+- AI Agent
+- Code-Interpreter
+- Docker
+- Firecracker
+- 沙箱
+- 安全
 categories:
-  - architecture
+- architecture
 cover: /images/covers/ai-agent-code-interpreter-cover.jpg
-description: "AI Agent 执行用户代码面临严重安全风险。本文系统对比 Docker 容器、Firecracker microVM、gVisor、nsjail、WASM 五种沙箱隔离方案的架构原理与安全边界，提供完整的 Python/Node.js 代码执行沙箱实现。涵盖 namespace 隔离、seccomp 过滤、资源限制、网络策略、输出消毒等纵深防御手段，附带性能基准测试数据和生产级部署架构，帮助 AI 平台构建安全可靠的 Code Interpreter 能力。"
+description: AI Agent 执行用户代码面临严重安全风险。本文系统对比 Docker 容器、Firecracker microVM、gVisor、nsjail、WASM
+  五种沙箱隔离方案的架构原理与安全边界，提供完整的 Python/Node.js 代码执行沙箱实现。涵盖 namespace 隔离、seccomp 过滤、资源限制、网络策略、输出消毒等纵深防御手段，附带性能基准测试数据和生产级部署架构，帮助
+  AI 平台构建安全可靠的 Code Interpreter 能力。
 ---
+
 
 # AI Agent with Code Interpreter 实战：沙箱化代码执行——让 Agent 安全运行用户代码的 Docker/Firecracker 方案
 

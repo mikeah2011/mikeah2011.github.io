@@ -1,12 +1,21 @@
 ---
 title: Go error handling 深度实战：errors.Join/Wrap/Is/As 与自定义错误类型——对比 PHP Exception 层级的设计哲学
 date: 2026-06-07 10:00:00
-tags: [go, error-handling, php, 错误处理, 异常处理, 设计模式]
-description: "深入剖析 Go error handling 核心机制——errors.Join 多错误聚合、errors.Is 值比较、errors.As 类型提取、fmt.Errorf %w 错误包装，对比 PHP Exception 异常层级的设计模式哲学。涵盖生产级错误处理中间件、gRPC status codes、自定义错误类型、踩坑案例与最佳实践，帮助开发者掌握从 PHP 异常处理到 Go 显式错误处理的思维转换。"
+tags:
+- Go
+- error-handling
+- PHP
+- 错误处理
+- 异常处理
+- 设计模式
+description: 深入剖析 Go error handling 核心机制——errors.Join 多错误聚合、errors.Is 值比较、errors.As
+  类型提取、fmt.Errorf %w 错误包装，对比 PHP Exception 异常层级的设计模式哲学。涵盖生产级错误处理中间件、gRPC status codes、自定义错误类型、踩坑案例与最佳实践，帮助开发者掌握从
+  PHP 异常处理到 Go 显式错误处理的思维转换。
 categories:
-  - architecture
+- architecture
 cover: /images/covers/go-error-handling-cover.jpg
 ---
+
 
 Go 语言自诞生之日起，就以一种"反传统"的方式处理错误——没有 try/catch，没有异常层级树，只有一个极简的 `error` 接口。这让从 PHP、Java、Python 等语言转过来的开发者感到困惑甚至愤怒：为什么要写那么多 `if err != nil`？这不是在制造"面条代码"吗？
 

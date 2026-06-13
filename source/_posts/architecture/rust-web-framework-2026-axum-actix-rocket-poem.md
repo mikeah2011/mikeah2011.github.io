@@ -1,12 +1,22 @@
 ---
-title: "Rust Web 框架 2026 选型：Axum vs Actix-Web vs Rocket vs Poem——从 Hello World 到生产级 API 的性能基准与 DX 评测"
+title: Rust Web 框架 2026 选型：Axum vs Actix-Web vs Rocket vs Poem——从 Hello World 到生产级
+  API 的性能基准与 DX 评测
 date: 2026-06-07 10:00:00
-tags: [rust, web框架, axum, actix-web, rocket, poem, 性能基准]
+tags:
+- Rust
+- Web框架
+- axum
+- Actix-Web
+- Rocket
+- Poem
+- 性能基准
 categories:
-  - architecture
+- architecture
 cover: /images/covers/rust-web-framework-2026-axum-actix-rocket-poem-cover.jpg
-description: "2026年Rust Web框架选型全面对比：Axum、Actix-Web、Rocket、Poem四大框架从Hello World到生产级API的性能基准测试、DX开发者体验评测、数据库集成方案与Docker部署实践。包含TechEmpower基准数据、自定义CRUD压测对比、中间件实现差异、Laravel迁移指南及选型决策树，帮助团队在高并发微服务场景下做出最优技术选型。"
+description: 2026年Rust Web框架选型全面对比：Axum、Actix-Web、Rocket、Poem四大框架从Hello World到生产级API的性能基准测试、DX开发者体验评测、数据库集成方案与Docker部署实践。包含TechEmpower基准数据、自定义CRUD压测对比、中间件实现差异、Laravel迁移指南及选型决策树，帮助团队在高并发微服务场景下做出最优技术选型。
 ---
+
+
 
 # Rust Web 框架 2026 选型：Axum vs Actix-Web vs Rocket vs Poem——从 Hello World 到生产级 API 的性能基准与 DX 评测
 

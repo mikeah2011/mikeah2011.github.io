@@ -1,12 +1,21 @@
 ---
-title: 'PHP Named Arguments 深度实战：API 设计的可读性革命——Laravel Builder/Query 的命名参数重构案例'
+title: PHP Named Arguments 深度实战：API 设计的可读性革命——Laravel Builder/Query 的命名参数重构案例
 date: 2026-06-07 09:00:00
-tags: [php, named arguments, laravel, api设计, 重构]
+tags:
+- PHP
+- Named Arguments
+- Laravel
+- API设计
+- 重构
 categories:
-  - php
+- php
 cover: /images/covers/php-named-arguments-cover.jpg
-description: '深入解析 PHP 8.0 Named Arguments 命名参数在 Laravel 项目中的实战应用，涵盖 Query Builder 重构、Eloquent Scope 设计、Service 层配置对象命名参数模式，详解数组解包交互、Reflection API 交互、variadic 陷阱等踩坑案例，以及 PHPStan/Psalm 静态分析工具的命名参数检查配置。附带完整的 Laravel 项目渐进式迁移清单，帮助团队从新代码开始逐步拥抱这场 API 设计的可读性革命。'
-------
+description: 深入解析 PHP 8.0 Named Arguments 命名参数在 Laravel 项目中的实战应用，涵盖 Query Builder
+  重构、Eloquent Scope 设计、Service 层配置对象命名参数模式，详解数组解包交互、Reflection API 交互、variadic 陷阱等踩坑案例，以及
+  PHPStan/Psalm 静态分析工具的命名参数检查配置。附带完整的 Laravel 项目渐进式迁移清单，帮助团队从新代码开始逐步拥抱这场 API 设计的可读性革命。
+---
+
+---
 
 ## 引言：从一个"看不懂"的函数调用说起
 

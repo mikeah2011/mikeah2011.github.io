@@ -4,14 +4,17 @@ cover: /images/covers/elk-stack-guide-elasticsearch-logstash-kibana-logging-lara
 date: 2026-05-17 03:06:55
 updated: 2026-05-17 03:10:28
 categories:
-  - architecture
-  - logging
-tags: [elasticsearch, Laravel, 监控]
-description: 从零搭建 ELK Stack 集中式日志系统，与 Laravel B2C API 深度集成。涵盖 Docker Compose 编排、Logstash Pipeline 配置、Kibana 可视化仪表板、日志字段结构化、慢查询追踪、生产环境性能调优，以及 30+ 仓库日志治理的真实踩坑经验。适合 Laravel 中高级开发者与运维工程师参考。
-
-
-
+- architecture
+- logging
+tags:
+- Elasticsearch
+- Laravel
+- 监控
+description: 从零搭建 ELK Stack 集中式日志系统，与 Laravel B2C API 深度集成。涵盖 Docker Compose 编排、Logstash
+  Pipeline 配置、Kibana 可视化仪表板、日志字段结构化、慢查询追踪、生产环境性能调优，以及 30+ 仓库日志治理的真实踩坑经验。适合 Laravel
+  中高级开发者与运维工程师参考。
 ---
+
 ## 为什么需要 ELK？
 
 Laravel 自带的 `storage/logs/laravel.log` 在单机开发阶段足够用，但当你的 B2C API 跑在 3 台以上的服务器、每天产生 500MB+ 日志时，你会面临三个致命问题：

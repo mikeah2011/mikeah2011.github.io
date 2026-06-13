@@ -1,13 +1,23 @@
 ---
 title: Drizzle ORM + Turso 实战：TypeScript 边缘优先 ORM——对比 Prisma 的轻量级类型安全数据层与 SQLite 分支工作流
 date: 2026-06-06 10:00:00
-tags: [TypeScript, Drizzle, Turso, SQLite, ORM, Edge, cloudflare-workers, nextjs]
+tags:
+- TypeScript
+- Drizzle
+- Turso
+- SQLite
+- ORM
+- Edge Computing
+- Cloudflare Workers
+- Next.js
 categories:
-  - frontend
-description: >-
-  Drizzle ORM + Turso 边缘数据库实战指南：TypeScript 类型安全的轻量 ORM 如何在 Cloudflare Workers 与 Vercel Edge Runtime 中实现毫秒级冷启动。深度对比 Prisma/TypeORM，附完整 CRUD、事务、迁移与多租户代码示例。
+- frontend
+description: Drizzle ORM + Turso 边缘数据库实战指南：TypeScript 类型安全的轻量 ORM 如何在 Cloudflare Workers
+  与 Vercel Edge Runtime 中实现毫秒级冷启动。深度对比 Prisma/TypeORM，附完整 CRUD、事务、迁移与多租户代码示例。
 cover: /images/covers/drizzle-orm-turso-cover.jpg
 ---
+
+
 
 ## 引言：边缘计算时代的数据层挑战
 

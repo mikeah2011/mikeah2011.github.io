@@ -1,12 +1,22 @@
 ---
-title: 'Git Worktree + Bare Repo 实战：多分支并行开发——Laravel 大型项目中同时处理多个 feature 的高效工作流'
+title: Git Worktree + Bare Repo 实战：多分支并行开发——Laravel 大型项目中同时处理多个 feature 的高效工作流
 date: 2026-06-04 10:00:00
-tags: [git, worktree, bare-repo, Laravel, CI/CD, 工作流, 并行开发]
+tags:
+- Git
+- Worktree
+- bare-repo
+- Laravel
+- CI/CD
+- 工作流
+- 并行开发
 categories:
-  - devops
-description: "Git Worktree + Bare Repo 多分支并行开发实战指南。从零搭建 bare repo 中枢仓库，挂载多个 worktree 实现零切换成本的 feature/hotfix 并行开发，每个分支独立环境完全隔离。覆盖 Laravel CI/CD 集成方案、团队协作规范与 wtm 自动化管理脚本。"
+- devops
+description: Git Worktree + Bare Repo 多分支并行开发实战指南。从零搭建 bare repo 中枢仓库，挂载多个 worktree
+  实现零切换成本的 feature/hotfix 并行开发，每个分支独立环境完全隔离。覆盖 Laravel CI/CD 集成方案、团队协作规范与 wtm 自动化管理脚本。
 cover: /images/covers/git-worktree-bare-repo-cover.jpg
 ---
+
+
 
 > 在大型 Laravel 项目中，你是否经常遇到这样的场景：正在开发 `feature/payment` 分支，突然需要修复 `hotfix/order-bug`，而同事又在等你 review `feature/notification` 的代码？传统方式下，你需要反复 `git stash`、`git checkout`，不仅浪费时间，还容易丢失上下文。**Git Worktree + Bare Repo** 组合方案可以彻底解决这一痛点，让你在同一台机器上同时处理多个分支，互不干扰。
 

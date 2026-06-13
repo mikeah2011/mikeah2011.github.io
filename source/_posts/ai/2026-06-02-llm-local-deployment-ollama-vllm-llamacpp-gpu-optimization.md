@@ -1,11 +1,21 @@
 ---
-title: "LLM 本地部署实战：Ollama/vLLM/llama.cpp 选型与 GPU 优化"
+title: LLM 本地部署实战：Ollama/vLLM/llama.cpp 选型与 GPU 优化
 date: 2026-06-02 03:00:00
-tags: [llm, ollama, vllm, llama.cpp, gpu优化, 本地部署]
-categories: [ai]
+tags:
+- LLM
+- Ollama
+- vLLM
+- llama.cpp
+- GPU优化
+- 本地部署
+categories:
+- ai
 cover: /images/covers/llm-local-deployment-cover.jpg
-description: "本文系统讲解 LLM 本地部署方案选型与 GPU 优化实践，重点对比 ollama、vllm、llama.cpp 在 macOS、Linux、Apple Silicon 与 NVIDIA GPU 场景下的优缺点，并结合量化、KV Cache、Metal、CUDA、并发压测、常见踩坑与部署策略，帮助开发者和团队完成本地大模型落地。"
+description: 本文系统讲解 LLM 本地部署方案选型与 GPU 优化实践，重点对比 ollama、vllm、llama.cpp 在 macOS、Linux、Apple
+  Silicon 与 NVIDIA GPU 场景下的优缺点，并结合量化、KV Cache、Metal、CUDA、并发压测、常见踩坑与部署策略，帮助开发者和团队完成本地大模型落地。
 ---
+
+
 
 在过去两年里，大模型已经从“云端专属能力”快速走向“本地可运行工具”。无论是开发者在 MacBook 上调试 7B/8B 模型，还是企业在内网环境中部署 70B 级推理服务，“本地部署 LLM”都不再只是极客实验，而是一个兼顾成本、隐私、延迟和可控性的工程选择。
 

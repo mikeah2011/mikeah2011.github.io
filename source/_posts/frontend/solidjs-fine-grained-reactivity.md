@@ -1,12 +1,20 @@
 ---
-title: 'SolidJS 实战：细粒度响应式前端框架——无 Virtual DOM 的极致性能与 React 开发者迁移路径'
+title: SolidJS 实战：细粒度响应式前端框架——无 Virtual DOM 的极致性能与 React 开发者迁移路径
 date: 2026-06-04 08:00:00
-tags: [solidjs, 前端框架, 响应式, typescript]
+tags:
+- SolidJS
+- 前端框架
+- 响应式
+- TypeScript
 categories:
-  - frontend
+- frontend
 cover: /images/covers/solidjs-fine-grained-reactivity-cover.jpg
-description: '深入解析 SolidJS 细粒度响应式前端框架的核心原理，对比 React/Vue 的 Virtual DOM 机制，详解 Signals、Effects、Memos 等响应式原语的实战用法与性能优化技巧。涵盖从 React 迁移路径、常见踩坑记录、任务管理应用完整案例，以及 JS Framework Benchmark 性能基准测试数据，帮助开发者全面评估 SolidJS 前端框架的选型价值。'
+description: 深入解析 SolidJS 细粒度响应式前端框架的核心原理，对比 React/Vue 的 Virtual DOM 机制，详解 Signals、Effects、Memos
+  等响应式原语的实战用法与性能优化技巧。涵盖从 React 迁移路径、常见踩坑记录、任务管理应用完整案例，以及 JS Framework Benchmark 性能基准测试数据，帮助开发者全面评估
+  SolidJS 前端框架的选型价值。
 ---
+
+
 
 # SolidJS 实战：细粒度响应式前端框架——无 Virtual DOM 的极致性能与 React 开发者迁移路径
 

@@ -1,13 +1,20 @@
 ---
 title: Zig + WebAssembly 实战：用 Zig 编写高性能 Wasm 模块——浏览器与边缘计算的系统级前端方案
 date: 2026-06-07 12:00:00
-tags: [zig, webassembly, wasm, 前端性能, 边缘计算]
+tags:
+- Zig
+- WebAssembly
+- WebAssembly
+- 前端性能
+- 边缘计算
 categories:
-  - frontend
+- frontend
 cover: /images/covers/zig-wasm-cover.jpg
-description: >
-  Zig + WebAssembly 实战指南：深入 comptime 编译期优化与零隐藏内存分配特性，手把手实现 RGBA 图像灰度处理模块，全面对比 Rust/C/AssemblyScript 编译产物体积与运行时性能，详解浏览器 JavaScript 集成、Cloudflare Workers 边缘部署与 Deno Deploy 方案，附 1920×1080 图像处理性能基准与 5 大踩坑案例。
+description: Zig + WebAssembly 实战指南：深入 comptime 编译期优化与零隐藏内存分配特性，手把手实现 RGBA 图像灰度处理模块，全面对比
+  Rust/C/AssemblyScript 编译产物体积与运行时性能，详解浏览器 JavaScript 集成、Cloudflare Workers 边缘部署与
+  Deno Deploy 方案，附 1920×1080 图像处理性能基准与 5 大踩坑案例。
 ---
+
 
 ## 前言：为什么我要用 Zig 写 Wasm？
 

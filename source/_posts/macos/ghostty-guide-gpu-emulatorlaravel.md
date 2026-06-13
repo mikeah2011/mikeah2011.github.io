@@ -4,14 +4,19 @@ cover: /images/macos-cover.png
 date: 2026-05-17 00:00:28
 updated: 2026-05-17 00:05:14
 categories:
-  - macos
-  - php
-tags: [ai, laravel, macos, 工程管理]
-description: "从 iTerm2 迁移到 Ghostty 的完整实战指南：GPU 加速终端 emulator 性能实测（17x 启动、120fps 恒定帧率）、配置文件详解、快捷键体系设计、Oh My Zsh/Powerlevel10k 集成、Kitty 图片协议、多仓库 Laravel 开发工作流、以及 8 大踩坑案例与替代方案。适合管理 30+ 仓库的 macOS 开发者参考。"
-
-
-
+- macos
+- php
+tags:
+- AI
+- Laravel
+- macOS
+- 工程管理
+description: 从 iTerm2 迁移到 Ghostty 的完整实战指南：GPU 加速终端 emulator 性能实测（17x 启动、120fps 恒定帧率）、配置文件详解、快捷键体系设计、Oh
+  My Zsh/Powerlevel10k 集成、Kitty 图片协议、多仓库 Laravel 开发工作流、以及 8 大踩坑案例与替代方案。适合管理 30+ 仓库的
+  macOS 开发者参考。
 ---
+
+
 ## 为什么要从 iTerm2 迁移到 Ghostty？
 
 管理 30+ Laravel 仓库、每天在终端里跑 artisan、docker、git、kubectl 的开发者，对终端性能的感知是直接的——打开 50MB 日志文件卡不卡、切换 Tab 有没有延迟、渲染长输出时 CPU 占用高不高。

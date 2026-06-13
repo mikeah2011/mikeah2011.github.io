@@ -1,19 +1,19 @@
 ---
 title: Redis全部
 sticky: 90
-tags: [redis]
+tags:
+- Redis
 categories:
-  - database
+- database
 date: 2022-03-20 15:05:07
 cover: /images/covers/databases-001-cover.jpg
 images:
-  - /images/content/databases-001-content-1.jpg
-  - /images/content/databases-001-content-2.jpg
-description: '基础 1.说说什么是Redis? Redis图标 Redis是一种基于键值对（key-value）的NoSQL数据库。 比一般键值对数据库强大的地方，Redis中的value支持string（字符串）、hash（哈希）、 list（列表）、…'
-
-
-
+- /images/content/databases-001-content-1.jpg
+- /images/content/databases-001-content-2.jpg
+description: 基础 1.说说什么是Redis? Redis图标 Redis是一种基于键值对（key-value）的NoSQL数据库。 比一般键值对数据库强大的地方，Redis中的value支持string（字符串）、hash（哈希）、
+  list（列表）、…
 ---
+
 # 基础
 
 ## 1.说说什么是Redis?

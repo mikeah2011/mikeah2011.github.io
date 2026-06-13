@@ -1,12 +1,25 @@
 ---
-title: Supabase Realtime 实战：数据库变更实时推送——Broadcast/Presence/Postgres Changes 与 Laravel 后端的实时架构集成
+title: Supabase Realtime 实战：数据库变更实时推送——Broadcast/Presence/Postgres Changes 与 Laravel
+  后端的实时架构集成
 date: 2026-06-07 10:00:00
-tags: [supabase, realtime, laravel, websocket, postgres, broadcast, presence]
+tags:
+- Supabase
+- Realtime
+- Laravel
+- WebSocket
+- postgres
+- broadcast
+- presence
 categories:
-  - database
+- database
 cover: /images/covers/supabase-realtime-laravel-cover.jpg
-description: '全面实战 Supabase Realtime 三大核心功能——Broadcast 自定义事件广播、Presence 在线状态管理与 Postgres Changes 数据库变更实时推送，结合 Laravel 后端集成方案深入讲解 JWT 认证、RLS 行级安全、Laravel Echo/Pusher/Ably 对比选型。包含生产级前端 RealtimeManager 封装、指数退避重连策略、自托管 Docker Compose 部署配置，以及连接风暴、REPLICA IDENTITY 踩坑等实战经验，助你构建低成本高可靠的实时数据架构。'
+description: 全面实战 Supabase Realtime 三大核心功能——Broadcast 自定义事件广播、Presence 在线状态管理与 Postgres
+  Changes 数据库变更实时推送，结合 Laravel 后端集成方案深入讲解 JWT 认证、RLS 行级安全、Laravel Echo/Pusher/Ably
+  对比选型。包含生产级前端 RealtimeManager 封装、指数退避重连策略、自托管 Docker Compose 部署配置，以及连接风暴、REPLICA
+  IDENTITY 踩坑等实战经验，助你构建低成本高可靠的实时数据架构。
 ---
+
+
 
 ## 前言
 

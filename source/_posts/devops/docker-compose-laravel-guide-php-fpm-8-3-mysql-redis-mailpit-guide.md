@@ -5,14 +5,18 @@ title: Docker-Compose-Laravel-本地开发环境实战-PHP-FPM-8.3-MySQL-8.0-Red
 date: 2026-05-21 10:00:00
 updated: 2026-05-17 08:04:43
 categories:
-  - devops
-  - database
-tags: [docker, laravel, mysql, php, redis]
-description: 从零搭建 Laravel 11+ 本地开发环境的完整指南 —— Docker Compose 编排 PHP-FPM 8.3 + MySQL 8.0 + Redis 7 + Mailpit，覆盖 Xdebug 远程调试、热重载、数据库初始化、健康检查等实战配置，附 Colima/M 芯片 Mac 专属踩坑记录。
-
-
-
+- devops
+- database
+tags:
+- Docker
+- Laravel
+- MySQL
+- PHP
+- Redis
+description: 从零搭建 Laravel 11+ 本地开发环境的完整指南 —— Docker Compose 编排 PHP-FPM 8.3 + MySQL
+  8.0 + Redis 7 + Mailpit，覆盖 Xdebug 远程调试、热重载、数据库初始化、健康检查等实战配置，附 Colima/M 芯片 Mac 专属踩坑记录。
 ---
+
 ## 一、为什么不用 Laravel Sail？
 
 Laravel Sail 是官方提供的 Docker 开发环境，开箱即用。但在真实 B2C 项目中，你会遇到这些问题：

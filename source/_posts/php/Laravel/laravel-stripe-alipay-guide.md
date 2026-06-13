@@ -3,13 +3,17 @@ title: Laravel + Stripe + AliPay 双通道支付实现：回调处理、幂等�
 cover: /images/covers/laravel-stripe-alipay-guide-cover.jpg
 date: 2026-05-02
 categories:
-  - php
-tags: [laravel, stripe, alipay, 支付, api]
-description: Laravel Stripe 支付宝双通道跨境支付集成实战：涵盖 PaymentIntent 创建、Webhook 回调处理、IPN 异步通知、RSA2 签名验证、幂等性三重防护（数据库锁+唯一约束+缓存锁）、指数退避重试机制及竞态条件修复。适用于国际支付与跨境收款场景，来自 KKday B2C API 真实生产踩坑记录与完整代码示例。
-
-
-
+- php
+tags:
+- Laravel
+- Stripe
+- alipay
+- 支付
+- API
+description: Laravel Stripe 支付宝双通道跨境支付集成实战：涵盖 PaymentIntent 创建、Webhook 回调处理、IPN 异步通知、RSA2
+  签名验证、幂等性三重防护（数据库锁+唯一约束+缓存锁）、指数退避重试机制及竞态条件修复。适用于国际支付与跨境收款场景，来自 KKday B2C API 真实生产踩坑记录与完整代码示例。
 ---
+
 # Laravel + Stripe + AliPay 双通道支付实现：回调处理、幂等性、重试机制
 
 > **适用场景**：KKday B2C API 双通道支付集成（Stripe + AliPay），包括回调处理、幂等性设计、失败订单重试等生产级实战经验。  

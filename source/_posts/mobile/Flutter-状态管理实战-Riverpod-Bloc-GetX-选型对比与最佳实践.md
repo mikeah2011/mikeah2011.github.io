@@ -1,18 +1,20 @@
 ---
-title: "Flutter 状态管理实战：Riverpod/Bloc/GetX 选型对比与最佳实践"
+title: Flutter 状态管理实战：Riverpod/Bloc/GetX 选型对比与最佳实践
 cover: /images/covers/flutter-riverpod-bloc-getx-cover.jpg
 date: 2026-06-01
-description: "本文围绕 Flutter状态管理展开实战对比，系统分析 Riverpod、Bloc、GetX 在架构设计、代码组织、性能、测试、团队协作与项目落地中的差异，并结合分页加载、依赖注入、状态共享、常见踩坑与选型策略，帮助你在 Flutter状态管理方案中做出更稳妥的技术决策。"
+description: 本文围绕 Flutter状态管理展开实战对比，系统分析 Riverpod、Bloc、GetX 在架构设计、代码组织、性能、测试、团队协作与项目落地中的差异，并结合分页加载、依赖注入、状态共享、常见踩坑与选型策略，帮助你在
+  Flutter状态管理方案中做出更稳妥的技术决策。
 categories:
-  - mobile
+- mobile
 tags:
-  - Flutter
-  - riverpod
-  - bloc
-  - getx
-  - 状态管理
-  - dart
+- Flutter
+- riverpod
+- bloc
+- getx
+- 状态管理
+- Dart
 ---
+
 ## 一、为什么写这篇？
 
 Flutter 开发中，状态管理是最核心也最容易踩坑的领域。随着应用规模增长，`setState` 迅速变得不可维护——Widget 树层层嵌套、状态传递变成 prop drilling 地狱、业务逻辑和 UI 耦合在一起无法测试。

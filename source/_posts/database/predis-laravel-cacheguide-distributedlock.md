@@ -1,19 +1,28 @@
 ---
 title: Predis-Laravel-缓存实战-失效分布式锁性能调优
 date: 2026-05-02
-description: >-
-  基于 KKday B2C API 百万级订单实战经验，深度解析 Predis 与 Laravel Redis 缓存体系。涵盖缓存穿透、雪崩、击穿三大失效模式的工程解决方案，SET NX 与 Redlock 分布式锁的 Lua 原子实现与续期机制，Predis vs PhpRedis 性能基准对比，以及连接池优化、TTL 随机化、大 Key 拆分、缓存与 DB 双写一致性等生产环境踩坑案例与性能调优最佳实践。
+description: 基于 KKday B2C API 百万级订单实战经验，深度解析 Predis 与 Laravel Redis 缓存体系。涵盖缓存穿透、雪崩、击穿三大失效模式的工程解决方案，SET
+  NX 与 Redlock 分布式锁的 Lua 原子实现与续期机制，Predis vs PhpRedis 性能基准对比，以及连接池优化、TTL 随机化、大 Key
+  拆分、缓存与 DB 双写一致性等生产环境踩坑案例与性能调优最佳实践。
 categories:
-  - database
+- database
 cover: /images/covers/databases-020-cover.jpg
 images:
-  - /images/content/databases-020-content-1.jpg
-  - /images/content/databases-020-content-2.jpg
-tags: [bff, kkday, laravel, predis, redis, 微服务, 缓存, 分布式锁, 性能调优]
-
-
-
+- /images/content/databases-020-content-1.jpg
+- /images/content/databases-020-content-2.jpg
+tags:
+- BFF
+- KKday
+- Laravel
+- predis
+- Redis
+- 微服务
+- 缓存
+- 分布式锁
+- 性能调优
 ---
+
+
 ## 写在前面
 
 在 KKday B2C API 项目中，我们重度依赖 Redis 实现购物车计次、用户会话、热点数据预热等功能。随着订单量增长到月均百万级，Redis 从"加分项"变成"必选项"——特别是大促期间并发高峰，**缓存穿透/雪崩/击穿**问题直接考验架构韧性。

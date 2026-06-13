@@ -1,12 +1,21 @@
 ---
-title: 'PHP 8.5 Pipe Operator 实战：链式数据处理管道——告别嵌套回调的函数式编程新范式'
+title: PHP 8.5 Pipe Operator 实战：链式数据处理管道——告别嵌套回调的函数式编程新范式
 date: 2026-06-04 13:00:00
-tags: [php 8.5, pipe-operator, 函数式编程, laravel, 数据管道, functional-programming]
+tags:
+- PHP 8.5
+- pipe-operator
+- 函数式编程
+- Laravel
+- 数据管道
+- functional-programming
 categories:
-  - php
+- php
 cover: /images/covers/php85-pipe-operator-cover.jpg
-description: "PHP 8.5 引入 Pipe Operator（管道运算符 |>），彻底改变 PHP 数据处理方式。本文从 B2C 电商 API 实战出发，深度解析管道运算符语法、占位符用法、链式管道构建，对比传统嵌套调用与 Laravel Collection 的优劣，提供商品搜索、订单导出、API 响应标准化三大完整重构案例。涵盖性能基准、错误处理策略、调试技巧与迁移指南，帮你用函数式编程范式写出可读性更强、可维护性更高的 PHP 代码。"
+description: PHP 8.5 引入 Pipe Operator（管道运算符 |>），彻底改变 PHP 数据处理方式。本文从 B2C 电商 API 实战出发，深度解析管道运算符语法、占位符用法、链式管道构建，对比传统嵌套调用与
+  Laravel Collection 的优劣，提供商品搜索、订单导出、API 响应标准化三大完整重构案例。涵盖性能基准、错误处理策略、调试技巧与迁移指南，帮你用函数式编程范式写出可读性更强、可维护性更高的
+  PHP 代码。
 ---
+
 
 PHP 8.5 终于迎来了一个让函数式编程爱好者翘首以盼的特性——Pipe Operator（管道运算符）`|>`。如果你曾经写过大量嵌套的函数调用、冗长的方法链、或者一层套一层的回调地狱，那么这个特性将彻底改变你处理数据流的方式。本文将从 B2C 电商 API 开发的实际场景出发，带你深入理解 Pipe Operator 的语法、用法、最佳实践，以及如何用它重构现有的数据处理管道。
 

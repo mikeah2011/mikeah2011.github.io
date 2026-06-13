@@ -4,14 +4,20 @@ date: 2026-05-16 15:15:19
 updated: 2026-05-16 15:20:02
 cover: /images/covers/databases-015-cover.jpg
 images:
-  - /images/content/databases-015-content-1.jpg
-  - /images/content/databases-015-content-2.jpg
+- /images/content/databases-015-content-1.jpg
+- /images/content/databases-015-content-2.jpg
 categories:
-  - database
-tags: [Laravel, redis, WebSocket, 性能优化]
-description: 在 B2C 电商场景中，用户签到、在线状态、特征标记是高频需求。用传统数据库存储每天几千万条记录既浪费空间又慢。Redis Bitmap 用 1 bit 表示一个状态，1 亿用户一年签到数据仅占 4.5 GB，读写 O(1)。本文基于 KKday B2C API 真实项目，覆盖 SETBIT/GETBIT/BITCOUNT/BITOP 四大命令的实战用法、Laravel 封装、踩坑记录与性能调优。
-
+- database
+tags:
+- Laravel
+- Redis
+- WebSocket
+- 性能优化
+description: 在 B2C 电商场景中，用户签到、在线状态、特征标记是高频需求。用传统数据库存储每天几千万条记录既浪费空间又慢。Redis Bitmap
+  用 1 bit 表示一个状态，1 亿用户一年签到数据仅占 4.5 GB，读写 O(1)。本文基于 KKday B2C API 真实项目，覆盖 SETBIT/GETBIT/BITCOUNT/BITOP
+  四大命令的实战用法、Laravel 封装、踩坑记录与性能调优。
 ---
+
 # Redis Bitmap 实战：用户签到/在线状态/特征标记 — Laravel B2C API 踩坑记录
 
 ## 前言

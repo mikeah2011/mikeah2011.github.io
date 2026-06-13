@@ -3,14 +3,20 @@ title: qiankun 微前端实战：Laravel 后台拆分中的路由、鉴权与样
 cover: /images/covers/qiankun-guide-laravel-cover.jpg
 date: 2026-05-03 09:21:00
 categories:
-  - frontend
-  - php
-tags: [laravel, vite, vue, 前端, 微前端, qiankun]
-description: 基于 Laravel 后端实战，详解 qiankun 微前端拆分方案完整落地指南。覆盖 Vue 3 子应用接入、Vite 构建配置、主子应用注册与生命周期钩子、三种通信方式（props/CustomEvent/GlobalState）、路由鉴权统一、Token 同步广播、CSS 样式隔离分层治理（命名空间/Shadow DOM/experimentalStyleIsolation）、Nginx 部署配置、微前端方案对比（qiankun vs Module Federation vs single-spa vs wujie）与生产部署 Checklist，适合中后台团队落地微前端架构参考。
-
-
-
+- frontend
+- php
+tags:
+- Laravel
+- Vite
+- Vue
+- 前端
+- 微前端
+- qiankun
+description: 基于 Laravel 后端实战，详解 qiankun 微前端拆分方案完整落地指南。覆盖 Vue 3 子应用接入、Vite 构建配置、主子应用注册与生命周期钩子、三种通信方式（props/CustomEvent/GlobalState）、路由鉴权统一、Token
+  同步广播、CSS 样式隔离分层治理（命名空间/Shadow DOM/experimentalStyleIsolation）、Nginx 部署配置、微前端方案对比（qiankun
+  vs Module Federation vs single-spa vs wujie）与生产部署 Checklist，适合中后台团队落地微前端架构参考。
 ---
+
 后台系统长到一定规模后，最先失控的通常不是接口，而是前端工程本身：订单、商品、营销、财务全塞在一个 Vue 管理台里，任何一个模块发版都得整站回归，构建时间越来越长，权限菜单也越来越难维护。我在一个 Laravel 单仓库后台里做过一次拆分，目标不是“为了微前端而微前端”，而是解决三个很具体的问题：**多人并行开发互相踩分支、单体后台发版风险过高、营销页样式频繁污染订单页**。
 
 这次最终选择的是 **Laravel 继续做 BFF + 鉴权入口，前端用 qiankun 拆成主应用和 3 个子应用**。它不是银弹，但对中后台很实用。

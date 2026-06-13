@@ -1,12 +1,22 @@
 ---
-title: 'Golden Path Templates 实战：用 Cookiecutter/Copier 生成标准化 Laravel 微服务脚手架——Onboarding 效率提升 10x'
+title: Golden Path Templates 实战：用 Cookiecutter/Copier 生成标准化 Laravel 微服务脚手架——Onboarding
+  效率提升 10x
 date: 2026-06-05 10:00:00
-tags: [laravel, cookiecutter, copier, microservice, devops, golden-path]
+tags:
+- Laravel
+- Cookiecutter
+- Copier
+- 微服务
+- DevOps
+- golden-path
 categories:
-  - php
+- php
 cover: /images/covers/golden-path-templates-laravel-cover.jpg
-description: "实战指南：用 Cookiecutter 与 Copier 构建标准化 Laravel 微服务 Golden Path 模板，涵盖目录结构设计、条件化 Docker/CI 配置、钩子验证、安全合规预置、Copier 增量更新机制及团队落地策略，将新项目启动从两周缩短至十分钟。"
+description: 实战指南：用 Cookiecutter 与 Copier 构建标准化 Laravel 微服务 Golden Path 模板，涵盖目录结构设计、条件化
+  Docker/CI 配置、钩子验证、安全合规预置、Copier 增量更新机制及团队落地策略，将新项目启动从两周缩短至十分钟。
 ---
+
+
 
 ## 引言：为什么你的团队在新项目启动上浪费了太多时间？
 

@@ -1,12 +1,20 @@
 ---
-title: 'Zig + WebAssembly 实战：用 Zig 编写高性能 Wasm 模块——浏览器与边缘计算的系统级前端方案'
+title: Zig + WebAssembly 实战：用 Zig 编写高性能 Wasm 模块——浏览器与边缘计算的系统级前端方案
 date: 2026-06-07 09:00:00
-tags: [Zig, WebAssembly, Wasm, 前端, 系统编程]
-description: '深入实战 Zig 编写高性能 WebAssembly 模块的完整指南。从环境搭建、build.zig 构建配置、JavaScript 互操作层封装，到 WASI 边缘计算部署，涵盖图像处理 Wasm 模块的全流程实现。通过性能基准测试对比 Zig、Rust 与纯 JavaScript 在高斯模糊、Sobel 边缘检测等场景下的表现差异，揭示 Zig 在产物体积、冷启动延迟方面的核心优势，为前端性能优化与边缘计算提供系统级解决方案。'
+tags:
+- Zig
+- WebAssembly
+- WebAssembly
+- 前端
+- 系统编程
+description: 深入实战 Zig 编写高性能 WebAssembly 模块的完整指南。从环境搭建、build.zig 构建配置、JavaScript 互操作层封装，到
+  WASI 边缘计算部署，涵盖图像处理 Wasm 模块的全流程实现。通过性能基准测试对比 Zig、Rust 与纯 JavaScript 在高斯模糊、Sobel 边缘检测等场景下的表现差异，揭示
+  Zig 在产物体积、冷启动延迟方面的核心优势，为前端性能优化与边缘计算提供系统级解决方案。
 categories:
-  - frontend
+- frontend
 cover: /images/covers/zig-webassembly-cover.jpg
 ---
+
 
 ## 引言：为什么是 Zig？
 

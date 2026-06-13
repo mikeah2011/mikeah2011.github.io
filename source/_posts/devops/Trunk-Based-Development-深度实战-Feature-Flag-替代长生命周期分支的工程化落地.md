@@ -1,12 +1,20 @@
 ---
 title: Trunk-Based Development 深度实战：Feature Flag 替代长生命周期分支的工程化落地
 date: 2026-06-02 12:00:00
-tags: [Trunk-Based Development, Feature Flag, CI/CD, Git, 工程化]
+tags:
+- Trunk-Based Development
+- Feature Flags
+- CI/CD
+- Git
+- 工程化
 categories:
-  - devops
-description: 深入解析 Trunk-Based Development（TBD）方法论，对比 GitFlow 的痛点，实战 Laravel Feature Flag 架构设计与实现。涵盖 Flag 可见性控制、灰度发布、A/B 测试、CI/CD 流程适配，以及从长生命周期分支到主干开发的团队迁移策略。适合中大型团队从 GitFlow 平滑过渡到 TBD，消除合并冲突、加速发布节奏的工程化落地指南。
+- devops
+description: 深入解析 Trunk-Based Development（TBD）方法论，对比 GitFlow 的痛点，实战 Laravel Feature
+  Flag 架构设计与实现。涵盖 Flag 可见性控制、灰度发布、A/B 测试、CI/CD 流程适配，以及从长生命周期分支到主干开发的团队迁移策略。适合中大型团队从
+  GitFlow 平滑过渡到 TBD，消除合并冲突、加速发布节奏的工程化落地指南。
 cover: /images/covers/trunk-based-development-feature-flag-cover.jpg
 ---
+
 
 # Trunk-Based Development 深度实战：Feature Flag 替代长生命周期分支的工程化落地
 

@@ -1,11 +1,20 @@
 ---
 title: OpenClaw 群聊行为准则：HEARTBEAT_OK 静默策略、反应礼仪、平台格式适配
 date: 2026-06-02 00:00:00
-tags: [OpenClaw, 群聊, 静默策略, 行为准则, ai-agent]
-categories: [ai]
+tags:
+- OpenClaw
+- 群聊
+- 静默策略
+- 行为准则
+- AI Agent
+categories:
+- ai
 cover: /images/covers/openclaw-group-chat-etiquette-cover.jpg
-description: AI Agent 进入群聊后面临的首要挑战是社交礼仪而非技术能力。本文深入剖析 OpenClaw 的群聊行为准则体系，涵盖 HEARTBEAT_OK 静默策略的状态机设计与 Python 实现、Emoji 反应礼仪规范、回复长度分级策略、Telegram/Slack/飞书/QQ/企业微信五大平台的格式适配方案，以及统一行为编排器的完整架构，帮助你构建一个「安静但有用」的群聊 AI Agent。
+description: AI Agent 进入群聊后面临的首要挑战是社交礼仪而非技术能力。本文深入剖析 OpenClaw 的群聊行为准则体系，涵盖 HEARTBEAT_OK
+  静默策略的状态机设计与 Python 实现、Emoji 反应礼仪规范、回复长度分级策略、Telegram/Slack/飞书/QQ/企业微信五大平台的格式适配方案，以及统一行为编排器的完整架构，帮助你构建一个「安静但有用」的群聊
+  AI Agent。
 ---
+
 
 # OpenClaw 群聊行为准则：HEARTBEAT_OK 静默策略、反应礼仪、平台格式适配
 

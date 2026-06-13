@@ -1,12 +1,21 @@
 ---
 title: Laravel Rate Limiting 深度实战：自定义 Limiter、Redis 滑动窗口、多维限流策略——B2C API 的精细流量治理
 date: 2026-06-06 10:00:00
-tags: [laravel, rate-limiting, redis, api, b2c]
-description: "深入讲解 Laravel Rate Limiting 多维限流实战方案。涵盖自定义 Limiter、Redis Sorted Set 滑动窗口 Lua 脚本实现、用户×IP×接口三维联合防护、基于服务器负载的动态限流调节、熔断器集成与优雅降级策略。对比令牌桶、漏桶、滑动窗口三种算法，附完整 Pest 测试与 k6 压测脚本，帮助 B2C API 在秒杀防刷、Bot 对抗、分级 SLA 等场景中实现精确流量治理。"
+tags:
+- Laravel
+- Rate Limiting
+- Redis
+- API
+- B2C
+description: 深入讲解 Laravel Rate Limiting 多维限流实战方案。涵盖自定义 Limiter、Redis Sorted Set 滑动窗口
+  Lua 脚本实现、用户×IP×接口三维联合防护、基于服务器负载的动态限流调节、熔断器集成与优雅降级策略。对比令牌桶、漏桶、滑动窗口三种算法，附完整 Pest 测试与
+  k6 压测脚本，帮助 B2C API 在秒杀防刷、Bot 对抗、分级 SLA 等场景中实现精确流量治理。
 categories:
-  - php
+- php
 cover: /images/covers/laravel-rate-limiting-cover.jpg
 ---
+
+
 
 # Laravel Rate Limiting 深度实战：自定义 Limiter、Redis 滑动窗口、多维限流策略——B2C API 的精细流量治理
 

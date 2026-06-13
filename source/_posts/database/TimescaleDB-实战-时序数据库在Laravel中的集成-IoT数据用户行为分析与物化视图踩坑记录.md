@@ -1,12 +1,24 @@
 ---
-title: 'TimescaleDB 实战：时序数据库在 Laravel 中的集成——IoT 数据、用户行为分析与物化视图踩坑记录'
+title: TimescaleDB 实战：时序数据库在 Laravel 中的集成——IoT 数据、用户行为分析与物化视图踩坑记录
 date: 2026-06-02 12:00:00
-tags: [timescaledb, postgresql, laravel, iot, 时序数据库, hypertable, continuous-aggregate, 物化视图]
+tags:
+- TimescaleDB
+- PostgreSQL
+- Laravel
+- IoT
+- 时序数据库
+- hypertable
+- continuous-aggregate
+- 物化视图
 categories:
-  - database
-description: "TimescaleDB 在 Laravel 项目中的完整集成实战：Hypertable 建表、IoT 传感器批量写入优化（COPY 命令 10 万行/秒）、用户行为漏斗与留存分析、连续聚合物化视图配置、7 个生产踩坑与性能调优 Checklist，附 Docker Compose 环境与 Eloquent 代码示例。"
+- database
+description: TimescaleDB 在 Laravel 项目中的完整集成实战：Hypertable 建表、IoT 传感器批量写入优化（COPY 命令
+  10 万行/秒）、用户行为漏斗与留存分析、连续聚合物化视图配置、7 个生产踩坑与性能调优 Checklist，附 Docker Compose 环境与 Eloquent
+  代码示例。
 cover: /images/covers/timescaledb-laravel-iot-cover.jpg
 ---
+
+
 
 ## 前言
 

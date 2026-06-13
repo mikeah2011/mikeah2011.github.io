@@ -1,11 +1,23 @@
 ---
-title: "Prompt Engineering 实战：Few-shot/CoT/Tool-use 提示词工程最佳实践——从直觉式提问到系统化 Prompt 架构的完整指南"
+title: Prompt Engineering 实战：Few-shot/CoT/Tool-use 提示词工程最佳实践——从直觉式提问到系统化 Prompt 架构的完整指南
 date: 2026-06-01 22:00:00
-description: "本文从工程化视角系统拆解 Prompt Engineering 的核心方法，围绕 Few-shot、Chain-of-Thought、工具调用与 Function Calling 展开，结合 Laravel/SQL/AI Agent 实战案例，讲清提示词设计、推理引导、输出约束、安全防护与成本优化，帮助开发者构建稳定、可测试、可复用的高质量 Prompt 体系。"
-tags: [prompt engineering, ai, llm, few-shot, chain-of-thought, function calling, laravel]
-categories: [ai]
+description: 本文从工程化视角系统拆解 Prompt Engineering 的核心方法，围绕 Few-shot、Chain-of-Thought、工具调用与
+  Function Calling 展开，结合 Laravel/SQL/AI Agent 实战案例，讲清提示词设计、推理引导、输出约束、安全防护与成本优化，帮助开发者构建稳定、可测试、可复用的高质量
+  Prompt 体系。
+tags:
+- Prompt Engineering
+- AI
+- LLM
+- few-shot
+- chain-of-thought
+- Function Calling
+- Laravel
+categories:
+- ai
 cover: /images/covers/prompt-engineering-few-shot-cot-tool-use-cover.jpg
 ---
+
+
 
 # Prompt Engineering 实战：Few-shot/CoT/Tool-use 提示词工程最佳实践
 

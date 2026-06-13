@@ -1,12 +1,23 @@
 ---
-title: 'Laravel + Inertia.js 实战：Vue 3/React 单页应用的全新全栈范式——对比传统 SPA 前后端分离的开发体验'
+title: Laravel + Inertia.js 实战：Vue 3/React 单页应用的全新全栈范式——对比传统 SPA 前后端分离的开发体验
 date: 2026-06-03 08:00:00
-tags: [laravel, inertia.js, vue3, react, spa, 全栈, typescript]
+tags:
+- Laravel
+- Inertia.js
+- Vue 3
+- React
+- SPA
+- 全栈
+- TypeScript
 categories:
-  - php
-description: "深入剖析 Inertia.js 如何让 Laravel 与 Vue 3/React 无缝协作构建单页应用，对比传统前后端分离的开发体验差异。涵盖 Inertia Protocol 原理、SSR 服务端渲染、表单处理、权限控制、性能优化等核心实战，含完整任务管理系统代码示例，帮你告别 CORS/JWT/API 胶水代码，用全栈思维构建现代 SPA。"
+- php
+description: 深入剖析 Inertia.js 如何让 Laravel 与 Vue 3/React 无缝协作构建单页应用，对比传统前后端分离的开发体验差异。涵盖
+  Inertia Protocol 原理、SSR 服务端渲染、表单处理、权限控制、性能优化等核心实战，含完整任务管理系统代码示例，帮你告别 CORS/JWT/API
+  胶水代码，用全栈思维构建现代 SPA。
 cover: /images/covers/laravel-inertia-cover.jpg
 ---
+
+
 
 # Laravel + Inertia.js 实战：Vue 3/React 单页应用的全新全栈范式——对比传统 SPA 前后端分离的开发体验
 

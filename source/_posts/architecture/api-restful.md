@@ -2,18 +2,24 @@
 title: 幂等性 API 设计：RESTful 接口的安全网与三层防护实战
 slug: 幂等性-api-设计-restful-接口安全网与三层防护实战
 categories: Architecture
-tags: [laravel, redis, 微服务, 幂等性, API设计]
-description: '深入探讨 RESTful API 的幂等性设计，涵盖三层防护体系（Redis Nonce 去重+Idempotency-Key 状态机+MySQL UPSERT 兜底），对比 Redis/数据库/Token 三种幂等策略的适用场景与性能差异，解析分布式系统下的幂等竞态问题与 Redis 故障降级方案，并附 Laravel 生产级代码实现与踩坑记录'
+tags:
+- Laravel
+- Redis
+- 微服务
+- 幂等性
+- API设计
+description: 深入探讨 RESTful API 的幂等性设计，涵盖三层防护体系（Redis Nonce 去重+Idempotency-Key 状态机+MySQL
+  UPSERT 兜底），对比 Redis/数据库/Token 三种幂等策略的适用场景与性能差异，解析分布式系统下的幂等竞态问题与 Redis 故障降级方案，并附
+  Laravel 生产级代码实现与踩坑记录
 author: Michael
-date: "2026-05-03 22:17:48"
-updated: "2026-05-03 22:21:33"
+date: '2026-05-03 22:17:48'
+updated: '2026-05-03 22:21:33'
 cover: /images/covers/architecture-01-cover.jpg
 images:
-  - /images/content/architecture-01-content-1.jpg
-  - /images/content/architecture-01-content-2.jpg
-
-
+- /images/content/architecture-01-content-1.jpg
+- /images/content/architecture-01-content-2.jpg
 ---
+
 > **更新时间**：2026-05-03 22:21:33
 
 在微服务架构日益普及的今天，API 成为系统对外暴露的"唯一门面"。然而，网络抖动、用户误触重试、前端自动刷新等场景，让幂等性设计成为 API 设计的必修课。本文将结合 Laravel + Redis + MySQL 实战，深入探讨幂等性的三层防护体系。

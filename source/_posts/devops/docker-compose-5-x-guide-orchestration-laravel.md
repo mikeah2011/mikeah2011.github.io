@@ -3,15 +3,17 @@ title: Docker Compose 5.x 实战：多服务编排、健康检查与开发环境
 cover: /images/covers/docker-compose-5-x-guide-orchestration-laravel-cover.jpg
 date: 2026-05-16 22:00:37
 updated: 2026-05-16 22:04:36
-tags: [devops, docker, laravel]
+tags:
+- DevOps
+- Docker
+- Laravel
 categories:
-  - devops
-  - docker
-description: 'Docker Compose 5.x 多服务编排实战：PHP-FPM + MySQL + Redis + Elasticsearch + Mailpit 的 Laravel 开发环境搭建，涵盖健康检查、depends_on 条件启动、Volume 持久化、网络隔离、Init 脚本等核心踩坑记录。'
-
-
-
+- devops
+- docker
+description: Docker Compose 5.x 多服务编排实战：PHP-FPM + MySQL + Redis + Elasticsearch +
+  Mailpit 的 Laravel 开发环境搭建，涵盖健康检查、depends_on 条件启动、Volume 持久化、网络隔离、Init 脚本等核心踩坑记录。
 ---
+
 # Docker Compose 5.x 实战：多服务编排、健康检查与开发环境搭建踩坑记录
 
 > 从 `docker-compose up` 启动后 MySQL 还没就绪、PHP-FPM 就开始连接报错说起——这篇文章记录了 30+ Laravel 仓库在 Docker Compose 编排中的真实踩坑与解决方案。

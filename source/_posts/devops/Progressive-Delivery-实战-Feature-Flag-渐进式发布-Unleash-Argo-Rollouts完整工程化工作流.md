@@ -1,12 +1,26 @@
 ---
-title: 'Progressive Delivery 实战：Feature Flag + 渐进式发布——Unleash + Argo Rollouts 的完整工程化工作流'
-description: "结合 Unleash Feature Flag 平台与 Argo Rollouts K8s 控制器，构建渐进式发布完整工程化工作流。详解四大开关类型、Canary/BlueGreen 策略、Prometheus 自动回滚决策、Istio 流量权重管理与 A/B 测试统计分析，附 Laravel 实战案例与 GitHub Actions + ArgoCD GitOps Pipeline 配置。"
+title: Progressive Delivery 实战：Feature Flag + 渐进式发布——Unleash + Argo Rollouts 的完整工程化工作流
+description: 结合 Unleash Feature Flag 平台与 Argo Rollouts K8s 控制器，构建渐进式发布完整工程化工作流。详解四大开关类型、Canary/BlueGreen
+  策略、Prometheus 自动回滚决策、Istio 流量权重管理与 A/B 测试统计分析，附 Laravel 实战案例与 GitHub Actions + ArgoCD
+  GitOps Pipeline 配置。
 date: 2026-06-04 10:00:00
-tags: [progressive delivery, feature flag, unleash, argo rollouts, 渐进式发布, CI/CD, a/b testing, istio, kubernetes, Laravel]
+tags:
+- progressive delivery
+- Feature Flags
+- Unleash
+- Argo Rollouts
+- 渐进式发布
+- CI/CD
+- A/B Testing
+- Istio
+- Kubernetes
+- Laravel
 categories:
-  - devops
+- devops
 cover: /images/covers/progressive-delivery-feature-flags-cover.jpg
 ---
+
+
 
 在现代云原生应用开发中，如何安全、可控地将新功能交付给用户，是每个工程团队面临的核心挑战。传统的"一键全量发布"模式已经无法满足业务对风险控制、用户体验和数据驱动决策的需求。**Progressive Delivery**（渐进式交付）应运而生，它将 **Feature Flag**（功能开关）与**渐进式发布**相结合，构建了一套完整的工程化工作流。
 

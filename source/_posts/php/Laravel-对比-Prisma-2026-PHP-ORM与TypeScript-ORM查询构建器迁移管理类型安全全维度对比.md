@@ -1,12 +1,23 @@
 ---
-title: 'Laravel 对比 Prisma 2026：PHP ORM 与 TypeScript ORM 的查询构建器、迁移管理、类型安全全维度对比'
+title: Laravel 对比 Prisma 2026：PHP ORM 与 TypeScript ORM 的查询构建器、迁移管理、类型安全全维度对比
 date: 2026-06-04 14:00:00
-tags: [laravel, prisma, orm, eloquent, typescript, php, 数据库]
-description: "2026 年 PHP ORM 与 TypeScript ORM 全维度深度对比：Laravel Eloquent（Active Record）vs Prisma（Data Mapper），涵盖查询构建器链式调用与声明式对象查询对比、迁移管理机制差异（命令式 vs 声明式 Schema）、类型安全实现（PHP 类型系统 vs TypeScript 端到端类型推导）、关联查询与 N+1 问题解决方案、批量操作性能基准、Serverless 连接池管理、生态工具链建设等七大核心维度。附带 CRUD 代码示例、踩坑案例与选型决策矩阵，帮助开发者在 PHP 和 TypeScript 技术栈间做出最佳 ORM 选型。"
+tags:
+- Laravel
+- prisma
+- ORM
+- Eloquent
+- TypeScript
+- PHP
+- 数据库
+description: 2026 年 PHP ORM 与 TypeScript ORM 全维度深度对比：Laravel Eloquent（Active Record）vs
+  Prisma（Data Mapper），涵盖查询构建器链式调用与声明式对象查询对比、迁移管理机制差异（命令式 vs 声明式 Schema）、类型安全实现（PHP
+  类型系统 vs TypeScript 端到端类型推导）、关联查询与 N+1 问题解决方案、批量操作性能基准、Serverless 连接池管理、生态工具链建设等七大核心维度。附带
+  CRUD 代码示例、踩坑案例与选型决策矩阵，帮助开发者在 PHP 和 TypeScript 技术栈间做出最佳 ORM 选型。
 categories:
-  - php
+- php
 cover: /images/covers/laravel-vs-prisma-2026-cover.jpg
 ---
+
 
 # Laravel 对比 Prisma 2026：PHP ORM 与 TypeScript ORM 的查询构建器、迁移管理、类型安全全维度对比
 

@@ -1,15 +1,21 @@
 ---
-title: "pnpm 实战：高效磁盘空间利用与 Workspace Monorepo 包管理踩坑记录"
+title: pnpm 实战：高效磁盘空间利用与 Workspace Monorepo 包管理踩坑记录
 cover: /images/covers/pnpm-guide-workspace-monorepo-cover.jpg
 date: 2026-05-16 23:55:19
 updated: 2026-05-16 23:58:45
 categories: macOS
-tags: [pnpm, monorepo, workspace, JavaScript, Vite, Vue, macOS]
-description: "从 npm/yarn 迁移到 pnpm 的完整实战记录：内容寻址存储、硬链接去重、幽灵依赖防护、Workspace Monorepo 管理、CI 缓存优化，以及在 Laravel + Vue 3 + Vite 项目中踩过的坑。"
-
-
-
+tags:
+- pnpm
+- Monorepo
+- workspace
+- JavaScript
+- Vite
+- Vue
+- macOS
+description: 从 npm/yarn 迁移到 pnpm 的完整实战记录：内容寻址存储、硬链接去重、幽灵依赖防护、Workspace Monorepo 管理、CI
+  缓存优化，以及在 Laravel + Vue 3 + Vite 项目中踩过的坑。
 ---
+
 ## 一、为什么需要 pnpm？
 
 在 B2C 电商团队中，前端项目越来越多：Vue 3 管理后台、uni-app H5/小程序、Vite 构建工具链……每个项目的 `node_modules` 都是几百 MB 起步。一个开发者机器上跑 5 个项目，`node_modules` 轻松吃掉 2-3 GB 磁盘，CI 环境更夸张。

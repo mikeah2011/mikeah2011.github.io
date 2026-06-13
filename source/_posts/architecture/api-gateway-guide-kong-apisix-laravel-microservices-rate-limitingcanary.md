@@ -3,16 +3,26 @@ title: API-Gateway-实战-Kong-APISIX-在-Laravel-微服务中的应用-统一�
 date: 2026-05-16 18:20:19
 updated: 2026-05-16 18:23:07
 categories:
-  - architecture
-  - php
-tags: [api-gateway, kong, apisix, laravel, 微服务, 限流, 灰度发布, jwt]
-description: 从单体 Laravel 演进到微服务后，API Gateway 成了绕不开的基础设施。本文以 Kong 和 Apache APISIX 为主线，结合 B2C 电商真实场景，深入对比两大网关选型差异，覆盖路由分发、JWT 统一鉴权、多级限流与熔断、Header/流量比例灰度发布、ELK+Prometheus 可观测性集成等核心能力，附带 5 个真实踩坑案例、完整可运行配置示例与落地 Checklist，适合正在评估或落地微服务网关的后端团队参考。
+- architecture
+- php
+tags:
+- API Gateway
+- Kong
+- APISIX
+- Laravel
+- 微服务
+- 限流
+- 灰度发布
+- JWT
+description: 从单体 Laravel 演进到微服务后，API Gateway 成了绕不开的基础设施。本文以 Kong 和 Apache APISIX 为主线，结合
+  B2C 电商真实场景，深入对比两大网关选型差异，覆盖路由分发、JWT 统一鉴权、多级限流与熔断、Header/流量比例灰度发布、ELK+Prometheus 可观测性集成等核心能力，附带
+  5 个真实踩坑案例、完整可运行配置示例与落地 Checklist，适合正在评估或落地微服务网关的后端团队参考。
 cover: /images/covers/arch-002-cover.jpg
 images:
-  - /images/content/arch-002-content-1.jpg
-  - /images/diagrams/arch-002-diagram.jpg
-
+- /images/content/arch-002-content-1.jpg
+- /images/diagrams/arch-002-diagram.jpg
 ---
+
 # API Gateway 实战：Kong/APISIX 在 Laravel 微服务中的应用
 
 ## 为什么需要 API Gateway？

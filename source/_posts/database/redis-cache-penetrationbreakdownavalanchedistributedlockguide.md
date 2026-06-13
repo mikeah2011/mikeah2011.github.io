@@ -2,17 +2,27 @@
 title: Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - KKday B2C API 真实踩坑记录
 date: 2026-05-02
 categories:
-  - database
-tags: [kkday, redis, 缓存, 缓存穿透, 缓存击穿, 缓存雪崩, 分布式锁, 布隆过滤器, 高并发, PHP]
-description: 基于 KKday B2C API 高并发真实踩坑记录，系统讲解 Redis 缓存穿透（布隆过滤器+空值缓存双层防护）、缓存击穿（互斥锁+随机TTL+逻辑过期）、缓存雪崩（分时段过期+随机TTL分散）三大经典问题的生产级解决方案，深入剖析 Redis 分布式锁失效场景与 RedLock 防护策略，含完整 PHP 8 代码实战与高并发架构最佳实践
-
-
+- database
+tags:
+- KKday
+- Redis
+- 缓存
+- 缓存穿透
+- 缓存击穿
+- 缓存雪崩
+- 分布式锁
+- 布隆过滤器
+- 高并发
+- PHP
+description: 基于 KKday B2C API 高并发真实踩坑记录，系统讲解 Redis 缓存穿透（布隆过滤器+空值缓存双层防护）、缓存击穿（互斥锁+随机TTL+逻辑过期）、缓存雪崩（分时段过期+随机TTL分散）三大经典问题的生产级解决方案，深入剖析
+  Redis 分布式锁失效场景与 RedLock 防护策略，含完整 PHP 8 代码实战与高并发架构最佳实践
 cover: /images/covers/databases-redis-cache-shield-cover.jpg
 images:
-  - /images/content/databases-redis-cache-shield-content-1.jpg
-  - /images/content/databases-redis-cache-shield-content-2.jpg
-
+- /images/content/databases-redis-cache-shield-content-1.jpg
+- /images/content/databases-redis-cache-shield-content-2.jpg
 ---
+
+
 # Redis 缓存三大问题防护与分布式锁实战
 
 ## 📋 文章目录

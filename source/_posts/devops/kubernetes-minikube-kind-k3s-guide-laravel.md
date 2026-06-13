@@ -4,14 +4,20 @@ cover: /images/covers/kubernetes-minikube-kind-k3s-guide-laravel-cover.jpg
 date: 2026-05-16 23:25:38
 updated: 2026-05-16 23:28:41
 categories:
-  - devops
-  - kubernetes
-tags: [docker, kubernetes, laravel, macos, devops, helm]
-description: macOS上搭建本地Kubernetes开发环境，深度对比minikube、kind、k3s三大工具的启动速度、资源占用、功能完整度与Apple Silicon兼容性。基于Laravel B2C API项目真实踩坑经验，包含YAML部署清单、Helm Chart打包、GitHub Actions/GitLab CI集成示例及Laravel K8s适配完整方案。
-
-
-
+- devops
+- kubernetes
+tags:
+- Docker
+- Kubernetes
+- Laravel
+- macOS
+- DevOps
+- Helm
+description: macOS上搭建本地Kubernetes开发环境，深度对比minikube、kind、k3s三大工具的启动速度、资源占用、功能完整度与Apple
+  Silicon兼容性。基于Laravel B2C API项目真实踩坑经验，包含YAML部署清单、Helm Chart打包、GitHub Actions/GitLab
+  CI集成示例及Laravel K8s适配完整方案。
 ---
+
 # Kubernetes 本地开发：minikube vs kind vs k3s 选型实战
 
 > 在 macOS 上跑 Laravel 的 K8s 开发环境，到底选 minikube、kind 还是 k3s？

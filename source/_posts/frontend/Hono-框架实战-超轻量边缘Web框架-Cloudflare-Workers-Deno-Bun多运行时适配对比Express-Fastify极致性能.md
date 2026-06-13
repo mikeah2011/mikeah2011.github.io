@@ -1,12 +1,25 @@
 ---
-title: 'Hono 框架实战：超轻量边缘 Web 框架——Cloudflare Workers/Deno/Bun 多运行时适配，对比 Express/Fastify 的极致性能'
+title: Hono 框架实战：超轻量边缘 Web 框架——Cloudflare Workers/Deno/Bun 多运行时适配，对比 Express/Fastify
+  的极致性能
 date: 2026-06-07 10:00:00
-tags: [hono, edge computing, cloudflare workers, deno, bun, typescript]
+tags:
+- hono
+- Edge Computing
+- Cloudflare Workers
+- Deno
+- Bun
+- TypeScript
 categories:
-  - frontend
-description: "Hono 是一个基于 Web Standard API 的超轻量边缘 Web 框架，gzip 体积仅 14KB，原生支持 Cloudflare Workers、Deno、Bun 等 10+ 种运行时。本文从 Hono 框架设计理念出发，深入讲解中间件系统、路由分组、RPC 类型安全调用等核心功能，并通过性能基准测试对比 Express 和 Fastify，展示 Hono 在边缘计算环境下的极致性能优势。同时提供完整的 Cloudflare Workers 与 Deno Deploy 部署方案、生产环境踩坑指南与 BFF 架构实战，帮助前端开发者快速上手边缘计算 Web 开发。"
+- frontend
+description: Hono 是一个基于 Web Standard API 的超轻量边缘 Web 框架，gzip 体积仅 14KB，原生支持 Cloudflare
+  Workers、Deno、Bun 等 10+ 种运行时。本文从 Hono 框架设计理念出发，深入讲解中间件系统、路由分组、RPC 类型安全调用等核心功能，并通过性能基准测试对比
+  Express 和 Fastify，展示 Hono 在边缘计算环境下的极致性能优势。同时提供完整的 Cloudflare Workers 与 Deno Deploy
+  部署方案、生产环境踩坑指南与 BFF 架构实战，帮助前端开发者快速上手边缘计算 Web 开发。
 cover: /images/covers/hono-edge-framework-cover.jpg
 ---
+
+
+
 
 在边缘计算成为主流架构趋势的今天，开发者面临一个核心矛盾：传统 Node.js Web 框架（如 Express、Fastify）为服务器环境设计，无法直接运行在 Cloudflare Workers、Deno Deploy 等边缘平台上；而各平台提供的原生 API 又各不相同，代码难以复用。Hono 的出现彻底解决了这个问题——它是一个基于 Web Standard API、体积仅 14KB（gzip）、原生支持 10+ 种运行时的超轻量级 Web 框架。本文将从设计理念到生产部署，带你全面掌握 Hono 框架的实战技巧。
 

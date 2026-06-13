@@ -1,12 +1,22 @@
 ---
-title: Laravel Data Object 深度实战：spatie/laravel-data 的 Inertia/Form Request/API Response 三端复用——DTO 驱动的全栈类型安全
+title: Laravel Data Object 深度实战：spatie/laravel-data 的 Inertia/Form Request/API Response
+  三端复用——DTO 驱动的全栈类型安全
 date: 2026-06-07 10:00:00
-tags: [Laravel, DTO, spatie, Inertia, TypeScript, API]
+tags:
+- Laravel
+- DTO
+- Spatie
+- Inertia
+- TypeScript
+- API
 categories:
-  - php
+- php
 cover: /images/covers/laravel-data-object-dto-cover.jpg
-description: "深入实战 spatie/laravel-data 的 Data Object DTO 三端复用架构：一套 PHP Data 类同时驱动 Form Request 验证、API Response 序列化与 Inertia 前端 TypeScript 类型生成，彻底消除多处定义与手动同步的开发痛点。涵盖嵌套结构、分页、Enum、Computed 属性、性能缓存及从 Resource 渐进迁移的完整踩坑指南。"
+description: 深入实战 spatie/laravel-data 的 Data Object DTO 三端复用架构：一套 PHP Data 类同时驱动 Form
+  Request 验证、API Response 序列化与 Inertia 前端 TypeScript 类型生成，彻底消除多处定义与手动同步的开发痛点。涵盖嵌套结构、分页、Enum、Computed
+  属性、性能缓存及从 Resource 渐进迁移的完整踩坑指南。
 ---
+
 
 ## 前言：为什么我们需要 Data Object？
 

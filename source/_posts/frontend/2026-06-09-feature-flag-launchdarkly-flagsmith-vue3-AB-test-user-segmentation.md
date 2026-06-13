@@ -2,18 +2,20 @@
 title: 前端 Feature Flag 实战：LaunchDarkly/Flagsmith + Vue 3——客户端灰度发布、A/B 测试与用户分群的工程化
 date: 2026-06-09 16:00:00
 categories:
-  - frontend
+- frontend
 tags:
-  - Feature Flag
-  - LaunchDarkly
-  - Flagsmith
-  - Vue 3
-  - A/B 测试
-  - 灰度发布
-  - 用户分群
-  - 灰度策略
-description: 从零搭建 Feature Flag 基础设施，对比 LaunchDarkly 与 Flagsmith 架构差异，实战 Vue 3 组件级灰度、A/B 测试与用户分群，覆盖 Laravel BFF 集成与本地缓存降级策略。
+- Feature Flags
+- LaunchDarkly
+- Flagsmith
+- Vue 3
+- A/B 测试
+- 灰度发布
+- 用户分群
+- 灰度策略
+description: 从零搭建 Feature Flag 基础设施，对比 LaunchDarkly 与 Flagsmith 架构差异，实战 Vue 3 组件级灰度、A/B
+  测试与用户分群，覆盖 Laravel BFF 集成与本地缓存降级策略。
 ---
+
 
 ## 为什么 Feature Flag 在前端工程中越来越重要
 

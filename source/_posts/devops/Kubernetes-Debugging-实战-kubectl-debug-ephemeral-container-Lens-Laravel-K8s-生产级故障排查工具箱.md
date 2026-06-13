@@ -1,12 +1,22 @@
 ---
-title: Kubernetes Debugging 实战：kubectl debug/ephemeral container/Lens——Laravel K8s 集群的生产级故障排查工具箱
-description: "深入实战 Kubernetes 集群中 Laravel 应用的生产级故障排查方案，涵盖 kubectl debug、Ephemeral Container、Lens/OpenLens、k9s、Telepresence 等工具的完整使用指南。通过 Octane 内存泄漏、队列工作者崩溃、OOMKilled、网络抓包、Service Mesh 调试等真实场景，手把手教你零重启定位问题。附自定义调试镜像 Dockerfile、RBAC 权限配置、CI/CD 集成方案与 Prometheus 告警规则，助你构建系统化的 K8s 调试能力。"
+title: Kubernetes Debugging 实战：kubectl debug/ephemeral container/Lens——Laravel K8s
+  集群的生产级故障排查工具箱
+description: 深入实战 Kubernetes 集群中 Laravel 应用的生产级故障排查方案，涵盖 kubectl debug、Ephemeral Container、Lens/OpenLens、k9s、Telepresence
+  等工具的完整使用指南。通过 Octane 内存泄漏、队列工作者崩溃、OOMKilled、网络抓包、Service Mesh 调试等真实场景，手把手教你零重启定位问题。附自定义调试镜像
+  Dockerfile、RBAC 权限配置、CI/CD 集成方案与 Prometheus 告警规则，助你构建系统化的 K8s 调试能力。
 date: 2026-06-04 12:00:00
-tags: [kubernetes, kubectl debug, ephemeral container, lens, laravel, 故障排查]
+tags:
+- Kubernetes
+- kubectl debug
+- ephemeral container
+- lens
+- Laravel
+- 故障排查
 categories:
-  - devops
+- devops
 cover: /images/covers/kubernetes-debugging-laravel-cover.jpg
 ---
+
 
 在生产环境中运行 Laravel 应用的 Kubernetes 集群，故障排查是一项复杂且关键的运维技能。当 Pod 突然 OOMKilled、Octane 进程内存泄漏、队列工作者莫名崩溃时，传统的 SSH 登录服务器排查方式已不再适用。本文将深入介绍 `kubectl debug`、Ephemeral Container、Lens/OpenLens 等现代化调试工具，并结合 Laravel K8s 集群的实际场景，提供一套完整的生产级故障排查工具箱。
 

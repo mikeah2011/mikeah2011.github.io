@@ -1,12 +1,21 @@
 ---
 title: Kotlin Coroutines 深度实战：挂起函数、结构化并发、Flow——与 PHP Fibers/Go goroutine 的并发模型对比
 date: 2026-06-03 00:00:00
-tags: [kotlin, coroutines, concurrency, php fibers, go, goroutine]
+tags:
+- Kotlin
+- Coroutines
+- Concurrency
+- PHP Fibers
+- Go
+- goroutine
 categories:
-  - architecture
-description: "深度对比 Kotlin Coroutines、Go goroutine 与 PHP Fibers 三大并发模型：从挂起函数、结构化并发、Flow 冷热流到底层调度器原理，覆盖 API 设计、异常处理、性能基准测试与适用场景分析。附大量可运行代码示例与方案对比表格，帮助后端开发者在微服务、高吞吐量场景中做出正确的并发技术选型。"
+- architecture
+description: 深度对比 Kotlin Coroutines、Go goroutine 与 PHP Fibers 三大并发模型：从挂起函数、结构化并发、Flow
+  冷热流到底层调度器原理，覆盖 API 设计、异常处理、性能基准测试与适用场景分析。附大量可运行代码示例与方案对比表格，帮助后端开发者在微服务、高吞吐量场景中做出正确的并发技术选型。
 cover: /images/covers/kotlin-coroutines-concurrency-comparison-cover.jpg
 ---
+
+
 
 ## 前言
 

@@ -1,12 +1,20 @@
 ---
 title: OAuth 2.1 实战：从 OAuth 2.0 到 2.1 的迁移指南——PKCE 强制、隐式流废弃与安全加固
 date: 2026-06-02 12:00:00
-tags: [oauth 2.1, pkce, 安全, laravel, api认证]
+tags:
+- OAuth 2.1
+- PKCE
+- 安全
+- Laravel
+- api认证
 categories:
-  - php
+- php
 cover: /images/covers/oauth21-migration-cover.jpg
-description: 本文深度解析OAuth 2.1核心变化，包括PKCE强制化、隐式流废弃、Refresh Token Rotation和重定向URI精确匹配四大安全增强。提供Laravel Passport从2.0到2.1的完整迁移路径，涵盖代码实现、中间件配置、前后端集成和Pest测试用例。同时对比Sanctum与Passport的适用场景，给出Token有效期策略、Scope最小权限设计和异常检测的最佳实践，帮助开发者构建符合最新安全标准的认证系统。
+description: 本文深度解析OAuth 2.1核心变化，包括PKCE强制化、隐式流废弃、Refresh Token Rotation和重定向URI精确匹配四大安全增强。提供Laravel
+  Passport从2.0到2.1的完整迁移路径，涵盖代码实现、中间件配置、前后端集成和Pest测试用例。同时对比Sanctum与Passport的适用场景，给出Token有效期策略、Scope最小权限设计和异常检测的最佳实践，帮助开发者构建符合最新安全标准的认证系统。
 ---
+
+
 
 # OAuth 2.1 实战：从 OAuth 2.0 到 2.1 的迁移指南——PKCE 强制、隐式流废弃与安全加固
 

@@ -1,12 +1,21 @@
 ---
-title: AI Code Review 工作流实战：CodeRabbit + PR-Agent + Claude Review——从人工 Review 到 AI 辅助的效率提升量化
+title: AI Code Review 工作流实战：CodeRabbit + PR-Agent + Claude Review——从人工 Review 到 AI
+  辅助的效率提升量化
 date: 2026-06-06 10:00:00
-tags: [ai, code-review, coderabbit, pr-agent, ci-cd]
+tags:
+- AI
+- Code Review
+- CodeRabbit
+- pr-agent
+- CI/CD
 categories:
-  - macos
-description: '八人 Laravel 团队半年实战：CodeRabbit、PR-Agent、Claude Review 三款 AI Code Review 工具从零配置到生产落地，含完整 YAML/TOML 配置、效率提升 65% 量化数据、误报率优化、分层 Review 策略与十大踩坑复盘。'
+- macos
+description: 八人 Laravel 团队半年实战：CodeRabbit、PR-Agent、Claude Review 三款 AI Code Review
+  工具从零配置到生产落地，含完整 YAML/TOML 配置、效率提升 65% 量化数据、误报率优化、分层 Review 策略与十大踩坑复盘。
 cover: /images/covers/ai-code-review-workflow-cover.jpg
 ---
+
+
 
 # AI Code Review 工作流实战：CodeRabbit + PR-Agent + Claude Review——从人工 Review 到 AI 辅助的效率提升量化
  

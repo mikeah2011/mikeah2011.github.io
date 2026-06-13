@@ -3,15 +3,25 @@ title: Redis-Geo-实战-地理位置服务与附近的人店功能-Laravel-B2C-A
 date: 2026-05-16 15:05:58
 updated: 2026-05-16 15:09:40
 categories:
-  - database
-tags: [laravel, redis, lbs, 性能优化, redis-geo, geohash, geosearch, 地理位置]
-description: "Redis GEO 地理位置服务实战指南：深入解析 GEOADD、GEOSEARCH 等核心命令与 GeoHash 编码原理，提供 Laravel PHP 可运行代码实现附近门店、附近的人等 LBS 功能，横向对比 PostGIS 与 MongoDB 2dsphere 选型方案，涵盖百万级 POI 性能压测数据与 Redis Cluster 集群部署踩坑经验，适合后端开发者快速落地地理位置搜索需求。"
+- database
+tags:
+- Laravel
+- Redis
+- lbs
+- 性能优化
+- redis-geo
+- geohash
+- geosearch
+- 地理位置
+description: Redis GEO 地理位置服务实战指南：深入解析 GEOADD、GEOSEARCH 等核心命令与 GeoHash 编码原理，提供 Laravel
+  PHP 可运行代码实现附近门店、附近的人等 LBS 功能，横向对比 PostGIS 与 MongoDB 2dsphere 选型方案，涵盖百万级 POI 性能压测数据与
+  Redis Cluster 集群部署踩坑经验，适合后端开发者快速落地地理位置搜索需求。
 cover: /images/covers/databases-redis-geo-cover.jpg
 images:
-  - /images/content/databases-redis-geo-content-1.jpg
-  - /images/content/databases-redis-geo-content-2.jpg
-
+- /images/content/databases-redis-geo-content-1.jpg
+- /images/content/databases-redis-geo-content-2.jpg
 ---
+
 # Redis Geo 实战：地理位置服务与"附近的人/店"功能
 
 ## 前言

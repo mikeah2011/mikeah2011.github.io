@@ -4,14 +4,24 @@ cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/local-llm.jpg
 title: LM Studio + Ollama：M 芯片 Mac 上的本地大模型实战（Laravel BFF 开发者视角）
 date: 2026-05-24 10:00:00
 categories:
-  - macos
-  - php
-tags: [ai, laravel, macos, lm-studio, ollama, 本地大模型, llm, m-chip]
-description: 在 Apple Silicon Mac 上部署本地大模型的完整实战指南。涵盖 LM Studio 与 Ollama 双工具对比选型、Qwen3.5/Gemma 模型性能实测（含 Metal 加速调优）、Continue.dev IDE 集成、Laravel BFF 项目深度集成——包括 REST API 调用、流式响应、AI Service 封装、队列异步处理等可运行代码示例，以及 Docker Compose 部署方案、5 大踩坑案例排查、模型量化参数选择与存储规划。从 Laravel BFF 开发者视角分享隐私优先的本地 LLM 开发工作流。
-
-
-
+- macos
+- php
+tags:
+- AI
+- Laravel
+- macOS
+- lm-studio
+- Ollama
+- 本地大模型
+- LLM
+- m-chip
+description: 在 Apple Silicon Mac 上部署本地大模型的完整实战指南。涵盖 LM Studio 与 Ollama 双工具对比选型、Qwen3.5/Gemma
+  模型性能实测（含 Metal 加速调优）、Continue.dev IDE 集成、Laravel BFF 项目深度集成——包括 REST API 调用、流式响应、AI
+  Service 封装、队列异步处理等可运行代码示例，以及 Docker Compose 部署方案、5 大踩坑案例排查、模型量化参数选择与存储规划。从 Laravel
+  BFF 开发者视角分享隐私优先的本地 LLM 开发工作流。
 ---
+
+
 # LM Studio + Ollama：M 芯片 Mac 上的本地大模型实战（Laravel BFF 开发者视角）
 
 > **发布日期**：2026-05-02  

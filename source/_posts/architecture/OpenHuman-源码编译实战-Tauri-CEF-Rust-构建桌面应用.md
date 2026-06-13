@@ -1,12 +1,21 @@
 ---
 title: OpenHuman 源码编译实战：Tauri + CEF + Rust 构建桌面应用
 date: 2026-06-02 10:00:00
-description: 本文围绕 OpenHuman 源码编译实战，系统拆解 Tauri、CEF、Rust 构建桌面应用的完整链路，覆盖环境准备、目录结构、CEF 依赖下载、Cargo 与前端打包、跨平台构建、常见报错排查和工程化优化建议。适合想深入理解桌面应用架构、提升本地编译成功率与发布稳定性的开发者阅读。
-tags: [openhuman, tauri, cef, rust, 桌面应用, 编译]
+description: 本文围绕 OpenHuman 源码编译实战，系统拆解 Tauri、CEF、Rust 构建桌面应用的完整链路，覆盖环境准备、目录结构、CEF
+  依赖下载、Cargo 与前端打包、跨平台构建、常见报错排查和工程化优化建议。适合想深入理解桌面应用架构、提升本地编译成功率与发布稳定性的开发者阅读。
+tags:
+- OpenHuman
+- Tauri
+- cef
+- Rust
+- 桌面应用
+- 编译
 categories:
-  - architecture
+- architecture
 cover: /images/covers/openhuman-tauri-cef-build-cover.jpg
 ---
+
+
 
 在今天的桌面应用开发实践里，前端界面、浏览器容器与系统级能力已经不再是彼此割裂的三条线。尤其当团队希望同时获得接近原生的性能、现代前端的开发效率，以及跨平台交付能力时，围绕 Web 技术和系统语言构建混合架构，几乎已经成为默认选项。OpenHuman 这一类桌面端项目，就是很有代表性的样本：它并不是简单地“拿一个前端页面包成 App”，而是把 **Tauri 的壳层能力、CEF 的嵌入式浏览器能力、Rust 的高性能系统后端能力** 组合在一起，形成一套既能快速迭代、又能控制资源占用和安全边界的桌面应用技术路线。
 

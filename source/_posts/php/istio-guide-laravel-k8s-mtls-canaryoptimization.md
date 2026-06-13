@@ -3,14 +3,20 @@ title: Istio 服务网格实战：Laravel K8s 环境下的 mTLS 自动加密、�
 cover: /images/covers/istio-guide-laravel-k8s-mtls-canaryoptimization-cover.jpg
 date: 2026-05-02
 categories:
-  - php
-  - kubernetes
-tags: [Laravel, Kubernetes, 安全, 微服务, istio, service-mesh]
-description: 基于 Laravel 微服务真实生产环境，深入探讨 Istio 服务网格在 Kubernetes 集群中的 mTLS 双向认证自动加密、VirtualService 灰度发布（10%/50%/100%流量切分）、DestinationRule 连接池优化、Sidecar 资源调优、Kiali/Jaeger/Grafana 可观测性监控以及生产环境踩坑与解决方案。
-
-
-
+- php
+- kubernetes
+tags:
+- Laravel
+- Kubernetes
+- 安全
+- 微服务
+- Istio
+- Service Mesh
+description: 基于 Laravel 微服务真实生产环境，深入探讨 Istio 服务网格在 Kubernetes 集群中的 mTLS 双向认证自动加密、VirtualService
+  灰度发布（10%/50%/100%流量切分）、DestinationRule 连接池优化、Sidecar 资源调优、Kiali/Jaeger/Grafana 可观测性监控以及生产环境踩坑与解决方案。
 ---
+
+
 # Istio 服务网格实战：Laravel K8s 环境下的 mTLS 自动加密、灰度发布与连接池优化踩坑记录
 
 > **前言**：在微服务架构中，服务网格（Service Mesh）成为了基础设施层的重要组件。本文将从 Laravel 应用视角出发，深入探讨 Istio 的部署实践，重点关注 mTLS 自动加密、灰度发布和性能优化三大核心场景。本文基于真实生产环境踩坑经验整理，包含架构图、代码示例和解决方案。

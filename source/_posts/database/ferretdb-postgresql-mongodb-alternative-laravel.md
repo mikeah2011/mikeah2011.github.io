@@ -1,12 +1,22 @@
 ---
-title: "FerretDB 实战：开源 MongoDB 替代——PostgreSQL 驱动的文档数据库与 Laravel 集成的迁移路径"
+title: FerretDB 实战：开源 MongoDB 替代——PostgreSQL 驱动的文档数据库与 Laravel 集成的迁移路径
 date: 2026-06-07 10:00:00
-description: "深入解析 FerretDB 如何以 PostgreSQL 为存储引擎实现 MongoDB 兼容的文档数据库服务。涵盖架构原理、Docker 部署、CRUD 与聚合管道兼容性测试、Laravel 集成配置、从 MongoDB 迁移的完整路径、性能基准对比，以及 FerretDB 与原生 PostgreSQL JSONB 的方案选型指南。"
-tags: [ferretdb, postgresql, mongodb, laravel, nosql, 文档数据库]
+description: 深入解析 FerretDB 如何以 PostgreSQL 为存储引擎实现 MongoDB 兼容的文档数据库服务。涵盖架构原理、Docker
+  部署、CRUD 与聚合管道兼容性测试、Laravel 集成配置、从 MongoDB 迁移的完整路径、性能基准对比，以及 FerretDB 与原生 PostgreSQL
+  JSONB 的方案选型指南。
+tags:
+- FerretDB
+- PostgreSQL
+- MongoDB
+- Laravel
+- NoSQL
+- 文档数据库
 categories:
-  - database
+- database
 cover: /images/covers/ferretdb-postgresql-mongodb-alternative-laravel-cover.jpg
 ---
+
+
 
 ## 引言：当开源精神遭遇许可证壁垒
 

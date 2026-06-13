@@ -1,12 +1,21 @@
 ---
 title: PostgreSQL Partial Index + Expression Index 实战：条件索引与函数索引——Laravel 查询优化的隐藏利器
 date: 2026-06-07 12:00:00
-tags: [postgresql, laravel, partial-index, expression-index, 索引优化, 数据库]
+tags:
+- PostgreSQL
+- Laravel
+- partial-index
+- expression-index
+- 索引优化
+- 数据库
 categories:
-  - database
-description: PostgreSQL 的部分索引（Partial Index）和表达式索引（Expression Index）是 Laravel 项目中极易被忽视的查询优化利器。本文通过电商订单、软删除用户、JSONB 字段等真实业务场景，深入剖析两种索引的原理与实战用法，涵盖 Laravel Migration 写法、EXPLAIN ANALYZE 性能对比、踩坑记录与决策指南。掌握这些技巧，可在不改动业务逻辑的前提下将查询性能提升 10-100 倍，同时大幅降低索引维护成本。
+- database
+description: PostgreSQL 的部分索引（Partial Index）和表达式索引（Expression Index）是 Laravel 项目中极易被忽视的查询优化利器。本文通过电商订单、软删除用户、JSONB
+  字段等真实业务场景，深入剖析两种索引的原理与实战用法，涵盖 Laravel Migration 写法、EXPLAIN ANALYZE 性能对比、踩坑记录与决策指南。掌握这些技巧，可在不改动业务逻辑的前提下将查询性能提升
+  10-100 倍，同时大幅降低索引维护成本。
 cover: /images/covers/postgresql-partial-expression-index-cover.jpg
 ---
+
 
 ## 引言：为什么普通 B-tree 索引不够？
 

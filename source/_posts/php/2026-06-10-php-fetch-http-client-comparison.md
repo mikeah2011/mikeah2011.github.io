@@ -1,12 +1,22 @@
 ---
-title: 'PHP fetch() 实战：用 fetch-php 打造 JavaScript 风格的 HTTP 客户端——对比 cURL/Guzzle/Laravel HttpClient'
+title: PHP fetch() 实战：用 fetch-php 打造 JavaScript 风格的 HTTP 客户端——对比 cURL/Guzzle/Laravel
+  HttpClient
 date: 2026-06-10 08:00:00
-tags: [php, fetch-php, guzzle, http-client, laravel, curl, 异步编程]
+tags:
+- PHP
+- fetch-php
+- guzzle
+- http-client
+- Laravel
+- curl
+- 异步编程
 categories:
-  - php
+- php
 cover: /images/covers/php-fetch-http-client-cover.jpg
-description: "深入对比 PHP 生态中四种 HTTP 客户端方案：原生 cURL、Guzzle、Laravel HTTP Client 和 fetch-php 库。从 API 设计、异步支持、错误处理、性能基准到 Laravel 集成，手把手带你用 fetch-php 搭建 JavaScript 风格的 HTTP 交互层，附完整可运行代码和踩坑记录。"
+description: 深入对比 PHP 生态中四种 HTTP 客户端方案：原生 cURL、Guzzle、Laravel HTTP Client 和 fetch-php
+  库。从 API 设计、异步支持、错误处理、性能基准到 Laravel 集成，手把手带你用 fetch-php 搭建 JavaScript 风格的 HTTP 交互层，附完整可运行代码和踩坑记录。
 ---
+
 
 在 PHP 开发中，HTTP 客户端是最常用的基础设施之一。无论是调用第三方 API、微服务间通信，还是爬虫抓取数据，都离不开一个好用的 HTTP 库。PHP 生态提供了多种选择：古老的 cURL 扩展、事实标准 Guzzle、Laravel 封装的 HTTP Facade，以及近年来备受关注的 fetch-php——一个模仿 JavaScript `fetch()` API 风格的现代库。
 

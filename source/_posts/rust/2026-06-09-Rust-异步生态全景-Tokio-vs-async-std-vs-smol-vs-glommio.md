@@ -1,20 +1,23 @@
 ---
-title: Rust 异步生态全景：Tokio vs async-std vs smol vs glommio——运行时选型、io_uring 集成与 PHP/Go 开发者迁移路径
+title: Rust 异步生态全景：Tokio vs async-std vs smol vs glommio——运行时选型、io_uring 集成与 PHP/Go
+  开发者迁移路径
 date: 2026-06-09 06:00:00
 categories:
-  - rust
+- rust
 tags:
-  - Rust
-  - Tokio
-  - async-std
-  - smol
-  - glommio
-  - io_uring
-  - 异步编程
-  - 运行时选型
-description: 2026 年 Rust 异步运行时四大玩家深度对比：Tokio、async-std、smol、glommio，从架构设计到 io_uring 集成，手把手带 PHP/Go 开发者选对运行时、写对异步代码。
+- Rust
+- tokio
+- async-std
+- smol
+- glommio
+- io_uring
+- 异步编程
+- 运行时选型
+description: 2026 年 Rust 异步运行时四大玩家深度对比：Tokio、async-std、smol、glommio，从架构设计到 io_uring
+  集成，手把手带 PHP/Go 开发者选对运行时、写对异步代码。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 ## 前言
 

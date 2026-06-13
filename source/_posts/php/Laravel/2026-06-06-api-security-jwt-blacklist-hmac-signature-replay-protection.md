@@ -1,11 +1,21 @@
 ---
-title: "API Security 深度实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击——多层防御的工程化方案"
+title: API Security 深度实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击——多层防御的工程化方案
 date: 2026-06-06 10:00:00
-tags: [API Security, JWT, 请求签名, IP 白名单, 防重放, Laravel]
-categories: [php]
+tags:
+- API安全
+- JWT
+- 请求签名
+- IP 白名单
+- 防重放
+- Laravel
+categories:
+- php
 cover: /images/covers/api-security-multi-layer-cover.jpg
-description: "本文系统性地构建 API Security 多层防御体系，涵盖 JWT 黑名单与白名单机制、Access Token + Refresh Token 双 Token 策略、HMAC-SHA256 请求签名、IP 白名单动态规则引擎、Nonce + Timestamp 防重放攻击等核心安全技术。所有方案均基于 Laravel 框架提供生产级代码实现，适合需要加固 API 接口安全性的 PHP 开发者参考。"
+description: 本文系统性地构建 API Security 多层防御体系，涵盖 JWT 黑名单与白名单机制、Access Token + Refresh
+  Token 双 Token 策略、HMAC-SHA256 请求签名、IP 白名单动态规则引擎、Nonce + Timestamp 防重放攻击等核心安全技术。所有方案均基于
+  Laravel 框架提供生产级代码实现，适合需要加固 API 接口安全性的 PHP 开发者参考。
 ---
+
 
 # API Security 深度实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击——多层防御的工程化方案
 

@@ -1,20 +1,23 @@
 ---
-title: "Pest PHP 实战：自定义 Expectations、Arch Testing、Mutation Testing 深度剖析"
+title: Pest PHP 实战：自定义 Expectations、Arch Testing、Mutation Testing 深度剖析
 cover: /images/covers/2026-06-01-pest-php-custom-expectations-arch-testing-mutation-testing-cover.jpg
 date: 2026-06-01 12:00:00
 categories:
-  - testing
-  - php
+- testing
+- php
 tags:
-  - pest php
-  - expectations
-  - arch testing
-  - mutation testing
-  - infection
-  - 测试工程化
-  - Laravel
-description: "深度剖析 Pest PHP 三大进阶能力：自定义 Expectations 封装领域断言、Arch Testing 架构规则守护、Mutation Testing 变异测试评估测试质量。源码级分析内部实现机制，真实 Laravel B2C API 场景实战，Infection 变异测试基准数据，以及从 PHPUnit 迁移的踩坑经验。"
+- Pest PHP
+- expectations
+- Arch Testing
+- Mutation Testing
+- infection
+- 测试工程化
+- Laravel
+description: 深度剖析 Pest PHP 三大进阶能力：自定义 Expectations 封装领域断言、Arch Testing 架构规则守护、Mutation
+  Testing 变异测试评估测试质量。源码级分析内部实现机制，真实 Laravel B2C API 场景实战，Infection 变异测试基准数据，以及从 PHPUnit
+  迁移的踩坑经验。
 ---
+
 # Pest PHP 实战：自定义 Expectations、Arch Testing、Mutation Testing 深度剖析
 
 > 测试代码的质量决定了生产代码的信心上限。覆盖率 100% 只是及格线——你的测试真的能抓住 Bug 吗？

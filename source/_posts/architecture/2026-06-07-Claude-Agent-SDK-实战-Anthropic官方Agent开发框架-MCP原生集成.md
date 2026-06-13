@@ -1,12 +1,19 @@
 ---
-title: 'Claude Agent SDK 实战：Anthropic 官方 Agent 开发框架——MCP 原生集成、子代理编排与 Laravel 后端接入'
+title: Claude Agent SDK 实战：Anthropic 官方 Agent 开发框架——MCP 原生集成、子代理编排与 Laravel 后端接入
 date: 2026-06-07 12:00:00
-tags: [Claude, agent-sdk, MCP, Laravel, ai-agent]
+tags:
+- Claude
+- agent-sdk
+- MCP
+- Laravel
+- AI Agent
 categories:
-  - architecture
+- architecture
 cover: /images/covers/claude-agent-sdk-cover.jpg
-description: "Claude Agent SDK 是 Anthropic 官方推出的轻量级 Agent 开发框架，原生集成 MCP 协议，支持子代理 Handoff 编排、Guardrail 安全护栏与多 MCP Server 组合。本文详解四大核心原语、三种传输方式、并行串行编排模式，并提供 Laravel 后端完整桥接方案与客户支持系统实战案例。"
+description: Claude Agent SDK 是 Anthropic 官方推出的轻量级 Agent 开发框架，原生集成 MCP 协议，支持子代理 Handoff
+  编排、Guardrail 安全护栏与多 MCP Server 组合。本文详解四大核心原语、三种传输方式、并行串行编排模式，并提供 Laravel 后端完整桥接方案与客户支持系统实战案例。
 ---
+
 
 ## 一、引言：为什么 Anthropic 要推出 Claude Agent SDK？
 

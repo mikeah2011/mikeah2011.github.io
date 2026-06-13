@@ -1,12 +1,21 @@
 ---
-title: 'Rust + Tokio 异步运行时深度实战：事件循环、任务调度、背压控制——对比 PHP Fibers 与 Go goroutine'
+title: Rust + Tokio 异步运行时深度实战：事件循环、任务调度、背压控制——对比 PHP Fibers 与 Go goroutine
 date: 2026-06-03 01:12:12
-tags: [rust, tokio, 异步编程, php fibers, go goroutine, 事件循环]
-description: "深入剖析 Rust Tokio 异步运行时的核心架构：事件循环（Reactor）原理、work-stealing 任务调度算法、背压控制实战（Bounded Channel / Semaphore / Rate Limiter），并与 PHP Fibers、Go goroutine 的 GMP 模型进行系统对比。涵盖性能基准测试、生产环境踩坑案例、选型决策树，帮助开发者在高并发场景下做出正确的异步运行时技术选型。"
+tags:
+- Rust
+- tokio
+- 异步编程
+- PHP Fibers
+- go goroutine
+- 事件循环
+description: 深入剖析 Rust Tokio 异步运行时的核心架构：事件循环（Reactor）原理、work-stealing 任务调度算法、背压控制实战（Bounded
+  Channel / Semaphore / Rate Limiter），并与 PHP Fibers、Go goroutine 的 GMP 模型进行系统对比。涵盖性能基准测试、生产环境踩坑案例、选型决策树，帮助开发者在高并发场景下做出正确的异步运行时技术选型。
 categories:
-  - architecture
+- architecture
 cover: /images/covers/rust-tokio-async-runtime-cover.jpg
 ---
+
+
 
 在高并发服务端开发领域，异步编程已经从"可选优化"变成了"必备技能"。PHP 开发者在 8.1 引入 Fibers 后第一次接触协程概念，Go 开发者从第一天就享受 goroutine 的便利，而 Rust 开发者则通过 Tokio 获得了一个工业级的异步运行时。三者都解决"并发"问题，但背后的模型、调度策略、资源控制方式截然不同。
 

@@ -1,12 +1,20 @@
 ---
 title: OpenHuman 安全实战：本地加密、数据主权、隐私合规
-description: 本文结合 OpenHuman 本地优先架构，系统拆解本地加密、数据主权、隐私合规与审计治理的实战方案，覆盖 AES-256-GCM、Keychain、SQLite、日志脱敏、密钥轮换、数据删除与常见踩坑案例，帮助你构建真正可落地、可验证、可审计的 AI Agent 安全底座。
+description: 本文结合 OpenHuman 本地优先架构，系统拆解本地加密、数据主权、隐私合规与审计治理的实战方案，覆盖 AES-256-GCM、Keychain、SQLite、日志脱敏、密钥轮换、数据删除与常见踩坑案例，帮助你构建真正可落地、可验证、可审计的
+  AI Agent 安全底座。
 date: 2026-06-02 10:00:00
-tags: [openhuman, 安全, 加密, 隐私, 数据主权, ai agent]
+tags:
+- OpenHuman
+- 安全
+- 加密
+- 隐私
+- 数据主权
+- AI Agent
 categories:
-  - architecture
+- architecture
 cover: /images/covers/openhuman-security-privacy-cover.jpg
 ---
+
 
 在 AI Agent 从“会调用模型”走向“能长期代表用户行动”的过程中，安全不再是附属能力，而是系统设计的第一原则。尤其当 Agent 需要读取本地文件、管理个人知识库、连接邮箱日历、调用第三方 API、执行自动化任务时，所谓“智能”很容易演变为“高权限、高风险、低可见性”的危险组合。OpenHuman 这类本地优先、用户可控的 Agent 体系之所以值得认真讨论，不是因为它比云端方案更时髦，而是因为它试图把数据控制权重新交还给用户：数据默认留在本地、密钥不外发、操作可审计、权限可收缩、同步可选择、删除可验证。
 

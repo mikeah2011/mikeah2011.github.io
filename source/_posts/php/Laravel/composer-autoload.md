@@ -3,14 +3,18 @@ title: Composer 依賴管理優化與 autoload 快取清理實戰 - KKday-B2C-AP
 cover: /images/covers/composer-autoload-cover.jpg
 date: 2026-05-03
 categories:
-  - php
-  - docker
-tags: [composer, php, laravel, autoload, 依赖管理]
-description: KKday B2C API 30+倉庫Composer優化實戰：解決install耗時30分鐘、vendor膨脹4GB、autoload缺失等六個真實踩坑。涵蓋PSR-4/Classmap策略對比、composer audit安全掃描、CI/CD緩存加速、記憶體不足排錯，附完整命令速查表與性能對比數據。
-
-
-
+- php
+- docker
+tags:
+- Composer
+- PHP
+- Laravel
+- autoload
+- 依赖管理
+description: KKday B2C API 30+倉庫Composer優化實戰：解決install耗時30分鐘、vendor膨脹4GB、autoload缺失等六個真實踩坑。涵蓋PSR-4/Classmap策略對比、composer
+  audit安全掃描、CI/CD緩存加速、記憶體不足排錯，附完整命令速查表與性能對比數據。
 ---
+
 # Composer 依賴管理優化與 autoload 快取清理實戰
 
 ## 📋 背景說明

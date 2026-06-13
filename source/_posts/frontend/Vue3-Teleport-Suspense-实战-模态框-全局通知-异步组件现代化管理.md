@@ -1,12 +1,24 @@
 ---
 title: Vue 3 Teleport + Suspense 实战：模态框、全局通知、异步组件的现代化管理
 date: 2026-06-06 09:00:00
-tags: [vue3, teleport, suspense, 前端, 组件化, 异步组件, 模态框]
+tags:
+- Vue 3
+- Teleport
+- Suspense
+- 前端
+- 组件化
+- 异步组件
+- 模态框
 categories:
-  - frontend
-description: "Vue 3 Teleport 与 Suspense 实战指南：彻底解决模态框、全局通知、抽屉等浮层组件的 z-index 层叠上下文困境，以及异步数据加载时的骨架屏与错误处理。文章提供完整的 Vue 3 Composition API 可运行代码示例，涵盖 BaseModal、Toast 通知系统、Drawer 抽屉、AsyncModal 异步模态框等企业级组件实现，深入对比 Teleport vs 普通组件方案、Suspense vs defineAsyncComponent 的差异，包含多层嵌套 Teleport、Portal 管理器模式、嵌套 Suspense、Vue 3.5 defer 新特性及常见踩坑案例，帮助你构建现代化的浮层与异步管理体系。"
+- frontend
+description: Vue 3 Teleport 与 Suspense 实战指南：彻底解决模态框、全局通知、抽屉等浮层组件的 z-index 层叠上下文困境，以及异步数据加载时的骨架屏与错误处理。文章提供完整的
+  Vue 3 Composition API 可运行代码示例，涵盖 BaseModal、Toast 通知系统、Drawer 抽屉、AsyncModal 异步模态框等企业级组件实现，深入对比
+  Teleport vs 普通组件方案、Suspense vs defineAsyncComponent 的差异，包含多层嵌套 Teleport、Portal 管理器模式、嵌套
+  Suspense、Vue 3.5 defer 新特性及常见踩坑案例，帮助你构建现代化的浮层与异步管理体系。
 cover: /images/covers/vue3-teleport-suspense-cover.jpg
 ---
+
+
 
 # Vue 3 Teleport + Suspense 实战：模态框、全局通知、异步组件的现代化管理
 

@@ -2,16 +2,18 @@
 title: Cachet 实战：开源状态页面——Incident 管理、组件状态、订阅通知与 Laravel 微服务的对外 SLA 展示
 date: 2026-06-10 05:49:00
 categories:
-  - architecture
+- architecture
 tags:
-  - Cachet
-  - Status Page
-  - Incident Management
-  - SLA
-  - Laravel
-  - Microservices
-description: 用 Cachet 搭建对外状态页，实现组件健康监控、Incident 生命周期管理、邮件/Slack 订阅通知，并把 Laravel 微服务的 SLA 指标接入面板，提供对外可信的可用性展示。
+- Cachet
+- Status Page
+- Incident Management
+- SLA
+- Laravel
+- 微服务
+description: 用 Cachet 搭建对外状态页，实现组件健康监控、Incident 生命周期管理、邮件/Slack 订阅通知，并把 Laravel 微服务的
+  SLA 指标接入面板，提供对外可信的可用性展示。
 ---
+
 
 ## 概述
 

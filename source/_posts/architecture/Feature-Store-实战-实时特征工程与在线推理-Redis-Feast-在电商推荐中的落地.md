@@ -1,12 +1,20 @@
 ---
 title: Feature Store 实战：实时特征工程与在线推理——Redis + Feast 在电商推荐中的落地
 date: 2026-06-02 00:00:00
-tags: [feature store, redis, feast, 推荐系统, 电商]
+tags:
+- feature store
+- Redis
+- feast
+- 推荐系统
+- 电商
 categories:
-  - architecture
-description: 本文深入讲解如何使用 Redis 作为在线特征存储、结合 Feast 框架在电商推荐系统中构建完整的 Feature Store 方案。涵盖特征工程 Pipeline 设计、实时特征计算与 Materialize 到 Redis、Point-in-Time Correctness 训练服务一致性保证、Redis 集群部署与内存优化、Prometheus 监控告警体系，以及生产环境踩坑与最佳实践，帮助团队从零搭建低延迟、高可用的实时特征服务。
+- architecture
+description: 本文深入讲解如何使用 Redis 作为在线特征存储、结合 Feast 框架在电商推荐系统中构建完整的 Feature Store 方案。涵盖特征工程
+  Pipeline 设计、实时特征计算与 Materialize 到 Redis、Point-in-Time Correctness 训练服务一致性保证、Redis
+  集群部署与内存优化、Prometheus 监控告警体系，以及生产环境踩坑与最佳实践，帮助团队从零搭建低延迟、高可用的实时特征服务。
 cover: /images/covers/feature-store-redis-feast-cover.jpg
 ---
+
 
 # Feature Store 实战：实时特征工程与在线推理——Redis + Feast 在电商推荐中的落地
 

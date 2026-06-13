@@ -1,12 +1,23 @@
 ---
-title: Feature Branch Preview 实战：PR 级预览环境——Vercel Preview/Cloudflare Pages Preview + Laravel API 的全栈预览方案
-description: 深入讲解 Feature Branch Preview 实战方案：通过 Vercel Preview、Cloudflare Pages Preview 部署前端，配合 Laravel API 后端预览环境，利用 GitHub Actions 实现 PR 级全栈预览环境的自动化部署与清理。涵盖 Fly.io、Railway、Neon Branching 等方案的选型对比与踩坑记录。
+title: Feature Branch Preview 实战：PR 级预览环境——Vercel Preview/Cloudflare Pages Preview
+  + Laravel API 的全栈预览方案
+description: 深入讲解 Feature Branch Preview 实战方案：通过 Vercel Preview、Cloudflare Pages Preview
+  部署前端，配合 Laravel API 后端预览环境，利用 GitHub Actions 实现 PR 级全栈预览环境的自动化部署与清理。涵盖 Fly.io、Railway、Neon
+  Branching 等方案的选型对比与踩坑记录。
 date: 2026-06-06 00:00:00
-tags: [ci/cd, preview, vercel, cloudflare, laravel, github actions]
+tags:
+- CI/CD
+- preview
+- Vercel
+- Cloudflare
+- Laravel
+- GitHub Actions
 categories:
-  - devops
+- devops
 cover: /images/covers/feature-branch-preview-cover.jpg
 ---
+
+
 
 # Feature Branch Preview 实战：PR 级预览环境——Vercel Preview/Cloudflare Pages Preview + Laravel API 的全栈预览方案
 

@@ -2,14 +2,17 @@
 title: Go 语言并发模式：Channel 的九种实用用法
 date: 2026-06-09 14:13:00
 categories:
-  - go
+- go
 tags:
-  - Go
-  - Channel
-  - 并发编程
-  - Goroutine
-description: Channel 是 Go 并发模型的核心原语，但很多开发者只停留在基本的 send/receive 用法。本文总结 9 种生产级 Channel 模式：Fan-out/Fan-in、Worker Pool、Pipeline、Timeout、Or-Done、Tee、Bridge、Semaphore 和 Done Channel，每种都附带完整可运行代码和真实场景分析。
+- Go
+- Channel
+- 并发编程
+- goroutine
+description: Channel 是 Go 并发模型的核心原语，但很多开发者只停留在基本的 send/receive 用法。本文总结 9 种生产级 Channel
+  模式：Fan-out/Fan-in、Worker Pool、Pipeline、Timeout、Or-Done、Tee、Bridge、Semaphore 和 Done
+  Channel，每种都附带完整可运行代码和真实场景分析。
 ---
+
 
 Go 的并发哲学是「不要通过共享内存来通信，而要通过通信来共享内存」。Channel 就是这个哲学的核心载体。
 

@@ -4,14 +4,17 @@ cover: /images/covers/laravel-postgresql-guide-elasticsearch-tsvector-pg-trgm-co
 date: 2026-05-04 14:59:31
 updated: 2026-06-06 10:00:00
 categories:
-  - php
-  - database
-tags: [elasticsearch, laravel, postgresql]
-description: 在 Laravel 项目中利用 PostgreSQL 原生全文检索能力（tsvector、GIN 索引、pg_trgm 三元组模糊匹配）替代 Elasticsearch 实现站内搜索。本文从 Migration 建表、触发器权重配置、SearchScope 封装、ts_rank_cd 排序、ts_headline 高亮摘要、pg_trgm 纠错兜底等完整链路出发，结合商品后台真实场景，给出可直接落地的代码示例与性能对比数据，并总结中文分词、索引更新时机、WAL 回填等常见踩坑点，帮助中小团队用最低运维成本获得够用的搜索体验。
-
-
-
+- php
+- database
+tags:
+- Elasticsearch
+- Laravel
+- PostgreSQL
+description: 在 Laravel 项目中利用 PostgreSQL 原生全文检索能力（tsvector、GIN 索引、pg_trgm 三元组模糊匹配）替代
+  Elasticsearch 实现站内搜索。本文从 Migration 建表、触发器权重配置、SearchScope 封装、ts_rank_cd 排序、ts_headline
+  高亮摘要、pg_trgm 纠错兜底等完整链路出发，结合商品后台真实场景，给出可直接落地的代码示例与性能对比数据，并总结中文分词、索引更新时机、WAL 回填等常见踩坑点，帮助中小团队用最低运维成本获得够用的搜索体验。
 ---
+
 很多团队一提到"搜索"就先上 Elasticsearch，我也这么干过。但在一个 Laravel 商品后台里复盘后发现：真实需求只是按标题、SKU、标签搜索，再加错别字兜底；搜索量不高，却要维护同步链路、索引重建、别名切换和补数任务。最后我们把搜索收回 PostgreSQL，事务提交后立即可查，排障链路也短很多。
 
 本文会从零搭建一套完整的 Laravel + PostgreSQL 原生搜索方案，涵盖 Migration 设计、触发器、查询封装、性能优化、踩坑记录，以及何时该果断切回 Elasticsearch 的判断标准。

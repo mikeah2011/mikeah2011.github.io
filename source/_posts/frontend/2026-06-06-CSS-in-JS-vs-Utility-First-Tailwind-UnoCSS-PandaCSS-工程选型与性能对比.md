@@ -1,12 +1,22 @@
 ---
 title: CSS-in-JS vs Utility-First 实战：Tailwind vs UnoCSS vs PandaCSS 的工程选型与性能对比
 date: 2026-06-06 10:00:00
-tags: [CSS-in-JS, Tailwind, UnoCSS, PandaCSS, Utility-First, 前端工程化]
+tags:
+- CSS-in-JS
+- Tailwind CSS
+- UnoCSS
+- PandaCSS
+- Utility-First
+- 前端工程化
 categories:
-  - frontend
+- frontend
 cover: /images/covers/css-in-js-vs-utility-first-cover.jpg
-description: 'CSS-in-JS 运行时开销日益成为性能瓶颈，Utility-First 方案正当其时。本文从 CSS 方案十年演进切入，深入剖析 Styled-Components/Emotion 的运行时原理与 SSR 痛点，对比 Tailwind CSS v4 Oxide 引擎、UnoCSS 引擎级去重、PandaCSS 编译时类型安全三大 Utility-First 方案的架构设计、构建性能、Tree-Shaking 效率与工程化实践。附含完整的 Vite 项目基准测试、Bundle Size 对比与大型团队选型决策矩阵，助你在 2026 年做出最明智的 CSS 架构决策。'
+description: CSS-in-JS 运行时开销日益成为性能瓶颈，Utility-First 方案正当其时。本文从 CSS 方案十年演进切入，深入剖析 Styled-Components/Emotion
+  的运行时原理与 SSR 痛点，对比 Tailwind CSS v4 Oxide 引擎、UnoCSS 引擎级去重、PandaCSS 编译时类型安全三大 Utility-First
+  方案的架构设计、构建性能、Tree-Shaking 效率与工程化实践。附含完整的 Vite 项目基准测试、Bundle Size 对比与大型团队选型决策矩阵，助你在
+  2026 年做出最明智的 CSS 架构决策。
 ---
+
 
 # CSS-in-JS vs Utility-First 实战：Tailwind vs UnoCSS vs PandaCSS 的工程选型与性能对比
 

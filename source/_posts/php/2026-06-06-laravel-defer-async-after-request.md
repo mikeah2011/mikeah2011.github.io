@@ -1,12 +1,20 @@
 ---
 title: Laravel Defer 实战：请求结束后异步执行——对比 Queue/afterResponse/callback 的资源回收与执行时机
 date: 2026-06-06 12:00:00
-tags: [laravel, defer, 异步执行, 性能优化, php]
+tags:
+- Laravel
+- defer
+- 异步执行
+- 性能优化
+- PHP
 categories:
-  - php
+- php
 cover: /images/covers/laravel-defer-async-after-request-cover.jpg
-description: "深入剖析 Laravel 11 的 defer() 延迟执行机制，对比 Queue、afterResponse、terminate 回调三种异步方案的执行时机、资源回收与失败处理差异。通过源码级分析 DeferredCallbackCollection 的析构触发原理，结合订单邮件、审计日志、API 统计上报等实战案例，给出 defer 在 PHP-FPM 与 Octane/Swoole 环境下的最佳实践、常见陷阱（数据库连接超时、Request 失效、异常静默吞掉）及选型决策树，帮助开发者在请求结束后高效执行异步任务。"
+description: 深入剖析 Laravel 11 的 defer() 延迟执行机制，对比 Queue、afterResponse、terminate 回调三种异步方案的执行时机、资源回收与失败处理差异。通过源码级分析
+  DeferredCallbackCollection 的析构触发原理，结合订单邮件、审计日志、API 统计上报等实战案例，给出 defer 在 PHP-FPM
+  与 Octane/Swoole 环境下的最佳实践、常见陷阱（数据库连接超时、Request 失效、异常静默吞掉）及选型决策树，帮助开发者在请求结束后高效执行异步任务。
 ---
+
 
 # Laravel Defer 实战：请求结束后异步执行——对比 Queue/afterResponse/callback 的资源回收与执行时机
 

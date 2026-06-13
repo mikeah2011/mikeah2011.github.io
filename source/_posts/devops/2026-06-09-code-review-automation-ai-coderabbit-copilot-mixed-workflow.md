@@ -1,18 +1,21 @@
 ---
-title: "Code Review Automation 2026 实战：AI PR Review + 人工确认的混合工作流——CodeRabbit/GitHub Copilot Review 的规模化落地"
+title: Code Review Automation 2026 实战：AI PR Review + 人工确认的混合工作流——CodeRabbit/GitHub
+  Copilot Review 的规模化落地
 date: 2026-06-09 14:54:00
 categories:
-  - devops
+- devops
 tags:
-  - code-review
-  - AI
-  - GitHub
-  - CodeRabbit
-  - Copilot
-  - Laravel
-  - 自动化
-description: "2026 年 Code Review 自动化全景实战：CodeRabbit、GitHub Copilot Review、Danger.js 的混合工作流设计，从单仓库试点到 30+ 仓库规模化落地的踩坑记录。"
+- Code Review
+- AI
+- GitHub
+- CodeRabbit
+- Copilot
+- Laravel
+- 自动化
+description: 2026 年 Code Review 自动化全景实战：CodeRabbit、GitHub Copilot Review、Danger.js
+  的混合工作流设计，从单仓库试点到 30+ 仓库规模化落地的踩坑记录。
 ---
+
 
 ## 概述
 

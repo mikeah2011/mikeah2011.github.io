@@ -1,11 +1,20 @@
 ---
 title: Hermes vs OpenClaw vs OpenHuman：三种 AI Agent 记忆架构哲学深度对比
 date: 2026-06-02 12:00:00
-tags: [hermes, openclaw, openhuman, 记忆系统, ai agent, 架构对比]
-categories: [ai]
-description: 深度对比 Hermes 注册表驱动、OpenClaw 文件原生、OpenHuman 记忆树三种 AI Agent 记忆架构的设计哲学，从数据模型、检索机制、生命周期管理、隐私安全到扩展性全方位分析，包含完整的 Python 代码示例与选型建议，帮助开发者为 Agent 选择最合适的记忆系统方案。
+tags:
+- Hermes
+- OpenClaw
+- OpenHuman
+- 记忆系统
+- AI Agent
+- 架构对比
+categories:
+- ai
+description: 深度对比 Hermes 注册表驱动、OpenClaw 文件原生、OpenHuman 记忆树三种 AI Agent 记忆架构的设计哲学，从数据模型、检索机制、生命周期管理、隐私安全到扩展性全方位分析，包含完整的
+  Python 代码示例与选型建议，帮助开发者为 Agent 选择最合适的记忆系统方案。
 cover: /images/covers/hermes-openclaw-openhuman-memory-comparison-cover.jpg
 ---
+
 
 # Hermes vs OpenClaw vs OpenHuman：三种 AI Agent 记忆架构哲学深度对比
 

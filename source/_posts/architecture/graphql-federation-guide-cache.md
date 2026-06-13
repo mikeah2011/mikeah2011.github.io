@@ -3,12 +3,19 @@ title: GraphQL Federation 超图实战：订单、库存、价格子图拆分与
 cover: /images/covers/graphql-federation-guide-cache-cover.jpg
 date: 2026-05-03 08:52:00
 categories: Architecture
-tags: [bff, laravel, 微服务, 架构, graphql, federation]
-description: 本文基于 Laravel BFF 对接 Apollo Router 的真实生产改造经验，深度解析 GraphQL Federation 微服务架构中的核心痛点：子图拆分策略、跨服务 N+1 批量解析、网关缓存一致性与鉴权透传方案。涵盖订单、库存、价格三大子图的完整实现代码、踩坑案例与 GraphQL vs REST 对比分析，适合正在评估或落地 Federation 架构的后端团队参考。
-
-
-
+tags:
+- BFF
+- Laravel
+- 微服务
+- 架构
+- GraphQL
+- Federation
+description: 本文基于 Laravel BFF 对接 Apollo Router 的真实生产改造经验，深度解析 GraphQL Federation 微服务架构中的核心痛点：子图拆分策略、跨服务
+  N+1 批量解析、网关缓存一致性与鉴权透传方案。涵盖订单、库存、价格三大子图的完整实现代码、踩坑案例与 GraphQL vs REST 对比分析，适合正在评估或落地
+  Federation 架构的后端团队参考。
 ---
+
+
 我们把商品详情页从“Laravel BFF 串 4 个 REST 服务”改成 **GraphQL Federation 超图**，并不是为了把接口改得更潮，而是因为原方案在高峰期会同时出现三个问题：字段过取、下游接口爆炸、以及前端每加一个卡片都要补一次聚合逻辑。上线 Federation 之后，接口数确实少了，但真正难的不是 SDL 怎么写，而是**子图边界、鉴权透传、跨服务 N+1 和网关缓存一致性**。
 
 这篇只讲我在生产里踩过的坑，不讲 GraphQL 入门。

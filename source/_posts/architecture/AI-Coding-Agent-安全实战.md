@@ -1,12 +1,21 @@
 ---
 title: AI Coding Agent 安全实战：沙箱隔离、权限边界、代码审计——防止 AI 助手的"越狱"风险
 date: 2026-06-02 08:00:00
-description: "AI Coding Agent 安全实战指南，系统讲解沙箱隔离、权限边界设计与代码审计三大防护维度。涵盖 Docker/nsjail/Firejail 沙箱方案对比、文件系统与 API Key 权限边界配置、Prompt Injection 检测、CI/CD 安全门禁集成，以及统一安全网关的 Python 实现。帮助 DevSecOps 团队在享受 AI Agent 效率提升的同时，建立纵深防御体系，防止 AI 助手的越狱风险与数据泄露。"
-tags: [ai agent, 安全, 代码审计, 沙箱隔离, devsecops]
+description: AI Coding Agent 安全实战指南，系统讲解沙箱隔离、权限边界设计与代码审计三大防护维度。涵盖 Docker/nsjail/Firejail
+  沙箱方案对比、文件系统与 API Key 权限边界配置、Prompt Injection 检测、CI/CD 安全门禁集成，以及统一安全网关的 Python 实现。帮助
+  DevSecOps 团队在享受 AI Agent 效率提升的同时，建立纵深防御体系，防止 AI 助手的越狱风险与数据泄露。
+tags:
+- AI Agent
+- 安全
+- 代码审计
+- 沙箱隔离
+- DevSecOps
 categories:
-  - architecture
+- architecture
 cover: /images/covers/ai-coding-agent-security-cover.jpg
 ---
+
+
 
 AI Coding Agent 正在重塑软件开发工作流。Cursor、Claude Code、GitHub Copilot、Windsurf 等工具让开发者可以用自然语言描述需求，由 AI 生成代码、执行命令、操作文件系统。这种能力带来了前所未有的效率提升，但也引入了全新的攻击面——AI 助手本身可能成为安全威胁的载体。
 

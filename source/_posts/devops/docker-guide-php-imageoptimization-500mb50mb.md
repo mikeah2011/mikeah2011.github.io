@@ -1,17 +1,23 @@
 ---
-title: "Docker-多阶段构建实战-PHP-应用镜像优化-500MB到50MB踩坑记录"
+title: Docker-多阶段构建实战-PHP-应用镜像优化-500MB到50MB踩坑记录
 cover: /images/covers/docker-guide-php-imageoptimization-500mb50mb-cover.jpg
 date: 2026-05-05 10:56:07
 updated: 2026-05-05 10:59:21
 categories:
-  - devops
-  - docker
-tags: [ci/cd, devops, docker, laravel, php, 镜像优化, 多阶段构建]
-description: "在 KKday B2C 项目中，PHP-FPM 镜像从 520MB 优化到 48MB 的完整过程：多阶段构建、依赖裁剪、.dockerignore、层缓存治理、Alpine vs Debian 选型，以及 CI 流水线中的镜像推送踩坑记录。"
-
-
-
+- devops
+- docker
+tags:
+- CI/CD
+- DevOps
+- Docker
+- Laravel
+- PHP
+- 镜像优化
+- 多阶段构建
+description: 在 KKday B2C 项目中，PHP-FPM 镜像从 520MB 优化到 48MB 的完整过程：多阶段构建、依赖裁剪、.dockerignore、层缓存治理、Alpine
+  vs Debian 选型，以及 CI 流水线中的镜像推送踩坑记录。
 ---
+
 # Docker 多阶段构建实战：PHP 应用镜像从 500MB 优化到 50MB
 
 ## 前言

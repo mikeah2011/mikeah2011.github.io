@@ -1,11 +1,22 @@
 ---
-title: 'HTMX 实战：不用 JavaScript 框架也能做交互——Laravel + HTMX 的超轻量前后端方案'
+title: HTMX 实战：不用 JavaScript 框架也能做交互——Laravel + HTMX 的超轻量前后端方案
 date: 2026-06-02 10:00:00
-tags: [htmx, 前端, laravel, blade, 轻量级, 交互]
-categories: [frontend]
+tags:
+- HTMX
+- 前端
+- Laravel
+- Blade
+- 轻量级
+- 交互
+categories:
+- frontend
 cover: /images/covers/htmx-laravel-practical-guide-cover.jpg
-description: "HTMX 是一个仅 14KB 的轻量级 JavaScript 库，通过 HTML 属性即可实现 AJAX 请求、动态内容替换和实时交互，无需复杂的前端框架。本文深入讲解 HTMX 核心概念与 Laravel + Blade 的完整集成方案，涵盖中间件设计、CRUD 全栈实现、实时搜索、无限滚动、拖拽排序、乐观 UI 等实战模式，并提供与 React/Vue 的方案对比和渐进式迁移策略，帮助后端开发者用最少的代码构建优秀的交互体验。"
+description: HTMX 是一个仅 14KB 的轻量级 JavaScript 库，通过 HTML 属性即可实现 AJAX 请求、动态内容替换和实时交互，无需复杂的前端框架。本文深入讲解
+  HTMX 核心概念与 Laravel + Blade 的完整集成方案，涵盖中间件设计、CRUD 全栈实现、实时搜索、无限滚动、拖拽排序、乐观 UI 等实战模式，并提供与
+  React/Vue 的方案对比和渐进式迁移策略，帮助后端开发者用最少的代码构建优秀的交互体验。
 ---
+
+
 
 在 React、Vue、Svelte 等前端框架大行其道的今天，HTMX 以其"用 HTML 属性做 AJAX"的极简哲学，为那些不需要复杂单页应用的项目提供了一条截然不同的路径。HTMX 的核心理念是：HTML 本身就是超媒体，它天然支持链接和表单提交；HTMX 只是把这种能力扩展到了更多的 HTTP 方法和事件上。本文将深入讲解 HTMX 的核心概念、与 Laravel + Blade 的集成实践、以及在真实项目中的最佳实践。
 

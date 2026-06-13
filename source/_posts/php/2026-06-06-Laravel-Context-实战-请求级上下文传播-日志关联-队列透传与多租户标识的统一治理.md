@@ -1,12 +1,23 @@
 ---
 title: Laravel Context 实战：请求级上下文传播——日志关联、队列透传与多租户标识的统一治理
 date: 2026-06-06 10:30:00
-tags: [laravel, context, 日志, 队列, 多租户, 分布式追踪, 可观测性]
+tags:
+- Laravel
+- Context
+- 日志
+- 队列
+- 多租户
+- 分布式追踪
+- 可观测性
 categories:
-  - php
+- php
 cover: /images/covers/laravel-context-propagation-cover.jpg
-description: 深入解析 Laravel 11 引入的 Context 上下文传播机制，涵盖请求级数据的隐式携带与自动传播、日志关联 ID（Trace ID / Correlation ID）的无侵入注入、队列 Job 跨进程的上下文透传、多租户场景下租户标识的全局治理，以及与 Monolog、OpenTelemetry 的集成实战。帮助 Laravel 项目告别"上下文丢失"的运维困境，构建端到端可观测的分布式日志体系。
+description: 深入解析 Laravel 11 引入的 Context 上下文传播机制，涵盖请求级数据的隐式携带与自动传播、日志关联 ID（Trace ID
+  / Correlation ID）的无侵入注入、队列 Job 跨进程的上下文透传、多租户场景下租户标识的全局治理，以及与 Monolog、OpenTelemetry
+  的集成实战。帮助 Laravel 项目告别"上下文丢失"的运维困境，构建端到端可观测的分布式日志体系。
 ---
+
+
 
 ## 引言：看不见的上下文——分布式调试的第一道墙
 

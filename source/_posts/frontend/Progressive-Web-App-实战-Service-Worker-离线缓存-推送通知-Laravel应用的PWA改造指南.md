@@ -1,12 +1,21 @@
 ---
 title: Progressive Web App 实战：Service Worker、离线缓存、推送通知——Laravel 应用的 PWA 改造指南
 date: 2026-06-06 10:00:00
-description: 全面实战指南：手把手教你将Laravel应用改造为PWA。从Web App Manifest配置、Service Worker注册与生命周期管理，到Cache First、Network First、Stale While Revalidate等多级离线缓存策略深度解析，再到Web Push推送通知的VAPID密钥生成、前端订阅管理与Laravel后端队列化异步发送。附Workbox集成、Lighthouse审计通过技巧与常见踩坑解决方案，让Web应用拥有媲美原生App的离线体验与推送能力。
-tags: [pwa, service-worker, 离线缓存, 推送通知, laravel, workbox]
+description: 全面实战指南：手把手教你将Laravel应用改造为PWA。从Web App Manifest配置、Service Worker注册与生命周期管理，到Cache
+  First、Network First、Stale While Revalidate等多级离线缓存策略深度解析，再到Web Push推送通知的VAPID密钥生成、前端订阅管理与Laravel后端队列化异步发送。附Workbox集成、Lighthouse审计通过技巧与常见踩坑解决方案，让Web应用拥有媲美原生App的离线体验与推送能力。
+tags:
+- PWA
+- service-worker
+- 离线缓存
+- 推送通知
+- Laravel
+- Workbox
 categories:
-  - frontend
+- frontend
 cover: /images/covers/pwa-service-worker-laravel-cover.jpg
 ---
+
+
 
 > 传统 Web 应用在网络断开时"白屏一片"，用户流失率居高不下。Progressive Web App（PWA）通过 Service Worker、Cache API、Web Push 等核心技术，让 Web 应用拥有媲美原生 App 的离线体验与推送能力。本文将以一个真实的 Laravel B2C 电商应用为背景，手把手带你完成从 manifest.json 配置、Service Worker 生命周期管理、多级离线缓存策略，到 Laravel 后端推送通知的完整改造流程。
 

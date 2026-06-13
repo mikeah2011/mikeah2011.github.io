@@ -1,13 +1,22 @@
 ---
-title: 'AI Context Engineering 实战：系统化管理 AI 上下文——.cursorrules/CLAUDE.md/AGENTS.md 的工程化配置与团队共享'
+title: AI Context Engineering 实战：系统化管理 AI 上下文——.cursorrules/CLAUDE.md/AGENTS.md 的工程化配置与团队共享
 date: 2026-06-07 00:00:00
-tags: [ai, context-engineering, cursor, claude, agents, developer-tools]
+tags:
+- AI
+- context-engineering
+- Cursor
+- Claude
+- agents
+- developer-tools
 categories:
-  - architecture
+- architecture
 cover: /images/covers/ai-context-engineering-cover.jpg
-description: >
-  深入解析 Context Engineering 工程化实践：系统讲解 .cursorrules、CLAUDE.md、AGENTS.md、copilot-instructions.md 等主流 AI 编程工具上下文文件的配置方法与团队共享策略。涵盖多层上下文架构设计、Token 预算管理、跨工具兼容方案、CI/CD 集成验证，并提供 Laravel/Next.js/微服务三大技术栈的完整可运行配置示例，附带六大常见踩坑案例与最佳实践清单，帮助团队实现 AI 辅助开发的标准化与一致性。
+description: 深入解析 Context Engineering 工程化实践：系统讲解 .cursorrules、CLAUDE.md、AGENTS.md、copilot-instructions.md
+  等主流 AI 编程工具上下文文件的配置方法与团队共享策略。涵盖多层上下文架构设计、Token 预算管理、跨工具兼容方案、CI/CD 集成验证，并提供 Laravel/Next.js/微服务三大技术栈的完整可运行配置示例，附带六大常见踩坑案例与最佳实践清单，帮助团队实现
+  AI 辅助开发的标准化与一致性。
 ---
+
+
 
 ## 引言：为什么你需要 Context Engineering
 

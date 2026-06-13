@@ -1,11 +1,22 @@
 ---
 title: AI Agent Streaming 实战：SSE/WebSocket 实时流式响应——Laravel 后端的 Token-by-Token 推送与前端渲染
 date: 2026-06-03 09:00:00
-tags: [ai-agent, streaming, sse, websocket, laravel, llm]
-categories: [ai]
+tags:
+- AI Agent
+- Streaming
+- SSE
+- WebSocket
+- Laravel
+- LLM
+categories:
+- ai
 cover: /images/covers/ai-agent-streaming-cover.jpg
-description: "深入实战 AI Agent 流式响应系统：对比 SSE 与 WebSocket 方案选型，完整实现 Laravel 后端的 Token-by-Token 推送，涵盖 OpenAI 流式 API 调用、Tool Calling 链式执行、React/Vue 前端实时渲染、Nginx 缓冲踩坑、Swoole 协程高性能方案，以及 9 个生产环境常见问题与解决方案。"
+description: 深入实战 AI Agent 流式响应系统：对比 SSE 与 WebSocket 方案选型，完整实现 Laravel 后端的 Token-by-Token
+  推送，涵盖 OpenAI 流式 API 调用、Tool Calling 链式执行、React/Vue 前端实时渲染、Nginx 缓冲踩坑、Swoole 协程高性能方案，以及
+  9 个生产环境常见问题与解决方案。
 ---
+
+
 
 > **TL;DR：** AI Agent 的流式响应是现代 LLM 应用的核心体验——用户不想等待 30 秒看到完整回复，而是希望像 ChatGPT 那样逐字"打字"般看到内容实时生成。本文将从 **SSE vs WebSocket 选型** 出发，完整实现 **Laravel 后端** 的两种流式推送方案，涵盖 **OpenAI API 流式调用**、**Token-by-Token 推送机制**、**React/Vue 前端实时渲染**、**错误处理与重连**、**性能优化** 及 **生产环境踩坑总结**，助你构建一个企业级的 AI Agent 流式响应系统。
 

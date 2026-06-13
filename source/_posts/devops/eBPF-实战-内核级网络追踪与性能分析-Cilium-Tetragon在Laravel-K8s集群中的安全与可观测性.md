@@ -1,11 +1,19 @@
 ---
 title: eBPF 实战：内核级网络追踪与性能分析——Cilium/Tetragon 在 Laravel K8s 集群中的安全与可观测性
 date: 2026-06-03 10:00:00
-tags: [ebpf, cilium, tetragon, k8s, 可观测性]
-description: "深入解析 eBPF 技术在 Laravel Kubernetes 集群中的实战应用，涵盖 Cilium 高性能网络方案部署、Tetragon 安全可观测性引擎配置、XDP/kprobe/tracepoint 内核级网络追踪、零信任网络策略设计、Hubble 流量可视化监控，以及生产环境中的延迟排查、命令注入防护、连接池泄漏诊断等真实案例，助你构建内核级安全与可观测性体系。"
-categories: [devops]
+tags:
+- eBPF
+- Cilium
+- tetragon
+- K8s
+- 可观测性
+description: 深入解析 eBPF 技术在 Laravel Kubernetes 集群中的实战应用，涵盖 Cilium 高性能网络方案部署、Tetragon
+  安全可观测性引擎配置、XDP/kprobe/tracepoint 内核级网络追踪、零信任网络策略设计、Hubble 流量可视化监控，以及生产环境中的延迟排查、命令注入防护、连接池泄漏诊断等真实案例，助你构建内核级安全与可观测性体系。
+categories:
+- devops
 cover: /images/covers/ebpf-cilium-cover.jpg
 ---
+
 
 ## 前言：为什么我们需要 eBPF？
 

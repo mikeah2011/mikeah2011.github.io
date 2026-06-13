@@ -1,12 +1,21 @@
 ---
-title: "Laravel Polymorphic Associations 实战：多态关联的性能陷阱与替代方案——STI、JSON 列、中间表的选型决策"
+title: Laravel Polymorphic Associations 实战：多态关联的性能陷阱与替代方案——STI、JSON 列、中间表的选型决策
 date: 2026-06-04 08:00:02
-tags: [laravel, eloquent, 多态关联, sti, 数据库设计, 性能优化]
-description: "深入剖析 Laravel Eloquent 多态关联（Polymorphic Associations）在大数据量下的性能陷阱与优化方案。涵盖复合索引悖论、N+1 查询困境、外键约束缺失等核心问题，对比 STI 单表继承、JSON 列、中间表三种替代方案选型，附渐进式重构路径与 EXPLAIN 性能对比。"
+tags:
+- Laravel
+- Eloquent
+- 多态关联
+- STI
+- 数据库设计
+- 性能优化
+description: 深入剖析 Laravel Eloquent 多态关联（Polymorphic Associations）在大数据量下的性能陷阱与优化方案。涵盖复合索引悖论、N+1
+  查询困境、外键约束缺失等核心问题，对比 STI 单表继承、JSON 列、中间表三种替代方案选型，附渐进式重构路径与 EXPLAIN 性能对比。
 categories:
-  - php
+- php
 cover: /images/covers/laravel-polymorphic-associations-performance-pitfalls-cover.jpg
 ---
+
+
 
 ## 引言
 

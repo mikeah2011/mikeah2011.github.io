@@ -1,12 +1,23 @@
 ---
-title: 'PlanetScale Serverless MySQL 实战：Vitess 驱动的无服务器数据库——与 Laravel 集成的分支工作流、Online DDL 与性能基准'
+title: PlanetScale Serverless MySQL 实战：Vitess 驱动的无服务器数据库——与 Laravel 集成的分支工作流、Online
+  DDL 与性能基准
 date: 2026-06-05 03:29:48
-tags: [planetscale, mysql, vitess, serverless, laravel, online-ddl]
+tags:
+- PlanetScale
+- MySQL
+- vitess
+- Serverless
+- Laravel
+- online-ddl
 categories:
-  - database
+- database
 cover: /images/covers/planetscale-serverless-mysql-cover.jpg
-description: "全面解析 PlanetScale Serverless MySQL 平台的核心架构与生产实战。深入剖析 Vitess 分片引擎（VTGate、VTTablet、Topology Service）原理，详解 PlanetScale 数据库分支工作流与 Online DDL 零停机 Schema 变更机制，覆盖 Laravel Eloquent 集成配置、迁移工作流适配、性能基准测试与成本分析。对比 TiDB Cloud、CockroachDB、Aurora Serverless 等方案，帮助技术选型者评估 Serverless MySQL 在 SaaS、电商平台等场景中的适用性与落地策略。"
+description: 全面解析 PlanetScale Serverless MySQL 平台的核心架构与生产实战。深入剖析 Vitess 分片引擎（VTGate、VTTablet、Topology
+  Service）原理，详解 PlanetScale 数据库分支工作流与 Online DDL 零停机 Schema 变更机制，覆盖 Laravel Eloquent
+  集成配置、迁移工作流适配、性能基准测试与成本分析。对比 TiDB Cloud、CockroachDB、Aurora Serverless 等方案，帮助技术选型者评估
+  Serverless MySQL 在 SaaS、电商平台等场景中的适用性与落地策略。
 ---
+
 
 ## 前言
 

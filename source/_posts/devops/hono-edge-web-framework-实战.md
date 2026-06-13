@@ -1,12 +1,22 @@
 ---
-title: "Hono 框架实战：超轻量边缘 Web 框架——Cloudflare Workers/Deno/Bun 多运行时适配，对比 Express/Fastify 的极致性能"
+title: Hono 框架实战：超轻量边缘 Web 框架——Cloudflare Workers/Deno/Bun 多运行时适配，对比 Express/Fastify
+  的极致性能
 date: 2026-06-07 10:00:00
-description: "深入实战 Hono 超轻量边缘 Web 框架，涵盖 Cloudflare Workers、Deno、Bun 多运行时部署，内置中间件、Zod 校验、JWT 认证、BFF 聚合层完整示例，对比 Express/Fastify 性能基准，附生产踩坑与最佳实践指南。"
-tags: [hono, edge computing, cloudflare workers, deno, bun]
+description: 深入实战 Hono 超轻量边缘 Web 框架，涵盖 Cloudflare Workers、Deno、Bun 多运行时部署，内置中间件、Zod
+  校验、JWT 认证、BFF 聚合层完整示例，对比 Express/Fastify 性能基准，附生产踩坑与最佳实践指南。
+tags:
+- hono
+- Edge Computing
+- Cloudflare Workers
+- Deno
+- Bun
 categories:
-  - devops
+- devops
 cover: /images/covers/hono-edge-web-framework-cover.jpg
 ---
+
+
+
 
 在边缘计算（Edge Computing）浪潮席卷前端与后端开发的今天，传统的 Node.js Web 框架正面临全新的挑战：如何在 Cloudflare Workers、Deno、Bun 等新兴运行时中以极低的冷启动时间和内存占用高效运行？**Hono**（日语「炎」，意为火焰）正是为回答这一问题而诞生的下一代 Web 框架。它由日本开发者 Yusuke Wada 创建，如今已成为 GitHub 上增长最快的 Web 框架之一，星标数突破两万。
 

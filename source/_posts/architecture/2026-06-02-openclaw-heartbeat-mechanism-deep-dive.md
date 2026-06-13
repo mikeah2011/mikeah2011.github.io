@@ -1,11 +1,20 @@
 ---
 title: OpenClaw 心跳机制深度剖析：主动检查循环、安静时段、去重通知、记忆策展
 date: 2026-06-02 12:00:00
-tags: [openclaw, ai-agent, 心跳机制, 消息去重, 记忆策展]
-categories: [架构]
+tags:
+- OpenClaw
+- AI Agent
+- 心跳机制
+- 消息去重
+- 记忆策展
+categories:
+- 架构
 cover: /images/covers/openclaw-heartbeat-mechanism-deep-dive-cover.jpg
-description: "OpenClaw AI Agent 框架心跳机制源码级深度剖析：详解主动检查循环（Polling Loop）、安静时段（Quiet Hours）管理、去重通知（Dedup Notification）与记忆策展（Memory Curation）四大核心模块的架构设计与实现原理，附带 YAML 配置示例、Mermaid 架构图与竞品对比表，帮助开发者理解生产级 AI Agent 的自我管理基础设施。"
+description: OpenClaw AI Agent 框架心跳机制源码级深度剖析：详解主动检查循环（Polling Loop）、安静时段（Quiet Hours）管理、去重通知（Dedup
+  Notification）与记忆策展（Memory Curation）四大核心模块的架构设计与实现原理，附带 YAML 配置示例、Mermaid 架构图与竞品对比表，帮助开发者理解生产级
+  AI Agent 的自我管理基础设施。
 ---
+
 
 ## 前言
 

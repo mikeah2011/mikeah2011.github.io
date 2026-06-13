@@ -1,12 +1,20 @@
 ---
-title: 'Deno Deploy 实战：零配置边缘 JavaScript 部署——对比 Cloudflare Workers 的开发体验与性能'
+title: Deno Deploy 实战：零配置边缘 JavaScript 部署——对比 Cloudflare Workers 的开发体验与性能
 date: 2026-06-03 08:00:00
-tags: [deno-deploy, cloudflare-workers, 边缘计算, serverless, javascript, typescript]
+tags:
+- deno-deploy
+- Cloudflare Workers
+- 边缘计算
+- Serverless
+- JavaScript
+- TypeScript
 categories:
-  - frontend
+- frontend
 cover: /images/covers/deno-deploy-cover.jpg
-description: "Deno Deploy vs Cloudflare Workers 全面对比实战：架构原理、零配置部署、冷启动性能、KV存储方案、定价策略与完整代码示例。涵盖TypeScript原生支持差异、WebSocket实时通信、AI边缘代理等场景，附性能基准测试数据与选型决策框架，助你快速选对边缘JavaScript部署平台。"
+description: Deno Deploy vs Cloudflare Workers 全面对比实战：架构原理、零配置部署、冷启动性能、KV存储方案、定价策略与完整代码示例。涵盖TypeScript原生支持差异、WebSocket实时通信、AI边缘代理等场景，附性能基准测试数据与选型决策框架，助你快速选对边缘JavaScript部署平台。
 ---
+
+
 
 # Deno Deploy 实战：零配置边缘 JavaScript 部署——对比 Cloudflare Workers 的开发体验与性能
 

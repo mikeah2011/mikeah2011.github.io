@@ -4,14 +4,22 @@ cover: /images/covers/websocket-guide-laravel-reverb-pusher-architecture-cover.j
 date: 2026-05-17 03:35:37
 updated: 2026-05-17 03:37:35
 categories:
-  - php
-tags: [laravel, websocket, reverb, pusher, redis, broadcasting]
-description: >
-  全面解析 Laravel WebSocket 实时通信架构设计，深入对比 Pusher 与 Reverb 长连接方案选型。涵盖 Reverb 安装配置、Private/Presence Channel 权限控制、Echo 前端集成、Redis Pub/Sub 水平扩展，以及 Nginx 代理与心跳保活等 9 大生产踩坑记录，附完整代码示例与 Supervisor 部署配置。
+- php
+tags:
+- Laravel
+- WebSocket
+- Reverb
+- pusher
+- Redis
+- Broadcasting
+description: '全面解析 Laravel WebSocket 实时通信架构设计，深入对比 Pusher 与 Reverb 长连接方案选型。涵盖 Reverb
+  安装配置、Private/Presence Channel 权限控制、Echo 前端集成、Redis Pub/Sub 水平扩展，以及 Nginx 代理与心跳保活等
+  9 大生产踩坑记录，附完整代码示例与 Supervisor 部署配置。
 
-
-
+  '
 ---
+
+
 # WebSocket 实战：Laravel Reverb / Pusher 实时通信——架构选型、事件广播与生产环境踩坑记录
 
 ## 前言

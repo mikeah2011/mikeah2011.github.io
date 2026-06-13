@@ -1,12 +1,21 @@
 ---
-title: 'Serverless Task Queue 实战：AWS SQS + Lambda + Dead Letter Queue——Laravel 异步任务的无服务器替代方案与成本对比'
+title: Serverless Task Queue 实战：AWS SQS + Lambda + Dead Letter Queue——Laravel 异步任务的无服务器替代方案与成本对比
 date: 2026-06-05 08:00:00
-tags: [serverless, aws sqs, lambda, dead letter queue, laravel, queue]
+tags:
+- Serverless
+- aws sqs
+- Lambda
+- Dead Letter Queue
+- Laravel
+- Queue
 categories:
-  - devops
-description: "深入实战 AWS SQS + Lambda + Dead Letter Queue 构建 Laravel 无服务器异步任务队列，涵盖 Terraform IaC 基础设施搭建、Node.js 任务处理器实现、渐进式迁移路线图、冷启动与并发优化策略，以及与传统 Worker+Redis 方案的详细成本对比分析。"
+- devops
+description: 深入实战 AWS SQS + Lambda + Dead Letter Queue 构建 Laravel 无服务器异步任务队列，涵盖 Terraform
+  IaC 基础设施搭建、Node.js 任务处理器实现、渐进式迁移路线图、冷启动与并发优化策略，以及与传统 Worker+Redis 方案的详细成本对比分析。
 cover: /images/covers/serverless-task-queue-cover.jpg
 ---
+
+
 
 ## 前言
 

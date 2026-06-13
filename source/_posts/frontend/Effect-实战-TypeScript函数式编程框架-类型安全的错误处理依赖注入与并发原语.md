@@ -1,12 +1,22 @@
 ---
-title: 'Effect 实战：TypeScript 函数式编程框架——类型安全的错误处理、依赖注入与并发原语'
+title: Effect 实战：TypeScript 函数式编程框架——类型安全的错误处理、依赖注入与并发原语
 date: 2026-06-04 10:00:00
-tags: [effect, typescript, 函数式编程, 错误处理, 依赖注入]
-description: '深入解析 Effect 框架核心概念与工程实战：涵盖 Effect 三层类型模型（Success/Error/Requirements）、Data.TaggedError 结构化错误定义、catchTag/catchTags 模式匹配式错误捕获、Layer/Context/Tag 编译时依赖注入体系、Fiber 协程并发原语（fork/join/race/all）、Schedule 声明式重试策略（指数退避与抖动）、Schema 类型安全数据验证与编解码、Stream 背压流处理，并附带完整 API 客户端示例、与 NestJS DI 及 fp-ts 的详细对比和迁移路径，帮助 TypeScript 开发者掌握函数式编程在生产环境中的最佳实践。'
+tags:
+- Effect
+- TypeScript
+- 函数式编程
+- 错误处理
+- 依赖注入
+description: 深入解析 Effect 框架核心概念与工程实战：涵盖 Effect 三层类型模型（Success/Error/Requirements）、Data.TaggedError
+  结构化错误定义、catchTag/catchTags 模式匹配式错误捕获、Layer/Context/Tag 编译时依赖注入体系、Fiber 协程并发原语（fork/join/race/all）、Schedule
+  声明式重试策略（指数退避与抖动）、Schema 类型安全数据验证与编解码、Stream 背压流处理，并附带完整 API 客户端示例、与 NestJS DI 及
+  fp-ts 的详细对比和迁移路径，帮助 TypeScript 开发者掌握函数式编程在生产环境中的最佳实践。
 categories:
-  - frontend
+- frontend
 cover: /images/covers/effect-ts-functional-programming-cover.jpg
 ---
+
+
 
 # Effect 实战：TypeScript 函数式编程框架——类型安全的错误处理、依赖注入与并发原语
 

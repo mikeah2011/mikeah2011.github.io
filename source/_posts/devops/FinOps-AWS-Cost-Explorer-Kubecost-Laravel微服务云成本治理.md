@@ -1,12 +1,22 @@
 ---
-title: "FinOps 实战：AWS Cost Explorer + Kubecost 云成本治理——Laravel 微服务的按服务分摊、标签策略与预算告警"
+title: FinOps 实战：AWS Cost Explorer + Kubecost 云成本治理——Laravel 微服务的按服务分摊、标签策略与预算告警
 date: 2026-06-03 10:00:00
-tags: [finops, aws, kubecost, 成本治理, laravel, 微服务]
-description: "FinOps 实战指南：从零搭建 Laravel 微服务云成本治理体系。详解 AWS Cost Explorer 原生成本分析能力、Kubecost K8s 级别成本归因部署、Laravel 微服务标签策略设计、按服务分摊配置、AWS Budgets 预算告警与自动化关停机制。涵盖 Reserved Instance/Savings Plans/Spot 混合购买策略、Laravel 特有的队列/缓存/数据库成本优化点，以及 showback vs chargeback 成本文化建设。帮助团队实现云成本全链路可见性与自动化治理。"
+tags:
+- FinOps
+- AWS
+- Kubecost
+- 成本治理
+- Laravel
+- 微服务
+description: FinOps 实战指南：从零搭建 Laravel 微服务云成本治理体系。详解 AWS Cost Explorer 原生成本分析能力、Kubecost
+  K8s 级别成本归因部署、Laravel 微服务标签策略设计、按服务分摊配置、AWS Budgets 预算告警与自动化关停机制。涵盖 Reserved Instance/Savings
+  Plans/Spot 混合购买策略、Laravel 特有的队列/缓存/数据库成本优化点，以及 showback vs chargeback 成本文化建设。帮助团队实现云成本全链路可见性与自动化治理。
 categories:
-  - devops
+- devops
 cover: /images/covers/finops-aws-kubecost-cover.jpg
 ---
+
+
 
 > 当你的 Laravel 微服务从 3 个增长到 30 个，月度 AWS 账单从 $2,000 飙升到 $20,000 时，你才会真正意识到：**云成本治理不是可选项，而是生存必需品**。本文将从零搭建一套完整的 FinOps 治理体系，覆盖 AWS Cost Explorer 的原生能力、Kubecost 的 K8s 级别成本归因、Laravel 微服务的标签策略设计，以及自动化预算告警与关停机制。
 

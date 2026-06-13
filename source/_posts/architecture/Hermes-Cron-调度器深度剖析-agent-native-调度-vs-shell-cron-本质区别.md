@@ -1,12 +1,20 @@
 ---
 title: Hermes Cron 调度器深度剖析：agent-native 调度 vs shell cron 的本质区别
 date: 2026-06-02 00:00:00
-description: 深度对比 Hermes Agent-Native Cron 调度器与传统 Shell Cron 的本质区别。从任务模型、上下文继承、触发方式、资源管理、错误处理六大维度展开分析，详解声明式 YAML 配置、时间轮调度、事件驱动触发、API 配额感知、优先级队列等核心实现，附完整代码示例与架构图，帮助开发者理解 AI Agent 时代调度系统的设计范式演进。
-tags: [hermes, cron, 调度器, ai agent, 自动化]
+description: 深度对比 Hermes Agent-Native Cron 调度器与传统 Shell Cron 的本质区别。从任务模型、上下文继承、触发方式、资源管理、错误处理六大维度展开分析，详解声明式
+  YAML 配置、时间轮调度、事件驱动触发、API 配额感知、优先级队列等核心实现，附完整代码示例与架构图，帮助开发者理解 AI Agent 时代调度系统的设计范式演进。
+tags:
+- Hermes
+- Cron
+- 调度器
+- AI Agent
+- 自动化
 categories:
-  - architecture
+- architecture
 cover: /images/covers/hermes-cron-scheduler-cover.jpg
 ---
+
+
 
 # Hermes Cron 调度器深度剖析：agent-native 调度 vs shell cron 的本质区别
 

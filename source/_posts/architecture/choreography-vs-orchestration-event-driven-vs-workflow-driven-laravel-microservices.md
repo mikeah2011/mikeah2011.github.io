@@ -1,12 +1,21 @@
 ---
 title: Choreography vs Orchestration 实战：事件驱动 vs 工作流驱动——Laravel 微服务中的两种分布式编排范式深度对比
 date: 2026-06-06 00:00:00
-tags: [微服务, choreography, orchestration, 事件驱动, laravel, saga]
-description: "深度对比微服务架构中 Choreography（编舞）与 Orchestration（指挥）两种分布式协调范式。基于 Laravel 生态，通过电商订单全流程实战代码，从设计哲学、事件驱动架构、工作流编排实现、Saga 分布式事务补偿、错误处理、可观测性到性能扩展，全方位解析两种模式的优劣势与适用场景。附选型决策框架、Outbox 模式、幂等设计与生产踩坑指南，帮助架构师在事件驱动与工作流驱动之间做出最优选择。"
+tags:
+- 微服务
+- choreography
+- orchestration
+- 事件驱动
+- Laravel
+- Saga
+description: 深度对比微服务架构中 Choreography（编舞）与 Orchestration（指挥）两种分布式协调范式。基于 Laravel 生态，通过电商订单全流程实战代码，从设计哲学、事件驱动架构、工作流编排实现、Saga
+  分布式事务补偿、错误处理、可观测性到性能扩展，全方位解析两种模式的优劣势与适用场景。附选型决策框架、Outbox 模式、幂等设计与生产踩坑指南，帮助架构师在事件驱动与工作流驱动之间做出最优选择。
 categories:
-  - architecture
+- architecture
 cover: /images/covers/choreography-vs-orchestration-cover.jpg
 ---
+
+
 
 在微服务架构的演进过程中，服务间的协调方式一直是架构师面临的最核心挑战之一。随着业务复杂度的提升，单个用户操作往往需要跨越多个微服务协作完成，例如一笔电商订单的创建可能涉及订单服务、库存服务、支付服务、通知服务和物流服务。如何让这些服务高效、可靠地协同工作，直接决定了系统的可维护性、可观测性和扩展能力。
 

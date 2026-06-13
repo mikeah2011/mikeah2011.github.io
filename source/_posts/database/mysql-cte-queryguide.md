@@ -3,16 +3,17 @@ title: MySQL-CTE-递归查询实战-树形结构层级分析与路径聚合
 date: 2026-05-05 12:30:11
 updated: 2026-05-05 12:34:25
 categories:
-  - database
-tags: [laravel, mysql]
+- database
+tags:
+- Laravel
+- MySQL
 description: 基于 Laravel B2C 后台真实树形分类与运营报表场景，拆解 MySQL 8 Recursive CTE 在层级展开、路径聚合、子树汇总中的落地方式，重点记录索引设计、环数据防护、路径截断与临时表放大的真实踩坑。
 cover: /images/covers/databases-001-cover.jpg
 images:
-  - /images/content/databases-001-content-1.jpg
-  - /images/content/databases-001-content-2.jpg
-
-
+- /images/content/databases-001-content-1.jpg
+- /images/content/databases-001-content-2.jpg
 ---
+
 ## 前言：为什么我会把树形遍历从 PHP 挪回 SQL
 
 后台最容易被低估的一类需求，不是下单，不是支付，而是“分类树、渠道树、组织树”这类层级数据。早期我们常见写法是：先把整张表查出来，再在 Laravel Collection 里递归组装、过滤、统计。数据量小时没问题，一旦运营开始要“某个根节点下所有子分类 GMV、深度、完整路径、是否叶子节点”，PHP 端递归就会出现三个问题：查太多、算太慢、口径不一致。

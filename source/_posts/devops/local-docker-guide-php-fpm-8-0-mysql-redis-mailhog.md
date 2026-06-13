@@ -4,14 +4,18 @@ cover: /images/covers/local-docker-guide-php-fpm-8-0-mysql-redis-mailhog-cover.j
 date: 2026-05-05 02:05:09
 updated: 2026-05-05 02:07:40
 categories:
-  - devops
-  - database
-tags: [docker, laravel, php, 工程管理]
-description: KKday B2C 后端 30+ 个 Laravel 仓库统一本地开发环境的完整实战指南 —— 从零搭建 local-docker（PHP-FPM 8.0 + MySQL + Redis + Mailhog），详解 Dockerfile 与 docker-compose 配置，解决容器权限、hostname 互通、邮件捕获等常见坑位，附 Makefile 速查与 FAQ，新成员 10 分钟跑起来。
-
-
-
+- devops
+- database
+tags:
+- Docker
+- Laravel
+- PHP
+- 工程管理
+description: KKday B2C 后端 30+ 个 Laravel 仓库统一本地开发环境的完整实战指南 —— 从零搭建 local-docker（PHP-FPM
+  8.0 + MySQL + Redis + Mailhog），详解 Dockerfile 与 docker-compose 配置，解决容器权限、hostname
+  互通、邮件捕获等常见坑位，附 Makefile 速查与 FAQ，新成员 10 分钟跑起来。
 ---
+
 # local-docker 实战：PHP-FPM 8.0 + MySQL/Redis + Mailhog 开发环境配置
 
 > **一句话总结**：把 30+ 个 Laravel 仓库的本地开发环境统一成一个 `local-docker` 目录，新人 clone 完跑 `make up` 就能干活。

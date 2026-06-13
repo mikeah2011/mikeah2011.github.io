@@ -1,12 +1,23 @@
 ---
 title: Outbox Pattern 实战：保证数据库与消息队列的最终一致性——Laravel + Debezium 的可靠事件发布
 date: 2026-06-02 00:00:00
-tags: [outbox pattern, debezium, 消息队列, 最终一致性, laravel]
+tags:
+- Outbox Pattern
+- Debezium
+- 消息队列
+- 最终一致性
+- Laravel
 categories:
-  - php
-description: "Outbox Pattern 实战指南，解决微服务架构中数据库与消息队列的双写问题。详解 Outbox 表设计（JSON payload + 分区表）、Laravel OutboxWriter 事务内原子写入、HasOutboxEvents Trait 自动化事件记录、Debezium CDC Connector 注册与 EventRouter 配置、Kafka 消费者幂等性保证（processed_events 唯一键）、消费者组管理与死信队列。对比 Polling Publisher 与 CDC 两种实现方式的实时性/数据库负担/运维复杂度差异，附 Outbox 表膨胀、消息乱序、Debezium 断连、Schema 变更四大踩坑解决方案与 Prometheus 告警规则，适合需要保证事件驱动架构数据一致性的 Laravel 微服务团队参考。"
+- php
+description: Outbox Pattern 实战指南，解决微服务架构中数据库与消息队列的双写问题。详解 Outbox 表设计（JSON payload
+  + 分区表）、Laravel OutboxWriter 事务内原子写入、HasOutboxEvents Trait 自动化事件记录、Debezium CDC Connector
+  注册与 EventRouter 配置、Kafka 消费者幂等性保证（processed_events 唯一键）、消费者组管理与死信队列。对比 Polling Publisher
+  与 CDC 两种实现方式的实时性/数据库负担/运维复杂度差异，附 Outbox 表膨胀、消息乱序、Debezium 断连、Schema 变更四大踩坑解决方案与
+  Prometheus 告警规则，适合需要保证事件驱动架构数据一致性的 Laravel 微服务团队参考。
 cover: /images/covers/outbox-pattern-laravel-debezium-cover.jpg
 ---
+
+
 
 # Outbox Pattern 实战：保证数据库与消息队列的最终一致性——Laravel + Debezium 的可靠事件发布
 

@@ -1,16 +1,27 @@
 ---
-title: "PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离踩坑记录"
+title: PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离踩坑记录
 cover: /images/covers/php-fiber-concurrencyguide-laravel-concurrencyapi-cover.jpg
 date: 2026-05-04 23:11:25
 updated: 2026-05-04 23:14:17
 categories:
-  - php
-tags: [BFF, Laravel, PHP, 架构, fiber, 协程, 并发, swoole, performance]
-description: "深入解析 PHP 8.1 Fiber 在 Laravel BFF 层的生产级落地实践：从零构建基于 stream_select 的协作式调度器，实现 6 个下游服务并发调用，详解错误隔离、超时降级、curl_multi 非阻塞 I/O 集成方案，并与 Guzzle Promises、Swoole 协程做全面性能对比。附完整基准测试代码、Laravel Queue Worker 异步任务 Fiber 化方案、以及 4 个真实生产踩坑案例的排查与修复过程，帮助团队在不引入 Swoole 扩展的前提下将聚合接口延迟降低 4 倍。"
-
-
-
+- php
+tags:
+- BFF
+- Laravel
+- PHP
+- 架构
+- Fiber
+- 协程
+- 并发
+- Swoole
+- Performance
+description: 深入解析 PHP 8.1 Fiber 在 Laravel BFF 层的生产级落地实践：从零构建基于 stream_select 的协作式调度器，实现
+  6 个下游服务并发调用，详解错误隔离、超时降级、curl_multi 非阻塞 I/O 集成方案，并与 Guzzle Promises、Swoole 协程做全面性能对比。附完整基准测试代码、Laravel
+  Queue Worker 异步任务 Fiber 化方案、以及 4 个真实生产踩坑案例的排查与修复过程，帮助团队在不引入 Swoole 扩展的前提下将聚合接口延迟降低
+  4 倍。
 ---
+
+
 # PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离踩坑记录
 
 ## 前言

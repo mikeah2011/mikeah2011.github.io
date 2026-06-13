@@ -1,11 +1,20 @@
 ---
 title: LLM Embedding 实战：OpenAI/Cohere/Jina 嵌入模型选型——RAG 系统的向量质量、维度与成本权衡
 date: 2026-06-06 12:00:00
-tags: [llm, embedding, rag, 向量数据库, ai]
-description: 本文深度对比 OpenAI、Cohere、Jina 三大主流 Embedding 嵌入模型，从向量质量、维度选择、API 成本、自托管方案、中文多语言能力、Laravel/PHP 集成、pgvector 向量数据库存储到 Chunking 策略与生产环境踩坑，系统性拆解 RAG 检索增强生成系统中 Embedding 选型的核心权衡，附完整代码示例与决策树，帮助开发者做出最优选型。
-categories: [ai]
+tags:
+- LLM
+- Embedding
+- RAG
+- 向量数据库
+- AI
+description: 本文深度对比 OpenAI、Cohere、Jina 三大主流 Embedding 嵌入模型，从向量质量、维度选择、API 成本、自托管方案、中文多语言能力、Laravel/PHP
+  集成、pgvector 向量数据库存储到 Chunking 策略与生产环境踩坑，系统性拆解 RAG 检索增强生成系统中 Embedding 选型的核心权衡，附完整代码示例与决策树，帮助开发者做出最优选型。
+categories:
+- ai
 cover: /images/covers/llm-embedding-rag-cover.jpg
 ---
+
+
 
 在 RAG（Retrieval-Augmented Generation）系统的构建过程中，Embedding 模型的选择往往被低估。很多人把注意力集中在大语言模型的选型上——是用 GPT-4o 还是 Claude，是用 Llama 还是 Qwen——却忽略了整个 RAG 链路中最关键的一环：**检索质量直接取决于 Embedding 模型的向量表示能力**。
 

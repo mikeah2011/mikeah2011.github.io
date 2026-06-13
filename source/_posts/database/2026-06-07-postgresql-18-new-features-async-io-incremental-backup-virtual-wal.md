@@ -1,12 +1,20 @@
 ---
-title: 'PostgreSQL 18 新特性前瞻：异步 I/O、增量备份、虚拟 WAL——Laravel 开发者的升级指南与性能收益量化'
+title: PostgreSQL 18 新特性前瞻：异步 I/O、增量备份、虚拟 WAL——Laravel 开发者的升级指南与性能收益量化
 date: 2026-06-07 10:00:00
-tags: [postgresql, 数据库, 性能优化, laravel, 异步io, 备份]
-description: "PostgreSQL 18 全面解析：深度剖析异步I/O（io_uring）子系统带来的15%-42%吞吐量提升、原生增量备份节省95%存储空间、虚拟WAL将逻辑复制延迟降低85%。本文包含详尽的PostgreSQL 17 vs 18性能对比基准测试数据、完整的Laravel应用升级指南与配置代码、生产环境回滚策略及最佳实践Checklist，助你平滑完成数据库版本升级。"
+tags:
+- PostgreSQL
+- 数据库
+- 性能优化
+- Laravel
+- 异步io
+- 备份
+description: PostgreSQL 18 全面解析：深度剖析异步I/O（io_uring）子系统带来的15%-42%吞吐量提升、原生增量备份节省95%存储空间、虚拟WAL将逻辑复制延迟降低85%。本文包含详尽的PostgreSQL
+  17 vs 18性能对比基准测试数据、完整的Laravel应用升级指南与配置代码、生产环境回滚策略及最佳实践Checklist，助你平滑完成数据库版本升级。
 categories:
-  - database
+- database
 cover: /images/covers/postgresql-18-new-features-cover.jpg
 ---
+
 
 ## 引言
 

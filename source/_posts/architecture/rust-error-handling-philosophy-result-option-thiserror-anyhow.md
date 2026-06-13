@@ -1,12 +1,22 @@
 ---
 title: Rust 错误处理哲学：Result/Option/thiserror/anyhow——对比 PHP Exception 和 Go error 的设计权衡
 date: 2026-06-05 00:00:00
-tags: [rust, 错误处理, result, option, thiserror, anyhow, php, go]
-description: "深入剖析 Rust 错误处理哲学——Result/Option 类型系统、? 操作符错误传播、thiserror 与 anyhow 生态库选型，并与 PHP Exception、Go error 进行系统性对比。涵盖完整代码示例、常见陷阱、决策树与三方库对比表，帮助开发者在库与应用层做出最佳错误处理策略选择。"
+tags:
+- Rust
+- 错误处理
+- result
+- option
+- thiserror
+- anyhow
+- PHP
+- Go
+description: 深入剖析 Rust 错误处理哲学——Result/Option 类型系统、? 操作符错误传播、thiserror 与 anyhow 生态库选型，并与
+  PHP Exception、Go error 进行系统性对比。涵盖完整代码示例、常见陷阱、决策树与三方库对比表，帮助开发者在库与应用层做出最佳错误处理策略选择。
 categories:
-  - architecture
+- architecture
 cover: /images/covers/rust-error-handling-philosophy-cover.jpg
 ---
+
 
 在软件工程中，错误处理是程序设计中最容易被忽视、却又最能体现语言哲学的领域之一。Rust 选择了一条独特的道路——**将错误编码进类型系统**，而非依赖异常机制或约定俗成的多返回值。本文将深入剖析 Rust 的 `Result`/`Option` 类型体系、`?` 操作符的错误传播机制、`thiserror` 与 `anyhow` 两大生态库的设计理念，并与 PHP 的异常体系和 Go 的 error 接口模式进行系统性对比。
 

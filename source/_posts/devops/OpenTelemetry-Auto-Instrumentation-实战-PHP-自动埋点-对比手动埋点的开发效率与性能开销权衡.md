@@ -1,12 +1,21 @@
 ---
-title: 'OpenTelemetry Auto-Instrumentation 实战：PHP 自动埋点——对比手动埋点的开发效率与性能开销权衡'
+title: OpenTelemetry Auto-Instrumentation 实战：PHP 自动埋点——对比手动埋点的开发效率与性能开销权衡
 date: 2026-06-06 10:00:00
-tags: [opentelemetry, php, observability, auto-instrumentation, 可观测性]
+tags:
+- OpenTelemetry
+- PHP
+- Observability
+- auto-instrumentation
+- 可观测性
 categories:
-  - devops
-description: "深入剖析 OpenTelemetry PHP 自动埋点的工作原理与实战配置，对比手动埋点的开发效率与性能开销。涵盖 PHP Observer API 机制、Laravel 全栈自动埋点搭建、OTLP Collector 部署、BatchSpanProcessor 优化、采样策略设计及生产环境最佳实践，附带真实基准测试数据（简单场景 +18.6%、复杂场景 +4.7% 延迟开销），帮助 PHP 开发者在可观测性、性能监控与开发效率之间做出最优权衡。"
+- devops
+description: 深入剖析 OpenTelemetry PHP 自动埋点的工作原理与实战配置，对比手动埋点的开发效率与性能开销。涵盖 PHP Observer
+  API 机制、Laravel 全栈自动埋点搭建、OTLP Collector 部署、BatchSpanProcessor 优化、采样策略设计及生产环境最佳实践，附带真实基准测试数据（简单场景
+  +18.6%、复杂场景 +4.7% 延迟开销），帮助 PHP 开发者在可观测性、性能监控与开发效率之间做出最优权衡。
 cover: /images/covers/opentelemetry-auto-instrumentation-php-cover.jpg
 ---
+
+
 
 ## 前言：为什么 PHP 可观测性值得重新审视
 

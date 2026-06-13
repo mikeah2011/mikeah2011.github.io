@@ -1,12 +1,20 @@
 ---
-title: 'PHP 8.5 Pipe Operator 实战进阶：链式数据处理管道与 Laravel Pipeline 的互补设计——告别嵌套回调的函数式编程新范式'
+title: PHP 8.5 Pipe Operator 实战进阶：链式数据处理管道与 Laravel Pipeline 的互补设计——告别嵌套回调的函数式编程新范式
 date: 2026-06-05 10:00:00
-tags: [php 8.5, pipe operator, laravel pipeline, 函数式编程, 管道模式]
+tags:
+- PHP 8.5
+- Pipe Operator
+- laravel pipeline
+- 函数式编程
+- 管道模式
 categories:
-  - php
+- php
 cover: /images/covers/php85-pipe-operator-cover.jpg
-description: "PHP 8.5 Pipe Operator（管道运算符）与 Laravel Pipeline 如何在同一项目中互补共存？本文深入剖析两种管道机制的设计哲学、适用边界与协作模式，通过中间件链重组、订单处理管道、API 响应标准化等真实场景，展示如何用 Pipe Operator 处理服务层内部的数据流，用 Laravel Pipeline 管理跨切面的请求处理链。附完整代码、性能基准与迁移策略。"
+description: PHP 8.5 Pipe Operator（管道运算符）与 Laravel Pipeline 如何在同一项目中互补共存？本文深入剖析两种管道机制的设计哲学、适用边界与协作模式，通过中间件链重组、订单处理管道、API
+  响应标准化等真实场景，展示如何用 Pipe Operator 处理服务层内部的数据流，用 Laravel Pipeline 管理跨切面的请求处理链。附完整代码、性能基准与迁移策略。
 ---
+
+
 
 ## 引言：两条管道，一个目标
 

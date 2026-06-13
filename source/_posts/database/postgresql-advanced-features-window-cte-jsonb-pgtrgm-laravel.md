@@ -1,12 +1,21 @@
 ---
 title: PostgreSQL 高级特性实战：Window Functions + CTE + JSONB + pg_trgm——Laravel 中的复杂查询重写与性能调优
 date: 2026-06-05 09:00:00
-tags: [PostgreSQL, Laravel, window-functions, cte, jsonb, pg_trgm, 性能调优]
+tags:
+- PostgreSQL
+- Laravel
+- Window-Functions
+- CTE
+- JSONB
+- pg_trgm
+- 性能调优
 categories:
-  - database
+- database
 cover: /images/covers/postgresql-advanced-features-cover.jpg
-description: 深入讲解 PostgreSQL 四大高级特性——Window Functions 窗口函数、CTE 公共表表达式、JSONB 二进制 JSON 与 pg_trgm 模糊搜索，结合 Laravel 实战代码演示复杂查询重写、索引策略选择与性能调优技巧，涵盖递归 CTE、GIN 与表达式索引对比及常见陷阱，助你从容应对海量数据挑战。
+description: 深入讲解 PostgreSQL 四大高级特性——Window Functions 窗口函数、CTE 公共表表达式、JSONB 二进制 JSON
+  与 pg_trgm 模糊搜索，结合 Laravel 实战代码演示复杂查询重写、索引策略选择与性能调优技巧，涵盖递归 CTE、GIN 与表达式索引对比及常见陷阱，助你从容应对海量数据挑战。
 ---
+
 
 ## 前言：为什么 Laravel 开发者需要掌握 PostgreSQL 高级特性
 

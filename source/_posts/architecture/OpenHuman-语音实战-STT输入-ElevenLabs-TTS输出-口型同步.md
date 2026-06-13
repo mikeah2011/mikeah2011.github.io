@@ -1,12 +1,21 @@
 ---
 title: OpenHuman 语音实战：STT 输入 + ElevenLabs TTS 输出 + 口型同步
 date: 2026-06-02 10:00:00
-description: 本文系统拆解 OpenHuman 语音实战方案，覆盖 STT 输入、Whisper 与 Deepgram 对比、ElevenLabs TTS 输出、流式播放、口型同步、WebSocket 事件总线、打断控制、延迟优化与常见踩坑，附可运行代码、配置示例与架构建议，适合数字人、AI Agent、虚拟主播与语音助手项目落地参考。
-tags: [openhuman, 语音识别, tts, elevenlabs, stt, ai agent]
+description: 本文系统拆解 OpenHuman 语音实战方案，覆盖 STT 输入、Whisper 与 Deepgram 对比、ElevenLabs TTS
+  输出、流式播放、口型同步、WebSocket 事件总线、打断控制、延迟优化与常见踩坑，附可运行代码、配置示例与架构建议，适合数字人、AI Agent、虚拟主播与语音助手项目落地参考。
+tags:
+- OpenHuman
+- 语音识别
+- TTS
+- elevenlabs
+- STT
+- AI Agent
 categories:
-  - architecture
+- architecture
 cover: /images/covers/openhuman-voice-stt-tts-cover.jpg
 ---
+
+
 
 在很多 AI Agent 项目里，“能听、能说、能对口型”已经不是锦上添花，而是决定交互自然度的核心能力。尤其是当 OpenHuman 这类偏实时、偏人格化、偏多模态的系统走向实际落地时，语音链路不再只是简单的“录音 -> 识别 -> 回复 -> 播放”，而是一个同时涉及延迟控制、流式协议、音频编码、角色语音风格、时间戳对齐、口型驱动、前后端并发调度的完整工程系统。
 

@@ -1,12 +1,21 @@
 ---
-title: 'WebGPU 实战：浏览器通用 GPU 计算——对比 WebGL 的高性能图形与 Compute Shader，PHP 开发者的前端 GPU 编程入门'
+title: WebGPU 实战：浏览器通用 GPU 计算——对比 WebGL 的高性能图形与 Compute Shader，PHP 开发者的前端 GPU 编程入门
 date: 2026-06-06 10:00:00
-description: 'WebGPU 是浏览器端新一代通用 GPU 计算 API，原生支持 Compute Shader，可实现矩阵乘法、粒子系统、图像处理等高性能并行计算。本文从 PHP 后端开发者视角出发，对比 WebGL 与 WebGPU 的架构差异，详解 WGSL 着色器语言、Buffer、BindGroup 等核心概念，通过三角形渲染、10 万粒子物理模拟、GPU 矩阵乘法三个实战项目，帮助前端开发者入门 GPU 编程。'
-tags: [webgpu, webgl, wgsl, gpu计算, 前端, 图形编程]
+description: WebGPU 是浏览器端新一代通用 GPU 计算 API，原生支持 Compute Shader，可实现矩阵乘法、粒子系统、图像处理等高性能并行计算。本文从
+  PHP 后端开发者视角出发，对比 WebGL 与 WebGPU 的架构差异，详解 WGSL 着色器语言、Buffer、BindGroup 等核心概念，通过三角形渲染、10
+  万粒子物理模拟、GPU 矩阵乘法三个实战项目，帮助前端开发者入门 GPU 编程。
+tags:
+- WebGPU
+- WebGL
+- WGSL
+- GPU计算
+- 前端
+- 图形编程
 categories:
-  - frontend
+- frontend
 cover: /images/covers/webgpu-gpu-computing-cover.jpg
 ---
+
 
 # WebGPU 实战：浏览器通用 GPU 计算——对比 WebGL 的高性能图形与 Compute Shader，PHP 开发者的前端 GPU 编程入门
 

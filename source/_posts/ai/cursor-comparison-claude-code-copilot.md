@@ -1,17 +1,18 @@
 ---
-title: "2026年AI编程工具横评：Claude Code vs GitHub Copilot vs Cursor"
+title: 2026年AI编程工具横评：Claude Code vs GitHub Copilot vs Cursor
 date: 2026-06-10 02:29:00
 categories:
-  - ai
+- ai
 tags:
-  - AI编程
-  - Claude Code
-  - GitHub Copilot
-  - Cursor
-  - 工具对比
-  - 开发效率
-description: "深度对比三款主流AI编程工具的架构、能力边界和实战体验，帮你找到最趁手的工具。"
+- AI 编程
+- Claude Code
+- GitHub Copilot
+- Cursor
+- 工具对比
+- 开发效率
+description: 深度对比三款主流AI编程工具的架构、能力边界和实战体验，帮你找到最趁手的工具。
 ---
+
 
 ## 为什么需要一篇横评？
 

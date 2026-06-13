@@ -1,12 +1,20 @@
 ---
-title: 'Kafka vs NATS vs Pulsar 2026 实战：三大消息队列深度对比——Laravel 微服务中的吞吐量、延迟与运维复杂度选型决策'
-description: '2026年Laravel微服务消息队列选型深度对比：Apache Kafka、NATS、Apache Pulsar三大消息队列在吞吐量、延迟、运维复杂度、PHP生态集成方面的全方位实战评测与决策指南，涵盖Kafka 4.0 KRaft、NATS JetStream、Pulsar存算分离架构解析。'
+title: Kafka vs NATS vs Pulsar 2026 实战：三大消息队列深度对比——Laravel 微服务中的吞吐量、延迟与运维复杂度选型决策
+description: 2026年Laravel微服务消息队列选型深度对比：Apache Kafka、NATS、Apache Pulsar三大消息队列在吞吐量、延迟、运维复杂度、PHP生态集成方面的全方位实战评测与决策指南，涵盖Kafka
+  4.0 KRaft、NATS JetStream、Pulsar存算分离架构解析。
 date: 2026-06-06 12:00:00
-tags: [Kafka, NATS, Pulsar, 消息队列, Laravel, 微服务]
+tags:
+- Kafka
+- NATS
+- Apache Pulsar
+- 消息队列
+- Laravel
+- 微服务
 categories:
-  - architecture
+- architecture
 cover: /images/covers/kafka-nats-vs-pulsar-2026-cover.jpg
 ---
+
 
 # Kafka vs NATS vs Pulsar 2026 实战：三大消息队列深度对比——Laravel 微服务中的吞吐量、延迟与运维复杂度选型决策
 

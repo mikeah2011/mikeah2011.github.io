@@ -1,12 +1,22 @@
 ---
 title: Application Profiling 深度实战：Blackfire vs Tideways vs Datadog Profiling——生产环境火焰图分析与根因定位方法论
 date: 2026-06-06 10:00:00
-description: 本文深度对比Blackfire、Tideways、Datadog三大PHP应用性能分析工具，涵盖火焰图阅读方法论、Wall Clock与CPU Time区别、N+1查询定位、内存泄漏分析与I/O阻塞优化，系统讲解Laravel应用Profiling实战技巧。附完整代码示例、CI/CD性能断言集成与生产环境根因定位方法论，覆盖开发测试精确分析、生产持续监控与全栈可观测性三大场景选型指南。
-tags: [profiling, blackfire, tideways, datadog, 性能优化, laravel, PHP]
+description: 本文深度对比Blackfire、Tideways、Datadog三大PHP应用性能分析工具，涵盖火焰图阅读方法论、Wall Clock与CPU
+  Time区别、N+1查询定位、内存泄漏分析与I/O阻塞优化，系统讲解Laravel应用Profiling实战技巧。附完整代码示例、CI/CD性能断言集成与生产环境根因定位方法论，覆盖开发测试精确分析、生产持续监控与全栈可观测性三大场景选型指南。
+tags:
+- profiling
+- blackfire
+- tideways
+- Datadog
+- 性能优化
+- Laravel
+- PHP
 categories:
-  - devops
+- devops
 cover: /images/covers/application-profiling-cover.jpg
 ---
+
+
 
 ## 前言：为什么你需要 Profiling
 

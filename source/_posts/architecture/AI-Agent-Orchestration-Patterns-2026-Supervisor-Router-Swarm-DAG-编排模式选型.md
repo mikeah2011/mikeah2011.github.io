@@ -2,11 +2,17 @@
 title: AI Agent Orchestration Patterns 2026：Supervisor/Router/Swarm/DAG 四种编排模式的适用场景与工程选型
 date: 2026-06-05 10:00:00
 description: 2026年AI Agent多智能体编排模式全面选型指南——深入对比Supervisor、Router、Swarm、DAG四种编排架构的原理、适用场景、优缺点与工程实现，结合LangGraph/CrewAI框架实战代码，附决策树、混合编排方案与常见踩坑总结，助你快速选定最优多Agent协作架构。
-tags: [ai-agent, orchestration, 架构设计, 微服务, 2026]
+tags:
+- AI Agent
+- orchestration
+- 架构设计
+- 微服务
+- 2026
 categories:
-  - architecture
+- architecture
 cover: /images/covers/ai-agent-orchestration-patterns-2026-cover.jpg
 ---
+
 
 > 2026 年，AI Agent 已从单点能力进化为多智能体协作系统。当企业级应用不再满足于"一个 Agent 做一件事"，如何将多个 Agent 以合理的方式组织起来协同工作，就成为架构设计的核心命题。本文深入剖析 Supervisor、Router、Swarm、DAG 四种主流编排模式，结合 LangGraph、CrewAI 等框架的工程实践，帮助你做出最优的技术选型。
 

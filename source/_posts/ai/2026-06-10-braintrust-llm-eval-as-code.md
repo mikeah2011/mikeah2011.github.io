@@ -1,16 +1,18 @@
 ---
-title: "Braintrust 实战：LLM 评估即代码——Eval/Prompt/Score 的声明式管理与 CI 回归测试闭环"
+title: Braintrust 实战：LLM 评估即代码——Eval/Prompt/Score 的声明式管理与 CI 回归测试闭环
 date: 2026-06-10 00:15:00
 categories:
-  - ai
+- ai
 tags:
-  - Braintrust
-  - LLM-Eval
-  - Prompt-Engineering
-  - CI/CD
-  - 质量保障
-description: "深入实战 Braintrust 框架，用声明式代码管理 Eval、Prompt、Score 三大核心，构建 LLM 应用的 CI 回归测试闭环，告别人工 eyeball test。"
+- BrainTrust
+- LLM-Eval
+- Prompt Engineering
+- CI/CD
+- 质量保障
+description: 深入实战 Braintrust 框架，用声明式代码管理 Eval、Prompt、Score 三大核心，构建 LLM 应用的 CI 回归测试闭环，告别人工
+  eyeball test。
 ---
+
 ## 前言
 
 LLM 应用开发最痛苦的事情是什么？不是写 Prompt，不是调参数，而是——**改了一个 Prompt 之后，不知道其他场景有没有被影响**。

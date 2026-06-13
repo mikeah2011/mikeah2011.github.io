@@ -1,12 +1,21 @@
 ---
 title: RAG Reranking 实战：Cross-Encoder 重排序与 ColBERT 延迟交互——检索质量的最后一公里优化
-description: "深入解析 RAG 检索质量最后一公里优化方案：Cross-Encoder 全注意力重排序与 ColBERT 延迟交互架构的原理对比、工程实现与性能基准测试。涵盖 Bi-Encoder vs Cross-Encoder 信息流差异、MaxSim 评分机制、MS MARCO 评测数据、两级 Reranking 架构设计、GPU 批处理优化、多级缓存策略，以及 Laravel 集成 Python Reranker 微服务的完整代码方案。适合需要提升 RAG 系统检索精度的 AI 工程师与后端开发者参考。"
+description: 深入解析 RAG 检索质量最后一公里优化方案：Cross-Encoder 全注意力重排序与 ColBERT 延迟交互架构的原理对比、工程实现与性能基准测试。涵盖
+  Bi-Encoder vs Cross-Encoder 信息流差异、MaxSim 评分机制、MS MARCO 评测数据、两级 Reranking 架构设计、GPU
+  批处理优化、多级缓存策略，以及 Laravel 集成 Python Reranker 微服务的完整代码方案。适合需要提升 RAG 系统检索精度的 AI 工程师与后端开发者参考。
 date: 2026-06-07 12:00:00
-tags: [rag, cross-encoder, colbert, 向量搜索, ai]
+tags:
+- RAG
+- Cross-Encoder
+- ColBERT
+- 向量搜索
+- AI
 categories:
-  - architecture
+- architecture
 cover: /images/covers/rag-reranking-cover.jpg
 ---
+
+
 
 ## 前言
 

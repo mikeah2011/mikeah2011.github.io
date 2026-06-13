@@ -3,12 +3,21 @@ title: GraphQL Subscriptions 实战：Laravel Lighthouse + Reverb 打通库存�
 cover: /images/covers/graphql-subscriptions-guide-laravel-lighthouse-reverb-cover.jpg
 date: 2026-05-03 09:26:32
 categories:
-  - php
-tags: [laravel, websocket, graphql, subscriptions, 实时推送, lighthouse, reverb]
-description: 在 Laravel BFF 中使用 Lighthouse GraphQL + Reverb WebSocket 落地 Subscriptions 实时库存推送，覆盖 Schema 设计、频道鉴权、JWT 续期、多标签页连接控制、事件风暴防护与内存泄漏踩坑，并提供 GraphQL Subscriptions vs SSE vs 轮询的完整对比。
-
-
+- php
+tags:
+- Laravel
+- WebSocket
+- GraphQL
+- subscriptions
+- 实时推送
+- Lighthouse
+- Reverb
+description: 在 Laravel BFF 中使用 Lighthouse GraphQL + Reverb WebSocket 落地 Subscriptions
+  实时库存推送，覆盖 Schema 设计、频道鉴权、JWT 续期、多标签页连接控制、事件风暴防护与内存泄漏踩坑，并提供 GraphQL Subscriptions
+  vs SSE vs 轮询的完整对比。
 ---
+
+
 做 GraphQL 时，很多团队把查询层做得很漂亮，但一到"库存变更、订单状态变化、价格波动"这类实时场景，就又退回轮询。原因很现实：**Query/Mutation 好上手，Subscriptions 真正难的是连接生命周期、鉴权、事件风暴和多实例部署**。我这次在 Laravel BFF 里把商品库存提醒从 5 秒轮询改成 GraphQL Subscriptions，接口层统一成 GraphQL 之后，前端少写了一套 SSE/WebSocket 协议适配，后端也终于把"查库存"和"推库存变化"放进同一套 schema 管理。
 
 先说结论：如果你的实时消息只是后台广播，直接上 Reverb 足够；但如果你已经有 Lighthouse、前端又依赖 GraphQL schema 做类型生成，那么 **Subscriptions 的价值不是更快，而是协议统一**。

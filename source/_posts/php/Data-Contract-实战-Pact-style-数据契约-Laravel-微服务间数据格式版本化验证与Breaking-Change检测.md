@@ -1,12 +1,26 @@
 ---
-title: 'Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测'
+title: Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change
+  检测
 date: 2026-06-05 08:00:00
-tags: [Data Contract, Pact, Laravel, 微服务, 契约测试, JSON Schema, OpenAPI, Breaking Change]
+tags:
+- Data Contract
+- Pact
+- Laravel
+- 微服务
+- 契约测试
+- JSON Schema
+- OpenAPI
+- Breaking Changes
 categories:
-  - php
+- php
 cover: /images/covers/data-contract-pact-laravel-cover.jpg
-description: "Data Contract（数据契约）实战指南，详解如何在 Laravel 微服务架构中落地 Pact-style 数据契约。涵盖 Consumer-Driven Contracts（CDC）核心概念与 Pact 框架 PHP 集成、JSON Schema 与 OpenAPI Spec 定义数据格式的版本化策略（语义版本 + Header 版本控制）、Contract 验证中间件与 API Resource 适配实现多层数据校验、基于 openapi-diff 的 Breaking Change 自动检测与 GitHub Actions CI 集成、契约注册中心与版本生命周期管理。附生产环境四大踩坑（Schema 漂移、嵌套版本化、Consumer 版本碎片化、测试状态管理）解决方案与最佳实践总结，适合构建 Laravel 微服务间可靠数据交换体系的团队参考。"
+description: Data Contract（数据契约）实战指南，详解如何在 Laravel 微服务架构中落地 Pact-style 数据契约。涵盖 Consumer-Driven
+  Contracts（CDC）核心概念与 Pact 框架 PHP 集成、JSON Schema 与 OpenAPI Spec 定义数据格式的版本化策略（语义版本
+  + Header 版本控制）、Contract 验证中间件与 API Resource 适配实现多层数据校验、基于 openapi-diff 的 Breaking
+  Change 自动检测与 GitHub Actions CI 集成、契约注册中心与版本生命周期管理。附生产环境四大踩坑（Schema 漂移、嵌套版本化、Consumer
+  版本碎片化、测试状态管理）解决方案与最佳实践总结，适合构建 Laravel 微服务间可靠数据交换体系的团队参考。
 ---
+
 
 ## 引言：为什么微服务需要数据契约
 

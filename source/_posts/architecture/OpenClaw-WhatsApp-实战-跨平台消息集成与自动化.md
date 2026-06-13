@@ -1,12 +1,20 @@
 ---
 title: OpenClaw + WhatsApp 实战：跨平台消息集成与自动化
 date: 2026-06-02 09:00:00
-description: 本文围绕 OpenClaw 与 WhatsApp Business API 的生产级集成展开，系统梳理 Cloud API 接入选择、Webhook 设计、消息幂等、24 小时会话窗口、模板消息、多语言支持、自动化工作流与监控治理等关键环节，并结合跨平台消息架构、AI Agent 编排、企业通知与客服自动化场景，给出可落地的适配器设计思路、配置示例与实战经验。
-tags: [openclaw, ai agent, whatsapp, 跨平台, 自动化]
+description: 本文围绕 OpenClaw 与 WhatsApp Business API 的生产级集成展开，系统梳理 Cloud API 接入选择、Webhook
+  设计、消息幂等、24 小时会话窗口、模板消息、多语言支持、自动化工作流与监控治理等关键环节，并结合跨平台消息架构、AI Agent 编排、企业通知与客服自动化场景，给出可落地的适配器设计思路、配置示例与实战经验。
+tags:
+- OpenClaw
+- AI Agent
+- WhatsApp
+- 跨平台
+- 自动化
 categories:
-  - architecture
+- architecture
 cover: /images/covers/openclaw-whatsapp-cover.jpg
 ---
+
+
 
 # OpenClaw + WhatsApp 实战：跨平台消息集成与自动化
 

@@ -1,12 +1,23 @@
 ---
 title: Eventual Consistency 实战：最终一致性在电商场景中的工程化——反压、冲突解决与用户感知延迟
 date: 2026-06-04 09:00:00
-tags: [eventual-consistency, ecommerce, distributed-systems, cap, crdt, saga, laravel, event-driven]
+tags:
+- eventual-consistency
+- ecommerce
+- distributed-systems
+- CAP
+- CRDT
+- Saga
+- Laravel
+- Event-Driven
 categories:
-  - architecture
+- architecture
 cover: /images/covers/eventual-consistency-ecommerce-cover.jpg
-description: "深入解析最终一致性在电商场景中的工程化实践：涵盖 CAP/PACELC 理论、库存扣减乐观锁与 Redis 预扣减方案、订单状态机与幂等设计、支付回调防重与乱序处理、CRDT 冲突自动解决、反压策略与 Saga 补偿模式。大量 Laravel 可运行代码示例，助你构建高可用分布式电商系统。"
+description: 深入解析最终一致性在电商场景中的工程化实践：涵盖 CAP/PACELC 理论、库存扣减乐观锁与 Redis 预扣减方案、订单状态机与幂等设计、支付回调防重与乱序处理、CRDT
+  冲突自动解决、反压策略与 Saga 补偿模式。大量 Laravel 可运行代码示例，助你构建高可用分布式电商系统。
 ---
+
+
 
 # Eventual Consistency 实战：最终一致性在电商场景中的工程化——反压、冲突解决与用户感知延迟
 

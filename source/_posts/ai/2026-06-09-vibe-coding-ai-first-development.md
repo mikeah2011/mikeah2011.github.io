@@ -1,19 +1,21 @@
 ---
-title: "Vibe Coding 实战：AI-first 开发范式——从需求描述到可运行代码的全流程，对比传统 TDD 的生产力跃迁"
+title: Vibe Coding 实战：AI-first 开发范式——从需求描述到可运行代码的全流程，对比传统 TDD 的生产力跃迁
 date: 2026-06-09 15:00:00
 categories:
-  - ai
+- ai
 tags:
-  - Vibe-Coding
-  - AI-First
-  - Cursor
-  - Claude
-  - TDD
-  - Laravel
-  - Prompt-Engineering
-  - 开发范式
-description: "深入实践 Vibe Coding 这一 AI-first 开发范式，用自然语言驱动整个开发流程。从需求拆解、代码生成、测试验证到部署上线，完整对比传统 TDD 的效率差异，附带 Laravel 实战案例。"
+- Vibe-Coding
+- AI-First
+- Cursor
+- Claude
+- TDD
+- Laravel
+- Prompt Engineering
+- 开发范式
+description: 深入实践 Vibe Coding 这一 AI-first 开发范式，用自然语言驱动整个开发流程。从需求拆解、代码生成、测试验证到部署上线，完整对比传统
+  TDD 的效率差异，附带 Laravel 实战案例。
 ---
+
 
 ## 概述
 

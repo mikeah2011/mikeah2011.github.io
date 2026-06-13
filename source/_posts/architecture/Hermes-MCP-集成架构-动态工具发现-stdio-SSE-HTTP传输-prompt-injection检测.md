@@ -1,12 +1,24 @@
 ---
 title: Hermes MCP 集成架构：动态工具发现、stdio/SSE/HTTP 传输、prompt injection 检测
 date: 2026-06-02 12:00:00
-tags: [Hermes, MCP, AI Agent, 动态工具发现, 安全, prompt injection, stdio, SSE, HTTP]
-description: "本文深入拆解 Hermes Agent 的 MCP 集成架构，从动态工具发现、stdio/SSE/HTTP 三种传输方式的工程实现，到 prompt injection 检测与安全防护链路，结合源码分析与可落地配置，帮助开发者理解如何把 MCP 协议从 Demo 级支持升级为生产级 Agent 工程能力。覆盖并发调度、生命周期管理、OAuth 认证恢复、工具过滤与能力协商等核心话题。"
+tags:
+- Hermes
+- MCP
+- AI Agent
+- 动态工具发现
+- 安全
+- Prompt Injection
+- stdio
+- SSE
+- HTTP
+description: 本文深入拆解 Hermes Agent 的 MCP 集成架构，从动态工具发现、stdio/SSE/HTTP 三种传输方式的工程实现，到 prompt
+  injection 检测与安全防护链路，结合源码分析与可落地配置，帮助开发者理解如何把 MCP 协议从 Demo 级支持升级为生产级 Agent 工程能力。覆盖并发调度、生命周期管理、OAuth
+  认证恢复、工具过滤与能力协商等核心话题。
 categories:
-  - architecture
+- architecture
 cover: /images/covers/hermes-mcp-integration-cover.jpg
 ---
+
 
 ## 引言：为什么要单独讨论 Hermes 的 MCP 集成架构
 

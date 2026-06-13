@@ -1,12 +1,22 @@
 ---
-title: 'Grafana Pyroscope 实战：持续性能剖析——Laravel 应用的生产环境火焰图与根因定位方法论'
+title: Grafana Pyroscope 实战：持续性能剖析——Laravel 应用的生产环境火焰图与根因定位方法论
 date: 2026-06-04 10:00:00
-tags: [pyroscope, grafana, 性能剖析, laravel, 火焰图, 可观测性]
-description: "深入讲解 Grafana Pyroscope 持续性能剖析在 Laravel 生产环境中的完整实战方案。涵盖架构解析、Docker Compose 与 Kubernetes Helm Chart 部署、pyroscope-php SDK 集成、火焰图与差分火焰图阅读方法论、CPU/内存/阻塞多维剖析、N+1 查询根因定位、Profile-Guided Optimization 代码级优化，以及与 Grafana Tempo Trace-Profile 联动、成本优化与数据保留策略。附带完整可运行代码示例和电商大促性能故障诊断全流程案例，帮助团队构建可观测性第四支柱。"
+tags:
+- Pyroscope
+- Grafana
+- 性能剖析
+- Laravel
+- 火焰图
+- 可观测性
+description: 深入讲解 Grafana Pyroscope 持续性能剖析在 Laravel 生产环境中的完整实战方案。涵盖架构解析、Docker Compose
+  与 Kubernetes Helm Chart 部署、pyroscope-php SDK 集成、火焰图与差分火焰图阅读方法论、CPU/内存/阻塞多维剖析、N+1
+  查询根因定位、Profile-Guided Optimization 代码级优化，以及与 Grafana Tempo Trace-Profile 联动、成本优化与数据保留策略。附带完整可运行代码示例和电商大促性能故障诊断全流程案例，帮助团队构建可观测性第四支柱。
 categories:
-  - devops
+- devops
 cover: /images/covers/grafana-pyroscope-continuous-profiling-cover.jpg
 ---
+
+
 
 # Grafana Pyroscope 实战：持续性能剖析——Laravel 应用的生产环境火焰图与根因定位方法论
 

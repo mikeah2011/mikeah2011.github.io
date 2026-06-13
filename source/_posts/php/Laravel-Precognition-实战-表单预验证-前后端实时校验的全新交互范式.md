@@ -1,12 +1,19 @@
 ---
 title: Laravel Precognition 实战：表单预验证——前后端实时校验的全新交互范式
 date: 2026-06-06 02:08:57
-tags: [Laravel, Precognition, 表单验证, 前端交互, livewire]
+tags:
+- Laravel
+- Precognition
+- 表单验证
+- 前端交互
+- Livewire
 categories:
-  - php
+- php
 cover: /images/covers/laravel-precognition-cover.jpg
-description: "深入实战 Laravel Precognition 表单预验证机制，详解前后端实时校验的全新交互范式。涵盖原理剖析、Livewire/Vue/React 多框架集成、部分字段验证、防抖优化、生产环境安全策略及踩坑记录，帮助开发者用最少代码实现服务端级别的即时表单验证，彻底告别'提交后才报错'的糟糕用户体验。"
+description: 深入实战 Laravel Precognition 表单预验证机制，详解前后端实时校验的全新交互范式。涵盖原理剖析、Livewire/Vue/React
+  多框架集成、部分字段验证、防抖优化、生产环境安全策略及踩坑记录，帮助开发者用最少代码实现服务端级别的即时表单验证，彻底告别'提交后才报错'的糟糕用户体验。
 ---
+
 
 ## 前言
 

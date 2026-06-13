@@ -1,20 +1,24 @@
 ---
 title: MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则 - KKday B2C API 真实踩坑记录
 date: 2026-05-03
-description: "MySQL 索引深度优化实战指南，基于 KKday B2C API 真实踩坑记录，系统讲解 EXPLAIN 查询计划分析方法、覆盖索引设计策略、最左前缀原则应用技巧、索引失效三大典型场景避坑方案与慢查询治理完整解决方案。每个优化技巧均配有详细的 Before/After 代码对比、Docker Compose 一键复现测试环境与性能基准数据，帮助后端工程师全面掌握从全表扫描 type=ALL 到覆盖索引 Using index 的完整性能调优路径，实现查询速度提升 7 倍、P99 延迟降低 93%、CPU 使用率降低 82% 的显著优化效果。"
+description: MySQL 索引深度优化实战指南，基于 KKday B2C API 真实踩坑记录，系统讲解 EXPLAIN 查询计划分析方法、覆盖索引设计策略、最左前缀原则应用技巧、索引失效三大典型场景避坑方案与慢查询治理完整解决方案。每个优化技巧均配有详细的
+  Before/After 代码对比、Docker Compose 一键复现测试环境与性能基准数据，帮助后端工程师全面掌握从全表扫描 type=ALL 到覆盖索引
+  Using index 的完整性能调优路径，实现查询速度提升 7 倍、P99 延迟降低 93%、CPU 使用率降低 82% 的显著优化效果。
 cover: /images/covers/databases-007-cover.jpg
 images:
-  - /images/content/databases-007-content-1.jpg
-  - /images/content/databases-007-content-2.jpg
+- /images/content/databases-007-content-1.jpg
+- /images/content/databases-007-content-2.jpg
 categories:
-  - database
-tags: [laravel, mysql]
-简介: |
-  KKday B2C API 处理数万笔订单查询，MySQL 是核心数据源。本文基于真实踩坑记录分享索引优化实战经验：从 EXPLAIN 分析、覆盖索引应用、最左前缀原则到索引失效场景，每个技巧都配有 Before/After 代码对比，配合 Docker Compose 环境一键复现测试案例。
+- database
+tags:
+- Laravel
+- MySQL
+简介: 'KKday B2C API 处理数万笔订单查询，MySQL 是核心数据源。本文基于真实踩坑记录分享索引优化实战经验：从 EXPLAIN 分析、覆盖索引应用、最左前缀原则到索引失效场景，每个技巧都配有
+  Before/After 代码对比，配合 Docker Compose 环境一键复现测试案例。
 
-
-
+  '
 ---
+
 ## 一、为什么 B2C API 需要 MySQL 索引优化？
 
 在 KKday B2C 项目中，我们的核心业务层每天处理 **50,000+ 订单查询**、**20,000+ 商品搜索请求** 与 **10,000+ 会员积分计算**。MySQL 是这些数据的主要存储引擎，任何一处索引设计不当都可能导致：

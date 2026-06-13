@@ -1,13 +1,19 @@
 ---
 title: PHP Opcode 深度剖析：Zend VM 指令集、编译阶段与运行时执行——从源码理解 include/require 的性能差异
 date: 2026-06-06 12:00:00
-tags: [php, opcode, zend vm, 性能优化, 编译原理]
-description: >-
-  深入 Zend VM 源码，从词法分析、语法分析到 Opcode 执行全链路剖析 PHP 编译机制。对比 include/require/include_once/require_once 四兄弟在指令集层面的性能差异，结合 opcache 缓存策略、JIT 编译器调优与 Laravel 生产环境实战，帮助开发者彻底掌握 Opcode 级别的底层性能调优方法。
+tags:
+- PHP
+- opcode
+- zend vm
+- 性能优化
+- 编译原理
+description: 深入 Zend VM 源码，从词法分析、语法分析到 Opcode 执行全链路剖析 PHP 编译机制。对比 include/require/include_once/require_once
+  四兄弟在指令集层面的性能差异，结合 opcache 缓存策略、JIT 编译器调优与 Laravel 生产环境实战，帮助开发者彻底掌握 Opcode 级别的底层性能调优方法。
 categories:
-  - php
+- php
 cover: /images/covers/php-opcode-zend-vm-cover.jpg
 ---
+
 
 > 面试时被问到 "include 和 require 的区别"，你是否只能回答 "require 会致命错误，include 只是警告"？这篇文章将带你深入 Zend 引擎底层，从 opcode 层面彻底理解四兄弟的真正差异，以及 OPcache、JIT 是如何改变游戏规则的。
 

@@ -1,12 +1,21 @@
 ---
 title: Git Bisect + Automated Bug Finding 实战：二分法定位生产回归——结合 Pest 测试与 CI 的自动化 bug 猎手
 date: 2026-06-06 14:30:00
-description: "深入讲解 Git Bisect 二分法定位生产回归 bug 的完整实战流程。从手动 bisect 到自动化 bisect run，结合 Pest 测试框架与 CI/CD 管道构建全自动 bug 猎手。涵盖 GitHub Actions 工作流集成、Laravel 项目常见回归场景（Eloquent 关系、队列 Job、API 格式变更）、生产级 bisect 脚本编写及七大踩坑记录，帮助团队实现从被动灭火到主动预防的质效升级。"
-tags: [git, bisect, pest, ci/cd, 自动化测试, Bug定位]
+description: 深入讲解 Git Bisect 二分法定位生产回归 bug 的完整实战流程。从手动 bisect 到自动化 bisect run，结合 Pest
+  测试框架与 CI/CD 管道构建全自动 bug 猎手。涵盖 GitHub Actions 工作流集成、Laravel 项目常见回归场景（Eloquent 关系、队列
+  Job、API 格式变更）、生产级 bisect 脚本编写及七大踩坑记录，帮助团队实现从被动灭火到主动预防的质效升级。
+tags:
+- Git
+- bisect
+- Pest
+- CI/CD
+- 自动化测试
+- Bug定位
 categories:
-  - devops
+- devops
 cover: /images/covers/git-bisect-automated-bug-finding-cover.jpg
 ---
+
 
 ## 引言：为什么你的生产环境总在"出事"？
 

@@ -1,18 +1,23 @@
 ---
 title: 索引的最左前缀原则
-tags: [mysql, 索引优化, 联合索引, 最左前缀, EXPLAIN, 数据库]
+tags:
+- MySQL
+- 索引优化
+- 联合索引
+- 最左前缀
+- EXPLAIN
+- 数据库
 categories:
-  - database
+- database
 date: 2021-03-20 15:05:07
-description: '深入解析MySQL索引的最左前缀原则（Leftmost Prefix Rule），这是复合索引查询优化的核心机制。本文通过多个实例详细讲解联合索引的匹配规则，包括等值查询、范围查询、ORDER BY等场景下的索引失效问题，并提供EXPLAIN分析、常见误区和复合索引设计的实用指南，帮助开发者写出高效的SQL查询语句。'
+description: 深入解析MySQL索引的最左前缀原则（Leftmost Prefix Rule），这是复合索引查询优化的核心机制。本文通过多个实例详细讲解联合索引的匹配规则，包括等值查询、范围查询、ORDER
+  BY等场景下的索引失效问题，并提供EXPLAIN分析、常见误区和复合索引设计的实用指南，帮助开发者写出高效的SQL查询语句。
 cover: /images/covers/databases-index-2-cover.jpg
 images:
-  - /images/content/databases-index-2-content-1.jpg
-  - /images/content/databases-index-2-content-2.jpg
-
-
-
+- /images/content/databases-index-2-content-1.jpg
+- /images/content/databases-index-2-content-2.jpg
 ---
+
 ## 什么是最左前缀原则
 
 最左前缀原则（Leftmost Prefix Rule）是 MySQL 复合索引（也称联合索引）匹配的核心规则。简单来说，**MySQL 在使用复合索引时，会从索引的最左列开始，依次向右匹配，直到遇到范围查询条件（`>`、`<`、`BETWEEN`、`LIKE`）就停止匹配后续列**。

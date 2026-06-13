@@ -4,13 +4,20 @@ cover: /images/covers/laravel-http-client-guide-circuit-breakerfallback-cover.jp
 date: 2026-05-04 23:35:40
 updated: 2026-05-04 23:40:38
 categories:
-  - php
-tags: [laravel, http-client, 熔断器, fallback, 微服务, 容错设计, 监控]
-description: Laravel HTTP Client 容错实战：详解熔断器、优雅降级、指数退避重试与超时治理四大核心模式，结合 Redis Lua 原子操作实现舱壁隔离，构建微服务架构下高可用外部 API 调用层。附完整代码与踩坑记录。
-
-
-
+- php
+tags:
+- Laravel
+- http-client
+- 熔断器
+- Fallback
+- 微服务
+- 容错设计
+- 监控
+description: Laravel HTTP Client 容错实战：详解熔断器、优雅降级、指数退避重试与超时治理四大核心模式，结合 Redis Lua 原子操作实现舱壁隔离，构建微服务架构下高可用外部
+  API 调用层。附完整代码与踩坑记录。
 ---
+
+
 ## 一、背景：为什么 HTTP Client 需要容错
 
 在 KKday B2C 旅游平台中，一个商品详情页需要同时调用多个外部供应商 API：

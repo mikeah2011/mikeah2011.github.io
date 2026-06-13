@@ -1,12 +1,21 @@
 ---
 title: Railway vs Fly.io vs Render：2026 年 Laravel 应用云部署平台选型对比
 date: 2026-06-02 12:00:00
-tags: [railway, fly.io, render, 云部署, laravel, paas]
+tags:
+- railway
+- Fly.io
+- render
+- 云部署
+- Laravel
+- PaaS
 categories:
-  - devops
+- devops
 cover: /images/covers/railway-flyio-render-cover.jpg
-description: Heroku取消免费套餐后PaaS市场大洗牌，本文深度对比2026年三大主流云部署平台Railway、Fly.io和Render在Laravel应用部署中的实际表现。从定价模型、部署配置、Queue Worker支持、文件存储、自动扩缩容到开发体验全方位评测，包含完整的Dockerfile、fly.toml、render.yaml配置示例。针对不同场景给出选型建议：原型阶段用Railway、MVP阶段用Render、全球化阶段用Fly.io，帮助开发者做出最优决策。
+description: Heroku取消免费套餐后PaaS市场大洗牌，本文深度对比2026年三大主流云部署平台Railway、Fly.io和Render在Laravel应用部署中的实际表现。从定价模型、部署配置、Queue
+  Worker支持、文件存储、自动扩缩容到开发体验全方位评测，包含完整的Dockerfile、fly.toml、render.yaml配置示例。针对不同场景给出选型建议：原型阶段用Railway、MVP阶段用Render、全球化阶段用Fly.io，帮助开发者做出最优决策。
 ---
+
+
 
 # Railway vs Fly.io vs Render：2026 年 Laravel 应用云部署平台选型对比
 

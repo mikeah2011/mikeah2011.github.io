@@ -1,12 +1,21 @@
 ---
-title: 'Developer Environment as Code 实战：Devbox + devcontainer + Nix 的开发环境一致性——从"在我机器上能跑"到"在所有机器上都能跑"'
+title: Developer Environment as Code 实战：Devbox + devcontainer + Nix 的开发环境一致性——从"在我机器上能跑"到"在所有机器上都能跑"
 date: 2026-06-05 09:00:00
-tags: [Devbox, devcontainer, Nix, DevOps, 开发环境]
+tags:
+- Devbox
+- DevContainer
+- Nix
+- DevOps
+- 开发环境
 categories:
-  - devops
-description: Developer Environment as Code 实战指南，深入讲解 Devbox + devcontainer + Nix 三件套如何解决团队开发环境一致性难题。从 Nix 的可复现性哲学出发，逐步演示 Devbox 的零门槛包管理、devcontainer 的 IDE 深度集成，最终给出 Laravel 项目的完整 Environment as Code 配置方案。涵盖 Docker 方案对比、GitHub Codespaces 远程开发、CI/CD 集成、Windows WSL2 兼容以及 8 个真实踩坑案例，帮助团队彻底告别"在我机器上能跑"的环境噩梦，实现开发环境的声明式管理与秒级搭建。
+- devops
+description: Developer Environment as Code 实战指南，深入讲解 Devbox + devcontainer + Nix 三件套如何解决团队开发环境一致性难题。从
+  Nix 的可复现性哲学出发，逐步演示 Devbox 的零门槛包管理、devcontainer 的 IDE 深度集成，最终给出 Laravel 项目的完整 Environment
+  as Code 配置方案。涵盖 Docker 方案对比、GitHub Codespaces 远程开发、CI/CD 集成、Windows WSL2 兼容以及 8
+  个真实踩坑案例，帮助团队彻底告别"在我机器上能跑"的环境噩梦，实现开发环境的声明式管理与秒级搭建。
 cover: /images/covers/devbox-devcontainer-nix-cover.jpg
 ---
+
 
 # Developer Environment as Code 实战：Devbox + devcontainer + Nix 的开发环境一致性
 

@@ -1,12 +1,19 @@
 ---
 title: Laravel Pennant 2.x 进阶实战：自定义 Driver、Feature 分组与租户级灰度策略——多租户 SaaS 的功能开关治理
 date: 2026-06-05 10:00:00
-tags: [Laravel Pennant, Feature Flag, 灰度发布, 多租户, SaaS]
+tags:
+- Laravel Pennant
+- Feature Flags
+- 灰度发布
+- 多租户
+- SaaS
 categories:
-  - php
+- php
 cover: /images/covers/laravel-pennant-2x-cover.jpg
-description: "深入 Laravel Pennant 2.x 自定义 Redis+Database 写穿透混合 Driver 实战、PHP 8.1 枚举驱动的 Feature 分组管理策略，以及结合 stancl/tenancy 的租户级灰度发布方案，涵盖一致性哈希放量、生命周期自动清理、A/B 测试与运营面板全链路工程实践。"
+description: 深入 Laravel Pennant 2.x 自定义 Redis+Database 写穿透混合 Driver 实战、PHP 8.1 枚举驱动的
+  Feature 分组管理策略，以及结合 stancl/tenancy 的租户级灰度发布方案，涵盖一致性哈希放量、生命周期自动清理、A/B 测试与运营面板全链路工程实践。
 ---
+
 
 ## 前言
 

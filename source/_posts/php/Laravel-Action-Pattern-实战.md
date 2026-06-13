@@ -1,12 +1,19 @@
 ---
 title: Laravel Action Pattern 实战：用单一职责的 Action 类替代胖 Service 的大型项目重构经验
 date: 2026-06-02 10:00:00
-tags: [laravel, action-pattern, 设计模式, 重构, php]
+tags:
+- Laravel
+- action-pattern
+- 设计模式
+- 重构
+- PHP
 categories:
-  - php
+- php
 cover: /images/covers/laravel-action-pattern-cover.jpg
-description: "大型 Laravel 项目中胖 Service 的终极解决方案——Action Pattern 实战详解。从 OrderService 上帝类的痛点出发，逐步演示如何将每个业务操作封装为独立的 Action 类，配合 DTO 输入、构造函数注入、事件驱动解耦等最佳实践。附带 30+ 仓库重构经验、测试策略与重构检查清单，提升代码可维护性与团队协作效率。"
+description: 大型 Laravel 项目中胖 Service 的终极解决方案——Action Pattern 实战详解。从 OrderService 上帝类的痛点出发，逐步演示如何将每个业务操作封装为独立的
+  Action 类，配合 DTO 输入、构造函数注入、事件驱动解耦等最佳实践。附带 30+ 仓库重构经验、测试策略与重构检查清单，提升代码可维护性与团队协作效率。
 ---
+
 
 ## 引言：胖 Service 的痛点与 Action Pattern 的价值
 

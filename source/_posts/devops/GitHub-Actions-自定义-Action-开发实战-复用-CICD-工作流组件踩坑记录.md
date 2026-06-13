@@ -2,14 +2,22 @@
 title: GitHub Actions 自定义 Action 开发实战：复用 CI/CD 工作流组件
 date: 2026-06-01
 categories:
-  - devops
-tags: [github actions, ci/cd, devops, 自动化, iac]
-description: 结合 30+ Laravel 仓库 CI/CD 统一治理实战，系统讲解 GitHub Actions 自定义 Action（Composite/JavaScript/Docker）与 Reusable Workflow 的选型、封装、调试、版本治理全流程，附 12 个真实踩坑案例与可运行代码示例，助你搭建一处维护处处生效的 CI/CD 工作流复用体系。
+- devops
+tags:
+- GitHub Actions
+- CI/CD
+- DevOps
+- 自动化
+- IaC
+description: 结合 30+ Laravel 仓库 CI/CD 统一治理实战，系统讲解 GitHub Actions 自定义 Action（Composite/JavaScript/Docker）与
+  Reusable Workflow 的选型、封装、调试、版本治理全流程，附 12 个真实踩坑案例与可运行代码示例，助你搭建一处维护处处生效的 CI/CD 工作流复用体系。
 cover: /images/covers/cicd-01-cover.jpg
 images:
-  - /images/content/cicd-01-content-1.jpg
-  - /images/content/cicd-01-content-2.jpg
+- /images/content/cicd-01-content-1.jpg
+- /images/content/cicd-01-content-2.jpg
 ---
+
+
 
 ## 一、为什么写这篇？
 

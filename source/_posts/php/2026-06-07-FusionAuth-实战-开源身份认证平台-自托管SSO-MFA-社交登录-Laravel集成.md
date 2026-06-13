@@ -1,12 +1,24 @@
 ---
-title: 'FusionAuth 实战：开源身份认证平台——对比 Auth0/WorkOS 的自托管 SSO/MFA/社交登录完整方案与 Laravel Passport 互补'
+title: FusionAuth 实战：开源身份认证平台——对比 Auth0/WorkOS 的自托管 SSO/MFA/社交登录完整方案与 Laravel Passport
+  互补
 date: 2026-06-07 10:00:00
-description: "FusionAuth 开源身份认证平台实战指南：自托管部署 SSO 单点登录、MFA 多因素认证、社交登录（Google/GitHub/微信），完整 Laravel Passport 集成教程，对比 Auth0/WorkOS 定价与功能，附 Docker Compose、OAuth2 流程、JWT 中间件、用户迁移生产级代码示例。"
-tags: [fusionauth, laravel, sso, mfa, oauth2, auth0, 认证, 身份认证]
+description: FusionAuth 开源身份认证平台实战指南：自托管部署 SSO 单点登录、MFA 多因素认证、社交登录（Google/GitHub/微信），完整
+  Laravel Passport 集成教程，对比 Auth0/WorkOS 定价与功能，附 Docker Compose、OAuth2 流程、JWT 中间件、用户迁移生产级代码示例。
+tags:
+- fusionauth
+- Laravel
+- SSO
+- MFA
+- OAuth2
+- auth0
+- 认证
+- 身份认证
 categories:
-  - php
+- php
 cover: /images/covers/fusionauth-laravel-cover.jpg
 ---
+
+
 
 在现代 Web 应用开发中，身份认证（Authentication）与授权（Authorization）是每个开发者都无法回避的核心问题。当我们选择 Laravel 生态时，Laravel Passport 提供了优秀的 OAuth2 服务器能力；但当我们需要 SSO 单点登录、MFA 多因素认证、社交登录集成等企业级功能时，一个专用的身份认证平台就变得不可或缺。本文将深入介绍 FusionAuth——一款开源的自托管身份认证平台，并对比 Auth0 和 WorkOS，展示如何将其与 Laravel Passport 互补，构建完整的认证体系。
 

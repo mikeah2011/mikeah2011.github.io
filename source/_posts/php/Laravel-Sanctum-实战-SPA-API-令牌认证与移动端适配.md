@@ -1,12 +1,19 @@
 ---
 title: Laravel Sanctum 实战：SPA/API 令牌认证与移动端适配
 date: 2026-06-01 10:00:00
-description: 本文从 Laravel 项目实战出发，系统讲解 Laravel Sanctum 在 SPA认证、API令牌、Cookie Session、CSRF、防跨域配置与移动端适配中的完整落地方案，覆盖 Web SPA 与 App 混合接入、Token 生命周期、多设备登录、刷新续签、权限 abilities、代理与 SameSite 踩坑排查，帮助团队搭建稳定、安全、易维护的认证体系。
-tags: [laravel, sanctum, api, spa, 认证]
+description: 本文从 Laravel 项目实战出发，系统讲解 Laravel Sanctum 在 SPA认证、API令牌、Cookie Session、CSRF、防跨域配置与移动端适配中的完整落地方案，覆盖
+  Web SPA 与 App 混合接入、Token 生命周期、多设备登录、刷新续签、权限 abilities、代理与 SameSite 踩坑排查，帮助团队搭建稳定、安全、易维护的认证体系。
+tags:
+- Laravel
+- Sanctum
+- API
+- SPA
+- 认证
 categories:
-  - php
+- php
 cover: /images/covers/laravel-sanctum-cover.jpg
 ---
+
 
 Laravel 生态里一提到认证，很多人第一反应还是 Passport、JWT、甚至自己手搓中间件。但如果你的项目本质上是 Laravel 自家后端 + Vue / React SPA，或者是后台管理系统 + App / 小程序 / 第三方客户端混合接入，那么 Sanctum 往往是性价比最高、维护成本最低的方案。
 

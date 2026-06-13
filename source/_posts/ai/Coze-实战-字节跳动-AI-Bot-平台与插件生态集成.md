@@ -1,11 +1,19 @@
 ---
 title: Coze 实战：字节跳动 AI Bot 平台与插件生态集成
 date: 2026-06-02 09:00:00
-tags: [coze, 字节跳动, ai bot, 插件生态, ai agent]
-categories: [ai]
+tags:
+- Coze
+- 字节跳动
+- ai bot
+- 插件生态
+- AI Agent
+categories:
+- ai
 cover: /images/covers/coze-ai-bot-platform-cover.jpg
-description: "想快速掌握 Coze 在 AI Bot、插件生态、工作流、知识库与多渠道发布中的实战能力？本文系统拆解字节跳动 Coze 平台架构、插件集成、RAG 接入与 Coze vs Dify 选型策略，帮你高效搭建可上线的 AI Agent 应用。"
+description: 想快速掌握 Coze 在 AI Bot、插件生态、工作流、知识库与多渠道发布中的实战能力？本文系统拆解字节跳动 Coze 平台架构、插件集成、RAG
+  接入与 Coze vs Dify 选型策略，帮你高效搭建可上线的 AI Agent 应用。
 ---
+
 
 # Coze 实战：字节跳动 AI Bot 平台与插件生态集成
 

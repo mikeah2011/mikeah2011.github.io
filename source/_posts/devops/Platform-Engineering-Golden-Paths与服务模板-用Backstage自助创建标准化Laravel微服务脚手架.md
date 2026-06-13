@@ -1,12 +1,24 @@
 ---
-title: 'Platform Engineering 实战：Golden Paths 与服务模板——用 Backstage 自助创建标准化 Laravel 微服务脚手架'
+title: Platform Engineering 实战：Golden Paths 与服务模板——用 Backstage 自助创建标准化 Laravel 微服务脚手架
 date: 2026-06-03 10:00:00
-tags: [platform-engineering, backstage, golden-paths, developer-portal, laravel, microservices]
-description: 本文深入探讨 Platform Engineering 核心理念与 Golden Paths 黄金路径设计哲学，以 Backstage Scaffolder 为核心，手把手搭建标准化 Laravel 微服务 Cookiecutter 模板。涵盖 Dockerfile 多阶段构建、Kubernetes Deployment 与 Kustomize 多环境部署、GitHub Actions CI/CD 全流水线、健康检查与可观测性集成、Software Catalog 自动注册、ArgoCD GitOps 联动、自定义 Backstage 插件开发（PHP 版本矩阵、Composer 安全审计），附真实迁移案例与 DORA 度量指标，将新服务上线时间从 3-5 天缩短至 15 分钟。
+tags:
+- Platform-Engineering
+- Backstage
+- Golden-Paths
+- developer-portal
+- Laravel
+- 微服务
+description: 本文深入探讨 Platform Engineering 核心理念与 Golden Paths 黄金路径设计哲学，以 Backstage Scaffolder
+  为核心，手把手搭建标准化 Laravel 微服务 Cookiecutter 模板。涵盖 Dockerfile 多阶段构建、Kubernetes Deployment
+  与 Kustomize 多环境部署、GitHub Actions CI/CD 全流水线、健康检查与可观测性集成、Software Catalog 自动注册、ArgoCD
+  GitOps 联动、自定义 Backstage 插件开发（PHP 版本矩阵、Composer 安全审计），附真实迁移案例与 DORA 度量指标，将新服务上线时间从
+  3-5 天缩短至 15 分钟。
 categories:
-  - devops
+- devops
 cover: /images/covers/platform-engineering-backstage-cover.jpg
 ---
+
+
 
 # Platform Engineering 实战：Golden Paths 与服务模板——用 Backstage 自助创建标准化 Laravel 微服务脚手架
 

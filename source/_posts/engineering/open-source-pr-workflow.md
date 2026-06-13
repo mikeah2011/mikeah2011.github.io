@@ -4,12 +4,18 @@ cover: /images/engineering-cover.png
 date: 2026-05-05 10:40:23
 updated: 2026-05-05 10:42:25
 categories: Engineering
-tags: [git, laravel, 开源, code-review, ci-cd, best-practices]
-description: 开源项目贡献代码完整实战指南：从 Fork、分支管理到 PR 合并的全流程详解，涵盖 Conventional Commits 规范、CI/CD 流水线配置、Code Review 礼仪、GitHub 与 GitLab 工作流对比，结合 scribe、CRMEB、phpseclib 等 30+ 仓库真实踩坑经验与 Checklist。
-
-
-
+tags:
+- Git
+- Laravel
+- 开源
+- Code Review
+- CI/CD
+- best-practices
+description: 开源项目贡献代码完整实战指南：从 Fork、分支管理到 PR 合并的全流程详解，涵盖 Conventional Commits 规范、CI/CD
+  流水线配置、Code Review 礼仪、GitHub 与 GitLab 工作流对比，结合 scribe、CRMEB、phpseclib 等 30+ 仓库真实踩坑经验与
+  Checklist。
 ---
+
 # 开源项目贡献代码实战：PR 流程与最佳实践
 
 ## 为什么要写这篇文章

@@ -1,12 +1,20 @@
 ---
 title: GitHub Actions 矩阵策略实战：多 PHP 版本、多数据库的并行测试与条件发布
 date: 2026-06-02 12:00:00
-tags: [github actions, ci/cd, 矩阵策略, php, 自动化测试]
+tags:
+- GitHub Actions
+- CI/CD
+- 矩阵策略
+- PHP
+- 自动化测试
 categories:
-  - devops
+- devops
 cover: /images/covers/github-actions-matrix-cover.jpg
-description: 全面讲解GitHub Actions矩阵策略在Laravel项目中的实战应用，从基础语法到高级技巧。涵盖多PHP版本并行测试、Service Containers多数据库配置、条件化发布工作流、动态矩阵生成和Reusable Workflows复用。包含完整的Laravel CI/CD工作流配置，详解fail-fast策略、max-parallel并发控制、分层缓存优化和矩阵精简技巧，帮助团队用声明式配置实现12种测试组合的自动化并行执行。
+description: 全面讲解GitHub Actions矩阵策略在Laravel项目中的实战应用，从基础语法到高级技巧。涵盖多PHP版本并行测试、Service
+  Containers多数据库配置、条件化发布工作流、动态矩阵生成和Reusable Workflows复用。包含完整的Laravel CI/CD工作流配置，详解fail-fast策略、max-parallel并发控制、分层缓存优化和矩阵精简技巧，帮助团队用声明式配置实现12种测试组合的自动化并行执行。
 ---
+
+
 
 # GitHub Actions 矩阵策略实战：多 PHP 版本、多数据库的并行测试与条件发布
 

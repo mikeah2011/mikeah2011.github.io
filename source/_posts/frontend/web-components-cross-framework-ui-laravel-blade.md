@@ -1,12 +1,21 @@
 ---
-title: 'Web Components 实战：浏览器原生组件标准——跨框架 UI 组件库设计与 Laravel Blade 集成'
+title: Web Components 实战：浏览器原生组件标准——跨框架 UI 组件库设计与 Laravel Blade 集成
 date: 2026-06-04 08:00:00
-tags: [web components, custom elements, shadow dom, laravel blade, 前端]
-description: 本文深入解析 Web Components 四大核心技术——Custom Elements、Shadow DOM、HTML Templates 与 ES Modules，手把手构建一套跨框架 UI 组件库，并演示与 Laravel Blade 模板引擎的深度集成方案。涵盖 React、Vue、Angular 三大框架适配实践、设计令牌系统、主题定制、表单集成、ElementInternals API、无障碍访问、懒加载优化等工程化细节，适合需要跨技术栈共享组件或在 Laravel 全栈项目中引入现代化前端组件体系的开发者。
+tags:
+- web components
+- custom elements
+- shadow dom
+- Laravel Blade
+- 前端
+description: 本文深入解析 Web Components 四大核心技术——Custom Elements、Shadow DOM、HTML Templates
+  与 ES Modules，手把手构建一套跨框架 UI 组件库，并演示与 Laravel Blade 模板引擎的深度集成方案。涵盖 React、Vue、Angular
+  三大框架适配实践、设计令牌系统、主题定制、表单集成、ElementInternals API、无障碍访问、懒加载优化等工程化细节，适合需要跨技术栈共享组件或在
+  Laravel 全栈项目中引入现代化前端组件体系的开发者。
 categories:
-  - frontend
+- frontend
 cover: /images/covers/web-components-cross-framework-cover.jpg
 ---
+
 
 在前端开发的演进历程中，UI 组件化一直是核心命题。从 jQuery 插件到 React 组件，从 Vue 单文件组件到 Angular 组件体系，每一代方案都试图解决"如何构建可复用 UI"这个问题。然而，这些方案无一例外地绑定了特定的运行时框架，导致组件无法跨框架共享。
 

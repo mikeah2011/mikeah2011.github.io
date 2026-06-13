@@ -4,12 +4,20 @@ cover: /images/covers/bun-guide-npm-10-javascript-cover.jpg
 date: 2026-05-16 23:40:12
 updated: 2026-05-16 23:43:00
 categories: macOS
-tags: [javascript, 前端, 性能优化, bun, node.js, npm]
-description: Bun 是基于 JavaScriptCore 引擎的全新 JavaScript/TypeScript 运行时与工具链，集成包管理器、构建工具和测试运行器于一体。本文详细记录在 macOS Apple Silicon 环境下，从 npm/pnpm 迁移到 Bun 的完整实战过程，涵盖 bun install 包管理速度对比（比 npm 快 10 倍）、bun build 构建优化、bun test 测试运行、与 Node.js/Deno 的性能基准对比、Laravel + Vue 3 + Vite 项目踩坑案例及 CI/CD 配置，帮助前端开发者快速上手 Bun 并规避常见问题。
-
-
-
+tags:
+- JavaScript
+- 前端
+- 性能优化
+- Bun
+- Node.js
+- npm
+description: Bun 是基于 JavaScriptCore 引擎的全新 JavaScript/TypeScript 运行时与工具链，集成包管理器、构建工具和测试运行器于一体。本文详细记录在
+  macOS Apple Silicon 环境下，从 npm/pnpm 迁移到 Bun 的完整实战过程，涵盖 bun install 包管理速度对比（比 npm
+  快 10 倍）、bun build 构建优化、bun test 测试运行、与 Node.js/Deno 的性能基准对比、Laravel + Vue 3 + Vite
+  项目踩坑案例及 CI/CD 配置，帮助前端开发者快速上手 Bun 并规避常见问题。
 ---
+
+
 ## 前言
 
 在 Laravel B2C 项目的前端开发中，我一直在用 npm + Vite + Vue 3 的组合。随着项目增多（30+ 仓库），`node_modules` 的磁盘占用和 `npm install` 的等待时间成了日常痛点。直到我把工具链切到了 Bun——包安装速度从 45s 降到了 4s，测试执行快了 3 倍，整体开发体验有了质的提升。

@@ -1,12 +1,21 @@
 ---
 title: AI Agent Context Window 管理实战：对话裁剪、摘要压缩、滑动窗口策略——长对话场景的成本与质量平衡
 date: 2026-06-06 09:23:00
-tags: [ai-agent, context-window, llm, 对话管理, 成本优化, 摘要压缩, 滑动窗口]
-description: "深入解析AI Agent上下文窗口管理的三大核心策略——对话裁剪、摘要压缩与滑动窗口。面对GPT-4o、Claude Opus 4、Gemini等主流LLM的128K-1M token限制，如何在长对话场景中平衡成本与质量？本文从Token计算、成本模型出发，依次实现固定截断、基于重要性的智能裁剪、全量/增量/结构化摘要，以及三层记忆架构的滑动窗口方案。含Laravel+Python完整代码、Redis状态管理、并发一致性Lua脚本、工具调用结果截断处理器，以及信息漂移、token爆炸等实战踩坑。附量化对比：7种策略的token节省率与信息保留率实测数据。"
+tags:
+- AI Agent
+- context-window
+- LLM
+- 对话管理
+- 成本优化
+- 摘要压缩
+- 滑动窗口
+description: 深入解析AI Agent上下文窗口管理的三大核心策略——对话裁剪、摘要压缩与滑动窗口。面对GPT-4o、Claude Opus 4、Gemini等主流LLM的128K-1M
+  token限制，如何在长对话场景中平衡成本与质量？本文从Token计算、成本模型出发，依次实现固定截断、基于重要性的智能裁剪、全量/增量/结构化摘要，以及三层记忆架构的滑动窗口方案。含Laravel+Python完整代码、Redis状态管理、并发一致性Lua脚本、工具调用结果截断处理器，以及信息漂移、token爆炸等实战踩坑。附量化对比：7种策略的token节省率与信息保留率实测数据。
 categories:
-  - architecture
+- architecture
 cover: /images/covers/ai-agent-context-window-management-cover.jpg
 ---
+
 
 ## 引言：为什么 Context Window 管理是生产级 Agent 的核心问题
 

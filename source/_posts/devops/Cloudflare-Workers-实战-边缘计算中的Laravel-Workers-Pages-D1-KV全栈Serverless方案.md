@@ -1,12 +1,21 @@
 ---
-title: 'Cloudflare Workers 实战：边缘计算中的 Laravel——Workers/Pages/D1/KV 的全栈 Serverless 方案'
+title: Cloudflare Workers 实战：边缘计算中的 Laravel——Workers/Pages/D1/KV 的全栈 Serverless 方案
 date: 2026-06-02 12:00:00
-tags: [Cloudflare-Workers, Serverless, Laravel, 边缘计算, D1, KV]
-description: 本文深入探讨如何利用 Cloudflare Workers 实现 Laravel 应用的边缘计算与 Serverless 全栈部署方案。涵盖 Workers 边缘函数、Pages 前端托管、D1 边缘 SQLite 数据库、KV 全球键值存储等核心组件与 Laravel 的集成实践，包括实战配置、踩坑记录与性能优化，帮助开发者将传统 PHP 应用迁移至全球 300+ 边缘节点，实现 TTFB 50ms 以内的极致访问体验。
+tags:
+- Cloudflare Workers
+- Serverless
+- Laravel
+- 边缘计算
+- D1
+- KV
+description: 本文深入探讨如何利用 Cloudflare Workers 实现 Laravel 应用的边缘计算与 Serverless 全栈部署方案。涵盖
+  Workers 边缘函数、Pages 前端托管、D1 边缘 SQLite 数据库、KV 全球键值存储等核心组件与 Laravel 的集成实践，包括实战配置、踩坑记录与性能优化，帮助开发者将传统
+  PHP 应用迁移至全球 300+ 边缘节点，实现 TTFB 50ms 以内的极致访问体验。
 categories:
-  - devops
+- devops
 cover: /images/covers/cloudflare-workers-laravel-edge-cover.jpg
 ---
+
 
 ## 前言
 

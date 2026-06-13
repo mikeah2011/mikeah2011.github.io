@@ -1,13 +1,21 @@
 ---
-title: "OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON"
+title: OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON
 cover: /images/covers/openapi-yaml-testing-mock-fake-response-json-cover.jpg
 date: 2026-05-04 11:22:00 +0800
-description: "OpenAPI YAML 契约驱动开发实战详解：如何设计可测试、可 Mock 的 Fake Response JSON，解决前后端联调阻塞与数据结构不一致问题。本文涵盖完整 OpenAPI 规范编写、Laravel BFF 中间层 Mock 注入、Pest API测试与契约测试、Mock Server 工具对比（Prism / WireMock / Mockoon / MSW）、前端消费 Mock 数据、CI/CD 自动化验证等全流程，附真实踩坑案例与代码示例，适合 API 设计与测试工程师参考。"
+description: OpenAPI YAML 契约驱动开发实战详解：如何设计可测试、可 Mock 的 Fake Response JSON，解决前后端联调阻塞与数据结构不一致问题。本文涵盖完整
+  OpenAPI 规范编写、Laravel BFF 中间层 Mock 注入、Pest API测试与契约测试、Mock Server 工具对比（Prism / WireMock
+  / Mockoon / MSW）、前端消费 Mock 数据、CI/CD 自动化验证等全流程，附真实踩坑案例与代码示例，适合 API 设计与测试工程师参考。
 categories:
-  - architecture
-  - testing
-tags: [laravel, openapi, mock, api-testing]
+- architecture
+- testing
+tags:
+- Laravel
+- OpenAPI
+- Mock
+- api-testing
 ---
+
+
 
 # OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON
 

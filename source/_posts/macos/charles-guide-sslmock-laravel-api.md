@@ -4,15 +4,28 @@ cover: /images/covers/charles-guide-sslmock-laravel-api-cover.jpg
 date: 2026-05-05 08:11:02
 updated: 2026-05-05 08:13:59
 categories:
-  - macos
-  - php
-tags: [laravel, macos, charles, 抓包, api调试, mock, ssl, proxyman, fiddler, mitmproxy]
-description: >
-  本文是一份面向 macOS 开发者的 Charles 抓包工具深度实战指南，全面覆盖 HTTPS SSL 代理配置与证书信任、Breakpoints 断点调试实时篡改请求响应、Map Local 与 Map Remote 两种 Mock API 方案、Bandwidth Throttle 弱网模拟、Advanced Repeat 并发压测等高级功能。结合 Laravel BFF 聚合接口联调、Stripe 支付回调签名验证、Android/iOS 移动端抓包等真实踩坑场景，附带完整代码示例与工具对比表格，帮助前后端团队用 Charles 实现从开发 Mock 到联调排障的全流程提效。
+- macos
+- php
+tags:
+- Laravel
+- macOS
+- Charles
+- 抓包
+- api调试
+- Mock
+- SSL
+- proxyman
+- fiddler
+- mitmproxy
+description: '本文是一份面向 macOS 开发者的 Charles 抓包工具深度实战指南，全面覆盖 HTTPS SSL 代理配置与证书信任、Breakpoints
+  断点调试实时篡改请求响应、Map Local 与 Map Remote 两种 Mock API 方案、Bandwidth Throttle 弱网模拟、Advanced
+  Repeat 并发压测等高级功能。结合 Laravel BFF 聚合接口联调、Stripe 支付回调签名验证、Android/iOS 移动端抓包等真实踩坑场景，附带完整代码示例与工具对比表格，帮助前后端团队用
+  Charles 实现从开发 Mock 到联调排障的全流程提效。
 
-
-
+  '
 ---
+
+
 ## 前言：为什么 Charles 在 B2C 团队中不可替代？
 
 在 KKday B2C Backend Team 的日常开发中，调试工具链是这样的：

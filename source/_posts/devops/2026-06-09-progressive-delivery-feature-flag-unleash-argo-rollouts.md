@@ -1,17 +1,19 @@
 ---
-title: "Progressive Delivery 实战：Feature Flag + 渐进式发布——Unleash + Argo Rollouts 的完整工程化工作流"
+title: Progressive Delivery 实战：Feature Flag + 渐进式发布——Unleash + Argo Rollouts 的完整工程化工作流
 date: 2026-06-09 20:20:00
 categories:
-  - devops
+- devops
 tags:
-  - progressive-delivery
-  - feature-flag
-  - unleach
-  - argo-rollouts
-  - canary
-  - Kubernetes
-description: 以 PHP/Laravel 项目为例，完整演示如何用 Unleash 做 Feature Flag 管理，再结合 Argo Rollouts 在 Kubernetes 上实现 Canary/Beta 渐进式发布。涵盖本地开发、CI 集成、多阶段发布策略、自动回滚和真实踩坑记录，可直接落地到生产环境。
+- progressive-delivery
+- Feature Flags
+- unleach
+- argo-rollouts
+- canary
+- Kubernetes
+description: 以 PHP/Laravel 项目为例，完整演示如何用 Unleash 做 Feature Flag 管理，再结合 Argo Rollouts
+  在 Kubernetes 上实现 Canary/Beta 渐进式发布。涵盖本地开发、CI 集成、多阶段发布策略、自动回滚和真实踩坑记录，可直接落地到生产环境。
 ---
+
 渐进式发布不是"上线后观察一下"，而是一套从代码提交到生产流量切换的工程化能力。它回答三个问题：**怎么小范围验证**、**怎么逐步放量**、**出问题怎么回滚**。
 
 本文以一个 Laravel API 项目为例，手把手演示从 Feature Flag 管理（Unleash）到 Kubernetes 渐进式发布（Argo Rollouts）的完整工作流。

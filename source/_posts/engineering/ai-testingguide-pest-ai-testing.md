@@ -1,17 +1,21 @@
 ---
-title: "AI 驱动测试生成实战：Pest + AI 自动生成单元测试的最佳实践"
+title: AI 驱动测试生成实战：Pest + AI 自动生成单元测试的最佳实践
 cover: /images/covers/ai-testingguide-pest-ai-testing-cover.jpg
 date: 2026-05-05 08:45:30
 updated: 2026-05-05 08:48:08
 categories:
-  - engineering
-  - testing
-tags: [AI, Laravel, Pest, Testing, CI-CD]
-description: "在 30+ Laravel 仓库的维护中，手写单元测试是最大的时间黑洞。本文记录如何用 Claude/GPT 结合 Pest 框架，将单元测试覆盖率从 35% 提升到 85%+ 的完整工作流，涵盖 Prompt 工程设计、AI 生成质量控制、Mock 策略、CI/CD 覆盖率门禁集成与真实踩坑复盘。"
-
-
-
+- engineering
+- testing
+tags:
+- AI
+- Laravel
+- Pest
+- Testing
+- CI/CD
+description: 在 30+ Laravel 仓库的维护中，手写单元测试是最大的时间黑洞。本文记录如何用 Claude/GPT 结合 Pest 框架，将单元测试覆盖率从
+  35% 提升到 85%+ 的完整工作流，涵盖 Prompt 工程设计、AI 生成质量控制、Mock 策略、CI/CD 覆盖率门禁集成与真实踩坑复盘。
 ---
+
 ## 一、为什么手写测试成了瓶颈
 
 在 KKday B2C Backend 团队维护的 30+ Laravel 仓库中，我们面临一个尴尬的现实：**Code Review 要求新功能必须附带测试，但写测试的时间往往比写功能本身还长。**

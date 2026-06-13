@@ -1,12 +1,20 @@
 ---
 title: AI Agent 速率限制与配额治理实战：Token Bucket + 滑动窗口 + 租户级 Quota——多租户 SaaS 的 LLM 调用管控
 date: 2026-06-07 10:00:00
-tags: [ai-agent, rate-limiting, token-bucket, redis, laravel, saas]
+tags:
+- AI Agent
+- Rate Limiting
+- token-bucket
+- Redis
+- Laravel
+- SaaS
 categories:
-  - php
+- php
 cover: /images/covers/ai-agent-rate-limiting-cover.jpg
-description: "深入解析多租户 SaaS 场景下的 AI Agent Rate Limiting 实战方案，涵盖 Token Bucket、滑动窗口、多级 Quota 配额治理与 Redis 高性能实现，助你掌控 LLM 调用成本。"
+description: 深入解析多租户 SaaS 场景下的 AI Agent Rate Limiting 实战方案，涵盖 Token Bucket、滑动窗口、多级
+  Quota 配额治理与 Redis 高性能实现，助你掌控 LLM 调用成本。
 ---
+
 
 ## 引言：当 LLM 成本成为 SaaS 的核心命题
 

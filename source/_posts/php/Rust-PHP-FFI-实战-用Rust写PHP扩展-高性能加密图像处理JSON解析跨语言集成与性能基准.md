@@ -1,12 +1,21 @@
 ---
-title: 'Rust + PHP FFI 实战：用 Rust 写 PHP 扩展——高性能加密/图像处理/JSON 解析的跨语言集成与性能基准'
+title: Rust + PHP FFI 实战：用 Rust 写 PHP 扩展——高性能加密/图像处理/JSON 解析的跨语言集成与性能基准
 date: 2026-06-07 10:00:00
-tags: [rust, php, ffi, 性能优化, 扩展开发]
+tags:
+- Rust
+- PHP
+- FFI
+- 性能优化
+- 扩展开发
 categories:
-  - php
+- php
 cover: /images/covers/rust-php-ffi-cover.jpg
-description: '深入实战 Rust + PHP FFI 跨语言集成方案，通过 FFI 机制将 Rust 高性能能力注入 PHP 生态。涵盖 AES-256-GCM/ChaCha20 加密加速、Lanczos3 图像缩放、serde_json 深层解析三大场景，包含完整性能基准对比（Rust vs PHP 原生 vs C 扩展）、FFI 内存泄漏与类型映射踩坑案例、Laravel 服务集成代码。实测 ChaCha20 加速 470 倍、JSON 解析 9-15 倍，是 PHP 高性能扩展开发的最佳实践指南。'
+description: 深入实战 Rust + PHP FFI 跨语言集成方案，通过 FFI 机制将 Rust 高性能能力注入 PHP 生态。涵盖 AES-256-GCM/ChaCha20
+  加密加速、Lanczos3 图像缩放、serde_json 深层解析三大场景，包含完整性能基准对比（Rust vs PHP 原生 vs C 扩展）、FFI 内存泄漏与类型映射踩坑案例、Laravel
+  服务集成代码。实测 ChaCha20 加速 470 倍、JSON 解析 9-15 倍，是 PHP 高性能扩展开发的最佳实践指南。
 ---
+
+
 
 # Rust + PHP FFI 实战：用 Rust 写 PHP 扩展——高性能加密/图像处理/JSON 解析的跨语言集成与性能基准
 

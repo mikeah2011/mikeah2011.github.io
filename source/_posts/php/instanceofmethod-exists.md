@@ -3,12 +3,16 @@ title: instanceof 与 method_exists
 cover: /images/covers/php-instanceofmethod-exists-cover.jpg
 date: 2023-03-05 10:00:00
 categories: PHP
-tags: [php, 类型检查, instanceof, method_exists, laravel]
-description: '详解PHP中instanceof、method_exists、is_a、get_class四大类型检测方法的区别与用法，包含对比表格、性能基准测试、Laravel框架实战示例（Service Provider、Middleware、Policy），帮助开发者在不同场景下选择最合适的类型检查方式。'
-
-
-
+tags:
+- PHP
+- 类型检查
+- instanceof
+- method_exists
+- Laravel
+description: 详解PHP中instanceof、method_exists、is_a、get_class四大类型检测方法的区别与用法，包含对比表格、性能基准测试、Laravel框架实战示例（Service
+  Provider、Middleware、Policy），帮助开发者在不同场景下选择最合适的类型检查方式。
 ---
+
 [`instanceof`](https://www.php.net/manual/zh/language.operators.type.php)与[`method_exists`](https://www.php.net/manual/zh/function.method-exists.php)的用法区别。[参考StackoverFlow](https://stackoverflow.com/questions/28767294/instanceof-or-method-exist-which-one-should-use)
 
 <!-- more -->

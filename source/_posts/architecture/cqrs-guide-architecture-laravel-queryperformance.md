@@ -1,18 +1,27 @@
 ---
-title: "CQRS-模式实战-读写分离架构在-Laravel-中的落地-B2C电商查询性能优化与事件驱动踩坑记录"
+title: CQRS-模式实战-读写分离架构在-Laravel-中的落地-B2C电商查询性能优化与事件驱动踩坑记录
 cover: /images/architecture-cover.png
-tags: [laravel, cqrs, architecture, 读写分离, 事件驱动, b2c, 性能优化]
+tags:
+- Laravel
+- CQRS
+- Architecture
+- 读写分离
+- 事件驱动
+- B2C
+- 性能优化
 categories:
-  - architecture
-  - php
+- architecture
+- php
 date: 2026-05-05 09:40:37
 updated: 2026-05-05 09:42:59
-description: "CQRS（Command Query Responsibility Segregation）在 Laravel B2C 电商中的落地实战指南。本文从单体 Repository 模式的痛点出发，详细讲解渐进式读写分离架构演进三阶段：Command/Query 代码分离、读模型独立、读写库分离。包含完整的 Laravel 代码示例、事件驱动读模型同步、分布式锁防死锁、对账任务等生产级方案，以及四大踩坑案例与真实性能数据对比（P99 查询延迟降低 17-22 倍），适合中大型 Laravel 电商项目参考。"
+description: CQRS（Command Query Responsibility Segregation）在 Laravel B2C 电商中的落地实战指南。本文从单体
+  Repository 模式的痛点出发，详细讲解渐进式读写分离架构演进三阶段：Command/Query 代码分离、读模型独立、读写库分离。包含完整的 Laravel
+  代码示例、事件驱动读模型同步、分布式锁防死锁、对账任务等生产级方案，以及四大踩坑案例与真实性能数据对比（P99 查询延迟降低 17-22 倍），适合中大型 Laravel
+  电商项目参考。
 author: Michael
-
-
-
 ---
+
+
 ## 一、为什么需要 CQRS？
 
 在传统的 Laravel MVC 架构中，我们习惯用一个 `Repository` 同时处理读写操作，Model 既承担业务逻辑又负责数据持久化。这在业务简单时没问题，但当 B2C 电商系统进入高速增长期后，痛点逐渐暴露：

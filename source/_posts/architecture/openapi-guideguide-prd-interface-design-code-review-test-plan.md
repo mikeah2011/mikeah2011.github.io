@@ -4,14 +4,21 @@ cover: /images/covers/openapi-prd-code-review-cover.jpg
 date: 2026-05-05 02:15:21
 updated: 2026-05-05 02:17:41
 categories:
-  - architecture
-  - testing
-tags: [bff, laravel, openapi, api-design, code-review, prd]
-description: 本文结合 KKday B2C Backend 真实项目经验，完整记录从 PRD 拆解到 OpenAPI YAML 接口设计、Interface Design Review、Code Review 到 Test Plan 的全链路工作流。涵盖统一响应 Envelope 设计、Spectral 自动化 Lint、Prism Mock 联调、Pest 契约测试等实战技巧，附带 6 个真实踩坑案例与 4 个常见反模式，帮助团队实现契约驱动开发，减少 83% 前后端联调时间。
-
-
-
+- architecture
+- testing
+tags:
+- BFF
+- Laravel
+- OpenAPI
+- API设计
+- Code Review
+- prd
+description: 本文结合 KKday B2C Backend 真实项目经验，完整记录从 PRD 拆解到 OpenAPI YAML 接口设计、Interface
+  Design Review、Code Review 到 Test Plan 的全链路工作流。涵盖统一响应 Envelope 设计、Spectral 自动化 Lint、Prism
+  Mock 联调、Pest 契约测试等实战技巧，附带 6 个真实踩坑案例与 4 个常见反模式，帮助团队实现契约驱动开发，减少 83% 前后端联调时间。
 ---
+
+
 在中大型 B2C 项目里，API 设计最常见的灾难不是"设计得不好"，而是**根本没有可追溯的设计过程**。PRD 写完直接丢给后端开发，后端凭经验写 Controller，前端根据"差不多的"文档联调，上线后发现字段含义不一致、枚举值遗漏、分页行为不统一——然后三方（PM、前端、后端）互相甩锅。
 
 这篇文章记录我在 KKday B2C Backend 团队推行的 **OpenAPI-driven 开发流程**：从 PRD 拆解开始，经过 Interface Design → OpenAPI YAML → Code Review → Test Plan，形成一条可追溯、可测试、可自动化的全链路。这不是概念介绍——每一步都有真实踩坑记录。

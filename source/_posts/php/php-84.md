@@ -1,17 +1,26 @@
 ---
 title: PHP 8.4 新特性实战：从内存管理到性能提升
 cover: /images/covers/php-84-new-features-cover.jpg
-tags: [php, php8.4, laravel, swoole, jit, 性能优化, opcache, 协程]
+tags:
+- PHP
+- php8.4
+- Laravel
+- Swoole
+- JIT
+- 性能优化
+- OPcache
+- 协程
 categories:
-  - php
-  - runtime
+- php
+- runtime
 date: 2026-05-03 13:24:17
-description: "PHP 8.4 新特性全面实战指南：深度解析 JIT 编译器优化、原生协程支持、枚举协变检查、match 返回类型推导等核心特性。结合 Laravel + Swoole 生产环境案例，涵盖 OPcache 调优、内存泄漏检测、Docker 部署与性能基准测试，附完整可运行代码示例，助你将 QPS 提升 57%、内存降低 40%。"
-updated: 
-
-
-
+description: PHP 8.4 新特性全面实战指南：深度解析 JIT 编译器优化、原生协程支持、枚举协变检查、match 返回类型推导等核心特性。结合 Laravel
+  + Swoole 生产环境案例，涵盖 OPcache 调优、内存泄漏检测、Docker 部署与性能基准测试，附完整可运行代码示例，助你将 QPS 提升 57%、内存降低
+  40%。
+updated: null
 ---
+
+
 ## 引言：为什么关注 PHP 8.4？
 
 PHP 8.4 于近期发布，带来了多项重大改进，特别是在内存管理、性能优化和开发体验方面。对于正在维护 Laravel 项目或使用 Swoole/Chaos 框架的开发者来说，这些新特性将直接影响系统性能和运营成本。本文将结合真实项目案例，深入解析 PHP 8.4 的核心特性及实战应用。

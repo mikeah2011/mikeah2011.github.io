@@ -1,12 +1,20 @@
 ---
-title: 'Rust 异步生态对比：Tokio vs async-std vs Smol——运行时选型、性能基准与 PHP/Go 开发者迁移指南'
+title: Rust 异步生态对比：Tokio vs async-std vs Smol——运行时选型、性能基准与 PHP/Go 开发者迁移指南
 date: 2026-06-05 10:00:00
-tags: [rust, tokio, async-std, smol, 异步编程, 运行时选型]
+tags:
+- Rust
+- tokio
+- async-std
+- smol
+- 异步编程
+- 运行时选型
 categories:
-  - architecture
+- architecture
 cover: /images/covers/rust-async-runtime-cover.jpg
-description: "深入对比 Rust 三大异步运行时 Tokio、async-std 与 Smol 的架构设计、调度策略和性能基准，涵盖 HTTP 吞吐量、P99 延迟、内存占用实测数据。为从 PHP（Swoole/Fibers）和 Go（goroutine）迁移的开发者提供完整的心智模型映射表与踩坑案例，附选型决策树助你快速做出运行时选型判断。"
+description: 深入对比 Rust 三大异步运行时 Tokio、async-std 与 Smol 的架构设计、调度策略和性能基准，涵盖 HTTP 吞吐量、P99
+  延迟、内存占用实测数据。为从 PHP（Swoole/Fibers）和 Go（goroutine）迁移的开发者提供完整的心智模型映射表与踩坑案例，附选型决策树助你快速做出运行时选型判断。
 ---
+
 
 Rust 的异步编程模型与传统语言截然不同：语言本身只定义了 `Future` trait 和 `async/await` 语法，而**运行时（runtime）完全由第三方库提供**。这意味着你在 Rust 中写异步代码时，第一个必须做的决定就是——选择哪个运行时。
 

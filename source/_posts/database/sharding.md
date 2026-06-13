@@ -1,16 +1,21 @@
 ---
 title: 分库分表
-tags: [mysql, 分库分表, 分布式数据库, 分片, 雪花算法]
+tags:
+- MySQL
+- 分库分表
+- 分布式数据库
+- 分片
+- 雪花算法
 categories:
-  - database
+- database
 date: 2019-03-20 15:05:07
-description: '全面解析MySQL分库分表技术方案：详解范围分片、哈希分片、一致性哈希三大分片策略与PHP代码实现，ShardingSphere、MyCat、Vitess、ProxySQL中间件选型与配置示例，雪花算法PHP实现，跨分片查询策略（映射表、二次查询、绑定表），分布式事务2PC/TCC/Saga对比，以及电商平台真实迁移案例复盘，助你从容应对海量数据场景。'
+description: 全面解析MySQL分库分表技术方案：详解范围分片、哈希分片、一致性哈希三大分片策略与PHP代码实现，ShardingSphere、MyCat、Vitess、ProxySQL中间件选型与配置示例，雪花算法PHP实现，跨分片查询策略（映射表、二次查询、绑定表），分布式事务2PC/TCC/Saga对比，以及电商平台真实迁移案例复盘，助你从容应对海量数据场景。
 cover: /images/covers/databases-017-cover.jpg
 images:
-  - /images/content/databases-017-content-1.jpg
-  - /images/content/databases-017-content-2.jpg
-
+- /images/content/databases-017-content-1.jpg
+- /images/content/databases-017-content-2.jpg
 ---
+
 > 分库分表
 
 ​	并发量决定是否需要分库，

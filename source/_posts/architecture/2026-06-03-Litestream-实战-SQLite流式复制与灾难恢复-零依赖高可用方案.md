@@ -1,12 +1,20 @@
 ---
 title: Litestream 实战：SQLite 流式复制与灾难恢复——本地优先应用的零依赖高可用方案
-description: "深入实战 Litestream——SQLite 流式复制与灾难恢复的零依赖高可用方案。涵盖 WAL 复制原理、S3/GCS/Azure/MinIO 多后端配置、时间点恢复（PITR）、Laravel 生产集成、与 rqlite/Bedrock 的选型对比、Consul 自动选举、10 个真实踩坑案例，以及本地优先应用架构设计。适合中小规模 SaaS、边缘计算和 Local-first 应用的后端工程师与架构师。"
+description: 深入实战 Litestream——SQLite 流式复制与灾难恢复的零依赖高可用方案。涵盖 WAL 复制原理、S3/GCS/Azure/MinIO
+  多后端配置、时间点恢复（PITR）、Laravel 生产集成、与 rqlite/Bedrock 的选型对比、Consul 自动选举、10 个真实踩坑案例，以及本地优先应用架构设计。适合中小规模
+  SaaS、边缘计算和 Local-first 应用的后端工程师与架构师。
 date: 2026-06-03 03:39:38
-tags: [litestream, SQLite, 灾难恢复, 高可用, 流式复制]
+tags:
+- Litestream
+- SQLite
+- 灾难恢复
+- 高可用
+- 流式复制
 categories:
-  - architecture
+- architecture
 cover: /images/covers/litestream-sqlite-replication-cover.jpg
 ---
+
 
 在过去的十年里，"数据库选择"几乎成了一个不需要思考的决定——新项目用 PostgreSQL 或 MySQL，微服务拆分后再各自选一个，分布式系统就上 CockroachDB 或 TiDB。但当本地优先（Local-first）应用架构思潮兴起、边缘计算逐渐落地，SQLite 以零配置、嵌入式、单文件的独特优势重新回到了架构师的视野。然而，SQLite 长期以来面临的最大质疑只有一个：**如何做高可用与灾难恢复？**
 

@@ -1,12 +1,21 @@
 ---
-title: "MySQL 乐观锁 vs 悲观锁实战进阶：SELECT FOR UPDATE vs 版本号——Laravel 订单并发更新的选型决策与死锁治理"
+title: MySQL 乐观锁 vs 悲观锁实战进阶：SELECT FOR UPDATE vs 版本号——Laravel 订单并发更新的选型决策与死锁治理
 date: 2026-06-10 04:58:00
-tags: [mysql, 乐观锁, 悲观锁, laravel, 死锁, 并发控制, 数据库]
+tags:
+- MySQL
+- 乐观锁
+- 悲观锁
+- Laravel
+- 死锁
+- 并发控制
+- 数据库
 categories:
-  - database
+- database
 cover: /images/covers/mysql-lock-advanced-deadlock-cover.jpg
-description: 深入剖析 SELECT FOR UPDATE 的锁等待机制、死锁检测原理与治理策略。从 InnoDB 行锁粒度、gap lock、next-key lock 到死锁日志分析，结合 Laravel 订单系统的多表关联更新、批量扣减等复杂场景，给出乐观锁版本号与悲观锁的进阶选型框架和生产级代码方案。
+description: 深入剖析 SELECT FOR UPDATE 的锁等待机制、死锁检测原理与治理策略。从 InnoDB 行锁粒度、gap lock、next-key
+  lock 到死锁日志分析，结合 Laravel 订单系统的多表关联更新、批量扣减等复杂场景，给出乐观锁版本号与悲观锁的进阶选型框架和生产级代码方案。
 ---
+
 
 上一篇我们从基础层面对比了乐观锁与悲观锁的实现差异。本文聚焦进阶问题：**SELECT FOR UPDATE 的锁等待链路到底发生了什么？死锁如何从日志中定位根因？多表关联更新时锁的扩散效应如何控制？** 以 Laravel 订单系统的真实生产场景为蓝本，给出可落地的死锁治理方案。
 

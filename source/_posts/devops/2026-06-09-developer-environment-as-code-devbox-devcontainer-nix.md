@@ -1,17 +1,18 @@
 ---
-title: "Developer Environment as Code 实战：Devbox + devcontainer + Nix 的开发环境一致性"
+title: Developer Environment as Code 实战：Devbox + devcontainer + Nix 的开发环境一致性
 date: 2026-06-09 20:09:00
 categories:
-  - devops
+- devops
 tags:
-  - Devbox
-  - devcontainer
-  - Nix
-  - Docker
-  - 开发环境
-  - 环境一致性
-description: "从'在我机器上能跑'到'在所有机器上都能跑'——用 Devbox + devcontainer + Nix 构建可复现的开发环境，彻底解决环境差异问题。"
+- Devbox
+- DevContainer
+- Nix
+- Docker
+- 开发环境
+- 环境一致性
+description: 从'在我机器上能跑'到'在所有机器上都能跑'——用 Devbox + devcontainer + Nix 构建可复现的开发环境，彻底解决环境差异问题。
 ---
+
 ## 前言：那个经典的开发者困境
 
 每个开发团队都经历过这样的场景：

@@ -3,13 +3,19 @@ title: Laravel + OSS/S3 对象存储实战：前端直传、临时签名与回�
 date: 2026-05-02 09:20:00
 cover: /images/covers/laravel-oss-s3-guide-cover.jpg
 categories:
-  - php
-tags: [aws, laravel, oss, s3, 对象存储]
-description: 本文基于 Laravel B2C API 生产实战，完整覆盖阿里云 OSS 与 AWS S3 对象存储集成方案，包括前端直传、临时签名上传与下载、S3 presigned URL 生成、CDN 回源鉴权、Media 元数据表设计、踩坑案例（CORS、Content-Type 检测、文件大小限制）及多云选型对比，适合需要在 Laravel 中落地对象存储的后端与全栈开发者参考。
-
-
-
+- php
+tags:
+- AWS
+- Laravel
+- OSS
+- S3
+- 对象存储
+description: 本文基于 Laravel B2C API 生产实战，完整覆盖阿里云 OSS 与 AWS S3 对象存储集成方案，包括前端直传、临时签名上传与下载、S3
+  presigned URL 生成、CDN 回源鉴权、Media 元数据表设计、踩坑案例（CORS、Content-Type 检测、文件大小限制）及多云选型对比，适合需要在
+  Laravel 中落地对象存储的后端与全栈开发者参考。
 ---
+
+
 在 B2C API 里，文件上传最容易做成“先能跑、后面很贵”：前端先把图片传到 Laravel，Laravel 再转传 OSS/S3；下载时所有文件都先经过 PHP；商品图、退款附件、导出报表全塞一个 bucket。上线后常见结果是：PHP worker 被大文件拖满、Nginx 临时目录暴涨、CDN 缓存混乱、私有文件还可能直接裸奔。
 
 我后来把方案统一成：**前端直传 + 服务端签名 + 元数据入库 + 私有下载临时 URL**。这套在商品图、订单凭证、退款附件、运营导表里都能复用，而且不会把应用层当文件搬运工。

@@ -4,13 +4,17 @@ date: 2026-05-05 09:50:56
 updated: 2026-05-05 09:55:25
 cover: /images/covers/thinkphp-architecture-cover.jpg
 categories:
-  - misc
-tags: [kkday, laravel, redis, thinkphp, 支付]
+- misc
+tags:
+- KKday
+- Laravel
+- Redis
+- ThinkPHP
+- 支付
 description: 基于奇乐 MAX 开源项目实战，拆解 ThinkPHP 6 多应用架构下盲盒/抽奖电商后端设计，覆盖数据库建模、Redis 分布式锁防超卖、微信支付宝支付集成、赏级概率计算及生产环境踩坑记录，适合电商后端开发者参考。
-
-
-
 ---
+
+
 # ThinkPHP 电商后端架构设计：盲盒/抽奖业务的核心逻辑实战踩坑记录
 
 > 本文基于开源项目 [奇乐 MAX](https://github.com/mikeah2011/qile-max)（ThinkPHP 6）的真实代码，不是概念介绍，是一套跑在生产环境上的盲盒/抽奖电商后端架构拆解。

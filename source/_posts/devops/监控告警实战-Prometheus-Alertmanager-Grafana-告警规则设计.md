@@ -1,12 +1,20 @@
 ---
 title: 监控告警实战：Prometheus Alertmanager + Grafana 告警规则设计
 date: 2026-06-01 22:45:00
-tags: [Prometheus, Alertmanager, Grafana, PromQL, 监控告警, 可观测性]
-description: 本文结合 Laravel 线上系统，系统讲解 Prometheus、Grafana、Alertmanager 的监控告警落地方法，覆盖 PromQL 告警规则设计、Alertmanager 路由与抑制、Grafana 面板模板、监控告警分级、误报治理与告警疲劳优化，帮助团队建立真正可执行、可演练、可持续迭代的生产级告警体系。
+tags:
+- Prometheus
+- AlertManager
+- Grafana
+- PromQL
+- 监控告警
+- 可观测性
+description: 本文结合 Laravel 线上系统，系统讲解 Prometheus、Grafana、Alertmanager 的监控告警落地方法，覆盖 PromQL
+  告警规则设计、Alertmanager 路由与抑制、Grafana 面板模板、监控告警分级、误报治理与告警疲劳优化，帮助团队建立真正可执行、可演练、可持续迭代的生产级告警体系。
 categories:
-  - devops
+- devops
 cover: /images/covers/prometheus-alerting-cover.jpg
 ---
+
 
 # 监控告警实战：Prometheus Alertmanager + Grafana 告警规则设计
 

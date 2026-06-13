@@ -1,12 +1,22 @@
 ---
 title: Zig 实战：C 的现代替代——comptime 编译期计算、手动内存管理与 Laravel PHP 扩展的 Zig 重写路径
 date: 2026-06-07 08:00:00
-tags: [zig, c, php扩展, comptime, 内存管理, laravel, 系统编程]
+tags:
+- Zig
+- C
+- PHP扩展
+- comptime
+- 内存管理
+- Laravel
+- 系统编程
 categories:
-  - architecture
+- architecture
 cover: /images/covers/zig-modern-c-alternative-cover.jpg
-description: "深入解析 Zig 语言的三大核心特性——comptime 编译期计算、Allocator 模式内存管理与零成本 C ABI 互操作，对比 Zig 与 C 在 PHP 扩展开发中的优劣，并给出从 Laravel PHP C 扩展渐进式迁移到 Zig 的完整实战路径，包含 FFI 集成、原生扩展重写、性能基准测试与踩坑经验。"
+description: 深入解析 Zig 语言的三大核心特性——comptime 编译期计算、Allocator 模式内存管理与零成本 C ABI 互操作，对比
+  Zig 与 C 在 PHP 扩展开发中的优劣，并给出从 Laravel PHP C 扩展渐进式迁移到 Zig 的完整实战路径，包含 FFI 集成、原生扩展重写、性能基准测试与踩坑经验。
 ---
+
+
 
 # Zig 实战：C 的现代替代——comptime 编译期计算、手动内存管理与 Laravel PHP 扩展的 Zig 重写路径
 

@@ -1,12 +1,21 @@
 ---
-title: 'Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change 检测'
+title: Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change
+  检测
 date: 2026-06-05 10:00:00
-tags: [Data Contract, Laravel, 微服务, Pact, API 契约, Breaking Change]
+tags:
+- Data Contract
+- Laravel
+- 微服务
+- Pact
+- API 契约
+- Breaking Changes
 categories:
-  - architecture
+- architecture
 cover: /images/covers/data-contract-pact-laravel-cover.jpg
-description: "深入讲解 Laravel 微服务架构中数据契约（Data Contract）的实战落地：采用 Pact 消费者驱动契约测试模式，实现数据格式版本化、JSON Schema 自动化验证、Breaking Change CI 检测与 can-i-deploy 部署门禁。涵盖同步 API、异步事件、共享数据库三大数据流场景的契约治理全流程。"
+description: 深入讲解 Laravel 微服务架构中数据契约（Data Contract）的实战落地：采用 Pact 消费者驱动契约测试模式，实现数据格式版本化、JSON
+  Schema 自动化验证、Breaking Change CI 检测与 can-i-deploy 部署门禁。涵盖同步 API、异步事件、共享数据库三大数据流场景的契约治理全流程。
 ---
+
 
 ## 前言：一个凌晨三点的生产事故
 

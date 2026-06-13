@@ -1,11 +1,21 @@
 ---
 title: Hermes 记忆安全机制：sanitize_context 防止记忆泄漏 + StreamingContextScrubber
 date: 2026-06-02 13:00:00
-description: 深入解析 Hermes Agent 记忆安全机制，涵盖 sanitize_context 静态记忆清洗与 StreamingContextScrubber 实时流式拦截两道防线。详解 PII 脱敏、Prompt Injection 检测、跨会话隔离、记忆投毒防护等 10 种威胁的应对方案，附完整 TypeScript 代码实现与 LangChain/自建方案对比表，帮助开发者构建可信赖的 AI Agent 记忆安全体系。
-tags: [hermes, ai agent, 安全, 记忆泄漏, 隐私保护, 数据安全]
-categories: [ai]
+description: 深入解析 Hermes Agent 记忆安全机制，涵盖 sanitize_context 静态记忆清洗与 StreamingContextScrubber
+  实时流式拦截两道防线。详解 PII 脱敏、Prompt Injection 检测、跨会话隔离、记忆投毒防护等 10 种威胁的应对方案，附完整 TypeScript
+  代码实现与 LangChain/自建方案对比表，帮助开发者构建可信赖的 AI Agent 记忆安全体系。
+tags:
+- Hermes
+- AI Agent
+- 安全
+- 记忆泄漏
+- 隐私保护
+- 数据安全
+categories:
+- ai
 cover: /images/covers/hermes-memory-security-cover.jpg
 ---
+
 
 # Hermes 记忆安全机制：sanitize_context 防止记忆泄漏 + StreamingContextScrubber
 

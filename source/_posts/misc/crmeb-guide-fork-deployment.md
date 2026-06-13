@@ -4,13 +4,19 @@ cover: /images/covers/crmeb-guide-fork-deployment-cover.jpg
 date: 2026-05-05 10:15:59
 updated: 2026-05-05 10:23:51
 categories:
-  - misc
-tags: [docker, nginx, thinkphp, 二次开发, crmeb, 架构]
-description: 基于 CRMEB 开源商城系统的真实二次开发经验，完整记录从 fork 上游仓库、本地环境搭建、核心模块定制开发到生产环境部署的全流程实战。覆盖目录结构解析、支付/商品/订单模块改造、Docker 容器化部署、Nginx 反向配置以及上线后踩过的 12 个真实坑点。
-
-
-
+- misc
+tags:
+- Docker
+- Nginx
+- ThinkPHP
+- 二次开发
+- crmeb
+- 架构
+description: 基于 CRMEB 开源商城系统的真实二次开发经验，完整记录从 fork 上游仓库、本地环境搭建、核心模块定制开发到生产环境部署的全流程实战。覆盖目录结构解析、支付/商品/订单模块改造、Docker
+  容器化部署、Nginx 反向配置以及上线后踩过的 12 个真实坑点。
 ---
+
+
 # CRMEB 开源商城二次实战：从 Fork 到生产部署踩坑记录
 
 > 本文基于 [CRMEB](https://github.com/crmeb/crmeb_java) 开源商城系统的真实二次开发项目经验，记录从 fork 到生产部署的完整生命周期。不是概念介绍，是真刀真枪改了 60+ 文件、踩了 12 个坑、最终跑在生产环境上的实战复盘。

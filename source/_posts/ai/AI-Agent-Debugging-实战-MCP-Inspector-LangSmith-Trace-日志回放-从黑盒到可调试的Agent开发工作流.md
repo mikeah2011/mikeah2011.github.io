@@ -1,11 +1,21 @@
 ---
-title: 'AI Agent Debugging 实战：MCP Inspector/LangSmith Trace/日志回放——从黑盒到可调试的 Agent 开发工作流'
+title: AI Agent Debugging 实战：MCP Inspector/LangSmith Trace/日志回放——从黑盒到可调试的 Agent 开发工作流
 date: 2026-06-05 08:00:00
-tags: [ai-agent, debugging, mcp-inspector, langsmith, trace]
-categories: [ai]
+tags:
+- AI Agent
+- Debugging
+- mcp-inspector
+- LangSmith
+- trace
+categories:
+- ai
 cover: /images/covers/ai-agent-debugging-cover.jpg
-description: 'AI Agent 调试实战指南：深入讲解 MCP Inspector 工具层实时诊断、LangSmith Trace 全链路可视化追踪、结构化日志回放三大调试方法。涵盖 MCP Inspector 的 Request/Response JSON 完整示例、LangSmith 与 OpenAI/LangChain 集成代码、生产环境日志回放脚本、常见踩坑排查及方案对比，帮助开发者从黑盒调试转向可观测、可追踪、可复现的工程化 Agent 开发工作流。'
+description: AI Agent 调试实战指南：深入讲解 MCP Inspector 工具层实时诊断、LangSmith Trace 全链路可视化追踪、结构化日志回放三大调试方法。涵盖
+  MCP Inspector 的 Request/Response JSON 完整示例、LangSmith 与 OpenAI/LangChain 集成代码、生产环境日志回放脚本、常见踩坑排查及方案对比，帮助开发者从黑盒调试转向可观测、可追踪、可复现的工程化
+  Agent 开发工作流。
 ---
+
+
 
 ## 前言：当 print() 不再够用
 

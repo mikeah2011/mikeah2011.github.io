@@ -1,12 +1,23 @@
 ---
-title: 'Htmx + Laravel 实战：不用 JavaScript 框架也能做交互——超轻量前后端方案对比 Livewire/Turbo 的渐进增强路线'
+title: Htmx + Laravel 实战：不用 JavaScript 框架也能做交互——超轻量前后端方案对比 Livewire/Turbo 的渐进增强路线
 date: 2026-06-06 16:00:00
-tags: [Htmx, Laravel, Livewire, Hotwire, Turbo, 前端, SPA, SSR]
-description: '深入讲解 Htmx 与 Laravel 的完整集成路线，从零搭建渐进增强的前后端交互应用。通过 OOB 交换、Morph 扩展、SSE 实时推送等高级用法，对比 Livewire 与 Hotwire/Turbo 三种方案的架构哲学、请求开销与性能表现，帮你建立清晰的选型决策框架。适合不想引入 React/Vue 等重型前端框架、追求极简交互的 Laravel 开发者。'
+tags:
+- HTMX
+- Laravel
+- Livewire
+- Hotwire
+- Turbo
+- 前端
+- SPA
+- SSR
+description: 深入讲解 Htmx 与 Laravel 的完整集成路线，从零搭建渐进增强的前后端交互应用。通过 OOB 交换、Morph 扩展、SSE 实时推送等高级用法，对比
+  Livewire 与 Hotwire/Turbo 三种方案的架构哲学、请求开销与性能表现，帮你建立清晰的选型决策框架。适合不想引入 React/Vue 等重型前端框架、追求极简交互的
+  Laravel 开发者。
 categories:
-  - frontend
+- frontend
 cover: /images/covers/htmx-laravel-frontend-cover.jpg
 ---
+
 
 > 渐进增强不是技术退化，而是一种更稳健的工程哲学。当你构建的系统在没有 JavaScript 的情况下依然可用，加上 JavaScript 只会让体验变得更好——而不是"没有 JS 就彻底瘫痪"。
 

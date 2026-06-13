@@ -1,17 +1,18 @@
 ---
-title: "Cursor Rules 工程化实战：.cursorrules 版本控制、团队共享与 A/B 测试——AI 辅助编程的提示词治理"
+title: Cursor Rules 工程化实战：.cursorrules 版本控制、团队共享与 A/B 测试——AI 辅助编程的提示词治理
 date: 2026-06-09 06:25:00
 categories:
-  - ai
+- ai
 tags:
-  - Cursor
-  - AI编程
-  - 提示词工程
-  - 团队协作
-  - 代码规范
-description: "深入探讨 .cursorrules 的工程化管理：版本控制、团队共享机制、A/B 测试框架，以及如何建立 AI 辅助编程的提示词治理体系。"
+- Cursor
+- AI 编程
+- 提示词工程
+- 团队协作
+- 代码规范
+description: 深入探讨 .cursorrules 的工程化管理：版本控制、团队共享机制、A/B 测试框架，以及如何建立 AI 辅助编程的提示词治理体系。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200
 ---
+
 
 ## 概述
 

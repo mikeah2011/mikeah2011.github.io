@@ -1,16 +1,20 @@
 ---
 title: Redis缓存雪崩
-tags: [redis, 缓存, 高并发, laravel]
+tags:
+- Redis
+- 缓存
+- 高并发
+- Laravel
 categories:
-  - database
+- database
 date: 2019-03-20 15:05:07
-description: 'Redis缓存雪崩是指大量缓存key在同一时间集中过期，或Redis节点宕机，导致海量请求瞬间穿透到数据库，造成数据库压力骤增甚至宕机的严重故障。本文深入分析缓存雪崩的成因、危害场景（如Redis重启、大促活动），并提供基于Laravel的完整解决方案，包括随机TTL、多级缓存、熔断降级、Lua脚本、Redis集群高可用配置等实战代码示例，帮助开发者构建高并发场景下的缓存防护体系。'
+description: Redis缓存雪崩是指大量缓存key在同一时间集中过期，或Redis节点宕机，导致海量请求瞬间穿透到数据库，造成数据库压力骤增甚至宕机的严重故障。本文深入分析缓存雪崩的成因、危害场景（如Redis重启、大促活动），并提供基于Laravel的完整解决方案，包括随机TTL、多级缓存、熔断降级、Lua脚本、Redis集群高可用配置等实战代码示例，帮助开发者构建高并发场景下的缓存防护体系。
 cover: /images/covers/databases-1-cover.jpg
 images:
-  - /images/content/databases-1-content-1.jpg
-  - /images/content/databases-1-content-2.jpg
-
+- /images/content/databases-1-content-1.jpg
+- /images/content/databases-1-content-2.jpg
 ---
+
 
 当某一个时刻出现大规模的缓存失效的情况，那么就会导致大量的请求直接打在数据库上面，导致数据库压力巨大，如果在高并发的情况下，可能瞬间就会导致数据库宕机。这时候如果运维马上又重启数据库，马上又会有新的流量把数据库打死。这就是缓存雪崩。
 

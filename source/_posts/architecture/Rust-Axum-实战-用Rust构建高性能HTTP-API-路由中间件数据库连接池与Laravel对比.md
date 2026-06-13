@@ -1,12 +1,22 @@
 ---
-title: 'Rust + Axum 实战：用 Rust 构建高性能 HTTP API——路由、中间件、数据库连接池与 Laravel 开发者对比'
+title: Rust + Axum 实战：用 Rust 构建高性能 HTTP API——路由、中间件、数据库连接池与 Laravel 开发者对比
 date: 2026-06-03 08:00:00
-tags: [rust, axum, http-api, 高性能, laravel, tower, sqlx]
+tags:
+- Rust
+- axum
+- http-api
+- 高性能
+- Laravel
+- tower
+- sqlx
 categories:
-  - architecture
-description: "从 Laravel 开发者视角深入实战 Rust Axum 框架，涵盖路由系统、Extractor 提取器、Tower 中间件体系、SQLx 编译期 SQL 校验与连接池管理。含完整 RESTful API 代码示例、Axum vs Laravel 性能基准对比（10-100 倍性能差距）、异步编程踩坑案例与迁移指南，助你构建高性能类型安全的 HTTP API。"
+- architecture
+description: 从 Laravel 开发者视角深入实战 Rust Axum 框架，涵盖路由系统、Extractor 提取器、Tower 中间件体系、SQLx
+  编译期 SQL 校验与连接池管理。含完整 RESTful API 代码示例、Axum vs Laravel 性能基准对比（10-100 倍性能差距）、异步编程踩坑案例与迁移指南，助你构建高性能类型安全的
+  HTTP API。
 cover: /images/covers/rust-axum-cover.jpg
 ---
+
 
 # Rust + Axum 实战：用 Rust 构建高性能 HTTP API——路由、中间件、数据库连接池与 Laravel 开发者对比
 

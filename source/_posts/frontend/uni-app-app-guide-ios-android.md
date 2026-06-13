@@ -1,15 +1,22 @@
 ---
-title: "uni-app App 打包实战：iOS/Android 原生打包与发布 — 从 HBuilderX 到上架全流程踩坑记录"
+title: uni-app App 打包实战：iOS/Android 原生打包与发布 — 从 HBuilderX 到上架全流程踩坑记录
 cover: /images/covers/uni-app-app-guide-ios-android-cover.jpg
 date: 2026-05-17 06:40:07
 updated: 2026-05-17 06:42:11
 categories: Frontend
-tags: [uni-app, iOS, Android, 跨平台, 移动开发, Vue3, App打包]
-description: "uni-app 一套代码跑 iOS、Android 双平台，但跨平台移动开发的打包发布流程远比 H5 和小程序复杂。本文基于奇乐MAX电商项目真实经验，详解 uni-app 云打包、离线打包、iOS 签名证书管理、Android 多渠道打包、自定义基座真机调试、应用市场审核被拒等全流程踩坑记录，附 GitHub Actions CI/CD 自动化打包方案。"
-
-
-
+tags:
+- uni-app
+- iOS
+- Android
+- 跨平台
+- 移动开发
+- Vue 3
+- App打包
+description: uni-app 一套代码跑 iOS、Android 双平台，但跨平台移动开发的打包发布流程远比 H5 和小程序复杂。本文基于奇乐MAX电商项目真实经验，详解
+  uni-app 云打包、离线打包、iOS 签名证书管理、Android 多渠道打包、自定义基座真机调试、应用市场审核被拒等全流程踩坑记录，附 GitHub Actions
+  CI/CD 自动化打包方案。
 ---
+
 # uni-app App 打包实战：iOS/Android 原生打包与发布
 
 ## 前言

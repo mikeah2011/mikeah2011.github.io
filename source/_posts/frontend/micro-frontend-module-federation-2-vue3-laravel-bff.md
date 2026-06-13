@@ -1,12 +1,20 @@
 ---
-title: 'Micro-Frontend 实战：Module Federation 2.0——Vue 3 微前端架构与 Laravel BFF 聚合层集成'
+title: Micro-Frontend 实战：Module Federation 2.0——Vue 3 微前端架构与 Laravel BFF 聚合层集成
 date: 2026-06-04 08:00:00
-tags: [micro-frontend, module-federation, vue3, 微前端, laravel-bff]
-description: 本文深入探讨基于 Vue 3 + Module Federation 2.0 构建企业级微前端架构的完整实战方案，涵盖 Module Federation 2.0 的运行时独立化、Manifest 协议、动态远程注册与 TypeScript 类型共享等核心特性。通过 Laravel BFF 聚合层实现多后端微服务的接口聚合、数据裁剪与统一鉴权，详细解析共享依赖仲裁、CSS 样式隔离、错误边界、跨应用状态通信等工程踩坑与解决方案，并提供完整的构建配置、Monorepo 规划、CI/CD 流水线与灰度发布策略，适合大型中后台系统的微前端架构选型与落地参考。
+tags:
+- micro-frontend
+- module-federation
+- Vue 3
+- 微前端
+- laravel-bff
+description: 本文深入探讨基于 Vue 3 + Module Federation 2.0 构建企业级微前端架构的完整实战方案，涵盖 Module Federation
+  2.0 的运行时独立化、Manifest 协议、动态远程注册与 TypeScript 类型共享等核心特性。通过 Laravel BFF 聚合层实现多后端微服务的接口聚合、数据裁剪与统一鉴权，详细解析共享依赖仲裁、CSS
+  样式隔离、错误边界、跨应用状态通信等工程踩坑与解决方案，并提供完整的构建配置、Monorepo 规划、CI/CD 流水线与灰度发布策略，适合大型中后台系统的微前端架构选型与落地参考。
 categories:
-  - frontend
+- frontend
 cover: /images/covers/micro-frontend-module-federation-2-cover.jpg
 ---
+
 
 # Micro-Frontend 实战：Module Federation 2.0——Vue 3 微前端架构与 Laravel BFF 聚合层集成
 

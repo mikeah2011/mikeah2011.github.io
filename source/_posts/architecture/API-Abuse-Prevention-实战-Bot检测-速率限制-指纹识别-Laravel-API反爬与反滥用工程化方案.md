@@ -1,12 +1,21 @@
 ---
 title: API Abuse Prevention 实战：Bot 检测、速率限制、指纹识别——Laravel API 的反爬与反滥用工程化方案
 date: 2026-06-05 12:00:00
-description: "系统讲解 Laravel API 反爬与反滥用的工程化方案。从威胁建模出发，深入 Bot 检测（User-Agent 分析、TLS 指纹 JA3/JA4、行为指纹）、速率限制（固定窗口、Redis 滑动窗口、多维度限流）、设备指纹识别（前后端联动、IP 代理检测）三大核心防线，配合统一安全中间件栈、监控告警体系，覆盖 5 大生产踩坑案例。适合需要保护 API 接口、防御爬虫与恶意调用的 Laravel 后端工程师。"
-tags: [api安全, bot检测, 速率限制, laravel, 反爬虫]
+description: 系统讲解 Laravel API 反爬与反滥用的工程化方案。从威胁建模出发，深入 Bot 检测（User-Agent 分析、TLS 指纹
+  JA3/JA4、行为指纹）、速率限制（固定窗口、Redis 滑动窗口、多维度限流）、设备指纹识别（前后端联动、IP 代理检测）三大核心防线，配合统一安全中间件栈、监控告警体系，覆盖
+  5 大生产踩坑案例。适合需要保护 API 接口、防御爬虫与恶意调用的 Laravel 后端工程师。
+tags:
+- API安全
+- Bot检测
+- 速率限制
+- Laravel
+- 反爬虫
 categories:
-  - architecture
+- architecture
 cover: /images/covers/api-abuse-prevention-cover.jpg
 ---
+
+
 
 ## 前言：当你的 API 被"薅秃"了
 

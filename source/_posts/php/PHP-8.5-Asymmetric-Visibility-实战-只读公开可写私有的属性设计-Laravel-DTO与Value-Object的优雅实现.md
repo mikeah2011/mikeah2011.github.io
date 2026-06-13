@@ -1,12 +1,23 @@
 ---
-title: 'PHP 8.5 Asymmetric Visibility 实战：只读公开+可写私有的属性设计——Laravel DTO 与 Value Object 的优雅实现'
+title: PHP 8.5 Asymmetric Visibility 实战：只读公开+可写私有的属性设计——Laravel DTO 与 Value Object
+  的优雅实现
 date: 2026-06-04 14:00:00
-tags: [php 8.5, asymmetric visibility, dto, value object, laravel, 面向对象]
+tags:
+- PHP 8.5
+- asymmetric visibility
+- DTO
+- Value Object
+- Laravel
+- 面向对象
 categories:
-  - php
+- php
 cover: /images/covers/php85-asymmetric-visibility-cover.jpg
-description: "PHP 8.5 非对称可见性（Asymmetric Visibility）深度实战：用 public private(set) 语法实现只读公开+可写私有的属性设计，彻底告别 getter/setter 样板代码与 readonly 过度约束。详解 Laravel DTO、Value Object、不可变实体、状态机模式的优雅实现，含 Money/Address/DateRange 完整示例、性能基准对比、与 Spatie Laravel Data 选型指南及渐进式迁移策略，面向对象封装的一次范式升级。"
+description: PHP 8.5 非对称可见性（Asymmetric Visibility）深度实战：用 public private(set) 语法实现只读公开+可写私有的属性设计，彻底告别
+  getter/setter 样板代码与 readonly 过度约束。详解 Laravel DTO、Value Object、不可变实体、状态机模式的优雅实现，含
+  Money/Address/DateRange 完整示例、性能基准对比、与 Spatie Laravel Data 选型指南及渐进式迁移策略，面向对象封装的一次范式升级。
 ---
+
+
 
 PHP 8.5 带来了一项令面向对象编程爱好者兴奋不已的新特性——**Asymmetric Visibility（非对称可见性）**。这项特性源自 RFC 0004（由 Nicolas Grekas 和 Ilija Tovilo 提出），允许我们在同一个属性上分别声明不同的读写可见性，从而以声明式语法优雅地实现「外部只读、内部可写」的属性控制模式。这一特性经过了长达两年的讨论和三轮投票，最终在 PHP 社区达成共识并被纳入 PHP 8.5 的核心功能。
 

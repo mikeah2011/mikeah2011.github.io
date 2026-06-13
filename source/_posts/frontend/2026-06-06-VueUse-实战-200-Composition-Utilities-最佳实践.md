@@ -1,12 +1,20 @@
 ---
-title: 'VueUse 实战：200+ Composition Utilities 最佳实践——useDebounceFn/useIntersectionObserver/useVirtualList 等高频场景'
+title: VueUse 实战：200+ Composition Utilities 最佳实践——useDebounceFn/useIntersectionObserver/useVirtualList
+  等高频场景
 date: 2026-06-06 13:08:25
-tags: [VueUse, Vue3, Composition API, 前端工具库]
+tags:
+- VueUse
+- Vue 3
+- Composition API
+- 前端工具库
 categories:
-  - frontend
+- frontend
 cover: /images/covers/vueuse-practice-cover.jpg
-description: "深入解析 VueUse 200+ Composition API 工具函数的最佳实践。涵盖 useDebounceFn 防抖搜索、useIntersectionObserver 图片懒加载与曝光埋点、useVirtualList 万级数据虚拟滚动、useStorage 响应式本地存储、useDark 暗黑模式等高频场景，提供完整可运行代码示例与手写方案对比，帮助 Vue3 开发者大幅提升开发效率，避免常见踩坑。"
+description: 深入解析 VueUse 200+ Composition API 工具函数的最佳实践。涵盖 useDebounceFn 防抖搜索、useIntersectionObserver
+  图片懒加载与曝光埋点、useVirtualList 万级数据虚拟滚动、useStorage 响应式本地存储、useDark 暗黑模式等高频场景，提供完整可运行代码示例与手写方案对比，帮助
+  Vue3 开发者大幅提升开发效率，避免常见踩坑。
 ---
+
 
 ## 前言
 

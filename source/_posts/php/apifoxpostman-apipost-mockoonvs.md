@@ -2,16 +2,26 @@
 title: Apifox vs Postman vs ApiPost vs Mockoon 四件套对比实战
 cover: /images/covers/php-api-tools-comparison-cover.jpg
 date: 2026-05-02
-description: "Apifox、Postman、ApiPost、Mockoon 四款主流 API 工具深度横评：从本地 Mock、团队协作、中文支持、文档生成到 CI/CD 集成，逐项对比优劣。附 Laravel BFF 真实开发踩坑经验、Mockoon/Postman 可运行代码示例、Apifox AutoAPI 工作流实战，帮你选对工具少走弯路。"
+description: Apifox、Postman、ApiPost、Mockoon 四款主流 API 工具深度横评：从本地 Mock、团队协作、中文支持、文档生成到
+  CI/CD 集成，逐项对比优劣。附 Laravel BFF 真实开发踩坑经验、Mockoon/Postman 可运行代码示例、Apifox AutoAPI 工作流实战，帮你选对工具少走弯路。
 categories:
-  - php
-  - testing
-tags: [bff, laravel, testing, apifox, postman, mockoon, apipost, api-tools, mock]
-简介: 作为 Laravel BFF 开发者，我每天都在与 API 打交道。Postman、Apifox、ApiPost、Mockoon 四款工具的深度对比，从工作流、本地 Mock、团队协作、中文支持等多维度实测，附真实踩坑经验。
-
-
-
+- php
+- testing
+tags:
+- BFF
+- Laravel
+- Testing
+- Apifox
+- Postman
+- Mockoon
+- apipost
+- api-tools
+- Mock
+简介: 作为 Laravel BFF 开发者，我每天都在与 API 打交道。Postman、Apifox、ApiPost、Mockoon 四款工具的深度对比，从工作流、本地
+  Mock、团队协作、中文支持等多维度实测，附真实踩坑经验。
 ---
+
+
 ## 🎯 为什么需要这篇对比？
 
 在 Laravel BFF 开发中，我几乎每天都会面临这些场景：

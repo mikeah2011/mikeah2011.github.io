@@ -1,12 +1,20 @@
 ---
-title: 'Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh——Laravel 高并发缓存击穿的三重防御'
+title: Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh——Laravel
+  高并发缓存击穿的三重防御
 date: 2026-06-07 10:00:00
-tags: [redis, 缓存, laravel, 高并发, 分布式锁, 缓存击穿]
+tags:
+- Redis
+- 缓存
+- Laravel
+- 高并发
+- 分布式锁
+- 缓存击穿
 categories:
-  - database
+- database
 cover: /images/covers/cache-stampede-three-layer-defense-cover.jpg
-description: "深入剖析Cache Stampede缓存击穿问题本质，用Laravel+Redis实现分布式锁互斥重建、XFetch概率性提前过期、SWR后台异步刷新三重纵深防御体系，含完整生产级代码、基准测试对比、监控告警方案与踩坑经验，助你构建高并发场景下的缓存防护方案。"
+description: 深入剖析Cache Stampede缓存击穿问题本质，用Laravel+Redis实现分布式锁互斥重建、XFetch概率性提前过期、SWR后台异步刷新三重纵深防御体系，含完整生产级代码、基准测试对比、监控告警方案与踩坑经验，助你构建高并发场景下的缓存防护方案。
 ---
+
 
 在高并发系统中，缓存是保护数据库的第一道防线。然而，当热点缓存 key 过期的那一瞬间，所有请求会同时穿透缓存直达数据库，形成"惊群效应"——这就是 Cache Stampede（缓存击穿）。本文将从问题本质出发，用 Laravel + Redis 实现三重纵深防御：分布式锁互斥重建、概率性提前过期（XFetch 算法）、以及后台异步刷新（Stale-While-Revalidate），帮助你构建生产级的缓存防护体系。
 

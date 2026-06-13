@@ -1,12 +1,21 @@
 ---
 title: Developer Productivity Metrics 实战：SPACE 框架度量开发者效能——DORA 之外的代码质量、协作效率与满意度追踪
 date: 2026-06-03 08:00:00
-tags: [developer-productivity, space, dora, 工程效能, 度量, devops]
+tags:
+- Developer-Productivity
+- SPACE
+- DORA
+- 工程效能
+- 度量
+- DevOps
 categories:
-  - devops
+- devops
 cover: /images/covers/developer-productivity-metrics-space-cover.jpg
-description: "深入解析SPACE框架与DORA指标的互补关系，涵盖Satisfaction满意度、Performance效能、Activity活动量、Communication协作、Efficiency效率五大维度的度量方法与落地实践。结合Laravel/PHP团队真实案例，介绍开发者效能度量体系搭建、Bus Factor分析、代码质量追踪、协作效率评估等核心内容，附带完整代码示例、工具推荐与反模式避坑指南，助力工程团队从DORA-only升级到全面可持续的效能度量体系。"
+description: 深入解析SPACE框架与DORA指标的互补关系，涵盖Satisfaction满意度、Performance效能、Activity活动量、Communication协作、Efficiency效率五大维度的度量方法与落地实践。结合Laravel/PHP团队真实案例，介绍开发者效能度量体系搭建、Bus
+  Factor分析、代码质量追踪、协作效率评估等核心内容，附带完整代码示例、工具推荐与反模式避坑指南，助力工程团队从DORA-only升级到全面可持续的效能度量体系。
 ---
+
+
 
 ## 前言
 

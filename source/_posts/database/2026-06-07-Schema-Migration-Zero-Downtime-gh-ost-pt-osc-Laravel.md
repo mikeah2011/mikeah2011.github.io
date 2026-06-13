@@ -1,12 +1,22 @@
 ---
-title: 'Schema Migration Zero-Downtime 实战：Laravel 大表 ALTER 的 gh-ost/pt-osc 对比——生产环境无锁表变更的工程化路径'
+title: Schema Migration Zero-Downtime 实战：Laravel 大表 ALTER 的 gh-ost/pt-osc 对比——生产环境无锁表变更的工程化路径
 date: 2026-06-07 00:00:00
-tags: [mysql, gh-ost, pt-osc, schema-migration, zero-downtime, laravel]
+tags:
+- MySQL
+- gh-ost
+- pt-osc
+- schema-migration
+- Zero-Downtime
+- Laravel
 categories:
-  - database
+- database
 cover: /images/covers/schema-migration-zero-downtime-cover.jpg
-description: "生产环境大表 ALTER 如何零停机？本文从 MySQL DDL 底层机制出发，深入对比 gh-ost（基于 binlog 无触发器）与 pt-osc（基于触发器）两大在线 Schema 变更工具的架构原理、性能差异与安全边界，并给出 Laravel Artisan 命令封装、CI/CD 流水线集成的完整工程方案。含 5000 万行订单表基准测试数据、回滚操作、踩坑指南与生产检查清单，帮助团队建立安全可控的大表变更流程。"
+description: 生产环境大表 ALTER 如何零停机？本文从 MySQL DDL 底层机制出发，深入对比 gh-ost（基于 binlog 无触发器）与
+  pt-osc（基于触发器）两大在线 Schema 变更工具的架构原理、性能差异与安全边界，并给出 Laravel Artisan 命令封装、CI/CD 流水线集成的完整工程方案。含
+  5000 万行订单表基准测试数据、回滚操作、踩坑指南与生产检查清单，帮助团队建立安全可控的大表变更流程。
 ---
+
+
 
 # Schema Migration Zero-Downtime 实战：Laravel 大表 ALTER 的 gh-ost/pt-osc 对比——生产环境无锁表变更的工程化路径
 

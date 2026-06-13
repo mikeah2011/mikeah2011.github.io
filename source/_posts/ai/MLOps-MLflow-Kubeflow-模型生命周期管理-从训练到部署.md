@@ -1,11 +1,21 @@
 ---
 title: MLOps 实战：MLflow/Kubeflow 模型生命周期管理——从训练到部署的工程化流水线
 date: 2026-06-02 12:00:00
-tags: [MLOps, MLflow, Kubeflow, 模型部署, CI-CD, AI]
-categories: [ai]
+tags:
+- MLOps
+- MLflow
+- Kubeflow
+- 模型部署
+- CI/CD
+- AI
+categories:
+- ai
 cover: /images/covers/mlops-mlflow-kubeflow-cover.jpg
-description: MLOps 工程化实战指南，深入讲解 MLflow Tracking 实验跟踪、Model Registry 模型版本管理、Kubeflow Pipelines 流水线编排与 KFServing 模型服务部署。涵盖 Google MLOps 成熟度模型、端到端机器学习流水线构建、模型漂移检测与 A/B 测试，包含完整 Python 代码示例与踩坑案例，帮助团队从手动 Notebook 部署迈向自动化 CI/CD for ML 的生产级实践。
+description: MLOps 工程化实战指南，深入讲解 MLflow Tracking 实验跟踪、Model Registry 模型版本管理、Kubeflow
+  Pipelines 流水线编排与 KFServing 模型服务部署。涵盖 Google MLOps 成熟度模型、端到端机器学习流水线构建、模型漂移检测与 A/B
+  测试，包含完整 Python 代码示例与踩坑案例，帮助团队从手动 Notebook 部署迈向自动化 CI/CD for ML 的生产级实践。
 ---
+
 
 ## 引言：从模型开发到生产部署的鸿沟
 

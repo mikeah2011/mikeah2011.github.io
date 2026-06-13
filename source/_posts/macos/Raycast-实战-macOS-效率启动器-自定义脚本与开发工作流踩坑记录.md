@@ -3,10 +3,19 @@ title: Raycast 实战：macOS 效率启动器自定义脚本与开发工作流�
 cover: /images/covers/raycast-macos-productivity-launcher-custom-script-workflow-cover.jpg
 date: 2026-06-01
 categories:
-  - macos
-tags: [raycast, macos, 效率工具, 开发者工具, 自动化, spotlight, hotkey]
-description: "这篇文章系统梳理 Raycast 在 macOS 上的真实使用方法，覆盖效率工具与启动器的基础配置、自定义脚本、快捷键体系、剪贴板与窗口管理、扩展生态和开发工作流实战，并补充 Shell、Node.js、Python 可运行示例、常见踩坑与对比选型建议，帮助开发者把 Raycast 变成可编程的效率中枢。"
+- macos
+tags:
+- Raycast
+- macOS
+- 效率工具
+- 开发者工具
+- 自动化
+- spotlight
+- hotkey
+description: 这篇文章系统梳理 Raycast 在 macOS 上的真实使用方法，覆盖效率工具与启动器的基础配置、自定义脚本、快捷键体系、剪贴板与窗口管理、扩展生态和开发工作流实战，并补充
+  Shell、Node.js、Python 可运行示例、常见踩坑与对比选型建议，帮助开发者把 Raycast 变成可编程的效率中枢。
 ---
+
 
 ## 一、为什么写这篇？
 

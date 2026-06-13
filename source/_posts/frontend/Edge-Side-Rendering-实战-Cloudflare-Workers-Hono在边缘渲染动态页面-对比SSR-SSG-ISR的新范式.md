@@ -1,13 +1,24 @@
 ---
-title: Edge-Side Rendering 实战：Cloudflare Workers + Hono 在边缘渲染动态页面——对比 SSR/SSG/ISR 的新范式
+title: Edge-Side Rendering 实战：Cloudflare Workers + Hono 在边缘渲染动态页面——对比 SSR/SSG/ISR
+  的新范式
 date: 2026-06-03 09:00:00
-tags: [edge-rendering, cloudflare-workers, hono, ssr, ssg, isr, edge-computing, serverless]
+tags:
+- edge-rendering
+- Cloudflare Workers
+- hono
+- SSR
+- SSG
+- ISR
+- edge-computing
+- Serverless
 categories:
-  - frontend
+- frontend
 cover: /images/covers/edge-side-rendering-cover.jpg
-description: >-
-  深入实战 Edge-Side Rendering（ESR）边缘渲染范式，基于 Cloudflare Workers + Hono 框架构建动态博客系统。系统对比 SSR/SSG/ISR/ESR 四种渲染策略的性能、成本与适用场景，涵盖 V8 Isolates、D1/KV 边缘数据层、SWR 缓存策略等核心技术，附完整可运行代码与选型决策指南。
+description: 深入实战 Edge-Side Rendering（ESR）边缘渲染范式，基于 Cloudflare Workers + Hono 框架构建动态博客系统。系统对比
+  SSR/SSG/ISR/ESR 四种渲染策略的性能、成本与适用场景，涵盖 V8 Isolates、D1/KV 边缘数据层、SWR 缓存策略等核心技术，附完整可运行代码与选型决策指南。
 ---
+
+
 
 # Edge-Side Rendering 实战：Cloudflare Workers + Hono 在边缘渲染动态页面——对比 SSR/SSG/ISR 的新范式
 

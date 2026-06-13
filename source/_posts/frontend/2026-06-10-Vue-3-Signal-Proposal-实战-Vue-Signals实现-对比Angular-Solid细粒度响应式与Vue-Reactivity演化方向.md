@@ -1,12 +1,24 @@
 ---
-title: 'Vue 3 Signal Proposal 实战：Vue 的 Signals 实现——对比 Angular/Solid 的细粒度响应式与 Vue Reactivity 的演化方向'
+title: Vue 3 Signal Proposal 实战：Vue 的 Signals 实现——对比 Angular/Solid 的细粒度响应式与 Vue Reactivity
+  的演化方向
 date: 2026-06-10 01:16:00
-tags: [Vue, Signals, Vue Reactivity, Angular, Solid, 响应式, 前端架构, TC39, Proxy]
+tags:
+- Vue
+- Signals
+- Vue Reactivity
+- Angular
+- SOLID
+- 响应式
+- 前端架构
+- TC39
+- Proxy
 categories:
-  - frontend
+- frontend
 cover: /images/covers/vue3-signal-proposal-cover.jpg
-description: '深度解析 Vue 3 Signal Proposal 的设计哲学、底层实现与 API 演进方向，对比 Vue Reactivity 与 Angular/Solid Signals 的架构差异，结合实战代码演示 Vue 的响应式系统如何从 Proxy-based Reactivity 演化为更接近 Signals 范式的下一代状态管理方案。'
+description: 深度解析 Vue 3 Signal Proposal 的设计哲学、底层实现与 API 演进方向，对比 Vue Reactivity 与 Angular/Solid
+  Signals 的架构差异，结合实战代码演示 Vue 的响应式系统如何从 Proxy-based Reactivity 演化为更接近 Signals 范式的下一代状态管理方案。
 ---
+
 
 # Vue 3 Signal Proposal 实战：Vue 的 Signals 实现——对比 Angular/Solid 的细粒度响应式与 Vue Reactivity 的演化方向
 

@@ -1,12 +1,21 @@
 ---
 title: PostGIS + Laravel 实战：空间数据查询——地理围栏、路径规划与附近 POI 的 PostgreSQL 原生方案
 date: 2026-06-06 19:24:21
-description: PostGIS + Laravel 实战教程，深入讲解 PostgreSQL PostGIS 扩展的空间数据查询方案。涵盖附近 POI 查询（ST_DWithin）、地理围栏（ST_Contains/ST_Intersects）、骑手轨迹路径规划等核心场景的完整 Laravel 代码示例，对比 PostGIS vs Redis Geo vs MySQL Spatial vs MongoDB GeoJSON 四种空间方案的性能与适用场景，并汇总生产环境中常见的坐标系偏移、索引失效、WKB 序列化等踩坑经验与性能优化最佳实践。
-tags: [postgresql, postgis, laravel, 空间数据, gis]
+description: PostGIS + Laravel 实战教程，深入讲解 PostgreSQL PostGIS 扩展的空间数据查询方案。涵盖附近 POI 查询（ST_DWithin）、地理围栏（ST_Contains/ST_Intersects）、骑手轨迹路径规划等核心场景的完整
+  Laravel 代码示例，对比 PostGIS vs Redis Geo vs MySQL Spatial vs MongoDB GeoJSON 四种空间方案的性能与适用场景，并汇总生产环境中常见的坐标系偏移、索引失效、WKB
+  序列化等踩坑经验与性能优化最佳实践。
+tags:
+- PostgreSQL
+- PostGIS
+- Laravel
+- 空间数据
+- GIS
 categories:
-  - database
+- database
 cover: /images/covers/postgis-laravel-spatial-query-cover.jpg
 ---
+
+
 
 ## 前言：为什么我从 Redis Geo 迁移到了 PostGIS
 

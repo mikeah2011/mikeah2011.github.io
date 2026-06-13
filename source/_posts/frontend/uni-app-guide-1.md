@@ -1,15 +1,21 @@
 ---
 cover: /images/covers/uni-app-guide-1-cover.jpg
-title: "uni-app 微信小程序实战：登录、支付、分享完整流程"
+title: uni-app 微信小程序实战：登录、支付、分享完整流程
 date: 2026-05-17 06:05:13
 updated: 2026-05-17 06:09:37
 categories: Frontend
-tags: [uni-app, vue3, 微信小程序, laravel, 支付, 前端]
-description: "基于 KKday B2C 电商项目的真实经验，完整拆解 uni-app 微信小程序的登录、支付、分享三大核心流程。涵盖 wx.login → code2session → 自定义登录态 → 微信支付 v3 → 分享卡片的全链路实现，附带 Vue 3 + Laravel 后端代码、架构图、以及 10+ 真实踩坑记录。"
-
-
-
+tags:
+- uni-app
+- Vue 3
+- 微信小程序
+- Laravel
+- 支付
+- 前端
+description: 基于 KKday B2C 电商项目的真实经验，完整拆解 uni-app 微信小程序的登录、支付、分享三大核心流程。涵盖 wx.login
+  → code2session → 自定义登录态 → 微信支付 v3 → 分享卡片的全链路实现，附带 Vue 3 + Laravel 后端代码、架构图、以及 10+
+  真实踩坑记录。
 ---
+
 # uni-app 微信小程序实战：登录、支付、分享完整流程
 
 ## 前言

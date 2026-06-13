@@ -1,12 +1,23 @@
 ---
-title: 'Crossplane 实战：Kubernetes 原生基础设施编排——替代 Terraform 的云资源 GitOps 声明式管理'
+title: Crossplane 实战：Kubernetes 原生基础设施编排——替代 Terraform 的云资源 GitOps 声明式管理
 date: 2026-06-04 10:00:00
-tags: [crossplane, kubernetes, terraform, gitops, iac, 基础设施]
+tags:
+- crossplane
+- Kubernetes
+- Terraform
+- GitOps
+- IaC
+- 基础设施
 categories:
-  - devops
+- devops
 cover: /images/covers/crossplane-k8s-infra-orchestration-cover.jpg
-description: "Crossplane 是 CNCF 孵化的 Kubernetes 原生基础设施编排工具，将 AWS、GCP、Azure 等云资源抽象为 CRD，通过 kubectl apply 声明式管理 VPC、RDS、S3 等基础设施。本文从架构原理、XRD/Composition 定义、AWS Provider 实战到 ArgoCD GitOps 集成，深入对比 Crossplane 与 Terraform 的优劣，包含完整 Laravel 项目基础设施编排案例、踩坑排查指南与 Terraform 迁移路线图，帮助 K8s 团队实现云资源的 GitOps 声明式管理。"
+description: Crossplane 是 CNCF 孵化的 Kubernetes 原生基础设施编排工具，将 AWS、GCP、Azure 等云资源抽象为 CRD，通过
+  kubectl apply 声明式管理 VPC、RDS、S3 等基础设施。本文从架构原理、XRD/Composition 定义、AWS Provider 实战到
+  ArgoCD GitOps 集成，深入对比 Crossplane 与 Terraform 的优劣，包含完整 Laravel 项目基础设施编排案例、踩坑排查指南与
+  Terraform 迁移路线图，帮助 K8s 团队实现云资源的 GitOps 声明式管理。
 ---
+
+
 
 # Crossplane 实战：Kubernetes 原生基础设施编排——替代 Terraform 的云资源 GitOps 声明式管理
 

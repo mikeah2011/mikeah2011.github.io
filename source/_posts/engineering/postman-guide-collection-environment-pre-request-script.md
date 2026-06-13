@@ -4,15 +4,18 @@ cover: /images/covers/postman-guide-collection-environment-pre-request-script-co
 date: 2026-05-17 06:20:30
 updated: 2026-05-17 06:22:38
 categories:
-  - engineering
-  - testing
-tags: [ci/cd, laravel, 测试]
-description: >
-  Postman API测试高级实战指南：详解集合(Collection)编排与组织策略、多环境变量管理与切换技巧、Pre-request Script实现自动化鉴权与Token刷新机制、Tests断言链路设计（Schema验证与性能断言）及Newman CLI的CI/CD集成方案。涵盖数据驱动测试与六大踩坑场景，助你从手动调试构建完整的自动化API测试工作流，提升团队协作效率。
+- engineering
+- testing
+tags:
+- CI/CD
+- Laravel
+- 测试
+description: 'Postman API测试高级实战指南：详解集合(Collection)编排与组织策略、多环境变量管理与切换技巧、Pre-request
+  Script实现自动化鉴权与Token刷新机制、Tests断言链路设计（Schema验证与性能断言）及Newman CLI的CI/CD集成方案。涵盖数据驱动测试与六大踩坑场景，助你从手动调试构建完整的自动化API测试工作流，提升团队协作效率。
 
-
-
+  '
 ---
+
 # Postman 高级实战：Collection、Environment、Pre-request Script 与 Newman CI 集成
 
 ## 前言

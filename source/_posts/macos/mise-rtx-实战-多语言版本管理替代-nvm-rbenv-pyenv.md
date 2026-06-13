@@ -1,25 +1,28 @@
 ---
-title: "mise (rtx) 实战：多语言版本管理替代 nvm/rbenv/pyenv 的统一方案"
+title: mise (rtx) 实战：多语言版本管理替代 nvm/rbenv/pyenv 的统一方案
 cover: /images/covers/mise-rtx-multi-language-version-manager-cover.jpg
-description: "本文系统讲解 mise（原 rtx）在 macOS 下统一管理 Node.js、Python、PHP、Ruby 多语言版本的实战方法，覆盖安装、.mise.toml 配置、替代 nvm/pyenv/rbenv/asdf 的对比、常见踩坑、团队协作与迁移方案。"
+description: 本文系统讲解 mise（原 rtx）在 macOS 下统一管理 Node.js、Python、PHP、Ruby 多语言版本的实战方法，覆盖安装、.mise.toml
+  配置、替代 nvm/pyenv/rbenv/asdf 的对比、常见踩坑、团队协作与迁移方案。
 date: 2026-06-01 10:00:00
 categories:
-  - macos
+- macos
 tags:
-  - mise
-  - rtx
-  - version-manager
-  - nvm
-  - pyenv
-  - rbenv
-  - PHP
-  - Python
-  - node.js
-  - macOS
-  - asdf
-  - dev-environment
-  - ci-cd
+- mise
+- rtx
+- version-manager
+- nvm
+- pyenv
+- rbenv
+- PHP
+- Python
+- Node.js
+- macOS
+- asdf
+- dev-environment
+- CI/CD
 ---
+
+
 
 ## 一、为什么写这篇？（痛点/背景）
 

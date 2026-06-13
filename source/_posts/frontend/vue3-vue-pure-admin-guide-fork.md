@@ -1,15 +1,24 @@
 ---
-title: "Vue 3 + vue-pure-admin 管理后台实战：从 fork 到定制化的完整踩坑记录"
+title: Vue 3 + vue-pure-admin 管理后台实战：从 fork 到定制化的完整踩坑记录
 cover: /images/covers/vue3-vue-pure-admin-guide-fork-cover.jpg
 date: 2026-05-05 10:00:16
 updated: 2026-05-05 10:04:33
 categories: Frontend
-tags: [Vue3, vue-pure-admin, 前端, 管理后台, Element Plus, TypeScript, Laravel, Vite, 权限系统, 踩坑]
-description: "基于真实电商项目，深度实战 vue-pure-admin 管理后台定制化全流程：Vite 分包优化、动态路由权限、Laravel BFF API 对接、Docker Nginx 部署与生产踩坑记录。"
-
-
-
+tags:
+- Vue 3
+- vue-pure-admin
+- 前端
+- 管理后台
+- Element Plus
+- TypeScript
+- Laravel
+- Vite
+- 权限系统
+- 踩坑
+description: 基于真实电商项目，深度实战 vue-pure-admin 管理后台定制化全流程：Vite 分包优化、动态路由权限、Laravel BFF
+  API 对接、Docker Nginx 部署与生产踩坑记录。
 ---
+
 ## 一、为什么选 vue-pure-admin？
 
 在奇乐MAX电商项目中，我们需要一个能快速落地的管理后台。备选方案有三个：

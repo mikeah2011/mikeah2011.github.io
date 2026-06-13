@@ -1,12 +1,25 @@
 ---
 title: Nginx + Lua (OpenResty) 实战：高性能自定义网关——对比 Kong/APISIX 的流量治理与边缘计算
 date: 2026-06-06 12:00:00
-tags: [nginx, openresty, lua, kong, apisix, 网关, 流量治理, 微服务, 限流, 边缘计算]
-description: 深入实战 OpenResty（Nginx + Lua）构建高性能自定义 API 网关，涵盖动态路由、JWT 鉴权、限流熔断、灰度发布与边缘计算等核心功能。全方位对比 Kong 与 APISIX 两大主流网关方案的架构差异、插件生态与性能基准，结合 Laravel 微服务集成案例与生产环境踩坑指南，帮助开发者在自研网关与开源框架之间做出最优技术选型。
+tags:
+- Nginx
+- openresty
+- Lua
+- Kong
+- APISIX
+- 网关
+- 流量治理
+- 微服务
+- 限流
+- 边缘计算
+description: 深入实战 OpenResty（Nginx + Lua）构建高性能自定义 API 网关，涵盖动态路由、JWT 鉴权、限流熔断、灰度发布与边缘计算等核心功能。全方位对比
+  Kong 与 APISIX 两大主流网关方案的架构差异、插件生态与性能基准，结合 Laravel 微服务集成案例与生产环境踩坑指南，帮助开发者在自研网关与开源框架之间做出最优技术选型。
 categories:
-  - devops
+- devops
 cover: /images/covers/nginx-lua-openresty-gateway-cover.jpg
 ---
+
+
 
 ## 一、引言：为什么需要自定义网关层？
 

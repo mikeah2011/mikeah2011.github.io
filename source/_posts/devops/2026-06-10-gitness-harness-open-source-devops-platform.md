@@ -1,12 +1,23 @@
 ---
-title: 'Gitness 实战：Harness 开源的 Git 托管——CI/CD Pipeline、代码审查与自托管 DevOps 平台搭建'
-description: 'Gitness 是 Harness（Drone CI 母公司）推出的开源 Git 托管与 CI/CD 平台，集代码仓库、Pull Request、自动化 Pipeline、制品仓库于一体。本文从 Docker 部署、Pipeline YAML 配置、代码审查工作流、Webhook 集成到生产环境踩坑，完整实战搭建一套自托管 DevOps 平台。'
+title: Gitness 实战：Harness 开源的 Git 托管——CI/CD Pipeline、代码审查与自托管 DevOps 平台搭建
+description: Gitness 是 Harness（Drone CI 母公司）推出的开源 Git 托管与 CI/CD 平台，集代码仓库、Pull Request、自动化
+  Pipeline、制品仓库于一体。本文从 Docker 部署、Pipeline YAML 配置、代码审查工作流、Webhook 集成到生产环境踩坑，完整实战搭建一套自托管
+  DevOps 平台。
 date: 2026-06-10 05:42:00
-tags: [gitness, harness, ci-cd, self-hosted, git, devops, docker, drone]
+tags:
+- gitness
+- harness
+- CI/CD
+- self-hosted
+- Git
+- DevOps
+- Docker
+- drone
 categories:
-  - devops
+- devops
 cover: /images/covers/gitness-harness-devops-cover.jpg
 ---
+
 
 ## 一、为什么需要自托管 Git 平台
 

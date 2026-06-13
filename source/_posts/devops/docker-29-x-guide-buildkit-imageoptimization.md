@@ -4,13 +4,17 @@ cover: /images/covers/docker-29-x-guide-buildkit-imageoptimization-cover.jpg
 date: 2026-05-17 03:45:47
 updated: 2026-05-17 03:48:30
 categories:
-  - devops
-  - docker
-tags: [ci/cd, docker, laravel]
-description: "Docker 29.x 将 BuildKit 设为默认构建引擎，本文基于 30+ Laravel 仓库实战，深入讲解多阶段构建、BuildKit 缓存挂载、COPY --link 层优化与 secret 管理，将容器镜像从 800MB 压缩到 45MB。含 .dockerignore 最佳实践、Node.js 与 PHP 多阶段构建示例、常见构建失败排查与 CI/CD 集成方案。"
-
-
+- devops
+- docker
+tags:
+- CI/CD
+- Docker
+- Laravel
+description: Docker 29.x 将 BuildKit 设为默认构建引擎，本文基于 30+ Laravel 仓库实战，深入讲解多阶段构建、BuildKit
+  缓存挂载、COPY --link 层优化与 secret 管理，将容器镜像从 800MB 压缩到 45MB。含 .dockerignore 最佳实践、Node.js
+  与 PHP 多阶段构建示例、常见构建失败排查与 CI/CD 集成方案。
 ---
+
 ## 前言
 
 Docker 29.x 是一个里程碑式的版本——BuildKit 从可选变成了默认构建引擎，`docker build` 命令直接使用 BuildKit，不再需要 `DOCKER_BUILDKIT=1` 环境变量。这意味着所有构建都自动享有并行构建、缓存挂载、secret 管理等高级特性。

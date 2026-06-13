@@ -1,12 +1,23 @@
 ---
-title: 'Feature Branch Preview 实战：PR 级预览环境——Vercel Preview/Cloudflare Pages Preview + Laravel API 的全栈预览方案'
-description: 'Feature Branch Preview 全栈实战指南：Vercel Preview 与 Cloudflare Pages 前端自动部署、Fly.io/Railway 后端 API 预览、Neon 数据库分支隔离，结合 GitHub Actions CI/CD 自动化编排与生命周期管理，完整拆解 PR 级预览环境的架构设计、多平台选型对比与费用估算，实现每个 PR 独立可访问的全栈预览 URL，提升代码 Review 效率与团队协作体验。'
+title: Feature Branch Preview 实战：PR 级预览环境——Vercel Preview/Cloudflare Pages Preview
+  + Laravel API 的全栈预览方案
+description: Feature Branch Preview 全栈实战指南：Vercel Preview 与 Cloudflare Pages 前端自动部署、Fly.io/Railway
+  后端 API 预览、Neon 数据库分支隔离，结合 GitHub Actions CI/CD 自动化编排与生命周期管理，完整拆解 PR 级预览环境的架构设计、多平台选型对比与费用估算，实现每个
+  PR 独立可访问的全栈预览 URL，提升代码 Review 效率与团队协作体验。
 date: 2026-06-07 12:00:00
-tags: [preview, vercel, cloudflare-pages, feature-branch, ci-cd, laravel, 全栈]
+tags:
+- preview
+- Vercel
+- cloudflare-pages
+- feature-branch
+- CI/CD
+- Laravel
+- 全栈
 categories:
-  - devops
+- devops
 cover: /images/covers/feature-branch-preview-cover.jpg
 ---
+
 
 ## 一、开篇：为什么需要 PR 级预览环境
 

@@ -1,12 +1,22 @@
 ---
 title: 服务网格 Sidecar 模式实战：Envoy Proxy + Laravel——流量镜像、熔断、重试的基础设施下沉与应用层解耦
 date: 2026-06-06 00:00:00
-tags: [Envoy, Service-Mesh, Sidecar, Laravel, 流量镜像, 熔断, 重试]
+tags:
+- Envoy
+- Service Mesh
+- Sidecar
+- Laravel
+- 流量镜像
+- 熔断
+- 重试
 categories:
-  - devops
+- devops
 cover: /images/covers/service-mesh-sidecar-envoy-cover.jpg
-description: "深入实战 Service Mesh Sidecar 模式，以 Envoy Proxy + Laravel 为核心，从零搭建流量镜像、熔断、重试的基础设施下沉方案。不依赖 Istio 重量级框架，聚焦 Sidecar 模式本身——覆盖 Envoy 配置热加载、xDS 协议、Circuit Breaking 熔断策略、自动重试与退避算法、流量镜像灰度验证、Guzzle 中间件对比、Docker Compose 编排、Prometheus 监控指标采集，以及生产环境的内存泄漏排查与连接池调优踩坑。适合 Laravel 微服务团队将流量治理能力从应用层解耦到基础设施层。"
+description: 深入实战 Service Mesh Sidecar 模式，以 Envoy Proxy + Laravel 为核心，从零搭建流量镜像、熔断、重试的基础设施下沉方案。不依赖
+  Istio 重量级框架，聚焦 Sidecar 模式本身——覆盖 Envoy 配置热加载、xDS 协议、Circuit Breaking 熔断策略、自动重试与退避算法、流量镜像灰度验证、Guzzle
+  中间件对比、Docker Compose 编排、Prometheus 监控指标采集，以及生产环境的内存泄漏排查与连接池调优踩坑。适合 Laravel 微服务团队将流量治理能力从应用层解耦到基础设施层。
 ---
+
 
 # 服务网格 Sidecar 模式实战：Envoy Proxy + Laravel——流量镜像、熔断、重试的基础设施下沉与应用层解耦
 

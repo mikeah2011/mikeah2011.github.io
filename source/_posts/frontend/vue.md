@@ -1,14 +1,18 @@
 ---
 title: Vue
 cover: /images/covers/vue-cover.jpg
-tags: [JavaScript, Vue, Vue3, 前端]
+tags:
+- JavaScript
+- Vue
+- Vue 3
+- 前端
 categories: Frontend
 date: 2020-03-20 15:05:07
-description: 'Vue 是渐进式 JavaScript 框架，由尤雨溪创建，主打"易学易上手 + 响应式 + 模板语法"。Vue 3 的 Composition API + `<script setup>` 让大型项目的组织更清晰。本文从 Hello Vue 到响应式原理、组件通信、Vue Router 路由守卫、Pinia 状态管理、性能优化（懒加载、虚拟滚动）进行系统讲解，附 Vue 2 vs Vue 3 对比表和高频踩坑记录。'
-
-
-
+description: Vue 是渐进式 JavaScript 框架，由尤雨溪创建，主打"易学易上手 + 响应式 + 模板语法"。Vue 3 的 Composition
+  API + `<script setup>` 让大型项目的组织更清晰。本文从 Hello Vue 到响应式原理、组件通信、Vue Router 路由守卫、Pinia
+  状态管理、性能优化（懒加载、虚拟滚动）进行系统讲解，附 Vue 2 vs Vue 3 对比表和高频踩坑记录。
 ---
+
 ## 一、Vue 简介
 
 Vue 由前 Google 工程师**尤雨溪 (Evan You)** 创建，2014 年首发。核心理念：

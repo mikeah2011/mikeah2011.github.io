@@ -1,12 +1,22 @@
 ---
-title: Rust Web 框架选型：Axum vs Actix-Web vs Rocket 2026 性能对比——从 Hello World 到生产级 API 的工程化路径
+title: Rust Web 框架选型：Axum vs Actix-Web vs Rocket 2026 性能对比——从 Hello World 到生产级 API
+  的工程化路径
 date: 2026-06-05 10:00:00
-tags: [rust, axum, actix-web, rocket, web框架, 性能对比]
+tags:
+- Rust
+- axum
+- Actix-Web
+- Rocket
+- Web框架
+- 性能对比
 categories:
-  - architecture
-description: 2026年Rust Web三大主流框架Axum、Actix-Web、Rocket深度对比与工程选型指南。从Hello World到生产级API逐层拆解差异：Tower生态组合式vs Actor模型极致性能vs约定优于配置的设计哲学；覆盖wrk/k6性能基准测试（JSON响应、数据库查询、WebSocket长连接）、路由与中间件体系对比、JWT认证实现、ORM选型（sqlx/Diesel/Sea-ORM）、优雅关闭与健康检查、Docker多阶段构建；包含8个真实踩坑案例与编译优化策略，附Laravel迁移决策矩阵，帮助团队做出务实的框架选型决策。
+- architecture
+description: 2026年Rust Web三大主流框架Axum、Actix-Web、Rocket深度对比与工程选型指南。从Hello World到生产级API逐层拆解差异：Tower生态组合式vs
+  Actor模型极致性能vs约定优于配置的设计哲学；覆盖wrk/k6性能基准测试（JSON响应、数据库查询、WebSocket长连接）、路由与中间件体系对比、JWT认证实现、ORM选型（sqlx/Diesel/Sea-ORM）、优雅关闭与健康检查、Docker多阶段构建；包含8个真实踩坑案例与编译优化策略，附Laravel迁移决策矩阵，帮助团队做出务实的框架选型决策。
 cover: /images/covers/rust-web-framework-comparison-cover.jpg
 ---
+
+
 
 ## 引言：2026 年 Rust Web 生态现状
 

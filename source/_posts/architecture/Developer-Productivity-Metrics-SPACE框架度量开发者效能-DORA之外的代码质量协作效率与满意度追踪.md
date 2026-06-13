@@ -1,12 +1,23 @@
 ---
-title: 'Developer Productivity Metrics 实战：SPACE 框架度量开发者效能——DORA 之外的代码质量、协作效率与满意度追踪'
-description: '系统讲解 SPACE 框架五大维度（满意度、绩效、活动、协作、效率），弥补 DORA 指标在开发者效能度量中的盲区。结合 Laravel/PHP 后端团队实战场景，提供代码审查质量量化、Bus Factor 知识分布分析、流程效率计算、满意度匿名采集等完整可运行代码方案，包含平衡计分卡设计、数据库 Schema、Grafana Dashboard 搭建指南与三个月实施案例，帮助工程团队从单一交付速度度量走向全面的工程效能追踪体系。'
+title: Developer Productivity Metrics 实战：SPACE 框架度量开发者效能——DORA 之外的代码质量、协作效率与满意度追踪
+description: 系统讲解 SPACE 框架五大维度（满意度、绩效、活动、协作、效率），弥补 DORA 指标在开发者效能度量中的盲区。结合 Laravel/PHP
+  后端团队实战场景，提供代码审查质量量化、Bus Factor 知识分布分析、流程效率计算、满意度匿名采集等完整可运行代码方案，包含平衡计分卡设计、数据库 Schema、Grafana
+  Dashboard 搭建指南与三个月实施案例，帮助工程团队从单一交付速度度量走向全面的工程效能追踪体系。
 date: 2026-06-03 10:00:00
-tags: [developer productivity, space framework, dora, engineering metrics, devex, 工程效能, 度量框架, 代码质量]
+tags:
+- developer productivity
+- space framework
+- DORA
+- engineering metrics
+- devex
+- 工程效能
+- 度量框架
+- 代码质量
 categories:
-  - architecture
+- architecture
 cover: /images/covers/developer-productivity-space-cover.jpg
 ---
+
 
 > "你无法改善你无法度量的东西。"——但如果你度量了错误的东西，情况可能更糟。
 

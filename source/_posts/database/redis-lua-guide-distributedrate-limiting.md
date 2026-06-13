@@ -3,15 +3,21 @@ title: Redis-Lua-脚本原子操作实战-分布式限流库存扣减排行榜-L
 date: 2026-05-05 06:35:56
 updated: 2026-05-05 06:38:03
 categories:
-  - database
-tags: [Laravel, Redis, lua, 分布式限流, 库存扣减]
-description: "Redis Lua 脚本原子操作实战指南，深入讲解分布式限流、库存扣减、排行榜等 B2C 电商核心场景。涵盖 EVALSHA 脚本缓存策略、KEYS 命令避坑、redis.call 与 pcall 错误处理、Laravel 中间件集成方案与生产环境真实踩坑经验，帮助开发者用最低成本实现 Redis 原子性操作。"
+- database
+tags:
+- Laravel
+- Redis
+- Lua
+- 分布式限流
+- 库存扣减
+description: Redis Lua 脚本原子操作实战指南，深入讲解分布式限流、库存扣减、排行榜等 B2C 电商核心场景。涵盖 EVALSHA 脚本缓存策略、KEYS
+  命令避坑、redis.call 与 pcall 错误处理、Laravel 中间件集成方案与生产环境真实踩坑经验，帮助开发者用最低成本实现 Redis 原子性操作。
 cover: /images/covers/databases-1-cover.jpg
 images:
-  - /images/content/databases-1-content-1.jpg
-  - /images/content/databases-1-content-2.jpg
-
+- /images/content/databases-1-content-1.jpg
+- /images/content/databases-1-content-2.jpg
 ---
+
 # Redis Lua 脚本原子操作实战：分布式限流、库存扣减、排行榜
 
 > 在 B2C 电商场景中，很多业务逻辑需要「检查 + 修改」的原子性保证——而 Redis 单命令做不到。Lua 脚本是 Redis 提供的唯一原生原子事务方案，本文记录了在 KKday B2C API 项目中落地三个核心场景的真实经验。

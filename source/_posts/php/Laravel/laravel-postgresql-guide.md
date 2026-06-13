@@ -4,14 +4,23 @@ cover: /images/covers/laravel-postgresql-guide-cover.jpg
 date: 2026-05-03 11:25:22
 updated: 2026-05-03 11:29:03
 categories:
-  - php
-  - database
-tags: [laravel, postgresql, 分区表, 冷热归档, 命令, 查询优化, jsonb, 全文搜索]
-description: Laravel 项目中落地 PostgreSQL 按月分区表的完整实战指南，涵盖 Range Partition DDL 设计、分区裁剪查询优化、冷热归档策略与零停机在线迁移。深入解析 Laravel + PostgreSQL 的 JSONB 字段查询、中文排序、全文搜索等踩坑案例，附 PostgreSQL 与 MySQL 在 Laravel 生态中的详细对比，帮助后端开发者在数据库选型与查询优化中做出正确决策。
-
-
-
+- php
+- database
+tags:
+- Laravel
+- PostgreSQL
+- 分区表
+- 冷热归档
+- 命令
+- 查询优化
+- JSONB
+- 全文搜索
+description: Laravel 项目中落地 PostgreSQL 按月分区表的完整实战指南，涵盖 Range Partition DDL 设计、分区裁剪查询优化、冷热归档策略与零停机在线迁移。深入解析
+  Laravel + PostgreSQL 的 JSONB 字段查询、中文排序、全文搜索等踩坑案例，附 PostgreSQL 与 MySQL 在 Laravel
+  生态中的详细对比，帮助后端开发者在数据库选型与查询优化中做出正确决策。
 ---
+
+
 订单系统最难处理的表，往往不是 `orders`，而是不断追加的 `order_events`、`payment_logs` 这类流水表。它们写多读少，但一旦运营要查三个月前的退款链路、财务要导半年的支付对账，单表很快就会从“还能忍”变成“谁查谁卡”。我在一个 Laravel 订单中心里踩过这类坑：`payment_logs` 跑到 1.8 亿行后，普通索引还在，写入也没报错，但后台按时间筛选的 P95 已经接近 4 秒，VACUUM 和备份窗口也越来越难排。
 
 最后真正把问题压下去的，不是继续补索引，而是把这张典型流水表改成 **按月分区 + 热冷分层归档**。核心思想很简单：**高频查询永远只扫最近几个月，历史数据可查，但不该持续拖累在线写入。**

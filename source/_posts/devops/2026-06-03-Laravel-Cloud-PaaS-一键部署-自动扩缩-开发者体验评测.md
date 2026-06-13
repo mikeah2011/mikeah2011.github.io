@@ -1,12 +1,20 @@
 ---
 title: Laravel Cloud 实战：Laravel 官方 PaaS 平台——一键部署、自动扩缩与开发者体验评测
 date: 2026-06-03 08:00:00
-tags: [laravel-cloud, paas, serverless, 部署, developer-experience]
-description: Laravel Cloud 是 Laravel 官方推出的全托管 PaaS 平台，专为 Laravel 应用打造一键部署、自动扩缩和零运维体验。本文从实际使用出发，深度评测 Laravel Cloud 的架构设计、配置流程、数据库与队列管理、Preview 环境、定价模型，并与 Forge、Vapor、传统 VPS 方案进行多维度对比，涵盖冷启动、文件存储等常见踩坑案例，帮助开发者判断 Laravel Cloud 是否适合自己的 Serverless 部署需求。
+tags:
+- laravel-cloud
+- PaaS
+- Serverless
+- 部署
+- developer-experience
+description: Laravel Cloud 是 Laravel 官方推出的全托管 PaaS 平台，专为 Laravel 应用打造一键部署、自动扩缩和零运维体验。本文从实际使用出发，深度评测
+  Laravel Cloud 的架构设计、配置流程、数据库与队列管理、Preview 环境、定价模型，并与 Forge、Vapor、传统 VPS 方案进行多维度对比，涵盖冷启动、文件存储等常见踩坑案例，帮助开发者判断
+  Laravel Cloud 是否适合自己的 Serverless 部署需求。
 categories:
-  - devops
+- devops
 cover: /images/covers/laravel-cloud-paas-cover.jpg
 ---
+
 
 ## 前言
 

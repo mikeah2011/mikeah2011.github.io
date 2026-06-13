@@ -1,12 +1,21 @@
 ---
 title: Cell-Based Architecture 实战：单元化架构在 Laravel 微服务中的落地——故障隔离、独立扩缩与跨单元路由
 date: 2026-06-03 00:00:00
-tags: [cell-based architecture, 微服务, 架构, laravel, 故障隔离]
+tags:
+- Cell-Based Architecture
+- 微服务
+- 架构
+- Laravel
+- 故障隔离
 categories:
-  - architecture
+- architecture
 cover: /images/covers/cell-based-architecture-laravel-cover.jpg
-description: 本文深入探讨 Cell-Based Architecture（单元化架构）在 Laravel 微服务中的完整落地实践。通过将系统拆分为多个自治单元，每个单元拥有独立的数据库、缓存和队列，实现故障爆炸半径的精确控制。文章涵盖 Cell 划分策略（按租户、地域、业务线）、断路器与降级机制、基于 Kubernetes HPA 的独立扩缩容、Cell Router 跨单元路由、Saga 模式分布式事务，以及最终一致性数据同步方案。适合正在构建高可用、多租户隔离 Laravel 微服务系统的中大型团队参考。
+description: 本文深入探讨 Cell-Based Architecture（单元化架构）在 Laravel 微服务中的完整落地实践。通过将系统拆分为多个自治单元，每个单元拥有独立的数据库、缓存和队列，实现故障爆炸半径的精确控制。文章涵盖
+  Cell 划分策略（按租户、地域、业务线）、断路器与降级机制、基于 Kubernetes HPA 的独立扩缩容、Cell Router 跨单元路由、Saga 模式分布式事务，以及最终一致性数据同步方案。适合正在构建高可用、多租户隔离
+  Laravel 微服务系统的中大型团队参考。
 ---
+
+
 
 ## 前言
 

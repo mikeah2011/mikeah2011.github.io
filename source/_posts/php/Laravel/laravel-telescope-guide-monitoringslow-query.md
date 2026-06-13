@@ -4,16 +4,20 @@ cover: /images/covers/laravel-telescope-guide-monitoringslow-query-cover.jpg
 date: 2026-05-16 20:30:46
 updated: 2026-05-16 20:35:29
 categories:
-  - php
-tags: [laravel, telescope, 慢查询, 性能优化, 调试, php]
-description: >
-  Laravel Telescope 官方调试面板实战指南：详解请求监控、慢查询定位、队列追踪、日志分析与性能调优。
-  涵盖环境隔离配置、N+1 查询排查、自定义 Watcher 开发、缓存命中率优化、调试工具选型对比，
-  基于 KKday B2C 30+ 仓库实战经验，分享监控踩坑记录与生产环境安全防护策略。
+- php
+tags:
+- Laravel
+- Telescope
+- 慢查询
+- 性能优化
+- 调试
+- PHP
+description: 'Laravel Telescope 官方调试面板实战指南：详解请求监控、慢查询定位、队列追踪、日志分析与性能调优。 涵盖环境隔离配置、N+1
+  查询排查、自定义 Watcher 开发、缓存命中率优化、调试工具选型对比， 基于 KKday B2C 30+ 仓库实战经验，分享监控踩坑记录与生产环境安全防护策略。
 
-
-
+  '
 ---
+
 # Laravel Telescope 开发调试实战：请求追踪、队列监控与慢查询定位踩坑记录
 
 ## 前言

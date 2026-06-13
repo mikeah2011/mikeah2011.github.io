@@ -2,15 +2,18 @@
 title: PHP 8.4 新特性实战 - Laravel B2C-API 升级踩坑记录
 cover: /images/covers/php-8-4-guide-cover.jpg
 date: 2026-05-03 07:10:00
-tags: [devops, Laravel, PHP, 性能优化]
+tags:
+- DevOps
+- Laravel
+- PHP
+- 性能优化
 categories:
-  - php
-  - runtime
-description: 深度解析 PHP 8.4 十大新特性，结合 KKday B2C-API 真实升级场景，涵盖纤程(Fiber)优化、属性钩子、DOM\Text 扩展、性能对比、兼容性踩坑记录，提供可直接复用的生产级代码。
-
-
-
+- php
+- runtime
+description: 深度解析 PHP 8.4 十大新特性，结合 KKday B2C-API 真实升级场景，涵盖纤程(Fiber)优化、属性钩子、DOM\Text
+  扩展、性能对比、兼容性踩坑记录，提供可直接复用的生产级代码。
 ---
+
 ## 前言：为什么升级到 PHP 8.4？
 
 在 KKday B2C-API 项目中，我们决定将核心服务从 PHP 8.2 升级到 8.4。这次升级不是为了"尝鲜"，而是基于三个核心需求：

@@ -1,12 +1,21 @@
 ---
 title: Temporal.io 实战：持久化工作流引擎——Laravel 中的长事务编排与 Saga 模式的工程化替代方案
 date: 2026-06-04 09:00:00
-description: "深入解析 Temporal.io 持久化工作流引擎在 Laravel 微服务架构中的实战应用。从分布式长事务的痛点出发，对比状态机硬编码、消息队列重试、手动 Saga 模式等传统方案的不足，系统讲解 Temporal 的 Workflow、Activity、Signal、Query 核心抽象，以及 Saga 补偿模式的工程化实现。涵盖 PHP SDK 完整代码示例、Laravel 集成方案、生产环境踩坑记录（序列化、确定性、版本管理、幂等性）与性能基准测试，帮助 PHP 团队用代码即工作流的方式优雅编排跨服务长事务与分布式事务。"
-tags: [temporal.io, 工作流引擎, saga模式, laravel, 微服务, 长事务]
+description: 深入解析 Temporal.io 持久化工作流引擎在 Laravel 微服务架构中的实战应用。从分布式长事务的痛点出发，对比状态机硬编码、消息队列重试、手动
+  Saga 模式等传统方案的不足，系统讲解 Temporal 的 Workflow、Activity、Signal、Query 核心抽象，以及 Saga 补偿模式的工程化实现。涵盖
+  PHP SDK 完整代码示例、Laravel 集成方案、生产环境踩坑记录（序列化、确定性、版本管理、幂等性）与性能基准测试，帮助 PHP 团队用代码即工作流的方式优雅编排跨服务长事务与分布式事务。
+tags:
+- temporal.io
+- 工作流引擎
+- saga模式
+- Laravel
+- 微服务
+- 长事务
 categories:
-  - architecture
+- architecture
 cover: /images/covers/temporal-io-laravel-saga-cover.jpg
 ---
+
 
 ## 引言：分布式系统中长事务的痛点
 

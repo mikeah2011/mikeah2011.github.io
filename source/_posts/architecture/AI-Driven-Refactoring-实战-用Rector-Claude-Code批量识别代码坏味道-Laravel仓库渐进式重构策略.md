@@ -1,12 +1,21 @@
 ---
 title: AI-Driven Refactoring 实战：用 Rector + Claude Code 批量识别代码坏味道——Laravel 30+ 仓库的渐进式重构策略
 date: 2026-06-06 10:00:00
-description: '深入拆解 AI-Driven Refactoring 方法论：基于 Rector 自动化重构引擎与 Claude Code 语义分析能力，在 30+ Laravel 仓库中实现渐进式代码坏味道检测与治理。涵盖自定义 Rector 规则编写、PHPStan/Larastan 集成、批量仓库扫描脚本、CI/CD 质量门禁配置、四阶段推进策略及六大真实踩坑案例。提供 God Class 拆分、Feature Envy 检测、死代码移除等完整可运行代码示例，对比传统人工 Code Review 效率提升 3 倍的实战数据。'
-tags: [rector, claude-code, refactoring, code-smells, laravel]
+description: 深入拆解 AI-Driven Refactoring 方法论：基于 Rector 自动化重构引擎与 Claude Code 语义分析能力，在
+  30+ Laravel 仓库中实现渐进式代码坏味道检测与治理。涵盖自定义 Rector 规则编写、PHPStan/Larastan 集成、批量仓库扫描脚本、CI/CD
+  质量门禁配置、四阶段推进策略及六大真实踩坑案例。提供 God Class 拆分、Feature Envy 检测、死代码移除等完整可运行代码示例，对比传统人工 Code
+  Review 效率提升 3 倍的实战数据。
+tags:
+- Rector
+- Claude Code
+- refactoring
+- code-smells
+- Laravel
 categories:
-  - architecture
+- architecture
 cover: /images/covers/ai-driven-refactoring-cover.jpg
 ---
+
 
 ## 前言：当你的 Laravel 生态膨胀到 30+ 个仓库
 

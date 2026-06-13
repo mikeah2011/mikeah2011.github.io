@@ -1,12 +1,20 @@
 ---
 title: 数据可视化 Dashboard 实战：ECharts/ApexCharts + Laravel API——运营数据实时大屏与自助分析
 date: 2026-06-06 00:00:00
-tags: [echarts, apexcharts, laravel, 数据可视化, dashboard]
+tags:
+- echarts
+- apexcharts
+- Laravel
+- 数据可视化
+- dashboard
 categories:
-  - frontend
+- frontend
 cover: /images/covers/data-visualization-dashboard-cover.jpg
-description: "从零到一构建运营数据实时大屏与自助分析系统。后端基于 Laravel 构建高性能数据聚合 API（含 SSE 实时推送与 Redis 缓存策略），前端分别使用 ECharts 实现大屏展示（折线图、柱状图、饼图、地图、仪表盘）和 ApexCharts 实现自助分析（拖拽式配置、筛选联动、CSV 导出）。涵盖完整技术选型对比、响应式大屏布局、Web Worker 数据处理、虚拟滚动、图表懒加载等性能优化方案，以及 Nginx 部署配置与前后端监控，附带大量可运行代码示例与踩坑经验。"
+description: 从零到一构建运营数据实时大屏与自助分析系统。后端基于 Laravel 构建高性能数据聚合 API（含 SSE 实时推送与 Redis 缓存策略），前端分别使用
+  ECharts 实现大屏展示（折线图、柱状图、饼图、地图、仪表盘）和 ApexCharts 实现自助分析（拖拽式配置、筛选联动、CSV 导出）。涵盖完整技术选型对比、响应式大屏布局、Web
+  Worker 数据处理、虚拟滚动、图表懒加载等性能优化方案，以及 Nginx 部署配置与前后端监控，附带大量可运行代码示例与踩坑经验。
 ---
+
 
 在数字化运营日益深入的今天，数据可视化 Dashboard 已经从「锦上添花」变成了「不可或缺」的基础设施。无论你是运营负责人需要实时监控 GMV 和转化率，还是管理层需要一张大屏纵览全局业务，一个高质量的数据可视化系统都是决策效率的放大器。
 

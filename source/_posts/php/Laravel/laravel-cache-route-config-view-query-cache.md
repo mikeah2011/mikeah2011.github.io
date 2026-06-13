@@ -4,13 +4,19 @@ cover: /images/covers/laravel-cache-route-config-view-query-cache-cover.jpg
 date: 2026-05-05 07:55:56
 updated: 2026-05-05 07:57:44
 categories:
-  - php
-tags: [laravel, php, redis, 缓存, 性能优化, route-cache, query-cache]
-description: Laravel 缓存策略全解：深入拆解 Route Cache、Config Cache、View Cache、Query Cache 四层缓存原理与踩坑记录。含 Redis/Memcached 对比、缓存失效策略、生产环境 cache:clear 事故防护与监控方案，助你实现 30-50% 性能提升。
-
-
-
+- php
+tags:
+- Laravel
+- PHP
+- Redis
+- 缓存
+- 性能优化
+- route-cache
+- query-cache
+description: Laravel 缓存策略全解：深入拆解 Route Cache、Config Cache、View Cache、Query Cache 四层缓存原理与踩坑记录。含
+  Redis/Memcached 对比、缓存失效策略、生产环境 cache:clear 事故防护与监控方案，助你实现 30-50% 性能提升。
 ---
+
 # Laravel 缓存策略全解：Route/Config/View/Query 缓存最佳实践踩坑记录
 
 ## 前言

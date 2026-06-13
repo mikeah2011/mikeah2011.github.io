@@ -3,14 +3,19 @@ title: Vite 构建优化实战：Laravel 单仓库后台前端的分包策略、
 cover: /images/covers/vite-optimizationguide-laravel-cache-sourcemap-cover.jpg
 date: 2026-05-03 10:05:00
 categories:
-  - frontend
-  - php
-tags: [laravel, vite, 性能优化, 前端构建, sourcemap]
-description: 本文基于 Laravel 单仓库后台前端的真实改造实践，深入讲解 Vite 多入口拆分、manualChunks 稳定分包策略、CDN 长缓存命中优化、hidden sourcemap 生产排障方案、CI 缓存配置与发版版本注入流程，附三次真实踩坑复盘和构建优化策略对比表，帮助团队将构建从 90 秒压到 37 秒、首屏从 2MB 降到 650KB。
-
-
-
+- frontend
+- php
+tags:
+- Laravel
+- Vite
+- 性能优化
+- 前端构建
+- sourcemap
+description: 本文基于 Laravel 单仓库后台前端的真实改造实践，深入讲解 Vite 多入口拆分、manualChunks 稳定分包策略、CDN 长缓存命中优化、hidden
+  sourcemap 生产排障方案、CI 缓存配置与发版版本注入流程，附三次真实踩坑复盘和构建优化策略对比表，帮助团队将构建从 90 秒压到 37 秒、首屏从 2MB
+  降到 650KB。
 ---
+
 我在一个 Laravel 单仓库里做过一次 Vite 构建治理：同一套代码同时承载 API 管理后台、运营活动页和内部工具页。最初大家只图省事，把所有资源都挂到一个 `app.ts`，结果很快出现三个问题：**构建越来越慢、首屏 JS 越来越胖、线上压缩报错根本定位不回源码**。
 
 当时 `npm run build` 稳定在 90 秒以上，后台首页入口接近 2MB，发版后 CDN 也几乎次次失效。我这次改造不是为了“前端工程化好看”，而是两个非常具体的目标：把构建压到 40 秒内，把后台主入口压到 700KB 左右，同时保留生产排障能力。

@@ -4,15 +4,20 @@ cover: /images/covers/vs-ai-guide-laravel-guide-cover.jpg
 date: 2026-05-17 05:50:38
 updated: 2026-05-17 05:53:29
 categories:
-  - macos
-  - php
-tags: [ai, devops, laravel, 安全]
-description: >
-  AI辅助Laravel开发指南：本地Ollama与云端Claude/GPT真实选型决策，涵盖代码生成、成本核算、隐私合规、推理性能对比。GitHub Copilot与Cursor等AI工具在Laravel项目中的混合架构实战，实现41%成本节省与敏感数据零泄露。
+- macos
+- php
+tags:
+- AI
+- DevOps
+- Laravel
+- 安全
+description: 'AI辅助Laravel开发指南：本地Ollama与云端Claude/GPT真实选型决策，涵盖代码生成、成本核算、隐私合规、推理性能对比。GitHub
+  Copilot与Cursor等AI工具在Laravel项目中的混合架构实战，实现41%成本节省与敏感数据零泄露。
 
-
-
+  '
 ---
+
+
 # 本地 vs 云端 AI 实战：成本隐私性能的权衡与 Laravel 开发者选型指南
 
 > 在 30+ 个 Laravel 仓库的日常开发中，我们同时使用了 Ollama 本地模型和 Claude/GPT 云端 API。这篇文章不是概念介绍，而是真实的成本账本、性能数据和架构决策记录。

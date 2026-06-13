@@ -1,12 +1,19 @@
 ---
-title: "API 安全加固实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击——Laravel B2C API 多层防御深度踩坑记录"
+title: API 安全加固实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击——Laravel B2C API 多层防御深度踩坑记录
 date: 2026-06-01 10:00:00
-description: "本文结合 Laravel B2C API 生产踩坑经验，系统拆解 API安全 的多层防御方案，覆盖 JWT黑名单、请求签名、IP白名单、防重放攻击、幂等处理与监控告警，附带可运行代码示例、方案对比表和落地细节，帮助你在真实业务中构建可撤销、可审计、可扩展的安全加固体系。"
-tags: [api安全, jwt, laravel, 请求签名, 防重放, ip白名单]
+description: 本文结合 Laravel B2C API 生产踩坑经验，系统拆解 API安全 的多层防御方案，覆盖 JWT黑名单、请求签名、IP白名单、防重放攻击、幂等处理与监控告警，附带可运行代码示例、方案对比表和落地细节，帮助你在真实业务中构建可撤销、可审计、可扩展的安全加固体系。
+tags:
+- API安全
+- JWT
+- Laravel
+- 请求签名
+- 防重放
+- ip白名单
 categories:
-  - architecture
+- architecture
 cover: /images/covers/api-security-hardening-jwt-blacklist-request-signing-ip-whitelist-replay-attack-prevention-cover.jpg
 ---
+
 
 # API 安全加固实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击
 

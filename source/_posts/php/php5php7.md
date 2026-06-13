@@ -1,14 +1,21 @@
 ---
 title: PHP5与PHP7
 cover: /images/covers/php5-vs-php7-cover.jpg
-tags: [PHP, PHP7, PHP8, 性能优化, 新特性, 迁移]
+tags:
+- PHP
+- PHP7
+- PHP 8
+- 性能优化
+- 新特性
+- 迁移
 categories: PHP
 date: 2019-03-20 15:05:07
-description: '深入对比 PHP5、PHP7 与 PHP8 三代版本核心差异与新特性演进。全面解析 PHP7 性能优化原理（PHPNG 引擎重写、AST 抽象语法树、JIT 即时编译、zval 内存结构优化），详解标量类型声明、空合并运算符、太空船运算符、匿名类、Throwable 统一异常处理等关键特性。提供从 PHP5 到 PHP7/PHP8 的迁移实战指南、已移除函数替代方案、常见踩坑陷阱与代码改写示例，附 PHP8 属性注解、match 表达式、联合类型及 WordPress/Magento 性能基准测试数据。'
-
-
-
+description: 深入对比 PHP5、PHP7 与 PHP8 三代版本核心差异与新特性演进。全面解析 PHP7 性能优化原理（PHPNG 引擎重写、AST
+  抽象语法树、JIT 即时编译、zval 内存结构优化），详解标量类型声明、空合并运算符、太空船运算符、匿名类、Throwable 统一异常处理等关键特性。提供从
+  PHP5 到 PHP7/PHP8 的迁移实战指南、已移除函数替代方案、常见踩坑陷阱与代码改写示例，附 PHP8 属性注解、match 表达式、联合类型及 WordPress/Magento
+  性能基准测试数据。
 ---
+
 ## 概述
 
 PHP 7 于 2015 年 12 月正式发布，是 PHP 语言历史上一次重大的版本升级。相较于 PHP 5 系列，PHP 7 在性能、语法特性和错误处理等方面都带来了显著改进。本文将详细对比 PHP 5 与 PHP 7 的核心差异，并简要展望 PHP 8 引入的新特性。

@@ -1,11 +1,19 @@
 ---
 title: AI Agent 规划能力实战：ReAct/Tree-of-Thought/Graph-of-Thought 推理模式
 date: 2026-06-02 12:00:00
-tags: [AI Agent, ReAct, Tree-of-Thought, Graph-of-Thought, 推理, 规划]
-categories: [ai]
+tags:
+- AI Agent
+- React
+- Tree-of-Thought
+- Graph-of-Thought
+- 推理
+- 规划
+categories:
+- ai
 cover: /images/covers/agent-reasoning-patterns-guide-cover.jpg
-description: "系统拆解 AI Agent 推理与规划能力实战，深入对比 ReAct、Tree-of-Thought、Graph-of-Thought 等模式的适用场景、实现思路与工程取舍，帮你构建更稳定、更聪明的智能体。"
+description: 系统拆解 AI Agent 推理与规划能力实战，深入对比 ReAct、Tree-of-Thought、Graph-of-Thought 等模式的适用场景、实现思路与工程取舍，帮你构建更稳定、更聪明的智能体。
 ---
+
 
 在很多团队刚开始做 AI Agent 时，最先关注的往往是“能不能调用工具”“能不能接 API”“能不能自动执行任务”。但项目一旦进入真实业务，很快就会发现：**真正决定 Agent 上限的，不只是有没有工具，而是它有没有规划能力**。
 

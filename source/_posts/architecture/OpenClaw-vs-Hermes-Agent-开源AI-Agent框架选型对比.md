@@ -1,12 +1,18 @@
 ---
 title: OpenClaw vs Hermes Agent：开源 AI Agent 框架选型对比
 date: 2026-06-02 10:00:00
-description: 本文围绕 OpenClaw 与 Hermes Agent 两个开源 AI Agent 框架做系统选型对比，从架构设计、工具调用、长期记忆、多模型支持、插件扩展、性能与运维复杂度等维度展开分析，并结合代码示例、落地场景和踩坑案例，帮助开发者、架构师与团队判断个人 AI 助手平台和可持续演化的 Agent 运行时分别适合什么业务路线。
-tags: [openclaw, hermes-agent, ai-agent, 架构设计]
+description: 本文围绕 OpenClaw 与 Hermes Agent 两个开源 AI Agent 框架做系统选型对比，从架构设计、工具调用、长期记忆、多模型支持、插件扩展、性能与运维复杂度等维度展开分析，并结合代码示例、落地场景和踩坑案例，帮助开发者、架构师与团队判断个人
+  AI 助手平台和可持续演化的 Agent 运行时分别适合什么业务路线。
+tags:
+- OpenClaw
+- Hermes Agent
+- AI Agent
+- 架构设计
 categories:
-  - architecture
+- architecture
 cover: /images/covers/openclaw-vs-hermes-cover.jpg
 ---
+
 
 # OpenClaw vs Hermes Agent：开源 AI Agent 框架选型对比
 

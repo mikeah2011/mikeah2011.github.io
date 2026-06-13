@@ -1,11 +1,23 @@
 ---
-title: 'AI Agent Streaming 实战进阶：SSE 分块传输、前端 Token 渲染、中断恢复——Laravel 后端的生产级流式架构'
+title: AI Agent Streaming 实战进阶：SSE 分块传输、前端 Token 渲染、中断恢复——Laravel 后端的生产级流式架构
 date: 2026-06-05 09:09:27
-description: '深入解析 AI Agent 流式架构的生产级实战方案：涵盖 SSE 分块传输协议原理、Last-Event-ID 中断恢复机制、前端 Token-by-Token 渲染管线与 requestAnimationFrame 性能优化、背压控制、指数退避重试策略，以及 Laravel 后端在高并发场景下的完整工程实现，帮助开发者构建可靠高效的流式 AI 应用。'
-tags: [ai agent, sse, streaming, laravel, 前端渲染, 流式架构]
-categories: [ai, 架构]
+description: 深入解析 AI Agent 流式架构的生产级实战方案：涵盖 SSE 分块传输协议原理、Last-Event-ID 中断恢复机制、前端 Token-by-Token
+  渲染管线与 requestAnimationFrame 性能优化、背压控制、指数退避重试策略，以及 Laravel 后端在高并发场景下的完整工程实现，帮助开发者构建可靠高效的流式
+  AI 应用。
+tags:
+- AI Agent
+- SSE
+- Streaming
+- Laravel
+- 前端渲染
+- 流式架构
+categories:
+- ai
+- 架构
 cover: /images/covers/ai-agent-streaming-sse-cover.jpg
 ---
+
+
 
 > **TL;DR：** 在前篇《AI Agent Streaming 实战》中，我们实现了 SSE 与 WebSocket 的基础流式推送。本篇作为**进阶篇**，将深入生产环境的真实战场——SSE 分块传输的底层机制、前端 Token-by-Token 的精确渲染管线、`Last-Event-ID` 中断恢复协议、背压（Backpressure）处理、指数退避重试策略，以及 Laravel 后端在高并发场景下的生产级架构设计。如果你的流式系统已经跑起来但总在生产环境"翻车"，这篇文章正是为你准备的。
 

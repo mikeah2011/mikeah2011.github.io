@@ -1,17 +1,26 @@
 ---
 title: Laravel B2C API 的 Redis 使用场景：会话/购物车/计次/全页缓存对比
 date: 2026-05-02
-description: "基于 KKday 三年 Laravel B2C API 实战经验，系统对比 Redis 四大核心使用场景：Session 会话管理、购物车 Hash+List 设计、计次功能 Lua 原子操作与全页缓存穿透防护。深入解析各场景的数据结构选型、TTL 策略、并发控制方案，附 Redis 与 Memcached 对比表、redis-cli 监控命令与生产环境告警配置，帮助开发者在电商 B2C 项目中做出最优缓存架构决策。"
+description: 基于 KKday 三年 Laravel B2C API 实战经验，系统对比 Redis 四大核心使用场景：Session 会话管理、购物车
+  Hash+List 设计、计次功能 Lua 原子操作与全页缓存穿透防护。深入解析各场景的数据结构选型、TTL 策略、并发控制方案，附 Redis 与 Memcached
+  对比表、redis-cli 监控命令与生产环境告警配置，帮助开发者在电商 B2C 项目中做出最优缓存架构决策。
 categories:
-  - database
-tags: [kkday, laravel, redis, b2c, 缓存, 会话, 购物车]
+- database
+tags:
+- KKday
+- Laravel
+- Redis
+- B2C
+- 缓存
+- 会话
+- 购物车
 cover: /images/covers/databases-01-cover.jpg
 images:
-  - /images/content/databases-01-content-1.jpg
-  - /images/content/databases-01-content-2.jpg
-
-
+- /images/content/databases-01-content-1.jpg
+- /images/content/databases-01-content-2.jpg
 ---
+
+
 ## 写在前面：为什么这篇很重要？
 
 在 KKday B2C 后端团队工作中，Redis 的使用场景非常多元。从最简单的键值存储，到复杂的会话管理、购物车逻辑、计次功能（countdown）、甚至全页缓存策略 —— 不同场景对应不同的 Redis 数据结构与 TTL 策略。

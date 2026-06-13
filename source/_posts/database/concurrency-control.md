@@ -1,15 +1,24 @@
 ---
 title: 控制并发
-tags: [mysql, 并发控制, 锁机制, 事务, innodb, 乐观锁, 悲观锁]
+tags:
+- MySQL
+- 并发控制
+- 锁机制
+- 事务
+- InnoDB
+- 乐观锁
+- 悲观锁
 categories:
-  - database
+- database
 date: 2019-03-20 15:05:07
-description: '并发控制是数据库保障数据一致性的核心机制。本文全面解析MySQL InnoDB并发控制原理，包括悲观锁（行锁、间隙锁、Next-Key Lock）与乐观锁（版本号机制）的对比与选型，事务隔离级别（读未提交到串行化）对脏读、不可重复读、幻读的影响，死锁检测与预防策略，以及Laravel框架中lockForUpdate、乐观锁重试、Redis分布式锁等实战代码示例与踩坑经验。'
+description: 并发控制是数据库保障数据一致性的核心机制。本文全面解析MySQL InnoDB并发控制原理，包括悲观锁（行锁、间隙锁、Next-Key Lock）与乐观锁（版本号机制）的对比与选型，事务隔离级别（读未提交到串行化）对脏读、不可重复读、幻读的影响，死锁检测与预防策略，以及Laravel框架中lockForUpdate、乐观锁重试、Redis分布式锁等实战代码示例与踩坑经验。
 cover: /images/covers/databases-013-cover.jpg
 images:
-  - /images/content/databases-013-content-1.jpg
-  - /images/content/databases-013-content-2.jpg
+- /images/content/databases-013-content-1.jpg
+- /images/content/databases-013-content-2.jpg
 ---
+
+
 Mysql内部通过锁机制实现对资源的并发访问控制，保证数据的一致性，锁机制的类型和引擎的种类有关，MyISAM中默认支持的表级锁有两种：共享读锁和独占写锁。表级锁在MyISAM和InnoDB的存储引擎中都支持，但是InnoDB默认支持的是行锁。
 
 #### MyISAM锁机制

@@ -2,15 +2,23 @@
 title: Redis 实战：缓存失效场景深度解析 - KKday B2C API 真实踩坑记录
 date: 2026-05-03
 categories:
-  - database
-tags: [laravel, 微服务, 缓存, redis, 分布式锁, 高并发]
-description: KKday B2C API 中 Redis 缓存失效的真实踩坑记录，深度解析缓存穿透、缓存击穿、缓存雪崩三大经典问题，涵盖过期时间陷阱、热点 Key 淘汰策略、分布式锁竞态条件与 RedLock 高可用方案、缓存一致性（删库写库与 Canal Binlog 监听）、大对象内存优化、连接池耗尽与限流降级等生产级场景。附 Laravel 完整代码示例、Lua 脚本原子操作、三级缓存架构设计，适合 PHP/Laravel 后端工程师在高并发电商项目中直接复用。
+- database
+tags:
+- Laravel
+- 微服务
+- 缓存
+- Redis
+- 分布式锁
+- 高并发
+description: KKday B2C API 中 Redis 缓存失效的真实踩坑记录，深度解析缓存穿透、缓存击穿、缓存雪崩三大经典问题，涵盖过期时间陷阱、热点
+  Key 淘汰策略、分布式锁竞态条件与 RedLock 高可用方案、缓存一致性（删库写库与 Canal Binlog 监听）、大对象内存优化、连接池耗尽与限流降级等生产级场景。附
+  Laravel 完整代码示例、Lua 脚本原子操作、三级缓存架构设计，适合 PHP/Laravel 后端工程师在高并发电商项目中直接复用。
 cover: /images/covers/databases-01-cover.jpg
 images:
-  - /images/content/databases-01-content-1.jpg
-  - /images/content/databases-01-content-2.jpg
-
+- /images/content/databases-01-content-1.jpg
+- /images/content/databases-01-content-2.jpg
 ---
+
 # Redis 实战：缓存失效场景深度解析 - KKday B2C API 真实踩坑记录
 
 ## 背景概述

@@ -1,17 +1,24 @@
 ---
-title: "Git 高级用法实战：Rebase、Cherry-pick、Bisect、Worktree 踩坑记录"
+title: Git 高级用法实战：Rebase、Cherry-pick、Bisect、Worktree 踩坑记录
 cover: /images/covers/git-guide-rebase-cherry-pick-bisect-worktree-cover.jpg
 date: 2026-05-16 18:30:46
 updated: 2026-05-16 18:34:57
 categories:
-  - engineering
-  - git
-tags: [git, rebase, cherry-pick, bisect, worktree, 工程管理]
-description: "Git 高级用法实战指南：深入讲解 rebase 保持线性历史、cherry-pick 跨分支移植 hotfix、bisect 二分法定位回归 Bug、worktree 多目录并行开发四大核心命令。涵盖交互式变基、cherry-pick merge commit 技巧、bisect 自动化脚本等 30+ 仓库真实踩坑经验，附 Rebase vs Merge 对比表。"
-
-
-
+- engineering
+- git
+tags:
+- Git
+- rebase
+- cherry-pick
+- bisect
+- Worktree
+- 工程管理
+description: Git 高级用法实战指南：深入讲解 rebase 保持线性历史、cherry-pick 跨分支移植 hotfix、bisect 二分法定位回归
+  Bug、worktree 多目录并行开发四大核心命令。涵盖交互式变基、cherry-pick merge commit 技巧、bisect 自动化脚本等 30+
+  仓库真实踩坑经验，附 Rebase vs Merge 对比表。
 ---
+
+
 # Git 高级用法实战：Rebase、Cherry-pick、Bisect、Worktree 踩坑记录
 
 > 在管理 30+ 个 Laravel 仓库的日常中，我发现很多开发者对 Git 的使用停留在 `add → commit → push → pull`。但当你面对「需要把一个 hotfix 同时应用到 3 个环境分支」「生产出了 Bug 但不知道哪个 commit 引入的」「需要同时在 v2 和 v3 上开发」这些场景时，基础操作就不够用了。

@@ -3,22 +3,24 @@ title: AWS CLI 实战：命令行管理 AWS 资源 — 实例/S3/RDS 自动化�
 date: 2026-05-17 04:20:41
 updated: 2026-05-17 04:23:55
 categories:
-  - architecture
-  - devops
-tags: [aws, devops, laravel]
-description: >
-  在管理 30+ Laravel B2C 项目的 AWS 基础设施时，手动在 Console 点来点去既慢又容易出错。
-  本文系统记录了 AWS CLI 从安装配置到生产级实战脚本的完整运维经验：多 Profile 环境管理与安全切换、
-  EC2 实例批量查询与自动化操作、S3 存储桶同步备份与生命周期策略配置、RDS 数据库快照自动备份与
-  跨区域灾备复制、IAM 最小权限策略设计与临时凭证管理。文中包含 5 个真实生产踩坑记录和可直接复用的
-  Shell 自动化脚本，帮助中大型团队用 AWS CLI 实现高效云资源自动化运维。
+- architecture
+- devops
+tags:
+- AWS
+- DevOps
+- Laravel
+description: '在管理 30+ Laravel B2C 项目的 AWS 基础设施时，手动在 Console 点来点去既慢又容易出错。 本文系统记录了 AWS
+  CLI 从安装配置到生产级实战脚本的完整运维经验：多 Profile 环境管理与安全切换、 EC2 实例批量查询与自动化操作、S3 存储桶同步备份与生命周期策略配置、RDS
+  数据库快照自动备份与 跨区域灾备复制、IAM 最小权限策略设计与临时凭证管理。文中包含 5 个真实生产踩坑记录和可直接复用的 Shell 自动化脚本，帮助中大型团队用
+  AWS CLI 实现高效云资源自动化运维。
 
+  '
 cover: /images/covers/architecture-1-cover.jpg
 images:
-  - /images/content/architecture-1-content-1.jpg
-  - /images/content/architecture-1-content-2.jpg
-
+- /images/content/architecture-1-content-1.jpg
+- /images/content/architecture-1-content-2.jpg
 ---
+
 ## 前言：为什么不用 Console 而用 CLI？
 
 在 KKday B2C Backend Team，我们管理着 30+ 个 Laravel 项目的 AWS 基础设施。早期全靠 AWS Console 手动操作，直到某次深夜值班：

@@ -1,12 +1,22 @@
 ---
-title: "Spot Instance 实战：Laravel 工作负载用竞价实例省钱——中断处理、混合调度与 K8s 自动迁移踩坑记录"
+title: Spot Instance 实战：Laravel 工作负载用竞价实例省钱——中断处理、混合调度与 K8s 自动迁移踩坑记录
 date: 2026-06-03 11:00:00
-tags: [spot-instance, aws, kubernetes, laravel, 成本优化, 云计算]
-description: "Spot Instance 实战省钱指南：Laravel 工作负载如何利用 AWS 竞价实例降低 60%-90% 计算成本。详解 Spot 定价机制、中断信号处理（SIGTERM + 两分钟窗口）、Laravel Queue Worker 优雅关闭改造、Karpenter 智能调度、K8s Pod Disruption Budget 配置，以及混合 On-Demand/Spot 调度比例设计。附带完整 Helm Chart 配置、Grafana 监控面板与 9 个真实踩坑案例，帮助团队安全落地 Spot Instance 成本优化。"
+tags:
+- spot-instance
+- AWS
+- Kubernetes
+- Laravel
+- 成本优化
+- 云计算
+description: Spot Instance 实战省钱指南：Laravel 工作负载如何利用 AWS 竞价实例降低 60%-90% 计算成本。详解 Spot
+  定价机制、中断信号处理（SIGTERM + 两分钟窗口）、Laravel Queue Worker 优雅关闭改造、Karpenter 智能调度、K8s Pod
+  Disruption Budget 配置，以及混合 On-Demand/Spot 调度比例设计。附带完整 Helm Chart 配置、Grafana 监控面板与
+  9 个真实踩坑案例，帮助团队安全落地 Spot Instance 成本优化。
 categories:
-  - devops
+- devops
 cover: /images/covers/spot-instance-laravel-cover.jpg
 ---
+
 
 ## 前言
 

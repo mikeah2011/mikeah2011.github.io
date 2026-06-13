@@ -1,12 +1,23 @@
 ---
 title: Rust trait object vs enum dispatch 实战：动态分发与静态分发的性能权衡——PHP 开发者的多态思维重塑
-description: 深入对比 Rust 中 trait object（dyn Trait 动态分发）与 enum dispatch（静态分发）的实现原理、性能差异和适用场景。从 PHP 开发者视角出发，通过支付处理器、中间件管道、游戏 ECS 等实战案例，剖析 vtable、零成本抽象、内存布局等核心概念，结合基准测试数据和选型决策树，帮助开发者在 Rust 多态设计中做出正确选择，掌握 trait object、enum dispatch、泛型三种分发策略的灵活组合。
+description: 深入对比 Rust 中 trait object（dyn Trait 动态分发）与 enum dispatch（静态分发）的实现原理、性能差异和适用场景。从
+  PHP 开发者视角出发，通过支付处理器、中间件管道、游戏 ECS 等实战案例，剖析 vtable、零成本抽象、内存布局等核心概念，结合基准测试数据和选型决策树，帮助开发者在
+  Rust 多态设计中做出正确选择，掌握 trait object、enum dispatch、泛型三种分发策略的灵活组合。
 date: 2026-06-07 10:00:00
-tags: [Rust, Trait, 多态, 性能优化, PHP, enum dispatch, vtable, 零成本抽象]
+tags:
+- Rust
+- Trait
+- 多态
+- 性能优化
+- PHP
+- Enum Dispatch
+- vtable
+- 零成本抽象
 categories:
-  - architecture
+- architecture
 cover: /images/covers/rust-trait-enum-cover.jpg
 ---
+
 
 # Rust trait object vs enum dispatch 实战：动态分发与静态分发的性能权衡——PHP 开发者的多态思维重塑
 

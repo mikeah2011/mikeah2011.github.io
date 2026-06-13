@@ -1,12 +1,21 @@
 ---
 title: 读写分离中间件实战：ProxySQL/MaxScale + Laravel——透明路由、连接池复用与主从延迟的工程化治理
 date: 2026-06-05 12:00:00
-description: 深入 ProxySQL 与 MaxScale 两大读写分离中间件，结合 Laravel 实战讲解透明路由、连接池复用、主从延迟治理与故障自动切换。涵盖配置示例、踩坑记录与性能基准测试，助你构建高可用 MySQL 读写分离架构。
-tags: [mysql, proxysql, maxscale, 读写分离, 主从复制, laravel]
+description: 深入 ProxySQL 与 MaxScale 两大读写分离中间件，结合 Laravel 实战讲解透明路由、连接池复用、主从延迟治理与故障自动切换。涵盖配置示例、踩坑记录与性能基准测试，助你构建高可用
+  MySQL 读写分离架构。
+tags:
+- MySQL
+- ProxySQL
+- maxscale
+- 读写分离
+- 主从复制
+- Laravel
 categories:
-  - database
+- database
 cover: /images/covers/read-write-split-proxy-cover.jpg
 ---
+
+
 
 ## 开篇：为什么 Laravel 内置的 read/write connection 不够用
 

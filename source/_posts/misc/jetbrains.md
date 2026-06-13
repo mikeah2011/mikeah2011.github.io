@@ -1,14 +1,19 @@
 ---
 title: JetBrains系列产品激活方法
-tags: [macos, jetbrains]
+tags:
+- macOS
+- JetBrains
 categories: Misc
 date: 2022-10-20 15:05:07
-description: 'JetBrains 全系列 IDE（IntelliJ IDEA、PyCharm、WebStorm、PhpStorm、GoLand 等）激活方法全攻略：传统激活码方式、2024-2026 最新反盗版机制变化、macOS/Windows 常见问题排查，以及学生免费授权、开源项目授权、ToolBox All Products Pack 订阅等正版替代方案对比与省钱技巧。'
+description: JetBrains 全系列 IDE（IntelliJ IDEA、PyCharm、WebStorm、PhpStorm、GoLand 等）激活方法全攻略：传统激活码方式、2024-2026
+  最新反盗版机制变化、macOS/Windows 常见问题排查，以及学生免费授权、开源项目授权、ToolBox All Products Pack 订阅等正版替代方案对比与省钱技巧。
 cover: /images/covers/misc-1-cover.jpg
 images:
-  - /images/content/misc-1-content-1.jpg
-  - /images/content/misc-1-content-2.jpg
+- /images/content/misc-1-content-1.jpg
+- /images/content/misc-1-content-2.jpg
 ---
+
+
 ## 前言
 
 JetBrains 系列 IDE 是目前最受欢迎的开发工具之一，涵盖了 Java（IntelliJ IDEA）、Python（PyCharm）、前端（WebStorm）、PHP（PhpStorm）、Go（GoLand）等多个开发领域。然而，其正版订阅价格对于个人开发者和学生来说并不便宜。本文将介绍 JetBrains 产品的下载安装、激活方式，以及常见问题的排查与解决方案。

@@ -1,12 +1,20 @@
 ---
 title: MySQL 乐观锁 vs 悲观锁实战：SELECT FOR UPDATE vs 版本号——Laravel 订单并发更新的选型决策
 date: 2026-06-06 12:00:00
-tags: [mysql, 乐观锁, 悲观锁, laravel, 并发控制, 数据库]
+tags:
+- MySQL
+- 乐观锁
+- 悲观锁
+- Laravel
+- 并发控制
+- 数据库
 categories:
-  - database
+- database
 cover: /images/covers/mysql-optimistic-vs-pessimistic-lock-cover.jpg
-description: 深入解析 MySQL 乐观锁与悲观锁在 Laravel 高并发场景下的实战应用。从 SELECT FOR UPDATE 加锁原理、版本号冲突检测、死锁分析到 Redis 分布式锁配合使用，结合秒杀扣库存、订单状态流转、余额扣减等真实业务场景，提供完整的 PHP/Laravel 可运行代码示例与性能基准对比，帮助开发者在高并发架构中做出正确的锁选型决策。
+description: 深入解析 MySQL 乐观锁与悲观锁在 Laravel 高并发场景下的实战应用。从 SELECT FOR UPDATE 加锁原理、版本号冲突检测、死锁分析到
+  Redis 分布式锁配合使用，结合秒杀扣库存、订单状态流转、余额扣减等真实业务场景，提供完整的 PHP/Laravel 可运行代码示例与性能基准对比，帮助开发者在高并发架构中做出正确的锁选型决策。
 ---
+
 
 并发更新是所有后端开发者绕不开的核心问题。当两个用户同时购买最后一件商品、同时取消同一笔订单、同时审批同一个工单时，数据一致性如何保障？MySQL 提供了两种截然不同的锁机制：**悲观锁（Pessimistic Locking）** 和 **乐观锁（Optimistic Locking）**。本文以 Laravel 电商平台订单系统为背景，从原理、实现、死锁分析、性能对比到选型决策，给出一套完整可落地的实战方案。
 

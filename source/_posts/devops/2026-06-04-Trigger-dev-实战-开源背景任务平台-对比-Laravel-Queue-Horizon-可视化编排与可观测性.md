@@ -1,12 +1,19 @@
 ---
 title: Trigger.dev 实战：开源背景任务平台——对比 Laravel Queue/Horizon 的可视化编排与可观测性优势
 date: 2026-06-04 12:00:00
-tags: [trigger.dev, laravel, background jobs, 任务编排, 可观测性]
+tags:
+- trigger.dev
+- Laravel
+- background jobs
+- 任务编排
+- 可观测性
 categories:
-  - devops
+- devops
 cover: /images/covers/trigger-dev-vs-laravel-horizon-cover.jpg
-description: "深入对比 Trigger.dev 与 Laravel Queue/Horizon 在后台任务编排、可观测性、跨语言支持等维度的差异。涵盖 Trigger.dev 架构解析、DAG 可视化编排、结构化日志追踪、重试机制，以及与 Laravel 的三种集成方案（HTTP 触发、Webhook 事件驱动、混合架构）。附带生产环境踩坑记录、性能基准测试和选型决策矩阵，帮助团队在复杂任务编排与简单异步分发之间做出合理的技术选型。"
+description: 深入对比 Trigger.dev 与 Laravel Queue/Horizon 在后台任务编排、可观测性、跨语言支持等维度的差异。涵盖
+  Trigger.dev 架构解析、DAG 可视化编排、结构化日志追踪、重试机制，以及与 Laravel 的三种集成方案（HTTP 触发、Webhook 事件驱动、混合架构）。附带生产环境踩坑记录、性能基准测试和选型决策矩阵，帮助团队在复杂任务编排与简单异步分发之间做出合理的技术选型。
 ---
+
 
 ## 引言：为什么需要更好的任务编排
 

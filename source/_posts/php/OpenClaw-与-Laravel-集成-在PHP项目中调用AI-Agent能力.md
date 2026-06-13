@@ -1,12 +1,19 @@
 ---
 title: OpenClaw 与 Laravel 集成：在 PHP 项目中调用 AI Agent 能力
 date: 2026-06-02 10:00:00
-tags: [openclaw, laravel, php, ai-agent]
+tags:
+- OpenClaw
+- Laravel
+- PHP
+- AI Agent
 categories:
-  - php
+- php
 cover: /images/covers/openclaw-laravel-cover.jpg
-description: "本文系统讲解 OpenClaw 与 Laravel 集成的工程实践，覆盖 PHP SDK 安装配置、HTTP API 调用、Service Provider 与 Facade 封装、队列异步处理、错误重试、幂等控制、输出校验与生产踩坑案例，并对比 SDK、HTTP 与队列化方案差异，帮助 Laravel 项目稳定接入 AI Agent 能力。"
+description: 本文系统讲解 OpenClaw 与 Laravel 集成的工程实践，覆盖 PHP SDK 安装配置、HTTP API 调用、Service
+  Provider 与 Facade 封装、队列异步处理、错误重试、幂等控制、输出校验与生产踩坑案例，并对比 SDK、HTTP 与队列化方案差异，帮助 Laravel
+  项目稳定接入 AI Agent 能力。
 ---
+
 
 在今天的 PHP 应用开发里，大家讨论最多的主题之一，已经不再只是“如何把一个 Web 系统写出来”，而是“如何让系统拥有一定程度的智能能力”。从智能客服、内容生成、工单分发，到数据总结、运维辅助、业务流程自动化，越来越多的企业级应用开始把 AI 能力视为基础设施，而不是锦上添花的功能。
 

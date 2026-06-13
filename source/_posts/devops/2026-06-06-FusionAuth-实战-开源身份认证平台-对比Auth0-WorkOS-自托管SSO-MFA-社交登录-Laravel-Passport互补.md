@@ -1,20 +1,25 @@
 ---
-title: "FusionAuth 实战：开源身份认证平台——对比 Auth0/WorkOS 的自托管 SSO/MFA/社交登录完整方案与 Laravel Passport 互补"
+title: FusionAuth 实战：开源身份认证平台——对比 Auth0/WorkOS 的自托管 SSO/MFA/社交登录完整方案与 Laravel Passport
+  互补
 date: 2026-06-06 00:00:00
 tags:
-  - fusionauth
-  - sso
-  - mfa
-  - 认证
-  - Laravel
-  - oauth2
-  - auth0
-  - 身份认证
+- fusionauth
+- SSO
+- MFA
+- 认证
+- Laravel
+- OAuth2
+- auth0
+- 身份认证
 categories:
-  - devops
-description: "深度实战开源身份认证平台 FusionAuth：Docker 一键自托管部署、Laravel Socialite 无缝集成 OAuth2/OIDC、SSO 单点登录（SAML 与 OIDC 双模式）、MFA 多因素认证（TOTP + WebAuthn 硬件密钥）、30+ 社交登录统一接入。全面对比 Auth0 与 WorkOS 的定价、功能与数据主权，详解 FusionAuth 与 Laravel Passport 分层互补的认证架构，附生产级可运行代码示例、Docker Compose 配置与运维最佳实践。"
+- devops
+description: 深度实战开源身份认证平台 FusionAuth：Docker 一键自托管部署、Laravel Socialite 无缝集成 OAuth2/OIDC、SSO
+  单点登录（SAML 与 OIDC 双模式）、MFA 多因素认证（TOTP + WebAuthn 硬件密钥）、30+ 社交登录统一接入。全面对比 Auth0 与
+  WorkOS 的定价、功能与数据主权，详解 FusionAuth 与 Laravel Passport 分层互补的认证架构，附生产级可运行代码示例、Docker
+  Compose 配置与运维最佳实践。
 cover: /images/covers/fusionauth-laravel-sso-cover.jpg
 ---
+
 ## 前言：身份认证的困境与破局
 
 在现代企业级应用开发中，身份认证与授权是整个系统架构中最关键的基础设施层。无论你正在构建面向消费者的 SaaS 产品、企业内部管理系统，还是需要支撑多租户架构的 B2B 平台，一套可靠的认证体系都是不可或缺的。

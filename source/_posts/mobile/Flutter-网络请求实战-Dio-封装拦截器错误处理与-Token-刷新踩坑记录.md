@@ -1,12 +1,22 @@
 ---
-title: "Flutter 网络请求实战：Dio 封装、拦截器、错误处理与 Token 刷新——从裸调 API 到企业级 HTTP 客户端的踩坑记录"
-description: "系统拆解 Flutter 中 Dio 网络请求封装的完整实战方案，覆盖 BaseOptions 配置、拦截器链设计、统一错误处理、Token 自动刷新、请求重试、文件上传下载、测试 Mock 与常见踩坑，帮助你搭建可维护、可扩展的企业级 HTTP 客户端。"
+title: Flutter 网络请求实战：Dio 封装、拦截器、错误处理与 Token 刷新——从裸调 API 到企业级 HTTP 客户端的踩坑记录
+description: 系统拆解 Flutter 中 Dio 网络请求封装的完整实战方案，覆盖 BaseOptions 配置、拦截器链设计、统一错误处理、Token
+  自动刷新、请求重试、文件上传下载、测试 Mock 与常见踩坑，帮助你搭建可维护、可扩展的企业级 HTTP 客户端。
 date: 2026-06-01 22:30:00
-tags: [flutter, dio, dart, http, 网络请求, token刷新, 移动端]
+tags:
+- Flutter
+- Dio
+- Dart
+- HTTP
+- 网络请求
+- token刷新
+- 移动端
 categories:
-  - mobile
+- mobile
 cover: /images/covers/flutter-dio-networking-token-refresh-cover.jpg
 ---
+
+
 
 # Flutter 网络请求实战：Dio 封装、拦截器、错误处理与 Token 刷新
 

@@ -1,12 +1,20 @@
 ---
 title: Git Hooks 深度实战：Husky/lint-staged/lefthook 选型——代码风格、提交规范与 CI 门禁的自动化治理
 date: 2026-06-06 12:00:00
-tags: [git, husky, lint-staged, lefthook, 代码规范, ci-cd]
+tags:
+- Git
+- husky
+- lint-staged
+- lefthook
+- 代码规范
+- CI/CD
 categories:
-  - devops
-description: "深入对比 Git Hooks 管理工具 Husky、lint-staged 与 lefthook 的原理、配置与性能差异，涵盖代码规范自动化、Conventional Commits 提交校验、CI/CD 门禁策略及实战踩坑，帮助团队选型并建立从客户端钩子到流水线的完整代码质量治理体系。"
+- devops
+description: 深入对比 Git Hooks 管理工具 Husky、lint-staged 与 lefthook 的原理、配置与性能差异，涵盖代码规范自动化、Conventional
+  Commits 提交校验、CI/CD 门禁策略及实战踩坑，帮助团队选型并建立从客户端钩子到流水线的完整代码质量治理体系。
 cover: /images/covers/git-hooks-deep-dive-cover.jpg
 ---
+
 
 在团队协作开发中，代码风格不统一、提交信息乱七八糟、CI 上频繁因低级错误失败——这些问题几乎每个团队都遇到过。Git Hooks 作为 Git 原生提供的钩子机制，能够在代码提交的关键节点自动执行检查，是解决上述问题的核心武器。然而，原生 Git Hooks 有一个致命缺陷：**它们存储在 `.git/hooks` 目录下，不会被版本控制跟踪**，这意味着团队无法共享同一套钩子配置。
 

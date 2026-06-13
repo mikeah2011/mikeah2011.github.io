@@ -1,15 +1,19 @@
 ---
-title: "uni-app Native.js 原生插件开发实战：原生 SDK 集成与多平台踩坑记录"
+title: uni-app Native.js 原生插件开发实战：原生 SDK 集成与多平台踩坑记录
 cover: /images/covers/uni-app-native-js-guide-sdk-cover.jpg
 date: 2026-05-17 07:00:11
 updated: 2026-06-07 00:00:00
 categories: Frontend
-tags: [uni-app, native.js, sdk, 跨平台开发, 原生插件]
-description: "uni-app 跨平台开发中遇到原生能力瓶颈？本文从 Native.js 快速调用到原生插件深度开发，覆盖 Android/iOS 双平台 SDK 集成实战，详解支付宝等第三方 SDK 接入、蓝牙通信、自定义相机等场景，附带 9 大常见踩坑案例与调试技巧，助你打通 uni-app 与原生 JS 的最后一公里。"
-
-
-
+tags:
+- uni-app
+- native.js
+- SDK
+- 跨平台开发
+- 原生插件
+description: uni-app 跨平台开发中遇到原生能力瓶颈？本文从 Native.js 快速调用到原生插件深度开发，覆盖 Android/iOS 双平台
+  SDK 集成实战，详解支付宝等第三方 SDK 接入、蓝牙通信、自定义相机等场景，附带 9 大常见踩坑案例与调试技巧，助你打通 uni-app 与原生 JS 的最后一公里。
 ---
+
 ## 前言
 
 在 uni-app 跨平台开发中，80% 的业务需求可以通过 Vue 语法 + uni API 搞定。但总有那 20% 的场景——蓝牙硬件通信、自定义相机预览、第三方原生支付 SDK、生物识别认证、自定义地图标注等——需要直接调用平台原生能力。

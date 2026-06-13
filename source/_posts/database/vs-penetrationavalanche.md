@@ -1,16 +1,24 @@
 ---
 title: 穿透&雪崩&击穿
-tags: [redis, 缓存穿透, 缓存雪崩, 缓存击穿, 布隆过滤器, PHP, Laravel, 高并发]
+tags:
+- Redis
+- 缓存穿透
+- 缓存雪崩
+- 缓存击穿
+- 布隆过滤器
+- PHP
+- Laravel
+- 高并发
 categories:
-  - database
+- database
 date: 2019-03-20 15:05:07
-description: '全面对比Redis缓存穿透、缓存雪崩与缓存击穿三大经典缓存问题的触发条件、影响范围与核心差异，深入剖析缓存空值、布隆过滤器、随机化TTL、互斥锁与逻辑过期等主流防护方案优缺点与选型策略，结合PHP/Laravel生产环境代码示例与高并发架构最佳实践，帮助开发者在不同业务场景下做出合理的Redis缓存防护决策'
+description: 全面对比Redis缓存穿透、缓存雪崩与缓存击穿三大经典缓存问题的触发条件、影响范围与核心差异，深入剖析缓存空值、布隆过滤器、随机化TTL、互斥锁与逻辑过期等主流防护方案优缺点与选型策略，结合PHP/Laravel生产环境代码示例与高并发架构最佳实践，帮助开发者在不同业务场景下做出合理的Redis缓存防护决策
 cover: /images/covers/databases-1-cover.jpg
 images:
-  - /images/content/databases-1-content-1.jpg
-  - /images/content/databases-1-content-2.jpg
-
+- /images/content/databases-1-content-1.jpg
+- /images/content/databases-1-content-2.jpg
 ---
+
 
 ## 概述
 

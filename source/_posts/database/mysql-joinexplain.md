@@ -2,17 +2,23 @@
 title: MySQL 複雜查詢性能優化實戰 - KKday B2C API 多表 JOIN 與子查詢 EXPLAIN 聯合分析
 date: 2026-05-03
 categories:
-  - database
-tags: [KKday, MySQL, JOIN, 索引, Explain, 查询优化, 性能优化, B+Tree]
+- database
+tags:
+- KKday
+- MySQL
+- JOIN
+- 索引
+- EXPLAIN
+- 查询优化
+- 性能优化
+- B+Tree
 description: 基于KKday B2C API真实项目经验，详解MySQL多表JOIN查询优化、子查询转JOIN、覆盖索引设计与最左前缀原则。通过EXPLAIN执行计划深入分析type、key、rows字段，结合B+Tree索引底层原理，将慢查询从3.5s优化至0.045s，包含4个完整的MySQL性能优化实战案例与索引设计最佳实践。
 cover: /images/covers/databases-019-cover.jpg
 images:
-  - /images/content/databases-019-content-1.jpg
-  - /images/content/databases-019-content-2.jpg
-
-
-
+- /images/content/databases-019-content-1.jpg
+- /images/content/databases-019-content-2.jpg
 ---
+
 # MySQL 複雜查詢性能優化實戰
 
 > **KKday B2C API 真實踩坑記錄**  

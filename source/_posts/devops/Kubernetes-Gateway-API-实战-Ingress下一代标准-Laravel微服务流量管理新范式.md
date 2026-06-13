@@ -1,12 +1,26 @@
 ---
 title: Kubernetes Gateway API 实战：Ingress 的下一代标准——Laravel 微服务的流量管理新范式
 date: 2026-06-06 12:00:00
-tags: [kubernetes, gateway api, ingress, 微服务, laravel, 流量管理, 云原生, httproute, grpcroute]
-description: 深入实战 Kubernetes Gateway API——Ingress 的下一代标准，全面解析 GatewayClass、Gateway、HTTPRoute 三层资源模型在 Laravel 微服务中的流量管理新范式。涵盖请求头改写、流量拆分、金丝雀发布、gRPC 路由、跨命名空间引用等核心能力，对比 Ingress 的架构差异与迁移路径，结合 Envoy Gateway 与 Nginx Gateway Fabric 的实战配置与性能基准，帮助 Laravel 团队从 Ingress 无缝过渡到 Gateway API 的标准化流量治理方案。
+tags:
+- Kubernetes
+- Gateway API
+- Ingress
+- 微服务
+- Laravel
+- 流量管理
+- 云原生
+- httproute
+- grpcroute
+description: 深入实战 Kubernetes Gateway API——Ingress 的下一代标准，全面解析 GatewayClass、Gateway、HTTPRoute
+  三层资源模型在 Laravel 微服务中的流量管理新范式。涵盖请求头改写、流量拆分、金丝雀发布、gRPC 路由、跨命名空间引用等核心能力，对比 Ingress
+  的架构差异与迁移路径，结合 Envoy Gateway 与 Nginx Gateway Fabric 的实战配置与性能基准，帮助 Laravel 团队从 Ingress
+  无缝过渡到 Gateway API 的标准化流量治理方案。
 categories:
-  - devops
+- devops
 cover: /images/covers/kubernetes-gateway-api-cover.jpg
 ---
+
+
 
 ## 一、引言：为什么 Ingress 不够用了？
 

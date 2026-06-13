@@ -1,12 +1,23 @@
 ---
-title: "Nix 实战进阶：声明式 macOS 开发环境管理——替代 Homebrew 的可复现开发环境配置与团队共享"
+title: Nix 实战进阶：声明式 macOS 开发环境管理——替代 Homebrew 的可复现开发环境配置与团队共享
 date: 2026-06-10 05:00:00
-description: "从 Nix 基础迈向进阶：flake-utils 多系统支持、NixOS 模块化配置、devenv.sh 自定义服务编排、Nix + direnv + Git 多项目环境切换、CI/CD 中的 Nix 缓存加速、团队共享 Nix 开发环境的完整工程化方案——附真实踩坑记录与性能基准对比。"
-tags: [nix, macos, flakes, devenv, 声明式, 开发环境, homebrew, devops, 团队协作]
+description: 从 Nix 基础迈向进阶：flake-utils 多系统支持、NixOS 模块化配置、devenv.sh 自定义服务编排、Nix + direnv
+  + Git 多项目环境切换、CI/CD 中的 Nix 缓存加速、团队共享 Nix 开发环境的完整工程化方案——附真实踩坑记录与性能基准对比。
+tags:
+- Nix
+- macOS
+- flakes
+- devenv
+- 声明式
+- 开发环境
+- Homebrew
+- DevOps
+- 团队协作
 categories:
-  - macos
+- macos
 cover: /images/covers/nix-cover.jpg
 ---
+
 
 > **TL;DR**：本文是 Nix 系列的进阶篇。在掌握 Nix Flakes 基础后，我们深入 flake-utils 多系统支持、NixOS 模块化配置、devenv.sh 自定义服务编排、多项目环境切换、CI/CD 缓存加速，以及团队共享开发环境的完整工程化方案。
 

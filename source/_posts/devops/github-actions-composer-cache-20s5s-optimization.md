@@ -4,14 +4,18 @@ cover: /images/covers/github-actions-composer-cache-20s5s-optimization-cover.jpg
 date: 2026-05-05 02:30:33
 updated: 2026-05-05 02:31:49
 categories:
-  - devops
-  - docker
-tags: [CI/CD, composer, laravel, 性能优化, 缓存]
-description: 在 Laravel B2C 项目中，通过 GitHub Actions 的 Composer 缓存策略，将 CI 构建时间从 20s 优化到 5s 的完整实战记录，涵盖 actions/cache、dependency caching、Lock 文件管理与踩坑经验。
-
-
-
+- devops
+- docker
+tags:
+- CI/CD
+- Composer
+- Laravel
+- 性能优化
+- 缓存
+description: 在 Laravel B2C 项目中，通过 GitHub Actions 的 Composer 缓存策略，将 CI 构建时间从 20s 优化到
+  5s 的完整实战记录，涵盖 actions/cache、dependency caching、Lock 文件管理与踩坑经验。
 ---
+
 # GitHub Actions + Composer Cache：构建时间从 20s→5s 的优化实战踩坑记录
 
 > 在 KKday B2C 后端团队的 Laravel 项目中，每次 CI 跑流程都要花 20 秒以上等 Composer install，这对一天几十次提交的团队来说，累积的时间浪费是巨大的。本文记录了我们如何通过缓存策略把构建时间压到 5 秒以内的完整过程。
