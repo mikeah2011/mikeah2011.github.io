@@ -3,8 +3,7 @@ title: Laravel + gRPC 微服务通信实战：Proto 定义、Deadline 透传与�
 cover: /images/covers/laravel-grpc-microservicesguide-proto-deadline-cover.jpg
 date: 2026-05-03 08:40:00
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [BFF, Laravel, 微服务, gRPC, Proto, 性能优化]
 description: 结合 Laravel BFF 调用 Go 评价服务的真实改造经验，深入记录 gRPC 在 Proto 契约设计、Deadline 透传、连接复用与 Keepalive、错误码映射、指数退避重试、灰度兼容与生产排障上的完整实践指南，附 gRPC vs REST vs GraphQL 对比表、Interceptor 实现与可落地代码示例。
 

@@ -2,7 +2,7 @@
 title: OWASP Top 10 2025 版本更新实战：LLM 相关漏洞、API 安全增强、供应链攻击——Laravel 应用的新威胁防护指南
 date: 2026-06-07 10:00:00
 tags: [OWASP, 安全, Laravel, API安全, LLM, 供应链安全]
-categories: [安全]
+categories: [security]
 cover: /images/covers/owasp-top10-2025-cover.jpg
 description: "深度解析OWASP Top 10 2025版三大历史性变化：LLM Prompt注入攻击防护与输出安全处理、API安全从附属项升格为核心威胁的BOLA/BFLA细粒度防御、供应链攻击的依赖审计与Typosquatting检测。为Laravel开发者提供完整的中间件、Policy、CI/CD安全流水线实战代码，附可直接落地的项目安全加固Checklist。"
 ---

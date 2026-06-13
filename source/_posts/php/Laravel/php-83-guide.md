@@ -4,8 +4,8 @@ cover: /images/covers/php-83-guide-cover.jpg
 date: 2026-05-16 17:30:32
 updated: 2026-05-16 17:39:33
 categories:
-  - PHP
-  - Runtime
+  - php
+  - runtime
 tags: [Laravel, PHP]
 description: PHP 8.3 Typed Class Constants 实战指南：基于 KKday B2C API 30+ 仓库经验，详解类型化类常量替代魔术字符串、与 Enum 深度集成、Interface 契约约束继承链类型安全、Laravel Migration 类型对齐、PHPStan 静态分析配置，附 5 大踩坑记录与渐进式迁移策略
 

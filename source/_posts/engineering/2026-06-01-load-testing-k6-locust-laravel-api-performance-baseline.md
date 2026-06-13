@@ -3,8 +3,8 @@ title: "负载测试实战：k6/Locust 对 Laravel API 进行压力测试与性�
 cover: /images/covers/2026-06-01-load-testing-k6-locust-laravel-api-performance-baseline-cover.jpg
 date: 2026-06-01 12:00:00
 categories:
-  - Testing
-  - Performance
+  - testing
+  - performance
 tags:
   - k6
   - Locust
@@ -16,7 +16,6 @@ tags:
   - Grafana
 description: "深度实战 k6 与 Locust 两大负载测试工具，针对 Laravel B2C API 进行压力测试与性能基线建立。涵盖架构原理、阶梯式加压、多场景混合测试、CI/CD 门禁集成、InfluxDB+Grafana 可视化、真实踩坑记录（OOM/连接池/限流）与最佳实践，附完整可运行代码示例。"
 ---
-
 # 负载测试实战：k6/Locust 对 Laravel API 进行压力测试与性能基线
 
 ## 1. 问题背景与动机：为什么 B2C API 必须做负载测试？

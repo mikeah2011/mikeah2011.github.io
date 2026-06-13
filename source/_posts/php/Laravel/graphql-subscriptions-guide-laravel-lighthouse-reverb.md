@@ -3,8 +3,7 @@ title: GraphQL Subscriptions 实战：Laravel Lighthouse + Reverb 打通库存�
 cover: /images/covers/graphql-subscriptions-guide-laravel-lighthouse-reverb-cover.jpg
 date: 2026-05-03 09:26:32
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [laravel, websocket, graphql, subscriptions, 实时推送, lighthouse, reverb]
 description: 在 Laravel BFF 中使用 Lighthouse GraphQL + Reverb WebSocket 落地 Subscriptions 实时库存推送，覆盖 Schema 设计、频道鉴权、JWT 续期、多标签页连接控制、事件风暴防护与内存泄漏踩坑，并提供 GraphQL Subscriptions vs SSE vs 轮询的完整对比。
 

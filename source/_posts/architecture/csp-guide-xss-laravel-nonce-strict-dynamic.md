@@ -4,8 +4,8 @@ cover: /images/covers/csp-guide-xss-laravel-nonce-strict-dynamic-cover.jpg
 date: 2026-05-16 22:10:07
 updated: 2026-05-16 22:16:59
 categories:
-  - Architecture
-  - Laravel
+  - architecture
+  - php
 tags: [Laravel, 安全, OWASP, XSS, CSP]
 description: 从 OWASP Top 10 中 XSS 防护的「最后一道防线」出发，深入实战 CSP（Content-Security-Policy）在 Laravel B2C API 项目中的落地经验。涵盖 nonce 生成与 Blade 集成、strict-dynamic 策略、report-only 灰度、violation reporting 端点、Nginx 层配置，以及生产环境真实踩坑记录。
 

@@ -3,8 +3,8 @@ title: AWS CLI 实战：命令行管理 AWS 资源 — 实例/S3/RDS 自动化�
 date: 2026-05-17 04:20:41
 updated: 2026-05-17 04:23:55
 categories:
-  - 00_架构
-  - 06_运维
+  - architecture
+  - devops
 tags: [aws, devops, laravel]
 description: >
   在管理 30+ Laravel B2C 项目的 AWS 基础设施时，手动在 Console 点来点去既慢又容易出错。

@@ -2,9 +2,9 @@
 title: "对象存储实战：文件上传、CDN 加速与权限控制的架构设计与 Laravel 落地踩坑记录"
 date: 2026-06-01 16:00:00
 categories:
-  - 架构
+  - architecture
   - 云服务
-  - Laravel
+  - php
 tags:
   - 对象存储
   - AWS S3
@@ -21,7 +21,6 @@ images:
   - /images/content/arch-007-content-1.jpg
   - /images/content/arch-007-content-2.jpg
 ---
-
 # 对象存储实战：文件上传、CDN 加速与权限控制的架构设计与 Laravel 落地踩坑记录
 
 ## 前言：三个被低估的运维命题

@@ -4,8 +4,7 @@ cover: /images/covers/kkday-log-monitor-tracing-laravel-architectureguide-loggin
 date: 2026-05-05 01:40:51
 updated: 2026-05-05 01:43:32
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [KKday, Laravel, 微服务, 监控, 可观测性, Prometheus, OpenTelemetry, 日志, Monolog, 分布式追踪]
 description: "基于 KKday B2C Backend 30+ 仓库真实生产项目，深度拆解 Laravel 可观测性架构落地实战全记录。本文从三大核心模块出发，系统讲解 kkday/log 结构化日志规范与 Monolog 自定义处理器链定制、kkday/monitor Prometheus RED 指标采集与高基数标签防护策略、kkday/tracing OpenTelemetry 分布式追踪与 Trace Context 跨队列透传机制。涵盖完整的 PHP 可运行代码示例、生产部署检查清单、Grafana 告警规则配置、真实线上排查案例与踩坑速查表，助你构建日志、指标、追踪三位一体的可观测性体系，适合需要搭建 Laravel 监控告警体系的 PHP 开发者参考。"
 

@@ -2,7 +2,7 @@
 
 date: 2026-06-09 15:15:00
 categories:
-  - AI-Agent
+  - ai
 tags:
   - Multi-Agent
   - Debate

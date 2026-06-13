@@ -4,8 +4,7 @@ cover: /images/covers/laravel-response-cache-guide-cachecache-cover.jpg
 date: 2026-05-16 20:50:45
 updated: 2026-05-16 20:55:31
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [KKday, Laravel, Redis, 性能优化, 缓存]
 description: 在 KKday B2C API 项目中，全页缓存（Response Cache）是提升高并发场景下响应速度的关键手段。本文从 spatie/laravel-response-cache 出发，深入讲解 HTTP 响应缓存的架构设计、缓存失效策略、局部缓存（ESI/Edge-Side Includes 思路）、认证用户场景处理，以及生产环境中真实踩过的坑。
 

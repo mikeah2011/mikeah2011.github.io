@@ -4,8 +4,8 @@ cover: /images/covers/laravel-scheduler-guide-deployment-ononeserver-kubernetes-
 date: 2026-05-03 11:00:13
 updated: 2026-05-03 11:01:35
 categories:
-  - PHP
-  - Kubernetes
+  - php
+  - kubernetes
 tags: [DevOps, Kubernetes, Laravel, 定时任务, Scheduler, onOneServer]
 description: 结合 Laravel 订单超时关闭、库存回补与报表汇总场景，深度记录 Scheduler 在多实例部署下的拆分策略、重入保护与 withoutOverlapping 陷阱、onOneServer 依赖共享缓存锁的前提条件、Kubernetes CronJob 的 concurrencyPolicy 与失败重试配置，以及从单机迁移到容器化部署过程中的真实踩坑记录与监控告警方案。
 

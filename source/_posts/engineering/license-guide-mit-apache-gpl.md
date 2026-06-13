@@ -6,8 +6,8 @@ updated: 2026-05-05 09:24:05
 description: "开源项目License选型实战指南：详解MIT、Apache 2.0、GPL v3、LGPL、AGPL五大主流许可证的核心差异与适用场景，涵盖Copyleft传染性陷阱、专利保护条款、License兼容性矩阵、CI自动化检查方案，以及Laravel/PHP生态依赖扫描脚本，帮助开发者避免GPL合规踩坑与商业风险。"
 tags: [License, 开源, 工程管理, MIT, Apache, GPL, 合规]
 categories:
-  - Engineering
-  - Process
+  - engineering
+  - process
 
 
 

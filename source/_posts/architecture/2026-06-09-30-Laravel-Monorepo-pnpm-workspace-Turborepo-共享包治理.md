@@ -4,14 +4,13 @@ date: 2026-06-09 23:22:00
 categories:
   - architecture
 tags:
-  - monorepo
+  - Monorepo
   - pnpm
   - turborepo
-  - laravel
+  - Laravel
   - 工程化
 description: 从 KKday 30+ Laravel 仓库的痛点出发，详解 Monorepo 迁移的完整路径：pnpm workspace 依赖管理、Turborepo 构建编排、共享包治理、渐进式迁移策略与踩坑记录。
 ---
-
 当团队维护 30+ 个 Laravel 仓库时，你会遇到一个又一个令人头疼的问题：同一个认证中间件在 5 个仓库里各有微小差异，升级 PHP 版本时要重复操作 30 次，跨仓库的功能复用全靠 Composer 私有包或手动拷贝。这篇文章记录了我们将 KKday 的多仓库（Polyrepo）架构迁移到 Monorepo 的完整实战过程，涵盖 pnpm workspace 依赖管理、Turborepo 构建编排、共享包的版本治理，以及渐进式迁移中的踩坑记录。
 
 ## 为什么要做 Monorepo

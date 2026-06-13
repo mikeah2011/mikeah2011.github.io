@@ -3,8 +3,8 @@ title: PhpStorm
 cover: /images/covers/phpstorm-cover.jpg
 tags: [PhpStorm, IDE, 开发工具, JetBrains, 调试, 重构, macOS, PHP, Xdebug]
 categories:
-  - Engineering
-  - Editor
+  - engineering
+  - editor
 date: 2019-03-20 15:05:07
 description: 'PhpStorm 是 JetBrains 出品的 PHP 集成开发环境，被视为 PHP 生态最强 IDE。智能补全、深度重构、内置数据库 / Git / Docker / Vagrant / Composer / 调试器一站式整合。'
 

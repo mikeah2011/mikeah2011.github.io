@@ -3,8 +3,8 @@ title: "AWS-S3-Laravel-文件存储实战-多云备份-CDN 加速与成本优化
 date: 2026-05-05 08:05:44
 updated: 2026-05-05 08:08:13
 categories:
-  - Architecture
-  - Laravel
+  - architecture
+  - php
 tags: [aws, s3, cloudfront, cdn, laravel, devops, 对象存储, 多云备份, presigned-url, 成本优化]
 description: "结合 B2C 电商项目真实场景，完整记录 Laravel + AWS S3 文件存储实战方案。涵盖 Filesystem 多 Disk 配置、阿里云 OSS 兼容 S3 协议踩坑、CloudFront CDN 全球加速与缓存策略、Presigned URL 私有文件安全访问、多云备份异步架构设计、S3 存储类型成本优化（Standard/IA/Glacier）、Transfer Acceleration 实战。附带 7 个生产环境真实踩坑记录、Terraform IaC 配置、Laravel FileUploadService 封装代码，是从本地存储迁移到对象存储 + CDN 架构的完整避坑指南。"
 

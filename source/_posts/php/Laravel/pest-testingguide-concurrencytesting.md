@@ -4,8 +4,8 @@ date: 2026-05-04 07:37:42
 description: "Pest 单元测试测试框架在 Laravel B2C API 项目中的实战指南，涵盖数据驱动测试（Data-Driven）、并发测试防超卖、异步队列 Wait 插件、工厂模式批量创建、数据库连接泄漏修复等核心踩坑记录，附完整 PHPUnit vs Pest 对比与最佳实践清单，帮助 PHP 开发者提升测试覆盖率至 87%。"
 tags: [Laravel, Pest, PHP, PHPUnit, 测试, 并发测试, KKday]
 categories:
-  - PHP
-  - Testing
+  - php
+  - testing
 title: Pest 单元测试实战：Laravel B2C API 数据驱动与并发测试踩坑记录
 author: Michael
 

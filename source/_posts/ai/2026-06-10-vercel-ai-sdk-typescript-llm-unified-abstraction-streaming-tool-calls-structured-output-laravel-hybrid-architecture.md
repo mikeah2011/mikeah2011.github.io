@@ -2,8 +2,8 @@
 title: Vercel AI SDK 实战：TypeScript 的 LLM 统一抽象——Streaming/Tool Calls/Structured Output 与 Laravel 后端的混合架构
 date: 2026-06-10 06:15:00
 categories:
-  - AI
-  - 前端架构
+  - ai
+  - frontend
 tags:
   - Vercel AI SDK
   - TypeScript
@@ -15,7 +15,6 @@ tags:
   - BFF
 description: 深入实战 Vercel AI SDK 在 TypeScript 前端的统一 LLM 抽象能力，覆盖 Streaming、Tool Calls、Structured Output 三大核心能力，并结合 Laravel 后端设计一套可落地的混合架构方案，适合需要在生产环境同时治理前端交互与后端权限/计费/数据安全的团队。
 ---
-
 最近两年 LLM 应用越来越像“前端驱动体验、后端控制边界”的典型架构：前端负责流式渲染、工具调用可视化、交互态管理；后端负责 Provider 管理、权限校验、审计计费、敏感数据访问和二次处理。很多团队在早期会各自对接 OpenAI、Anthropic、Google 等不同 API，结果很快就会遇到接口差异、流式协议不统一、工具调用结构混乱、结构化输出校验分散等问题。
 
 这正是 **Vercel AI SDK** 的价值所在。

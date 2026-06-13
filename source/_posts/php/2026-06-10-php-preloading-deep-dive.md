@@ -6,12 +6,11 @@ categories:
 tags:
   - PHP
   - Preloading
-  - opcache
+  - OPcache
   - Performance
   - Laravel
 description: "深度解析 PHP Preloading 机制，从 opcache.preload 的底层原理到 Laravel 框架级实战，覆盖依赖分析、文件组织、性能基准测试与常见踩坑。"
 ---
-
 # PHP Preloading 深度实战
 
 在 PHP 7.4 引入、PHP 8.x 持续优化的 Preloading 机制，是 OPCache 层面一次质的飞跃。传统 OPCache 只能在脚本首次执行时缓存编译后的字节码，而 Preloading 允许我们在 **服务器启动阶段** 就把指定文件预编译并永久驻留内存——每个 Worker 进程都共享这些字节码，彻底消除冷启动开销。

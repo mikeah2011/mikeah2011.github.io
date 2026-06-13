@@ -3,8 +3,8 @@ title: Colima 替代 Docker Desktop：Laravel docker-compose 实战与性能对�
 cover: /images/covers/colima-docker-desktop-cover.jpg
 date: 2026-05-01 21:50:00
 categories:
-  - Architecture
-  - Docker
+  - architecture
+  - docker
 tags: [docker, laravel, macos]
 description: Colima替代Docker Desktop实战指南：基于KKday B2C Laravel 8项目，详解Colima安装配置、vz虚拟化与virtiofs性能优化、docker-compose编排、Pest/ParaTest测试加速，对比Docker Desktop与Rancher Desktop在macOS M系列芯片上的许可证、内存占用与IO性能差异，附常见踩坑与团队迁移方案
 

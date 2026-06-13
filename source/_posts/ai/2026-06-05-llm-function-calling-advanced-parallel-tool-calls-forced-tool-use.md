@@ -2,7 +2,7 @@
 title: LLM Function Calling 进阶实战：Parallel Tool Calls/Forced Tool Use/Tool Choice 策略——AI Agent 工具调用的工程化深度优化
 date: 2026-06-05 10:00:00
 tags: [AI Agent, LLM, Function Calling, 工具调用, Tool Use]
-categories: [AI Agent]
+categories: [ai]
 cover: /images/covers/llm-function-calling-advanced-cover.jpg
 description: "深入解析 LLM Function Calling 高级实战：Parallel Tool Calls 并行调度、Forced Tool Use 强制调用、Tool Choice 策略控制，对比 OpenAI/Anthropic/Gemini 三大平台差异，含生产级 Python 代码示例与工程化最佳实践。"
 ---

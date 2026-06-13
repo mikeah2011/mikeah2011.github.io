@@ -4,7 +4,7 @@ date: 2026-05-03 11:10:43
 cover: /images/covers/laravel-postgresql-listen-notify-guide-transaction-load-balancing-cover.jpg
 updated: 2026-05-03 11:11:39
 categories:
-  - PHP
+  - php
 tags: [Laravel, PostgreSQL, PgBouncer, LISTEN/NOTIFY, 消息通知]
 description: 基于 Laravel 后台审批与订单状态同步场景，记录一套用 PostgreSQL LISTEN/NOTIFY 做事务提交后事件广播的落地方案。文章涵盖触发器设计、最小 payload 规范、常驻监听进程实现、PgBouncer 兼容分流、重连与丢消息边界处理，并对比 Redis Pub/Sub 与 Kafka 等方案适用范围，帮助团队在单库场景下用数据库内建能力替代重量级消息中间件。
 

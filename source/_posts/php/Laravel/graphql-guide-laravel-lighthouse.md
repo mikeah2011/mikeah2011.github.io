@@ -4,8 +4,7 @@ cover: /images/covers/graphql-guide-laravel-lighthouse-cover.jpg
 date: 2026-05-16 19:40:32
 updated: 2026-05-16 19:42:48
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [KKday, Laravel]
 description: "在 KKday B2C 项目中用 Laravel Lighthouse 落地 GraphQL 的完整实战：从 Schema 设计、N+1 治理、鉴权限流到 Subscription 实时推送，附带真实踩坑记录与架构决策。"
 

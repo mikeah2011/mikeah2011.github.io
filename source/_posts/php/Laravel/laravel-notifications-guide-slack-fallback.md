@@ -4,8 +4,7 @@ cover: /images/covers/laravel-notifications-guide-slack-fallback-cover.jpg
 date: 2026-05-05 12:00:20
 updated: 2026-05-05 12:02:58
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [CI/CD, Laravel, 工程管理]
 description: >
   Laravel Notifications 多通道通知实战指南：基于 KKday B2C 电商系统，详解如何通过统一通知抽象层集成邮件、短信、Slack 与企业微信四大通道。深入讲解 Fallback 降级策略、自定义 SmsChannel 开发、Slack Webhook 频率限制处理、SMS 短信模板审核与多语言映射，以及队列化通知序列化陷阱、access_token 缓存竞争等生产级踩坑经验与测试方案。

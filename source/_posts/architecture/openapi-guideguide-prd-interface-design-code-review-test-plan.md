@@ -4,8 +4,8 @@ cover: /images/covers/openapi-prd-code-review-cover.jpg
 date: 2026-05-05 02:15:21
 updated: 2026-05-05 02:17:41
 categories:
-  - Architecture
-  - Testing
+  - architecture
+  - testing
 tags: [bff, laravel, openapi, api-design, code-review, prd]
 description: 本文结合 KKday B2C Backend 真实项目经验，完整记录从 PRD 拆解到 OpenAPI YAML 接口设计、Interface Design Review、Code Review 到 Test Plan 的全链路工作流。涵盖统一响应 Envelope 设计、Spectral 自动化 Lint、Prism Mock 联调、Pest 契约测试等实战技巧，附带 6 个真实踩坑案例与 4 个常见反模式，帮助团队实现契约驱动开发，减少 83% 前后端联调时间。
 

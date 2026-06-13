@@ -3,13 +3,11 @@ title: MarkDown
 cover: /images/covers/markdown-cover.jpg
 tags: [工程管理, Markdown, 文档, 写作, GFM]
 categories:
-  - Engineering
-  - Docs
+  - engineering
+  - docs
 date: 2019-03-20 15:05:07
 description: 'Markdown 是一种轻量级标记语言，2004 年由 John Gruber 创建，目标是"让文档既好读又能转 HTML"。本文从基础语法到高级特性全面讲解：标题、列表、链接、代码块、表格、引用等基础用法；任务列表、脚注、数学公式、Mermaid 流程图等扩展语法；CommonMark、GFM、MultiMarkdown 等各平台方言差异对比；Typora、Obsidian、VS Code 等主流编辑器推荐与对比；中文排版、图片路径、嵌套列表等常见踩坑案例；以及 Markdown 与 HTML 互转技巧和用 Node.js/Python 编程解析 Markdown 的实用示例。适合前端、后端、运维等所有需要写技术文档的开发者。'
 ---
-
-
 <!--more-->
 
 ## 一、Markdown 是什么

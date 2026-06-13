@@ -3,8 +3,7 @@ title: Laravel + Elasticsearch 全文搜索优化实战：商品搜索召回、�
 cover: /images/covers/laravel-elasticsearch-optimizationguide-index-cover.jpg
 date: 2026-05-03 10:20:00
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [elasticsearch, kkday, laravel, 全文搜索, 同义词]
 description: 结合 Laravel B2C 商品搜索改造经验，详细记录 Elasticsearch 在索引设计、召回排序、function_score 权重调优、同义词扩展、Bulk 批量回填、增量同步与零停机重建索引（alias 切换）上的一套可落地方案。涵盖索引 mapping 设计原则、查询层召回与排序分离、afterCommit 异步同步、生产事故排查等实战踩坑，帮助团队把搜索接口 P95 从 420ms 降到 85ms，适合需要对 Laravel + Elasticsearch 搜索链路做系统性优化的后端工程师参考。
 

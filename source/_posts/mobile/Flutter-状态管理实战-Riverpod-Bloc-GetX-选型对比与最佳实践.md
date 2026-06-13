@@ -6,14 +6,13 @@ description: "本文围绕 Flutter状态管理展开实战对比，系统分析 
 categories:
   - mobile
 tags:
-  - flutter
+  - Flutter
   - riverpod
   - bloc
   - getx
   - 状态管理
   - dart
 ---
-
 ## 一、为什么写这篇？
 
 Flutter 开发中，状态管理是最核心也最容易踩坑的领域。随着应用规模增长，`setState` 迅速变得不可维护——Widget 树层层嵌套、状态传递变成 prop drilling 地狱、业务逻辑和 UI 耦合在一起无法测试。

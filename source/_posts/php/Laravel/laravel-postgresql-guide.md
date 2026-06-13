@@ -4,8 +4,8 @@ cover: /images/covers/laravel-postgresql-guide-cover.jpg
 date: 2026-05-03 11:25:22
 updated: 2026-05-03 11:29:03
 categories:
-  - PHP
-  - MySQL
+  - php
+  - database
 tags: [laravel, postgresql, 分区表, 冷热归档, 命令, 查询优化, jsonb, 全文搜索]
 description: Laravel 项目中落地 PostgreSQL 按月分区表的完整实战指南，涵盖 Range Partition DDL 设计、分区裁剪查询优化、冷热归档策略与零停机在线迁移。深入解析 Laravel + PostgreSQL 的 JSONB 字段查询、中文排序、全文搜索等踩坑案例，附 PostgreSQL 与 MySQL 在 Laravel 生态中的详细对比，帮助后端开发者在数据库选型与查询优化中做出正确决策。
 

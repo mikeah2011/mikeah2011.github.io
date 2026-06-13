@@ -4,8 +4,7 @@ cover: /images/covers/scribe-vs-swaggerphp-laravel-api-vs-cover.jpg
 date: 2026-05-05 08:40:22
 updated: 2026-05-05 08:43:28
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, OpenAPI, Swagger, API文档, Scribe]
 description: 在 30+ Laravel API 仓库中如何选型 API 文档工具？本文从架构设计、注解风格、OpenAPI 兼容性、CI 集成、前端代码生成五个维度深度对比 Scribe 与 SwaggerPHP，结合 KKday B2C 真实踩坑经验给出混合策略选型建议，附完整配置与代码示例。
 

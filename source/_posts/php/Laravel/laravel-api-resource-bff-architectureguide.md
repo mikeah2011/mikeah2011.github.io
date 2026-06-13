@@ -3,8 +3,7 @@ title: Laravel API Resource 實戰：BFF 架構下的數據轉換與格式化 - 
 cover: /images/covers/laravel-api-resource-bff-architectureguide-cover.jpg
 date: 2026-05-03
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [BFF, KKday, Laravel, API-Resource, 微服务]
 description: 深入講解 Laravel API Resource 在 BFF（Backend for Frontend）微服務架構中的實戰應用：KKday B2C API 多端適配、嵌套資源、分頁格式化、N+1 優化、API 版本管理與 Trait 複用等真實踩坑記錄，提供 BFF vs 直接 API 對比分析與性能優化技巧
 

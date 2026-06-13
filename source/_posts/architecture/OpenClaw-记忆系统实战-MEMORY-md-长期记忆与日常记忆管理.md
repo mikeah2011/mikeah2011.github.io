@@ -58,7 +58,7 @@ user_preferences:
 project_rules:
   categories:
     - 架构
-    - AI Agent
+    - ai
     - 工程效率
   frontmatter_required:
     - title

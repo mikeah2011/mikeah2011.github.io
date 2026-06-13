@@ -3,8 +3,7 @@ title: PHP 8 Trait + Enum 大型项目重构实战 -30+ Laravel 仓库经验
 cover: /images/covers/php-8-trait-enum-laravel-30-cover.jpg
 date: 2026-05-02 17:30
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, PHP]
 description: 深入讲解 PHP 8 新特性 Trait 和 Enum（枚举）在 Laravel 大型项目中的实战应用，基于 30+ 个 Laravel 仓库的真实重构经验。涵盖 Service 层 Trait 编排模式、Enum + Trait 组合实现 API 响应标准化、Repository 层多租户数据隔离等三大场景，附性能对比数据、踩坑记录与最佳实践，帮助 PHP 开发者掌握组合优于继承的现代 Laravel 架构设计。
 

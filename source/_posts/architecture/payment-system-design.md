@@ -5,8 +5,8 @@ date: 2026-05-16 21:25:31
 updated: 2026-05-16 21:31:10
 tags: [KKday, Laravel, 支付]
 categories:
-  - Architecture
-  - Payment
+  - architecture
+  - payment
 description: 'B2C 电商支付系统不只是调 API：多通道 Gateway 抽象、T+1 自动对账、退款状态机、支付异常降级——来自 KKday B2C API 30+ 仓库的真实踩坑记录。'
 
 

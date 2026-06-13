@@ -4,8 +4,7 @@ cover: /images/covers/laravel-saas-guide-architecture-cover.jpg
 date: 2026-05-03 10:00:45
 updated: 2026-06-06 12:00:00
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, mysql, 架构, 消息队列]
 description: 深入解析 Laravel 多租户 SaaS 架构的落地方案，涵盖共享库与独立库两种租户隔离模式的对比、动态数据库连接切换、队列任务中租户上下文透传、数据迁移策略及安全检查清单。结合真实踩坑经验，讲解 tenant_id 隔离、DB::purge 连接管理、Horizon Worker 串租排查等关键技术要点，帮助开发者在不同租户规模下选择合适的 SaaS 架构方案。
 

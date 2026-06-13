@@ -3,8 +3,8 @@ title: Webpack/Vite 构建优化实战：Laravel BFF 缓存命中与分包策略
 cover: /images/covers/vite-optimizationguide-laravel-bff-cache-cover.jpg
 date: 2026-05-03 13:35:38
 categories:
-  - Frontend
-  - Laravel
+  - frontend
+  - php
 tags: [Vite, Webpack, 前端构建, Laravel, 缓存, 分包策略]
 description: 基于 KKday B2C API 真实踩坑经验，深入剖析 Laravel BFF 架构下的 Vite/Webpack 构建优化方案，涵盖分包策略、manualChunks 路由级懒加载、长生命周期缓存命中、Nginx Cache-Control 配置、CDN 资源失效排查与 sourcemap 生产环境取舍，附 5 个真实踩坑记录与解决方案。
 

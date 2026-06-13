@@ -3,9 +3,8 @@ title: "uni-app 离线存储实战：SQLite/IndexedDB 数据同步与冲突解�
 cover: /images/covers/2026-06-01-uni-app-offline-storage-sqlite-indexeddb-data-sync-conflict-resolution-cover.jpg
 date: 2026-06-01 20:00:00
 categories:
-  - 前端
-  - uni-app
-  - 跨平台开发
+  - frontend
+  - mobile
 tags:
   - uni-app
   - SQLite
@@ -17,7 +16,6 @@ tags:
   - PWA
 description: "移动端网络不稳定是常态而非异常，离线能力已成为现代移动应用的基本功。本文从 uni-app 的多端离线存储架构出发，系统剖析 SQLite 与 IndexedDB 的实现差异与性能基准对比，深入讲解增量同步引擎、字段级合并、CRDT 计数器等冲突解决算法的设计与实现，并附可直接复用的完整代码示例、跨平台数据类型兼容方案、真实生产环境踩坑记录与最佳实践清单，帮助开发者构建可靠的多端数据一致性方案。"
 ---
-
 # uni-app 离线存储实战：SQLite/IndexedDB 数据同步与冲突解决——从本地持久化到多端一致性的完整工程方案
 
 ## 一、问题背景：为什么离线存储不是"可选项"而是"必选项"

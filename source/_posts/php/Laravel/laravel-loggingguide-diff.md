@@ -4,8 +4,8 @@ cover: /images/covers/laravel-loggingguide-diff-cover.jpg
 date: 2026-05-03 10:20:55
 updated: 2026-05-03 10:23:32
 categories:
-  - PHP
-  - Logging
+  - php
+  - logging
 tags: [laravel, 审计日志, 安全, PII脱敏, 数据库事务]
 description: 结合后台退款、改价、优惠券回收等高风险操作场景，系统记录一套在 Laravel 项目中落地审计日志与字段级 PII 脱敏的完整实战方案。覆盖 Diff 快照表结构设计、afterCommit 事务一致性保障、敏感字段脱敏策略、审计日志回放查询接口、可观测性告警接入以及五个真实踩坑案例，帮助后台系统在事故前补齐可回放的留痕能力。
 

@@ -4,8 +4,7 @@ cover: /images/covers/rector-php-automationguide-laravel-30-cover.jpg
 date: 2026-05-16 20:15:46
 updated: 2026-05-16 20:20:00
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, PHP, 代码质量]
 description: 在 30+ Laravel 仓库中使用 Rector PHP 实现自动化代码重构与 PHP 版本升级的完整实战经验，涵盖规则配置、自定义规则开发、CI 集成与批量执行策略，附带真实踩坑记录与解决方案。
 

@@ -4,8 +4,7 @@ cover: /images/covers/sse-guide-server-sent-events-laravel-cover.jpg
 date: 2026-05-16 18:02:58
 updated: 2026-05-16 18:15:17
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, SSE, Server-Sent-Events, WebSocket, 实时推送, B2C]
 description: >-
   Laravel SSE 实战指南：Server-Sent Events 在 B2C 电商 API 中的完整应用方案。

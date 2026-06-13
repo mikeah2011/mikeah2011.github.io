@@ -4,14 +4,13 @@ date: 2026-06-10 08:43:00
 categories:
   - frontend
 tags:
-  - Vue3
+  - Vue 3
   - Reactivity
   - Proxy
   - 源码分析
   - 响应式系统
 description: 深入 Vue 3 响应式系统的源码实现，从 Proxy 拦截、依赖收集（track）到批量更新（trigger + queueJob）的全链路剖析，结合实战代码和踩坑记录，帮你彻底理解 Vue 3 响应式的核心原理。
 ---
-
 ## 概述
 
 Vue 3 的响应式系统是整个框架的核心基石。相比 Vue 2 基于 `Object.defineProperty` 的实现，Vue 3 用 `Proxy` 彻底解决了：

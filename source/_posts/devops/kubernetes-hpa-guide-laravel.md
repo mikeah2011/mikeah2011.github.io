@@ -4,8 +4,8 @@ cover: /images/covers/kubernetes-hpa-laravel-autoscaling-cover.jpg
 date: 2026-05-17 02:45:19
 updated: 2026-05-17 02:47:22
 categories:
-  - DevOps
-  - Kubernetes
+  - devops
+  - kubernetes
 tags: [devops, kubernetes, laravel, autoscaling]
 description: >-
   深入讲解 Kubernetes HPA 在 Laravel 应用中的自动扩缩容实战。涵盖 Metrics Server 安装与踩坑、CPU/内存/自定义指标（队列深度）配置、Queue Worker 优雅终止与信号处理、HPA/VPA/KEDA 选型对比、多指标组合扩缩策略、容量规划与压测校准，附生产级 YAML 模板与排障命令清单，助你搭建稳定可靠的弹性伸缩体系。

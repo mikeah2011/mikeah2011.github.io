@@ -3,8 +3,7 @@ title: PHPStan/Psalm 大型 Laravel 項目靜態分析最佳實踐-KKday-B2C-API
 cover: /images/covers/phpstan-psalm-laravel-cover.jpg
 date: 2026-05-02
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [CI/CD, Laravel, PHP, PHPStan, Psalm, 静态分析, 代码质量]
 description: 基於 KKday B2C API 項目經驗，深入解析 PHPStan 和 Psalm 在大型 Laravel 應用中的配置技巧、性能優化與真實踩坑記錄。從 10 個實際問題出發，提供可落地的代碼品質提升方案。
 

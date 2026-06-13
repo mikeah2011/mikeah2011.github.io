@@ -4,8 +4,8 @@ cover: /images/covers/onboarding-guide-30-cover.jpg 新人-Onboarding-指南-30-
 date: 2026-05-05 08:31:06
 updated: 2026-05-05 08:35:17
 categories:
-  - Engineering
-  - Process
+  - engineering
+  - process
 tags: [KKday, Laravel, 工程管理]
 description: 在 30+ Laravel 仓库的团队中，新人 Onboarding 效率直接决定前三个月的产出。本文分享从环境搭建、代码导读到首个 PR 的完整路径设计，附真实踩坑记录与可复用的 Checklist 模板。
 

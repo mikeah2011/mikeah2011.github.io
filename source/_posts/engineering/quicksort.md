@@ -3,13 +3,12 @@ title: 快速排序
 cover: /images/covers/quicksort-cover.jpg
 tags: [算法, 排序, php, 数据结构, quicksort, 分治法]
 categories:
-  - Engineering
-  - Algorithms
+  - engineering
+  - algorithms
 date: 2020-03-20 15:05:07
 description: '快速排序（Quicksort）是基于分治法的经典排序算法，通过选择基准元素将数组划分为两部分递归排序。本文深入分析快速排序的算法复杂度（最好O(n log n)、平均O(n log n)、最坏O(n²)），提供原地排序、三路快排的PHP实现代码，对比归并排序与堆排序的性能差异，并介绍PHP内置sort()函数的实现原理及常见踩坑案例。'
 
 ---
-
 ## 什么是快速排序
 
 快速排序（Quicksort）是一种基于**分治法**（Divide and Conquer）的高效排序算法，由 C.A.R. Hoare 于 1960 年提出。其核心思想是：

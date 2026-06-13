@@ -3,8 +3,7 @@ title: Controller 薄 + Service 厚：Laravel 大项目中职责分离的真实�
 cover: /images/covers/controller-service-laravel-cover.jpg
 date: 2026-05-02
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [KKday, Laravel, 架构]
 description: Laravel 大项目中 Controller 与 Service 服务层职责分离的架构设计实战指南。基于 KKday B2C 真实踩坑记录，详解 Controller 薄 + Service 厚的业务逻辑分层方案，涵盖 Repository 层数据访问抽象、依赖注入、单元测试提升至 85%+ 覆盖率的重构路径与最佳实践。
 

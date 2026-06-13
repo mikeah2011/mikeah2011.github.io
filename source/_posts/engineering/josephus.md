@@ -3,12 +3,11 @@ title: 约瑟夫环
 cover: /images/covers/josephus-cover.jpg
 tags: [算法, josephus, 约瑟夫环, 数据结构, 环形链表, 递归]
 categories:
-  - Engineering
-  - Algorithms
+  - engineering
+  - algorithms
 date: 2020-03-20 15:05:07
 description: '约瑟夫环（Josephus Problem）经典算法深度解析：历史背景、递推公式f(n,k)=(f(n-1,k)+k)%n完整数学推导、ASCII图解淘汰过程、PHP/Python/JavaScript三种语言实现（递归、迭代、模拟法）、复杂度对比表、实际应用（Round-Robin调度、环形缓冲区、Leader选举）。'
 ---
-
 ## 猴子选大王
 
 一群猴子排成一圈，按1,2,…,n依次编号。

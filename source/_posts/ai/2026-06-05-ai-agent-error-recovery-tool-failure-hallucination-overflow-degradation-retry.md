@@ -2,7 +2,7 @@
 title: 'AI Agent Error Recovery 实战：工具调用失败、LLM 幻觉、上下文溢出的自动降级与重试策略'
 date: 2026-06-05 12:00:00
 tags: [ai-agent, error-recovery, 降级策略, llm, laravel, 重试策略]
-categories: [AI]
+categories: [ai]
 cover: /images/covers/ai-agent-error-recovery-cover.jpg
 description: "AI Agent 在生产环境中面临工具调用失败、LLM 幻觉、上下文溢出三大核心故障模式。本文系统性地剖析每种故障的根因与表现，结合 Laravel/PHP 项目实战，给出可落地的错误恢复策略：指数退避重试与熔断器模式应对工具调用失败，Schema 校验、事实一致性检查与 Self-Reflection 机制防护 LLM 幻觉，对话摘要压缩、滑动窗口与关键信息持久化管理上下文溢出。文中涵盖完整的降级策略代码实现、重试风暴踩坑案例、错误恢复决策树，以及 Token 计数器、Prompt 工程技巧等实用工具，帮助开发者将 Agent 系统从 Demo 推向 Production。"
 ---

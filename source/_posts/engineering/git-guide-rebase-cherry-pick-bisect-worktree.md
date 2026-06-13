@@ -4,8 +4,8 @@ cover: /images/covers/git-guide-rebase-cherry-pick-bisect-worktree-cover.jpg
 date: 2026-05-16 18:30:46
 updated: 2026-05-16 18:34:57
 categories:
-  - Engineering
-  - Git
+  - engineering
+  - git
 tags: [git, rebase, cherry-pick, bisect, worktree, 工程管理]
 description: "Git 高级用法实战指南：深入讲解 rebase 保持线性历史、cherry-pick 跨分支移植 hotfix、bisect 二分法定位回归 Bug、worktree 多目录并行开发四大核心命令。涵盖交互式变基、cherry-pick merge commit 技巧、bisect 自动化脚本等 30+ 仓库真实踩坑经验，附 Rebase vs Merge 对比表。"
 

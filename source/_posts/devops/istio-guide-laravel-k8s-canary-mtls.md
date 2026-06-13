@@ -3,8 +3,8 @@ title: Istio 服务网格实战：Laravel 在 K8s 上的超时、重试、灰度
 cover: /images/covers/istio-guide-laravel-k8s-canary-mtls-cover.jpg
 date: 2026-05-03 09:01:02
 categories:
-  - DevOps
-  - Kubernetes
+  - devops
+  - kubernetes
 tags: [Kubernetes, Laravel, 服务网格安全, 微服务, 监控, mTLS, 金丝雀发布, Istio]
 description: 基于 Laravel B2C 电商 API 在 Kubernetes 上的真实生产改造经验，完整记录从 Ingress 直连架构迁移到 Istio 服务网格的落地全过程。涵盖 VirtualService 超时与重试治理、DestinationRule 连接池与熔断配置、基于 Header 和权重的金丝雀灰度发布、PeerAuthentication STRICT mTLS 全链路加密、x-request-id 链路透传，以及 sidecar 注入失败、POST 被错误重试导致库存重复锁定、流量镜像配置等生产踩坑。附 Istio vs Linkerd vs Nginx Ingress 方案对比与完整 YAML 示例。
 

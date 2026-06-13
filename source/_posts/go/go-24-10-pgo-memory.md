@@ -2,7 +2,7 @@
 title: Go 1.24 新特性速览：PGO 默认开启、内存优化与 Worker Pool 2.0
 date: 2026-06-10 09:06:00
 categories:
-  - Go
+  - go
 tags:
   - Go1.24
   - PGO
@@ -11,7 +11,6 @@ tags:
   - 性能优化
 description: Go 1.24 重大更新详解：PGO 默认启用带来的编译优化、内存管理新特性、Worker Pool 模式 2.0 实现，以及生产环境实战经验分享。
 ---
-
 # Go 1.24 新特性速览：PGO 默认开启、内存优化与 Worker Pool 2.0
 
 Go 1.24 带来了几个对生产环境影响深远的更新。本文重点聊三个方向：PGO（Profile-Guided Optimization）默认启用、内存管理改进，以及基于新特性的 Worker Pool 2.0 模式。

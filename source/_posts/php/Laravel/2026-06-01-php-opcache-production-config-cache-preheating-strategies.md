@@ -3,12 +3,11 @@ title: PHP OPcache 缓存预热实战：生产环境冷启动治理与自动化 
 cover: /images/covers/php-opcache-production-config-cache-preheating-strategies-cover.jpg
 date: 2026-06-01 09:00:00
 categories:
-  - PHP
-  - Performance
+  - php
+  - performance
 tags: [Laravel, OPcache, PHP, 性能优化, DevOps, K8s, Docker]
 description: 深入 OPcache 缓存预热的工程实践——从 opcache.preload 到自定义 warmup 脚本、从 Docker 构建期预编译到 K8s 滚动更新缓存治理，覆盖 Laravel B2C API 在 30+ 仓库中的真实踩坑与性能数据。详解三层预热架构（编译期/启动期/运行期）、CLI 与 FPM 的 OPcache 隔离机制、initContainer + Readiness Probe 零停机预热方案、Prometheus 监控指标导出，以及 JIT 联合调优的生产基准测试，冷启动恢复从 45 秒缩短至 2 秒。
 ---
-
 ## 一、问题背景：为什么「开了 OPcache」还不够？
 
 大多数 Laravel 开发者对 OPcache 的认知停留在 `php.ini` 加几行配置就完事了。但在生产环境中，一个经常被忽视的问题是：**冷启动（Cold Start）**。

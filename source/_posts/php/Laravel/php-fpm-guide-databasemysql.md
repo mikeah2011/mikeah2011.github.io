@@ -4,8 +4,8 @@ cover: /images/covers/php-fpm-guide-databasemysql-cover.jpg
 date: 2026-05-05 07:25:58
 updated: 2026-05-05 07:28:28
 categories:
-  - PHP
-  - MySQL
+  - php
+  - database
 tags: [laravel, mysql, php, redis, websocket, 性能优化]
 description: "深入剖析 PHP-FPM 在 Laravel B2C API 高并发场景下的数据库连接策略，涵盖长连接与短连接的性能差异压测对比、PDO 持久连接三大隐藏陷阱（连接状态污染、静默断连、max_connections 计算错误）及解决方案。从 PHP-FPM 进程模型原理出发，对比 ProxySQL、PgBouncer 等外部连接池中间件选型，提供 Laravel Octane + Swoole 协程连接池实现方案，附生产环境可落地的 PHP-FPM、MySQL、ProxySQL 配置模板与监控告警脚本，助你在高并发场景下稳定运行 Laravel API。"
 

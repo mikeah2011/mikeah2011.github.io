@@ -4,8 +4,8 @@ cover: /images/covers/laravel-pgbouncer-guide-postgresql-transaction-prepared-st
 date: 2026-05-03 10:10:28
 updated: 2026-05-03 10:12:38
 categories:
-  - PHP
-  - PostgreSQL
+  - php
+  - database
 tags: [Laravel, PostgreSQL, PgBouncer, 连接池, 数据库连接, 性能优化, 监控]
 description: Laravel 连接 PostgreSQL 遇到连接风暴？本文详解 PgBouncer 事务池模式配置、PDO prepared statement 踩坑修复、session vs transaction 池模式对比、监控指标与参数基线，附 Docker Compose 与 Laravel config 完整示例，帮你把数据库连接数压到稳定水位。
 

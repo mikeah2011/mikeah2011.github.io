@@ -4,8 +4,8 @@ cover: /images/covers/distributedtransactionguide-saga-cover.jpg
 date: 2026-05-16 16:12:27
 updated: 2026-05-16 16:22:05
 categories:
-  - Architecture
-  - Microservice
+  - architecture
+  - microservice
 tags: [kkday, laravel, 微服务]
 description: 在 B2C 电商场景下，订单创建涉及库存扣减、支付发起、优惠券核销等多个跨服务操作，如何保证数据一致性？本文深入 Saga 模式的编排式（Orchestration）与协同式（Choreography）两种实现方案对比，结合 Laravel B2C API 真实项目经验，从 SagaStep 接口设计、Context 数据传递、Orchestrator 核心编排到状态持久化，完整覆盖补偿事务设计、幂等性保障、悬挂与空回滚处理、长事务锁优化、补偿失败告警与人工介入等五大生产踩坑点，并提供可运行的 PHPUnit 测试用例与 Saga 执行状态表设计。
 

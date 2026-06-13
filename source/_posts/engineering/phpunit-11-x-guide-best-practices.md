@@ -4,7 +4,7 @@ cover: /images/covers/phpunit-11-x-guide-best-practices-cover.jpg
 date: 2026-05-17 01:10:23
 updated: 2026-05-17 01:14:29
 categories:
-  - '05_PHP/Laravel'
+  - php
 tags: [phpunit-11, laravel, 单元测试, php属性, 最佳实践, kkday]
 description: >
   PHPUnit 11 升级实战指南：30+ Laravel 仓库踩坑总结，涵盖 Attributes 语法、Expectation API 流式断言、#[TestWith] 数据提供者、Mock/Stub 演进、分层测试架构与并行测试最佳实践，附 12 项升级 Checklist 与踩坑速查表，助你从 PHPUnit 10 平滑升级到 11。

@@ -2,7 +2,7 @@
 title: OpenHuman Cloud Deploy 实战：云端部署与多设备同步
 date: 2026-06-02 12:00:00
 tags: [AI Agent, OpenHuman, 云端部署, 多设备同步, DevOps]
-categories: [AI]
+categories: [ai]
 cover: /images/covers/openhuman-cloud-deploy-cover.jpg
 description: 本文从零开始带你完成 OpenHuman 的自托管云端部署，深入讲解多设备同步的 CRDT 冲突合并机制、端到端加密实现、Redis 连接池调优、PostgreSQL 索引策略等实战踩坑经验。涵盖 Docker Compose 部署、Nginx 反向代理配置、SSL 证书自动化、健康检查与监控告警，帮助你构建一个安全可靠的跨设备 AI Agent 同步服务。
 ---

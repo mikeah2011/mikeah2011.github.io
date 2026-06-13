@@ -2,8 +2,7 @@
 title: "电商秒杀系统设计：Redis 预扣减 + 消息队列异步下单 + 限流策略实战踩坑记录"
 date: 2026-06-01 14:00:00
 categories:
-  - 架构
-  - 业务设计
+  - architecture
 tags:
   - 秒杀
   - Redis
@@ -19,7 +18,6 @@ images:
   - /images/content/architecture-01-content-1.jpg
   - /images/content/architecture-01-content-2.jpg
 ---
-
 ## 一、问题背景：为什么秒杀是电商系统的终极压力测试
 
 ### 1.1 秒杀的本质矛盾

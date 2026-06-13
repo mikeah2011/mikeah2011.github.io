@@ -2,8 +2,8 @@
 title: "MCP (Model Context Protocol) 实战：AI Agent 工具标准化与生态集成深度剖析"
 date: 2026-06-01 10:00:00
 categories:
-  - AI
-  - 架构
+  - ai
+  - architecture
 tags:
   - MCP
   - Model Context Protocol
@@ -20,7 +20,6 @@ images:
   - /images/content/ai-002-content-2.jpg
   - /images/diagrams/ai-002-diagram.jpg
 ---
-
 ## 引言：AI Agent 的「工具碎片化」困境
 
 2026 年，AI Agent 已经从「能聊天的助手」进化为「能操作外部世界的智能体」。但一个被严重低估的问题正在拖慢整个生态的进化速度——**工具集成的碎片化**。

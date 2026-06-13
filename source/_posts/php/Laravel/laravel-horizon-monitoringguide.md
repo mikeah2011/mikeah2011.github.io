@@ -6,8 +6,8 @@ description: "深入讲解 Laravel Horizon 队列监控的生产环境实战经�
 updated: 2026-05-04 23:17:57
 tags: [Laravel, Redis, 消息队列, 监控]
 categories:
-  - Misc
-  - Laravel
+  - misc
+  - php
 
 
 

@@ -3,8 +3,7 @@ title: Laravel BFF 中间层聚合实战 — GraphQL 到 JSON 转换优化
 cover: /images/covers/bff-laravel-guide-graphql-json-optimization-cover.jpg
 date: 2026-05-02
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [BFF, Laravel, GraphQL, JSON优化, API聚合, 性能优化, 微服务, Redis]
 description: '基于 KKday B2C API 真实项目，详解 BFF 中间层如何利用 Laravel 实现 GraphQL 到 JSON 的高效转换：批量聚合查询消除 N+1 问题、Redis 缓存分层策略、微服务故障降级设计，响应时间从 850ms 优化至 180ms，附完整 PHP 8 代码示例与性能对比数据'
 

@@ -3,13 +3,12 @@ title: Git基础命令与工作流实战指南
 cover: /images/covers/git-cover.jpg
 tags: [Git, 版本控制, 工程化]
 categories:
-  - Engineering
-  - Git
+  - engineering
+  - git
 date: 2020-03-20 15:05:07
 description: >
   从零掌握 Git 版本控制的核心概念与实战技巧。本文系统讲解 Git 工作区、暂存区、仓库、远程四大区域的运作原理，详解日常开发中最常用的命令与可运行示例，深入对比 Git Flow 与 Trunk-Based Development 分支管理策略，剖析合并（merge）与变基（rebase）的差异及踩坑案例。同时涵盖 Git Hooks 自动化、常见冲突解决与误操作恢复方法，以及提升效率的实用 alias 配置，帮助开发者建立完整的 Git 工作流体系。
 ---
-
 # Git 基础命令与工作流实战指南
 
 Git 是现代软件开发中最核心的版本控制工具。无论你是独立开发者还是大型团队的一员，掌握 Git 的核心概念与工作流都是必备技能。本文将从基础概念出发，逐步深入到分支策略、合并技巧、自动化钩子和问题排查，构建一个完整的 Git 知识体系。

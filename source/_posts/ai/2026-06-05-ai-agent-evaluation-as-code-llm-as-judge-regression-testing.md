@@ -3,7 +3,7 @@ title: AI Agent Evaluation as Code 实战：用 LLM-as-Judge 构建自动化回�
 date: 2026-06-05 09:00:00
 tags: [ai-agent, llm-as-judge, 评估, 回归测试, ci-cd, evaluation-as-code, 自动化评估]
 description: "AI Agent 的输出具有概率化特性，传统断言无法有效保障质量。本文系统讲解如何用 Evaluation as Code 理念，将 LLM-as-Judge 评估逻辑写成代码并集成到 CI/CD 流水线中，实现 AI Agent 输出质量的自动化回归测试。涵盖评估维度与 Rubric 设计、Few-shot 示例优化 Judge 一致性、GitHub Actions 自动化评估 Pipeline 搭建、Golden Dataset 管理、偏差校准与成本控制等核心主题。附完整 Python/TypeScript 可运行代码示例，帮助工程团队在享受 Agent 强大能力的同时，建立起可靠的持续集成质量保障体系。"
-categories: [AI Agent]
+categories: [ai]
 cover: /images/covers/ai-agent-evaluation-as-code-cover.jpg
 ---
 

@@ -3,7 +3,7 @@ title: 'Go error handling 深度实战：errors.Join/Wrap/Is/As 与自定义错�
 date: 2026-06-07 10:00:00
 tags: [Go, error-handling, PHP, 设计模式, 后端开发]
 description: "从 PHP 转 Go，最不适应的就是错误处理？本文深入对比 Go error handling 与 PHP Exception 的设计哲学差异。详解 errors.Join 合并多错误、fmt.Errorf + %w 包装错误链、errors.Is 按值匹配、errors.As 按类型提取、以及自定义错误类型的工程实践。通过丰富的代码示例、踩坑案例和对比表格，帮你理解'错误是值'的核心理念，掌握 Go 错误处理的最佳实践。适合 PHP/Go 双栈开发者阅读。"
-categories: [后端]
+categories: [php]
 cover: /images/covers/go-error-handling-php-exception-cover.jpg
 ---
 

@@ -4,8 +4,8 @@ cover: /images/covers/github-actions-composer-cache-20s5s-optimization-cover.jpg
 date: 2026-05-05 02:30:33
 updated: 2026-05-05 02:31:49
 categories:
-  - DevOps
-  - Docker
+  - devops
+  - docker
 tags: [CI/CD, composer, laravel, 性能优化, 缓存]
 description: 在 Laravel B2C 项目中，通过 GitHub Actions 的 Composer 缓存策略，将 CI 构建时间从 20s 优化到 5s 的完整实战记录，涵盖 actions/cache、dependency caching、Lock 文件管理与踩坑经验。
 

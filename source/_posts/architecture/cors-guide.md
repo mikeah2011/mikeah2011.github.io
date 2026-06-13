@@ -4,8 +4,8 @@ cover: /images/covers/cors-guide-cover.jpg
 date: 2026-05-16 21:40:49
 updated: 2026-05-16 21:43:57
 categories:
-  - Architecture
-  - Infra
+  - architecture
+  - infra
 tags: [cors, laravel, nginx, 安全, api]
 description: "深入解析CORS跨域资源共享的浏览器预检请求机制与同源策略原理，结合Laravel B2C API实战，详解Nginx与应用层CORS配置对比、Access-Control白名单策略、Cookie跨域SameSite配置、CDN缓存Vary:Origin等前后端分离架构下高频踩坑与安全最佳实践。"
 

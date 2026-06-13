@@ -3,7 +3,7 @@ title: "uni-app 性能优化实战：首屏加载、分包加载、图片懒加�
 cover: /images/covers/2026-06-01-uni-app-performance-optimization-first-screen-subpackage-lazy-loading-cover.jpg
 date: 2026-06-01 10:00:00
 categories:
-  - 前端
+  - frontend
 tags:
   - uni-app
   - 性能优化
@@ -12,7 +12,6 @@ tags:
   - 前端工程化
 description: "uni-app 多端小程序与 App 项目性能优化实战指南。深入拆解微信小程序分包加载架构设计（主包子包拆分、预下载策略、独立分包）、首屏骨架屏与数据预取机制、图片懒加载与 CDN 自适应尺寸联动（WebP 降级、LQIP 占位、本地缓存）、虚拟列表长列表渲染优化、setData 批量更新、Tree Shaking 代码裁剪等核心手段。附完整可运行代码、性能对比数据（FCP 从 4.8s 降至 1.2s）与五个生产环境踩坑案例，帮助 uni-app 开发者系统掌握从 5s 到 800ms 的性能治理全链路。"
 ---
-
 # uni-app 性能优化实战：首屏加载、分包加载、图片懒加载策略——从 5s 到 800ms 的性能治理全链路
 
 ## 一、问题背景：为什么 uni-app 的性能优化如此棘手？

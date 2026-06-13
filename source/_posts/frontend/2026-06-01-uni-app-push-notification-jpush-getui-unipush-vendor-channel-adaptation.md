@@ -3,9 +3,8 @@ title: "uni-app 推送通知实战：极光推送/个推/UniPush 集成与厂商
 cover: /images/covers/uni-app-push-notification-jpush-getui-unipush-vendor-channel-adaptation-cover.jpg
 date: 2026-06-01 08:00:00
 categories:
-  - 前端
-  - 跨平台
-  - 移动端
+  - frontend
+  - mobile
 tags:
   - uni-app
   - 推送通知
@@ -18,7 +17,6 @@ tags:
   - 消息必达
 description: "在 B2C 电商场景中，推送通知直接影响订单转化率和用户留存。本文从 uni-app 推送通知的核心痛点出发，深入对比极光推送（JPush）、个推（GePush）、UniPush 2.0 三大平台的集成方案与性能基准，详解华为 HMS、小米 MiPush、OPPO、vivo 等厂商通道适配策略，涵盖消息去重、富媒体通知、深链接跳转、后台保活、渐进式权限申请等生产环境实战踩坑，提供从 SDK 接入到消息必达的完整工程方案与 Laravel 后端统一推送服务封装。"
 ---
-
 # uni-app 推送通知实战：极光推送/个推/UniPush 集成与厂商通道适配——从 SDK 接入到生产环境消息必达的完整方案
 
 ## 一、问题背景与动机：为什么推送通知是跨平台开发的"深水区"？

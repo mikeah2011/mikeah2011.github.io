@@ -4,8 +4,8 @@ cover: /images/covers/laravel-redis-queue-horizon-guide-monitoring-cover.jpg
 date: 2026-05-05 09:36:00
 updated: 2026-05-05 09:38:26
 categories:
-  - PHP
-  - Redis
+  - php
+  - database
 tags: [Laravel, Redis, 性能优化, 消息队列]
 description: Laravel Redis Queue + Horizon 完整实战指南：覆盖 Redis 队列驱动配置、多优先级队列设计、Horizon 监控仪表盘搭建与告警配置、指数退避失败重试策略、Dead Letter Queue 处理、Redis 内存优化与连接池调优、生产环境 Supervisor 部署方案，结合 B2C 电商 30+ 仓库的真实踩坑经验，助你构建高可用消息队列架构。
 

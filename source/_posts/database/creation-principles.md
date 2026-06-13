@@ -1,7 +1,7 @@
 ---
 title: 索引创建的原则
 tags:
-  - mysql
+  - MySQL
   - 索引
   - 性能优化
   - 数据库优化
@@ -16,7 +16,6 @@ images:
   - /images/content/databases-creation-principles-content-2.jpg
 
 ---
-
 # 索引创建的原则
 
 索引是 MySQL 性能优化的核心武器。创建合理的索引可以让查询性能提升几个数量级，而错误的索引策略不仅浪费存储空间，还会拖慢写入性能。本文将系统性地讲解索引创建的原则、最佳实践以及生产环境中的注意事项。

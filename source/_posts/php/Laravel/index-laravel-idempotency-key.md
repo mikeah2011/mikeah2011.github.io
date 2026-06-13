@@ -4,8 +4,7 @@ cover: /images/covers/index-laravel-idempotency-key-cover.jpg
 date: 2026-05-03 09:46:04
 updated: 2026-05-03 09:48:49
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, MySQL, 幂等, API, Idempotency, 分布式锁, 重试机制]
 description: 结合 Laravel 订单创建接口的真实经验，深入记录一套用 Idempotency-Key、请求指纹、结果回放与状态机保护实现 API 幂等性的落地方案。覆盖唯一索引、Redis 分布式锁与 Idempotency-Key 三种防重方案的优劣对比，附带完整 Migration、中间件、Service 层代码示例与线上踩坑记录，适合面临重复提交、重试风暴等分布式一致难题的后端工程师参考。
 

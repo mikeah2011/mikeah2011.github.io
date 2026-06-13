@@ -7,8 +7,8 @@ images:
   - /images/content/architecture-1-content-1.jpg
   - /images/content/architecture-1-content-2.jpg
 categories:
-  - Architecture
-  - BFF
+  - architecture
+  - bff
 tags: [bff, laravel, graphql, api, 微服务, 架构]
 简介: KKday B2C 项目中我实际做过三种方案对比：Laravel BFF、GraphQL、Direct API。本文分享真实踩坑记录和选型决策框架，适合正在纠结架构的工程师阅读。
 

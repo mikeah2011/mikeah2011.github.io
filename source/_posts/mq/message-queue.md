@@ -4,8 +4,7 @@ cover: /images/covers/message-queue-cover.jpg
 sticky: 80
 tags: [消息队列, Kafka, RabbitMQ, RocketMQ, ActiveMQ, 面试, 幂等性, 分布式]
 categories:
-  - MQ
-  - EventDriven
+  - mq
 date: 2019-03-20 15:05:07
 description: '消息队列面试高频题全解析：涵盖为什么使用MQ、解耦异步削峰三大场景、Kafka与RabbitMQ及RocketMQ选型对比、高可用架构设计、消息幂等性与可靠传输、顺序消费、消息积压解决方案。助你系统掌握消息队列核心原理，从容应对大厂MQ面试。'
 

@@ -4,8 +4,8 @@ cover: /images/covers/php-cs-fixer-pint-automation-cover.jpg
 date: 2026-05-05 06:45:46
 updated: 2026-05-05 06:47:52
 categories:
-  - PHP
-  - CI/CD
+  - php
+  - cicd
 tags: [CI/CD, PHP, 工程管理]
 description: 在 30+ 仓库的 Laravel B2C 项目中落地 PHP-CS-Fixer 和 Laravel Pint 的实战经验，涵盖规则配置、Git Hooks 集成、CI 门禁、存量代码治理策略及踩坑记录。
 

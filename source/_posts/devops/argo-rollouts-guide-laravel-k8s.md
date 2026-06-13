@@ -4,8 +4,8 @@ cover: /images/covers/argo-rollouts-guide-laravel-k8s-cover.jpg
 date: 2026-05-04 15:11:34
 updated: 2026-05-04 15:12:57
 categories:
-  - DevOps
-  - Kubernetes
+  - devops
+  - kubernetes
 tags: [CI/CD, Kubernetes, Laravel, 监控, Argo Rollouts, 渐进式发布]
 description: 基于 Laravel B2C API 在 Kubernetes 集群上的真实发布治理经验，深入记录如何用 Argo Rollouts 落地金丝雀发布与蓝绿发布策略。涵盖完整 Rollout CRD 配置、Prometheus AnalysisTemplate 自动分析、流量切分原理与权重失真排查、Laravel 就绪探针设计、数据库迁移兼容规则、preStop 优雅终止以及 CI/CD 流水线集成。同时对比金丝雀与蓝绿发布适用场景，提供探针误判、流量切分失真、慢请求被中断等生产踩坑的完整解决方案，帮助团队把发布从一次性切换升级为带度量、可暂停、可自动回滚的受控过程。
 

@@ -4,8 +4,8 @@ cover: /images/covers/mermaid-guide-architecture-cover.jpg
 date: 2026-05-16 21:00:33
 updated: 2026-05-16 21:04:26
 categories:
-  - Engineering
-  - Docs
+  - engineering
+  - docs
 tags: [mermaid, 架构图, 流程图, 时序图, 文档工具, 工程管理]
 description: Mermaid 是一款基于文本的图表绘制工具，让工程师用代码画架构图、流程图、时序图和 ER 图。本文从零开始讲解 Mermaid 各图表类型完整语法，结合 Laravel B2C API 真实项目场景，涵盖流程图订单状态机、时序图请求链路追踪、ER 图数据库设计等实战案例，并深入分享 GitHub/GitLab/Confluence 集成方案、主题定制、Mermaid Live Editor 使用技巧，以及与 PlantUML、draw.io 的全面对比，附带大量踩坑记录与最佳实践。
 

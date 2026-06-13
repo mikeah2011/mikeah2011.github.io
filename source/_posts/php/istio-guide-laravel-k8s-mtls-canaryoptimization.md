@@ -3,8 +3,8 @@ title: Istio 服务网格实战：Laravel K8s 环境下的 mTLS 自动加密、�
 cover: /images/covers/istio-guide-laravel-k8s-mtls-canaryoptimization-cover.jpg
 date: 2026-05-02
 categories:
-  - PHP
-  - Kubernetes
+  - php
+  - kubernetes
 tags: [Laravel, Kubernetes, 安全, 微服务, istio, service-mesh]
 description: 基于 Laravel 微服务真实生产环境，深入探讨 Istio 服务网格在 Kubernetes 集群中的 mTLS 双向认证自动加密、VirtualService 灰度发布（10%/50%/100%流量切分）、DestinationRule 连接池优化、Sidecar 资源调优、Kiali/Jaeger/Grafana 可观测性监控以及生产环境踩坑与解决方案。
 

@@ -3,7 +3,7 @@ title: LLM Embedding 实战：OpenAI/Cohere/Jina 嵌入模型选型——RAG 系
 date: 2026-06-06 12:00:00
 tags: [llm, embedding, rag, 向量数据库, ai]
 description: 本文深度对比 OpenAI、Cohere、Jina 三大主流 Embedding 嵌入模型，从向量质量、维度选择、API 成本、自托管方案、中文多语言能力、Laravel/PHP 集成、pgvector 向量数据库存储到 Chunking 策略与生产环境踩坑，系统性拆解 RAG 检索增强生成系统中 Embedding 选型的核心权衡，附完整代码示例与决策树，帮助开发者做出最优选型。
-categories: [AI]
+categories: [ai]
 cover: /images/covers/llm-embedding-rag-cover.jpg
 ---
 

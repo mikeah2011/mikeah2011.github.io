@@ -4,8 +4,8 @@ cover: /images/covers/argocd-gitops-guide-laravel-cd-cover.jpg
 date: 2026-05-16 19:20:11
 updated: 2026-05-16 19:24:13
 categories:
-  - DevOps
-  - Kubernetes
+  - devops
+  - kubernetes
 tags: [CI/CD, DevOps, Kubernetes, Laravel, ArgoCD, GitOps]
 description: 从传统 CI/CD push 模式迁移到 ArgoCD GitOps pull 模式，涵盖 Application CRD 定义、Helm Chart 打包、自动同步与手动审批、回滚策略、多环境管理（dev/staging/prod）以及 Laravel 特有的 .env 注入踩坑记录。
 

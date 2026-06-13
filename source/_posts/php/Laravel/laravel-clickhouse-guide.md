@@ -4,8 +4,7 @@ cover: /images/covers/laravel-clickhouse-guide-cover.jpg
 date: 2026-05-04 14:30:56
 updated: 2026-05-04 14:32:11
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [laravel, mysql, 工程管理, 性能优化]
 description: Laravel + ClickHouse 实战：从 MySQL 迁移到 OLAP 列式存储的完整落地过程。涵盖埋点宽表设计、批量写入优化、物化视图聚合、漏斗查询性能治理（P95 从 6.8s 降至 420ms）与 4 个生产踩坑修复，适合做用户行为分析和运营报表的 Laravel 团队参考。
 

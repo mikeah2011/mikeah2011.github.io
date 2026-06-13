@@ -2,7 +2,7 @@
 title: Multi-Modal RAG 实战：图文混合检索——CLIP 嵌入、跨模态向量搜索与电商商品图文问答落地
 date: 2026-06-03 10:00:00
 tags: [RAG, CLIP, 向量搜索, 多模态, 电商]
-categories: [AI]
+categories: [ai]
 cover: /images/covers/multi-modal-rag-cover.jpg
 description: 本文深入实战 Multi-Modal RAG（多模态检索增强生成），以 CLIP 双塔模型为核心，构建跨模态向量搜索系统，实现图文混合检索。内容涵盖 CLIP 嵌入原理、对比学习训练机制、Milvus/Qdrant 向量数据库选型与索引构建，并落地电商商品图文问答场景。包含完整的 Python 代码实现、性能优化策略、评估指标体系与生产部署最佳实践，适合需要在电商、医疗、教育等领域实现多模态检索的技术团队参考。
 ---

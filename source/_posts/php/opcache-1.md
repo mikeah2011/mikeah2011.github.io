@@ -3,8 +3,8 @@ title: Opcache
 cover: /images/covers/opcache-1-cover.jpg
 tags: [PHP, 性能优化, OPcache, JIT, PHP8]
 categories:
-  - PHP
-  - Runtime
+  - php
+  - runtime
 date: 2019-03-20 15:05:07
 description: 'OPcache 通过把 PHP 编译产物（opcode）缓存到共享内存，省掉每次请求的「读源码 → 词法 → 语法 → 编译」过程，是 PHP 生产环境性能优化的第一道关卡。本文深度解析 PHP8 JIT、预加载 preloading、生产配置参数调优、部署陷阱与基准测试数据。'
 

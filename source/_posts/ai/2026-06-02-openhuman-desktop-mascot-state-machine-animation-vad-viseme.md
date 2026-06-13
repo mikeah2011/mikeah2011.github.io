@@ -2,7 +2,7 @@
 title: OpenHuman 桌面吉祥物架构：状态机驱动的动画、VAD 语音捕获、viseme 口型同步
 date: 2026-06-02 12:00:00
 tags: [OpenHuman, 桌面应用, 状态机, VAD, viseme, 动画系统]
-categories: [AI Agent]
+categories: [ai]
 cover: /images/covers/openhuman-desktop-mascot-cover.jpg
 description: 全面解析 OpenHuman 桌面吉祥物的三大核心子系统：状态机动画调度、三级级联 VAD 语音活动检测、viseme 口型平滑同步。涵盖 Spine 2D/Lottie 渲染方案选型、自适应画质策略与硬件适配，适用于桌面伴侣、虚拟主播、数字人等角色动画场景。附带完整状态转换表与性能调优指南。
 ---

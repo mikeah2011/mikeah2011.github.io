@@ -2,7 +2,7 @@
 title: AI Agent 安全实战：Prompt Injection 防护、权限控制、输出过滤
 date: 2026-06-02 12:00:00
 tags: [AI Agent, 安全, Prompt Injection, 权限控制, 输出过滤]
-categories: [AI]
+categories: [ai]
 cover: /images/covers/agent-security-guide-cover.jpg
 description: "这篇 AI Agent 安全实战全面拆解 Prompt Injection、权限控制、输出过滤与工具安全风险，结合 OWASP 思路给出可落地防护方案，帮助你构建更可靠的生产级 Agent 系统。"
 ---

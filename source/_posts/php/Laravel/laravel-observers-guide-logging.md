@@ -4,8 +4,8 @@ cover: /images/covers/laravel-observers-guide-logging-cover.jpg
 date: 2026-05-05 11:15:29
 updated: 2026-05-05 11:46:48
 categories:
-  - PHP
-  - Logging
+  - php
+  - logging
 tags: [Laravel, Observer, 日志, 审计, 模型事件]
 description: "深入讲解 Laravel Observers 模型事件监听机制与审计日志自动记录实战方案，覆盖 created/updated/deleted/restored 全生命周期事件，详解 Octane 兼容性陷阱、批量操作盲区、性能优化与队列异步写入，附完整可运行代码示例与 30+ 仓库真实踩坑总结指南"
 

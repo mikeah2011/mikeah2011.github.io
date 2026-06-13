@@ -3,8 +3,7 @@ title: "Laravel 12.x 新特性实战：Context、Concurrency、Artisan 改进与
 cover: /images/covers/2026-05-31-laravel-12-new-features-context-concurrency-artisan-cover.jpg
 date: 2026-05-31 23:55:00
 categories:
-  - PHP
-  - Laravel
+  - php
   - 框架新特性
 tags:
   - Laravel 12
@@ -16,7 +15,6 @@ tags:
   - b2c api
 description: "Laravel 12 不是大刀阔斧的革命，而是一次精准的工程手术。Context 让请求级元数据有了统一归宿，Concurrency 把 pcntl_fork 包装成一行代码并支持三种驱动自动降级，Artisan 终于支持自定义 stub 和 make:enum 枚举生成。本文从源码剖析、B2C 电商实战、升级踩坑三个维度拆解每个特性的 API 设计、性能基准（并发提升 43%-71%）、隐藏陷阱与选型决策树，附完整的 Laravel 11→12 升级 Checklist 和反模式清单。"
 ---
-
 # Laravel 12.x 新特性实战：Context、Concurrency、Artisan 改进与框架演进哲学
 
 每次 Laravel 大版本发布，社区的反应都遵循同一个模式：一半人在喊"终于等到了"，另一半人在问"我的项目要改多少"。Laravel 12（2026 年 2 月发布）延续了 Laravel 11 开创的"精简骨架"路线，没有推翻任何东西，但把几个长期存在的工程痛点正式纳入框架内核。

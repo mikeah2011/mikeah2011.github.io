@@ -4,8 +4,8 @@ cover: /images/covers/laravel-slack-guide-deploymentci-cover.jpg
 date: 2026-05-05 01:15:58
 updated: 2026-05-05 01:23:43
 categories:
-  - DevOps
-  - Laravel
+  - devops
+  - php
 tags: [cicd, Laravel, 工程管理, 监控]
 description: 在 KKday B2C 后端 30+ 仓库中落地 Slack 通知的完整方案：Incoming Webhook vs Slack App Bot 选型、Laravel Notification Channel 封装、GitHub Actions 部署/测试结果推送、生产告警降噪策略，以及踩过的每一个坑。
 

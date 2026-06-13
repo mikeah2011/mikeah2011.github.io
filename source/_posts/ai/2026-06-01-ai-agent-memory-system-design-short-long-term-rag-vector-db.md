@@ -2,7 +2,7 @@
 title: "AI Agent 记忆系统设计：短期/长期记忆、RAG 与向量数据库选型实战"
 date: 2026-06-01 12:00:00
 categories:
-  - AI
+  - ai
 tags:
   - AI Agent
   - 记忆系统
@@ -20,7 +20,6 @@ images:
   - /images/content/ai-agent-memory-1.jpg
   - /images/content/ai-agent-memory-2.jpg
 ---
-
 # AI Agent 记忆系统设计：短期/长期记忆、RAG 与向量数据库选型实战
 
 ## 1. 问题背景与动机：为什么 Agent 需要记忆？

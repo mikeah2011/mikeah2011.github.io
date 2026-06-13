@@ -4,8 +4,8 @@ cover: /images/covers/service-container-guide-dependency-injection-cover.jpg
 date: 2026-05-16 15:41:01
 updated: 2026-05-16 15:51:42
 categories:
-  - PHP
-  - Docker
+  - php
+  - docker
 tags: [laravel, 微服务]
 description: "深入 Laravel Service Container 的五大核心能力：依赖注入与自动解析、接口绑定（Singleton/Transient/Scoped 对比）、上下文绑定（Contextual Binding）消除多实现场景的 if/else 分支、延迟加载（Deferred Providers）实测降低 60% 启动开销、Tagged Bindings 实现插件化消息推送架构。结合 B2C 电商真实踩坑记录，涵盖循环依赖破解、队列中 Contextual Binding 失效、Singleton 在 Worker 中数据过期等七大高频问题及解决方案。"
 

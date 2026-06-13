@@ -3,8 +3,8 @@ title: API Rate Limiting - 接口限流实战 - KKday B2C API 真实踩坑记录
 cover: /images/covers/api-rate-limiting-rate-limitingguide-cover.jpg
 date: 2026-05-03
 categories:
-  - PHP
-  - API
+  - php
+  - api
 tags: [Rate Limiting, Token Bucket, Redis, Laravel, API, Sliding Window]
 description: 深入解析 API 接口限流实战方案，涵盖 Token Bucket 令牌桶、Leaky Bucket 漏桶、滑动窗口算法及 Redis Lua 脚本原子操作，结合 KKday B2C 真实踩坑记录，详解分布式限流、IP 指纹识别、连接池优化与监控日志等生产级解决方案。
 

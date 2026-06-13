@@ -2,7 +2,7 @@
 title: AI Agent Context Window 管理实战：对话裁剪、摘要压缩、滑动窗口策略——长对话场景的成本与质量平衡
 date: 2026-06-06 12:00:00
 tags: [AI Agent, Context Window, Token 优化, 长对话管理]
-categories: [AI]
+categories: [ai]
 cover: /images/covers/ai-agent-context-window-cover.jpg
 description: "AI Agent 长对话场景下 Context Window 管理实战指南，系统讲解对话裁剪、摘要压缩、滑动窗口三大核心策略，深入分析 Token 优化与成本控制的工程实现。涵盖基于重要性评分的智能裁剪、递归摘要与增量摘要的对比选型、滑动窗口重叠区域设计、Token 预算动态分配模型，以及 Laravel/PHP 生产级代码实现。附真实踩坑案例、策略选型决策树与 A/B 测试数据，帮助开发者在成本、质量、延迟之间找到最优平衡点。"
 ---

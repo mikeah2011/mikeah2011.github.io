@@ -4,8 +4,7 @@ cover: /images/covers/grafana-tempo-opentelemetry-guide-laravel-cover.jpg
 date: 2026-05-03 10:55:06
 updated: 2026-05-03 10:56:22
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [laravel, 微服务, 消息队列, 监控, opentelemetry, grafana, tempo, trace]
 description: 本文基于 Laravel B2C 订单系统的线上实战经验，详细讲解如何使用 Grafana Tempo + OpenTelemetry 构建跨 HTTP、队列与回调的完整链路追踪体系。内容涵盖 traceparent 在 Laravel Queue 中的透传机制、Horizon 常驻进程的上下文清理与 trace 污染治理、Monolog 日志与 Trace ID 的关联查询、Collector 采样策略配置，以及采样率过高导致可观测性系统自身成为瓶颈的真实踩坑与优化方案，适合需要在 Laravel 微服务架构中落地分布式追踪的后端工程师参考。
 

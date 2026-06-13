@@ -4,8 +4,8 @@ cover: /images/covers/composer-guide-automationtestingdeployment-cover.jpg
 date: 2026-05-16 20:25:38
 updated: 2026-05-16 20:28:29
 categories:
-  - PHP
-  - Docker
+  - php
+  - docker
 tags: [CI/CD, Composer, DevOps, PHP, 自动化测试]
 description: >
   在 30+ Laravel 仓库的日常维护中，Composer scripts 是最被低估的自动化利器。

@@ -3,8 +3,7 @@ title: Laravel 事务回滚边界控制 - KKday B2C-API 真实踩坑记录
 cover: /images/covers/laravel-transaction-cover.jpg
 date: 2026-05-02
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Kubernetes, Laravel]
 description: 深入解析 Laravel 事务（Transaction）回滚边界控制，涵盖 DB::transaction 使用方法、嵌套事务合并机制、Eloquent 模型事务冲突、异步队列与数据库事务交互等六大踩坑场景，结合 KKday B2C-API 项目真实经验，帮助开发者掌握 Laravel 数据库事务的最佳实践，避免分布式事务环境下的数据一致性问题。
 

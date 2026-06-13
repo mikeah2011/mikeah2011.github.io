@@ -2,7 +2,7 @@
 title: 'Web3 集成实战：ethers.js/web3.php 钱包连接与智能合约交互——Laravel DApp 后端的签名验证与事件监听'
 date: 2026-06-03 10:00:00
 tags: [Web3, ethers.js, web3.php, Laravel, DApp, 智能合约, Solidity]
-categories: [Web3]
+categories: [misc]
 cover: /images/covers/web3-integration-dapp-cover.jpg
 description: 本文是一篇面向 Laravel/PHP 开发者的 Web3 集成完整实战指南。从 ethers.js 前端钱包连接与 EIP-712 结构化签名，到 web3.php 后端智能合约调用与签名验证，再到 WebSocket 实时事件监听与 Laravel Queue 异步处理，全面覆盖 DApp 后端开发的核心技术栈。深入讲解 ERC-20/721 合约交互、nonce 防重放机制、Gas 优化策略、多链适配架构，并附带生产级代码示例与安全最佳实践，帮助开发者快速构建安全可靠的去中心化应用后端。
 ---

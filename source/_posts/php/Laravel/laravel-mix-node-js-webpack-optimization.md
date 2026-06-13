@@ -4,8 +4,7 @@ cover: /images/covers/laravel-mix-node-js-webpack-optimization-cover.jpg
 date: 2026-05-05 02:40:38
 updated: 2026-05-05 02:42:06
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [javascript, webpack, laravel-mix, vite, 前端构建, 性能优化]
 description: "深入 Laravel Mix 与 Webpack 配置优化实战：代码分割、CSS 提取、版本哈希、生产环境 Tree Shaking 与压缩策略，对比 Vite/esbuild 选型，附 Mix→Vite 迁移指南与常见构建错误排查。"
 

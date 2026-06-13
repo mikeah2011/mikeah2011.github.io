@@ -3,8 +3,8 @@ title: "API Gateway + Lambda 实战：无服务器 API 架构设计与 Laravel �
 date: 2026-05-17 04:40:41
 updated: 2026-05-17 04:44:02
 categories:
-  - Architecture
-  - API
+  - architecture
+  - api
 tags: [aws, api-gateway, lambda, serverless, laravel, 无服务器]
 description: 深入解析 AWS API Gateway + Lambda 无服务器架构设计，涵盖 HTTP API/REST API/ALB 选型对比、冷启动优化（Provisioned Concurrency、SnapStart）、API Gateway 限流缓存 WAF 实战，以及与 Laravel 混合部署策略与成本估算。
 cover: /images/covers/arch-003-cover.jpg

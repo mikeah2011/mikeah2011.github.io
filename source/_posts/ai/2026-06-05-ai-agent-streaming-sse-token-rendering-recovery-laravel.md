@@ -3,7 +3,7 @@ title: 'AI Agent Streaming 实战进阶：SSE 分块传输、前端 Token 渲染
 date: 2026-06-05 09:09:27
 description: '深入解析 AI Agent 流式架构的生产级实战方案：涵盖 SSE 分块传输协议原理、Last-Event-ID 中断恢复机制、前端 Token-by-Token 渲染管线与 requestAnimationFrame 性能优化、背压控制、指数退避重试策略，以及 Laravel 后端在高并发场景下的完整工程实现，帮助开发者构建可靠高效的流式 AI 应用。'
 tags: [ai agent, sse, streaming, laravel, 前端渲染, 流式架构]
-categories: [AI, 架构]
+categories: [ai, 架构]
 cover: /images/covers/ai-agent-streaming-sse-cover.jpg
 ---
 

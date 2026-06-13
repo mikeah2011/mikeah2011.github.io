@@ -4,8 +4,7 @@ cover: /images/covers/laravel-webauthn-passkey-guide-cover.jpg
 date: 2026-05-04 15:15:59
 updated: 2026-05-04 15:17:45
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, 安全, WebAuthn, Passkey, FIDO2, 无密码登录]
 description: Laravel 后台 WebAuthn / Passkey 无密码登录完整实战指南：涵盖 FIDO2 设备注册、签名验证、挑战过期处理、多设备绑定管理、signCount 回放防护、会话升级策略及线上踩坑记录，附可运行代码示例与 Passkey vs 传统认证方案对比表。
 

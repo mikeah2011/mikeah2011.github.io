@@ -69,6 +69,31 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  PHP: php
+  Laravel: php
+  AI: ai
+  AI Agent: ai
+  AI-Agent: ai
+  AI/Agent: ai
+  AI/ML: ai
+  AI 工程化: ai
+  AI/架构: ai
+  Architecture: architecture
+  Frontend: frontend
+  macOS: macos
+  Engineering: engineering
+  Misc: misc
+  DevOps: devops
+  Network: network
+  Kafka: mq
+  frameworks: php
+  Rust: rust
+  Swift: swift
+  Web3: web3
+  MQ: mq
+  05_php/laravel: php
+  Laravel/PHP: php
+  PHP/Laravel: php
 tag_map:
 
 # Metadata elements

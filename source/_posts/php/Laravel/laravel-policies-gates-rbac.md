@@ -4,8 +4,7 @@ cover: /images/covers/laravel-policies-gates-rbac-cover.jpg
 date: 2026-05-05 12:15:10
 updated: 2026-05-05 12:17:53
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [laravel, rbac, permission, policies, gates, 多租户, 授权, spatie]
 description: >
   深入实战 Laravel Policies、Gates 与 RBAC 权限控制方案。涵盖 Policy 对象级授权、路由中间件与 FormRequest 集成、API Resource 字段级权限、Spatie Permission 多租户缓存优化、队列越权防护与 PHPUnit 测试，附踩坑案例，助你构建企业级 Laravel 授权体系。

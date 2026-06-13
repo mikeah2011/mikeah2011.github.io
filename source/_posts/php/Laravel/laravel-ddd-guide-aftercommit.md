@@ -3,14 +3,12 @@ title: Laravel DDD 实战：优惠券核销的聚合边界、值对象与 afterC
 cover: /images/covers/laravel-ddd-guide-aftercommit-cover.jpg
 date: 2026-05-03 09:10:00
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, 架构, DDD, 领域驱动设计, 设计模式, 聚合根, 值对象, 领域事件, afterCommit]
 description: 深入讲解 Laravel 中 DDD（领域驱动设计）的实战落地：以优惠券核销场景为例，完整覆盖聚合边界划分、值对象建模、聚合根行为封装、领域事件与 afterCommit 事务一致性、跨聚合协调、测试策略及常见踩坑记录，帮助中高级 PHP 开发者在真实项目中用好聚合、领域事件与事务边界。
 
 
 ---
-
 优惠券核销很适合拿来验证 Laravel 里 DDD 到底是不是"有用的复杂度"。这个模块往往同时具备几种特征：规则多、入口多、状态变化多。Web 下单能用，后台补单也能用，支付回调失败还要回滚，活动规则又常常按渠道、商品、用户等级叠加。如果继续把逻辑堆在 `CouponService`，最终一定会变成 Controller、Job、Listener 都能改券状态的局面。
 
 我后来重构时的目标很明确：**让优惠券是否可核销，只能通过一个聚合动作决定；让通知、埋点、报表全部晚于事务提交执行。**

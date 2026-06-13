@@ -3,8 +3,7 @@ title: Laravel Reverb 实战：订单状态实时推送与多实例部署踩坑�
 cover: /images/covers/laravel-reverb-guide-deployment-cover.jpg
 date: 2026-05-03 07:45:00
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [laravel, nginx, redis, websocket]
 description: Laravel Reverb 订单实时推送实战：私有频道认证、afterCommit 事务广播、Redis 多实例总线、Nginx WebSocket 代理、Supervisor 托管及三个生产踩坑，快速落地 WebSocket 推送架构。
 

@@ -4,8 +4,8 @@ cover: /images/covers/laravel-postgresql-advisory-lock-guide-pgbouncer-cover.jpg
 date: 2026-05-04 15:51:30
 updated: 2026-06-06 10:00:00
 categories:
-  - PHP
-  - PostgreSQL
+  - php
+  - database
 tags: [Laravel, PostgreSQL, PgBouncer, Advisory Lock, 分布式锁]
 description: Laravel + PostgreSQL Advisory Lock 实战：补偿扫描单实例化、会话级互斥与 PgBouncer 踩坑记录。解决多 Pod 重复扫单、连接池模式不兼容、异常退出锁释放问题。
 

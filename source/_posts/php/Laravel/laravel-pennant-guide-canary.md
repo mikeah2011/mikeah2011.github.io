@@ -4,8 +4,7 @@ cover: /images/covers/laravel-pennant-guide-canary-cover.jpg
 date: 2026-05-03 11:20:06
 updated: 2026-05-03 11:21:23
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, 微服务, feature-flag, pennant, canary, 灰度发布, 多租户]
 description: 深入 Laravel Pennant Feature Flag 实战指南，详解多租户场景下的灰度发布与金丝雀发布策略。从 override 表设计、百分比渐进放量到紧急回滚兜底，覆盖 Octane 静态变量串请求、队列消费者对齐等线上踩坑案例。附 Prometheus/Grafana 监控集成、三级回滚方案、特性开关选型对比与上线 Checklist，助你在 Laravel 项目中安全落地 Feature Flag 灰度发布与 A/B 测试能力。
 

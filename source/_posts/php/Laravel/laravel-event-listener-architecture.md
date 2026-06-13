@@ -3,8 +3,7 @@ title: Laravel Event-Listener 事件驱动架构 - 解耦订单处理 - KKday B2
 cover: /images/covers/laravel-event-listener-architecture-cover.jpg
 date: 2026-05-03
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel]
 description: 深入解析 Laravel Event-Listener 事件驱动架构，涵盖事件监听注册、Observer 观察者模式、队列异步处理与 Pipeline 执行顺序控制。通过 KKday B2C API 订单处理真实踩坑记录，详解事务内事件触发、Listener 异常堆积、序列化内存优化等 5 大生产问题与解耦最佳实践。
 

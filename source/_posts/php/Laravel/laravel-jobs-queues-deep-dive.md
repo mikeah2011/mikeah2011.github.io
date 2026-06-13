@@ -4,8 +4,7 @@ cover: /images/covers/laravel-jobs-queues-deep-dive-cover.jpg
 date: 2026-05-16 17:51:16
 updated: 2026-05-16 17:55:11
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [laravel, redis, 消息队列]
 description: 深入 Laravel Jobs & Queues 生产实战：延迟队列实现订单超时取消、Bus::batch 批量任务编排、失败重试策略与死信队列处理，涵盖 Redis/Database/SQS/RabbitMQ 队列驱动对比、Horizon 监控配置及内存泄漏等生产环境踩坑案例，来自 B2C 电商项目的真实经验。
 

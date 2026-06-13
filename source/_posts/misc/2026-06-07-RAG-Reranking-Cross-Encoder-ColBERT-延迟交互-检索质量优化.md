@@ -2,7 +2,7 @@
 title: 'RAG Reranking 实战：Cross-Encoder 重排序与 ColBERT 延迟交互——检索质量的最后一公里优化'
 date: 2026-06-07 12:00:00
 tags: [RAG, Reranking, Cross-Encoder, ColBERT, 向量检索, AI]
-categories: [AI/ML]
+categories: [ai]
 cover: /images/covers/rag-reranking-cross-encoder-colbert-cover.jpg
 description: "深入解析 RAG Reranking 技术：对比 Cross-Encoder 精排与 ColBERT 延迟交互两种方案的原理与优劣，涵盖 sentence-transformers、LlamaIndex、LangChain 实战代码，提供模型量化、ONNX 推理、异步批处理等生产环境优化策略，以及 BEIR 基准测试下的多维度性能对比与选型建议。"
 ---

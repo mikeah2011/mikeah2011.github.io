@@ -3,8 +3,7 @@ title: Laravel Sanctum / Passport Token 刷新机制实战：多端登录、双 
 cover: /images/covers/laravel-sanctum-passport-token-guide-token-concurrency-cover.jpg
 date: 2026-05-03 09:11:35
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, Sanctum, Passport, OAuth, Token, Redis, 认证, 多端登录]
 description: 结合 Laravel B2C API 的真实改造经验，深入对比 Sanctum 与 Passport 在多端登录场景下的 token 刷新设计，覆盖双 token 轮换、并发续签、撤销链路、设备维度会话管理与生产踩坑处理。附可运行代码示例与选型对比表，适合需要设计安全认证体系的 PHP 后端开发者参考。
 

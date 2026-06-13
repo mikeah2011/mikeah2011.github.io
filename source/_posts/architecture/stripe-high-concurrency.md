@@ -6,8 +6,8 @@ description: "Stripe 支付系统完整设计实战：涵盖 PaymentIntent 支�
 updated: null
 tags: [Laravel, Stripe, 支付, 高并发, Webhook, 幂等性, PaymentIntent, B2C]
 categories:
-  - Misc
-  - Payment
+  - misc
+  - payment
 
 
 

@@ -3,13 +3,12 @@ title: 小米 MiMo 百万亿 Token 免费申请全攻略——从注册到到账
 date: 2026-05-26 10:30:00
 updated: 2026-05-26 10:30:00
 categories:
-  - Engineering
-  - AI
+  - engineering
+  - ai
 tags: [ai, mimo, 小米, token, claude code, cursor, 开发者工具]
 description: 本文系统讲解小米MiMo百万亿免费token活动的完整申请教程，覆盖注册流程、表单填写、项目描述写法、到账验证、API配置与常见踩坑。适合想体验小米MiMo AI模型的开发者快速上手，了解免费token领取规则、提升通过率技巧，以及在 Claude Code、Cursor 等工具中的接入方法。
 cover: /images/clawhub_multi_agent_feishu.png
 ---
-
 ## 前言
 
 2026 年 4 月 28 日，小米正式推出 **Xiaomi MiMo Orbit 百万亿 Token 创造者激励计划**，在 30 天内向全球开发者免费发放总计 **100 万亿 Token**。这不是营销噱头——这是一个面向真实 AI 用户、经过评估筛选的定向资源投放活动。

@@ -4,8 +4,7 @@ cover: /images/covers/prometheus-grafana-monitoringguide-laravel-api-red-slo-cov
 date: 2026-05-03 09:50:17
 updated: 2026-05-03 09:51:28
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, 监控, Prometheus, Grafana, RED, SLO, APM, 可观测性, Alertmanager, PromQL]
 description: "一线 Laravel B2C API 项目的 Prometheus + Grafana 可观测性实战全记录：从 RED 指标中间件埋点、Recording Rules 聚合、Grafana SLO 看板搭建，到 Alertmanager 告警降噪三件套（for 持续时间 + 最小流量门槛 + group_by 合并），完整覆盖踩坑与修复过程。附监控方案对比表与可直接复用的 Laravel 代码示例，帮你把有监控升级成能值班的监控，夜间无效告警降低 60%。"
 

@@ -4,8 +4,8 @@ cover: /images/covers/composer-deep-dive-autoloading-cover.jpg
 date: 2026-05-16 19:10:33
 updated: 2026-05-16 19:13:25
 categories:
-  - PHP
-  - Docker
+  - php
+  - docker
 tags: [Composer, PHP, 自动加载, PSR-4, 依赖管理, Packagist]
 description: Composer 是 PHP 生态的基石，但多数开发者只停留在 `composer require` 和 `composer update` 层面。本文从 30+ 仓库的真实运维经验出发，深度拆解 PSR-4 自动加载原理、依赖解析机制、Composer 插件开发、私有仓库（Satis/Packagist）配置，以及 CI/CD 中的依赖治理踩坑记录。
 

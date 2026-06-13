@@ -3,8 +3,8 @@ title: Docker Compose + PHP-FPM 实战：KKday B2C API 微服务部署经验
 cover: /images/covers/docker-compose-php-fpm-microservices-cover.jpg
 date: 2026-05-02
 categories:
-  - DevOps
-  - Docker
+  - devops
+  - docker
 tags: [Docker, PHP, PHP-FPM, Docker Compose, 微服务, DevOps, Laravel, 容器化]
 description: 基于 KKday B2C API 真实项目的 Docker Compose + PHP-FPM 微服务部署实战指南。涵盖 Dockerfile 多阶段构建、健康检查与启动顺序配置、PHP-FPM 内存泄漏排查与 OPcache 调优、Composer 缓存污染治理等踩坑经验，适合 PHP 开发者掌握企业级 Docker 微服务部署全流程。
 

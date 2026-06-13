@@ -4,8 +4,7 @@ cover: /images/covers/laravel-casts-accessors-guide-data-types-cover.jpg
 date: 2026-05-05 12:25:26
 updated: 2026-05-05 12:27:45
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [laravel, Eloquent, 数据类型, PHP, Casts, Accessors, Value Object]
 description: 深入 Laravel Casts 与 Accessors 的数据类型转换实战，涵盖内置类型（decimal、encrypted、array、枚举）与自定义 Cast 值对象的完整用法。从订单模型真实案例出发，拆解 Accessor 计算属性设计、可写属性、多字段合并等模式，并对比 Casts vs Accessors vs Resources vs DTOs 的选型决策。附带精度丢失、N+1 查询、时区偏移、序列化性能等线上踩坑记录与优化方案，助你打造更干净的 Eloquent 数据适配层。
 

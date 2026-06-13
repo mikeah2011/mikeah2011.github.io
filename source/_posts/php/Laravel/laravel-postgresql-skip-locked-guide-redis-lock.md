@@ -4,8 +4,8 @@ cover: /images/covers/laravel-postgresql-skip-locked-guide-redis-lock-cover.jpg
 date: 2026-05-03 10:35:34
 updated: 2026-05-03 10:39:12
 categories:
-  - PHP
-  - databases
+  - php
+  - database
 tags: [Laravel, PostgreSQL, 架构设计, 消息队列, 数据库队列]
 description: 结合支付补单与库存对账任务，记录如何在 Laravel 中基于 PostgreSQL 的 FOR UPDATE SKIP LOCKED 实现数据库队列，重点覆盖出队并发、超时回收、批处理索引与死锁规避。
 

@@ -4,8 +4,8 @@ cover: /images/covers/helm-chart-guide-laravel-deployment-cover.jpg
 date: 2026-05-16 23:10:35
 updated: 2026-05-16 23:12:59
 categories:
-  - DevOps
-  - Kubernetes
+  - devops
+  - kubernetes
 tags: [devops, kubernetes, laravel]
 description: 深入讲解 Helm Chart 构建 Laravel 应用部署的完整实战流程。涵盖 Chart 目录结构设计、values.yaml 分层覆盖策略、Nginx Sidecar 双容器 Pod 编排、ConfigMap/Secret 注入、HPA 自动扩缩、ArgoCD GitOps 集成，以及 PHP-FPM 健康检查、storage 权限、多副本 Session 共享、数据库迁移竞争等 30+ 仓库生产级踩坑记录与解决方案，适合 K8s 运维与 Laravel 开发者参考。
 

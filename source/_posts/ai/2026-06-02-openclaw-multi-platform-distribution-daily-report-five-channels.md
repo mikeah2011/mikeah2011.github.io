@@ -2,7 +2,7 @@
 title: OpenClaw 多平台分发架构：daily-report.py 五通道（Telegram/Slack/飞书/QQ/微信）实现
 date: 2026-06-02 00:00:00
 tags: [OpenClaw, 多平台分发, Telegram, Slack, 飞书, 消息推送, ai-agent]
-categories: [AI Agent]
+categories: [ai]
 cover: /images/covers/openclaw-multi-platform-distribution-cover.jpg
 description: AI Agent 产生的信息需要触达不同平台的用户。本文深入剖析 OpenClaw 的多平台消息分发架构，涵盖统一消息模型设计、Telegram Bot API / Slack Webhook / 飞书 Open API / QQ 频道机器人 / 企业微信五大通道适配器的完整实现，并发分发引擎与重试降级机制，以及各平台 Markdown 方言差异和 API 限流处理的最佳实践。
 ---

@@ -4,8 +4,7 @@ cover: /images/covers/laravel-eventsauce-guide-cover.jpg
 date: 2026-05-05 00:15:06
 updated: 2026-05-05 00:17:52
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [Laravel, 架构]
 description: 深入实战指南：如何在 Laravel 中使用 EventSauce 实现事件溯源（Event Sourcing）与 DDD 领域驱动设计。本文以 B2C 退单流程为案例，详细讲解聚合根建模、事件持久化适配器、快照机制优化、CQRS 读模型投影、乐观锁并发冲突处理及生产环境踩坑记录，助你掌握 Laravel 事件溯源的完整落地方案。
 

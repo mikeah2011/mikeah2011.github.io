@@ -4,8 +4,8 @@ cover: /images/covers/laravel-postgresql-jsonb-guide-gin-index-index-cover.jpg
 date: 2026-05-03 09:55:09
 updated: 2026-05-03 09:59:00
 categories:
-  - PHP
-  - PostgreSQL
+  - php
+  - database
 tags: [Laravel, PostgreSQL, JSONB, GIN索引, 电商, 性能优化]
 description: 结合电商商品筛选场景，详细记录在 Laravel 中落地 PostgreSQL JSONB 的完整实战方案，涵盖动态属性建模、GIN 索引与局部索引设计、Eloquent 查询封装、EXPLAIN ANALYZE 性能调优、常见踩坑与 MySQL 到 PostgreSQL 在线迁移策略，附对比表格与完整代码示例。
 

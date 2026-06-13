@@ -2,13 +2,13 @@
 title: AI Agent 记忆系统设计实战：短期/长期记忆、RAG、向量数据库选型
 date: 2026-05-31 12:00:00
 categories:
-  - AI
+  - ai
 tags:
-  - ai agent
-  - rag
+  - AI Agent
+  - RAG
   - 向量数据库
   - 记忆系统
-  - llm
+  - LLM
   - embedding
 description: 深入剖析 AI Agent 记忆系统的架构设计——从短期对话记忆到长期知识沉淀，从 RAG 检索增强到向量数据库选型，结合 Hermes Agent、LangChain、OpenClaw 等主流框架的真实实现，提供完整的工程落地方案与踩坑记录。涵盖三层记忆模型、智能分块策略、向量数据库性能对比（ChromaDB/Qdrant/pgvector）、Embedding 模型选型及 Prompt Cache 优化，帮助你构建生产级 Agent 记忆基础设施。
 cover: /images/covers/ai-01-cover.jpg
@@ -16,7 +16,6 @@ images:
   - /images/content/ai-01-content-1.jpg
   - /images/content/ai-01-content-2.jpg
 ---
-
 # AI Agent 记忆系统设计实战：短期/长期记忆、RAG、向量数据库选型
 
 ## 一、问题背景：为什么 AI Agent 需要记忆系统？

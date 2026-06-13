@@ -2,7 +2,7 @@
 title: AI Agent 规划能力实战：ReAct/Tree-of-Thought/Graph-of-Thought 推理模式
 date: 2026-06-02 12:00:00
 tags: [AI Agent, ReAct, Tree-of-Thought, Graph-of-Thought, 推理, 规划]
-categories: [AI]
+categories: [ai]
 cover: /images/covers/agent-reasoning-patterns-guide-cover.jpg
 description: "系统拆解 AI Agent 推理与规划能力实战，深入对比 ReAct、Tree-of-Thought、Graph-of-Thought 等模式的适用场景、实现思路与工程取舍，帮你构建更稳定、更聪明的智能体。"
 ---

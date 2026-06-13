@@ -5,7 +5,7 @@ cover: /images/covers/laravel-failed-job-handling-cover.jpg
 updated: 2026-05-05 06:28:14
 tags: [laravel, redis, 消息队列, 监控]
 categories:
-  - PHP/Laravel
+  - php
 description: 深入 KKday B2C API 项目中 Laravel 失败任务的完整治理方案：从 retryUntil/backoff 精细化重试策略、Failed Job 死信队列分级归档、到 Slack/PagerDuty 告警通知闭环，以及生产环境中反复失败 Job 的人工介入与补偿流程设计。含 PHPUnit 测试用例与多队列驱动失败处理对比。
 
 

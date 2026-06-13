@@ -3,8 +3,8 @@ title: qiankun 微前端实战：Laravel 后台拆分中的路由、鉴权与样
 cover: /images/covers/qiankun-guide-laravel-cover.jpg
 date: 2026-05-03 09:21:00
 categories:
-  - Frontend
-  - Laravel
+  - frontend
+  - php
 tags: [laravel, vite, vue, 前端, 微前端, qiankun]
 description: 基于 Laravel 后端实战，详解 qiankun 微前端拆分方案完整落地指南。覆盖 Vue 3 子应用接入、Vite 构建配置、主子应用注册与生命周期钩子、三种通信方式（props/CustomEvent/GlobalState）、路由鉴权统一、Token 同步广播、CSS 样式隔离分层治理（命名空间/Shadow DOM/experimentalStyleIsolation）、Nginx 部署配置、微前端方案对比（qiankun vs Module Federation vs single-spa vs wujie）与生产部署 Checklist，适合中后台团队落地微前端架构参考。
 

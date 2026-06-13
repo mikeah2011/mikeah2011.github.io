@@ -5,8 +5,7 @@ date: 2026-05-06 11:23:35
 updated: 2026-05-06 11:34:49
 tags: [Laravel, MySQL, 零停机, 工程管理]
 categories:
-  - PHP
-  - Laravel
+  - php
 description: 基于 Laravel B2C API 高并发真实发布经验，系统拆解零停机数据库变更的四段式落地方法（Expand-Contract 模式）、独立回填命令与进度追踪设计、功能开关切流与双写兼容策略、生产环境安全回滚五步法，附完整 Migration 代码示例与三种方案对比表，覆盖大表加索引、字段类型迁移、唯一约束等高频场景。
 
 

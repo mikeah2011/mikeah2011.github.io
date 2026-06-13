@@ -4,8 +4,7 @@ cover: /images/covers/laravel-telescope-guide-monitoringslow-query-cover.jpg
 date: 2026-05-16 20:30:46
 updated: 2026-05-16 20:35:29
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [laravel, telescope, 慢查询, 性能优化, 调试, php]
 description: >
   Laravel Telescope 官方调试面板实战指南：详解请求监控、慢查询定位、队列追踪、日志分析与性能调优。

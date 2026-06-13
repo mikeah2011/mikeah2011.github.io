@@ -4,8 +4,8 @@ cover: /images/covers/php-81-fibers-guide-concurrencyorchestration-cover.jpg
 date: 2026-05-16 16:51:25
 updated: 2026-05-16 16:57:14
 categories:
-  - PHP
-  - Runtime
+  - php
+  - runtime
 tags: [Laravel, PHP, 架构, fibers, 协程, 并发]
 description: 深入 PHP 8.1 Fibers 机制与底层原理详解，从 Fiber 基础 API 到 Laravel B2C 电商 API 实战落地，全面涵盖并发 HTTP 请求编排、超时控制、错误重试与 Circuit Breaker 熔断模式、性能基准测试对比，以及 Swoole 协程、AMPHP、ReactPHP 三种异步方案选型指南。
 

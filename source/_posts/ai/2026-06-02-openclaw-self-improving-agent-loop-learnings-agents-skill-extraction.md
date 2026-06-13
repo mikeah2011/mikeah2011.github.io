@@ -2,7 +2,7 @@
 title: OpenClaw 自改进 Agent 循环：.learnings/ 结构化日志 → AGENTS.md 提升 → 技能提取
 date: 2026-06-02 08:00:00
 tags: [openclaw, ai-agent, 自改进, 元学习, 技能提取]
-categories: [AI Agent]
+categories: [ai]
 description: 深度剖析 OpenClaw 自改进 Agent 循环的三大核心组件：.learnings/ 结构化日志系统记录交互中的发现与教训，AGENTS.md 提升机制将具体经验提炼为通用规范，技能提取流程从重复模式中发现可复用技能。涵盖元认知理论基础与学术研究对比（Reflexion、Self-Refine、Voyager），详解学习触发条件、提炼算法、技能提取门槛，附完整的 Laravel N+1 优化案例全流程演示。
 cover: /images/covers/openclaw-self-improving-loop-cover.jpg
 ---

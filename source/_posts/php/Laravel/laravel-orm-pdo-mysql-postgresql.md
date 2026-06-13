@@ -4,8 +4,8 @@ cover: /images/covers/laravel-orm-pdo-mysql-postgresql-cover.jpg
 date: 2026-05-05 00:40:36
 updated: 2026-05-05 00:43:48
 categories:
-  - PHP
-  - MySQL
+  - php
+  - database
 tags: [Laravel, MySQL, PostgreSQL]
 description: 在 KKday B2C 同一 Laravel 代码库中同时支持 MySQL 和 PostgreSQL 的真实踩坑记录——从 Eloquent Query Builder 的 SQL 生成差异、PDO 驱动行为、Schema Migration 到类型映射，涵盖大小写敏感、JSON 查询、NULL 语义、事务隔离级别等 10 大常见陷阱与生产级解决方案。
 

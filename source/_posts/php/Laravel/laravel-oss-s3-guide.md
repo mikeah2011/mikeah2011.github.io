@@ -3,8 +3,7 @@ title: Laravel + OSS/S3 对象存储实战：前端直传、临时签名与回�
 date: 2026-05-02 09:20:00
 cover: /images/covers/laravel-oss-s3-guide-cover.jpg
 categories:
-  - PHP
-  - Laravel
+  - php
 tags: [aws, laravel, oss, s3, 对象存储]
 description: 本文基于 Laravel B2C API 生产实战，完整覆盖阿里云 OSS 与 AWS S3 对象存储集成方案，包括前端直传、临时签名上传与下载、S3 presigned URL 生成、CDN 回源鉴权、Media 元数据表设计、踩坑案例（CORS、Content-Type 检测、文件大小限制）及多云选型对比，适合需要在 Laravel 中落地对象存储的后端与全栈开发者参考。
 

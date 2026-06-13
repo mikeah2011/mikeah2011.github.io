@@ -5,14 +5,13 @@ categories:
   - php
 tags:
   - PHP
-  - Opcache
+  - OPcache
   - Preloading
   - Laravel
   - 性能优化
   - PHP-FPM
 description: 深入剖析 PHP Opcache Preloading 机制，通过 opcache.preload 精确控制预加载范围，对比 Laravel 框架级预加载与按需加载的性能差异，提供可量化的基准测试方案和生产环境配置指南。
 ---
-
 ## 概述
 
 PHP 7.4 引入了 Opcache Preloading（预加载）特性，允许在 PHP-FPM 启动时将指定文件编译后的 opcode 常驻共享内存，所有 worker 进程共享同一份编译结果。这消除了传统 Opcache 在每个请求中首次编译文件的开销，也避免了共享内存中缓存条目被 LRU 淘汰后重新编译的抖动。

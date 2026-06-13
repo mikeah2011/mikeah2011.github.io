@@ -3,13 +3,12 @@ title: "ETL 实战：Laravel + Apache Airflow 数据管道构建——从手动 
 date: 2026-06-01 10:00:00
 updated: 2026-06-01 10:00:00
 categories:
-  - Engineering
-  - Laravel
+  - engineering
+  - php
 tags: [laravel, etl, airflow, 数据管道, dag, python, 数据工程]
 description: "在 KKday B2C 后端团队的实际项目中，数据管道是连接业务系统与数据仓库的命脉。本文记录从 Laravel Cron + 手动脚本迁移到 Apache Airflow 的完整实战过程：DAG 编排、Operator 选型、Laravel Artisan 命令集成、增量抽取策略、错误重试、监控告警，以及踩过的 15 个生产坑。"
 cover: /images/covers/etl-laravel-apache-airflow-data-pipeline-cover.jpg
 ---
-
 ## 一、为什么写这篇？
 
 在 KKday RD B2C 后端团队的实际项目中，我们面临这样的数据管道需求：

@@ -3,8 +3,8 @@ title: EasySwoole
 cover: /images/covers/easyswoole-1-cover.jpg
 tags: [PHP, Swoole, 架构, 高并发]
 categories:
-  - PHP
-  - Runtime
+  - php
+  - runtime
 date: 2020-03-20 15:05:07
 description: 'EasySwoole 是基于 Swoole 扩展的高性能 PHP 常驻内存协程框架，采用 Master-Manager-Worker 多进程模型，内置协程连接池、WebSocket、定时任务等企业级组件。相比传统 PHP-FPM 的"请求即销毁"模式，EasySwoole 框架仅加载一次，配合 Swoole 协程实现高并发异步 I/O，QPS 提升 5-10 倍。本文从架构原理、数据库连接池、WebSocket 聊天室、定时任务、进程间通信到性能对比与踩坑笔记，全面深入讲解 EasySwoole 协程框架的实战技巧与生产部署经验。'
 

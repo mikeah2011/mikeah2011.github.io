@@ -4,8 +4,8 @@ cover: /images/covers/phpstan-level-8-guide-cover.jpg
 date: 2026-05-16 20:10:40
 updated: 2026-05-16 20:13:46
 categories:
-  - PHP
-  - Quality
+  - php
+  - quality
 tags: [CI/CD, Laravel, PHP]
 description: "PHPStan Level 8 是 PHP 静态分析的最高等级，要求完全类型安全。本文基于 Laravel B2C API 项目实战，详细记录从 Level 5 渐进升级到 Level 8 的完整过程，涵盖泛型类型标注、联合类型窄化、StrictRules 插件配置、Larastan 特有陷阱、baseline 管理策略、CI 门禁集成以及 30+ 仓库治理经验，附带完整代码示例与踩坑对照表，帮助团队系统性提升 PHP 代码的类型安全水平。"
 

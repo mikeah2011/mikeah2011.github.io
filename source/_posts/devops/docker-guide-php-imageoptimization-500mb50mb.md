@@ -4,8 +4,8 @@ cover: /images/covers/docker-guide-php-imageoptimization-500mb50mb-cover.jpg
 date: 2026-05-05 10:56:07
 updated: 2026-05-05 10:59:21
 categories:
-  - DevOps
-  - Docker
+  - devops
+  - docker
 tags: [ci/cd, devops, docker, laravel, php, 镜像优化, 多阶段构建]
 description: "在 KKday B2C 项目中，PHP-FPM 镜像从 520MB 优化到 48MB 的完整过程：多阶段构建、依赖裁剪、.dockerignore、层缓存治理、Alpine vs Debian 选型，以及 CI 流水线中的镜像推送踩坑记录。"
 

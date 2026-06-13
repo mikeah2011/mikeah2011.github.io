@@ -4,8 +4,8 @@ cover: /images/covers/kubectl-1-36-guide-pod-deployment-service-cover.jpg
 date: 2026-05-16 23:00:27
 updated: 2026-05-16 23:03:36
 categories:
-  - DevOps
-  - Kubernetes
+  - devops
+  - kubernetes
 tags: [kkday, kubernetes, laravel]
 description: 从零开始掌握 kubectl 核心命令，以 Laravel B2C API 为例，覆盖 Pod 生命周期、Deployment 滚动更新、Service 服务发现的真实操作与踩坑记录。
 

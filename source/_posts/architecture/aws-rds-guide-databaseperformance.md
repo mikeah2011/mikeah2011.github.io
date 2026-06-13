@@ -3,8 +3,8 @@ title: "AWS-RDS-实战-数据库托管备份恢复与性能优化-Laravel-B2C-AP
 date: 2026-05-17 02:21:55
 updated: 2026-05-17 02:26:08
 categories:
-  - Architecture
-  - AWS
+  - architecture
+  - aws
 tags: [AWS, MySQL, PostgreSQL, 监控]
 description: "AWS RDS 在 Laravel B2C API 项目中的实战经验：多可用区部署、自动备份与时间点恢复、读写分离 Proxy、Performance Insights 慢查询治理、参数组调优、以及从自建 MySQL 迁移到 RDS 的完整踩坑记录。"
 cover: /images/covers/architecture-01-cover.jpg
