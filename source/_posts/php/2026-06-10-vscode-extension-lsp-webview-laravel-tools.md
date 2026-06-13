@@ -4,7 +4,7 @@ date: 2026-06-10 09:25:00
 categories:
   - php
 tags:
-  - VSCode
+  - VS Code
   - Extension
   - LSP
   - Laravel

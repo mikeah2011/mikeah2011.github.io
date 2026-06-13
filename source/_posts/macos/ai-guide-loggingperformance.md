@@ -5,7 +5,7 @@ date: 2026-05-17 04:35:39
 updated: 2026-05-17 04:38:08
 categories:
   - macos
-  - Logging
+  - logging
 tags: [ai, laravel, 性能优化, 监控]
 description: "Laravel B2C 项目中用 Claude Code / ChatGPT / Cursor 辅助调试的完整工作流——涵盖 Sentry 堆栈追踪分析、ELK 结构化日志解读、MySQL EXPLAIN 性能优化，附 6 个实战踩坑与一键调试脚本。"
 

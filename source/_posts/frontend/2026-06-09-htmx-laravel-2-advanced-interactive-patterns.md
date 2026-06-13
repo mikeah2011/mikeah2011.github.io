@@ -4,7 +4,7 @@ date: 2026-06-09 20:27:00
 categories:
   - frontend
 tags:
-  - htmx
+  - HTMX
   - Laravel
   - Livewire
   - SSE

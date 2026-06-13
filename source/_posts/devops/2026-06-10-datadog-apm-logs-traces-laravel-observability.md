@@ -4,7 +4,7 @@ date: 2026-06-10 06:00:00
 categories:
   - devops
 tags:
-  - DataDog
+  - Datadog
   - APM
   - 可观测性
   - Laravel

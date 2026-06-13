@@ -5,7 +5,7 @@ date: 2026-05-17 03:41:03
 updated: 2026-05-17 03:44:15
 categories:
   - macos
-  - Tools
+  - tools
 tags: [ai, agent, hermes, skill, automation, macos, 工作流, 自动化, 架构]
 description: Hermes Agent Skill 系统深度实战指南——从 SKILL.md 格式规范、Progressive Disclosure 三级渐进加载机制、条件激活与 fallback 策略、环境变量安全管理，到完整的 Hexo 博客写作 Skill 开发流程与 Cron 无人值守自动化工作流集成。包含 9 个真实踩坑案例、架构设计图、方案对比表与最佳实践清单，帮助 AI Agent 开发者快速上手自定义 Skill 开发，实现工作流自动化。
 

@@ -250,8 +250,8 @@ metadata:
     一键创建标准化的 Laravel 微服务项目，包含完整的 CI/CD 流水线、
     Docker 构建、Kubernetes 部署清单、可观测性配置和 API 文档。
   tags:
-    - php
-    - laravel
+    - PHP
+    - Laravel
     - microservice
     - recommended
   annotations:
@@ -1369,8 +1369,8 @@ metadata:
     grafana/dashboard-url: https://grafana.your-org.com/d/{{ cookiecutter.project_slug }}
     pagerduty.com/service-id: P{{ cookiecutter.project_slug[:8] | upper }}
   tags:
-    - php
-    - laravel
+    - PHP
+    - Laravel
     - microservice
     - {{ cookiecutter.cloud_provider }}
   links:
@@ -2360,8 +2360,8 @@ metadata:
     backstage.io/migrated-from: manual-setup
     backstage.io/migration-date: $(date +%Y-%m-%d)
   tags:
-    - php
-    - laravel
+    - PHP
+    - Laravel
     - microservice
     - migrated
 spec:

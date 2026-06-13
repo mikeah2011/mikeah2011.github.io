@@ -180,9 +180,9 @@ metadata:
     github.com/project-slug: kkday/kkday-b2c-api
     backstage.io/techdocs-ref: dir:.
   tags:
-    - laravel
-    - php
-    - api
+    - Laravel
+    - PHP
+    - API
   links:
     - url: https://stg-api.kkday.com
       title: STG 环境

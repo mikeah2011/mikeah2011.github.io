@@ -7,9 +7,9 @@ categories:
   - macos
 tags:
   - lazygit
-  - git
+  - Git
   - 终端工具
-  - macos
+  - macOS
   - 效率提升
   - 分支管理
 ---

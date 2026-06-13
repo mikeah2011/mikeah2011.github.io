@@ -4,10 +4,10 @@ date: 2026-05-31 10:00:00
 categories:
   - architecture
 tags:
-  - cdn
+  - CDN
   - 缓存策略
   - cloudfront
-  - cloudflare
+  - Cloudflare
   - Nginx
   - Laravel
   - 性能优化

@@ -1112,8 +1112,8 @@ metadata:
   title: Laravel 微服务
   description: 从 Golden Path 模板创建标准化的 Laravel 微服务
   tags:
-    - php
-    - laravel
+    - PHP
+    - Laravel
     - microservice
     - golden-path
 spec:
@@ -1219,8 +1219,8 @@ metadata:
     github.com/project-slug: {{ organization_name }}/{{ project_slug }}
     backstage.io/techdocs-ref: dir:.
   tags:
-    - php
-    - laravel
+    - PHP
+    - Laravel
     - microservice
   links:
     - title: API Documentation

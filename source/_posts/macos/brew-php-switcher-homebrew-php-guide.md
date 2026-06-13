@@ -5,7 +5,7 @@ date: 2026-05-05 00:55:55
 updated: 2026-05-05 00:59:30
 categories:
   - macos
-  - Tools
+  - tools
 tags: [Laravel, PHP, macOS, Homebrew, brew-php-switcher, 多版本管理, Apple Silicon]
 description: KKday 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.2/8.3 多版本共存的完整方案 | brew-php-switcher 与 Homebrew 原生方式对比 | 真实踩坑记录
 

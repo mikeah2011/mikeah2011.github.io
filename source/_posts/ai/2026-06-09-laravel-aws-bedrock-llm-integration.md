@@ -7,7 +7,7 @@ tags:
   - Laravel
   - AWS Bedrock
   - Claude
-  - Llama
+  - LLaMA
   - Titan
   - LLM
   - PHP

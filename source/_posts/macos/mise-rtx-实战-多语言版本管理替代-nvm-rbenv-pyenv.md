@@ -12,10 +12,10 @@ tags:
   - nvm
   - pyenv
   - rbenv
-  - php
-  - python
+  - PHP
+  - Python
   - node.js
-  - macos
+  - macOS
   - asdf
   - dev-environment
   - ci-cd

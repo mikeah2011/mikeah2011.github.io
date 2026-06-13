@@ -190,9 +190,9 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     jira/project-key: B2C
   tags:
-    - php
-    - laravel
-    - api
+    - PHP
+    - Laravel
+    - API
     - b2c
   links:
     - url: https://api.kkday.com/docs
@@ -424,8 +424,8 @@ metadata:
   title: Create Laravel Service
   description: 创建一个符合 KKday 规范的 Laravel 服务
   tags:
-    - php
-    - laravel
+    - PHP
+    - Laravel
     - recommended
 spec:
   owner: team-platform

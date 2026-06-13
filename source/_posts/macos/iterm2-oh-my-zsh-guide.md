@@ -5,7 +5,7 @@ date: 2026-05-16 23:15:53
 updated: 2026-05-16 23:18:38
 categories:
   - macos
-  - Tools
+  - tools
 tags: [macOS, 工程管理, 终端, zsh, iTerm2, 开发工具, Oh My Zsh, 命令行]
 description: "iTerm2 + Oh My Zsh 终端美化与效率提升完整指南：涵盖 Profile 多场景配置（SSH/开发/Docker）、Powerlevel10k 主题、必装 zsh 插件（autosuggestions、syntax-highlighting、completions）、Laravel/PHP 开发者实用别名函数、fzf/bat/eza/ripgrep CLI 工具链、启动速度优化及 iTerm2 vs Terminal.app vs Ghostty vs Alacritty 终端方案对比，附 30+ 仓库实战踩坑记录。"
 ---

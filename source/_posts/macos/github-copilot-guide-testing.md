@@ -5,7 +5,7 @@ date: 2026-05-16 23:45:56
 updated: 2026-05-16 23:49:46
 categories:
   - macos
-  - Testing
+  - testing
 tags: [ai, kkday, laravel, 工程管理, 测试]
 description: 深入实战 GitHub Copilot 在 Laravel B2C API 项目中的全场景应用：从 .github/copilot-instructions.md 项目级指令配置到代码补全接受率 55-65% 的实测数据，从 Pest 测试自动生成与 Mock 陷阱修复到 Scribe v4 文档注解一键生成，从 PR Review 自动检测 N+1 查询与 SQL 注入漏洞到 /workspace 模式跨文件项目级问答。本文基于 KKday B2C API 团队 3 个月实测经验，总结 8 个真实踩坑案例与 Prompt 工程模板库，附带 Cursor、Claude Code 等多 AI 工具分层协作策略，帮助 Laravel 开发者高效利用 AI 辅助编程。
 

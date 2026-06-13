@@ -490,8 +490,8 @@ metadata:
     Docker 容器化配置、Kubernetes 部署清单、监控告警规则和技术文档模板。
     遵循团队 Golden Path 标准，开箱即用。
   tags:
-    - php
-    - laravel
+    - PHP
+    - Laravel
     - microservice
     - recommended
   annotations:
@@ -1000,8 +1000,8 @@ metadata:
     ${{ values.enablePrometheus ? 'prometheus.io/path: "/metrics"' : '' }}
     argocd/app-name: ${{ values.name }}
   tags:
-    - php
-    - laravel
+    - PHP
+    - Laravel
     - microservice
     - ${{ values.lifecycle }}
   links:

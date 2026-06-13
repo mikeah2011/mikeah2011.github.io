@@ -1,5 +1,5 @@
-# Multi-Agent Debate 实战：用对抗式多 Agent 提升推理质量——对比 Single Agent 的准确率与成本权衡
-
+---
+title: Multi-Agent Debate 实战：用对抗式多 Agent 提升推理质量——对比 Single Agent 的准确率与成本权衡
 date: 2026-06-09 15:15:00
 categories:
   - ai

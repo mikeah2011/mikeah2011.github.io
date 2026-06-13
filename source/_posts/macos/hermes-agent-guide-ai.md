@@ -6,7 +6,7 @@ date: 2026-05-23 10:00:00
 updated: 2026-05-17 07:39:49
 categories:
   - macos
-  - Tools
+  - tools
 tags: [ai, devops, macos, ai-agent, hermes-agent, llm]
 description: "从零搭建 Hermes Agent 多平台 AI 助手的完整实战记录——涵盖 macOS/Linux/WSL 三平台安装配置、多 Provider 接入（OpenAI/Anthropic/Ollama/Xiaomi MiMo）、智能模型路由策略与成本优化、CLI 交互与单次命令模式、Skill 系统项目级与全局级集成、GitHub Actions CI/CD 自动代码审查、数据敏感度分级安全方案、日志审计与隐私保护，以及在 30+ Laravel 仓库中积累的真实踩坑经验与性能对比实测数据。"
 

@@ -4,7 +4,7 @@ date: 2026-05-17 05:10:32
 updated: 2026-05-17 05:13:03
 categories:
   - macos
-  - Docs
+  - docs
 tags: [macOS, Obsidian, Markdown, 知识管理, 工程管理, Laravel]
 description: 本文是一篇面向 Laravel 开发者的 Obsidian 本地优先知识管理实战指南。从 Notion 和 Confluence 的迁移痛点出发，深入讲解 Vault 结构设计、Markdown 原生工作流、核心插件生态（Dataview、Templater、Excalidraw 等）配置与踩坑经验、Laravel 项目文档模板与 Code Review 笔记管理、基于 Git 同步的多设备协作方案，以及大 Vault 性能优化。涵盖 10+ 真实踩坑案例与可复用脚本，帮助开发者构建可版本控制的本地知识管理体系。
 cover: /images/covers/obsidian-guide-markdown-laravel-cover.jpg

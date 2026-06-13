@@ -8,7 +8,7 @@ tags:
   - AI Agent
   - Hermes Agent
   - Claude Code
-  - codex
+  - Codex
   - cline
   - goose
   - 开发者工具

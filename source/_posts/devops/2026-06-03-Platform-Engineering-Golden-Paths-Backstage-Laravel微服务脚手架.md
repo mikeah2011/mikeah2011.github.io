@@ -117,8 +117,8 @@ metadata:
     github.com/project-slug: myorg/order-service
     backstage.io/techdocs-ref: dir:.
   tags:
-    - php
-    - laravel
+    - PHP
+    - Laravel
     - microservice
   links:
     - url: https://grafana.myorg.com/d/order-service
@@ -238,8 +238,8 @@ metadata:
   title: Laravel 微服务
   description: 创建一个标准化的 Laravel 微服务，包含 CI/CD、Docker、监控配置
   tags:
-    - php
-    - laravel
+    - PHP
+    - Laravel
     - microservice
   annotations:
     backstage.io/techdocs-ref: dir:.

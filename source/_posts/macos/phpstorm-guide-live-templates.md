@@ -5,7 +5,7 @@ date: 2026-05-16 23:20:08
 updated: 2026-05-16 23:23:54
 categories:
   - macos
-  - Editor
+  - editor
 tags: [laravel, macos]
 description: >-
   本文基于 KKday 30+ Laravel 仓库实战经验，全面解析 PHPStorm 高效开发工作流。涵盖 macOS 键位映射、Laravel Live Templates、Postfix Completion、Database 面板、Xdebug 远程断点、HTTP Client API 测试、代码导航与性能调优等高频场景，附带 8 个踩坑记录与解决方案，帮助开发者告别鼠标依赖，高效写代码。

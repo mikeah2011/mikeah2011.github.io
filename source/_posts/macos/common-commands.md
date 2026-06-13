@@ -5,7 +5,7 @@ date: 2025-05-25 10:00:00
 updated: 2026-06-06 10:00:00
 categories:
   - macos
-  - Linux
+  - linux
 tags: [macOS]
 description: macOS 日常开发常用 Shell 命令速查手册：涵盖环境安装、Homebrew 包管理（formula vs cask）、文件操作与搜索、系统维护、网络调试、磁盘管理、进程管理、开发工具配置（Git/Docker/Python/Node 版本管理）、macOS 特有命令（defaults write、pbcopy、screencapture）等 200+ 条实战命令，面向 Laravel/PHP 后端与全栈开发者。
 

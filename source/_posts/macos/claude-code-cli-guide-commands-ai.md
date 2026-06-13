@@ -5,7 +5,7 @@ date: 2026-05-17 02:40:53
 updated: 2026-05-17 02:42:45
 categories:
   - macos
-  - Linux
+  - linux
 tags: [ai, laravel, macos, claude-code, cli, command-line-tools]
 description: Claude Code CLI 是 Anthropic 推出的命令行 AI 编程工具，支持终端内直接完成代码生成、跨文件重构、Bug 定位与 Code Review。本文基于 Laravel B2C API 真实项目，详解 Claude Code CLI 安装配置、CLAUDE.md 上下文管理、交互式与非交互模式、CI/CD 集成、Token 成本优化，以及与 Cursor、GitHub Copilot 等 AI 编程工具的对比，附带六大踩坑实录与解决方案。
 

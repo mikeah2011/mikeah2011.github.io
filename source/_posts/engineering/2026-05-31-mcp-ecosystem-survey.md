@@ -6,7 +6,7 @@ description: "本文系统梳理 MCP（Model Context Protocol）在 2026 年的�
 tags:
   - AI
   - MCP
-  - agent
+  - Agent
   - 工具集成
   - 技术调研
 categories:

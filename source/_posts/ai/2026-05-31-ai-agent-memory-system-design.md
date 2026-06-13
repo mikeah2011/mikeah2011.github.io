@@ -9,7 +9,7 @@ tags:
   - 向量数据库
   - 记忆系统
   - LLM
-  - embedding
+  - Embedding
 description: 深入剖析 AI Agent 记忆系统的架构设计——从短期对话记忆到长期知识沉淀，从 RAG 检索增强到向量数据库选型，结合 Hermes Agent、LangChain、OpenClaw 等主流框架的真实实现，提供完整的工程落地方案与踩坑记录。涵盖三层记忆模型、智能分块策略、向量数据库性能对比（ChromaDB/Qdrant/pgvector）、Embedding 模型选型及 Prompt Cache 优化，帮助你构建生产级 Agent 记忆基础设施。
 cover: /images/covers/ai-01-cover.jpg
 images:
