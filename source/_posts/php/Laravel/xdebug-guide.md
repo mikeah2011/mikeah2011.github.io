@@ -3,13 +3,20 @@ title: Xdebug 实战：远程调试、性能分析、代码覆盖率——Larave
 cover: /images/covers/xdebug-guide-cover.jpg
 date: 2026-05-16 19:30:55
 updated: 2026-05-16 19:33:46
-categories: php
-tags: [Laravel, Xdebug, PHP, 调试, 性能优化, 测试, 代码覆盖率]
-description: "Xdebug 3 完整实战指南：远程断点调试、Cachegrind 性能分析、PHPUnit 代码覆盖率，覆盖 Docker/FPM/CLI 三种模式配置，PHPStorm 集成踩坑与 PCOV/Blackfire/Tideways 生产替代方案对比。"
-
-
-
+categories:
+- php
+tags:
+- Laravel
+- Xdebug
+- PHP
+- 调试
+- 性能优化
+- 测试
+- 代码覆盖率
+description: Xdebug 3 完整实战指南：远程断点调试、Cachegrind 性能分析、PHPUnit 代码覆盖率，覆盖 Docker/FPM/CLI
+  三种模式配置，PHPStorm 集成踩坑与 PCOV/Blackfire/Tideways 生产替代方案对比。
 ---
+
 # Xdebug 实战：远程调试、性能分析、代码覆盖率——Laravel B2C API 开发者完整指南
 
 ## 前言

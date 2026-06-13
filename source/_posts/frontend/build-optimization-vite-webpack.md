@@ -3,7 +3,8 @@ title: 前端构建优化实战：Vite/Webpack 分包策略与缓存优化踩坑
 cover: /images/covers/build-optimization-vite-webpack-cover.jpg
 date: 2026-05-17 07:15:07
 updated: 2026-05-17 07:16:32
-categories: frontend
+categories:
+- frontend
 tags:
 - Vite
 - Webpack
@@ -18,6 +19,7 @@ description: 前端构建优化实战指南，详解 Vite 分包（manualChunks 
   资源 hash 策略（contenthash vs chunkhash vs hash）、动态 import 路由懒加载、Bundle Analyzer 体积分析、tree-shaking
   优化及循环依赖踩坑、CSS 提取顺序问题等完整经验。
 ---
+
 
 
 # 前端构建优化实战：Vite/Webpack 分包策略与缓存优化踩坑记录

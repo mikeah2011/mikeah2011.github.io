@@ -1,14 +1,20 @@
 ---
 title: TCP 三次握手
 cover: /images/covers/three-way-handshake-cover.jpg
-tags: [TCP, 三次握手, HTTP, 网络协议, 面试, 抓包]
-categories: network
+tags:
+- TCP
+- 三次握手
+- HTTP
+- 网络协议
+- 面试
+- 抓包
+categories:
+- network
 date: 2017-03-20 15:05:07
-description: '深入解析TCP三次握手原理，包括SYN、ACK报文交互过程、状态转换（SYN_SENT、SYN_RCVD、ESTABLISHED）、抓包实战（tcpdump/Wireshark）及常见面试题。涵盖为什么不是两次握手、SYN Flood攻击防御、TCP与UDP对比等核心知识点，帮助你全面掌握HTTP网络协议中TCP连接建立的底层机制。'
-
-
-
+description: 深入解析TCP三次握手原理，包括SYN、ACK报文交互过程、状态转换（SYN_SENT、SYN_RCVD、ESTABLISHED）、抓包实战（tcpdump/Wireshark）及常见面试题。涵盖为什么不是两次握手、SYN
+  Flood攻击防御、TCP与UDP对比等核心知识点，帮助你全面掌握HTTP网络协议中TCP连接建立的底层机制。
 ---
+
 ## 什么是 TCP 三次握手？
 
 TCP（Transmission Control Protocol）是一种面向连接的、可靠的传输层协议。在 HTTP 通信中，客户端与服务器之间在传输数据之前，必须先通过 **三次握手（Three-Way Handshake）** 建立一条可靠的 TCP 连接。

@@ -3,7 +3,8 @@ title: 开源项目贡献代码实战-PR流程与最佳实践-Laravel-B2C-API踩
 cover: /images/engineering-cover.png
 date: 2026-05-05 10:40:23
 updated: 2026-05-05 10:42:25
-categories: engineering
+categories:
+- engineering
 tags:
 - Git
 - Laravel
@@ -15,6 +16,7 @@ description: 开源项目贡献代码完整实战指南：从 Fork、分支管�
   流水线配置、Code Review 礼仪、GitHub 与 GitLab 工作流对比，结合 scribe、CRMEB、phpseclib 等 30+ 仓库真实踩坑经验与
   Checklist。
 ---
+
 
 # 开源项目贡献代码实战：PR 流程与最佳实践
 

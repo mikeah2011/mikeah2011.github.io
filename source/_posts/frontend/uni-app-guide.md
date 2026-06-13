@@ -3,10 +3,18 @@ title: uni-app 条件编译实战：平台差异处理与适配策略踩坑记�
 cover: /images/covers/uni-app-guide-cover.jpg
 date: 2026-05-17 06:35:34
 updated: 2026-05-17 06:38:35
-categories: frontend
-tags: [Vue, uni-app, 跨平台, 条件编译, 前端开发]
-description: "uni-app 跨平台开发中，条件编译是处理微信小程序、App、H5 等多端差异的核心机制。本文基于 Vue 3 + uni-app 实战经验，深入讲解 #ifdef 条件编译语法、平台专属 API 差异处理（支付/文件/导航）、组件级与 CSS 平台适配策略，以及用适配器模式减少维护成本的架构设计。附真实代码示例与踩坑记录，适合跨平台开发者进阶。"
+categories:
+- frontend
+tags:
+- Vue
+- uni-app
+- 跨平台
+- 条件编译
+- 前端开发
+description: 'uni-app 跨平台开发中，条件编译是处理微信小程序、App、H5 等多端差异的核心机制。本文基于 Vue 3 + uni-app 实战经验，深入讲解
+  #ifdef 条件编译语法、平台专属 API 差异处理（支付/文件/导航）、组件级与 CSS 平台适配策略，以及用适配器模式减少维护成本的架构设计。附真实代码示例与踩坑记录，适合跨平台开发者进阶。'
 ---
+
 ## 前言
 
 uni-app 号称"一套代码，多端运行"，但实际项目中你会发现，**不同平台之间的差异远比想象中大**。支付接口不同、导航栏 API 不同、文件系统 API 不同、甚至 CSS 属性的支持范围都不一样。

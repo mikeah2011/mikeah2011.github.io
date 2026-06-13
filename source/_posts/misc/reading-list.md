@@ -1,15 +1,25 @@
 ---
 title: 书单
-tags: [工程管理, 书单, 软技能, 代码整洁, 重构, 算法, 架构设计, Laravel, 面试准备]
-categories: misc
+tags:
+- 工程管理
+- 书单
+- 软技能
+- 代码整洁
+- 重构
+- 算法
+- 架构设计
+- Laravel
+- 面试准备
+categories:
+- misc
 date: 2021-03-20 15:05:07
-description: '精选程序员成长书单，涵盖代码整洁、重构、编程珠玑、软技能等经典著作，并按初级到高级推荐学习路径。从 Laravel/PHP 开发者视角出发，附每本书的核心价值点评与阅读建议，帮助工程师系统性提升编码能力与职业素养。'
+description: 精选程序员成长书单，涵盖代码整洁、重构、编程珠玑、软技能等经典著作，并按初级到高级推荐学习路径。从 Laravel/PHP 开发者视角出发，附每本书的核心价值点评与阅读建议，帮助工程师系统性提升编码能力与职业素养。
 cover: /images/covers/misc-001-cover.jpg
 images:
-  - /images/content/misc-001-content-1.jpg
-  - /images/content/misc-001-content-2.jpg
-
+- /images/content/misc-001-content-1.jpg
+- /images/content/misc-001-content-2.jpg
 ---
+
 
 **软技能 代码之外的生存指南**	约翰 Z.森梅兹 著
 

@@ -2,14 +2,21 @@
 title: Vue 3 + Pinia 状态管理实战-替代 Vuex 的现代方案与 B2C 电商踩坑记录
 date: 2026-05-16 21:35:11
 updated: 2026-05-16 21:37:51
-categories: frontend
-tags: [TypeScript, Vue, Pinia, Vuex, 前端, 状态管理]
-description: 从 Vuex 迁移到 Pinia 的完整实战指南，深度讲解 Vue 3 状态管理核心概念。涵盖 Pinia Store 设计模式（Setup Store 与 Options Store）、Composition API 集成技巧、TypeScript 类型推导与类型安全实践、自定义插件开发（Token 刷新、日志）、持久化存储方案、性能优化策略，以及在真实 B2C 电商项目中从 Vuex 4 迁移到 Pinia 过程中遇到的 6 大踩坑记录与解决方案。
+categories:
+- frontend
+tags:
+- TypeScript
+- Vue
+- Pinia
+- Vuex
+- 前端
+- 状态管理
+description: 从 Vuex 迁移到 Pinia 的完整实战指南，深度讲解 Vue 3 状态管理核心概念。涵盖 Pinia Store 设计模式（Setup
+  Store 与 Options Store）、Composition API 集成技巧、TypeScript 类型推导与类型安全实践、自定义插件开发（Token
+  刷新、日志）、持久化存储方案、性能优化策略，以及在真实 B2C 电商项目中从 Vuex 4 迁移到 Pinia 过程中遇到的 6 大踩坑记录与解决方案。
 cover: /images/covers/vue-3-pinia-guide-vuex-b2c-cover.jpg
-
-
-
 ---
+
 ## 为什么从 Vuex 迁移到 Pinia？
 
 在 Vue 2 时代，Vuex 是状态管理的事实标准。但随着 Vue 3 Composition API 的普及，Vuex 的 `mutations`、`actions`、`getters` 三层嵌套越来越显得冗余。在我们 KKday B2C 前端项目（基于 vue-pure-admin 二次开发的管理后台 + uni-app C 端）中，我们经历了从 Vuex 4 迁移到 Pinia 的完整过程。

@@ -1,14 +1,19 @@
 ---
 title: PHP代码洁癖心得
-tags: [PHP, 性能优化, 代码规范, 重构, 最佳实践]
-categories: php
+tags:
+- PHP
+- 性能优化
+- 代码规范
+- 重构
+- 最佳实践
+categories:
+- php
 date: 2019-10-06 15:06:38
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/5ea38ff8793f7854-20221006153725317.jpg
-description: '`if`的使用洁癖 1. 给定初始值 2. 简单的判断使用`&&`代替 3. 三元运算符 4. 简化三元运算符`?:`或`??` 5. 去掉多此一举的 6. 对同一对象，含有多层逻辑，使用`switch`代替`elseif` 7. 表驱动法…'
-
-
-
+description: '`if`的使用洁癖 1. 给定初始值 2. 简单的判断使用`&&`代替 3. 三元运算符 4. 简化三元运算符`?:`或`??` 5.
+  去掉多此一举的 6. 对同一对象，含有多层逻辑，使用`switch`代替`elseif` 7. 表驱动法…'
 ---
+
 ![img](https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/5ea38ff8793f7854-20221006153725317.jpg)
 
 

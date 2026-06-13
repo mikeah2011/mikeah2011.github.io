@@ -3,7 +3,8 @@ title: Bun 实战-比 npm 快 10 倍的 JavaScript 运行时踩坑记录
 cover: /images/covers/bun-guide-npm-10-javascript-cover.jpg
 date: 2026-05-16 23:40:12
 updated: 2026-05-16 23:43:00
-categories: macos
+categories:
+- macos
 tags:
 - JavaScript
 - 前端
@@ -16,6 +17,7 @@ description: Bun 是基于 JavaScriptCore 引擎的全新 JavaScript/TypeScript 
   快 10 倍）、bun build 构建优化、bun test 测试运行、与 Node.js/Deno 的性能基准对比、Laravel + Vue 3 + Vite
   项目踩坑案例及 CI/CD 配置，帮助前端开发者快速上手 Bun 并规避常见问题。
 ---
+
 
 
 ## 前言

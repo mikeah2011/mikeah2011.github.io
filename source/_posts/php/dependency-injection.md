@@ -7,12 +7,14 @@ tags:
 - 依赖注入
 - ioc容器
 - 设计模式
-categories: php
+categories:
+- php
 date: 2021-04-12 10:00:00
 description: 深入理解依赖注入（DI）与 IoC 容器：从三种注入方式、面向接口编程到 Laravel 容器的 bind/singleton/contextual
   binding 实战，再到 Symfony 容器对比、自动装配原理、循环依赖检测、PHPUnit 测试中的 Mock 技巧，以及构造器注入过多的踩坑经验。附手写
   30 行 IoC 容器完整代码，帮助 PHP 开发者彻底掌握这一核心设计思想。
 ---
+
 
 # 一句话
 

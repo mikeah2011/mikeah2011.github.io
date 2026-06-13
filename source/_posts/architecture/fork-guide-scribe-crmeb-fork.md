@@ -1,15 +1,18 @@
 ---
-title: "Fork 项目维护与上游同步实战：以 Scribe/CRMEB 为例的 Fork 协作工作流踩坑记录"
+title: Fork 项目维护与上游同步实战：以 Scribe/CRMEB 为例的 Fork 协作工作流踩坑记录
 date: 2026-05-05 09:27:40
 updated: 2026-05-05 09:29:10
 cover: /images/covers/fork-guide-scribe-crmeb-fork-cover.jpg
-categories: architecture
-tags: [Git, Laravel]
-description: 以 Scribe（Laravel API文档生成器）和 CRMEB（开源电商商城）两个真实 fork 二次开发项目为例，系统讲解 Fork 后的分支策略、cherry-pick 同步上游、冲突解决实战、GitHub Actions 自动化同步流水线，以及 Composer 依赖冲突、Migration 冲突、Force Push 历史分叉等常见踩坑与长期维护最佳实践。
-
-
-
+categories:
+- architecture
+tags:
+- Git
+- Laravel
+description: 以 Scribe（Laravel API文档生成器）和 CRMEB（开源电商商城）两个真实 fork 二次开发项目为例，系统讲解 Fork
+  后的分支策略、cherry-pick 同步上游、冲突解决实战、GitHub Actions 自动化同步流水线，以及 Composer 依赖冲突、Migration
+  冲突、Force Push 历史分叉等常见踩坑与长期维护最佳实践。
 ---
+
 ## 一、为什么需要 Fork？
 
 在 B2C 项目开发中，我们经常会 fork 开源项目来做二次开发。最常见的场景：

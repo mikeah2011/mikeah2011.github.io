@@ -3,7 +3,8 @@ title: Vite 预构建优化实战：依赖预构建与缓存策略的性能调�
 cover: /images/covers/vite-optimizationguide-cache-cover.jpg
 date: 2026-05-17 05:20:13
 updated: 2026-05-17 05:23:03
-categories: frontend
+categories:
+- frontend
 tags:
 - Laravel
 - Vite
@@ -16,6 +17,7 @@ description: 深入 Vite 预构建机制（optimizeDeps）原理与实战优化�
   monorepo workspace 间接依赖穿透问题，附真实 Laravel B2C 项目首次加载从 20s 优化到 2s、HMR 从 3s 降到 200ms
   的完整性能对比数据与调试技巧。
 ---
+
 
 我在维护一个 Laravel 单仓后台前端时，遇到过一个很诡异的开发体验问题：`npm run dev` 启动后，首次打开页面要等 **15-20 秒**才能看到内容，浏览器 Network 面板里刷出几百个 `304` 请求，全是 `node_modules` 下的 ESM 模块。更离谱的是，改一行代码 HMR 要 3 秒才生效。
 

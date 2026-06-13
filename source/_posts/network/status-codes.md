@@ -1,14 +1,20 @@
 ---
 title: HTTP状态码
 cover: /images/covers/status-codes-cover.jpg
-tags: [HTTP, RESTful, Laravel, Nginx, 网络]
-categories: network
+tags:
+- HTTP
+- RESTful
+- Laravel
+- Nginx
+- 网络
+categories:
+- network
 date: 2019-03-20 15:05:07
-description: '全面解析 HTTP 状态码，涵盖 1xx 到 5xx 五大类别的设计哲学与实际应用场景。深入讲解 200、301、302、304、400、401、403、404、429、500、502、503 等高频状态码在 Nginx、Apache 及 Laravel 框架中的处理方式，包含代码示例、重定向对比表、常见踩坑案例与排查思路，适合 RESTful API 开发者和后端工程师参考。'
-
-
-
+description: 全面解析 HTTP 状态码，涵盖 1xx 到 5xx 五大类别的设计哲学与实际应用场景。深入讲解 200、301、302、304、400、401、403、404、429、500、502、503
+  等高频状态码在 Nginx、Apache 及 Laravel 框架中的处理方式，包含代码示例、重定向对比表、常见踩坑案例与排查思路，适合 RESTful API
+  开发者和后端工程师参考。
 ---
+
 ## 什么是 HTTP 状态码
 
 HTTP 状态码（HTTP Status Code）是服务器在响应客户端请求时返回的三位数字代码，用来表示请求的处理结果。它属于 HTTP 响应状态行的一部分，完整格式为 `HTTP/1.1 200 OK`，其中 `200` 就是状态码，`OK` 是原因短语（Reason Phrase）。

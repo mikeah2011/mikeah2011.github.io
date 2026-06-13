@@ -3,13 +3,17 @@ title: 链路追踪实战：Jaeger/SkyWalking 在 Laravel 微服务中的应用
 cover: /images/covers/distributed-tracing-jaeger-skywalking-cover.jpg
 date: 2026-05-16 23:30:13
 updated: 2026-05-16 23:37:23
-categories: architecture
-tags: [Laravel, 微服务, 监控]
-description: "深入实战 KKday B2C 微服务架构中 Jaeger 与 SkyWalking 双方案链路追踪落地全过程。涵盖 OpenTelemetry SDK PHP 接入、跨服务 W3C TraceContext 上下文传播、Kafka 异步消息链路续接、Head/Tail 双层采样策略设计、OTel Collector 统一汇聚架构，以及生产环境性能压测数据、Grafana 可视化看板配置与六大踩坑记录。适用于 Laravel/PHP 与 Java 混合微服务团队快速构建分布式可观测性体系。"
-
-
-
+categories:
+- architecture
+tags:
+- Laravel
+- 微服务
+- 监控
+description: 深入实战 KKday B2C 微服务架构中 Jaeger 与 SkyWalking 双方案链路追踪落地全过程。涵盖 OpenTelemetry
+  SDK PHP 接入、跨服务 W3C TraceContext 上下文传播、Kafka 异步消息链路续接、Head/Tail 双层采样策略设计、OTel Collector
+  统一汇聚架构，以及生产环境性能压测数据、Grafana 可视化看板配置与六大踩坑记录。适用于 Laravel/PHP 与 Java 混合微服务团队快速构建分布式可观测性体系。
 ---
+
 # 链路追踪实战：Jaeger/SkyWalking 在 Laravel 微服务中的应用
 
 > **背景**：KKday B2C 后端从单体 Laravel 拆分为微服务后，一个订单请求会经过 BFF → Search → Inventory → Payment → Notification 五个服务。出了问题，日志里只知道 "订单创建失败"，但到底是 Search 超时还是 Payment 扣款异常？没有链路追踪，排查一个线上问题平均耗时 40+ 分钟。本文记录我们引入 Jaeger 和 SkyWalking 两套方案的完整实战过程。

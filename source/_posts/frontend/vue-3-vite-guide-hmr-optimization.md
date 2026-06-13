@@ -3,17 +3,22 @@ title: Vue-3-Vite-实战-HMR-构建优化与环境变量管理-Laravel-B2C-API�
 cover: /images/covers/vue-3-vite-guide-hmr-optimization-cover.jpg
 date: 2026-05-17 00:40:43
 updated: 2026-05-17 00:46:16
-categories: frontend
-tags: [Vue, Vite, Laravel, 前端, 构建优化, HMR, DevOps]
-description: >-
-  本文基于 Laravel B2C 前后端分离项目实战，全面讲解 Vue 3 与 Vite 的 HMR 热更新原理与故障排查方法，
-  深入剖析 Vite 构建优化策略（Manual Chunks 分包、Tree-shaking、Gzip/Brotli 压缩、依赖预构建调优），
-  涵盖 TypeScript 类型安全的环境变量管理、Nginx 生产部署配置及 GitHub Actions CI/CD 集成，
-  提供 8 个高频踩坑记录与解决方案，帮助前端开发者掌握 Vite 工程化最佳实践，显著提升前端构建性能与开发体验。
-
-
-
+categories:
+- frontend
+tags:
+- Vue
+- Vite
+- Laravel
+- 前端
+- 构建优化
+- HMR
+- DevOps
+description: 本文基于 Laravel B2C 前后端分离项目实战，全面讲解 Vue 3 与 Vite 的 HMR 热更新原理与故障排查方法， 深入剖析
+  Vite 构建优化策略（Manual Chunks 分包、Tree-shaking、Gzip/Brotli 压缩、依赖预构建调优）， 涵盖 TypeScript
+  类型安全的环境变量管理、Nginx 生产部署配置及 GitHub Actions CI/CD 集成， 提供 8 个高频踩坑记录与解决方案，帮助前端开发者掌握 Vite
+  工程化最佳实践，显著提升前端构建性能与开发体验。
 ---
+
 # Vue 3 + Vite 实战：HMR、构建优化与环境变量管理
 
 ## 前言

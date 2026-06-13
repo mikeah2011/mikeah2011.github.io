@@ -3,13 +3,15 @@ title: pyenv + poetry 实战：Python 版本与依赖管理——macOS 开发者
 cover: /images/covers/pyenv-poetry-python-guide-macos-guide-cover.jpg
 date: 2026-05-17 06:30:19
 updated: 2026-05-17 06:33:58
-categories: macos
+categories:
+- macos
 tags:
 - Composer
 - macOS
 description: macOS 上 Python 多版本管理与依赖隔离的完整实战指南。从 Laravel/PHP 开发者视角出发，详解 pyenv 安装配置、版本解析机制、poetry
   依赖分组与 Lock File 最佳实践，覆盖 AI 脚本、CI/CD 集成、Apple Silicon 编译等 10 大踩坑场景，并对比 uv 新一代包管理器的选型建议。
 ---
+
 
 # pyenv + poetry 实战：Python 版本与依赖管理——macOS 开发者迁移指南
 

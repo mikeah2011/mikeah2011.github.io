@@ -1,14 +1,16 @@
 ---
 cover: /images/covers/javascript-cover.jpg
 title: JavaScript
-tags: [JavaScript, 前端]
-categories: frontend
+tags:
+- JavaScript
+- 前端
+categories:
+- frontend
 date: 2019-03-20 15:05:07
-description: 'JavaScript 是 Web 的脚本语言，从浏览器交互发展到 Node.js 全栈、Electron 桌面、React Native 移动端。本文梳理核心概念、ES6+ 关键特性和常见陷阱。'
-
-
-
+description: JavaScript 是 Web 的脚本语言，从浏览器交互发展到 Node.js 全栈、Electron 桌面、React Native
+  移动端。本文梳理核心概念、ES6+ 关键特性和常见陷阱。
 ---
+
 ## 一、JavaScript 简介
 
 JavaScript 由 Brendan Eich 于 1995 年在 Netscape 用 **10 天**写成（这是它早期混乱设计的根源）。后由 ECMA 标准化为 **ECMAScript（ES）**，目前主流是 **ES2015 (ES6)** 之后的版本。

@@ -3,7 +3,8 @@ title: pnpm 实战：高效磁盘空间利用与 Workspace Monorepo 包管理踩
 cover: /images/covers/pnpm-guide-workspace-monorepo-cover.jpg
 date: 2026-05-16 23:55:19
 updated: 2026-05-16 23:58:45
-categories: macos
+categories:
+- macos
 tags:
 - pnpm
 - Monorepo
@@ -15,6 +16,7 @@ tags:
 description: 从 npm/yarn 迁移到 pnpm 的完整实战记录：内容寻址存储、硬链接去重、幽灵依赖防护、Workspace Monorepo 管理、CI
   缓存优化，以及在 Laravel + Vue 3 + Vite 项目中踩过的坑。
 ---
+
 
 ## 一、为什么需要 pnpm？
 

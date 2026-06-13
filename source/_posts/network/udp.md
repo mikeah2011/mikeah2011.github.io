@@ -1,14 +1,17 @@
 ---
 title: UDP
 cover: /images/covers/udp-cover.jpg
-tags: [UDP, TCP, 网络协议, Socket]
-categories: network
+tags:
+- UDP
+- TCP
+- 网络协议
+- Socket
+categories:
+- network
 date: 2016-03-20 15:05:07
-description: '全面解析UDP和TCP网络协议的核心差异与应用场景。深入介绍UDP无连接、面向报文的特性，对比TCP的可靠传输机制（三次握手、四次挥手），涵盖UDP首部格式、Socket编程实战（PHP代码示例）、DNS查询/视频直播/在线游戏等典型应用，以及QUIC协议、应用层ACK等UDP可靠传输实现思路和网络编程常见踩坑。'
-
-
-
+description: 全面解析UDP和TCP网络协议的核心差异与应用场景。深入介绍UDP无连接、面向报文的特性，对比TCP的可靠传输机制（三次握手、四次挥手），涵盖UDP首部格式、Socket编程实战（PHP代码示例）、DNS查询/视频直播/在线游戏等典型应用，以及QUIC协议、应用层ACK等UDP可靠传输实现思路和网络编程常见踩坑。
 ---
+
 ## UDP 概述
 
 用户数据报协议 UDP（User Datagram Protocol）是 TCP/IP 协议族中最重要的传输层协议之一。与 TCP 不同，UDP 采用了截然不同的设计理念——**简单、轻量、高效**。其核心特性如下：

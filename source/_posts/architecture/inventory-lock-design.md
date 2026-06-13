@@ -3,13 +3,17 @@ title: 电商库存系统设计-防超卖分布式锁与库存预扣减-Laravel-
 cover: /images/covers/inventory-lock-design-cover.jpg
 date: 2026-05-05 07:50:29
 updated: 2026-05-05 07:52:21
-categories: architecture
-tags: [KKday, Laravel, Redis, 微服务]
-description: 电商库存系统是 B2C 业务的核心难点之一。本文基于 KKday B2C API 的真实项目经验，深入剖析防超卖的三种方案（悲观锁、乐观锁、Redis 原子扣减）、分布式锁的正确使用姿势、以及库存预扣减的完整流程设计，附带踩坑记录与架构图。
-
-
-
+categories:
+- architecture
+tags:
+- KKday
+- Laravel
+- Redis
+- 微服务
+description: 电商库存系统是 B2C 业务的核心难点之一。本文基于 KKday B2C API 的真实项目经验，深入剖析防超卖的三种方案（悲观锁、乐观锁、Redis
+  原子扣减）、分布式锁的正确使用姿势、以及库存预扣减的完整流程设计，附带踩坑记录与架构图。
 ---
+
 # 电商库存系统设计：防超卖、分布式锁与库存预扣减
 
 > 电商库存是 B2C 系统中最容易出问题的模块之一。一个秒杀活动、一次 Redis 抖动，就可能导致超卖事故。本文基于 KKday B2C API 的真实踩坑经验，从数据库层、缓存层、应用层三个维度，拆解库存系统的设计方案。

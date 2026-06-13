@@ -3,7 +3,8 @@ title: pipx-Python-CLI-工具隔离安装实战-告别依赖冲突的全局工�
 cover: /images/covers/pipx-python-cli-guide-cover.jpg
 date: 2026-05-17 06:15:10
 updated: 2026-05-17 06:17:02
-categories: macos
+categories:
+- macos
 tags:
 - macOS
 - Python
@@ -16,6 +17,7 @@ description: pipx 为每个 Python CLI 工具创建独立虚拟环境，彻底�
   全面对比分析、8 个真实踩坑调试案例与解决方案、完整的 macOS 开发工作流配置实战，以及在 Laravel 项目中的 Composer 集成与 CI/CD
   最佳实践。
 ---
+
 
 # pipx 实战：Python CLI 工具隔离安装——告别依赖冲突的全局工具管理方案
 

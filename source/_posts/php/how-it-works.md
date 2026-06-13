@@ -1,14 +1,20 @@
 ---
 title: PHP的工作原理
 cover: /images/covers/how-it-works-cover.jpg
-tags: [PHP, FastCGI, Nginx, Web服务器, 性能优化]
-categories: php
+tags:
+- PHP
+- FastCGI
+- Nginx
+- Web服务器
+- 性能优化
+categories:
+- php
 date: 2019-03-20 15:05:07
-description: '深入解析PHP工作原理，涵盖CGI、FastCGI协议与PHP-FPM进程管理机制。详解Nginx与PHP-FPM的请求处理流程，包括PHP 7/8 JIT编译器、Zend Engine性能改进、OPcache缓存原理与配置优化。对比CLI模式与FPM模式的区别，提供PHP-FPM调优实战参数配置与502 Bad Gateway等常见问题排查方案。'
-
-
-
+description: 深入解析PHP工作原理，涵盖CGI、FastCGI协议与PHP-FPM进程管理机制。详解Nginx与PHP-FPM的请求处理流程，包括PHP
+  7/8 JIT编译器、Zend Engine性能改进、OPcache缓存原理与配置优化。对比CLI模式与FPM模式的区别，提供PHP-FPM调优实战参数配置与502
+  Bad Gateway等常见问题排查方案。
 ---
+
 ## 概述
 
 CGI（通用网关接口）用于 WEB 服务器和应用程序间的交互，定义输入输出规范。用户的请求通过 WEB 服务器转发给 FastCGI 进程，FastCGI 进程再调用应用程序进行处理（如 PHP 解析器），应用程序的处理结果（如 HTML）返回给 FastCGI，FastCGI 返回给 Nginx 进行输出。

@@ -1,7 +1,8 @@
 ---
 title: 幂等性 API 设计：RESTful 接口的安全网与三层防护实战
 slug: 幂等性-api-设计-restful-接口安全网与三层防护实战
-categories: architecture
+categories:
+- architecture
 tags:
 - Laravel
 - Redis
@@ -19,6 +20,7 @@ images:
 - /images/content/architecture-01-content-1.jpg
 - /images/content/architecture-01-content-2.jpg
 ---
+
 
 > **更新时间**：2026-05-03 22:21:33
 

@@ -4,11 +4,13 @@ cover: /images/covers/macos-cover.jpg
 tags:
 - macOS
 - 开发环境
-categories: macos
+categories:
+- macos
 date: 2021-03-20 15:05:07
 description: 全面的macOS开发者指南：涵盖Homebrew包管理器、pecl PHP扩展安装（Redis/Kafka/MongoDB/Swoole/Xdebug）、pbcopy剪贴板命令、常用终端工具与快捷键、Xcode
   CLI与Rosetta 2环境搭建，以及SIP/Gatekeeper等常见问题排查，助你高效搭建macOS开发环境。
 ---
+
 
 
 ## 前言

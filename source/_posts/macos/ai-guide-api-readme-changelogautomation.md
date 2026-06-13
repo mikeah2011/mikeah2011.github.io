@@ -2,14 +2,19 @@
 title: AI 辅助文档生成实战：API 文档、README、CHANGELOG 自动化踩坑记录
 date: 2026-05-17 05:05:53
 updated: 2026-05-17 05:08:10
-categories: macos
-tags: [AI, Git, Laravel, OpenAPI, 工程管理]
-description: 在 30+ 仓库的 Laravel B2C 项目中，文档维护一直是老大难问题。本文分享如何用 AI（Claude/GPT/Copilot）结合 Scribe、git-cliff、pandoc 等工具，实现 API 文档、README、CHANGELOG 的半自动生成，并记录真实踩坑经验。
+categories:
+- macos
+tags:
+- AI
+- Git
+- Laravel
+- OpenAPI
+- 工程管理
+description: 在 30+ 仓库的 Laravel B2C 项目中，文档维护一直是老大难问题。本文分享如何用 AI（Claude/GPT/Copilot）结合
+  Scribe、git-cliff、pandoc 等工具，实现 API 文档、README、CHANGELOG 的半自动生成，并记录真实踩坑经验。
 cover: /images/covers/ai-guide-api-readme-changelogautomation-cover.jpg
-
-
-
 ---
+
 # AI 辅助文档生成实战：API 文档、README、CHANGELOG 自动化踩坑记录
 
 > 📅 创建时间：2026-05-17 | 🏷️ 分类：macOS / AI 工具链 / 工程化

@@ -3,7 +3,8 @@ title: 配置中心实战：Apollo/Nacos 动态配置与 Laravel 集成——热
 cover: /images/covers/config-center-apollo-nacos-cover.jpg
 date: 2026-05-16 20:00:51
 updated: 2026-05-16 20:07:32
-categories: architecture
+categories:
+- architecture
 tags:
 - Laravel
 - PHP
@@ -15,6 +16,7 @@ tags:
 description: 深入解析 Apollo 与 Nacos 配置中心在 Laravel 微服务架构中的实战集成方案。涵盖 Long-Polling 配置监听、多环境隔离、灰度发布、Schema
   校验、与 .env 共存策略，以及 5 个生产环境踩坑的真实排查过程，附完整代码示例和选型对比表。
 ---
+
 
 
 ## 背景：为什么需要配置中心？

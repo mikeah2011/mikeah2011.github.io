@@ -3,13 +3,19 @@ title: Vue3-组件库开发实战-自定义UI组件库设计与发布踩坑记�
 cover: /images/covers/vue3-guide-ui-cover.jpg
 date: 2026-05-17 04:06:20
 updated: 2026-05-17 04:09:52
-categories: frontend
-tags: [JavaScript, TypeScript, Vite, Vue]
-description: Vue 3 组件库开发实战教程：从零搭建自定义 UI 组件库 @mikeah/ui 完整指南。涵盖 Monorepo 架构设计、Props/Slots/Events 组件设计模式、TypeScript 类型导出、CSS Variables 多主题切换、Vite Library Mode 构建配置、Vitest 单元测试、VitePress 文档站点搭建、npm 发布与版本管理、pnpm workspace 配置、Element Plus 集成及 CI/CD 自动化发布流程。基于 vue-pure-admin 二次开发的真实踩坑经验，前端工程师必备的组件库工程化实战指南。
-
-
-
+categories:
+- frontend
+tags:
+- JavaScript
+- TypeScript
+- Vite
+- Vue
+description: Vue 3 组件库开发实战教程：从零搭建自定义 UI 组件库 @mikeah/ui 完整指南。涵盖 Monorepo 架构设计、Props/Slots/Events
+  组件设计模式、TypeScript 类型导出、CSS Variables 多主题切换、Vite Library Mode 构建配置、Vitest 单元测试、VitePress
+  文档站点搭建、npm 发布与版本管理、pnpm workspace 配置、Element Plus 集成及 CI/CD 自动化发布流程。基于 vue-pure-admin
+  二次开发的真实踩坑经验，前端工程师必备的组件库工程化实战指南。
 ---
+
 ## 前言
 
 在我们的 B2C 电商后台项目中，前端基于 `vue-pure-admin` 二次开发。随着业务增长，多个子系统（运营后台、客服后台、财务后台）都用到了相同的表单组件、表格封装、日期选择器封装等。最初的做法是复制粘贴——结果一个 Bug 要修三个地方，样式调整更是噩梦。

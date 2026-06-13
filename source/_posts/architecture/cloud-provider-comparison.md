@@ -3,14 +3,24 @@ title: 云服务器选型实战-AWS-阿里云-腾讯云-B2C电商场景对比与
 cover: /images/covers/cloud-provider-comparison-cover.jpg
 date: 2026-05-05 09:07:25
 updated: 2026-05-05 09:11:43
-categories: architecture
-tags: [AWS, DevOps, KKday, 微服务, 云计算, 多云架构, 阿里云, 腾讯云, Terraform, Laravel]
-description: "在 KKday B2C 电商场景下，基于 30+ 仓库的多云部署经验，深度对比 AWS、阿里云、腾讯云在计算资源、对象存储、网络架构、CDN 加速、数据库高可用、成本核算六大维度的真实差异。附带 Terraform IaC 配置、多云灾备架构图、8 个生产环境踩坑记录与选型决策矩阵，适合需要做多云架构选型的技术团队参考。"
+categories:
+- architecture
+tags:
+- AWS
+- DevOps
+- KKday
+- 微服务
+- 云计算
+- 多云架构
+- 阿里云
+- 腾讯云
+- Terraform
+- Laravel
+description: 在 KKday B2C 电商场景下，基于 30+ 仓库的多云部署经验，深度对比 AWS、阿里云、腾讯云在计算资源、对象存储、网络架构、CDN
+  加速、数据库高可用、成本核算六大维度的真实差异。附带 Terraform IaC 配置、多云灾备架构图、8 个生产环境踩坑记录与选型决策矩阵，适合需要做多云架构选型的技术团队参考。
 author: Michael
-
-
-
 ---
+
 ## 一、为什么要做云服务器选型？
 
 在 KKday B2C Backend Team，我们经历了从单一云厂商到多云架构的完整演进。最初全部跑在一台 AWS EC2 上，随着业务扩展到东南亚、日本、韩国市场，我们发现：

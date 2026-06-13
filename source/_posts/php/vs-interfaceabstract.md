@@ -1,11 +1,17 @@
 ---
 title: 接口与抽象类
 cover: /images/covers/vs-interfaceabstract-cover.jpg
-tags: [PHP, 面向对象, 设计模式, SOLID]
-categories: php
+tags:
+- PHP
+- 面向对象
+- 设计模式
+- SOLID
+categories:
+- php
 date: 2021-03-20 15:05:07
-description: '深入解析PHP接口与抽象类的区别、使用场景及最佳实践。涵盖接口与抽象类的定义、SOLID原则、Laravel实战案例、PHP 8+新特性、PHPUnit测试技巧及常见反模式，帮助开发者在面向对象设计中做出正确的架构决策。'
+description: 深入解析PHP接口与抽象类的区别、使用场景及最佳实践。涵盖接口与抽象类的定义、SOLID原则、Laravel实战案例、PHP 8+新特性、PHPUnit测试技巧及常见反模式，帮助开发者在面向对象设计中做出正确的架构决策。
 ---
+
 
 在PHP面向对象编程中，**接口（Interface）** 和 **抽象类（Abstract Class）** 是两个核心概念。它们都用于定义契约、实现多态，但适用场景截然不同。很多PHP初学者甚至有一定经验的开发者，在面对"该用接口还是抽象类"这个问题时，仍然会感到困惑。本文将从概念定义、代码示例、设计原则、实战案例等多个维度，深入剖析二者的异同与最佳实践，帮助你在实际项目中做出正确的架构决策。
 

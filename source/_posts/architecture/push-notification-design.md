@@ -3,10 +3,22 @@ title: 消息推送系统设计实战：多通道、优先级、失败重试、�
 cover: /images/covers/push-notification-design-cover.jpg
 date: 2026-05-16 21:10:35
 updated: 2026-05-16 21:14:39
-categories: architecture
-tags: [KKday, Laravel, 微服务, 架构, 消息队列, Redis, FCM, 推送系统]
-description: "KKday B2C 电商项目从零搭建消息推送系统完整实战：多通道（FCM、短信、邮件、企业微信、站内信）统一架构设计、ChannelRegistry 通道注册中心、优先级队列分层调度、失败指数退避重试与死信处理、通道自动降级策略、Redis 滑动窗口频率控制与幂等保障。含完整 PHP 代码示例、Mermaid 架构图、通道特性对比表与 6 条生产环境踩坑记录。"
+categories:
+- architecture
+tags:
+- KKday
+- Laravel
+- 微服务
+- 架构
+- 消息队列
+- Redis
+- FCM
+- 推送系统
+description: KKday B2C 电商项目从零搭建消息推送系统完整实战：多通道（FCM、短信、邮件、企业微信、站内信）统一架构设计、ChannelRegistry
+  通道注册中心、优先级队列分层调度、失败指数退避重试与死信处理、通道自动降级策略、Redis 滑动窗口频率控制与幂等保障。含完整 PHP 代码示例、Mermaid
+  架构图、通道特性对比表与 6 条生产环境踩坑记录。
 ---
+
 ## 前言
 
 在 B2C 电商场景中，消息推送是连接用户与业务的核心管道——订单确认、支付结果、发货通知、营销活动、安全告警，每一个触点都直接影响用户体验和转化率。

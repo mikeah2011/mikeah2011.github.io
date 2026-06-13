@@ -3,7 +3,8 @@ title: Vue 3 + vue-pure-admin 管理后台实战：从 fork 到定制化的完�
 cover: /images/covers/vue3-vue-pure-admin-guide-fork-cover.jpg
 date: 2026-05-05 10:00:16
 updated: 2026-05-05 10:04:33
-categories: frontend
+categories:
+- frontend
 tags:
 - Vue 3
 - vue-pure-admin
@@ -18,6 +19,7 @@ tags:
 description: 基于真实电商项目，深度实战 vue-pure-admin 管理后台定制化全流程：Vite 分包优化、动态路由权限、Laravel BFF
   API 对接、Docker Nginx 部署与生产踩坑记录。
 ---
+
 
 ## 一、为什么选 vue-pure-admin？
 

@@ -1,7 +1,8 @@
 ---
 title: 2026 科学上网机场推荐大全
 date: 2026-05-27 10:00:00
-categories: misc
+categories:
+- misc
 tags:
 - VPN
 - 机场
@@ -12,6 +13,7 @@ description: 2026年最全科学上网机场推荐指南，精心整理60+款机
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg
 feature: true
 ---
+
 
 
 > 📅 更新时间：2026-06-01

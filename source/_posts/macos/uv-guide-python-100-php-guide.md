@@ -12,7 +12,8 @@ tags:
 - 包管理
 - pip
 - 虚拟环境
-categories: macos
+categories:
+- macos
 description: uv 是 Astral（Ruff 团队）用 Rust 打造的下一代 Python 包管理器，号称比 pip 快 100 倍。本文从 PHP/Composer
   开发者视角出发，深度实战 uv 的依赖解析、虚拟环境管理、项目工作流、CI/CD 集成，以及从 pip/poetry/pipenv 迁移的完整踩坑记录。涵盖 uv
   vs pip vs poetry vs conda 对比、真实性能基准测试数据、5 大常见踩坑解决方案，以及与 Laravel 项目的混合开发最佳实践。
@@ -25,6 +26,7 @@ keywords:
 - 依赖锁定
 - 虚拟环境
 ---
+
 
 
 # uv 实战：下一代 Python 包管理器——100 倍速依赖解析与 PHP 开发者迁移指南
