@@ -1,16 +1,17 @@
 ---
 title: Docker
 cover: /images/covers/docker-cover.jpg
-tags: [Docker]
+tags:
+- Docker
+- 容器化
+- DevOps
 categories:
-  - devops
-  - docker
+- devops
+- docker
 date: 2020-03-20 15:05:07
-description: 'Docker 是一个开源的容器化平台，通过 Linux Namespace + Cgroups 把进程打包成可移植的镜像，做到「一次构建、到处运行」。本文梳理核心概念、常用命令和踩坑笔记。'
-
-
-
+description: Docker 是一个开源的容器化平台，通过 Linux Namespace + Cgroups 把进程打包成可移植的镜像，做到「一次构建、到处运行」。本文梳理核心概念、常用命令和踩坑笔记。
 ---
+
 ## 一、Docker 是什么
 
 Docker 是一个**开源的应用容器化引擎**。它把应用 + 依赖 + 运行环境打包成一个标准化的「镜像」（Image），任何装了 Docker 的机器拉下来都能跑出**完全一致**的「容器」（Container）。

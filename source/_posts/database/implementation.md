@@ -2,6 +2,9 @@
 title: 索引底层实现
 tags:
 - MySQL
+- 索引
+- B+Tree
+- InnoDB
 categories:
 - database
 date: 2015-03-20 15:05:07
@@ -11,6 +14,7 @@ images:
 - /images/content/databases-016-content-1.jpg
 - /images/content/databases-016-content-2.jpg
 ---
+
 
 
 ## 前言

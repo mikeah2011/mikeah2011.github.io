@@ -3,6 +3,9 @@ title: Kubernetes 基础操作命令
 cover: /images/covers/kubernetes-1-cover.jpg
 tags:
 - Kubernetes
+- K8s
+- 容器编排
+- DevOps
 categories:
 - devops
 - kubernetes
@@ -10,6 +13,7 @@ date: 2021-03-20 10:23:13
 description: 本文系统整理 Kubernetes 常用 kubectl 命令，涵盖 Pod、Deployment、Service 的创建与管理、ConfigMap/Secret
   配置、HPA 自动扩缩容、资源限制及故障排查技巧，适合 K8s 入门与日常运维参考。
 ---
+
 
 | 初始版本 | 2014年6月7日                                    |
 | :------- | ------------------------------------------------------ |
