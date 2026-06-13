@@ -1,4 +1,5 @@
 ---
+
 title: TypeScript
 keywords: [TypeScript]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -10,10 +11,9 @@ tags:
 categories:
 - frontend
 date: 2020-03-20 15:05:07
-description: TypeScript 是 JavaScript 的超集，由微软开发，提供强大的静态类型系统，将运行时错误前置到编译期发现。本文深入讲解类型体操、泛型编程、工具类型、类型守卫、tsconfig
-  配置最佳实践，并对比 TypeScript 与 JavaScript、Flow 的差异，附 Vite + Vue/React 项目实战搭建指南，适合前端开发者系统性掌握
-  TypeScript。
+description: TypeScript 是 JavaScript 的超集，由微软开发，提供强大的静态类型系统，将运行时错误前置到编译期发现。本文深入讲解类型体操、泛型编程、工具类型、类型守卫、tsconfig 配置最佳实践，并对比 TypeScript 与 JavaScript、Flow 的差异，附 Vite + Vue/React 项目实战搭建指南，适合前端开发者系统性掌握 TypeScript。
 ---
+
 
 ## 一、为什么是 TypeScript
 

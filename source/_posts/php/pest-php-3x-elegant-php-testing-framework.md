@@ -9,8 +9,9 @@ categories:
   - php
   - testing
 tags: [Pest, PHP, Laravel, PHPUnit, Testing, Arch Testing, Mutation Testing, Datasets, Higher Order Expectations]
-keywords: [Pest PHP, Pest 3, PHP 测试框架, Arch Testing, Mutation Testing, Laravel 测试, 自定义 Expectations, Datasets, Higher Order Expectations, 并行测试]
+keywords: [Pest PHP, PHP, 简洁优雅的, 测试框架深度剖析, 测试]
 ---
+
 ## 一、为什么需要重新思考 PHP 测试？
 
 ### PHPUnit 的"仪式感"问题

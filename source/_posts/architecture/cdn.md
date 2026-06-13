@@ -1,6 +1,6 @@
 ---
 title: CDN 配置实战：静态资源加速与缓存失效策略
-keywords: [CDN]
+keywords: [CDN, 配置实战, 静态资源加速与缓存失效策略, 架构]
 date: 2026-05-31 10:00:00
 categories:
   - architecture
@@ -18,6 +18,7 @@ images:
   - /images/content/arch-004-content-1.jpg
   - /images/content/arch-004-content-2.jpg
 ---
+
 # CDN 配置实战：静态资源加速与缓存失效策略
 
 > "CDN 是离用户最近的缓存层，但也是最容易让开发者掉坑里的缓存层。"

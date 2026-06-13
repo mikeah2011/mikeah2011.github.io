@@ -1,4 +1,5 @@
 ---
+
 title: 聚簇索引与非聚簇索引
 tags:
 - MySQL
@@ -8,15 +9,16 @@ tags:
 - B+Tree
 - 性能优化
 categories:
-- database
+  - database
+keywords: [聚簇索引与非聚簇索引]
 date: 2015-10-03 20:14:56
-description: 深入解析 MySQL 聚簇索引与非聚簇索引的底层原理与性能差异。通过 B+ Tree 结构图解、回表查询过程演示、InnoDB 索引选择规则详解，帮助开发者理解为什么主键查询最快、二级索引需要回表、覆盖索引能避免回表。附
-  UUID vs 自增主键的性能对比测试数据和 Laravel 项目中的最佳实践建议。
+description: 深入解析 MySQL 聚簇索引与非聚簇索引的底层原理与性能差异。通过 B+ Tree 结构图解、回表查询过程演示、InnoDB 索引选择规则详解，帮助开发者理解为什么主键查询最快、二级索引需要回表、覆盖索引能避免回表。附 UUID vs 自增主键的性能对比测试数据和 Laravel 项目中的最佳实践建议。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/db-1-content-1.jpg
 - /images/content/db-1-content-2.jpg
 ---
+
 
 
 在 MySQL 的 InnoDB 存储引擎中，索引是基于 B+ Tree 数据结构实现的。根据叶子节点存储内容的不同，索引被划分为**聚簇索引（Clustered Index）**和**非聚簇索引（Non-Clustered Index，也称二级索引、Secondary Index）**两大类。理解这两者的底层差异，是掌握 MySQL 查询性能优化的关键基础。

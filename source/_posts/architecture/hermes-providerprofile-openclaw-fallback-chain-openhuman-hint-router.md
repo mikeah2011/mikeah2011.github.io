@@ -2,7 +2,7 @@
 title: 三大框架模型路由对比：Hermes ProviderProfile vs OpenClaw Fallback Chain vs OpenHuman Hint Router
 date: 2026-06-02 10:00:00
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 模型路由, ProviderProfile]
-keywords: [AI Agent, Hermes, OpenClaw, OpenHuman, 模型路由]
+keywords: [Hermes ProviderProfile vs OpenClaw Fallback Chain vs OpenHuman Hint Router, 三大框架模型路由对比, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "深入对比 2026 年三大 AI Agent 框架的模型路由方案：Hermes ProviderProfile 声明式注册与钩子驱动路由、OpenClaw Fallback Chain 运维级降级链、OpenHuman Hint Router 语义智能路由。文章包含完整的 YAML/Markdown 配置示例、Python 可运行代码、三框架对比表格、实战踩坑案例，帮助开发者根据多 Provider 管理、故障降级、成本优化和隐私需求选择最合适的模型路由架构。"
 ---
+
 
 # 三大框架模型路由对比：Hermes ProviderProfile vs OpenClaw Fallback Chain vs OpenHuman Hint Router
 

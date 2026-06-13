@@ -2,7 +2,7 @@
 title: 'Laravel 12.x Casts 进阶实战：自定义 Cast 类的底层原理——InboundCasts/OutboundCasts 与 Eloquent 序列化管道'
 date: 2026-06-06 10:00:00
 tags: [Laravel, Eloquent, PHP, Casts, ORM]
-keywords: [Laravel, Eloquent, PHP, Casts, ORM]
+keywords: [Laravel, Casts, Cast, InboundCasts, OutboundCasts, Eloquent, 进阶实战, 自定义, 类的底层原理, 序列化管道]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "Laravel 12.x 自定义 Cast 类深度实战指南，从源码层面剖析 Eloquent 序列化管道的 Inbound/Outbound/ForArray 三向数据转换机制。详解 CastsAttributes、InboundCasts、OutboundCasts 三大接口的使用场景与底层原理，手把手实现 Money 值对象 Cast、强类型 DTO Cast、JSON Schema 校验 Cast、加密 Cast 等 8 个生产级自定义 Cast 类。对比 Laravel 11 与 12 的接口变化（CastsInboundAttributes → InboundCasts），覆盖 Cast 注册优先级、单元测试策略、性能影响分析与常见踩坑案例，适合中高级 Laravel 开发者深入掌握 Eloquent 数据层定制能力。"
 ---
+
 
 ## 前言
 

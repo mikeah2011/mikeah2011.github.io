@@ -2,7 +2,7 @@
 title: OpenClaw heartbeat-notify.py 实现：警告级过滤、hash 去重与多通道分发
 date: 2026-06-02 09:10:00
 tags: [OpenClaw, AI Agent, 通知系统, Python, 消息分发]
-keywords: [OpenClaw, AI Agent, 通知系统, Python, 消息分发]
+keywords: [OpenClaw heartbeat, notify.py, hash, 实现, 警告级过滤, 去重与多通道分发, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 深入解析 OpenClaw heartbeat-notify.py 的三层通知机制：警告级过滤精准拦截噪音、hash 去重避免通知疲劳、多通道分发确保消息可达。涵盖冷却期策略、安静时段、通道降级等关键设计决策，附完整 Python 实现代码，适用于任何需要构建可靠告警系统的 AI Agent 场景。
 ---
+
 
 # OpenClaw heartbeat-notify.py 实现：警告级过滤、hash 去重与多通道分发
 

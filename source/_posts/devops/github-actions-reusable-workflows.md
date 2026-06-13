@@ -1,6 +1,6 @@
 ---
 title: "GitHub Actions Reusable Workflows 实战：跨仓库复用 CI/CD 组件、版本化发布与参数化模板"
-keywords: [GitHub, Actions, Reusable]
+keywords: [GitHub Actions Reusable Workflows, CI, CD, 跨仓库复用, 组件, 版本化发布与参数化模板, DevOps]
 date: 2026-06-10 08:58:00
 categories:
   - devops
@@ -15,6 +15,7 @@ tags:
   - 工程化
 description: "深入讲解 GitHub Actions Reusable Workflows 的实战用法：从基础调用到跨仓库复用、版本化发布、参数化模板设计，以及团队级流水线工程化治理的最佳实践。"
 ---
+
 
 ## 为什么需要 Reusable Workflows
 

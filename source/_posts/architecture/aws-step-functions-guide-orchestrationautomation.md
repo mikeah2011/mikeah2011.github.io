@@ -6,7 +6,7 @@ categories:
   - architecture
   - aws
 tags: [AWS, KKday, Laravel, 架构]
-keywords: [AWS, KKday, Laravel, 架构, Step, Functions]
+keywords: [AWS Step Functions, Laravel B2C API, 工作流编排与自动化, 踩坑记录, 架构]
 description: 在 B2C 电商系统中，下单流程涉及多服务协调。AWS Step Functions 提供可视化工作流编排，原生支持并行、等待、重试、回调。本文记录在 KKday B2C 项目中将 Step Functions 引入 Laravel 后端的真实踩坑经验。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
@@ -14,6 +14,7 @@ images:
   - /images/content/architecture-01-content-2.jpg
 
 ---
+
 ## 前言
 
 在 B2C 电商系统中，一个下单流程往往涉及多个服务的协调：创建订单 → 扣减库存 → 调用支付 → 发送通知 → 更新积分。传统做法是用 Laravel Queue + 事件驱动来串联，但当流程变得复杂（需要条件分支、并行执行、人工审批、超时重试）时，手写编排逻辑就会变成一团意大利面。

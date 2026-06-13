@@ -1,6 +1,7 @@
 ---
+
 title: AI 驱动测试生成实战：Pest + AI 自动生成单元测试的最佳实践
-keywords: [AI]
+keywords: [AI, Pest, 驱动测试生成实战, 自动生成单元测试的最佳实践]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
@@ -15,9 +16,9 @@ tags:
 - Pest
 - Testing
 - CI/CD
-description: 在 30+ Laravel 仓库的维护中，手写单元测试是最大的时间黑洞。本文记录如何用 Claude/GPT 结合 Pest 框架，将单元测试覆盖率从
-  35% 提升到 85%+ 的完整工作流，涵盖 Prompt 工程设计、AI 生成质量控制、Mock 策略、CI/CD 覆盖率门禁集成与真实踩坑复盘。
+description: 在 30+ Laravel 仓库的维护中，手写单元测试是最大的时间黑洞。本文记录如何用 Claude/GPT 结合 Pest 框架，将单元测试覆盖率从 35% 提升到 85%+ 的完整工作流，涵盖 Prompt 工程设计、AI 生成质量控制、Mock 策略、CI/CD 覆盖率门禁集成与真实踩坑复盘。
 ---
+
 
 ## 一、为什么手写测试成了瓶颈
 

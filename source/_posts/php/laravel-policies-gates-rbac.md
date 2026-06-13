@@ -1,4 +1,4 @@
----
+
 title: Laravel-Policies-Gates-RBAC-权限管理与多租户隔离实战
 keywords: [Laravel, Policies, Gates]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -7,7 +7,7 @@ images:
 date: 2026-05-05 12:15:10
 updated: 2026-05-05 12:17:53
 categories:
-- php
+  - php
 tags:
 - Laravel
 - RBAC
@@ -17,9 +17,7 @@ tags:
 - 多租户
 - 授权
 - Spatie
-description: '深入实战 Laravel Policies、Gates 与 RBAC 权限控制方案。涵盖 Policy 对象级授权、路由中间件与 FormRequest
-  集成、API Resource 字段级权限、Spatie Permission 多租户缓存优化、队列越权防护与 PHPUnit 测试，附踩坑案例，助你构建企业级
-  Laravel 授权体系。
+description: '深入实战 Laravel Policies、Gates 与 RBAC 权限控制方案。涵盖 Policy 对象级授权、路由中间件与 FormRequest 集成、API Resource 字段级权限、Spatie Permission 多租户缓存优化、队列越权防护与 PHPUnit 测试，附踩坑案例，助你构建企业级 Laravel 授权体系。
 
   '
 ---

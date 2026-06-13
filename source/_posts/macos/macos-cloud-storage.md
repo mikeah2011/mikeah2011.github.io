@@ -1,4 +1,4 @@
----
+
 title: macOS 开发者云存储选型：哪些文件放哪里？如何保证一致性？
 keywords: [OS]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -7,7 +7,7 @@ images:
 date: 2026-05-05 03:00:59
 updated: 2026-05-05 03:02:39
 categories:
-- macos
+  - macos
 tags:
 - macOS
 - cloud-storage
@@ -15,8 +15,7 @@ tags:
 - google-drive
 - rclone
 - 工程管理
-description: 'macOS 开发者云存储选型指南：对比 iCloud、Google Drive、OneDrive、Dropbox 四大方案的同步机制、免费额度与安全性，详解文件分类决策框架、目录结构模板、rclone
-  多云同步配置，以及 Git 项目误放云盘、同步冲突、磁盘爆盘等实战踩坑与解决方案。
+description: 'macOS 开发者云存储选型指南：对比 iCloud、Google Drive、OneDrive、Dropbox 四大方案的同步机制、免费额度与安全性，详解文件分类决策框架、目录结构模板、rclone 多云同步配置，以及 Git 项目误放云盘、同步冲突、磁盘爆盘等实战踩坑与解决方案。
 
   '
 ---

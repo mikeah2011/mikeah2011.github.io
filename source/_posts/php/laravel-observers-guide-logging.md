@@ -9,12 +9,13 @@ categories:
   - php
   - logging
 tags: [Laravel, Observer, 日志, 审计, 模型事件]
-keywords: [Laravel, Observer, 日志, 审计, 模型事件, Observers]
+keywords: [Laravel Observers, 模型事件监听与审计日志自动记录, 仓库踩坑记录, PHP]
 description: "深入讲解 Laravel Observers 模型事件监听机制与审计日志自动记录实战方案，覆盖 created/updated/deleted/restored 全生命周期事件，详解 Octane 兼容性陷阱、批量操作盲区、性能优化与队列异步写入，附完整可运行代码示例与 30+ 仓库真实踩坑总结指南"
 
 
 
 ---
+
 ## 背景：为什么需要 Observers？
 
 在 KKday B2C API 项目中，随着业务增长，Controller 和 Service Layer 里充斥着大量「模型保存后顺便写日志、发通知、清缓存」的代码。原本 3 行的 `update()` 调用，后面跟了 20 行 `if ($model->wasChanged('status')) { ... }` 的副效应逻辑。

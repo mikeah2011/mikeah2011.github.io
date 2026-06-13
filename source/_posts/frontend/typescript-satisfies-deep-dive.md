@@ -1,20 +1,21 @@
 ---
+
 title: TypeScript satisfies 深度实战：类型收窄与类型断言的替代方案
-keywords: [TypeScript]
+keywords: [TypeScript satisfies, 深度实战, 类型收窄与类型断言的替代方案, 前端]
 date: 2026-06-10 08:54:00
 categories:
+  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-- frontend
 tags:
 - TypeScript
 - 类型系统
 - Laravel
 - 工程化
-description: 深入解析 TypeScript 4.9 引入的 satisfies 操作符，对比 as 断言和显式类型注解的差异，结合 Laravel 前端项目中的实际场景，展示如何用
-  satisfies 实现更精准的类型收窄与配置校验。
+description: 深入解析 TypeScript 4.9 引入的 satisfies 操作符，对比 as 断言和显式类型注解的差异，结合 Laravel 前端项目中的实际场景，展示如何用 satisfies 实现更精准的类型收窄与配置校验。
 ---
+
 
 
 ## 为什么需要 satisfies

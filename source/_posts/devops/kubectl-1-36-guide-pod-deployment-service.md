@@ -1,6 +1,7 @@
 ---
+
 title: kubectl-1.36-实战-Pod-Deployment-Service-基础操作与-Laravel-B2C-API-踩坑记录
-keywords: [Pod, Deployment, Service]
+keywords: [kubectl, Pod, Deployment, Service, Laravel, B2C, API, 基础操作与, 踩坑记录]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -13,9 +14,9 @@ tags:
 - KKday
 - Kubernetes
 - Laravel
-description: 从零开始掌握 kubectl 核心命令，以 Laravel B2C API 为例，覆盖 Pod 生命周期、Deployment 滚动更新、Service
-  服务发现的真实操作与踩坑记录。
+description: 从零开始掌握 kubectl 核心命令，以 Laravel B2C API 为例，覆盖 Pod 生命周期、Deployment 滚动更新、Service 服务发现的真实操作与踩坑记录。
 ---
+
 
 
 # kubectl 1.36 实战：Pod、Deployment、Service 基础操作与 Laravel B2C API 踩坑记录

@@ -1,4 +1,4 @@
----
+
 title: Laravel Telescope 开发调试实战：请求追踪、队列监控与慢查询定位踩坑记录
 keywords: [Laravel, Telescope]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -7,7 +7,7 @@ images:
 date: 2026-05-16 20:30:46
 updated: 2026-05-16 20:35:29
 categories:
-- php
+  - php
 tags:
 - Laravel
 - Telescope
@@ -15,8 +15,7 @@ tags:
 - 性能优化
 - 调试
 - PHP
-description: 'Laravel Telescope 官方调试面板实战指南：详解请求监控、慢查询定位、队列追踪、日志分析与性能调优。 涵盖环境隔离配置、N+1
-  查询排查、自定义 Watcher 开发、缓存命中率优化、调试工具选型对比， 基于 KKday B2C 30+ 仓库实战经验，分享监控踩坑记录与生产环境安全防护策略。
+description: 'Laravel Telescope 官方调试面板实战指南：详解请求监控、慢查询定位、队列追踪、日志分析与性能调优。 涵盖环境隔离配置、N+1 查询排查、自定义 Watcher 开发、缓存命中率优化、调试工具选型对比， 基于 KKday B2C 30+ 仓库实战经验，分享监控踩坑记录与生产环境安全防护策略。
 
   '
 ---

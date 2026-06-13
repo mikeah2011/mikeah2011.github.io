@@ -2,7 +2,7 @@
 title: OpenHuman Memory Tree 深度剖析：确定性分块、实体提取、主题树与全局摘要的四层架构
 date: 2026-06-02 07:22:45
 tags: [OpenHuman, AI Agent, Memory Tree, 知识管理, 本地AI]
-keywords: [OpenHuman, AI Agent, Memory Tree, 知识管理, 本地AI, Memory, Tree]
+keywords: [OpenHuman Memory Tree, 深度剖析, 确定性分块, 实体提取, 主题树与全局摘要的四层架构, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "深度剖析 OpenHuman Memory Tree 的四层架构设计：确定性分块、实体提取、主题树与全局摘要。详解每层的输入输出、处理逻辑与协作流程，对比传统 RAG 方案的优势，附带 Python 代码示例与 Memory Tree vs 向量数据库对比表格。涵盖增量更新策略、查询优化、多粒度索引等生产级实践，帮助开发者构建结构化、可高效查询的 AI Agent 记忆系统。"
 ---
+
 
 # OpenHuman Memory Tree 深度剖析：确定性分块、实体提取、主题树与全局摘要的四层架构
 

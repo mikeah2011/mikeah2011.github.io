@@ -1,6 +1,7 @@
 ---
+
 feature: true
-keywords: [Docker, Compose, Laravel]
+keywords: [Docker, Compose, Laravel, PHP, FPM, MySQL, Redis, Mailpit, 本地开发环境实战, 完整搭建指南]
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/laravel-code.jpg
 images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/laravel-code.jpg
@@ -15,9 +16,9 @@ tags:
 - MySQL
 - PHP
 - Redis
-description: 从零搭建 Laravel 11+ 本地开发环境的完整指南 —— Docker Compose 编排 PHP-FPM 8.3 + MySQL
-  8.0 + Redis 7 + Mailpit，覆盖 Xdebug 远程调试、热重载、数据库初始化、健康检查等实战配置，附 Colima/M 芯片 Mac 专属踩坑记录。
+description: 从零搭建 Laravel 11+ 本地开发环境的完整指南 —— Docker Compose 编排 PHP-FPM 8.3 + MySQL 8.0 + Redis 7 + Mailpit，覆盖 Xdebug 远程调试、热重载、数据库初始化、健康检查等实战配置，附 Colima/M 芯片 Mac 专属踩坑记录。
 ---
+
 
 ## 一、为什么不用 Laravel Sail？
 

@@ -1,6 +1,6 @@
 ---
 title: CQRS + Event Sourcing 深度实战进阶：快照重建、投影重建、事件版本迁移——Laravel 订单系统的事件溯源生产级治理
-keywords: [CQRS, Event, Sourcing]
+keywords: [CQRS, Event Sourcing, Laravel, 深度实战进阶, 快照重建, 投影重建, 事件版本迁移, 订单系统的事件溯源生产级治理, 架构]
 date: 2026-06-10 04:55:00
 categories:
   - architecture
@@ -15,6 +15,7 @@ tags:
   - DDD
 description: 从理论到生产，深入讲解 CQRS + Event Sourcing 在 Laravel 订单系统中的快照重建、投影重建和事件版本迁移，解决事件流膨胀、读模型损坏和 Schema 演进三大生产级难题。
 ---
+
 
 ## 概述
 

@@ -1,6 +1,6 @@
 ---
 title: Neon Serverless PostgreSQL 2.x 实战进阶：Autoscaling、Instant Restore 与 AI Agent 数据库连接的最佳实践
-keywords: [Neon, Serverless, PostgreSQL]
+keywords: [Neon Serverless PostgreSQL, Autoscaling, Instant Restore, AI Agent, 实战进阶, 数据库连接的最佳实践, 数据库]
 date: 2026-06-09 14:25:00
 categories:
   - database
@@ -15,6 +15,7 @@ tags:
   - Laravel
 description: 深入 Neon Serverless PostgreSQL 2.x 的 Autoscaling、Instant Restore、AI Agent 数据库连接，结合 Laravel 实战演示弹性数据库架构的最佳实践。
 ---
+
 
 ## 概述
 

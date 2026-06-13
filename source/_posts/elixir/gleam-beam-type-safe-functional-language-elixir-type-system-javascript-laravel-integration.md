@@ -1,6 +1,6 @@
 ---
 title: "Gleam 实战：BEAM VM 上的类型安全函数式语言——对比 Elixir 的类型系统、编译到 JS 与 Laravel 集成方案"
-keywords: [Gleam]
+keywords: [Gleam, BEAM VM, Elixir, JS, Laravel, 上的类型安全函数式语言, 的类型系统, 编译到, 集成方案]
 date: 2026-06-10 03:30:00
 categories:
   - elixir
@@ -18,6 +18,7 @@ tags:
   - WebAssembly
 description: "Gleam 是 BEAM 虚拟机上的新语言，用 Hindley-Milner 类型系统为 Erlang/Elixir 生态带来静态类型。本文从 PHP/Laravel 开发者视角深入 Gleam 语法、类型系统、JS 编译、与 Laravel 集成的完整实战路径。"
 ---
+
 
 # Gleam 实战：BEAM VM 上的类型安全函数式语言
 

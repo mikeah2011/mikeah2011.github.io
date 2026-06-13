@@ -1,6 +1,7 @@
 ---
+
 title: ThinkPHP 框架入门：国内主流 PHP 框架快速上手
-keywords: [ThinkPHP]
+keywords: [ThinkPHP, PHP, 框架入门, 国内主流, 框架快速上手]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -11,10 +12,9 @@ tags:
 categories:
 - php
 date: 2019-03-20 15:05:07
-description: ThinkPHP（TP）是国内使用最广的 PHP 框架，基于 MVC 架构，以全中文文档和约定优于配置著称。本文深入讲解 TP6/TP8
-  核心特性、ORM、中间件、事件系统、队列、验证器、缓存配置，并对比 TP6 与 TP8 差异及 ThinkPHP 与 Laravel 选型，附实战踩坑与安全防护经验，是国内
-  PHP 开发者的实用参考指南。
+description: ThinkPHP（TP）是国内使用最广的 PHP 框架，基于 MVC 架构，以全中文文档和约定优于配置著称。本文深入讲解 TP6/TP8 核心特性、ORM、中间件、事件系统、队列、验证器、缓存配置，并对比 TP6 与 TP8 差异及 ThinkPHP 与 Laravel 选型，附实战踩坑与安全防护经验，是国内 PHP 开发者的实用参考指南。
 ---
+
 
 
 ## 一、ThinkPHP 简介

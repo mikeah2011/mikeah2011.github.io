@@ -4,7 +4,7 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags: [Laravel, DDD, 领域驱动设计, 聚合根, 值对象, 领域事件, 限界上下文, 架构]
-keywords: [Laravel, DDD, 领域驱动设计, 聚合根, 值对象]
+keywords: [DDD, Laravel, 领域驱动设计, 中的实践, 技术杂谈, PHP]
 categories:
   - misc
   - php
@@ -15,6 +15,7 @@ updated: 2026-05-03 11:54:57
 
 
 ---
+
 ## 引言：为什么要引入 DDD？
 
 在 Laravel 项目开发中，随着业务复杂度提升，传统的 MVC 架构往往陷入"贫血模型"的困境——Controller、Model、Service 各自为战，领域知识散落在各处。本文分享我们在实际项目中落地 DDD 的经验，包括完整的架构设计、代码实现和踩坑记录。

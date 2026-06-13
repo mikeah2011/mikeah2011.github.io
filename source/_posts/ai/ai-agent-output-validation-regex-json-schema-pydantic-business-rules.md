@@ -1,6 +1,6 @@
 ---
 title: AI Agent Output Validation 实战：LLM 输出的多层校验——Regex/JSON Schema/Pydantic/业务规则的四重防线
-keywords: [AI, Agent, Output]
+keywords: [AI Agent Output Validation, LLM, Regex, JSON Schema, Pydantic, 输出的多层校验, 业务规则的四重防线, AI]
 date: 2026-06-10 00:40:00
 categories:
   - ai
@@ -16,6 +16,7 @@ tags:
   - Laravel
 description: 系统讲解 AI Agent 输出校验的四层防线架构：正则快速过滤、JSON Schema 结构校验、Pydantic 类型绑定、业务规则语义验证，并提供 Laravel 实战集成方案。
 ---
+
 
 ## 概述
 

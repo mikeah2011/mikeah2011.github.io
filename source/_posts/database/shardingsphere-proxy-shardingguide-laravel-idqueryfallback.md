@@ -1,6 +1,7 @@
 ---
+
 title: ShardingSphere-Proxy 分库分表实战：Laravel 订单中心按用户路由、全局 ID 与跨片查询降级踩坑记录
-keywords: [ShardingSphere, Proxy]
+keywords: [ShardingSphere, Proxy, Laravel, ID, 分库分表实战, 订单中心按用户路由, 全局, 与跨片查询降级踩坑记录]
 date: 2026-05-03 09:40:55
 updated: 2026-05-03 09:40:55
 categories:
@@ -11,14 +12,13 @@ tags:
 - 分库分表
 - shardsphere-proxy
 - 跨片查询
-description: 结合 Laravel 订单中心的真实治理过程，完整记录基于 ShardingSphere-Proxy 的分库分表落地方案。从 ShardingSphere-Proxy
-  Docker 部署、分片规则配置、Laravel Repository 层路由约束，到全局 ID 生成、跨片查询降级策略、双写校验迁移、Prometheus 监控接入，再到线上高频踩坑（COUNT
-  广播、事务跨片、whereIn 散射）的逐一拆解，帮助你在 Laravel + MySQL 体系下把 ShardingSphere-Proxy 从 PoC 推到生产可用。
+description: 结合 Laravel 订单中心的真实治理过程，完整记录基于 ShardingSphere-Proxy 的分库分表落地方案。从 ShardingSphere-Proxy Docker 部署、分片规则配置、Laravel Repository 层路由约束，到全局 ID 生成、跨片查询降级策略、双写校验迁移、Prometheus 监控接入，再到线上高频踩坑（COUNT 广播、事务跨片、whereIn 散射）的逐一拆解，帮助你在 Laravel + MySQL 体系下把 ShardingSphere-Proxy 从 PoC 推到生产可用。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-1-content-1.jpg
 - /images/content/databases-1-content-2.jpg
 ---
+
 
 订单表在 3000 万行之前，靠索引、冷热字段拆分和归档还能勉强顶住；一旦运营后台开始按状态、渠道、出行日期、退款状态混查，再叠加支付回调、履约任务和财务导出，单表的写放大、索引膨胀和分页扫描会一起爆出来。我们在一个 Laravel 订单中心里把 `orders` 从单库单表迁到 **ShardingSphere-Proxy + MySQL 分片**，目标并不是“为了炫技上分库分表”，而是把最热的订单写入、用户维度查询和后台导出拆开治理。
 

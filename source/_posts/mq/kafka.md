@@ -1,6 +1,7 @@
 ---
+
 title: Kafka 入门：分区、副本、消费者组与高吞吐消息架构
-keywords: [Kafka]
+keywords: [Kafka, 分区, 副本, 消费者组与高吞吐消息架构, 消息队列]
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
@@ -13,10 +14,11 @@ tags:
 - 分布式
 - 高吞吐
 categories:
-- mq
+  - mq
 date: 2019-03-20 15:05:07
 description: 深入解析Apache Kafka消息队列核心架构与原理：Broker集群、Topic与Partition分区机制、Consumer Group消费组与Rebalance重平衡、Producer生产者分区策略与acks确认机制。附PHP/Laravel实战代码示例，涵盖消息顺序性保证、死信队列DLQ处理、Exactly-Once语义、监控运维方案与生产环境踩坑案例总结，帮助后端工程师全面掌握Kafka高吞吐异步解耦架构设计。
 ---
+
 
 ## 一、为什么需要 Kafka？
 

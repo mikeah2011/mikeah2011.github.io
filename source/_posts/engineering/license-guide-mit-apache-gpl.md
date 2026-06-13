@@ -7,7 +7,7 @@ date: 2026-05-05 09:21:02
 updated: 2026-05-05 09:24:05
 description: "开源项目License选型实战指南：详解MIT、Apache 2.0、GPL v3、LGPL、AGPL五大主流许可证的核心差异与适用场景，涵盖Copyleft传染性陷阱、专利保护条款、License兼容性矩阵、CI自动化检查方案，以及Laravel/PHP生态依赖扫描脚本，帮助开发者避免GPL合规踩坑与商业风险。"
 tags: [License, 开源, 工程管理, MIT, Apache, GPL, 合规]
-keywords: [License, 开源, 工程管理, MIT, Apache]
+keywords: [License, MIT, Apache, GPL, 开源项目, 选型实战, 选择策略与合规踩坑记录, 工程化]
 categories:
   - engineering
   - process
@@ -15,6 +15,7 @@ categories:
 
 
 ---
+
 ## 前言
 
 在 30+ 仓库的团队开发中，我发现一个被严重低估的问题：**License 选型**。大多数开发者在 `git init` 后随手选个 MIT，或者干脆不加 License——直到有一天法务找上门，或者你发现引了一个 GPL 库导致整个项目被迫开源。

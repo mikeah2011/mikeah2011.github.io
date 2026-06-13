@@ -2,7 +2,7 @@
 title: GDPR/个人信息保护法合规实战：Laravel 应用中的数据主体权利、同意管理与跨境传输
 date: 2026-06-02 10:00:00
 tags: [GDPR, 个人信息保护法, Laravel, 隐私合规, 数据安全]
-keywords: [GDPR, 个人信息保护法, Laravel, 隐私合规, 数据安全]
+keywords: [GDPR, Laravel, 个人信息保护法合规实战, 应用中的数据主体权利, 同意管理与跨境传输, DevOps]
 description: "系统讲解 GDPR 与个人信息保护法（PIPL）在 Laravel 应用中的合规实战，包括数据主体权利的完整实现（访问权 SAR、删除权被遗忘权、数据可携带权、更正权、限制处理权）、同意管理系统的数据库设计与 API 实现、Cookie 同意横幅 Vue 组件、隐私合规中间件、数据最小化 Trait、跨境传输安全评估方案。附带 GDPR vs PIPL 核心对比表、数据保留义务检查逻辑和账户匿名化处理流程，适合同时服务中国和欧洲用户的 Laravel 国际化项目参考。"
 categories:
   - devops
@@ -10,6 +10,7 @@ cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
+
 
 ## 前言
 

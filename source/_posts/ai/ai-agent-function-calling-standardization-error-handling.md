@@ -2,13 +2,14 @@
 title: AI Agent 工具调用实战：Function Calling 标准化与错误处理
 date: 2026-06-02 12:00:00
 tags: [AI Agent, Function Calling, OpenAI, 工具调用, 错误处理]
-keywords: [AI Agent, Function Calling, OpenAI, 工具调用, 错误处理, AI, Agent]
+keywords: [AI Agent, Function Calling, 工具调用实战, 标准化与错误处理, AI]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: "深度拆解 AI Agent 与 Function Calling 的标准化实践，覆盖工具调用、MCP 协议、OpenAI 接口差异与错误处理策略，帮你从 Demo 走向可上线、可治理、可扩展的生产级 Agent 系统。"
 ---
+
 
 在过去两年里，AI Agent 从“会聊天”快速演进到“能做事”。如果说早期大模型主要解决的是自然语言理解与生成，那么当我们谈论 Agent 时，核心问题已经变成：**模型如何可靠地调用外部工具，并把工具结果纳入推理闭环**。无论是查天气、执行 SQL、搜索知识库，还是触发 CI/CD、操作浏览器、调用内部业务 API，这些能力背后都绕不开一个工程关键词：**Function Calling**。
 

@@ -1,6 +1,7 @@
 ---
+
 title: 导入&导出优选CSV格式的理由
-keywords: [CSV]
+keywords: [CSV, 导入, 导出优选, 格式的理由]
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
@@ -13,9 +14,9 @@ tags:
 - 工程管理
 categories:
 - misc
-description: CSV格式作为数据导入导出的首选方案，具有跨平台兼容性强、内存占用低、流式处理高效等核心优势。本文从文件格式对比出发，深入分析CSV与JSON、XML、Excel的差异，涵盖PHP
-  CSV处理的完整代码示例（fgetcsv/fputcsv/SplFileObject），详解Laravel中Excel与League CSV包的实战用法，并探讨大文件处理、编码转换、特殊字符转义等常见问题的解决方案，以及CSV在数据分析与ETL流水线中的典型应用场景。
+description: CSV格式作为数据导入导出的首选方案，具有跨平台兼容性强、内存占用低、流式处理高效等核心优势。本文从文件格式对比出发，深入分析CSV与JSON、XML、Excel的差异，涵盖PHP CSV处理的完整代码示例（fgetcsv/fputcsv/SplFileObject），详解Laravel中Excel与League CSV包的实战用法，并探讨大文件处理、编码转换、特殊字符转义等常见问题的解决方案，以及CSV在数据分析与ETL流水线中的典型应用场景。
 ---
+
 
 
 CSV，comma-separated values 逗号分隔值，通常被用于在使用纯文本的系统之间，交换表格类型的数据。

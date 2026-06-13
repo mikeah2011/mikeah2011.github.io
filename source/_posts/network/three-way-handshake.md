@@ -1,6 +1,7 @@
 ---
+
 title: TCP 三次握手详解：SYN、SYN-ACK、ACK 的完整流程
-keywords: [TCP]
+keywords: [TCP, SYN, ACK, 三次握手详解, 的完整流程]
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
@@ -14,9 +15,9 @@ tags:
 categories:
 - network
 date: 2017-03-20 15:05:07
-description: 深入解析TCP三次握手原理，包括SYN、ACK报文交互过程、状态转换（SYN_SENT、SYN_RCVD、ESTABLISHED）、抓包实战（tcpdump/Wireshark）及常见面试题。涵盖为什么不是两次握手、SYN
-  Flood攻击防御、TCP与UDP对比等核心知识点，帮助你全面掌握HTTP网络协议中TCP连接建立的底层机制。
+description: 深入解析TCP三次握手原理，包括SYN、ACK报文交互过程、状态转换（SYN_SENT、SYN_RCVD、ESTABLISHED）、抓包实战（tcpdump/Wireshark）及常见面试题。涵盖为什么不是两次握手、SYN Flood攻击防御、TCP与UDP对比等核心知识点，帮助你全面掌握HTTP网络协议中TCP连接建立的底层机制。
 ---
+
 
 
 ## 什么是 TCP 三次握手？

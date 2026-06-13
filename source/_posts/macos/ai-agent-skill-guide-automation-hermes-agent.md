@@ -1,6 +1,7 @@
 ---
+
 title: AI Agent Skill 开发实战：自定义技能与工作流自动化——Hermes Agent 踩坑记录
-keywords: [AI, Agent, Skill]
+keywords: [AI Agent Skill, Hermes Agent, 开发实战, 自定义技能与工作流自动化, 踩坑记录]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -19,10 +20,9 @@ tags:
 - 工作流
 - 自动化
 - 架构
-description: Hermes Agent Skill 系统深度实战指南——从 SKILL.md 格式规范、Progressive Disclosure 三级渐进加载机制、条件激活与
-  fallback 策略、环境变量安全管理，到完整的 Hexo 博客写作 Skill 开发流程与 Cron 无人值守自动化工作流集成。包含 9 个真实踩坑案例、架构设计图、方案对比表与最佳实践清单，帮助
-  AI Agent 开发者快速上手自定义 Skill 开发，实现工作流自动化。
+description: Hermes Agent Skill 系统深度实战指南——从 SKILL.md 格式规范、Progressive Disclosure 三级渐进加载机制、条件激活与 fallback 策略、环境变量安全管理，到完整的 Hexo 博客写作 Skill 开发流程与 Cron 无人值守自动化工作流集成。包含 9 个真实踩坑案例、架构设计图、方案对比表与最佳实践清单，帮助 AI Agent 开发者快速上手自定义 Skill 开发，实现工作流自动化。
 ---
+
 
 
 # AI Agent Skill 开发实战：自定义技能与工作流自动化——Hermes Agent 踩坑记录

@@ -1,6 +1,7 @@
 ---
+
 title: PHP 接口 vs 抽象类：面向对象设计的选型决策
-keywords: [PHP]
+keywords: [PHP, 接口, 抽象类, 面向对象设计的选型决策]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,10 +11,11 @@ tags:
 - 设计模式
 - SOLID
 categories:
-- php
+  - php
 date: 2021-03-20 15:05:07
 description: 深入解析PHP接口与抽象类的区别、使用场景及最佳实践。涵盖接口与抽象类的定义、SOLID原则、Laravel实战案例、PHP 8+新特性、PHPUnit测试技巧及常见反模式，帮助开发者在面向对象设计中做出正确的架构决策。
 ---
+
 
 
 

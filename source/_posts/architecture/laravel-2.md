@@ -1,4 +1,5 @@
 ---
+
 title: 库存预占与释放机制设计：Laravel 分布式库存的状态机实战
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
@@ -6,7 +7,8 @@ images:
 date: 2026-06-09 23:10:00
 updated: 2026-06-09 23:10:00
 categories:
-- architecture
+  - architecture
+keywords: [Laravel, 库存预占与释放机制设计, 分布式库存的状态机实战]
 tags:
 - Laravel
 - 库存
@@ -16,9 +18,9 @@ tags:
 - 电商
 - 预占
 - 乐观锁
-description: 电商库存预占与释放机制的完整 Laravel 实战。覆盖下单预占、支付扣减、超时释放、退款回补四阶段状态机设计，基于 Redis + MySQL
-  双写架构，实现分布式场景下的库存一致性。含状态机定义、Laravel Job 超时释放、乐观锁防超卖、Lua 脚本原子扣减、退款回补幂等设计等完整代码示例，附四个真实踩坑案例。
+description: 电商库存预占与释放机制的完整 Laravel 实战。覆盖下单预占、支付扣减、超时释放、退款回补四阶段状态机设计，基于 Redis + MySQL 双写架构，实现分布式场景下的库存一致性。含状态机定义、Laravel Job 超时释放、乐观锁防超卖、Lua 脚本原子扣减、退款回补幂等设计等完整代码示例，附四个真实踩坑案例。
 ---
+
 
 
 ## 前言：超卖事故复盘

@@ -1,7 +1,7 @@
 ---
+
 title: Signals 范式对比：Angular Signals vs Vue Reactivity vs Solid Reactivity vs Preact
-keywords: [Signals]
-  Signals——响应式底层原理深度剖析
+keywords: [Signals, Angular Signals vs Vue Reactivity vs Solid Reactivity vs Preact, 范式对比]
 date: 2026-06-05 09:00:00
 tags:
 - Signals
@@ -16,10 +16,9 @@ categories:
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-description: 深度对比 Angular Signals、Vue Reactivity、Solid.js、Preact Signals 四大响应式方案的底层原理与
-  API 设计，涵盖 Push-Pull 混合模型、Proxy 与函数拦截的依赖追踪差异、编译时优化策略、常见踩坑陷阱及选型决策矩阵，帮助前端开发者从原理层面理解
-  Signals 范式并做出正确的架构选型。
+description: 深度对比 Angular Signals、Vue Reactivity、Solid.js、Preact Signals 四大响应式方案的底层原理与 API 设计，涵盖 Push-Pull 混合模型、Proxy 与函数拦截的依赖追踪差异、编译时优化策略、常见踩坑陷阱及选型决策矩阵，帮助前端开发者从原理层面理解 Signals 范式并做出正确的架构选型。
 ---
+
 
 
 

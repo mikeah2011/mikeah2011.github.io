@@ -1,10 +1,8 @@
----
+
 title: Monorepo 深度实战：Nx vs Turborepo vs Pants——大型 Laravel + 前端项目的构建缓存与任务编排
 keywords: [Monorepo]
 date: 2026-06-06 10:00:00
-description: '深度对比 Monorepo 三大构建工具 Nx、Turborepo 与 Pants 在大型 Laravel + Vue/React 全栈项目中的实战表现。从构建缓存机制（本地缓存、远程缓存、内容寻址存储）、任务编排拓扑排序到受影响分析，逐一拆解核心架构与配置细节。涵盖
-  turbo prune Docker 多阶段构建优化、GitHub Actions CI/CD 流水线完整配置、四个真实踩坑案例与修复方案，附决策矩阵与四阶段渐进式迁移路径，助团队根据规模与技术栈快速选型并落地
-  Monorepo。
+description: '深度对比 Monorepo 三大构建工具 Nx、Turborepo 与 Pants 在大型 Laravel + Vue/React 全栈项目中的实战表现。从构建缓存机制（本地缓存、远程缓存、内容寻址存储）、任务编排拓扑排序到受影响分析，逐一拆解核心架构与配置细节。涵盖 turbo prune Docker 多阶段构建优化、GitHub Actions CI/CD 流水线完整配置、四个真实踩坑案例与修复方案，附决策矩阵与四阶段渐进式迁移路径，助团队根据规模与技术栈快速选型并落地 Monorepo。
 
   '
 tags:
@@ -22,11 +20,10 @@ tags:
 - GitHub Actions
 - pnpm
 categories:
-- architecture
+  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
----
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop---
 
 
 
@@ -85,6 +82,7 @@ project-root/
 在这个结构中，`apps` 目录存放可独立部署的应用程序，`packages` 目录存放被多个应用共享的库。通过 pnpm workspace 和 Composer path 仓库机制，所有子项目之间的依赖关系都是本地符号链接，无需经过远程包管理器，开发体验如同在一个项目中工作。
 
 ---
+
 
 ## 二、Nx：全功能 Monorepo 平台
 

@@ -1,6 +1,6 @@
 ---
 title: "LLM Structured Output 实战进阶：JSON Mode vs Function Calling vs Constrained Decoding"
-keywords: [LLM, Structured, Output]
+keywords: [LLM Structured Output, JSON Mode vs Function Calling vs Constrained Decoding, 实战进阶, AI]
 date: 2026-06-10 08:09:00
 categories:
   - ai
@@ -17,6 +17,7 @@ tags:
   - Constrained Decoding
 description: "深入对比三种 LLM 强制输出格式方案的原理与可靠性，并给出 Laravel 集成的完整实战代码。"
 ---
+
 
 ## 概述
 

@@ -1,6 +1,6 @@
 ---
 title: Laravel + Tinybird 实战：实时分析 API——ClickHouse 驱动的 Serverless OLAP 与 Laravel 集成
-keywords: [Laravel, Tinybird]
+keywords: [Laravel, Tinybird, API, ClickHouse, Serverless OLAP, 实时分析, 驱动的, 架构]
 date: 2026-06-09 06:46:00
 categories:
   - architecture
@@ -17,6 +17,7 @@ cover: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
 images:
   - https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
 ---
+
 
 ## 概述
 

@@ -4,13 +4,14 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags: [DevOps, Linux, 运维, Shell]
-keywords: [DevOps, Linux, 运维, Shell]
+keywords: [Linux, Shell, 运维与, 完全指南, 权限, 命令, 进程管理与网络调试, 工程化]
 categories:
   - engineering
   - linux
 date: 2021-03-20 15:05:07
 description: 'Linux 运维完全指南：详解文件权限体系（chmod/chown/SUID/SGID/Sticky Bit）、常用命令速查（find/grep/awk/sed/tar/rsync）、进程管理（systemd/journalctl）、网络调试（tcpdump/iptables）、磁盘管理（LVM）及 Shell 脚本编程，涵盖 20+ 实战命令示例，适合开发者与运维工程师快速查阅。'
 ---
+
 # Linux 运维与 Shell 完全指南
 
 本文是面向开发者和运维工程师的 Linux 综合参考手册。无论你是刚接触 Linux 的新手，还是有经验的系统管理员，都可以在这里找到日常工作中最常用的命令、配置方法和最佳实践。文章涵盖文件权限体系、常用命令速查、进程管理、网络调试、磁盘管理、用户管理以及 Shell 脚本编程七大主题，每个知识点都附带可直接运行的命令示例。

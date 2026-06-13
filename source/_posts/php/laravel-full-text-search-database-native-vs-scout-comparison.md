@@ -1,7 +1,7 @@
 ---
+
 title: Laravel Full-Text Search 实战：不用 Elasticsearch 也能做——数据库原生全文搜索与 Laravel Scout
-keywords: [Laravel, Full, Text]
-  深度对比
+keywords: [Laravel Full, Text Search, Elasticsearch, Laravel Scout, 不用, 也能做, 数据库原生全文搜索与]
 date: 2026-06-02 10:00:00
 tags:
 - Laravel
@@ -14,10 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-description: 做全文搜索就一定要上 Elasticsearch 吗？本文深入对比 Laravel 生态中的多种全文搜索方案：MySQL FULLTEXT（ngram
-  解析器）、PostgreSQL tsvector/tsquery、Laravel Scout Database Driver、Meilisearch 以及 Elasticsearch。从索引原理、中文分词、查询性能、Faceting
-  能力、运维成本等维度进行实测对比，提供不同数据量级下的选型建议。适合中小项目在引入重型搜索引擎前的务实评估。
+description: 做全文搜索就一定要上 Elasticsearch 吗？本文深入对比 Laravel 生态中的多种全文搜索方案：MySQL FULLTEXT（ngram 解析器）、PostgreSQL tsvector/tsquery、Laravel Scout Database Driver、Meilisearch 以及 Elasticsearch。从索引原理、中文分词、查询性能、Faceting 能力、运维成本等维度进行实测对比，提供不同数据量级下的选型建议。适合中小项目在引入重型搜索引擎前的务实评估。
 ---
+
 
 
 # Laravel Full-Text Search 实战：不用 Elasticsearch 也能做——数据库原生全文搜索与 Laravel Scout 深度对比

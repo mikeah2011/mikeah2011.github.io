@@ -1,6 +1,6 @@
 ---
 title: "Framer Motion 实战：React/Vue 声明式动画库——Layout Animation、Shared Layout 与手势交互的生产级方案"
-keywords: [Framer, Motion]
+keywords: [Framer Motion, React, Vue, Layout Animation, Shared Layout, 声明式动画库, 与手势交互的生产级方案, 前端]
 date: 2026-06-10 03:58:00
 categories:
   - frontend
@@ -17,6 +17,7 @@ tags:
   - 动画性能
 description: "从设计原理、布局动画、Shared Layout、手势系统到性能优化，提供 React/Vue 的生产级 Framer Motion 实战方案与避坑经验。"
 ---
+
 
 在真实业务里，动画不是为了炫技，而是为了传递状态、引导注意力和降低认知成本。Framer Motion 之所以值得投入，不是因为它能做很多动画，而是因为它在 React 生态下把布局动画、共享布局、手势系统和无障碍体验做成了相对一致的默认路径。
 

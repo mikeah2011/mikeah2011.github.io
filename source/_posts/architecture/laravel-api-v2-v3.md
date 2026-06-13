@@ -9,11 +9,12 @@ categories:
   - architecture
   - php
 tags: [Laravel, API版本控制, RESTful, 向后兼容]
-keywords: [Laravel, API版本控制, RESTful, 向后兼容, API]
+keywords: [Laravel API, v2, v3, 多版本演进策略, 的平滑迁移与废弃方案, 架构, PHP]
 
 
 
 ---
+
 ## 📌 问题背景：为什么 Laravel B2C API 需要多版本？
 
 在 KKday RD B2C 后端 Team 的实际项目中，我们面临这样的场景：

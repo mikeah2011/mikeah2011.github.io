@@ -1,6 +1,6 @@
 ---
 title: "ClickHouse MergeTree 引擎深度实战：ReplacingMergeTree/CollapsingMergeTree 的电商埋点去重与增量聚合"
-keywords: [ClickHouse, MergeTree]
+keywords: [ClickHouse MergeTree, ReplacingMergeTree, CollapsingMergeTree, 引擎深度实战, 的电商埋点去重与增量聚合, 数据库]
 date: 2026-06-10 05:15:00
 categories:
   - database
@@ -18,6 +18,7 @@ tags:
   - OLAP
 description: "深入实战 ClickHouse 的 ReplacingMergeTree 和 CollapsingMergeTree 引擎，以电商埋点场景为例，详解数据去重与增量聚合的核心原理、踩坑经验及 Laravel 集成方案。"
 ---
+
 
 ## 概述
 

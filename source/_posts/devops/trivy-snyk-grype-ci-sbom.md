@@ -1,4 +1,5 @@
 ---
+
 title: 容器安全扫描实战：Trivy/Snyk/Grype CI 集成——镜像漏洞检测、SBOM 生成与修复工作流
 date: 2026-06-03 00:00:00
 tags:
@@ -9,16 +10,15 @@ tags:
 - grype
 - SBOM
 - CI/CD
-description: 容器安全扫描实战指南，深入对比 Trivy、Snyk、Grype 三大主流镜像漏洞扫描工具的架构原理与 CI/CD 集成方案。涵盖 GitHub
-  Actions 与 GitLab CI 中的安全门禁配置、SBOM 生成（SPDX/CycloneDX 标准）、Dependency-Track 漏洞管理平台部署、OPA/Kyverno
-  Policy-as-Code 策略编写，以及 Trivy Operator 持续监控。附带完整可运行的 CI 配置示例与 7 个真实踩坑案例，帮助 DevSecOps
-  团队在构建阶段拦截 90% 以上的容器安全风险。
+description: 容器安全扫描实战指南，深入对比 Trivy、Snyk、Grype 三大主流镜像漏洞扫描工具的架构原理与 CI/CD 集成方案。涵盖 GitHub Actions 与 GitLab CI 中的安全门禁配置、SBOM 生成（SPDX/CycloneDX 标准）、Dependency-Track 漏洞管理平台部署、OPA/Kyverno Policy-as-Code 策略编写，以及 Trivy Operator 持续监控。附带完整可运行的 CI 配置示例与 7 个真实踩坑案例，帮助 DevSecOps 团队在构建阶段拦截 90% 以上的容器安全风险。
 categories:
-- devops
+  - devops
+keywords: [Trivy, Snyk, Grype CI, SBOM, 容器安全扫描实战, 镜像漏洞检测, 生成与修复工作流]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
+
 
 
 

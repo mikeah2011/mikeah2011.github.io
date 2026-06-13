@@ -1,6 +1,7 @@
 ---
+
 title: PHP 工作原理：SAPI、FPM、OPcache 与请求生命周期
-keywords: [PHP]
+keywords: [PHP, SAPI, FPM, OPcache, 工作原理, 与请求生命周期]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -13,10 +14,9 @@ tags:
 categories:
 - php
 date: 2019-03-20 15:05:07
-description: 深入解析PHP工作原理，涵盖CGI、FastCGI协议与PHP-FPM进程管理机制。详解Nginx与PHP-FPM的请求处理流程，包括PHP
-  7/8 JIT编译器、Zend Engine性能改进、OPcache缓存原理与配置优化。对比CLI模式与FPM模式的区别，提供PHP-FPM调优实战参数配置与502
-  Bad Gateway等常见问题排查方案。
+description: 深入解析PHP工作原理，涵盖CGI、FastCGI协议与PHP-FPM进程管理机制。详解Nginx与PHP-FPM的请求处理流程，包括PHP 7/8 JIT编译器、Zend Engine性能改进、OPcache缓存原理与配置优化。对比CLI模式与FPM模式的区别，提供PHP-FPM调优实战参数配置与502 Bad Gateway等常见问题排查方案。
 ---
+
 
 
 ## 概述

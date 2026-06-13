@@ -2,13 +2,14 @@
 title: OpenHuman AutoFetch 调度器：每 20 分钟连接遍历、sync state 管理、去重与预算控制
 date: 2026-06-02 12:00:00
 tags: [OpenHuman, AI Agent, 调度器, 数据同步, 去重]
-keywords: [OpenHuman, AI Agent, 调度器, 数据同步, 去重, AutoFetch]
+keywords: [OpenHuman AutoFetch, sync state, 调度器, 分钟连接遍历, 去重与预算控制, AI]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: 深入解析 OpenHuman AutoFetch 调度器的架构设计，包括每 20 分钟连接遍历机制、增量同步状态管理、幂等键与内容哈希双重去重策略、以及自适应预算控制系统。涵盖 Gmail、Slack、GitHub 等多数据源的统一抽象实现，帮助 AI Agent 开发者构建高效可靠的信息自动收集引擎。
 ---
+
 
 ## 前言
 

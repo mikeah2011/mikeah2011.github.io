@@ -1,6 +1,7 @@
 ---
+
 title: Flutter App 打包实战：iOS/Android/Web/桌面多平台发布流程
-keywords: [Flutter, App]
+keywords: [Flutter App, iOS, Android, Web, 打包实战, 桌面多平台发布流程]
 date: 2026-06-02 00:00:00
 tags:
 - Flutter
@@ -13,10 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
-description: 系统梳理 Flutter App 在 iOS、Android、Web、macOS、Windows、Linux 六大平台上的打包发布全流程实战。涵盖
-  Android 签名与 AAB 构建、iOS 证书管理与 TestFlight 发布、Web PWA 部署、桌面端代码签名与 DMG/MSIX/Snap 分发、CI/CD
-  自动化集成、多环境配置与灰度发布策略，附带完整构建脚本与 GitHub Actions 工作流示例，帮助团队建立可复用、可自动化的 Flutter 多平台交付体系。
+description: 系统梳理 Flutter App 在 iOS、Android、Web、macOS、Windows、Linux 六大平台上的打包发布全流程实战。涵盖 Android 签名与 AAB 构建、iOS 证书管理与 TestFlight 发布、Web PWA 部署、桌面端代码签名与 DMG/MSIX/Snap 分发、CI/CD 自动化集成、多环境配置与灰度发布策略，附带完整构建脚本与 GitHub Actions 工作流示例，帮助团队建立可复用、可自动化的 Flutter 多平台交付体系。
 ---
+
 
 
 # 前言：一次编写到处运行的理想与现实

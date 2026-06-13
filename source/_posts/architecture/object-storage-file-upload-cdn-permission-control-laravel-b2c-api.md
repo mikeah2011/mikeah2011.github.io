@@ -1,10 +1,12 @@
 ---
+
 title: 对象存储实战：文件上传、CDN 加速与权限控制的架构设计与 Laravel 落地踩坑记录
 date: 2026-06-01 16:00:00
 categories:
-- architecture
-- 云服务
-- php
+  - architecture
+  - 云服务
+  - php
+keywords: [CDN, Laravel, 对象存储实战, 文件上传, 加速与权限控制的架构设计与, 落地踩坑记录]
 tags:
 - 对象存储
 - AWS S3
@@ -15,13 +17,13 @@ tags:
 - 权限控制
 - Storage
 - Flysystem
-description: 不谈云厂商对比，只聊对象存储的三个核心运维命题：大文件上传怎么做才可靠？CDN 缓存怎么配才不翻车？权限模型怎么设计才安全？本文从 Laravel
-  B2C 电商真实场景出发，用源码级剖析和生产踩坑记录给出答案。
+description: 不谈云厂商对比，只聊对象存储的三个核心运维命题：大文件上传怎么做才可靠？CDN 缓存怎么配才不翻车？权限模型怎么设计才安全？本文从 Laravel B2C 电商真实场景出发，用源码级剖析和生产踩坑记录给出答案。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/arch-007-content-1.jpg
 - /images/content/arch-007-content-2.jpg
 ---
+
 
 # 对象存储实战：文件上传、CDN 加速与权限控制的架构设计与 Laravel 落地踩坑记录
 

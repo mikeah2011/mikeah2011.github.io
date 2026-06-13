@@ -2,7 +2,7 @@
 title: Data Classification 实战：敏感数据分级、加密存储、脱敏展示——Laravel 应用的数据治理框架
 date: 2026-06-06 09:00:00
 tags: [Data Classification, 数据治理, 数据加密, 数据脱敏, Laravel, GDPR, PIPL]
-keywords: [Data Classification, 数据治理, 数据加密, 数据脱敏, Laravel, Data, Classification]
+keywords: [Data Classification, Laravel, 敏感数据分级, 加密存储, 脱敏展示, 应用的数据治理框架, DevOps]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: 本文以 Laravel 应用为载体，系统讲解数据分级（L1-L4）分类标准、AES-256 字段级加密存储、多策略数据脱敏展示引擎的完整实现方案，并提供 GDPR 与 PIPL 合规映射表、审计日志策略及常见陷阱，帮助团队构建可落地的敏感数据治理框架。
 ---
+
 
 ## 引言
 

@@ -1,6 +1,7 @@
 ---
+
 title: HTTP/3 (QUIC) 实战：Caddy/H2O 服务器配置——Laravel 应用的协议升级与多路复用性能收益量化
-keywords: [HTTP, QUIC]
+keywords: [HTTP, QUIC, Caddy, H2O, Laravel, 服务器配置, 应用的协议升级与多路复用性能收益量化]
 date: 2026-06-05 23:23:38
 tags:
 - HTTP/3
@@ -14,10 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-description: 本文实战演示如何为 Laravel 应用启用 HTTP/3 (QUIC) 协议，涵盖 Caddy 与 H2O 两款服务器的完整配置流程、Docker
-  部署方案及性能基准测试。通过量化数据对比 HTTP/2 与 HTTP/3 在不同网络条件下的延迟、吞吐量和丢包表现，并提供 0-RTT 重放防护、连接迁移监控、UDP
-  防火墙排查等生产级运维方案，助力 Laravel 项目完成协议升级与性能优化。
+description: 本文实战演示如何为 Laravel 应用启用 HTTP/3 (QUIC) 协议，涵盖 Caddy 与 H2O 两款服务器的完整配置流程、Docker 部署方案及性能基准测试。通过量化数据对比 HTTP/2 与 HTTP/3 在不同网络条件下的延迟、吞吐量和丢包表现，并提供 0-RTT 重放防护、连接迁移监控、UDP 防火墙排查等生产级运维方案，助力 Laravel 项目完成协议升级与性能优化。
 ---
+
 
 
 

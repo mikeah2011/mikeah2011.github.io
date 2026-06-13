@@ -2,13 +2,14 @@
 title: AI Agent 多模态实战：图文理解、语音交互、视觉推理集成
 date: 2026-06-02 09:00:00
 tags: [AI Agent, 多模态, 图文理解, 语音交互, 视觉推理]
-keywords: [AI Agent, 多模态, 图文理解, 语音交互, 视觉推理, AI, Agent]
+keywords: [AI Agent, 多模态实战, 图文理解, 语音交互, 视觉推理集成, AI]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: "这篇 AI Agent 多模态实战指南系统拆解图文理解、语音交互、OCR 与视觉推理集成方案，结合 GPT-4V、Claude Vision、Whisper 与统一编排架构，带你从代码示例走向可落地的生产级多模态 Agent 系统。"
 ---
+
 
 # AI Agent 多模态实战：图文理解、语音交互、视觉推理集成
 

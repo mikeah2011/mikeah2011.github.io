@@ -1,6 +1,6 @@
 ---
 title: "PostgreSQL pg_stat_activity 深度实战：连接池监控、锁等待链分析与慢查询实时追踪——生产环境的数据库诊断工具箱"
-keywords: [PostgreSQL]
+keywords: [PostgreSQL pg, stat, activity, 深度实战, 连接池监控, 锁等待链分析与慢查询实时追踪, 生产环境的数据库诊断工具箱, 数据库]
 date: 2026-06-10 08:45:00
 categories:
   - database
@@ -17,6 +17,7 @@ tags:
   - Laravel
 description: "深入剖析 pg_stat_activity 视图的每一个字段，结合 Laravel 生态实现连接池监控、锁等待链递归追踪、慢查询实时告警三大生产级场景，附完整可运行代码。"
 ---
+
 
 ## 为什么 pg_stat_activity 是 DBA 的第一把手术刀
 

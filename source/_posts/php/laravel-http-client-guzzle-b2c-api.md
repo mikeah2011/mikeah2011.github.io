@@ -1,6 +1,7 @@
 ---
+
 title: Laravel HTTP Client 深度实战：Guzzle 封装、中间件链、超时策略、熔断降级——B2C API 的外部调用治理
-keywords: [Laravel, HTTP, Client]
+keywords: [Laravel HTTP Client, Guzzle, B2C API, 深度实战, 封装, 中间件链, 超时策略, 熔断降级, 的外部调用治理]
 date: 2026-06-06 12:00:00
 tags:
 - Laravel
@@ -10,13 +11,12 @@ tags:
 - 熔断
 categories:
 - php
-description: 基于 KKday B2C 电商真实场景，系统讲解 Laravel HTTP Client 外部调用治理全链路：Guzzle Handler
-  Stack 中间件封装、指数退避重试策略、超时分层控制、熔断降级模式与可观测性方案。涵盖微信支付/顺丰物流等第三方 API 的完整治理代码，含 ExternalApiService
-  基类、CircuitBreaker 中间件、RequestSigner 签名器等可直接复用的生产级组件，助你将混乱的外部调用变为可控、可观测、可降级的工程化体系。
+description: 基于 KKday B2C 电商真实场景，系统讲解 Laravel HTTP Client 外部调用治理全链路：Guzzle Handler Stack 中间件封装、指数退避重试策略、超时分层控制、熔断降级模式与可观测性方案。涵盖微信支付/顺丰物流等第三方 API 的完整治理代码，含 ExternalApiService 基类、CircuitBreaker 中间件、RequestSigner 签名器等可直接复用的生产级组件，助你将混乱的外部调用变为可控、可观测、可降级的工程化体系。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 
 

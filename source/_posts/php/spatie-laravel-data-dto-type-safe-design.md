@@ -2,7 +2,7 @@
 title: 'Spatie Laravel Data 实战：DTO 与类型安全数据传输——替代数组传参的现代数据层设计'
 date: 2026-06-06 10:30:00
 tags: [Laravel, PHP, DTO, Spatie, 类型安全]
-keywords: [Laravel, PHP, DTO, Spatie, 类型安全, Data]
+keywords: [Spatie Laravel Data, DTO, 与类型安全数据传输, 替代数组传参的现代数据层设计, PHP]
 categories:
   - php
 description: "深入实战 Spatie Laravel Data，用 DTO 替代裸好数组实现类型安全的数据传输对象。本文从数组传参的五大原罪出发，详解 Data 类定义、嵌套 DTO、DataCollection 集合处理、Request 验证集成、API Resource 配合、懒加载与性能优化，并通过完整电商订单系统展示真实项目中的 DTO 设计模式。涵盖 PHP 8.1 readonly 属性、构造函数属性提升、Spatie Laravel Data v4 核心特性，助你告别 array $data 的类型黑洞，构建可维护、可重构、IDE 友好的 Laravel 数据层。"
@@ -10,6 +10,7 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 在 Laravel 项目中，我们每天都在做同一件事——传递数据。从控制器到服务层，从服务层到仓储层，从 API 请求体到数据库模型，数据像河流一样在应用的各个层之间奔涌。然而，你是否注意到，这条河流里漂浮的绝大多数"货物"，都装在同一个容器里——PHP 数组？
 

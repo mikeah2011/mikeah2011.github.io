@@ -1,6 +1,6 @@
 ---
 title: Laravel + Deno 实战：用 Deno 替代 Node.js 做前端构建——HMR、SSR 与安全沙箱
-keywords: [Laravel, Deno]
+keywords: [Laravel, Deno, Node.js, HMR, SSR, 替代, 做前端构建, 与安全沙箱, PHP]
 date: 2026-06-09 13:34:00
 categories:
   - php
@@ -16,6 +16,7 @@ tags:
   - SSR
 description: 本文实战演示如何在 Laravel 项目中用 Deno 替代 Node.js 进行前端构建，涵盖 Vite 集成、HMR 热更新、SSR 服务端渲染，以及 Deno 安全沙箱模型的优势与踩坑记录。
 ---
+
 
 ## 前言
 

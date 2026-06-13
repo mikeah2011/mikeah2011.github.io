@@ -1,12 +1,13 @@
 ---
+
 title: Go 学习笔记：Go 1.25 特性预览（迭代器、WASI、性能提升）
-keywords: [Go]
+keywords: [Go, WASI, 学习笔记, 特性预览, 迭代器, 性能提升]
 date: 2026-06-09 23:45:00
 categories:
+  - go
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
-- go
 tags:
 - Go
 - Go1.25
@@ -15,6 +16,7 @@ tags:
 - 性能优化
 description: Go 1.25 带来了 range over func 迭代器、WASI 支持、编译器性能提升等重大特性。本文通过实际代码示例，带你了解每个新特性的用法和最佳实践。
 ---
+
 
 
 ## 概述

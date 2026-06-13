@@ -3,13 +3,14 @@ title: OpenHuman + Ollama 实战：本地 AI 模型部署与隐私优先推理
 description: 这篇实战文章系统讲透 OpenHuman 与 Ollama 在 macOS 上的本地 AI 模型部署方法，覆盖隐私优先推理、模型选型、Provider 配置、Apple Silicon 加速与常见故障排查，帮你用更低成本搭建可控、低延迟、数据不出机的本地大模型工作流。
 date: 2026-06-02 02:30:00
 tags: [OpenHuman, Ollama, 本地 AI, 本地部署, 隐私优先, LLM, macOS]
-keywords: [OpenHuman, Ollama, 本地 AI, 本地部署, 隐私优先]
+keywords: [OpenHuman, Ollama, AI, 本地, 模型部署与隐私优先推理, macOS]
 categories:
   - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 ---
+
 
 在过去两年里，大模型已经从“云端专属能力”逐渐演化成“个人设备可用的生产力基础设施”。如果你是一名开发者、独立写作者、研究人员，或者只是希望在自己的 Mac 上拥有一个可控、低延迟、不会把敏感数据发送到第三方服务器的 AI 助手，那么 **OpenHuman + Ollama** 这组组合，值得认真投入时间研究。
 

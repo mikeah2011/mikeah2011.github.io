@@ -1,6 +1,6 @@
 ---
 title: "Laravel 子域名路由多租户实战：通配符子域识别、租户解析中间件与共享 Session 的跨域认证"
-keywords: [Laravel]
+keywords: [Laravel, Session, 子域名路由多租户实战, 通配符子域识别, 租户解析中间件与共享, 的跨域认证, 架构]
 date: 2026-06-10 06:25:00
 categories:
   - architecture
@@ -16,6 +16,7 @@ tags:
   - PHP
 description: "用 Laravel 路由子域名实现多租户架构：从通配符 DNS 配置、RouteServiceProvider 注册、租户解析中间件到跨子域共享 Session 的完整方案，附可运行代码与生产踩坑记录。"
 ---
+
 
 ## 为什么选子域名路由做多租户
 

@@ -1,6 +1,7 @@
 ---
+
 title: OpenClaw 心跳机制实战：HEARTBEAT.md 主动检查与定时任务
-keywords: [OpenClaw]
+keywords: [OpenClaw, HEARTBEAT.md, 心跳机制实战, 主动检查与定时任务]
 date: 2026-06-02 10:00:00
 tags:
 - OpenClaw
@@ -12,9 +13,9 @@ categories:
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-description: 本文系统讲解 OpenClaw HEARTBEAT.md 心跳机制在 AI Agent 与运维场景中的落地方法，涵盖主动健康检查、定时任务、Cron
-  与 systemd 集成、故障检测、自动恢复、前进性指标设计及常见踩坑案例，帮助你构建可观测、可告警、可自愈的长期运行 Agent 运维体系。
+description: 本文系统讲解 OpenClaw HEARTBEAT.md 心跳机制在 AI Agent 与运维场景中的落地方法，涵盖主动健康检查、定时任务、Cron 与 systemd 集成、故障检测、自动恢复、前进性指标设计及常见踩坑案例，帮助你构建可观测、可告警、可自愈的长期运行 Agent 运维体系。
 ---
+
 
 
 # OpenClaw 心跳机制实战：HEARTBEAT.md 主动检查与定时任务

@@ -1,6 +1,6 @@
 ---
 title: 'PHP Security Hardening 实战：生产环境的完整加固清单'
-keywords: [PHP, Security, Hardening]
+keywords: [PHP Security Hardening, 生产环境的完整加固清单]
 date: 2026-06-10 09:09:00
 categories:
   - security
@@ -16,6 +16,7 @@ tags:
   - Session
 description: '从 php.ini 配置到代码层防御，覆盖 disable_functions、open_basedir、Session 安全、错误信息隐藏等关键加固项，附带可直接复用的配置模板和 Laravel 实战代码。'
 ---
+
 
 ## 概述
 

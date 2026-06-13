@@ -1,6 +1,6 @@
 ---
 title: Htmx + Laravel 2.0 实战：超交互模式——hx-boost、OOB Swaps、SSE 与 Laravel Livewire 的渐进增强路线对比
-keywords: [Htmx, Laravel]
+keywords: [Htmx, Laravel, hx, boost, OOB Swaps, SSE, Laravel Livewire, 超交互模式, 的渐进增强路线对比, 前端]
 date: 2026-06-09 20:27:00
 categories:
   - frontend
@@ -16,6 +16,7 @@ tags:
   - 渐进增强
 description: 以 Laravel 2.0 时代视角重新拆解 Htmx 超交互模式：hx-boost、OOB Swaps、Server-Sent Events 与 Livewire 在同一套 Laravel 项目中的适用边界、最佳实现路径与常见踩坑点。
 ---
+
 # Htmx + Laravel 2.0 实战：超交互模式——hx-boost、OOB Swaps、SSE 与 Laravel Livewire 的渐进增强路线对比
 
 ## 1. 概述

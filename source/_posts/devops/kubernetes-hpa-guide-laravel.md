@@ -1,6 +1,7 @@
 ---
+
 title: Kubernetes-HPA-实战-Laravel-应用自动扩缩容策略与踩坑记录
-keywords: [Kubernetes, HPA, Laravel]
+keywords: [Kubernetes, HPA, Laravel, 应用自动扩缩容策略与踩坑记录]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -14,9 +15,9 @@ tags:
 - Kubernetes
 - Laravel
 - autoscaling
-description: 深入讲解 Kubernetes HPA 在 Laravel 应用中的自动扩缩容实战。涵盖 Metrics Server 安装与踩坑、CPU/内存/自定义指标（队列深度）配置、Queue
-  Worker 优雅终止与信号处理、HPA/VPA/KEDA 选型对比、多指标组合扩缩策略、容量规划与压测校准，附生产级 YAML 模板与排障命令清单，助你搭建稳定可靠的弹性伸缩体系。
+description: 深入讲解 Kubernetes HPA 在 Laravel 应用中的自动扩缩容实战。涵盖 Metrics Server 安装与踩坑、CPU/内存/自定义指标（队列深度）配置、Queue Worker 优雅终止与信号处理、HPA/VPA/KEDA 选型对比、多指标组合扩缩策略、容量规划与压测校准，附生产级 YAML 模板与排障命令清单，助你搭建稳定可靠的弹性伸缩体系。
 ---
+
 
 # Kubernetes HPA 实战：Laravel 应用自动扩缩容策略与踩坑记录
 

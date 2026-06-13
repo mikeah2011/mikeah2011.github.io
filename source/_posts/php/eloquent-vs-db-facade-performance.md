@@ -1,6 +1,6 @@
 ---
 title: "Eloquent vs DB Facade 性能实战：ORM 开销量化——什么时候该绕过 Eloquent 直接写 SQL？"
-keywords: [Eloquent, DB, Facade]
+keywords: [Eloquent vs DB Facade, ORM, Eloquent, SQL, 性能实战, 开销量化, 什么时候该绕过, 直接写, PHP]
 date: 2026-06-10 08:13:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - ORM
 description: "通过实测量化 Eloquent ORM 的开销，明确在哪些场景下应该绕过 Eloquent 使用 DB Facade 或原生 SQL，并给出工程决策框架。"
 ---
+
 
 ## 概述
 

@@ -1,13 +1,13 @@
 ---
+
 title: AI Agent Self-Healing 实战：工具调用失败自动诊断与替代——Fallback Chain + Error Pattern Matching
-keywords: [AI, Agent, Self]
-  的自治架构
+keywords: [AI Agent Self, Healing, Fallback Chain, Error Pattern Matching, 工具调用失败自动诊断与替代, AI]
 date: 2026-06-10 00:45:00
 categories:
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-- ai
 tags:
 - AI Agent
 - Self-Healing
@@ -15,9 +15,9 @@ tags:
 - Error Pattern Matching
 - Laravel
 - 可靠性
-description: 本文深入探讨 AI Agent 在工具调用失败时的自动诊断与替代方案，通过 Fallback Chain 和 Error Pattern
-  Matching 构建自治愈架构，实现 Agent 的高可用运行。
+description: 本文深入探讨 AI Agent 在工具调用失败时的自动诊断与替代方案，通过 Fallback Chain 和 Error Pattern Matching 构建自治愈架构，实现 Agent 的高可用运行。
 ---
+
 
 
 ## 引言

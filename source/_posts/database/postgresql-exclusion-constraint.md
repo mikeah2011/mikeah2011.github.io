@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL Exclusion Constraint 实战：时间区间不重叠约束——预约/排班/库存独占场景的数据库级保障
-keywords: [PostgreSQL, Exclusion, Constraint]
+keywords: [PostgreSQL Exclusion Constraint, 时间区间不重叠约束, 预约, 排班, 库存独占场景的数据库级保障, 数据库]
 date: 2026-06-10 05:03:00
 categories:
   - database
@@ -15,6 +15,7 @@ tags:
   - Laravel
 description: 深入讲解 PostgreSQL Exclusion Constraint 的原理与实战，用 int4range/int8range/tstzrange 实现预约、排班、库存独占等场景的时间区间不重叠约束，从建表到 Laravel 迁移再到踩坑记录，一站式掌握。
 ---
+
 
 ## 概述
 

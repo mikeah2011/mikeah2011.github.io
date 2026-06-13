@@ -1,6 +1,6 @@
 ---
 title: Docker BuildKit Cache Mount 实战：编译缓存持久化——PHP/Node.js/Rust 依赖安装的极速构建与 CI 时间优化
-keywords: [Docker, BuildKit, Cache]
+keywords: [Docker BuildKit Cache Mount, PHP, Node.js, Rust, CI, 编译缓存持久化, 依赖安装的极速构建与, 时间优化, DevOps]
 date: 2026-06-10 08:56:00
 categories:
   - devops
@@ -16,6 +16,7 @@ tags:
   - 编译优化
 description: 深入讲解 Docker BuildKit 的 --mount=type=cache 机制，用实战代码演示如何在 PHP、Node.js、Rust 多语言项目中持久化编译缓存，将重复构建时间从分钟级压缩到秒级，并给出 GitHub Actions / GitLab CI 的完整配置。
 ---
+
 
 # Docker BuildKit Cache Mount 实战：编译缓存持久化
 

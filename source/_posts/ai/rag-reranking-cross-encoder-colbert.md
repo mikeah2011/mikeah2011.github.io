@@ -1,6 +1,6 @@
 ---
 title: RAG Reranking 实战：Cross-Encoder 重排序与 ColBERT 延迟交互——检索质量的最后一公里优化
-keywords: [RAG, Reranking]
+keywords: [RAG Reranking, Cross, Encoder, ColBERT, 重排序与, 延迟交互, 检索质量的最后一公里优化, AI]
 date: 2026-06-07 23:50:00
 categories:
   - ai
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200
 images:
   - https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200
 ---
+
 
 ## 概述
 

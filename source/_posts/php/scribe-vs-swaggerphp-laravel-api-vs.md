@@ -8,12 +8,13 @@ updated: 2026-05-05 08:43:28
 categories:
   - php
 tags: [Laravel, OpenAPI, Swagger, API文档, Scribe]
-keywords: [Laravel, OpenAPI, Swagger, API文档, Scribe, SwaggerPHP]
+keywords: [Scribe vs SwaggerPHP, Laravel API, 文档生成工具对比实战踩坑记录, PHP]
 description: 在 30+ Laravel API 仓库中如何选型 API 文档工具？本文从架构设计、注解风格、OpenAPI 兼容性、CI 集成、前端代码生成五个维度深度对比 Scribe 与 SwaggerPHP，结合 KKday B2C 真实踩坑经验给出混合策略选型建议，附完整配置与代码示例。
 
 
 
 ---
+
 ## 前言：为什么 API 文档工具选型很重要？
 
 在 KKday B2C Backend Team，我们维护 30+ 个 Laravel API 仓库，每个仓库都有大量接口需要文档化。API 文档不是「写完就丢」的东西——它是前后端联调的契约、是自动化测试的输入、是新人 Onboarding 的入口。

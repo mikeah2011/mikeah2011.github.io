@@ -10,11 +10,12 @@ categories:
   - engineering
   - process
 description: "在 KKday B2C Backend Team 的 30+ 仓库实战中，我们从「有 CR 就行」进化到「CR 驱动代码质量」的完整经历：如何设计 CR 流程、选择工具链、制定 checklist、培养团队 CR 文化，以及真实踩过的坑。这不是概念介绍，是从混乱到标准化的全过程记录。"
-keywords: [Code Review, 代码审查, CR 流程, 工程化, 团队协作, Laravel, GitHub PR, PHPStan]
+keywords: [CR, 代码审查流程设计, 如何建立高效的, 文化与工具链, 工程化]
 
 
 
 ---
+
 > 「代码能跑就行，Review 等上线后再补。」——这是我 2020 年听到最多的一句话。
 
 三年后，同一支团队每天产出 15-20 个 PR，平均 Review 时间从 3 天压到 4 小时，线上 Bug 率下降 60%。这篇文章记录的是这个转变的全过程：**流程怎么设计、工具怎么选、文化怎么养成、坑怎么踩的。**

@@ -1,6 +1,7 @@
 ---
+
 title: Vue 3 + Pinia 状态管理实战-替代 Vuex 的现代方案与 B2C 电商踩坑记录
-keywords: [Vue, Pinia, Vuex]
+keywords: [Vue, Pinia, Vuex, B2C, 状态管理实战, 替代, 的现代方案与, 电商踩坑记录]
 date: 2026-05-16 21:35:11
 updated: 2026-05-16 21:37:51
 categories:
@@ -11,13 +12,12 @@ tags:
 - Pinia
 - 前端
 - 状态管理
-description: 从 Vuex 迁移到 Pinia 的完整实战指南，深度讲解 Vue 3 状态管理核心概念。涵盖 Pinia Store 设计模式（Setup
-  Store 与 Options Store）、Composition API 集成技巧、TypeScript 类型推导与类型安全实践、自定义插件开发（Token
-  刷新、日志）、持久化存储方案、性能优化策略，以及在真实 B2C 电商项目中从 Vuex 4 迁移到 Pinia 过程中遇到的 6 大踩坑记录与解决方案。
+description: 从 Vuex 迁移到 Pinia 的完整实战指南，深度讲解 Vue 3 状态管理核心概念。涵盖 Pinia Store 设计模式（Setup Store 与 Options Store）、Composition API 集成技巧、TypeScript 类型推导与类型安全实践、自定义插件开发（Token 刷新、日志）、持久化存储方案、性能优化策略，以及在真实 B2C 电商项目中从 Vuex 4 迁移到 Pinia 过程中遇到的 6 大踩坑记录与解决方案。
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
+
 
 
 ## 为什么从 Vuex 迁移到 Pinia？

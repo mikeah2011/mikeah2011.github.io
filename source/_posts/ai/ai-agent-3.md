@@ -3,13 +3,14 @@ title: AI Agent 运维助手实战：日志分析、告警处理、故障自愈
 description: 后端视角拆解 AI Agent 运维助手实战：日志异常检测与 RCA 根因推理、告警降噪聚合与升级策略、故障自愈与自动回滚，含 Python 代码示例与生产踩坑复盘。
 date: 2026-06-02 00:00:00
 tags: [AI Agent, 运维, 日志分析, 告警处理, 故障自愈, AIOps]
-keywords: [AI Agent, 运维, 日志分析, 告警处理, 故障自愈, AI, Agent]
+keywords: [AI Agent, 运维助手实战, 日志分析, 告警处理, 故障自愈, AI]
 categories:
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
+
 
 # AI Agent 运维助手实战：日志分析、告警处理、故障自愈
 

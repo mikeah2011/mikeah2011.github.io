@@ -1,6 +1,7 @@
 ---
+
 title: MQ 消息队列深度对比：RabbitMQ vs Kafka vs RocketMQ 选型指南
-keywords: [MQ]
+keywords: [MQ, RabbitMQ vs Kafka vs RocketMQ, 消息队列深度对比, 选型指南]
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
@@ -16,9 +17,9 @@ tags:
 categories:
 - mq
 date: 2019-03-20 15:05:07
-description: 全面对比四大主流消息队列 RabbitMQ、Kafka、RocketMQ、ActiveMQ 的吞吐量、延迟、可靠性与适用场景，附 PHP/Laravel
-  生产者消费者代码示例及电商、日志、IoT 场景选型建议，帮助团队快速做出 MQ 选型决策。
+description: 全面对比四大主流消息队列 RabbitMQ、Kafka、RocketMQ、ActiveMQ 的吞吐量、延迟、可靠性与适用场景，附 PHP/Laravel 生产者消费者代码示例及电商、日志、IoT 场景选型建议，帮助团队快速做出 MQ 选型决策。
 ---
+
 
 
 ## 什么是消息队列（MQ）？

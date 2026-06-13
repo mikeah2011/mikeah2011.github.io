@@ -2,7 +2,7 @@
 title: SLO/SLI 实战：用服务等级目标驱动可靠性——Laravel API 的 Error Budget 与告警策略
 date: 2026-06-02 08:00:00
 tags: [SLO, SLI, 可靠性, 告警, DevOps, Laravel, Prometheus]
-keywords: [SLO, SLI, 可靠性, 告警, DevOps]
+keywords: [SLO, SLI, Laravel API, Error Budget, 用服务等级目标驱动可靠性, 与告警策略, DevOps]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: SLO/SLI 实战指南，用服务等级目标驱动可靠性工程决策。从概念辨析到 Laravel API 项目落地，涵盖 SLI 指标定义、Prometheus 指标采集、Grafana SLO 看板搭建、Error Budget 燃烧率告警策略设计，以及基于 Error Budget 的发布流程管控。帮助团队从「凭感觉运维」升级到「用数据说话」的可靠性治理体系。
 ---
+
 
 "我们的 API 可用性是 99.9%。"——这句话在技术会议上经常听到，但很少有人能回答：这个数字是怎么测量的？测量的是哪个指标？在什么时间窗口内？当可用性降到 99.5% 时，团队应该做什么？
 

@@ -1,7 +1,7 @@
 ---
+
 title: PlanetScale Serverless MySQL 实战：Vitess 驱动的无服务器数据库——与 Laravel 集成的分支工作流、Online
-keywords: [PlanetScale, Serverless, MySQL]
-  DDL 与性能基准
+keywords: [PlanetScale Serverless MySQL, Vitess, Laravel, Online, 驱动的无服务器数据库, 集成的分支工作流]
 date: 2026-06-05 08:00:00
 tags:
 - PlanetScale
@@ -10,14 +10,14 @@ tags:
 - Serverless
 - Laravel
 - Database
-description: PlanetScale 基于 Vitess 的无服务器 MySQL 平台实战指南，涵盖 Laravel 集成配置、分支工作流与 Online
-  DDL 零停机迁移、性能基准测试对比 AWS RDS、生产踩坑总结（外键禁用、乐观锁、GROUP BY 严格模式等），帮助团队评估 PlanetScale 适用场景与成本优势。
+description: PlanetScale 基于 Vitess 的无服务器 MySQL 平台实战指南，涵盖 Laravel 集成配置、分支工作流与 Online DDL 零停机迁移、性能基准测试对比 AWS RDS、生产踩坑总结（外键禁用、乐观锁、GROUP BY 严格模式等），帮助团队评估 PlanetScale 适用场景与成本优势。
 categories:
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
+
 
 
 

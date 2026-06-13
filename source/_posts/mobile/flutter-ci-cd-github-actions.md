@@ -2,7 +2,7 @@
 title: Flutter + CI/CD 实战：GitHub Actions 自动化构建、测试、发布
 date: 2026-06-01 10:00:00
 tags: [Flutter, CI/CD, GitHub Actions, 自动化]
-keywords: [Flutter, CI/CD, GitHub Actions, 自动化, CI, CD]
+keywords: [Flutter, CI, CD, GitHub Actions, 自动化构建, 发布, 移动端]
 categories:
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 description: 本文系统拆解 Flutter CI/CD 落地方案，基于 GitHub Actions 实现自动化构建、测试、发布与覆盖率上报，涵盖 FVM、Fastlane、签名、缓存、矩阵构建与常见踩坑，帮你快速搭建稳定可复用的工程化流水线。
 ---
+
 
 在 Flutter 项目进入多人协作和版本化发布阶段之后，单纯依赖本地手工打包、人工执行测试、人工上传应用商店，很快就会暴露出三个典型问题：第一，构建结果不可复现，同样一份代码在不同开发机、不同 Flutter SDK 版本、不同 JDK 和 CocoaPods 环境下可能得出不同结果；第二，发布过程强依赖某个“会配环境的人”，一旦证书、签名、Fastlane 或商店凭据集中在个人电脑里，团队风险就会迅速放大；第三，流程不可观测，测试是否完整执行、覆盖率是否下降、Release 是否附带正确版本号、构建产物是否来自 tag 对应提交，往往没人说得清。
 

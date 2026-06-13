@@ -1,6 +1,7 @@
 ---
+
 title: Composer 依賴管理優化與 autoload 快取清理實戰 - KKday-B2C-API 真實踩坑記錄
-keywords: [Composer, KKday, API]
+keywords: [Composer, autoload, KKday, B2C, API, 依賴管理優化與, 快取清理實戰, 真實踩坑記錄]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -14,9 +15,9 @@ tags:
 - Laravel
 - autoload
 - 依赖管理
-description: KKday B2C API 30+倉庫Composer優化實戰：解決install耗時30分鐘、vendor膨脹4GB、autoload缺失等六個真實踩坑。涵蓋PSR-4/Classmap策略對比、composer
-  audit安全掃描、CI/CD緩存加速、記憶體不足排錯，附完整命令速查表與性能對比數據。
+description: KKday B2C API 30+倉庫Composer優化實戰：解決install耗時30分鐘、vendor膨脹4GB、autoload缺失等六個真實踩坑。涵蓋PSR-4/Classmap策略對比、composer audit安全掃描、CI/CD緩存加速、記憶體不足排錯，附完整命令速查表與性能對比數據。
 ---
+
 
 # Composer 依賴管理優化與 autoload 快取清理實戰
 

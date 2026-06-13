@@ -1,6 +1,7 @@
 ---
+
 title: vLLM 实战：高吞吐量 LLM 推理引擎部署——PagedAttention、连续批处理与 GPU 优化
-keywords: [LLM]
+keywords: [vLLM, LLM, PagedAttention, GPU, 高吞吐量, 推理引擎部署, 连续批处理与]
 date: 2026-06-02 00:00:00
 tags:
 - vLLM
@@ -10,12 +11,12 @@ tags:
 - 部署
 categories:
 - ai
-description: vLLM 高吞吐量 LLM 推理引擎深度实战指南，详解 PagedAttention 原理、连续批处理机制、GPU 显存优化与 AWQ/GPTQ
-  量化部署，通过完整部署流程实现 LLM 推理吞吐量提升 2-4 倍，降低大模型生产环境部署成本，适合 AI 工程师和 MLOps 团队参考。
+description: vLLM 高吞吐量 LLM 推理引擎深度实战指南，详解 PagedAttention 原理、连续批处理机制、GPU 显存优化与 AWQ/GPTQ 量化部署，通过完整部署流程实现 LLM 推理吞吐量提升 2-4 倍，降低大模型生产环境部署成本，适合 AI 工程师和 MLOps 团队参考。
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
+
 
 
 # vLLM 实战：高吞吐量 LLM 推理引擎部署——PagedAttention、连续批处理与 GPU 优化

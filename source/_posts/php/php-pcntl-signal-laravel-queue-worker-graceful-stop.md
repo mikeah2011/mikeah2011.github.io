@@ -1,13 +1,13 @@
 ---
+
 title: PHP Process Control 实战：pcntl_signal/pcntl_async_signals 深度——Laravel Queue Worker
-keywords: [PHP, Process, Control]
-  的优雅停止与信号处理链
+keywords: [PHP Process Control, pcntl, signal, async, signals, Laravel Queue Worker, PHP]
 date: 2026-06-10 01:03:00
 categories:
+  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-- php
 tags:
 - pcntl
 - 信号处理
@@ -15,9 +15,9 @@ tags:
 - 进程管理
 - 优雅停止
 - Supervisor
-description: 深入剖析 PHP pcntl_signal/pcntl_async_signals 机制，从底层信号分发到 Laravel Queue Worker
-  的优雅停止实现，详解信号处理链、tick 陷阱、async_signals 最佳实践，以及 Supervisor 停止流程的完整链路。
+description: 深入剖析 PHP pcntl_signal/pcntl_async_signals 机制，从底层信号分发到 Laravel Queue Worker 的优雅停止实现，详解信号处理链、tick 陷阱、async_signals 最佳实践，以及 Supervisor 停止流程的完整链路。
 ---
+
 
 
 ## 概述

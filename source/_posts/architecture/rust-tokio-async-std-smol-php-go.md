@@ -1,6 +1,7 @@
 ---
+
 title: Rust 异步生态对比：Tokio vs async-std vs Smol——运行时选型、性能基准与 PHP/Go 开发者迁移指南
-keywords: [Rust]
+keywords: [Rust, Tokio vs async, std vs Smol, PHP, Go, 异步生态对比, 运行时选型, 性能基准与, 开发者迁移指南]
 date: 2026-06-05 10:30:00
 tags:
 - Rust
@@ -14,10 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 深入对比 Rust 三大异步运行时 Tokio、async-std 与 Smol 的架构设计、调度策略与性能基准。本文从 Future trait、Pin、Waker
-  等核心原语出发，剖析多线程工作窃取调度器、epoll/kqueue/io_uring I/O 模型差异，并提供完整的运行时选型决策树。面向 PHP 与 Go 开发者的迁移指南，涵盖
-  async/await 语法、channel 通信、CancellationToken 取消传播等实战模式，帮助你在 2026 年做出最优的 Rust 异步编程选型决策。
+description: 深入对比 Rust 三大异步运行时 Tokio、async-std 与 Smol 的架构设计、调度策略与性能基准。本文从 Future trait、Pin、Waker 等核心原语出发，剖析多线程工作窃取调度器、epoll/kqueue/io_uring I/O 模型差异，并提供完整的运行时选型决策树。面向 PHP 与 Go 开发者的迁移指南，涵盖 async/await 语法、channel 通信、CancellationToken 取消传播等实战模式，帮助你在 2026 年做出最优的 Rust 异步编程选型决策。
 ---
+
 
 
 

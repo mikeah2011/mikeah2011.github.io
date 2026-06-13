@@ -1,6 +1,7 @@
 ---
+
 title: Redis 8.0 Valkey 分叉深度对比：2026 年 Redis 生态分裂后的选型决策——性能基准、功能差异与 Laravel 兼容性
-keywords: [Redis, Valkey]
+keywords: [Redis, Valkey, Laravel, 分叉深度对比, 生态分裂后的选型决策, 性能基准, 功能差异与, 兼容性]
 date: 2026-06-07 17:39:00
 tags:
 - Redis
@@ -16,10 +17,9 @@ categories:
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
-description: 2026年Redis 8.0与Valkey分叉深度对比：许可证SSPL vs BSD差异、42维度功能矩阵逐项PK、多线程I/O性能基准测试（Valkey吞吐+11%）、向量搜索实战方案、Redis
-  Stack模块兼容性踩坑记录。面向Laravel开发者，提供Sentinel/Cluster实战配置、版本迁移Checklist与2026-2027选型决策框架，覆盖AWS
-  ElastiCache、Azure Cache等云厂商格局分析。
+description: 2026年Redis 8.0与Valkey分叉深度对比：许可证SSPL vs BSD差异、42维度功能矩阵逐项PK、多线程I/O性能基准测试（Valkey吞吐+11%）、向量搜索实战方案、Redis Stack模块兼容性踩坑记录。面向Laravel开发者，提供Sentinel/Cluster实战配置、版本迁移Checklist与2026-2027选型决策框架，覆盖AWS ElastiCache、Azure Cache等云厂商格局分析。
 ---
+
 
 
 ## 引言：一场许可证引发的生态地震

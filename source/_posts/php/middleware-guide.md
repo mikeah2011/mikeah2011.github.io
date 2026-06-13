@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Middleware 实战-KKday B2C API 请求链路追踪与真实踩坑记录
-keywords: [Laravel, Middleware, KKday]
+keywords: [Laravel Middleware, KKday B2C API, 请求链路追踪与真实踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -12,9 +13,9 @@ tags:
 - Laravel
 - 微服务
 - 监控
-description: Laravel 中间件（Middleware）实战深度指南，基于 KKday B2C API 项目的真实踩坑经验，详解请求拦截、认证鉴权、API
-  限流、CORS 跨域处理、Sentry 监控埋点与 OpenTelemetry 链路追踪的架构设计与常见陷阱，帮助 PHP 开发者掌握中间件职责分离、性能优化与生产环境可观测性最佳实践。
+description: Laravel 中间件（Middleware）实战深度指南，基于 KKday B2C API 项目的真实踩坑经验，详解请求拦截、认证鉴权、API 限流、CORS 跨域处理、Sentry 监控埋点与 OpenTelemetry 链路追踪的架构设计与常见陷阱，帮助 PHP 开发者掌握中间件职责分离、性能优化与生产环境可观测性最佳实践。
 ---
+
 
 ## 📋 目录
 

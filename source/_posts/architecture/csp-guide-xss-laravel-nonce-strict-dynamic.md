@@ -9,12 +9,13 @@ categories:
   - architecture
   - php
 tags: [Laravel, 安全, OWASP, XSS, CSP]
-keywords: [Laravel, 安全, OWASP, XSS, CSP]
+keywords: [CSP, XSS, Laravel Nonce, strict, dynamic, 内容安全策略实战, 防御, 攻击, 与生产踩坑记录, 架构]
 description: 从 OWASP Top 10 中 XSS 防护的「最后一道防线」出发，深入实战 CSP（Content-Security-Policy）在 Laravel B2C API 项目中的落地经验。涵盖 nonce 生成与 Blade 集成、strict-dynamic 策略、report-only 灰度、violation reporting 端点、Nginx 层配置，以及生产环境真实踩坑记录。
 
 
 
 ---
+
 ## 为什么需要 CSP？
 
 在 OWASP Top 10 中，XSS（跨站脚本攻击）常年位居前列。我们常用的防御手段——HTML 转义、输入验证、CSRF Token——都是在**应用层**防止恶意脚本注入。但如果某天一个 0day 绕过了所有应用层校验呢？

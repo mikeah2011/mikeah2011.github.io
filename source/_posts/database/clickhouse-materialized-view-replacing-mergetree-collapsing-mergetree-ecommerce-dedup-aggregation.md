@@ -1,6 +1,6 @@
 ---
 title: ClickHouse 物化视图实战进阶：ReplacingMergeTree/CollapsingMergeTree 的电商埋点去重与增量聚合——实时大屏的底层引擎设计
-keywords: [ClickHouse]
+keywords: [ClickHouse, ReplacingMergeTree, CollapsingMergeTree, 物化视图实战进阶, 的电商埋点去重与增量聚合, 实时大屏的底层引擎设计, 数据库]
 date: 2026-06-10 02:38:00
 categories:
   - database
@@ -18,6 +18,7 @@ tags:
   - 大屏
 description: 深入 ClickHouse 物化视图引擎，详解 ReplacingMergeTree 与 CollapsingMergeTree 在电商埋点去重与增量聚合中的实战应用。从引擎原理到生产落地，含完整建表语句、物化视图配置、增量聚合 SQL、实时大屏对接方案，附 Laravel 集成代码与踩坑记录。
 ---
+
 
 # ClickHouse 物化视图实战进阶：ReplacingMergeTree/CollapsingMergeTree 的电商埋点去重与增量聚合
 

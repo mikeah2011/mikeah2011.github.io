@@ -9,12 +9,13 @@ categories:
   - php
   - runtime
 tags: [Laravel, PHP]
-keywords: [Laravel, PHP, API]
+keywords: [PHP, Laravel, B2C, API, 类型化类常量实战, 枚举增强与类型安全, 踩坑记录]
 description: PHP 8.3 Typed Class Constants 实战指南：基于 KKday B2C API 30+ 仓库经验，详解类型化类常量替代魔术字符串、与 Enum 深度集成、Interface 契约约束继承链类型安全、Laravel Migration 类型对齐、PHPStan 静态分析配置，附 5 大踩坑记录与渐进式迁移策略
 
 
 
 ---
+
 # PHP 8.3 类型化类常量实战：枚举增强与类型安全
 
 > 从 PHP 8.0 的 Enum 到 8.2 的 readonly Class，PHP 在类型安全的路上越走越远。8.3 的 Typed Class Constants 终于补齐了最后一块拼图——让**接口契约**真正可以用类型约束常量值，而不仅仅是方法签名。

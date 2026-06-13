@@ -1,6 +1,7 @@
 ---
+
 title: Vue 3 + vue-pure-admin 管理后台实战：从 fork 到定制化的完整踩坑记录
-keywords: [Vue]
+keywords: [Vue, pure, admin, fork, 管理后台实战, 到定制化的完整踩坑记录]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -18,9 +19,9 @@ tags:
 - Vite
 - 权限系统
 - 踩坑
-description: 基于真实电商项目，深度实战 vue-pure-admin 管理后台定制化全流程：Vite 分包优化、动态路由权限、Laravel BFF
-  API 对接、Docker Nginx 部署与生产踩坑记录。
+description: 基于真实电商项目，深度实战 vue-pure-admin 管理后台定制化全流程：Vite 分包优化、动态路由权限、Laravel BFF API 对接、Docker Nginx 部署与生产踩坑记录。
 ---
+
 
 
 

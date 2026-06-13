@@ -1,6 +1,7 @@
 ---
+
 title: Laravel 12.x 新特性实战：Context、Concurrency、Artisan 改进深度剖析
-keywords: [Laravel]
+keywords: [Laravel, Context, Concurrency, Artisan, 新特性实战, 改进深度剖析]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -13,9 +14,9 @@ tags:
 - Concurrency
 - Artisan
 - PHP
-description: 深度剖析 Laravel 12.x 三大核心特性：Context 全局上下文传播机制、Concurrency Fiber 并发编排、Artisan
-  命令行增强。源码级分析内部实现原理，真实 B2C API 场景实战，性能基准测试数据，以及从 Laravel 11 升级的踩坑经验。
+description: 深度剖析 Laravel 12.x 三大核心特性：Context 全局上下文传播机制、Concurrency Fiber 并发编排、Artisan 命令行增强。源码级分析内部实现原理，真实 B2C API 场景实战，性能基准测试数据，以及从 Laravel 11 升级的踩坑经验。
 ---
+
 
 
 

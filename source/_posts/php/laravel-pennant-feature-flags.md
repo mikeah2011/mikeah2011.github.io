@@ -1,6 +1,6 @@
 ---
 title: Laravel Pennant + Feature Flags 深度实战：灰度放量回滚兜底的完整闭环——从 1% 到 100% 的渐进式发布工程化
-keywords: [Laravel, Pennant, Feature]
+keywords: [Laravel Pennant, Feature Flags, 深度实战, 灰度放量回滚兜底的完整闭环, 的渐进式发布工程化, PHP]
 date: 2026-06-09 15:30:00
 categories:
   - php
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
 images:
   - https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
 ---
+
 
 ## 为什么需要 Feature Flags
 

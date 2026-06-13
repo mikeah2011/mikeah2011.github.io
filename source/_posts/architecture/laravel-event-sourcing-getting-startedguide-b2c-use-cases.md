@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Event-Sourcing 入门实战-事件溯源在 B2C 电商中的应用场景与落地踩坑记录
-keywords: [Laravel, Event, Sourcing]
+keywords: [Laravel Event, Sourcing, B2C, 入门实战, 事件溯源在, 电商中的应用场景与落地踩坑记录]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -15,9 +16,9 @@ tags:
 - 架构
 - Event Sourcing
 - CQRS
-description: 从传统 CRUD 到事件溯源架构的完整转型指南——基于 Spatie Event Sourcing 在 Laravel B2C 电商项目中实现订单生命周期管理、库存变更追踪与审计日志，涵盖聚合根、Projector、Reactor
-  的实战代码，以及事件 Schema 演进、乐观锁并发、快照优化等四大踩坑解决方案与架构选型对比表。
+description: 从传统 CRUD 到事件溯源架构的完整转型指南——基于 Spatie Event Sourcing 在 Laravel B2C 电商项目中实现订单生命周期管理、库存变更追踪与审计日志，涵盖聚合根、Projector、Reactor 的实战代码，以及事件 Schema 演进、乐观锁并发、快照优化等四大踩坑解决方案与架构选型对比表。
 ---
+
 
 
 # Laravel Event-Sourcing 入门实战：事件溯源在 B2C 电商中的应用场景与落地踩坑记录

@@ -5,7 +5,7 @@ updated: 2026-05-16 13:33:19
 categories:
   - database
 tags: [Laravel, Redis, Pipeline, 性能优化, 缓存]
-keywords: [Laravel, Redis, Pipeline, 性能优化, 缓存]
+keywords: [Redis Pipeline, Laravel B2C API, 批量命令优化与网络延迟治理, 踩坑记录, 数据库]
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - /images/content/databases-010-content-1.jpg
@@ -13,6 +13,7 @@ images:
 description: "本文结合 Laravel B2C API 商品详情接口的真实优化案例，系统讲解 Redis Pipeline 批量命令如何将多次网络往返压缩为少量请求，覆盖 Predis 与 Laravel 可运行代码、MGET 对比、读写陷阱、超时与内存治理、监控埋点与分批策略，帮助你把高频 Redis 调用接口从串行瓶颈优化到低延迟稳定状态，实现显著性能优化。"
 
 ---
+
 ## 为什么需要 Pipeline？
 
 在 KKday B2C API 的商品详情接口中，一个请求需要从 Redis 读取：

@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL Logical Decoding 实战：wal2json/pgoutput 的自定义变更流——对比 Debezium 的轻量级 CDC 方案
-keywords: [PostgreSQL, Logical, Decoding]
+keywords: [PostgreSQL Logical Decoding, wal2json, pgoutput, Debezium, CDC, 的自定义变更流, 的轻量级, 数据库]
 date: 2026-06-09 18:28:00
 categories:
   - database
@@ -17,6 +17,7 @@ tags:
   - Laravel
 description: 深入 PostgreSQL Logical Decoding 机制，实战 wal2json 和 pgoutput 插件构建自定义变更数据捕获（CDC）流，并与 Debezium 方案进行对比，给出轻量级 CDC 的最佳实践。
 ---
+
 
 ## 概述
 

@@ -1,6 +1,6 @@
 ---
 title: "Laravel Eager Loading 高级实战：with() 的嵌套约束、条件预加载与 chunkById 的内存治理"
-keywords: [Laravel, Eager, Loading]
+keywords: [Laravel Eager Loading, chunkById, 高级实战, 的嵌套约束, 条件预加载与, 的内存治理, PHP]
 date: 2026-06-09 18:15:00
 categories:
   - php
@@ -17,6 +17,7 @@ tags:
   - MySQL
 description: "深入 Laravel Eloquent Eager Loading 的高级用法：嵌套约束预加载、条件预加载、chunkById 内存治理，结合真实 B2C API 场景的性能调优与踩坑记录。"
 ---
+
 
 # Laravel Eager Loading 高级实战：with() 的嵌套约束、条件预加载与 chunkById 的内存治理
 

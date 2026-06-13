@@ -1,4 +1,5 @@
 ---
+
 title: 技术书单与学习资源推荐
 tags:
 - 工程管理
@@ -11,7 +12,8 @@ tags:
 - Laravel
 - 面试准备
 categories:
-- misc
+keywords: [技术书单与学习资源推荐, 技术杂谈]
+  - misc
 date: 2021-03-20 15:05:07
 description: 精选程序员成长书单，涵盖代码整洁、重构、编程珠玑、软技能等经典著作，并按初级到高级推荐学习路径。从 Laravel/PHP 开发者视角出发，附每本书的核心价值点评与阅读建议，帮助工程师系统性提升编码能力与职业素养。
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop

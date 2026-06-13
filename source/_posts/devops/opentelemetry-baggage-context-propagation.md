@@ -1,6 +1,7 @@
 ---
+
 title: OpenTelemetry Baggage 实战：跨服务上下文传播——分布式追踪中的业务标签透传与采样策略
-keywords: [OpenTelemetry, Baggage]
+keywords: [OpenTelemetry Baggage, 跨服务上下文传播, 分布式追踪中的业务标签透传与采样策略]
 date: 2026-06-03 00:00:00
 tags:
 - OpenTelemetry
@@ -15,9 +16,9 @@ categories:
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-description: 本文深入讲解 OpenTelemetry Baggage 与 Context Propagation 的实战应用，涵盖 W3C Baggage
-  规范、PHP/Laravel SDK 集成、跨服务业务标签透传、基于 Baggage 的智能采样策略，以及 8 个生产环境真实踩坑案例。帮助你在微服务架构中实现高效的链路追踪与可观测性，精准定位跨服务性能问题。
+description: 本文深入讲解 OpenTelemetry Baggage 与 Context Propagation 的实战应用，涵盖 W3C Baggage 规范、PHP/Laravel SDK 集成、跨服务业务标签透传、基于 Baggage 的智能采样策略，以及 8 个生产环境真实踩坑案例。帮助你在微服务架构中实现高效的链路追踪与可观测性，精准定位跨服务性能问题。
 ---
+
 
 
 

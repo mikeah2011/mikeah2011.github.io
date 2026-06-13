@@ -1,9 +1,9 @@
 ---
+
 title: PHP Match Expression 深度实战：穷尽匹配与类型安全分支——替代 switch 的模式匹配进阶与 Laravel 状态机集成
-keywords: [PHP, Match, Expression]
+keywords: [PHP Match Expression, switch, Laravel, 深度实战, 穷尽匹配与类型安全分支, 替代, 的模式匹配进阶与, 状态机集成]
 date: 2026-06-07 12:00:00
-description: PHP 8.0 match 表达式深度实战：严格比较、穷尽匹配、Enum 状态机集成、match(true) 高级模式，全面替代 switch
-  的类型安全分支方案与 Laravel 实战案例。
+description: PHP 8.0 match 表达式深度实战：严格比较、穷尽匹配、Enum 状态机集成、match(true) 高级模式，全面替代 switch 的类型安全分支方案与 Laravel 实战案例。
 tags:
 - PHP
 - match-expression
@@ -18,6 +18,7 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 
 

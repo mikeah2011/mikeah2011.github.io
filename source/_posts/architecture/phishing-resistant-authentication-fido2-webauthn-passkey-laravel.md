@@ -1,6 +1,6 @@
 ---
 title: "Phishing-Resistant Authentication 实战：FIDO2/WebAuthn + Passkey 的渐进式迁移——从密码到无密码的 Laravel 认证演进路线"
-keywords: [Phishing, Resistant, Authentication]
+keywords: [Phishing, Resistant Authentication, FIDO2, WebAuthn, Passkey, Laravel, 的渐进式迁移, 从密码到无密码的, 认证演进路线, 架构]
 date: 2026-06-09 18:57:00
 categories:
   - architecture
@@ -17,6 +17,7 @@ tags:
   - MFA
 description: "从传统密码认证到 FIDO2/Passkey 无密码认证的完整 Laravel 实战指南，涵盖渐进式迁移策略、WebAuthn API 对接、多设备同步、踩坑记录与生产环境落地方案。"
 ---
+
 
 ## 概述
 

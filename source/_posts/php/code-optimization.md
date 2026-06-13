@@ -1,4 +1,4 @@
----
+
 title: PHP 代码优化心得：性能调优与编码规范最佳实践
 keywords: [PHP]
 tags:
@@ -8,13 +8,12 @@ tags:
 - 重构
 - 最佳实践
 categories:
-- php
+  - php
 date: 2019-10-06 15:06:38
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/5ea38ff8793f7854-20221006153725317.jpg
 images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/5ea38ff8793f7854-20221006153725317.jpg
-description: '`if`的使用洁癖 1. 给定初始值 2. 简单的判断使用`&&`代替 3. 三元运算符 4. 简化三元运算符`?:`或`??` 5.
-  去掉多此一举的 6. 对同一对象，含有多层逻辑，使用`switch`代替`elseif` 7. 表驱动法…'
+description: '`if`的使用洁癖 1. 给定初始值 2. 简单的判断使用`&&`代替 3. 三元运算符 4. 简化三元运算符`?:`或`??` 5. 去掉多此一举的 6. 对同一对象，含有多层逻辑，使用`switch`代替`elseif` 7. 表驱动法…'
 ---
 
 

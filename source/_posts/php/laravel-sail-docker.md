@@ -1,6 +1,6 @@
 ---
 title: Laravel Sail 深度实战：Docker 开发环境的官方方案
-keywords: [Laravel, Sail]
+keywords: [Laravel Sail, Docker, 深度实战, 开发环境的官方方案, PHP]
 date: 2026-06-10 08:34:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - Laravel
 description: 深入实战 Laravel Sail，覆盖安装定制、多服务编排、数据库调试、性能调优与生产环境一致性保障，提供可运行的代码与配置示例。
 ---
+
 
 在 Laravel 生态中，**Sail** 已经成为官方推荐的 Docker 开发环境方案。它把原本复杂的 `docker-compose` 配置封装成了一套简洁的命令行工具，让开发者可以在几分钟内启动一个完整的开发栈，同时保持与生产环境的一致性。本文将从安装到定制，从日常调试到性能调优，全方位拆解 Laravel Sail 的实战用法。
 

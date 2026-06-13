@@ -1,6 +1,7 @@
 ---
+
 title: AI 辅助调试实战：错误分析、日志解读与性能优化建议——Laravel B2C API 真实踩坑记录
-keywords: [AI]
+keywords: [AI, Laravel B2C API, 辅助调试实战, 错误分析, 日志解读与性能优化建议, 真实踩坑记录]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -14,9 +15,9 @@ tags:
 - Laravel
 - 性能优化
 - 监控
-description: Laravel B2C 项目中用 Claude Code / ChatGPT / Cursor 辅助调试的完整工作流——涵盖 Sentry
-  堆栈追踪分析、ELK 结构化日志解读、MySQL EXPLAIN 性能优化，附 6 个实战踩坑与一键调试脚本。
+description: Laravel B2C 项目中用 Claude Code / ChatGPT / Cursor 辅助调试的完整工作流——涵盖 Sentry 堆栈追踪分析、ELK 结构化日志解读、MySQL EXPLAIN 性能优化，附 6 个实战踩坑与一键调试脚本。
 ---
+
 
 
 # AI 辅助调试实战：错误分析、日志解读与性能优化建议——Laravel B2C API 真实踩坑记录

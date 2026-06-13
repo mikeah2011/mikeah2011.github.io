@@ -2,7 +2,7 @@
 title: Kamal 2 实战：DHH 的容器部署工具——对比 Docker Compose/K8s 的极简部署哲学与 Laravel 应用一键发布
 date: 2026-06-07 14:30:00
 tags: [Kamal, Docker, Laravel, DevOps, 部署, 容器化]
-keywords: [Kamal, Docker, Laravel, DevOps, 部署]
+keywords: [Kamal, DHH, Docker Compose, K8s, Laravel, 的容器部署工具, 的极简部署哲学与, 应用一键发布, DevOps]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: "全面解析 Kamal 2 容器部署工具在 Laravel 应用中的实战应用，涵盖零停机部署流程、Docker 多阶段构建、Traefik 自动 HTTPS 证书、Accessory 附件服务管理、CI/CD 集成与健康检查回滚机制，并对比 Docker Compose 和 Kubernetes 的技术选型，帮助开发者选择最适合的容器化部署方案。"
 ---
+
 
 ## 引言：当 DHH 说"部署应该简单"时，他是认真的
 

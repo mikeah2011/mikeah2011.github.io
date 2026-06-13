@@ -1,6 +1,6 @@
 ---
 title: "Gateway API + Cilium 实战：Kubernetes 流量管理新标准——Laravel 微服务的 L4/L7 路由、mTLS 与可观测性"
-keywords: [Gateway, API, Cilium]
+keywords: [Gateway API, Cilium, Kubernetes, Laravel, L4, L7, mTLS, 流量管理新标准, 微服务的, 路由]
 date: 2026-06-09 06:37:00
 categories:
   - architecture
@@ -17,6 +17,7 @@ cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 images:
   - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
+
 
 ## 为什么从 Ingress 迁移到 Gateway API？
 

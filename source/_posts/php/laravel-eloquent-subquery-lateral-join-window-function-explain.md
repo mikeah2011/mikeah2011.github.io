@@ -1,6 +1,6 @@
 ---
 title: Laravel Eloquent Subquery 优化实战：关联子查询、Lateral Join、Window Function 的查询重写与 EXPLAIN 验证
-keywords: [Laravel, Eloquent, Subquery]
+keywords: [Laravel Eloquent Subquery, Lateral Join, Window Function, EXPLAIN, 优化实战, 关联子查询, 的查询重写与, 验证, PHP]
 date: 2026-06-10 04:11:00
 categories:
   - php
@@ -16,6 +16,7 @@ tags:
   - Window Function
 description: 深入讲解 Laravel Eloquent 中关联子查询、Lateral Join、Window Function 的实战优化技巧，配合 EXPLAIN 分析验证，解决 N+1 和复杂聚合查询的性能瓶颈。
 ---
+
 
 ## 前言
 

@@ -1,6 +1,7 @@
 ---
+
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-keywords: [Vite]
+keywords: [Vite, SSR, 插件开发, 构建优化, 前端工程化踩坑记录]
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 title: Vite 6.x 实战：插件开发、SSR、构建优化——前端工程化踩坑记录
@@ -15,10 +16,9 @@ tags:
 - SSR
 - Rolldown
 - Tree-shaking
-description: 从 Vite 5 升级到 6.x 的真实踩坑经验：Environment API 插件开发、SSR 构建优化、Rolldown 预览、Tree-shaking
-  调优，以及在 Laravel B2C 前后端分离项目中的落地方案。涵盖 Vite 6 核心架构变化、升级迁移步骤、常见构建性能问题排查清单，附完整生产环境配置示例，帮助前端团队快速落地
-  Vite 6。
+description: 从 Vite 5 升级到 6.x 的真实踩坑经验：Environment API 插件开发、SSR 构建优化、Rolldown 预览、Tree-shaking 调优，以及在 Laravel B2C 前后端分离项目中的落地方案。涵盖 Vite 6 核心架构变化、升级迁移步骤、常见构建性能问题排查清单，附完整生产环境配置示例，帮助前端团队快速落地 Vite 6。
 ---
+
 
 ## 前言
 

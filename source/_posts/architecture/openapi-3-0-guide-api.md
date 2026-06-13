@@ -1,6 +1,7 @@
 ---
+
 title: OpenAPI 3.0 实战：API 文档自动生成与代码生成——Laravel B2C API 踩坑记录
-keywords: [OpenAPI]
+keywords: [OpenAPI, API, Laravel B2C API, 文档自动生成与代码生成, 踩坑记录]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -12,9 +13,9 @@ tags:
 - AI
 - Laravel
 - OpenAPI
-description: 从手写 OpenAPI YAML 到自动化生成文档与代码的完整实战。涵盖 Scribe/Stoplight Elements 文档渲染、openapi-generator/oapi-codegen
-  代码生成、CI 集成、以及 30+ 仓库治理中踩过的坑。
+description: 从手写 OpenAPI YAML 到自动化生成文档与代码的完整实战。涵盖 Scribe/Stoplight Elements 文档渲染、openapi-generator/oapi-codegen 代码生成、CI 集成、以及 30+ 仓库治理中踩过的坑。
 ---
+
 
 # OpenAPI 3.0 实战：API 文档自动生成与代码生成
 

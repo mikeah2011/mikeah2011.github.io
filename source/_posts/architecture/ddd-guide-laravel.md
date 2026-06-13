@@ -9,12 +9,13 @@ categories:
   - architecture
   - php
 tags: [KKday, Laravel, 架构]
-keywords: [KKday, Laravel, 架构, DDD]
+keywords: [DDD, B2C, Laravel, 领域驱动设计实战, 电商聚合根, 值对象, 领域事件在, 中的落地踩坑记录, 架构, PHP]
 description: "DDD 领域驱动设计在 Laravel B2C 电商中的完整实战指南。从传统 MVC 胖 Controller 迁移到 DDD 分层架构，以订单聚合根、Money 值对象、领域事件为核心案例，深入讲解限界上下文划分、Repository 模式隔离持久化、Eloquent 与领域实体分离策略。附 5 个真实生产踩坑记录、MVC vs DDD 性能对比数据、目录结构总览与渐进式迁移最佳实践。"
 
 
 
 ---
+
 ## 前言：为什么要在 Laravel 里搞 DDD？
 
 在 KKday B2C 后端团队维护 30+ 个 Laravel 仓库的过程中，我们反复遇到同一个痛点：**业务逻辑散落在 Controller、Service、Model 三层之间，没有明确的边界**。一个"下单"操作，可能涉及 `OrderController` 调用 `OrderService`，再调用 `InventoryService`、`PaymentService`、`NotificationService`，每个 Service 内部又直接操作 Eloquent Model。当业务复杂度上来后，改一个字段要追溯 5 个文件，改一个流程要回归 20 个测试。

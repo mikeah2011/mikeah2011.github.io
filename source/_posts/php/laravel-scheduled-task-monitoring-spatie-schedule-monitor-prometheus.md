@@ -1,12 +1,13 @@
 ---
+
 title: Laravel Scheduled Task 监控实战：spatie/laravel-schedule-monitor + Prometheus 指标
-keywords: [Laravel, Scheduled, Task]
+keywords: [Laravel Scheduled Task, spatie, laravel, schedule, monitor, Prometheus, 监控实战, 指标, PHP]
 date: 2026-06-10 04:47:00
 categories:
+  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-- php
 tags:
 - Laravel
 - 定时任务
@@ -14,9 +15,9 @@ tags:
 - Prometheus
 - Spatie
 - Grafana
-description: 基于 spatie/laravel-schedule-monitor 与 Prometheus 构建 Laravel 定时任务的生产级可观测性方案，覆盖心跳监控、执行指标采集、Grafana
-  看板搭建与告警配置。
+description: 基于 spatie/laravel-schedule-monitor 与 Prometheus 构建 Laravel 定时任务的生产级可观测性方案，覆盖心跳监控、执行指标采集、Grafana 看板搭建与告警配置。
 ---
+
 
 
 # Laravel Scheduled Task 监控实战：spatie/laravel-schedule-monitor + Prometheus 指标

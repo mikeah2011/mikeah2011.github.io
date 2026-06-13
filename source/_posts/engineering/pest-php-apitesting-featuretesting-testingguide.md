@@ -9,9 +9,10 @@ categories:
   - engineering
   - testing
 tags: [Laravel, PHP, 测试]
-keywords: [Laravel, PHP, 测试, Pest, API]
+keywords: [Pest PHP API, Feature, Laravel B2C API, 浏览器测试实战, 测试金字塔落地踩坑记录, 工程化, 测试]
 description: "Pest PHP 测试指南：详解 Laravel B2C 项目中 API 测试、功能测试与 Dusk 浏览器 E2E 测试实战，涵盖 PHPUnit 迁移 Pest、断言链写法、RefreshDatabase 选型、Http::fake/Queue::fake 三件套、测试金字塔策略与 CI 集成踩坑记录，适用于 PHP Laravel 工程师构建高置信度测试体系。"
 ---
+
 ## 前言：为什么需要完整的测试金字塔？
 
 在之前的 [Pest 单元测试实战](/posts/05_PHP/Pest-单元测试实战-Laravel-B2C-API-100-覆盖率.md) 中，我们聚焦于 Unit 层的高覆盖率。但在实际 B2C 电商项目中，光有单元测试远远不够——

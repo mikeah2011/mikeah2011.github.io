@@ -2,7 +2,7 @@
 title: 'PHP 多进程实战：pcntl_fork + 信号处理——替代 Supervisor 的 PHP 原生进程管理与 Laravel 命令并发执行'
 date: 2026-06-06 10:00:00
 tags: [PHP, 多进程, pcntl, Laravel, Supervisor]
-keywords: [PHP, 多进程, pcntl, Laravel, Supervisor]
+keywords: [PHP, pcntl, fork, Supervisor, Laravel, 多进程实战, 信号处理, 替代, 原生进程管理与, 命令并发执行]
 description: "深入讲解 PHP pcntl_fork 多进程编程实战，从 fork 模型原理、SIGTERM/SIGCHLD 信号处理、进程池设计到 Laravel Artisan 命令并发执行。完整实现替代 Supervisor 的 PHP 原生进程管理方案，包含十万订单 CSV 并发导出真实案例、数据库连接复用陷阱排查、共享内存通信、优雅退出流程等生产级踩坑经验与性能基准对比。"
 categories:
   - php
@@ -10,6 +10,7 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 # PHP 多进程实战：pcntl_fork + 信号处理——替代 Supervisor 的 PHP 原生进程管理与 Laravel 命令并发执行
 

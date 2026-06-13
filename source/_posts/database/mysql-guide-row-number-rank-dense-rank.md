@@ -5,7 +5,7 @@ updated: 2026-05-05 12:09:02
 categories:
   - database
 tags: [Laravel, MySQL, 窗口函数, SQL, 性能优化, EXPLAIN]
-keywords: [Laravel, MySQL, 窗口函数, SQL, 性能优化, ROW, NUMBER]
+keywords: [MySQL, ROW, NUMBER, RANK, DENSE, 窗口函数, 在运营报表中的应用, 数据库]
 description: 结合 Laravel B2C 后台真实报表场景，拆解 MySQL 8 窗口函数 ROW_NUMBER、RANK、DENSE_RANK 在分组 Top N、并列排名、环比计算、移动平均中的落地方式。涵盖窗口函数语法详解、与子查询 Top N 的性能对比、EXPLAIN 执行计划分析、索引配合策略，以及临时表放大、分页口径错乱、排序抖动等生产踩坑记录。适合需要在后端报表中实现复杂排名逻辑的 Laravel 开发者。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
@@ -13,6 +13,7 @@ images:
   - /images/content/databases-004-content-2.jpg
 
 ---
+
 ## 前言：为什么我会在报表接口里重写 SQL
 
 我们有一条后台接口，要给运营看“每个国家近 30 天销量 Top 3 商品”，还要顺手带出排名、并列名次和上一名的差距。最早这条链路是两段式写法：先 `GROUP BY` 聚合，再在 PHP 里按国家分组、排序、切片。数据量上来后问题很明显：一是内存吃满，二是分页口径不稳定，三是同销量并列时每次导出的顺序都不一样。

@@ -1,6 +1,7 @@
 ---
+
 title: OpenClaw SOUL.md 实战：AI 人格定义与个性化配置
-keywords: [OpenClaw, SOUL.md]
+keywords: [OpenClaw SOUL.md, AI, 人格定义与个性化配置]
 date: 2026-06-02 03:00:00
 tags:
 - OpenClaw
@@ -13,9 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-description: 本文系统解析 OpenClaw 的 SOUL.md 机制，带你从结构设计、规则编写、记忆集成到多场景切换，掌握 AI人格 的工程化落地方法。无论你想做更稳定的
-  Agent配置，还是打造更贴合业务的 个性化 智能助手，都能通过这份实战指南快速建立可维护、可复用、可迭代的人格配置体系。
+description: 本文系统解析 OpenClaw 的 SOUL.md 机制，带你从结构设计、规则编写、记忆集成到多场景切换，掌握 AI人格 的工程化落地方法。无论你想做更稳定的 Agent配置，还是打造更贴合业务的 个性化 智能助手，都能通过这份实战指南快速建立可维护、可复用、可迭代的人格配置体系。
 ---
+
 
 
 OpenClaw 这一类 Agent 框架真正有意思的地方，不只是“能不能调用工具”，而是“这个 Agent 究竟像谁、如何说话、在什么场景下做出什么样的判断”。很多团队在把模型接入业务后，第一阶段往往关注的是模型选型、工具链、RAG、工作流；到了第二阶段，几乎都会遇到同一个问题：**默认模型太像一个通用助手，而不像一个稳定、可信、可复用的产品角色**。SOUL.md 的价值，正是在这里体现出来——它不是单纯的一段提示词，而是一种把 AI 人格、语气、行为边界、上下文适配策略和长期记忆协同管理起来的配置约定。

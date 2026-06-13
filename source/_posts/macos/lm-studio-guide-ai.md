@@ -9,12 +9,13 @@ categories:
   - macos
   - tools
 tags: [LM Studio, AI, macOS, 本地模型, Ollama, Laravel, HuggingFace, Metal, 安全, GGUF]
-keywords: [LM Studio, AI, macOS, 本地模型, Ollama, LM, Studio]
+keywords: [LM Studio, AI, 本地模型管理与推理, 隐私优先的, 开发工作流踩坑记录, macOS]
 description: "从 Ollama 迁移到 LM Studio 的完整实战记录：涵盖 GUI 模型管理、HuggingFace 一键下载 GGUF 模型、Local Server OpenAI 兼容 API、Apple Silicon M 芯片 Metal 加速推理、量化级别选择指南、多模型切换策略，以及在 Laravel B2C 项目中集成本地 LLM 实现代码审查、文档生成与自然语言转 SQL 的完整方案，附性能基准测试与安全合规策略。"
 
 
 
 ---
+
 # LM Studio 实战：本地模型管理与推理 — 隐私优先的 AI 开发工作流踩坑记录
 
 > **一句话总结**：LM Studio 是一个带 GUI 的本地 LLM 推理工具，支持 GGUF 模型一键下载和 OpenAI 兼容 API，配合 macOS M 芯片 Metal 加速，让你在断网环境下也能跑 AI 辅助开发。

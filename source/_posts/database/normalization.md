@@ -1,6 +1,7 @@
 ---
+
 title: MySQL 三范式：数据库表设计的规范化理论与实战权衡
-keywords: [MySQL]
+keywords: [MySQL, 三范式, 数据库表设计的规范化理论与实战权衡, 数据库]
 tags:
 - MySQL
 - 数据库
@@ -8,7 +9,7 @@ tags:
 - 三范式
 - 反范式化
 categories:
-- database
+  - database
 date: 2020-03-20 15:05:07
 description: MySQL三范式（1NF、2NF、3NF）是数据库设计的核心准则，由E.F. Codd提出，旨在通过规范化表结构消除数据冗余、插入异常、更新异常和删除异常。本文以电商订单系统为实战案例，逐步演示从原始宽表到第一范式（原子性）、第二范式（完全依赖）、第三范式（传递依赖）的完整规范化过程，并深入对比范式化与反范式化的性能权衡，提供可运行的SQL示例与常见踩坑案例，帮助开发者在数据库设计中找到数据一致性与查询性能的最佳平衡点。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
@@ -16,6 +17,7 @@ images:
 - /images/content/databases-009-content-1.jpg
 - /images/content/databases-009-content-2.jpg
 ---
+
 
 
 > 数据库三范式

@@ -1,4 +1,4 @@
----
+
 title: 本地 vs 云端 AI 实战：成本隐私性能的权衡与 Laravel 开发者选型指南
 keywords: [AI]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -7,15 +7,14 @@ images:
 date: 2026-05-17 05:50:38
 updated: 2026-05-17 05:53:29
 categories:
-- macos
-- php
+  - macos
+  - php
 tags:
 - AI
 - DevOps
 - Laravel
 - 安全
-description: 'AI辅助Laravel开发指南：本地Ollama与云端Claude/GPT真实选型决策，涵盖代码生成、成本核算、隐私合规、推理性能对比。GitHub
-  Copilot与Cursor等AI工具在Laravel项目中的混合架构实战，实现41%成本节省与敏感数据零泄露。
+description: 'AI辅助Laravel开发指南：本地Ollama与云端Claude/GPT真实选型决策，涵盖代码生成、成本核算、隐私合规、推理性能对比。GitHub Copilot与Cursor等AI工具在Laravel项目中的混合架构实战，实现41%成本节省与敏感数据零泄露。
 
   '
 ---

@@ -1,6 +1,6 @@
 ---
 title: AI Agent Feedback Loop 实战：用户隐式反馈驱动的 Agent 自动改进
-keywords: [AI, Agent, Feedback]
+keywords: [AI Agent Feedback Loop, Agent, 用户隐式反馈驱动的, 自动改进, AI]
 date: 2026-06-09 15:15:00
 categories:
   - ai
@@ -16,6 +16,7 @@ tags:
   - 自动改进
 description: 介绍如何通过捕获用户隐式反馈（停留时间、重试次数、编辑行为）构建 AI Agent 的自动改进闭环，使用 Laravel 日志系统 + 向量聚类实现反馈分析和 Prompt 自动优化。
 ---
+
 
 ## 概述
 

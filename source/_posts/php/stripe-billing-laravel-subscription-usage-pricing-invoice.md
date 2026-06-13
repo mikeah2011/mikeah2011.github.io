@@ -1,6 +1,6 @@
 ---
 title: Stripe Billing 实战：订阅计费、Usage-based Pricing、发票管理——Laravel SaaS 的完整计费引擎与账单治理
-keywords: [Stripe, Billing]
+keywords: [Stripe Billing, Usage, based Pricing, Laravel SaaS, 订阅计费, 发票管理, 的完整计费引擎与账单治理, PHP]
 date: 2026-06-10 06:11:00
 categories:
   - php
@@ -16,6 +16,7 @@ tags:
   - Subscription
 description: 从零构建 Laravel SaaS 的完整计费引擎：Stripe 订阅管理、Usage-based Pricing 实时用量上报、发票自动化与 Webhook 事件治理，附可运行代码与生产踩坑记录。
 ---
+
 
 ## 为什么需要 Stripe Billing？
 

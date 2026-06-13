@@ -1,6 +1,6 @@
 ---
 title: Laravel 配置管理工程化实战：多环境配置合并、加密配置、运行时热更新
-keywords: [Laravel]
+keywords: [Laravel, 配置管理工程化实战, 多环境配置合并, 加密配置, 运行时热更新, PHP]
 date: 2026-06-09 22:18:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - Consul
 description: 从 .env 到 Consul/Vault 的演进路径，覆盖多环境配置合并、加密配置存储、运行时热更新等工程化实战方案。
 ---
+
 
 ## 为什么需要工程化配置管理
 

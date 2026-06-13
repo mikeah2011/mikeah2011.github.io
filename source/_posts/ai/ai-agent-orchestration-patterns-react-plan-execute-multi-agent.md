@@ -1,6 +1,6 @@
 ---
 title: "AI Agent 编排模式实战：ReAct/Plan-and-Execute/Multi-Agent 协作架构设计"
-keywords: [AI, Agent]
+keywords: [AI Agent, ReAct, Plan, Execute, Multi, Agent, 编排模式实战, 协作架构设计, AI, 架构]
 date: 2026-05-31 23:00:00
 categories:
   - ai
@@ -21,6 +21,7 @@ images:
   - /images/content/ai-001-content-2.jpg
   - /images/diagrams/ai-001-diagram.jpg
 ---
+
 ## 引言
 
 2026 年，AI Agent 已经从"能对话的聊天机器人"进化为"能自主完成复杂任务的智能体"。但一个关键问题浮出水面：**当任务变复杂时，如何编排 Agent 的思考和行动？**

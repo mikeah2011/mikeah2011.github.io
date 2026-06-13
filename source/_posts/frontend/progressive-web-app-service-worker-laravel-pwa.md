@@ -1,9 +1,9 @@
 ---
+
 title: Progressive Web App 实战：Service Worker、离线缓存、推送通知——Laravel 应用的 PWA 改造指南
-keywords: [Progressive, Web, App]
+keywords: [Progressive Web App, Service Worker, Laravel, PWA, 离线缓存, 推送通知, 应用的, 改造指南]
 date: 2026-06-06 10:00:00
-description: 全面实战指南：手把手教你将Laravel应用改造为PWA。从Web App Manifest配置、Service Worker注册与生命周期管理，到Cache
-  First、Network First、Stale While Revalidate等多级离线缓存策略深度解析，再到Web Push推送通知的VAPID密钥生成、前端订阅管理与Laravel后端队列化异步发送。附Workbox集成、Lighthouse审计通过技巧与常见踩坑解决方案，让Web应用拥有媲美原生App的离线体验与推送能力。
+description: 全面实战指南：手把手教你将Laravel应用改造为PWA。从Web App Manifest配置、Service Worker注册与生命周期管理，到Cache First、Network First、Stale While Revalidate等多级离线缓存策略深度解析，再到Web Push推送通知的VAPID密钥生成、前端订阅管理与Laravel后端队列化异步发送。附Workbox集成、Lighthouse审计通过技巧与常见踩坑解决方案，让Web应用拥有媲美原生App的离线体验与推送能力。
 tags:
 - PWA
 - service-worker
@@ -17,6 +17,7 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
+
 
 
 

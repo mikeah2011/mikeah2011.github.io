@@ -1,7 +1,7 @@
 ---
+
 title: AI Agent Workflow DSL 实战：用 YAML/JSON 定义 Agent 工作流——LangGraph/LangChain/LlamaIndex
-keywords: [AI, Agent, Workflow]
-  的声明式编排对比
+keywords: [AI Agent Workflow DSL, YAML, JSON, Agent, LangGraph, LangChain, LlamaIndex, 定义, 工作流]
 date: 2026-06-07 10:00:00
 tags:
 - AI Agent
@@ -17,6 +17,7 @@ cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
+
 
 
 在 2025—2026 年的 AI Agent 浪潮中，开发者面临的最大挑战已经不是"模型不够强"，而是"如何编排多步骤、多角色的复杂工作流"。本文将深入对比 LangGraph、LangChain LCEL 和 LlamaIndex Workflow 三种主流框架的声明式编排能力，并展示如何通过 YAML/JSON DSL 抽象层实现跨框架统一定义，最终给出与 Laravel 后端集成的完整方案。

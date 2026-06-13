@@ -1,21 +1,22 @@
 ---
+
 title: AI Agent Versioning 实战：Prompt/Tool/Memory 的版本化管理
-keywords: [AI, Agent, Versioning]
+keywords: [AI Agent Versioning, Prompt, Tool, Memory, 的版本化管理, AI]
 date: 2026-06-09 18:08:00
 categories:
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-- ai
 tags:
 - AI Agent
 - Prompt Engineering
 - DevOps
 - GitOps
 - Laravel
-description: AI Agent 不是写完就完事。Prompt 会改、Tool 会加、Memory 会膨胀——如何像管理代码一样管理 Agent 的三大核心资产？本文用
-  Git-backed 配置 + 蓝绿部署的思路，给出一套可落地的版本化方案。
+description: AI Agent 不是写完就完事。Prompt 会改、Tool 会加、Memory 会膨胀——如何像管理代码一样管理 Agent 的三大核心资产？本文用 Git-backed 配置 + 蓝绿部署的思路，给出一套可落地的版本化方案。
 ---
+
 
 ## 为什么 Agent 需要版本化？
 

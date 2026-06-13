@@ -2,7 +2,7 @@
 title: SQLite 现代化实战：libSQL/Turso 边缘数据库——对比 PostgreSQL 的嵌入式数据层与 Laravel Lite 集成
 date: 2026-06-03 03:39:38
 tags: [SQLite, libSQL, Turso, 边缘计算, 数据库]
-keywords: [SQLite, libSQL, Turso, 边缘计算, 数据库]
+keywords: [SQLite, libSQL, Turso, PostgreSQL, Laravel Lite, 现代化实战, 边缘数据库, 的嵌入式数据层与, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 深入解析 SQLite 现代化演进：libSQL fork 的向量搜索与 HTTP API、Turso 边缘数据库平台、嵌入式副本架构设计、PostgreSQL 全方位对比，以及 Laravel Lite 集成方案（缓存/队列/Session 驱动）的生产级实战指南与踩坑经验。
 ---
+
 
 # SQLite 现代化实战：libSQL/Turso 边缘数据库——对比 PostgreSQL 的嵌入式数据层与 Laravel Lite 集成
 

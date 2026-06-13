@@ -1,6 +1,6 @@
 ---
 title: "Eloquent Observer 性能陷阱深度剖析：afterCommit/afterCreate 的 N+1 与事务边界——30+ 仓库的生产级最佳实践"
-keywords: [Eloquent, Observer]
+keywords: [Eloquent Observer, afterCommit, afterCreate, 性能陷阱深度剖析, 与事务边界, 仓库的生产级最佳实践, PHP]
 date: 2026-06-09 15:19:00
 categories:
   - php
@@ -16,6 +16,7 @@ tags:
   - 性能优化
 description: "深度剖析 Laravel Eloquent Observer 的性能陷阱，包括 afterCommit 导致的 N+1 查询、事务边界混淆、Observer 之间的执行顺序依赖等生产级问题，结合 30+ 仓库实战经验给出最佳实践方案。"
 ---
+
 
 # Eloquent Observer 性能陷阱深度剖析：afterCommit/afterCreate 的 N+1 与事务边界
 

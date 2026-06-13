@@ -2,7 +2,7 @@
 title: 'Neon + Drizzle ORM 实战：Serverless PostgreSQL + TypeScript 边缘 ORM——对比 Supabase 的开发体验与冷启动性能'
 date: 2026-06-07 10:00:00
 tags: [Neon, Drizzle ORM, PostgreSQL, Serverless, TypeScript, Edge Runtime]
-keywords: [Neon, Drizzle ORM, PostgreSQL, Serverless, TypeScript, Drizzle, ORM]
+keywords: [Neon, Drizzle ORM, Serverless PostgreSQL, TypeScript, ORM, Supabase, 边缘, 的开发体验与冷启动性能, 前端]
 description: "深入解析 Neon Serverless PostgreSQL 与 Drizzle ORM 的集成实战，涵盖计算存储分离架构、自动休眠与冷启动优化、数据库分支工作流、Edge Runtime 部署方案。对比 Supabase + Prisma 在开发体验、类型安全、迁移透明度、边缘兼容性与成本模型上的差异，附完整可运行的 TypeScript 代码示例与生产环境踩坑记录，帮助前端团队在边缘计算场景下选择最优数据库 ORM 方案。"
 categories:
   - frontend
@@ -10,6 +10,7 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
+
 
 在 Serverless 和边缘计算逐渐成为主流部署范式的今天，数据库层的选择变得尤为关键。传统的托管 PostgreSQL（如 AWS RDS、Supabase）虽然功能强大，但在冷启动延迟、连接管理、边缘兼容性等方面仍然存在不少痛点。对于前端开发者而言，如何在边缘运行时中高效地操作关系型数据库，同时兼顾类型安全和开发体验，是一个亟待解决的问题。
 

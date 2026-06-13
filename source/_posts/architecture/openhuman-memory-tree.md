@@ -2,7 +2,7 @@
 title: OpenHuman Memory Tree 实战：本地知识图谱与记忆构建
 date: 2026-06-02 00:00:00
 tags: [OpenHuman, Memory Tree, 知识图谱, AI记忆]
-keywords: [OpenHuman, Memory Tree, 知识图谱, AI记忆, Memory, Tree]
+keywords: [OpenHuman Memory Tree, 本地知识图谱与记忆构建, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 本文系统拆解 OpenHuman Memory Tree 如何落地本地知识图谱与 AI记忆体系，围绕长期记忆建模、节点设计、查询编排、排障调优与工程实践展开。若你想真正搞懂 Memory Tree 怎样支撑知识图谱、AI记忆与长期记忆构建，并把方案稳定落到本地 Agent、项目知识库和个人工作流，这篇实战会给你可直接复用的代码、表格与方法论。
 ---
+
 
 在过去两年里，大模型应用从“能回答问题”迅速进入“能持续协作”的阶段。一个只能读当前上下文的模型，很像一个记忆只有几分钟的顾问：它能在单轮对话里给出漂亮答案，但一旦问题跨越项目周期、个人偏好、长期任务和历史决策链，它就会暴露出天然短板。于是，围绕“长期记忆”“外部记忆”“可持续知识组织”的工程实践，逐渐从简单的向量检索演进到更贴近人类知识结构的记忆系统。OpenHuman 的 Memory Tree，正是在这个背景下非常值得研究的一种方案。
 

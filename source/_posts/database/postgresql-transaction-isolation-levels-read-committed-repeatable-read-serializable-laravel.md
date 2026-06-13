@@ -2,7 +2,7 @@
 title: 'PostgreSQL 事务隔离级别实战：Read Committed vs Repeatable Read vs Serializable——Laravel 中的幻读、不可重复读与死锁治理'
 date: 2026-06-06 18:00:00
 tags: [PostgreSQL, 事务隔离, Laravel, 并发控制, 死锁]
-keywords: [PostgreSQL, 事务隔离, Laravel, 并发控制, 死锁]
+keywords: [PostgreSQL, Read Committed vs Repeatable Read vs Serializable, Laravel, 事务隔离级别实战, 中的幻读, 不可重复读与死锁治理, 数据库]
 description: 深入解析 PostgreSQL 四种事务隔离级别（Read Committed、Repeatable Read、Serializable）的行为差异与内部实现原理。通过可运行的 SQL 演示脏读、不可重复读和幻读问题，深度解析 PostgreSQL 独有的 SSI 快照隔离机制，并给出 Laravel 中切换隔离级别、配置重试机制、治理死锁的完整实战方案。适合从 MySQL 迁移到 PostgreSQL 的开发者，帮助你在高并发场景中正确选择隔离级别，避免数据不一致和死锁问题。
 categories:
   - database
@@ -10,6 +10,7 @@ cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
+
 
 # PostgreSQL 事务隔离级别实战：Read Committed vs Repeatable Read vs Serializable——Laravel 中的幻读、不可重复读与死锁治理
 

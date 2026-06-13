@@ -1,4 +1,4 @@
----
+
 title: Postman 高级实战：Collection、Environment、Pre-request Script 与 Newman CI 集成踩坑记录
 keywords: [Postman]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
@@ -7,14 +7,13 @@ images:
 date: 2026-05-17 06:20:30
 updated: 2026-05-17 06:22:38
 categories:
-- engineering
-- testing
+  - engineering
+  - testing
 tags:
 - CI/CD
 - Laravel
 - 测试
-description: 'Postman API测试高级实战指南：详解集合(Collection)编排与组织策略、多环境变量管理与切换技巧、Pre-request
-  Script实现自动化鉴权与Token刷新机制、Tests断言链路设计（Schema验证与性能断言）及Newman CLI的CI/CD集成方案。涵盖数据驱动测试与六大踩坑场景，助你从手动调试构建完整的自动化API测试工作流，提升团队协作效率。
+description: 'Postman API测试高级实战指南：详解集合(Collection)编排与组织策略、多环境变量管理与切换技巧、Pre-request Script实现自动化鉴权与Token刷新机制、Tests断言链路设计（Schema验证与性能断言）及Newman CLI的CI/CD集成方案。涵盖数据驱动测试与六大踩坑场景，助你从手动调试构建完整的自动化API测试工作流，提升团队协作效率。
 
   '
 ---

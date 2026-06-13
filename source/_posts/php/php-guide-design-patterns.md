@@ -1,6 +1,7 @@
 ---
+
 title: PHP 实战 - 消息幂等性设计模式 KKday B2C API 真实踩坑记录
-keywords: [PHP, KKday, API]
+keywords: [PHP, KKday B2C API, 消息幂等性设计模式, 真实踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -15,11 +16,10 @@ tags:
 categories:
 - php
 date: 2026-05-03 13:50:54
-description: 深入解析 PHP 消息幂等性设计模式，基于 KKday B2C API 真实踩坑记录。对比唯一 ID 去重表、数据库唯一键约束、Redis
-  Set 三大方案，详解 Laravel 中观察者、策略、状态机等设计模式与幂等性的结合实践，涵盖 Kafka ACK 优化、去重表清理与 Prometheus
-  监控，帮助开发者构建高可靠分布式消息消费系统。
+description: 深入解析 PHP 消息幂等性设计模式，基于 KKday B2C API 真实踩坑记录。对比唯一 ID 去重表、数据库唯一键约束、Redis Set 三大方案，详解 Laravel 中观察者、策略、状态机等设计模式与幂等性的结合实践，涵盖 Kafka ACK 优化、去重表清理与 Prometheus 监控，帮助开发者构建高可靠分布式消息消费系统。
 updated: 2026-05-03 14:00:21
 ---
+
 
 ## 引言：消息系统为何需要幂等性？
 

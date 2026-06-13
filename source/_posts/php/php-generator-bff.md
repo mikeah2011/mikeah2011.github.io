@@ -8,12 +8,13 @@ categories:
   - php
   - bff
 tags: [BFF, Laravel, WebSocket]
-keywords: [BFF, Laravel, WebSocket, PHP, Generator]
+keywords: [PHP Generator, BFF, KKday, B2C, API, 流式響應實戰, 真實踩坑記錄, PHP]
 description: PHP Generator 在 BFF 層的流式響應實戰，結合 KKday-B2C-API 真實踩坑經驗，分享如何利用 Generator 實現漸進式數據傳輸與錯誤容錯機制。
 
 
 
 ---
+
 # PHP Generator -BFF 流式響應實戰-KKday-B2C-API-真實踩坑記錄
 
 ## 背景：為什麼需要 BFF 層流式響應？

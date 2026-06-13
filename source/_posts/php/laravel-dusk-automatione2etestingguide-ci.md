@@ -1,6 +1,7 @@
 ---
+
 title: Laravel-Dusk-浏览器自动化E2E测试实战-CI流水线集成-动态等待与选择器治理踩坑记录
-keywords: [Laravel, Dusk, CI]
+keywords: [Laravel, Dusk, E2E, CI, 浏览器自动化, 测试实战, 流水线集成, 动态等待与选择器治理踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -14,10 +15,9 @@ tags:
 categories:
 - php
 - testing
-description: 结合 Laravel B2C 项目线上实战，全面记录 Laravel Dusk 浏览器自动化 E2E 测试的搭建与落地。涵盖完整下单流程测试、Page
-  Object 选择器治理、GitHub Actions CI/CD Headless Chrome 集成、动态等待策略（waitFor vs waitForText）避坑、数据库事务冲突排查、SPA
-  异步渲染处理、移动端 Viewport 测试，以及 CI 字体渲染差异、并行测试端口冲突等真实踩坑经验，适合 Laravel 团队快速搭建可靠的端到端自动化测试体系。
+description: 结合 Laravel B2C 项目线上实战，全面记录 Laravel Dusk 浏览器自动化 E2E 测试的搭建与落地。涵盖完整下单流程测试、Page Object 选择器治理、GitHub Actions CI/CD Headless Chrome 集成、动态等待策略（waitFor vs waitForText）避坑、数据库事务冲突排查、SPA 异步渲染处理、移动端 Viewport 测试，以及 CI 字体渲染差异、并行测试端口冲突等真实踩坑经验，适合 Laravel 团队快速搭建可靠的端到端自动化测试体系。
 ---
+
 
 # Laravel Dusk 浏览器自动化 E2E 测试实战——CI 流水线集成、动态等待与选择器治理踩坑记录
 

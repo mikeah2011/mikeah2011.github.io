@@ -1,21 +1,22 @@
 ---
+
 title: Chrome Extension Manifest V3 实战：Service Worker、存储 API 与 Laravel 后端集成
-keywords: [Chrome, Extension, Manifest]
+keywords: [Chrome Extension Manifest V3, Service Worker, API, Laravel, 存储, 后端集成, 前端]
 date: 2026-06-10 09:11:00
 categories:
+  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-- frontend
 tags:
 - Chrome Extension
 - Manifest V3
 - Service Worker
 - Laravel
 - 浏览器
-description: 从零搭建一个基于 Manifest V3 的 Chrome 扩展，深入讲解 Service Worker 生命周期、chrome.storage
-  API 的实战用法，以及与 Laravel 后端的完整集成方案。
+description: 从零搭建一个基于 Manifest V3 的 Chrome 扩展，深入讲解 Service Worker 生命周期、chrome.storage API 的实战用法，以及与 Laravel 后端的完整集成方案。
 ---
+
 
 
 ## 前言

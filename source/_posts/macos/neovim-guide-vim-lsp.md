@@ -9,12 +9,13 @@ categories:
   - macos
   - editor
 tags: [Neovim, Vim, LSP, Laravel, PHP, macOS, Editor, Treesitter, Telescope]
-keywords: [Neovim, Vim, LSP, Laravel, PHP]
+keywords: [Neovim, Vim, LSP, Laravel, B2C, API, 现代, 配置与, 开发效率提升踩坑记录, macOS]
 description: "Neovim 现代 Vim 配置实战指南：基于 macOS 的 Lazy.nvim 插件管理、LSP 双引擎（phpactor + intelephense）集成、Treesitter 语法高亮、Telescope 模糊搜索、nvim-cmp 自动补全，深度适配 Laravel PHP 开发工作流，含完整配置代码与 6 大踩坑经验。"
 
 
 
 ---
+
 ## 为什么要从 Vim 迁移到 Neovim？
 
 管理 30+ Laravel 仓库的日常开发中，IDE 的启动速度和响应性直接影响开发节奏。PHPStorm 功能强大，但打开 5 个以上的仓库窗口时，内存占用轻松突破 8GB，M 芯片 MacBook 也会偶发卡顿。

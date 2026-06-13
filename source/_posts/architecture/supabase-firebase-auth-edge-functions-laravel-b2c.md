@@ -2,7 +2,7 @@
 title: Supabase 实战：开源 Firebase 替代——实时数据库、Auth、Edge Functions 与 Laravel B2C 集成
 date: 2026-06-03 10:00:00
 tags: [Supabase, Firebase, PostgreSQL, Realtime, Auth, Laravel]
-keywords: [Supabase, Firebase, PostgreSQL, Realtime, Auth]
+keywords: [Supabase, Firebase, Auth, Edge Functions, Laravel B2C, 开源, 替代, 实时数据库, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "Supabase 实战指南：基于 PostgreSQL 的开源 Firebase 替代方案，深入讲解实时数据库、Auth 认证、Edge Functions、Row Level Security 安全策略，并通过 supabase-php SDK 与 Laravel 集成实现 B2C 电商订单系统，附 Firebase 迁移策略、7 大踩坑记录与成本对比分析。"
 ---
+
 
 # Supabase 实战：开源 Firebase 替代——实时数据库、Auth、Edge Functions 与 Laravel B2C 集成
 

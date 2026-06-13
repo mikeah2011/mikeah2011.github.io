@@ -2,7 +2,7 @@
 title: Vue Vapor Mode 实战：无 Virtual DOM 的 Vue 编译时优化——对比 SolidJS 的细粒度响应式性能
 date: 2026-06-06 12:35:00
 tags: [Vue, Vapor, Virtual DOM, SolidJS, Svelte, 性能优化, 前端]
-keywords: [Vue, Vapor, Virtual DOM, SolidJS, Svelte, Mode]
+keywords: [Vue Vapor Mode, Virtual DOM, Vue, SolidJS, 编译时优化, 的细粒度响应式性能, 前端]
 categories:
   - frontend
 description: 深入剖析 Vue Vapor Mode 的编译时优化机制——如何完全绕过 Virtual DOM，将模板直接编译为精确 DOM 操作指令。对比 SolidJS 细粒度响应式与 Svelte 编译策略，涵盖运行时性能基准测试、迁移策略与 Laravel BFF 集成实践，帮助前端开发者在大型实时应用中获得 30%+ 的渲染性能提升。
@@ -10,6 +10,7 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
+
 
 ## 前言
 

@@ -1,6 +1,6 @@
 ---
 title: "ThinkPHP 事件驱动架构实战：观察者模式与领域事件解耦业务逻辑——基于奇乐 MAX 电商的真实重构踩坑记录"
-keywords: [ThinkPHP]
+keywords: [ThinkPHP, MAX, 事件驱动架构实战, 观察者模式与领域事件解耦业务逻辑, 基于奇乐, 电商的真实重构踩坑记录, 技术杂谈]
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
@@ -16,6 +16,7 @@ tags:
   - 奇乐MAX
 description: "基于奇乐 MAX（qile-max）盲盒电商项目的 5000+ 行耦合代码，拆解 ThinkPHP 6/8 事件系统的源码实现（ModelEvent trait、Event 调度器），演示如何从 PayNotify 控制器里 200 行 if-else 回调中提取领域事件，用观察者模式替代 Service 层直接调用，实现订单/库存/积分/通知的彻底解耦。包含 7 个真实踩坑与生产环境重构方案。"
 ---
+
 
 # ThinkPHP 事件驱动架构实战：观察者模式与领域事件解耦业务逻辑
 

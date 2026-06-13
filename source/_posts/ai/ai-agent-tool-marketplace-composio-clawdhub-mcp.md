@@ -1,6 +1,6 @@
 ---
 title: AI Agent Tool Marketplace 实战：Composio/ClawdHub/MCP 生态——工具发现、安装与版本管理
-keywords: [AI, Agent, Tool]
+keywords: [AI Agent Tool Marketplace, Composio, ClawdHub, MCP, 生态, 工具发现, 安装与版本管理, AI]
 date: 2026-06-09 08:38:00
 categories:
   - ai
@@ -17,6 +17,7 @@ cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200
 ---
+
 
 ## 概述
 

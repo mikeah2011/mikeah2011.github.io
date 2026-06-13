@@ -1,6 +1,6 @@
 ---
 title: "PR Automation 实战：自动标签/分配/模板检查——GitHub Actions + Labeler + CODEOWNERS 的协作工程化"
-keywords: [PR, Automation]
+keywords: [PR Automation, GitHub Actions, Labeler, CODEOWNERS, 自动标签, 分配, 模板检查, 的协作工程化, DevOps]
 date: 2026-06-10 01:33:00
 categories:
   - devops
@@ -15,6 +15,7 @@ tags:
   - CODEOWNERS
 description: "深入探讨如何在 GitHub 项目中实现 PR 的自动化标签分配、Issue 模板检查以及代码审查的工程化流程，结合 GitHub Actions、Labeler 和 CODEOWNERS 提升团队协作效率。"
 ---
+
 
 # PR Automation 实战：自动标签/分配/模板检查——GitHub Actions + Labeler + CODEOWNERS 的协作工程化
 

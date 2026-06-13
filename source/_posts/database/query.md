@@ -1,7 +1,7 @@
 ---
 title: SQL查询语句的流程
 tags: [MySQL, SQL查询, 执行流程, 优化器, EXPLAIN, 性能优化]
-keywords: [MySQL, SQL查询, 执行流程, 优化器, EXPLAIN, SQL]
+keywords: [SQL, 查询语句的流程, 数据库]
 categories:
   - database
 date: 2021-03-20 15:05:07
@@ -13,6 +13,7 @@ images:
 
 
 ---
+
 当Mysql执行一条查询的SQl的时候大概发生了以下的步骤：
 
 1. 客户端发送查询语句给服务器。

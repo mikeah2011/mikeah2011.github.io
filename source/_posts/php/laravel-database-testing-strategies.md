@@ -1,6 +1,6 @@
 ---
 title: Laravel 数据库测试策略实战：事务回滚、内存数据库、Seeding 与迁移速度优化
-keywords: [Laravel]
+keywords: [Laravel, Seeding, 数据库测试策略实战, 事务回滚, 内存数据库, 与迁移速度优化, PHP]
 date: 2026-06-09 23:15:00
 categories:
   - php
@@ -16,6 +16,7 @@ tags:
   - Seeding
 description: 深入讲解 Laravel 项目中数据库测试的最佳实践，涵盖事务回滚、内存数据库（SQLite in-memory）、Factory Seeding 策略、迁移速度优化，附带可运行的实战代码。
 ---
+
 
 ## 概述
 

@@ -1,6 +1,6 @@
 ---
 title: "WebCodecs API 实战：浏览器原生音视频编解码——实时录制、转码、直播推流与 Laravel 后端存储集成"
-keywords: [WebCodecs, API]
+keywords: [WebCodecs API, Laravel, 浏览器原生音视频编解码, 实时录制, 转码, 直播推流与, 后端存储集成, 前端]
 date: 2026-06-10 04:09:00
 categories:
   - frontend
@@ -18,6 +18,7 @@ tags:
   - 直播推流
 description: "深入实战 WebCodecs API，从浏览器原生音视频编解码原理出发，覆盖实时录制、格式转码、直播推流场景，并与 Laravel 后端完整集成，实现端到端的音视频处理方案。"
 ---
+
 
 ## 为什么需要 WebCodecs？
 

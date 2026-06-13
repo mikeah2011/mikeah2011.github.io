@@ -1,7 +1,7 @@
 ---
 title: MySQL SQL 性能优化 52 条实战策略
 tags: [MySQL, SQL优化, 性能优化, 索引, 查询优化, 数据库, EXPLAIN, 慢查询]
-keywords: [MySQL, SQL优化, 性能优化, 索引, 查询优化, SQL]
+keywords: [MySQL SQL, 性能优化, 条实战策略, 数据库]
 categories:
   - database
 date: 2020-03-20 15:05:07
@@ -11,6 +11,7 @@ images:
   - /images/content/databases-1-content-2.jpg
 description: '系统总结 52 条 MySQL SQL 语句性能优化策略，按索引规范、查询写法、表设计、批量操作、存储引擎五大维度分类，每条策略配有可执行的 SQL 示例与 EXPLAIN 验证方法，帮助开发者从索引、查询、架构三个层面全面提升 MySQL 数据库性能。'
 ---
+
 
 SQL 优化不是背口诀，而是要理解 **MySQL 查询优化器怎么选执行计划**。本文把 52 条策略分成五大类，每类配上真实 SQL 和 EXPLAIN 验证，直接能用。
 

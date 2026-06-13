@@ -1,6 +1,6 @@
 ---
 title: "Chaos Engineering 2026 实战：Chaos Mesh/Litmus/Lambda 原生故障注入——Laravel 微服务的韧性测试与 GameDay 演练方法论"
-keywords: [Chaos, Engineering]
+keywords: [Chaos Engineering, Chaos Mesh, Litmus, Lambda, Laravel, GameDay, 原生故障注入, 微服务的韧性测试与, 演练方法论, 架构]
 date: 2026-06-09 18:41:00
 categories:
   - architecture
@@ -18,6 +18,7 @@ tags:
   - 故障注入
 description: "从理论到落地，用 Chaos Mesh、Litmus Chaos 和 AWS Lambda 原生故障注入三种方案，为 Laravel 微服务架构构建完整的混沌工程体系，附带 GameDay 演练方法论和可运行代码。"
 ---
+
 
 ## 为什么 2026 年你的 Laravel 微服务必须做混沌工程
 

@@ -1,6 +1,7 @@
 ---
+
 title: OpenClaw + 微信实战：个人 AI 助手接入微信私聊与群聊
-keywords: [OpenClaw]
+keywords: [OpenClaw, AI, 微信实战, 个人, 助手接入微信私聊与群聊]
 date: 2026-06-02 09:00:00
 tags:
 - OpenClaw
@@ -13,9 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 本文系统拆解 OpenClaw 接入微信私聊与群聊的完整实践，涵盖微信协议选择、AI Agent 适配器设计、多模态消息处理、上下文管理、权限控制、部署运维与常见踩坑。适合希望打造个人聊天机器人或团队微信助手的开发者，用可落地的代码示例帮助你把
-  OpenClaw、微信、私聊、群聊和自动化工作流真正串起来。
+description: 本文系统拆解 OpenClaw 接入微信私聊与群聊的完整实践，涵盖微信协议选择、AI Agent 适配器设计、多模态消息处理、上下文管理、权限控制、部署运维与常见踩坑。适合希望打造个人聊天机器人或团队微信助手的开发者，用可落地的代码示例帮助你把 OpenClaw、微信、私聊、群聊和自动化工作流真正串起来。
 ---
+
 
 
 # OpenClaw + 微信实战：个人 AI 助手接入微信私聊与群聊

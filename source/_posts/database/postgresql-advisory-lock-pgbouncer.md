@@ -1,6 +1,7 @@
 ---
+
 title: PostgreSQL Advisory Lock 实战进阶：会话级互斥、分布式任务调度、与 PgBouncer 连接池的兼容性踩坑
-keywords: [PostgreSQL, Advisory, Lock]
+keywords: [PostgreSQL Advisory Lock, PgBouncer, 实战进阶, 会话级互斥, 分布式任务调度, 连接池的兼容性踩坑]
 date: 2026-06-06 09:30:00
 tags:
 - PostgreSQL
@@ -10,13 +11,12 @@ tags:
 - Laravel
 categories:
 - database
-description: PostgreSQL Advisory Lock 是一种数据库原生的互斥机制，无需引入 Redis 或 ZooKeeper 即可实现分布式任务调度中的单实例执行保障。本文深入对比会话级锁与事务级锁的选择边界，详解
-  Laravel 中 AdvisoryLockCommand 基类封装与多实例 cron 防重复执行的完整实现，重点剖析 PgBouncer transaction
-  模式下 Advisory Lock 失效的根因，并给出直连绕行、事务级锁降级、应用层 Redis 锁等四种生产级解决方案，附带监控告警配置与三个真实踩坑案例。
+description: PostgreSQL Advisory Lock 是一种数据库原生的互斥机制，无需引入 Redis 或 ZooKeeper 即可实现分布式任务调度中的单实例执行保障。本文深入对比会话级锁与事务级锁的选择边界，详解 Laravel 中 AdvisoryLockCommand 基类封装与多实例 cron 防重复执行的完整实现，重点剖析 PgBouncer transaction 模式下 Advisory Lock 失效的根因，并给出直连绕行、事务级锁降级、应用层 Redis 锁等四种生产级解决方案，附带监控告警配置与三个真实踩坑案例。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
+
 
 
 在微服务和多实例部署成为常态的今天，"同一时刻只允许一个实例执行某项任务"是后端开发中最常见的互斥需求。很多团队的第一反应是引入 Redis 分布式锁，但在实践中会发现：锁的过期时间设短了，业务还没跑完锁就释放了，导致并发冲突；设长了，进程异常退出后锁长期不释放，任务被卡住好几分钟。更别提还要额外维护 Redis 集群的高可用，增加了运维和排障的复杂度。

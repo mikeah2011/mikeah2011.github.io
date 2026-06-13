@@ -1,6 +1,6 @@
 ---
 title: 新人 Onboarding 自动化实战：devcontainer + Seed 数据 + 文档生成——Laravel 团队的零摩擦入职方案
-keywords: [Onboarding]
+keywords: [Onboarding, devcontainer, Seed, Laravel, 新人, 自动化实战, 数据, 文档生成, 团队的零摩擦入职方案, 工程化]
 date: 2026-06-09
 categories:
   - engineering
@@ -19,6 +19,7 @@ tags:
   - documentation
 description: 本文以 Laravel B2C API 项目为背景，完整拆解一套可复制的新人入职自动化方案：通过 DevContainer 实现一键开发环境，用 Seed 数据注入最小可用业务数据，并用自动化文档生成把分散在仓库、Wiki、口头约定里的知识统一沉淀。方案重点不在“工具清单”，而在“把入职路径工程化”：环境可复现、数据可解释、流程可追溯、产出可验证。适合中小团队从第一周就能落地，并在后续 30+ 仓库协同中持续扩展。
 ---
+
 
 # 新人 Onboarding 自动化实战：devcontainer + Seed 数据 + 文档生成——Laravel 团队的零摩擦入职方案
 

@@ -2,7 +2,7 @@
 title: PHP 8.5 异步生态全景实战：Fibers + Swoole + ReactPHP + AMPHP——PHP 异步编程的四条路线对比与选型指南
 date: 2026-06-05 12:00:00
 tags: [PHP, 异步编程, Fibers, Swoole, ReactPHP, AMPHP]
-keywords: [PHP, 异步编程, Fibers, Swoole, ReactPHP]
+keywords: [PHP, Fibers, Swoole, ReactPHP, AMPHP, 异步生态全景实战, 异步编程的四条路线对比与选型指南]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "深入对比 PHP 8.5 异步编程四大路线：Fibers 原生纤程、Swoole C扩展协程、ReactPHP 事件驱动、AMPHP 结构化并发。涵盖原理剖析、性能基准、Laravel Octane集成、真实项目案例与选型决策树，助你为高并发场景选择最佳 PHP 异步方案。"
 ---
+
 
 PHP 曾经被贴上"请求进来、响应出去、进程销毁"的无状态脚本标签。但当你的系统面对数万并发连接、长生命周期的消息消费者、或需要并行调用数十个微服务时，传统同步模型就成了性能瓶颈。好消息是，PHP 8.x 以来异步生态已经百花齐放——**Fibers** 打开了语言级协程的大门，**Swoole** 提供了完整的 C 扩展协程运行时，**ReactPHP** 用事件循环实现了纯 PHP 异步 I/O，**AMPHP v3** 则在 Fiber 基础上构建了结构化并发范式。
 

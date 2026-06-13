@@ -1,6 +1,7 @@
 ---
+
 title: AI Agent Long-Running Tasks 实战：持久化状态、断点恢复、人机审批节点——生产级 Agent 的长时间运行任务编排
-keywords: [AI, Agent, Long]
+keywords: [AI Agent Long, Running Tasks, Agent, 持久化状态, 断点恢复, 人机审批节点, 生产级, 的长时间运行任务编排]
 date: 2026-06-05 10:00:00
 tags:
 - AI Agent
@@ -13,9 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-description: AI Agent 长运行任务的核心挑战在于持久化状态、断点恢复与人机审批。本文系统探讨 Temporal.io、Inngest 与自建方案三条技术路线，覆盖
-  DAG 工作流引擎、Saga 补偿模式、死信队列与状态版本兼容性踩坑，帮助你为生产级 Agent 选择最合适的 durable execution 架构。
+description: AI Agent 长运行任务的核心挑战在于持久化状态、断点恢复与人机审批。本文系统探讨 Temporal.io、Inngest 与自建方案三条技术路线，覆盖 DAG 工作流引擎、Saga 补偿模式、死信队列与状态版本兼容性踩坑，帮助你为生产级 Agent 选择最合适的 durable execution 架构。
 ---
+
 
 
 

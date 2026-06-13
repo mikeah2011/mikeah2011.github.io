@@ -6,7 +6,7 @@ categories:
   - architecture
   - php
 tags: [Laravel, 监控, Prometheus, Grafana, RED方法, USE方法, AlertManager, PHP-FPM, 微服务, 可观测性]
-keywords: [Laravel, 监控, Prometheus, Grafana, RED方法]
+keywords: [Prometheus, Grafana, Laravel, 应用监控, 指标采集, 告警与可视化踩坑记录, 架构, PHP]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -14,6 +14,7 @@ description: 基于 KKday B2C API 生产环境，深入讲解 Prometheus + Grafa
 
 
 ---
+
 # Prometheus + Grafana 实战：Laravel 应用监控——指标采集、告警与可视化踩坑记录
 
 ## 一、为什么从 New Relic 迁移到 Prometheus + Grafana？

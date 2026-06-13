@@ -1,4 +1,5 @@
 ---
+
 title: ext-parallel 实战：PHP 原生多线程——pthreads 继任者的 Channel/Future/Task 模型与 Fibers 的互补场景
 date: 2026-06-05 10:00:00
 tags:
@@ -12,15 +13,15 @@ tags:
 - Task
 - Swoole
 - 并发编程
-description: 深入剖析 PHP 原生多线程扩展 ext-parallel（pthreads 继任者），详解 Channel、Future、Task 三大核心模型的架构设计与实战用法。涵盖并发
-  API 调用、并行数据处理、生产者-消费者模式等完整可运行代码示例，系统对比 ext-parallel 与 PHP Fibers、Swoole 协程的性能差异与适用场景，包含线程池模式、MapReduce
-  并行计算等高级实践，帮助开发者在 CPU 密集型与 I/O 密集型并发场景中做出正确的技术选型。
+description: 深入剖析 PHP 原生多线程扩展 ext-parallel（pthreads 继任者），详解 Channel、Future、Task 三大核心模型的架构设计与实战用法。涵盖并发 API 调用、并行数据处理、生产者-消费者模式等完整可运行代码示例，系统对比 ext-parallel 与 PHP Fibers、Swoole 协程的性能差异与适用场景，包含线程池模式、MapReduce 并行计算等高级实践，帮助开发者在 CPU 密集型与 I/O 密集型并发场景中做出正确的技术选型。
 categories:
-- php
+  - php
+keywords: [ext, parallel, PHP, pthreads, Channel, Future, Task, Fibers, 原生多线程, 继任者的]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 
 # ext-parallel 实战：PHP 原生多线程——pthreads 继任者的 Channel/Future/Task 模型与 Fibers 的互补场景

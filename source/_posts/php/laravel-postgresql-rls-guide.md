@@ -8,12 +8,13 @@ updated: 2026-05-03 10:52:45
 categories:
   - php
 tags: [Laravel, PostgreSQL, RLS, 多租户, 数据隔离, PgBouncer]
-keywords: [Laravel, PostgreSQL, RLS, 多租户, 数据隔离]
+keywords: [Laravel, PostgreSQL RLS, 多租户数据隔离, 策略下推与连接池上下文踩坑记录, PHP]
 description: Laravel 多租户项目完整 RLS 落地指南：从 PostgreSQL Row Level Security 策略配置、Laravel 中间件与 ServiceProvider 集成、PgBouncer 连接池适配、队列 Job 租户上下文恢复，到管理员越权审计与多租户隔离方案对比，附完整 SQL 脚本与 PHP 代码示例。
 
 
 
 ---
+
 多租户系统做久了，团队迟早会遇到一个问题：**`where tenant_id = ?` 到底还能信多久**。项目早期靠 Eloquent Global Scope 很顺手，但仓库一多、报表 SQL 一多、定时任务一多，总会冒出“少带一个条件就串租”的事故。我们这次改造没有继续在应用层补洞，而是把隔离规则下推到 PostgreSQL，直接用 **Row Level Security（RLS）** 兜底。
 
 先说结论：RLS 不是银弹，但它非常适合“共享库多租户 + Laravel + PostgreSQL”这类场景。落地后，我们把后台导出、运营查询、异步任务三条最容易漏 `tenant_id` 的链路都收住了，排查数据串租风险也从“代码 review 靠人眼”变成“数据库默认拒绝”。真正难的不是开一个开关，而是**如何把租户上下文稳定传到每条连接、每个事务、每个队列 worker**。

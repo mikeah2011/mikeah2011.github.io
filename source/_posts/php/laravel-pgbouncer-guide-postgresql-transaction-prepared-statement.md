@@ -1,6 +1,7 @@
 ---
+
 title: Laravel + PgBouncer 连接池实战：PostgreSQL 连接风暴治理、事务池模式与 Prepared Statement 踩坑记录
-keywords: [Laravel, PgBouncer]
+keywords: [Laravel, PgBouncer, PostgreSQL, Prepared Statement, 连接池实战, 连接风暴治理, 事务池模式与, 踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -17,9 +18,9 @@ tags:
 - 数据库
 - 性能优化
 - 监控
-description: Laravel 连接 PostgreSQL 遇到连接风暴？本文详解 PgBouncer 事务池模式配置、PDO prepared statement
-  踩坑修复、session vs transaction 池模式对比、监控指标与参数基线，附 Docker Compose 与 Laravel config 完整示例，帮你把数据库连接数压到稳定水位。
+description: Laravel 连接 PostgreSQL 遇到连接风暴？本文详解 PgBouncer 事务池模式配置、PDO prepared statement 踩坑修复、session vs transaction 池模式对比、监控指标与参数基线，附 Docker Compose 与 Laravel config 完整示例，帮你把数据库连接数压到稳定水位。
 ---
+
 
 在 Laravel 单体逐步长大之后，CPU 往往不是第一个瓶颈，**数据库连接数**才是。我们曾把前台 API、后台报表、队列 worker 都直接连 PostgreSQL，高峰一来 `max_connections` 打满。后来真正把问题压下去，不是继续调大连接上限，而是在应用和 PostgreSQL 中间加一层 **PgBouncer**，把“连接很多”改成“请求很多，但后端连接稳定”。
 

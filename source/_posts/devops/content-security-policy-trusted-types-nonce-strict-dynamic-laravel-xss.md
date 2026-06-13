@@ -1,6 +1,6 @@
 ---
 title: Content Security Policy 进阶实战：Trusted Types + Nonce + strict-dynamic 的深度组合——Laravel 应用的 XSS 纵深防御
-keywords: [Content, Security, Policy]
+keywords: [Content Security Policy, Trusted Types, Nonce, strict, dynamic, Laravel, XSS, 进阶实战, 的深度组合, 应用的]
 date: 2026-06-09 16:25:00
 categories:
   - devops
@@ -18,6 +18,7 @@ tags:
   - 前端安全
 description: 深入实战 Content Security Policy 的进阶防御体系，详解 Trusted Types API、Nonce 机制与 strict-dynamic 指令的协同工作原理，结合 Laravel 中间件实现 XSS 纵深防御，覆盖 CSP Level 3 最新特性与踩坑记录。
 ---
+
 
 ## 为什么你的 CSP 大多数时候形同虚设？
 

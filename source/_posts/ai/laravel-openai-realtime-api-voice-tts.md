@@ -1,6 +1,6 @@
 ---
 title: Laravel + OpenAI Realtime API 实战：语音对话、实时转录与 TTS——PHP 后端的语音 AI 集成
-keywords: [Laravel, OpenAI, Realtime]
+keywords: [Laravel, OpenAI Realtime API, TTS, PHP, AI, 语音对话, 实时转录与, 后端的语音]
 date: 2026-06-09 06:49:00
 categories:
   - ai
@@ -17,6 +17,7 @@ cover: https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200
 images:
   - https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200
 ---
+
 
 # Laravel + OpenAI Realtime API 实战：语音对话、实时转录与 TTS
 

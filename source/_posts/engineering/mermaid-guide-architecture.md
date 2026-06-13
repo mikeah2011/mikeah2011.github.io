@@ -9,12 +9,13 @@ categories:
   - engineering
   - docs
 tags: [mermaid, 架构图, 流程图, 时序图, 文档工具, 工程管理]
-keywords: [mermaid, 架构图, 流程图, 时序图, 文档工具, Mermaid, Laravel, API]
+keywords: [Mermaid, Laravel, B2C, API, 用代码画架构图流程图时序图, 踩坑记录, 工程化]
 description: Mermaid 是一款基于文本的图表绘制工具，让工程师用代码画架构图、流程图、时序图和 ER 图。本文从零开始讲解 Mermaid 各图表类型完整语法，结合 Laravel B2C API 真实项目场景，涵盖流程图订单状态机、时序图请求链路追踪、ER 图数据库设计等实战案例，并深入分享 GitHub/GitLab/Confluence 集成方案、主题定制、Mermaid Live Editor 使用技巧，以及与 PlantUML、draw.io 的全面对比，附带大量踩坑记录与最佳实践。
 
 
 
 ---
+
 > 画图这件事，我以前用 draw.io、ProcessOn、甚至 PPT。直到开始用 Mermaid，才发现"代码即图"才是后端工程师的最佳拍档——版本可控、Review 友好、不用切窗口。
 
 ## 为什么选 Mermaid？

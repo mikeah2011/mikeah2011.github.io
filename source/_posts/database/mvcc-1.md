@@ -1,7 +1,7 @@
 ---
 title: MySQL - MVCC
 tags: [MySQL, MVCC, 事务, 锁, undo log]
-keywords: [MySQL, MVCC, 事务, 锁, undo log]
+keywords: [MySQL, MVCC, 数据库]
 categories:
   - database
 date: 2019-03-20 15:05:07
@@ -13,6 +13,7 @@ images:
 
 
 ---
+
 `MVCC`叫做**多版本控制**，实现MVCC时用到了**一致性视图**，用于支持**读提交**和**可重复读**的实现。
 
 ![MySQL MVCC 多版本并发控制](/images/content/databases-1-content-1.jpg)

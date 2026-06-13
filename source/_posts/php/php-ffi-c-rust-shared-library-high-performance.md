@@ -1,6 +1,7 @@
 ---
+
 title: PHP FFI 实战：调用 C/Rust 共享库——高性能计算与系统调用的跨语言集成
-keywords: [PHP, FFI]
+keywords: [PHP FFI, Rust, 调用, 共享库, 高性能计算与系统调用的跨语言集成]
 date: 2026-06-05 23:23:38
 tags:
 - PHP
@@ -14,10 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-description: PHP FFI实战指南：无需编写PHP扩展即可通过FFI调用C与Rust共享库，实现高性能数值计算与系统级操作。详解libffi调用链路、C头文件解析、Rust
-  cbindgen工具链、Rayon并行框架集成、BLAKE3哈希与图像处理实战。涵盖内存安全管理、段错误防护、Laravel服务提供者封装、性能基准测试（30-150倍加速），对比PHP
-  Extension、FFI与纯PHP三种方案，助你构建兼具开发效率与运行性能的现代化PHP应用。
+description: PHP FFI实战指南：无需编写PHP扩展即可通过FFI调用C与Rust共享库，实现高性能数值计算与系统级操作。详解libffi调用链路、C头文件解析、Rust cbindgen工具链、Rayon并行框架集成、BLAKE3哈希与图像处理实战。涵盖内存安全管理、段错误防护、Laravel服务提供者封装、性能基准测试（30-150倍加速），对比PHP Extension、FFI与纯PHP三种方案，助你构建兼具开发效率与运行性能的现代化PHP应用。
 ---
+
 
 
 

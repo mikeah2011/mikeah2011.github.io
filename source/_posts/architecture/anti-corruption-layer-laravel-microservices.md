@@ -1,6 +1,6 @@
 ---
 title: Anti-Corruption Layer 实战进阶：Laravel 微服务间的防腐层设计——DTO 映射、接口适配与遗留系统隔离的工程化方案
-keywords: [Anti, Corruption, Layer]
+keywords: [Anti, Corruption Layer, Laravel, DTO, 实战进阶, 微服务间的防腐层设计, 映射, 接口适配与遗留系统隔离的工程化方案, 架构]
 date: 2026-06-10 02:50:00
 categories:
   - architecture
@@ -16,6 +16,7 @@ tags:
   - 遗留系统
 description: 深入探讨 Anti-Corruption Layer（ACL）在 Laravel 微服务架构中的工程化落地，涵盖 DTO 映射、接口适配器、遗留系统隔离策略，以及在真实项目中踩过的坑和解决方案。
 ---
+
 
 # Anti-Corruption Layer 实战进阶：Laravel 微服务间的防腐层设计
 

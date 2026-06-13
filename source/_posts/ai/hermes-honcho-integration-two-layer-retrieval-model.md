@@ -2,13 +2,14 @@
 title: Hermes Honcho 集成深度剖析：两层召回模型（base context + dialectic supplement）
 date: 2026-06-02 11:00:00
 tags: [Hermes, Honcho, AI Agent, 记忆召回, RAG, 上下文管理]
-keywords: [Hermes, Honcho, AI Agent, 记忆召回, RAG]
+keywords: [Hermes Honcho, base context, dialectic supplement, 集成深度剖析, 两层召回模型, AI]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: 深度剖析 Hermes Agent 如何集成 Honcho 记忆平台实现两层召回模型：base context 提供稳定基础上下文，dialectic supplement 通过辩证式推理补充深层个性化理解。详解 Honcho 的声明式记忆机制、自适应触发策略、召回成本优化，以及在长期个性化对话场景中的工程实践，附完整配置示例与性能对比数据。
 ---
+
 
 # Hermes Honcho 集成深度剖析：两层召回模型（base context + dialectic supplement）
 

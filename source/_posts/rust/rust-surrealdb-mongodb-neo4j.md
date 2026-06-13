@@ -1,6 +1,7 @@
 ---
+
 title: Rust + SurrealDB 实战：多模型数据库（文档/图/关系）的 Rust 原生驱动——对比 MongoDB/Neo4j 的统一数据层新范式
-keywords: [Rust, SurrealDB]
+keywords: [Rust, SurrealDB, MongoDB, Neo4j, 多模型数据库, 文档, 关系, 原生驱动, 的统一数据层新范式]
 date: 2026-06-09 06:05:00
 categories:
 - rust
@@ -11,12 +12,12 @@ tags:
 - 图数据库
 - MongoDB
 - Neo4j
-description: 深入 SurrealDB 的多模型架构，用 Rust 原生驱动实现文档、图、关系三种查询范式的统一数据层，对比 MongoDB 和 Neo4j
-  的适用场景与取舍。
+description: 深入 SurrealDB 的多模型架构，用 Rust 原生驱动实现文档、图、关系三种查询范式的统一数据层，对比 MongoDB 和 Neo4j 的适用场景与取舍。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 images:
   - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
+
 
 
 ## 概述

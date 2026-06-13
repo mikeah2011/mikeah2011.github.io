@@ -1,6 +1,6 @@
 ---
 title: "Redis HyperLogLog 的正确用法与常见误区"
-keywords: [Redis, HyperLogLog]
+keywords: [Redis HyperLogLog, 的正确用法与常见误区, 数据库]
 date: 2026-06-10 04:52:00
 categories:
   - database
@@ -14,6 +14,7 @@ tags:
   - 大数据
 description: 深入解析 Redis HyperLogLog 的底层原理与正确使用姿势，附 PHP/Laravel 实战代码，避开常见坑点。
 ---
+
 
 ## 前言
 

@@ -1,6 +1,6 @@
 ---
 title: Laravel + Meilisearch 实战：轻量级全文搜索引擎——对比 Elasticsearch/Algolia 的开发体验与性能基准
-keywords: [Laravel, Meilisearch]
+keywords: [Laravel, Meilisearch, Elasticsearch, Algolia, 轻量级全文搜索引擎, 的开发体验与性能基准, PHP]
 date: 2026-06-09 06:42:00
 categories:
   - php
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
 images:
   - https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
 ---
+
 
 全文搜索是现代 Web 应用的刚需。用户输入几个关键词，系统需要在毫秒级返回相关结果——商品搜索、文章检索、文档查询，场景无处不在。
 

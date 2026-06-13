@@ -1,6 +1,6 @@
 ---
 title: CSS Popover API + Anchor Positioning 实战：浏览器原生弹出层——替代 Floating UI/Tippy 的零 JS 方案
-keywords: [CSS, Popover, API]
+keywords: [CSS Popover API, Anchor Positioning, Floating UI, Tippy, JS, 浏览器原生弹出层, 替代, 的零, 前端]
 date: 2026-06-10 04:14:00
 categories:
   - frontend
@@ -15,6 +15,7 @@ tags:
   - 无JS
 description: 深入讲解 CSS Popover API 和 Anchor Positioning 两个浏览器原生特性，用零 JavaScript 实现 tooltip、dropdown、dialog 等弹出层，彻底替代 Floating UI / Tippy.js 等库。
 ---
+
 
 ## 为什么你需要这两个 API
 

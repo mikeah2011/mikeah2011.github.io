@@ -1,6 +1,7 @@
 ---
+
 title: Vue 3 Composition API 实战-ref reactive computed 最佳实践与响应式踩坑记录
-keywords: [Vue, Composition, API]
+keywords: [Vue, Composition API, ref reactive computed, 最佳实践与响应式踩坑记录]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -12,10 +13,9 @@ tags:
 - TypeScript
 - Vue
 - 前端
-description: 从 Options API 迁移到 Vue 3 Composition API 的完整实战经验，深度剖析 ref 与 reactive 的选型决策、computed
-  缓存机制与陷阱、watch/watchEffect 副作用监听最佳实践、可组合函数 Composables 设计模式。覆盖响应式丢失、解构陷阱、请求竞态等常见问题的根因分析与解决方案，结合
-  vue-pure-admin 管理后台和 uni-app 跨平台项目中的真实踩坑记录，帮助前端开发者少走弯路。
+description: 从 Options API 迁移到 Vue 3 Composition API 的完整实战经验，深度剖析 ref 与 reactive 的选型决策、computed 缓存机制与陷阱、watch/watchEffect 副作用监听最佳实践、可组合函数 Composables 设计模式。覆盖响应式丢失、解构陷阱、请求竞态等常见问题的根因分析与解决方案，结合 vue-pure-admin 管理后台和 uni-app 跨平台项目中的真实踩坑记录，帮助前端开发者少走弯路。
 ---
+
 
 
 # Vue 3 Composition API 实战：ref、reactive、computed 最佳实践与响应式踩坑记录

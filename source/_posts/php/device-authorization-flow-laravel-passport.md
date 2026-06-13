@@ -1,7 +1,7 @@
 ---
+
 title: Device Authorization Flow 实战：智能电视/CLI/IoT 设备的 OAuth 无浏览器授权——Laravel Passport
-keywords: [Device, Authorization, Flow]
-  自定义 Grant
+keywords: [Device Authorization Flow, CLI, IoT, OAuth, Laravel Passport, 智能电视, 设备的, 无浏览器授权]
 date: 2026-06-03 00:00:00
 tags:
 - OAuth
@@ -14,11 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-description: 深入解析 Device Authorization Flow（RFC 8628）协议原理与 Laravel Passport 自定义 Grant
-  Type 完整实现。适用于智能电视、CLI 命令行工具、IoT 物联网设备、游戏主机等无浏览器或浏览器交互受限的场景，通过 OAuth 2.0 授权流程将用户认证转移到用户自己的设备上完成。文章涵盖数据库设计、Entity
-  与 Repository 实现、Grant 类编写、Controller 开发、速率限制、安全最佳实践及真实生产环境踩坑记录，提供可运行的 Laravel、Python
-  和 JavaScript 代码示例，是实现 CLI 认证与 IoT 设备 OAuth 授权的完整实战指南。
+description: 深入解析 Device Authorization Flow（RFC 8628）协议原理与 Laravel Passport 自定义 Grant Type 完整实现。适用于智能电视、CLI 命令行工具、IoT 物联网设备、游戏主机等无浏览器或浏览器交互受限的场景，通过 OAuth 2.0 授权流程将用户认证转移到用户自己的设备上完成。文章涵盖数据库设计、Entity 与 Repository 实现、Grant 类编写、Controller 开发、速率限制、安全最佳实践及真实生产环境踩坑记录，提供可运行的 Laravel、Python 和 JavaScript 代码示例，是实现 CLI 认证与 IoT 设备 OAuth 授权的完整实战指南。
 ---
+
 
 
 ## 前言

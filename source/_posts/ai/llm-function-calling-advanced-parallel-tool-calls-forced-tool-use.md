@@ -2,13 +2,14 @@
 title: LLM Function Calling 进阶实战：Parallel Tool Calls/Forced Tool Use/Tool Choice 策略——AI Agent 工具调用的工程化深度优化
 date: 2026-06-05 10:00:00
 tags: [AI Agent, LLM, Function Calling, 工具调用, Tool Use]
-keywords: [AI Agent, LLM, Function Calling, 工具调用, Tool Use, Function, Calling]
+keywords: [LLM Function Calling, Parallel Tool Calls, Forced Tool Use, Tool Choice, AI Agent, 进阶实战, 策略, 工具调用的工程化深度优化, AI]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: "深入解析 LLM Function Calling 高级实战：Parallel Tool Calls 并行调度、Forced Tool Use 强制调用、Tool Choice 策略控制，对比 OpenAI/Anthropic/Gemini 三大平台差异，含生产级 Python 代码示例与工程化最佳实践。"
 ---
+
 
 在构建生产级 AI Agent 时，Function Calling 远不止「定义工具 → 发送请求 → 解析结果」这么简单。当你的 Agent 需要同时查询天气、搜索文档、调用数据库，或者在特定场景下强制使用某个工具，甚至精确控制模型是否可以「不调用工具」——这些高级场景需要对 Parallel Tool Calls、Forced Tool Use 和 Tool Choice 策略有深入理解。
 

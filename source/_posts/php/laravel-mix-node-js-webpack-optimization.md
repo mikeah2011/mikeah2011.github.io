@@ -1,6 +1,7 @@
 ---
+
 title: Laravel-Mix-Node.js-前端资源编译与-Webpack-配置优化实战踩坑记录
-keywords: [Laravel, Mix, Node.js]
+keywords: [Laravel, Mix, Node.js, Webpack, 前端资源编译与, 配置优化实战踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -15,9 +16,9 @@ tags:
 - Vite
 - 前端构建
 - 性能优化
-description: 深入 Laravel Mix 与 Webpack 配置优化实战：代码分割、CSS 提取、版本哈希、生产环境 Tree Shaking 与压缩策略，对比
-  Vite/esbuild 选型，附 Mix→Vite 迁移指南与常见构建错误排查。
+description: 深入 Laravel Mix 与 Webpack 配置优化实战：代码分割、CSS 提取、版本哈希、生产环境 Tree Shaking 与压缩策略，对比 Vite/esbuild 选型，附 Mix→Vite 迁移指南与常见构建错误排查。
 ---
+
 
 
 # Laravel Mix + Node.js：前端资源编译与 Webpack 配置优化实战踩坑记录

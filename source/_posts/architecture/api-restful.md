@@ -1,6 +1,7 @@
 ---
+
 title: 幂等性 API 设计：RESTful 接口的安全网与三层防护实战
-keywords: [API]
+keywords: [API, RESTful, 幂等性, 接口的安全网与三层防护实战]
 slug: 幂等性-api-设计-restful-接口安全网与三层防护实战
 categories:
 - architecture
@@ -10,9 +11,7 @@ tags:
 - 微服务
 - 幂等性
 - API设计
-description: 深入探讨 RESTful API 的幂等性设计，涵盖三层防护体系（Redis Nonce 去重+Idempotency-Key 状态机+MySQL
-  UPSERT 兜底），对比 Redis/数据库/Token 三种幂等策略的适用场景与性能差异，解析分布式系统下的幂等竞态问题与 Redis 故障降级方案，并附
-  Laravel 生产级代码实现与踩坑记录
+description: 深入探讨 RESTful API 的幂等性设计，涵盖三层防护体系（Redis Nonce 去重+Idempotency-Key 状态机+MySQL UPSERT 兜底），对比 Redis/数据库/Token 三种幂等策略的适用场景与性能差异，解析分布式系统下的幂等竞态问题与 Redis 故障降级方案，并附 Laravel 生产级代码实现与踩坑记录
 author: Michael
 date: '2026-05-03 22:17:48'
 updated: '2026-05-03 22:21:33'
@@ -21,6 +20,7 @@ images:
 - /images/content/architecture-01-content-1.jpg
 - /images/content/architecture-01-content-2.jpg
 ---
+
 
 
 > **更新时间**：2026-05-03 22:21:33

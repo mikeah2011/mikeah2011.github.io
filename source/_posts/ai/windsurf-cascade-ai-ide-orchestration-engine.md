@@ -1,12 +1,13 @@
 ---
+
 title: Windsurf Cascade 实战：AI Agent IDE 的编排引擎——多文件编辑、上下文记忆与项目级代码生成对比 Cursor
-keywords: [Windsurf, Cascade]
+keywords: [Windsurf Cascade, AI Agent IDE, Cursor, 的编排引擎, 多文件编辑, 上下文记忆与项目级代码生成对比, AI]
 date: 2026-06-09 14:49:00
 categories:
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-- ai
 tags:
 - Windsurf
 - Cascade
@@ -15,9 +16,9 @@ tags:
 - Agent
 - 多文件编辑
 - 代码生成
-description: 深入拆解 Windsurf 2 的 Cascade 编排引擎——多文件编辑、上下文记忆、Workflows 复用机制，以及与 Cursor
-  Agent Mode 的实测对比，附带 Laravel 项目实战配置。
+description: 深入拆解 Windsurf 2 的 Cascade 编排引擎——多文件编辑、上下文记忆、Workflows 复用机制，以及与 Cursor Agent Mode 的实测对比，附带 Laravel 项目实战配置。
 ---
+
 
 
 # Windsurf Cascade 实战：AI Agent IDE 的编排引擎

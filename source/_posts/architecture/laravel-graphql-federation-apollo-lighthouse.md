@@ -1,6 +1,6 @@
 ---
 title: Laravel + GraphQL Federation 实战：微服务图的统一网关
-keywords: [Laravel, GraphQL, Federation]
+keywords: [Laravel, GraphQL Federation, 微服务图的统一网关, 架构]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -16,6 +16,7 @@ tags:
   - API Gateway
 description: 当单体 Laravel 应用拆分成多个微服务后，前端面对多个 GraphQL 端点会很痛苦。本文用 Apollo Federation + Laravel Lighthouse 实战搭建统一网关，包含 Subgraph 拆分、Entity Reference、跨服务 Query 解析，以及踩坑记录。
 ---
+
 
 ## 前端的噩梦：多个 GraphQL 端点
 

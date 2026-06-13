@@ -8,12 +8,13 @@ updated: 2026-05-04 16:05:52
 categories:
   - php
 tags: [Laravel, 微服务, 消息队列, NATS, JetStream, 消息中间件]
-keywords: [Laravel, 微服务, 消息队列, NATS, JetStream]
+keywords: [Laravel, NATS JetStream, Ack, KV, 订单通知削峰, 重投与, 配置同步踩坑记录, PHP]
 description: 基于 Laravel 订单通知链路的真实改造，详解 NATS JetStream 的削峰填谷、Ack/Nack 消息确认、幂等防重、KV 配置同步及与 RabbitMQ/Redis Streams 的选型对比，附完整可运行代码与踩坑记录。
 
 
 
 ---
+
 很多 Laravel 团队做异步解耦时，第一反应是 Redis、RabbitMQ 或 Kafka。但我在一个订单通知链路里遇到的真实问题是：**量没有大到必须上 Kafka，可靠性又比 Redis List 要高，接口还希望顺手做 request-reply 和轻量配置同步**。这类场景里，NATS + JetStream 反而很合适。
 
 我们改造的是「下单成功后通知中心」：订单写库成功后，需要异步触发站内信、邮件、Push 和风控埋点。旧方案用数据库 job 表 + queue worker，峰值一来就暴露三个问题：

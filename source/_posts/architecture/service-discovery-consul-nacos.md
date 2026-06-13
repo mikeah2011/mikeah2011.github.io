@@ -1,6 +1,7 @@
 ---
+
 title: 服务注册与发现实战-Consul-Nacos-与-Laravel-集成-微服务动态路由与健康检查踩坑记录
-keywords: [Consul, Nacos, Laravel]
+keywords: [Consul, Nacos, Laravel, 服务注册与发现实战, 微服务动态路由与健康检查踩坑记录]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -15,9 +16,9 @@ tags:
 - Consul
 - nacos
 - 监控
-description: 从单体 Laravel 演进到微服务后，硬编码服务地址成了最大运维痛点。本文以 Consul 和 Nacos 为主线，结合 KKday B2C
-  真实场景，深入对比两者在健康检查机制、实例摘除速度、配置管理能力、多语言生态支持、云原生容器集成等核心维度的差异，并手把手教你实现 Laravel 服务注册与动态发现、加权随机负载均衡、优雅停机注销、本地开发联调等完整方案，附带七个生产环境踩坑记录与可直接运行的代码示例，帮你避开微服务架构中服务治理最常见的陷阱。
+description: 从单体 Laravel 演进到微服务后，硬编码服务地址成了最大运维痛点。本文以 Consul 和 Nacos 为主线，结合 KKday B2C 真实场景，深入对比两者在健康检查机制、实例摘除速度、配置管理能力、多语言生态支持、云原生容器集成等核心维度的差异，并手把手教你实现 Laravel 服务注册与动态发现、加权随机负载均衡、优雅停机注销、本地开发联调等完整方案，附带七个生产环境踩坑记录与可直接运行的代码示例，帮你避开微服务架构中服务治理最常见的陷阱。
 ---
+
 
 
 

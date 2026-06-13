@@ -2,7 +2,7 @@
 title: 'Software Bill of Materials (SBOM) 实战：Syft/Trivy 生成依赖清单——供应链安全合规与 CI 集成踩坑记录'
 date: 2026-06-03 01:12:12
 tags: [SBOM, 供应链安全, Syft, Trivy, CI/CD, 合规]
-keywords: [SBOM, 供应链安全, Syft, Trivy, CI/CD, Software, Bill, Materials]
+keywords: [Software Bill of Materials, SBOM, Syft, Trivy, CI, 生成依赖清单, 供应链安全合规与, 集成踩坑记录, DevOps]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: "深入实战 SBOM 软件物料清单生成方案，对比 Syft 与 Trivy 两款主流工具的扫描能力、输出格式与 CI 集成方式。详解 SPDX/CycloneDX 标准选型、GitHub Actions/GitLab CI 流水线配置、依赖漏洞扫描质量门禁设置，以及满足 NTIA 最低要求和 FDA 医疗器械合规的落地路径。附带完整踩坑记录与供应链安全体系建设行动清单，帮助团队从零构建可见、可控、可审计的软件供应链安全体系。"
 ---
+
 
 2021 年 12 月，Log4Shell 漏洞（CVE-2021-44228）震动了整个软件行业。一个被数十亿设备使用的日志库中的远程代码执行漏洞，让全球开发者第一次深刻认识到：**你不知道你的软件里有什么，你就不知道你的风险在哪里**。
 

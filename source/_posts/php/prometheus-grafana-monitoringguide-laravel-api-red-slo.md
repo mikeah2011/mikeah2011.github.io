@@ -1,6 +1,7 @@
 ---
+
 title: Prometheus + Grafana 监控体系实战：Laravel API 的 RED 指标、告警降噪与 SLO 看板落地踩坑记录
-keywords: [Prometheus, Grafana]
+keywords: [Prometheus, Grafana, Laravel API, RED, SLO, 监控体系实战, 指标, 告警降噪与, 看板落地踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -19,10 +20,9 @@ tags:
 - 可观测性
 - AlertManager
 - PromQL
-description: 一线 Laravel B2C API 项目的 Prometheus + Grafana 可观测性实战全记录：从 RED 指标中间件埋点、Recording
-  Rules 聚合、Grafana SLO 看板搭建，到 Alertmanager 告警降噪三件套（for 持续时间 + 最小流量门槛 + group_by 合并），完整覆盖踩坑与修复过程。附监控方案对比表与可直接复用的
-  Laravel 代码示例，帮你把有监控升级成能值班的监控，夜间无效告警降低 60%。
+description: 一线 Laravel B2C API 项目的 Prometheus + Grafana 可观测性实战全记录：从 RED 指标中间件埋点、Recording Rules 聚合、Grafana SLO 看板搭建，到 Alertmanager 告警降噪三件套（for 持续时间 + 最小流量门槛 + group_by 合并），完整覆盖踩坑与修复过程。附监控方案对比表与可直接复用的 Laravel 代码示例，帮你把有监控升级成能值班的监控，夜间无效告警降低 60%。
 ---
+
 
 很多团队说自己“有监控”，实际只有两样东西：机器 CPU 和 Nginx 5xx 数。真到线上出故障时，只能知道“系统不太对”，却回答不了更关键的问题：**到底是哪条接口变慢、慢在应用还是下游、错误是否持续、要不要半夜把人叫起来**。
 

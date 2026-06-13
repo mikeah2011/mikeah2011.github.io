@@ -1,7 +1,7 @@
 ---
+
 title: Next.js 15 App Router 深度实战：对比 Nuxt 4 的全栈框架选型——RSC/Server Actions/Middleware
-keywords: [Next.js, App, Router]
-  的工程化落地
+keywords: [Next.js, App Router, Nuxt, RSC, Server Actions, Middleware, 深度实战, 的全栈框架选型]
 date: 2026-06-05 09:00:00
 tags:
 - React
@@ -16,9 +16,9 @@ categories:
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-description: 深度对比 Next.js 15 App Router 与 Nuxt 4 全栈框架，涵盖 React Server Components、Server
-  Actions、Middleware 工程化实战，结合性能基准测试与真实任务管理应用代码示例，帮助团队在 SSR 流式渲染、Edge 部署、多平台适配等维度做出精准技术选型决策。
+description: 深度对比 Next.js 15 App Router 与 Nuxt 4 全栈框架，涵盖 React Server Components、Server Actions、Middleware 工程化实战，结合性能基准测试与真实任务管理应用代码示例，帮助团队在 SSR 流式渲染、Edge 部署、多平台适配等维度做出精准技术选型决策。
 ---
+
 
 
 

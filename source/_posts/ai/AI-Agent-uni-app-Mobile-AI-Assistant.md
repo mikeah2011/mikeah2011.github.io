@@ -1,4 +1,4 @@
----
+
 title: AI Agent + uni-app 实战：移动端 AI 助手集成与离线推理
 keywords: [AI, Agent]
 date: 2026-06-02 02:31:05
@@ -8,10 +8,9 @@ tags:
 - 移动端
 - 离线推理
 categories:
-- ai
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: 本文系统梳理 AI Agent 在 uni-app 移动端落地的完整工程实践，涵盖云端大模型接入、WebSocket 流式对话、上下文管理、多端适配与性能优化，并重点介绍离线推理在弱网和隐私场景下的应用策略。通过真实代码结构、架构拆解与上线清单，帮助开发者快速构建稳定可用的移动端智能助手。
 ---
 

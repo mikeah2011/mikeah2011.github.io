@@ -1,6 +1,7 @@
 ---
+
 title: Architectural Decision Records (ADR) 实战：用 Markdown 管理架构决策——团队技术共识的可追溯性
-keywords: [Architectural, Decision, Records]
+keywords: [Architectural Decision Records, ADR, Markdown, 管理架构决策, 团队技术共识的可追溯性]
 date: 2026-06-02 12:00:00
 tags:
 - adr
@@ -13,10 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 用 Markdown 管理架构决策的完整实战指南，解决团队技术共识丢失、新人入职理解困难、决策原因无据可查等痛点。涵盖 ADR 生命周期状态机（Proposed→Accepted→Superseded）、MADR
-  与 Nygard 两种模板设计、adr-tools/Log4brains/adr-viewer 工具链对比、Laravel Artisan 命令一键生成 ADR、GitHub
-  Actions 自动检查 PR 中的架构变更、ADR Review Bot 集成，以及渐进式团队采纳策略与电商平台架构演进的 18 个 ADR 实战案例。
+description: 用 Markdown 管理架构决策的完整实战指南，解决团队技术共识丢失、新人入职理解困难、决策原因无据可查等痛点。涵盖 ADR 生命周期状态机（Proposed→Accepted→Superseded）、MADR 与 Nygard 两种模板设计、adr-tools/Log4brains/adr-viewer 工具链对比、Laravel Artisan 命令一键生成 ADR、GitHub Actions 自动检查 PR 中的架构变更、ADR Review Bot 集成，以及渐进式团队采纳策略与电商平台架构演进的 18 个 ADR 实战案例。
 ---
+
 
 
 # Architectural Decision Records (ADR) 实战：用 Markdown 管理架构决策——团队技术共识的可追溯性

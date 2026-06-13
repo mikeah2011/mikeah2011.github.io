@@ -1,6 +1,6 @@
 ---
 title: "Laravel Volt 实战：单文件 Blade 组件与 Livewire 集成深度剖析"
-keywords: [Laravel, Volt]
+keywords: [Laravel Volt, Blade, Livewire, 单文件, 组件与, 集成深度剖析, PHP]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -16,6 +16,7 @@ tags:
   - 全栈
 description: "深入剖析 Laravel Volt 单文件 Blade 组件与 Livewire 集成架构，从编译原理、Fragment 解析器源码到 Functional API 与 Class API 选型决策矩阵，覆盖 Folio 零路由组合、B2C 电商管理后台商品搜索与实时库存调整实战、computed 缓存陷阱与 wire:model 更新时机等生产踩坑指南，附 Volt vs 传统 Livewire vs Inertia.js 性能基准测试对比数据，助你快速掌握全 PHP 单文件组件开发最佳实践。"
 ---
+
 # Laravel Volt 实战：单文件 Blade 组件与 Livewire 集成深度剖析
 
 ## 1. 问题背景与动机：为什么需要 Volt？

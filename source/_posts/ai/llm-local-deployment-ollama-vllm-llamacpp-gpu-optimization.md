@@ -1,6 +1,7 @@
 ---
+
 title: LLM 本地部署实战：Ollama/vLLM/llama.cpp 选型与 GPU 优化
-keywords: [LLM]
+keywords: [LLM, Ollama, vLLM, llama.cpp, GPU, 本地部署实战, 选型与]
 date: 2026-06-02 03:00:00
 tags:
 - LLM
@@ -14,9 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-description: 本文系统讲解 LLM 本地部署方案选型与 GPU 优化实践，重点对比 ollama、vllm、llama.cpp 在 macOS、Linux、Apple
-  Silicon 与 NVIDIA GPU 场景下的优缺点，并结合量化、KV Cache、Metal、CUDA、并发压测、常见踩坑与部署策略，帮助开发者和团队完成本地大模型落地。
+description: 本文系统讲解 LLM 本地部署方案选型与 GPU 优化实践，重点对比 ollama、vllm、llama.cpp 在 macOS、Linux、Apple Silicon 与 NVIDIA GPU 场景下的优缺点，并结合量化、KV Cache、Metal、CUDA、并发压测、常见踩坑与部署策略，帮助开发者和团队完成本地大模型落地。
 ---
+
 
 
 

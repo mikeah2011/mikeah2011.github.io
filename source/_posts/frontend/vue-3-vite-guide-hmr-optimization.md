@@ -1,6 +1,7 @@
 ---
+
 title: Vue-3-Vite-实战-HMR-构建优化与环境变量管理-Laravel-B2C-API前后端分离踩坑记录
-keywords: [Vue, Vite, HMR]
+keywords: [Vue, Vite, HMR, Laravel, B2C, API, 构建优化与环境变量管理, 前后端分离踩坑记录]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -16,11 +17,9 @@ tags:
 - 构建优化
 - HMR
 - DevOps
-description: 本文基于 Laravel B2C 前后端分离项目实战，全面讲解 Vue 3 与 Vite 的 HMR 热更新原理与故障排查方法， 深入剖析
-  Vite 构建优化策略（Manual Chunks 分包、Tree-shaking、Gzip/Brotli 压缩、依赖预构建调优）， 涵盖 TypeScript
-  类型安全的环境变量管理、Nginx 生产部署配置及 GitHub Actions CI/CD 集成， 提供 8 个高频踩坑记录与解决方案，帮助前端开发者掌握 Vite
-  工程化最佳实践，显著提升前端构建性能与开发体验。
+description: 本文基于 Laravel B2C 前后端分离项目实战，全面讲解 Vue 3 与 Vite 的 HMR 热更新原理与故障排查方法， 深入剖析 Vite 构建优化策略（Manual Chunks 分包、Tree-shaking、Gzip/Brotli 压缩、依赖预构建调优）， 涵盖 TypeScript 类型安全的环境变量管理、Nginx 生产部署配置及 GitHub Actions CI/CD 集成， 提供 8 个高频踩坑记录与解决方案，帮助前端开发者掌握 Vite 工程化最佳实践，显著提升前端构建性能与开发体验。
 ---
+
 
 # Vue 3 + Vite 实战：HMR、构建优化与环境变量管理
 

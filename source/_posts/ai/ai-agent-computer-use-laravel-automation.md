@@ -1,12 +1,13 @@
 ---
+
 title: AI Agent Computer Use 实战：屏幕截图理解 + 鼠标键盘操作——Laravel 后台自动化运维的视觉 Agent
-keywords: [AI, Agent, Computer]
+keywords: [AI Agent Computer Use, Laravel, Agent, 屏幕截图理解, 鼠标键盘操作, 后台自动化运维的视觉, AI]
 date: 2026-06-09 13:39:00
 categories:
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-- ai
 tags:
 - AI Agent
 - Computer Use
@@ -14,9 +15,9 @@ tags:
 - 自动化
 - 视觉理解
 - 屏幕截图
-description: 深入实战 AI Agent Computer Use 技术：通过屏幕截图理解 + 鼠标键盘模拟操作，让 AI 代替人类完成 Laravel
-  后台的日常运维任务。从原理到完整 PHP 实现，带你构建一个能看、能点、能输的视觉运维 Agent。
+description: 深入实战 AI Agent Computer Use 技术：通过屏幕截图理解 + 鼠标键盘模拟操作，让 AI 代替人类完成 Laravel 后台的日常运维任务。从原理到完整 PHP 实现，带你构建一个能看、能点、能输的视觉运维 Agent。
 ---
+
 
 
 ## 前言

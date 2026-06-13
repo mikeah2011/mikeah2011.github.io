@@ -1,4 +1,5 @@
 ---
+
 title: 订单提交防重不是加唯一索引：Laravel 用 Idempotency-Key 做创建接口结果回放的实战记录
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
@@ -6,7 +7,8 @@ images:
 date: 2026-05-03 09:46:04
 updated: 2026-05-03 09:48:49
 categories:
-- php
+  - php
+keywords: [Laravel, Idempotency, Key, 订单提交防重不是加唯一索引, 做创建接口结果回放的实战记录]
 tags:
 - Laravel
 - MySQL
@@ -15,10 +17,9 @@ tags:
 - Idempotency
 - 分布式
 - 重试机制
-description: 结合 Laravel 订单创建接口的真实经验，深入记录一套用 Idempotency-Key、请求指纹、结果回放与状态机保护实现 API
-  幂等性的落地方案。覆盖唯一索引、Redis 分布式锁与 Idempotency-Key 三种防重方案的优劣对比，附带完整 Migration、中间件、Service
-  层代码示例与线上踩坑记录，适合面临重复提交、重试风暴等分布式一致难题的后端工程师参考。
+description: 结合 Laravel 订单创建接口的真实经验，深入记录一套用 Idempotency-Key、请求指纹、结果回放与状态机保护实现 API 幂等性的落地方案。覆盖唯一索引、Redis 分布式锁与 Idempotency-Key 三种防重方案的优劣对比，附带完整 Migration、中间件、Service 层代码示例与线上踩坑记录，适合面临重复提交、重试风暴等分布式一致难题的后端工程师参考。
 ---
+
 
 移动端弱网下，`POST /api/orders` 最容易出事：用户点一次“提交订单”，客户端因为超时自动重试一次，网关也可能补发一次，最后数据库里落了两张单。很多团队第一反应是“加唯一索引”，但我在线上踩过几次坑后发现，**唯一索引只能防止部分重复写，解决不了客户端到底该拿到哪一次响应**。
 

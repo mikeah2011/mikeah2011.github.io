@@ -1,6 +1,7 @@
 ---
+
 title: AI 辅助代码审查实战-CodeRabbit-Codeium 集成-自动化 CI 门禁踩坑记录
-keywords: [AI, CodeRabbit, Codeium]
+keywords: [AI, CodeRabbit, Codeium, CI, 辅助代码审查实战, 自动化, 门禁踩坑记录]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
@@ -18,10 +19,9 @@ tags:
 - CodeRabbit
 - Codeium
 - DevOps
-description: 30+ Laravel 仓库集成 CodeRabbit 与 Codeium AI 代码审查工具的完整实战指南。涵盖详细配置步骤、GitHub
-  Actions CI 门禁集成、CodeRabbit vs Codeium vs GitHub Copilot 三方对比、误报治理策略与生产环境踩坑记录，帮助团队实现
-  PR 自动审查、分级门禁与成本优化，将审查效率提升 57%、Bug 逃逸率降低 67%。
+description: 30+ Laravel 仓库集成 CodeRabbit 与 Codeium AI 代码审查工具的完整实战指南。涵盖详细配置步骤、GitHub Actions CI 门禁集成、CodeRabbit vs Codeium vs GitHub Copilot 三方对比、误报治理策略与生产环境踩坑记录，帮助团队实现 PR 自动审查、分级门禁与成本优化，将审查效率提升 57%、Bug 逃逸率降低 67%。
 ---
+
 
 
 

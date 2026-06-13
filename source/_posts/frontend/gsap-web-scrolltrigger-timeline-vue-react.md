@@ -1,12 +1,13 @@
 ---
+
 title: GSAP 3.x 实战：专业级 Web 动画引擎——ScrollTrigger、Timeline 与 Vue/React 组件的性能优化
-keywords: [GSAP]
+keywords: [GSAP, Web, ScrollTrigger, Timeline, Vue, React, 专业级, 动画引擎, 组件的性能优化, 前端]
 date: 2026-06-10 04:00:00
 categories:
+  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-- frontend
 tags:
 - GSAP
 - 动画
@@ -15,9 +16,9 @@ tags:
 - React
 - 性能优化
 - 前端性能
-description: 深入解析 GSAP 3.x 动画引擎核心 API，实战演示 ScrollTrigger 滚动驱动动画、Timeline 复杂编排、Vue/React
-  组件集成，附完整性能优化方案与生产级代码示例。
+description: 深入解析 GSAP 3.x 动画引擎核心 API，实战演示 ScrollTrigger 滚动驱动动画、Timeline 复杂编排、Vue/React 组件集成，附完整性能优化方案与生产级代码示例。
 ---
+
 
 ## 概述
 

@@ -8,11 +8,12 @@ description: "基于30+仓库的实战经验，详解PHP 8新特性在Laravel项
 categories:
   - php
 tags: [Laravel, PHP, 代码质量]
-keywords: [Laravel, PHP, 代码质量, Trait, Enum]
+keywords: [PHP, Trait, Enum, Laravel, 重构旧, 项目, 仓库的实战经验]
 
 
 
 ---
+
 ## 📌 文章摘要
 
 KKday BFF 团队在从 PHP 7.4 升级到 PHP 8.0 + Traits/Enum 重构旧 Laravel 项目的过程中，踩过不少坑。本文基于 **30+ 仓库** 的实战经验，系统梳理：

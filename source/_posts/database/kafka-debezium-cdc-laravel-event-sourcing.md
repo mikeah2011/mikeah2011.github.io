@@ -1,6 +1,7 @@
 ---
+
 title: Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计
-keywords: [Kafka, Debezium, CDC]
+keywords: [Kafka, Debezium CDC, Laravel Event Sourcing, 数据库变更事件流, 的互补架构设计]
 date: 2026-06-09 19:30:00
 categories:
 - database
@@ -15,9 +16,9 @@ tags:
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
-description: 详解 Kafka + Debezium CDC 数据库变更事件流的生产级架构设计，对比与 Laravel Event Sourcing 的互补关系，提供
-  Outbox Pattern、幂等消费者、Schema 演进的完整落地方案，附可运行的 Laravel 集成代码与踩坑记录。
+description: 详解 Kafka + Debezium CDC 数据库变更事件流的生产级架构设计，对比与 Laravel Event Sourcing 的互补关系，提供 Outbox Pattern、幂等消费者、Schema 演进的完整落地方案，附可运行的 Laravel 集成代码与踩坑记录。
 ---
+
 
 
 # Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计

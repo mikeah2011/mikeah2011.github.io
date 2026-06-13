@@ -1,6 +1,6 @@
 ---
 title: MCP Resources vs Tools vs Prompts 实战：三种原语的工程化选型——何时用 Resource 而非 Tool？
-keywords: [MCP, Resources, Tools]
+keywords: [MCP Resources vs Tools vs Prompts, Resource, Tool, 三种原语的工程化选型, 何时用, 而非, AI]
 date: 2026-06-09 23:45:00
 categories:
   - ai
@@ -15,6 +15,7 @@ tags:
   - 工具调用
 description: 深入解析 MCP 协议中 Resources、Tools、Prompts 三种原语的区别与适用场景，结合 PHP/Laravel 实战代码，帮你做出正确的工程化选型决策。
 ---
+
 
 ## 概述
 

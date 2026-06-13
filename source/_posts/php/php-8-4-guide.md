@@ -1,6 +1,7 @@
 ---
+
 title: PHP 8.4 新特性实战 - Laravel B2C-API 升级踩坑记录
-keywords: [PHP, Laravel, API]
+keywords: [PHP, Laravel B2C, API, 新特性实战, 升级踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -13,9 +14,9 @@ tags:
 categories:
 - php
 - runtime
-description: 深度解析 PHP 8.4 十大新特性，结合 KKday B2C-API 真实升级场景，涵盖纤程(Fiber)优化、属性钩子、DOM\Text
-  扩展、性能对比、兼容性踩坑记录，提供可直接复用的生产级代码。
+description: 深度解析 PHP 8.4 十大新特性，结合 KKday B2C-API 真实升级场景，涵盖纤程(Fiber)优化、属性钩子、DOM\Text 扩展、性能对比、兼容性踩坑记录，提供可直接复用的生产级代码。
 ---
+
 
 ## 前言：为什么升级到 PHP 8.4？
 

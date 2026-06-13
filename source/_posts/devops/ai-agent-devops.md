@@ -1,6 +1,7 @@
 ---
+
 title: 用 AI Agent 实现自动化 DevOps：监控、告警、修复、部署闭环
-keywords: [AI, Agent, DevOps]
+keywords: [AI Agent, DevOps, 实现自动化, 告警, 修复, 部署闭环]
 date: 2026-06-02 10:00:00
 tags:
 - AI Agent
@@ -13,9 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-description: 深入探讨如何用 AI Agent 构建从监控到告警、从修复到部署的完整 DevOps 闭环。涵盖智能异常检测、告警疲劳治理、自动修复决策、蓝绿部署智能化等核心场景，对比传统方案与
-  AI 方案的优劣，附带 Prometheus + LLM 联动、自动回滚脚本等实战代码，帮助运维团队实现自驱动运维，降低 MTTR 89%。
+description: 深入探讨如何用 AI Agent 构建从监控到告警、从修复到部署的完整 DevOps 闭环。涵盖智能异常检测、告警疲劳治理、自动修复决策、蓝绿部署智能化等核心场景，对比传统方案与 AI 方案的优劣，附带 Prometheus + LLM 联动、自动回滚脚本等实战代码，帮助运维团队实现自驱动运维，降低 MTTR 89%。
 ---
+
 
 
 ## 引言：为什么传统 DevOps 需要 AI Agent 升级

@@ -9,12 +9,13 @@ categories:
   - devops
   - docker
 tags: [Docker, Laravel, macOS, Colima, Lima, 容器化, 开发环境]
-keywords: [Docker, Laravel, macOS, Colima, Lima]
+keywords: [Colima vs Lima vs Docker Desktop, macOS, 容器运行时选型对比实战, DevOps]
 description: 从架构原理、启动性能、磁盘 IO、网络模式、Volume 挂载、GPU 支持六个维度，横向对比 macOS 上三大容器运行时（Docker Desktop / Colima / Lima），附带 KKday B2C Laravel 项目的真实基准测试与选型决策矩阵。
 
 
 
 ---
+
 > **一句话总结**：Docker Desktop 胜在体验一致性，Colima 是免费替代的最优解，Lima 是底层引擎的"瑞士军刀"——选哪个取决于你的团队规模、许可证预算和技术深度需求。
 
 ## 1. 背景：macOS 容器运行时的三国演义

@@ -4,7 +4,7 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags: [PHP, Swoole, 架构, 高并发]
-keywords: [PHP, Swoole, 架构, 高并发, EasySwoole]
+keywords: [EasySwoole, PHP]
 categories:
   - php
   - runtime
@@ -14,6 +14,7 @@ description: 'EasySwoole 是基于 Swoole 扩展的高性能 PHP 常驻内存协
 
 
 ---
+
 ## 一、为什么是 EasySwoole
 
 传统 PHP-FPM 模型每个请求都要：**加载框架 → 建连接 → 处理 → 销毁**，框架启动占了请求大头时间。

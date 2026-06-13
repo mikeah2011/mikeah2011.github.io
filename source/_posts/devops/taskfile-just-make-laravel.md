@@ -1,6 +1,6 @@
 ---
 title: "Taskfile vs Just vs Make 2026 选型：构建任务运行器的现代替代——Laravel 项目的自动化脚本治理"
-keywords: [Taskfile, Just, Make]
+keywords: [Taskfile vs Just vs Make, Laravel, 构建任务运行器的现代替代, 项目的自动化脚本治理, DevOps]
 date: 2026-06-09 06:31:00
 categories:
   - devops
@@ -17,6 +17,7 @@ cover: https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200
 images:
   - https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200
 ---
+
 
 ## 概述
 

@@ -1,6 +1,6 @@
 ---
 title: Laravel Action Job 实战：用 Action 类替代复杂 Job——可测试、可复用、可同步/异步切换的业务逻辑单元
-keywords: [Laravel, Action, Job]
+keywords: [Laravel Action Job, Action, Job, 类替代复杂, 可测试, 可复用, 可同步, 异步切换的业务逻辑单元, PHP]
 date: 2026-06-09 18:24:00
 categories:
   - php
@@ -16,6 +16,7 @@ tags:
   - 架构
 description: 深入解析 Laravel Action 模式，如何将业务逻辑从 Job/Controller/Command 中抽离为独立的 Action 类，实现同步/异步无缝切换、单元测试零依赖、代码复用最大化。包含完整实战代码、测试用例与踩坑记录。
 ---
+
 
 ## 为什么 Job 越写越臃肿？
 

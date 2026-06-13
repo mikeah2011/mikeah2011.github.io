@@ -1,6 +1,7 @@
 ---
+
 title: 索引下推（ICP）深度解析：EXPLAIN 实战与 Laravel 性能优化指南
-keywords: [ICP]
+keywords: [ICP, EXPLAIN, Laravel, 索引下推, 深度解析, 实战与, 性能优化指南]
 tags:
 - MySQL
 - 索引下推
@@ -12,13 +13,13 @@ tags:
 categories:
 - database
 date: 2019-03-20 15:05:07
-description: 深入解析MySQL索引下推ICP优化原理，通过EXPLAIN输出对比有无ICP的回表次数差异，详解InnoDB二级索引限制、范围扫描场景，附Laravel
-  Eloquent代码示例与性能基准数据，助你掌握联合索引性能调优核心技巧。
+description: 深入解析MySQL索引下推ICP优化原理，通过EXPLAIN输出对比有无ICP的回表次数差异，详解InnoDB二级索引限制、范围扫描场景，附Laravel Eloquent代码示例与性能基准数据，助你掌握联合索引性能调优核心技巧。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/db-index-02-content-1.jpg
 - /images/content/db-index-02-content-2.jpg
 ---
+
 
 
 ## 什么是索引下推（Index Condition Pushdown）

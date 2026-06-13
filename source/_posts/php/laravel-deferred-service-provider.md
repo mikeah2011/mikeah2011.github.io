@@ -1,6 +1,6 @@
 ---
 title: Laravel Deferred Service Provider 实战进阶：按需加载 Provider 的冷启动优化
-keywords: [Laravel, Deferred, Service]
+keywords: [Laravel Deferred Service Provider, Provider, 实战进阶, 按需加载, 的冷启动优化, PHP]
 date: 2026-06-10 04:45:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - Deferred Provider
 description: 深入 Laravel Deferred Service Provider 机制，通过按需加载将大型应用冷启动从 200ms 优化到 80ms。涵盖原理分析、实战配置、踩坑排查与性能基准测试。
 ---
+
 
 ## 概述
 

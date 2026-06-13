@@ -2,7 +2,7 @@
 title: OpenHuman Obsidian Wiki 实战：Markdown 知识库与数据同步
 date: 2026-06-02 00:00:00
 tags: [OpenHuman, Obsidian, Markdown, 知识管理]
-keywords: [OpenHuman, Obsidian, Markdown, 知识管理, Wiki]
+keywords: [OpenHuman Obsidian Wiki, Markdown, 知识库与数据同步, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 本文系统讲透如何把 Obsidian 与 OpenHuman 结合，围绕 Markdown、知识管理、Wiki 组织与数据同步展开实战拆解，涵盖目录设计、双向链接、增量索引、冲突处理、发布流程与常见坑位，帮助你搭建真正可持续演进的本地知识系统。
 ---
+
 
 在个人知识管理这件事上，很多人都会经历一个典型阶段：前期追求“记录得快”，中期追求“组织得清楚”，后期开始真正关注“知识能否流动、可引用、可追踪、可同步”。单纯把 Markdown 文件堆在某个目录里，虽然轻量，但时间一长就会暴露出一些典型问题：文档之间缺少结构化连接、同一个概念被重复记录、跨设备同步容易冲突、知识更新后难以反向追踪影响范围、自动化工具很难理解上下文。
 

@@ -1,4 +1,4 @@
----
+
 title: Charles-抓包工具高级用法实战-SSL代理Mock断点调试与-Laravel-API-联调踩坑记录
 keywords: [Charles, SSL, Mock]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -7,8 +7,8 @@ images:
 date: 2026-05-05 08:11:02
 updated: 2026-05-05 08:13:59
 categories:
-- macos
-- php
+  - macos
+  - php
 tags:
 - Laravel
 - macOS
@@ -20,10 +20,7 @@ tags:
 - proxyman
 - fiddler
 - mitmproxy
-description: '本文是一份面向 macOS 开发者的 Charles 抓包工具深度实战指南，全面覆盖 HTTPS SSL 代理配置与证书信任、Breakpoints
-  断点调试实时篡改请求响应、Map Local 与 Map Remote 两种 Mock API 方案、Bandwidth Throttle 弱网模拟、Advanced
-  Repeat 并发压测等高级功能。结合 Laravel BFF 聚合接口联调、Stripe 支付回调签名验证、Android/iOS 移动端抓包等真实踩坑场景，附带完整代码示例与工具对比表格，帮助前后端团队用
-  Charles 实现从开发 Mock 到联调排障的全流程提效。
+description: '本文是一份面向 macOS 开发者的 Charles 抓包工具深度实战指南，全面覆盖 HTTPS SSL 代理配置与证书信任、Breakpoints 断点调试实时篡改请求响应、Map Local 与 Map Remote 两种 Mock API 方案、Bandwidth Throttle 弱网模拟、Advanced Repeat 并发压测等高级功能。结合 Laravel BFF 聚合接口联调、Stripe 支付回调签名验证、Android/iOS 移动端抓包等真实踩坑场景，附带完整代码示例与工具对比表格，帮助前后端团队用 Charles 实现从开发 Mock 到联调排障的全流程提效。
 
   '
 ---

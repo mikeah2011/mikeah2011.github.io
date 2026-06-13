@@ -1,6 +1,6 @@
 ---
 title: CSP 进阶实战：Trusted Types + Nonce + strict-dynamic 与 Laravel XSS 纵深防御
-keywords: [CSP]
+keywords: [CSP, Trusted Types, Nonce, strict, dynamic, Laravel XSS, 进阶实战, 纵深防御]
 date: 2026-06-10 03:06:00
 categories:
   - security
@@ -17,6 +17,7 @@ tags:
   - PHP
 description: 从实际 Laravel 项目出发，拆解 Content Security Policy 的进阶组合：nonce + strict-dynamic + Trusted Types，并给出可直接落地的 Middleware、Blade 组件与自动化脚本。
 ---
+
 
 在很多 Laravel 项目中，XSS 防护往往被简化为「前端做输入过滤，后端做输出编码」。这个思路没错，但它默认了一个前提：所有前端代码都在你完全控制之下。现实中，第三方脚本、内联事件、历史模板残留都会打破这个假设。
 

@@ -1,6 +1,7 @@
 ---
+
 title: Rust CLI 工具开发实战：为 Laravel 项目构建自定义命令行工具——性能对比 Python/PHP
-keywords: [Rust, CLI]
+keywords: [Rust CLI, Laravel, Python, PHP, 工具开发实战, 项目构建自定义命令行工具, 性能对比]
 date: 2026-06-02 00:00:00
 tags:
 - Rust
@@ -10,12 +11,12 @@ tags:
 - 命令行
 categories:
 - architecture
-description: Rust CLI 工具开发实战指南，为 Laravel 项目构建高性能命令行工具，通过日志分析器和资源转换器等真实案例对比 Rust 与
-  Python/PHP 性能差异，涵盖 clap 参数解析、rayon 并行处理、serde 序列化及与 Laravel Artisan 无缝集成方案。
+description: Rust CLI 工具开发实战指南，为 Laravel 项目构建高性能命令行工具，通过日志分析器和资源转换器等真实案例对比 Rust 与 Python/PHP 性能差异，涵盖 clap 参数解析、rayon 并行处理、serde 序列化及与 Laravel Artisan 无缝集成方案。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
+
 
 
 ## 前言

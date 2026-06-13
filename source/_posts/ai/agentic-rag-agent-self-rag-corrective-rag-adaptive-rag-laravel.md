@@ -1,11 +1,9 @@
 ---
+
 title: Agentic RAG 实战：让 Agent 自主决定检索策略——Self-RAG、Corrective-RAG、Adaptive-RAG 在 Laravel
-keywords: [Agentic, RAG]
-  中的落地
+keywords: [Agentic RAG, Agent, Self, RAG, Corrective, Adaptive, Laravel, 自主决定检索策略]
 date: 2026-06-03 10:00:00
-description: 深入解析 Self-RAG、Corrective-RAG、Adaptive-RAG 三大 Agentic RAG 策略的原理与差异，并在
-  Laravel 框架中完整落地。涵盖反思标记实现、检索质量评估与纠错循环、查询复杂度自适应路由、Python 嵌入微服务集成、评估框架搭建等全流程，附可运行 PHP/Python
-  代码示例，帮助后端工程师快速构建生产级智能检索增强生成系统。
+description: 深入解析 Self-RAG、Corrective-RAG、Adaptive-RAG 三大 Agentic RAG 策略的原理与差异，并在 Laravel 框架中完整落地。涵盖反思标记实现、检索质量评估与纠错循环、查询复杂度自适应路由、Python 嵌入微服务集成、评估框架搭建等全流程，附可运行 PHP/Python 代码示例，帮助后端工程师快速构建生产级智能检索增强生成系统。
 tags:
 - RAG
 - Agent
@@ -18,6 +16,7 @@ cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
+
 
 
 

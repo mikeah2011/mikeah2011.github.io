@@ -6,7 +6,7 @@ images:
 date: 2026-05-16 21:25:31
 updated: 2026-05-16 21:31:10
 tags: [KKday, Laravel, 支付]
-keywords: [KKday, Laravel, 支付, API]
+keywords: [Laravel, B2C, API, 支付系统设计实战, 多通道集成对账退款与异常处理, 踩坑记录, 架构]
 categories:
   - architecture
   - payment
@@ -15,6 +15,7 @@ description: 'B2C 电商支付系统不只是调 API：多通道 Gateway 抽象�
 
 
 ---
+
 > **前言**：很多文章教你「怎么接 Stripe / Alipay」，但很少有人讲清楚：当支付通道从 2 个变成 8 个，当退款率从 1% 飙到 5%，当财务每天催你要对账报告——支付系统的真正挑战才刚开始。本文基于 KKday B2C API 的真实项目经验，聚焦**多通道抽象、自动对账、退款编排、异常降级**四个维度，分享那些文档里不会写的坑。
 
 ---

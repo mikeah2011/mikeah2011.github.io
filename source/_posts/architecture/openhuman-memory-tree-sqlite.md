@@ -1,6 +1,7 @@
 ---
+
 title: OpenHuman 本地优先架构：Memory Tree SQLite 本地存储 vs 后端代理的隐私边界分析
-keywords: [OpenHuman]
+keywords: [OpenHuman, Memory Tree SQLite, 本地优先架构, 本地存储, 后端代理的隐私边界分析]
 date: 2026-06-02 12:00:00
 tags:
 - OpenHuman
@@ -13,9 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 深入剖析OpenHuman本地优先架构的设计决策与技术实现，对比纯本地、混合和后端代理三种数据流模式。详解Memory Tree SQLite存储引擎的Schema设计、索引策略和查询优化，包含完整的实体关系图、向量搜索和数据泄露防护代码实现。分析四级数据隐私分类、端到端加密同步协议和SQLCipher加密方案，帮助开发者理解AI
-  Agent场景下数据主权与隐私保护的最佳实践。
+description: 深入剖析OpenHuman本地优先架构的设计决策与技术实现，对比纯本地、混合和后端代理三种数据流模式。详解Memory Tree SQLite存储引擎的Schema设计、索引策略和查询优化，包含完整的实体关系图、向量搜索和数据泄露防护代码实现。分析四级数据隐私分类、端到端加密同步协议和SQLCipher加密方案，帮助开发者理解AI Agent场景下数据主权与隐私保护的最佳实践。
 ---
+
 
 
 ## 前言：数据应该在哪里？

@@ -1,6 +1,6 @@
 ---
 title: Biome vs Oxc vs Ruff 2026 选型：Rust 驱动的 Linter/Formatter 统一工具链——JS/TS/Python/PHP 项目的性能革命
-keywords: [Biome, Oxc, Ruff]
+keywords: [Biome vs Oxc vs Ruff, Rust, Linter, Formatter, JS, TS, Python, PHP, 驱动的, 统一工具链]
 date: 2026-06-10 06:00:00
 categories:
   - architecture
@@ -20,6 +20,7 @@ tags:
   - 工具链
 description: 2026 年 Rust 驱动的三大 Linter/Formatter 工具 Biome、Oxc、Ruff 全面对比，从性能基准、规则覆盖、配置复杂度到多语言项目实战选型指南。
 ---
+
 
 # Biome vs Oxc vs Ruff 2026 选型：Rust 驱动的 Linter/Formatter 统一工具链
 

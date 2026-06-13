@@ -1,4 +1,5 @@
 ---
+
 title: 算法实战：查找重复字符的多种解法对比
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
@@ -9,8 +10,9 @@ tags:
 - 字符串处理
 - 数据结构
 categories:
-- engineering
-- algorithms
+keywords: [算法实战, 查找重复字符的多种解法对比, 工程化]
+  - engineering
+  - algorithms
 date: 2019-03-20 15:05:07
 description: 深入讲解查找重复字符与行程长度编码（RLE）算法，涵盖PHP多种实现方式（正则、数组计数、迭代对比）、性能对比、边界处理、PHPUnit单元测试及真实应用场景，助你全面掌握字符串压缩与重复字符检测技术。
 ---

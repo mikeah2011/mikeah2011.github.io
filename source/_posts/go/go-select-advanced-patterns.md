@@ -1,21 +1,22 @@
 ---
+
 title: Go 并发控制进阶：select 的高级技巧与常见陷阱
-keywords: [Go]
+keywords: [Go, select, 并发控制进阶, 的高级技巧与常见陷阱]
 date: 2026-06-09 14:12:00
 categories:
+  - go
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
-- go
 tags:
 - Go
 - select
 - 并发控制
 - Channel
 - goroutine
-description: 深入解析 Go select 语句的高级用法：非阻塞通信、超时控制、done channel 模式、动态 select 生成，以及常见的
-  goroutine 泄漏陷阱和调试技巧。附完整可运行代码。
+description: 深入解析 Go select 语句的高级用法：非阻塞通信、超时控制、done channel 模式、动态 select 生成，以及常见的 goroutine 泄漏陷阱和调试技巧。附完整可运行代码。
 ---
+
 
 
 Go 的 `select` 是并发控制的核心工具，但大多数开发者只停留在「多路复用」的基础认知。本文总结 `select` 在生产环境中的高级用法和常见踩坑。

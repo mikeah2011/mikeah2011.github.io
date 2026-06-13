@@ -1,6 +1,7 @@
 ---
+
 title: Helm-Chart-实战-Laravel-应用打包与部署踩坑记录
-keywords: [Helm, Chart, Laravel]
+keywords: [Helm, Chart, Laravel, 应用打包与部署踩坑记录]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -13,10 +14,9 @@ tags:
 - DevOps
 - Kubernetes
 - Laravel
-description: 深入讲解 Helm Chart 构建 Laravel 应用部署的完整实战流程。涵盖 Chart 目录结构设计、values.yaml 分层覆盖策略、Nginx
-  Sidecar 双容器 Pod 编排、ConfigMap/Secret 注入、HPA 自动扩缩、ArgoCD GitOps 集成，以及 PHP-FPM 健康检查、storage
-  权限、多副本 Session 共享、数据库迁移竞争等 30+ 仓库生产级踩坑记录与解决方案，适合 K8s 运维与 Laravel 开发者参考。
+description: 深入讲解 Helm Chart 构建 Laravel 应用部署的完整实战流程。涵盖 Chart 目录结构设计、values.yaml 分层覆盖策略、Nginx Sidecar 双容器 Pod 编排、ConfigMap/Secret 注入、HPA 自动扩缩、ArgoCD GitOps 集成，以及 PHP-FPM 健康检查、storage 权限、多副本 Session 共享、数据库迁移竞争等 30+ 仓库生产级踩坑记录与解决方案，适合 K8s 运维与 Laravel 开发者参考。
 ---
+
 
 # Helm Chart 实战：Laravel 应用打包与部署踩坑记录
 

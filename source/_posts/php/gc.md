@@ -1,6 +1,7 @@
 ---
+
 title: PHP 垃圾回收机制（GC）
-keywords: [PHP, GC]
+keywords: [PHP, GC, 垃圾回收机制]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -15,9 +16,9 @@ tags:
 categories:
 - php
 date: 2021-04-10 10:00:00
-description: 深入解析PHP垃圾回收机制(GC)：从C层zval结构体、引用计数、写时复制到循环引用检测三色标记算法的完整原理。涵盖Xdebug/Blackfire内存泄漏排查、Swoole协程GC差异、WeakMap实战、gc_collect_cycles调优，对比Java/Go/Python
-  GC，附Laravel队列Worker OOM排查案例。
+description: 深入解析PHP垃圾回收机制(GC)：从C层zval结构体、引用计数、写时复制到循环引用检测三色标记算法的完整原理。涵盖Xdebug/Blackfire内存泄漏排查、Swoole协程GC差异、WeakMap实战、gc_collect_cycles调优，对比Java/Go/Python GC，附Laravel队列Worker OOM排查案例。
 ---
+
 
 
 # 一句话

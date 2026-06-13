@@ -2,7 +2,7 @@
 title: "API Composition Pattern 实战：跨服务查询聚合——Laravel BFF 中的 scatter-gather、结果合并与超时裁剪"
 date: 2026-06-03 14:00:00
 tags: [API Composition, BFF, 微服务, Laravel, 架构设计]
-keywords: [API Composition, BFF, 微服务, Laravel, 架构设计, API, Composition, Pattern]
+keywords: [API Composition Pattern, Laravel BFF, scatter, gather, 跨服务查询聚合, 中的, 结果合并与超时裁剪, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "深入实战API Composition Pattern在Laravel BFF层的落地：scatter-gather并行查询、结果合并策略、超时裁剪与降级方案、缓存优化，对比CQRS与GraphQL Federation的适用场景，含完整可运行代码与性能基准测试，助力微服务数据聚合架构选型。"
 ---
+
 
 # API Composition Pattern 实战：跨服务查询聚合——Laravel BFF 中的 scatter-gather、结果合并与超时裁剪
 

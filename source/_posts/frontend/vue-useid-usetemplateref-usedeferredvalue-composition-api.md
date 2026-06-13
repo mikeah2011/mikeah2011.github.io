@@ -1,6 +1,7 @@
 ---
+
 title: Vue 3.5+ 新特性实战：useId/useTemplateRef/useDeferredValue——Composition API 的最新进化与迁移指南
-keywords: [Vue]
+keywords: [Vue, useId, useTemplateRef, useDeferredValue, Composition API, 新特性实战, 的最新进化与迁移指南]
 date: 2026-06-05 10:00:00
 tags:
 - Vue
@@ -10,9 +11,9 @@ categories:
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-description: 深入解析 Vue 3.5 三大核心 API：useId 解决 SSR 中 ID 不匹配难题、useTemplateRef 革新模板引用范式、useDeferredValue
-  实现高性能延迟渲染。涵盖 Composition API 最新进化、实战代码示例与从旧版本迁移的完整指南，助力前端开发者高效升级。
+description: 深入解析 Vue 3.5 三大核心 API：useId 解决 SSR 中 ID 不匹配难题、useTemplateRef 革新模板引用范式、useDeferredValue 实现高性能延迟渲染。涵盖 Composition API 最新进化、实战代码示例与从旧版本迁移的完整指南，助力前端开发者高效升级。
 ---
+
 
 
 ## 前言

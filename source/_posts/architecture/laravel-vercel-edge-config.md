@@ -1,6 +1,6 @@
 ---
 title: Laravel + Vercel Edge Config 实战：Feature Flags、A/B 测试与动态配置——边缘计算的配置管理
-keywords: [Laravel, Vercel, Edge]
+keywords: [Laravel, Vercel Edge Config, Feature Flags, 测试与动态配置, 边缘计算的配置管理, 架构]
 date: 2026-06-09 11:01:00
 categories:
   - architecture
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 images:
   - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
+
 
 ## 为什么需要边缘配置？
 

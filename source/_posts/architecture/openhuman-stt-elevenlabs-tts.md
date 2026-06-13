@@ -1,9 +1,9 @@
 ---
+
 title: OpenHuman 语音实战：STT 输入 + ElevenLabs TTS 输出 + 口型同步
-keywords: [OpenHuman]
+keywords: [OpenHuman, STT, ElevenLabs TTS, 语音实战, 输入, 输出, 口型同步]
 date: 2026-06-02 10:00:00
-description: 本文系统拆解 OpenHuman 语音实战方案，覆盖 STT 输入、Whisper 与 Deepgram 对比、ElevenLabs TTS
-  输出、流式播放、口型同步、WebSocket 事件总线、打断控制、延迟优化与常见踩坑，附可运行代码、配置示例与架构建议，适合数字人、AI Agent、虚拟主播与语音助手项目落地参考。
+description: 本文系统拆解 OpenHuman 语音实战方案，覆盖 STT 输入、Whisper 与 Deepgram 对比、ElevenLabs TTS 输出、流式播放、口型同步、WebSocket 事件总线、打断控制、延迟优化与常见踩坑，附可运行代码、配置示例与架构建议，适合数字人、AI Agent、虚拟主播与语音助手项目落地参考。
 tags:
 - OpenHuman
 - 语音识别
@@ -17,6 +17,7 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
+
 
 
 

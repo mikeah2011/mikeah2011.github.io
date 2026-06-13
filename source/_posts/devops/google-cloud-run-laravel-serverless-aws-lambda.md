@@ -2,13 +2,14 @@
 title: Google Cloud Run 实战：容器化 Laravel 应用的 Serverless 部署——对比 AWS Lambda 冷启动与成本
 date: 2026-06-02 12:00:00
 tags: [Google-Cloud-Run, Serverless, Docker, Laravel, AWS-Lambda]
-keywords: [Google-Cloud-Run, Serverless, Docker, Laravel, AWS-Lambda, Google, Cloud, Run]
+keywords: [Google Cloud Run, Laravel, Serverless, AWS Lambda, 容器化, 应用的, 冷启动与成本, DevOps]
 categories: [devops]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: "Google Cloud Run 容器化部署 Laravel 应用的完整实战指南，深入对比 AWS Lambda 的冷启动性能、成本模型和开发体验。涵盖 Dockerfile 最佳实践、PHP-FPM 优化、Cloud Run 扩缩容配置、VPC 网络设置、CI/CD 流水线搭建，以及生产环境的监控告警方案，帮助 Laravel 开发者选择最适合的 Serverless 部署策略。"
 ---
+
 
 ## 引言：Serverless 的新范式
 

@@ -1,6 +1,6 @@
 ---
 title: AI-Powered Debugging 实战：LLM 辅助 Bug 定位——从错误日志到修复建议的自动化调试工作流与 Laravel 集成
-keywords: [AI, Powered, Debugging]
+keywords: [AI, Powered Debugging, LLM, Bug, Laravel, 辅助, 定位, 从错误日志到修复建议的自动化调试工作流与]
 date: 2026-06-09 14:51:00
 categories:
   - ai
@@ -15,6 +15,7 @@ tags:
   - AI辅助开发
 description: 本文介绍如何将 LLM（大语言模型）集成到 Laravel 项目的调试流程中，实现从错误日志自动收集、上下文分析到修复建议生成的完整自动化调试工作流，显著提升 Bug 定位效率。
 ---
+
 
 ## 概述
 

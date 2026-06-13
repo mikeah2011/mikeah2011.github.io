@@ -1,6 +1,6 @@
 ---
 title: Lambda Function URLs 实战：替代 API Gateway 的轻量方案——Laravel Bref 的直接 HTTPS 端点、冷启动与成本优化
-keywords: [Lambda, Function, URLs]
+keywords: [Lambda Function URLs, API Gateway, Laravel Bref, HTTPS, 替代, 的轻量方案, 的直接, 端点, 冷启动与成本优化, 架构]
 date: 2026-06-10 08:27:00
 categories:
   - architecture
@@ -17,6 +17,7 @@ tags:
   - PHP
 description: AWS Lambda Function URLs 提供了一种无需 API Gateway 即可为 Lambda 函数暴露 HTTPS 端点的轻量方案。本文以 Laravel Bref 为实战载体，深入对比 Function URLs 与 API Gateway 的架构差异、冷启动表现和成本模型，手把手搭建生产级 Serverless PHP 应用。
 ---
+
 
 ## 为什么需要 Function URLs？
 

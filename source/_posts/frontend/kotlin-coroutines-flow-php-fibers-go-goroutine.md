@@ -2,7 +2,7 @@
 title: Kotlin Coroutines 深度实战：挂起函数、结构化并发、Flow——与 PHP Fibers/Go goroutine 的并发模型对比
 date: 2026-06-03 09:00:00
 tags: [Kotlin, Coroutines, 并发, Flow, PHP Fibers]
-keywords: [Kotlin, Coroutines, 并发, Flow, PHP Fibers]
+keywords: [Kotlin Coroutines, Flow, PHP Fibers, Go goroutine, 深度实战, 挂起函数, 结构化并发, 的并发模型对比, 前端]
 categories:
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 description: 深入解析 Kotlin Coroutines 并发编程核心机制——从 suspend 挂起函数的 CPS 编译器变换、CoroutineScope 结构化并发体系，到 Flow 冷流与 StateFlow/SharedFlow 热流的实战应用。横向对比 PHP Fibers 对称协程与 Go goroutine CSP 并发模型，涵盖调度器选型、异常传播、协作式取消、Channel 通信等关键话题，附带五大常见踩坑案例与最佳实践，帮助你全面掌握 Kotlin 协程并做出合理的技术选型。
 ---
+
 
 # Kotlin Coroutines 深度实战：挂起函数、结构化并发、Flow——与 PHP Fibers/Go goroutine 的并发模型对比
 

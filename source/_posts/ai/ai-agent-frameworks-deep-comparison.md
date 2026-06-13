@@ -1,6 +1,6 @@
 ---
 title: 2026 年主流 AI Agent 框架深度对比：Hermes Agent vs Claude Code vs Codex vs Cline vs Goose
-keywords: [AI, Agent]
+keywords: [AI Agent, Hermes Agent vs Claude Code vs Codex vs Cline vs Goose, 年主流, 框架深度对比, AI, 工程化]
 date: 2026-05-31 14:00:00
 categories:
   - ai
@@ -20,6 +20,7 @@ images:
   - /images/content/ai-001-content-2.jpg
   - /images/diagrams/ai-001-diagram.jpg
 ---
+
 ## 引言
 
 2026 年，AI Agent 已经从概念验证走向了工程实践。开发者不再满足于简单的代码补全，而是需要能够理解整个代码库、执行复杂任务、跨会话记忆的智能助手。

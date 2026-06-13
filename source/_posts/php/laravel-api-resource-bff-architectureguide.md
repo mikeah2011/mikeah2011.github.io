@@ -7,12 +7,13 @@ date: 2026-05-03
 categories:
   - php
 tags: [BFF, KKday, Laravel, API-Resource, 微服务]
-keywords: [BFF, KKday, Laravel, API-Resource, 微服务, API, Resource]
+keywords: [Laravel API Resource, BFF, KKday B2C API, 實戰, 架構下的數據轉換與格式化, 真實踩坑記錄, PHP]
 description: 深入講解 Laravel API Resource 在 BFF（Backend for Frontend）微服務架構中的實戰應用：KKday B2C API 多端適配、嵌套資源、分頁格式化、N+1 優化、API 版本管理與 Trait 複用等真實踩坑記錄，提供 BFF vs 直接 API 對比分析與性能優化技巧
 
 
 
 ---
+
 # Laravel API Resource 實戰：BFF 架構下的數據轉換與格式化 - KKday B2C API 真實踩坑記錄
 
 ## 前言

@@ -9,12 +9,13 @@ categories:
   - php
   - database
 tags: [Laravel, Redis, 性能优化, 消息队列]
-keywords: [Laravel, Redis, 性能优化, 消息队列, Queue]
+keywords: [Laravel, Redis, Queue, Horizon, 队列监控失败重试与性能调优, PHP, 数据库]
 description: Laravel Redis Queue + Horizon 完整实战指南：覆盖 Redis 队列驱动配置、多优先级队列设计、Horizon 监控仪表盘搭建与告警配置、指数退避失败重试策略、Dead Letter Queue 处理、Redis 内存优化与连接池调优、生产环境 Supervisor 部署方案，结合 B2C 电商 30+ 仓库的真实踩坑经验，助你构建高可用消息队列架构。
 
 
 
 ---
+
 # Laravel Redis Queue + Horizon 实战：队列监控、失败重试与性能调优
 
 > 在 B2C 电商场景中，队列是削峰填谷的核心基础设施。本文基于 KKday B2C 后端团队 30+ 仓库的真实生产经验，完整覆盖 Laravel Redis Queue + Horizon 的架构设计、监控配置、失败重试策略与性能调优实战。

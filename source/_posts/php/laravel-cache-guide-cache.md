@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Cache 实战：KKday B2C API 多缓存后端配置與失效策略對比
-keywords: [Laravel, Cache]
+keywords: [Laravel Cache, KKday B2C API, 多缓存后端配置與失效策略對比]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -15,10 +16,9 @@ tags:
 - 分布式
 - 高并发
 - Docker
-description: 在 KKday B2C API 项目中，我们使用 Laravel 8+ PHP 8.0 构建 BFF 层。本文深入分析 Laravel Cache
-  多缓存后端配置（Redis / File / Memcached）、TTL / Touch / Flush 三大缓存失效策略对比、Redis 分布式锁内存泄漏修复、缓存雪崩穿透击穿防护与预热方案，附
-  Docker Compose 生产级配置和真实踩坑记录。
+description: 在 KKday B2C API 项目中，我们使用 Laravel 8+ PHP 8.0 构建 BFF 层。本文深入分析 Laravel Cache 多缓存后端配置（Redis / File / Memcached）、TTL / Touch / Flush 三大缓存失效策略对比、Redis 分布式锁内存泄漏修复、缓存雪崩穿透击穿防护与预热方案，附 Docker Compose 生产级配置和真实踩坑记录。
 ---
+
 
 # 前言
 

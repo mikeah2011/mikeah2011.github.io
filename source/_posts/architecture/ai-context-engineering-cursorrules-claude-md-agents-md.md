@@ -1,6 +1,7 @@
 ---
+
 title: AI Context Engineering 实战：系统化管理 AI 上下文——.cursorrules/CLAUDE.md/AGENTS.md 的工程化配置与团队共享
-keywords: [AI, Context, Engineering]
+keywords: [AI Context Engineering, AI, cursorrules, CLAUDE.md, AGENTS.md, 系统化管理, 上下文, 的工程化配置与团队共享]
 date: 2026-06-07 11:00:00
 tags:
 - AI
@@ -14,9 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: Context Engineering 上下文工程实战：系统讲解 .cursorrules、CLAUDE.md、AGENTS.md、.windsurfrules
-  规则文件的工程化配置与三层架构策略，涵盖团队共享、自动化生成、CI 校验及六个常见踩坑方案，适合 Cursor、Claude Code、Copilot 全栈开发团队。
+description: Context Engineering 上下文工程实战：系统讲解 .cursorrules、CLAUDE.md、AGENTS.md、.windsurfrules 规则文件的工程化配置与三层架构策略，涵盖团队共享、自动化生成、CI 校验及六个常见踩坑方案，适合 Cursor、Claude Code、Copilot 全栈开发团队。
 ---
+
 
 
 ## 引言：一个令所有 AI 开发者抓狂的场景

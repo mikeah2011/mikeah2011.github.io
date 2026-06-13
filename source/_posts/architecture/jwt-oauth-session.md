@@ -1,6 +1,7 @@
 ---
+
 title: Laravel B2C API - JWT/OAuth/Session 多协议认证踩坑记录
-keywords: [Laravel, API, JWT]
+keywords: [Laravel B2C API, JWT, OAuth, Session, 多协议认证踩坑记录]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -14,9 +15,9 @@ tags:
 - OAuth
 - 认证
 - API安全
-description: KKday B2C API 生产环境认证授权实战踩坑记录，深入剖析 JWT Token 刷新无限循环、OAuth 2.0 回调 CSRF
-  防护与死循环跳转、Session 与 Token 混合认证边界控制，涵盖 SSO 单点登录架构设计、多种认证协议方案对比分析、性能优化策略与生产环境最佳实践
+description: KKday B2C API 生产环境认证授权实战踩坑记录，深入剖析 JWT Token 刷新无限循环、OAuth 2.0 回调 CSRF 防护与死循环跳转、Session 与 Token 混合认证边界控制，涵盖 SSO 单点登录架构设计、多种认证协议方案对比分析、性能优化策略与生产环境最佳实践
 ---
+
 
 ---
 # Laravel B2C API - JWT/OAuth/Session 多协议认证踩坑记录

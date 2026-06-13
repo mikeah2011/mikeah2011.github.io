@@ -2,7 +2,7 @@
 title: Flutter 测试实战：Unit/Widget/Integration 三层测试体系
 date: 2026-06-01 10:00:00
 tags: [Flutter, 测试, Unit Test, Widget Test, Integration Test]
-keywords: [Flutter, 测试, Unit Test, Widget Test, Integration Test]
+keywords: [Flutter, Unit, Widget, Integration, 测试实战, 三层测试体系, 移动端]
 categories:
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 description: 这篇 Flutter 测试实战指南系统讲透 Unit Test、Widget Test、Integration Test 的分层策略，覆盖率治理、mockito/mock 使用、CI 落地与避坑经验，帮你建立高质量、可维护的自动化测试体系。
 ---
+
 
 Flutter 项目写到后期，很多团队都会遇到一个很尴尬的阶段：功能越来越多，页面越来越复杂，回归越来越慢，改一处状态管理或者网络层封装，结果登录页、购物车、详情页、埋点链路全都可能跟着炸。最可怕的不是报错，而是“看起来没报错，但其实已经坏了”。
 

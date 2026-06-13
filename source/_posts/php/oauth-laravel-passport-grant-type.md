@@ -1,6 +1,7 @@
 ---
+
 title: OAuth 2.0 实战：Laravel Passport 自定义 Grant Type 与第三方登录
-keywords: [OAuth]
+keywords: [OAuth, Laravel Passport, Grant Type, 自定义, 与第三方登录]
 date: 2026-06-01 09:00:00
 tags:
 - Laravel
@@ -11,15 +12,14 @@ tags:
 - Token
 - 第三方登录
 - Grant Type
-description: 本文结合真实项目场景，系统讲解 OAuth 2.0 与 Laravel Passport 的落地实践，覆盖标准与自定义 Grant Type、微信/GitHub
-  第三方登录接入、Token 刷新与撤销、Scope 与 PKCE 安全策略，并对 Token 管理与认证授权方案做工程化对比，适合需要统一认证授权体系的 Laravel
-  团队参考。
+description: 本文结合真实项目场景，系统讲解 OAuth 2.0 与 Laravel Passport 的落地实践，覆盖标准与自定义 Grant Type、微信/GitHub 第三方登录接入、Token 刷新与撤销、Scope 与 PKCE 安全策略，并对 Token 管理与认证授权方案做工程化对比，适合需要统一认证授权体系的 Laravel 团队参考。
 categories:
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 
 我第一次在 Laravel 项目里真正把 OAuth 2.0 跑起来，不是为了“做一个标准的认证系统”，而是为了收拾一个已经逐渐失控的登录体系：App 用手机号验证码登录，管理后台还保留着账号密码，合作渠道要求接 GitHub 登录做开发者接入，海外站点要加 Google 登录，国内运营又希望未来兼容微信登录。最开始大家觉得这几个需求互不相关，于是各写各的：这里发一个 access token，那里存一个 session，第三方登录回调后再手搓一个 token 返回给前端。系统刚上线时看起来一切正常，直到用户体系打通、权限模型统一、开放平台要给第三方客户端发 token 的时候，问题一下子全冒出来了。

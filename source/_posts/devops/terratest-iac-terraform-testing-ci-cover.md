@@ -1,6 +1,7 @@
 ---
+
 title: Terratest 实战：基础设施即代码的自动化测试——Terraform 模块的单元测试、集成测试与 CI 门禁
-keywords: [Terratest]
+keywords: [Terratest, Terraform, CI, 基础设施即代码的自动化测试, 模块的单元测试, 集成测试与, 门禁]
 date: 2026-06-05 08:00:00
 tags:
 - Terratest
@@ -14,9 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-description: Terratest 实战指南：用 Go 语言为 Terraform 模块编写单元测试、集成测试与端到端测试，集成 GitHub Actions
-  CI 门禁，构建 IaC 自动化测试体系，杜绝基础设施配置漂移与安全隐患。
+description: Terratest 实战指南：用 Go 语言为 Terraform 模块编写单元测试、集成测试与端到端测试，集成 GitHub Actions CI 门禁，构建 IaC 自动化测试体系，杜绝基础设施配置漂移与安全隐患。
 ---
+
 
 
 ## 前言

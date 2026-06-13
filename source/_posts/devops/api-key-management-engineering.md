@@ -1,6 +1,6 @@
 ---
 title: API 密钥管理工程化实战：环境变量 vs Vault vs Doppler vs .env.vault
-keywords: [API]
+keywords: [API, vs Vault vs Doppler vs, env.vault, 密钥管理工程化实战, 环境变量, DevOps]
 date: 2026-06-10 03:15:00
 categories:
   - devops
@@ -16,6 +16,7 @@ tags:
   - Doppler
 description: Laravel 项目从开发到生产的密钥生命周期治理——对比环境变量、HashiCorp Vault、Doppler、.env.vault 四种方案，给出可落地的工程化实践。
 ---
+
 
 ## 概述
 

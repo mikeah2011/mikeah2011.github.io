@@ -1,6 +1,7 @@
 ---
+
 title: Coolify 实战：开源 Heroku/Vercel 替代——自托管 PaaS 平台与 Laravel 一键部署
-keywords: [Coolify]
+keywords: [Coolify, Heroku, Vercel, PaaS, Laravel, 开源, 替代, 自托管, 平台与, 一键部署]
 date: 2026-06-02 10:00:00
 tags:
 - coolify
@@ -15,10 +16,9 @@ categories:
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-description: Coolify 是开源自托管 PaaS 平台，提供类似 Heroku/Vercel 的一键部署体验，支持 Git 仓库、Docker 镜像、Docker
-  Compose 多种部署方式，内置自动 SSL、数据库管理、实时日志和回滚功能。本文深入讲解 Coolify 架构设计与安装配置，结合 Laravel 应用的完整部署流程，包括
-  Dockerfile 最佳实践、Docker Compose 多服务编排、Nginx 配置、环境变量管理、数据库备份和 CI/CD 自动部署，帮助开发者以极低成本实现生产级应用托管。
+description: Coolify 是开源自托管 PaaS 平台，提供类似 Heroku/Vercel 的一键部署体验，支持 Git 仓库、Docker 镜像、Docker Compose 多种部署方式，内置自动 SSL、数据库管理、实时日志和回滚功能。本文深入讲解 Coolify 架构设计与安装配置，结合 Laravel 应用的完整部署流程，包括 Dockerfile 最佳实践、Docker Compose 多服务编排、Nginx 配置、环境变量管理、数据库备份和 CI/CD 自动部署，帮助开发者以极低成本实现生产级应用托管。
 ---
+
 
 
 Coolify 是一个开源的、自托管的 PaaS（Platform as a Service）平台，它可以让你在自己的服务器上获得类似 Heroku、Vercel 或 Netlify 的部署体验。与这些商业平台不同的是，Coolify 让你完全掌控自己的基础设施——数据不会离开你的服务器，没有供应商锁定，而且成本只需要一台 VPS 的费用。本文将深入讲解 Coolify 的架构设计、安装配置、Laravel 应用部署、以及在生产环境中的最佳实践。

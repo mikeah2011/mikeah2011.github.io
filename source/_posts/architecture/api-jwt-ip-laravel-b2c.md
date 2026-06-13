@@ -1,4 +1,4 @@
----
+
 title: API 安全加固实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击——Laravel B2C API 多层防御深度踩坑记录
 keywords: [API]
 date: 2026-06-01 10:00:00
@@ -11,11 +11,10 @@ tags:
 - 防重放
 - ip白名单
 categories:
-- architecture
+  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
----
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop---
 
 
 # API 安全加固实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击
@@ -101,6 +100,7 @@ images:
 - 如果你已经选择 JWT，就必须接受“补齐撤销能力”的工程成本，黑名单、刷新令牌轮换、设备维度下线这些都不能省。
 
 ---
+
 
 ## 二、JWT 黑名单：让无状态 Token 变成"可撤销"
 

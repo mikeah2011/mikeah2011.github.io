@@ -9,12 +9,13 @@ categories:
   - devops
   - kubernetes
 tags: [CI/CD, Kubernetes, Laravel, 监控, Argo Rollouts, 渐进式发布]
-keywords: [CI/CD, Kubernetes, Laravel, 监控, Argo Rollouts, Argo, Rollouts]
+keywords: [Argo Rollouts, Laravel, K8s, 渐进式发布实战, 上的金丝雀发布, 自动分析与回滚踩坑记录, DevOps]
 description: 基于 Laravel B2C API 在 Kubernetes 集群上的真实发布治理经验，深入记录如何用 Argo Rollouts 落地金丝雀发布与蓝绿发布策略。涵盖完整 Rollout CRD 配置、Prometheus AnalysisTemplate 自动分析、流量切分原理与权重失真排查、Laravel 就绪探针设计、数据库迁移兼容规则、preStop 优雅终止以及 CI/CD 流水线集成。同时对比金丝雀与蓝绿发布适用场景，提供探针误判、流量切分失真、慢请求被中断等生产踩坑的完整解决方案，帮助团队把发布从一次性切换升级为带度量、可暂停、可自动回滚的受控过程。
 
 
 
 ---
+
 我们把 Laravel API 跑上 Kubernetes 之后，最早的发布方式很朴素：`kubectl set image`，看 Pod 都 Ready 了就算完成。问题是这种“滚动更新成功”，只代表容器活着，不代表业务安全。一次支付链路改造里，新版本把优惠券查询从同步 SQL 改成了聚合表读取，Pod 启来很快，但上线 3 分钟后 P95 飙到 1.8s，错误率也被 Redis 超时拉高。Deployment 还在继续滚，等我们人工回退时，坏版本已经吃掉了大半流量。
 
 后来我把发布切成两层：**GitHub Actions 负责交付，Argo Rollouts 负责放量决策**。真正有价值的不是“能金丝雀”，而是**把发布从一次性切换，改成带度量、可暂停、可自动回滚的过程**。

@@ -1,10 +1,9 @@
 ---
+
 title: Flutter 路由实战：GoRouter 声明式路由与深链接集成踩坑记录
-keywords: [Flutter]
+keywords: [Flutter, GoRouter, 路由实战, 声明式路由与深链接集成踩坑记录]
 date: 2026-06-01 12:00:00
-description: 本文围绕 Flutter 中的 GoRouter 路由实践展开，系统梳理声明式路由、页面导航、嵌套导航、路由守卫与深链接集成的完整落地方案，并结合
-  Android App Links、iOS Universal Links、Flutter Web URL 策略和真实踩坑案例，帮助你构建可维护、可扩展的 Flutter
-  路由体系。
+description: 本文围绕 Flutter 中的 GoRouter 路由实践展开，系统梳理声明式路由、页面导航、嵌套导航、路由守卫与深链接集成的完整落地方案，并结合 Android App Links、iOS Universal Links、Flutter Web URL 策略和真实踩坑案例，帮助你构建可维护、可扩展的 Flutter 路由体系。
 tags:
 - Flutter
 - gorouter
@@ -18,6 +17,7 @@ cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 ---
+
 
 
 

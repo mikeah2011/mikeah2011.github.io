@@ -1,6 +1,6 @@
 ---
 title: Passkey Recovery 实战：设备丢失后的账号恢复——Recovery Code/Backup Key/Legacy Auth 的降级认证方案
-keywords: [Passkey, Recovery]
+keywords: [Passkey Recovery, Recovery Code, Backup Key, Legacy Auth, 设备丢失后的账号恢复, 的降级认证方案]
 date: 2026-06-10 01:44:00
 categories:
   - security
@@ -16,6 +16,7 @@ tags:
   - Laravel
 description: Passkey 登录是未来趋势，但设备丢失是真实场景。本文从 WebAuthn 规范出发，完整实现 Recovery Code、Backup Key、Legacy Auth 三层降级认证方案，含 Laravel 实战代码与踩坑记录。
 ---
+
 
 ## 概述
 

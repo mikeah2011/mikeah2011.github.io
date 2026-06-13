@@ -2,13 +2,14 @@
 title: Dify 实战：低代码 AI 应用平台搭建与工作流编排
 date: 2026-06-02 12:00:00
 tags: [Dify, AI, 低代码, 工作流, Agent]
-keywords: [Dify, AI, 低代码, 工作流, Agent]
+keywords: [Dify, AI, 低代码, 应用平台搭建与工作流编排]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: "想系统掌握 Dify 低代码 AI应用搭建与工作流编排？本文从部署、RAG 知识库、Agent 配置到工作流设计与生产实践，带你快速搭建可落地、可扩展、可上线的企业级 AI 应用方案。"
 ---
+
 
 # Dify 实战：低代码 AI 应用平台搭建与工作流编排
 

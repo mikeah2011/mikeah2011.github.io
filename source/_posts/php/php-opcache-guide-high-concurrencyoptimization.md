@@ -1,6 +1,7 @@
 ---
+
 title: PHP-OpCache 调优实战-KKday-B2C-API 高并发场景下的内存优化与真实踩坑记录
-keywords: [PHP, OpCache, KKday]
+keywords: [PHP, OpCache, KKday, B2C, API, 调优实战, 高并发场景下的内存优化与真实踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -14,10 +15,9 @@ tags:
 - 性能优化
 - Laravel
 - 高并发
-description: PHP OPcache 是提升 Laravel 应用高并发性能的核心扩展，本文从 KKday B2C API 真实生产环境出发，系统讲解
-  OPcache 完整配置参数详解、内存泄漏诊断、高并发场景调优策略、PHP 7.4+ 预加载（Preloading）实战、部署后代码不生效等踩坑案例，以及 OPcache
-  vs APCu vs xdebug 性能对比，帮助开发者在 QPS 5000+ 的场景下实现稳定低延迟。
+description: PHP OPcache 是提升 Laravel 应用高并发性能的核心扩展，本文从 KKday B2C API 真实生产环境出发，系统讲解 OPcache 完整配置参数详解、内存泄漏诊断、高并发场景调优策略、PHP 7.4+ 预加载（Preloading）实战、部署后代码不生效等踩坑案例，以及 OPcache vs APCu vs xdebug 性能对比，帮助开发者在 QPS 5000+ 的场景下实现稳定低延迟。
 ---
+
 
 # PHP-OpCache 调优实战 - KKday B2C API 高并发场景下的内存优化与真实踩坑记录
 

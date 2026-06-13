@@ -1,4 +1,4 @@
----
+
 title: Composer 脚本实战：自动化构建、测试、部署流程踩坑记录
 keywords: [Composer]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -7,17 +7,15 @@ images:
 date: 2026-05-16 20:25:38
 updated: 2026-05-16 20:28:29
 categories:
-- php
-- docker
+  - php
+  - docker
 tags:
 - CI/CD
 - Composer
 - DevOps
 - PHP
 - 自动化
-description: '在 30+ Laravel 仓库的日常维护中，Composer scripts 是最被低估的自动化利器。 本文基于 KKday B2C
-  后端团队真实项目经验，深入讲解 Composer 脚本的事件机制、 工具链编排、并行执行、CI/CD 集成，以及那些文档里不会告诉你的踩坑记录。 包含完整的项目脚本配置、自定义脚本类开发、多环境条件执行、GitHub
-  Actions 与 Jenkins 集成方案， 附带 7 个真实踩坑案例与最佳实践清单，助你将开发团队 onboarding 时间从 30 分钟缩短到 5 分钟。
+description: '在 30+ Laravel 仓库的日常维护中，Composer scripts 是最被低估的自动化利器。 本文基于 KKday B2C 后端团队真实项目经验，深入讲解 Composer 脚本的事件机制、 工具链编排、并行执行、CI/CD 集成，以及那些文档里不会告诉你的踩坑记录。 包含完整的项目脚本配置、自定义脚本类开发、多环境条件执行、GitHub Actions 与 Jenkins 集成方案， 附带 7 个真实踩坑案例与最佳实践清单，助你将开发团队 onboarding 时间从 30 分钟缩短到 5 分钟。
 
   '
 ---

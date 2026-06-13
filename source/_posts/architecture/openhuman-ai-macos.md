@@ -2,7 +2,7 @@
 title: OpenHuman 实战：开源 AI 超级智能框架入门与 macOS 安装
 date: 2026-06-02 00:00:00
 tags: [OpenHuman, AI Agent, macOS, 开源框架]
-keywords: [OpenHuman, AI Agent, macOS, 开源框架]
+keywords: [OpenHuman, AI, macOS, 开源, 超级智能框架入门与, 安装, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 本文带你系统上手 OpenHuman 这一开源框架，详解 AI Agent 在 macOS 上的安装、配置、排障与实践路线，拆解超级智能所需的长期记忆、Token 预算和外部集成能力，并通过对比分析帮助你快速判断它是否适合构建下一代开源 AI 超级智能系统。
 ---
+
 
 # OpenHuman 实战：开源 AI 超级智能框架入门与 macOS 安装
 

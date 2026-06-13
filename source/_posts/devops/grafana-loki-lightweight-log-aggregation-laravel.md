@@ -2,7 +2,7 @@
 title: Grafana Loki 实战：轻量级日志聚合替代 ELK——Laravel 应用的日志采集与查询优化
 date: 2026-06-02 00:00:00
 tags: [Grafana Loki, 日志, ELK, 可观测性, Laravel]
-keywords: [Grafana Loki, 日志, ELK, 可观测性, Laravel, Grafana, Loki]
+keywords: [Grafana Loki, ELK, Laravel, 轻量级日志聚合替代, 应用的日志采集与查询优化, DevOps]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: Grafana Loki 是替代 ELK 的轻量级日志聚合方案，本文从零搭建 Loki + Promtail + Grafana 生产级日志系统，深度集成 Laravel 应用。涵盖 LogQL 查询实战、JSON 日志解析、标签设计最佳实践、分层存储策略、Grafana 告警规则配置，以及与 Prometheus 的联动方案。相比 Elasticsearch，Loki 资源消耗降低 1-2 个数量级，适合中小团队低成本构建可观测性体系。
 ---
+
 
 # Grafana Loki 实战：轻量级日志聚合替代 ELK——Laravel 应用的日志采集与查询优化
 

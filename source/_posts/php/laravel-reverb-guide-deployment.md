@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Reverb 实战：订单状态实时推送与多实例部署踩坑记录
-keywords: [Laravel, Reverb]
+keywords: [Laravel Reverb, 订单状态实时推送与多实例部署踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -12,9 +13,9 @@ tags:
 - Nginx
 - Redis
 - WebSocket
-description: Laravel Reverb 订单实时推送实战：私有频道认证、afterCommit 事务广播、Redis 多实例总线、Nginx WebSocket
-  代理、Supervisor 托管及三个生产踩坑，快速落地 WebSocket 推送架构。
+description: Laravel Reverb 订单实时推送实战：私有频道认证、afterCommit 事务广播、Redis 多实例总线、Nginx WebSocket 代理、Supervisor 托管及三个生产踩坑，快速落地 WebSocket 推送架构。
 ---
+
 
 在 B2C API 里，订单创建后如果还靠前端每 3 秒轮询一次 `/orders/{id}`，高峰期其实很浪费：应用层多了无意义查询，数据库多了热行读取，用户看到的状态又不够“即时”。我们把订单付款、出票、失败回滚改成 **Laravel Reverb + WebSocket 推送** 后，移动端首屏状态更新延迟从 2~5 秒降到 300ms 内，接口 QPS 也明显回落。
 

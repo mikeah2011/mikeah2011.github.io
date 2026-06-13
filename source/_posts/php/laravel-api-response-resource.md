@@ -1,6 +1,6 @@
 ---
 title: Laravel API Response 嵌入式资源实战：嵌套 Resource、条件加载与稀疏字段集
-keywords: [Laravel, API, Response]
+keywords: [Laravel API Response, Resource, 嵌入式资源实战, 嵌套, 条件加载与稀疏字段集, PHP]
 date: 2026-06-10 06:30:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - 前后端协作
 description: 深入实战 Laravel API Response 嵌入式资源设计，通过嵌套 Resource、条件加载与稀疏字段集实现类 GraphQL 灵活性的 RESTful 实现，解决移动端与前端的过度请求问题。
 ---
+
 
 # Laravel API Response 嵌入式资源实战：嵌套 Resource、条件加载与稀疏字段集
 

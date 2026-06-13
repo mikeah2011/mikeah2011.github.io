@@ -1,12 +1,13 @@
 ---
+
 title: Rspack 实战：Rust 驱动的 Webpack 兼容打包器——10x 构建速度提升与 Laravel 前端迁移路径
-keywords: [Rspack]
+keywords: [Rspack, Rust, Webpack, Laravel, 驱动的, 兼容打包器, 构建速度提升与, 前端迁移路径, 前端]
 date: 2026-06-10 03:27:00
 categories:
+  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-- frontend
 tags:
 - Rspack
 - Rust
@@ -14,9 +15,9 @@ tags:
 - 构建工具
 - Laravel
 - 工程化
-description: 深入实战 Rspack——字节跳动开源的 Rust 驱动打包器，兼容 Webpack API 的同时带来 10x 构建速度提升。本文从原理到
-  Laravel 项目迁移完整路径，含踩坑记录和性能对比。
+description: 深入实战 Rspack——字节跳动开源的 Rust 驱动打包器，兼容 Webpack API 的同时带来 10x 构建速度提升。本文从原理到 Laravel 项目迁移完整路径，含踩坑记录和性能对比。
 ---
+
 
 
 ## 概述

@@ -2,7 +2,7 @@
 title: 'Platform Engineering 实战：Golden Paths 与服务模板——用 Backstage 自助创建标准化 Laravel 微服务脚手架'
 date: 2026-06-03 10:00:00
 tags: [Platform Engineering, Backstage, Golden Paths, 微服务, Laravel, IDP]
-keywords: [Platform Engineering, Backstage, Golden Paths, 微服务, Laravel, Platform, Engineering]
+keywords: [Platform Engineering, Golden Paths, Backstage, Laravel, 与服务模板, 自助创建标准化, 微服务脚手架, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "深入解析 Platform Engineering 核心理念与 Golden Paths 设计方法论，以 Backstage 开源开发者门户为平台，完整实现一套自助式 Laravel 微服务脚手架创建系统。涵盖 IDP 分层架构设计、Backstage 软件模板 YAML 编写、Spring Boot 与 Laravel 模板对比分析、CI/CD 流水线自动化、Kubernetes 部署清单生成、Prometheus 告警与 Jaeger 链路追踪集成、TechDocs 文档自动化等全流程，附可落地的模板代码与实施路线图，帮助中大型 Laravel 团队从零构建标准化微服务体系。"
 ---
+
 
 # Platform Engineering 实战：Golden Paths 与服务模板——用 Backstage 自助创建标准化 Laravel 微服务脚手架
 

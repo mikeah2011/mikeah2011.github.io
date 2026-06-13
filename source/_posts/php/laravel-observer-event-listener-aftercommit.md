@@ -2,7 +2,7 @@
 title: 'Laravel Observer 与 Event Listener 的选型决策：afterCommit 时序、事务边界、队列化监听——为什么 Observer 不总是最佳选择'
 date: 2026-06-06 12:00:00
 tags: [Laravel, Observer, Event, 设计模式, 事务]
-keywords: [Laravel, Observer, Event, 设计模式, 事务]
+keywords: [Laravel Observer, Event Listener, afterCommit, Observer, 的选型决策, 时序, 事务边界, 队列化监听, 不总是最佳选择, PHP]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "深度对比 Laravel Observer 与 Event Listener 在事务边界、afterCommit 时序和队列化监听上的本质差异，涵盖脏读陷阱、嵌套触发、Octane 状态泄漏等 15 个真实踩坑案例与决策树，帮助你选型时避免线上事故。"
 ---
+
 
 ## 前言：一个深夜告警引发的思考
 

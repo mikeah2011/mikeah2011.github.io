@@ -2,7 +2,7 @@
 title: '数据库连接池实战：PgBouncer vs ProxySQL vs Supabase 在高并发 Laravel 中的选型对比'
 date: 2026-06-02 10:00:00
 tags: [PgBouncer, ProxySQL, Supabase, 连接池, Laravel, 高并发]
-keywords: [PgBouncer, ProxySQL, Supabase, 连接池, Laravel]
+keywords: [PgBouncer vs ProxySQL vs Supabase, Laravel, 数据库连接池实战, 在高并发, 中的选型对比, 数据库]
 categories:
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 description: "Laravel 高并发场景下，PHP-FPM 的进程模型会导致数据库连接风暴。本文深度对比三大连接池方案：PgBouncer（PostgreSQL 轻量级连接池）、ProxySQL（MySQL 读写分离与查询路由）、Supabase Supavisor（Serverless 云原生连接池）。详解 Transaction 模式 vs Session 模式的取舍、Prepared Statement 兼容性问题、Laravel 数据库配置调优，以及如何通过连接池让 Laravel 从容应对万级并发。"
 ---
+
 
 # 数据库连接池实战：PgBouncer vs ProxySQL vs Supabase 在高并发 Laravel 中的选型对比
 

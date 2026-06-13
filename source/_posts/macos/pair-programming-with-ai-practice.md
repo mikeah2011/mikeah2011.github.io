@@ -2,7 +2,7 @@
 title: Pair Programming with AI 实战：AI 结对编程的生产力研究——Cursor + Claude Code 的 20 个真实编码场景效率对比
 date: 2026-06-06 12:00:00
 tags: [AI, Cursor, Claude Code, 开发效率, 结对编程]
-keywords: [AI, Cursor, Claude Code, 开发效率, 结对编程, Pair, Programming]
+keywords: [Pair Programming with AI, AI, Cursor, Claude Code, 结对编程的生产力研究, 个真实编码场景效率对比, macOS]
 categories:
   - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 description: "深度实测 Cursor 与 Claude Code 在 20 个真实编码场景中的效率对比——新功能开发、Bug 修复、代码重构、单元测试、性能优化等全覆盖。包含完整的时间/质量/满意度量化数据、Prompt 最佳实践、ROI 成本分析、AI 幻觉与安全风险应对策略。适合个人开发者、初创团队和企业工程师，掌握 AI 结对编程的核心方法论。"
 ---
+
 
 ## 引言：当 AI 坐上结对编程的第二把椅子
 

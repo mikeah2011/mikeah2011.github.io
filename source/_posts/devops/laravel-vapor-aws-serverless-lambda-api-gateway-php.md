@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Vapor 实战：AWS Serverless 部署——Lambda + API Gateway 的无服务器 PHP 生产架构与成本分析
-keywords: [Laravel, Vapor]
+keywords: [Laravel Vapor, AWS Serverless, Lambda, API Gateway, PHP, 的无服务器, 生产架构与成本分析]
 date: 2026-06-03 10:00:00
 tags:
 - Vapor
@@ -17,11 +18,9 @@ categories:
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-description: Laravel Vapor 实战全解析：从零搭建 AWS Serverless PHP 生产架构，涵盖 Lambda + API Gateway
-  深度配置、RDS Proxy 连接池方案、SQS 队列异步任务、冷启动优化与 Provisioned Concurrency 调优、多环境部署 CI/CD 流水线、文件存储与
-  Session 管理方案。附带 Vapor vs EC2 vs ECS Fargate vs Bref 全维度成本分析表格与流量规模选型指南，以及从 EC2 迁移到
-  Vapor 的完整踩坑案例与排错清单，帮助团队在无服务器 PHP 部署中做出正确的技术与财务决策。
+description: Laravel Vapor 实战全解析：从零搭建 AWS Serverless PHP 生产架构，涵盖 Lambda + API Gateway 深度配置、RDS Proxy 连接池方案、SQS 队列异步任务、冷启动优化与 Provisioned Concurrency 调优、多环境部署 CI/CD 流水线、文件存储与 Session 管理方案。附带 Vapor vs EC2 vs ECS Fargate vs Bref 全维度成本分析表格与流量规模选型指南，以及从 EC2 迁移到 Vapor 的完整踩坑案例与排错清单，帮助团队在无服务器 PHP 部署中做出正确的技术与财务决策。
 ---
+
 
 
 # Laravel Vapor 实战：AWS Serverless 部署——Lambda + API Gateway 的无服务器 PHP 生产架构与成本分析

@@ -1,6 +1,6 @@
 ---
 title: "Uptime Kuma 实战：开源监控面板——自托管服务健康检查、状态页面、通知集成与 Laravel API 端点监控"
-keywords: [Uptime, Kuma]
+keywords: [Uptime Kuma, Laravel API, 开源监控面板, 自托管服务健康检查, 状态页面, 通知集成与, 端点监控, DevOps]
 date: 2026-06-10 05:51:00
 categories:
   - devops
@@ -16,6 +16,7 @@ tags:
   - 告警通知
 description: "从零搭建 Uptime Kuma 监控面板，覆盖 HTTP/TCP/DNS/Ping 多种探针类型，配置公开状态页面，集成 Telegram/Slack/飞书等通知渠道，并实战监控 Laravel API 端点的健康状态。"
 ---
+
 
 ## 前言
 

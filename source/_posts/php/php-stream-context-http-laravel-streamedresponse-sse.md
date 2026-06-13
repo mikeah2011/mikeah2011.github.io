@@ -1,12 +1,13 @@
 ---
+
 title: PHP Stream Context 实战：HTTP 流式响应的底层机制——Laravel StreamedResponse 的逐块输出与 SSE 原理
-keywords: [PHP, Stream, Context]
+keywords: [PHP Stream Context, HTTP, Laravel StreamedResponse, SSE, 流式响应的底层机制, 的逐块输出与, 原理, PHP]
 date: 2026-06-10 00:55:00
 categories:
+  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-- php
 tags:
 - Stream
 - StreamedResponse
@@ -14,10 +15,9 @@ tags:
 - HTTP
 - PHP Internals
 - Laravel
-description: 深入 PHP stream context 的底层机制，详解 stream_context_create、stream_socket_client
-  等函数的工作原理，结合 Laravel StreamedResponse 的逐块输出实现，以及 Server-Sent Events（SSE）的 PHP 端实现，涵盖流式响应、超时控制、TLS
-  配置等实战场景。
+description: 深入 PHP stream context 的底层机制，详解 stream_context_create、stream_socket_client 等函数的工作原理，结合 Laravel StreamedResponse 的逐块输出实现，以及 Server-Sent Events（SSE）的 PHP 端实现，涵盖流式响应、超时控制、TLS 配置等实战场景。
 ---
+
 
 
 # PHP Stream Context 实战：HTTP 流式响应的底层机制

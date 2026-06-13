@@ -1,6 +1,7 @@
 ---
+
 title: SQLite + Laravel 嵌入式应用实战：WAL 模式、FTS5 全文搜索、本地优先架构
-keywords: [SQLite, Laravel]
+keywords: [SQLite, Laravel, WAL, FTS5, 嵌入式应用实战, 全文搜索, 本地优先架构]
 date: 2026-06-06 02:08:57
 tags:
 - SQLite
@@ -14,9 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
-description: 深入实战 SQLite + Laravel 嵌入式应用开发，系统讲解 WAL 模式并发读写性能优化、FTS5 全文搜索引擎搭建、中文分词集成、本地优先架构设计与灾难恢复方案。从零配置部署到生产环境最佳实践，提供完整
-  PHP 代码示例，帮助 Laravel 开发者用嵌入式数据库替代传统方案，构建零依赖、高性能的现代 Web 应用。
+description: 深入实战 SQLite + Laravel 嵌入式应用开发，系统讲解 WAL 模式并发读写性能优化、FTS5 全文搜索引擎搭建、中文分词集成、本地优先架构设计与灾难恢复方案。从零配置部署到生产环境最佳实践，提供完整 PHP 代码示例，帮助 Laravel 开发者用嵌入式数据库替代传统方案，构建零依赖、高性能的现代 Web 应用。
 ---
+
 
 
 在 Web 开发的长期叙事中，SQLite 一直被贴上「玩具数据库」的标签——适合原型开发、测试环境，或者某些脚本工具，但绝不是生产环境的首选。然而，2026 年的今天，这个认知需要被彻底更新。SQLite 已经成为世界上部署最广泛的数据库引擎，从智能手机到飞机航电系统，从浏览器到桌面应用，它无处不在。更重要的是，随着 Laravel 框架对 SQLite 的深度支持，以及本地优先（Local-First）架构理念的兴起，SQLite 正在重新定义「轻量级」的含义——它不再意味着功能的缺失，而是指架构的精简与效率的极致。

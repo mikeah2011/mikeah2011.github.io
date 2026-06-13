@@ -1,6 +1,6 @@
 ---
 title: Cloudflare Durable Objects 实战：有状态边缘计算——对比传统 WebSocket 的会话持久化与 Laravel 实时应用
-keywords: [Cloudflare, Durable, Objects]
+keywords: [Cloudflare Durable Objects, WebSocket, Laravel, 有状态边缘计算, 对比传统, 的会话持久化与, 实时应用, 架构]
 date: 2026-06-10 01:39:00
 categories:
   - architecture
@@ -16,6 +16,7 @@ tags:
   - Laravel
 description: 深入讲解 Cloudflare Durable Objects 的核心概念、有状态边缘计算原理，与传统 WebSocket 会话持久化方案对比，并提供 Laravel 实时应用的完整集成方案与踩坑记录。
 ---
+
 
 ## 概述
 

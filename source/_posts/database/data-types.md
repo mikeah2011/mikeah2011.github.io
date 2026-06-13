@@ -1,7 +1,7 @@
 ---
 title: MySQL 数据类型选型
 tags: [MySQL, 数据库, SQL, Laravel, 数据类型]
-keywords: [MySQL, 数据库, SQL, Laravel, 数据类型]
+keywords: [MySQL, 数据类型选型, 数据库]
 categories:
   - database
 date: 2019-04-20 10:00:00
@@ -12,6 +12,7 @@ images:
   - /images/content/databases-1-content-2.jpg
 
 ---
+
 # 一句话
 
 > **选最小的、能装下你数据的类型。** 类型小 = 索引小 = 内存命中率高 = 快。

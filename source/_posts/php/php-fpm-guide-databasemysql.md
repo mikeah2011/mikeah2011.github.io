@@ -1,6 +1,7 @@
 ---
+
 title: PHP-FPM 长连接与短连接实战：数据库连接池性能差异与 MySQL 踩坑记录
-keywords: [PHP, FPM]
+keywords: [PHP, FPM, MySQL, 长连接与短连接实战, 数据库连接池性能差异与, 踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -16,11 +17,9 @@ tags:
 - Redis
 - WebSocket
 - 性能优化
-description: 深入剖析 PHP-FPM 在 Laravel B2C API 高并发场景下的数据库连接策略，涵盖长连接与短连接的性能差异压测对比、PDO
-  持久连接三大隐藏陷阱（连接状态污染、静默断连、max_connections 计算错误）及解决方案。从 PHP-FPM 进程模型原理出发，对比 ProxySQL、PgBouncer
-  等外部连接池中间件选型，提供 Laravel Octane + Swoole 协程连接池实现方案，附生产环境可落地的 PHP-FPM、MySQL、ProxySQL
-  配置模板与监控告警脚本，助你在高并发场景下稳定运行 Laravel API。
+description: 深入剖析 PHP-FPM 在 Laravel B2C API 高并发场景下的数据库连接策略，涵盖长连接与短连接的性能差异压测对比、PDO 持久连接三大隐藏陷阱（连接状态污染、静默断连、max_connections 计算错误）及解决方案。从 PHP-FPM 进程模型原理出发，对比 ProxySQL、PgBouncer 等外部连接池中间件选型，提供 Laravel Octane + Swoole 协程连接池实现方案，附生产环境可落地的 PHP-FPM、MySQL、ProxySQL 配置模板与监控告警脚本，助你在高并发场景下稳定运行 Laravel API。
 ---
+
 
 # PHP-FPM 长连接与短连接实战：数据库连接池性能差异与 MySQL 踩坑记录
 

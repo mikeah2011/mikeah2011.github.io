@@ -1,6 +1,7 @@
 ---
+
 title: MySQL 索引采用的 B+Tree 算法：原理与磁盘 IO 优化
-keywords: [MySQL, B+Tree]
+keywords: [MySQL, Tree, IO, 索引采用的, 算法, 原理与磁盘, 数据库]
 tags:
 - MySQL
 - B+树
@@ -8,7 +9,7 @@ tags:
 - 数据结构
 - InnoDB
 categories:
-- database
+  - database
 date: 2020-03-20 15:05:07
 description: 本文深入解析MySQL索引为什么采用B+树作为底层数据结构，详细对比B+树、B-树、红黑树、Hash索引和全文索引的区别，介绍InnoDB中B+树索引的工作原理，包括页大小16KB、三层B+树存储千万级数据的计算过程，附带EXPLAIN输出解读、索引失效踩坑案例和全表扫描vs索引查询性能实验，帮助理解磁盘IO优化与索引性能的关系。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
@@ -16,6 +17,7 @@ images:
 - /images/content/databases-btree-content-1.jpg
 - /images/content/databases-btree-content-2.jpg
 ---
+
 
 
 > 索引为什么采用B+树，而不用B-树，红黑树？

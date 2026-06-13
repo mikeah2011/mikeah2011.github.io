@@ -1,6 +1,7 @@
 ---
+
 title: PHPUnit 11.x 实战：新特性与最佳实践——从 Laravel B2C API 的断言、属性到测试架构演进踩坑记录
-keywords: [PHPUnit]
+keywords: [PHPUnit, Laravel B2C API, 新特性与最佳实践, 的断言, 属性到测试架构演进踩坑记录]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
@@ -15,10 +16,9 @@ tags:
 - PHP Attributes
 - 最佳实践
 - KKday
-description: PHPUnit 11 升级实战指南：30+ Laravel 仓库踩坑总结，涵盖 Attributes 语法、Expectation API
-  流式断言、#[TestWith] 数据提供者、Mock/Stub 演进、分层测试架构与并行测试最佳实践，附 12 项升级 Checklist 与踩坑速查表，助你从
-  PHPUnit 10 平滑升级到 11。
+description: PHPUnit 11 升级实战指南：30+ Laravel 仓库踩坑总结，涵盖 Attributes 语法、Expectation API 流式断言、#[TestWith] 数据提供者、Mock/Stub 演进、分层测试架构与并行测试最佳实践，附 12 项升级 Checklist 与踩坑速查表，助你从 PHPUnit 10 平滑升级到 11。
 ---
+
 
 
 

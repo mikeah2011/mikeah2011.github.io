@@ -9,12 +9,13 @@ categories:
   - php
   - database
 tags: [Laravel, PostgreSQL, JSONB, GIN索引, 电商, 性能优化]
-keywords: [Laravel, PostgreSQL, JSONB, GIN索引, 电商]
+keywords: [Laravel, PostgreSQL JSONB, GIN, 商品筛选的, 索引, 局部索引与在线迁移踩坑记录, PHP, 数据库]
 description: 结合电商商品筛选场景，详细记录在 Laravel 中落地 PostgreSQL JSONB 的完整实战方案，涵盖动态属性建模、GIN 索引与局部索引设计、Eloquent 查询封装、EXPLAIN ANALYZE 性能调优、常见踩坑与 MySQL 到 PostgreSQL 在线迁移策略，附对比表格与完整代码示例。
 
 
 
 ---
+
 在电商商品中心里，最容易失控的不是订单，而是**越来越多的筛选属性**。服饰要颜色、尺码、材质，3C 要容量、网络制式、发货仓，活动页还会临时加“次日达”“可开发票”。我之前在 Laravel 项目里走过一条弯路：为了让后台筛选快一点，给 `products` 连续补了十几个 nullable 列，结果 schema 越来越脆，索引越加越乱。后来迁到 PostgreSQL 后，真正有效的做法不是“把字段都塞进 JSONB”，而是把**变化快的属性放进 JSONB，把高频查询路径做成可命中的索引**。
 
 ## 一、建模先做减法：主路径字段不要进 JSONB

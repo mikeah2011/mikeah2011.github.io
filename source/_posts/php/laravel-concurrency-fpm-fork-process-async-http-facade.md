@@ -1,13 +1,13 @@
 ---
+
 title: Laravel Concurrency 实战进阶：fpm-fork vs Process vs async HTTP 的性能基准——12.x Concurrency
-keywords: [Laravel, Concurrency]
-  facade 的真实吞吐量测量
+keywords: [Laravel Concurrency, fpm, fork vs Process vs async HTTP, Concurrency, 实战进阶, 的性能基准, PHP]
 date: 2026-06-09 15:21:00
 categories:
+  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-- php
 tags:
 - Laravel
 - Concurrency
@@ -17,6 +17,7 @@ tags:
 - 基准测试
 description: 深入对比 Laravel 12.x Concurrency facade、Symfony Process 和 async HTTP 三种并发方案的真实吞吐量，通过可复现的基准测试代码揭示每种方案的性能边界和适用场景。
 ---
+
 
 
 ## 概述

@@ -1,10 +1,12 @@
 ---
+
 title: 云存储实战：AWS S3/阿里云 OSS/MinIO 三大对象存储深度对比与 Laravel 多驱动集成
 date: 2026-06-01 14:00:00
 categories:
-- architecture
-- 云服务
-- php
+  - architecture
+  - 云服务
+  - php
+keywords: [AWS S3, OSS, MinIO, Laravel, 云存储实战, 阿里云, 三大对象存储深度对比与, 多驱动集成]
 tags:
 - AWS S3
 - 阿里云
@@ -13,13 +15,13 @@ tags:
 - Storage
 - 云存储
 - 多云架构
-description: 从 S3 协议底层原理出发，深度对比 AWS S3、阿里云 OSS、MinIO 三大对象存储的架构差异、性能特征与成本模型，并通过 Laravel
-  多驱动集成实战展示如何构建可切换的统一存储层，附带生产环境踩坑记录与多云策略最佳实践。
+description: 从 S3 协议底层原理出发，深度对比 AWS S3、阿里云 OSS、MinIO 三大对象存储的架构差异、性能特征与成本模型，并通过 Laravel 多驱动集成实战展示如何构建可切换的统一存储层，附带生产环境踩坑记录与多云策略最佳实践。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/arch-006-content-1.jpg
 - /images/content/arch-006-content-2.jpg
 ---
+
 
 # 云存储实战：AWS S3/阿里云 OSS/MinIO 三大对象存储深度对比与 Laravel 多驱动集成
 

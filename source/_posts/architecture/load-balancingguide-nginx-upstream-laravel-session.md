@@ -9,12 +9,13 @@ categories:
   - architecture
   - php
 tags: [KKday, Laravel, Nginx, Redis, 架构]
-keywords: [KKday, Laravel, Nginx, Redis, 架构]
+keywords: [Nginx Upstream, Laravel Session, 负载均衡实战, 共享方案踩坑记录, 架构, PHP]
 description: 从单机 Laravel 到 Nginx 多实例负载均衡的真实踩坑记录。覆盖 Upstream 配置、Session 共享方案选型（Cookie / Sticky / Redis / Database）、健康检查、会话一致性与生产环境故障恢复。
 
 
 
 ---
+
 # 前言
 
 单机 Laravel 跑得好好的，一上负载均衡就出 bug —— 这是我在 KKday B2C API 项目中亲身经历的事。用户购物车突然清空、CSRF token 校验失败、后台登录莫名失效，全都是因为 **Session 粘性没处理好**。

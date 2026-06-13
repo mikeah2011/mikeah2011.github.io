@@ -1,4 +1,5 @@
 ---
+
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 keywords: [JavaScript]
 images:
@@ -10,9 +11,9 @@ tags:
 categories:
 - frontend
 date: 2019-03-20 15:05:07
-description: JavaScript 是 Web 的脚本语言，从浏览器交互发展到 Node.js 全栈、Electron 桌面、React Native
-  移动端。本文梳理核心概念、ES6+ 关键特性和常见陷阱。
+description: JavaScript 是 Web 的脚本语言，从浏览器交互发展到 Node.js 全栈、Electron 桌面、React Native 移动端。本文梳理核心概念、ES6+ 关键特性和常见陷阱。
 ---
+
 
 ## 一、JavaScript 简介
 

@@ -1,12 +1,13 @@
 ---
+
 title: Laravel API 文档即代码实战：Scribe + OpenAPI + Postman Collection 三同步
-keywords: [Laravel, API]
+keywords: [Laravel API, Scribe, OpenAPI, Postman Collection, 文档即代码实战, 三同步, PHP]
 date: 2026-06-10 02:24:00
 categories:
+  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-- php
 tags:
 - Laravel
 - API
@@ -16,6 +17,7 @@ tags:
 - 自动化
 description: 用 Scribe + OpenAPI + Postman Collection 实现「写一次注解，三端同步」的 API 文档工作流，彻底告别手工维护文档的痛苦。
 ---
+
 
 
 ## 概述

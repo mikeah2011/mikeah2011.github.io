@@ -1,6 +1,6 @@
 ---
 title: HTMX + Laravel 实战进阶：hx-boost/OOB Swaps/SSE 三合一——不用 JavaScript 框架的超交互全栈方案
-keywords: [HTMX, Laravel]
+keywords: [HTMX, Laravel, hx, boost, OOB Swaps, SSE, JavaScript, 实战进阶, 三合一, 不用]
 date: 2026-06-10 01:30:00
 categories:
   - frontend
@@ -15,6 +15,7 @@ tags:
   - 无框架
 description: 深入讲解 HTMX 三大进阶特性：hx-boost 全局导航增强、OOB Swaps 局部 DOM 编排、SSE 服务端推送——在 Laravel 8 项目中实现不写一行 JavaScript 的超交互全栈应用。
 ---
+
 
 ## 概述
 

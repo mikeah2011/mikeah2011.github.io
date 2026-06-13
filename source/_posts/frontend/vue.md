@@ -1,6 +1,7 @@
 ---
+
 title: Vue.js 核心概念：响应式数据、组件化与生命周期
-keywords: [Vue.js]
+keywords: [Vue.js, 核心概念, 响应式数据, 组件化与生命周期]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -11,10 +12,9 @@ tags:
 categories:
 - frontend
 date: 2020-03-20 15:05:07
-description: Vue 是渐进式 JavaScript 框架，由尤雨溪创建，主打"易学易上手 + 响应式 + 模板语法"。Vue 3 的 Composition
-  API + `<script setup>` 让大型项目的组织更清晰。本文从 Hello Vue 到响应式原理、组件通信、Vue Router 路由守卫、Pinia
-  状态管理、性能优化（懒加载、虚拟滚动）进行系统讲解，附 Vue 2 vs Vue 3 对比表和高频踩坑记录。
+description: Vue 是渐进式 JavaScript 框架，由尤雨溪创建，主打"易学易上手 + 响应式 + 模板语法"。Vue 3 的 Composition API + `<script setup>` 让大型项目的组织更清晰。本文从 Hello Vue 到响应式原理、组件通信、Vue Router 路由守卫、Pinia 状态管理、性能优化（懒加载、虚拟滚动）进行系统讲解，附 Vue 2 vs Vue 3 对比表和高频踩坑记录。
 ---
+
 
 
 

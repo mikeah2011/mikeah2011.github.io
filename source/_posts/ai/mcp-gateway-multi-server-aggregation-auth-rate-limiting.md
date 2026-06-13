@@ -1,6 +1,6 @@
 ---
 title: "MCP Gateway 实战：多 MCP Server 聚合、鉴权、限流——企业级 AI Agent 工具层的统一接入与治理"
-keywords: [MCP, Gateway]
+keywords: [MCP Gateway, MCP Server, AI Agent, 聚合, 鉴权, 限流, 企业级, 工具层的统一接入与治理, AI]
 date: 2026-06-09 19:00:00
 categories:
   - ai
@@ -17,6 +17,7 @@ tags:
   - 工具治理
 description: "从零构建企业级 MCP Gateway：多 MCP Server 聚合代理、统一鉴权、令牌限流、审计日志与工具发现——Laravel 实战落地完整方案。"
 ---
+
 
 # MCP Gateway 实战：多 MCP Server 聚合、鉴权、限流
 

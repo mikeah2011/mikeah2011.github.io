@@ -1,8 +1,8 @@
 ---
+
 title: Flutter 国际化实战：flutter_localizations 多语言与 RTL 支持
-keywords: [Flutter]
-description: 深入讲解 Flutter 国际化实战，覆盖 flutter_localizations、intl、gen_l10n、ARB 多语言资源管理、运行时语言切换、日期货币本地化与
-  RTL 适配，帮助你构建可维护的 i18n / 本地化工程体系。
+keywords: [Flutter, localizations, RTL, 国际化实战, 多语言与, 支持]
+description: 深入讲解 Flutter 国际化实战，覆盖 flutter_localizations、intl、gen_l10n、ARB 多语言资源管理、运行时语言切换、日期货币本地化与 RTL 适配，帮助你构建可维护的 i18n / 本地化工程体系。
 date: 2026-06-01 10:00:00
 tags:
 - Flutter
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 ---
+
 
 
 在 Flutter 项目里做国际化，很多人一开始的理解都很朴素：把中文文案提出来，给英文再配一份，切换一下 `Locale`，事情就结束了。可一旦项目开始真正上线，问题会立刻从“翻译字符串”升级成“工程化国际化”：

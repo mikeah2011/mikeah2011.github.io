@@ -1,6 +1,7 @@
 ---
+
 title: OpenClaw + Discord 实战：多频道 AI 助手与社区管理
-keywords: [OpenClaw, Discord]
+keywords: [OpenClaw, Discord, AI, 多频道, 助手与社区管理]
 date: 2026-06-02 09:00:00
 tags:
 - OpenClaw
@@ -13,9 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 这篇文章系统讲解如何用 OpenClaw 构建接入 Discord 的多频道 AI Agent 与 Bot，从 OAuth2、Intent、事件适配、频道策略、线程记忆、Slash
-  Commands 到自动审核、欢迎消息、角色管理与部署治理，帮助你把 AI 助手真正落地到社区管理场景，在多频道协作中实现稳定、可控、可扩展的智能运营能力。
+description: 这篇文章系统讲解如何用 OpenClaw 构建接入 Discord 的多频道 AI Agent 与 Bot，从 OAuth2、Intent、事件适配、频道策略、线程记忆、Slash Commands 到自动审核、欢迎消息、角色管理与部署治理，帮助你把 AI 助手真正落地到社区管理场景，在多频道协作中实现稳定、可控、可扩展的智能运营能力。
 ---
+
 
 
 

@@ -2,7 +2,7 @@
 title: PartyKit 实战：实时协作后端——多人编辑、在线状态、实时光标与 Laravel 应用集成
 date: 2026-06-04 09:00:00
 tags: [PartyKit, 实时协作, WebSocket, Laravel, CRDT, Yjs, Cloudflare, Durable Objects]
-keywords: [PartyKit, 实时协作, WebSocket, Laravel, CRDT]
+keywords: [PartyKit, Laravel, 实时协作后端, 多人编辑, 在线状态, 实时光标与, 应用集成, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "PartyKit 实战指南：基于 Cloudflare Durable Objects 构建实时协作后端，结合 CRDT/Yjs 实现多人文档编辑、在线状态与实时光标同步，深度集成 Laravel 完成 JWT 认证、数据持久化与 Webhook 回调，并与 Pusher、Ably、Laravel Reverb 进行架构对比与成本分析，适合全栈开发者快速落地 WebSocket 实时协作功能。"
 ---
+
 
 ## 引言
 

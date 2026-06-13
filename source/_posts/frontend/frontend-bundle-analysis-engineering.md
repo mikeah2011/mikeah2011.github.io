@@ -1,6 +1,6 @@
 ---
 title: 前端 Bundle 分析工程化实战：rollup-plugin-visualizer + source-map-explorer + CI 门禁——防止前端包体积膨胀的自动化守护
-keywords: [Bundle]
+keywords: [Bundle, rollup, plugin, visualizer, source, map, explorer, CI, 前端, 分析工程化实战]
 date: 2026-06-10 03:09:00
 categories:
   - frontend
@@ -17,6 +17,7 @@ tags:
   - source-map-explorer
 description: 前端包体积膨胀是每个团队都会遇到的问题。本文从工程化角度出发，结合 rollup-plugin-visualizer、source-map-explorer 和 CI 门禁，构建一套自动化的 Bundle 守护体系，防止包体积失控。
 ---
+
 
 ## 前言
 

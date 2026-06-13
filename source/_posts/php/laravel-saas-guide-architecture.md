@@ -1,6 +1,7 @@
 ---
+
 title: Laravel 多租户 SaaS 实战：共享库与独立库混合架构下的租户识别、连接切换与队列串租踩坑记录
-keywords: [Laravel, SaaS]
+keywords: [Laravel, SaaS, 多租户, 共享库与独立库混合架构下的租户识别, 连接切换与队列串租踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -13,9 +14,9 @@ tags:
 - MySQL
 - 架构
 - 消息队列
-description: 深入解析 Laravel 多租户 SaaS 架构的落地方案，涵盖共享库与独立库两种租户隔离模式的对比、动态数据库连接切换、队列任务中租户上下文透传、数据迁移策略及安全检查清单。结合真实踩坑经验，讲解
-  tenant_id 隔离、DB::purge 连接管理、Horizon Worker 串租排查等关键技术要点，帮助开发者在不同租户规模下选择合适的 SaaS 架构方案。
+description: 深入解析 Laravel 多租户 SaaS 架构的落地方案，涵盖共享库与独立库两种租户隔离模式的对比、动态数据库连接切换、队列任务中租户上下文透传、数据迁移策略及安全检查清单。结合真实踩坑经验，讲解 tenant_id 隔离、DB::purge 连接管理、Horizon Worker 串租排查等关键技术要点，帮助开发者在不同租户规模下选择合适的 SaaS 架构方案。
 ---
+
 
 做多租户最容易犯的错，是把它想成“所有表加一个 `tenant_id` 就结束”。项目还小的时候，这么做确实够用；但一旦有大客户要求独立库、队列异步任务变多、后台导出和定时报表开始跑起来，问题就会从“查不到数据”升级成更可怕的“**查到了别人的数据**”。
 

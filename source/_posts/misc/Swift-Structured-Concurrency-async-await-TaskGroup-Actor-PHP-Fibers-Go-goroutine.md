@@ -1,7 +1,7 @@
 ---
+
 title: Swift Structured Concurrency 实战：async/await、TaskGroup、Actor 模型——与 PHP Fibers/Go
-keywords: [Swift, Structured, Concurrency]
-  goroutine 的并发模型对比
+keywords: [Swift Structured Concurrency, async, await, TaskGroup, Actor, PHP Fibers, Go, 模型]
 date: 2026-06-02 12:00:00
 tags:
 - Swift
@@ -16,10 +16,9 @@ categories:
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
-description: 深入解析 Swift Structured Concurrency 的 async/await、TaskGroup、Actor 三大核心机制，通过实战代码与
-  PHP Fibers 和 Go goroutine 进行并发模型深度对比。涵盖编译器安全保障、数据竞争检测、性能基准测试、并发陷阱排查，帮助开发者理解不同语言的并发哲学，为
-  iOS、后端和微服务架构做出正确的并发选型决策。
+description: 深入解析 Swift Structured Concurrency 的 async/await、TaskGroup、Actor 三大核心机制，通过实战代码与 PHP Fibers 和 Go goroutine 进行并发模型深度对比。涵盖编译器安全保障、数据竞争检测、性能基准测试、并发陷阱排查，帮助开发者理解不同语言的并发哲学，为 iOS、后端和微服务架构做出正确的并发选型决策。
 ---
+
 
 
 ## 引言：为什么并发编程如此重要？

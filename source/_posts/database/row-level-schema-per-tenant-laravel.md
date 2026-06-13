@@ -1,4 +1,5 @@
 ---
+
 title: 数据库多租户模式对比实战：共享库 Row-Level vs Schema-per-Tenant vs 独立库——Laravel 中的三种方案深度权衡
 date: 2026-06-02 08:00:00
 tags:
@@ -9,14 +10,14 @@ tags:
 - SaaS
 - 数据库
 categories:
-- database
-description: SaaS 产品面临的第一道架构决策：租户数据如何隔离？本文深入对比三种主流方案——共享库 Row-Level 隔离、Schema-per-Tenant
-  和独立库，从安全性、性能、运维成本、扩展性四个维度进行深度权衡。提供 Laravel 完整实现代码，涵盖 Global Scope 自动租户隔离、PostgreSQL
-  RLS、Schema 切换中间件、连接池管理，帮助你根据业务规模和合规需求做出最优选型决策。
+  - database
+keywords: [Row, Level vs Schema, per, Tenant vs, Laravel, 数据库多租户模式对比实战, 共享库, 独立库, 中的三种方案深度权衡]
+description: SaaS 产品面临的第一道架构决策：租户数据如何隔离？本文深入对比三种主流方案——共享库 Row-Level 隔离、Schema-per-Tenant 和独立库，从安全性、性能、运维成本、扩展性四个维度进行深度权衡。提供 Laravel 完整实现代码，涵盖 Global Scope 自动租户隔离、PostgreSQL RLS、Schema 切换中间件、连接池管理，帮助你根据业务规模和合规需求做出最优选型决策。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
+
 
 
 ## 前言：SaaS 的第一个架构决策

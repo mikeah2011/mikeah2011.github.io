@@ -1,13 +1,14 @@
 ---
+
 feature: true
-keywords: [VPN]
+keywords: [VPN, 机场笔记, 技术杂谈]
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg
 images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg
 title: VPN & 机场笔记
 date: 2026-05-25 10:00:00
 categories:
-- misc
+  - misc
 tags:
 - macOS
 - VPN
@@ -17,6 +18,7 @@ tags:
 - 机场
 description: 全面的VPN科学上网与机场订阅指南，涵盖主流代理协议Shadowsocks、V2Ray、Trojan、WireGuard的性能与安全性对比，提供Clash、Shadowrocket、V2rayN等客户端的配置教程与macOS优化方案，附机场选购建议、连接故障排查踩坑案例及2026年最新机场推荐。
 ---
+
 
 
 

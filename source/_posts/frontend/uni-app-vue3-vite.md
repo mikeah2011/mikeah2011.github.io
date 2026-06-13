@@ -1,6 +1,7 @@
 ---
+
 title: uni-app + Vue 3 + Vite 现代跨平台开发工作流实战踩坑记录
-keywords: [Vue, Vite]
+keywords: [uni, app, Vue, Vite, 现代跨平台开发工作流实战踩坑记录]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -13,10 +14,9 @@ tags:
 - Vue
 - uni-app
 - 前端
-description: 从 Vue 2 + Webpack 迁移到 Vue 3 + Vite 现代 uni-app 跨平台开发工作流的完整实战指南。深入讲解 Composition
-  API 改造策略、Vite 插件与构建配置、Pinia 状态管理替代 Vuex、TypeScript 类型安全集成、多端条件编译最佳实践，涵盖 5 个项目 120+
-  组件的真实踩坑记录，附性能对比数据与避坑指南。
+description: 从 Vue 2 + Webpack 迁移到 Vue 3 + Vite 现代 uni-app 跨平台开发工作流的完整实战指南。深入讲解 Composition API 改造策略、Vite 插件与构建配置、Pinia 状态管理替代 Vuex、TypeScript 类型安全集成、多端条件编译最佳实践，涵盖 5 个项目 120+ 组件的真实踩坑记录，附性能对比数据与避坑指南。
 ---
+
 
 
 # uni-app + Vue 3 + Vite 现代跨平台开发工作流实战踩坑记录

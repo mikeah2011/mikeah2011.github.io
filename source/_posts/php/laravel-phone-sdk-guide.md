@@ -8,12 +8,13 @@ description: "深入讲解 Laravel Phone SDK（spatie/laravel-phone）在跨境�
 categories:
   - php
 tags: [Laravel, PHP, SDK, 手机号验证, 国际化, 安全]
-keywords: [Laravel, PHP, SDK, 手机号验证, 国际化, Phone]
+keywords: [Laravel Phone SDK, 国际手机号验证, PHP]
 
 
 
 
 ---
+
 > **背景**：KKday B2C 后端团队日常对接大量跨境用户，日本 (+81)、英国 (+44)、美国 (+1)、德国 (+49)、中国 (+86) 等地的电话号码格式差异极大。早期用正则匹配，结果错误率高、维护成本爆炸。引入 `spatie/laravel-phone` 后，问题迎刃而解。
 
 ## 一、为什么要用 Phone SDK？

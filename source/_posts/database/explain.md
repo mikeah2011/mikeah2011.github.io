@@ -1,7 +1,7 @@
 ---
 title: SQL语句性能分析工具 - explain
 tags: [MySQL, EXPLAIN, 查询优化, 索引, 性能分析, Laravel]
-keywords: [MySQL, EXPLAIN, 查询优化, 索引, 性能分析, SQL]
+keywords: [SQL, explain, 语句性能分析工具, 数据库]
 categories:
   - database
 date: 2019-03-20 15:05:07
@@ -12,6 +12,7 @@ images:
   - /images/content/databases-006-content-2.jpg
 
 ---
+
 通过explain，如以下例子：
 
 ![SQL查询性能分析](/images/content/databases-006-content-1.jpg)

@@ -1,14 +1,15 @@
 ---
+
 title: CORS-跨域资源共享配置与安全策略-Laravel-B2C-API实战踩坑记录
-keywords: [CORS, Laravel, API]
+keywords: [CORS, Laravel, B2C, API, 跨域资源共享配置与安全策略, 实战踩坑记录, 架构]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 21:40:49
 updated: 2026-05-16 21:43:57
 categories:
-- architecture
-- infra
+  - architecture
+  - infra
 tags:
 - CORS
 - Laravel
@@ -17,6 +18,7 @@ tags:
 - API
 description: 深入解析CORS跨域资源共享的浏览器预检请求机制与同源策略原理，结合Laravel B2C API实战，详解Nginx与应用层CORS配置对比、Access-Control白名单策略、Cookie跨域SameSite配置、CDN缓存Vary:Origin等前后端分离架构下高频踩坑与安全最佳实践。
 ---
+
 
 # CORS 跨域资源共享配置与安全策略：Laravel B2C API 实战踩坑记录
 

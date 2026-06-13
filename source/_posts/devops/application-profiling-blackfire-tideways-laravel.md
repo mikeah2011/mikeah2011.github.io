@@ -1,6 +1,7 @@
 ---
+
 title: Application Profiling 实战：Blackfire/Tideways production profiling——Laravel 慢请求火焰图分析与根因定位
-keywords: [Application, Profiling]
+keywords: [Application Profiling, Blackfire, Tideways production profiling, Laravel, 慢请求火焰图分析与根因定位]
 date: 2026-06-03 00:00:00
 tags:
 - profiling
@@ -8,15 +9,14 @@ tags:
 - tideways
 - Laravel
 - 性能优化
-description: 深入讲解 PHP/Laravel 生态中三大 Application Profiling 工具——Blackfire、Tideways 与
-  xhprof 的选型对比、安装配置、Laravel 集成实战。通过火焰图（Flame Graph）分析慢请求根因，涵盖 N+1 查询、内存泄漏、I/O 阻塞、CPU
-  密集型计算等典型性能瓶颈的定位与修复。附带生产环境采样策略、CI/CD 性能回归检测、7 个真实踩坑案例，帮助开发者用数据驱动 Laravel 应用性能优化。
+description: 深入讲解 PHP/Laravel 生态中三大 Application Profiling 工具——Blackfire、Tideways 与 xhprof 的选型对比、安装配置、Laravel 集成实战。通过火焰图（Flame Graph）分析慢请求根因，涵盖 N+1 查询、内存泄漏、I/O 阻塞、CPU 密集型计算等典型性能瓶颈的定位与修复。附带生产环境采样策略、CI/CD 性能回归检测、7 个真实踩坑案例，帮助开发者用数据驱动 Laravel 应用性能优化。
 categories:
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
+
 
 
 ## 前言

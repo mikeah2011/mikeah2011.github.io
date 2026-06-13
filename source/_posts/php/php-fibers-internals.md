@@ -1,6 +1,6 @@
 ---
 title: "PHP Fibers 底层剖析：从 Zend Fiber 到协程调度器"
-keywords: [PHP, Fibers]
+keywords: [PHP Fibers, Zend Fiber, 底层剖析, 到协程调度器, PHP]
 date: 2026-06-10 04:34:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - Swoole
 description: "深入剖析 PHP 8.1 Fibers 的 C 层实现，从 Zend Fiber 结构体到上下文切换机制，对比 Swoole 协程的本质差异，手写一个最小协程调度器。"
 ---
+
 
 ## 概述
 

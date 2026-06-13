@@ -1,6 +1,6 @@
 ---
 title: GDPR Cookie Consent 实战：Cookie Banner、Consent 存储、第三方脚本按需加载——Laravel 应用的隐私合规工程化方案
-keywords: [GDPR, Cookie, Consent]
+keywords: [GDPR Cookie Consent, Cookie Banner, Consent, Laravel, 存储, 第三方脚本按需加载, 应用的隐私合规工程化方案, PHP]
 date: 2026-06-10 06:08:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - 第三方脚本
 description: 深入实战 Laravel 应用的 GDPR Cookie 合规工程化方案，涵盖 Cookie Banner 组件设计、Consent 存储与版本管理、第三方脚本按需加载、审计日志完整实现，附完整可运行代码。
 ---
+
 
 # GDPR Cookie Consent 实战：Laravel 应用的隐私合规工程化方案
 

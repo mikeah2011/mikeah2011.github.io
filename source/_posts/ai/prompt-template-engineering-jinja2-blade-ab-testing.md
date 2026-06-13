@@ -1,11 +1,9 @@
 ---
+
 title: Prompt Template 工程化实战：Jinja2/Mustache/Laravel Blade 模板驱动的系统化 Prompt 管理与 A/B
-keywords: [Prompt, Template]
-  测试
+keywords: [Prompt Template, Jinja2, Mustache, Laravel Blade, Prompt, 工程化实战, 模板驱动的系统化, 管理与]
 date: 2026-06-06 08:00:00
-description: 深入讲解 Prompt Template 工程化实战，系统对比 Jinja2、Mustache/Handlebars、Laravel Blade
-  三大模板引擎在 Prompt 管理中的应用。涵盖变量注入、条件分支、版本管理与 A/B 测试框架设计，提供完整的 Python/PHP 可运行代码示例。适合需要将
-  Prompt 从硬编码字符串升级为可维护、可测试、可回滚工程资产的 AI 应用开发者参考。
+description: 深入讲解 Prompt Template 工程化实战，系统对比 Jinja2、Mustache/Handlebars、Laravel Blade 三大模板引擎在 Prompt 管理中的应用。涵盖变量注入、条件分支、版本管理与 A/B 测试框架设计，提供完整的 Python/PHP 可运行代码示例。适合需要将 Prompt 从硬编码字符串升级为可维护、可测试、可回滚工程资产的 AI 应用开发者参考。
 tags:
 - Prompt Engineering
 - Prompt Template
@@ -20,6 +18,7 @@ cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
+
 
 
 ## 前言

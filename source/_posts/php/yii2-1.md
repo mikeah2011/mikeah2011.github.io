@@ -1,6 +1,7 @@
 ---
+
 title: Yii2 框架入门：Gii 代码生成与 ActiveRecord 实战
-keywords: [Yii]
+keywords: [Yii2, Gii, ActiveRecord, 框架入门, 代码生成与]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -13,11 +14,9 @@ tags:
 categories:
 - php
 date: 2019-03-20 15:05:07
-description: Yii2 是一款高性能 PHP 框架，以 Active Record ORM、Gii 代码生成器和内置 RBAC 权限管理系统为核心特色。本文全面介绍
-  Yii2 的安装配置、目录结构、Active Record 数据库操作、Gii 快速生成 Model 与 CRUD、RBAC 角色权限设计、Behavior 行为扩展、RESTful
-  API 开发、数据库迁移、缓存系统、国际化方案，以及与 Laravel、ThinkPHP 的对比分析和常见踩坑解决方案，适合 PHP 开发者快速上手企业级 Web
-  应用开发。
+description: Yii2 是一款高性能 PHP 框架，以 Active Record ORM、Gii 代码生成器和内置 RBAC 权限管理系统为核心特色。本文全面介绍 Yii2 的安装配置、目录结构、Active Record 数据库操作、Gii 快速生成 Model 与 CRUD、RBAC 角色权限设计、Behavior 行为扩展、RESTful API 开发、数据库迁移、缓存系统、国际化方案，以及与 Laravel、ThinkPHP 的对比分析和常见踩坑解决方案，适合 PHP 开发者快速上手企业级 Web 应用开发。
 ---
+
 
 
 ## 一、Yii2 简介

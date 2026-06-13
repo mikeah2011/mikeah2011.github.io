@@ -1,12 +1,13 @@
 ---
+
 title: Defense in Depth for LLM Apps 实战：多层 AI 安全——输入过滤/输出审查/权限沙箱/审计日志的纵深防御架构
-keywords: [Defense, Depth, LLM]
+keywords: [Defense in Depth for LLM Apps, AI, 多层, 输入过滤, 输出审查, 权限沙箱, 审计日志的纵深防御架构]
 date: 2026-06-09 14:30:00
 categories:
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-- ai
 tags:
 - LLM
 - AI应用安全
@@ -18,6 +19,7 @@ tags:
 - Laravel
 description: 系统讲解 LLM 应用的纵深防御架构，覆盖输入过滤、输出审查、权限沙箱、审计日志四层安全防线，附完整 PHP/Laravel 实战代码
 ---
+
 
 
 LLM 应用上线后，安全问题往往比功能问题更致命。Prompt 注入、数据泄露、越权操作、输出幻觉——任何一个环节被突破，后果都可能不可逆。

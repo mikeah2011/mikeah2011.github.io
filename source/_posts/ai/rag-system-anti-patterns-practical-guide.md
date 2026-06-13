@@ -1,12 +1,13 @@
 ---
+
 title: RAG System Anti-Patterns 实战：Chunking 陷阱、幻觉传播、检索质量下降、向量漂移——10 个常见错误与系统性修复方案
-keywords: [RAG, System, Anti]
+keywords: [RAG System Anti, Patterns, Chunking, 陷阱, 幻觉传播, 检索质量下降, 向量漂移, 个常见错误与系统性修复方案, AI]
 date: 2026-06-10 09:21:00
 categories:
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-- ai
 tags:
 - RAG
 - LLM
@@ -15,9 +16,9 @@ tags:
 - 幻觉
 - 检索增强生成
 - Laravel
-description: RAG 系统上线后检索质量越来越差？本文从 Chunking 策略、幻觉传播链路、检索质量退化、向量漂移四个维度，拆解 10 个真实踩过的
-  Anti-Pattern，给出可落地的修复方案和 PHP 代码示例。
+description: RAG 系统上线后检索质量越来越差？本文从 Chunking 策略、幻觉传播链路、检索质量退化、向量漂移四个维度，拆解 10 个真实踩过的 Anti-Pattern，给出可落地的修复方案和 PHP 代码示例。
 ---
+
 
 
 ## 为什么写这篇

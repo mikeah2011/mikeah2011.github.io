@@ -1,12 +1,13 @@
 ---
+
 title: QuestDB 实战：高性能时序数据库——SQL 兼容、零依赖部署与 IoT/监控场景的 Laravel 集成方案
-keywords: [QuestDB]
+keywords: [QuestDB, SQL, IoT, Laravel, 高性能时序数据库, 兼容, 零依赖部署与, 监控场景的, 集成方案, 数据库]
 date: 2026-06-10 04:01:00
 categories:
+  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
-- database
 tags:
 - QuestDB
 - 数据库
@@ -15,9 +16,9 @@ tags:
 - 监控
 - SQL
 - InfluxDB Line Protocol
-description: 深入实战 QuestDB——一款 SQL 兼容、零依赖的高性能时序数据库。从架构原理、部署配置、ILP 高速写入、SQL 查询优化，到 Laravel
-  集成方案，全面覆盖 IoT 和监控场景的技术选型与落地实践。
+description: 深入实战 QuestDB——一款 SQL 兼容、零依赖的高性能时序数据库。从架构原理、部署配置、ILP 高速写入、SQL 查询优化，到 Laravel 集成方案，全面覆盖 IoT 和监控场景的技术选型与落地实践。
 ---
+
 
 
 ## 为什么需要时序数据库？

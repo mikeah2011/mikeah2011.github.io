@@ -1,6 +1,6 @@
 ---
 title: "Snapshot Testing 实战：API 响应快照回归测试——用「拍快照」守护接口契约"
-keywords: [Snapshot, Testing]
+keywords: [Snapshot Testing, API, 响应快照回归测试, 拍快照, 守护接口契约, 测试, PHP]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -19,6 +19,7 @@ tags:
   - 测试工程化
 description: "深度剖析 Snapshot Testing 在 Laravel B2C API 中的落地实战。从 spatie/phpunit-snapshot-assertions 源码解析、JSON/HTML/Response 多格式快照策略、动态字段规范化器，到生产环境快照治理、CI 集成与团队协作踩坑，守护 API 接口契约完整性。"
 ---
+
 # Snapshot Testing 实战：API 响应快照回归测试——用「拍快照」守护接口契约
 
 > 当你的 API 返回 50 个字段，手写 `assertJsonStructure()` 就像用筷子数沙子——你总会漏掉几颗。

@@ -1,4 +1,4 @@
----
+
 title: Actor 模型实战：从 Akka 到 Elixir 到 PHP——用消息传递替代共享状态的并发架构演进（深度实践指南）
 keywords: [Actor]
 date: 2026-06-04 09:00:00
@@ -10,11 +10,10 @@ tags:
 - 并发架构
 description: Actor模型实战深度指南，涵盖Akka（Scala/JVM）、Elixir/OTP（BEAM VM）和PHP（Swoole）三种技术栈的消息传递并发架构实现。通过电商订单处理场景对比共享状态与Actor模型的优劣，详解Supervision容错策略、GenServer行为模式、消息路由与信箱机制，附带性能对比测试和常见坑的最佳实践，帮助开发者选择合适的并发架构方案。
 categories:
-- architecture
+  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
----
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop---
 
 
 
@@ -23,6 +22,7 @@ images:
 > 在高并发系统的演进过程中，我们不断追问一个核心问题：**如何让成千上万的并发单元安全、高效地协作？** 共享状态（Shared State）方案——互斥锁、信号量、读写锁——虽经典却暗藏死锁、竞态、锁争抢等陷阱。Carl Hewitt 在 1973 年提出的 Actor 模型，以"一切皆消息传递"的思想，为我们打开了一扇全新的大门。本文将从理论到实践，带你走过从 Akka（JVM）到 Elixir/OTP（BEAM VM）再到 PHP（Swoole/OpenSwoole）的完整演进路径，并以电商订单处理为实战场景，给出可运行的代码与性能对比。
 
 ---
+
 
 ## 目录
 

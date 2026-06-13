@@ -2,7 +2,7 @@
 title: 'Valkey 实战：Redis 开源替代品——Laravel 缓存、队列、会话的无缝迁移与性能基准对比'
 date: 2026-06-02 12:00:00
 tags: [Valkey, Redis, Laravel, 缓存, 消息队列]
-keywords: [Valkey, Redis, Laravel, 缓存, 消息队列]
+keywords: [Valkey, Redis, Laravel, 开源替代品, 缓存, 队列, 会话的无缝迁移与性能基准对比, 数据库]
 description: Redis 转向 SSPL 许可证后，Linux Foundation 推出的 Valkey 成为 Redis 社区版事实上的开源替代品。本文完整记录从 Redis 迁移到 Valkey 的实战过程，涵盖 Laravel 缓存（Cache）、队列（Queue/Redis Queue）、会话（Session）三大核心场景的无缝切换验证，使用 memtier_benchmark 进行性能基准对比（吞吐量、延迟、内存占用），以及 Predis/phpredis 驱动兼容性测试、Sentinel 高可用迁移、Cluster 集群切换、监控指标对接等生产环境踩坑经验，帮助 Laravel 开发者评估迁移成本与收益。
 categories:
   - database
@@ -10,6 +10,7 @@ cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
+
 
 ## 前言
 

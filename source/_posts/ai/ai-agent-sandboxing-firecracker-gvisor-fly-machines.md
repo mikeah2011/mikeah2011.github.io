@@ -1,6 +1,6 @@
 ---
 title: AI Agent Sandboxing 实战：Firecracker/gVisor/Fly.io Machines——Agent 代码执行的微虚拟机隔离与资源配额治理
-keywords: [AI, Agent, Sandboxing]
+keywords: [AI Agent Sandboxing, Firecracker, gVisor, Fly.io Machines, Agent, 代码执行的微虚拟机隔离与资源配额治理, AI]
 date: 2026-06-09 17:34:00
 categories:
   - ai
@@ -17,6 +17,7 @@ tags:
   - 资源配额
 description: Agent 能跑代码是能力，能被控制才是工程。本文从 Firecracker microVM、gVisor 用户态内核、Fly.io Machines 三种路线出发，实战演示如何在 Laravel 项目中为 AI Agent 构建安全的代码执行沙箱，并实现 CPU/内存/磁盘/网络的资源配额治理。
 ---
+
 
 ## 为什么 Agent 沙箱不是可选项
 

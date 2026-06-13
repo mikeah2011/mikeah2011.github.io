@@ -8,10 +8,11 @@ categories:
   - php
   - api
 tags: [Rate Limiting, Token Bucket, Redis, Laravel, API, Sliding Window]
-keywords: [Rate Limiting, Token Bucket, Redis, Laravel, API, Rate, Limiting]
+keywords: [API Rate Limiting, KKday B2C API, 接口限流实战, 真实踩坑记录, PHP]
 description: 深入解析 API 接口限流实战方案，涵盖 Token Bucket 令牌桶、Leaky Bucket 漏桶、滑动窗口算法及 Redis Lua 脚本原子操作，结合 KKday B2C 真实踩坑记录，详解分布式限流、IP 指纹识别、连接池优化与监控日志等生产级解决方案。
 
 ---
+
 ## 背景
 
 在 KKday B2C API 项目中，API Rate Limiting（接口限流）是保护后端服务的重要防线之一。我们曾遇到以下场景：

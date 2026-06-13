@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Reverb WebSocket 实时通信系统实战：从入门到生产级部署
-keywords: [Laravel, Reverb, WebSocket]
+keywords: [Laravel Reverb WebSocket, 实时通信系统实战, 从入门到生产级部署]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -14,11 +15,9 @@ tags:
 - WebSocket
 - Swoole
 - 实时通信
-description: Laravel Reverb WebSocket 实时通信系统完整实战指南：从架构原理、Swoole 协程服务器配置到生产环境 Docker
-  部署，深入剖析 Reverb 事件广播系统、私有频道认证、Redis 消息代理配置与 Nginx 反向代理 WebSocket 优化。包含四个真实踩坑案例——Redis
-  未启动、Swoole 进程数不匹配、内存泄漏、SSL 证书配置错误的完整排查过程。附 Reverb vs Swoole vs Ratchet 性能基准测试对比、Prometheus
-  加 Grafana 监控方案及快速故障排查命令速查。
+description: Laravel Reverb WebSocket 实时通信系统完整实战指南：从架构原理、Swoole 协程服务器配置到生产环境 Docker 部署，深入剖析 Reverb 事件广播系统、私有频道认证、Redis 消息代理配置与 Nginx 反向代理 WebSocket 优化。包含四个真实踩坑案例——Redis 未启动、Swoole 进程数不匹配、内存泄漏、SSL 证书配置错误的完整排查过程。附 Reverb vs Swoole vs Ratchet 性能基准测试对比、Prometheus 加 Grafana 监控方案及快速故障排查命令速查。
 ---
+
 
 
 # Laravel Reverb WebSocket 实时通信系统实战：从入门到生产级部署

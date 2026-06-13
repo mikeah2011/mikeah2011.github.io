@@ -1,4 +1,4 @@
----
+
 title: 数据库分区表实战：MySQL Range/List/Hash 分区——Laravel 中的月度订单表分区策略与查询路由
 date: 2026-06-05 15:17:02
 tags:
@@ -9,10 +9,9 @@ tags:
 - 数据库
 - range分区
 categories:
-- database
+  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 description: 深入讲解MySQL分区表实战：Range/List/Hash三种分区策略对比，Laravel中月度订单表的分区设计、Partition Pruning查询路由、自动分区维护Artisan命令、归档清理及性能基准测试，涵盖主键设计、外键限制等真实踩坑指南。
 ---
 

@@ -1,6 +1,7 @@
 ---
+
 title: Ghostty 终端实战：下一代 GPU 加速终端 emulator 配置与 Laravel 开发效率提升踩坑记录
-keywords: [Ghostty]
+keywords: [Ghostty, GPU, emulator, Laravel, 终端实战, 下一代, 加速终端, 配置与, 开发效率提升踩坑记录]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -14,10 +15,9 @@ tags:
 - Laravel
 - macOS
 - 工程管理
-description: 从 iTerm2 迁移到 Ghostty 的完整实战指南：GPU 加速终端 emulator 性能实测（17x 启动、120fps 恒定帧率）、配置文件详解、快捷键体系设计、Oh
-  My Zsh/Powerlevel10k 集成、Kitty 图片协议、多仓库 Laravel 开发工作流、以及 8 大踩坑案例与替代方案。适合管理 30+ 仓库的
-  macOS 开发者参考。
+description: 从 iTerm2 迁移到 Ghostty 的完整实战指南：GPU 加速终端 emulator 性能实测（17x 启动、120fps 恒定帧率）、配置文件详解、快捷键体系设计、Oh My Zsh/Powerlevel10k 集成、Kitty 图片协议、多仓库 Laravel 开发工作流、以及 8 大踩坑案例与替代方案。适合管理 30+ 仓库的 macOS 开发者参考。
 ---
+
 
 
 ## 为什么要从 iTerm2 迁移到 Ghostty？

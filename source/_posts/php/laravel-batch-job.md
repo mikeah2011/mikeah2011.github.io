@@ -1,4 +1,4 @@
----
+
 title: Laravel Batch Job 实战：大数据量批量处理的内存治理、分块策略与进度追踪
 keywords: [Laravel, Batch, Job]
 date: 2026-06-02 10:00:00
@@ -9,10 +9,9 @@ tags:
 - 内存优化
 - PHP
 categories:
-- php
+  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: Laravel Batch Job 大数据量批处理实战指南：深入讲解内存溢出治理、chunkById 分块策略、进度追踪、失败重试与断点续传等核心问题。涵盖
   Bus::batch 高级用法、Horizon 监控、数据库连接池优化等生产级方案，附带 50 万条数据导出、批量通知发送等真实场景代码，解决 PHP 批处理的
   OOM、超时、并发冲突等痛点。

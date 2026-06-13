@@ -1,6 +1,6 @@
 ---
 title: 2026年AI Agent工具集成标准：MCP生态全景调研
-keywords: [AI, Agent]
+keywords: [AI Agent, MCP, 工具集成标准, 生态全景调研, 工程化]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
@@ -15,6 +15,7 @@ tags:
 categories:
   - engineering
 ---
+
 # 2026年AI Agent工具集成标准：MCP生态全景调研
 
 ## 引言

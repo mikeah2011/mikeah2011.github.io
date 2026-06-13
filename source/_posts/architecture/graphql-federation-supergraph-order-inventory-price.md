@@ -1,6 +1,6 @@
 ---
 title: GraphQL Federation 超图实战：订单、库存、价格子图拆分与网关鉴权缓存
-keywords: [GraphQL, Federation]
+keywords: [GraphQL Federation, 超图实战, 订单, 库存, 价格子图拆分与网关鉴权缓存, 架构]
 date: 2026-06-09 19:48:00
 categories:
   - architecture
@@ -15,6 +15,7 @@ tags:
   - PHP
 description: 从零搭建 GraphQL Federation 超图架构，拆分订单、库存、价格三个子图，实现网关层鉴权与响应缓存，附完整 Laravel + Apollo Router 实战代码。
 ---
+
 
 ## 前言
 

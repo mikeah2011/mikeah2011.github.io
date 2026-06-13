@@ -1,6 +1,7 @@
 ---
+
 title: Docker 29.x 实战：BuildKit、多阶段构建与镜像优化策略踩坑记录
-keywords: [Docker]
+keywords: [Docker, BuildKit, 多阶段构建与镜像优化策略踩坑记录]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -13,10 +14,9 @@ tags:
 - CI/CD
 - Docker
 - Laravel
-description: Docker 29.x 将 BuildKit 设为默认构建引擎，本文基于 30+ Laravel 仓库实战，深入讲解多阶段构建、BuildKit
-  缓存挂载、COPY --link 层优化与 secret 管理，将容器镜像从 800MB 压缩到 45MB。含 .dockerignore 最佳实践、Node.js
-  与 PHP 多阶段构建示例、常见构建失败排查与 CI/CD 集成方案。
+description: Docker 29.x 将 BuildKit 设为默认构建引擎，本文基于 30+ Laravel 仓库实战，深入讲解多阶段构建、BuildKit 缓存挂载、COPY --link 层优化与 secret 管理，将容器镜像从 800MB 压缩到 45MB。含 .dockerignore 最佳实践、Node.js 与 PHP 多阶段构建示例、常见构建失败排查与 CI/CD 集成方案。
 ---
+
 
 ## 前言
 

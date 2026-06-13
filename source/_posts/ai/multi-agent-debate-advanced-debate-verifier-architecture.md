@@ -1,6 +1,6 @@
 ---
 title: Multi-Agent Debate 实战进阶：对抗式推理质量提升——Debate Agent + Verifier Agent 的双角色架构设计
-keywords: [Multi, Agent, Debate]
+keywords: [Multi, Agent Debate, Debate Agent, Verifier Agent, 实战进阶, 对抗式推理质量提升, 的双角色架构设计, AI]
 date: 2026-06-10 00:29:00
 categories:
   - ai
@@ -16,6 +16,7 @@ tags:
   - Laravel
 description: 深入拆解 Multi-Agent Debate 的进阶架构：Debate Agent 负责对抗式推理，Verifier Agent 负责事实核查与逻辑校验，双角色协作将推理准确率从 72% 提升至 91%。附完整 Laravel 实现与评测数据。
 ---
+
 
 在上一篇文章中，我们实现了 Multi-Agent Debate 的基础架构——多个 Agent 轮流辩论，通过对抗暴露推理盲区。但实际生产中暴露了一个新问题：**辩论本身也会产生噪音**。两个 Agent 可能在错误的方向上越辩越远，最终输出看似合理但事实上站不住脚的结论。
 

@@ -2,13 +2,14 @@
 title: Hermes 插件系统深度剖析：PluginContext 注册、tool/CLI/slash command 扩展点
 date: 2026-06-02 12:00:00
 tags: [Hermes, AI Agent, 插件系统, PluginContext, 扩展点]
-keywords: [Hermes, AI Agent, 插件系统, PluginContext, 扩展点]
+keywords: [Hermes, PluginContext, tool, CLI, slash command, 插件系统深度剖析, 注册, 扩展点, AI]
 categories: [ai]
 description: "深度剖析 Hermes AI Agent 框架的插件系统架构，从 PluginContext 注册机制到三大扩展点（tool/CLI/slash command）的完整实现原理。手把手演示自定义 Tool 插件开发、CLI 命令注册、Slash Command 定义的全流程，详解插件的生命周期管理、依赖注入、配置热更新与错误处理机制。对比 Skills 层与 Plugins 层的设计差异，涵盖插件打包发布、单元测试策略、性能影响分析，附 5 个生产级插件示例代码与架构图，帮助开发者全面掌握 Hermes 插件系统的扩展能力。"
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
+
 
 # Hermes 插件系统深度剖析：PluginContext 注册、tool/CLI/slash command 扩展点
 

@@ -9,12 +9,13 @@ categories:
   - engineering
   - process
 tags: [KKday, Laravel, 工程管理]
-keywords: [KKday, Laravel, 工程管理]
+keywords: [cover, https, images.unsplash.com, photo, a6a2a5aee158, fit, crop, 工程化]
 description: 在 30+ Laravel 仓库的团队中，新人 Onboarding 效率直接决定前三个月的产出。本文分享从环境搭建、代码导读到首个 PR 的完整路径设计，附真实踩坑记录与可复用的 Checklist 模板。
 
 
 
 ---
+
 # 新人 Onboarding 指南：30+ 仓库的快速上手路径设计
 
 > 「新人入职第一周，最大的敌人不是代码，而是不知道该从哪里开始。」——这句话我在带了 20+ 位新人后深有体会。

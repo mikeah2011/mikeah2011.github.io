@@ -1,4 +1,5 @@
 ---
+
 title: 约瑟夫环问题：数学推导与多种语言实现
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
@@ -11,8 +12,9 @@ tags:
 - 环形链表
 - 递归
 categories:
-- engineering
-- algorithms
+keywords: [约瑟夫环问题, 数学推导与多种语言实现, 工程化]
+  - engineering
+  - algorithms
 date: 2020-03-20 15:05:07
 description: 约瑟夫环（Josephus Problem）经典算法深度解析：历史背景、递推公式f(n,k)=(f(n-1,k)+k)%n完整数学推导、ASCII图解淘汰过程、PHP/Python/JavaScript三种语言实现（递归、迭代、模拟法）、复杂度对比表、实际应用（Round-Robin调度、环形缓冲区、Leader选举）。
 ---

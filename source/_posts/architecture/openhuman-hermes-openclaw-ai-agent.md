@@ -2,7 +2,7 @@
 title: OpenHuman vs Hermes vs OpenClaw：三大开源 AI Agent 框架深度对比
 date: 2026-06-02 12:00:00
 tags: [AI Agent, OpenHuman, Hermes, OpenClaw, 框架对比, 开源, 选型]
-keywords: [AI Agent, OpenHuman, Hermes, OpenClaw, 框架对比]
+keywords: [OpenHuman vs Hermes vs OpenClaw, AI Agent, 三大开源, 框架深度对比, 架构]
 description: "本文围绕 OpenHuman、Hermes、OpenClaw 三大开源 AI Agent 框架做系统深度对比，从架构设计哲学、安装配置、核心能力（模型支持、工具系统、记忆机制、多平台集成）、性能基准到适用场景全面展开，结合代码示例与踩坑经验，帮助开发者与架构师判断：长期自治智能体、可插件化 Agent 运行时、个人 AI 助手平台三条路线分别适合什么业务需求。"
 categories:
   - architecture
@@ -10,6 +10,7 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
+
 
 # OpenHuman vs Hermes vs OpenClaw：三大开源 AI Agent 框架深度对比
 

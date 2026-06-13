@@ -2,7 +2,7 @@
 title: "Laravel Prompts 实战：终端交互式命令行工具的现代化替代方案——confirm/multisearch/progress 与 Artisan 命令的 UX 革新"
 date: 2026-06-04 08:00:00
 tags: [Laravel Prompts, CLI, Artisan, 终端交互, UX]
-keywords: [Laravel Prompts, CLI, Artisan, 终端交互, UX, Laravel, Prompts]
+keywords: [Laravel Prompts, confirm, multisearch, progress, Artisan, UX, 终端交互式命令行工具的现代化替代方案, 命令的, 革新, PHP]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "深入实战 Laravel Prompts——Laravel 官方终端交互式命令行工具库，全面替代 Symfony Console 的 ask/confirm/choice，详解 text、multisearch、progress、spin 等组件与 Artisan 命令的 UX 革新方案"
 ---
+
 
 ## 引言：当命令行也需要"用户体验"
 

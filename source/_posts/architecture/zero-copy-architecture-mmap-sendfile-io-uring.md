@@ -1,6 +1,6 @@
 ---
 title: "Zero-Copy Architecture 实战：mmap/sendfile/io_uring 的零拷贝优化——PHP 应用的大文件传输性能治理"
-keywords: [Zero, Copy, Architecture]
+keywords: [Zero, Copy Architecture, mmap, sendfile, io, uring, PHP, 的零拷贝优化, 应用的大文件传输性能治理, 架构]
 date: 2026-06-09 14:45:00
 categories:
   - architecture
@@ -17,6 +17,7 @@ tags:
   - 大文件传输
 description: "深入解析 Linux 零拷贝机制（mmap、sendfile、splice、io_uring），结合 PHP/Laravel 实战场景，解决大文件传输中的 CPU 瓶颈与内存膨胀问题。"
 ---
+
 
 ## 为什么需要零拷贝？
 

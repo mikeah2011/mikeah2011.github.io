@@ -1,6 +1,7 @@
 ---
+
 title: Grafana Tempo + OpenTelemetry 实战：Laravel 异步订单链路追踪、消息上下文透传与采样治理踩坑记录
-keywords: [Grafana, Tempo, OpenTelemetry]
+keywords: [Grafana Tempo, OpenTelemetry, Laravel, 异步订单链路追踪, 消息上下文透传与采样治理踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -17,11 +18,9 @@ tags:
 - Grafana
 - Tempo
 - trace
-description: 本文基于 Laravel B2C 订单系统的线上实战经验，详细讲解如何使用 Grafana Tempo + OpenTelemetry 构建跨
-  HTTP、队列与回调的完整链路追踪体系。内容涵盖 traceparent 在 Laravel Queue 中的透传机制、Horizon 常驻进程的上下文清理与
-  trace 污染治理、Monolog 日志与 Trace ID 的关联查询、Collector 采样策略配置，以及采样率过高导致可观测性系统自身成为瓶颈的真实踩坑与优化方案，适合需要在
-  Laravel 微服务架构中落地分布式追踪的后端工程师参考。
+description: 本文基于 Laravel B2C 订单系统的线上实战经验，详细讲解如何使用 Grafana Tempo + OpenTelemetry 构建跨 HTTP、队列与回调的完整链路追踪体系。内容涵盖 traceparent 在 Laravel Queue 中的透传机制、Horizon 常驻进程的上下文清理与 trace 污染治理、Monolog 日志与 Trace ID 的关联查询、Collector 采样策略配置，以及采样率过高导致可观测性系统自身成为瓶颈的真实踩坑与优化方案，适合需要在 Laravel 微服务架构中落地分布式追踪的后端工程师参考。
 ---
+
 
 
 很多团队把“链路追踪”做成了请求日志增强版：入口有 request_id，出口有慢 SQL，Grafana 上也能看到接口耗时，但一旦业务穿过 **HTTP → Queue → 支付回调 → 库存预留**，链路就断了。我这次补的不是一个 APM 面板，而是把订单创建、支付确认、库存冻结三段真正串成同一条 Trace。

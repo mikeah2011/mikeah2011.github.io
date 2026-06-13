@@ -1,6 +1,6 @@
 ---
 title: "GitLab CI/CD 实战：从 GitHub Actions 迁移——Pipeline DAG、Auto DevOps、安全扫描与 Laravel 项目的完整 CI/CD 方案"
-keywords: [GitLab, CI, CD]
+keywords: [GitLab CI, CD, GitHub Actions, Pipeline DAG, Auto DevOps, Laravel, CI, 迁移, 安全扫描与, 项目的完整]
 date: 2026-06-10 05:37:00
 categories:
   - devops
@@ -17,6 +17,7 @@ tags:
   - Auto DevOps
 description: "从 GitHub Actions 迁移到 GitLab CI/CD 的完整实战指南，涵盖 Pipeline DAG 依赖编排、Auto DevOps 配置、安全扫描集成，以及 Laravel 项目的端到端 CI/CD 方案。"
 ---
+
 
 ## 为什么从 GitHub Actions 迁移到 GitLab CI/CD？
 

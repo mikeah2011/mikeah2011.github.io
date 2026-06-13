@@ -1,6 +1,7 @@
 ---
+
 title: Laravel + Elasticsearch 全文搜索优化实战：商品搜索召回、同义词与零停机重建索引踩坑记录
-keywords: [Laravel, Elasticsearch]
+keywords: [Laravel, Elasticsearch, 全文搜索优化实战, 商品搜索召回, 同义词与零停机重建索引踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -13,10 +14,9 @@ tags:
 - Laravel
 - 全文搜索
 - 同义词
-description: 结合 Laravel B2C 商品搜索改造经验，详细记录 Elasticsearch 在索引设计、召回排序、function_score
-  权重调优、同义词扩展、Bulk 批量回填、增量同步与零停机重建索引（alias 切换）上的一套可落地方案。涵盖索引 mapping 设计原则、查询层召回与排序分离、afterCommit
-  异步同步、生产事故排查等实战踩坑，帮助团队把搜索接口 P95 从 420ms 降到 85ms，适合需要对 Laravel + Elasticsearch 搜索链路做系统性优化的后端工程师参考。
+description: 结合 Laravel B2C 商品搜索改造经验，详细记录 Elasticsearch 在索引设计、召回排序、function_score 权重调优、同义词扩展、Bulk 批量回填、增量同步与零停机重建索引（alias 切换）上的一套可落地方案。涵盖索引 mapping 设计原则、查询层召回与排序分离、afterCommit 异步同步、生产事故排查等实战踩坑，帮助团队把搜索接口 P95 从 420ms 降到 85ms，适合需要对 Laravel + Elasticsearch 搜索链路做系统性优化的后端工程师参考。
 ---
+
 
 
 商品搜索这件事，最容易被低估。项目早期大家通常先用 MySQL `like '%关键字%'` 顶着，数据量一上来就会同时出现三个问题：**查得慢、召回差、排序乱**。我在一个旅游商品 B2C API 里把搜索链路从 MySQL 迁到 Elasticsearch，真正带来收益的不是“换了个引擎”，而是把**索引结构、查询意图、同步机制和重建流程**一次性理顺。上线后，搜索接口 P95 从 420ms 降到 85ms，最关键的是“东京迪士尼”“迪士尼 东京票券”“disney tokyo”这类混合搜索终于能稳定命中。

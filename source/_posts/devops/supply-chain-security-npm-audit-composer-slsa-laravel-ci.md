@@ -1,7 +1,7 @@
 ---
+
 title: Supply Chain Security 实战：npm audit + composer audit + SLSA 框架——Laravel 全栈项目的供应链安全治理与
-keywords: [Supply, Chain, Security]
-  CI 门禁
+keywords: [Supply Chain Security, npm audit, composer audit, SLSA, Laravel, 全栈项目的供应链安全治理与]
 date: 2026-06-06 18:00:00
 tags:
 - 供应链安全
@@ -16,10 +16,9 @@ categories:
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-description: 本文以真实 Laravel 全栈项目为例，系统讲解供应链安全治理的四大核心维度：使用 npm audit 和 composer audit
-  进行依赖漏洞扫描、许可证合规检查、SLSA 框架保障构建完整性、以及 GitHub Actions CI 门禁集成。涵盖从基础用法到高级配置的完整代码示例，包含
-  Dependency Confusion 防护、lock 文件管理、SBOM 生成等实战踩坑案例，帮助团队建立从开发到部署的全链路供应链安全防线。
+description: 本文以真实 Laravel 全栈项目为例，系统讲解供应链安全治理的四大核心维度：使用 npm audit 和 composer audit 进行依赖漏洞扫描、许可证合规检查、SLSA 框架保障构建完整性、以及 GitHub Actions CI 门禁集成。涵盖从基础用法到高级配置的完整代码示例，包含 Dependency Confusion 防护、lock 文件管理、SBOM 生成等实战踩坑案例，帮助团队建立从开发到部署的全链路供应链安全防线。
 ---
+
 
 
 

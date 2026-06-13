@@ -4,7 +4,7 @@ date: 2026-05-05 06:55:04
 description: "本文系统介绍 MySQL 慢查询的完整治理方法论，涵盖慢查询日志配置、使用 pt-query-digest 进行深度分析、EXPLAIN 执行计划解读、索引优化策略与 SQL 重写技巧。结合 Laravel B2C 电商 API 的真实踩坑经验，详解 N+1 查询、深分页、隐式类型转换等常见性能陷阱，并提供 CI/CD 慢查询防御、监控告警等生产环境最佳实践，帮助开发者建立从发现到修复的慢查询治理闭环。"
 updated: 2026-05-05 06:58:22
 tags: [Laravel, MySQL, 性能优化]
-keywords: [Laravel, MySQL, 性能优化, SQL]
+keywords: [MySQL, pt, query, digest, SQL, Laravel, B2C, API, 慢查询治理实战, 分析]
 categories:
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
@@ -15,6 +15,7 @@ images:
 
 
 ---
+
 # MySQL 慢查询治理实战：pt-query-digest 分析 + 索引优化 + SQL 重写
 
 ## 前言

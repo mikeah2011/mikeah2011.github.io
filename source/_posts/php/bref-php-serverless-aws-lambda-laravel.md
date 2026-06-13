@@ -2,7 +2,7 @@
 title: Bref 实战：PHP Serverless 框架——AWS Lambda 上运行 Laravel 的无服务器工程化方案
 date: 2026-06-03 09:00:00
 tags: [Bref, Serverless, AWS-Lambda, PHP, Laravel, 无服务器]
-keywords: [Bref, Serverless, AWS-Lambda, PHP, Laravel]
+keywords: [Bref, PHP Serverless, AWS Lambda, Laravel, 上运行, 的无服务器工程化方案, PHP]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "Bref 是让 PHP 运行在 AWS Lambda 上的开源框架，本文深入实战 Bref + Laravel 的无服务器部署全流程。涵盖 Lambda 运行时原理、冷启动优化、RDS Proxy 数据库连接池、SQS 队列异步处理、S3 文件存储、CloudWatch 监控告警、成本估算与优化策略。对比传统 EC2 部署方案，提供 serverless.yml 完整配置模板和 CI/CD 集成方案，帮助 PHP 团队低成本拥抱 Serverless 架构。"
 ---
+
 
 # Bref 实战：PHP Serverless 框架——AWS Lambda 上运行 Laravel 的无服务器工程化方案
 

@@ -1,13 +1,13 @@
 ---
+
 title: TypeScript 6.0 前瞻：Isolated Declarations、Pattern Matching、Pipe Operator——PHP
-keywords: [TypeScript]
-  开发者视角的类型系统进化
+keywords: [TypeScript, Isolated Declarations, Pattern Matching, Pipe Operator, PHP, 前瞻, 前端]
 date: 2026-06-09 18:44:00
 categories:
+  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-- frontend
 tags:
 - TypeScript
 - Isolated Declarations
@@ -15,9 +15,9 @@ tags:
 - Pipe Operator
 - TC39
 - PHP
-description: 深入解析 TypeScript 6.0 三大核心特性——Isolated Declarations 构建性能革命、TC39 Pattern
-  Matching 模式匹配、Pipe Operator 函数式编程范式，并从 PHP 开发者视角对比类型系统的设计哲学差异。
+description: 深入解析 TypeScript 6.0 三大核心特性——Isolated Declarations 构建性能革命、TC39 Pattern Matching 模式匹配、Pipe Operator 函数式编程范式，并从 PHP 开发者视角对比类型系统的设计哲学差异。
 ---
+
 
 
 TypeScript 6.0 于 2026 年 3 月正式发布，这是自 4.0 引入模板字面量类型以来最具里程碑意义的版本。它不仅引入了构建性能的根本性变革（Isolated Declarations），还标志着 JavaScript 语言本身在类型化编程方向上的重大突破——Pattern Matching 已进入 TC39 Stage 4，Pipe Operator 在 Stage 2 持续演进。

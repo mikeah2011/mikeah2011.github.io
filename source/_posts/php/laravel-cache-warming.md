@@ -2,7 +2,7 @@
 title: 'Laravel Cache Warming 实战：缓存预热策略与自动化——从冷启动到热启动的性能治理'
 date: 2026-06-06 10:00:00
 tags: [Laravel, Cache, Redis, 性能优化, 缓存预热, 冷启动]
-keywords: [Laravel, Cache, Redis, 性能优化, 缓存预热, Warming]
+keywords: [Laravel Cache Warming, 缓存预热策略与自动化, 从冷启动到热启动的性能治理, PHP]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: '深入解析 Laravel 缓存预热（Cache Warming）实战方案，涵盖 Redis 全量/增量/懒加载预热策略、Artisan 自动化命令、Queue Job 异步分片预热、K8s 部署集成与健康监控。告别冷启动性能悬崖，从冷启动到热启动实现毫秒级响应的性能优化治理。'
 ---
+
 
 ## 引言：冷启动之痛——为什么缓存预热很重要
 

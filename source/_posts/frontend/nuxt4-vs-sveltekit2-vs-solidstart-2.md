@@ -1,6 +1,6 @@
 ---
 title: Nuxt 4 vs SvelteKit 2 vs SolidStart 2 2026 全栈框架选型：SSR/SSG/ISR/Streaming 的性能与 DX 深度对比
-keywords: [Nuxt, SvelteKit, SolidStart]
+keywords: [Nuxt, vs SvelteKit, vs SolidStart, SSR, SSG, ISR, Streaming, DX, 全栈框架选型, 的性能与]
 date: 2026-06-09 18:35:00
 categories:
   - frontend
@@ -17,6 +17,7 @@ tags:
   - Streaming
 description: 从架构设计、渲染模式、Streaming SSR、ISR、部署运维、DX 体验等维度，深度对比 2026 年最值得关注的三个全栈框架：Nuxt 4、SvelteKit 2、SolidStart 2，并给出可直接复用的选型模板与落地建议。
 ---
+
 
 ## 概述
 

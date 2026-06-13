@@ -1,11 +1,8 @@
 ---
+
 title: Migration-Free Schema Evolution 实战：Atlas/Bytebase 数据库 Schema 即代码——对比 Laravel
-keywords: [Migration, Free, Schema]
-  Migrations 的 DDL 管理新范式
-description: 深入对比数据库 Schema 管理的命令式与声明式范式，以 Atlas 和 Bytebase 为核心实战工具，完整演示 HCL Schema
-  定义、自动 Diff 生成迁移、Lint 危险检测、GitHub Actions CI/CD 集成及 Bytebase 审批流配置。涵盖 gh-ost / pt-online-schema-change
-  大表 Online DDL 策略、多人协作冲突解决、四阶段渐进式迁移路径，并提供从 Laravel Migrations 迁移到 Schema as Code
-  的完整落地方案与选型建议。
+keywords: [Migration, Free Schema Evolution, Atlas, Bytebase, Schema, Laravel, 数据库, 即代码]
+description: 深入对比数据库 Schema 管理的命令式与声明式范式，以 Atlas 和 Bytebase 为核心实战工具，完整演示 HCL Schema 定义、自动 Diff 生成迁移、Lint 危险检测、GitHub Actions CI/CD 集成及 Bytebase 审批流配置。涵盖 gh-ost / pt-online-schema-change 大表 Online DDL 策略、多人协作冲突解决、四阶段渐进式迁移路径，并提供从 Laravel Migrations 迁移到 Schema as Code 的完整落地方案与选型建议。
 date: 2026-06-04 14:00:00
 tags:
 - Atlas
@@ -21,6 +18,7 @@ cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
+
 
 
 ## 引言：传统 Migration 的痛点

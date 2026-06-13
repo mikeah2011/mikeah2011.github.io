@@ -7,12 +7,13 @@ date: 2026-05-02
 categories:
   - php
 tags: [Elasticsearch, KKday, 微服务, Laravel, PHP, 搜索, 全文检索, 高可用]
-keywords: [Elasticsearch, KKday, 微服务, Laravel, PHP]
+keywords: [Elasticsearch, Laravel, 全文搜索深度调优实战, 多字段映射, 分词策略与高可用架构踩坑记录, PHP]
 description: 基于 KKday B2C API 真实生产环境，深入剖析 Elasticsearch 全文搜索从入门到精通的完整演进路径，涵盖 Laravel 集成、多字段类型映射设计、分词器组合策略、批量写入优化、查询调优技巧、集群高可用架构设计与生产踩坑记录，适合 PHP 搜索系统开发者参考。
 
 
 
 ---
+
 # Elasticsearch 全文搜索深度调优实战：Laravel 多字段映射、分词策略与高可用架构踩坑记录
 
 > **摘要**：本文基于 KKday B2C API 真实生产环境，深入剖析 Elasticsearch 全文搜索从入门到精通的完整演进路径。涵盖多字段类型映射设计、分词器组合策略、写入优化方案、查询调优技巧，以及集群高可用架构实践。所有方案均经过生产验证，包含完整代码示例与踩坑记录。

@@ -1,6 +1,6 @@
 ---
 title: "Laravel + AWS Bedrock 实战：Amazon 托管 LLM 服务——Claude/Llama/Titan 模型的统一接入与成本优化"
-keywords: [Laravel, AWS, Bedrock]
+keywords: [Laravel, AWS Bedrock, Amazon, LLM, Claude, Llama, Titan, 托管, 服务, 模型的统一接入与成本优化]
 date: 2026-06-09 06:51:00
 categories:
   - ai
@@ -17,6 +17,7 @@ cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200
 ---
+
 
 ## 前言
 

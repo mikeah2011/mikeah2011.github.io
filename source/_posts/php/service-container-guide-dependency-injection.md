@@ -1,6 +1,7 @@
 ---
+
 title: Laravel-Service-Container-实战-依赖注入上下文绑定延迟加载踩坑记录
-keywords: [Laravel, Service, Container]
+keywords: [Laravel, Service, Container, 依赖注入上下文绑定延迟加载踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -12,11 +13,9 @@ categories:
 tags:
 - Laravel
 - 微服务
-description: 深入 Laravel Service Container 的五大核心能力：依赖注入与自动解析、接口绑定（Singleton/Transient/Scoped
-  对比）、上下文绑定（Contextual Binding）消除多实现场景的 if/else 分支、延迟加载（Deferred Providers）实测降低 60%
-  启动开销、Tagged Bindings 实现插件化消息推送架构。结合 B2C 电商真实踩坑记录，涵盖循环依赖破解、队列中 Contextual Binding
-  失效、Singleton 在 Worker 中数据过期等七大高频问题及解决方案。
+description: 深入 Laravel Service Container 的五大核心能力：依赖注入与自动解析、接口绑定（Singleton/Transient/Scoped 对比）、上下文绑定（Contextual Binding）消除多实现场景的 if/else 分支、延迟加载（Deferred Providers）实测降低 60% 启动开销、Tagged Bindings 实现插件化消息推送架构。结合 B2C 电商真实踩坑记录，涵盖循环依赖破解、队列中 Contextual Binding 失效、Singleton 在 Worker 中数据过期等七大高频问题及解决方案。
 ---
+
 
 # Laravel Service Container 实战：依赖注入、上下文绑定、延迟加载
 

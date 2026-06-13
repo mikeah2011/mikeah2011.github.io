@@ -9,12 +9,13 @@ categories:
   - architecture
   - ddd
 tags: [DDD, Domain-Events, Laravel, 微服务, 架构]
-keywords: [DDD, Domain-Events, Laravel, 微服务, 架构, Domain, Events, Service]
+keywords: [Domain, Events, Service, Layer, Laravel, B2C, API, 解耦实战, 用事件驱动替代, 直接调用]
 description: 在 30+ 仓库的 Laravel B2C 项目中，Service Layer 膨胀是常见问题。本文详解如何用 Domain Events 替代 Service Layer 直接调用，实现订单、库存、通知的彻底解耦。包含完整重构代码对比、事件版本控制、生产踩坑（事件顺序/死信/调试）与 Pest 测试实战。
 
 
 
 ---
+
 ## 前言：Service Layer 胖到什么程度你会考虑重构？
 
 在 KKday B2C Backend 的 30+ 仓库中，我们大量使用 Controller 薄 + Service 厚的模式。这在初期非常高效，但随着业务膨胀，`OrderService::placeOrder()` 方法往往会变成一个 500 行的"上帝方法"——发通知、扣库存、记录积分、更新会员等级、推 Slack 告警、写审计日志，全部揉在一起。

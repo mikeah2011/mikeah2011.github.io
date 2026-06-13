@@ -1,6 +1,6 @@
 ---
 title: PHP 多线程 2026 实战：ext-parallel + pthreads 现状——Channel/Future/Task 在 CPU 密集型 Laravel 任务中的真实收益
-keywords: [PHP]
+keywords: [PHP, ext, parallel, pthreads, Channel, Future, Task, CPU, Laravel, 多线程]
 date: 2026-06-09 13:54:00
 categories:
   - php
@@ -17,6 +17,7 @@ tags:
   - CPU密集型
 description: 深度剖析 PHP ext-parallel 扩展在 2026 年的生态现状，对比 pthreads 历史包袱，通过 Channel/Future/Task 三大原语在 Laravel CPU 密集型任务中的实战基准测试，揭示 PHP 多线程的真实收益边界与适用场景。
 ---
+
 
 ## 前言
 

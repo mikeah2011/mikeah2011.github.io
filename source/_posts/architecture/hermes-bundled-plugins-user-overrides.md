@@ -1,4 +1,4 @@
----
+
 title: Hermes 模型发现机制：bundled plugins + user overrides 的优先级覆盖与延迟加载
 date: 2026-06-02 12:00:00
 tags: [Hermes, AI Agent, 模型发现, 插件系统, 延迟加载]
@@ -9,7 +9,7 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: >-
-  深入剖析 Hermes AI Agent 框架模型发现机制：bundled plugins 与 user overrides 如何通过分层注册表实现 last-writer-wins 优先级覆盖，延迟加载如何优化 CLI 冷启动性能 500ms+。从 providers/__init__.py 源码出发，解析 ProviderProfile 声明式注册、alias 归一化、module naming 隔离等核心设计，附踩坑指南与扩展实践。
+深入剖析 Hermes AI Agent 框架模型发现机制：bundled plugins 与 user overrides 如何通过分层注册表实现 last-writer-wins 优先级覆盖，延迟加载如何优化 CLI 冷启动性能 500ms+。从 providers/__init__.py 源码出发，解析 ProviderProfile 声明式注册、alias 归一化、module naming 隔离等核心设计，附踩坑指南与扩展实践。
 ---
 
 在一个 AI Agent 系统里，模型接入层最容易在“看起来简单”时埋下长期复杂度。表面上，模型发现似乎只是在运行前把 provider、model、base_url、api_key 几个字段拼起来；但一旦系统走向插件化、多 profile、用户自定义 provider、按场景切换能力，以及命令行冷启动性能优化，所谓“模型发现”就不再是一个配置读取动作，而变成了一条完整的运行时决策链。
@@ -34,6 +34,7 @@ Hermes 在这块的设计很有意思：一方面，它把模型提供者做成�
 本文会结合 Hermes 源码，围绕 `providers/__init__.py` 与 `hermes_cli/plugins.py` 两条主线展开，尽量把“为什么这样设计”讲清楚，而不是只停留在“代码怎么写”。
 
 ---
+
 
 ## 一、先给结论：Hermes 的模型发现不是单纯扫描，而是“分层发现 + 延迟求值”
 

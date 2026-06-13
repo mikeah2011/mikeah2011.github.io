@@ -1,6 +1,7 @@
 ---
+
 title: Go 数据库/sql 实战：连接池管理、事务控制与 sqlx/sqlc 代码生成——与 Laravel Eloquent 的对比
-keywords: [Go]
+keywords: [Go, sql, sqlx, sqlc, Laravel Eloquent, 数据库, 连接池管理, 事务控制与, 代码生成, 的对比]
 date: 2026-06-02 10:00:00
 tags:
 - Go
@@ -15,10 +16,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 深入实战 Go database/sql 标准库、sqlx 与 sqlc 代码生成，涵盖连接池调优、事务闭包封装、Repository 模式与依赖注入。从
-  Laravel Eloquent 开发者视角对比 Go 数据库操作的最佳实践，包含性能基准、N+1 问题排查、连接池监控、Savepoint 嵌套事务等生产级踩坑案例，助你从
-  PHP 平滑迁移到 Go 高性能后端。
+description: 深入实战 Go database/sql 标准库、sqlx 与 sqlc 代码生成，涵盖连接池调优、事务闭包封装、Repository 模式与依赖注入。从 Laravel Eloquent 开发者视角对比 Go 数据库操作的最佳实践，包含性能基准、N+1 问题排查、连接池监控、Savepoint 嵌套事务等生产级踩坑案例，助你从 PHP 平滑迁移到 Go 高性能后端。
 ---
+
 
 
 

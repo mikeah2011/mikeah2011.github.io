@@ -1,6 +1,6 @@
 ---
 title: "LLM Router 实战：OpenRouter/Portkey/LiteLLM 统一模型路由——多提供商 Failover、成本优化与延迟感知的工程化网关"
-keywords: [LLM, Router]
+keywords: [LLM Router, OpenRouter, Portkey, LiteLLM, Failover, 统一模型路由, 多提供商, 成本优化与延迟感知的工程化网关, AI]
 date: 2026-06-09 17:49:00
 categories:
   - ai
@@ -17,6 +17,7 @@ tags:
   - 成本优化
 description: "在生产环境中对接多个 LLM 提供商时，统一模型路由、自动 Failover、成本优化和延迟感知是必须解决的工程问题。本文从零搭建一个 LLM Router 网关，覆盖 OpenRouter、Portkey、LiteLLM 三种方案的选型对比与实战落地。"
 ---
+
 
 ## 为什么需要 LLM Router
 

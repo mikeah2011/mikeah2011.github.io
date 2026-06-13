@@ -1,6 +1,7 @@
 ---
+
 title: MySQL 存储引擎对比：InnoDB vs MyISAM vs Memory
-keywords: [MySQL]
+keywords: [MySQL, InnoDB vs MyISAM vs Memory, 存储引擎对比]
 tags:
 - MySQL
 - InnoDB
@@ -11,14 +12,13 @@ tags:
 categories:
 - database
 date: 2020-03-20 15:05:07
-description: 全面解析MySQL存储引擎InnoDB与MyISAM的核心区别，涵盖事务支持、锁机制、索引结构、B+树实现、MVCC多版本并发控制等关键特性对比。深入讲解InnoDB
-  Buffer Pool、Change Buffer、Redo Log等架构组件，并对比Memory、CSV、Archive等其他存储引擎的适用场景，提供MySQL
-  8.0+存储引擎选型决策指南与代码示例。
+description: 全面解析MySQL存储引擎InnoDB与MyISAM的核心区别，涵盖事务支持、锁机制、索引结构、B+树实现、MVCC多版本并发控制等关键特性对比。深入讲解InnoDB Buffer Pool、Change Buffer、Redo Log等架构组件，并对比Memory、CSV、Archive等其他存储引擎的适用场景，提供MySQL 8.0+存储引擎选型决策指南与代码示例。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-011-content-1.jpg
 - /images/content/databases-011-content-2.jpg
 ---
+
 
 > InnoDB和MyISAM的区别
 

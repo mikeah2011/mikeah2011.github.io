@@ -1,4 +1,5 @@
 ---
+
 title: 快速排序算法详解：分治思想与 PHP/Go/JS 实现
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
@@ -11,12 +12,13 @@ tags:
 - quicksort
 - 分治法
 categories:
-- engineering
-- algorithms
+  - engineering
+  - algorithms
+keywords: [PHP, Go, JS, 快速排序算法详解, 分治思想与, 实现]
 date: 2020-03-20 15:05:07
-description: 快速排序（Quicksort）是基于分治法的经典排序算法，通过选择基准元素将数组划分为两部分递归排序。本文深入分析快速排序的算法复杂度（最好O(n
-  log n)、平均O(n log n)、最坏O(n²)），提供原地排序、三路快排的PHP实现代码，对比归并排序与堆排序的性能差异，并介绍PHP内置sort()函数的实现原理及常见踩坑案例。
+description: 快速排序（Quicksort）是基于分治法的经典排序算法，通过选择基准元素将数组划分为两部分递归排序。本文深入分析快速排序的算法复杂度（最好O(n log n)、平均O(n log n)、最坏O(n²)），提供原地排序、三路快排的PHP实现代码，对比归并排序与堆排序的性能差异，并介绍PHP内置sort()函数的实现原理及常见踩坑案例。
 ---
+
 
 
 ## 什么是快速排序

@@ -9,12 +9,13 @@ categories:
   - php
   - database
 tags: [Laravel, PostgreSQL, 消息队列, Debezium, CDC, Kafka]
-keywords: [Laravel, PostgreSQL, 消息队列, Debezium, CDC]
+keywords: [Laravel, PostgreSQL CDC, Debezium, 驱动订单变更同步, 乱序修复与补数回放踩坑记录, PHP, 数据库]
 description: 结合订单中心与查询侧分离场景，深入记录如何在 Laravel 中用 PostgreSQL CDC + Debezium + Kafka 做变更数据捕获与同步。涵盖 Debezium 完整配置、Laravel Kafka Consumer 消费 CDC 事件、版本闸门乱序修复、补数回放 Artisan 命令，以及乱序、重复投递、DDL 漂移、Initial Snapshot 污染等真实生产踩坑清单。
 
 
 
 ---
+
 我最近把一个 Laravel 订单中心里“下单后顺手同步搜索、报表、运营看板”的流程，改成了 **PostgreSQL CDC**。原因很现实：以前在事务里同时写主库、发 MQ、刷新读模型，只要任一环节失败，就会出现“主库成功、下游没跟上”的脏状态，最后只能靠人工补单。
 
 这次我把可靠变更捕获下沉到数据库层：Laravel 只负责把订单写对，Debezium 订阅 PostgreSQL WAL，把 `orders`、`order_items` 变更推到 Kafka，再由 Laravel 消费构建查询模型。这样做的关键收益不是炫技，而是**少掉应用层最容易漏消息的一跳**。

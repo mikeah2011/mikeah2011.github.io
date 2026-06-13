@@ -1,12 +1,13 @@
 ---
+
 title: Mojo 实战：Python 超集的高性能 AI 语言——对比 Python/C++/Rust 的 ML 工作负载性能基准与开发体验
-keywords: [Mojo]
+keywords: [Mojo, Python, AI, Rust, ML, 超集的高性能, 语言, 工作负载性能基准与开发体验]
 date: 2026-06-10 03:39:00
 categories:
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-- ai
 tags:
 - Mojo
 - Python
@@ -15,9 +16,9 @@ tags:
 - SIMD
 - GPU编程
 - 编译型语言
-description: 深入解析 Mojo 语言的核心特性、内存模型与 SIMD/GPU 编程能力，通过实际 ML 推理基准测试对比 Python、C++ 和 Rust
-  的性能表现与开发体验。
+description: 深入解析 Mojo 语言的核心特性、内存模型与 SIMD/GPU 编程能力，通过实际 ML 推理基准测试对比 Python、C++ 和 Rust 的性能表现与开发体验。
 ---
+
 
 
 ## 前言

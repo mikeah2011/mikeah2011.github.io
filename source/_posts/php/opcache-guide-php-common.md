@@ -1,6 +1,7 @@
 ---
+
 title: OPcache 配置实战：PHP 生产环境性能调优与常见陷阱
-keywords: [OPcache]
+keywords: [OPcache, PHP, 配置实战, 生产环境性能调优与常见陷阱]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -14,11 +15,9 @@ tags:
 - PHP
 - 性能优化
 - 监控
-description: 从 PHP 编译原理出发，详解 OPcache 每项配置参数的工程意义，覆盖 Laravel B2C API 生产环境的真实踩坑记录——包括
-  validate_timestamps 忘记关闭导致 CPU 飙升、CLI 环境缓存不生效、Docker 镜像烘焙幽灵缓存、K8s 滚动更新冷启动延迟、内存碎片导致越跑越慢等高频问题。附带完整
-  CLI 诊断脚本、OPcache 与其他缓存方案对比表、Laravel Octane 兼容性指南、常见报错速查表、CI/CD 验证流水线、Prometheus
-  监控配置与生产环境部署工作流，帮助 PHP 开发者一步到位完成 OPcache 性能调优与生产监控。
+description: 从 PHP 编译原理出发，详解 OPcache 每项配置参数的工程意义，覆盖 Laravel B2C API 生产环境的真实踩坑记录——包括 validate_timestamps 忘记关闭导致 CPU 飙升、CLI 环境缓存不生效、Docker 镜像烘焙幽灵缓存、K8s 滚动更新冷启动延迟、内存碎片导致越跑越慢等高频问题。附带完整 CLI 诊断脚本、OPcache 与其他缓存方案对比表、Laravel Octane 兼容性指南、常见报错速查表、CI/CD 验证流水线、Prometheus 监控配置与生产环境部署工作流，帮助 PHP 开发者一步到位完成 OPcache 性能调优与生产监控。
 ---
+
 
 ## 一、为什么 OPcache 是 PHP 性能的「第一优先级」
 

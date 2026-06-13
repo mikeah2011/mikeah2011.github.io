@@ -1,6 +1,7 @@
 ---
+
 title: Vue3-组件库开发实战-自定义UI组件库设计与发布踩坑记录
-keywords: [Vue, UI]
+keywords: [Vue3, UI, 组件库开发实战, 自定义, 组件库设计与发布踩坑记录]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -13,11 +14,9 @@ tags:
 - TypeScript
 - Vite
 - Vue
-description: Vue 3 组件库开发实战教程：从零搭建自定义 UI 组件库 @mikeah/ui 完整指南。涵盖 Monorepo 架构设计、Props/Slots/Events
-  组件设计模式、TypeScript 类型导出、CSS Variables 多主题切换、Vite Library Mode 构建配置、Vitest 单元测试、VitePress
-  文档站点搭建、npm 发布与版本管理、pnpm workspace 配置、Element Plus 集成及 CI/CD 自动化发布流程。基于 vue-pure-admin
-  二次开发的真实踩坑经验，前端工程师必备的组件库工程化实战指南。
+description: Vue 3 组件库开发实战教程：从零搭建自定义 UI 组件库 @mikeah/ui 完整指南。涵盖 Monorepo 架构设计、Props/Slots/Events 组件设计模式、TypeScript 类型导出、CSS Variables 多主题切换、Vite Library Mode 构建配置、Vitest 单元测试、VitePress 文档站点搭建、npm 发布与版本管理、pnpm workspace 配置、Element Plus 集成及 CI/CD 自动化发布流程。基于 vue-pure-admin 二次开发的真实踩坑经验，前端工程师必备的组件库工程化实战指南。
 ---
+
 
 ## 前言
 

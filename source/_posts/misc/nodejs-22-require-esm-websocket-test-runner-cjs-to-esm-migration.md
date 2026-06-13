@@ -1,6 +1,6 @@
 ---
 title: Node.js 22 实战：require(esm)、WebSocket Client、test runner——从 CommonJS 到 ESM 的全面迁移路径
-keywords: [Node.js]
+keywords: [Node.js, require, esm, WebSocket Client, test runner, CommonJS, 的全面迁移路径, 技术杂谈]
 date: 2026-06-09 19:03:00
 categories:
   - misc
@@ -16,6 +16,7 @@ tags:
   - 迁移
 description: Node.js 22 带来了三大重磅特性：require(esm) 解锁了 CommonJS 与 ESM 的互操作、内置 WebSocket Client 告别第三方依赖、原生 test runner 让测试不再需要 Jest。本文通过实战代码详解每个特性，并给出从 CJS 到 ESM 的完整迁移路径。
 ---
+
 
 ## 前言
 

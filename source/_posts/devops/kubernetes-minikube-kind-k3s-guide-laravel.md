@@ -1,6 +1,7 @@
 ---
+
 title: Kubernetes 本地开发-minikube-kind-k3s-选型实战-Laravel踩坑记录
-keywords: [Kubernetes, Laravel]
+keywords: [Kubernetes, minikube, kind, k3s, Laravel, 本地开发, 选型实战, 踩坑记录]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -16,10 +17,9 @@ tags:
 - macOS
 - DevOps
 - Helm
-description: macOS上搭建本地Kubernetes开发环境，深度对比minikube、kind、k3s三大工具的启动速度、资源占用、功能完整度与Apple
-  Silicon兼容性。基于Laravel B2C API项目真实踩坑经验，包含YAML部署清单、Helm Chart打包、GitHub Actions/GitLab
-  CI集成示例及Laravel K8s适配完整方案。
+description: macOS上搭建本地Kubernetes开发环境，深度对比minikube、kind、k3s三大工具的启动速度、资源占用、功能完整度与Apple Silicon兼容性。基于Laravel B2C API项目真实踩坑经验，包含YAML部署清单、Helm Chart打包、GitHub Actions/GitLab CI集成示例及Laravel K8s适配完整方案。
 ---
+
 
 # Kubernetes 本地开发：minikube vs kind vs k3s 选型实战
 

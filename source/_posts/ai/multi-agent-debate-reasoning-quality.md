@@ -1,6 +1,6 @@
 ---
 title: Multi-Agent Debate 实战：用对抗式多 Agent 提升推理质量——对比 Single Agent 的准确率与成本权衡
-keywords: [Multi, Agent, Debate]
+keywords: [Multi, Agent Debate, Agent, Single Agent, 用对抗式多, 提升推理质量, 的准确率与成本权衡, AI]
 date: 2026-06-09 15:15:00
 categories:
   - ai
@@ -16,6 +16,7 @@ tags:
 description: 详解 Multi-Agent Debate 架构的原理与 Laravel 实战，通过对抗式多 Agent 协作提升 LLM 推理质量，对比 Single Agent 模式在准确率、延迟和成本上的权衡。
 
 ---
+
 
 在 AI Agent 架构的演进中，Single Agent 模式面临一个根本矛盾：**推理质量与成本的权衡**。单个 LLM 在处理复杂推理任务时，容易陷入思维惯性——它倾向于沿着最初生成的思路一路走到底，即使中间出现了逻辑漏洞。
 

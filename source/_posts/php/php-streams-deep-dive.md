@@ -1,12 +1,13 @@
 ---
+
 title: PHP Streams 深度剖析：流式读写、Wrapper 自定义与大文件处理
-keywords: [PHP, Streams]
+keywords: [PHP Streams, Wrapper, 深度剖析, 流式读写, 自定义与大文件处理, PHP]
 date: 2026-06-10 08:36:00
 categories:
+  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-- php
 tags:
 - PHP
 - Streams
@@ -16,6 +17,7 @@ tags:
 - 文件处理
 description: 深入理解 PHP Streams 机制，从流式读写、自定义 Wrapper 到 Laravel 中的大文件处理实战，掌握底层 I/O 与性能优化技巧。
 ---
+
 
 
 PHP Streams 是 PHP I/O 操作的底层基石。无论是 `file_get_contents()`、`fopen()`，还是 `file_put_contents()`，最终都走 Streams 这条路。理解 Streams，意味着你能精准控制文件读写行为、自定义协议、处理 GB 级大文件而不爆内存。

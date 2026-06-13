@@ -1,7 +1,7 @@
 ---
+
 title: PR Review Checklist 自动化实战：Danger.js/lint-staged/Husky 的组合拳——从代码风格到架构规范的 CI
-keywords: [PR, Review, Checklist]
-  门禁
+keywords: [PR Review Checklist, Danger.js, lint, staged, Husky, CI, 自动化实战, 的组合拳, 从代码风格到架构规范的]
 date: 2026-06-06 10:00:00
 tags:
 - danger.js
@@ -11,14 +11,12 @@ tags:
 - CI/CD
 categories:
 - devops
-description: 深入实战 Husky + lint-staged + Danger.js 组合拳，构建从代码风格到架构规范的多层 CI 门禁体系。涵盖 pre-commit/pre-push/commit-msg
-  三层 Git Hooks 配置、lint-staged 增量检查与自动修复、Danger.js PR 元数据智能校验（标题格式、描述模板、Jira Ticket
-  关联、UI 截图验证、测试覆盖门禁、架构约束检查），以及 GitHub Actions/GitLab CI 完整集成方案、monorepo 适配、Fork PR
-  权限处理等 6 大真实踩坑案例与团队渐进式落地策略。
+description: 深入实战 Husky + lint-staged + Danger.js 组合拳，构建从代码风格到架构规范的多层 CI 门禁体系。涵盖 pre-commit/pre-push/commit-msg 三层 Git Hooks 配置、lint-staged 增量检查与自动修复、Danger.js PR 元数据智能校验（标题格式、描述模板、Jira Ticket 关联、UI 截图验证、测试覆盖门禁、架构约束检查），以及 GitHub Actions/GitLab CI 完整集成方案、monorepo 适配、Fork PR 权限处理等 6 大真实踩坑案例与团队渐进式落地策略。
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
+
 
 
 # PR Review Checklist 自动化实战：Danger.js/lint-staged/Husky 的组合拳——从代码风格到架构规范的 CI 门禁

@@ -1,6 +1,6 @@
 ---
 title: Valkey 实战：Redis 开源分叉的独立演进——2026 年 Redis/Valkey/KeyDB 三足鼎立的选型决策树
-keywords: [Valkey]
+keywords: [Valkey, Redis, KeyDB, 开源分叉的独立演进, 三足鼎立的选型决策树, 数据库]
 date: 2026-06-10 05:33:00
 categories:
   - database
@@ -16,6 +16,7 @@ tags:
   - 开源
 description: 2026 年 Redis 生态已三分天下：Redis Inc. 主导的商业路线、Linux Foundation 托管的 Valkey、Snap 维护的 KeyDB。本文从实战角度出发，用决策树帮你快速选型，附 PHP/Laravel 完整接入示例。
 ---
+
 
 ## 概述
 

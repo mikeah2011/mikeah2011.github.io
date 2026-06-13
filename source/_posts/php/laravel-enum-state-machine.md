@@ -2,7 +2,7 @@
 title: 'Laravel Enum 状态机实战：用原生 Enum + match 表达式实现订单/支付/物流的状态流转——对比 XState/Statecharts 的纯 PHP 方案'
 date: 2026-06-05 00:00:00
 tags: [Laravel, PHP, Enum, 状态机, 状态模式]
-keywords: [Laravel, PHP, Enum, 状态机, 状态模式]
+keywords: [Laravel Enum, Enum, match, XState, Statecharts, PHP, 状态机实战, 用原生, 表达式实现订单, 支付]
 categories:
   - php
 description: 'PHP 8.1原生Enum+match表达式实现Laravel状态机实战，覆盖订单/支付/物流三大业务场景的状态流转设计。详解Enum-backed类型、状态转换规则校验、副作用处理、事件派发，对比Symfony Workflow与XState/Statecharts方案，附完整可运行代码与生产环境踩坑记录，助你用纯PHP构建类型安全的状态管理引擎。'
@@ -10,6 +10,7 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 # Laravel Enum 状态机实战：用原生 Enum + match 表达式实现订单/支付/物流的状态流转
 

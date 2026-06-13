@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Event-Listener 事件驱动架构 - 解耦订单处理 - KKday B2C API 真实踩坑记录
-keywords: [Laravel, Event, Listener]
+keywords: [Laravel Event, Listener, KKday B2C API, 事件驱动架构, 解耦订单处理, 真实踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -12,9 +13,9 @@ tags:
 - 事件驱动
 - 设计模式
 - 解耦
-description: 深入解析 Laravel Event-Listener 事件驱动架构，涵盖事件监听注册、Observer 观察者模式、队列异步处理与 Pipeline
-  执行顺序控制。通过 KKday B2C API 订单处理真实踩坑记录，详解事务内事件触发、Listener 异常堆积、序列化内存优化等 5 大生产问题与解耦最佳实践。
+description: 深入解析 Laravel Event-Listener 事件驱动架构，涵盖事件监听注册、Observer 观察者模式、队列异步处理与 Pipeline 执行顺序控制。通过 KKday B2C API 订单处理真实踩坑记录，详解事务内事件触发、Listener 异常堆积、序列化内存优化等 5 大生产问题与解耦最佳实践。
 ---
+
 
 # Laravel Event-Listener 事件驱动架构 - 解耦订单处理 - KKday B2C API 真实踩坑记录
 

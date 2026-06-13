@@ -7,9 +7,10 @@ date: 2026-06-01 10:30:00
 categories:
   - architecture
 tags: [Event Storming, DDD, 领域建模, Laravel, B2C, 电商]
-keywords: [Event Storming, DDD, 领域建模, Laravel, B2C, Event, Storming]
+keywords: [Event Storming, 从业务事件到代码实现的领域建模方法论, 架构]
 description: "以 KKday B2C 电商真实项目为例，详解 Event Storming 事件风暴工作坊的完整流程与实战演练：从便签纸头脑风暴、领域事件提取、聚合根识别到 Laravel 代码落地，涵盖 DDD 领域建模、限界上下文、值对象、领域服务的完整实现。附 5 个真实踩坑案例、方案对比表和可运行代码示例，助你掌握从业务事件到代码架构的端到端方法论。"
 ---
+
 
 ## 一、为什么写这篇？（痛点/背景）
 

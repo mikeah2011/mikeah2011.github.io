@@ -8,12 +8,13 @@ categories:
   - php
   - cicd
 tags: [CI/CD, Composer, Docker, Kubernetes, Laravel]
-keywords: [CI/CD, Composer, Docker, Kubernetes, Laravel, GitHub, Actions, CI]
+keywords: [GitHub Actions CI, CD, Laravel, 优化实战, 单体仓库的矩阵拆分, 缓存命中与并行发布踩坑记录, PHP]
 description: GitHub Actions CI/CD 优化实战指南，基于 Laravel B2C API 单体仓库的真实改造经验，详解如何将流水线从 18 分钟优化到 7 分钟。内容覆盖 dorny/paths-filter 变更感知、Pest/PHPStan 矩阵并行、Composer lock 缓存策略、Docker BuildKit 层缓存、workflow_run 发布解耦、concurrency 防重入锁、Kubernetes rollout 回滚保护等核心技术点，并附真实缓存事故排查记录与踩坑总结，适合 Laravel 团队落地 CI/CD 提速。
 
 
 
 ---
+
 Laravel 项目做大之后，CI/CD 变慢几乎是必然的。最常见的坏味道不是“不会写 workflow”，而是**把所有事情都塞进一个 job**：`composer install`、Pest、PHPStan、Docker build、推镜像、部署、健康检查全部串起来。结果就是一个只改了验证规则的小 PR，也要排队十几分钟；更糟糕的是，部署和测试耦合在一起后，失败原因也越来越难定位。
 
 这篇文章记录我在一个 Laravel B2C API 单体仓库里的真实改造过程。改造前主流水线平均 **18 分 20 秒**，高峰时接近 22 分钟；改造后稳定在 **6 分 50 秒到 7 分 30 秒**。这里真正起作用的不是“多开几个 runner”，而是四件事：**变更感知、矩阵并行、缓存收敛、发布防重入**。

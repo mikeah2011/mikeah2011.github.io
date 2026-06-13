@@ -1,6 +1,7 @@
 ---
+
 title: Yaf 框架入门：鸟哥的 C 扩展级 PHP 框架
-keywords: [Yaf]
+keywords: [Yaf, PHP, 框架入门, 鸟哥的, 扩展级]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -14,10 +15,9 @@ tags:
 categories:
 - php
 date: 2019-03-20 15:05:07
-description: Yaf（Yet Another Framework）是鸟哥 Laruence 用 C 编写的高性能 PHP 框架扩展，以 .so 形式加载实现零解释开销，单核
-  QPS 可达 6000+。本文详解 Yaf 路由系统、插件机制、Swoole 协程化方案、RESTful API 实战及性能调优技巧，并与 Hyperf、Webman
-  等现代框架进行全面对比，帮你判断 Yaf 是否适合你的项目。
+description: Yaf（Yet Another Framework）是鸟哥 Laruence 用 C 编写的高性能 PHP 框架扩展，以 .so 形式加载实现零解释开销，单核 QPS 可达 6000+。本文详解 Yaf 路由系统、插件机制、Swoole 协程化方案、RESTful API 实战及性能调优技巧，并与 Hyperf、Webman 等现代框架进行全面对比，帮你判断 Yaf 是否适合你的项目。
 ---
+
 
 
 ## 一、Yaf 是什么

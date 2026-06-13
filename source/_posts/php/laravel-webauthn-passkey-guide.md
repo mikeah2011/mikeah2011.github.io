@@ -8,12 +8,13 @@ updated: 2026-05-04 15:17:45
 categories:
   - php
 tags: [Laravel, 安全, WebAuthn, Passkey, FIDO2, 无密码登录]
-keywords: [Laravel, 安全, WebAuthn, Passkey, FIDO2]
+keywords: [Laravel WebAuthn, Passkey, 后台无密码登录, 设备绑定与挑战过期踩坑记录, PHP]
 description: Laravel 后台 WebAuthn / Passkey 无密码登录完整实战指南：涵盖 FIDO2 设备注册、签名验证、挑战过期处理、多设备绑定管理、signCount 回放防护、会话升级策略及线上踩坑记录，附可运行代码示例与 Passkey vs 传统认证方案对比表。
 
 
 
 ---
+
 后台系统一旦接入财务、退款、优惠券配置这类高风险能力，账号安全就不能只靠短信和 TOTP。我们后来把管理员登录改成 **Password + Passkey 升级**，再逐步推进到高权限角色的 **Passkey 优先登录**。真正难的不是把浏览器弹窗调起来，而是把挑战、设备、会话、回放防护这几件事在 Laravel 里收严。
 
 这篇只讲我在线上落地时真正会做的部分：**注册一把可用的凭证、登录时验证签名、处理多设备与 challenge 过期、避免 worker/缓存把状态搞乱。**

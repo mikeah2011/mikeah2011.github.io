@@ -1,7 +1,7 @@
 ---
 title: 索引失效的 12 种原因
 tags: [MySQL, 索引, 性能优化, EXPLAIN, 慢查询]
-keywords: [MySQL, 索引, 性能优化, EXPLAIN, 慢查询]
+keywords: [索引失效的, 种原因, 数据库]
 categories:
   - database
 date: 2019-05-20 10:00:00
@@ -13,6 +13,7 @@ images:
 
 
 ---
+
 # 一句话
 
 > **索引失效 = MySQL 优化器决定不用你建的索引去执行。** 永远用 `EXPLAIN` 验证，不要靠记忆。

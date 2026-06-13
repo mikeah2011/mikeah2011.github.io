@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录
-keywords: [Laravel, Redis, KKday]
+keywords: [Laravel Redis, KKday B2C API, 分布式锁失效场景实战, 真实踩坑记录]
 date: 2026-05-02
 categories:
 - database
@@ -12,14 +13,14 @@ tags:
 - Laravel
 - 高并发
 - Lua 脚本
-description: Redis 分布式锁生产环境实战指南：基于 KKday B2C API 20 万 QPS 大促场景，详解死锁防护、RedLock 集群一致性、Lua
-  脚本原子操作、热点 Key 降级策略、CAS 乐观锁与悲观锁对比、锁超时监控与告警，附完整 Laravel 8 + PHP 8 代码示例
+description: Redis 分布式锁生产环境实战指南：基于 KKday B2C API 20 万 QPS 大促场景，详解死锁防护、RedLock 集群一致性、Lua 脚本原子操作、热点 Key 降级策略、CAS 乐观锁与悲观锁对比、锁超时监控与告警，附完整 Laravel 8 + PHP 8 代码示例
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-003-content-1.png
 - /images/content/databases-003-content-2.png
 - /images/diagrams/databases-003-diagram.png
 ---
+
 
 ## 写在前面
 

@@ -1,12 +1,13 @@
 ---
+
 title: CSS Houdini 深度实战：Paint API/Layout API/Worklets——浏览器渲染引擎的可编程化与自定义布局方案
-keywords: [CSS, Houdini]
+keywords: [CSS Houdini, Paint API, Layout API, Worklets, 深度实战, 浏览器渲染引擎的可编程化与自定义布局方案, 前端]
 date: 2026-06-10 08:47:00
 categories:
+  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-- frontend
 tags:
 - CSS
 - Houdini
@@ -14,9 +15,9 @@ tags:
 - Paint API
 - Layout API
 - 浏览器
-description: 深入解析 CSS Houdini 三大核心 API（Paint API、Layout API、Properties & Values API），通过实战代码演示如何编写自定义绘制、布局和样式计算，突破
-  CSS 能力边界，实现浏览器渲染引擎的可编程化。
+description: 深入解析 CSS Houdini 三大核心 API（Paint API、Layout API、Properties & Values API），通过实战代码演示如何编写自定义绘制、布局和样式计算，突破 CSS 能力边界，实现浏览器渲染引擎的可编程化。
 ---
+
 
 
 # CSS Houdini 深度实战：浏览器渲染引擎的可编程化

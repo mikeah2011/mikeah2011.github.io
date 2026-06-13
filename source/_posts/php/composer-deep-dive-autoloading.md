@@ -9,12 +9,13 @@ categories:
   - php
   - docker
 tags: [Composer, PHP, 自动加载, PSR-4, 依赖管理, Packagist]
-keywords: [Composer, PHP, 自动加载, PSR-4, 依赖管理]
+keywords: [Composer, 深度实战, 自动加载插件开发私有仓库踩坑记录, PHP]
 description: Composer 是 PHP 生态的基石，但多数开发者只停留在 `composer require` 和 `composer update` 层面。本文从 30+ 仓库的真实运维经验出发，深度拆解 PSR-4 自动加载原理、依赖解析机制、Composer 插件开发、私有仓库（Satis/Packagist）配置，以及 CI/CD 中的依赖治理踩坑记录。
 
 
 
 ---
+
 # Composer 深度实战：自动加载、插件开发、私有仓库踩坑记录
 
 Composer 是 PHP 生态的事实标准包管理器，但 90% 的开发者对它的理解停留在 `composer install/update/require`。当你的团队管理 30+ 个仓库、涉及内部共享包、CI 环境频繁出现 `composer install` 卡死或 `Class not found` 时，你就会意识到：不理解 Composer 的内部机制，就无法真正掌控 PHP 项目的依赖治理。

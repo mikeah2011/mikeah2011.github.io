@@ -9,12 +9,13 @@ categories:
   - macos
   - tools
 tags: [AI, Laravel, macOS]
-keywords: [AI, Laravel, macOS, Cursor, IDE]
+keywords: [Cursor IDE, AI, Tab, Composer, cursorrules, 驱动的代码编辑器深度体验, 补全, 多文件编辑与, 工程化配置, macOS]
 description: "从 VS Code 用户迁移到 Cursor IDE 的实战经验，深度覆盖 Tab 补全、Cmd+K 行内编辑、Composer 多文件编排、@ 上下文引用、.cursorrules 工程化配置，以及在 Laravel B2C API 项目中的真实踩坑。"
 
 
 
 ---
+
 # Cursor IDE 实战：AI 驱动的代码编辑器深度体验
 
 ## 一、为什么从 VS Code 迁移到 Cursor？

@@ -2,7 +2,7 @@
 title: MySQL HeatWave 实战：OLTP+OLAP 一体化——Laravel 中的实时分析查询与 HTAP 架构落地
 date: 2026-06-04 09:00:00
 tags: [MySQL HeatWave, HTAP, OLAP, OLTP, Laravel, 实时分析]
-keywords: [MySQL HeatWave, HTAP, OLAP, OLTP, Laravel, MySQL, HeatWave]
+keywords: [MySQL HeatWave, OLTP, OLAP, Laravel, HTAP, 一体化, 中的实时分析查询与, 架构落地, 数据库]
 categories:
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
@@ -11,6 +11,7 @@ images:
 slug: mysql-heatwave-htap-laravel
 description: "MySQL HeatWave 是 Oracle 推出的原生 HTAP 解决方案，通过内存列存储引擎在同一数据库中同时支撑 OLTP 事务处理和 OLAP 分析查询。本文详解 HeatWave 集群搭建、Laravel 集成方案、AutoML 实战、性能基准测试、成本分析及生产环境踩坑经验，助你消除 ETL 管道延迟，实现实时数据分析。"
 ---
+
 
 ## 前言：数据架构面临的现实困境
 

@@ -9,12 +9,13 @@ categories:
   - frontend
   - php
 tags: [Laravel, Vite, Webpack, 前端]
-keywords: [Laravel, Vite, Webpack, 前端]
+keywords: [Vite, Webpack, Laravel, Mix, 前端构建工具选型对比实战, 前端, PHP]
 description: 从 Laravel B2C 项目真实场景出发，深度对比 Vite、Webpack、Laravel Mix 三套构建工具的架构原理、开发体验、构建性能与生产优化策略，附完整迁移踩坑记录。
 
 
 
 ---
+
 ## 前言
 
 Laravel 9 开始官方默认从 Webpack (Laravel Mix) 切换到 Vite。但现实中，30+ 个仓库并非一夜之间全部迁移——有些老项目还跑在 Mix 5 上，新项目用 Vite 5+，而需要深度定制的管理后台则直接裸配 Webpack 5。

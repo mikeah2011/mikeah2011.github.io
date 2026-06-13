@@ -1,6 +1,6 @@
 ---
 title: "Laravel Eloquent 批量操作性能陷阱深度剖析：insert/insertOrIgnore/upsert/chunk 的内存占用与锁行为"
-keywords: [Laravel, Eloquent]
+keywords: [Laravel Eloquent, insert, insertOrIgnore, upsert, chunk, 批量操作性能陷阱深度剖析, 的内存占用与锁行为, PHP]
 date: 2026-06-09 22:03:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - 批量操作
 description: "深入分析 Laravel Eloquent 的 insert、insertOrIgnore、upsert、chunk 等批量操作的内存占用、锁行为和生产环境最佳实践，结合 30+ 仓库的真实踩坑经验。"
 ---
+
 
 ## 概述
 

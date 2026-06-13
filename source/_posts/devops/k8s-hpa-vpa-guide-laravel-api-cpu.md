@@ -8,12 +8,13 @@ categories:
   - devops
   - kubernetes
 tags: [Kubernetes, Laravel, 监控]
-keywords: [Kubernetes, Laravel, 监控, HPA, VPA]
+keywords: [K8s HPA, VPA, Laravel API, CPU, 自动扩缩容实战, 误判到自定义指标扩容踩坑记录, DevOps]
 description: 结合 Laravel B2C API 在 Kubernetes 上的真实压测与生产经验，详解 HPA 与 VPA 自动扩缩容落地方案，涵盖 CPU 指标误判修复、自定义指标接入、Prometheus Adapter 配置、成本优化建议及常见故障排查，帮助你在生产环境安全落地自动扩缩容策略。
 
 
 
 ---
+
 我们最早在 Kubernetes 上跑 Laravel API 时，扩缩容策略其实很“教科书”：`requests.cpu=500m`、HPA 按 CPU 70% 扩容、每个 Pod 512Mi 内存。结果压测一上来就翻车：接口 P95 已经接近 2 秒，但 CPU 只跑到 38%；另一边队列 Worker 明明 CPU 不高，却不断被 OOMKilled。
 
 问题后来才看清：**PHP 类服务不一定是 CPU 型瓶颈**。当请求时间花在 MySQL、Redis、第三方 API 或 PHP-FPM 进程阻塞上时，只盯 CPU，HPA 会“看不见”真正的压力。

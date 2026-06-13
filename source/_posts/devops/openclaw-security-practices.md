@@ -1,6 +1,7 @@
 ---
+
 title: OpenClaw 安全实战：权限控制、隐私保护、群聊行为边界
-keywords: [OpenClaw]
+keywords: [OpenClaw, 安全实战, 权限控制, 隐私保护, 群聊行为边界]
 date: 2026-06-02 10:00:00
 tags:
 - OpenClaw
@@ -12,9 +13,9 @@ categories:
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-description: 本文围绕 OpenClaw 在企业与群聊场景中的安全落地，系统讲解权限控制、RBAC/ABAC、隐私保护、Prompt 注入防御、敏感信息脱敏、审计日志与群聊行为边界设计，并结合真实安全案例、配置示例和工程化清单，帮助团队构建可审计、可回滚、最小权限的
-  AI Agent 安全基线。
+description: 本文围绕 OpenClaw 在企业与群聊场景中的安全落地，系统讲解权限控制、RBAC/ABAC、隐私保护、Prompt 注入防御、敏感信息脱敏、审计日志与群聊行为边界设计，并结合真实安全案例、配置示例和工程化清单，帮助团队构建可审计、可回滚、最小权限的 AI Agent 安全基线。
 ---
+
 
 
 在 AI Agent 从“玩具”走向“生产力工具”的过程中，安全不再是锦上添花的附属能力，而是系统能否真正进入企业、团队与社群环境的前置条件。尤其是像 OpenClaw 这类具备多角色协作、消息处理、工具调用与群聊上下文理解能力的 Agent 框架，一旦与真实组织流程、用户身份、外部 API、群组消息和内部知识库绑定，安全问题就会从传统 Web 系统的“访问控制”扩展为“身份—上下文—工具—数据—行为”五个维度联动的复杂治理问题。

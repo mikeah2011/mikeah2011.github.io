@@ -9,12 +9,13 @@ categories:
   - frontend
   - testing
 tags: [BFF, Laravel, 测试, Mock, API, 前端]
-keywords: [BFF, Laravel, 测试, Mock, API, Mockoon]
+keywords: [Mockoon, Mock, Laravel B2C, 本地, 服务器快速搭建与, 前后端联调踩坑记录, 前端, 测试]
 description: "在 Laravel B2C 电商项目中，后端接口延期导致前端阻塞？本文深度实战 Mockoon 本地 Mock 服务器：从 GUI 安装配置、Handlebars 动态模板、代理转发到 CI/CD 无头模式集成，对比 WireMock/MSW/JSON Server，附 CORS、Cookie、状态管理等 5 大踩坑记录与团队协作最佳实践。"
 
 
 
 ---
+
 # Mockoon 实战：本地 Mock 服务器快速搭建与 Laravel B2C 前后端联调踩坑记录
 
 ## 一、背景：为什么需要本地 Mock 服务器？

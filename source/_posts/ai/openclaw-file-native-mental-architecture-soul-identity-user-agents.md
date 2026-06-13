@@ -1,6 +1,7 @@
 ---
+
 title: OpenClaw 文件原生心智架构：SOUL.md/IDENTITY.md/USER.md/AGENTS.md 的协作机制
-keywords: [OpenClaw]
+keywords: [OpenClaw, SOUL.md, IDENTITY.md, USER.md, AGENTS.md, 文件原生心智架构, 的协作机制]
 date: 2026-06-02 08:00:00
 tags:
 - OpenClaw
@@ -10,12 +11,12 @@ tags:
 - 文件系统
 categories:
 - ai
-description: 深入剖析 OpenClaw 文件原生心智架构设计理念，详解 SOUL.md 定义核心人格、IDENTITY.md 管理技术能力、USER.md
-  构建用户画像、AGENTS.md 制定协作规范四大核心文件的职责划分与协作机制。涵盖文件系统作为知识表示的设计哲学、四文件加载优先级与冲突解决策略、热更新与版本控制友好特性，以及技能提取和自改进规则等高级用法。
+description: 深入剖析 OpenClaw 文件原生心智架构设计理念，详解 SOUL.md 定义核心人格、IDENTITY.md 管理技术能力、USER.md 构建用户画像、AGENTS.md 制定协作规范四大核心文件的职责划分与协作机制。涵盖文件系统作为知识表示的设计哲学、四文件加载优先级与冲突解决策略、热更新与版本控制友好特性，以及技能提取和自改进规则等高级用法。
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
+
 
 
 

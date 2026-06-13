@@ -1,6 +1,6 @@
 ---
 title: PHP Fibers vs Async PHP 2026 生态全景：Fibers/AMPHP v4/ReactPHP v4/Swoole 6 的性能基准与选型决策树
-keywords: [PHP, Fibers, Async]
+keywords: [PHP Fibers vs Async PHP, Fibers, AMPHP v4, ReactPHP v4, Swoole, 生态全景, 的性能基准与选型决策树, PHP]
 date: 2026-06-09 13:48:00
 categories:
   - php
@@ -17,6 +17,7 @@ tags:
   - Performance
 description: 深入解析 PHP 8+ 异步编程生态全景，涵盖 Fibers、AMPHP v4、ReactPHP v4、Swoole 6 的架构差异、性能基准测试与选型决策树，帮助开发者在 2026 年做出正确的技术选型。
 ---
+
 
 PHP 的异步编程之路，从最初的 `pcntl_fork` 到 ReactPHP 的事件循环，再到 Swoole 的协程，终于在 PHP 8.1 引入 Fiber 后迎来了真正的标准答案。2026 年，AMPHP v4、ReactPHP v4、Swoole 6 齐发，生态空前成熟。本文通过实战基准测试，帮你理清这场异步之争的核心差异和选型路径。
 

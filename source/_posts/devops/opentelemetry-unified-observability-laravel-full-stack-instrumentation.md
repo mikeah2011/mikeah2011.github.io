@@ -1,6 +1,6 @@
 ---
 title: "OpenTelemetry 实战：统一日志/指标/追踪的可观测性标准——Laravel 应用全链路埋点"
-keywords: [OpenTelemetry]
+keywords: [OpenTelemetry, Laravel, 统一日志, 指标, 追踪的可观测性标准, 应用全链路埋点, DevOps]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -24,6 +24,7 @@ tags:
   - Grafana
 description: "从可观测性三大支柱（Logs、Metrics、Traces）出发，手把手实现 Laravel 应用的 OpenTelemetry 全链路埋点。涵盖 PHP SDK 安装、OTLP 对接 Jaeger/Prometheus/Grafana Tempo/Loki、HTTP/SQL/队列自动追踪与手动 Span、自定义 Counter/Histogram/Gauge 指标采集、Monolog 结构化日志与 TraceID 关联、W3C Context Propagation 跨服务传播、Laravel Octane 环境处理、头部与尾部采样策略对比，附 5 个生产踩坑案例、完整可运行代码与 Grafana Dashboard 配置。"
 ---
+
 
 ## 引言：为什么需要统一的可观测性标准？
 

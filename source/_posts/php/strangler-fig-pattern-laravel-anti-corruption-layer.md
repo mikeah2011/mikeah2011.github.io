@@ -1,6 +1,7 @@
 ---
+
 title: Strangler Fig Pattern 实战：Laravel 单体到微服务的渐进式迁移——用 Anti-Corruption Layer 隔离遗留系统
-keywords: [Strangler, Fig, Pattern]
+keywords: [Strangler Fig Pattern, Laravel, Anti, Corruption Layer, 单体到微服务的渐进式迁移, 隔离遗留系统]
 date: 2026-06-02 00:00:00
 tags:
 - Strangler Fig
@@ -10,14 +11,12 @@ tags:
 - Anti-Corruption Layer
 categories:
 - php
-description: Strangler Fig Pattern（绞杀者模式）实战指南，以 Laravel B2C 电商系统为例详解从单体到微服务的渐进式迁移。涵盖
-  Bounded Context 领域边界识别与拓扑排序迁移顺序、Nginx/Laravel 中间件双层路由分流、Feature Flag 灰度放量策略（canary/百分比/全量）、Anti-Corruption
-  Layer 数据模型翻译器与适配器实现、全量+增量数据迁移与一致性校验、1%→10%→50%→100% 分阶段切流、自动回滚判断与监控指标体系。附完整迁移 Checklist
-  与反模式警示，适合需要在不停机前提下将 Laravel 单体拆分为微服务的团队参考。
+description: Strangler Fig Pattern（绞杀者模式）实战指南，以 Laravel B2C 电商系统为例详解从单体到微服务的渐进式迁移。涵盖 Bounded Context 领域边界识别与拓扑排序迁移顺序、Nginx/Laravel 中间件双层路由分流、Feature Flag 灰度放量策略（canary/百分比/全量）、Anti-Corruption Layer 数据模型翻译器与适配器实现、全量+增量数据迁移与一致性校验、1%→10%→50%→100% 分阶段切流、自动回滚判断与监控指标体系。附完整迁移 Checklist 与反模式警示，适合需要在不停机前提下将 Laravel 单体拆分为微服务的团队参考。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 
 

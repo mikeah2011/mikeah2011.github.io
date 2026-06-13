@@ -1,6 +1,6 @@
 ---
 title: Laravel 数据脱敏工程化实战：日志脱敏、API 响应脱敏、数据库字段加密——统一的脱敏注解与序列化器设计
-keywords: [Laravel]
+keywords: [Laravel, API, 数据脱敏工程化实战, 日志脱敏, 响应脱敏, 数据库字段加密, 统一的脱敏注解与序列化器设计, 架构]
 date: 2026-06-09 22:45:00
 categories:
   - architecture
@@ -16,6 +16,7 @@ tags:
   - 序列化
 description: 从散落的 if-else 到统一的注解驱动脱敏体系——日志、API 响应、数据库字段三层脱敏的工程化落地方案，基于 Laravel + PHP 8 Attributes 实现。
 ---
+
 
 ## 问题：脱敏代码散落各处
 

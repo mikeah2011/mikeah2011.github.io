@@ -1,12 +1,13 @@
 ---
+
 title: Vitest 实战：Vite 原生测试框架——对比 Jest 的速度、快照测试、Mock 与 Laravel 前端项目的测试迁移
-keywords: [Vitest]
+keywords: [Vitest, Vite, Jest, Mock, Laravel, 原生测试框架, 的速度, 快照测试, 前端项目的测试迁移, 前端]
 date: 2026-06-10 05:40:00
 categories:
+  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-- frontend
 tags:
 - Vitest
 - Vite
@@ -15,9 +16,9 @@ tags:
 - Vue
 - Laravel
 - 单元测试
-description: 深入 Vitest 实战：零配置启动、Vite 原生速度、快照测试、Mock/Spy 机制，以及从 Jest 迁移到 Vitest 的完整路径——含
-  Laravel 前端项目的真实踩坑记录。
+description: 深入 Vitest 实战：零配置启动、Vite 原生速度、快照测试、Mock/Spy 机制，以及从 Jest 迁移到 Vitest 的完整路径——含 Laravel 前端项目的真实踩坑记录。
 ---
+
 
 
 ## 概述

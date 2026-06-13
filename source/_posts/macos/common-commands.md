@@ -1,6 +1,7 @@
 ---
+
 title: macOS 常用命令
-keywords: [OS]
+keywords: [macOS, 常用命令]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -13,10 +14,9 @@ tags:
 - macOS
 - CLI
 - 开发工具
-description: macOS 日常开发常用 Shell 命令速查手册：涵盖环境安装、Homebrew 包管理（formula vs cask）、文件操作与搜索、系统维护、网络调试、磁盘管理、进程管理、开发工具配置（Git/Docker/Python/Node
-  版本管理）、macOS 特有命令（defaults write、pbcopy、screencapture）等 200+ 条实战命令，面向 Laravel/PHP
-  后端与全栈开发者。
+description: macOS 日常开发常用 Shell 命令速查手册：涵盖环境安装、Homebrew 包管理（formula vs cask）、文件操作与搜索、系统维护、网络调试、磁盘管理、进程管理、开发工具配置（Git/Docker/Python/Node 版本管理）、macOS 特有命令（defaults write、pbcopy、screencapture）等 200+ 条实战命令，面向 Laravel/PHP 后端与全栈开发者。
 ---
+
 
 
 本文整理了 macOS 下日常开发中最常用的 Shell 命令，按场景分类，每条命令附带中文说明。从环境搭建到网络调试、从 Homebrew 包管理到进程排查，覆盖日常开发 90% 以上的终端操作需求。文章面向 Laravel/PHP 后端开发者和全栈工程师，同时兼顾了 Python、Node.js、Docker 等现代开发栈的命令需求。所有命令均在 macOS Sonoma/Sequoia 上验证过，Apple Silicon 和 Intel Mac 均适用。建议收藏本文，遇到问题时直接搜索对应章节，快速找到解决方案。

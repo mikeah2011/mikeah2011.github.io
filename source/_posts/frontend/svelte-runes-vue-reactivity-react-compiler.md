@@ -3,13 +3,14 @@ title: Svelte 5 Runes 实战深度：编译时响应式信号的底层原理—�
 description: 深入剖析 Svelte 5 Runes 编译时响应式原理，详解 $state、$derived、$effect、$props 四大核心原语的底层信号机制。通过同一组件在 Svelte 5、Vue 3 Reactivity、React 19 Compiler 三大框架中的实现对比，从设计理念、编译输出、运行时性能、包体积、开发体验等维度全面解析信号范式的差异。包含 Todo List 完整实战代码、JS Framework Benchmark 性能数据、TypeScript 集成指南及 2026 前端框架选型建议，帮助开发者在信号革命中做出明智的技术决策。
 date: 2026-06-07 10:30:00
 tags: [Svelte, Runes, 响应式, Vue, React, 前端框架]
-keywords: [Svelte, Runes, 响应式, Vue, React]
+keywords: [Svelte, Runes, Vue Reactivity, React Compiler, 实战深度, 编译时响应式信号的底层原理, 的设计理念差异, 前端]
 categories:
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
+
 
 ## 引言：前端框架的信号革命（2024-2026）
 

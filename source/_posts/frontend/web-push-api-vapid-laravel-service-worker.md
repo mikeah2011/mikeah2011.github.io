@@ -1,6 +1,7 @@
 ---
+
 title: Web Push API (VAPID) 实战：浏览器原生推送通知——Laravel 后端 Service Worker 注册、订阅管理与消息分发
-keywords: [Web, Push, API]
+keywords: [Web Push API, VAPID, Laravel, Service Worker, 浏览器原生推送通知, 后端, 注册, 订阅管理与消息分发]
 date: 2026-06-05 14:40:00
 tags:
 - web-push
@@ -11,13 +12,12 @@ tags:
 - PWA
 categories:
 - frontend
-description: 手把手教你用 Web Push API + VAPID 协议实现浏览器原生推送通知：涵盖 Service Worker 注册与 PushManager
-  订阅管理、Laravel 后端端到端加密消息队列分发、电商订单状态/降价提醒/促销广播完整实战，对比 Firebase Cloud Messaging，附浏览器兼容性、HTTPS
-  部署与常见踩坑排查指南。
+description: 手把手教你用 Web Push API + VAPID 协议实现浏览器原生推送通知：涵盖 Service Worker 注册与 PushManager 订阅管理、Laravel 后端端到端加密消息队列分发、电商订单状态/降价提醒/促销广播完整实战，对比 Firebase Cloud Messaging，附浏览器兼容性、HTTPS 部署与常见踩坑排查指南。
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
+
 
 
 在移动互联网时代，推送通知是用户触达的核心手段。打开手机，各类应用的推送消息铺天盖地：外卖到了、快递签收、限时折扣、好友动态……这些即时触达能力极大提升了用户活跃度和转化率。然而在 Web 端，长期以来缺乏统一的原生推送方案，开发者不得不依赖邮件、短信或第三方 SDK 来触达用户，体验和效果都不尽如人意。

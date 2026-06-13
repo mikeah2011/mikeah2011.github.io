@@ -1,6 +1,7 @@
 ---
+
 title: Kafka vs NATS vs Pulsar 2026 实战：三大消息队列深度对比——Laravel 微服务中的吞吐量、延迟与运维复杂度选型决策
-keywords: [Kafka, NATS, Pulsar]
+keywords: [Kafka vs NATS vs Pulsar, Laravel, 三大消息队列深度对比, 微服务中的吞吐量, 延迟与运维复杂度选型决策]
 date: 2026-06-07 10:00:00
 tags:
 - Kafka
@@ -15,9 +16,9 @@ categories:
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
-description: Kafka vs NATS vs Pulsar 三大消息队列 2026 年深度对比实战指南。从架构设计、性能基准、Laravel 微服务集成、运维复杂度到成本分析，全面覆盖
-  Kafka、NATS、Pulsar 选型决策。附 PHP/Laravel 生产者消费者完整代码示例、Exactly-once 语义实现、消费者组管理与常见踩坑记录，帮助团队在高吞吐微服务场景中做出最优技术选型。
+description: Kafka vs NATS vs Pulsar 三大消息队列 2026 年深度对比实战指南。从架构设计、性能基准、Laravel 微服务集成、运维复杂度到成本分析，全面覆盖 Kafka、NATS、Pulsar 选型决策。附 PHP/Laravel 生产者消费者完整代码示例、Exactly-once 语义实现、消费者组管理与常见踩坑记录，帮助团队在高吞吐微服务场景中做出最优技术选型。
 ---
+
 
 
 ## 引言：2026 年消息队列生态的变化

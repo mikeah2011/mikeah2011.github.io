@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Pennant 特性开关实战：多租户分桶、灰度放量与回滚兜底踩坑记录
-keywords: [Laravel, Pennant]
+keywords: [Laravel Pennant, 特性开关实战, 多租户分桶, 灰度放量与回滚兜底踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -16,10 +17,9 @@ tags:
 - canary
 - 灰度发布
 - 多租户
-description: 深入 Laravel Pennant Feature Flag 实战指南，详解多租户场景下的灰度发布与金丝雀发布策略。从 override
-  表设计、百分比渐进放量到紧急回滚兜底，覆盖 Octane 静态变量串请求、队列消费者对齐等线上踩坑案例。附 Prometheus/Grafana 监控集成、三级回滚方案、特性开关选型对比与上线
-  Checklist，助你在 Laravel 项目中安全落地 Feature Flag 灰度发布与 A/B 测试能力。
+description: 深入 Laravel Pennant Feature Flag 实战指南，详解多租户场景下的灰度发布与金丝雀发布策略。从 override 表设计、百分比渐进放量到紧急回滚兜底，覆盖 Octane 静态变量串请求、队列消费者对齐等线上踩坑案例。附 Prometheus/Grafana 监控集成、三级回滚方案、特性开关选型对比与上线 Checklist，助你在 Laravel 项目中安全落地 Feature Flag 灰度发布与 A/B 测试能力。
 ---
+
 
 
 我们把结算页重构成 `checkout-v2` 之后，真正难的不是把新页面写出来，而是**怎么只放给 5% 用户、怎么按租户回滚、怎么让队列和 API 看到同一份开关结果**。早期我用过 `.env + if/else`，发布一次要改一次配置；也用过后台表直接查库，结果高峰期每个请求都多打一条 SQL。后来把这件事收口到 **Laravel Pennant**，并补上“稳定分桶 + 手工覆盖 + 日志观测”三件套，灰度才算真正可控。

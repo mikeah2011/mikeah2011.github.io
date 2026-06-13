@@ -1,12 +1,13 @@
 ---
+
 title: CSS Subgrid 实战：嵌套网格布局、响应式设计与浏览器兼容性策略
-keywords: [CSS, Subgrid]
+keywords: [CSS Subgrid, 嵌套网格布局, 响应式设计与浏览器兼容性策略, 前端]
 date: 2026-06-10 08:49:00
 categories:
+  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-- frontend
 tags:
 - CSS
 - Grid
@@ -15,6 +16,7 @@ tags:
 - 布局
 description: 深入解析 CSS Subgrid 的核心概念与实战应用，涵盖嵌套网格对齐、响应式卡片布局、表单对齐等场景，附带完整的浏览器兼容性降级方案。
 ---
+
 
 
 ## 概述

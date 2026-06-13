@@ -1,20 +1,21 @@
 ---
+
 title: UnoCSS 实战：按需原子化 CSS 引擎——对比 Tailwind CSS 的零运行时方案与 Laravel Livewire 集成
-keywords: [UnoCSS]
+keywords: [UnoCSS, CSS, Tailwind CSS, Laravel Livewire, 按需原子化, 引擎, 的零运行时方案与, AI]
 date: 2026-06-09
 categories:
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-- ai
 tags:
 - Tailwind CSS
 - Laravel
 - Livewire
 - CSS
-description: 深入探讨 UnoCSS，一个高性能、零运行时的原子化 CSS 引擎，如何与 Laravel Livewire 集成，并提供与 Tailwind
-  CSS 的对比，帮助你在前端开发中做出更好的技术选型。
+description: 深入探讨 UnoCSS，一个高性能、零运行时的原子化 CSS 引擎，如何与 Laravel Livewire 集成，并提供与 Tailwind CSS 的对比，帮助你在前端开发中做出更好的技术选型。
 ---
+
 
 
 ## 1. 概述

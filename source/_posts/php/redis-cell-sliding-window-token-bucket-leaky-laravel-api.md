@@ -2,6 +2,7 @@
 title: "分布式限流 2026 实战：Redis Cell vs Sliding Window vs Token Bucket vs Leaky Bucket——Laravel API 的四算法选型决策树"
 date: 2026-06-10 04:52:00
 categories:
+keywords: [Redis Cell vs Sliding Window vs Token Bucket vs Leaky Bucket, Laravel API, 分布式限流, 的四算法选型决策树, PHP]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

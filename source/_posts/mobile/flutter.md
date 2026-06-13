@@ -1,6 +1,7 @@
 ---
+
 title: Flutter 响应式布局实战：屏幕适配、折叠屏、平板适配策略
-keywords: [Flutter]
+keywords: [Flutter, 响应式布局实战, 屏幕适配, 折叠屏, 平板适配策略]
 date: 2026-06-01 10:00:00
 tags:
 - Flutter
@@ -14,9 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
-description: 本文系统讲透 Flutter 响应式布局与屏幕适配实战，涵盖折叠屏、平板、多端断点系统、MediaQuery 与 LayoutBuilder
-  分工、导航与网格策略，帮你从手机到大屏建立真正可维护的适配方案。
+description: 本文系统讲透 Flutter 响应式布局与屏幕适配实战，涵盖折叠屏、平板、多端断点系统、MediaQuery 与 LayoutBuilder 分工、导航与网格策略，帮你从手机到大屏建立真正可维护的适配方案。
 ---
+
 
 
 # Flutter 响应式布局实战：屏幕适配、折叠屏、平板适配策略

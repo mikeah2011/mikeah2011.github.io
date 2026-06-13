@@ -1,6 +1,7 @@
 ---
+
 title: Docker Compose 5.x 实战：多服务编排、健康检查与开发环境搭建踩坑记录
-keywords: [Docker, Compose]
+keywords: [Docker Compose, 多服务编排, 健康检查与开发环境搭建踩坑记录]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -13,9 +14,9 @@ tags:
 categories:
 - devops
 - docker
-description: Docker Compose 5.x 多服务编排实战：PHP-FPM + MySQL + Redis + Elasticsearch +
-  Mailpit 的 Laravel 开发环境搭建，涵盖健康检查、depends_on 条件启动、Volume 持久化、网络隔离、Init 脚本等核心踩坑记录。
+description: Docker Compose 5.x 多服务编排实战：PHP-FPM + MySQL + Redis + Elasticsearch + Mailpit 的 Laravel 开发环境搭建，涵盖健康检查、depends_on 条件启动、Volume 持久化、网络隔离、Init 脚本等核心踩坑记录。
 ---
+
 
 # Docker Compose 5.x 实战：多服务编排、健康检查与开发环境搭建踩坑记录
 

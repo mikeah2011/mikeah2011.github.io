@@ -1,6 +1,6 @@
 ---
 title: Laravel 数据主权合规实战：数据出境评估、PIPL/GDPR 双合规、跨境传输 SCC——全球化电商的数据治理框架
-keywords: [Laravel]
+keywords: [Laravel, PIPL, GDPR, SCC, 数据主权合规实战, 数据出境评估, 双合规, 跨境传输, 全球化电商的数据治理框架]
 date: 2026-06-10 03:12:00
 categories:
   - security
@@ -17,6 +17,7 @@ tags:
   - 数据治理
 description: 以 Laravel 电商系统为例，完整拆解数据主权合规路径：数据资产盘点、出境风险评估、PIPL 与 GDPR 双轨治理、SCC 跨境传输机制、审计日志与数据主体权利实现。
 ---
+
 
 ## 概述
 

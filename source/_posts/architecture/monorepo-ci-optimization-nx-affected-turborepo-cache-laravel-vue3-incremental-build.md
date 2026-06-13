@@ -1,13 +1,13 @@
 ---
+
 title: Monorepo CI Optimization 实战：Nx Affected + Turborepo Cache——Laravel + Vue 3
-keywords: [Monorepo, CI, Optimization]
-  大型 Monorepo 的增量构建策略
+keywords: [Monorepo CI Optimization, Nx Affected, Turborepo Cache, Laravel, Vue, 架构]
 date: 2026-06-09 16:53:00
 categories:
+  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-- architecture
 tags:
 - Monorepo
 - CI/CD
@@ -16,10 +16,9 @@ tags:
 - Laravel
 - Vue
 - 增量构建
-description: 大型 Monorepo 中 Laravel + Vue 3 混合项目的 CI 构建时间优化实战。从"全量构建"到"只构建受影响模块"，用
-  Nx Affected 判断变更范围、Turborepo Remote Cache 加速重复构建，CI 时间从 25 分钟降到 3 分钟。包含完整的 composer.json、nx.json、turbo.json
-  配置和 GitHub Actions workflow。
+description: 大型 Monorepo 中 Laravel + Vue 3 混合项目的 CI 构建时间优化实战。从"全量构建"到"只构建受影响模块"，用 Nx Affected 判断变更范围、Turborepo Remote Cache 加速重复构建，CI 时间从 25 分钟降到 3 分钟。包含完整的 composer.json、nx.json、turbo.json 配置和 GitHub Actions workflow。
 ---
+
 
 
 ## 概述

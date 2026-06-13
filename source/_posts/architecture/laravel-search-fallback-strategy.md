@@ -1,6 +1,6 @@
 ---
 title: Laravel 搜索降级策略实战：Elasticsearch 不可用时自动回退数据库 LIKE/Full-Text
-keywords: [Laravel]
+keywords: [Laravel, Elasticsearch, LIKE, Full, Text, 搜索降级策略实战, 不可用时自动回退数据库, 架构]
 date: 2026-06-10 02:21:00
 categories:
   - architecture
@@ -15,6 +15,7 @@ tags:
   - MySQL Full-Text
 description: 当 Elasticsearch 集群宕机或响应超时时，搜索服务不能直接报错给用户。本文实战演示三层搜索防线的完整设计：ES → MySQL Full-Text → LIKE 模糊查询，含健康检测、自动切换、手动兜底的完整实现。
 ---
+
 
 ## 前言
 

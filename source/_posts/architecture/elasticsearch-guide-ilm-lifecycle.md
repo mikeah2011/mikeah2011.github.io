@@ -1,13 +1,12 @@
 ---
+
 title: Elasticsearch 全文搜索深度调优实战：ILM 生命周期管理与冷热数据分离踩坑记录
-keywords: [Elasticsearch]
+keywords: [Elasticsearch, ILM, 全文搜索深度调优实战, 生命周期管理与冷热数据分离踩坑记录]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-04 11:22:00 +0800
-description: 深入讲解 Elasticsearch ILM（Index Lifecycle Management）索引生命周期管理，涵盖热温冷三级存储架构设计、ILM
-  Policy 配置实战、索引模板绑定、Rollover 自动切换、Shrink 与 ForceMerge 优化。结合 KKday B2C 真实生产踩坑经验，对比
-  ILM 与 TSM 方案差异，提供完整的监控告警配置与最佳实践指南。
+description: 深入讲解 Elasticsearch ILM（Index Lifecycle Management）索引生命周期管理，涵盖热温冷三级存储架构设计、ILM Policy 配置实战、索引模板绑定、Rollover 自动切换、Shrink 与 ForceMerge 优化。结合 KKday B2C 真实生产踩坑经验，对比 ILM 与 TSM 方案差异，提供完整的监控告警配置与最佳实践指南。
 categories:
 - misc
 - search
@@ -18,6 +17,7 @@ tags:
 - 索引生命周期管理
 - 热温冷架构
 ---
+
 
 
 # Elasticsearch 全文搜索深度调优实战：ILM 生命周期管理与冷热数据分离踩坑记录

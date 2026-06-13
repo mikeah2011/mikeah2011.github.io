@@ -1,6 +1,7 @@
 ---
+
 title: local-docker 实战 — PHP-FPM 8.0 + MySQL/Redis + Mailhog 开发环境配置
-keywords: [PHP, FPM, MySQL]
+keywords: [local, docker, PHP, FPM, MySQL, Redis, Mailhog, 开发环境配置]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -14,10 +15,9 @@ tags:
 - Laravel
 - PHP
 - 工程管理
-description: KKday B2C 后端 30+ 个 Laravel 仓库统一本地开发环境的完整实战指南 —— 从零搭建 local-docker（PHP-FPM
-  8.0 + MySQL + Redis + Mailhog），详解 Dockerfile 与 docker-compose 配置，解决容器权限、hostname
-  互通、邮件捕获等常见坑位，附 Makefile 速查与 FAQ，新成员 10 分钟跑起来。
+description: KKday B2C 后端 30+ 个 Laravel 仓库统一本地开发环境的完整实战指南 —— 从零搭建 local-docker（PHP-FPM 8.0 + MySQL + Redis + Mailhog），详解 Dockerfile 与 docker-compose 配置，解决容器权限、hostname 互通、邮件捕获等常见坑位，附 Makefile 速查与 FAQ，新成员 10 分钟跑起来。
 ---
+
 
 # local-docker 实战：PHP-FPM 8.0 + MySQL/Redis + Mailhog 开发环境配置
 

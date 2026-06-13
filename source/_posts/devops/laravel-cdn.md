@@ -1,4 +1,5 @@
 ---
+
 title: 多区域部署实战：全球化 Laravel 应用——数据库同步、CDN 边缘缓存与跨区域一致性
 date: 2026-06-02 00:00:00
 tags:
@@ -9,15 +10,14 @@ tags:
 - 全球化
 - 边缘缓存
 categories:
-- devops
-description: 全球化 Laravel 应用多区域部署实战指南，系统覆盖 Active-Active/Active-Passive/混合模式三种架构选型、MySQL
-  GTID 跨区域主从复制与 TiDB 分布式数据库方案、CloudFront/Cloudflare Workers 边缘缓存与 Vary 头策略、写后读一致性与最终一致性事件同步、LWW/字段级合并冲突解决、DynamoDB
-  跨区域分布式锁、JWT 无状态 Session 与 Redis CRDT 缓存同步、GDPR 数据驻留与合规导出。附 Terraform 多区域 IaC 部署流程与健康检查故障转移方案，适合
-  B2C 电商出海团队从单区域平滑演进到全球多区域部署参考。
+  - devops
+keywords: [Laravel, CDN, 多区域部署实战, 全球化, 应用, 数据库同步, 边缘缓存与跨区域一致性]
+description: 全球化 Laravel 应用多区域部署实战指南，系统覆盖 Active-Active/Active-Passive/混合模式三种架构选型、MySQL GTID 跨区域主从复制与 TiDB 分布式数据库方案、CloudFront/Cloudflare Workers 边缘缓存与 Vary 头策略、写后读一致性与最终一致性事件同步、LWW/字段级合并冲突解决、DynamoDB 跨区域分布式锁、JWT 无状态 Session 与 Redis CRDT 缓存同步、GDPR 数据驻留与合规导出。附 Terraform 多区域 IaC 部署流程与健康检查故障转移方案，适合 B2C 电商出海团队从单区域平滑演进到全球多区域部署参考。
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
+
 
 
 

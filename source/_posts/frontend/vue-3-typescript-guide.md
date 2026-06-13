@@ -1,6 +1,7 @@
 ---
+
 title: Vue-3-TypeScript-实战-类型安全的前端开发与真实踩坑记录
-keywords: [Vue, TypeScript]
+keywords: [Vue, TypeScript, 类型安全的前端开发与真实踩坑记录]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -11,9 +12,9 @@ categories:
 tags:
 - TypeScript
 - Vue
-description: 从 Vue 3 + TypeScript 项目搭建到生产落地的完整实战经验，涵盖 ref/reactive 类型推断陷阱、Pinia 类型化
-  Store、API 响应类型体系、组件 Props 强类型设计，以及 30+ 仓库积累的常见类型错误与修复方案。
+description: 从 Vue 3 + TypeScript 项目搭建到生产落地的完整实战经验，涵盖 ref/reactive 类型推断陷阱、Pinia 类型化 Store、API 响应类型体系、组件 Props 强类型设计，以及 30+ 仓库积累的常见类型错误与修复方案。
 ---
+
 
 # Vue 3 + TypeScript 实战：类型安全的前端开发与真实踩坑记录
 

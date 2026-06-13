@@ -1,6 +1,7 @@
 ---
+
 title: Secrets Rotation 实战：AWS Secrets Manager + Laravel——自动化密钥轮换、版本管理与热加载的工程化方案
-keywords: [Secrets, Rotation]
+keywords: [Secrets Rotation, AWS Secrets Manager, Laravel, 自动化密钥轮换, 版本管理与热加载的工程化方案]
 date: 2026-06-05 10:00:00
 tags:
 - secrets-manager
@@ -11,14 +12,14 @@ tags:
 - DevOps
 - env-vars
 - Secrets-Management
-description: 深入实战 AWS Secrets Manager 与 Laravel 自动化密钥轮换，涵盖 Lambda 四步轮换函数、IAM 最小权限策略、ServiceProvider
-  热加载、EventBridge 监控告警及 CI/CD 集成，实现密钥全生命周期安全管理与合规审计，构建企业级 DevOps 安全最佳实践。
+description: 深入实战 AWS Secrets Manager 与 Laravel 自动化密钥轮换，涵盖 Lambda 四步轮换函数、IAM 最小权限策略、ServiceProvider 热加载、EventBridge 监控告警及 CI/CD 集成，实现密钥全生命周期安全管理与合规审计，构建企业级 DevOps 安全最佳实践。
 categories:
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
+
 
 
 

@@ -1,6 +1,7 @@
 ---
+
 title: TiDB 实战：分布式 SQL 数据库在 Laravel 中的集成——MySQL 兼容的 NewSQL 选型指南
-keywords: [TiDB]
+keywords: [TiDB, SQL, Laravel, MySQL, NewSQL, 分布式, 数据库在, 中的集成, 兼容的, 选型指南]
 date: 2026-06-02 10:00:00
 tags:
 - TiDB
@@ -13,10 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
-description: TiDB 是 MySQL 兼容的分布式 NewSQL 数据库，让 Laravel 项目无需分库分表即可实现水平扩展。本文从实际项目出发，详解
-  TiDB 与 Laravel 的集成方案，包括数据库驱动配置、AUTO_RANDOM 主键策略、悲观事务模式选择、TiFlash 列存加速等核心实践。对比传统分库分表方案与
-  TiDB 的优劣，深入分析 HTAP 混合负载能力，并提供生产环境的踩坑经验与性能调优建议。
+description: TiDB 是 MySQL 兼容的分布式 NewSQL 数据库，让 Laravel 项目无需分库分表即可实现水平扩展。本文从实际项目出发，详解 TiDB 与 Laravel 的集成方案，包括数据库驱动配置、AUTO_RANDOM 主键策略、悲观事务模式选择、TiFlash 列存加速等核心实践。对比传统分库分表方案与 TiDB 的优劣，深入分析 HTAP 混合负载能力，并提供生产环境的踩坑经验与性能调优建议。
 ---
+
 
 
 # TiDB 实战：分布式 SQL 数据库在 Laravel 中的集成——MySQL 兼容的 NewSQL 选型指南

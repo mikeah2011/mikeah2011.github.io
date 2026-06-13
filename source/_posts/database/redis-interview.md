@@ -1,6 +1,7 @@
 ---
+
 title: Redis 面试高频题汇总：数据结构、持久化、集群、分布式锁
-keywords: [Redis]
+keywords: [Redis, 面试高频题汇总, 数据结构, 持久化, 集群, 分布式锁]
 sticky: 90
 tags:
 - Redis
@@ -14,9 +15,9 @@ cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fi
 images:
 - /images/content/databases-001-content-1.jpg
 - /images/content/databases-001-content-2.jpg
-description: 基础 1.说说什么是Redis? Redis图标 Redis是一种基于键值对（key-value）的NoSQL数据库。 比一般键值对数据库强大的地方，Redis中的value支持string（字符串）、hash（哈希）、
-  list（列表）、…
+description: 基础 1.说说什么是Redis? Redis图标 Redis是一种基于键值对（key-value）的NoSQL数据库。 比一般键值对数据库强大的地方，Redis中的value支持string（字符串）、hash（哈希）、 list（列表）、…
 ---
+
 
 
 

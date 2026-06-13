@@ -1,6 +1,7 @@
 ---
+
 title: Hermes 安全模型深度剖析：cron 上下文工具禁用、子代理工具隔离、prompt injection 扫描
-keywords: [Hermes]
+keywords: [Hermes, cron, prompt injection, 安全模型深度剖析, 上下文工具禁用, 子代理工具隔离, 扫描]
 date: 2026-06-02 08:00:00
 tags:
 - Hermes
@@ -11,13 +12,12 @@ tags:
 - 子代理
 categories:
 - ai
-description: 深度剖析 Hermes Agent 三层安全防护体系：cron 上下文工具禁用机制防止无人值守时的工具滥用，leaf/orchestrator
-  子代理工具隔离阻止权限链式扩散，StreamingContextScrubber 实时扫描清洗外部内容中的 prompt injection 攻击。涵盖威胁模型分析、工具可用性矩阵、嵌套深度限制、跨
-  Profile 软保护等核心安全设计，附完整的代码实现示例和最佳实践建议。
+description: 深度剖析 Hermes Agent 三层安全防护体系：cron 上下文工具禁用机制防止无人值守时的工具滥用，leaf/orchestrator 子代理工具隔离阻止权限链式扩散，StreamingContextScrubber 实时扫描清洗外部内容中的 prompt injection 攻击。涵盖威胁模型分析、工具可用性矩阵、嵌套深度限制、跨 Profile 软保护等核心安全设计，附完整的代码实现示例和最佳实践建议。
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
+
 
 
 

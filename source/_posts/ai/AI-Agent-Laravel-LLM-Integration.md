@@ -2,13 +2,14 @@
 title: AI Agent + Laravel 实战：在 PHP 后端中集成 LLM 能力
 date: 2026-06-02 02:31:05
 tags: [AI, Laravel, LLM, PHP]
-keywords: [AI, Laravel, LLM, PHP, Agent]
+keywords: [AI Agent, Laravel, PHP, LLM, 后端中集成, 能力, AI]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: 这篇文章系统拆解 AI Agent 在 Laravel 与 PHP 后端集成 LLM 的完整实践路径，涵盖统一接口设计、多 Provider 接入、Streaming 流式输出、Prompt 管理、队列异步、成本控制与故障降级，帮助你把 AI 能力真正落进可维护、可审计、可扩展的后端集成体系。
 ---
+
 
 在过去两年里，很多团队谈到“AI 落地”时，第一反应仍然是做一个聊天页面，接上某个模型 API，然后在前端展示回答。但如果你真正做过业务系统，就会很快发现：AI 能力真正稳定地产生价值，往往不是停留在一个孤立的 Chat 界面，而是深入到后端服务里，变成内容生成、知识问答、工单归类、风险审核、数据提取、文本改写、邮件草拟、运营辅助、代码解释、搜索增强等一系列可编排的服务能力。
 

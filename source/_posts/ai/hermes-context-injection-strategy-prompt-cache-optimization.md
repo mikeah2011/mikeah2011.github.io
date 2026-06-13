@@ -1,6 +1,7 @@
 ---
+
 title: Hermes 上下文注入策略：为什么注入 user message 而非 system prompt？（prompt cache 优化）
-keywords: [Hermes]
+keywords: [Hermes, user message, system prompt, prompt cache, 上下文注入策略, 为什么注入, 而非]
 date: 2026-06-02 12:00:00
 tags:
 - Hermes
@@ -14,10 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-description: 为什么 Hermes Agent 选择将动态上下文注入 user message 而非 system prompt？本文从 Anthropic/OpenAI
-  的 prompt caching 底层机制出发，解析消息级缓存命中原理，展示如何通过分离静态与动态内容将缓存命中率从 0% 提升至 95%，有效 input tokens
-  降低 70%。附带完整的上下文组装代码实现、三种注入策略对比测试与成本分析。
+description: 为什么 Hermes Agent 选择将动态上下文注入 user message 而非 system prompt？本文从 Anthropic/OpenAI 的 prompt caching 底层机制出发，解析消息级缓存命中原理，展示如何通过分离静态与动态内容将缓存命中率从 0% 提升至 95%，有效 input tokens 降低 70%。附带完整的上下文组装代码实现、三种注入策略对比测试与成本分析。
 ---
+
 
 
 # Hermes 上下文注入策略：为什么注入 user message 而非 system prompt？（prompt cache 优化）

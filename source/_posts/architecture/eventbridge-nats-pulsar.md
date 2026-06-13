@@ -1,4 +1,5 @@
 ---
+
 title: 事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计——从点对点到发布订阅的演进
 date: 2026-06-02 00:00:00
 tags:
@@ -9,14 +10,14 @@ tags:
 - CQRS
 - 事件溯源
 categories:
-- architecture
+  - architecture
+keywords: [EventBridge, NATS, Pulsar, 事件驱动架构全景实战, 统一事件总线设计, 从点对点到发布订阅的演进]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 从点对点调用到发布订阅的架构演进全景，深入对比 AWS EventBridge、NATS JetStream、Apache Pulsar
-  三大事件总线的核心架构与适用场景。涵盖 CloudEvents 规范事件设计、NATS Subject-Based 路由与 Leaf Node 边缘计算、Pulsar
-  计算存储分离与分层存储、统一事件总线接口的 Laravel 实战代码、死信队列与幂等消费设计，以及 Strangler Fig Pattern 渐进式迁移检查清单，帮助团队在微服务架构中选择最适合的事件驱动方案。
+description: 从点对点调用到发布订阅的架构演进全景，深入对比 AWS EventBridge、NATS JetStream、Apache Pulsar 三大事件总线的核心架构与适用场景。涵盖 CloudEvents 规范事件设计、NATS Subject-Based 路由与 Leaf Node 边缘计算、Pulsar 计算存储分离与分层存储、统一事件总线接口的 Laravel 实战代码、死信队列与幂等消费设计，以及 Strangler Fig Pattern 渐进式迁移检查清单，帮助团队在微服务架构中选择最适合的事件驱动方案。
 ---
+
 
 
 

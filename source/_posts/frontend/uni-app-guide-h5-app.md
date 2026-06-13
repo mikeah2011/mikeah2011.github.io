@@ -1,4 +1,5 @@
 ---
+
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -6,14 +7,15 @@ title: uni-app 多端适配实战：H5/微信小程序/App 一套代码搞定踩
 date: 2026-05-05 10:10:56
 updated: 2026-05-05 10:13:47
 categories:
-- frontend
+  - frontend
+keywords: [uni, app, H5, 多端适配实战, 微信小程序, 一套代码搞定踩坑记录]
 tags:
 - Vue
 - uni-app
 - 前端
-description: uni-app 跨平台前端开发实战指南：基于奇乐MAX电商项目，深度拆解 uni-app H5、微信小程序、App 三端适配中的架构设计、条件编译技巧、平台差异踩坑与性能优化方案。涵盖网络请求封装、支付登录多端适配、rich-text
-  兼容处理、分包加载策略等核心痛点，附 uni-app H5 与原生 H5 的全面对比表格，从 Vue 3 + Vite 项目搭建到多端生产部署的完整工程化工作流。
+description: uni-app 跨平台前端开发实战指南：基于奇乐MAX电商项目，深度拆解 uni-app H5、微信小程序、App 三端适配中的架构设计、条件编译技巧、平台差异踩坑与性能优化方案。涵盖网络请求封装、支付登录多端适配、rich-text 兼容处理、分包加载策略等核心痛点，附 uni-app H5 与原生 H5 的全面对比表格，从 Vue 3 + Vite 项目搭建到多端生产部署的完整工程化工作流。
 ---
+
 
 # uni-app 多端适配实战：H5/微信小程序/App 一套代码搞定踩坑记录
 

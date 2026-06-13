@@ -9,12 +9,13 @@ categories:
   - php
   - quality
 tags: [CI/CD, Laravel, PHP]
-keywords: [CI/CD, Laravel, PHP, PHPStan, Level]
+keywords: [PHPStan, Level, Laravel, B2C, API, 静态分析类型安全与渐进式升级, 踩坑记录, PHP]
 description: "PHPStan Level 8 是 PHP 静态分析的最高等级，要求完全类型安全。本文基于 Laravel B2C API 项目实战，详细记录从 Level 5 渐进升级到 Level 8 的完整过程，涵盖泛型类型标注、联合类型窄化、StrictRules 插件配置、Larastan 特有陷阱、baseline 管理策略、CI 门禁集成以及 30+ 仓库治理经验，附带完整代码示例与踩坑对照表，帮助团队系统性提升 PHP 代码的类型安全水平。"
 
 
 
 ---
+
 ## 前言
 
 PHPStan 是 PHP 生态中最强大的静态分析工具之一，它在不运行代码的情况下检测潜在的 Bug。Level 8 是其最严格的检查等级，要求**完全类型安全**——包括精确的泛型标注、严格的 null 检查、以及不允许任何类型模糊。

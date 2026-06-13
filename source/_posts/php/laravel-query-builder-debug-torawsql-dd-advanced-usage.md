@@ -1,6 +1,6 @@
 ---
 title: Laravel Query Builder Debug 实战：toRawSql/dd 的高级用法——复杂查询的 SQL 溯源、绑定参数可视化与性能分析
-keywords: [Laravel, Query, Builder]
+keywords: [Laravel Query Builder Debug, toRawSql, dd, SQL, 的高级用法, 复杂查询的, 溯源, 绑定参数可视化与性能分析, PHP]
 date: 2026-06-10 01:09:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - 性能分析
 description: 深入 Laravel Query Builder 的调试技巧，涵盖 toRawSql、dd、DB::listen 等工具的高级用法，解决复杂查询的 SQL 溯源、绑定参数可视化与性能分析问题。
 ---
+
 
 # Laravel Query Builder Debug 实战：toRawSql/dd 的高级用法
 

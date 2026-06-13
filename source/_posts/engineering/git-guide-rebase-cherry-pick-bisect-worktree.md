@@ -1,6 +1,7 @@
 ---
+
 title: Git 高级用法实战：Rebase、Cherry-pick、Bisect、Worktree 踩坑记录
-keywords: [Git]
+keywords: [Git, Rebase, Cherry, pick, Bisect, Worktree, 高级用法实战, 踩坑记录]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
@@ -16,10 +17,9 @@ tags:
 - bisect
 - Worktree
 - 工程管理
-description: Git 高级用法实战指南：深入讲解 rebase 保持线性历史、cherry-pick 跨分支移植 hotfix、bisect 二分法定位回归
-  Bug、worktree 多目录并行开发四大核心命令。涵盖交互式变基、cherry-pick merge commit 技巧、bisect 自动化脚本等 30+
-  仓库真实踩坑经验，附 Rebase vs Merge 对比表。
+description: Git 高级用法实战指南：深入讲解 rebase 保持线性历史、cherry-pick 跨分支移植 hotfix、bisect 二分法定位回归 Bug、worktree 多目录并行开发四大核心命令。涵盖交互式变基、cherry-pick merge commit 技巧、bisect 自动化脚本等 30+ 仓库真实踩坑经验，附 Rebase vs Merge 对比表。
 ---
+
 
 
 # Git 高级用法实战：Rebase、Cherry-pick、Bisect、Worktree 踩坑记录

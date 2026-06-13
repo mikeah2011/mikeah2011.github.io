@@ -1,10 +1,9 @@
 ---
+
 title: BFF vs GraphQL：何时用 BFF 而非直接调用 API？
-keywords: [BFF, GraphQL]
+keywords: [BFF vs GraphQL, BFF, API, 何时用, 而非直接调用]
 date: 2026-05-02
-description: BFF vs GraphQL 如何选型？本文基于 KKday B2C 真实项目经验，对比 Laravel BFF、GraphQL 与 Direct
-  API 三种架构方案的性能、缓存策略、版本管理和团队适配维度，附完整代码示例与性能实测数据，帮助后端工程师在微服务聚合场景中做出理性架构决策，避免过度设计 GraphQL
-  的常见踩坑。
+description: BFF vs GraphQL 如何选型？本文基于 KKday B2C 真实项目经验，对比 Laravel BFF、GraphQL 与 Direct API 三种架构方案的性能、缓存策略、版本管理和团队适配维度，附完整代码示例与性能实测数据，帮助后端工程师在微服务聚合场景中做出理性架构决策，避免过度设计 GraphQL 的常见踩坑。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/architecture-1-content-1.jpg
@@ -21,6 +20,7 @@ tags:
 - 架构
 简介: KKday B2C 项目中我实际做过三种方案对比：Laravel BFF、GraphQL、Direct API。本文分享真实踩坑记录和选型决策框架，适合正在纠结架构的工程师阅读。
 ---
+
 
 ## 🎯 场景背景：KKday B2C 项目的架构抉择
 

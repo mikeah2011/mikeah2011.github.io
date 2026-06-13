@@ -1,4 +1,4 @@
----
+
 title: PostgreSQL Partial Index + Expression Index 实战：条件索引与函数索引——Laravel 查询优化的隐藏利器
 keywords: [PostgreSQL, Partial, Index]
 date: 2026-06-07 22:00:00
@@ -10,11 +10,10 @@ tags:
 - Expression Index
 - 数据库
 categories:
-- database
+  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
----
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop---
 
 
 > 很多 Laravel 项目使用 PostgreSQL 时，开发者往往只会创建最基本的 B-tree 索引。但 PostgreSQL 有两种极其强大却经常被忽视的索引特性——**条件索引（Partial Index）** 和 **表达式索引（Expression Index）**。它们能让你用更小的索引体积、更低的维护开销，实现更精准的查询优化。本文将从原理到实战，手把手教你如何在 Laravel 项目中充分利用这两把"隐藏利器"。
@@ -65,6 +64,7 @@ Partial Index 和 Expression Index 的核心优势就在于：**它们可以减�
 现在，让我们正式进入这两种索引的详细讲解。
 
 ---
+
 
 ## 二、Partial Index（条件索引）：只为"重要的行"建索引
 

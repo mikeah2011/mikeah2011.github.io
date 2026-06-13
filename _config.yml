@@ -27,7 +27,7 @@ root: /
 permalink: /post/:name/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_index: false # Remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
@@ -154,8 +154,12 @@ sitemap:
 
 feed:
   enable: true
-  type: atom
-  path: atom.xml
+  type:
+    - atom
+    - rss2
+  path:
+    - atom.xml
+    - rss.xml
   limit: 20
   hub:
   content: true
@@ -166,11 +170,13 @@ robotstxt:
     - /
   sitemap:
     - https://mikeah2011.github.io/sitemap.xml
+    - https://mikeah2011.github.io/baidusitemap.xml
 
 
 # Baidu sitemap
 baidusitemap:
   path: baidusitemap.xml
+  url: https://mikeah2011.github.io/
 
 # 外链自动加 nofollow（保留白名单）
 nofollow:

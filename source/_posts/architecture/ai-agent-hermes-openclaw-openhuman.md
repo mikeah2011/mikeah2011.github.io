@@ -3,13 +3,14 @@ title: 企业级 AI Agent 部署：Hermes/OpenClaw/OpenHuman 在生产环境的�
 date: 2026-06-02 09:00:00
 description: "从安全合规、可观测性、高可用灾备、成本控制、多租户隔离、扩展性六大维度深度分析 Hermes Agent、OpenClaw、OpenHuman 三大开源 AI Agent 框架的企业级生产部署能力。包含详细的安全模型对比、合规能力矩阵、监控指标采集方案和成本测算模型，为企业架构师选型提供量化决策依据。"
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 企业级, 生产部署]
-keywords: [AI Agent, Hermes, OpenClaw, OpenHuman, 企业级, AI, Agent]
+keywords: [AI Agent, Hermes, OpenClaw, OpenHuman, 企业级, 在生产环境的适用性分析, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
+
 
 # 企业级 AI Agent 部署：Hermes/OpenClaw/OpenHuman 在生产环境的适用性分析
 

@@ -1,9 +1,9 @@
 ---
+
 title: Hermes 子代理架构：leaf vs orchestrator 角色模型、工具屏蔽、审批策略
-keywords: [Hermes]
+keywords: [Hermes, leaf vs orchestrator, 子代理架构, 角色模型, 工具屏蔽, 审批策略]
 date: 2026-06-02 00:00:00
-description: 深入剖析 Hermes Agent 子代理架构设计，详解 Leaf（叶节点）与 Orchestrator（编排者）两种角色模型的职责划分、工具屏蔽机制和安全审批策略。涵盖任务分解与并行执行、delegate_task
-  通信协议、深度控制防无限嵌套、上下文感知审批等核心实现，附 Python 代码示例与架构图，帮助开发者构建安全可控的多 Agent 协作系统。
+description: 深入剖析 Hermes Agent 子代理架构设计，详解 Leaf（叶节点）与 Orchestrator（编排者）两种角色模型的职责划分、工具屏蔽机制和安全审批策略。涵盖任务分解与并行执行、delegate_task 通信协议、深度控制防无限嵌套、上下文感知审批等核心实现，附 Python 代码示例与架构图，帮助开发者构建安全可控的多 Agent 协作系统。
 tags:
 - Hermes
 - 子代理
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
+
 
 
 

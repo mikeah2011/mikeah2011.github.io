@@ -1,7 +1,7 @@
 ---
+
 title: Data Contract 实战：Pact-style 数据契约——Laravel 微服务间数据格式的版本化、验证与 Breaking Change
-keywords: [Data, Contract]
-  检测
+keywords: [Data Contract, Pact, style, Laravel, Breaking Change, 数据契约, 微服务间数据格式的版本化, 验证与]
 date: 2026-06-05 10:00:00
 tags:
 - Data Contract
@@ -12,14 +12,12 @@ tags:
 - Breaking Changes
 categories:
 - php
-description: 微服务架构中服务间数据格式不一致导致的线上事故屡见不鲜。本文以 Laravel 微服务为实战背景，深入讲解如何利用 JSON Schema
-  定义机器可读的数据契约（Data Contract），结合 Pact 消费者驱动契约测试模式验证服务间实际交互，并通过自研 SchemaDiffAnalyzer
-  和 oasdiff 工具在 CI/CD 流程中自动检测 Breaking Change。涵盖 Schema 版本化策略、中间件集成、Pact Broker 部署门禁、多版本共存与版本日落等完整工程实践，附可运行的
-  PHP 代码示例与 GitHub Actions 配置，帮助团队将隐式 API 约定转变为可验证、可追溯的显式契约。
+description: 微服务架构中服务间数据格式不一致导致的线上事故屡见不鲜。本文以 Laravel 微服务为实战背景，深入讲解如何利用 JSON Schema 定义机器可读的数据契约（Data Contract），结合 Pact 消费者驱动契约测试模式验证服务间实际交互，并通过自研 SchemaDiffAnalyzer 和 oasdiff 工具在 CI/CD 流程中自动检测 Breaking Change。涵盖 Schema 版本化策略、中间件集成、Pact Broker 部署门禁、多版本共存与版本日落等完整工程实践，附可运行的 PHP 代码示例与 GitHub Actions 配置，帮助团队将隐式 API 约定转变为可验证、可追溯的显式契约。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 
 ## 引言：微服务架构下的数据一致性痛点

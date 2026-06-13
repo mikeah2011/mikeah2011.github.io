@@ -2,13 +2,14 @@
 title: CrewAI 实战：多角色 Agent 协作与任务分解策略
 date: 2026-06-02 09:00:00
 tags: [CrewAI, AI Agent, 多角色协作, Python]
-keywords: [CrewAI, AI Agent, 多角色协作, Python]
+keywords: [CrewAI, Agent, 多角色, 协作与任务分解策略, AI]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: "想系统掌握 CrewAI 多角色协作怎么落地？本文结合 Python 实战详解 Agent、Task、Crew 任务分解、Sequential/Hierarchical 流程设计，并对比 AutoGen 与 LangGraph 选型策略，帮你搭建可治理的 AI Agent 工作流。"
 ---
+
 
 # CrewAI 实战：多角色 Agent 协作与任务分解策略
 

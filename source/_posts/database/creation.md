@@ -1,6 +1,7 @@
 ---
+
 title: MySQL 创建索引的正确姿势：ALTER TABLE vs CREATE INDEX
-keywords: [MySQL]
+keywords: [MySQL, ALTER TABLE vs CREATE INDEX, 创建索引的正确姿势, 数据库]
 tags:
 - MySQL
 - 索引
@@ -8,7 +9,7 @@ tags:
 - B-Tree
 - 性能优化
 categories:
-- database
+  - database
 date: 2016-10-03 20:15:24
 description: MySQL创建索引完全指南：详解CREATE TABLE、ALTER TABLE、CREATE INDEX三种建索引方式的语法与实战示例，深入对比B-Tree、Hash、全文索引、空间索引的性能差异与适用场景，包含索引命名规范、冗余索引检测、索引膨胀修复等最佳实践，以及低选择性列、隐式类型转换等常见性能陷阱，帮助开发者通过科学的索引策略实现数据库查询性能优化。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
@@ -16,6 +17,7 @@ images:
 - /images/content/databases-001-content-1.jpg
 - /images/content/databases-001-content-2.jpg
 ---
+
 
 
 ## 1. 在执行 CREATE TABLE 时创建索引

@@ -9,12 +9,13 @@ categories:
   - engineering
   - testing
 tags: [Laravel, 测试, API, Postman, Apifox, CI/CD]
-keywords: [Laravel, 测试, API, Postman, Apifox]
+keywords: [Postman, Apifox, API, Mock, Laravel B2C API, 自动化测试, 踩坑记录, 工程化, 测试]
 description: "Postman 与 Apifox 实战对比：在 KKday B2C 30+ Laravel 微服务仓库中，从手动 Postman 请求演进到 Apifox 契约驱动自动化测试的完整路径。覆盖环境变量分层管理、Mock Server 智能配置、Pre-request Script 自动获取 Token、数据驱动测试、Newman/Apifox CLI CI/CD 集成等 API 测试核心实战，附真实踩坑与选型决策指南。"
 
 
 
 ---
+
 # Postman/Apifox 实战：API 测试、Mock、自动化测试 — Laravel B2C API 踩坑记录
 
 ## 背景：从"手动点 Postman"到自动化 API 测试

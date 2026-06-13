@@ -1,10 +1,9 @@
 ---
+
 title: AI Agent 记忆系统对比：Hermes Memory vs OpenClaw MEMORY vs OpenHuman Memory Tree
-keywords: [AI, Agent]
+keywords: [AI Agent, Hermes Memory vs OpenClaw MEMORY vs OpenHuman Memory Tree, 记忆系统对比]
 date: 2026-06-02 12:00:00
-description: 深度对比 2026 年三大开源 AI Agent 框架的记忆系统架构：Hermes Memory 文件即记忆的透明设计、OpenClaw
-  MEMORY 三层分层智能记忆、OpenHuman Memory Tree 知识图谱式记忆。从存储架构、检索策略、记忆衰减、上下文注入等维度全面分析，包含 Python/Go/TypeScript
-  代码实现，帮助开发者根据场景选择最合适的记忆方案。
+description: 深度对比 2026 年三大开源 AI Agent 框架的记忆系统架构：Hermes Memory 文件即记忆的透明设计、OpenClaw MEMORY 三层分层智能记忆、OpenHuman Memory Tree 知识图谱式记忆。从存储架构、检索策略、记忆衰减、上下文注入等维度全面分析，包含 Python/Go/TypeScript 代码实现，帮助开发者根据场景选择最合适的记忆方案。
 tags:
 - AI Agent
 - 记忆系统
@@ -19,6 +18,7 @@ cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
+
 
 
 在 AI Agent 的技术栈中，**记忆系统**是最容易被忽视、却最能决定 Agent 「智商上限」的核心组件。一个没有记忆的 Agent，每次对话都从零开始，就像一个每天失忆的天才——能力很强但无法积累。而一个好的记忆系统，能让 Agent 从历史交互中学习、保持长期一致性、甚至形成「个人知识库」。

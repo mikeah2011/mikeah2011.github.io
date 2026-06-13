@@ -1,6 +1,7 @@
 ---
+
 title: GitHub-Actions-Composer-Cache-构建时间从20s到5s-优化实战踩坑记录
-keywords: [GitHub, Actions, Composer]
+keywords: [GitHub, Actions, Composer, Cache, 构建时间从, 优化实战踩坑记录]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -15,9 +16,9 @@ tags:
 - Laravel
 - 性能优化
 - 缓存
-description: 在 Laravel B2C 项目中，通过 GitHub Actions 的 Composer 缓存策略，将 CI 构建时间从 20s 优化到
-  5s 的完整实战记录，涵盖 actions/cache、dependency caching、Lock 文件管理与踩坑经验。
+description: 在 Laravel B2C 项目中，通过 GitHub Actions 的 Composer 缓存策略，将 CI 构建时间从 20s 优化到 5s 的完整实战记录，涵盖 actions/cache、dependency caching、Lock 文件管理与踩坑经验。
 ---
+
 
 # GitHub Actions + Composer Cache：构建时间从 20s→5s 的优化实战踩坑记录
 

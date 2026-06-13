@@ -1,6 +1,6 @@
 ---
 title: 2026 年主流 AI Agent 框架深度对比：LangChain/CrewAI/AutoGen/Dify/Coze 实战评测
-keywords: [AI, Agent]
+keywords: [AI Agent, LangChain, CrewAI, AutoGen, Dify, Coze, 年主流, 框架深度对比, 实战评测, macOS]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -18,6 +18,7 @@ tags:
   - 架构设计
 description: 从架构设计原理、源码级剖析、实战代码、性能基准、生产踩坑五个维度深度对比 2026 年五大主流 AI Agent 框架，为 Laravel 后端开发者提供选型决策矩阵。
 ---
+
 
 # 2026 年主流 AI Agent 框架深度对比：LangChain/CrewAI/AutoGen/Dify/Coze 实战评测
 

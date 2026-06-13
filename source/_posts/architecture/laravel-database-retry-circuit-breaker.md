@@ -1,12 +1,13 @@
 ---
+
 title: Laravel Database Retry 与断路器实战：云 RDS 瞬态连接失败的自动恢复
-keywords: [Laravel, Database, Retry]
+keywords: [Laravel Database Retry, RDS, 与断路器实战, 瞬态连接失败的自动恢复, 架构]
 date: 2026-06-10 06:28:00
 categories:
+  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-- architecture
 tags:
 - Laravel
 - MySQL
@@ -16,6 +17,7 @@ tags:
 - 高可用
 description: 云 RDS 瞬态连接失败是线上常见问题。本文从 Laravel 原生重试机制出发，逐步实现退避算法、断路器模式，最终构建一套完整的数据库连接弹性方案。
 ---
+
 
 
 ## 为什么需要 Database Retry？

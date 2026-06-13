@@ -8,12 +8,13 @@ updated: 2026-05-16 19:42:48
 categories:
   - php
 tags: [KKday, Laravel]
-keywords: [KKday, Laravel, GraphQL, Lighthouse]
+keywords: [GraphQL, Laravel Lighthouse, 与前端集成踩坑记录, PHP]
 description: "在 KKday B2C 项目中用 Laravel Lighthouse 落地 GraphQL 的完整实战：从 Schema 设计、N+1 治理、鉴权限流到 Subscription 实时推送，附带真实踩坑记录与架构决策。"
 
 
 
 ---
+
 ## 前言
 
 在之前的文章《BFF vs GraphQL》中，我对比了两种架构模式的选型决策。本文是**落地篇**——如果你已经决定在 Laravel 项目中引入 GraphQL，Lighthouse 是最成熟的 PHP GraphQL 服务器包。本文记录了在 B2C 电商场景中使用 Lighthouse 的完整实战经验，从 Schema 设计到生产部署，每一步都有真实踩坑。

@@ -1,4 +1,5 @@
 ---
+
 title: 选择排序算法详解：时间复杂度与 PHP/Go/JS 实现
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
@@ -11,8 +12,9 @@ tags:
 - 时间复杂度
 - 数据结构
 categories:
-- engineering
-- algorithms
+keywords: [PHP, Go, JS, 选择排序算法详解, 时间复杂度与, 实现, 工程化]
+  - engineering
+  - algorithms
 date: 2020-03-20 15:05:07
 description: 选择排序是一种简单直观的比较排序算法，时间复杂度O(n²)，空间复杂度O(1)，属于不稳定排序。本文详解选择排序的算法原理、多语言实现代码、性能基准测试，对比冒泡排序与插入排序的效率差异，分析稳定性特征，探讨在嵌入式系统和内存受限场景中的实际应用，是理解数据结构与算法思想的经典入门教程。
 ---

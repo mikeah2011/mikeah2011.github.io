@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Jobs & Queues 深度实战：延迟队列、批量任务与失败重试策略踩坑记录
-keywords: [Laravel, Jobs, Queues]
+keywords: [Laravel Jobs, Queues, 深度实战, 延迟队列, 批量任务与失败重试策略踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -12,9 +13,9 @@ tags:
 - Laravel
 - Redis
 - 消息队列
-description: 深入 Laravel Jobs & Queues 生产实战：延迟队列实现订单超时取消、Bus::batch 批量任务编排、失败重试策略与死信队列处理，涵盖
-  Redis/Database/SQS/RabbitMQ 队列驱动对比、Horizon 监控配置及内存泄漏等生产环境踩坑案例，来自 B2C 电商项目的真实经验。
+description: 深入 Laravel Jobs & Queues 生产实战：延迟队列实现订单超时取消、Bus::batch 批量任务编排、失败重试策略与死信队列处理，涵盖 Redis/Database/SQS/RabbitMQ 队列驱动对比、Horizon 监控配置及内存泄漏等生产环境踩坑案例，来自 B2C 电商项目的真实经验。
 ---
+
 
 # Laravel Jobs & Queues 深度实战：延迟队列、批量任务与失败重试策略
 

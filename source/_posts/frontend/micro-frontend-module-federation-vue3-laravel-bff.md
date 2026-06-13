@@ -1,9 +1,9 @@
 ---
+
 title: Micro-Frontend 深度实战：Module Federation 2.0——Vue 3 微前端架构与 Laravel BFF 聚合层集成
-keywords: [Micro, Frontend]
+keywords: [Micro, Frontend, Module Federation, Vue, Laravel BFF, 深度实战, 微前端架构与, 聚合层集成]
 date: 2026-06-06 10:00:00
-description: 深入实战 Module Federation 2.0 微前端架构，基于 Vue 3 + Vite 搭建宿主与远程应用，实现路由级按需加载、共享依赖版本管理、跨应用状态通信。结合
-  Laravel BFF 聚合层设计 API 聚合、JWT 统一认证与请求限流。涵盖 CI/CD 独立部署、灰度发布、样式隔离、错误边界与性能优化等生产踩坑经验，附微前端方案对比与最佳实践总结，适合大型团队渐进式迁移与多业务线协作场景。
+description: 深入实战 Module Federation 2.0 微前端架构，基于 Vue 3 + Vite 搭建宿主与远程应用，实现路由级按需加载、共享依赖版本管理、跨应用状态通信。结合 Laravel BFF 聚合层设计 API 聚合、JWT 统一认证与请求限流。涵盖 CI/CD 独立部署、灰度发布、样式隔离、错误边界与性能优化等生产踩坑经验，附微前端方案对比与最佳实践总结，适合大型团队渐进式迁移与多业务线协作场景。
 tags:
 - 微前端
 - Module Federation
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
+
 
 
 ## 引言：为什么需要微前端？单体前端的痛点

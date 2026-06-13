@@ -1,12 +1,13 @@
 ---
+
 title: CRDT 实战：无冲突复制数据类型——Laravel + Yjs 的多人协同编辑架构，对比 OT 算法的工程选型
-keywords: [CRDT]
+keywords: [CRDT, Laravel, Yjs, OT, 无冲突复制数据类型, 的多人协同编辑架构, 算法的工程选型, 架构]
 date: 2026-06-09 17:18:00
 categories:
+  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-- architecture
 tags:
 - CRDT
 - 协同编辑
@@ -17,6 +18,7 @@ tags:
 - OT
 description: 深入解析 CRDT 与 OT 两种协同编辑算法的原理差异，用 Laravel + Yjs 搭建可落地的多人实时协同编辑系统，包含完整前后端代码、踩坑记录与工程选型建议。
 ---
+
 
 
 ## 概述

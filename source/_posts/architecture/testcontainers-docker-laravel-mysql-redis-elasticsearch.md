@@ -1,6 +1,6 @@
 ---
 title: "Testcontainers 实战：Docker 容器化集成测试——Laravel 测试中的真实 MySQL/Redis/Elasticsearch 环境"
-keywords: [Testcontainers]
+keywords: [Testcontainers, Docker, Laravel, MySQL, Redis, Elasticsearch, 容器化集成测试, 测试中的真实, 环境, 架构]
 date: 2026-06-10 02:16:00
 categories:
   - architecture
@@ -16,6 +16,7 @@ tags:
   - CI/CD
 description: "告别 SQLite 内存数据库和 Mock，用 Testcontainers 在 Laravel 测试中拉起真实的 MySQL、Redis、Elasticsearch 容器，实现与生产环境一致的集成测试。"
 ---
+
 
 ## 为什么需要 Testcontainers
 

@@ -1,13 +1,13 @@
 ---
+
 title: PostgreSQL pgvector + HNSW 实战进阶：百万级向量检索的索引调优——距离函数、ef_search 参数与 Laravel Scout
-keywords: [PostgreSQL, HNSW]
-  集成
+keywords: [PostgreSQL pgvector, HNSW, ef, search, Laravel Scout, 实战进阶, 百万级向量检索的索引调优, 距离函数, 参数与, 数据库]
 date: 2026-06-09 15:35:01
 categories:
+  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
-- database
 tags:
 - PostgreSQL
 - pgvector
@@ -15,9 +15,9 @@ tags:
 - 向量检索
 - Scout
 - 索引调优
-description: 基于 Laravel + PostgreSQL pgvector 的实战进阶，围绕百万级 Embedding 检索场景，深度拆解 HNSW
-  索引调优、距离函数选择、ef_search 参数作用，以及如何通过自定义 Laravel Scout Engine 落地生产可用的语义检索能力。
+description: 基于 Laravel + PostgreSQL pgvector 的实战进阶，围绕百万级 Embedding 检索场景，深度拆解 HNSW 索引调优、距离函数选择、ef_search 参数作用，以及如何通过自定义 Laravel Scout Engine 落地生产可用的语义检索能力。
 ---
+
 
 
 在 LLM 与 Embedding 越来越普及的今天，很多 Laravel 项目都会面对同一个问题：**如何在不引入 Elasticsearch / Milvus / Pinecone 的前提下，先用现有关系型数据库把向量检索做起来**。对中小规模数据量、团队已有 PostgreSQL 经验的团队来说，`pgvector` 往往是最现实、成本最低、运维最简单的第一步。

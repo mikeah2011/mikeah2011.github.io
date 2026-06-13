@@ -9,12 +9,13 @@ categories:
   - devops
   - kubernetes
 tags: [KKday, Kubernetes, Laravel, Nginx, Traefik, Ingress, 安全]
-keywords: [KKday, Kubernetes, Laravel, Nginx, Traefik, Ingress]
+keywords: [Kubernetes, Ingress, Nginx, Traefik, TLS, Laravel, B2C, API, 配置与, 部署踩坑记录]
 description: Kubernetes Ingress 实战：Nginx/Traefik 配置与 TLS，Laravel B2C API 部署踩坑记录。涵盖 Ingress Controller 选型、Path/Host 路由、cert-manager 自动证书、Rate Limiting、安全头配置，以及生产环境真实踩坑经验。
 
 
 
 ---
+
 ## 前言
 
 在 Kubernetes 集群中，Ingress 是外部流量进入集群的「大门」。对于 Laravel B2C API 来说，Ingress 不仅要处理路由转发，还要搞定 TLS 终止、速率限制、安全头注入等关键功能。本文基于 KKday B2C Backend Team 的真实生产经验，对比 Nginx Ingress Controller 和 Traefik 两种方案，从配置到踩坑，一次性讲透。

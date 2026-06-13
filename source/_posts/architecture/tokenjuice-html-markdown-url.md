@@ -2,7 +2,7 @@
 title: TokenJuice 压缩策略详解：HTML→Markdown、URL 缩短、输出去重、正则噪声过滤
 date: 2026-06-02 12:00:00
 tags: [TokenJuice, Token压缩, AI成本优化, 数据预处理]
-keywords: [TokenJuice, Token压缩, AI成本优化, 数据预处理]
+keywords: [TokenJuice, HTML, Markdown, URL, 压缩策略详解, 缩短, 输出去重, 正则噪声过滤, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 详解 TokenJuice AI Agent 上下文压缩中间件的四大核心策略：HTML→Markdown 转换剥离结构噪声保留语义、URL 哈希缩短精简链接、正则噪声过滤清除无意义数据、输出去重消除模板重复。通过真实数据展示每种策略 60-90% 的压缩效果，组合使用可降低 80-90% token 消耗。包含完整 Python 代码实现、YAML 配置示例、踩坑案例和最佳实践指南。
 ---
+
 
 ## 前言：为什么 Token 压缩如此重要？
 

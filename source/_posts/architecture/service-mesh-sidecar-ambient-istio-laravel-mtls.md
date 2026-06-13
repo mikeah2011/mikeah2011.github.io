@@ -1,6 +1,6 @@
 ---
 title: "Service Mesh 无 Sidecar 实战：Ambient Mesh（Istio）——Laravel 微服务的零开销 mTLS 与流量管理"
-keywords: [Service, Mesh, Sidecar]
+keywords: [Service Mesh, Sidecar, Ambient Mesh, Istio, Laravel, mTLS, 微服务的零开销, 与流量管理, 架构]
 date: 2026-06-09 15:49:00
 categories:
   - architecture
@@ -19,6 +19,7 @@ tags:
   - waypoint
 description: "深入实战 Istio Ambient Mesh，用无 Sidecar 架构为 Laravel 微服务集群实现零开销 mTLS 加密、L7 流量管理和可观测性，对比传统 Sidecar 模式的资源开销与运维复杂度。"
 ---
+
 
 ## 为什么 Sidecar 让人又爱又恨
 

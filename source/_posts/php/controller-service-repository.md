@@ -1,6 +1,7 @@
 ---
+
 title: Controller-Service-Repository 三層架構設計與大項目職責分離 - 真實踩坑記錄
-keywords: [Controller, Service, Repository]
+keywords: [Controller, Service, Repository, 三層架構設計與大項目職責分離, 真實踩坑記錄]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -16,9 +17,9 @@ tags:
 - PHP
 - BFF
 - 架构
-description: Laravel Controller-Service-Repository 三层架构实战指南，详解服务层（Service）业务逻辑聚合、仓储层（Repository）数据访问抽象与接口化设计，覆盖
-  BFF 聚合场景的事务管理、跨服务补偿策略、Repository Interface 多数据源切换、单元测试策略，以及从小项目到大项目的架构演进路径与踩坑记录。
+description: Laravel Controller-Service-Repository 三层架构实战指南，详解服务层（Service）业务逻辑聚合、仓储层（Repository）数据访问抽象与接口化设计，覆盖 BFF 聚合场景的事务管理、跨服务补偿策略、Repository Interface 多数据源切换、单元测试策略，以及从小项目到大项目的架构演进路径与踩坑记录。
 ---
+
 
 
 ## 一、為什麼大項目需要三層架構？

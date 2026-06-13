@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Pint + Rector + PHPStan 三剑客联动：代码风格+重构+类型安全的一站式质量治理流水线
-keywords: [Laravel, Pint, Rector]
+keywords: [Laravel Pint, Rector, PHPStan, 三剑客联动, 代码风格, 重构, 类型安全的一站式质量治理流水线]
 date: 2026-06-03 00:00:00
 tags:
 - Laravel
@@ -12,13 +13,12 @@ tags:
 - Static Analysis
 categories:
 - devops
-description: Laravel Pint + Rector + PHPStan 三剑客联动实战：一站式代码质量治理流水线。覆盖 Pint 代码风格自动格式化、Rector
-  自动化重构与 PHP 语法升级、PHPStan 静态类型分析的完整集成方案，包括 composer 脚本串联、CI/CD 管道配置、自定义规则编写、渐进式类型提升策略与常见踩坑记录。附
-  Pint vs PHP-CS-Fixer、Rector vs PHPStan 方案对比表格，帮助 Laravel 团队从零搭建企业级代码质量防线。
+description: Laravel Pint + Rector + PHPStan 三剑客联动实战：一站式代码质量治理流水线。覆盖 Pint 代码风格自动格式化、Rector 自动化重构与 PHP 语法升级、PHPStan 静态类型分析的完整集成方案，包括 composer 脚本串联、CI/CD 管道配置、自定义规则编写、渐进式类型提升策略与常见踩坑记录。附 Pint vs PHP-CS-Fixer、Rector vs PHPStan 方案对比表格，帮助 Laravel 团队从零搭建企业级代码质量防线。
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
+
 
 
 

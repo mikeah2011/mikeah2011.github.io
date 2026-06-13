@@ -1,6 +1,7 @@
 ---
+
 title: AI Agent Evaluation 实战：LLM-as-Judge、Golden Dataset 与回归测试——如何量化 Agent 质量并持续改进
-keywords: [AI, Agent, Evaluation]
+keywords: [AI Agent Evaluation, LLM, Judge, Golden Dataset, Agent, 与回归测试, 如何量化, 质量并持续改进]
 date: 2026-06-06 10:00:00
 tags:
 - AI Agent
@@ -9,15 +10,14 @@ tags:
 - Golden Dataset
 - Regression Testing
 - Quality Assurance
-description: 深入探讨 AI Agent 评估的三大支柱：LLM-as-Judge 自动评判、Golden Dataset 构建与回归测试工程化。本文从工程实践角度拆解如何量化
-  Agent 质量并持续改进，涵盖评分维度设计、位置偏见缓解、CI/CD 集成、评估成本控制等核心话题，附完整 Python 评估脚本和 GitHub Actions
-  配置，包含 6 个实战踩坑案例与经验总结，为团队搭建 Agent 评估体系提供可落地的技术蓝图。
+description: 深入探讨 AI Agent 评估的三大支柱：LLM-as-Judge 自动评判、Golden Dataset 构建与回归测试工程化。本文从工程实践角度拆解如何量化 Agent 质量并持续改进，涵盖评分维度设计、位置偏见缓解、CI/CD 集成、评估成本控制等核心话题，附完整 Python 评估脚本和 GitHub Actions 配置，包含 6 个实战踩坑案例与经验总结，为团队搭建 Agent 评估体系提供可落地的技术蓝图。
 categories:
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
+
 
 
 # AI Agent Evaluation 实战：LLM-as-Judge、Golden Dataset 与回归测试——如何量化 Agent 质量并持续改进

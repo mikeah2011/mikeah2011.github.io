@@ -18,8 +18,9 @@ tags:
 categories:
   - database
 description: 深入实战 PostgreSQL 在 Laravel 项目中的六大高级特性：Window Functions 窗口函数分组排名与移动平均、CTE 递归查询处理树形数据与图遍历、JSONB 文档存储与 GIN 索引高效查询、pg_trgm 模糊搜索与中文相似度匹配、物化视图预聚合加速报表查询、数组类型与 GIN 索引标签系统。每个特性均附可运行的 SQL 与 Laravel Eloquent 代码示例，配合 EXPLAIN 执行计划分析与生产踩坑案例，帮助后端开发者将复杂查询从应用层下沉到数据库层，实现性能与可维护性的双重提升。
-keywords: Laravel, PostgreSQL, JSONB, 全文搜索, 数组类型, CTE, 物化视图, 数据库优化
+keywords: [Laravel, PostgreSQL, 高级特性实战指南, 数据库]
 ---
+
 
 # Laravel 中 PostgreSQL 高级特性实战指南
 

@@ -2,7 +2,7 @@
 title: API 版本废弃策略实战：Sunset Header、Deprecation 通知与客户端迁移的工程化方案
 date: 2026-06-02 12:00:00
 tags: [API, REST, 版本管理, Sunset, Deprecation]
-keywords: [API, REST, 版本管理, Sunset, Deprecation]
+keywords: [API, Sunset Header, Deprecation, 版本废弃策略实战, 通知与客户端迁移的工程化方案, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: API 废弃不是删代码，而是涉及技术、沟通、运营的系统工程。本文介绍基于 RFC 8594 标准的 Sunset Header 和 Deprecation Header 工程化方案，涵盖 Laravel 中间件实现、客户端多渠道通知系统、流量监控仪表盘、渐进式下线策略与迁移截止日期管理。适用于需要优雅迭代 API 版本的后端团队，帮助在不停机的前提下安全完成旧版本下线。
 ---
+
 
 # API 版本废弃策略实战：Sunset Header、Deprecation 通知与客户端迁移的工程化方案
 

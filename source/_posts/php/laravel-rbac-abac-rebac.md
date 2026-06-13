@@ -1,6 +1,7 @@
 ---
+
 title: Laravel 授权模型深度对比：RBAC vs ABAC vs ReBAC
-keywords: [Laravel]
+keywords: [Laravel, RBAC vs ABAC vs ReBAC, 授权模型深度对比]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -14,11 +15,11 @@ tags:
 - 权限管理
 - 权限模型
 - 访问控制
-description: 深入对比 RBAC、ABAC、ReBAC 三大权限模型在 Laravel 中的实战落地，涵盖 spatie/laravel-permission
-  角色权限、Policy/Gate 属性授权、自建关系图权限引擎，附完整可运行代码、常见踩坑案例、性能优化策略与混合方案决策指南，帮你在项目中选对授权范式。
+description: 深入对比 RBAC、ABAC、ReBAC 三大权限模型在 Laravel 中的实战落地，涵盖 spatie/laravel-permission 角色权限、Policy/Gate 属性授权、自建关系图权限引擎，附完整可运行代码、常见踩坑案例、性能优化策略与混合方案决策指南，帮你在项目中选对授权范式。
 categories:
 - php
 ---
+
 
 # Laravel 授权模型深度对比：RBAC vs ABAC vs ReBAC
 

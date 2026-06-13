@@ -1,6 +1,6 @@
 ---
 title: Laravel + AWS AppSync 实战：GraphQL API 的 Serverless 方案——实时订阅、离线同步与 Lambda Resolver
-keywords: [Laravel, AWS, AppSync]
+keywords: [Laravel, AWS AppSync, GraphQL API, Serverless, Lambda Resolver, 实时订阅, 离线同步与, PHP]
 date: 2026-06-09 10:58:00
 categories:
   - php
@@ -18,6 +18,7 @@ cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200
 ---
+
 
 ## 概述
 

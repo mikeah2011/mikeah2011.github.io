@@ -1,6 +1,6 @@
 ---
 title: "Oxc 实战：Rust 驱动的 JavaScript/TypeScript 工具链——Parser/Linter/Formatter/Transformer 全链路 100x 性能提升"
-keywords: [Oxc]
+keywords: [Oxc, Rust, JavaScript, TypeScript, Parser, Linter, Formatter, Transformer, 驱动的, 工具链]
 date: 2026-06-10 03:33:00
 categories:
   - rust
@@ -18,6 +18,7 @@ tags:
   - 性能优化
 description: "深入实战 Oxc——Rust 编写的 JavaScript/TypeScript 全链路工具链，覆盖 Parser、Linter（Oxlint）、Formatter（Oxfmt）、Transformer 四大核心模块，对比 ESLint/Prettier/SWC/Biome 的性能基准，提供从安装迁移到 CI 集成的完整指南。"
 ---
+
 
 ## 概述
 

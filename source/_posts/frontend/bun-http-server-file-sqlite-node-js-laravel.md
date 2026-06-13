@@ -2,7 +2,7 @@
 title: Bun 全栈实战：HTTP Server + File I/O + SQLite 内置能力——对比 Node.js 的性能优势与 Laravel 开发者迁移指南
 date: 2026-06-03 09:00:00
 tags: [Bun, JavaScript, 全栈, Node.js, SQLite, 性能]
-keywords: [Bun, JavaScript, 全栈, Node.js, SQLite]
+keywords: [Bun, HTTP Server, File, SQLite, Node.js, Laravel, 全栈实战, 内置能力, 的性能优势与, 开发者迁移指南]
 categories:
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 description: 深入剖析 Bun 全栈开发平台的三大核心能力——HTTP Server、File I/O 与 SQLite 内置集成，通过性能基准测试与 Node.js 进行全方位对比，揭示 JavaScriptCore 引擎与 Zig 底层优化带来的数量级提升。面向 Laravel/PHP 开发者提供完整的迁移指南，涵盖包管理、路由、中间件、ORM 映射等实战踩坑经验，助你从 PHP 生态无缝过渡到高性能 JavaScript 全栈开发。
 ---
+
 
 # Bun 全栈实战：HTTP Server + File I/O + SQLite 内置能力——对比 Node.js 的性能优势与 Laravel 开发者迁移指南
 

@@ -1,9 +1,8 @@
 ---
+
 title: Swift Vapor 实战：用 Swift 写后端 API——与 Laravel 的架构对比与性能基准
-keywords: [Swift, Vapor]
-description: Swift Vapor 4 实战指南：从零构建 REST API 与 JWT 认证，系统对比 Vapor 与 Laravel 在路由、ORM、中间件、依赖注入、测试五大维度的架构差异。包含完整的用户
-  CRUD 代码、wrk 性能基准测试（Vapor 达 Laravel PHP-FPM 的 7-15 倍）、Docker 多阶段部署与 Fly.io 上线流程。附编译优化、错误处理、模块化拆分等生产踩坑经验，帮助
-  iOS 团队评估 Swift 后端技术选型。
+keywords: [Swift Vapor, Swift, API, Laravel, 写后端, 的架构对比与性能基准]
+description: Swift Vapor 4 实战指南：从零构建 REST API 与 JWT 认证，系统对比 Vapor 与 Laravel 在路由、ORM、中间件、依赖注入、测试五大维度的架构差异。包含完整的用户 CRUD 代码、wrk 性能基准测试（Vapor 达 Laravel PHP-FPM 的 7-15 倍）、Docker 多阶段部署与 Fly.io 上线流程。附编译优化、错误处理、模块化拆分等生产踩坑经验，帮助 iOS 团队评估 Swift 后端技术选型。
 date: 2026-06-02 10:00:00
 tags:
 - Swift
@@ -17,6 +16,7 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
+
 
 
 

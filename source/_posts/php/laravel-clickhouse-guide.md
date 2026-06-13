@@ -1,6 +1,7 @@
 ---
+
 title: Laravel + ClickHouse 实战：埋点宽表、物化视图与漏斗报表性能治理踩坑记录
-keywords: [Laravel, ClickHouse]
+keywords: [Laravel, ClickHouse, 埋点宽表, 物化视图与漏斗报表性能治理踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -13,9 +14,9 @@ tags:
 - MySQL
 - 工程管理
 - 性能优化
-description: Laravel + ClickHouse 实战：从 MySQL 迁移到 OLAP 列式存储的完整落地过程。涵盖埋点宽表设计、批量写入优化、物化视图聚合、漏斗查询性能治理（P95
-  从 6.8s 降至 420ms）与 4 个生产踩坑修复，适合做用户行为分析和运营报表的 Laravel 团队参考。
+description: Laravel + ClickHouse 实战：从 MySQL 迁移到 OLAP 列式存储的完整落地过程。涵盖埋点宽表设计、批量写入优化、物化视图聚合、漏斗查询性能治理（P95 从 6.8s 降至 420ms）与 4 个生产踩坑修复，适合做用户行为分析和运营报表的 Laravel 团队参考。
 ---
+
 
 在后台运营报表场景里，最容易被低估的不是“写接口”，而是**行为埋点查询**。我接手过一个 Laravel B2C 后台，商品浏览、加购、提交订单、支付成功都先落在 MySQL，运营每天查漏斗、渠道转化、活动效果。数据量上来后，问题很快出现：单日埋点 1200 万行，读库高峰期 P95 超过 **6.8s**，导出一跑，业务查询也跟着抖。
 

@@ -1,6 +1,6 @@
 ---
 title: Event Mesh 实战：Solace/NATS 跨云事件路由——Laravel 微服务的跨区域事件驱动架构
-keywords: [Event, Mesh]
+keywords: [Event Mesh, Solace, NATS, Laravel, 跨云事件路由, 微服务的跨区域事件驱动架构, 架构]
 date: 2026-06-09
 categories:
   - architecture
@@ -17,6 +17,7 @@ tags:
   - 跨云
 description: 深入实战 Event Mesh 架构，对比 Solace 与 NATS 在跨云环境下的事件路由能力，并提供 Laravel 微服务实现跨区域事件驱动的代码模板与踩坑记录。
 ---
+
 
 ## 1. 概述
 

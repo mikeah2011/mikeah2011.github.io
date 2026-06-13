@@ -1,6 +1,7 @@
 ---
+
 title: Turso + libSQL 实战进阶：边缘数据库的嵌入式副本、多节点复制与 Laravel 多区域读写分离架构
-keywords: [Turso, SQL]
+keywords: [Turso, libSQL, Laravel, 实战进阶, 边缘数据库的嵌入式副本, 多节点复制与, 多区域读写分离架构]
 date: 2026-06-07 17:39:00
 tags:
 - Turso
@@ -15,10 +16,9 @@ categories:
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
-description: 本文深入解析 Turso + libSQL 边缘数据库的进阶架构，涵盖嵌入式副本的完整配置与内部同步机制、Turso 多节点复制组的 WAL
-  流式复制原理、以及 Laravel 多区域读写分离的完整代码实现。通过性能基准测试数据与传统 MySQL 主从方案对比，帮助开发者理解嵌入式副本在亚毫秒级读取延迟上的优势。同时分享生产环境踩坑案例与高可用策略，为从
-  SQLite 迁移到分布式数据库提供完整参考。
+description: 本文深入解析 Turso + libSQL 边缘数据库的进阶架构，涵盖嵌入式副本的完整配置与内部同步机制、Turso 多节点复制组的 WAL 流式复制原理、以及 Laravel 多区域读写分离的完整代码实现。通过性能基准测试数据与传统 MySQL 主从方案对比，帮助开发者理解嵌入式副本在亚毫秒级读取延迟上的优势。同时分享生产环境踩坑案例与高可用策略，为从 SQLite 迁移到分布式数据库提供完整参考。
 ---
+
 
 
 在上一篇文章中，我们介绍了 libSQL 的基础概念、Turso 平台的核心特性以及 Laravel 的基础集成方案。本文将深入实战进阶领域：**嵌入式副本的内部机制**、**Turso 多节点复制架构**以及如何在 Laravel 中实现**真正的多区域读写分离**。如果你正在构建面向全球用户的 Laravel 应用，这篇文章将为你提供一套完整的架构参考。

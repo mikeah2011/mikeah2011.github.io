@@ -2,13 +2,14 @@
 title: OpenClaw 模型策略深度剖析：31 级 fallback chain、provider 健康监控、成本预算管理
 date: 2026-06-02 12:00:00
 tags: [OpenClaw, AI Agent, 模型路由, Fallback, 成本优化]
-keywords: [OpenClaw, AI Agent, 模型路由, Fallback, 成本优化]
+keywords: [OpenClaw, fallback chain, provider, 模型策略深度剖析, 健康监控, 成本预算管理]
 categories: [架构]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 深入剖析 OpenClaw AI Agent 框架的模型策略系统，涵盖 31 级 Fallback Chain 降级链设计、Provider 实时健康监控与自动恢复机制、Hint 驱动的智能模型路由、以及预算感知的成本管理系统。通过生产环境案例展示高峰期降级链路和成本失控预防的实战经验，对比 LiteLLM 与 OpenRouter 等方案，提供 Fallback Chain 配置、健康监控调优和成本管理的最佳实践指南。
 ---
+
 
 ## 前言
 

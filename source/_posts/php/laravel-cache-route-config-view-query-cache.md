@@ -1,6 +1,7 @@
 ---
+
 title: Laravel 缓存策略全解：Route/Config/View/Query 缘存最佳实践踩坑记录
-keywords: [Laravel]
+keywords: [Laravel, Route, Config, View, Query, 缓存策略全解, 缘存最佳实践踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -16,9 +17,9 @@ tags:
 - 性能优化
 - route-cache
 - query-cache
-description: Laravel 缓存策略全解：深入拆解 Route Cache、Config Cache、View Cache、Query Cache 四层缓存原理与踩坑记录。含
-  Redis/Memcached 对比、缓存失效策略、生产环境 cache:clear 事故防护与监控方案，助你实现 30-50% 性能提升。
+description: Laravel 缓存策略全解：深入拆解 Route Cache、Config Cache、View Cache、Query Cache 四层缓存原理与踩坑记录。含 Redis/Memcached 对比、缓存失效策略、生产环境 cache:clear 事故防护与监控方案，助你实现 30-50% 性能提升。
 ---
+
 
 # Laravel 缓存策略全解：Route/Config/View/Query 缓存最佳实践踩坑记录
 

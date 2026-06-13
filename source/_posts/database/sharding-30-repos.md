@@ -1,6 +1,7 @@
 ---
+
 title: MySQL-分库分表实战-30-仓库数据库拆分经验与踩坑记录
-keywords: [MySQL]
+keywords: [MySQL, 分库分表实战, 仓库数据库拆分经验与踩坑记录]
 date: 2026-05-05 06:40:43
 updated: 2026-05-05 06:42:39
 categories:
@@ -9,14 +10,13 @@ tags:
 - KKday
 - Laravel
 - MySQL
-description: 基于 KKday B2C 后端 30+ 仓库的 MySQL 分库分表实战经验，深度对比 ShardingSphere vs Vitess
-  vs ProxySQL 三种中间件方案选型，涵盖垂直拆分、水平分片策略、Laravel 多数据源配置、Snowflake 分布式 ID 生成、跨分片分页查询与聚合统计、双写灰度数据迁移全流程，附
-  10 个真实踩坑案例、可运行的 SQL 与 Laravel 代码示例，适合千万级数据量的电商后端团队参考。
+description: 基于 KKday B2C 后端 30+ 仓库的 MySQL 分库分表实战经验，深度对比 ShardingSphere vs Vitess vs ProxySQL 三种中间件方案选型，涵盖垂直拆分、水平分片策略、Laravel 多数据源配置、Snowflake 分布式 ID 生成、跨分片分页查询与聚合统计、双写灰度数据迁移全流程，附 10 个真实踩坑案例、可运行的 SQL 与 Laravel 代码示例，适合千万级数据量的电商后端团队参考。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-01-content-1.jpg
 - /images/content/databases-01-content-2.jpg
 ---
+
 
 
 # MySQL 分库分表实战：30+ 仓库的数据库拆分经验与踩坑记录

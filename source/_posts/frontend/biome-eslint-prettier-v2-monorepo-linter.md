@@ -1,6 +1,7 @@
 ---
+
 title: Biome 2.x 实战：替代 ESLint + Prettier 的下一代前端工具链 v2——Monorepo 支持、Linter 规则自定义与性能基准
-keywords: [Biome]
+keywords: [Biome, ESLint, Prettier, v2, Monorepo, Linter, 替代, 的下一代前端工具链, 支持, 规则自定义与性能基准]
 date: 2026-06-09 19:12:00
 tags:
 - Biome
@@ -14,13 +15,12 @@ tags:
 - Rust
 categories:
 - frontend
-description: 深度解析 Biome 2.x 如何以 Rust 原生性能全面替代 ESLint + Prettier，涵盖 Biotype 类型感知 Linting、Monorepo
-  嵌套配置、extends 微语法、Linter 规则自定义、423+ 内置规则、跨文件类型推断、性能基准实测（10000 文件 0.8 秒 vs ESLint
-  45 秒），以及从 ESLint/Prettier 完整迁移指南与踩坑记录。
+description: 深度解析 Biome 2.x 如何以 Rust 原生性能全面替代 ESLint + Prettier，涵盖 Biotype 类型感知 Linting、Monorepo 嵌套配置、extends 微语法、Linter 规则自定义、423+ 内置规则、跨文件类型推断、性能基准实测（10000 文件 0.8 秒 vs ESLint 45 秒），以及从 ESLint/Prettier 完整迁移指南与踩坑记录。
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
+
 
 
 # Biome 2.x 实战：替代 ESLint + Prettier 的下一代前端工具链 v2

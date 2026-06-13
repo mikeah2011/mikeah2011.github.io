@@ -1,6 +1,7 @@
 ---
+
 title: MySQL主从复制与读写分离
-keywords: [MySQL]
+keywords: [MySQL, 主从复制与读写分离]
 tags:
 - MySQL
 - 主从复制
@@ -12,14 +13,13 @@ tags:
 categories:
 - database
 date: 2019-03-20 15:05:07
-description: 本文深入讲解 MySQL 主从复制原理与读写分离架构实战。涵盖主从复制的完整工作流程（binlog → relay log → SQL thread）、传统复制与
-  GTID 复制的对比与选型建议、my.cnf 完整配置示例、Laravel 读写分离代码实现、主从延迟排查与优化方案，以及 binlog 格式选择、大事务导致延迟等常见踩坑案例，帮助开发者搭建高可用的
-  MySQL 读写分离架构。
+description: 本文深入讲解 MySQL 主从复制原理与读写分离架构实战。涵盖主从复制的完整工作流程（binlog → relay log → SQL thread）、传统复制与 GTID 复制的对比与选型建议、my.cnf 完整配置示例、Laravel 读写分离代码实现、主从延迟排查与优化方案，以及 binlog 格式选择、大事务导致延迟等常见踩坑案例，帮助开发者搭建高可用的 MySQL 读写分离架构。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-002-content-1.png
 - /images/diagrams/databases-002-diagram.png
 ---
+
 
 
 ## 主从复制原理

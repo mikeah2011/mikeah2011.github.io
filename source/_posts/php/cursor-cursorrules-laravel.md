@@ -1,6 +1,6 @@
 ---
 title: Cursor .cursorrules 工程化实战：Laravel 项目级 AI 配置——Eloquent 规范、测试策略、架构约束的版本控制与团队共享
-keywords: [Cursor]
+keywords: [Cursor, cursorrules, Laravel, AI, Eloquent, 工程化实战, 项目级, 规范, 测试策略, 架构约束的版本控制与团队共享]
 date: 2026-06-10 08:19:00
 categories:
   - php
@@ -17,6 +17,7 @@ tags:
   - AI
 description: 以 Laravel 项目为例，把 Cursor 的 .cursorrules 工程化为可维护、可测试、可版本控制的团队配置，覆盖 Eloquent 规范、测试策略、架构约束与 CI 检查。重点是“规则即代码”，而不是“灵感即文档”。
 ---
+
 
 ## 概述
 

@@ -1,6 +1,6 @@
 ---
 title: AI Agent Tool Design 深度实战：工具定义规范、参数校验、错误分类、重试策略与降级方案
-keywords: [AI, Agent, Tool]
+keywords: [AI Agent Tool Design, 深度实战, 工具定义规范, 参数校验, 错误分类, 重试策略与降级方案, AI]
 date: 2026-06-10 09:27:00
 categories:
   - ai
@@ -15,6 +15,7 @@ tags:
   - LLM
 description: 从工具注册到生产可用的完整工程闭环——深入探讨 AI Agent 工具系统的设计规范、参数校验、错误处理、重试策略与降级方案，附带完整的 PHP/Laravel 实战代码。
 ---
+
 
 ## 概述
 

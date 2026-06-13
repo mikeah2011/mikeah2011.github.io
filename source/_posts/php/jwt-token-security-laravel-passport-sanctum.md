@@ -1,6 +1,6 @@
 ---
 title: JWT Token 安全深度实战：算法混淆攻击、密钥轮换、Token 指纹绑定——Laravel Passport/Sanctum 的安全加固指南
-keywords: [JWT, Token]
+keywords: [JWT Token, Token, Laravel Passport, Sanctum, 安全深度实战, 算法混淆攻击, 密钥轮换, 指纹绑定, 的安全加固指南, PHP]
 date: 2026-06-09 22:30:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - PHP
 description: 深入剖析 JWT 安全风险与实战加固方案，涵盖算法混淆攻击防御、密钥轮换策略、Token 指纹绑定，以及 Laravel Passport/Sanctum 的生产级安全配置。
 ---
+
 
 ## 概述
 

@@ -1,6 +1,7 @@
 ---
+
 title: Grafana Tempo 实战：分布式追踪后端——OpenTelemetry 采集 + TraceQL 查询的因果可观测性
-keywords: [Grafana, Tempo]
+keywords: [Grafana Tempo, OpenTelemetry, TraceQL, 分布式追踪后端, 采集, 查询的因果可观测性]
 date: 2026-06-04 10:00:00
 tags:
 - Grafana
@@ -14,11 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-description: 本文从 Laravel/PHP 后端工程师的实战视角出发，系统讲解如何使用 Grafana Tempo 作为轻量级分布式追踪后端，结合 OpenTelemetry
-  SDK 实现 Laravel 微服务的全链路自动埋点与上下文传播。文章涵盖 Tempo 的对象存储架构优势、Docker Compose 部署方案、TraceQL
-  结构化查询语法（包括 spans、metrics、topk 等高级用法），以及与 Grafana Loki、Prometheus 的三支柱联动实战。通过真实排障案例展示如何用一条
-  TraceQL 查询快速定位跨服务性能瓶颈，帮助团队构建零厂商锁定的生产级可观测性体系。
+description: 本文从 Laravel/PHP 后端工程师的实战视角出发，系统讲解如何使用 Grafana Tempo 作为轻量级分布式追踪后端，结合 OpenTelemetry SDK 实现 Laravel 微服务的全链路自动埋点与上下文传播。文章涵盖 Tempo 的对象存储架构优势、Docker Compose 部署方案、TraceQL 结构化查询语法（包括 spans、metrics、topk 等高级用法），以及与 Grafana Loki、Prometheus 的三支柱联动实战。通过真实排障案例展示如何用一条 TraceQL 查询快速定位跨服务性能瓶颈，帮助团队构建零厂商锁定的生产级可观测性体系。
 ---
+
 
 
 在微服务架构横行的今天，一个用户请求从 API Gateway 出发，可能途经 Laravel API 服务、Go 微服务、Node.js BFF 层，最终触达 MySQL、Redis 和第三方支付接口。当线上出现「支付回调偶发超时」这类问题时，传统的日志排查方式往往让你陷入「大海捞针」的困境。你需要一个能串联整条请求链路的工具，能看到一个请求从入口到出口经过了哪些服务、每个环节耗时多久、在哪里发生了异常——这就是分布式追踪系统的核心价值。

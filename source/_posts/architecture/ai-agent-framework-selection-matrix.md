@@ -2,7 +2,7 @@
 title: 开发者如何选择 AI Agent 框架？基于工作流、隐私需求、技术栈的决策矩阵
 date: 2026-06-02 09:00:00
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 框架选型, 决策矩阵]
-keywords: [AI Agent, Hermes, OpenClaw, OpenHuman, 框架选型, AI, Agent]
+keywords: [AI Agent, 开发者如何选择, 基于工作流, 隐私需求, 技术栈的决策矩阵, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "为开发者提供结构化的 AI Agent 框架决策矩阵。从工作流模式（对话/任务/自主/协作）、隐私需求（基础/增强/最高）、技术栈匹配（Python/TypeScript/PHP/Rust）、团队规模（个人/小团队/中型/企业）四个核心维度，对比 Hermes Agent、OpenClaw、OpenHuman 三大框架的能力评分与适用场景。包含加权评分模型、五种典型角色推荐、迁移成本分析和锁定风险评估，帮助开发者根据实际需求做出最优技术决策。"
 ---
+
 
 # 开发者如何选择 AI Agent 框架？基于工作流、隐私需求、技术栈的决策矩阵
 

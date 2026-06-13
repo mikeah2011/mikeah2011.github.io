@@ -2,7 +2,7 @@
 title: 'Post-Quantum Cryptography 实战：后量子密码算法（ML-KEM、ML-DSA）在 Laravel 中的预研与迁移路径'
 date: 2026-06-03 01:12:12
 tags: [后量子密码, PQC, ML-KEM, ML-DSA, Laravel, 加密迁移]
-keywords: [后量子密码, PQC, ML-KEM, ML-DSA, Laravel, Post, Quantum, Cryptography]
+keywords: [Post, Quantum Cryptography, ML, KEM, DSA, Laravel, 后量子密码算法, 中的预研与迁移路径, PHP]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "系统讲解后量子密码学 PQC 在 Laravel 项目中的预研与落地路径。涵盖 NIST FIPS 203/204/205 标准解读、ML-KEM 密钥封装与 ML-DSA 数字签名算法原理、PHP OpenSSL/LibreSSL 集成方案、TLS 后量子配置、混合加密架构设计。对比 RSA/ECC 与 PQC 算法性能差异，提供 Crypto Agility 架构模式与渐进式迁移策略，帮助 Laravel 开发者提前应对量子计算威胁，实现 Harvest Now Decrypt Later 防护。"
 ---
+
 
 量子计算机的威胁不再是科幻小说。2024 年，NIST 正式发布了首批后量子密码标准（FIPS 203/204/205），标志着密码学历史上的一个重要转折点。虽然实用的量子计算机可能还需要 5-15 年才能破解 RSA-2048，但"先收集、后解密"（Harvest Now, Decrypt Later）攻击意味着今天传输的加密数据可能在未来被解密。
 

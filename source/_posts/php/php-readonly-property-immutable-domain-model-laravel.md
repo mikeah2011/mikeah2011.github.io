@@ -1,6 +1,6 @@
 ---
 title: PHP readonly Property 实战深度：Immutable Domain Model 在 Laravel 中的工程化
-keywords: [PHP, Property]
+keywords: [PHP readonly Property, Immutable Domain Model, Laravel, 实战深度, 中的工程化, PHP]
 date: 2026-06-10 04:25:00
 categories:
   - php
@@ -17,6 +17,7 @@ tags:
   - 设计模式
 description: PHP 8.1 readonly property 深度实战：readonly 构造器提升、DTO 不可变链、Eloquent 只读投影——在 Laravel 中构建 Immutable Domain Model 的完整工程化方案与踩坑记录
 ---
+
 
 ## 概述
 

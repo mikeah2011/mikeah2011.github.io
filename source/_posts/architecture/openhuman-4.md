@@ -1,6 +1,7 @@
 ---
+
 title: OpenHuman 知识图谱构建实战：实体索引、关系提取与力导向可视化
-keywords: [OpenHuman]
+keywords: [OpenHuman, 知识图谱构建实战, 实体索引, 关系提取与力导向可视化]
 date: 2026-06-02 07:22:45
 tags:
 - OpenHuman
@@ -13,9 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 知识图谱为 AI Agent 的记忆系统增加关系维度。本文深入剖析 OpenHuman 如何在 Memory Tree 基础上构建知识图谱，涵盖增强型
-  NER 实体识别与消歧、三阶段关系提取（规则/共现/LLM）、NetworkX 混合存储方案、图查询与传递性推理、D3.js 力导向可视化实现，以及从日常对话自动构建个人知识图谱的完整实战案例。
+description: 知识图谱为 AI Agent 的记忆系统增加关系维度。本文深入剖析 OpenHuman 如何在 Memory Tree 基础上构建知识图谱，涵盖增强型 NER 实体识别与消歧、三阶段关系提取（规则/共现/LLM）、NetworkX 混合存储方案、图查询与传递性推理、D3.js 力导向可视化实现，以及从日常对话自动构建个人知识图谱的完整实战案例。
 ---
+
 
 
 # OpenHuman 知识图谱构建实战：实体索引、关系提取与力导向可视化

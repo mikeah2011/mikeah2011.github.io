@@ -1,6 +1,6 @@
 ---
 title: JWT Refresh Token Rotation 实战：Refresh Token 自动轮换与检测重用——Laravel Sanctum 的安全加固指南
-keywords: [JWT, Refresh, Token]
+keywords: [JWT Refresh Token Rotation, Refresh Token, Laravel Sanctum, 自动轮换与检测重用, 的安全加固指南]
 date: 2026-06-10 01:50:00
 categories:
   - security
@@ -17,6 +17,7 @@ tags:
   - Laravel
 description: 从 Token 窃取风险出发，完整实现 Refresh Token Rotation 机制：自动轮换、重用检测、一次性失效、Revocation List、数据库结构、Laravel Sanctum 与自建 Guard 的实战方案，附带真实踩坑记录与生产建议。
 ---
+
 
 Refresh Token Rotation 不是“把 Refresh Token 换成新的”，而是一套围绕**一次性、可追溯、可撤销**的 Token 生命周期治理体系。很多项目在接入 JWT 后，仍然长期持有同一个 Refresh Token，结果一旦 Token 被盗，就会面临长时间的有效期风险。本文用 Laravel 项目作为主轴，从原理到代码，逐步实现：
 

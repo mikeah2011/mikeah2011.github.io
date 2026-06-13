@@ -1,6 +1,6 @@
 ---
 title: AI Agent Intelligent Routing 实战：根据任务复杂度动态选择模型——小模型处理简单任务、大模型处理复杂推理
-keywords: [AI, Agent, Intelligent]
+keywords: [AI Agent Intelligent Routing, 根据任务复杂度动态选择模型, 小模型处理简单任务, 大模型处理复杂推理, AI]
 date: 2026-06-10 00:20:00
 categories:
   - ai
@@ -15,6 +15,7 @@ tags:
   - Laravel
 description: 实战拆解 AI Agent 的智能路由策略：如何根据任务复杂度、Token 预算与延迟要求，动态在 MiMo、GPT-4o、Claude 等模型间切换，既保证输出质量又控制成本。附完整 Laravel 实现代码。
 ---
+
 
 在 AI Agent 的生产落地中，一个经常被忽视但极度影响成本与体验的问题是：**所有任务都用同一个模型，是巨大的浪费**。
 

@@ -1,6 +1,7 @@
 ---
+
 title: Kamal 2 深度实战：DHH 部署哲学的工程化——Laravel 应用的零停机滚动更新、健康检查与回滚策略
-keywords: [Kamal]
+keywords: [Kamal, DHH, Laravel, 深度实战, 部署哲学的工程化, 应用的零停机滚动更新, 健康检查与回滚策略]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -19,11 +20,9 @@ tags:
 - 回滚
 - Laravel
 - deploy
-description: Kamal 2 零停机滚动更新、健康检查与回滚策略的深度实战。从 DHH 的「极简部署」哲学出发，深入拆解 Kamal 2 的 role/sequencing/stopping
-  三大部署编排机制，讲解如何配置健康检查（HTTP/TCP/自定义脚本）、如何实现真正零停机的滚动更新，以及部署失败时的自动回滚与手动回滚两种策略。以 Laravel
-  11 应用为例，覆盖 Redis 会话保持、数据库迁移协调、多服务器协调等真实场景。附 Kamal 2 vs Docker Compose 部署脚本 vs K8s
-  的三方案对比、踩坑清单与生产环境 Checklist。
+description: Kamal 2 零停机滚动更新、健康检查与回滚策略的深度实战。从 DHH 的「极简部署」哲学出发，深入拆解 Kamal 2 的 role/sequencing/stopping 三大部署编排机制，讲解如何配置健康检查（HTTP/TCP/自定义脚本）、如何实现真正零停机的滚动更新，以及部署失败时的自动回滚与手动回滚两种策略。以 Laravel 11 应用为例，覆盖 Redis 会话保持、数据库迁移协调、多服务器协调等真实场景。附 Kamal 2 vs Docker Compose 部署脚本 vs K8s 的三方案对比、踩坑清单与生产环境 Checklist。
 ---
+
 
 
 

@@ -1,13 +1,14 @@
 ---
+
 title: ThinkPHP-电商后端架构设计-盲盒抽奖业务的核心逻辑实战踩坑记录
-keywords: [ThinkPHP]
+keywords: [ThinkPHP, 电商后端架构设计, 盲盒抽奖业务的核心逻辑实战踩坑记录, 技术杂谈]
 date: 2026-05-05 09:50:56
 updated: 2026-05-05 09:55:25
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 categories:
-- misc
+  - misc
 tags:
 - KKday
 - Laravel
@@ -16,6 +17,7 @@ tags:
 - 支付
 description: 基于奇乐 MAX 开源项目实战，拆解 ThinkPHP 6 多应用架构下盲盒/抽奖电商后端设计，覆盖数据库建模、Redis 分布式锁防超卖、微信支付宝支付集成、赏级概率计算及生产环境踩坑记录，适合电商后端开发者参考。
 ---
+
 
 
 # ThinkPHP 电商后端架构设计：盲盒/抽奖业务的核心逻辑实战踩坑记录

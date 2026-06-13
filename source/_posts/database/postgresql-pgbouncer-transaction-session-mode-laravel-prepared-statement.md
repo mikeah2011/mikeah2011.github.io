@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL 连接池治理实战：PgBouncer Transaction 模式 vs Session 模式——Laravel Eloquent 的 prepared statement 兼容性踩坑
-keywords: [PostgreSQL]
+keywords: [PostgreSQL, PgBouncer Transaction, vs Session, Laravel Eloquent, prepared statement, 连接池治理实战, 兼容性踩坑, 数据库]
 date: 2026-06-09 22:26:00
 categories:
   - database
@@ -16,6 +16,7 @@ tags:
   - prepared statement
 description: 深入对比 PgBouncer 的 Transaction 模式和 Session 模式，详解 Laravel Eloquent 在 Transaction 模式下 prepared statement 失效的原因与解决方案，含完整 Docker Compose 配置和 Laravel 集成代码。
 ---
+
 
 ## 概述
 

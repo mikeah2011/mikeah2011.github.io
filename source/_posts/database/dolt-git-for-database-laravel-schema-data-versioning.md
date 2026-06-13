@@ -1,12 +1,13 @@
 ---
+
 title: Dolt 实战：Git for 数据库——MySQL 兼容的版本化数据库与 Laravel 的 Schema/Data 双版本控制
-keywords: [Dolt]
+keywords: [Dolt, Git for, MySQL, Laravel, Schema, Data, 数据库, 兼容的版本化数据库与, 双版本控制]
 date: 2026-06-09 14:00:00
 categories:
+  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
-- database
 tags:
 - Dolt
 - Git
@@ -14,9 +15,9 @@ tags:
 - Laravel
 - MySQL Compatibility
 - Schema迁移
-description: Dolt 是一个 MySQL 兼容的版本化数据库，支持 fork、clone、branch、merge、push、pull 等 Git 操作。本文介绍如何在
-  Laravel 项目中使用 Dolt 实现 Schema 和 Data 的双重版本控制，解决数据库变更可追溯、可回滚的难题。
+description: Dolt 是一个 MySQL 兼容的版本化数据库，支持 fork、clone、branch、merge、push、pull 等 Git 操作。本文介绍如何在 Laravel 项目中使用 Dolt 实现 Schema 和 Data 的双重版本控制，解决数据库变更可追溯、可回滚的难题。
 ---
+
 
 
 ## 前言

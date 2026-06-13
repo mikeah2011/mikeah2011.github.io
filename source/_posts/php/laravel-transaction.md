@@ -7,12 +7,13 @@ date: 2026-05-02
 categories:
   - php
 tags: [Kubernetes, Laravel]
-keywords: [Kubernetes, Laravel, KKday, API]
+keywords: [Laravel, KKday B2C, API, 事务回滚边界控制, 真实踩坑记录, PHP]
 description: 深入解析 Laravel 事务（Transaction）回滚边界控制，涵盖 DB::transaction 使用方法、嵌套事务合并机制、Eloquent 模型事务冲突、异步队列与数据库事务交互等六大踩坑场景，结合 KKday B2C-API 项目真实经验，帮助开发者掌握 Laravel 数据库事务的最佳实践，避免分布式事务环境下的数据一致性问题。
 
 
 
 ---
+
 # Laravel 事务回滚边界控制 - KKday B2C-API 真实踩坑记录
 
 > **摘要**：在 KKday B2C-API 项目中处理订单扣减 + 邮件发送场景时，遇到过"异常被捕获但事务未回滚"、"嵌套事务回滚无效"等经典问题。本文结合 Laravel 8+PHP 8 实际踩坑记录，深入分析事务回滚边界控制的正确实践。

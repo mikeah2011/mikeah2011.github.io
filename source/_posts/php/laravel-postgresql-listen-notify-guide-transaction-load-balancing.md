@@ -8,12 +8,13 @@ updated: 2026-05-03 11:11:39
 categories:
   - php
 tags: [Laravel, PostgreSQL, PgBouncer, LISTEN/NOTIFY, 消息通知]
-keywords: [Laravel, PostgreSQL, PgBouncer, LISTEN/NOTIFY, 消息通知, LISTEN]
+keywords: [Laravel, PostgreSQL LISTEN, NOTIFY, 事务提交后事件广播, 连接池与负载均衡踩坑记录, PHP]
 description: 基于 Laravel 后台审批与订单状态同步场景，记录一套用 PostgreSQL LISTEN/NOTIFY 做事务提交后事件广播的落地方案。文章涵盖触发器设计、最小 payload 规范、常驻监听进程实现、PgBouncer 兼容分流、重连与丢消息边界处理，并对比 Redis Pub/Sub 与 Kafka 等方案适用范围，帮助团队在单库场景下用数据库内建能力替代重量级消息中间件。
 
 
 
 ---
+
 很多团队一提到“事件广播”，第一反应就是 Redis、Kafka 或 WebSocket Broker。但在我最近一次后台审批系统改造里，真正卡住我们的不是“有没有 MQ”，而是**数据库事务提交之前发出的副作用**。审批单状态在事务里改成 `approved`，代码马上发 WebSocket、删缓存、写审计；结果事务回滚时，前端已经收到“已通过”，运营还来问为什么页面和数据库不一致。
 
 这次我最后没有再堆 Laravel Event，而是把“提交后再广播”这件事下沉到 **PostgreSQL LISTEN/NOTIFY**：**只有事务真的 commit，通知才会发出去**。它不是 Kafka 替代品，但在“单库内状态变化 -> 通知多个 Laravel 进程做轻量副作用”这个场景里，足够轻、延迟低，而且比应用层手写 `afterCommit` 更难漏。

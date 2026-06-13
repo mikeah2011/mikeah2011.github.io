@@ -1,4 +1,4 @@
----
+
 title: VS Code 高效开发实战：扩展、快捷键、调试配置 - Laravel B2C API 踩坑记录
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
@@ -13,18 +13,8 @@ tags:
 - macOS
 - 工程管理
 - Editor
-description: 在管理 30+ Laravel B2C 仓库的实战中总结的 VS Code 完全指南：精选 15 个核心扩展选型对比（Intelephense
-  vs PHP IntelliSense、Volar vs Vetur）、macOS 快捷键体系三层进阶、Xdebug 断点调试与 pathMappings 排查、settings.json
-  性能调优、自定义 Snippets 模板、Remote Containers 容器内开发，以及 7 个真实踩坑案例——从 var_dump 到断点调试的效率跃迁。
-keywords:
-- VS Code
-- Laravel
-- PHP
-- Xdebug
-- 扩展
-- 快捷键
-- 开发效率
-- 调试配置
+description: 在管理 30+ Laravel B2C 仓库的实战中总结的 VS Code 完全指南：精选 15 个核心扩展选型对比（Intelephense vs PHP IntelliSense、Volar vs Vetur）、macOS 快捷键体系三层进阶、Xdebug 断点调试与 pathMappings 排查、settings.json 性能调优、自定义 Snippets 模板、Remote Containers 容器内开发，以及 7 个真实踩坑案例——从 var_dump 到断点调试的效率跃迁。
+keywords: - VS Code - Laravel - PHP - Xdebug - 扩展 - 快捷键 - 开发效率 - 调试配置
 ---
 
 

@@ -1,6 +1,7 @@
 ---
+
 title: Go 语言基础入门：语法、并发与标准库
-keywords: [Go]
+keywords: [Go, 语言基础入门, 语法, 并发与标准库]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
@@ -13,9 +14,9 @@ tags:
 categories:
 - engineering
 date: 2020-03-20 15:05:07
-description: Go（Golang）是 Google 2009 年开源的静态编译型语言，主打简洁语法 + 原生并发（goroutine/channel）+
-  编译速度快，是云原生时代的事实标准。Docker、K8s、etcd 全用 Go 写，适合构建高并发网络服务、CLI 工具和云基础设施。
+description: Go（Golang）是 Google 2009 年开源的静态编译型语言，主打简洁语法 + 原生并发（goroutine/channel）+ 编译速度快，是云原生时代的事实标准。Docker、K8s、etcd 全用 Go 写，适合构建高并发网络服务、CLI 工具和云基础设施。
 ---
+
 
 
 

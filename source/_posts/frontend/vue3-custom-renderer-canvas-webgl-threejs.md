@@ -1,12 +1,13 @@
 ---
+
 title: Vue 3 Custom Renderer 实战：用 Vue 的响应式驱动 Canvas/WebGL/Three.js——游戏化电商与数据可视化的自定义渲染器
-keywords: [Vue, Custom, Renderer]
+keywords: [Vue, Custom Renderer, Canvas, WebGL, Three.js, 的响应式驱动, 游戏化电商与数据可视化的自定义渲染器, 前端]
 date: 2026-06-10 03:03:00
 categories:
+  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-- frontend
 tags:
 - Vue
 - CustomRenderer
@@ -17,6 +18,7 @@ tags:
 - 可视化
 description: 深入 Vue 3 Custom Renderer API，从零构建 Canvas 2D、WebGL 和 Three.js 自定义渲染器，实战游戏化电商互动页面和高性能数据可视化大屏。
 ---
+
 
 ## 为什么需要 Custom Renderer？
 

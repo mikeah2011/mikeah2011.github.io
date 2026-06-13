@@ -1,6 +1,7 @@
 ---
+
 title: 数据可视化 Dashboard 实战：ECharts/ApexCharts + Laravel API——运营数据实时大屏与自助分析
-keywords: [Dashboard]
+keywords: [Dashboard, ECharts, ApexCharts, Laravel API, 数据可视化, 运营数据实时大屏与自助分析]
 date: 2026-06-06 00:00:00
 tags:
 - echarts
@@ -13,10 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-description: 从零到一构建运营数据实时大屏与自助分析系统。后端基于 Laravel 构建高性能数据聚合 API（含 SSE 实时推送与 Redis 缓存策略），前端分别使用
-  ECharts 实现大屏展示（折线图、柱状图、饼图、地图、仪表盘）和 ApexCharts 实现自助分析（拖拽式配置、筛选联动、CSV 导出）。涵盖完整技术选型对比、响应式大屏布局、Web
-  Worker 数据处理、虚拟滚动、图表懒加载等性能优化方案，以及 Nginx 部署配置与前后端监控，附带大量可运行代码示例与踩坑经验。
+description: 从零到一构建运营数据实时大屏与自助分析系统。后端基于 Laravel 构建高性能数据聚合 API（含 SSE 实时推送与 Redis 缓存策略），前端分别使用 ECharts 实现大屏展示（折线图、柱状图、饼图、地图、仪表盘）和 ApexCharts 实现自助分析（拖拽式配置、筛选联动、CSV 导出）。涵盖完整技术选型对比、响应式大屏布局、Web Worker 数据处理、虚拟滚动、图表懒加载等性能优化方案，以及 Nginx 部署配置与前后端监控，附带大量可运行代码示例与踩坑经验。
 ---
+
 
 
 

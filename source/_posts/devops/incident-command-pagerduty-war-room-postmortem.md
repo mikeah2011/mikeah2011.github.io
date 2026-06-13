@@ -2,7 +2,7 @@
 title: 'Incident Command 实战：生产故障应急响应——PagerDuty 集成、War Room 协作与 Postmortem 文化'
 date: 2026-06-02 10:00:00
 tags: [Incident Command, PagerDuty, SRE, War Room, Postmortem, 应急响应, 生产故障]
-keywords: [Incident Command, PagerDuty, SRE, War Room, Postmortem, Incident, Command]
+keywords: [Incident Command, PagerDuty, War Room, Postmortem, 生产故障应急响应, 协作与, 文化, DevOps]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: "生产故障应急响应决定了一支技术团队的成熟度。本文完整落地 Incident Command System（ICS）实践：从 PagerDuty 告警集成与 On-Call 排班升级机制，到 War Room 协作规范与消息模板，再到自动化 Runbook（回滚/Redis 宕机/流量突增）、故障诊断 Checklist、ChatOps Slack Bot 集成，以及 Blameless Postmortem 文化建设与 Action Items 追踪，构建企业级生产故障应急体系。"
 ---
+
 
 ## 前言
 

@@ -5,6 +5,7 @@ cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 categories:
+keywords: [Laravel B2C API, 数据归档策略实战, 冷热数据分离, 历史数据迁移与查询兼容, 踩坑记录, 数据库]
   - database
 tags:
   - 数据归档

@@ -1,6 +1,7 @@
 ---
+
 title: Laravel Folio 实战：页面路由替代传统 Controller 的新范式——从源码剖析到 B2C 电商落地踩坑记录
-keywords: [Laravel, Folio]
+keywords: [Laravel Folio, Controller, B2C, 页面路由替代传统, 的新范式, 从源码剖析到, 电商落地踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -16,9 +17,9 @@ tags:
 - Livewire
 - Laravel
 - B2C 电商
-description: Laravel Folio 用目录结构取代路由定义，让每个 Blade 文件即一个页面。本文从框架源码出发，拆解 Folio 的路由解析链、中间件注入机制、嵌套路由与参数捕获原理，对比传统
-  Controller + Route 模式在 B2C 电商场景中的工程权衡，附真实踩坑记录与性能基准测试数据。
+description: Laravel Folio 用目录结构取代路由定义，让每个 Blade 文件即一个页面。本文从框架源码出发，拆解 Folio 的路由解析链、中间件注入机制、嵌套路由与参数捕获原理，对比传统 Controller + Route 模式在 B2C 电商场景中的工程权衡，附真实踩坑记录与性能基准测试数据。
 ---
+
 
 # Laravel Folio 实战：页面路由替代传统 Controller 的新范式
 

@@ -2,7 +2,7 @@
 title: Flutter + WebSocket 实战：实时聊天、通知推送、长连接管理
 date: 2026-06-02 10:00:00
 tags: [Flutter, WebSocket, 实时通信, 长连接, 聊天]
-keywords: [Flutter, WebSocket, 实时通信, 长连接, 聊天]
+keywords: [Flutter, WebSocket, 实时聊天, 通知推送, 长连接管理, 移动端]
 categories:
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 description: 深入讲透 Flutter + WebSocket 实时通信实战，从协议原理、心跳保活、断线重连、消息协议设计，到本地持久化、后台保活、Echo/Pusher 对接，再到完整聊天室架构落地。覆盖 IM 聊天、通知推送、协同编辑等高频场景，帮你把 Flutter 长连接做得更稳、更快、更易维护扩展，避免生产环境常见踩坑。
 ---
+
 
 在移动应用里，“实时性”已经从锦上添花变成了基础能力。无论是 IM 聊天、订单状态更新、系统通知、协同编辑，还是直播间互动、客服消息、设备控制，本质上都离不开一条稳定、低延迟、可持续的通信链路。对于 Flutter 开发者来说，WebSocket 正是构建这类能力时最常见、也最值得深入掌握的技术之一。
 

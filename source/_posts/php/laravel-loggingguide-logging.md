@@ -9,12 +9,13 @@ categories:
   - php
   - logging
 tags: [Laravel, 监控]
-keywords: [Laravel, 监控]
+keywords: [Laravel, 日志实战, 多通道, 结构化, 日志聚合与生产环境治理踩坑记录, PHP]
 description: 深入 Laravel 日志系统实战：多通道分级策略、JSON 结构化输出、Log Context 与 Tag 追踪、日志聚合对接 ELK、生产环境轮转与治理踩坑记录。
 
 
 
 ---
+
 # Laravel 日志实战：多通道、结构化、日志聚合与生产环境治理踩坑记录
 
 > 在 B2C 电商项目中，日志不只是 `Log::info()` 那么简单。当你的 Laravel API 面对每秒上千请求、多个微服务协同、以及生产环境故障排查时，一个设计良好的日志架构就是你的「时间机器」——它能帮你在事故发生的瞬间还原完整的调用链路。

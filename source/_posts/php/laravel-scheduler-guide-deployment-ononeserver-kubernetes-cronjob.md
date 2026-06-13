@@ -9,12 +9,13 @@ categories:
   - php
   - kubernetes
 tags: [DevOps, Kubernetes, Laravel, 定时任务, Scheduler, onOneServer]
-keywords: [DevOps, Kubernetes, Laravel, 定时任务, Scheduler]
+keywords: [Laravel Scheduler, onOneServer, Kubernetes CronJob, 定时任务实战, 多实例部署下的重入保护, 失效与, 取舍, PHP]
 description: 结合 Laravel 订单超时关闭、库存回补与报表汇总场景，深度记录 Scheduler 在多实例部署下的拆分策略、重入保护与 withoutOverlapping 陷阱、onOneServer 依赖共享缓存锁的前提条件、Kubernetes CronJob 的 concurrencyPolicy 与失败重试配置，以及从单机迁移到容器化部署过程中的真实踩坑记录与监控告警方案。
 
 
 
 ---
+
 很多团队第一次用 Laravel Scheduler，都觉得它只是把 crontab 写进 PHP 而已；真正上线到多实例之后，问题才开始暴露：同一个任务被跑两次、`withoutOverlapping()` 没挡住长任务、`onOneServer()` 在容器里偶尔失效、发布时旧 Pod 还在跑半截，结果订单重复关闭、库存重复回补、日报数据互相覆盖。
 
 我这次处理的是一组典型后台任务：每分钟扫描超时未支付订单、每五分钟汇总渠道成交额、每小时对账一次第三方支付。单机阶段一切正常，迁到 Kubernetes 后扩成 4 个 API Pod，再加一个 `schedule:work` 常驻 Pod，重复执行问题开始稳定复现。最后我的结论很明确：**不是所有定时任务都适合继续留在 Laravel Scheduler 里，短任务、轻编排、依赖应用上下文的任务适合 Scheduler；重任务、强隔离、需要独立失败重试的任务更适合 Kubernetes CronJob。**

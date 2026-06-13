@@ -2,7 +2,7 @@
 title: 'gRPC vs Connect 实战：Protobuf 通信的新旧对比——gRPC-Web 的替代方案与 Laravel/Go/TypeScript 三端集成'
 date: 2026-06-05 10:00:00
 tags: [gRPC, Connect, Protobuf, Buf, Go, TypeScript, Laravel, 微服务]
-keywords: [gRPC, Connect, Protobuf, Buf, Go, RPC]
+keywords: [gRPC vs Connect, Protobuf, gRPC, Web, Laravel, Go, TypeScript, 通信的新旧对比, 的替代方案与, 三端集成]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "深入对比 gRPC、gRPC-Web 与 Connect 三种 Protobuf 通信协议的核心差异，详解 Connect 协议如何以零代理方式解决浏览器流式通信难题，并给出 Go 服务端、TypeScript 前端、Laravel BFF 中间层的三端完整集成实战代码与从 gRPC-Web 迁移到 Connect 的渐进式策略。"
 ---
+
 
 作为一名长期深耕 Laravel 生态的架构师，我在过去几年里经历了从 RESTful API 到 gRPC 再到 Connect 协议的完整演进过程。每一次技术选型的背后，都伴随着对性能、开发效率、团队协作和运维复杂度的反复权衡。本文将以一个真实项目为背景，详细对比 gRPC、gRPC-Web 和 Connect 三种方案，并给出 Go 后端、TypeScript 前端、Laravel 中间层的三端完整集成示例。
 

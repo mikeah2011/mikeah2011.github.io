@@ -2,7 +2,7 @@
 title: API 版本控制进阶：URL/Header/MediaType 三种策略的工程实践
 date: 2026-06-01 22:45:00
 tags: [API, Laravel, RESTful, 版本控制, 版本管理, URL版本控制]
-keywords: [API, Laravel, RESTful, 版本控制, 版本管理]
+keywords: [API, URL, Header, MediaType, 版本控制进阶, 三种策略的工程实践, PHP]
 description: 本文结合 Laravel 工程实践，系统讲解 API 版本控制的三种主流方案：URL版本、Header版本、MediaType 版本，覆盖 RESTful 设计取舍、路由拆分、中间件解析、控制器与资源层实现、缓存配置、Swagger/OpenAPI 文档分版、灰度发布与兼容治理，帮助团队建立可落地、可演进的 API 版本管理体系。
 categories:
   - php
@@ -10,6 +10,7 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 在 API 生命周期足够长、客户端足够多、业务变化足够频繁的系统里，版本控制从来不是“要不要做”的问题，而是“什么时候会痛到必须做”。很多团队在系统早期图快，接口路径直接写成 `/api/orders`，移动端、小程序、Web 前端、第三方渠道都接同一套接口；等上线一年后，字段语义发生变化、认证方式升级、排序规则调整、错误码规范重构，这时才发现：原来真正困难的不是写一个 v2，而是在“不打断旧客户端”的前提下，持续、平滑、可观测地演进 API。
 

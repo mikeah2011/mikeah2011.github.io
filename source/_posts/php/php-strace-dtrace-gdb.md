@@ -16,16 +16,9 @@ updated: 2026-06-10 06:35:00
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-keywords:
-  - PHP调试
-  - strace
-  - dtrace
-  - gdb
-  - 生产环境调试
-  - PHP-FPM调试
-  - 内存泄漏排查
-  - 死锁排查
+keywords: [PHP调试 , strace , dtrace , gdb , 生产环境调试 , PHP, 内存泄漏排查 , 死锁排查]
 ---
+
 
 ## 概述
 

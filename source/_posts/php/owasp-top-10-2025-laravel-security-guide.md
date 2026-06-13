@@ -1,6 +1,6 @@
 ---
 title: "OWASP Top 10 2025 版本更新实战：LLM 相关漏洞、API 安全增强、供应链攻击——Laravel 应用的新威胁防护指南"
-keywords: [OWASP, Top]
+keywords: [OWASP Top, LLM, API, Laravel, 版本更新实战, 相关漏洞, 安全增强, 供应链攻击, 应用的新威胁防护指南, PHP]
 date: 2026-06-07 23:38:00
 categories:
   - php
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80
 images:
   - https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80
 ---
+
 
 ## 前言
 

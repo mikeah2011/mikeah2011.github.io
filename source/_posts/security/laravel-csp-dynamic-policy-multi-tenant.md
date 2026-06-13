@@ -1,6 +1,6 @@
 ---
 title: Laravel CSP 动态策略实战：按租户/按页面/按用户角色的 Content Security Policy 动态生成
-keywords: [Laravel, CSP]
+keywords: [Laravel CSP, Content Security Policy, 动态策略实战, 按租户, 按页面, 按用户角色的, 动态生成]
 date: 2026-06-10 01:58:00
 categories:
   - security
@@ -16,6 +16,7 @@ tags:
   - Content-Security-Policy
 description: 多租户 SaaS 系统中，不同租户需要不同的 CSP 策略。本文从中间件、策略类、缓存、Nonce 集成四个维度，实现按租户/按页面/按用户角色动态生成 Content-Security-Policy 响应头，附完整可运行代码。
 ---
+
 
 ## 为什么多租户 SaaS 需要动态 CSP？
 

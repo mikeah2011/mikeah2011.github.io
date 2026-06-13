@@ -1,6 +1,7 @@
 ---
+
 title: Pest PHP 实战：自定义 Expectations、Arch Testing、Mutation Testing 深度剖析
-keywords: [Pest, PHP]
+keywords: [Pest PHP, Expectations, Arch Testing, Mutation Testing, 自定义, 深度剖析]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -16,10 +17,9 @@ tags:
 - infection
 - 测试工程化
 - Laravel
-description: 深度剖析 Pest PHP 三大进阶能力：自定义 Expectations 封装领域断言、Arch Testing 架构规则守护、Mutation
-  Testing 变异测试评估测试质量。源码级分析内部实现机制，真实 Laravel B2C API 场景实战，Infection 变异测试基准数据，以及从 PHPUnit
-  迁移的踩坑经验。
+description: 深度剖析 Pest PHP 三大进阶能力：自定义 Expectations 封装领域断言、Arch Testing 架构规则守护、Mutation Testing 变异测试评估测试质量。源码级分析内部实现机制，真实 Laravel B2C API 场景实战，Infection 变异测试基准数据，以及从 PHPUnit 迁移的踩坑经验。
 ---
+
 
 
 # Pest PHP 实战：自定义 Expectations、Arch Testing、Mutation Testing 深度剖析

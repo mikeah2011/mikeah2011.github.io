@@ -1,6 +1,7 @@
 ---
+
 title: API Gateway + Lambda 实战：无服务器 API 架构设计与 Laravel 集成踩坑记录
-keywords: [API, Gateway, Lambda]
+keywords: [API Gateway, Lambda, API, Laravel, 无服务器, 架构设计与, 集成踩坑记录]
 date: 2026-05-17 04:40:41
 updated: 2026-05-17 04:44:02
 categories:
@@ -13,13 +14,13 @@ tags:
 - Serverless
 - Laravel
 - 无服务器
-description: 深入解析 AWS API Gateway + Lambda 无服务器架构设计，涵盖 HTTP API/REST API/ALB 选型对比、冷启动优化（Provisioned
-  Concurrency、SnapStart）、API Gateway 限流缓存 WAF 实战，以及与 Laravel 混合部署策略与成本估算。
+description: 深入解析 AWS API Gateway + Lambda 无服务器架构设计，涵盖 HTTP API/REST API/ALB 选型对比、冷启动优化（Provisioned Concurrency、SnapStart）、API Gateway 限流缓存 WAF 实战，以及与 Laravel 混合部署策略与成本估算。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/arch-003-content-1.jpg
 - /images/diagrams/arch-003-diagram.jpg
 ---
+
 
 
 我在 KKday B2C Backend Team 工作期间，有一个需求是为 Affiliate 推荐系统搭建一套独立的轻量 API 层——不需要完整的 Laravel 应用栈，只做数据聚合和签名验证，流量有明显的峰谷特征（白天高、凌晨低），按量付费比常驻 EC2 更划算。最终方案选了 AWS API Gateway + Lambda，但中间踩了不少坑。

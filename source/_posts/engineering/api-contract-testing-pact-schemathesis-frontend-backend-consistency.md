@@ -1,11 +1,10 @@
----
+
 title: API 契约测试实战：Pact/Schemathesis 前后端接口一致性保障
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-06-01 10:00:00
-description: 深度剖析 Pact Consumer-Driven Contract Testing 与 Schemathesis Property-Based
-  Testing 的架构原理、源码实现与 Laravel B2C API 生产环境踩坑记录。从问题动机到 CI 集成，从 Mock 策略到 Schema 演进，全面覆盖前后端接口一致性保障的技术路径。
+description: 深度剖析 Pact Consumer-Driven Contract Testing 与 Schemathesis Property-Based Testing 的架构原理、源码实现与 Laravel B2C API 生产环境踩坑记录。从问题动机到 CI 集成，从 Mock 策略到 Schema 演进，全面覆盖前后端接口一致性保障的技术路径。
 categories:
 - engineering
 - testing
@@ -19,17 +18,7 @@ tags:
 - Contract Testing
 - Property-Based Testing
 - CI/CD
-keywords:
-- Pact PHP
-- Schemathesis
-- 契约测试
-- Contract Testing
-- API 一致性
-- 前后端联调
-- Laravel API 测试
-- Consumer-Driven Contract
-- OpenAPI
-- Schema Validation
+keywords: - Pact PHP - Schemathesis - 契约测试 - Contract Testing - API 一致性 - 前后端联调 - Laravel API 测试 - Consumer-Driven Contract - OpenAPI - Schema Validation
 ---
 
 
@@ -95,6 +84,7 @@ keywords:
 | 适用场景 | 多消费者、接口频繁变更 | 单提供者、文档驱动开发 |
 
 ---
+
 
 ## 二、Pact：Consumer-Driven Contract Testing 深度剖析
 

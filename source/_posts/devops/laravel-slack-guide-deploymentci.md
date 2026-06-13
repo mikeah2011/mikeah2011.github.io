@@ -1,6 +1,7 @@
 ---
+
 title: Laravel-Slack-通知集成实战-部署推送CI结果与告警降噪踩坑记录
-keywords: [Laravel, Slack, CI]
+keywords: [Laravel, Slack, CI, 通知集成实战, 部署推送, 结果与告警降噪踩坑记录]
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -14,9 +15,9 @@ tags:
 - Laravel
 - 工程管理
 - 监控
-description: 在 KKday B2C 后端 30+ 仓库中落地 Slack 通知的完整方案：Incoming Webhook vs Slack App
-  Bot 选型、Laravel Notification Channel 封装、GitHub Actions 部署/测试结果推送、生产告警降噪策略，以及踩过的每一个坑。
+description: 在 KKday B2C 后端 30+ 仓库中落地 Slack 通知的完整方案：Incoming Webhook vs Slack App Bot 选型、Laravel Notification Channel 封装、GitHub Actions 部署/测试结果推送、生产告警降噪策略，以及踩过的每一个坑。
 ---
+
 
 > 一句话总结：**Slack 通知不是"调个 Webhook 就完事"**——频道规划、消息格式、告警降噪、权限隔离每一步都有坑。本文是我在 KKday B2C 后端 30+ 仓库中落地 Slack 通知的完整复盘。
 

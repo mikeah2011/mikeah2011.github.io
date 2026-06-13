@@ -1,11 +1,9 @@
 ---
+
 title: Laravel PWA 改造实战：Service Worker 离线缓存、后台同步、推送通知——从传统 Web 应用到渐进式 Web 应用的完整迁移路径
-keywords: [Laravel, PWA]
+keywords: [Laravel PWA, Service Worker, Web, 改造实战, 离线缓存, 后台同步, 推送通知, 从传统, 应用到渐进式, 应用的完整迁移路径]
 date: 2026-06-07 10:00:00
-description: 深入实战讲解如何将 Laravel Web 应用改造为渐进式 Web 应用（PWA）。从 Web App Manifest 配置、Service
-  Worker 注册与生命周期管理，到 Cache First、Network First、Stale While Revalidate 三级离线缓存策略详解，再到
-  Background Sync API 后台同步与 Web Push 推送通知的 Laravel 后端实现，涵盖 Workbox 集成、Nginx HTTPS
-  配置、Lighthouse 评分优化及生产环境部署踩坑指南，助你一站式掌握 PWA 迁移全流程。
+description: 深入实战讲解如何将 Laravel Web 应用改造为渐进式 Web 应用（PWA）。从 Web App Manifest 配置、Service Worker 注册与生命周期管理，到 Cache First、Network First、Stale While Revalidate 三级离线缓存策略详解，再到 Background Sync API 后台同步与 Web Push 推送通知的 Laravel 后端实现，涵盖 Workbox 集成、Nginx HTTPS 配置、Lighthouse 评分优化及生产环境部署踩坑指南，助你一站式掌握 PWA 迁移全流程。
 tags:
 - Laravel
 - PWA
@@ -19,6 +17,7 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
+
 
 
 在移动互联网时代，用户对于 Web 应用的期望已经不再局限于"能用"，而是追求"好用"甚至"像原生 App 一样好用"。渐进式 Web 应用（Progressive Web App，简称 PWA）正是在这样的背景下应运而生的一项技术方案。它将 Web 的开放性与原生 App 的体验完美结合，让传统的 Web 应用具备离线访问、推送通知、主屏安装等能力。

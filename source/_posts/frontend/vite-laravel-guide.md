@@ -1,6 +1,7 @@
 ---
+
 title: Vite-Laravel-实战-前后端分离开发工作流踩坑记录
-keywords: [Vite, Laravel]
+keywords: [Vite, Laravel, 前后端分离开发工作流踩坑记录]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -17,10 +18,9 @@ tags:
 - Vite
 - Vue
 - 前端
-description: 本文基于 30+ 仓库真实迁移经验，详解使用 Vite 替代 Laravel Mix 实现前后端分离的完整工作流。涵盖 Vue 3 组件集成、Docker
-  容器环境适配、HMR 热更新优化、API 代理与 CORS 处理、前端构建优化（代码分割、Tree Shaking、Gzip 压缩）等核心内容，附常用插件配置（vite-plugin-svg-icons、unplugin-auto-import）与迁移检查清单，助你快速完成
-  Vite + Laravel 工程化升级。
+description: 本文基于 30+ 仓库真实迁移经验，详解使用 Vite 替代 Laravel Mix 实现前后端分离的完整工作流。涵盖 Vue 3 组件集成、Docker 容器环境适配、HMR 热更新优化、API 代理与 CORS 处理、前端构建优化（代码分割、Tree Shaking、Gzip 压缩）等核心内容，附常用插件配置（vite-plugin-svg-icons、unplugin-auto-import）与迁移检查清单，助你快速完成 Vite + Laravel 工程化升级。
 ---
+
 
 
 # Vite + Laravel 实战：前后端分离开发工作流踩坑记录

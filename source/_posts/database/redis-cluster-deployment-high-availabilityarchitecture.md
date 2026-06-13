@@ -1,6 +1,7 @@
 ---
+
 title: Redis Cluster 集群部署与故障转移：高可用架构实战踩坑记录
-keywords: [Redis, Cluster]
+keywords: [Redis Cluster, 集群部署与故障转移, 高可用架构实战踩坑记录]
 date: 2026-05-05 07:10:43
 updated: 2026-05-05 07:13:41
 categories:
@@ -12,16 +13,13 @@ tags:
 - Redis Cluster
 - 高可用
 - 故障转移
-description: Redis Cluster 集群部署与高可用架构实战指南。基于 KKday B2C API 生产环境经验，详解 Redis Cluster
-  集群部署完整流程与六节点三主三从架构设计、16384 哈希槽分片原理与数据路由机制、Docker Compose 快速搭建集群开发环境、Laravel 框架中
-  Predis 与 phpredis 扩展的集群模式配置及 Hash Tag 路由技巧。深入讲解故障转移测试方法与自动 Failover 触发机制，涵盖手动故障转移、主节点宕机模拟与客户端重试策略实现。全面对比
-  Redis Sentinel 哨兵模式、Redis Cluster 集群模式与 Redis Proxy 代理三种高可用方案选型。提供 Prometheus 加
-  Grafana 生产监控告警完整配置方案，收录真实踩坑案例与多种故障恢复场景，助力开发者高效完成 Redis 集群部署与高可用架构落地。
+description: Redis Cluster 集群部署与高可用架构实战指南。基于 KKday B2C API 生产环境经验，详解 Redis Cluster 集群部署完整流程与六节点三主三从架构设计、16384 哈希槽分片原理与数据路由机制、Docker Compose 快速搭建集群开发环境、Laravel 框架中 Predis 与 phpredis 扩展的集群模式配置及 Hash Tag 路由技巧。深入讲解故障转移测试方法与自动 Failover 触发机制，涵盖手动故障转移、主节点宕机模拟与客户端重试策略实现。全面对比 Redis Sentinel 哨兵模式、Redis Cluster 集群模式与 Redis Proxy 代理三种高可用方案选型。提供 Prometheus 加 Grafana 生产监控告警完整配置方案，收录真实踩坑案例与多种故障恢复场景，助力开发者高效完成 Redis 集群部署与高可用架构落地。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-001-content-1.jpg
 - /images/content/databases-001-content-2.jpg
 ---
+
 
 
 # Redis Cluster 集群部署与故障转移：高可用架构实战踩坑记录

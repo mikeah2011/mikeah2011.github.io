@@ -1,4 +1,4 @@
----
+
 title: iCloud-vs-Google-Drive-Laravel-项目同步策略备份还原实战踩坑记录
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
@@ -11,7 +11,7 @@ categories:
 tags: [DevOps, Laravel, macOS]
 keywords: [DevOps, Laravel, macOS, Cloud, Google, Drive]
 description: >
-  macOS 开发者在多设备间同步 Laravel 项目时，iCloud Drive 与 Google Drive 该如何选择？本文基于 KKday B2C API 真实项目经验，深度对比两种云存储方案在符号链接兼容性、大文件同步性能、离线访问、API 可编程性等维度的差异。涵盖项目目录同步脚本、mysqldump 数据库备份还原、.env 敏感配置 GPG 加密同步、IDE 配置选择性共享、符号链接踩坑修复等完整实战方案，并附带可直接复用的 shell 脚本与 rclone 自动化配置，帮助你在多台 Mac 之间无缝切换开发环境。
+macOS 开发者在多设备间同步 Laravel 项目时，iCloud Drive 与 Google Drive 该如何选择？本文基于 KKday B2C API 真实项目经验，深度对比两种云存储方案在符号链接兼容性、大文件同步性能、离线访问、API 可编程性等维度的差异。涵盖项目目录同步脚本、mysqldump 数据库备份还原、.env 敏感配置 GPG 加密同步、IDE 配置选择性共享、符号链接踩坑修复等完整实战方案，并附带可直接复用的 shell 脚本与 rclone 自动化配置，帮助你在多台 Mac 之间无缝切换开发环境。
 
 
 

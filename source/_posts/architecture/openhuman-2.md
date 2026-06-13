@@ -1,6 +1,7 @@
 ---
+
 title: OpenHuman 潜意识循环：后台认知、任务评估、"做梦"离线整合的技术实现
-keywords: [OpenHuman]
+keywords: [OpenHuman, 潜意识循环, 后台认知, 任务评估, 做梦, 离线整合的技术实现]
 date: 2026-06-02 12:00:00
 tags:
 - OpenHuman
@@ -13,10 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 深度剖析 OpenHuman 独特的潜意识循环（Subconscious Loop）技术架构。灵感源自认知科学的记忆巩固、默认模式网络和睡眠阶段理论，为
-  AI Agent 设计四状态状态机（Processing/Idle/Integrating/Sleeping），在空闲时自动执行记忆巩固、实体提取、关系发现、主题聚类等后台认知任务。详解"做梦"离线整合机制如何将碎片化短期记忆重组为结构化长期知识，以及重要度评分的六因子加权模型。对比传统反应式
-  Agent，展示主动式认知的价值。
+description: 深度剖析 OpenHuman 独特的潜意识循环（Subconscious Loop）技术架构。灵感源自认知科学的记忆巩固、默认模式网络和睡眠阶段理论，为 AI Agent 设计四状态状态机（Processing/Idle/Integrating/Sleeping），在空闲时自动执行记忆巩固、实体提取、关系发现、主题聚类等后台认知任务。详解"做梦"离线整合机制如何将碎片化短期记忆重组为结构化长期知识，以及重要度评分的六因子加权模型。对比传统反应式 Agent，展示主动式认知的价值。
 ---
+
 
 
 ## 前言：AI Agent 也需要"睡觉"吗？

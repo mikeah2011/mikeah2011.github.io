@@ -1,6 +1,7 @@
 ---
+
 title: Hermes Agent 定时任务实战：自动化博客写作、系统监控与代码更新踩坑记录
-keywords: [Hermes, Agent]
+keywords: [Hermes Agent, 定时任务实战, 自动化博客写作, 系统监控与代码更新踩坑记录]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -16,11 +17,9 @@ tags:
 - Cron
 - 监控
 - macOS
-description: Hermes Agent 自动化监控完整实战指南：从零搭建 AI Agent 定时任务体系，涵盖 cron 表达式设计、Skill 编排、Hexo
-  博客自动写作、macOS 系统监控告警、Git 仓库自动同步、多通道通知分发（Telegram/Slack/邮件）。深入讲解 Hermes Agent 配置文件结构、APScheduler
-  调度引擎、告警降噪策略、任务超时与幂等性设计、monitor-state.json 状态持久化，附 5 个真实踩坑案例与完整代码示例，帮助开发者用 AI Agent
-  实现 7×24 无人值守自动化运维。
+description: Hermes Agent 自动化监控完整实战指南：从零搭建 AI Agent 定时任务体系，涵盖 cron 表达式设计、Skill 编排、Hexo 博客自动写作、macOS 系统监控告警、Git 仓库自动同步、多通道通知分发（Telegram/Slack/邮件）。深入讲解 Hermes Agent 配置文件结构、APScheduler 调度引擎、告警降噪策略、任务超时与幂等性设计、monitor-state.json 状态持久化，附 5 个真实踩坑案例与完整代码示例，帮助开发者用 AI Agent 实现 7×24 无人值守自动化运维。
 ---
+
 
 
 ## 前言：为什么要让 AI Agent 跑定时任务？

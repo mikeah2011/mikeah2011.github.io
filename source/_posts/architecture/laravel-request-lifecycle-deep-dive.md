@@ -1,6 +1,6 @@
 ---
 title: 'Laravel Request Lifecycle 实战：从 HTTP 入口到 Response 的完整管道——Kernel、Middleware、Terminable 的执行时序深度剖析'
-keywords: [Laravel, Request, Lifecycle]
+keywords: [Laravel Request Lifecycle, HTTP, Response, Kernel, Middleware, Terminable, 入口到, 的完整管道, 的执行时序深度剖析, 架构]
 date: 2026-06-10 01:19:00
 categories:
   - architecture
@@ -16,6 +16,7 @@ tags:
   - 架构设计
 description: '深入剖析 Laravel 请求生命周期的每一个阶段：从 public/index.php 入口、HTTP Kernel 编排、Middleware Pipeline 管道、Router 路由分发、Controller 执行、Response 生成，到 Terminable Middleware 的收尾钩子。结合 Laravel 8 源码和可运行代码示例，揭示请求在框架内部的完整流转路径。'
 ---
+
 
 ## 概述
 

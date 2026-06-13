@@ -1,13 +1,15 @@
 ---
+
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 title: uni-app 性能优化实战：首屏加载、分包加载、图片懒加载的工程化治理
 date: 2026-06-01 12:00:00
 categories:
-- frontend
-- engineering
-- mobile
+  - frontend
+  - engineering
+  - mobile
+keywords: [uni, app, 性能优化实战, 首屏加载, 分包加载, 图片懒加载的工程化治理]
 tags:
 - uni-app
 - 性能优化
@@ -17,10 +19,9 @@ tags:
 - 微信小程序
 - H5
 - Vue
-description: uni-app 多端项目的性能瓶颈往往不在业务逻辑，而在资源加载策略。本文从首屏白屏治理、分包架构设计、图片懒加载三个维度，结合奇乐 MAX
-  电商系统和 KKday B2C 项目的真实踩坑经验，详细讲解骨架屏实现、接口并行化与字段裁剪、小程序分包预下载与独立分包配置、自定义懒加载组件与 WebP/CDN
-  图片优化等工程化方案，附带对比分析表与常见反模式总结，帮助开发者系统性地提升 uni-app 应用的首屏加载速度与用户体验。
+description: uni-app 多端项目的性能瓶颈往往不在业务逻辑，而在资源加载策略。本文从首屏白屏治理、分包架构设计、图片懒加载三个维度，结合奇乐 MAX 电商系统和 KKday B2C 项目的真实踩坑经验，详细讲解骨架屏实现、接口并行化与字段裁剪、小程序分包预下载与独立分包配置、自定义懒加载组件与 WebP/CDN 图片优化等工程化方案，附带对比分析表与常见反模式总结，帮助开发者系统性地提升 uni-app 应用的首屏加载速度与用户体验。
 ---
+
 
 # uni-app 性能优化实战：首屏加载、分包加载、图片懒加载的工程化治理
 

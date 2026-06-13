@@ -1,6 +1,7 @@
 ---
+
 title: MySQL 并发控制：乐观锁、悲观锁与 MVCC 原理
-keywords: [MySQL]
+keywords: [MySQL, MVCC, 并发控制, 乐观锁, 悲观锁与, 原理, 数据库]
 tags:
 - MySQL
 - 并发控制
@@ -10,7 +11,7 @@ tags:
 - 乐观锁
 - 悲观锁
 categories:
-- database
+  - database
 date: 2019-03-20 15:05:07
 description: 并发控制是数据库保障数据一致性的核心机制。本文全面解析MySQL InnoDB并发控制原理，包括悲观锁（行锁、间隙锁、Next-Key Lock）与乐观锁（版本号机制）的对比与选型，事务隔离级别（读未提交到串行化）对脏读、不可重复读、幻读的影响，死锁检测与预防策略，以及Laravel框架中lockForUpdate、乐观锁重试、Redis分布式锁等实战代码示例与踩坑经验。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
@@ -18,6 +19,7 @@ images:
 - /images/content/databases-013-content-1.jpg
 - /images/content/databases-013-content-2.jpg
 ---
+
 
 
 

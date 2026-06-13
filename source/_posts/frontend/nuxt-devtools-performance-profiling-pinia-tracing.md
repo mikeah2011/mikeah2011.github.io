@@ -1,13 +1,14 @@
 ---
+
 title: Nuxt DevTools 深度实战：Vue 应用的性能分析、组件树检查与 Pinia 状态追踪——开发调试的瑞士军刀
-keywords: [Nuxt, DevTools]
+keywords: [Nuxt DevTools, Vue, Pinia, 深度实战, 应用的性能分析, 组件树检查与, 状态追踪, 开发调试的瑞士军刀, 前端]
 date: 2026-06-10 08:52:00
 categories:
+  - frontend
+  - nuxt
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-- frontend
-- nuxt
 tags:
 - Nuxt DevTools
 - Vue
@@ -17,6 +18,7 @@ tags:
 - 前端性能
 description: Nuxt DevTools 从入门到精通：组件树检查、性能 Profiling、Pinia 状态追踪、路由分析、依赖图谱——Vue 开发者的终极调试工具链
 ---
+
 
 # Nuxt DevTools 深度实战：Vue 应用的性能分析、组件树检查与 Pinia 状态追踪——开发调试的瑞士军刀
 

@@ -1,6 +1,7 @@
 ---
+
 title: Go for PHP Developers 实战：goroutine/channel 并发模型与 Laravel 队列的思维对比
-keywords: [Go, PHP, Developers]
+keywords: [Go for PHP Developers, goroutine, channel, Laravel, 并发模型与, 队列的思维对比]
 date: 2026-06-02 10:00:00
 tags:
 - Go
@@ -11,13 +12,12 @@ tags:
 - 并发
 categories:
 - architecture
-description: 面向 PHP/Laravel 开发者的 Go 并发编程实战，对比 goroutine/channel 与 Laravel Queue 的思维差异。深入讲解
-  Go 调度器（GMP 模型）、channel 通信模式、select 多路复用、sync 包同步原语，以及通过 gRPC 将 Go 微服务集成到 Laravel
-  架构的实战路径。适合需要处理高并发场景（WebSocket、实时消息、第三方 API 聚合）的 PHP 开发者学习 Go 的并发思维。
+description: 面向 PHP/Laravel 开发者的 Go 并发编程实战，对比 goroutine/channel 与 Laravel Queue 的思维差异。深入讲解 Go 调度器（GMP 模型）、channel 通信模式、select 多路复用、sync 包同步原语，以及通过 gRPC 将 Go 微服务集成到 Laravel 架构的实战路径。适合需要处理高并发场景（WebSocket、实时消息、第三方 API 聚合）的 PHP 开发者学习 Go 的并发思维。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
+
 
 
 # Go for PHP Developers 实战：goroutine/channel 并发模型与 Laravel 队列的思维对比

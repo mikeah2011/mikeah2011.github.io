@@ -2,7 +2,7 @@
 title: FrankenPHP 实战：Go 驱动的 PHP 应用服务器——替代 PHP-FPM 的现代部署方案与 Laravel 集成
 date: 2026-06-03 10:00:00
 tags: [FrankenPHP, Go, PHP, Laravel, 应用服务器, 性能优化]
-keywords: [FrankenPHP, Go, PHP, Laravel, 应用服务器]
+keywords: [FrankenPHP, Go, PHP, FPM, Laravel, 驱动的, 应用服务器, 替代, 的现代部署方案与, DevOps]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: FrankenPHP 是基于 Go 语言和 Caddy 构建的现代化 PHP 应用服务器，通过 Worker 模式实现 PHP 常驻内存，吞吐量较传统 PHP-FPM 提升 2-5 倍。原生支持 HTTP/3 与自动 HTTPS，一个二进制文件即可替代 Nginx+PHP-FPM 的复杂架构。本文深度剖析 FrankenPHP 架构原理与 Worker 模式机制，横向对比 Swoole、RoadRunner 方案差异，涵盖 Laravel Sail 集成、Docker 生产级部署、OPcache/JIT 调优、Prometheus 监控、Kubernetes HPA 扩缩容等实战内容，附带五个生产踩坑案例与完整迁移清单，帮助 PHP 开发者快速掌握 FrankenPHP 部署落地的全流程。
 ---
+
 
 ## TL;DR
 

@@ -1,6 +1,6 @@
 ---
 title: "Effect-TS 实战进阶：Laravel 全栈的 TypeScript 函数式编程——类型安全的错误处理、依赖注入与并发原语的生产落地"
-keywords: [Effect, TS]
+keywords: [Effect, TS, Laravel, TypeScript, 实战进阶, 全栈的, 函数式编程, 类型安全的错误处理, 依赖注入与并发原语的生产落地, 前端]
 date: 2026-06-10 01:25:00
 categories:
   - frontend
@@ -17,6 +17,7 @@ tags:
   - 依赖注入
 description: "在 Laravel 全栈项目中引入 Effect-TS，用类型系统约束错误处理、用 Layer 实现依赖注入、用 Fiber 管理并发，彻底告别 try-catch 地狱和 any 类型泛滥。"
 ---
+
 
 ## 为什么 Laravel 全栈项目需要 Effect-TS？
 

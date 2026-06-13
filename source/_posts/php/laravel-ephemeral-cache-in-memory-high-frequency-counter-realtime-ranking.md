@@ -1,6 +1,6 @@
 ---
 title: Laravel Ephemeral Cache 实战：无持久化的高速缓存——高频计数器、实时排行与请求级数据的内存缓存策略
-keywords: [Laravel, Ephemeral, Cache]
+keywords: [Laravel Ephemeral Cache, 无持久化的高速缓存, 高频计数器, 实时排行与请求级数据的内存缓存策略, PHP]
 date: 2026-06-10 06:17:00
 categories:
   - php
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
+
 
 在高并发 Web 应用中，缓存是绕不开的核心话题。但很多时候我们并不需要持久化缓存——请求级别的临时数据、高频递增的计数器、实时排行榜的中间状态——这些数据天然适合「用完即弃」或「进程内常驻」的缓存模式。本文将深入 Laravel 的 Ephemeral Cache 实战，探索无持久化缓存的工程化方案。
 

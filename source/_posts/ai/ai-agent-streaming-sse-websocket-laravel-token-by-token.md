@@ -1,6 +1,7 @@
 ---
+
 title: AI Agent Streaming 实战：SSE/WebSocket 实时流式响应——Laravel 后端的 Token-by-Token 推送与前端渲染
-keywords: [AI, Agent, Streaming]
+keywords: [AI Agent Streaming, SSE, WebSocket, Laravel, Token, 实时流式响应, 后端的, 推送与前端渲染]
 date: 2026-06-03 09:00:00
 tags:
 - AI Agent
@@ -14,10 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-description: 深入实战 AI Agent 流式响应系统：对比 SSE 与 WebSocket 方案选型，完整实现 Laravel 后端的 Token-by-Token
-  推送，涵盖 OpenAI 流式 API 调用、Tool Calling 链式执行、React/Vue 前端实时渲染、Nginx 缓冲踩坑、Swoole 协程高性能方案，以及
-  9 个生产环境常见问题与解决方案。
+description: 深入实战 AI Agent 流式响应系统：对比 SSE 与 WebSocket 方案选型，完整实现 Laravel 后端的 Token-by-Token 推送，涵盖 OpenAI 流式 API 调用、Tool Calling 链式执行、React/Vue 前端实时渲染、Nginx 缓冲踩坑、Swoole 协程高性能方案，以及 9 个生产环境常见问题与解决方案。
 ---
+
 
 
 

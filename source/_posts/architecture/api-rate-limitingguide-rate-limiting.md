@@ -6,13 +6,14 @@ categories:
   - architecture
   - api
 tags: [Laravel, Redis]
-keywords: [Laravel, Redis, API, Rate, Limiting]
+keywords: [API, Rate, Limiting, Laravel, B2C, 限流实战, 滑动窗口, 令牌桶算法, 踩坑记录, 架构]
 description: API Rate Limiting 限流实战全攻略：从固定窗口、滑动窗口到令牌桶算法，深入对比三种限流策略的 Redis Lua 原子实现、内存优化与分布式踩坑。含 Laravel 中间件封装、Nginx 双层限流架构、监控告警方案，适用于 B2C 电商 API 高并发防护。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - /images/content/arch-005-content-1.jpg
   - /images/content/arch-005-content-2.jpg
 ---
+
 # API 限流实战：Rate Limiting、滑动窗口、令牌桶算法
 
 > 在 B2C 电商 API 中，限流是保护系统稳定性的第一道防线。本文基于 KKday B2C Backend 30+ 仓库的真实经验，从最朴素的固定窗口到生产级的令牌桶，逐层递进讲解三种限流策略的实现、踩坑与选型。

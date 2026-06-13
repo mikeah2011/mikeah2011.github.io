@@ -1,6 +1,7 @@
 ---
+
 title: AI Gateway 实战：统一 LLM 调用层——LiteLLM/Kong AI Gateway 的路由、限流与可观测性
-keywords: [AI, Gateway]
+keywords: [AI Gateway, LLM, LiteLLM, Kong AI Gateway, 统一, 调用层, 的路由, 限流与可观测性]
 date: 2026-06-02 00:00:00
 tags:
 - ai-gateway
@@ -14,10 +15,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 深入对比 LiteLLM Proxy 与 Kong AI Gateway 两大主流 AI Gateway 方案，解决 LLM 生产环境中
-  API Key 散落、成本不可见、供应商锁定、限流困难等核心痛点。涵盖 100+ Provider 统一接入、延迟/成本/错误率多维路由策略、Token 级预算管理、语义缓存原理与配置、Langfuse
-  与 OpenTelemetry 可观测性集成、Prompt 注入防护与 PII 脱敏，以及高可用部署架构与 Token 计数不准、流式响应超时等生产踩坑实战。
+description: 深入对比 LiteLLM Proxy 与 Kong AI Gateway 两大主流 AI Gateway 方案，解决 LLM 生产环境中 API Key 散落、成本不可见、供应商锁定、限流困难等核心痛点。涵盖 100+ Provider 统一接入、延迟/成本/错误率多维路由策略、Token 级预算管理、语义缓存原理与配置、Langfuse 与 OpenTelemetry 可观测性集成、Prompt 注入防护与 PII 脱敏，以及高可用部署架构与 Token 计数不准、流式响应超时等生产踩坑实战。
 ---
+
 
 
 

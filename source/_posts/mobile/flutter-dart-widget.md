@@ -1,6 +1,6 @@
 ---
 title: "Flutter 3.x 实战：Dart 语言基础与 Widget 体系详解"
-keywords: [Flutter]
+keywords: [Flutter, Dart, Widget, 语言基础与, 体系详解, 移动端]
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
@@ -17,6 +17,7 @@ tags:
   - Android
 description: "从 PHP/Laravel 后端开发者的视角出发，系统讲解 Flutter 3.x 的 Dart 语言基础与 Widget 体系。涵盖 Dart 类型系统、空安全、异步编程 Future/Stream、Mixin 机制、Widget 生命周期、InheritedWidget 跨层传参、组合优于继承的设计哲学、7 个真实踩坑记录与解决方案，以及 Flutter vs uni-app vs React Native vs 原生开发的选型对比，帮助后端工程师快速建立 Flutter 前端开发能力。"
 ---
+
 
 ## 一、为什么写这篇？（痛点/背景）
 

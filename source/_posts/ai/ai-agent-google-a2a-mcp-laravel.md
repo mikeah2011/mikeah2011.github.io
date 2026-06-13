@@ -2,7 +2,7 @@
 title: AI Agent 多代理通信协议实战：Google A2A + MCP 互补架构——跨组织 Agent 互操作的开放标准与 Laravel 集成
 date: 2026-06-07 12:00:00
 tags: [AI Agent, A2A, MCP, Laravel, 多代理, 协议]
-keywords: [AI Agent, A2A, MCP, Laravel, 多代理, AI, Agent]
+keywords: [AI Agent, Google A2A, MCP, Agent, Laravel, 多代理通信协议实战, 互补架构, 跨组织, 互操作的开放标准与, AI]
 categories:
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: 深入解析 Google A2A 与 MCP 两大 AI Agent 通信协议的互补架构，涵盖跨组织 Agent 互操作标准、Laravel 集成实战、安全认证与生产部署，助你构建多代理协作系统。
 ---
+
 
 # AI Agent 多代理通信协议实战：Google A2A + MCP 互补架构——跨组织 Agent 互操作的开放标准与 Laravel 集成
 

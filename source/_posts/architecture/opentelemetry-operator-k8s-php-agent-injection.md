@@ -1,6 +1,6 @@
 ---
 title: OpenTelemetry Operator for K8s 实战：自动注入 PHP Agent——Laravel 微服务的零代码变更可观测性
-keywords: [OpenTelemetry, Operator]
+keywords: [OpenTelemetry Operator for K8s, PHP Agent, Laravel, 自动注入, 微服务的零代码变更可观测性, 架构]
 date: 2026-06-09 16:48:00
 categories:
   - architecture
@@ -17,6 +17,7 @@ tags:
   - 链路追踪
 description: 在 Kubernetes 集群中使用 OpenTelemetry Operator 自动为 Laravel 微服务注入 PHP Agent，实现零代码变更的分布式链路追踪、指标采集和日志关联。本文从原理到实战，覆盖完整部署流程和踩坑记录。
 ---
+
 
 ## 概述
 

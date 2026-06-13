@@ -1,6 +1,7 @@
 ---
+
 title: brew-php-switcher + Homebrew：macOS 多版本 PHP 管理实战与踩坑记录
-keywords: [Homebrew]
+keywords: [brew, php, switcher, Homebrew, macOS, 多版本, 管理实战与踩坑记录]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -17,9 +18,9 @@ tags:
 - brew-php-switcher
 - 版本管理
 - Apple Silicon
-description: KKday 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.2/8.3 多版本共存的完整方案
-  | brew-php-switcher 与 Homebrew 原生方式对比 | 真实踩坑记录
+description: KKday 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.2/8.3 多版本共存的完整方案 | brew-php-switcher 与 Homebrew 原生方式对比 | 真实踩坑记录
 ---
+
 
 # brew-php-switcher + Homebrew：macOS 多版本 PHP 管理实战与踩坑记录
 

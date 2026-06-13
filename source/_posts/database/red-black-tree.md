@@ -1,7 +1,7 @@
 ---
 title: MySQL索引数据结构原理
 tags: [MySQL, 索引, B+Tree, InnoDB, 数据结构]
-keywords: [MySQL, 索引, B+Tree, InnoDB, 数据结构]
+keywords: [MySQL, 索引数据结构原理, 数据库]
 categories:
   - database
 date: 2021-07-23 09:45:07
@@ -12,6 +12,7 @@ images:
 description: '深入解析MySQL索引底层数据结构原理，涵盖二叉树、红黑树、B-Tree、B+Tree与Hash结构的对比分析。重点讲解InnoDB存储引擎为何选择B+Tree作为索引结构，详解聚簇索引与非聚簇索引的区别、联合索引最左前缀原则，以及B+Tree的插入删除过程。附EXPLAIN实战示例与建索引踩坑案例，助你全面掌握MySQL索引优化核心知识。'
 
 ---
+
 
 MySQL 索引是数据库性能优化的核心，而理解索引底层的数据结构是做好索引优化的前提。本文将从最基础的二叉树出发，逐步讲解红黑树、B-Tree、B+Tree、Hash 等数据结构的特点与演进，深入分析 MySQL InnoDB 选择 B+Tree 的原因，并结合聚簇索引、联合索引、回表等实战概念，帮助你全面掌握 MySQL 索引的底层原理。
 

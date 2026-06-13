@@ -1,6 +1,6 @@
 ---
 title: "EdgeDB 实战：下一代数据库——内置 ORM、Schema 即代码、GraphQL 自动生成与 Laravel 集成探索"
-keywords: [EdgeDB]
+keywords: [EdgeDB, ORM, Schema, GraphQL, Laravel, 下一代数据库, 内置, 即代码, 自动生成与, 集成探索]
 date: 2026-06-10 03:49:00
 categories:
   - database
@@ -16,6 +16,7 @@ tags:
   - 数据库
 description: "深入探索 EdgeDB 这个基于 PostgreSQL 的下一代数据库，从 Schema 即代码、内置 ORM、GraphQL 自动生成等核心特性出发，结合 Laravel 集成实战，对比传统 RDBMS 工作流的差异与优势。"
 ---
+
 
 ## 为什么又来一个数据库？
 

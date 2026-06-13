@@ -2,7 +2,7 @@
 title: 金丝雀发布实战：渐进式流量放量——Nginx/Envoy 权重路由与 Laravel 版本共存
 date: 2026-06-02 00:00:00
 tags: [金丝雀发布, Nginx, Envoy, Laravel, CI/CD, 渐进式发布]
-keywords: [金丝雀发布, Nginx, Envoy, Laravel, CI/CD]
+keywords: [Nginx, Envoy, Laravel, 金丝雀发布实战, 渐进式流量放量, 权重路由与, 版本共存, DevOps]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: 金丝雀发布（Canary Deployment）是降低发布风险的核心手段。本文从零搭建完整的渐进式流量放量体系：Nginx 原生权重路由与 Header/Cookie 定向测试，Envoy xDS 动态权重调整与流量镜像，Laravel 数据库三阶段迁移法、缓存版本化、队列兼容序列化，含自动化放量脚本、Prometheus 监控与秒级回滚实战。
 ---
+
 
 # 金丝雀发布实战：渐进式流量放量——Nginx/Envoy 权重路由与 Laravel 版本共存
 

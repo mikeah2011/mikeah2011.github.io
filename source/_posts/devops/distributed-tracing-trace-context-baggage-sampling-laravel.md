@@ -1,9 +1,9 @@
 ---
+
 title: Distributed Tracing 深度实战：Trace Context 传播、Baggage 透传与采样策略——Laravel 微服务的因果可观测性
-keywords: [Distributed, Tracing]
+keywords: [Distributed Tracing, Trace Context, Baggage, Laravel, 深度实战, 传播, 透传与采样策略, 微服务的因果可观测性]
 date: 2026-06-06 10:00:00
-description: 深入解析分布式追踪核心机制，涵盖 W3C Trace Context 标准、OpenTelemetry SDK 在 Laravel 微服务中的集成、Baggage
-  业务标签跨服务透传、采样策略对比及 Jaeger/Zipkin/Tempo 后端选型。结合九大生产踩坑案例，提供从零到生产的分布式追踪落地方案。
+description: 深入解析分布式追踪核心机制，涵盖 W3C Trace Context 标准、OpenTelemetry SDK 在 Laravel 微服务中的集成、Baggage 业务标签跨服务透传、采样策略对比及 Jaeger/Zipkin/Tempo 后端选型。结合九大生产踩坑案例，提供从零到生产的分布式追踪落地方案。
 tags:
 - 分布式
 - OpenTelemetry
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
+
 
 
 ## 引言：为什么分布式追踪是微服务架构的刚需？

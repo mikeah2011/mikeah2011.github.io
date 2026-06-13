@@ -1,6 +1,7 @@
 ---
+
 title: Secrets Management 实战：HashiCorp Vault/SOPS/age 密钥管理——Laravel 应用的密钥轮换与审计日志
-keywords: [Secrets, Management]
+keywords: [Secrets Management, HashiCorp Vault, SOPS, age, Laravel, 密钥管理, 应用的密钥轮换与审计日志]
 date: 2026-06-03 10:00:00
 tags:
 - Secrets Management
@@ -15,9 +16,9 @@ categories:
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-description: 深入对比 HashiCorp Vault、SOPS、age 三大密钥管理方案，Laravel 实战集成——从 AppRole 认证、动态数据库凭证轮换到
-  Transit 加密引擎与审计日志全覆盖。告别明文 .env，实现企业级 DevSecOps 密钥管控，附完整代码示例与迁移路线图。
+description: 深入对比 HashiCorp Vault、SOPS、age 三大密钥管理方案，Laravel 实战集成——从 AppRole 认证、动态数据库凭证轮换到 Transit 加密引擎与审计日志全覆盖。告别明文 .env，实现企业级 DevSecOps 密钥管控，附完整代码示例与迁移路线图。
 ---
+
 
 
 

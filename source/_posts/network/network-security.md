@@ -1,6 +1,7 @@
 ---
+
 title: 网络安全基础（XSS / CSRF / SQL 注入 / SSRF）
-keywords: [XSS, CSRF, SQL]
+keywords: [XSS, CSRF, SQL, SSRF, 网络安全基础, 注入]
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
@@ -15,9 +16,9 @@ tags:
 categories:
 - network
 date: 2020-08-15 10:00:00
-description: 深入解析 Web 安全四大攻击 XSS CSRF SQL注入 SSRF 的攻击原理与防御实战。涵盖 Laravel 安全中间件配置、CSP/CORS
-  安全头设置、渗透测试工具 Burp Suite OWASP ZAP、安全审计清单与真实泄露案例分析，PHP/前端完整防御代码。
+description: 深入解析 Web 安全四大攻击 XSS CSRF SQL注入 SSRF 的攻击原理与防御实战。涵盖 Laravel 安全中间件配置、CSP/CORS 安全头设置、渗透测试工具 Burp Suite OWASP ZAP、安全审计清单与真实泄露案例分析，PHP/前端完整防御代码。
 ---
+
 
 # 一句话
 

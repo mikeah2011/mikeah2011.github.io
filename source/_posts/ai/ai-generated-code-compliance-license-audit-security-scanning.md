@@ -1,12 +1,13 @@
 ---
+
 title: AI 生成代码合规性实战：Copilot/Cursor 产出的 License 审计、安全漏洞扫描与代码溯源——开发者的法律风险管理
-keywords: [AI]
+keywords: [AI, Copilot, Cursor, License, 生成代码合规性实战, 产出的, 审计, 安全漏洞扫描与代码溯源, 开发者的法律风险管理]
 date: 2026-06-10 08:00:00
 categories:
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-- ai
 tags:
 - AI生成代码
 - License审计
@@ -17,6 +18,7 @@ tags:
 - 开源协议
 description: 深入实战 AI 生成代码的合规性问题：从 License 审计到安全漏洞扫描，再到代码溯源，帮助开发者建立完整的法律风险管理体系。
 ---
+
 
 
 ## 概述

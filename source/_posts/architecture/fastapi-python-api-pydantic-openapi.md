@@ -2,7 +2,7 @@
 title: FastAPI 实战：高性能 Python API 框架——Pydantic 校验、依赖注入与 OpenAPI 自动生成
 date: 2026-06-02 10:00:00
 tags: [FastAPI, Python, Pydantic, OpenAPI, REST API, 依赖注入]
-keywords: [FastAPI, Python, Pydantic, OpenAPI, REST API]
+keywords: [FastAPI, Python API, Pydantic, OpenAPI, 高性能, 校验, 依赖注入与, 自动生成, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "FastAPI以类型提示驱动设计，成为Python生态最受欢迎的API框架。本文从Laravel开发者视角全面解析FastAPI核心特性：Pydantic数据模型（嵌套验证/泛型响应/自定义校验）、Depends依赖注入系统、SQLAlchemy数据库集成、Repository模式、中间件、异步编程与后台任务、自动OpenAPI文档生成，含vs Flask/Django REST对比和完整CRUD实战与测试示例，适合后端工程师技术栈拓展。"
 ---
+
 
 # FastAPI 实战：高性能 Python API 框架——Pydantic 校验、依赖注入与 OpenAPI 自动生成
 

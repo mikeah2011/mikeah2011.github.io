@@ -1,4 +1,5 @@
 ---
+
 title: 前端构建优化实战：Vite/Webpack 分包策略与缓存优化踩坑记录
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
@@ -6,7 +7,8 @@ images:
 date: 2026-05-17 07:15:07
 updated: 2026-05-17 07:16:32
 categories:
-- frontend
+  - frontend
+keywords: [Vite, Webpack, 前端构建优化实战, 分包策略与缓存优化踩坑记录]
 tags:
 - Vite
 - Webpack
@@ -16,11 +18,9 @@ tags:
 - 缓存优化
 - 首屏加载
 - Tree-shaking
-description: 前端构建优化实战指南，详解 Vite 分包（manualChunks vendor/ui/chart 三层策略）与 Webpack splitChunks
-  cacheGroups 配置。真实项目首屏加载从 4.2s 优化到 1.1s，涵盖 HTTP 缓存策略（强缓存与协商缓存、Cache-Control、ETag）、CDN
-  资源 hash 策略（contenthash vs chunkhash vs hash）、动态 import 路由懒加载、Bundle Analyzer 体积分析、tree-shaking
-  优化及循环依赖踩坑、CSS 提取顺序问题等完整经验。
+description: 前端构建优化实战指南，详解 Vite 分包（manualChunks vendor/ui/chart 三层策略）与 Webpack splitChunks cacheGroups 配置。真实项目首屏加载从 4.2s 优化到 1.1s，涵盖 HTTP 缓存策略（强缓存与协商缓存、Cache-Control、ETag）、CDN 资源 hash 策略（contenthash vs chunkhash vs hash）、动态 import 路由懒加载、Bundle Analyzer 体积分析、tree-shaking 优化及循环依赖踩坑、CSS 提取顺序问题等完整经验。
 ---
+
 
 
 

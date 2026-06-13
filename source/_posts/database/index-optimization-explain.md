@@ -1,6 +1,7 @@
 ---
+
 title: 数据库索引优化实战-覆盖索引联合索引与索引下推-Laravel-B2C-API踩坑记录
-keywords: [Laravel, API]
+keywords: [Laravel, B2C, API, 数据库索引优化实战, 覆盖索引联合索引与索引下推, 踩坑记录]
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
@@ -17,10 +18,9 @@ tags:
 - 覆盖索引
 - 联合索引
 - ICP
-description: MySQL 索引优化全攻略——覆盖索引（Covering Index）、联合索引最左前缀设计、索引下推（ICP）原理与实战。基于 KKday
-  B2C API 真实场景，通过 EXPLAIN 执行计划深度分析回表机制，手把手演示如何消除 SELECT *、优化列顺序、利用 Using index 与 Using
-  index condition 将查询性能提升数万倍，附完整踩坑记录与 Laravel 代码示例。
+description: MySQL 索引优化全攻略——覆盖索引（Covering Index）、联合索引最左前缀设计、索引下推（ICP）原理与实战。基于 KKday B2C API 真实场景，通过 EXPLAIN 执行计划深度分析回表机制，手把手演示如何消除 SELECT *、优化列顺序、利用 Using index 与 Using index condition 将查询性能提升数万倍，附完整踩坑记录与 Laravel 代码示例。
 ---
+
 
 # 数据库索引优化实战：覆盖索引、联合索引与索引下推
 

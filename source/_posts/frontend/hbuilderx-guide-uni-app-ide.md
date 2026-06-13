@@ -1,6 +1,7 @@
 ---
+
 title: HBuilderX 实战：uni-app 官方 IDE 深度使用 — 真机调试、插件开发与多端发布踩坑记录
-keywords: [HBuilderX]
+keywords: [HBuilderX, uni, app, IDE, 官方, 深度使用, 真机调试, 插件开发与多端发布踩坑记录]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -12,10 +13,9 @@ tags:
 - Vue
 - macOS
 - uni-app
-description: 在 KKday B2C Backend Team 负责 uni-app 多端项目时，HBuilderX 是团队使用频率最高的前端 IDE。本文记录从
-  VS Code 迁移到 HBuilderX 的完整过程，覆盖内置终端、真机调试、uni_modules 插件开发、自定义编译配置、多平台发布流水线等实战内容，以及在
-  M 芯片 Mac 上遇到的真实踩坑。
+description: 在 KKday B2C Backend Team 负责 uni-app 多端项目时，HBuilderX 是团队使用频率最高的前端 IDE。本文记录从 VS Code 迁移到 HBuilderX 的完整过程，覆盖内置终端、真机调试、uni_modules 插件开发、自定义编译配置、多平台发布流水线等实战内容，以及在 M 芯片 Mac 上遇到的真实踩坑。
 ---
+
 
 # HBuilderX 实战：uni-app 官方 IDE 深度使用 — 真机调试、插件开发与多端发布踩坑记录
 

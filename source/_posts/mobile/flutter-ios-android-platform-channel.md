@@ -2,7 +2,7 @@
 title: Flutter 混合开发实战：与原生 iOS/Android 模块集成（Platform Channel）
 date: 2026-06-02 10:00:00
 tags: [Flutter, 混合开发, Platform Channel, iOS, Android]
-keywords: [Flutter, 混合开发, Platform Channel, iOS, Android]
+keywords: [Flutter, iOS, Android, Platform Channel, 混合开发实战, 与原生, 模块集成, 移动端]
 categories:
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 description: 深入解析 Flutter 混合开发中的 Platform Channel 实战方案，系统讲清与 iOS、Android 原生集成的通道选型、数据编解码、PlatformView、生命周期与常见踩坑，帮你高效完成原生集成与架构落地。
 ---
+
 
 在移动应用开发的现实世界里，Flutter 很少永远运行在“纯 Flutter”理想国中。对于中大型项目而言，团队通常已经积累了大量 iOS 与 Android 原生代码：登录与风控 SDK、地图与定位能力、相机与蓝牙模块、推送链路、支付能力、埋点系统、播放器、Web 容器，甚至整套现有业务页面。于是，Flutter 真正落地时最常见的问题并不是“Flutter 能不能写界面”，而是“Flutter 如何与现有原生模块稳定协作”。而这件事的核心机制，就是 Platform Channel。
 

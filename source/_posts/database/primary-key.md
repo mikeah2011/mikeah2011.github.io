@@ -1,6 +1,7 @@
 ---
+
 title: MySQL 主键设计：自增 vs UUID vs 雪花算法选型
-keywords: [MySQL]
+keywords: [MySQL, vs UUID vs, 主键设计, 自增, 雪花算法选型, 数据库]
 tags:
 - MySQL
 - 主键
@@ -10,7 +11,7 @@ tags:
 - 雪花算法
 - 分布式
 categories:
-- database
+  - database
 date: 2019-03-20 15:05:07
 description: 深入对比MySQL主键设计方案：自增ID vs UUID vs ULID vs Snowflake雪花算法，从InnoDB B+Tree页分裂原理、存储空间开销、INSERT性能Benchmark到分布式ID生成策略，详解联合主键踩坑案例与主键选择最佳实践。无论单库还是分库分表场景，一文搞懂MySQL主键设计的核心要点与性能优化技巧。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
@@ -18,6 +19,7 @@ images:
 - /images/content/databases-1-content-1.jpg
 - /images/content/databases-1-content-2.jpg
 ---
+
 
 
 ## 主键选择的核心问题

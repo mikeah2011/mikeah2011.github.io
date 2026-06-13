@@ -1,6 +1,7 @@
 ---
+
 title: uni-app Native.js 原生插件开发实战：原生 SDK 集成与多平台踩坑记录
-keywords: [Native.js]
+keywords: [uni, app Native.js, SDK, 原生插件开发实战, 原生, 集成与多平台踩坑记录]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -14,9 +15,9 @@ tags:
 - SDK
 - 跨平台
 - 原生插件
-description: uni-app 跨平台开发中遇到原生能力瓶颈？本文从 Native.js 快速调用到原生插件深度开发，覆盖 Android/iOS 双平台
-  SDK 集成实战，详解支付宝等第三方 SDK 接入、蓝牙通信、自定义相机等场景，附带 9 大常见踩坑案例与调试技巧，助你打通 uni-app 与原生 JS 的最后一公里。
+description: uni-app 跨平台开发中遇到原生能力瓶颈？本文从 Native.js 快速调用到原生插件深度开发，覆盖 Android/iOS 双平台 SDK 集成实战，详解支付宝等第三方 SDK 接入、蓝牙通信、自定义相机等场景，附带 9 大常见踩坑案例与调试技巧，助你打通 uni-app 与原生 JS 的最后一公里。
 ---
+
 
 
 

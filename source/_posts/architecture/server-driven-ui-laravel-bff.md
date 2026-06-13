@@ -1,6 +1,7 @@
 ---
+
 title: Server-Driven UI 实战：后端驱动前端渲染——JSON UI 描述协议在 Laravel BFF 中的落地与对比传统 SPA
-keywords: [Server, Driven, UI]
+keywords: [Server, Driven UI, JSON UI, Laravel BFF, SPA, 后端驱动前端渲染, 描述协议在, 中的落地与对比传统]
 date: 2026-06-03 00:00:00
 tags:
 - server-driven-ui
@@ -13,9 +14,9 @@ categories:
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 深入实战Server-Driven UI（SDUI）在Laravel BFF层的完整落地：从JSON UI描述协议设计、组件体系与数据绑定机制，到Vue
-  3前端渲染引擎、动态表单、A/B测试与热更新。涵盖Airbnb/Netflix业界案例分析，5大踩坑记录（JSON体积优化、组件类型治理、离线缓存、调试工具），对比传统SPA架构选型，提供可运行的PHP与TypeScript代码示例，助力团队在多端一致、高频改版场景下提升迭代效率。
+description: 深入实战Server-Driven UI（SDUI）在Laravel BFF层的完整落地：从JSON UI描述协议设计、组件体系与数据绑定机制，到Vue 3前端渲染引擎、动态表单、A/B测试与热更新。涵盖Airbnb/Netflix业界案例分析，5大踩坑记录（JSON体积优化、组件类型治理、离线缓存、调试工具），对比传统SPA架构选型，提供可运行的PHP与TypeScript代码示例，助力团队在多端一致、高频改版场景下提升迭代效率。
 ---
+
 
 
 ## 前言

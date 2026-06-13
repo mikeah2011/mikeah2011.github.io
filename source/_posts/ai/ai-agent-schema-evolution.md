@@ -1,6 +1,6 @@
 ---
 title: AI Agent Schema Evolution 实战：工具定义版本化与向后兼容——MCP Server 的 API 演进与 Breaking Change 治理
-keywords: [AI, Agent, Schema]
+keywords: [AI Agent Schema Evolution, MCP Server, API, Breaking Change, 工具定义版本化与向后兼容, 演进与, 治理, AI]
 date: 2026-06-09 15:05:00
 categories:
   - ai
@@ -16,6 +16,7 @@ tags:
   - Laravel
 description: 深入剖析 AI Agent 工具定义（Tool Schema）的版本演进策略，结合 MCP Server 实战，讲解如何在 PHP/Laravel 项目中实现工具定义的向后兼容、Breaking Change 治理与自动化迁移，确保 Agent 系统在持续迭代中稳定运行。
 ---
+
 
 ## 概述
 

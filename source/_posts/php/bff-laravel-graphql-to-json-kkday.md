@@ -1,6 +1,7 @@
 ---
+
 title: Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与KKday真实踩坑记录
-keywords: [Laravel, BFF, GraphQL]
+keywords: [Laravel BFF, GraphQL to JSON, KKday, 中间层聚合实战, 转换优化与, 真实踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -17,9 +18,9 @@ tags:
 - gRPC
 - 性能优化
 - Redis
-description: 深入解析 Laravel BFF 中间层如何实现 GraphQL 到 JSON 的高效 API 聚合转换，涵盖 KKday B2C API
-  真实踩坑记录：N+1 查询优化、gRPC 跨服务调用、Redis 缓存击穿防护与分布式锁策略，响应时间从 2.3s 降至 45ms 的完整性能优化实战。
+description: 深入解析 Laravel BFF 中间层如何实现 GraphQL 到 JSON 的高效 API 聚合转换，涵盖 KKday B2C API 真实踩坑记录：N+1 查询优化、gRPC 跨服务调用、Redis 缓存击穿防护与分布式锁策略，响应时间从 2.3s 降至 45ms 的完整性能优化实战。
 ---
+
 
 
 # Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与 KKday 真实踩坑记录

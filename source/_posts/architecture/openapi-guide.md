@@ -1,6 +1,7 @@
 ---
+
 title: OpenAPI 文档驱动开发实战：从文档到代码的完整工作流与 Laravel B2C API 踩坑记录
-keywords: [OpenAPI]
+keywords: [OpenAPI, Laravel B2C API, 文档驱动开发实战, 从文档到代码的完整工作流与, 踩坑记录]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -12,13 +13,9 @@ tags:
 - Laravel
 - OpenAPI
 - 架构
-description: 在 KKday B2C Backend Team 的 30+ 仓库实战中，我们逐步建立了 OpenAPI 文档驱动开发（DDD - Document-Driven
-  Development）的完整工作流：从 PRD → OpenAPI YAML 契约设计 → Prism Mock Server 自动生成 → 前后端并行开发
-  → Pest Contract Test 契约校验 → GitHub Actions CI Gate 验证 → Scribe 文档发布。本文以 Laravel
-  + PHP 8 为技术栈，详细讲解 OpenAPI YAML 目录拆分、Fake Response 手写校验、FormRequest/DTO 契约绑定、$ref
-  路径踩坑、nullable vs required 语义陷阱等 5 大真实生产事故案例，附完整的 CI 流水线配置与中小团队最小化落地 Checklist，帮助
-  API 设计者和后端工程师建立可维护、可测试、可 Mock 的文档驱动开发体系。
+description: 在 KKday B2C Backend Team 的 30+ 仓库实战中，我们逐步建立了 OpenAPI 文档驱动开发（DDD - Document-Driven Development）的完整工作流：从 PRD → OpenAPI YAML 契约设计 → Prism Mock Server 自动生成 → 前后端并行开发 → Pest Contract Test 契约校验 → GitHub Actions CI Gate 验证 → Scribe 文档发布。本文以 Laravel + PHP 8 为技术栈，详细讲解 OpenAPI YAML 目录拆分、Fake Response 手写校验、FormRequest/DTO 契约绑定、$ref 路径踩坑、nullable vs required 语义陷阱等 5 大真实生产事故案例，附完整的 CI 流水线配置与中小团队最小化落地 Checklist，帮助 API 设计者和后端工程师建立可维护、可测试、可 Mock 的文档驱动开发体系。
 ---
+
 
 ## 前言：为什么需要文档驱动开发？
 

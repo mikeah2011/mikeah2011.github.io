@@ -1,6 +1,7 @@
 ---
+
 title: React Server Components 实战：Next.js 15 RSC 模式在 B2C 电商中的落地踩坑记录
-keywords: [React, Server, Components]
+keywords: [React Server Components, Next.js, RSC, B2C, 模式在, 电商中的落地踩坑记录]
 date: 2026-06-02 10:00:00
 tags:
 - React
@@ -12,10 +13,9 @@ categories:
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
-description: React Server Components 是 React 自 Hooks 以来最大的架构变革，Next.js 15 已将其作为默认模式。本文通过
-  B2C 电商项目实战，深入解析 RSC 的服务端渲染原理、Client/Server 组件边界划分、Suspense 流式渲染、数据获取模式等核心概念。分享从
-  SPA 迁移到 RSC 的踩坑记录，包括 Bundle 体积优化、FCP 性能提升、与 Laravel 后端的协作方案，以及常见误区和最佳实践。
+description: React Server Components 是 React 自 Hooks 以来最大的架构变革，Next.js 15 已将其作为默认模式。本文通过 B2C 电商项目实战，深入解析 RSC 的服务端渲染原理、Client/Server 组件边界划分、Suspense 流式渲染、数据获取模式等核心概念。分享从 SPA 迁移到 RSC 的踩坑记录，包括 Bundle 体积优化、FCP 性能提升、与 Laravel 后端的协作方案，以及常见误区和最佳实践。
 ---
+
 
 
 # React Server Components 实战：Next.js 15 RSC 模式在 B2C 电商中的落地踩坑记录

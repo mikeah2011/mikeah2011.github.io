@@ -1,6 +1,6 @@
 ---
 title: Reactor Pattern 实战：Laravel 中的反应式编程——RxPHP/Observable 模式与事件驱动架构的互补设计
-keywords: [Reactor, Pattern]
+keywords: [Reactor Pattern, Laravel, RxPHP, Observable, 中的反应式编程, 模式与事件驱动架构的互补设计, PHP]
 date: 2026-06-09 17:15:00
 categories:
   - php
@@ -16,6 +16,7 @@ tags:
   - 事件驱动
 description: 深入 Reactor Pattern 在 Laravel 中的实战应用，涵盖 RxPHP、Observable 模式、事件驱动架构的互补设计，以及如何在 Laravel 项目中优雅地引入反应式编程思想。
 ---
+
 
 ## 概述
 

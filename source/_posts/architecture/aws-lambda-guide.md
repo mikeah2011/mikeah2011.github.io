@@ -6,7 +6,7 @@ categories:
   - architecture
   - aws
 tags: [AWS, Laravel, PHP]
-keywords: [AWS, Laravel, PHP, Lambda]
+keywords: [AWS, Lambda, Laravel, B2C, API, 无服务器函数计算, 踩坑记录, 架构]
 description: "AWS Lambda 无服务器函数计算实战：从 Laravel 开发者视角，覆盖 Lambda 函数开发、API Gateway 集成、冷启动优化、VPC 配置、Layer 管理、异步事件处理、成本控制，基于 B2C 电商场景的真实踩坑经验。"
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
@@ -15,6 +15,7 @@ images:
 
 
 ---
+
 # AWS Lambda 实战：无服务器函数计算（Laravel B2C API 踩坑记录）
 
 > 作为 Laravel 后端开发者，习惯了 PHP-FPM + Nginx 的经典架构。当团队决定将部分轻量服务迁移到 AWS Lambda 时，从"为什么要用 Lambda"到"怎么用好 Lambda"，踩了不少坑。本文基于 B2C 电商场景的真实经验，覆盖 Lambda 从入门到生产的完整链路。

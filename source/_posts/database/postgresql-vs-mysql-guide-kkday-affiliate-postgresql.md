@@ -1,6 +1,7 @@
 ---
+
 title: PostgreSQL-vs-MySQL-选型实战-KKday-Affiliate-项目为什么选 PostgreSQL 以及边界在哪里
-keywords: [PostgreSQL, MySQL, KKday]
+keywords: [PostgreSQL, MySQL, KKday, Affiliate, 选型实战, 项目为什么选, 以及边界在哪里]
 date: 2026-05-05 01:11:02
 updated: 2026-05-05 01:13:41
 categories:
@@ -10,13 +11,13 @@ tags:
 - Laravel
 - MySQL
 - PostgreSQL
-description: KKday Affiliate 项目从 MySQL 迁移到 PostgreSQL 的真实决策过程，涵盖 JSONB、全文搜索、GIS 能力、CTE
-  递归查询等场景对比，以及哪些场景 PostgreSQL 反而不如 MySQL 的边界踩坑记录。
+description: KKday Affiliate 项目从 MySQL 迁移到 PostgreSQL 的真实决策过程，涵盖 JSONB、全文搜索、GIS 能力、CTE 递归查询等场景对比，以及哪些场景 PostgreSQL 反而不如 MySQL 的边界踩坑记录。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-018-content-1.jpg
 - /images/content/databases-018-content-2.jpg
 ---
+
 
 
 ## 前言

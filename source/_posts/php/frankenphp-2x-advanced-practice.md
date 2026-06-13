@@ -1,6 +1,6 @@
 ---
 title: FrankenPHP 2.x 实战进阶：Caddy 内嵌 PHP、HTTP/3 原生支持与 Worker 模式性能基准——对比 Octane 的新选择
-keywords: [FrankenPHP]
+keywords: [FrankenPHP, Caddy, PHP, HTTP, Worker, Octane, 实战进阶, 内嵌, 原生支持与, 模式性能基准]
 date: 2026-06-09 14:00:00
 categories:
   - php
@@ -17,6 +17,7 @@ tags:
   - Performance
 description: 深入探讨 FrankenPHP 2.x 的核心特性，包括 Caddy 内嵌 PHP、原生 HTTP/3 支持以及 Worker 模式下的性能表现，并与 Laravel Octane 进行对比，为 PHP 应用提供新的部署与优化思路。
 ---
+
 
 在 PHP 的高性能运行领域，FrankenPHP 2.x 的出现为我们带来了诸多惊喜。它不仅简化了 PHP 应用的部署流程，更在性能优化和协议支持上迈出了重要一步。本文将深入剖析 FrankenPHP 2.x 的核心特性，特别是其与 Caddy 的深度集成、原生 HTTP/3 支持以及 Worker 模式下的性能表现，并将其与目前广受欢迎的 Laravel Octane 进行对比，为 PHP 开发者提供新的选择和思路。
 

@@ -8,12 +8,13 @@ updated: 2026-05-16 20:20:00
 categories:
   - php
 tags: [Laravel, PHP, 代码质量]
-keywords: [Laravel, PHP, 代码质量, Rector]
+keywords: [Rector, PHP, Laravel, 自动化代码重构与升级实战, 仓库批量治理踩坑记录]
 description: 在 30+ Laravel 仓库中使用 Rector PHP 实现自动化代码重构与 PHP 版本升级的完整实战经验，涵盖规则配置、自定义规则开发、CI 集成与批量执行策略，附带真实踩坑记录与解决方案。
 
 
 
 ---
+
 # Rector PHP 自动化代码重构与升级实战：Laravel 30 仓库批量治理踩坑记录
 
 ## 一、为什么需要 Rector？

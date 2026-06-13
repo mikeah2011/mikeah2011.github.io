@@ -2,13 +2,14 @@
 title: "AI 模型微调实战：LoRA/QLoRA 领域适配与评估指标设计"
 date: 2026-06-02 03:00:00
 tags: [LoRA, qlora, 模型微调, peft, 领域适配, 评估指标]
-keywords: [LoRA, qlora, 模型微调, peft, 领域适配, AI]
+keywords: [AI, LoRA, QLoRA, 模型微调实战, 领域适配与评估指标设计]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: "本文系统讲解 AI 模型微调中的 LoRA、QLoRA 与 PEFT 实践方法，覆盖领域适配、数据准备、训练配置、评估指标设计、方案对比与常见踩坑排查。适合需要在企业场景中落地大模型微调、优化显存成本、提升输出稳定性与业务效果的技术团队参考。"
 ---
+
 
 在过去两年里，大模型应用的落地路径已经越来越清晰：**通用基座模型负责提供广泛的语言、推理与知识能力，而微调则负责把“通用能力”压缩成“业务可用能力”**。如果说提示工程解决的是“如何更好地调用模型”，那么微调解决的就是“如何让模型真正理解你的领域语料、任务结构与输出风格”。尤其在企业级场景中，模型往往需要理解法律条款、医疗术语、金融口径、制造业工单、客服 SOP、代码规范等高度垂直的知识，仅靠 few-shot prompt 很难稳定达到要求，这时候 LoRA/QLoRA 这类参数高效微调（PEFT, Parameter-Efficient Fine-Tuning）方法就成为主流。
 

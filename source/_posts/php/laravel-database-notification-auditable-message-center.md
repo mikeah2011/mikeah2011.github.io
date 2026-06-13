@@ -2,7 +2,7 @@
 title: Laravel Database Notification 实战：用数据库驱动替代 Redis 驱动的通知系统——可审计、可查询的消息中心
 date: 2026-06-06 00:00:00
 tags: [Laravel, Notifications, Database, PHP, 消息中心]
-keywords: [Laravel, Notifications, Database, PHP, 消息中心, Notification]
+keywords: [Laravel Database Notification, Redis, 用数据库驱动替代, 驱动的通知系统, 可审计, 可查询的消息中心, PHP]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: Laravel Database Notification 实战指南，用数据库驱动替代 Redis 构建可审计、可查询的消息中心系统。涵盖表结构设计、自定义模型扩展、查询性能优化、归档策略、双驱动架构选型与生产踩坑，适合中大型 Laravel 项目通知系统架构参考。
 ---
+
 
 ## 前言
 

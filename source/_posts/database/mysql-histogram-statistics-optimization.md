@@ -1,6 +1,6 @@
 ---
 title: MySQL Histogram 统计实战：直方图驱动的查询优化器——数据分布感知的索引选择与 Laravel 性能调优
-keywords: [MySQL, Histogram]
+keywords: [MySQL Histogram, Laravel, 统计实战, 直方图驱动的查询优化器, 数据分布感知的索引选择与, 性能调优, 数据库]
 date: 2026-06-10 04:18:00
 categories:
   - database
@@ -16,6 +16,7 @@ tags:
   - Histogram
 description: 深入 MySQL 8.0 直方图统计特性，通过 ANALYZE TABLE ... UPDATE HISTOGRAM 掌握数据分布感知的索引选择策略，结合 Laravel 实战案例展示如何利用直方图优化慢查询。
 ---
+
 
 ## 概述
 

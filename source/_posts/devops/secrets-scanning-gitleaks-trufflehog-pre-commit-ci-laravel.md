@@ -1,13 +1,13 @@
 ---
+
 title: Secrets Scanning 实战：gitleaks/trufflehog + pre-commit + CI——Laravel 项目中 API
-keywords: [Secrets, Scanning]
-  Key/Token 泄漏的预防与应急响应
+keywords: [Secrets Scanning, gitleaks, trufflehog, pre, commit, CI, Laravel, API, 项目中, DevOps]
 date: 2026-06-09 18:49:00
 categories:
+  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
-- devops
 tags:
 - secrets-scanning
 - Git
@@ -16,9 +16,9 @@ tags:
 - CI/CD
 - Laravel
 - 安全
-description: 从 gitleaks 到 trufflehog，从 pre-commit 到 CI pipeline，完整覆盖 Laravel 项目中 API
-  Key、Token、数据库密码等敏感信息泄漏的预防与应急响应方案。
+description: 从 gitleaks 到 trufflehog，从 pre-commit 到 CI pipeline，完整覆盖 Laravel 项目中 API Key、Token、数据库密码等敏感信息泄漏的预防与应急响应方案。
 ---
+
 
 
 ## 引言

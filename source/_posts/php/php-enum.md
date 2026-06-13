@@ -1,6 +1,6 @@
 ---
 title: PHP Enum 序列化实战：Enum 与 JSON/Database/Queue 的互转——Laravel Cast、Job 序列化与 API 响应的类型安全闭环
-keywords: [PHP, Enum]
+keywords: [PHP Enum, Enum, JSON, Database, Queue, Laravel Cast, Job, API, 序列化实战, 的互转]
 date: 2026-06-10 06:40:00
 categories:
   - php
@@ -17,6 +17,7 @@ tags:
   - Serialization
 description: 深入讲解 PHP 8.1+ Enum 在 Laravel 中的序列化实战，覆盖 JSON 编解码、数据库映射、Queue Job 安全序列化、API 响应与表单请求校验，最终形成类型安全的数据闭环。
 ---
+
 
 在 PHP 8.1 引入 Enum 之后，很多 Laravel 项目开始把原来的字符串常量、魔法值替换成 Enum，代码可读性和类型安全显著提升。但真正落地时，最常卡住的不是"怎么定义 Enum"，而是：
 

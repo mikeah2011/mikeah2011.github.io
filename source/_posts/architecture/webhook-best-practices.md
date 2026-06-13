@@ -9,12 +9,13 @@ categories:
   - architecture
   - api
 tags: [KKday, Laravel, 微服务]
-keywords: [KKday, Laravel, 微服务, Webhook]
+keywords: [Webhook, Laravel B2C API, 集成最佳实践, 签名验证, 重试与幂等处理, 踩坑记录, 架构]
 description: 基于 KKday B2C API 中 Stripe、AliPay、Slack、GrabPay 等多个 Webhook 集成的真实踩坑，总结一套签名验证、重试策略、幂等处理的落地方案，覆盖 Nginx 转发丢 Header、签名校验失败、重试风暴、并发幂等竞态等生产问题。
 
 
 
 ---
+
 # Webhook 集成最佳实践：签名验证、重试与幂等处理——Laravel B2C API 踩坑记录
 
 > **前言**：Webhook 是 B2C 电商系统中第三方服务回调的核心机制。Stripe 支付确认、AliPay 异步通知、Slack 告警推送、GrabPay 结果回调——这些回调走的都是 Webhook。看起来就是"收到请求、处理、返回 200"，但在真实生产环境中，我们踩过的坑比写的代码还多：签名验证在 Nginx 反向代理后莫名失败、重试导致同一笔订单被处理三次、并发回调触发数据库竞态……

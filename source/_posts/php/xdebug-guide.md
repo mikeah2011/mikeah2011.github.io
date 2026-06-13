@@ -1,6 +1,7 @@
 ---
+
 title: Xdebug 实战：远程调试、性能分析、代码覆盖率——Laravel B2C API 开发者完整指南
-keywords: [Xdebug]
+keywords: [Xdebug, Laravel B2C API, 远程调试, 性能分析, 代码覆盖率, 开发者完整指南]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -16,9 +17,9 @@ tags:
 - 性能优化
 - 测试
 - 代码覆盖率
-description: Xdebug 3 完整实战指南：远程断点调试、Cachegrind 性能分析、PHPUnit 代码覆盖率，覆盖 Docker/FPM/CLI
-  三种模式配置，PHPStorm 集成踩坑与 PCOV/Blackfire/Tideways 生产替代方案对比。
+description: Xdebug 3 完整实战指南：远程断点调试、Cachegrind 性能分析、PHPUnit 代码覆盖率，覆盖 Docker/FPM/CLI 三种模式配置，PHPStorm 集成踩坑与 PCOV/Blackfire/Tideways 生产替代方案对比。
 ---
+
 
 # Xdebug 实战：远程调试、性能分析、代码覆盖率——Laravel B2C API 开发者完整指南
 

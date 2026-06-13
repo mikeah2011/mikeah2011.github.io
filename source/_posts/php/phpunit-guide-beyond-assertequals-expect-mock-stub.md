@@ -1,4 +1,5 @@
 ---
+
 title: PHPUnit 断言实战：Beyond assertEquals——掌握 expect、mock、stub 踩坑记录
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
@@ -15,11 +16,10 @@ tags:
 - Mock
 - stub
 - 断言
-description: 深入讲解 PHPUnit 断言体系：从 assertEquals 到 expect() 链式行为验证，涵盖 Mock、Stub、数据提供器（Data
-  Provider）在 Laravel 单元测试中的实战用法。对比 PHPUnit Mock 与 Mockery 差异，提供 HTTP API 测试、Event/Listener
-  测试、Queue Job 测试完整示例，附 mock 不生效的 5 种踩坑场景与断言速查表。
-keywords: PHPUnit, assertEquals, expect, mock, stub, 单元测试, Laravel, 断言, 行为验证, 依赖注入
+description: 深入讲解 PHPUnit 断言体系：从 assertEquals 到 expect() 链式行为验证，涵盖 Mock、Stub、数据提供器（Data Provider）在 Laravel 单元测试中的实战用法。对比 PHPUnit Mock 与 Mockery 差异，提供 HTTP API 测试、Event/Listener 测试、Queue Job 测试完整示例，附 mock 不生效的 5 种踩坑场景与断言速查表。
+keywords: [PHPUnit, Beyond assertEquals, expect, mock, stub, 断言实战, 掌握, 踩坑记录]
 ---
+
 
 
 ## 前言：为什么 assertEquals 远远不够？

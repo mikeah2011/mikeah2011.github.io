@@ -3,13 +3,14 @@ title: OpenHuman 桌面吉祥物实战：Mascot 交互、语音合成、Google M
 description: 这篇文章系统拆解 OpenHuman 桌面吉祥物在 macOS 上的完整落地方案，覆盖 Mascot 交互设计、语音合成、语音识别、Google Meet 自动参与、权限配置、状态机架构与性能优化，并结合工程示例、踩坑排查和产品化建议，帮助你把 AI Agent 做成真正可见、可说、可执行的桌面助手。
 date: 2026-06-02 02:30:00
 tags: [OpenHuman, AI Agent, macOS, 桌面吉祥物, Mascot, 语音合成, Google Meet]
-keywords: [OpenHuman, AI Agent, macOS, 桌面吉祥物, Mascot]
+keywords: [OpenHuman, Mascot, Google Meet, 桌面吉祥物实战, 交互, 语音合成, 参与, macOS]
 categories:
   - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 ---
+
 
 在很多人的想象里，桌面吉祥物只是一个“会动的挂件”：站在屏幕角落里卖萌、偶尔说句话、点击一下给一点反馈。但当 AI Agent、语音能力、系统自动化和会议协同被真正整合进桌面端之后，Mascot 就不再只是视觉装饰，而会成为一个持续在线、低打扰、具备行动能力的操作入口。OpenHuman 的桌面吉祥物方案，正适合落在这个方向上：它不是单纯聊天窗口，也不是传统菜单栏工具，而是一个兼具人格化交互、语音输出、会议参与、任务触发与状态感知的桌面代理层。
 

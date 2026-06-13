@@ -2,7 +2,7 @@
 title: Caddy 2 实战：替代 Nginx 的下一代 Web 服务器——自动 HTTPS、反向代理与 Laravel 部署
 date: 2026-06-02 12:00:00
 tags: [Caddy, Nginx, Web服务器, HTTPS, 反向代理, Laravel, DevOps]
-keywords: [Caddy, Nginx, Web服务器, HTTPS, 反向代理]
+keywords: [Caddy, Nginx, Web, HTTPS, Laravel, 替代, 的下一代, 服务器, 自动, 反向代理与]
 categories:
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: 深度实战 Caddy 2——用 Go 编写的下一代 Web 服务器，详解自动 HTTPS 零配置证书管理、反向代理、Laravel 项目部署全流程。对比 Nginx 在配置语法、性能基准、安全默认值上的差异，附 Docker/K8s 集成方案与生产环境调优指南。适合正在评估从 Nginx 迁移到 Caddy 的运维工程师和 Laravel 开发者参考。
 ---
+
 
 如果你经历过 Nginx 配置 SSL 证书的手动流程——申请证书、配置路径、设置自动续期 cron job、处理续期失败的告警——你会对 Caddy 的「零配置自动 HTTPS」感到相见恨晚。
 

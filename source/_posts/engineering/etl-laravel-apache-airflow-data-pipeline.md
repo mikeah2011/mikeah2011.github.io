@@ -1,6 +1,7 @@
 ---
+
 title: ETL 实战：Laravel + Apache Airflow 数据管道构建——从手动 Cron 到声明式 DAG 的踩坑记录
-keywords: [ETL]
+keywords: [ETL, Laravel, Apache Airflow, Cron, DAG, 数据管道构建, 从手动, 到声明式, 的踩坑记录]
 date: 2026-06-01 10:00:00
 updated: 2026-06-01 10:00:00
 categories:
@@ -14,13 +15,12 @@ tags:
 - dag
 - Python
 - 数据工程
-description: 在 KKday B2C 后端团队的实际项目中，数据管道是连接业务系统与数据仓库的命脉。本文记录从 Laravel Cron + 手动脚本迁移到
-  Apache Airflow 的完整实战过程：DAG 编排、Operator 选型、Laravel Artisan 命令集成、增量抽取策略、错误重试、监控告警，以及踩过的
-  15 个生产坑。
+description: 在 KKday B2C 后端团队的实际项目中，数据管道是连接业务系统与数据仓库的命脉。本文记录从 Laravel Cron + 手动脚本迁移到 Apache Airflow 的完整实战过程：DAG 编排、Operator 选型、Laravel Artisan 命令集成、增量抽取策略、错误重试、监控告警，以及踩过的 15 个生产坑。
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 ---
+
 
 
 ## 一、为什么写这篇？

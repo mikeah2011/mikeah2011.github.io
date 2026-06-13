@@ -2,13 +2,14 @@
 title: Hermes 记忆系统双层架构：MemoryProvider 插件化 + MemoryManager 编排模式
 date: 2026-06-02 10:00:00
 tags: [Hermes, AI Agent, 记忆系统, 架构设计, 插件化]
-keywords: [Hermes, AI Agent, 记忆系统, 架构设计, 插件化]
+keywords: [Hermes, MemoryProvider, MemoryManager, 记忆系统双层架构, 插件化, 编排模式, AI]
 categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: 深入剖析 Hermes Agent 记忆系统的双层架构设计：底层 MemoryProvider 定义统一存储接口实现插件化，上层 MemoryManager 编排多层记忆的读写策略。涵盖短期记忆滑动窗口、长期记忆持久化、工作记忆跨会话复用的完整实现，附带自定义 MemoryProvider 开发实战、缓存策略、淘汰算法对比，适合构建可扩展的 AI Agent 记忆系统。
 ---
+
 
 # Hermes 记忆系统双层架构：MemoryProvider 插件化 + MemoryManager 编排模式
 

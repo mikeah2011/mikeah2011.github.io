@@ -1,6 +1,6 @@
 ---
 title: "MCP Gateway 实战进阶：多租户 MCP Server 聚合层——鉴权、限流、审计日志与工具发现的统一治理"
-keywords: [MCP, Gateway]
+keywords: [MCP Gateway, MCP Server, 实战进阶, 多租户, 聚合层, 鉴权, 限流, 审计日志与工具发现的统一治理, 架构]
 date: 2026-06-10 00:00:00
 categories:
   - architecture
@@ -15,6 +15,7 @@ tags:
   - 微服务
 description: "在生产环境中运行多个 MCP Server 时，你需要一个聚合层来统一处理鉴权、限流、审计和工具发现。本文用 Laravel 构建一个完整的 MCP Gateway，支持多租户隔离、动态路由和全链路可观测。"
 ---
+
 
 ## 为什么需要 MCP Gateway
 

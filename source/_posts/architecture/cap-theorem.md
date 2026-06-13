@@ -1,6 +1,7 @@
 ---
+
 title: 分布式之 CAP 与 BASE
-keywords: [CAP, BASE]
+keywords: [CAP, BASE, 分布式之]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -14,9 +15,9 @@ tags:
 categories:
 - architecture
 date: 2020-07-20 11:15:49
-description: 深入解析分布式系统两大基石理论 CAP 定理与 BASE 思想，覆盖 CP 与 AP 选型决策、ZooKeeper/etcd/Consul
-  协调服务对比、Redis/MySQL/MongoDB/Cassandra 数据库 CAP 分类速查，并给出 Laravel 最终一致性代码实战与生产踩坑案例，帮助后端工程师在微服务架构中做出正确的分布式取舍。
+description: 深入解析分布式系统两大基石理论 CAP 定理与 BASE 思想，覆盖 CP 与 AP 选型决策、ZooKeeper/etcd/Consul 协调服务对比、Redis/MySQL/MongoDB/Cassandra 数据库 CAP 分类速查，并给出 Laravel 最终一致性代码实战与生产踩坑案例，帮助后端工程师在微服务架构中做出正确的分布式取舍。
 ---
+
 
 # 一句话
 

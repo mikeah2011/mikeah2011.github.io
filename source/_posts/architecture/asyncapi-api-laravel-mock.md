@@ -2,7 +2,7 @@
 title: 'AsyncAPI 实战：事件驱动架构的 API 规范——Laravel 微服务中的事件文档化、Mock 与代码生成'
 date: 2026-06-04 11:00:00
 tags: [AsyncAPI, 事件驱动, 微服务, Laravel, 消息队列, API规范]
-keywords: [AsyncAPI, 事件驱动, 微服务, Laravel, 消息队列]
+keywords: [AsyncAPI, API, Laravel, Mock, 事件驱动架构的, 规范, 微服务中的事件文档化, 与代码生成, 架构]
 categories:
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "AsyncAPI 是事件驱动架构的 API 规范标准，本文以 Laravel 微服务为背景，详解如何使用 AsyncAPI 规范消息契约、搭建 Mock 服务器、自动生成 DTO 与消费者骨架代码、在 CI/CD 中集成契约测试。涵盖 Kafka/RabbitMQ/Redis Streams 多 Broker 场景，实现事件通信的文档化、可测试与可治理。"
 ---
+
 
 在微服务架构中，REST API 之间的契约可以通过 OpenAPI（Swagger）来规范，团队之间可以基于这份契约并行开发、自动生成客户端 SDK、运行契约测试。但当我们的架构演进到事件驱动模式——服务之间通过 Kafka、RabbitMQ 或 Redis Streams 进行异步通信时，OpenAPI 就显得力不从心了。
 

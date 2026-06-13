@@ -1,6 +1,7 @@
 ---
+
 title: Laravel + PostgreSQL 分区表实战：订单流水月分区、分区裁剪与冷热归档踩坑记录
-keywords: [Laravel, PostgreSQL]
+keywords: [Laravel, PostgreSQL, 分区表实战, 订单流水月分区, 分区裁剪与冷热归档踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -18,10 +19,9 @@ tags:
 - 查询优化
 - JSONB
 - 全文搜索
-description: Laravel 项目中落地 PostgreSQL 按月分区表的完整实战指南，涵盖 Range Partition DDL 设计、分区裁剪查询优化、冷热归档策略与零停机在线迁移。深入解析
-  Laravel + PostgreSQL 的 JSONB 字段查询、中文排序、全文搜索等踩坑案例，附 PostgreSQL 与 MySQL 在 Laravel
-  生态中的详细对比，帮助后端开发者在数据库选型与查询优化中做出正确决策。
+description: Laravel 项目中落地 PostgreSQL 按月分区表的完整实战指南，涵盖 Range Partition DDL 设计、分区裁剪查询优化、冷热归档策略与零停机在线迁移。深入解析 Laravel + PostgreSQL 的 JSONB 字段查询、中文排序、全文搜索等踩坑案例，附 PostgreSQL 与 MySQL 在 Laravel 生态中的详细对比，帮助后端开发者在数据库选型与查询优化中做出正确决策。
 ---
+
 
 
 订单系统最难处理的表，往往不是 `orders`，而是不断追加的 `order_events`、`payment_logs` 这类流水表。它们写多读少，但一旦运营要查三个月前的退款链路、财务要导半年的支付对账，单表很快就会从“还能忍”变成“谁查谁卡”。我在一个 Laravel 订单中心里踩过这类坑：`payment_logs` 跑到 1.8 亿行后，普通索引还在，写入也没报错，但后台按时间筛选的 P95 已经接近 4 秒，VACUUM 和备份窗口也越来越难排。

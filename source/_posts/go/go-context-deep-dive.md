@@ -1,6 +1,6 @@
 ---
 title: Go 语言 context 包深度解析：并发控制与取消传播
-keywords: [Go]
+keywords: [Go, context, 语言, 包深度解析, 并发控制与取消传播]
 date: 2026-06-10 02:18:00
 categories:
   - go
@@ -15,6 +15,7 @@ tags:
   - goroutine
 description: 深入解析 Go 语言 context 包的设计哲学、核心 API 与实战模式，涵盖 WithCancel/WithTimeout/WithValue 的正确用法、树形取消传播机制、常见踩坑与最佳实践。
 ---
+
 
 在 Go 语言的并发编程中，`context` 包是控制 goroutine 生命周期的基础设施。无论是 HTTP 请求超时、数据库查询取消，还是跨 API 边界传递元数据，context 都扮演着关键角色。
 

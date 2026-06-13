@@ -1,6 +1,7 @@
 ---
+
 title: 开源项目贡献代码实战-PR流程与最佳实践-Laravel-B2C-API踩坑记录
-keywords: [PR, Laravel, API]
+keywords: [PR, Laravel, B2C, API, 开源项目贡献代码实战, 流程与最佳实践, 踩坑记录]
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
@@ -15,10 +16,9 @@ tags:
 - Code Review
 - CI/CD
 - best-practices
-description: 开源项目贡献代码完整实战指南：从 Fork、分支管理到 PR 合并的全流程详解，涵盖 Conventional Commits 规范、CI/CD
-  流水线配置、Code Review 礼仪、GitHub 与 GitLab 工作流对比，结合 scribe、CRMEB、phpseclib 等 30+ 仓库真实踩坑经验与
-  Checklist。
+description: 开源项目贡献代码完整实战指南：从 Fork、分支管理到 PR 合并的全流程详解，涵盖 Conventional Commits 规范、CI/CD 流水线配置、Code Review 礼仪、GitHub 与 GitLab 工作流对比，结合 scribe、CRMEB、phpseclib 等 30+ 仓库真实踩坑经验与 Checklist。
 ---
+
 
 
 # 开源项目贡献代码实战：PR 流程与最佳实践

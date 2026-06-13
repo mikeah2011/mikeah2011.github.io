@@ -1,14 +1,15 @@
 ---
+
 title: AI Agent 多模型切换实战：Claude/GPT/MiMo 智能路由策略与成本优化踩坑记录
-keywords: [AI, Agent]
+keywords: [AI Agent, Claude, GPT, MiMo, 多模型切换实战, 智能路由策略与成本优化踩坑记录, macOS]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 02:50:58
 updated: 2026-05-17 02:54:01
 categories:
-- macos
-- tools
+  - macos
+  - tools
 tags:
 - AI
 - AI Agent
@@ -17,6 +18,7 @@ tags:
 - cost-optimization
 description: AI Agent多模型智能路由实战指南——深入对比Claude、GPT-4o、MiMo三大模型的能力差异与适用场景，详解基于任务类型、上下文长度、成本预算的三层路由策略设计，结合Fallback重试机制、提示工程优化、Token估算与自动化成本控制，附30天真实踩坑记录与86%成本节省方案，助你构建高效低成本的AI自动化工作流。
 ---
+
 
 # AI Agent 多模型切换实战：Claude/GPT/MiMo 智能路由策略与成本优化踩坑记录
 

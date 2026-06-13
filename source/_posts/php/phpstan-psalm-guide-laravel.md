@@ -1,13 +1,13 @@
 ---
+
 title: PHPStan-Psalm-静态分析实战-Laravel-项目类型安全最佳实践踩坑记录
-keywords: [PHPStan, Psalm, Laravel]
+keywords: [PHPStan, Psalm, Laravel, 静态分析实战, 项目类型安全最佳实践踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-05 08:00:16
 updated: 2026-05-05 08:02:37
-description: 基于 30+ Laravel B2C 仓库的 PHPStan 与 Psalm 静态分析落地实战，涵盖工具选型决策、Laravel Model
-  泛型注解、Builder 链式调用类型推导、Eloquent 返回类型治理、常见误报 suppression 策略、CI/CD 门禁集成与团队类型安全渐进式文化建设。
+description: 基于 30+ Laravel B2C 仓库的 PHPStan 与 Psalm 静态分析落地实战，涵盖工具选型决策、Laravel Model 泛型注解、Builder 链式调用类型推导、Eloquent 返回类型治理、常见误报 suppression 策略、CI/CD 门禁集成与团队类型安全渐进式文化建设。
 tags:
 - CI/CD
 - Laravel
@@ -15,6 +15,7 @@ tags:
 categories:
 - php
 ---
+
 
 # PHPStan/Psalm 静态分析实战：Laravel 项目类型安全最佳实践踩坑记录
 

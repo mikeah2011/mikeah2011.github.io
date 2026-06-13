@@ -1,6 +1,7 @@
 ---
+
 title: AI Agent + 数据库实战：Text-to-SQL、智能查询、数据治理
-keywords: [AI, Agent]
+keywords: [AI Agent, Text, SQL, 数据库实战, 智能查询, 数据治理]
 date: 2026-06-02 02:31:05
 tags:
 - AI
@@ -12,9 +13,9 @@ categories:
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-description: 本文系统梳理 Text-to-SQL 在企业级 AI Agent 场景中的落地方法，涵盖数据库 schema 理解、RAG 检索增强、Laravel
-  工程集成、SQL 安全校验、多库适配、结果可视化与数据治理实践。文章结合真实项目经验，分析从自然语言到 SQL 的关键链路、常见误区与优化策略，帮助团队构建可控、可审计、可持续演进的数据查询与分析能力。
+description: 本文系统梳理 Text-to-SQL 在企业级 AI Agent 场景中的落地方法，涵盖数据库 schema 理解、RAG 检索增强、Laravel 工程集成、SQL 安全校验、多库适配、结果可视化与数据治理实践。文章结合真实项目经验，分析从自然语言到 SQL 的关键链路、常见误区与优化策略，帮助团队构建可控、可审计、可持续演进的数据查询与分析能力。
 ---
+
 
 
 # AI Agent + 数据库实战：Text-to-SQL、智能查询、数据治理

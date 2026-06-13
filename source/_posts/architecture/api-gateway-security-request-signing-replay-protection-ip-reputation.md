@@ -1,6 +1,6 @@
 ---
 title: API 网关安全实战：请求签名验证、重放攻击防护、IP 信誉库——Laravel 微服务的网关层安全治理
-keywords: [API]
+keywords: [API, IP, Laravel, 网关安全实战, 请求签名验证, 重放攻击防护, 信誉库, 微服务的网关层安全治理, 架构]
 date: 2026-06-09 22:40:00
 categories:
   - architecture
@@ -16,6 +16,7 @@ tags:
   - 重放攻击
 description: 从请求签名验证、重放攻击防护、IP 信誉库三个维度，深入讲解 Laravel 微服务架构中 API 网关层的安全治理方案，附完整可运行代码和踩坑记录。
 ---
+
 
 # API 网关安全实战：请求签名验证、重放攻击防护、IP 信誉库
 

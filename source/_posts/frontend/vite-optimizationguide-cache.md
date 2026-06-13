@@ -1,6 +1,7 @@
 ---
+
 title: Vite 预构建优化实战：依赖预构建与缓存策略的性能调优踩坑记录
-keywords: [Vite]
+keywords: [Vite, 预构建优化实战, 依赖预构建与缓存策略的性能调优踩坑记录]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -16,10 +17,9 @@ tags:
 - esbuild
 - 预构建
 - Monorepo
-description: 深入 Vite 预构建机制（optimizeDeps）原理与实战优化指南，覆盖依赖自动发现三大陷阱、esbuild 打包 CJS 转 ESM、文件系统缓存失效排查、pnpm
-  monorepo workspace 间接依赖穿透问题，附真实 Laravel B2C 项目首次加载从 20s 优化到 2s、HMR 从 3s 降到 200ms
-  的完整性能对比数据与调试技巧。
+description: 深入 Vite 预构建机制（optimizeDeps）原理与实战优化指南，覆盖依赖自动发现三大陷阱、esbuild 打包 CJS 转 ESM、文件系统缓存失效排查、pnpm monorepo workspace 间接依赖穿透问题，附真实 Laravel B2C 项目首次加载从 20s 优化到 2s、HMR 从 3s 降到 200ms 的完整性能对比数据与调试技巧。
 ---
+
 
 
 我在维护一个 Laravel 单仓后台前端时，遇到过一个很诡异的开发体验问题：`npm run dev` 启动后，首次打开页面要等 **15-20 秒**才能看到内容，浏览器 Network 面板里刷出几百个 `304` 请求，全是 `node_modules` 下的 ESM 模块。更离谱的是，改一行代码 HMR 要 3 秒才生效。

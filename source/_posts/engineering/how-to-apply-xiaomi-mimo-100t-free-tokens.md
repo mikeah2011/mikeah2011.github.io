@@ -1,6 +1,7 @@
 ---
+
 title: 小米 MiMo 百万亿 Token 免费申请全攻略——从注册到到账的完整指南
-keywords: [MiMo, Token]
+keywords: [MiMo, Token, 小米, 百万亿, 免费申请全攻略, 从注册到到账的完整指南]
 date: 2026-05-26 10:30:00
 updated: 2026-05-26 10:30:00
 categories:
@@ -14,12 +15,12 @@ tags:
 - Claude Code
 - Cursor
 - 开发者工具
-description: 本文系统讲解小米MiMo百万亿免费token活动的完整申请教程，覆盖注册流程、表单填写、项目描述写法、到账验证、API配置与常见踩坑。适合想体验小米MiMo
-  AI模型的开发者快速上手，了解免费token领取规则、提升通过率技巧，以及在 Claude Code、Cursor 等工具中的接入方法。
+description: 本文系统讲解小米MiMo百万亿免费token活动的完整申请教程，覆盖注册流程、表单填写、项目描述写法、到账验证、API配置与常见踩坑。适合想体验小米MiMo AI模型的开发者快速上手，了解免费token领取规则、提升通过率技巧，以及在 Claude Code、Cursor 等工具中的接入方法。
 cover: /images/clawhub_multi_agent_feishu.png
 images:
   - /images/clawhub_multi_agent_feishu.png
 ---
+
 
 
 ## 前言

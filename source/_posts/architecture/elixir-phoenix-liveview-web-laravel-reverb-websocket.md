@@ -1,6 +1,7 @@
 ---
+
 title: Elixir + Phoenix LiveView 实战：函数式语言做实时 Web——对比 Laravel Reverb 与 WebSocket 的开发体验
-keywords: [Elixir, Phoenix, LiveView]
+keywords: [Elixir, Phoenix LiveView, Web, Laravel Reverb, WebSocket, 函数式语言做实时, 的开发体验]
 date: 2026-06-03 01:12:12
 tags:
 - Elixir
@@ -11,13 +12,12 @@ tags:
 - WebSocket
 categories:
 - architecture
-description: 从 Elixir 语言基础到 Phoenix LiveView 实战，深入讲解服务端渲染 + WebSocket diff patch 的实时
-  Web 开发范式。通过聊天室和仪表盘两个实战项目，对比 LiveView、React Server Components、Laravel Reverb 和 Socket.IO
-  的架构差异、开发体验与性能表现，帮助开发者选型实时 Web 技术栈。
+description: 从 Elixir 语言基础到 Phoenix LiveView 实战，深入讲解服务端渲染 + WebSocket diff patch 的实时 Web 开发范式。通过聊天室和仪表盘两个实战项目，对比 LiveView、React Server Components、Laravel Reverb 和 Socket.IO 的架构差异、开发体验与性能表现，帮助开发者选型实时 Web 技术栈。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
+
 
 
 实时 Web 应用已经从"锦上添花"变成了"基本要求"。聊天室、协作编辑、实时仪表盘、在线游戏——用户期望看到即时反馈，而不是点击刷新按钮。在这个领域，Elixir + Phoenix LiveView 提供了一种独特的方案：用服务端渲染 + WebSocket diff patch 实现"像写普通页面一样写实时应用"，完全不需要写 JavaScript。

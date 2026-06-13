@@ -1,6 +1,7 @@
 ---
+
 title: OpenTofu 实战：开源 Terraform 替代——State 加密、Provider 兼容与 Laravel 基础设施 GitOps 迁移路径
-keywords: [OpenTofu]
+keywords: [OpenTofu, Terraform, State, Provider, Laravel, GitOps, 开源, 替代, 加密, 兼容与]
 date: 2026-06-09 06:34:00
 categories:
 - devops
@@ -10,12 +11,12 @@ tags:
 - Laravel
 - 基础设施
 - State加密
-description: 从 Terraform 迁移到 OpenTofu 的完整实战指南：State 文件原生加密、Provider 兼容性验证、Laravel
-  基础设施 GitOps 工作流搭建，以及生产环境踩坑记录。
+description: 从 Terraform 迁移到 OpenTofu 的完整实战指南：State 文件原生加密、Provider 兼容性验证、Laravel 基础设施 GitOps 工作流搭建，以及生产环境踩坑记录。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80
 images:
   - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80
 ---
+
 
 ## 概述
 

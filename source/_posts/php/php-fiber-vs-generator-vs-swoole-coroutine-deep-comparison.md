@@ -1,12 +1,13 @@
 ---
+
 title: PHP Fiber vs Generator vs Swoole Coroutine 深度对比：三种异步模式的底层机制、调度策略与适用场景决策树
-keywords: [PHP, Fiber, Generator]
+keywords: [PHP Fiber vs Generator vs Swoole Coroutine, 深度对比, 三种异步模式的底层机制, 调度策略与适用场景决策树, PHP]
 date: 2026-06-10 08:30:00
 categories:
+  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-- php
 tags:
 - Fibers
 - Generator
@@ -17,6 +18,7 @@ tags:
 - PHP 8.5
 description: 深入剖析 PHP Fiber、Generator、Swoole Coroutine 三种异步并发模式的底层实现、调度策略与适用场景，附完整代码示例和决策树。
 ---
+
 
 
 PHP 的异步编程一直是个让人头疼的话题。从 Generator 的半协程到 Fiber 的真协程，再到 Swoole 的用户态协程，三种方案各有利弊。本文从底层机制出发，用可运行的代码对比三者的差异，最后给出一个清晰的决策树，帮你选对方案。

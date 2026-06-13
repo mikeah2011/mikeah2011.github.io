@@ -4,7 +4,7 @@ cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 tags: [macOS, Homebrew, tools]
-keywords: [macOS, Homebrew, tools, OS, APP]
+keywords: [macOS APP, brew, 管理神器, macOS]
 categories:
   - macos
 date: 2022-12-08 09:11:30
@@ -13,6 +13,7 @@ description: 'macOS Homebrew 完全指南：brew install 命令速查、Cask vs 
 
 
 ---
+
 > [`brew`](https://brew.sh) 神器
 
 

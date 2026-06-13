@@ -1,4 +1,4 @@
----
+
 title: CDN 配置实战-静态资源加速缓存策略与回源配置-Laravel-B2C-API 踩坑记录
 keywords: [CDN, Laravel, API]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -7,8 +7,8 @@ images:
 date: 2026-05-05 08:50:56
 updated: 2026-05-05 08:53:49
 categories:
-- architecture
-- infra
+  - architecture
+  - infra
 tags:
 - AWS
 - DevOps
@@ -20,10 +20,7 @@ tags:
 - 缓存
 - 性能优化
 - IaC
-description: '本文是一篇 CDN 加速与缓存策略的深度实战指南，基于 Laravel B2C 电商项目的真实踩坑经验。全面覆盖 CloudFront
-  Origin Shield、Cloudflare Workers、Terraform IaC 配置，详解 Cache-Control 头部设计、stale-while-revalidate
-  三层防护、回源风暴治理、Geo-Based 多区域缓存一致性，以及 Nginx FastCGI/Proxy Cache 源站防护。附带完整的 PHP/JS/HCL
-  可运行示例代码、8 个真实踩坑案例与 CDN 服务商对比表格，帮助中高级开发者构建可靠的全球缓存架构。
+description: '本文是一篇 CDN 加速与缓存策略的深度实战指南，基于 Laravel B2C 电商项目的真实踩坑经验。全面覆盖 CloudFront Origin Shield、Cloudflare Workers、Terraform IaC 配置，详解 Cache-Control 头部设计、stale-while-revalidate 三层防护、回源风暴治理、Geo-Based 多区域缓存一致性，以及 Nginx FastCGI/Proxy Cache 源站防护。附带完整的 PHP/JS/HCL 可运行示例代码、8 个真实踩坑案例与 CDN 服务商对比表格，帮助中高级开发者构建可靠的全球缓存架构。
 
   '
 ---

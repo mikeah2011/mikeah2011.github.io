@@ -1,6 +1,6 @@
 ---
 title: PHPStan 2.x 实战：泛型推断增强、Type Alias 与 Conditional Return Type——Laravel 项目的类型安全新高度
-keywords: [PHPStan]
+keywords: [PHPStan, Type Alias, Conditional Return Type, Laravel, 泛型推断增强, 项目的类型安全新高度, PHP]
 date: 2026-06-09 14:04:00
 categories:
   - php
@@ -15,6 +15,7 @@ tags:
   - 静态分析
 description: 深入 PHPStan 2.x 的泛型推断增强、Type Alias 与 Conditional Return Type，结合 Laravel 项目实战，用静态分析在运行前消灭类型相关的 Bug。
 ---
+
 
 PHPStan 2.x 带来了类型系统层面的重大升级。泛型推断更智能、Type Alias 让复杂类型有了可读的名字、Conditional Return Type 让返回值类型可以根据输入参数动态推断。这三个特性组合在一起，让 Laravel 项目的类型安全从「锦上添花」变成了「真正的防线」。
 

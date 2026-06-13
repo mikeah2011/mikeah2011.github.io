@@ -1,6 +1,6 @@
 ---
 title: Passkey 2026 生态更新实战：FIDO2/WebAuthn Level 3、Hybrid Transport、PRF 扩展——Laravel 无密码登录的最新工程实践
-keywords: [Passkey]
+keywords: [Passkey, FIDO2, WebAuthn Level, Hybrid Transport, PRF, Laravel, 生态更新实战, 扩展, 无密码登录的最新工程实践, PHP]
 date: 2026-06-09 16:28:00
 categories:
   - php
@@ -17,6 +17,7 @@ tags:
   - Hybrid Transport
 description: 深入解析 2026 年 Passkey 生态的三大核心更新——FIDO2/WebAuthn Level 3 规范、Hybrid Transport 跨设备认证、PRF 扩展密钥派生，并提供完整的 Laravel 工程实现。
 ---
+
 
 ## 前言
 

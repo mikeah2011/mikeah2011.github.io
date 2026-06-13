@@ -1,6 +1,7 @@
 ---
+
 title: Bun 实战-比 npm 快 10 倍的 JavaScript 运行时踩坑记录
-keywords: [Bun, JavaScript]
+keywords: [Bun, npm, JavaScript, 倍的, 运行时踩坑记录]
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -15,11 +16,9 @@ tags:
 - Bun
 - Node.js
 - npm
-description: Bun 是基于 JavaScriptCore 引擎的全新 JavaScript/TypeScript 运行时与工具链，集成包管理器、构建工具和测试运行器于一体。本文详细记录在
-  macOS Apple Silicon 环境下，从 npm/pnpm 迁移到 Bun 的完整实战过程，涵盖 bun install 包管理速度对比（比 npm
-  快 10 倍）、bun build 构建优化、bun test 测试运行、与 Node.js/Deno 的性能基准对比、Laravel + Vue 3 + Vite
-  项目踩坑案例及 CI/CD 配置，帮助前端开发者快速上手 Bun 并规避常见问题。
+description: Bun 是基于 JavaScriptCore 引擎的全新 JavaScript/TypeScript 运行时与工具链，集成包管理器、构建工具和测试运行器于一体。本文详细记录在 macOS Apple Silicon 环境下，从 npm/pnpm 迁移到 Bun 的完整实战过程，涵盖 bun install 包管理速度对比（比 npm 快 10 倍）、bun build 构建优化、bun test 测试运行、与 Node.js/Deno 的性能基准对比、Laravel + Vue 3 + Vite 项目踩坑案例及 CI/CD 配置，帮助前端开发者快速上手 Bun 并规避常见问题。
 ---
+
 
 
 

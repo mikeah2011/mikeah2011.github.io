@@ -1,6 +1,7 @@
 ---
+
 title: OpenAPI 设计指南实战-从 PRD 到 Interface Design 到 Code Review 到 Test Plan 全链路踩坑记录
-keywords: [OpenAPI, PRD, Interface]
+keywords: [OpenAPI, PRD, Interface Design, Code Review, Test Plan, 设计指南实战, 全链路踩坑记录]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -16,10 +17,9 @@ tags:
 - API设计
 - Code Review
 - prd
-description: 本文结合 KKday B2C Backend 真实项目经验，完整记录从 PRD 拆解到 OpenAPI YAML 接口设计、Interface
-  Design Review、Code Review 到 Test Plan 的全链路工作流。涵盖统一响应 Envelope 设计、Spectral 自动化 Lint、Prism
-  Mock 联调、Pest 契约测试等实战技巧，附带 6 个真实踩坑案例与 4 个常见反模式，帮助团队实现契约驱动开发，减少 83% 前后端联调时间。
+description: 本文结合 KKday B2C Backend 真实项目经验，完整记录从 PRD 拆解到 OpenAPI YAML 接口设计、Interface Design Review、Code Review 到 Test Plan 的全链路工作流。涵盖统一响应 Envelope 设计、Spectral 自动化 Lint、Prism Mock 联调、Pest 契约测试等实战技巧，附带 6 个真实踩坑案例与 4 个常见反模式，帮助团队实现契约驱动开发，减少 83% 前后端联调时间。
 ---
+
 
 
 在中大型 B2C 项目里，API 设计最常见的灾难不是"设计得不好"，而是**根本没有可追溯的设计过程**。PRD 写完直接丢给后端开发，后端凭经验写 Controller，前端根据"差不多的"文档联调，上线后发现字段含义不一致、枚举值遗漏、分页行为不统一——然后三方（PM、前端、后端）互相甩锅。

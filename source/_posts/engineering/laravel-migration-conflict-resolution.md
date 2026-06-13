@@ -1,6 +1,6 @@
 ---
 title: 数据库 Schema 冲突治理实战：Laravel Migration 合并冲突检测、顺序依赖分析与团队协作的最佳实践
-keywords: [Schema]
+keywords: [Schema, Laravel Migration, 数据库, 冲突治理实战, 合并冲突检测, 顺序依赖分析与团队协作的最佳实践, 工程化]
 date: 2026-06-10 07:58:00
 categories:
   - engineering
@@ -15,6 +15,7 @@ tags:
   - 团队协作
 description: 多人同时修改数据库 Schema 时，Migration 文件的合并冲突是 Laravel 团队的常见痛点。本文从冲突检测、依赖分析、自动化校验三个维度，给出一套可落地的治理方案。
 ---
+
 
 ## 问题背景
 

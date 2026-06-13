@@ -6,7 +6,7 @@ images:
 date: 2026-05-16 22:45:13
 updated: 2026-05-16 22:48:11
 tags: [DevOps, Docker, Kubernetes, Laravel]
-keywords: [DevOps, Docker, Kubernetes, Laravel, Volume, NFS]
+keywords: [Docker, Volume, NFS, Laravel, 数据持久化备份恢复与, 挂载, 踩坑记录, DevOps]
 categories:
   - devops
   - docker
@@ -15,6 +15,7 @@ description: 从本地开发到生产部署，Docker Volume 是数据持久化�
 
 
 ---
+
 ## 为什么需要 Docker Volume？
 
 容器是无状态的——这是 Docker 的核心设计哲学。但 Laravel B2C API 离不开数据：

@@ -2,7 +2,7 @@
 title: Flutter 性能优化实战：DevTools 分析、渲染优化、包体积裁剪
 date: 2026-06-02 10:00:00
 tags: [Flutter, 性能优化, DevTools, 渲染优化, 包体积]
-keywords: [Flutter, 性能优化, DevTools, 渲染优化, 包体积]
+keywords: [Flutter, DevTools, 性能优化实战, 分析, 渲染优化, 包体积裁剪, 移动端]
 categories:
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
@@ -10,6 +10,7 @@ images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 description: "Flutter性能优化实战指南，涵盖DevTools性能分析工具使用方法、渲染优化策略（减少rebuild/repaint）、包体积裁剪技巧（tree-shaking/资源治理/deferred loading）。通过实际项目案例讲解如何定位掉帧卡顿、内存泄漏等性能瓶颈，包含完整的代码示例和优化前后对比数据，助你打造流畅的Flutter应用。"
 ---
+
 
 Flutter 的开发体验非常出色：一套代码多端运行、Hot Reload 高效、组件化表达能力强。但在项目从 Demo 走向真实业务后，性能问题几乎一定会出现：页面滚动偶发卡顿、首屏渲染不够稳定、动画掉帧、列表滑动时频繁重建、图片占用内存过高、安装包越来越大，甚至上线后还会出现内存持续上涨、切换页面数次后被系统回收的情况。
 

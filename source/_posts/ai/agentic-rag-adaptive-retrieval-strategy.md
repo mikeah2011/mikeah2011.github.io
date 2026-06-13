@@ -1,12 +1,13 @@
 ---
+
 title: Agentic RAG 实战：自适应检索策略——Agent 根据查询复杂度动态选择 Direct/Decompose/HyDE/Step-Back 的智能检索架构
-keywords: [Agentic, RAG]
+keywords: [Agentic RAG, Agent, Direct, Decompose, HyDE, Step, Back, 自适应检索策略, 根据查询复杂度动态选择, 的智能检索架构]
 date: 2026-06-09 17:48:00
 categories:
+  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
-- ai
 tags:
 - RAG
 - Agent
@@ -14,9 +15,9 @@ tags:
 - 数据库
 - Laravel
 - LLM
-description: 传统 RAG 用固定策略检索，但不同查询需要不同策略。本文实现一个 Agentic RAG 架构，让 Agent 根据查询复杂度动态选择
-  Direct/Decompose/HyDE/Step-Back 四种检索路径，并在 Laravel 中完成端到端落地。
+description: 传统 RAG 用固定策略检索，但不同查询需要不同策略。本文实现一个 Agentic RAG 架构，让 Agent 根据查询复杂度动态选择 Direct/Decompose/HyDE/Step-Back 四种检索路径，并在 Laravel 中完成端到端落地。
 ---
+
 
 
 ## 为什么固定检索策略不够用

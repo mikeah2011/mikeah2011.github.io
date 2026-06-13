@@ -1,6 +1,6 @@
 ---
 title: Eloquent 全局作用域深度实战：Soft Delete、多租户、数据权限——全局作用域的嵌套冲突与解决方案
-keywords: [Eloquent]
+keywords: [Eloquent, Soft Delete, 全局作用域深度实战, 多租户, 数据权限, 全局作用域的嵌套冲突与解决方案, PHP]
 date: 2026-06-09 06:20:00
 categories:
   - php
@@ -15,6 +15,7 @@ cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200
 ---
+
 
 ## 前言
 

@@ -1,8 +1,8 @@
 ---
+
 title: OpenHuman 消息通道实战：多平台消息收发与工作流触发
-keywords: [OpenHuman]
-description: 本文系统拆解 OpenHuman 消息通道在 Slack、Discord、Telegram、企业微信与 Email 中的多平台消息收发实践，覆盖统一消息模型、Webhook
-  接入、签名校验、路由分发、工作流触发、权限控制与排障方案，帮助你把 AI Agent 真正落地为稳定可审计的企业级自动化入口。
+keywords: [OpenHuman, 消息通道实战, 多平台消息收发与工作流触发]
+description: 本文系统拆解 OpenHuman 消息通道在 Slack、Discord、Telegram、企业微信与 Email 中的多平台消息收发实践，覆盖统一消息模型、Webhook 接入、签名校验、路由分发、工作流触发、权限控制与排障方案，帮助你把 AI Agent 真正落地为稳定可审计的企业级自动化入口。
 date: 2026-06-02 02:30:00
 tags:
 - OpenHuman
@@ -16,6 +16,7 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
+
 
 
 在 AI Agent 从“能对话”走向“能接活、能协作、能编排”的过程中，消息通道已经不再只是一个把文本送进模型的输入框，而是整个自动化系统的外部神经末梢。对于 OpenHuman 这类强调可扩展、可连接、可编排的 Agent 系统来说，消息通道承担了三个非常核心的职责：**接入用户、承接事件、触发工作流**。
