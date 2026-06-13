@@ -13,9 +13,9 @@ description: 深度对比五大分布式限流算法：固定窗口、滑动窗�
   故障降级、限流绕过等），附完整可运行代码与算法选型决策树，适合中高级后端工程师快速选型落地。
 categories:
 - database
-cover: /images/covers/rate-limiting-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/rate-limiting-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 

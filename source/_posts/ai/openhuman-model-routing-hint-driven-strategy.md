@@ -3,9 +3,9 @@ title: OpenHuman 模型路由架构：hint:reasoning/fast/vision/summarize 任�
 date: 2026-06-02 12:00:00
 tags: [OpenHuman, 模型路由, AI Agent, 架构设计, 任务调度]
 categories: [ai]
-cover: /images/covers/openhuman-model-routing-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-model-routing-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: 深入剖析 OpenHuman 的 hint 标签驱动模型路由架构，涵盖 reasoning/fast/vision/summarize 四种任务类型、多维评分算法、动态约束调整机制，以及与 Hermes ProviderProfile 和 OpenClaw Fallback Chain 的横向对比。帮助开发者在多模型 AI Agent 生态中实现智能路由，平衡能力、成本与延迟。
 ---
 

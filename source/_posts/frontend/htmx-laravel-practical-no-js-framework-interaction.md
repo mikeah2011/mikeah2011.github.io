@@ -11,9 +11,9 @@ description: 深入实战 Htmx 与 Laravel 的渐进增强集成方案，通过�
   vs Turbo 三大轻量交互方案的架构差异、性能基准与选型决策树，帮助 PHP 全栈开发者以最小 JS 体积获得 SPA 级交互体验。
 categories:
 - frontend
-cover: /images/covers/htmx-laravel-practical-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/htmx-laravel-practical-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 

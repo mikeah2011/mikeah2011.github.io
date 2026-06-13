@@ -1,8 +1,8 @@
 ---
 title: "Nginx 配置实战：PHP-FPM 调优、FastCGI 缓存、Gzip 压缩 — Laravel B2C API 踩坑记录"
-cover: /images/covers/nginx-php-fpm-fastcgi-gzip-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/nginx-php-fpm-fastcgi-gzip-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 19:50:32
 updated: 2026-05-16 19:53:26
 categories:

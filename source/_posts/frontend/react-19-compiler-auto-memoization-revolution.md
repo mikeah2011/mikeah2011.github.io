@@ -10,9 +10,9 @@ tags:
 - usecallback
 categories:
 - frontend
-cover: /images/covers/react-19-compiler-auto-memoization-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/react-19-compiler-auto-memoization-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 description: 深入解析 React 19 Compiler 自动 Memoization 革命：编译器如何通过 AST 分析取代手动 useMemo 与
   useCallback，实现表达式级别的精准缓存。本文涵盖工作原理、Vite/Next.js/Webpack 集成配置、迁移前后代码对比、性能基准测试、常见踩坑案例（编译器不触发、第三方库冲突、违反
   Rules of React）及渐进式启用策略，帮助前端团队零成本迁移至编译器驱动的性能优化新范式。

@@ -9,9 +9,9 @@ tags:
 - Python
 categories:
 - ai
-cover: /images/covers/autogen-multi-agent-sandbox-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/autogen-multi-agent-sandbox-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: 这篇 AutoGen 实战指南系统拆解微软多 Agent 对话框架、GroupChat 协作机制与代码执行沙箱能力，结合 Python 示例讲清
   Agent 角色分工、自动调度、Docker 安全执行与 AutoGen vs CrewAI vs LangGraph 选型差异。
 ---

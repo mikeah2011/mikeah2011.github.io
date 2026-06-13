@@ -12,9 +12,9 @@ tags:
 description: AI Agent工作流DSL深度实战：对比LangGraph状态图、LangChain LCEL链式编排、LlamaIndex Workflow三种主流框架的声明式编排能力，通过YAML/JSON抽象层实现跨框架统一定义，涵盖条件分支、并行执行、人机交互节点设计，附Laravel后端集成方案与生产环境最佳实践。
 categories:
 - ai
-cover: /images/covers/ai-agent-workflow-dsl-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-workflow-dsl-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 

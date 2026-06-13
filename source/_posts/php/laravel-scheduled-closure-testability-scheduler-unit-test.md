@@ -5,9 +5,9 @@ tags: [Laravel, Scheduler, Closure, Unit Test, Task Scheduling, PHPUnit]
 description: 深入剖析 Laravel Scheduler 中闭包任务的三大可测试性缺陷——隐式依赖、无法 Mock、时间耦合。手把手教你将不可测试闭包重构为 Artisan Command、Invokable Class 和 Service 层，配合 Carbon::setTestNow()、Http::fake() 等测试技巧，附完整 PHPUnit 单元测试与集成测试代码，让你的定时任务从此告别 flaky test。
 categories:
   - php
-cover: /images/covers/laravel-scheduled-closure-testability-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-scheduled-closure-testability-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 ## 引言：为什么 Scheduler 中的闭包难以测试

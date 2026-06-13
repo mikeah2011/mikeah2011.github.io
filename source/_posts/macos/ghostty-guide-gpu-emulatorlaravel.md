@@ -1,8 +1,8 @@
 ---
 title: Ghostty 终端实战：下一代 GPU 加速终端 emulator 配置与 Laravel 开发效率提升踩坑记录
-cover: /images/macos-cover.png
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/macos-cover.png
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 00:00:28
 updated: 2026-05-17 00:05:14
 categories:

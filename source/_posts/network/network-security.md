@@ -1,8 +1,8 @@
 ---
 title: 网络安全基础（XSS / CSRF / SQL 注入 / SSRF）
-cover: /images/covers/network-security-cover.jpg
+cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
 images:
-  - /images/covers/network-security-cover.jpg
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
 tags:
 - Laravel
 - 安全

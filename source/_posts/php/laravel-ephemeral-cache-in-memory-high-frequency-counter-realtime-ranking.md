@@ -11,9 +11,9 @@ tags:
   - Ephemeral
   - 内存缓存
 description: "深入实战 Laravel 的无持久化缓存策略（Ephemeral Cache），涵盖 Array Driver、请求级缓存、高频计数器、实时排行榜的内存缓存实现，对比 Redis/File/Array 的性能差异，详解缓存穿透、缓存雪崩的防御方案，以及与 Laravel Octane 的深度集成，助你在高并发场景下实现亚毫秒级响应。"
-cover: /images/covers/laravel-ephemeral-cache-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-ephemeral-cache-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 在高并发 Web 应用中，缓存是绕不开的核心话题。但很多时候我们并不需要持久化缓存——请求级别的临时数据、高频递增的计数器、实时排行榜的中间状态——这些数据天然适合「用完即弃」或「进程内常驻」的缓存模式。本文将深入 Laravel 的 Ephemeral Cache 实战，探索无持久化缓存的工程化方案。

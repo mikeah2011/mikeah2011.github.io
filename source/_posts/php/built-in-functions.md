@@ -1,8 +1,8 @@
 ---
 title: PHP 内置系统函数精选：字符串、数组、文件处理常用 API
-cover: /images/covers/built-in-functions-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/built-in-functions-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
 - PHP
 - 内置函数

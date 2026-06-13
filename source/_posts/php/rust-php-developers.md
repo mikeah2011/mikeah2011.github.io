@@ -5,9 +5,9 @@ tags: [Rust, PHP, 系统编程, 所有权, 并发]
 categories:
   - php
 description: 面向 PHP 开发者的 Rust 系统编程入门指南，从所有权、借用、生命周期三大核心概念出发，对比 PHP 的引用计数 GC 模型。深入讲解 Rust 的错误处理（Result/Option vs try-catch）、并发模型（Send/Sync vs 无并发）、以及通过 ext-php-rs 和 FFI 将 Rust 集成到 Laravel 项目的实战路径，帮助 PHP 开发者实现从脚本语言到系统编程的思维跃迁。
-cover: /images/covers/rust-for-php-developers-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/rust-for-php-developers-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 # Rust for PHP Developers 实战：从脚本语言到系统编程的思维跃迁——所有权、生命周期与并发模型

@@ -5,9 +5,9 @@ tags: [ClickHouse, Laravel, OLAP, 物化视图, MergeTree]
 categories:
   - database
 description: '深入实战 ClickHouse + Laravel 集成方案：MergeTree 引擎家族选型、物化视图实时聚合、电商埋点 OLAP 分析，覆盖分片策略、写入优化与生产运维监控。'
-cover: /images/covers/clickhouse-laravel-olap-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/clickhouse-laravel-olap-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 在电商场景中，每天产生成千上万的用户行为埋点——页面浏览、商品点击、加购、下单、支付——这些数据不仅量大，还需要在秒级内完成多维聚合查询。传统 MySQL 方案在千万级以上数据量的分析查询中已经力不从心，而 ClickHouse 作为列式 OLAP 数据库的代表，以其卓越的聚合性能成为了解决这一问题的理想选择。

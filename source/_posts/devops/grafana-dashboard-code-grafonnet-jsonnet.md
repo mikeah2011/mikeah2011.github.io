@@ -4,9 +4,9 @@ date: 2026-06-06 10:00:00
 tags: [Grafana, Jsonnet, Grafonnet, Dashboard as Code, DevOps, 可观测性]
 categories:
   - devops
-cover: /images/covers/grafana-dac-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/grafana-dac-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: "Grafana Dashboard as Code 实战指南：使用 Grafonnet 与 Jsonnet 实现监控面板的可视化即代码，彻底告别手动 JSON 导出的版本控制噩梦。涵盖面板类型实战、变量模板化、CI/CD 自动部署、Grafonnet vs Terraform vs Grafana UI 方案对比、常见踩坑与生产级最佳实践，助力 DevOps 团队构建可维护、可复用的可观测性体系。"
 ---
 

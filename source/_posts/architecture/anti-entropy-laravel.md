@@ -11,9 +11,9 @@ categories:
 - architecture
 description: 深入讲解 Anti-Entropy 反熵机制在 Laravel 微服务架构中的生产级落地：从 Merkle Tree 哈希对比、向量时钟冲突检测到
   CRDT 自动合并，完整实现数据对账引擎、分层冲突解决策略与自动修复执行器。涵盖消息丢失、网络分区、消费者 Lag 等不一致根因分析，附可运行 PHP 代码示例、定时调度配置与监控告警方案，助你构建微服务数据一致性的最后一道防线。
-cover: /images/covers/anti-entropy-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/anti-entropy-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

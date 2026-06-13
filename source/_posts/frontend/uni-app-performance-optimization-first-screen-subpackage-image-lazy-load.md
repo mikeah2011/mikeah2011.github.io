@@ -1,7 +1,7 @@
 ---
-cover: /images/covers/2026-06-01-uni-app-performance-optimization-first-screen-subpackage-image-lazy-load-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/2026-06-01-uni-app-performance-optimization-first-screen-subpackage-image-lazy-load-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 title: uni-app 性能优化实战：首屏加载、分包加载、图片懒加载的工程化治理
 date: 2026-06-01 12:00:00
 categories:

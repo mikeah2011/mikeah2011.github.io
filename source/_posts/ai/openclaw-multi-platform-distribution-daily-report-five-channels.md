@@ -11,9 +11,9 @@ tags:
 - AI Agent
 categories:
 - ai
-cover: /images/covers/openclaw-multi-platform-distribution-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openclaw-multi-platform-distribution-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: AI Agent 产生的信息需要触达不同平台的用户。本文深入剖析 OpenClaw 的多平台消息分发架构，涵盖统一消息模型设计、Telegram
   Bot API / Slack Webhook / 飞书 Open API / QQ 频道机器人 / 企业微信五大通道适配器的完整实现，并发分发引擎与重试降级机制，以及各平台
   Markdown 方言差异和 API 限流处理的最佳实践。

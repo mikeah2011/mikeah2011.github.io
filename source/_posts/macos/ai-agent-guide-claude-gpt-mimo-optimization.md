@@ -1,8 +1,8 @@
 ---
 title: AI Agent 多模型切换实战：Claude/GPT/MiMo 智能路由策略与成本优化踩坑记录
-cover: /images/covers/ai-agent-guide-claude-gpt-mimo-optimization-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-guide-claude-gpt-mimo-optimization-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 02:50:58
 updated: 2026-05-17 02:54:01
 categories:

@@ -1,8 +1,8 @@
 ---
 title: PHP 8.4 新特性实战 - Laravel B2C-API 升级踩坑记录
-cover: /images/covers/php-8-4-guide-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-8-4-guide-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-03 07:10:00
 tags:
 - DevOps

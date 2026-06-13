@@ -13,9 +13,9 @@ description: 深入探讨 AI Agent 评估的三大支柱：LLM-as-Judge 自动�
   配置，包含 6 个实战踩坑案例与经验总结，为团队搭建 Agent 评估体系提供可落地的技术蓝图。
 categories:
 - ai
-cover: /images/covers/ai-agent-evaluation-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-evaluation-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 

@@ -9,9 +9,9 @@ tags:
 - PHP
 categories:
 - php
-cover: /images/covers/laravel-defer-async-after-request-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-defer-async-after-request-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 深入剖析 Laravel 11 的 defer() 延迟执行机制，对比 Queue、afterResponse、terminate 回调三种异步方案的执行时机、资源回收与失败处理差异。通过源码级分析
   DeferredCallbackCollection 的析构触发原理，结合订单邮件、审计日志、API 统计上报等实战案例，给出 defer 在 PHP-FPM
   与 Octane/Swoole 环境下的最佳实践、常见陷阱（数据库连接超时、Request 失效、异常静默吞掉）及选型决策树，帮助开发者在请求结束后高效执行异步任务。

@@ -15,9 +15,9 @@ description: 容器安全扫描实战指南，深入对比 Trivy、Snyk、Grype 
   团队在构建阶段拦截 90% 以上的容器安全风险。
 categories:
 - devops
-cover: /images/covers/container-security-scanning-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/container-security-scanning-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

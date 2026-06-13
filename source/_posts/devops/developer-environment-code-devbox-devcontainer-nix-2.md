@@ -11,9 +11,9 @@ tags:
 categories:
 - devops
 description: 深入对比 Devbox、devcontainer、Nix 三大开发环境即代码方案，提供 Laravel 项目完整配置示例、踩坑解决方案与团队渐进式迁移路线图，告别'在我机器上能跑'的开发环境一致性难题。
-cover: /images/covers/developer-environment-as-code-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/developer-environment-as-code-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

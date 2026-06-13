@@ -10,9 +10,9 @@ tags:
 - 工程化
 categories:
 - architecture
-cover: /images/covers/technical-debt-quadrant-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/technical-debt-quadrant-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 深入解析 Martin Fowler 技术债务四象限模型在 Laravel 项目中的实战应用。通过 8 个真实案例详解 Reckless/Prudent/Deliberate/Inadvertent
   四种债务类型，提供完整 PHP/Laravel 代码示例、债务追踪系统实现、自动化重构工作流、工具链配置（PHPStan/Rector/Deptrac/SonarQube）及团队协作治理策略，帮助
   Laravel 团队系统性识别、度量和偿还技术债务。

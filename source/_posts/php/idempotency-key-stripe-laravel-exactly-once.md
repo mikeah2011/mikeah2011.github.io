@@ -10,9 +10,9 @@ tags:
 - Redis
 categories:
 - php
-cover: /images/covers/idempotency-key-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/idempotency-key-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 深入解析 Idempotency Key 设计模式，从 Stripe API 的请求去重机制出发，完整实现 Laravel 幂等键中间件、Redis/MySQL
   存储后端、队列集成与测试策略，附生产级代码。
 ---

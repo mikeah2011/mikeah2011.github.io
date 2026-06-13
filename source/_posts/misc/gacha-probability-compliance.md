@@ -1,8 +1,8 @@
 ---
 title: 盲盒抽奖业务-概率算法与合规设计-B2C电商公平性验证踩坑记录
-cover: /images/business-cover.png
+cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
-  - /images/business-cover.png
+  - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 date: 2026-05-05 08:55:36
 updated: 2026-05-05 09:01:09
 categories:

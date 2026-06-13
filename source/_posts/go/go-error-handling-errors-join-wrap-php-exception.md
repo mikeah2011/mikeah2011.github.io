@@ -9,9 +9,9 @@ tags:
 - 后端开发
 categories:
 - go
-cover: /images/covers/go-error-handling-cover.jpg
+cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
-  - /images/covers/go-error-handling-cover.jpg
+  - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 description: 深入解析 Go 语言错误处理核心机制，包括 errors.Join 多错误聚合、fmt.Errorf %w 错误包装、errors.Is/errors.As
   错误链遍历，以及自定义错误类型的最佳实践。通过丰富的代码示例和踩坑案例，系统对比 Go error 返回值模式与 PHP Exception 异常层级的设计哲学差异，帮助同时使用两种语言的开发者在项目中做出最优的错误处理决策。
 ---

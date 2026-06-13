@@ -1,8 +1,8 @@
 ---
 title: Docker Compose 5.x 实战：多服务编排、健康检查与开发环境搭建踩坑记录
-cover: /images/covers/docker-compose-5-x-guide-orchestration-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/docker-compose-5-x-guide-orchestration-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-16 22:00:37
 updated: 2026-05-16 22:04:36
 tags:

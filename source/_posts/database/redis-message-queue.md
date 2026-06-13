@@ -9,7 +9,7 @@ categories:
 date: 2022-08-20 16:05:07
 description: 为了便于大家查找问题，了解全貌，本文整理了Redis常见面试问题及解决方案，涵盖数据结构、持久化、集群、消息队列、分布式锁等核心知识点。同时对比Redis
   List、Pub/Sub与Stream三种消息队列方案，附Laravel队列驱动配置与死信队列实践，帮助你全面掌握Redis消息队列的应用与最佳实践。
-cover: /images/covers/databases-001-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-001-content-1.jpg
 - /images/content/databases-001-content-2.jpg

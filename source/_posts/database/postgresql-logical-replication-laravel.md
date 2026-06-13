@@ -5,9 +5,9 @@ tags: [PostgreSQL, Logical-Replication, 数据迁移, Laravel, 零停机, 多库
 description: "PostgreSQL Logical Replication 实战指南：详解零停机迁移 480GB 大表的完整流程，以及如何在 Laravel 多库架构中实现秒级数据同步。涵盖 Publication/Subscription 配置、CDC 管道搭建、Replication Slot 运维、常见踩坑与监控告警，附完整 SQL 与 Laravel 代码示例。"
 categories:
   - database
-cover: /images/covers/postgresql-logical-replication-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/postgresql-logical-replication-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 ## 前言

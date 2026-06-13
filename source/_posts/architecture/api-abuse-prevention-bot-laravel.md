@@ -12,9 +12,9 @@ tags:
 - 反爬虫
 categories:
 - architecture
-cover: /images/covers/api-abuse-prevention-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/api-abuse-prevention-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

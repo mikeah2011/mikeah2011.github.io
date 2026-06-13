@@ -9,9 +9,9 @@ tags:
 - 数据生命周期
 categories:
 - architecture
-cover: /images/covers/openhuman-leaf-lifecycle-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-leaf-lifecycle-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 为什么 AI Agent 的记忆节点需要生命周期管理？本文深入剖析 OpenHuman 的叶子四态状态机设计——从 pending_extraction
   到 sealed 的完整生命周期。涵盖批量提取与去重、缓冲区 LRU 淘汰策略、sealed 叶子的压缩存储与召回机制、时间/容量/访问频率三种驱动的状态转换规则、乐观锁并发控制、WAL
   崩溃恢复，以及一天对话中叶子状态流转的实战场景。

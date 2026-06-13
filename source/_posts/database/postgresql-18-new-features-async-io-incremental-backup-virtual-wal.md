@@ -12,9 +12,9 @@ description: PostgreSQL 18 全面解析：深度剖析异步I/O（io_uring）子
   17 vs 18性能对比基准测试数据、完整的Laravel应用升级指南与配置代码、生产环境回滚策略及最佳实践Checklist，助你平滑完成数据库版本升级。
 categories:
 - database
-cover: /images/covers/postgresql-18-new-features-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/postgresql-18-new-features-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 

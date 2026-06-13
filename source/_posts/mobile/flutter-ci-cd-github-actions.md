@@ -4,9 +4,9 @@ date: 2026-06-01 10:00:00
 tags: [Flutter, CI/CD, GitHub Actions, 自动化]
 categories:
   - mobile
-cover: /images/covers/flutter-cicd-cover.jpg
+cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/flutter-cicd-cover.jpg
+  - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 description: 本文系统拆解 Flutter CI/CD 落地方案，基于 GitHub Actions 实现自动化构建、测试、发布与覆盖率上报，涵盖 FVM、Fastlane、签名、缓存、矩阵构建与常见踩坑，帮你快速搭建稳定可复用的工程化流水线。
 ---
 

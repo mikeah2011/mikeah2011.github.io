@@ -14,9 +14,9 @@ tags:
 - drone
 categories:
 - devops
-cover: /images/covers/gitness-harness-devops-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/gitness-harness-devops-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

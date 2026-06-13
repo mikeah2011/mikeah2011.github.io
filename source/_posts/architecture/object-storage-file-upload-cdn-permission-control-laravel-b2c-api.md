@@ -17,7 +17,7 @@ tags:
 - Flysystem
 description: 不谈云厂商对比，只聊对象存储的三个核心运维命题：大文件上传怎么做才可靠？CDN 缓存怎么配才不翻车？权限模型怎么设计才安全？本文从 Laravel
   B2C 电商真实场景出发，用源码级剖析和生产踩坑记录给出答案。
-cover: /images/covers/arch-007-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/arch-007-content-1.jpg
 - /images/content/arch-007-content-2.jpg

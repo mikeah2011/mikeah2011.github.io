@@ -11,9 +11,9 @@ tags:
 - 自动化
 categories:
 - ai
-cover: /images/covers/ai-agent-data-analysis-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-data-analysis-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 

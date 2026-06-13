@@ -4,9 +4,9 @@ date: 2026-06-06 12:00:00
 tags: [Functional Programming, Laravel, 架构模式, Clean Architecture]
 categories:
   - php
-cover: /images/covers/functional-core-imperative-shell-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/functional-core-imperative-shell-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "深入解析 Functional Core Imperative Shell 架构模式在 Laravel 项目中的实战落地，涵盖纯函数业务逻辑设计、副作用隔离、值对象与 Result 模式、Imperative Shell 编排层实现，以及与 Clean Architecture 和 DDD 的对比与融合，帮助团队告别胖 Service，提升可测试性与可维护性。"
 ---
 

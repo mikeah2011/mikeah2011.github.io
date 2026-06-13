@@ -11,9 +11,9 @@ tags:
 categories:
 - ai
 - 架构
-cover: /images/covers/ai-agent-memory-consolidation-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-memory-consolidation-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: 深入解析 AI Agent 记忆系统的工程化实现：从认知科学 Atkinson-Shiffrin 模型出发，涵盖短期记忆滑动窗口压缩、LLM
   驱动的长期记忆蒸馏、Ebbinghaus 遗忘曲线衰减引擎、多路召回检索与 SM-2 间隔重复强化。提供 Python 与 Laravel 双语言完整代码实现，包含
   ContextWindowManager、MemoryDistiller、EbbinghausDecayEngine 等核心组件的可运行示例，助你构建类人的 Agent

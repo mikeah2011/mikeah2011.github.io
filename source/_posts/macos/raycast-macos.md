@@ -1,8 +1,8 @@
 ---
 title: Raycast 实战：macOS 效率启动器自定义脚本与开发工作流踩坑记录
-cover: /images/covers/raycast-macos-productivity-launcher-custom-script-workflow-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/raycast-macos-productivity-launcher-custom-script-workflow-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-06-01
 categories:
 - macos

@@ -12,9 +12,9 @@ categories:
 - macos
 description: 八人 Laravel 团队半年实战：CodeRabbit、PR-Agent、Claude Review 三款 AI Code Review
   工具从零配置到生产落地，含完整 YAML/TOML 配置、效率提升 65% 量化数据、误报率优化、分层 Review 策略与十大踩坑复盘。
-cover: /images/covers/ai-code-review-workflow-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-code-review-workflow-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 ---
 
 

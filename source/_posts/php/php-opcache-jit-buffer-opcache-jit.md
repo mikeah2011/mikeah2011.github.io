@@ -5,9 +5,9 @@ tags: [PHP, OPcache, JIT, 性能优化, PHP 8.2, PHP 8.3, PHP 8.4]
 categories:
   - php
 description: "深入解析 PHP OPcache 与 JIT 编译器的联合调优实战，涵盖 opcache.jit 参数四位编码详解、tracing JIT 1255 最佳配置、JIT buffer 预热策略、Laravel 性能优化基准测试数据对比。基于 PHP 8.3 真实 Laravel API 项目压测，不改一行代码实现 15%~40% 免费性能提升，包含 8 种参数组合的完整基准对比、不同接口类型收益分析、生产环境部署脚本及常见陷阱排查指南。"
-cover: /images/covers/php-opcache-jit-tuning-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-opcache-jit-tuning-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 ## 前言

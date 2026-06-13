@@ -4,9 +4,9 @@ date: 2026-06-05 09:00:00
 tags: [Windsurf, Augment Code, AI IDE, Cursor, Claude Code, AI 编程, macOS, 开发工具]
 categories:
   - macos
-cover: /images/covers/windsurf-augment-code-ai-ide-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/windsurf-augment-code-ai-ide-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 description: "2026 年 AI-native IDE 四强深度横评：Windsurf（Devin Desktop）的 Cascade 流式智能体、Augment Code 的 Context Engine 企业级上下文引擎、Cursor 的 Composer/Agent Mode 与 Claude Code 的终端原生工作流。本文从 macOS Apple Silicon 真机实测出发，覆盖功能对比矩阵、响应延迟与大型代码库性能基准、定价策略分析，并提供不同场景下的选型建议——个人开发者、企业团队、DevOps 工程师各取所需。"
 ---
 

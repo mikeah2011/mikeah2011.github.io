@@ -10,9 +10,9 @@ tags:
 - Zod
 categories:
 - frontend
-cover: /images/covers/trpc-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/trpc-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 description: 深入解析 tRPC 框架核心原理与实战集成，涵盖 Procedure、Router、Context、Middleware 四大核心概念，对比
   REST/OpenAPI/GraphQL 方案优劣，详解 Zod 输入验证、Next.js App Router 集成、WebSocket 订阅、错误处理与性能优化技巧，助你构建端到端类型安全的
   TypeScript 全栈 API 层。

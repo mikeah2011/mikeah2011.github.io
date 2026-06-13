@@ -4,9 +4,9 @@ date: 2026-06-03 01:12:12
 tags: [SBOM, 供应链安全, Syft, Trivy, CI/CD, 合规]
 categories:
   - devops
-cover: /images/covers/sbom-syft-trivy-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/sbom-syft-trivy-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: "深入实战 SBOM 软件物料清单生成方案，对比 Syft 与 Trivy 两款主流工具的扫描能力、输出格式与 CI 集成方式。详解 SPDX/CycloneDX 标准选型、GitHub Actions/GitLab CI 流水线配置、依赖漏洞扫描质量门禁设置，以及满足 NTIA 最低要求和 FDA 医疗器械合规的落地路径。附带完整踩坑记录与供应链安全体系建设行动清单，帮助团队从零构建可见、可控、可审计的软件供应链安全体系。"
 ---
 

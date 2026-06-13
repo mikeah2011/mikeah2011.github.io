@@ -5,9 +5,9 @@ tags: [OpenHuman, Cloud Deploy, 云端部署, 多设备同步, DevOps, AI Agent]
 description: "本文围绕 OpenHuman Cloud Deploy 实战，系统拆解从本地优先架构到云端部署的完整链路，覆盖 Docker/Kubernetes/Serverless 部署方案对比、多设备同步协议设计、数据一致性保障、安全加固与成本优化，附带真实踩坑记录与可落地配置示例。适合个人开发者、小团队和内部平台工程师，把 OpenHuman 从本地工具升级为可长期维护的云端平台。"
 categories:
   - architecture
-cover: /images/covers/openhuman-cloud-deploy-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-cloud-deploy-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 当 OpenHuman 从“本地单机可用”走向“团队共享入口、跨设备无缝接力、异地容灾、统一运维”时，Cloud Deploy 就不再只是把一个服务塞进云主机那么简单。你面对的是一整套工程问题：如何把本地优先的 Agent/知识服务搬上云端，如何保证桌面端、Web 端、移动端以及自动化任务之间的数据同步，如何在网络抖动、跨地域访问、服务版本迭代、数据库迁移、缓存失效和权限收缩的条件下，依然维持系统可用、一致、可审计、可回滚。

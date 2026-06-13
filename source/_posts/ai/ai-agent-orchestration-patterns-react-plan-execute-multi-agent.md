@@ -14,7 +14,7 @@ tags:
   - Laravel
   - 编排模式
 description: "深度解析 2026 年 AI Agent 三大核心编排模式——ReAct、Plan-and-Execute、Multi-Agent 协作，结合 Python/LangChain/CrewAI 代码示例与 Laravel 后端集成实战，帮助开发者选择最适合业务场景的 Agent 架构。"
-cover: /images/covers/ai-001-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - /images/content/ai-001-content-1.jpg
   - /images/content/ai-001-content-2.jpg

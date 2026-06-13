@@ -1,8 +1,8 @@
 ---
 title: Laravel-Slack-通知集成实战-部署推送CI结果与告警降噪踩坑记录
-cover: /images/covers/laravel-slack-guide-deploymentci-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-slack-guide-deploymentci-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-05 01:15:58
 updated: 2026-05-05 01:23:43
 categories:

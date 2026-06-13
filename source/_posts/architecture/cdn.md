@@ -12,7 +12,7 @@ tags:
   - Laravel
   - 性能优化
 description: 深入剖析 CDN 在 Laravel B2C 电商 API 中的缓存加速与失效机制：Cache-Control 多层缓存架构、Purge/Ban/Tag 三种失效策略对比、Laravel 中间件集成 CloudFront/Cloudflare 自动化失效、Varnish Ban 与 stale-while-revalidate 优化、Nginx 长缓存与 Vite Hash 策略、踩坑与性能基准。
-cover: /images/covers/arch-004-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - /images/content/arch-004-content-1.jpg
   - /images/content/arch-004-content-2.jpg

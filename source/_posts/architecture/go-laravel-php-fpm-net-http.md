@@ -4,9 +4,9 @@ date: 2026-06-02 10:00:00
 tags: [Go, 微服务, Laravel, PHP-FPM, 性能优化]
 categories:
   - architecture
-cover: /images/covers/Go-microservice-rewrite-laravel-high-performance-module-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/Go-microservice-rewrite-laravel-high-performance-module-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 当 Laravel 应用遇到 PHP-FPM 性能瓶颈时，用 Go 重写热点模块是务实之选。本文完整记录从识别 Laravel 热点模块到用 Go net/http 重写并部署的全过程，包括 Strangler Fig 渐进式迁移架构、Gin 框架实战、数据库连接池优化、Docker 容器化部署。含 QPS/延迟/内存三维度性能基准对比与降级回退方案，适合需要突破 PHP 性能天花板的 B2C 电商团队参考。
 ---
 

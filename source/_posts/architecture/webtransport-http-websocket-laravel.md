@@ -9,9 +9,9 @@ tags:
 - 实时通信
 categories:
 - architecture
-cover: /images/covers/webtransport-http3-bidirectional-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/webtransport-http3-bidirectional-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 深入对比 WebTransport 与 WebSocket 核心差异：基于 HTTP/3 QUIC 的多流复用与不可靠数据报传输，5% 丢包下延迟降低
   8 倍。涵盖浏览器 API 封装、Go/Rust 服务端实现、Laravel 广播集成与渐进式迁移策略，全栈开发者必读的下一代实时通信实战指南。
 ---

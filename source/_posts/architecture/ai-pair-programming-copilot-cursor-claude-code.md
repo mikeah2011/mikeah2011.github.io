@@ -13,9 +13,9 @@ description: 本文对 GitHub Copilot、Cursor 和 Claude Code 三款主流 AI P
   认知负荷评估及场景推荐矩阵，帮助团队做出数据驱动的 AI 编程工具选型决策。
 categories:
 - architecture
-cover: /images/covers/ai-pair-programming-eval-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-pair-programming-eval-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

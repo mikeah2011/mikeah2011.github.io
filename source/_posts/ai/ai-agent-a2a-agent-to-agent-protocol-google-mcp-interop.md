@@ -11,9 +11,9 @@ categories:
 - ai
 description: 深入解析 Google A2A（Agent-to-Agent）协议与 MCP 互补架构，通过 Python/TypeScript 完整代码示例，详解
   Agent Card、Task 生命周期、SSE 流式通信及多组织 Agent 互操作实战，助你构建生产级 Agent 协作系统。
-cover: /images/covers/ai-agent-a2a-protocol-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-a2a-protocol-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 

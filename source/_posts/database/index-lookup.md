@@ -12,7 +12,7 @@ categories:
 date: 2017-03-20 15:05:07
 description: 深入解析MySQL索引回表原理：从B+树结构出发，详解回表查询的完整流程、EXPLAIN中Using index的含义，对比覆盖索引与索引下推优化策略，附Laravel
   Eloquent实战示例，助你彻底理解并避免不必要的回表开销。
-cover: /images/covers/databases-index-lookup-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-index-lookup-content-1.jpg
 - /images/content/databases-index-lookup-content-2.jpg

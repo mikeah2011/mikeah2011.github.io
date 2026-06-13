@@ -1,8 +1,8 @@
 ---
 title: uni-app 自定义组件实战：跨平台原生组件封装与插件市场发布
-cover: /images/covers/2026-06-01-uni-app-custom-component-cross-platform-native-plugin-marketplace-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/2026-06-01-uni-app-custom-component-cross-platform-native-plugin-marketplace-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-06-01 09:00:00
 updated: 2026-06-01 09:00:00
 tags: [uni-app, 跨平台, 原生组件, 插件市场, iOS, Android, 微信小程序]

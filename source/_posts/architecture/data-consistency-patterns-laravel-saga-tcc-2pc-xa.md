@@ -16,9 +16,9 @@ description: 本文系统对比分布式事务四大主流模式——Saga、TCC
   协议的两阶段提交原理，到应用层 2PC 的自定义协调器设计，再到业务层 TCC 的资源预留与幂等防护，以及 Saga 编排式的最终一致性保障，每种模式均附带可运行的
   PHP 代码实现。文章还收录了生产环境五大踩坑案例：XA 悬挂事务清理、TCC 空回滚与幂等陷阱、Saga 幻影数据问题、Confirm 重试风暴治理、不可逆操作的语义补偿方案，并给出基于业务约束的选型决策树，帮助
   Laravel 团队在强一致与最终一致性之间做出理性权衡。
-cover: /images/covers/data-consistency-patterns-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/data-consistency-patterns-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

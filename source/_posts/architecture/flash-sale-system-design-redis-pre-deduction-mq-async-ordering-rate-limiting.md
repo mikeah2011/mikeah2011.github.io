@@ -13,7 +13,7 @@ tags:
   - 电商
   - RabbitMQ
 description: "基于奇乐 MAX 盲盒电商和 KKday B2C 促销活动的真实经验，从零拆解秒杀系统的三层防线（前端限流 → Redis 预扣减 → MQ 异步下单），覆盖 Lua 脚本原子操作、滑动窗口限流、库存预热、订单超时回滚等核心实现，附带 8 个真实生产踩坑与性能基准测试数据。"
-cover: /images/covers/architecture-01-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - /images/content/architecture-01-content-1.jpg
   - /images/content/architecture-01-content-2.jpg

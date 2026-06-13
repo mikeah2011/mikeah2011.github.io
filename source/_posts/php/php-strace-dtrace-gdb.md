@@ -13,9 +13,9 @@ tags:
   - PHP-FPM
 description: "生产环境不敢加日志、不敢重启？用 strace/dtrace/gdb 三板斧，不改一行代码就能定位 PHP 应用的死锁、内存泄漏和系统调用瓶颈。从 strace 跟踪系统调用、dtrace 动态探测 PHP 内部状态，到 gdb 分析 core dump 和进程堆栈，覆盖 Linux/macOS 双平台，附 Laravel 生产环境真实案例。"
 updated: 2026-06-10 06:35:00
-cover: /images/covers/php-debug-strace-dtrace-gdb-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-debug-strace-dtrace-gdb-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 keywords:
   - PHP调试
   - strace

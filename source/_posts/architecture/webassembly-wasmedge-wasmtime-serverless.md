@@ -5,9 +5,9 @@ tags: [WebAssembly, WasmEdge, Wasmtime, 边缘计算, Serverless]
 categories:
   - architecture
 description: "WebAssembly 后端实战深度指南：WasmEdge vs Wasmtime vs Wasmer 三大运行时对比，WASI 系统接口、Component Model 模块化架构。涵盖边缘计算场景（Cloudflare Workers、Fermyon Spin）、Serverless 冷启动优化、Rust 编译 Wasm 完整流程，提供 AOT 编译、网络请求、AI 推理等真实代码示例与踩坑记录。"
-cover: /images/covers/WebAssembly-backend-wasmedge-wasmtime-edge-computing-serverless-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/WebAssembly-backend-wasmedge-wasmtime-edge-computing-serverless-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 # WebAssembly 后端实战：WasmEdge/Wasmtime 在边缘计算与 Serverless 中的应用

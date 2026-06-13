@@ -12,9 +12,9 @@ tags:
 - Go
 categories:
 - misc
-cover: /images/covers/swift-structured-concurrency-cover.jpg
+cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
-  - /images/covers/swift-structured-concurrency-cover.jpg
+  - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 description: 深入解析 Swift Structured Concurrency 的 async/await、TaskGroup、Actor 三大核心机制，通过实战代码与
   PHP Fibers 和 Go goroutine 进行并发模型深度对比。涵盖编译器安全保障、数据竞争检测、性能基准测试、并发陷阱排查，帮助开发者理解不同语言的并发哲学，为
   iOS、后端和微服务架构做出正确的并发选型决策。

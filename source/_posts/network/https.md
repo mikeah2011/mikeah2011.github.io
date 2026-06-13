@@ -1,8 +1,8 @@
 ---
 title: HTTPS 深度解析：TLS 握手、证书链与 Laravel HTTPS 配置
-cover: /images/covers/https-cover.jpg
+cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
 images:
-  - /images/covers/https-cover.jpg
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
 tags:
 - HTTPS
 - TLS

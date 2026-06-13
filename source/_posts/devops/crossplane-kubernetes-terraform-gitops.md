@@ -9,9 +9,9 @@ tags:
 - 基础设施
 categories:
 - devops
-cover: /images/covers/crossplane-k8s-infra-orchestration-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/crossplane-k8s-infra-orchestration-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: Crossplane 是 CNCF 孵化的 Kubernetes 原生基础设施编排工具，将 AWS、GCP、Azure 等云资源抽象为 CRD，通过
   kubectl apply 声明式管理 VPC、RDS、S3 等基础设施。本文从架构原理、XRD/Composition 定义、AWS Provider 实战到
   ArgoCD GitOps 集成，深入对比 Crossplane 与 Terraform 的优劣，包含完整 Laravel 项目基础设施编排案例、踩坑排查指南与

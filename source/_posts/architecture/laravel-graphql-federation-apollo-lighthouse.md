@@ -1,8 +1,8 @@
 ---
 title: Laravel + GraphQL Federation 实战：微服务图的统一网关
-cover: /images/covers/graphql-guide-laravel-lighthouse-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/graphql-guide-laravel-lighthouse-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-06-09 13:21:00
 categories:
   - architecture

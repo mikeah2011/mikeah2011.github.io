@@ -1,8 +1,8 @@
 ---
 title: 技术债务管理-量化追踪与偿还遗留代码-Laravel-B2C-API实战踩坑记录
-cover: /images/covers/tech-debt-management-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/tech-debt-management-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-05 07:00:50
 updated: 2026-05-05 07:04:13
 categories:

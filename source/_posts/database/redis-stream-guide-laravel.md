@@ -14,7 +14,7 @@ tags:
 description: 深入讲解 Redis Stream 在 Laravel 中的实战应用，涵盖 XADD/XREADGROUP/XACK 核心命令与 StreamProducer、StreamConsumer
   完整封装，详解 PEL 死信处理与 XAUTOCLAIM 自动回收策略。结合 KKday 电商项目分享 5 大生产踩坑：内存溢出、OOM、消息丢失、ID 冲突、Cluster
   跨 slot 等解决方案。附 Redis Stream vs RabbitMQ vs Kafka 性能对比与选型决策框架，助力 Laravel 团队零额外运维成本实现可靠的事件驱动异步架构。
-cover: /images/covers/databases-005-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-005-content-1.jpg
 - /images/content/databases-005-content-2.jpg

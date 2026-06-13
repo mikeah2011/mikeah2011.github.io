@@ -17,9 +17,9 @@ description: 深入实战 Kubernetes Gateway API——Ingress 的下一代标准
   无缝过渡到 Gateway API 的标准化流量治理方案。
 categories:
 - devops
-cover: /images/covers/kubernetes-gateway-api-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/kubernetes-gateway-api-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

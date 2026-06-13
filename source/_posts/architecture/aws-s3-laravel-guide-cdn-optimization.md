@@ -20,7 +20,7 @@ description: 结合 B2C 电商项目真实场景，完整记录 Laravel + AWS S3
   OSS 兼容 S3 协议踩坑、CloudFront CDN 全球加速与缓存策略、Presigned URL 私有文件安全访问、多云备份异步架构设计、S3 存储类型成本优化（Standard/IA/Glacier）、Transfer
   Acceleration 实战。附带 7 个生产环境真实踩坑记录、Terraform IaC 配置、Laravel FileUploadService 封装代码，是从本地存储迁移到对象存储
   + CDN 架构的完整避坑指南。
-cover: /images/covers/architecture-1-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/architecture-1-content-1.jpg
 - /images/content/architecture-1-content-2.jpg

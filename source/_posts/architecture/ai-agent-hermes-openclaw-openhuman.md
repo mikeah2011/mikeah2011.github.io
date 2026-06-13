@@ -5,9 +5,9 @@ description: "从安全合规、可观测性、高可用灾备、成本控制、
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 企业级, 生产部署]
 categories:
   - architecture
-cover: /images/covers/ai-agent-enterprise-deploy-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-enterprise-deploy-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 # 企业级 AI Agent 部署：Hermes/OpenClaw/OpenHuman 在生产环境的适用性分析

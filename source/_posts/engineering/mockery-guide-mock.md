@@ -1,8 +1,8 @@
 ---
 title: Mockery 实战：外部服务 Mock 与依赖隔离 Laravel B2C API 踩坑记录
-cover: /images/covers/mockery-guide-mock-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/mockery-guide-mock-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-16 17:11:05
 updated: 2026-05-16 17:16:43
 categories:

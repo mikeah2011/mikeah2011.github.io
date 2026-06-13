@@ -1,8 +1,8 @@
 ---
 title: Kubernetes 本地开发-minikube-kind-k3s-选型实战-Laravel踩坑记录
-cover: /images/covers/kubernetes-minikube-kind-k3s-guide-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/kubernetes-minikube-kind-k3s-guide-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-16 23:25:38
 updated: 2026-05-16 23:28:41
 categories:

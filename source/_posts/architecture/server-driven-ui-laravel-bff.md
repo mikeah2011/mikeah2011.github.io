@@ -9,9 +9,9 @@ tags:
 - 前端
 categories:
 - architecture
-cover: /images/covers/server-driven-ui-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/server-driven-ui-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 深入实战Server-Driven UI（SDUI）在Laravel BFF层的完整落地：从JSON UI描述协议设计、组件体系与数据绑定机制，到Vue
   3前端渲染引擎、动态表单、A/B测试与热更新。涵盖Airbnb/Netflix业界案例分析，5大踩坑记录（JSON体积优化、组件类型治理、离线缓存、调试工具），对比传统SPA架构选型，提供可运行的PHP与TypeScript代码示例，助力团队在多端一致、高频改版场景下提升迭代效率。
 ---

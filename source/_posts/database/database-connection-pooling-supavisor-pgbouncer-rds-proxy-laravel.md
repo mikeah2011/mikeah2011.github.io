@@ -16,9 +16,9 @@ categories:
 - database
 description: 深度对比 Supavisor、PgBouncer 与 AWS RDS Proxy 三种数据库连接池方案，详解 Session 与 Transaction
   池化模式在 Laravel 多租户架构中的应用，涵盖连接风暴治理、配置实战、性能基准测试、踩坑案例与选型决策树，助你精准选型并稳定运行生产级连接池。
-cover: /images/covers/database-connection-pooling-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/database-connection-pooling-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 

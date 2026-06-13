@@ -1,8 +1,8 @@
 ---
 title: Pest PHP 实战：自定义 Expectations、Arch Testing、Mutation Testing 深度剖析
-cover: /images/covers/2026-06-01-pest-php-custom-expectations-arch-testing-mutation-testing-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/2026-06-01-pest-php-custom-expectations-arch-testing-mutation-testing-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-06-01 12:00:00
 categories:
 - testing

@@ -14,9 +14,9 @@ tags:
 - web-push
 categories:
 - frontend
-cover: /images/covers/laravel-pwa-migration-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-pwa-migration-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 

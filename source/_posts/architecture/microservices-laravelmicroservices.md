@@ -1,8 +1,8 @@
 ---
 title: 微服务拆分策略：从单体 Laravel 到微服务的渐进式演进踩坑记录
-cover: /images/covers/microservices-laravelmicroservices-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/microservices-laravelmicroservices-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-05 07:40:27
 updated: 2026-05-05 07:43:36
 categories:

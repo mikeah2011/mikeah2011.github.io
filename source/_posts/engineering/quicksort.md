@@ -1,8 +1,8 @@
 ---
 title: 快速排序算法详解：分治思想与 PHP/Go/JS 实现
-cover: /images/covers/quicksort-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/quicksort-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags:
 - 算法
 - 排序

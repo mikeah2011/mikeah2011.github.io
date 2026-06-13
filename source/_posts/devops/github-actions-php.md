@@ -9,9 +9,9 @@ tags:
 - 自动化
 categories:
 - devops
-cover: /images/covers/github-actions-matrix-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/github-actions-matrix-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: 全面讲解GitHub Actions矩阵策略在Laravel项目中的实战应用，从基础语法到高级技巧。涵盖多PHP版本并行测试、Service
   Containers多数据库配置、条件化发布工作流、动态矩阵生成和Reusable Workflows复用。包含完整的Laravel CI/CD工作流配置，详解fail-fast策略、max-parallel并发控制、分层缓存优化和矩阵精简技巧，帮助团队用声明式配置实现12种测试组合的自动化并行执行。
 ---

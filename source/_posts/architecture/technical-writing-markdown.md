@@ -5,9 +5,9 @@ description: 本文是一套经过实战验证的技术博客写作方法论，�
 tags: [Technical Writing, Markdown, 博客, 方法论]
 categories:
   - architecture
-cover: /images/covers/technical-writing-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/technical-writing-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 ## 前言：为什么工程师需要写作方法论

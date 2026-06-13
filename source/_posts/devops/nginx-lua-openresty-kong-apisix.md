@@ -16,9 +16,9 @@ description: 深入实战 OpenResty（Nginx + Lua）构建高性能自定义 API
   Kong 与 APISIX 两大主流网关方案的架构差异、插件生态与性能基准，结合 Laravel 微服务集成案例与生产环境踩坑指南，帮助开发者在自研网关与开源框架之间做出最优技术选型。
 categories:
 - devops
-cover: /images/covers/nginx-lua-openresty-gateway-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/nginx-lua-openresty-gateway-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

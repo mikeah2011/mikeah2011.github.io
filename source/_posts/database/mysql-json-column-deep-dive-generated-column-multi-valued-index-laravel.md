@@ -5,9 +5,9 @@ tags: [MySQL, JSON, Laravel, 索引优化, 数据库]
 categories:
   - database
 description: "MySQL JSON列深度实战教程：从JSON_EXTRACT提取函数、JSON_SET更新操作到->与->>操作符的微妙差异，全面覆盖Generated Column生成列索引与Multi-Valued Index多值索引的创建和使用。深入对比JSON与TEXT类型在内部存储格式、写入校验、部分更新方面的差异，剖析EAV模式的多表JOIN痛点及JSON列的优雅替代方案。详解虚拟列与存储列的性能选型、JSON_SCHEMA_VALID数据校验、NULL值三大陷阱、索引维护开销控制。提供Laravel Migration集成Eloquent查询优化的完整代码示例，附百万级数据性能基准测试对比和四步JSON迁移实战策略，助你在灵活性与查询性能之间找到最佳平衡点。"
-cover: /images/covers/mysql-json-column-deep-dive-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/mysql-json-column-deep-dive-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 在现代 Web 应用开发中，我们经常面临一个经典的架构困境：业务实体的某些属性是动态的、半结构化的，而传统关系型数据库要求我们预先定义固定的列结构。以电商平台的产品表为例，手机产品有屏幕尺寸、电池容量、芯片型号等属性，而服装产品有面料材质、可选尺码、颜色搭配等属性——如果要将它们放在同一张产品表中，传统的解决方案是 EAV（Entity-Attribute-Value，实体-属性-值）模式。然而 EAV 模式的代价是昂贵的多表 JOIN 操作、复杂的查询逻辑构造以及在大数据量下糟糕的查询性能表现。

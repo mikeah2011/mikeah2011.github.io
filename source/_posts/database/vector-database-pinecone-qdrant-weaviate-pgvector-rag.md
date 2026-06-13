@@ -15,9 +15,9 @@ description: 向量数据库选型不再迷茫！本文深度对比 Pinecone、Q
   RAG 应用，都能找到最适合的向量存储方案。含 pgvector SQL 混合搜索、Qdrant 混合检索、多租户策略与生产级优化实践。
 categories:
 - database
-cover: /images/covers/vector-database-rag-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/vector-database-rag-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 

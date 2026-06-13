@@ -13,9 +13,9 @@ description: 本文深入解析 Web Components 四大核心技术——Custom El
   Laravel 全栈项目中引入现代化前端组件体系的开发者。
 categories:
 - frontend
-cover: /images/covers/web-components-cross-framework-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/web-components-cross-framework-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 

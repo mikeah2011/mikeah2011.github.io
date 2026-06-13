@@ -13,9 +13,9 @@ description: API 安全深度实战指南，基于 Laravel/PHP 技术栈系统�
   额外延迟 5-10ms）及十大生产环境踩坑经验，适用于微服务架构和前后端分离场景的 API 安全工程化落地。
 categories:
 - php
-cover: /images/covers/api-security-multi-layer-defense-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/api-security-multi-layer-defense-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

@@ -9,9 +9,9 @@ tags:
 - Hexo
 - CI/CD
 description: 博客开发运维日志，记录 AI Agent 写作流水线、GitHub Actions 自动部署、Hexo 主题配置调优及选题管理系统的完整迭代过程，持续更新。
-cover: /images/covers/devlog-cover.jpg
+cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
-  - /images/covers/devlog-cover.jpg
+  - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 ---
 
 ## 什么是开发日志？

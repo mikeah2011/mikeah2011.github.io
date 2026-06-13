@@ -4,9 +4,9 @@ date: 2026-06-06 18:00:00
 tags: [PostgreSQL, pg_trgm, pgcrypto, pg_stat_statements, pgvector, Laravel, 扩展]
 categories:
   - database
-cover: /images/covers/postgresql-extension-ecosystem-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/postgresql-extension-ecosystem-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 description: '深入实战 PostgreSQL 八大核心扩展：pg_trgm 实现毫秒级模糊搜索替代 Elasticsearch，pgcrypto 数据库层加密满足安全合规，pg_stat_statements 精准定位慢查询瓶颈，pgvector 原生向量搜索驱动 RAG 应用，配合 PostGIS、pg_partman、pg_cron 等扩展覆盖地理查询与定时任务。每个扩展提供完整 Laravel 集成代码与生产踩坑经验，帮助开发者用一个 PostgreSQL 实例替代多个中间件，大幅简化架构降低成本。'
 ---
 

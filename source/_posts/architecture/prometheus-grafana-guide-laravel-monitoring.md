@@ -6,9 +6,9 @@ categories:
   - architecture
   - php
 tags: [Laravel, 监控, Prometheus, Grafana, RED方法, USE方法, AlertManager, PHP-FPM, 微服务, 可观测性]
-cover: /images/covers/prometheus-grafana-guide-laravel-monitoring-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/prometheus-grafana-guide-laravel-monitoring-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 基于 KKday B2C API 生产环境，深入讲解 Prometheus + Grafana 在 Laravel 中的完整落地实践：自定义指标中间件、RED 方法与 USE 方法实现、Grafana Dashboard JSON、AlertManager 告警规则设计，以及 label 基数爆炸、Octane 指标内存泄漏等 10+ 个生产踩坑案例与解决方案。
 
 

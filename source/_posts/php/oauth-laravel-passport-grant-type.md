@@ -15,9 +15,9 @@ description: 本文结合真实项目场景，系统讲解 OAuth 2.0 与 Laravel
   团队参考。
 categories:
 - php
-cover: /images/covers/laravel-passport-oauth-custom-grant-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-passport-oauth-custom-grant-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

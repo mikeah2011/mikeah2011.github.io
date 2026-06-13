@@ -15,7 +15,7 @@ description: 深入探讨 RESTful API 的幂等性设计，涵盖三层防护体
 author: Michael
 date: '2026-05-03 22:17:48'
 updated: '2026-05-03 22:21:33'
-cover: /images/covers/architecture-01-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/architecture-01-content-1.jpg
 - /images/content/architecture-01-content-2.jpg

@@ -1,8 +1,8 @@
 ---
 title: local-docker 实战 — PHP-FPM 8.0 + MySQL/Redis + Mailhog 开发环境配置
-cover: /images/covers/local-docker-guide-php-fpm-8-0-mysql-redis-mailhog-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/local-docker-guide-php-fpm-8-0-mysql-redis-mailhog-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-05 02:05:09
 updated: 2026-05-05 02:07:40
 categories:

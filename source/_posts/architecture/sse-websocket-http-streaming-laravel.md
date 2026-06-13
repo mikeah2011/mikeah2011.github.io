@@ -5,9 +5,9 @@ tags: [SSE, WebSocket, HTTP-Streaming, Laravel, 实时通信, Reverb]
 categories:
   - architecture
 description: "深入对比 SSE、WebSocket、HTTP Streaming 三种实时通信方案的协议原理、工程实现与生产部署。涵盖 Laravel Reverb WebSocket 实战、原生 SSE 流式推送、AI 场景下的 HTTP Streaming 实现，附 Node.js 与 Go 语言示例代码。从自动重连、负载均衡、Nginx 代理配置到 PHP-FPM 进程瓶颈，详解六大踩坑场景与解决方案。包含完整的选型决策树与性能基准数据，助你在 Laravel 项目中精准选型实时通信架构。"
-cover: /images/covers/sse-websocket-streaming-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/sse-websocket-streaming-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 > **TL;DR：** SSE 是单向服务端推送的最佳选择（通知、AI 流式输出），WebSocket 是双向实时通信的首选（聊天室、协同编辑），HTTP Streaming 适合 AI/LLM 场景下的 token-by-token 输出。选型核心公式：**是否需要客户端向服务端实时推送？** 否 → SSE/HTTP Streaming；是 → WebSocket。在 Laravel 生态中，Reverb 是 WebSocket 的官方方案，SSE 可纯原生实现，HTTP Streaming 配合 Laravel HTTP Client 即可完成。

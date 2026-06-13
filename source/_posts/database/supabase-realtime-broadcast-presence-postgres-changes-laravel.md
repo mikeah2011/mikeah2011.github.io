@@ -12,9 +12,9 @@ tags:
 - presence
 categories:
 - database
-cover: /images/covers/supabase-realtime-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/supabase-realtime-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 description: 全面实战 Supabase Realtime 三大核心功能——Broadcast 自定义事件广播、Presence 在线状态管理与 Postgres
   Changes 数据库变更实时推送，结合 Laravel 后端集成方案深入讲解 JWT 认证、RLS 行级安全、Laravel Echo/Pusher/Ably
   对比选型。包含生产级前端 RealtimeManager 封装、指数退避重连策略、自托管 Docker Compose 部署配置，以及连接风暴、REPLICA

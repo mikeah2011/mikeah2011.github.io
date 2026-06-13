@@ -1,8 +1,8 @@
 ---
 title: PhpStorm 高效使用技巧：快捷键、插件与调试配置
-cover: /images/covers/phpstorm-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/phpstorm-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags:
 - PhpStorm
 - IDE

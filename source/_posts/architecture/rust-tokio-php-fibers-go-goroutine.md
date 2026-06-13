@@ -12,9 +12,9 @@ description: 深入剖析 Rust Tokio 异步运行时的核心架构：事件循�
   Channel / Semaphore / Rate Limiter），并与 PHP Fibers、Go goroutine 的 GMP 模型进行系统对比。涵盖性能基准测试、生产环境踩坑案例、选型决策树，帮助开发者在高并发场景下做出正确的异步运行时技术选型。
 categories:
 - architecture
-cover: /images/covers/rust-tokio-async-runtime-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/rust-tokio-async-runtime-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

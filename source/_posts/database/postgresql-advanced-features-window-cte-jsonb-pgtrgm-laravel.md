@@ -11,9 +11,9 @@ tags:
 - 性能调优
 categories:
 - database
-cover: /images/covers/postgresql-advanced-features-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/postgresql-advanced-features-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 description: 深入讲解 PostgreSQL 四大高级特性——Window Functions 窗口函数、CTE 公共表表达式、JSONB 二进制 JSON
   与 pg_trgm 模糊搜索，结合 Laravel 实战代码演示复杂查询重写、索引策略选择与性能调优技巧，涵盖递归 CTE、GIN 与表达式索引对比及常见陷阱，助你从容应对海量数据挑战。
 ---

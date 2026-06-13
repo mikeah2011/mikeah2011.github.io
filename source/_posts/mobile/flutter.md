@@ -10,9 +10,9 @@ tags:
 - UI
 categories:
 - mobile
-cover: /images/covers/flutter-responsive-layout-cover.jpg
+cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/flutter-responsive-layout-cover.jpg
+  - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 description: 本文系统讲透 Flutter 响应式布局与屏幕适配实战，涵盖折叠屏、平板、多端断点系统、MediaQuery 与 LayoutBuilder
   分工、导航与网格策略，帮你从手机到大屏建立真正可维护的适配方案。
 ---

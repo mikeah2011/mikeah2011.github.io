@@ -1,8 +1,8 @@
 ---
 title: Apifox vs Postman vs ApiPost vs Mockoon 四件套对比实战
-cover: /images/covers/php-api-tools-comparison-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-api-tools-comparison-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-02
 description: Apifox、Postman、ApiPost、Mockoon 四款主流 API 工具深度横评：从本地 Mock、团队协作、中文支持、文档生成到
   CI/CD 集成，逐项对比优劣。附 Laravel BFF 真实开发踩坑经验、Mockoon/Postman 可运行代码示例、Apifox AutoAPI 工作流实战，帮你选对工具少走弯路。

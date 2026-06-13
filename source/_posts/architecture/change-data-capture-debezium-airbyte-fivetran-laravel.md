@@ -5,9 +5,9 @@ tags: [CDC, change data capture, Debezium, Airbyte, Fivetran, 数据同步, 数�
 categories:
   - architecture
 description: "深度对比 Debezium、Airbyte、Fivetran 三种主流 CDC（变更数据捕获）方案的架构原理、部署实战与 Laravel 集成模式。涵盖 MySQL Binlog 解析、Kafka Connect、Outbox Pattern、ELT 数据管道、自动 Schema 管理等核心技术，提供生产环境踩坑案例、成本估算与选型决策树，帮助 Laravel 后端工程师和数据工程师在实时数据同步、数据仓库建设、事件驱动架构等场景中做出正确的技术选型。"
-cover: /images/covers/cdc-debezium-airbyte-fivetran-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/cdc-debezium-airbyte-fivetran-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 # Change Data Capture 深度对比：Debezium vs Airbyte vs Fivetran——Laravel 数据同步的三种管道架构

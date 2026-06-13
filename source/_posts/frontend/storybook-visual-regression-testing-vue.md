@@ -13,9 +13,9 @@ tags:
 - 设计系统
 categories:
 - frontend
-cover: /images/covers/storybook-8x-vue3-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/storybook-8x-vue3-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 

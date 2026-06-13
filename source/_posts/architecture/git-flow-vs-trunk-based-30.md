@@ -1,8 +1,8 @@
 ---
 title: Git Flow vs Trunk-Based：30+ 仓库的分支策略选型与踩坑记录
-cover: /images/covers/git-flow-vs-trunk-based-30-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/git-flow-vs-trunk-based-30-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-05 06:50:50
 updated: 2026-05-05 06:53:31
 categories:

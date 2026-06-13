@@ -11,9 +11,9 @@ description: 深入 Zend VM 源码，从词法分析、语法分析到 Opcode �
   四兄弟在指令集层面的性能差异，结合 opcache 缓存策略、JIT 编译器调优与 Laravel 生产环境实战，帮助开发者彻底掌握 Opcode 级别的底层性能调优方法。
 categories:
 - php
-cover: /images/covers/php-opcode-zend-vm-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-opcode-zend-vm-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

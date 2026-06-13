@@ -1,8 +1,8 @@
 ---
 title: 代码覆盖率实战-Xdebug-Coveralls-集成与报告-Laravel踩坑记录
-cover: /images/covers/guide-xdebug-coveralls-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/guide-xdebug-coveralls-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-16 22:55:57
 updated: 2026-05-16 22:58:46
 categories:

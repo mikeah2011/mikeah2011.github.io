@@ -10,9 +10,9 @@ tags:
 - Redis
 categories:
 - php
-cover: /images/covers/laravel-idempotency-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-idempotency-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 系统讲解 Laravel 幂等性设计模式实战，涵盖请求去重、支付回调防重复、消息队列 Exactly-Once 语义，基于 Redis 原子锁与状态机构建
   B2C 电商防重放工程化方案，附生产级代码与踩坑经验。
 ---

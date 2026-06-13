@@ -4,9 +4,9 @@ date: 2026-06-02 12:00:00
 tags: [OpenHuman, GoogleMeet, Webview, TTS, 实时转录]
 categories:
   - macos
-cover: /images/covers/openhuman-google-meet-agent-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-google-meet-agent-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 description: 深度剖析 OpenHuman 的 Google Meet AI Agent 技术架构，详解 Tauri + CEF Webview 嵌入集成方案、BlackHole 虚拟音频设备的音频捕获与 TTS 注入机制、Whisper 本地语音识别与幻觉过滤管线、以及 AI 推理决策引擎。涵盖 macOS 音频路由配置、会议纪要自动生成、隐私合规处理等实战细节，附带性能基准数据和故障恢复策略。
 ---
 

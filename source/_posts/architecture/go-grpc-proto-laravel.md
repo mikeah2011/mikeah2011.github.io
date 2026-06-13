@@ -5,9 +5,9 @@ tags: [Go, gRPC, Protobuf, 微服务, Laravel]
 description: "深入实战 Go + gRPC 高性能微服务通信方案，涵盖 Protocol Buffers 接口定义、四种流式调用模式（Unary/Server Stream/Client Stream/Bidirectional）、Go 服务端与客户端完整实现、拦截器中间件、以及 Laravel 通过 PHP gRPC 扩展和 gRPC-Gateway 两种方式集成的详细代码。包含 gRPC vs REST 压测对比（QPS 提升 3 倍、P99 延迟降低 3 倍）、生产环境的错误处理、超时重试、负载均衡配置、Keep-Alive 调优等踩坑经验，适合正在从 REST 迁移到 gRPC 的微服务架构团队参考。"
 categories:
   - architecture
-cover: /images/covers/Go-gRPC-high-performance-microservice-communication-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/Go-gRPC-high-performance-microservice-communication-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 # Go + gRPC 实战：高性能微服务间通信——Proto 定义、流式调用与 Laravel 集成

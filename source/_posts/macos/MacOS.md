@@ -1,8 +1,8 @@
 ---
 title: macOS 开发环境基础配置：终端、Homebrew 与开发工具链
-cover: /images/covers/macos-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/macos-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 tags:
 - macOS
 - 开发环境

@@ -5,9 +5,9 @@ description: '系统梳理 Flutter 项目接入 Firebase Crashlytics 与 Sentry 
 tags: [Flutter, Crashlytics, Sentry, Firebase Crashlytics, 错误监控]
 categories:
   - mobile
-cover: /images/covers/flutter-crashlytics-sentry-firebase-cover.jpg
+cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/flutter-crashlytics-sentry-firebase-cover.jpg
+  - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 ---
 
 ## 1. 前言：线上崩溃是用户体验的头号杀手

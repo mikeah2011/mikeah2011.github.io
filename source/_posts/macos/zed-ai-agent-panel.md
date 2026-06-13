@@ -12,9 +12,9 @@ description: Zed 2.x 是一款基于 Rust 编写的 AI 原生代码编辑器，�
   VS Code，提供完整的 Laravel/PHP 开发配置方案，并与 Cursor、Windsurf 等 AI 编辑器进行全面对比，帮助 macOS 开发者判断是否值得切换。
 categories:
 - macos
-cover: /images/covers/zed-2x-ai-editor-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/zed-2x-ai-editor-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 ---
 
 

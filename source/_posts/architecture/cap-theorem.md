@@ -1,8 +1,8 @@
 ---
 title: 分布式之 CAP 与 BASE
-cover: /images/covers/cap-theorem-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/cap-theorem-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
 - 微服务
 - 架构

@@ -13,7 +13,7 @@ tags:
 - 性能优化
 - B+Tree
 description: 基于KKday B2C API真实项目经验，详解MySQL多表JOIN查询优化、子查询转JOIN、覆盖索引设计与最左前缀原则。通过EXPLAIN执行计划深入分析type、key、rows字段，结合B+Tree索引底层原理，将慢查询从3.5s优化至0.045s，包含4个完整的MySQL性能优化实战案例与索引设计最佳实践。
-cover: /images/covers/databases-019-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-019-content-1.jpg
 - /images/content/databases-019-content-2.jpg

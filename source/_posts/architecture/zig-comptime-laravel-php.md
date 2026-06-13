@@ -12,9 +12,9 @@ tags:
 - 内存管理
 categories:
 - architecture
-cover: /images/covers/zig-c-alternative-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/zig-c-alternative-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: Zig 是 C 语言的现代替代者，本文深入解析 Zig 的 comptime 编译期计算、Allocator 内存管理模式与 C ABI
   互操作特性，并给出从 PHP C 扩展迁移到 Zig 的完整实战路径。涵盖 Zig vs C vs Rust 性能对比、PHP FFI 调用 Zig 共享库、Laravel
   集成方案、踩坑案例与最佳实践，适合系统编程和 PHP 扩展开发者快速上手 Zig。

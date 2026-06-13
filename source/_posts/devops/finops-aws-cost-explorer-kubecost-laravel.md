@@ -13,9 +13,9 @@ description: FinOps 实战指南：从零搭建 Laravel 微服务云成本治理
   Plans/Spot 混合购买策略、Laravel 特有的队列/缓存/数据库成本优化点，以及 showback vs chargeback 成本文化建设。帮助团队实现云成本全链路可见性与自动化治理。
 categories:
 - devops
-cover: /images/covers/finops-aws-kubecost-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/finops-aws-kubecost-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

@@ -10,9 +10,9 @@ tags:
 categories:
 - devops
 description: Laravel应用零数据丢失回滚工程化方案完整落地：详解Expand-Contract数据库Schema变更模式、Laravel Pennant功能开关秒级降级、Blue-Green与Canary流量切换策略，附回滚Runbook模板、自动化回滚编排器代码与定期回滚演练脚本，帮助团队构建生产级回滚体系。
-cover: /images/covers/application-rollback-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/application-rollback-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

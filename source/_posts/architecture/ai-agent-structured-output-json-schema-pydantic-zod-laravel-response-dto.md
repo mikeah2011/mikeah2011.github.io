@@ -5,9 +5,9 @@ description: "深入实战 AI Agent Structured Output 全链路方案：从 Open
 tags: [AI, LLM, Structured Output, JSON Schema, Laravel, Pydantic, Zod]
 categories:
   - architecture
-cover: /images/covers/ai-agent-structured-output-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-structured-output-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 ## 引言：为什么你的 AI Agent 总在"自由发挥"？

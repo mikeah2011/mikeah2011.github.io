@@ -8,9 +8,9 @@ tags:
 - 安全
 categories:
 - devops
-cover: /images/covers/wasi-0.2-component-model-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/wasi-0.2-component-model-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: 本文深入实战 WASI 0.2 组件模型，手把手教你用 Rust 构建 WebAssembly 沙箱组件，并在 Laravel 中通过 Wasmtime
   安全运行不受信任的用户代码。 覆盖 WIT 接口定义、Capability-based Security 能力安全模型、Fuel 指令级 CPU 限制、FFI
   高性能集成等核心技术。 对比 Docker/gVisor/Firecracker 方案，提供完整的性能基准数据和生产部署策略，适合需要在服务端安全执行用户代码的

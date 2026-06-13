@@ -14,9 +14,9 @@ tags:
 - 内存泄漏
 categories:
 - php
-cover: /images/covers/php-weakmap-weakreference-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-weakmap-weakreference-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

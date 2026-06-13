@@ -5,9 +5,9 @@ tags: [蓝绿部署, Laravel, 零停机, DevOps, 运维]
 categories:
   - devops
 description: Laravel 应用蓝绿部署实战指南，详解零停机发布架构设计、Nginx 负载均衡流量切换、数据库向前兼容迁移策略、队列与会话处理、一键回滚脚本编写，结合真实生产踩坑案例，帮助运维和开发团队掌握蓝绿部署核心技能，实现秒级发布与秒级回滚。
-cover: /images/covers/blue-green-deployment-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/blue-green-deployment-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 ## 前言

@@ -5,7 +5,7 @@ updated: 2026-05-16 13:33:19
 categories:
   - database
 tags: [Laravel, Redis, Pipeline, 性能优化, 缓存]
-cover: /images/covers/databases-010-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - /images/content/databases-010-content-1.jpg
   - /images/content/databases-010-content-2.jpg

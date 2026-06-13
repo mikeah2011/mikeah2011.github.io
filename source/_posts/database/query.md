@@ -5,7 +5,7 @@ categories:
   - database
 date: 2021-03-20 15:05:07
 description: '深入解析MySQL SQL查询语句的完整执行流程，逐一剖析连接器、分析器、优化器、执行器四大核心组件的工作原理与内部机制，详解代价模型决策过程与EXPLAIN输出字段解读，对比MySQL 5.7与8.0在查询缓存、直方图统计、执行计划缓存上的关键差异，附各阶段查询优化实战技巧，帮助开发者全面掌握SQL查询优化原理。'
-cover: /images/covers/databases-001-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - /images/content/databases-001-content-1.jpg
   - /images/content/databases-001-content-2.jpg

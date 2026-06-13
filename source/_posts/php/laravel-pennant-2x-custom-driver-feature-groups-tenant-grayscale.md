@@ -9,9 +9,9 @@ tags:
 - SaaS
 categories:
 - php
-cover: /images/covers/laravel-pennant-2x-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-pennant-2x-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 深入 Laravel Pennant 2.x 自定义 Redis+Database 写穿透混合 Driver 实战、PHP 8.1 枚举驱动的
   Feature 分组管理策略，以及结合 stancl/tenancy 的租户级灰度发布方案，涵盖一致性哈希放量、生命周期自动清理、A/B 测试与运营面板全链路工程实践。
 ---

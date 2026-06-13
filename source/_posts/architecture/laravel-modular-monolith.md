@@ -4,9 +4,9 @@ date: 2026-06-04 12:00:00
 tags: [Laravel, modular-monolith, 架构设计, 模块化, 微服务]
 categories:
   - architecture
-cover: /images/covers/laravel-modular-monolith-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-modular-monolith-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "模块化单体架构（Modular Monolith）是介于传统单体与微服务之间的最佳平衡点。本文基于真实 Laravel 大型项目实战经验，系统讲解模块目录结构设计、module.json 元数据管理、接口契约与事件驱动通信机制、模块级测试与依赖检查脚本，以及数据库边界模糊、循环依赖、事件风暴等五大生产踩坑解决方案。附带从模块化单体平滑演进到微服务的完整路径与选型决策矩阵。"
 ---
 

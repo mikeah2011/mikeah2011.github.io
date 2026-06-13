@@ -5,9 +5,9 @@ tags: [Playwright, E2E测试, Laravel, CI/CD, 测试]
 description: 本文记录在真实 Laravel B2C 项目中从 Laravel Dusk 迁移到 Playwright 的完整实战过程。涵盖跨浏览器（Chromium、Firefox、WebKit）E2E 测试搭建、可视化回归对比与像素级差异检测、网络拦截模拟 API 响应、Page Object 模式组织测试代码，以及 GitHub Actions 矩阵并行执行、登录态管理、CI/CD 集成踩坑。适合需要在 Laravel 项目中建立可靠前端测试体系的开发者参考。
 categories:
   - frontend
-cover: /images/covers/playwright-e2e-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/playwright-e2e-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 ## 前言

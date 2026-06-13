@@ -9,9 +9,9 @@ tags:
 - Laravel
 categories:
 - database
-cover: /images/covers/postgresql-vacuum-tuning-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/postgresql-vacuum-tuning-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 description: 深入解析PostgreSQL Vacuum调优实战，涵盖autovacuum参数精细配置、表膨胀（Table Bloat）诊断与治理、索引碎片整理方案对比（VACUUM
   FULL vs pg_repack vs REINDEX CONCURRENTLY）。结合高写入Laravel电商应用的真实场景，提供从MVCC原理理解到生产环境监控告警的完整性能优化路径，附赠可直接落地的SQL脚本与最佳实践速查清单。
 ---

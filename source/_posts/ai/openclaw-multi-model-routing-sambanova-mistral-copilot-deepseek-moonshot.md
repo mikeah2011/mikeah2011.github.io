@@ -3,9 +3,9 @@ title: OpenClaw 多模型路由实战：SambaNova/Mistral/Copilot/DeepSeek/Moons
 date: 2026-06-02 00:00:00
 tags: [OpenClaw, AI Agent, 多模型路由, 降级策略, LLM]
 categories: [ai]
-cover: /images/covers/openclaw-multi-model-routing-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openclaw-multi-model-routing-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: "深入剖析 OpenClaw 多模型路由与降级机制的完整实战方案。涵盖 SambaNova、Mistral、GitHub Copilot、DeepSeek、Moonshot 等主流 LLM 提供商的选型策略，详解 31 级 fallback chain 的设计原理与配置方法，包含 provider 健康监控、成本预算管理、智能路由决策树等核心机制。附带真实配置代码示例、各模型提供商延迟与成本对比表格，以及生产环境中常见的踩坑案例与最佳实践，帮助开发者构建高可用、低成本的 AI Agent 系统。"
 ---
 

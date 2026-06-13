@@ -3,9 +3,9 @@ title: OpenHuman 源适配器架构：Gmail/Slack/GitHub 数据摄入 → 规范
 date: 2026-06-02 00:00:00
 tags: [OpenHuman, 数据管道, Gmail, Slack, GitHub, AI Agent, 记忆系统]
 categories: [ai]
-cover: /images/covers/openhuman-source-adapter-pipeline-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-source-adapter-pipeline-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: "深入剖析 OpenHuman 源适配器架构的完整数据管道：从 Gmail、Slack、GitHub 等异构数据源摄入、格式规范化、智能分块到记忆树构建的全流程。详解适配器模式设计、规范化抽象层、增量同步策略与并发控制机制，附带各数据源适配器能力对比表格和 Python/TypeScript 代码示例。涵盖 OAuth2 认证、Webhook 实时同步、断点续传等生产级实践，帮助开发者为 AI Agent 构建多源数据整合能力。"
 ---
 

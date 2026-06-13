@@ -5,9 +5,9 @@ tags: [PHP, 序列化, 安全, Laravel]
 description: 深入剖析PHP serialize/unserialize底层机制，详解__sleep/__wakeup与__serialize/__unserialize魔术方法的调用时序、优先级差异与安全风险。覆盖POP Chain构造原理、Phar反序列化绕过、Joomla CVE-2015-8562等真实案例，以及Laravel排队任务的序列化治理最佳实践——SerializesModels、幂等键、Payload大小控制、JSON替代策略，助你构建安全高效的异步处理体系。
 categories:
   - php
-cover: /images/covers/php-serialization-deep-dive-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-serialization-deep-dive-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 ## 一、开篇引入：序列化在 PHP 生态中的核心地位

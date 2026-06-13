@@ -4,9 +4,9 @@ date: 2026-06-02 00:00:00
 tags: [Hermes, Skill, Plugin, 扩展机制, AI Agent]
 categories:
   - architecture
-cover: /images/covers/hermes-skill-vs-plugin-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/hermes-skill-vs-plugin-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 全面对比 Hermes Agent 的 Skill 与 Plugin 两种扩展机制，从设计理念、能力边界到适用场景逐一剖析。提供清晰的决策框架：什么时候用 Skill 改变 Agent 思维方式，什么时候用 Plugin 扩展行动能力，以及如何组合使用两者实现最佳扩展效果，附带实际代码示例与最佳实践。
 ---
 

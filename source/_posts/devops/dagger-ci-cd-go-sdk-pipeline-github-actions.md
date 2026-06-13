@@ -13,9 +13,9 @@ description: Dagger 实战深度指南：用 Go SDK 将 CI/CD 流水线代码化
   管理、DAG 并行调度、本地调试复现等核心能力，帮助 DevOps 团队实现真正可移植、可测试、可复用的 CI/CD 基础设施。
 categories:
 - devops
-cover: /images/covers/dagger-ci-cd-pipeline-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/dagger-ci-cd-pipeline-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

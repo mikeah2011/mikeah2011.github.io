@@ -5,9 +5,9 @@ date: 2026-06-02 02:30:00
 tags: [OpenHuman, AI Agent, macOS, 桌面吉祥物, Mascot, 语音合成, Google Meet]
 categories:
   - macos
-cover: /images/covers/openhuman-mascot-desktop-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-mascot-desktop-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 ---
 
 在很多人的想象里，桌面吉祥物只是一个“会动的挂件”：站在屏幕角落里卖萌、偶尔说句话、点击一下给一点反馈。但当 AI Agent、语音能力、系统自动化和会议协同被真正整合进桌面端之后，Mascot 就不再只是视觉装饰，而会成为一个持续在线、低打扰、具备行动能力的操作入口。OpenHuman 的桌面吉祥物方案，正适合落在这个方向上：它不是单纯聊天窗口，也不是传统菜单栏工具，而是一个兼具人格化交互、语音输出、会议参与、任务触发与状态感知的桌面代理层。

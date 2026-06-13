@@ -12,9 +12,9 @@ categories:
 description: 本文深入讲解如何使用 Redis 作为在线特征存储、结合 Feast 框架在电商推荐系统中构建完整的 Feature Store 方案。涵盖特征工程
   Pipeline 设计、实时特征计算与 Materialize 到 Redis、Point-in-Time Correctness 训练服务一致性保证、Redis
   集群部署与内存优化、Prometheus 监控告警体系，以及生产环境踩坑与最佳实践，帮助团队从零搭建低延迟、高可用的实时特征服务。
-cover: /images/covers/feature-store-redis-feast-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/feature-store-redis-feast-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

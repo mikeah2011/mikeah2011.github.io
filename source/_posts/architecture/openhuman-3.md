@@ -5,9 +5,9 @@ date: 2026-06-02 02:30:00
 tags: [OpenHuman, AI Agent, 模型路由, 多模型策略, 成本优化]
 categories:
   - architecture
-cover: /images/covers/openhuman-model-routing-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-model-routing-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 在很多团队刚接触 AI Agent 或多模型系统时，最容易出现的一种误区，是把“模型选择”理解为一次性的技术选型：先拍板一个主模型，然后希望它既能做复杂推理、又能高频低延迟响应，还能处理图片、控制成本、稳定上线。这个想法在 Demo 阶段看起来没问题，但一旦进入真实业务，很快就会暴露出矛盾：复杂任务需要更强推理模型，简单问答更适合低成本快速模型，视觉类请求又要求多模态能力。如果所有请求都打到同一个模型，系统不是贵，就是慢，或者两者兼而有之。

@@ -12,9 +12,9 @@ description: 面向 PHP 开发者的 WebAssembly 实战指南，从 Rust 编译 
   49 倍加速、Fibonacci 27 倍加速），适合探索跨平台高性能计算新赛道的 PHP 开发者。
 categories:
 - architecture
-cover: /images/covers/webassembly-wasm-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/webassembly-wasm-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

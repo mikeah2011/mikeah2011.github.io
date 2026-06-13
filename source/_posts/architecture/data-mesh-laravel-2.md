@@ -5,9 +5,9 @@ categories:
   - architecture
 tags: [data-mesh, 数据架构, 微服务, Laravel, 数据治理]
 description: "从传统数据仓库到 Data Mesh 的架构转型实战——在 Laravel 微服务体系中落地领域数据产品化、数据所有权与联邦治理，附完整 PHP/Laravel 代码示例与生产踩坑总结。"
-cover: /images/covers/data-mesh-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/data-mesh-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 > 当数据团队说「把所有数据都同步到数据仓库」时，你有没有想过：为什么业务系统的数据越堆越多，分析团队却越来越难用？Data Mesh 给出了一个不同视角的答案——数据不是「搬运」出来的，而是由领域团队自己「生产」出来的。

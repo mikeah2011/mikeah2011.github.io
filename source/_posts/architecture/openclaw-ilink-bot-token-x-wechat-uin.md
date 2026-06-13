@@ -4,9 +4,9 @@ date: 2026-06-02 07:22:45
 tags: [OpenClaw, 微信, iLink, 即时通讯, AI Agent]
 categories:
   - architecture
-cover: /images/covers/openclaw-wechat-ilink-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openclaw-wechat-ilink-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "深入剖析 OpenClaw 通过 iLink 协议实现微信 AI Agent 集成的完整技术方案。详解 bot token 认证机制、X-WECHAT-UIN 用户身份头部传递、私聊与群聊消息路由策略、心跳断线重连等核心实现。对比 iLink 与 itchat、企业微信 Bot、WeChatFerry 等方案的优劣，附带 Python 和 TypeScript 代码示例、安全防护最佳实践，以及风控规避策略，帮助开发者构建稳定可靠的微信 AI 助手。"
 ---
 

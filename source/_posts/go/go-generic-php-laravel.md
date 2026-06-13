@@ -5,9 +5,9 @@ tags: [Go, Generic, 泛型, PHP, Laravel, 类型系统]
 description: "Go 1.18 泛型（Generics）深度实战指南，面向 PHP 开发者全面解析类型参数、类型约束、类型推断三大核心机制。通过 Repository 模式、类型安全缓存、泛型容器等真实案例，对比 Go 编译期泛型与 Laravel 基于 Docblock 的静态泛型方案，深入探讨泛型结构体、泛型接口、slices/maps 标准库的工程化应用。涵盖常见陷阱、性能基准与从 PHP 迁移到 Go 泛型编程的最佳实践。"
 categories:
   - go
-cover: /images/covers/go-generic-type-parameters-cover.jpg
+cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
-  - /images/covers/go-generic-type-parameters-cover.jpg
+  - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 ---
 
 ## 前言

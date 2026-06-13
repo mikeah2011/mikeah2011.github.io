@@ -1,8 +1,8 @@
 ---
 title: 2026 年主流 AI Agent 框架深度对比：LangChain/CrewAI/AutoGen/Dify/Coze 实战评测
-cover: /images/covers/ai-agent-framework-comparison-langchain-crewai-autogen-dify-coze-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-framework-comparison-langchain-crewai-autogen-dify-coze-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-06-01 10:00:00
 categories:
   - macos

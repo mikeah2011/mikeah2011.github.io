@@ -5,9 +5,9 @@ tags: [Rector, LLM, AI重构, Laravel, PHP, 代码治理, CI/CD, PHPStan]
 description: "本文介绍如何用 Rector + LLM 组合实现 30+ Laravel 仓库的批量代码治理。Rector 负责确定性的语法级重构（PHP 8.3 升级、Laravel 11 迁移），LLM 负责语义级诊断（识别坏味道、架构建议、业务逻辑优化）。通过 CI/CD 流水线自动生成 PR，8 周内完成 400+ 个 PR，PHPStan level 从 3.2 提升到 5.8。涵盖 rector.php 配置、自定义规则编写、LLM Prompt 模板、批量执行脚本、五大踩坑案例，适合大型团队落地自动化代码治理。"
 categories:
   - php
-cover: /images/covers/rector-llm-refactoring-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/rector-llm-refactoring-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 # Rector + LLM 代码重构实战：AI 辅助识别重构机会与自动生成 PR——Laravel 30+ 仓库的批量治理

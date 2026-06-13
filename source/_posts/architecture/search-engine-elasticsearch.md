@@ -1,8 +1,8 @@
 ---
 title: 搜索系统设计实战：Elasticsearch 索引设计、分词策略与相关性调优——Laravel B2C API 踩坑记录
-cover: /images/covers/search-engine-elasticsearch-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/search-engine-elasticsearch-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 20:41:01
 updated: 2026-05-16 20:48:35
 categories:

@@ -1,8 +1,8 @@
 ---
 title: Ollama 实战：本地部署 LLM 与 API 服务 — 隐私优先的 AI 开发工作流踩坑记录
-cover: /images/covers/ollama-guide-deployment-llm-api-ai-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ollama-guide-deployment-llm-api-ai-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 04:00:28
 updated: 2026-05-17 04:02:56
 categories:

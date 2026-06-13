@@ -4,9 +4,9 @@ date: 2026-06-06 09:23:00
 tags: [Laravel, Queue, Dead Letter Queue, 消息队列, 可靠性]
 categories:
   - php
-cover: /images/covers/retry-dlq-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/retry-dlq-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 深入解析 Laravel 队列的 Retry 重试机制与 Dead Letter Queue（DLQ）死信队列实战方案。涵盖指数退避与抖动策略、失败消息智能分类（暂时性故障 vs 永久性错误）、基于 Redis 的 DLQ 存储层设计、自动修复 Auto-Heal 守护进程、滑动窗口告警集成（Slack/企微/邮件）、Livewire Dashboard 人工介入面板，以及与 AWS SQS DLQ、RabbitMQ DLX 的对比选型。帮助中大型 Laravel 项目实现队列失败消息的零丢失治理闭环。
 ---
 

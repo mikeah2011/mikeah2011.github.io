@@ -3,9 +3,9 @@ title: RabbitMQ 实战：AMQP 协议、死信队列、延迟消息与 Laravel �
 date: 2026-06-02 12:00:00
 tags: [RabbitMQ, AMQP, Laravel, 消息队列, 死信队列, Redis]
 categories: [mq]
-cover: /images/covers/rabbitmq-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
-  - /images/covers/rabbitmq-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 description: "RabbitMQ AMQP 协议深度实战，涵盖交换机类型、死信队列、延迟消息、消息确认机制与 Laravel 集成的完整方案。通过真实代码示例对比 Redis Queue 的选型决策，包括可靠性、性能、运维复杂度等维度分析，帮助开发者在企业级消息系统和轻量级任务队列之间做出正确的技术选型。"
 ---
 

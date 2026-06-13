@@ -13,7 +13,7 @@ tags:
 - Lua 脚本
 description: Redis 分布式锁生产环境实战指南：基于 KKday B2C API 20 万 QPS 大促场景，详解死锁防护、RedLock 集群一致性、Lua
   脚本原子操作、热点 Key 降级策略、CAS 乐观锁与悲观锁对比、锁超时监控与告警，附完整 Laravel 8 + PHP 8 代码示例
-cover: /images/covers/databases-003-cover.png
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-003-content-1.png
 - /images/content/databases-003-content-2.png

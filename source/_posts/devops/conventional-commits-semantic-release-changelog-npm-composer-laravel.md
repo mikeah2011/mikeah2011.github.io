@@ -4,9 +4,9 @@ date: 2026-06-05 10:00:00
 tags: [Conventional Commits, Semantic Release, 自动化, CI/CD, Laravel]
 categories:
   - devops
-cover: /images/covers/conventional-commits-semantic-release-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/conventional-commits-semantic-release-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: '深入实战 Conventional Commits 与 Semantic Release，为 Laravel 项目搭建自动化发布流水线：自动推算版本号、生成 CHANGELOG、同步发布 npm 与 Composer 包到 Packagist，含 GitHub Actions 完整配置。'
 ---
 

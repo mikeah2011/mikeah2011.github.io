@@ -1,8 +1,8 @@
 ---
 title: Vue-3-TypeScript-实战-类型安全的前端开发与真实踩坑记录
-cover: /images/covers/vue-3-typescript-guide-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/vue-3-typescript-guide-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-16 22:21:05
 updated: 2026-05-16 22:23:27
 categories:

@@ -1,8 +1,8 @@
 ---
 title: CDN 配置实战-静态资源加速缓存策略与回源配置-Laravel-B2C-API 踩坑记录
-cover: /images/covers/cdn-guide-cache-2-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/cdn-guide-cache-2-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-05 08:50:56
 updated: 2026-05-05 08:53:49
 categories:

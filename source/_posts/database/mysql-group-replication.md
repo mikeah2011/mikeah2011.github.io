@@ -5,9 +5,9 @@ date: 2026-06-06 10:00:00
 tags: [MySQL, Group Replication, 高可用, 主从复制, InnoDB Cluster]
 categories:
   - database
-cover: /images/covers/mysql-group-replication-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/mysql-group-replication-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 ## 前言

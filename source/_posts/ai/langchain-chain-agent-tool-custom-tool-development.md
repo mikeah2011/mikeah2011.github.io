@@ -4,9 +4,9 @@ date: 2026-06-02 00:00:00
 description: '面向工程实践系统讲解 LangChain 中 Chain、Agent、Tool 与 LCEL 的职责分工、编排方式、自定义工具开发、故障排查与生产落地策略，帮助你从聊天原型升级到可观测、可治理、可上线的 AI Agent 系统。'
 tags: [LangChain, AI Agent, AI, Python, 工具开发, LCEL]
 categories: [ai]
-cover: /images/covers/langchain-chain-agent-tool-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/langchain-chain-agent-tool-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 # LangChain 实战：Chain/Agent/Tool 编排与自定义工具开发

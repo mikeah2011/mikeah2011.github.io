@@ -1,8 +1,8 @@
 ---
 title: pyenv + poetry 实战：Python 版本与依赖管理——macOS 开发者从 pip 到现代工具链的迁移指南踩坑记录
-cover: /images/covers/pyenv-poetry-python-guide-macos-guide-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/pyenv-poetry-python-guide-macos-guide-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 06:30:19
 updated: 2026-05-17 06:33:58
 categories:

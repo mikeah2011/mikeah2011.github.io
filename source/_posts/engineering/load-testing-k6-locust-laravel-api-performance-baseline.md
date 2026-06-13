@@ -1,8 +1,8 @@
 ---
 title: "负载测试实战：k6/Locust 对 Laravel API 进行压力测试与性能基线"
-cover: /images/covers/2026-06-01-load-testing-k6-locust-laravel-api-performance-baseline-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/2026-06-01-load-testing-k6-locust-laravel-api-performance-baseline-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-06-01 12:00:00
 categories:
   - testing

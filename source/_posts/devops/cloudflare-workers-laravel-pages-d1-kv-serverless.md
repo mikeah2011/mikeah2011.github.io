@@ -13,9 +13,9 @@ description: 本文深入探讨如何利用 Cloudflare Workers 实现 Laravel �
   PHP 应用迁移至全球 300+ 边缘节点，实现 TTFB 50ms 以内的极致访问体验。
 categories:
 - devops
-cover: /images/covers/cloudflare-workers-laravel-edge-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/cloudflare-workers-laravel-edge-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

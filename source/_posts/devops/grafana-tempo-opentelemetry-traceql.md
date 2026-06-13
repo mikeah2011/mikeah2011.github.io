@@ -10,9 +10,9 @@ tags:
 - 可观测性
 categories:
 - devops
-cover: /images/covers/grafana-tempo-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/grafana-tempo-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: 本文从 Laravel/PHP 后端工程师的实战视角出发，系统讲解如何使用 Grafana Tempo 作为轻量级分布式追踪后端，结合 OpenTelemetry
   SDK 实现 Laravel 微服务的全链路自动埋点与上下文传播。文章涵盖 Tempo 的对象存储架构优势、Docker Compose 部署方案、TraceQL
   结构化查询语法（包括 spans、metrics、topk 等高级用法），以及与 Grafana Loki、Prometheus 的三支柱联动实战。通过真实排障案例展示如何用一条

@@ -4,9 +4,9 @@ date: 2026-06-01 10:00:00
 tags: [Flutter, CustomPainter, 动画, 手势处理, Widget, 自定义Widget]
 categories:
   - mobile
-cover: /images/covers/flutter-custom-widget-cover.jpg
+cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/flutter-custom-widget-cover.jpg
+  - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 description: 本文系统讲解 Flutter自定义Widget 的设计与落地实践，覆盖 CustomPainter 绘制、动画驱动、手势处理、性能优化与常见陷阱，帮助你构建可复用、高性能、可交互的复杂组件。
 ---
 

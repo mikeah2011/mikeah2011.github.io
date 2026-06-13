@@ -1,8 +1,8 @@
 ---
 title: GitHub-Actions-Composer-Cache-构建时间从20s到5s-优化实战踩坑记录
-cover: /images/covers/github-actions-composer-cache-20s5s-optimization-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/github-actions-composer-cache-20s5s-optimization-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-05 02:30:33
 updated: 2026-05-05 02:31:49
 categories:

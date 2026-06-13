@@ -1,8 +1,8 @@
 ---
 title: pnpm 实战：高效磁盘空间利用与 Workspace Monorepo 包管理踩坑记录
-cover: /images/covers/pnpm-guide-workspace-monorepo-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/pnpm-guide-workspace-monorepo-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-16 23:55:19
 updated: 2026-05-16 23:58:45
 categories:

@@ -1,8 +1,8 @@
 ---
 title: Docker 多阶段构建实战 — PHP 应用镜像优化从 500MB 到 50MB
-cover: /images/covers/docker-guide-php-imageoptimization500mb50mb-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/docker-guide-php-imageoptimization500mb50mb-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-16 15:55:50
 updated: 2026-05-16 16:03:22
 categories:

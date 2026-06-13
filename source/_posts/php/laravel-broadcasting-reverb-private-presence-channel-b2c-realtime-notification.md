@@ -5,9 +5,9 @@ tags: [Laravel, Broadcasting, Reverb, WebSocket, Presence Channel, Private Chann
 description: '深度实战 Laravel Broadcasting + Reverb 在 B2C 电商场景中的实时通知架构，涵盖 Private Channel 订单状态推送、Presence Channel 客服在线状态与商品访客列表，包含 Nginx 反代配置、Redis 水平扩展、连接风暴与内存泄漏踩坑记录，以及 Reverb/Pusher/Ably/Soketi 选型对比，助你构建生产级 WebSocket 实时通信方案。'
 categories:
   - php
-cover: /images/covers/laravel-broadcasting-reverb-presence-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-broadcasting-reverb-presence-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 ## 一、引言：B2C 电商场景下的实时需求

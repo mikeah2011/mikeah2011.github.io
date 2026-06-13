@@ -9,9 +9,9 @@ tags:
 - 性能优化
 categories:
 - database
-cover: /images/covers/redis-8-new-features-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/redis-8-new-features-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 description: Redis 8.0 是 Redis 发展史上最重要的版本升级，全面引入原生向量搜索（支持 FP16/INT8 量化、混合搜索、多向量索引）、JSON
   Path 增强（聚合函数、复杂过滤表达式）、I/O 多线程性能提升与持久化优化。本文深入剖析 Redis 8.0 核心新特性，结合 AI 语义缓存、RAG 检索增强生成、实时推荐等实战场景，提供完整的
   Laravel 集成方案与性能基准测试数据，帮助开发者在生产环境中充分利用 Redis 8.0 的能力。

@@ -1,8 +1,8 @@
 ---
 title: "代码审查流程设计：如何建立高效的 CR 文化与工具链"
-cover: /images/covers/code-review-process-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/code-review-process-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-05 09:45:41
 updated: 2026-05-05 09:48:50
 tags: [Git, Laravel, 代码质量, 工程管理]

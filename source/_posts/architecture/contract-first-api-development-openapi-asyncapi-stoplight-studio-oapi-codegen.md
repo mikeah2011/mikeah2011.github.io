@@ -5,9 +5,9 @@ tags: [API, OpenAPI, AsyncAPI, Contract-First, oapi-codegen, Stoplight Studio]
 categories:
   - architecture
 description: Contract-First API Development 完整实战指南：从 OpenAPI 3.1 与 AsyncAPI 2.x 规范设计出发，使用 Stoplight Studio 可视化编辑 API 契约，通过 Spectral Lint 规则强制团队设计规范；用 oapi-codegen 生成 Go 服务端 Server Interface 与类型定义，openapi-generator 生成 PHP SDK，AsyncAPI Generator 处理 Kafka 事件驱动代码生成；集成 oasdiff 实现 Breaking Change 自动检测，Schemathesis 属性测试与 Prism Mock Server 构建契约测试闭环；覆盖 CI/CD Pipeline 集成、踩坑案例、工具选型对比，帮助团队从 Code-First 迁向设计优先的工程化工作流。
-cover: /images/covers/contract-first-api-development-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/contract-first-api-development-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 # Contract-First API Development 实战：从 OpenAPI/AsyncAPI 规范生成代码——Stoplight Studio + oapi-codegen 的设计优先工作流

@@ -12,9 +12,9 @@ description: 深入讲解 PHP/Laravel 生态中三大 Application Profiling 工�
   密集型计算等典型性能瓶颈的定位与修复。附带生产环境采样策略、CI/CD 性能回归检测、7 个真实踩坑案例，帮助开发者用数据驱动 Laravel 应用性能优化。
 categories:
 - devops
-cover: /images/covers/app-profiling-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/app-profiling-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

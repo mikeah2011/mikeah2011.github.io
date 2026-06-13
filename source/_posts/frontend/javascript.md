@@ -1,7 +1,7 @@
 ---
-cover: /images/covers/javascript-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/javascript-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 title: JavaScript
 tags:
 - JavaScript

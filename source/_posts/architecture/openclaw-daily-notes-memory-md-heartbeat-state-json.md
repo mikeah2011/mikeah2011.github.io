@@ -4,9 +4,9 @@ date: 2026-06-02 09:05:00
 tags: [OpenClaw, AI Agent, 记忆架构, 分层设计, 状态管理]
 categories:
   - architecture
-cover: /images/covers/openclaw-layered-memory-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openclaw-layered-memory-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 全面剖析 OpenClaw 三层记忆架构设计：daily notes 原始日志记录、MEMORY.md 长期知识存储、heartbeat-state.json 运行时状态管理。深入解析信息生命周期、蒸馏流转机制与三层协同原理，涵盖数据格式、读写策略、一致性保障，帮助你理解和正确部署 AI Agent 的分层记忆系统。
 ---
 

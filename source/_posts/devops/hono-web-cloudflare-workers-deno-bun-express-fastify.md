@@ -12,9 +12,9 @@ tags:
 - Bun
 categories:
 - devops
-cover: /images/covers/hono-edge-web-framework-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/hono-edge-web-framework-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

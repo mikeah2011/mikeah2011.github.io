@@ -13,7 +13,7 @@ tags:
   - goose
   - 开发者工具
 description: 2026 年 AI Agent 框架深度对比评测，涵盖 Hermes Agent、Claude Code、Codex、Cline、Goose、OpenHands、Aider、Continue 八大主流框架，从架构设计、记忆系统、安全模型、多渠道支持、模型兼容性等核心维度进行全面横向对比，附实战代码示例与选型指南，帮助开发者快速找到最适合团队的 AI 编程助手。
-cover: /images/covers/ai-001-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - /images/content/ai-001-content-1.jpg
   - /images/content/ai-001-content-2.jpg

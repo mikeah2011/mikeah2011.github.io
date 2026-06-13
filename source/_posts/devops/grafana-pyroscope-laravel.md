@@ -13,9 +13,9 @@ description: 深入讲解 Grafana Pyroscope 持续性能剖析在 Laravel 生产
   查询根因定位、Profile-Guided Optimization 代码级优化，以及与 Grafana Tempo Trace-Profile 联动、成本优化与数据保留策略。附带完整可运行代码示例和电商大促性能故障诊断全流程案例，帮助团队构建可观测性第四支柱。
 categories:
 - devops
-cover: /images/covers/grafana-pyroscope-continuous-profiling-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/grafana-pyroscope-continuous-profiling-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

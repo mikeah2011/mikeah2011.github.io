@@ -4,9 +4,9 @@ date: 2026-06-02 00:00:00
 tags: [状态机, Laravel, XState, 订单系统, 事件驱动]
 categories:
   - architecture
-cover: /images/covers/order-state-machine-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/order-state-machine-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: B2C 电商订单状态机实战教程，使用 Laravel spatie/laravel-model-states 实现后端状态管理，前端 XState 可视化状态图。涵盖状态转换并发控制与幂等性保障、事件驱动架构集成、审计日志记录、守卫条件与并行子状态机扩展模式。包含完整 PHP 与 TypeScript 代码示例、真实踩坑案例与测试策略，告别 if-else 状态管理噩梦。
 ---
 

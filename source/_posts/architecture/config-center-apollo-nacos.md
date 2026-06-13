@@ -1,8 +1,8 @@
 ---
 title: 配置中心实战：Apollo/Nacos 动态配置与 Laravel 集成——热更新与多环境治理踩坑记录
-cover: /images/covers/config-center-apollo-nacos-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/config-center-apollo-nacos-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 20:00:51
 updated: 2026-05-16 20:07:32
 categories:

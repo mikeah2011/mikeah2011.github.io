@@ -13,9 +13,9 @@ categories:
 description: 深入剖析 PHP-FPM Worker 进程生命周期、信号处理机制与 Graceful Reload 底层实现。涵盖 Master-Worker
   架构源码解析、SIGQUIT/SIGUSR2 信号分发、self-pipe trick、process_control_timeout 安全网、三种 PM 模式（static/dynamic/ondemand）对比，以及生产环境零停机部署脚本、reload
   丢请求排查、Worker 僵尸进程诊断等踩坑案例。适合需要深入理解 PHP-FPM 进程管理与优雅重载机制的后端工程师和 SRE。
-cover: /images/covers/php-fpm-worker-lifecycle-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-fpm-worker-lifecycle-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

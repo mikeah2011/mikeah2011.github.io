@@ -11,9 +11,9 @@ tags:
 - BFF
 categories:
 - frontend
-cover: /images/covers/micro-frontend-module-federation-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/micro-frontend-module-federation-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 

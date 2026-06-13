@@ -1,8 +1,8 @@
 ---
 title: 网络编程基础：TCP/IP 模型、Socket 与 HTTP 协议
-cover: /images/covers/network-programming-cover.jpg
+cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
 images:
-  - /images/covers/network-programming-cover.jpg
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop
 sticky: 100
 tags:
 - 计算机网络

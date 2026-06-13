@@ -1,8 +1,8 @@
 ---
 title: PHP 版本对比：PHP 5.x vs 7.x vs 8.x 新特性与性能差异
-cover: /images/covers/vs-php-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/vs-php-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
 - PHP
 - PHP 8

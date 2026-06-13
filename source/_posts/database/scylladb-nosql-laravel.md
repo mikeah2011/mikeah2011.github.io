@@ -13,9 +13,9 @@ description: ScyllaDB 是 Apache Cassandra 的 C++ 重写版本，基于 Seastar
   调优、生产部署踩坑。适合需要处理每秒数十万次写入、存储数十 TB 数据的分布式系统架构师参考。
 categories:
 - database
-cover: /images/covers/scylladb-laravel-high-throughput-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/scylladb-laravel-high-throughput-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 

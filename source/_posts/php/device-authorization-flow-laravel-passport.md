@@ -10,9 +10,9 @@ tags:
 - 安全
 categories:
 - php
-cover: /images/covers/device-authorization-flow-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/device-authorization-flow-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 深入解析 Device Authorization Flow（RFC 8628）协议原理与 Laravel Passport 自定义 Grant
   Type 完整实现。适用于智能电视、CLI 命令行工具、IoT 物联网设备、游戏主机等无浏览器或浏览器交互受限的场景，通过 OAuth 2.0 授权流程将用户认证转移到用户自己的设备上完成。文章涵盖数据库设计、Entity
   与 Repository 实现、Grant 类编写、Controller 开发、速率限制、安全最佳实践及真实生产环境踩坑记录，提供可运行的 Laravel、Python

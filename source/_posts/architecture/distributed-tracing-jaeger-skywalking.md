@@ -1,8 +1,8 @@
 ---
 title: 链路追踪实战：Jaeger/SkyWalking 在 Laravel 微服务中的应用
-cover: /images/covers/distributed-tracing-jaeger-skywalking-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/distributed-tracing-jaeger-skywalking-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 23:30:13
 updated: 2026-05-16 23:37:23
 categories:

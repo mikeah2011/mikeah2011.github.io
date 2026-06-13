@@ -1,8 +1,8 @@
 ---
 title: uv-实战-下一代-Python-包管理器-100倍速依赖解析与-PHP-开发者迁移指南踩坑记录
-cover: /images/covers/uv-guide-python-100-php-guide-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/uv-guide-python-100-php-guide-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 00:50:43
 updated: 2026-05-17 00:53:43
 tags:

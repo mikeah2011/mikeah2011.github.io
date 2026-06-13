@@ -3,9 +3,9 @@ title: AI Agent 可观测性实战：LangSmith/LangFuse 追踪、调试、评估
 date: 2026-06-02 12:00:00
 tags: [AI Agent, 可观测性, LangSmith, LangFuse, 追踪, 评估]
 categories: [ai]
-cover: /images/covers/agent-observability-guide-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/agent-observability-guide-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: "这篇 AI Agent 可观测性实战指南系统讲透 LangSmith 与 LangFuse 的追踪、监控、调试与评估方法，帮你快速建立从链路分析到质量回归的生产级观测闭环。"
 ---
 

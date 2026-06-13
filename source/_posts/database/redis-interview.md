@@ -9,7 +9,7 @@ tags:
 categories:
 - database
 date: 2022-03-20 15:05:07
-cover: /images/covers/databases-001-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-001-content-1.jpg
 - /images/content/databases-001-content-2.jpg

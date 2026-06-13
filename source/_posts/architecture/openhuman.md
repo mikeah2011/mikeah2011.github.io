@@ -12,9 +12,9 @@ tags:
 - AI Agent
 categories:
 - architecture
-cover: /images/covers/openhuman-security-privacy-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-security-privacy-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

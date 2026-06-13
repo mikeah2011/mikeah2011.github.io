@@ -6,7 +6,7 @@ description: 基于 KKday B2C API 百万级订单实战经验，深度解析 Pre
   拆分、缓存与 DB 双写一致性等生产环境踩坑案例与性能调优最佳实践。
 categories:
 - database
-cover: /images/covers/databases-020-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-020-content-1.jpg
 - /images/content/databases-020-content-2.jpg

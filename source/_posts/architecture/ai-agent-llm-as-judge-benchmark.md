@@ -12,9 +12,9 @@ description: 本文深入探讨 AI Agent 质量评估的工程化方法论，涵
   CI/CD 流水线集成的完整方案，帮助团队量化 AI Agent 输出质量，构建可靠的 Agent 质量保障体系。
 categories:
 - architecture
-cover: /images/covers/ai-agent-evaluation-benchmark-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-evaluation-benchmark-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

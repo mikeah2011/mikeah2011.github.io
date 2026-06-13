@@ -12,9 +12,9 @@ description: PromQL 进阶实战：深入讲解 rate、histogram_quantile、labe
   监控场景演示延迟分位数计算、histogram 多实例合并、Prometheus 采集配置、Grafana 面板设计与 Alertmanager 告警路由，附常见踩坑案例与查询语言对比，帮助团队构建生产级监控告警体系。
 categories:
 - devops
-cover: /images/covers/promql-advanced-rate-histogram-quantile-label-replace-laravel-monitoring-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/promql-advanced-rate-histogram-quantile-label-replace-laravel-monitoring-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

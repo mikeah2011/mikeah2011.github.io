@@ -16,9 +16,9 @@ tags:
 - DDL
 categories:
 - database
-cover: /images/covers/migration-free-schema-evolution-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/migration-free-schema-evolution-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 

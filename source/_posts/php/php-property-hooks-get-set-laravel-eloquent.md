@@ -4,9 +4,9 @@ date: 2026-06-05 12:00:00
 tags: [PHP, Property Hooks, PHP 8.6, Laravel, Eloquent]
 categories:
   - php
-cover: /images/covers/php-86-property-hooks-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-86-property-hooks-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "PHP 8.6 Property Hooks（属性钩子）彻底改变了 PHP 面向对象编程范式。本文深度剖析属性钩子的 get/set 语法、虚拟属性、非对称可见性等核心特性，重点展示如何在 Laravel Eloquent 模型中用 Property Hooks 替代传统 Accessor/Mutator，实现声明式数据验证与转换。包含大量可运行代码示例、性能基准测试、踩坑案例与迁移策略，助你从 __get/__set 的运行时魔术迈向编译期声明式编程。"
 ---
 

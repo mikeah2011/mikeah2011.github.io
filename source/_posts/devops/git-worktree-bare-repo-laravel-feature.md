@@ -13,9 +13,9 @@ categories:
 - devops
 description: Git Worktree + Bare Repo 多分支并行开发实战指南。从零搭建 bare repo 中枢仓库，挂载多个 worktree
   实现零切换成本的 feature/hotfix 并行开发，每个分支独立环境完全隔离。覆盖 Laravel CI/CD 集成方案、团队协作规范与 wtm 自动化管理脚本。
-cover: /images/covers/git-worktree-bare-repo-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/git-worktree-bare-repo-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

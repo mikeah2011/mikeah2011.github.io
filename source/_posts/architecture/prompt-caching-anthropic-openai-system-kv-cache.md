@@ -4,9 +4,9 @@ date: 2026-06-06 10:00:00
 tags: [Prompt Caching, LLM, AI, 成本优化, Anthropic, OpenAI, KV Cache, System Prompt]
 categories:
   - architecture
-cover: /images/covers/prompt-caching-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/prompt-caching-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "Prompt Caching 是降低 LLM API 成本的关键技术。本文深度对比 Anthropic 与 OpenAI 的缓存策略——Anthropic 的显式 cache_control 标记可节省 90% 输入费用，OpenAI 的自动缓存无需代码改动即享 50% 折扣。详解 KV Cache 底层原理、System Prompt 前缀优化黄金法则、缓存失效陷阱，并提供 Laravel/PHP 与 Python 的完整工程化集成方案，含成本计算、监控告警与生产部署 Checklist。"
 ---
 

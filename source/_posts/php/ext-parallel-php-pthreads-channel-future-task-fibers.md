@@ -17,9 +17,9 @@ description: 深入剖析 PHP 原生多线程扩展 ext-parallel（pthreads 继�
   并行计算等高级实践，帮助开发者在 CPU 密集型与 I/O 密集型并发场景中做出正确的技术选型。
 categories:
 - php
-cover: /images/covers/php-ext-parallel-multithreading-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-ext-parallel-multithreading-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

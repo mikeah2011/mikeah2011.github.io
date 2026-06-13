@@ -1,8 +1,8 @@
 ---
 title: Charles-抓包工具高级用法实战-SSL代理Mock断点调试与-Laravel-API-联调踩坑记录
-cover: /images/covers/charles-guide-sslmock-laravel-api-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/charles-guide-sslmock-laravel-api-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-05 08:11:02
 updated: 2026-05-05 08:13:59
 categories:

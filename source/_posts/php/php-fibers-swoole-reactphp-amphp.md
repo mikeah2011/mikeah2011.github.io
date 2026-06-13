@@ -4,9 +4,9 @@ date: 2026-06-05 12:00:00
 tags: [PHP, 异步编程, Fibers, Swoole, ReactPHP, AMPHP]
 categories:
   - php
-cover: /images/covers/php-async-ecosystem-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-async-ecosystem-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "深入对比 PHP 8.5 异步编程四大路线：Fibers 原生纤程、Swoole C扩展协程、ReactPHP 事件驱动、AMPHP 结构化并发。涵盖原理剖析、性能基准、Laravel Octane集成、真实项目案例与选型决策树，助你为高并发场景选择最佳 PHP 异步方案。"
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: Hermes Agent 定时任务实战：自动化博客写作、系统监控与代码更新踩坑记录
-cover: /images/covers/hermes-agent-guide-automationmonitoring-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/hermes-agent-guide-automationmonitoring-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 03:55:18
 updated: 2026-05-17 03:57:41
 categories:

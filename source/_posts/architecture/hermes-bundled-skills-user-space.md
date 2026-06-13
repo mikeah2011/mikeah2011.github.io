@@ -4,9 +4,9 @@ date: 2026-06-02 00:00:00
 tags: [Hermes, Skills, 同步机制, AI Agent, 版本管理]
 categories:
   - architecture
-cover: /images/covers/hermes-skill-sync-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/hermes-skill-sync-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 深入解析 Hermes Agent 如何在更新内置技能的同时保留用户个性化修改：采用 Section 级 diff 与三方合并策略，结合语义感知 diff 忽略格式差异、智能冲突解决建议与原子性写入保障可靠性。涵盖 bundled skills 同步流程、用户修改检测、merge conflict 处理的完整工程实现，附实战踩坑案例与 Git diff 对比示例。
 ---
 

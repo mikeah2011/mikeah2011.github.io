@@ -1,8 +1,8 @@
 ---
 title: "Postman/Apifox 实战：API 测试、Mock、自动化测试 — Laravel B2C API 踩坑记录"
-cover: /images/covers/postman-apifox-guide-apitesting-mock-automationtesting-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/postman-apifox-guide-apitesting-mock-automationtesting-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-17 02:35:29
 updated: 2026-05-17 02:37:30
 categories:

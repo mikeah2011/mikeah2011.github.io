@@ -13,9 +13,9 @@ description: 深入解析 Rust 过程宏（proc macro）实战：从 derive 宏�
   PHP→Rust 迁移对照表。
 categories:
 - php
-cover: /images/covers/rust-procedural-macro-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/rust-procedural-macro-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

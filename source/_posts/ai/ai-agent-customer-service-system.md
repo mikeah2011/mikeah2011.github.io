@@ -5,9 +5,9 @@ date: 2026-06-02 00:00:00
 tags: [AI Agent, 客服系统, 多轮对话, RAG, 工单系统]
 categories:
   - ai
-cover: /images/covers/ai-agent-customer-service-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-customer-service-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 # AI Agent 客服系统实战：多轮对话、知识库检索、工单流转

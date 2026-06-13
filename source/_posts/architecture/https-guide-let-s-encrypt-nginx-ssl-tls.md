@@ -1,8 +1,8 @@
 ---
 title: HTTPS-实战-Let-s-Encrypt-Nginx-SSL-TLS-配置与自动续期-Laravel-B2C-API踩坑记录
-cover: /images/covers/https-guide-let-s-encrypt-nginx-ssl-tls-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/https-guide-let-s-encrypt-nginx-ssl-tls-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 22:51:09
 updated: 2026-05-16 22:54:14
 categories:

@@ -10,9 +10,9 @@ tags:
 - 重试策略
 categories:
 - ai
-cover: /images/covers/ai-agent-error-recovery-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-error-recovery-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: AI Agent 在生产环境中面临工具调用失败、LLM 幻觉、上下文溢出三大核心故障模式。本文系统性地剖析每种故障的根因与表现，结合 Laravel/PHP
   项目实战，给出可落地的错误恢复策略：指数退避重试与熔断器模式应对工具调用失败，Schema 校验、事实一致性检查与 Self-Reflection 机制防护 LLM
   幻觉，对话摘要压缩、滑动窗口与关键信息持久化管理上下文溢出。文中涵盖完整的降级策略代码实现、重试风暴踩坑案例、错误恢复决策树，以及 Token 计数器、Prompt

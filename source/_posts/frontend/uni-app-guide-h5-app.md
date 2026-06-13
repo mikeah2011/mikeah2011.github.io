@@ -1,7 +1,7 @@
 ---
-cover: /images/covers/uni-app-guide-h5-app-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/uni-app-guide-h5-app-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 title: uni-app 多端适配实战：H5/微信小程序/App 一套代码搞定踩坑记录
 date: 2026-05-05 10:10:56
 updated: 2026-05-05 10:13:47

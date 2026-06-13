@@ -13,9 +13,9 @@ tags:
 - 成本分析
 categories:
 - devops
-cover: /images/covers/laravel-vapor-serverless-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-vapor-serverless-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: Laravel Vapor 实战全解析：从零搭建 AWS Serverless PHP 生产架构，涵盖 Lambda + API Gateway
   深度配置、RDS Proxy 连接池方案、SQS 队列异步任务、冷启动优化与 Provisioned Concurrency 调优、多环境部署 CI/CD 流水线、文件存储与
   Session 管理方案。附带 Vapor vs EC2 vs ECS Fargate vs Bref 全维度成本分析表格与流量规模选型指南，以及从 EC2 迁移到

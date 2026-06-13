@@ -11,9 +11,9 @@ tags:
 - 任务分发
 categories:
 - architecture
-cover: /images/covers/hermes-subagent-architecture-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/hermes-subagent-architecture-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

@@ -9,9 +9,9 @@ tags:
 - 高写入
 categories:
 - database
-cover: /images/covers/write-back-cache-pattern-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/write-back-cache-pattern-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 description: 深入解析 Write-Back Cache Pattern 在 Laravel + Redis 高写入场景下的完整实现。涵盖 Redis
   缓存回写原理、WAL 预写日志保障数据一致性、Pipeline 批量写入优化、分布式锁防并发回写、Prometheus 监控告警，以及与 Write-Through
   和 Write-Around 的策略对比。适合需要治理 Redis 缓存高写入瓶颈、提升数据库写入吞吐的后端工程师，附带生产部署清单与踩坑案例。

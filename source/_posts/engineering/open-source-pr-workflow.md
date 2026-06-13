@@ -1,8 +1,8 @@
 ---
 title: 开源项目贡献代码实战-PR流程与最佳实践-Laravel-B2C-API踩坑记录
-cover: /images/engineering-cover.png
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/engineering-cover.png
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-05 10:40:23
 updated: 2026-05-05 10:42:25
 categories:

@@ -1,8 +1,8 @@
 ---
 title: 前端构建优化实战：Vite/Webpack 分包策略与缓存优化踩坑记录
-cover: /images/covers/build-optimization-vite-webpack-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/build-optimization-vite-webpack-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-17 07:15:07
 updated: 2026-05-17 07:16:32
 categories:

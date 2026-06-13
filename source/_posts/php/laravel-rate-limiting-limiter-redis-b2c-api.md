@@ -12,9 +12,9 @@ description: 深入讲解 Laravel Rate Limiting 多维限流实战方案。涵�
   k6 压测脚本，帮助 B2C API 在秒杀防刷、Bot 对抗、分级 SLA 等场景中实现精确流量治理。
 categories:
 - php
-cover: /images/covers/laravel-rate-limiting-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-rate-limiting-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

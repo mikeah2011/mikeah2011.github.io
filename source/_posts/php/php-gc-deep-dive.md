@@ -5,9 +5,9 @@ tags: [PHP, GC, 内存管理, 垃圾回收, Zend Engine]
 categories:
   - php
 description: 'PHP垃圾回收(GC)机制深度剖析：从引用计数、写时复制到循环引用检测的三重内存管理策略。详解zval结构、根缓冲区、同步/异步GC触发条件，对比Go/Java/Python GC设计，附Laravel队列Worker内存泄漏排查实战与gc_collect_cycles()性能调优指南，助你彻底理解PHP内存管理底层原理。'
-cover: /images/covers/php-gc-deep-dive-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-gc-deep-dive-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 ## 前言：PHP 的内存管理不简单

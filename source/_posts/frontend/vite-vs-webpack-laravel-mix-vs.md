@@ -1,8 +1,8 @@
 ---
 title: Vite-vs-Webpack-Laravel-Mix-前端构建工具选型对比实战
-cover: /images/covers/vite-vs-webpack-laravel-mix-vs-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/vite-vs-webpack-laravel-mix-vs-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-17 04:50:38
 updated: 2026-05-17 04:52:00
 categories:

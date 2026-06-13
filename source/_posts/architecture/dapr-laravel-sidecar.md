@@ -10,9 +10,9 @@ tags:
 - 发布订阅
 categories:
 - architecture
-cover: /images/covers/dapr-laravel-microservices-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/dapr-laravel-microservices-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 深入实战 Dapr 分布式应用运行时，以 Laravel 微服务为切入点，详解 Sidecar 模式下的服务调用（HTTP/gRPC）、发布订阅（Pub/Sub）集成、状态管理与分布式
   Session 实现。完整代码示例覆盖 DaprClient 封装、Service Provider 注册、CloudEvents 消息处理、Kubernetes
   部署配置与生产踩坑。对比 Dapr vs Istio vs 直连方案的延迟与吞吐量数据，帮助 PHP 团队以最低成本拥抱云原生微服务架构。

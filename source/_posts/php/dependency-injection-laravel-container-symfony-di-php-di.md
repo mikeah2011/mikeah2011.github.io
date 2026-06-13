@@ -4,9 +4,9 @@ date: 2026-06-02 12:00:00
 tags: [PHP, 依赖注入, Laravel, Symfony, PHP-DI, 设计模式, 架构]
 categories:
   - php
-cover: /images/covers/di-container-deep-comparison-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/di-container-deep-comparison-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 深度对比 PHP 三大依赖注入容器——Laravel IoC Container、Symfony DI Component、PHP-DI 的设计哲学与源码实现。涵盖自动解析、编译时优化、PSR-11 兼容性、性能基准测试，通过同一服务的三种写法直观展示核心差异。附 Compiler Pass 自定义扩展实战与容器选型决策矩阵，帮助 PHP 架构师在不同项目场景下做出最佳选择。
 ---
 

@@ -12,9 +12,9 @@ categories:
 description: 深度解析 Hermes Agent 多 Profile 架构设计，涵盖 Profile 目录结构组织、_job_profile_context
   栈式临时切换机制、工具/技能/插件/记忆四维环境隔离实现细节。详解跨 Profile 安全边界与 cross_profile Guard 保护机制，对比环境变量和多实例部署方案的优劣，附
   Profile 命名规范、反模式规避和实际使用场景最佳实践。
-cover: /images/covers/hermes-multi-profile-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/hermes-multi-profile-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 

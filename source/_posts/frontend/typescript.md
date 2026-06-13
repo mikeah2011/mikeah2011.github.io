@@ -1,8 +1,8 @@
 ---
 title: TypeScript
-cover: /images/covers/typescript-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/typescript-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 tags:
 - TypeScript
 - 前端

@@ -1,8 +1,8 @@
 ---
 title: Git基础命令与工作流实战指南
-cover: /images/covers/git-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/git-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags: [Git, 版本控制, 工程化]
 categories:
   - engineering

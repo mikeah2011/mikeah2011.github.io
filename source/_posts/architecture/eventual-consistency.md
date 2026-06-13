@@ -12,9 +12,9 @@ tags:
 - 冲突解决
 categories:
 - architecture
-cover: /images/covers/eventual-consistency-ecommerce-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/eventual-consistency-ecommerce-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

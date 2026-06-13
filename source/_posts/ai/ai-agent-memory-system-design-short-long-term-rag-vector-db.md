@@ -16,7 +16,7 @@ tags:
 - Embedding
 description: 从认知科学的记忆模型出发，深度拆解 AI Agent 短期记忆（Buffer/Window/Summary）、长期记忆（RAG/向量数据库/知识图谱）的三层架构设计与源码实现，覆盖
   ChromaDB/Pinecone/Weaviate/Milvus 性能对比、分块策略、检索管线调优与记忆管理最佳实践。
-cover: /images/covers/ai-agent-memory-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
 - /images/content/ai-agent-memory-1.jpg
 - /images/content/ai-agent-memory-2.jpg

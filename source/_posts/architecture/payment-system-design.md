@@ -1,8 +1,8 @@
 ---
 title: 支付系统设计实战-多通道集成对账退款与异常处理-Laravel-B2C-API踩坑记录
-cover: /images/covers/payment-system-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/payment-system-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 21:25:31
 updated: 2026-05-16 21:31:10
 tags: [KKday, Laravel, 支付]

@@ -1,8 +1,8 @@
 ---
 title: PHP 实战 - 消息幂等性设计模式 KKday B2C API 真实踩坑记录
-cover: /images/covers/php-guide-design-patterns-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-guide-design-patterns-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
 - PHP
 - 设计模式

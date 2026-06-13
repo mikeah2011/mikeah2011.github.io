@@ -4,9 +4,9 @@ date: 2026-06-02 12:00:00
 tags: [PHP, 内存管理, 垃圾回收, 性能优化, 底层原理]
 categories:
   - php
-cover: /images/covers/php-memory-model-deep-dive-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-memory-model-deep-dive-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 从 C 层面 zval 结构体出发，深度剖析 PHP 内存管理三大核心机制——引用计数、写时复制（COW）、垃圾回收（GC）的底层原理。涵盖 PHP 8.x 改进、Laravel Eloquent 查询内存陷阱、队列 Worker OOM 问题排查与性能调优实战。通过可视化示例和基准测试建立完整的 PHP 内存心智模型，帮助开发者在高并发大数据量场景下避免内存踩坑。
 ---
 

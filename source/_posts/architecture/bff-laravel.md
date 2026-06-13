@@ -10,7 +10,7 @@ tags:
   - API
   - 微服务
   - 架构
-cover: /images/covers/architecture-1-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - /images/content/architecture-1-content-1.jpg
   - /images/content/architecture-1-content-2.jpg

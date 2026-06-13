@@ -1,8 +1,8 @@
 ---
 title: Linux 基础命令速查：文件操作、进程管理与网络调试
-cover: /images/covers/commands-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/commands-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags:
 - Linux
 - 命令行

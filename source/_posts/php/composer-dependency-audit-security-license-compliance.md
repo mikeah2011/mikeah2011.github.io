@@ -14,9 +14,9 @@ description: 本文全面介绍 Laravel 项目中 Composer 依赖安全审计的
   PHP 开发团队构建完整的依赖链安全治理体系。
 categories:
 - php
-cover: /images/covers/composer-dependency-audit-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/composer-dependency-audit-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

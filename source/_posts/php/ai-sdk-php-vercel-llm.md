@@ -15,9 +15,9 @@ description: 深入解析如何为 PHP 构建对标 Vercel AI SDK 的统一抽�
   PHP 开发者以统一接口调用主流 LLM，快速构建 AI 驱动的 Web 应用。
 categories:
 - php
-cover: /images/covers/ai-sdk-php-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-sdk-php-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

@@ -11,9 +11,9 @@ tags:
 - Laravel
 - 分布式
 - 数据同步
-cover: /images/covers/kafka-debezium-cdc-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/kafka-debezium-cdc-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 description: 详解 Kafka + Debezium CDC 数据库变更事件流的生产级架构设计，对比与 Laravel Event Sourcing 的互补关系，提供
   Outbox Pattern、幂等消费者、Schema 演进的完整落地方案，附可运行的 Laravel 集成代码与踩坑记录。
 ---

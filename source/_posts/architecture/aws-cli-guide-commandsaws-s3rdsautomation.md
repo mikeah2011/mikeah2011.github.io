@@ -15,7 +15,7 @@ description: '在管理 30+ Laravel B2C 项目的 AWS 基础设施时，手动�
   AWS CLI 实现高效云资源自动化运维。
 
   '
-cover: /images/covers/architecture-1-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/architecture-1-content-1.jpg
 - /images/content/architecture-1-content-2.jpg

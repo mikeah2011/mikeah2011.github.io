@@ -4,9 +4,9 @@ date: 2026-06-03 03:39:38
 tags: [Bun, JavaScript, HTTP Server, 性能对比, 全栈开发]
 categories:
   - frontend
-cover: /images/covers/bun-serve-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/bun-serve-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 description: 本文深入解析 Bun.serve 构建高性能 HTTP API 的实战方法，从架构原理到生产部署全面覆盖。通过与 Express、Fastify、Hono 的严格性能基准测试，展示 Bun 作为新一代 JavaScript 运行时在请求吞吐量、内存占用和冷启动速度上的显著优势。涵盖 WebSocket、SSE、JWT 认证、SQLite 与 PostgreSQL 集成、Docker 容器化及真实踩坑案例，助你全面评估 Bun 作为 Node.js 替代方案的可行性。
 ---
 

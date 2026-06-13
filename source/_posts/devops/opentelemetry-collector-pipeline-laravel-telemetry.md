@@ -5,9 +5,9 @@ tags: [OpenTelemetry, Observability, Laravel, Collector]
 categories:
   - devops
 description: "深入解析 OpenTelemetry Collector Pipeline 的 Receiver-Processor-Exporter 三阶段架构，结合 Laravel 应用实战，详解如何通过 OTLP 协议统一接收链路追踪、性能指标和应用日志三类遥测信号。涵盖完整 YAML 配置、Docker Compose 部署方案、PHP SDK 集成代码、敏感数据脱敏、智能尾部采样策略与生产环境数据治理最佳实践，帮助 Laravel 团队构建灵活可控的可观测性基础设施。"
-cover: /images/covers/opentelemetry-collector-pipeline-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/opentelemetry-collector-pipeline-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 ## 前言

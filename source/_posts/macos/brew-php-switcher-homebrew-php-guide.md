@@ -1,8 +1,8 @@
 ---
 title: brew-php-switcher + Homebrew：macOS 多版本 PHP 管理实战与踩坑记录
-cover: /images/covers/brew-php-switcher-homebrew-php-guide-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/brew-php-switcher-homebrew-php-guide-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-05 00:55:55
 updated: 2026-05-05 00:59:30
 categories:

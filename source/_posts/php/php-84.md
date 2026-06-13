@@ -1,8 +1,8 @@
 ---
 title: PHP 8.4 新特性实战：从内存管理到性能提升
-cover: /images/covers/php-84-new-features-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-84-new-features-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
 - PHP
 - PHP 8.4

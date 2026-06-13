@@ -1,8 +1,8 @@
 ---
 title: 冒泡排序算法详解：优化策略与 PHP/Go/JS 实现
-cover: /images/covers/bubble-sort-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/bubble-sort-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags:
 - 排序算法
 - 冒泡排序

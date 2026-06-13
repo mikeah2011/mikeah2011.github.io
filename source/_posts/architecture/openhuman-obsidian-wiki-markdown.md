@@ -4,9 +4,9 @@ date: 2026-06-02 00:00:00
 tags: [OpenHuman, Obsidian, Markdown, 知识管理]
 categories:
   - architecture
-cover: /images/covers/openhuman-obsidian-wiki-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-obsidian-wiki-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 本文系统讲透如何把 Obsidian 与 OpenHuman 结合，围绕 Markdown、知识管理、Wiki 组织与数据同步展开实战拆解，涵盖目录设计、双向链接、增量索引、冲突处理、发布流程与常见坑位，帮助你搭建真正可持续演进的本地知识系统。
 ---
 

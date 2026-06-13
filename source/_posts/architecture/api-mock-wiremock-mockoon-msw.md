@@ -15,9 +15,9 @@ description: 深入解析 MSW（Mock Service Worker）、Mockoon、WireMock 三�
   流水线配置。
 categories:
 - architecture
-cover: /images/covers/api-mock-strategy-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/api-mock-strategy-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

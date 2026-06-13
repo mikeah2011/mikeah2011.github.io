@@ -1,8 +1,8 @@
 ---
 title: Mermaid 实战-用代码画架构图流程图时序图-Laravel-B2C-API-踩坑记录
-cover: /images/covers/mermaid-guide-architecture-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/mermaid-guide-architecture-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-16 21:00:33
 updated: 2026-05-16 21:04:26
 categories:

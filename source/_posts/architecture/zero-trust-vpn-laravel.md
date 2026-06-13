@@ -10,9 +10,9 @@ tags:
 - 网络分段
 categories:
 - architecture
-cover: /images/covers/zero-trust-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/zero-trust-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 本文从传统VPN模型的局限性出发，系统讲解Zero Trust零信任架构的核心原则与实现路径。深入剖析mTLS双向认证、JWT服务间认证、Kubernetes
   NetworkPolicy微分段、Istio Service Mesh和OPA策略引擎等关键技术在Laravel微服务中的落地方法，包含完整的中间件代码、Rego策略和Grafana监控配置。提供四阶段迁移路线图和ROI分析，帮助团队从城堡护城河模型平滑过渡到零信任架构。
 ---

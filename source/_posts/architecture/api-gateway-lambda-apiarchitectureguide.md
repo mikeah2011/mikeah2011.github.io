@@ -14,7 +14,7 @@ tags:
 - 无服务器
 description: 深入解析 AWS API Gateway + Lambda 无服务器架构设计，涵盖 HTTP API/REST API/ALB 选型对比、冷启动优化（Provisioned
   Concurrency、SnapStart）、API Gateway 限流缓存 WAF 实战，以及与 Laravel 混合部署策略与成本估算。
-cover: /images/covers/arch-003-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/arch-003-content-1.jpg
 - /images/diagrams/arch-003-diagram.jpg

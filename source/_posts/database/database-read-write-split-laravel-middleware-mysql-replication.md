@@ -11,7 +11,7 @@ tags:
 - 性能优化
 description: 基于 KKday B2C API 项目的真实生产经验，记录从 MySQL 主从复制搭建到 Laravel 中间件自动路由读写的完整落地过程，覆盖
   binlog 格式选型、主从延迟治理、Laravel 多数据库连接配置、Sticky Connection、事务内强制主库等核心踩坑点。
-cover: /images/covers/database-001-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/database-001-content-1.jpg
 - /images/content/database-001-content-2.jpg

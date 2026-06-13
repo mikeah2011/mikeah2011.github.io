@@ -1,8 +1,8 @@
 ---
 title: "Event Storming 实战：从业务事件到代码实现的领域建模方法论"
-cover: /images/covers/event-storming-domain-modeling-laravel-b2c-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/event-storming-domain-modeling-laravel-b2c-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-06-01 10:30:00
 categories:
   - architecture

@@ -12,9 +12,9 @@ tags:
 - 全栈框架
 categories:
 - frontend
-cover: /images/covers/nuxt-4-vue-fullstack-server-components-auto-import-seo-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/nuxt-4-vue-fullstack-server-components-auto-import-seo-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 

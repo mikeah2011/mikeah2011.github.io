@@ -4,9 +4,9 @@ date: 2026-06-02 09:00:00
 tags: [OpenClaw, AI Agent, 隐私安全, 记忆系统, 群聊安全]
 categories:
   - architecture
-cover: /images/covers/openclaw-memory-partition-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openclaw-memory-partition-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "深入解析 OpenClaw 隐私感知记忆分区机制，涵盖 MEMORY.md 主会话隔离、群聊上下文三层安全边界、多维度敏感度分类器与信息流控制矩阵。文章提供完整的 Python 可运行代码示例、YAML 配置模板、pytest 安全测试套件及架构图，帮助 AI Agent 开发者在多群组部署场景中实现私聊与群聊的记忆隔离、跨群信息防泄漏、PII 自动脱敏，构建符合隐私安全要求的 Agent 记忆管理体系。"
 ---
 

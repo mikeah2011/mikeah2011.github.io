@@ -13,9 +13,9 @@ tags:
 - 工具链
 categories:
 - ai
-cover: /images/covers/ai-agent-tool-composition-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-tool-composition-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 

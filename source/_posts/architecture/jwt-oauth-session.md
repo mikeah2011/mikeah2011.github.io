@@ -1,8 +1,8 @@
 ---
 title: Laravel B2C API - JWT/OAuth/Session 多协议认证踩坑记录
-cover: /images/covers/jwt-oauth-session-2-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/jwt-oauth-session-2-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-03
 categories:
 - architecture

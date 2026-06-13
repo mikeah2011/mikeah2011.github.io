@@ -5,9 +5,9 @@ description: "深入剖析 Laravel 12.x Concurrency facade 的三种并发驱动
 tags: [Laravel, PHP, Concurrency, 异步, 并发编程]
 categories:
   - php
-cover: /images/covers/laravel-concurrency-facade-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-concurrency-facade-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 ## 一、引言：为什么 PHP 需要并发？

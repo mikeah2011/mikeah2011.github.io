@@ -1,8 +1,8 @@
 ---
 title: "Pest PHP API 测试、Feature 测试、浏览器测试实战：Laravel B2C API 测试金字塔落地踩坑记录"
-cover: /images/covers/pest-php-apitesting-featuretesting-testingguide-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/pest-php-apitesting-featuretesting-testingguide-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-17 01:20:17
 updated: 2026-05-17 01:49:40
 categories:

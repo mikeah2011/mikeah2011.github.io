@@ -4,9 +4,9 @@ date: 2026-06-06 09:00:00
 tags: [Secrets Management, 密钥管理, HashiCorp Vault, AWS Secrets Manager, Doppler, Laravel, 安全, 密钥轮换, 审计日志]
 categories:
   - devops
-cover: /images/covers/secrets-management-deep-dive-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/secrets-management-deep-dive-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: "密钥管理深度实战指南，全面对比 HashiCorp Vault、AWS Secrets Manager 与 Doppler 三大方案在 Laravel 应用中的集成方式。涵盖动态密钥生成、自动化密钥轮换策略、审计日志体系构建、CI/CD 流水线安全集成等核心主题，提供可直接运行的 PHP 代码示例与真实踩坑案例，帮助团队选型并落地生产级密钥管理基础设施。"
 ---
 

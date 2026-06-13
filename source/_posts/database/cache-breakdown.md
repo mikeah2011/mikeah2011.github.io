@@ -10,7 +10,7 @@ categories:
 date: 2019-03-20 15:05:07
 description: Redis缓存击穿是指某个热点Key在高并发访问时突然过期，导致大量请求瞬间穿透到数据库，造成数据库压力骤增甚至宕机。本文深入剖析缓存击穿的产生原理与触发流程，详细讲解互斥锁（Mutex
   Lock）、逻辑过期（Logical Expiration）、永不过期+异步更新三大解决方案，并提供Laravel框架下的完整实战代码。同时对比缓存穿透与缓存雪崩的区别，分享生产环境监控告警方案与踩坑经验，帮助开发者在高并发场景下构建稳健的缓存架构。
-cover: /images/covers/databases-1-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-1-content-1.jpg
 - /images/content/databases-1-content-2.jpg

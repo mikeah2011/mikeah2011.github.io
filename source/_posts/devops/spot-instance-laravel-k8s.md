@@ -14,9 +14,9 @@ description: Spot Instance 实战省钱指南：Laravel 工作负载如何利用
   9 个真实踩坑案例，帮助团队安全落地 Spot Instance 成本优化。
 categories:
 - devops
-cover: /images/covers/spot-instance-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/spot-instance-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

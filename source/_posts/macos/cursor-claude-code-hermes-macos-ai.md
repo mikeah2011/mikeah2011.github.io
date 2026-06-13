@@ -1,8 +1,8 @@
 ---
 title: Cursor + Claude Code + Hermes：macOS 开发者多 AI 协作工作流实战踩坑记录
-cover: /images/covers/cursor-claude-code-hermes-macos-developer-multi-ai-collaboration-workflow-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/cursor-claude-code-hermes-macos-developer-multi-ai-collaboration-workflow-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-06-01 08:00:00
 categories:
   - macos

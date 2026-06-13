@@ -10,9 +10,9 @@ tags:
 description: Actor模型实战深度指南，涵盖Akka（Scala/JVM）、Elixir/OTP（BEAM VM）和PHP（Swoole）三种技术栈的消息传递并发架构实现。通过电商订单处理场景对比共享状态与Actor模型的优劣，详解Supervision容错策略、GenServer行为模式、消息路由与信箱机制，附带性能对比测试和常见坑的最佳实践，帮助开发者选择合适的并发架构方案。
 categories:
 - architecture
-cover: /images/covers/actor-model-akka-elixir-php-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/actor-model-akka-elixir-php-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title: OOP - 面向对象
-cover: /images/php-cover.png
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/php-cover.png
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
 - Laravel
 - PHP

@@ -13,7 +13,7 @@ tags:
 description: 结合 Laravel 订单中心的真实治理过程，完整记录基于 ShardingSphere-Proxy 的分库分表落地方案。从 ShardingSphere-Proxy
   Docker 部署、分片规则配置、Laravel Repository 层路由约束，到全局 ID 生成、跨片查询降级策略、双写校验迁移、Prometheus 监控接入，再到线上高频踩坑（COUNT
   广播、事务跨片、whereIn 散射）的逐一拆解，帮助你在 Laravel + MySQL 体系下把 ShardingSphere-Proxy 从 PoC 推到生产可用。
-cover: /images/covers/databases-1-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-1-content-1.jpg
 - /images/content/databases-1-content-2.jpg

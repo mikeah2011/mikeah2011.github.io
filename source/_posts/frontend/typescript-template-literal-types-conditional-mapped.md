@@ -12,9 +12,9 @@ description: TypeScript 高级类型体操实战指南，系统讲解 Template L
   API 层的完整项目案例。适合想彻底消灭 any、掌握类型推断与类型体操的前端工程师。
 categories:
 - frontend
-cover: /images/covers/typescript-advanced-types-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/typescript-advanced-types-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 

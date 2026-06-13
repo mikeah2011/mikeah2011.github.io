@@ -1,8 +1,8 @@
 ---
 title: PHP 5 到 PHP 7 升级指南：语法变更与性能提升
-cover: /images/covers/php5-vs-php7-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php5-vs-php7-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
 - PHP
 - PHP 7

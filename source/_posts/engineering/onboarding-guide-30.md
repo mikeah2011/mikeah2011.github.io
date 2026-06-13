@@ -1,8 +1,8 @@
 ---
 title:
-cover: /images/covers/onboarding-guide-30-cover.jpg 新人-Onboarding-指南-30-仓库快速上手路径设计-Laravel-B2C-API实战踩坑记录
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/onboarding-guide-30-cover.jpg 新人-Onboarding-指南-30-仓库快速上手路径设计-Laravel-B2C-API实战踩坑记录
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-05 08:31:06
 updated: 2026-05-05 08:35:17
 categories:

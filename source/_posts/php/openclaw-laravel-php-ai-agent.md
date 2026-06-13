@@ -8,9 +8,9 @@ tags:
 - AI Agent
 categories:
 - php
-cover: /images/covers/openclaw-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openclaw-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 本文系统讲解 OpenClaw 与 Laravel 集成的工程实践，覆盖 PHP SDK 安装配置、HTTP API 调用、Service
   Provider 与 Facade 封装、队列异步处理、错误重试、幂等控制、输出校验与生产踩坑案例，并对比 SDK、HTTP 与队列化方案差异，帮助 Laravel
   项目稳定接入 AI Agent 能力。

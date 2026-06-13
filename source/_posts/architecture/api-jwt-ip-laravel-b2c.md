@@ -11,9 +11,9 @@ tags:
 - ip白名单
 categories:
 - architecture
-cover: /images/covers/api-security-hardening-jwt-blacklist-request-signing-ip-whitelist-replay-attack-prevention-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/api-security-hardening-jwt-blacklist-request-signing-ip-whitelist-replay-attack-prevention-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

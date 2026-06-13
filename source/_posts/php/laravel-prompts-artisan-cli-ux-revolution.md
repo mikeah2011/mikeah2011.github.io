@@ -4,9 +4,9 @@ date: 2026-06-04 08:00:00
 tags: [Laravel Prompts, CLI, Artisan, 终端交互, UX]
 categories:
   - php
-cover: /images/covers/laravel-prompts-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-prompts-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "深入实战 Laravel Prompts——Laravel 官方终端交互式命令行工具库，全面替代 Symfony Console 的 ask/confirm/choice，详解 text、multisearch、progress、spin 等组件与 Artisan 命令的 UX 革新方案"
 ---
 

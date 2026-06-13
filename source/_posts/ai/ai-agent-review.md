@@ -5,9 +5,9 @@ date: 2026-06-02 00:00:00
 tags: [AI Agent, 代码助手, Code Review, 重构, 文档生成]
 categories:
   - ai
-cover: /images/covers/ai-agent-code-assistant-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-code-assistant-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 # AI Agent 代码助手实战：代码生成、Review、重构、文档生成

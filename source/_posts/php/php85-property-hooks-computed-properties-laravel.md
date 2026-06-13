@@ -13,9 +13,9 @@ tags:
 - 声明式
 categories:
 - php
-cover: /images/covers/php85-property-hooks-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php85-property-hooks-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

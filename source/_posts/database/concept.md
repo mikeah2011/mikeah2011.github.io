@@ -12,7 +12,7 @@ date: 2017-03-20 15:05:07
 description: MySQL 索引是数据库性能优化的核心技术，本质上是一种基于 B+Tree 等数据结构的排序存储机制，能够将查询时间复杂度从 O(n) 降低到
   O(log n)。本文深入讲解索引的定义与原理、B+Tree 结构图解、InnoDB 与 MyISAM 索引实现差异、索引创建与使用示例、EXPLAIN 执行计划分析，以及常见面试题解答，帮助开发者全面掌握
   MySQL 索引的核心知识。
-cover: /images/covers/databases-index-1-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-index-1-content-1.jpg
 - /images/content/databases-index-1-content-2.jpg

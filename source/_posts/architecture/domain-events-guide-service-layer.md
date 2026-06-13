@@ -1,8 +1,8 @@
 ---
 title: Domain-Events-解耦实战-用事件驱动替代-Service-Layer-直接调用-Laravel-B2C-API踩坑记录
-cover: /images/covers/domain-events-guide-service-layer-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/domain-events-guide-service-layer-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-05 08:20:19
 updated: 2026-05-05 08:22:17
 categories:

@@ -14,9 +14,9 @@ description: Feature Flag 驱动开发（FFDD）实战指南，深度对比 Unle
   Flag 技术债务的生命周期管理、Kill Switch 降级策略和自动化清理方案，帮助团队实现功能发布与部署解耦，安全高效地交付软件。
 categories:
 - devops
-cover: /images/covers/feature-flag-driven-development-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/feature-flag-driven-development-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

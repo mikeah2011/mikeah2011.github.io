@@ -4,9 +4,9 @@ date: 2026-06-02 09:20:00
 tags: [OpenClaw, AI Agent, 文档治理, 一致性, 配置管理]
 categories:
   - architecture
-cover: /images/covers/openclaw-doc-drift-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openclaw-doc-drift-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 深入剖析 OpenClaw 文件原生架构中文档漂移问题的根因：IDENTITY.md、MEMORY.md、MODEL_STRATEGY.md 三大核心文件独立更新导致的语义不一致。详解漂移检测方法、自动修复策略、协调更新机制与蒸馏约束方案，提供系统化的文档治理框架，确保 AI Agent 配置一致性。
 ---
 

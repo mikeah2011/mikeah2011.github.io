@@ -5,9 +5,9 @@ date: 2026-06-02 02:30:00
 tags: [OpenHuman, Ollama, 本地 AI, 本地部署, 隐私优先, LLM, macOS]
 categories:
   - macos
-cover: /images/covers/openhuman-ollama-local-deploy-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-ollama-local-deploy-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 ---
 
 在过去两年里，大模型已经从“云端专属能力”逐渐演化成“个人设备可用的生产力基础设施”。如果你是一名开发者、独立写作者、研究人员，或者只是希望在自己的 Mac 上拥有一个可控、低延迟、不会把敏感数据发送到第三方服务器的 AI 助手，那么 **OpenHuman + Ollama** 这组组合，值得认真投入时间研究。

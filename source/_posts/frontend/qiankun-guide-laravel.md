@@ -1,8 +1,8 @@
 ---
 title: qiankun 微前端实战：Laravel 后台拆分中的路由、鉴权与样式隔离踩坑记录
-cover: /images/covers/qiankun-guide-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/qiankun-guide-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-03 09:21:00
 categories:
 - frontend

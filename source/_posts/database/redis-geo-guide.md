@@ -16,7 +16,7 @@ tags:
 description: Redis GEO 地理位置服务实战指南：深入解析 GEOADD、GEOSEARCH 等核心命令与 GeoHash 编码原理，提供 Laravel
   PHP 可运行代码实现附近门店、附近的人等 LBS 功能，横向对比 PostGIS 与 MongoDB 2dsphere 选型方案，涵盖百万级 POI 性能压测数据与
   Redis Cluster 集群部署踩坑经验，适合后端开发者快速落地地理位置搜索需求。
-cover: /images/covers/databases-redis-geo-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-redis-geo-content-1.jpg
 - /images/content/databases-redis-geo-content-2.jpg

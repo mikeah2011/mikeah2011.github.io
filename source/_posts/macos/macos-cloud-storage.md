@@ -1,8 +1,8 @@
 ---
 title: macOS 开发者云存储选型：哪些文件放哪里？如何保证一致性？
-cover: /images/covers/macos-cloud-storage-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/macos-cloud-storage-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-05 03:00:59
 updated: 2026-05-05 03:02:39
 categories:

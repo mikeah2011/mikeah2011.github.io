@@ -12,9 +12,9 @@ description: 深入讲解 OpenClaw Skill 体系架构与开发实战，涵盖 Sk
   AI Agent 能力平台。
 categories:
 - architecture
-cover: /images/covers/openclaw-skill-development-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openclaw-skill-development-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

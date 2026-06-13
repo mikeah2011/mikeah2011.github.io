@@ -4,9 +4,9 @@ date: 2026-06-02 00:00:00
 tags: [OpenHuman, Memory Tree, 知识图谱, AI记忆]
 categories:
   - architecture
-cover: /images/covers/openhuman-memory-tree-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-memory-tree-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 本文系统拆解 OpenHuman Memory Tree 如何落地本地知识图谱与 AI记忆体系，围绕长期记忆建模、节点设计、查询编排、排障调优与工程实践展开。若你想真正搞懂 Memory Tree 怎样支撑知识图谱、AI记忆与长期记忆构建，并把方案稳定落到本地 Agent、项目知识库和个人工作流，这篇实战会给你可直接复用的代码、表格与方法论。
 ---
 

@@ -4,9 +4,9 @@ date: 2026-06-02 10:00:00
 tags: [PCI-DSS, 支付安全, Laravel, 合规, 运维]
 categories:
   - devops
-cover: /images/covers/pci-dss-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/pci-dss-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: PCI DSS v4.0 合规实战指南，面向 Laravel 开发者系统讲解支付系统安全标准落地。深入剖析 Token 化方案（Stripe Elements 集成）、网络分段（CDE 隔离与 Nginx 防火墙配置）、不可篡改审计日志实现、AES-256-GCM 数据加密及 RBAC 访问控制。包含完整可运行代码示例、踩坑案例与合规检查清单，帮助团队从 SAQ A 到 SAQ D 各级别快速通过 PCI 合规审计。
 ---
 

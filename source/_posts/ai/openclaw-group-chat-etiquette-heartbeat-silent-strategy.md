@@ -9,9 +9,9 @@ tags:
 - AI Agent
 categories:
 - ai
-cover: /images/covers/openclaw-group-chat-etiquette-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openclaw-group-chat-etiquette-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: AI Agent 进入群聊后面临的首要挑战是社交礼仪而非技术能力。本文深入剖析 OpenClaw 的群聊行为准则体系，涵盖 HEARTBEAT_OK
   静默策略的状态机设计与 Python 实现、Emoji 反应礼仪规范、回复长度分级策略、Telegram/Slack/飞书/QQ/企业微信五大平台的格式适配方案，以及统一行为编排器的完整架构，帮助你构建一个「安静但有用」的群聊
   AI Agent。

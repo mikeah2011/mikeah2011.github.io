@@ -4,9 +4,9 @@ date: 2026-06-03 10:00:00
 tags: [Laravel Cloud, PaaS, 部署, 自动扩缩, 开发者体验]
 categories: [devops]
 description: Laravel Cloud 是 Laravel 官方推出的 PaaS 平台，专为 Laravel 应用提供一键部署、自动扩缩容和零运维体验。本文从实战角度全面评测 Laravel Cloud 的核心能力，涵盖注册配置、蓝绿部署、Octane 运行时优化、托管数据库与 Redis、PR 预览环境、团队协作权限管理等关键功能，并与 Forge、Vapor 及传统 VPS 方案进行深度对比，包含完整配置示例、踩坑案例和真实生产环境迁移数据，帮助开发者评估 Laravel Cloud 是否适合自己的项目。
-cover: /images/covers/laravel-cloud-paas-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-cloud-paas-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 # Laravel Cloud 实战：Laravel 官方 PaaS 平台——一键部署、自动扩缩与开发者体验评测

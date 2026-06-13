@@ -1,8 +1,8 @@
 ---
 title: macOS 常用命令
-cover: /images/covers/common-commands-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/common-commands-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2025-05-25 10:00:00
 updated: 2026-06-06 10:00:00
 categories:

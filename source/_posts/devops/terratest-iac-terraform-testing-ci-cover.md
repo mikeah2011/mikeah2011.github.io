@@ -10,9 +10,9 @@ tags:
 - 自动化
 categories:
 - devops
-cover: /images/covers/terratest-iac-testing-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/terratest-iac-testing-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: Terratest 实战指南：用 Go 语言为 Terraform 模块编写单元测试、集成测试与端到端测试，集成 GitHub Actions
   CI 门禁，构建 IaC 自动化测试体系，杜绝基础设施配置漂移与安全隐患。
 ---

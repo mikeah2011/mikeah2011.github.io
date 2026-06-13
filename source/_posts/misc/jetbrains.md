@@ -8,7 +8,7 @@ categories:
 date: 2022-10-20 15:05:07
 description: JetBrains 全系列 IDE（IntelliJ IDEA、PyCharm、WebStorm、PhpStorm、GoLand 等）激活方法全攻略：传统激活码方式、2024-2026
   最新反盗版机制变化、macOS/Windows 常见问题排查，以及学生免费授权、开源项目授权、ToolBox All Products Pack 订阅等正版替代方案对比与省钱技巧。
-cover: /images/covers/misc-1-cover.jpg
+cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
 - /images/content/misc-1-content-1.jpg
 - /images/content/misc-1-content-2.jpg

@@ -12,7 +12,7 @@ tags:
 - IaC
 description: 基于 KKday B2C Backend Team 30+ 仓库的运维经验，记录 Ansible 在 Laravel 项目中的落地实践：Inventory
   设计、Playbook 编写、Role 抽象、Vault 密钥管理、滚动部署、零停机发布，以及 Jinja2 模板渲染陷阱、幂等性违背、handler 时序、权限提升踩坑等真实问题。
-cover: /images/covers/devops-ansible-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
 - /images/content/devops-ansible-content-1.jpg
 - /images/content/devops-ansible-content-2.jpg

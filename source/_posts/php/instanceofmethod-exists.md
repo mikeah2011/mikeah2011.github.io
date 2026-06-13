@@ -1,8 +1,8 @@
 ---
 title: instanceof 与 method_exists
-cover: /images/covers/php-instanceofmethod-exists-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-instanceofmethod-exists-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2023-03-05 10:00:00
 categories:
 - php

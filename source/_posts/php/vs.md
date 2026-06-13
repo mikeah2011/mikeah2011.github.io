@@ -1,8 +1,8 @@
 ---
 title: 进程、线程和协程对比：PHP Fibers、Go goroutine 与 Swoole 协程
-cover: /images/covers/php-vs-comparison-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-vs-comparison-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
 - PHP
 - 架构

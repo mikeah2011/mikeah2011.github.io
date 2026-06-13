@@ -1,8 +1,8 @@
 ---
 title: Vite 预构建优化实战：依赖预构建与缓存策略的性能调优踩坑记录
-cover: /images/covers/vite-optimizationguide-cache-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/vite-optimizationguide-cache-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-17 05:20:13
 updated: 2026-05-17 05:23:03
 categories:

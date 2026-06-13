@@ -8,9 +8,9 @@ tags:
 - 工程化
 categories:
 - frontend
-cover: /images/covers/css-in-js-vs-utility-first-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/css-in-js-vs-utility-first-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 description: CSS-in-JS 运行时开销日益成为性能瓶颈，Utility-First 方案正当其时。本文从 CSS 方案十年演进切入，深入剖析 Styled-Components/Emotion
   的运行时原理与 SSR 痛点，对比 Tailwind CSS v4 Oxide 引擎、UnoCSS 引擎级去重、PandaCSS 编译时类型安全三大 Utility-First
   方案的架构设计、构建性能、Tree-Shaking 效率与工程化实践。附含完整的 Vite 项目基准测试、Bundle Size 对比与大型团队选型决策矩阵，助你在

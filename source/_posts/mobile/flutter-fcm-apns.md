@@ -5,9 +5,9 @@ description: '本文系统梳理 Flutter 推送通知落地方案，覆盖 FCM�
 tags: [Flutter, 推送通知, FCM, APNs, 厂商推送]
 categories:
   - mobile
-cover: /images/covers/flutter-push-notification-fcm-apns-cover.jpg
+cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/flutter-push-notification-fcm-apns-cover.jpg
+  - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 ---
 
 # 1. 前言：为什么推送通知是移动端的生命线

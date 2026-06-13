@@ -1,8 +1,8 @@
 ---
 title: Monorepo vs Polyrepo：30+ 仓库架构选型与管理经验
-cover: /images/covers/monorepo-vs-polyrepo-30-architecture-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/monorepo-vs-polyrepo-30-architecture-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-05 06:30:55
 updated: 2026-05-05 06:33:13
 categories:

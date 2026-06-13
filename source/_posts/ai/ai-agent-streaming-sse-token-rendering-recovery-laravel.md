@@ -14,9 +14,9 @@ tags:
 categories:
 - ai
 - 架构
-cover: /images/covers/ai-agent-streaming-sse-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-streaming-sse-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 

@@ -3,9 +3,9 @@ title: AI Agent + CI/CD 实战：智能 Code Review、自动化修复、发布�
 date: 2026-06-02 02:31:05
 tags: [AI Agent, CI/CD, Code Review, GitHub Actions, 自动化]
 categories: [ai]
-cover: /images/covers/ai-agent-cicd-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-cicd-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: 本文系统拆解 AI Agent 如何深度融入 CI/CD 流水线，覆盖 Code Review、GitHub Actions 自动化审查、AI 修复建议、测试补全与发布风险决策等关键场景，结合 CodeRabbit、Codeium、Sweep、Aider 等工具给出可直接落地的实战配置，帮助团队把智能审查从演示能力升级为稳定、可治理、可扩展的工程实践。
 ---
 

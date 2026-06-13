@@ -10,9 +10,9 @@ tags:
 - PHP
 categories:
 - php
-cover: /images/covers/inngest-durable-functions-php-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/inngest-durable-functions-php-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: Inngest 是基于事件驱动的 Durable Functions 平台，现正式支持 PHP/Laravel。本文深入实战 Inngest
   在 Laravel 中的持久化工作流编排：涵盖步骤级自动重试、step.sleep/step.waitForEvent 原生等待、事件驱动函数解耦、多步骤复杂工作流的声明式编写，以及与
   Laravel Queue 的对比选型。告别在 Job 中手动管理状态机和重试逻辑的痛苦，用线性代码描述非线性异步流程，适合需要处理跨天任务、条件分支、外部事件等待等场景的

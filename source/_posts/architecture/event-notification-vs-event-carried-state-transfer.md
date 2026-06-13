@@ -5,9 +5,9 @@ tags: [Laravel, 事件驱动, 架构模式, 解耦, Event-Driven]
 description: "深入对比事件驱动架构中的 Event Notification 与 Event-Carried State Transfer 两种模式，以 Laravel 电商系统为实战场景，从耦合度、数据库开销、数据新鲜度、序列化成本四个维度系统性分析差异，并给出混合模式选型指南、五大常见陷阱与反模式警示，帮助开发者在实际项目中做出合理的事件设计决策。"
 categories:
   - architecture
-cover: /images/covers/event-notification-vs-event-carried-state-transfer-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/event-notification-vs-event-carried-state-transfer-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 在 Laravel 项目中，事件（Event）是开发者最常用的解耦工具之一。很多人写 `event(new OrderPaid($order))` 就算"事件驱动"了，但很少有人停下来思考：**这个事件到底该携带多少信息？** 这个看似简单的决定，实际上对应着事件驱动架构中两种截然不同的模式——**Event Notification（事件通知）** 和 **Event-Carried State Transfer（事件携带状态传输）**。

@@ -12,9 +12,9 @@ categories:
 - devops
 description: 深入实战 AWS SQS + Lambda + Dead Letter Queue 构建 Laravel 无服务器异步任务队列，涵盖 Terraform
   IaC 基础设施搭建、Node.js 任务处理器实现、渐进式迁移路线图、冷启动与并发优化策略，以及与传统 Worker+Redis 方案的详细成本对比分析。
-cover: /images/covers/serverless-task-queue-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/serverless-task-queue-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

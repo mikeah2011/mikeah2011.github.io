@@ -12,9 +12,9 @@ tags:
 - Workbox
 categories:
 - frontend
-cover: /images/covers/pwa-service-worker-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/pwa-service-worker-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 

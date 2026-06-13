@@ -3,9 +3,9 @@ title: 'PHP 扩展开发入门：用 C 写一个自定义 PHP 扩展——从编
 date: 2026-06-02 10:00:00
 tags: [PHP, C语言, PHP扩展, 内部机制]
 categories: [php]
-cover: /images/covers/php-extension-development-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-extension-development-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: "PHP 扩展开发是深入理解 Zend Engine 内部机制的最佳途径。本文从零开始，用 C 语言编写一个完整的 PHP 扩展，涵盖 ZVAL 变量体系、函数注册、类与对象定义、内存管理（引用计数/垃圾回收）、phpize 编译加载全流程。通过实战代码演示如何暴露自定义函数给 PHP 调用，解析 PHP 内部的哈希表、字符串处理机制，并提供 GDB 调试技巧与常见内存错误排查方法。"
 ---
 

@@ -14,7 +14,7 @@ tags:
 - MySQL
 description: 深入解析 CAP 定理在 KKday B2C 微服务架构中的实战取舍：涵盖订单创建 CP 模式、库存扣减 AP 模式、支付回调幂等性设计，附
   PHP/Lua 代码示例与踩坑记录，助你掌握分布式系统一致性与高可用性的平衡之道
-cover: /images/covers/architecture-1-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/architecture-1-content-1.jpg
 - /images/content/architecture-1-content-2.jpg

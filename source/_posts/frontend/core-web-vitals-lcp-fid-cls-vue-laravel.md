@@ -12,9 +12,9 @@ tags:
 - 前端
 categories:
 - frontend
-cover: /images/covers/core-web-vitals-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/core-web-vitals-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 description: Google Core Web Vitals（LCP/INP/CLS）已成为搜索排名的关键因素，直接影响电商转化率。本文从 Vue 3 +
   Laravel 全栈视角出发，系统性治理性能指标。涵盖关键资源预加载、JavaScript 代码分割与懒加载、图片格式优化（WebP/AVIF）、服务端响应加速、CLS
   布局稳定性防护等实战方案，附完整优化清单与 Grafana 监控配置，助你持续保持优秀的用户体验指标。

@@ -2,9 +2,9 @@
 title: Fork 项目维护与上游同步实战：以 Scribe/CRMEB 为例的 Fork 协作工作流踩坑记录
 date: 2026-05-05 09:27:40
 updated: 2026-05-05 09:29:10
-cover: /images/covers/fork-guide-scribe-crmeb-fork-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/fork-guide-scribe-crmeb-fork-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 categories:
 - architecture
 tags:

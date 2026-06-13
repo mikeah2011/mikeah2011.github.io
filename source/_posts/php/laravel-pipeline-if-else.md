@@ -9,9 +9,9 @@ tags:
 - PHP
 categories:
 - php
-cover: /images/covers/laravel-pipeline-refactor-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-pipeline-refactor-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: Laravel 12.x Pipeline 模式深度实战：从 if-else 地狱到优雅管道的重构之路。详解 Pipeline 核心原理、条件分支处理、错误策略设计、DTO
   数据传递等关键技巧，附带订单处理、支付流程等真实业务场景代码，对比传统写法与 Pipeline 写法的可读性、可测试性、可维护性差异，助你掌握 Laravel
   最强大的业务流程编排工具。

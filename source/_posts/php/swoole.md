@@ -7,9 +7,9 @@ categories:
   - runtime
 title: "高性能PHP-FPM与Laravel Octane/Swoole深度实战：从瓶颈突破到生产部署"
 author: Michael
-cover: /images/covers/php-swoole-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-swoole-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 
 
 

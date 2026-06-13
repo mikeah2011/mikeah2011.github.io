@@ -4,9 +4,9 @@ date: 2026-06-06 12:00:00
 tags: [AI Agent, 状态机, 架构设计, PHP, Laravel]
 description: 深入解析 AI Agent 状态机的五态模型设计与实战实现，涵盖 Idle/Thinking/Executing/Waiting/Error 五种状态的定义与转换规则，基于 PHP 8.2+ 与 Laravel 11 提供完整的状态机基类、事件驱动集成、乐观锁与 Redis 分布式锁并发保护、可观测性监控及生产踩坑记录，助力构建可靠的 Agent 对话生命周期管理系统。
 categories: [ai]
-cover: /images/covers/ai-agent-state-machine-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-state-machine-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 ## 引言：为什么 Agent 需要状态管理

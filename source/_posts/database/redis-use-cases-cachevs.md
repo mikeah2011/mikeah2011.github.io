@@ -14,7 +14,7 @@ tags:
 - 缓存
 - 会话
 - 购物车
-cover: /images/covers/databases-01-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-01-content-1.jpg
 - /images/content/databases-01-content-2.jpg

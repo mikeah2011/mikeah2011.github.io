@@ -1,8 +1,8 @@
 ---
 title: Confluence-SA-SD-模板实战-YYYY-MM-DD专案格式详解-真实案例与踩坑记录
-cover: /images/covers/confluence-sa-sd-guide-yyyy-mm-dddeep-dive-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/confluence-sa-sd-guide-yyyy-mm-dddeep-dive-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-05 02:26:04
 updated: 2026-05-05 02:28:42
 categories:

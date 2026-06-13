@@ -10,9 +10,9 @@ tags:
 - Laravel
 categories:
 - database
-cover: /images/covers/mysql-9x-new-features-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/mysql-9x-new-features-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 description: MySQL 9.x 引入原生向量搜索支持，包括 VECTOR 数据类型、HNSW 索引和 VECTOR_DISTANCE 函数，无需额外部署向量数据库即可处理
   AI 应用中的 embedding 数据。同时带来 JSON_TABLEA、JSON_MERGE_PATCH、JSON Schema 验证等 JSON 增强，自适应查询优化、增量排序、并行执行等查询优化器改进，以及动态数据脱敏和行级安全策略。本文提供完整的
   Laravel 适配指南和性能基准测试，帮助开发者充分利用 MySQL 9.x 的新能力。

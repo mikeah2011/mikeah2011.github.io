@@ -4,7 +4,7 @@ date: 2026-05-03
 description: MySQL 索引深度优化实战指南，基于 KKday B2C API 真实踩坑记录，系统讲解 EXPLAIN 查询计划分析方法、覆盖索引设计策略、最左前缀原则应用技巧、索引失效三大典型场景避坑方案与慢查询治理完整解决方案。每个优化技巧均配有详细的
   Before/After 代码对比、Docker Compose 一键复现测试环境与性能基准数据，帮助后端工程师全面掌握从全表扫描 type=ALL 到覆盖索引
   Using index 的完整性能调优路径，实现查询速度提升 7 倍、P99 延迟降低 93%、CPU 使用率降低 82% 的显著优化效果。
-cover: /images/covers/databases-007-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-007-content-1.jpg
 - /images/content/databases-007-content-2.jpg

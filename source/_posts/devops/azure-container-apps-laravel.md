@@ -10,9 +10,9 @@ tags:
 - KEDA
 categories:
 - devops
-cover: /images/covers/azure-container-apps-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/azure-container-apps-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: 本文深入探讨如何将 Laravel 微服务部署到 Azure Container Apps，涵盖多阶段 Dockerfile 构建、KEDA
   事件驱动自动扩缩容、Dapr Sidecar 集成、GitHub Actions CI/CD 流水线、密钥管理与文件存储等生产踩坑经验。通过实际代码示例展示队列
   Worker 缩放到零、基于 Redis 队列深度的弹性扩缩策略，以及与 AWS App Runner 和 Google Cloud Run 的横向对比，帮助团队在

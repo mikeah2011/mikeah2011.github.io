@@ -4,9 +4,9 @@ date: 2026-06-02 10:00:00
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 架构对比, 扩展性]
 categories:
   - architecture
-cover: /images/covers/hermes-vs-openclaw-vs-openhuman-extensibility-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/hermes-vs-openclaw-vs-openhuman-extensibility-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: "从架构模式、核心数据结构、扩展点设计三个维度深度对比 Hermes（注册表驱动）、OpenClaw（文件原生）、OpenHuman（Memory Tree 知识图谱）三大 AI Agent 框架的扩展性策略。Hermes 通过声明式注册和 lock file 实现团队标准化；OpenClaw 以文件系统为一等公民，零学习成本；OpenHuman 基于 SQLite 本地知识图谱支持语义搜索和关系推理。提供个人开发者、中小团队、企业级等不同场景的选型建议，以及显式 vs 隐式、中心化 vs 去中心化的深层权衡分析。"
 ---
 

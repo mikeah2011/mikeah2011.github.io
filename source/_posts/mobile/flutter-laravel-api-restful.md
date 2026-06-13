@@ -4,9 +4,9 @@ date: 2026-06-02 10:00:00
 tags: [Flutter, Laravel, RESTful, API, Dio, Freezed]
 categories:
   - mobile
-cover: /images/covers/flutter-laravel-api-cover.jpg
+cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/flutter-laravel-api-cover.jpg
+  - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 description: 本文系统讲解 Flutter Laravel API 项目中的 RESTful 对接实践，覆盖 Dio 封装、认证鉴权、Token 刷新、分页加载、错误处理与接口建模，帮助你搭建稳定可维护的前后端协作方案。
 ---
 

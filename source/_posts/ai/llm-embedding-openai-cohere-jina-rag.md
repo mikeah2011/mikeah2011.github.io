@@ -11,9 +11,9 @@ description: 本文深度对比 OpenAI、Cohere、Jina 三大主流 Embedding �
   集成、pgvector 向量数据库存储到 Chunking 策略与生产环境踩坑，系统性拆解 RAG 检索增强生成系统中 Embedding 选型的核心权衡，附完整代码示例与决策树，帮助开发者做出最优选型。
 categories:
 - ai
-cover: /images/covers/llm-embedding-rag-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/llm-embedding-rag-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 

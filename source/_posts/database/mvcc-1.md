@@ -5,7 +5,7 @@ categories:
   - database
 date: 2019-03-20 15:05:07
 description: '`MVCC`（多版本并发控制）是InnoDB引擎实现高并发事务的核心机制，通过ReadView一致性视图和undo log回滚日志为每行数据维护多个版本快照，实现无锁读操作。本文深入剖析ReadView结构（m_ids、min_trx_id、max_trx_id、creator_trx_id）、可见性判断算法、RC与RR隔离级别下ReadView创建时机的差异，以及purge清理机制，全面理解MySQL事务隔离的底层实现原理。'
-cover: /images/covers/databases-1-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - /images/content/databases-1-content-1.jpg
   - /images/content/databases-1-content-2.jpg

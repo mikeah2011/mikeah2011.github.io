@@ -5,9 +5,9 @@ tags: [Headless CMS, Strapi, Directus, Payload, Laravel, 内容管理]
 description: '深入对比 Strapi、Directus、Payload 三大开源 Headless CMS，从技术栈、Schema 定义、API 查询、权限控制、多语言、性能基准等多维度进行选型分析。面向 Laravel 开发者，详解 Webhook 实时同步、REST API 缓存、GraphQL 精确查询、共享数据库四种集成模式，附完整代码示例、Docker 部署方案与决策矩阵，助你选择最适合的内容管理方案。'
 categories:
   - architecture
-cover: /images/covers/headless-cms-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/headless-cms-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 ## 前言：为什么 Laravel 开发者需要关注 Headless CMS

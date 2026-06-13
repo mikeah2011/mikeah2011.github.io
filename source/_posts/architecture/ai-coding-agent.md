@@ -12,9 +12,9 @@ tags:
 - DevSecOps
 categories:
 - architecture
-cover: /images/covers/ai-coding-agent-security-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-coding-agent-security-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

@@ -12,9 +12,9 @@ tags:
 - 数据库
 categories:
 - database
-cover: /images/covers/clickhouse-vs-postgresql-olap-selection-laravel-integration-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/clickhouse-vs-postgresql-olap-selection-laravel-integration-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 

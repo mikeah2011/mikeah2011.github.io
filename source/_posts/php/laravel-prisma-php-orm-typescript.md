@@ -15,9 +15,9 @@ description: 2026 年 PHP ORM 与 TypeScript ORM 全维度深度对比：Laravel
   CRUD 代码示例、踩坑案例与选型决策矩阵，帮助开发者在 PHP 和 TypeScript 技术栈间做出最佳 ORM 选型。
 categories:
 - php
-cover: /images/covers/laravel-vs-prisma-2026-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-vs-prisma-2026-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

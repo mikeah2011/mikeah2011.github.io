@@ -11,9 +11,9 @@ description: 深入解析 eBPF 技术在 Laravel Kubernetes 集群中的实战�
   安全可观测性引擎配置、XDP/kprobe/tracepoint 内核级网络追踪、零信任网络策略设计、Hubble 流量可视化监控，以及生产环境中的延迟排查、命令注入防护、连接池泄漏诊断等真实案例，助你构建内核级安全与可观测性体系。
 categories:
 - devops
-cover: /images/covers/ebpf-cilium-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ebpf-cilium-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

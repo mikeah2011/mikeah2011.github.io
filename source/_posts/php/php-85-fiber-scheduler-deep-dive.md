@@ -4,9 +4,9 @@ date: 2026-06-09 06:15:00
 updated: 2026-06-09 07:25:00
 categories:
 - php
-cover: /images/covers/php-85-fiber-scheduler-deep-dive-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-85-fiber-scheduler-deep-dive-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
 - PHP 8.5
 - Fibers

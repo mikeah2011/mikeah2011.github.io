@@ -10,9 +10,9 @@ tags:
 - 可靠性
 categories:
 - devops
-cover: /images/covers/sre-sli-slo-error-budget-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/sre-sli-slo-error-budget-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 description: 本文基于 Laravel B2C 电商 API 项目，完整落地 Google SRE 核心实践。从 SLI 指标定义与 Redis 采集、分层
   SLO 目标制定，到 Error Budget 计算与预算驱动的工程决策。涵盖可用性中间件、延迟百分位追踪、吞吐量异常检测的可运行代码实现，配合 Prometheus
   + Grafana 监控体系，帮助团队用数据而非直觉来平衡可靠性与迭代速度。

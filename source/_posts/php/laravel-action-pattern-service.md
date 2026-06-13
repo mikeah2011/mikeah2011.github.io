@@ -9,9 +9,9 @@ tags:
 - PHP
 categories:
 - php
-cover: /images/covers/laravel-action-pattern-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-action-pattern-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 大型 Laravel 项目中胖 Service 的终极解决方案——Action Pattern 实战详解。从 OrderService 上帝类的痛点出发，逐步演示如何将每个业务操作封装为独立的
   Action 类，配合 DTO 输入、构造函数注入、事件驱动解耦等最佳实践。附带 30+ 仓库重构经验、测试策略与重构检查清单，提升代码可维护性与团队协作效率。
 ---

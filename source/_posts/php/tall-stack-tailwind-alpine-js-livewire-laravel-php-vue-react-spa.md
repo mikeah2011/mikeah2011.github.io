@@ -5,9 +5,9 @@ description: '深入解析 TALL Stack（Tailwind CSS、Alpine.js、Livewire、La
 tags: [TALL Stack, Laravel, Livewire, Alpine.js, Tailwind CSS, 全栈开发]
 categories:
   - php
-cover: /images/covers/tall-stack-fullstack-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/tall-stack-fullstack-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 ## 前言：为什么 PHP 开发者需要关注 TALL Stack？

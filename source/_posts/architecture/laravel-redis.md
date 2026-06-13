@@ -14,9 +14,9 @@ description: 电商推荐系统从零到生产的完整实战，涵盖 User-Base
   秒的性能调优经验，适合 Laravel 电商项目搭建推荐系统的完整技术参考。
 categories:
 - architecture
-cover: /images/covers/recommendation-system-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/recommendation-system-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

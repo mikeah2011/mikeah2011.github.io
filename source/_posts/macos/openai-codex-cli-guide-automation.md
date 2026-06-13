@@ -7,9 +7,9 @@ categories:
   - tools
 tags: [AI, Laravel, OpenAI, Codex, CLI]
 description: OpenAI Codex CLI 是 2025 年开源的终端 AI 编程代理，本文涵盖安装配置、三种审批模式详解、Laravel 项目批量重构与测试生成实战、安全最佳实践（自动审批 vs 手动审查）、Codex CLI vs Claude Code vs Cursor 详细对比，以及常见故障排查指南。
-cover: /images/covers/openai-codex-cli-guide-automation-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openai-codex-cli-guide-automation-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 
 
 

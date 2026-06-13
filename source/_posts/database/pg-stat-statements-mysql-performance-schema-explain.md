@@ -5,9 +5,9 @@ tags: [MySQL, PostgreSQL, Performance Schema, pg_stat_statements, 慢查询, 性
 description: 生产环境慢查询监控实战指南，深入对比 PostgreSQL pg_stat_statements 与 MySQL Performance Schema 两大工具的架构原理、统计维度与开销差异。覆盖 Top SQL 统计、等待事件根因分析、Laravel DB::listen() 集成、Prometheus+Grafana 可视化告警、EXPLAIN 实战解读，以及 5 个真实踩坑案例与选型决策矩阵，帮助后端与 DBA 团队建立从发现到修复的闭环监控体系。
 categories:
   - database
-cover: /images/covers/pg-stat-perf-schema-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
-  - /images/covers/pg-stat-perf-schema-cover.jpg
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 ---
 
 # pg_stat_statements + MySQL Performance Schema 实战：数据库慢查询的生产级监控——从 EXPLAIN 到等待事件的根因分析

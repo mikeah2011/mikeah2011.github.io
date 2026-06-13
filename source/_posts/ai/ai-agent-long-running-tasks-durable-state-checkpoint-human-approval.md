@@ -9,9 +9,9 @@ tags:
 - Temporal
 categories:
 - ai
-cover: /images/covers/ai-agent-long-running-tasks-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-long-running-tasks-cover.jpg
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 description: AI Agent 长运行任务的核心挑战在于持久化状态、断点恢复与人机审批。本文系统探讨 Temporal.io、Inngest 与自建方案三条技术路线，覆盖
   DAG 工作流引擎、Saga 补偿模式、死信队列与状态版本兼容性踩坑，帮助你为生产级 Agent 选择最合适的 durable execution 架构。
 ---

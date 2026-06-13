@@ -1,8 +1,8 @@
 ---
 title: "Zed 编辑器实战：下一代 GPU 加速代码编辑器 — Rust 架构、LSP 集成与 macOS 开发效率提升踩坑记录"
-cover: /images/covers/zed-guide-gpu-rustarchitecturelspmacos-cover.jpg
+cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
-  - /images/covers/zed-guide-gpu-rustarchitecturelspmacos-cover.jpg
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 03:00:19
 updated: 2026-05-17 03:02:47
 categories:

@@ -5,9 +5,9 @@ date: 2026-06-07 12:00:00
 tags: [Laravel, PHP, Stringable, Fluent String, 字符串处理]
 categories:
   - php
-cover: /images/covers/laravel-stringable-fluent-string-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-stringable-fluent-string-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 ## 前言

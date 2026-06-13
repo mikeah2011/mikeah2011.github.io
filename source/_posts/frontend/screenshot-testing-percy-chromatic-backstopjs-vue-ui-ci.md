@@ -14,9 +14,9 @@ tags:
 - CI
 categories:
 - frontend
-cover: /images/covers/screenshot-testing-vue3-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/screenshot-testing-vue3-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 

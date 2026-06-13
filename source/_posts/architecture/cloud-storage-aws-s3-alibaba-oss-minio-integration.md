@@ -15,7 +15,7 @@ tags:
 - 多云架构
 description: 从 S3 协议底层原理出发，深度对比 AWS S3、阿里云 OSS、MinIO 三大对象存储的架构差异、性能特征与成本模型，并通过 Laravel
   多驱动集成实战展示如何构建可切换的统一存储层，附带生产环境踩坑记录与多云策略最佳实践。
-cover: /images/covers/arch-006-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/arch-006-content-1.jpg
 - /images/content/arch-006-content-2.jpg

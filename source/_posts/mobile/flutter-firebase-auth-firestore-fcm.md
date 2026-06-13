@@ -4,9 +4,9 @@ date: 2026-06-02 10:00:00
 tags: [Flutter, Firebase, Auth, Firestore, FCM]
 categories:
   - mobile
-cover: /images/covers/flutter-firebase-cover.jpg
+cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/flutter-firebase-cover.jpg
+  - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 description: 这篇 Flutter Firebase 实战文章系统讲解 Auth、Firestore、FCM、推送通知与安全规则、离线持久化、调试排错和架构取舍，帮助你快速搭建可落地的一体化后端方案。
 ---
 

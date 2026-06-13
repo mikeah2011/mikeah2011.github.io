@@ -5,9 +5,9 @@ tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 技能系统, 插件生态]
 categories:
   - architecture
 description: "深度对比2026年三大主流AI Agent框架的技能系统：Hermes Skill Hub的种子分发模型、OpenClaw ClawdHub的社区驱动市场、OpenHuman Composio的一键集成平台。从设计哲学、开发体验、安全治理、分发机制四个维度全面剖析，结合代码示例和特性矩阵，帮助开发者选型适合自身场景的AI Agent框架插件生态。"
-cover: /images/covers/three-frameworks-skill-system-comparison-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/three-frameworks-skill-system-comparison-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 # 三大框架技能系统对比：Hermes Skill Hub vs OpenClaw ClawdHub vs OpenHuman Composio

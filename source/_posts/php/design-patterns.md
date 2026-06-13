@@ -1,8 +1,8 @@
 ---
 title: PHP 常见设计模式：单例、工厂、策略、观察者实战
-cover: /images/covers/design-patterns-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/design-patterns-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
 - PHP
 - 设计模式

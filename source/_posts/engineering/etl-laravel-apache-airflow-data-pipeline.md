@@ -16,9 +16,9 @@ tags:
 description: 在 KKday B2C 后端团队的实际项目中，数据管道是连接业务系统与数据仓库的命脉。本文记录从 Laravel Cron + 手动脚本迁移到
   Apache Airflow 的完整实战过程：DAG 编排、Operator 选型、Laravel Artisan 命令集成、增量抽取策略、错误重试、监控告警，以及踩过的
   15 个生产坑。
-cover: /images/covers/etl-laravel-apache-airflow-data-pipeline-cover.jpg
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
-  - /images/covers/etl-laravel-apache-airflow-data-pipeline-cover.jpg
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 ---
 
 

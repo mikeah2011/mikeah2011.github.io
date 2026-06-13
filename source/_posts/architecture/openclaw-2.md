@@ -8,9 +8,9 @@ tags:
 - 成本优化
 categories:
 - architecture
-cover: /images/covers/openclaw-model-strategy-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openclaw-model-strategy-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 本文围绕 OpenClaw 多模型路由与成本优化展开，系统讲解 AI Agent 在生产环境中的任务分层、模型策略、预算控制、Token
   治理、回退降级与可观测性设计，并结合配置示例、路由伪代码和工程实践，帮助你构建兼顾质量、时延与成本的可运营模型调度架构。
 ---

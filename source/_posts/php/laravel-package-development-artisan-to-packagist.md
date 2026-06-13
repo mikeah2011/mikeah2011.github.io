@@ -16,9 +16,9 @@ tags:
 - orchestra-testbench
 categories:
 - php
-cover: /images/covers/laravel-package-development-artisan-to-packagist-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-package-development-artisan-to-packagist-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 

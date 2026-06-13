@@ -14,7 +14,7 @@ tags:
   - Laravel
   - TypeScript
 description: "深度剖析 MCP (Model Context Protocol) 的协议设计、架构原理与实战集成，从 M×N 问题出发，对比 Function Calling / LangChain Tools / Plugin 等方案，结合 TypeScript/Python SDK 源码与 Laravel 后端集成案例，帮助开发者理解 AI Agent 工具标准化的核心价值与落地路径。"
-cover: /images/covers/ai-002-cover.jpg
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - /images/content/ai-002-content-1.jpg
   - /images/content/ai-002-content-2.jpg

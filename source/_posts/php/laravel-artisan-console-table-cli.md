@@ -5,9 +5,9 @@ tags: [Laravel, Artisan, CLI, PHP, DevOps]
 categories:
   - php
 description: 深入 Laravel Artisan Console 的高级特性，系统讲解交互式命令设计（ask/confirm/choice/secret）、实时进度条控制、Symfony Table 表格渲染、多态参数与选项签名语法解析，并通过构建内部运维 CLI 工具箱实战项目，将数据库巡检、队列监控、健康检查等命令串联成可生产部署的自动化运维工具链。
-cover: /images/covers/laravel-artisan-console-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-artisan-console-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 在日常后端开发工作中，除了编写 Web 接口和处理 HTTP 请求之外，我们还经常面临大量需要在命令行环境中完成的任务：批量数据迁移、定时清理过期记录、服务组件健康检查、日志统计分析、数据库备份与恢复等。这些任务如果完全依赖手动操作或临时脚本，不仅效率低下，而且极易出错。Laravel 框架提供的 Artisan Console 系统，远不止 `php artisan migrate` 和 `php artisan make:model` 这些生成器命令那么简单——它实际上是一套功能完备的 CLI 应用开发框架，具备交互式输入、丰富的终端输出样式、实时进度条、结构化表格渲染、多态参数与选项解析等专业级能力。

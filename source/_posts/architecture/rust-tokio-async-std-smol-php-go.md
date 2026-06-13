@@ -10,9 +10,9 @@ tags:
 - 并发
 categories:
 - architecture
-cover: /images/covers/rust-async-ecosystem-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/rust-async-ecosystem-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 深入对比 Rust 三大异步运行时 Tokio、async-std 与 Smol 的架构设计、调度策略与性能基准。本文从 Future trait、Pin、Waker
   等核心原语出发，剖析多线程工作窃取调度器、epoll/kqueue/io_uring I/O 模型差异，并提供完整的运行时选型决策树。面向 PHP 与 Go 开发者的迁移指南，涵盖
   async/await 语法、channel 通信、CancellationToken 取消传播等实战模式，帮助你在 2026 年做出最优的 Rust 异步编程选型决策。

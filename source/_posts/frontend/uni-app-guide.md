@@ -1,8 +1,8 @@
 ---
 title: uni-app 条件编译实战：平台差异处理与适配策略踩坑记录
-cover: /images/covers/uni-app-guide-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/uni-app-guide-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-17 06:35:34
 updated: 2026-05-17 06:38:35
 categories:

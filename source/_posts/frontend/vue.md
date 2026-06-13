@@ -1,8 +1,8 @@
 ---
 title: Vue.js 核心概念：响应式数据、组件化与生命周期
-cover: /images/covers/vue-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/vue-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 tags:
 - JavaScript
 - Vue

@@ -11,9 +11,9 @@ tags:
 - 性能优化
 categories:
 - php
-cover: /images/covers/php-fiber-pool-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/php-fiber-pool-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 description: 深入实战PHP 8.5 Fiber协程池，实现高并发批量HTTP请求与数据库查询，详解并发度控制、错误隔离与结果收集机制。全面对比Go goroutine
   pool与Swoole协程的调度模型、内存开销和适用场景，附带Laravel集成方案与生产环境常见陷阱排查指南，助你掌握PHP异步编程进阶技巧。
 ---

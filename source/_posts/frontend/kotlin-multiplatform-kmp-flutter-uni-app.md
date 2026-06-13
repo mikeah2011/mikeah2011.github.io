@@ -13,9 +13,9 @@ description: Kotlin Multiplatform (KMP) 跨平台开发实战指南，详解 exp
   网络请求层与 kotlinx.serialization 数据模型、Shared ViewModel 状态管理、Jetpack Compose 与 SwiftUI
   原生 UI 集成。深度对比 KMP/Flutter/uni-app 三者在原生体验、开发效率、生态成熟度、CPU 性能、内存占用等维度的差异，提供选型决策树与
   KMP+Flutter 混合架构方案。适合有原生开发经验的 Android/iOS 团队用 Kotlin 共享业务逻辑、保留各平台原生 UI 的跨平台落地参考。
-cover: /images/covers/kotlin-multiplatform-kmp-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/kotlin-multiplatform-kmp-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 

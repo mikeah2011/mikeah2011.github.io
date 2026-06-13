@@ -11,9 +11,9 @@ tags:
 - Formatting
 categories:
 - frontend
-cover: /images/covers/biome-next-gen-frontend-toolchain-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/biome-next-gen-frontend-toolchain-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 description: 全面评测 Biome——用 Rust 编写的下一代前端工具链，同时替代 ESLint 和 Prettier。实测格式化速度提升 20 倍以上，零配置即可使用。涵盖从
   ESLint+Prettier 迁移实战、Vue 3/React 项目集成、CI/CD 配置、自定义规则编写，以及与 Rome 项目的技术渊源对比，帮助前端团队评估是否值得切换到
   Biome。

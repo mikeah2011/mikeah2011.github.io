@@ -13,9 +13,9 @@ tags:
 - Laravel
 categories:
 - architecture
-cover: /images/covers/ai-driven-refactoring-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-driven-refactoring-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 

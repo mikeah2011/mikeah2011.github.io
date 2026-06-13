@@ -9,9 +9,9 @@ tags:
 - 可视化
 categories:
 - architecture
-cover: /images/covers/openhuman-knowledge-graph-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/openhuman-knowledge-graph-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 知识图谱为 AI Agent 的记忆系统增加关系维度。本文深入剖析 OpenHuman 如何在 Memory Tree 基础上构建知识图谱，涵盖增强型
   NER 实体识别与消歧、三阶段关系提取（规则/共现/LLM）、NetworkX 混合存储方案、图查询与传递性推理、D3.js 力导向可视化实现，以及从日常对话自动构建个人知识图谱的完整实战案例。
 ---

@@ -8,7 +8,7 @@ tags:
 - Laravel
 - MySQL
 description: 基于 Laravel B2C 后台真实树形分类与运营报表场景，拆解 MySQL 8 Recursive CTE 在层级展开、路径聚合、子树汇总中的落地方式，重点记录索引设计、环数据防护、路径截断与临时表放大的真实踩坑。
-cover: /images/covers/databases-001-cover.jpg
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-001-content-1.jpg
 - /images/content/databases-001-content-2.jpg

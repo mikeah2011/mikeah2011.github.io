@@ -4,9 +4,9 @@ date: 2026-06-02 10:00:00
 tags: [Tech Lead, 工程管理, Code Review, 架构决策, 团队赋能]
 categories:
   - architecture
-cover: /images/covers/tech-lead-role-transition-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/tech-lead-role-transition-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 description: 从 Senior Engineer 到 Tech Lead 的角色跃迁实战指南，系统讲解架构决策框架（ADR 与决策矩阵）、Code Review 文化建设、技术债务管理、团队赋能策略（1-on-1 辅导与 Pair Programming）。涵盖时间分配模型、向上管理与跨团队协作、危机时刻领导力，附完整 Laravel 项目真实案例与成长路径规划，帮助新晋 Tech Lead 快速完成从个人贡献者到团队赋能者的角色转变。
 ---
 

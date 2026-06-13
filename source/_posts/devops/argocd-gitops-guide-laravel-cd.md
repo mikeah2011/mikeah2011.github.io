@@ -1,8 +1,8 @@
 ---
 title: ArgoCD GitOps 实战：Laravel 应用持续部署与回滚踩坑记录
-cover: /images/covers/argocd-gitops-guide-laravel-cd-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/argocd-gitops-guide-laravel-cd-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-16 19:20:11
 updated: 2026-05-16 19:24:13
 categories:

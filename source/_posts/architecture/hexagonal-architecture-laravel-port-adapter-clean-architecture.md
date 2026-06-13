@@ -5,9 +5,9 @@ tags: [Hexagonal Architecture, 六边形架构, 端口与适配器, Clean Archit
 description: 深入对比六边形架构与 Clean Architecture 在 Laravel 项目中的落地差异，通过端口与适配器模式实现依赖反转，结合电商订单系统重构案例，手把手教你从传统 MVC 迁移到六边形架构，掌握 Laravel Service Container 绑定、渐进式迁移策略与 CQRS 集成的工程实践。
 categories:
   - architecture
-cover: /images/covers/hexagonal-architecture-laravel-cover.jpg
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
-  - /images/covers/hexagonal-architecture-laravel-cover.jpg
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 ---
 
 ## 前言：当架构思想碰撞 Laravel 框架

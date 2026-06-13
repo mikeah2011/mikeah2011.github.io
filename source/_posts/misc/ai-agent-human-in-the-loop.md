@@ -3,9 +3,9 @@ title: AI Agent Human-in-the-Loop 实战：审批节点、人工确认、中断�
 date: 2026-06-06 10:00:00
 tags: [AI Agent, HITL, Human-in-the-Loop, LLM, 人机协作]
 categories: [ai]
-cover: /images/covers/ai-agent-hitl-cover.jpg
+cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
-  - /images/covers/ai-agent-hitl-cover.jpg
+  - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 description: '深入解析 AI Agent Human-in-the-Loop（HITL）三种核心模式：审批节点、人工确认与中断恢复。以 LangGraph 为主线，涵盖风险分级矩阵、多级审批、反馈循环、状态持久化、孤儿中断恢复等生产级实现，对比 CrewAI/AutoGen 框架，附审计日志、监控告警、幂等防重最佳实践与踩坑指南。'
 ---
 

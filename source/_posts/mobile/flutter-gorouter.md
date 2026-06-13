@@ -13,9 +13,9 @@ tags:
 - 移动端
 categories:
 - mobile
-cover: /images/covers/flutter-gorouter-routing-deep-link-cover.jpg
+cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/flutter-gorouter-routing-deep-link-cover.jpg
+  - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 ---
 
 

@@ -12,9 +12,9 @@ description: 本文结合 Laravel 线上系统，系统讲解 Prometheus、Grafa
   告警规则设计、Alertmanager 路由与抑制、Grafana 面板模板、监控告警分级、误报治理与告警疲劳优化，帮助团队建立真正可执行、可演练、可持续迭代的生产级告警体系。
 categories:
 - devops
-cover: /images/covers/prometheus-alerting-cover.jpg
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
-  - /images/covers/prometheus-alerting-cover.jpg
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 ---
 
 

@@ -5,9 +5,9 @@ date: 2026-06-07 10:30:00
 tags: [Svelte, Runes, 响应式, Vue, React, 前端框架]
 categories:
   - frontend
-cover: /images/covers/svelte5-runes-cover.jpg
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
-  - /images/covers/svelte5-runes-cover.jpg
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 ---
 
 ## 引言：前端框架的信号革命（2024-2026）

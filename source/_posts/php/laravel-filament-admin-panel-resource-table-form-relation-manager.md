@@ -5,9 +5,9 @@ date: 2026-06-07 10:00:00
 tags: [Laravel, Filament, Admin Panel, PHP, CRUD]
 categories:
   - php
-cover: /images/covers/laravel-filament-admin-panel-cover.jpg
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - /images/covers/laravel-filament-admin-panel-cover.jpg
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 ---
 
 在 Laravel 生态中，后台管理系统几乎每个项目都需要，但每次从零搭建 AdminLTE + 手写 CRUD 的痛苦经历想必每位开发者都深有体会。Filament 3.x 的出现彻底改变了这一现状——它以"声明式 API + 全栈 Livewire"为核心，让我们用极少的代码就能构建出功能完备、UI 精美的生产级后台。本文将基于真实项目经验，从安装到部署，全面拆解 Filament 3.x 的各项核心能力。
