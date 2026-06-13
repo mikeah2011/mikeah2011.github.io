@@ -2,14 +2,24 @@
 title: Terraform 实战：Laravel 应用基础设施即代码（IaC）— 从手动点 AWS 控制台到代码化部署的踩坑记录
 date: 2026-06-01
 categories:
-  - devops
-tags: [Terraform, IaC, Laravel, AWS, Infrastructure-as-Code, EC2, RDS, S3, VPC]
-description: 这篇文章系统记录如何用 Terraform 为 Laravel 应用在 AWS 上实现 IaC 落地，涵盖 VPC、EC2、RDS、S3、State 管理、模块拆分、版本锁定、资源导入与团队协作等实战细节，帮助你把基础设施即代码真正用于可复现、可审计、可扩展的生产部署。
+- devops
+tags:
+- IaC
+- Laravel
+- AWS
+- Infrastructure-as-Code
+- EC2
+- RDS
+- S3
+- VPC
+description: 这篇文章系统记录如何用 Terraform 为 Laravel 应用在 AWS 上实现 IaC 落地，涵盖 VPC、EC2、RDS、S3、State
+  管理、模块拆分、版本锁定、资源导入与团队协作等实战细节，帮助你把基础设施即代码真正用于可复现、可审计、可扩展的生产部署。
 cover: /images/covers/devops-01-cover.jpg
 images:
-  - /images/content/devops-01-content-1.jpg
-  - /images/content/devops-01-content-2.jpg
+- /images/content/devops-01-content-1.jpg
+- /images/content/devops-01-content-2.jpg
 ---
+
 
 ## 一、为什么写这篇？
 

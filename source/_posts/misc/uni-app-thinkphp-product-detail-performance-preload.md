@@ -1,19 +1,21 @@
 ---
-title: "uni-app + ThinkPHP 商品详情页性能优化与预加载策略实战踩坑记录"
+title: uni-app + ThinkPHP 商品详情页性能优化与预加载策略实战踩坑记录
 cover: /images/covers/2026-06-01-uni-app-thinkphp-product-detail-performance-preload-cover.jpg
 date: 2026-06-01 12:00:00
 categories:
-  - misc
+- misc
 tags:
-  - uni-app
-  - ThinkPHP 8
-  - 性能优化
-  - 预加载
-  - 商品详情页
-  - 奇乐MAX
-  - 盲盒电商
-description: "基于奇乐 MAX（qile-max）盲盒电商真实项目，深度拆解 uni-app 商品详情页从 3.2s 降到 800ms 的性能优化全链路：ThinkPHP 后端聚合接口设计、前端骨架屏 + 数据预加载 + 图片懒加载 + 虚拟列表、Redis 缓存分层策略，以及 6 个真实生产踩坑记录。"
+- uni-app
+- ThinkPHP
+- 性能优化
+- 预加载
+- 商品详情页
+- 奇乐MAX
+- 盲盒电商
+description: 基于奇乐 MAX（qile-max）盲盒电商真实项目，深度拆解 uni-app 商品详情页从 3.2s 降到 800ms 的性能优化全链路：ThinkPHP
+  后端聚合接口设计、前端骨架屏 + 数据预加载 + 图片懒加载 + 虚拟列表、Redis 缓存分层策略，以及 6 个真实生产踩坑记录。
 ---
+
 
 ## 一、问题背景：盲盒电商的商品详情页为什么这么慢？
 

@@ -1,20 +1,22 @@
 ---
-title: "Laravel Folio 实战：页面路由替代传统 Controller 的新范式——从源码剖析到 B2C 电商落地踩坑记录"
+title: Laravel Folio 实战：页面路由替代传统 Controller 的新范式——从源码剖析到 B2C 电商落地踩坑记录
 cover: /images/covers/laravel-folio-page-routing-replaces-traditional-controller-cover.jpg
 date: 2026-06-01 14:00:00
 categories:
-  - php
-  - frontend
+- php
+- frontend
 tags:
-  - Laravel Folio
-  - 文件路由
-  - 页面路由
-  - Blade
-  - Livewire
-  - Laravel 12
-  - B2C 电商
-description: "Laravel Folio 用目录结构取代路由定义，让每个 Blade 文件即一个页面。本文从框架源码出发，拆解 Folio 的路由解析链、中间件注入机制、嵌套路由与参数捕获原理，对比传统 Controller + Route 模式在 B2C 电商场景中的工程权衡，附真实踩坑记录与性能基准测试数据。"
+- Laravel Folio
+- 文件路由
+- 页面路由
+- Blade
+- Livewire
+- Laravel
+- B2C 电商
+description: Laravel Folio 用目录结构取代路由定义，让每个 Blade 文件即一个页面。本文从框架源码出发，拆解 Folio 的路由解析链、中间件注入机制、嵌套路由与参数捕获原理，对比传统
+  Controller + Route 模式在 B2C 电商场景中的工程权衡，附真实踩坑记录与性能基准测试数据。
 ---
+
 # Laravel Folio 实战：页面路由替代传统 Controller 的新范式
 
 当一个 Laravel B2C 项目的路由文件膨胀到 2000+ 行、Controller 目录下有 80+ 个文件、每个页面要走 `Route::get → Controller → View` 三层才能渲染一个简单的静态页面时，你一定会问：**有没有一种方式，让"创建一个页面"回到"创建一个文件"的简单？**

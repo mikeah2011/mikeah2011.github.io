@@ -1,11 +1,21 @@
 ---
-title: "PHP 8.6 Pattern Matching 提案前瞻：match 表达式的进化——结构化模式匹配与 Laravel 状态机的深度集成"
+title: PHP 8.6 Pattern Matching 提案前瞻：match 表达式的进化——结构化模式匹配与 Laravel 状态机的深度集成
 date: 2026-06-09 15:23:00
 categories:
-  - php
-tags: [PHP, PHP 8.6, Pattern Matching, match, Laravel, 状态机, 结构化模式匹配]
-description: "PHP 8.6 正在酝酿对 match 表达式进行结构化模式匹配升级。本文深度剖析该提案的核心设计：从简单值匹配到类型绑定、解构赋值、守卫条件的全面进化，并通过 Laravel 状态机实战案例展示结构化模式匹配如何替代冗长的 switch-case 状态分发，最终对比 Rust/TypeScript/Swift 的模式匹配实现，讨论 PHP 生态的迁移策略与踩坑记录。"
+- php
+tags:
+- PHP
+- PHP 8.6
+- Pattern Matching
+- match
+- Laravel
+- 状态机
+- 模式匹配
+description: PHP 8.6 正在酝酿对 match 表达式进行结构化模式匹配升级。本文深度剖析该提案的核心设计：从简单值匹配到类型绑定、解构赋值、守卫条件的全面进化，并通过
+  Laravel 状态机实战案例展示结构化模式匹配如何替代冗长的 switch-case 状态分发，最终对比 Rust/TypeScript/Swift 的模式匹配实现，讨论
+  PHP 生态的迁移策略与踩坑记录。
 ---
+
 
 # PHP 8.6 Pattern Matching 提案前瞻：match 表达式的进化——结构化模式匹配与 Laravel 状态机的深度集成
 

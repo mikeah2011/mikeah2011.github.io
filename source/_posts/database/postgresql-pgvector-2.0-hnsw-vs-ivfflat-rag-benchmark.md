@@ -1,12 +1,19 @@
 ---
 title: PostgreSQL pgvector 2.0 实战：向量索引性能基准——HNSW vs IVFFlat 在百万级 RAG 检索中的选型
 date: 2026-06-06 00:00:00
-tags: [PostgreSQL, pgvector, 向量数据库, RAG, HNSW, IVFFlat]
+tags:
+- PostgreSQL
+- pgvector
+- 数据库
+- RAG
+- HNSW
+- IVFFlat
 categories:
-  - database
+- database
 cover: /images/covers/postgresql-pgvector-hnsw-vs-ivfflat-cover.jpg
 description: 深入对比PostgreSQL pgvector 2.0中HNSW与IVFFlat两种向量索引在百万级RAG检索场景下的性能基准，涵盖查询延迟、召回率、并发吞吐量测试，并给出面向生产环境的向量检索选型建议与Laravel集成方案。
 ---
+
 
 在 RAG（Retrieval-Augmented Generation）架构日益成为企业级 AI 应用标配的今天，向量检索的性能与精度直接决定了整个系统的响应速度和回答质量。PostgreSQL 凭借 pgvector 扩展，已经从一个"能做向量检索的关系型数据库"进化为一个足以与专用向量数据库（如 Pinecone、Milvus、Weaviate）抗衡的生产级方案。本文将深入对比 pgvector 2.0 中两种核心索引——HNSW 和 IVFFlat——在百万级数据规模下的性能表现，并给出面向 RAG 场景的工程化选型建议。
 

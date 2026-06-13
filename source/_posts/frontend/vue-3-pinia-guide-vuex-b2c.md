@@ -8,7 +8,6 @@ tags:
 - TypeScript
 - Vue
 - Pinia
-- Vuex
 - 前端
 - 状态管理
 description: 从 Vuex 迁移到 Pinia 的完整实战指南，深度讲解 Vue 3 状态管理核心概念。涵盖 Pinia Store 设计模式（Setup
@@ -16,6 +15,7 @@ description: 从 Vuex 迁移到 Pinia 的完整实战指南，深度讲解 Vue 3
   刷新、日志）、持久化存储方案、性能优化策略，以及在真实 B2C 电商项目中从 Vuex 4 迁移到 Pinia 过程中遇到的 6 大踩坑记录与解决方案。
 cover: /images/covers/vue-3-pinia-guide-vuex-b2c-cover.jpg
 ---
+
 
 ## 为什么从 Vuex 迁移到 Pinia？
 

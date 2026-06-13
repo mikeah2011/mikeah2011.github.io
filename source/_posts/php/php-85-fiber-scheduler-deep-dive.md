@@ -1,19 +1,21 @@
 ---
-title: "PHP 8.5 Fiber 调度器深度实战：手动调度 vs 自动让出——从 yield 到 Fibers 的协程演化与 Swoole 协程对比"
+title: PHP 8.5 Fiber 调度器深度实战：手动调度 vs 自动让出——从 yield 到 Fibers 的协程演化与 Swoole 协程对比
 date: 2026-06-09 06:15:00
 updated: 2026-06-09 07:25:00
 categories:
-  - php
+- php
 cover: /images/covers/php-85-fiber-scheduler-deep-dive-cover.jpg
 tags:
-  - PHP 8.5
-  - Fiber
-  - 协程
-  - 异步编程
-  - Swoole
-  - 并发
-description: "深入剖析 PHP Fiber 调度机制：从 Generator yield 到原生 Fiber 的协程演化历程，实战演示手动调度器与自动让出模式的完整实现，涵盖并发 HTTP 客户端、curl_multi 事件循环集成，附 Fiber vs Swoole 协程全方位对比与 4 个生产踩坑案例，帮助后端开发者掌握 PHP 原生协程的核心原理与工程落地。"
+- PHP 8.5
+- Fibers
+- 协程
+- 异步编程
+- Swoole
+- 并发
+description: 深入剖析 PHP Fiber 调度机制：从 Generator yield 到原生 Fiber 的协程演化历程，实战演示手动调度器与自动让出模式的完整实现，涵盖并发
+  HTTP 客户端、curl_multi 事件循环集成，附 Fiber vs Swoole 协程全方位对比与 4 个生产踩坑案例，帮助后端开发者掌握 PHP 原生协程的核心原理与工程落地。
 ---
+
 
 ## 前言
 

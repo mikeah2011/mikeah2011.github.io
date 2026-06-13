@@ -2,15 +2,16 @@
 title: 数据库读写分离延迟治理实战：主从延迟监控、强制走主策略与中间件透明路由
 date: 2026-06-09 22:21:00
 categories:
-  - database
+- database
 tags:
-  - MySQL
-  - 读写分离
-  - 主从延迟
-  - Laravel
-  - 数据库架构
+- MySQL
+- 读写分离
+- 主从延迟
+- Laravel
+- 数据库
 description: 从 B2C 电商真实场景出发，详解 MySQL 主从延迟的成因、监控方案、Laravel 层强制走主策略，以及中间件透明路由的一致性保障实践。
 ---
+
 
 ## 概述
 

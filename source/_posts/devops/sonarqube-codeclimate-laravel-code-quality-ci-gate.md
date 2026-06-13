@@ -2,18 +2,20 @@
 title: SonarQube + CodeClimate 实战：代码质量量化治理——Laravel 30+ 仓库的技术债务仪表盘与 CI 门禁
 date: 2026-06-10 05:09:00
 categories:
-  - devops
+- devops
 tags:
-  - SonarQube
-  - CodeClimate
-  - 代码质量
-  - 技术债务
-  - CI/CD
-  - Laravel
-  - PHPStan
-  - 静态分析
-description: 从零搭建 SonarQube + CodeClimate 双引擎代码质量治理体系，覆盖 Laravel 30+ 仓库的静态分析、重复代码检测、技术债务量化、CI 门禁卡控。含 Docker Compose 部署、Quality Gate 配置、GitHub Actions 集成、自定义规则、仪表盘设计与团队落地实践。
+- SonarQube
+- CodeClimate
+- 代码质量
+- 技术债
+- CI/CD
+- Laravel
+- PHPStan
+- 静态分析
+description: 从零搭建 SonarQube + CodeClimate 双引擎代码质量治理体系，覆盖 Laravel 30+ 仓库的静态分析、重复代码检测、技术债务量化、CI
+  门禁卡控。含 Docker Compose 部署、Quality Gate 配置、GitHub Actions 集成、自定义规则、仪表盘设计与团队落地实践。
 ---
+
 
 # SonarQube + CodeClimate 实战：代码质量量化治理
 

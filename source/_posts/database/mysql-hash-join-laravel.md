@@ -1,12 +1,20 @@
 ---
-title: 'MySQL 8.0 到 9.0 升级实战：不可见索引、直方图、Hash Join、向量搜索——Laravel 项目的平滑迁移路径'
+title: MySQL 8.0 到 9.0 升级实战：不可见索引、直方图、Hash Join、向量搜索——Laravel 项目的平滑迁移路径
 date: 2026-06-06 10:00:00
-tags: [MySQL, Laravel, 数据库升级, Hash Join, 向量搜索]
+tags:
+- MySQL
+- Laravel
+- 数据库
+- Hash Join
+- 向量搜索
 categories:
-  - database
-description: MySQL 8.0 到 9.0 升级实战完整指南，以 Laravel B2C 电商系统为背景，深入拆解四大核心特性：不可见索引的安全删除策略、直方图统计对数据分布不均匀查询的优化、Hash Join 将多表联查提速数十倍的原理与调优、以及原生向量搜索替代 Elasticsearch 的语义检索落地。包含 ProxySQL 灰度切换方案、Laravel Migration 适配、性能基准测试数据、回滚预案与 12 个真实踩坑案例，帮助 DBA 和后端工程师在一个迭代周期内安全完成数据库大版本升级。
+- database
+description: MySQL 8.0 到 9.0 升级实战完整指南，以 Laravel B2C 电商系统为背景，深入拆解四大核心特性：不可见索引的安全删除策略、直方图统计对数据分布不均匀查询的优化、Hash
+  Join 将多表联查提速数十倍的原理与调优、以及原生向量搜索替代 Elasticsearch 的语义检索落地。包含 ProxySQL 灰度切换方案、Laravel
+  Migration 适配、性能基准测试数据、回滚预案与 12 个真实踩坑案例，帮助 DBA 和后端工程师在一个迭代周期内安全完成数据库大版本升级。
 cover: /images/covers/mysql-8-to-9-upgrade-cover.jpg
 ---
+
 
 ## 一、问题背景与升级动机
 

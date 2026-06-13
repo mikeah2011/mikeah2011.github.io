@@ -4,9 +4,8 @@ date: 2026-06-04 10:00:00
 tags:
 - crossplane
 - Kubernetes
-- Terraform
-- GitOps
 - IaC
+- GitOps
 - 基础设施
 categories:
 - devops
@@ -16,6 +15,7 @@ description: Crossplane 是 CNCF 孵化的 Kubernetes 原生基础设施编排�
   ArgoCD GitOps 集成，深入对比 Crossplane 与 Terraform 的优劣，包含完整 Laravel 项目基础设施编排案例、踩坑排查指南与
   Terraform 迁移路线图，帮助 K8s 团队实现云资源的 GitOps 声明式管理。
 ---
+
 
 
 

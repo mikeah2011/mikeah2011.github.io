@@ -1,12 +1,21 @@
 ---
-title: "ThinkPHP 8 多租户架构设计：数据隔离、权限分级、资源配额实战踩坑记录"
+title: ThinkPHP 8 多租户架构设计：数据隔离、权限分级、资源配额实战踩坑记录
 date: 2026-06-01 10:00:00
 categories:
-  - misc
-tags: [ThinkPHP 8, 多租户, SaaS, 数据隔离, 权限分级, 资源配额, 奇乐MAX]
-description: "基于奇乐 MAX（qile-max）SaaS 化改造的真实经验，拆解 ThinkPHP 8 多租户架构的三种数据隔离方案（共享表/独立 Schema/独立数据库）、中间件级租户识别、RBAC 权限分级、Redis 令牌桶资源配额，以及生产环境中遇到的 8 个真实踩坑与重构方案。"
-cover: "/images/covers/thinkphp-8-multi-tenant-architecture-design-cover.jpg"
+- misc
+tags:
+- ThinkPHP
+- 多租户
+- SaaS
+- 数据隔离
+- 权限分级
+- 资源配额
+- 奇乐MAX
+description: 基于奇乐 MAX（qile-max）SaaS 化改造的真实经验，拆解 ThinkPHP 8 多租户架构的三种数据隔离方案（共享表/独立 Schema/独立数据库）、中间件级租户识别、RBAC
+  权限分级、Redis 令牌桶资源配额，以及生产环境中遇到的 8 个真实踩坑与重构方案。
+cover: /images/covers/thinkphp-8-multi-tenant-architecture-design-cover.jpg
 ---
+
 
 ## 一、问题背景：为什么盲盒电商需要多租户？
 

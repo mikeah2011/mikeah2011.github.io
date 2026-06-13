@@ -6,13 +6,14 @@ description: 深入剖析 Hermes Agent 子代理架构设计，详解 Leaf（叶
 tags:
 - Hermes
 - 子代理
-- agent架构
-- 多agent
+- Agent
+- Multi-Agent
 - 任务分发
 categories:
 - architecture
 cover: /images/covers/hermes-subagent-architecture-cover.jpg
 ---
+
 
 
 # Hermes 子代理架构：leaf vs orchestrator 角色模型、工具屏蔽、审批策略

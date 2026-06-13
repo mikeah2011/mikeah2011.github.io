@@ -2,18 +2,20 @@
 title: Claude Code + MCP 生态实战：2026 MCP Server 工具市场的爆发——从搜索到浏览器到数据库的 100+ 工具集成指南
 date: 2026-06-09 14:42:00
 categories:
-  - ai
+- ai
 tags:
-  - Claude Code
-  - MCP
-  - MCP Server
-  - Agent 工具生态
-  - Laravel
-  - PHP
-  - 工具集成
-description: 深入解析 2026 年 MCP Server 生态爆发，从 Claude Code 出发，覆盖搜索引擎、浏览器、数据库、文件系统等 100+ 工具的发现、配置与实战集成。
+- Claude Code
+- MCP
+- MCP Server
+- Agent
+- Laravel
+- PHP
+- 工具集成
+description: 深入解析 2026 年 MCP Server 生态爆发，从 Claude Code 出发，覆盖搜索引擎、浏览器、数据库、文件系统等 100+
+  工具的发现、配置与实战集成。
 cover: https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200
 ---
+
 
 ## 概述
 

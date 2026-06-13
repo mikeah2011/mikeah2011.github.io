@@ -1,12 +1,22 @@
 ---
 title: OpenHuman 安全模型深度剖析：OS keychain 密钥管理、OAuth token 代理、workspace 沙箱
 date: 2026-06-02 12:00:00
-description: 深度剖析 OpenHuman AI Agent 三层安全架构：OS Keychain 密钥管理、OAuth Token 代理、Workspace 沙箱隔离。涵盖 macOS/Linux/Windows 跨平台 Keychain 实现、密钥生命周期管理、OAuth 授权码流程、Prompt Injection 防护策略与企业级安全合规实践指南。
-tags: [OpenHuman, AI安全, Keychain, OAuth, 沙箱, 密钥管理, Token代理]
+description: 深度剖析 OpenHuman AI Agent 三层安全架构：OS Keychain 密钥管理、OAuth Token 代理、Workspace
+  沙箱隔离。涵盖 macOS/Linux/Windows 跨平台 Keychain 实现、密钥生命周期管理、OAuth 授权码流程、Prompt Injection
+  防护策略与企业级安全合规实践指南。
+tags:
+- OpenHuman
+- AI安全
+- Keychain
+- OAuth
+- 沙箱
+- 密钥管理
+- Token
 categories:
-  - architecture
+- architecture
 cover: /images/covers/openhuman-security-model-cover.jpg
 ---
+
 
 ## 前言：AI Agent 的安全挑战
 

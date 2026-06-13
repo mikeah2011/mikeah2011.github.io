@@ -5,7 +5,7 @@ tags:
 - Laravel
 - graceful-degradation
 - 高可用
-- 分布式系统
+- 分布式
 - 降级策略
 description: 深入讲解 Laravel 中 Graceful Degradation 优雅降级的分层设计方案，涵盖功能降级、数据降级与体验降级三大策略，提供可运行的
   Laravel 代码实现、Prometheus 监控集成及电商大促实战案例，助你构建高可用分布式系统。
@@ -13,6 +13,7 @@ categories:
 - architecture
 cover: /images/covers/graceful-degradation-cover.jpg
 ---
+
 
 
 # Graceful Degradation 实战：降级策略设计——Laravel 中的功能降级、数据降级与体验降级的分层方案

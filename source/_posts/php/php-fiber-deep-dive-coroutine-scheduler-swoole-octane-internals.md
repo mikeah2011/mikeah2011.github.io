@@ -1,12 +1,20 @@
 ---
 title: PHP Fiber 深度实战：从零实现一个协程调度器——理解 Swoole/Octane 的底层原理
 date: 2026-06-02 10:00:00
-description: PHP Fiber 深度实战指南，从零实现协程调度器以理解 Swoole/Laravel Octane 底层原理。详解 Fiber 栈切换机制、事件循环与 IO 多路复用、并发 API 调用性能优化（串行 1050ms 降至 400ms），对比 Fiber/Swoole Coroutine/Go goroutine 三种协程方案。包含完整的 Scheduler、Coroutine、Channel 实现代码与踩坑记录，适合 PHP 开发者深入理解异步编程模型。
-tags: [PHP Fiber, 协程, Swoole, Laravel Octane, 性能优化]
+description: PHP Fiber 深度实战指南，从零实现协程调度器以理解 Swoole/Laravel Octane 底层原理。详解 Fiber 栈切换机制、事件循环与
+  IO 多路复用、并发 API 调用性能优化（串行 1050ms 降至 400ms），对比 Fiber/Swoole Coroutine/Go goroutine
+  三种协程方案。包含完整的 Scheduler、Coroutine、Channel 实现代码与踩坑记录，适合 PHP 开发者深入理解异步编程模型。
+tags:
+- PHP Fibers
+- 协程
+- Swoole
+- Octane
+- 性能优化
 categories:
-  - php
+- php
 cover: /images/covers/php-fiber-deep-dive-coroutine-scheduler-swoole-octane-internals-cover.jpg
 ---
+
 
 # PHP Fiber 深度实战：从零实现一个协程调度器——理解 Swoole/Octane 的底层原理
 

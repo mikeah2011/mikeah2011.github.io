@@ -3,7 +3,7 @@ title: MySQL 9.x 新特性实战：向量搜索、JSON 增强、性能改进与 
 date: 2026-06-02 10:00:00
 tags:
 - MySQL
-- mysql9
+- MySQL 9
 - 向量搜索
 - JSON
 - 性能优化
@@ -15,6 +15,7 @@ description: MySQL 9.x 引入原生向量搜索支持，包括 VECTOR 数据类�
   AI 应用中的 embedding 数据。同时带来 JSON_TABLEA、JSON_MERGE_PATCH、JSON Schema 验证等 JSON 增强，自适应查询优化、增量排序、并行执行等查询优化器改进，以及动态数据脱敏和行级安全策略。本文提供完整的
   Laravel 适配指南和性能基准测试，帮助开发者充分利用 MySQL 9.x 的新能力。
 ---
+
 
 
 

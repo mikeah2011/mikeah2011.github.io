@@ -1,12 +1,19 @@
 ---
 title: TCC 分布式事务模式实战：Try-Confirm-Cancel 在 Laravel 订单/支付/库存中的落地
 date: 2026-06-06 09:00:00
-tags: [TCC, 分布式事务, Laravel, 微服务]
+tags:
+- TCC
+- 分布式
+- Laravel
+- 微服务
 categories:
-  - architecture
+- architecture
 cover: /images/covers/tcc-distributed-transaction-cover.jpg
-description: "TCC 分布式事务模式深度实战指南，基于 Laravel 框架完整实现订单、支付、库存三大微服务的 Try-Confirm-Cancel 三阶段事务编排。文章详解 TCC 核心原理与状态机设计，提供事务日志管理、空回滚防护、悬挂处理、幂等保障三大经典问题的生产级解决方案，涵盖 Sage/TCC/2PC 三种分布式事务方案的对比选型表，包含完整的可运行 PHP 代码示例与踩坑经验，帮助后端工程师在高一致性要求的电商场景中稳健落地分布式事务。"
+description: TCC 分布式事务模式深度实战指南，基于 Laravel 框架完整实现订单、支付、库存三大微服务的 Try-Confirm-Cancel
+  三阶段事务编排。文章详解 TCC 核心原理与状态机设计，提供事务日志管理、空回滚防护、悬挂处理、幂等保障三大经典问题的生产级解决方案，涵盖 Sage/TCC/2PC
+  三种分布式事务方案的对比选型表，包含完整的可运行 PHP 代码示例与踩坑经验，帮助后端工程师在高一致性要求的电商场景中稳健落地分布式事务。
 ---
+
 
 ## 前言
 

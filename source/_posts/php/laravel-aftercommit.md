@@ -2,17 +2,20 @@
 title: Laravel 多表事务一致性实战：订单创建跨 5 张表的事务边界、死锁预防与 afterCommit 事件时序踩坑记录
 date: 2026-06-09 19:52:00
 categories:
-  - php
+- php
 tags:
-  - Laravel
-  - MySQL
-  - 事务
-  - 死锁
-  - afterCommit
-  - Eloquent
-  - 数据一致性
-description: 在 B2C 电商场景下，一个订单创建往往涉及 orders、order_items、order_payments、inventory_logs、user_points 等多张表的写入。本文从生产环境真实踩坑出发，深入剖析 Laravel DB::transaction 的事务边界设计、死锁预防策略、afterCommit 事件时序陷阱，以及 30+ 仓库积累的工程化最佳实践。
+- Laravel
+- MySQL
+- 事务
+- 死锁
+- afterCommit
+- Eloquent
+- 一致性
+description: 在 B2C 电商场景下，一个订单创建往往涉及 orders、order_items、order_payments、inventory_logs、user_points
+  等多张表的写入。本文从生产环境真实踩坑出发，深入剖析 Laravel DB::transaction 的事务边界设计、死锁预防策略、afterCommit 事件时序陷阱，以及
+  30+ 仓库积累的工程化最佳实践。
 ---
+
 
 ## 概述
 

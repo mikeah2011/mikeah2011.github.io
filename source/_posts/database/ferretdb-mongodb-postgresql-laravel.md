@@ -6,7 +6,7 @@ tags:
 - MongoDB
 - PostgreSQL
 - Laravel
-- 文档数据库
+- 数据库
 categories:
 - database
 cover: /images/covers/ferretdb-cover.jpg
@@ -14,6 +14,7 @@ description: FerretDB 是基于 PostgreSQL 驱动的开源 MongoDB 替代方案�
   合规风险。本文深入解析其协议转换架构与数据映射原理、Docker Compose 一键部署、MongoDB API 兼容性矩阵、Laravel 集成全流程、性能基准对比及
   MongoDB 迁移最佳实践，帮助团队以零许可证风险快速构建生产级文档数据库应用。
 ---
+
 
 
 

@@ -7,7 +7,7 @@ description: CockroachDB 是基于 Raft 共识协议的分布式 SQL 数据库�
   Laravel 开发者在全球化业务场景下做出最优数据库选型。
 tags:
 - cockroachdb
-- 分布式数据库
+- 数据库
 - NewSQL
 - Laravel
 - raft
@@ -15,6 +15,7 @@ categories:
 - database
 cover: /images/covers/cockroachdb-laravel-cover.jpg
 ---
+
 
 
 

@@ -2,17 +2,18 @@
 title: Vue 3 Server Component (Vapor SSR) 实战：Vue 的服务端组件——对比 React RSC 的数据获取与流式渲染策略
 date: 2026-06-09 16:15:00
 categories:
-  - frontend
+- frontend
 tags:
-  - Vue 3
-  - SSR
-  - Server Component
-  - Vapor Mode
-  - React RSC
-  - 性能优化
-  - 流式渲染
+- Vue
+- SSR
+- Server Components
+- Vapor Mode
+- React
+- 性能优化
+- 流式渲染
 description: 深入 Vue 3 Vapor SSR 的服务端组件机制，对比 React RSC 在数据获取、流式渲染、组件边界上的设计差异，附完整实战代码与性能调优策略。
 ---
+
 
 ## 概述
 

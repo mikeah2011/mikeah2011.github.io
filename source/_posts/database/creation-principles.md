@@ -4,7 +4,7 @@ tags:
 - MySQL
 - 索引
 - 性能优化
-- 数据库优化
+- 数据库
 - Laravel
 categories:
 - database
@@ -16,6 +16,7 @@ images:
 - /images/content/databases-creation-principles-content-1.jpg
 - /images/content/databases-creation-principles-content-2.jpg
 ---
+
 
 # 索引创建的原则
 

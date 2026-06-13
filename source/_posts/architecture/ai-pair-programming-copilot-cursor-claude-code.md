@@ -1,12 +1,21 @@
 ---
 title: AI Pair Programming 评估实战：Copilot vs Cursor vs Claude Code 的代码质量、开发速度与开发者满意度量化研究
 date: 2026-06-05 12:00:00
-tags: [AI, Copilot, Cursor, Claude Code, Pair Programming, 工程效能]
-description: "本文对 GitHub Copilot、Cursor 和 Claude Code 三款主流 AI Pair Programming 工具进行系统性量化评估。基于 12 名 Laravel 开发者在 5 个真实任务上的受控实验，从代码质量、开发速度、首次正确率、安全性、开发者满意度等维度展开深度对比。含完整 PHP 代码示例、静态分析数据、NASA-TLX 认知负荷评估及场景推荐矩阵，帮助团队做出数据驱动的 AI 编程工具选型决策。"
+tags:
+- AI
+- GitHub Copilot
+- Cursor
+- Claude Code
+- Pair Programming
+- 工程效能
+description: 本文对 GitHub Copilot、Cursor 和 Claude Code 三款主流 AI Pair Programming 工具进行系统性量化评估。基于
+  12 名 Laravel 开发者在 5 个真实任务上的受控实验，从代码质量、开发速度、首次正确率、安全性、开发者满意度等维度展开深度对比。含完整 PHP 代码示例、静态分析数据、NASA-TLX
+  认知负荷评估及场景推荐矩阵，帮助团队做出数据驱动的 AI 编程工具选型决策。
 categories:
-  - architecture
+- architecture
 cover: /images/covers/ai-pair-programming-eval-cover.jpg
 ---
+
 
 ## 引言：AI Pair Programming 的黄金时代
 

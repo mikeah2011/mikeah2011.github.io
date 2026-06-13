@@ -8,9 +8,6 @@ description: 深入解析 Self-RAG、Corrective-RAG、Adaptive-RAG 三大 Agenti
 tags:
 - RAG
 - Agent
-- self-rag
-- corrective-rag
-- adaptive-rag
 - Laravel
 - 向量检索
 - Prompt Engineering
@@ -18,6 +15,7 @@ categories:
 - ai
 cover: /images/covers/agentic-rag-cover.jpg
 ---
+
 
 
 

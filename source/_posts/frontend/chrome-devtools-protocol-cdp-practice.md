@@ -1,18 +1,20 @@
 ---
-title: "Chrome DevTools Protocol 实战：浏览器自动化底层协议——Playwright/Puppeteer 的 CDP 通信机制与自定义调试工具开发"
+title: Chrome DevTools Protocol 实战：浏览器自动化底层协议——Playwright/Puppeteer 的 CDP 通信机制与自定义调试工具开发
 date: 2026-06-10 04:20:00
 categories:
-  - frontend
+- frontend
 tags:
-  - Chrome DevTools Protocol
-  - CDP
-  - Playwright
-  - Puppeteer
-  - 浏览器自动化
-  - 调试工具
-  - Node.js
-description: "深入剖析 Chrome DevTools Protocol 的底层通信机制，从 WebSocket 帧级别理解 Playwright/Puppeteer 的命令分发原理，并动手开发一个基于 CDP 的自定义性能监控与调试工具。"
+- Chrome DevTools Protocol
+- CDP
+- Playwright
+- Puppeteer
+- 自动化
+- 调试工具
+- Node.js
+description: 深入剖析 Chrome DevTools Protocol 的底层通信机制，从 WebSocket 帧级别理解 Playwright/Puppeteer
+  的命令分发原理，并动手开发一个基于 CDP 的自定义性能监控与调试工具。
 ---
+
 
 ## 为什么你需要了解 CDP？
 

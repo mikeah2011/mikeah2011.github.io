@@ -1,21 +1,24 @@
 ---
-title: "Cursor + Claude Code + Hermes 进阶实战：多 AI 协作的高级模式、MCP 集成与团队规模化"
+title: Cursor + Claude Code + Hermes 进阶实战：多 AI 协作的高级模式、MCP 集成与团队规模化
 cover: /images/covers/2026-06-01-cursor-claude-code-hermes-advanced-workflow-patterns-cover.jpg
 date: 2026-06-01 10:00:00
 categories:
-  - macos
-  - ai
-  - engineering
+- macos
+- ai
+- engineering
 tags:
-  - Cursor
-  - Claude Code
-  - Hermes Agent
-  - MCP
-  - 多 AI 协作
-  - 工作流自动化
-  - 团队规模化
-description: "Cursor、Claude Code、Hermes 三层 AI 协作架构的进阶实战指南。深入拆解 MCP 工具标准化如何统一三个 AI 工具的外部能力（解决 M×N 集成问题）、基于依赖图的上下文自动发现与 Token 预算裁剪策略、团队从个人工作流扩展到多人协作的共享规则仓库与角色化模型配置、以及按任务复杂度智能路由模型的成本优化方案（月费节省 35%）。包含真实 Laravel B2C 仓库的代码示例、Mermaid 架构图和生产环境数据。"
+- Cursor
+- Claude Code
+- Hermes Agent
+- MCP
+- 多 AI 协作
+- 工作流
+- 团队规模化
+description: Cursor、Claude Code、Hermes 三层 AI 协作架构的进阶实战指南。深入拆解 MCP 工具标准化如何统一三个 AI 工具的外部能力（解决
+  M×N 集成问题）、基于依赖图的上下文自动发现与 Token 预算裁剪策略、团队从个人工作流扩展到多人协作的共享规则仓库与角色化模型配置、以及按任务复杂度智能路由模型的成本优化方案（月费节省
+  35%）。包含真实 Laravel B2C 仓库的代码示例、Mermaid 架构图和生产环境数据。
 ---
+
 
 # Cursor + Claude Code + Hermes 进阶实战：多 AI 协作的高级模式、MCP 集成与团队规模化
 

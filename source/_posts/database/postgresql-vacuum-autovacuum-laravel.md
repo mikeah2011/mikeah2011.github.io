@@ -1,12 +1,19 @@
 ---
-title: 'PostgreSQL Vacuum 调优实战：autovacuum 参数、表膨胀治理、索引碎片整理——高写入 Laravel 应用的数据库维护指南'
+title: PostgreSQL Vacuum 调优实战：autovacuum 参数、表膨胀治理、索引碎片整理——高写入 Laravel 应用的数据库维护指南
 date: 2026-06-06 12:00:00
-tags: [PostgreSQL, Vacuum, 性能优化, 数据库维护, Laravel]
+tags:
+- PostgreSQL
+- Vacuum
+- 性能优化
+- 数据库
+- Laravel
 categories:
-  - database
+- database
 cover: /images/covers/postgresql-vacuum-tuning-cover.jpg
-description: "深入解析PostgreSQL Vacuum调优实战，涵盖autovacuum参数精细配置、表膨胀（Table Bloat）诊断与治理、索引碎片整理方案对比（VACUUM FULL vs pg_repack vs REINDEX CONCURRENTLY）。结合高写入Laravel电商应用的真实场景，提供从MVCC原理理解到生产环境监控告警的完整性能优化路径，附赠可直接落地的SQL脚本与最佳实践速查清单。"
+description: 深入解析PostgreSQL Vacuum调优实战，涵盖autovacuum参数精细配置、表膨胀（Table Bloat）诊断与治理、索引碎片整理方案对比（VACUUM
+  FULL vs pg_repack vs REINDEX CONCURRENTLY）。结合高写入Laravel电商应用的真实场景，提供从MVCC原理理解到生产环境监控告警的完整性能优化路径，附赠可直接落地的SQL脚本与最佳实践速查清单。
 ---
+
 
 ## 前言
 

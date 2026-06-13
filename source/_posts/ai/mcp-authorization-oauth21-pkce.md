@@ -1,19 +1,21 @@
 ---
-title: "MCP Authorization 规范实战：OAuth 2.1 + PKCE 的 MCP Server 鉴权——企业级工具访问控制的工程化方案"
+title: MCP Authorization 规范实战：OAuth 2.1 + PKCE 的 MCP Server 鉴权——企业级工具访问控制的工程化方案
 date: 2026-06-10 02:00:00
 categories:
-  - ai
+- ai
 tags:
-  - MCP
-  - OAuth 2.1
-  - PKCE
-  - Authorization
-  - Laravel
-  - AI Agent
-  - 鉴权
-  - 安全
-description: "深入 MCP Authorization 规范，用 Laravel 实现完整的 OAuth 2.1 + PKCE 鉴权流程：动态客户端注册、授权码交换、Token 生命周期管理、Scope 细粒度权限控制。"
+- MCP
+- OAuth
+- PKCE
+- Authorization
+- Laravel
+- AI Agent
+- 鉴权
+- 安全
+description: 深入 MCP Authorization 规范，用 Laravel 实现完整的 OAuth 2.1 + PKCE 鉴权流程：动态客户端注册、授权码交换、Token
+  生命周期管理、Scope 细粒度权限控制。
 ---
+
 
 # MCP Authorization 规范实战：OAuth 2.1 + PKCE 的 MCP Server 鉴权
 

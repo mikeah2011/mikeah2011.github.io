@@ -1,12 +1,22 @@
 ---
-title: 分布式锁深度对比：Redis Redlock vs Zookeeper vs etcd——PHP 开发者的分布式互斥选型与 Spring Cloud 锁模式启发
+title: 分布式锁深度对比：Redis Redlock vs Zookeeper vs etcd——PHP 开发者的分布式互斥选型与 Spring Cloud
+  锁模式启发
 date: 2026-06-05 09:00:00
-tags: [分布式锁, Redis, Zookeeper, etcd, 分布式系统, PHP]
+tags:
+- 分布式
+- Redis
+- Zookeeper
+- etcd
+- PHP
 categories:
-  - architecture
-description: "全面对比 Redis Redlock、Zookeeper 临时顺序节点与 etcd Lease 三大分布式锁方案，从 CAP 定位、一致性模型、性能基准到 PHP 实战代码逐层剖析。涵盖 SET NX EX + Lua 原子锁、Redlock 多数派算法、Kleppmann vs antirez 经典争论、Laravel 内置锁与 Redisson 看门狗模式借鉴，附 Redis/ZK/etcd 三套可运行 PHP 客户端实现、生产环境五大踩坑案例、锁监控方案与选型决策矩阵，助 PHP 开发者在秒杀库存、定时任务防重、金融级互斥等场景做出最优分布式锁选型。"
+- architecture
+description: 全面对比 Redis Redlock、Zookeeper 临时顺序节点与 etcd Lease 三大分布式锁方案，从 CAP 定位、一致性模型、性能基准到
+  PHP 实战代码逐层剖析。涵盖 SET NX EX + Lua 原子锁、Redlock 多数派算法、Kleppmann vs antirez 经典争论、Laravel
+  内置锁与 Redisson 看门狗模式借鉴，附 Redis/ZK/etcd 三套可运行 PHP 客户端实现、生产环境五大踩坑案例、锁监控方案与选型决策矩阵，助
+  PHP 开发者在秒杀库存、定时任务防重、金融级互斥等场景做出最优分布式锁选型。
 cover: /images/covers/distributed-lock-comparison-cover.jpg
 ---
+
 
 # 分布式锁深度对比：Redis Redlock vs Zookeeper vs etcd——PHP 开发者的分布式互斥选型与 Spring Cloud 锁模式启发
 

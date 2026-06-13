@@ -9,7 +9,7 @@ tags:
 - Laravel
 - SSO
 - MFA
-- OAuth2
+- OAuth
 - auth0
 - 认证
 - 身份认证
@@ -17,6 +17,7 @@ categories:
 - php
 cover: /images/covers/fusionauth-laravel-cover.jpg
 ---
+
 
 
 

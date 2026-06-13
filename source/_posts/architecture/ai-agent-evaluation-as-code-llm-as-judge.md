@@ -1,12 +1,20 @@
 ---
-title: 'AI Agent Evaluation as Code 实战：用 LLM-as-Judge 构建自动化回归测试——Agent 输出质量的持续集成保障'
+title: AI Agent Evaluation as Code 实战：用 LLM-as-Judge 构建自动化回归测试——Agent 输出质量的持续集成保障
 date: 2026-06-05 09:00:00
-tags: [AI Agent, LLM, Evaluation, Testing, CI/CD, LLM-as-Judge, 质量保障]
+tags:
+- AI Agent
+- LLM
+- Evaluation
+- Testing
+- CI/CD
+- 质量保障
 categories:
-  - architecture
-description: 深入实战AI Agent评估框架，基于LLM-as-Judge构建自动化回归测试体系。涵盖评估即代码理念、Python评估引擎实现、多维度Rubric评分标准设计、GitHub Actions CI/CD流水线集成、安全红线机制与成本优化策略，为Agent输出质量提供持续集成保障。
+- architecture
+description: 深入实战AI Agent评估框架，基于LLM-as-Judge构建自动化回归测试体系。涵盖评估即代码理念、Python评估引擎实现、多维度Rubric评分标准设计、GitHub
+  Actions CI/CD流水线集成、安全红线机制与成本优化策略，为Agent输出质量提供持续集成保障。
 cover: /images/covers/ai-agent-eval-as-code-cover.jpg
 ---
+
 
 ## 一、为什么需要 Agent 评估
 

@@ -8,7 +8,7 @@ tags:
 - DOM操作
 - AJAX
 - 事件处理
-- 前端框架对比
+- 前端框架
 categories:
 - frontend
 date: 2019-03-20 15:05:07
@@ -17,6 +17,7 @@ description: jQuery 是曾经统治整个前端开发领域的 JavaScript 库，
   主题与插件定制等场景中仍然具有重要的实际价值。本文系统全面地讲解 jQuery 3.x 核心用法与现代开发最佳实践，涵盖事件委托优化策略、AJAX 高级封装与错误处理、Deferred
   异步编程模式、自定义插件开发技巧，同时提供 jQuery 与原生 JavaScript 的完整对照速查表，以及从 jQuery 渐进式迁移到原生 JS 和现代前端框架的详细指南，帮助前端开发者在新旧技术栈之间自如切换。
 ---
+
 
 
 

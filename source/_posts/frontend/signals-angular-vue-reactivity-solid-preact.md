@@ -7,7 +7,7 @@ tags:
 - Angular
 - Vue
 - SOLID
-- Preact
+- React
 - 响应式
 - 前端架构
 categories:
@@ -17,6 +17,7 @@ description: 深度对比 Angular Signals、Vue Reactivity、Solid.js、Preact S
   API 设计，涵盖 Push-Pull 混合模型、Proxy 与函数拦截的依赖追踪差异、编译时优化策略、常见踩坑陷阱及选型决策矩阵，帮助前端开发者从原理层面理解
   Signals 范式并做出正确的架构选型。
 ---
+
 
 
 # Signals 范式对比：Angular Signals vs Vue Reactivity vs Solid Reactivity vs Preact Signals——响应式底层原理深度剖析

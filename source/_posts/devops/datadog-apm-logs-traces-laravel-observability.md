@@ -1,18 +1,21 @@
 ---
-title: "DataDog 实战：APM/Logs/Traces 统一可观测性——Laravel 应用的全栈监控方案与对比 Prometheus+Grafana 的选型决策"
+title: DataDog 实战：APM/Logs/Traces 统一可观测性——Laravel 应用的全栈监控方案与对比 Prometheus+Grafana
+  的选型决策
 date: 2026-06-10 06:00:00
 categories:
-  - devops
+- devops
 tags:
-  - Datadog
-  - APM
-  - 可观测性
-  - Laravel
-  - 监控
-  - 日志
-  - 分布式追踪
-description: "从零搭建 DataDog 对 Laravel 应用的全栈可观测性覆盖，包含 APM 性能监控、日志聚合、分布式追踪三大支柱，并与 Prometheus+Grafana 方案做深度选型对比。"
+- Datadog
+- APM
+- 可观测性
+- Laravel
+- 监控
+- 日志
+- 分布式
+description: 从零搭建 DataDog 对 Laravel 应用的全栈可观测性覆盖，包含 APM 性能监控、日志聚合、分布式追踪三大支柱，并与 Prometheus+Grafana
+  方案做深度选型对比。
 ---
+
 
 ## 为什么需要统一可观测性
 

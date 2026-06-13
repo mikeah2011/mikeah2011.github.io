@@ -1,12 +1,22 @@
 ---
-title: 'PostgreSQL WAL 深度剖析：Write-Ahead Log 的底层机制、归档配置、PITR 恢复与流复制延迟治理'
+title: PostgreSQL WAL 深度剖析：Write-Ahead Log 的底层机制、归档配置、PITR 恢复与流复制延迟治理
 date: 2026-06-10 08:38:00
-tags: [PostgreSQL, WAL, PITR, 流复制, 归档, Laravel, 数据库运维, 高可用]
+tags:
+- PostgreSQL
+- WAL
+- PITR
+- 流复制
+- 归档
+- Laravel
+- 数据库
+- 高可用
 categories:
-  - database
-description: "从零到一彻底搞懂 PostgreSQL WAL（Write-Ahead Log）：磁盘写入机制、LSN 与 XLogRecord 内部结构、归档配置实战、PITR 按时间点恢复完整流程、流复制搭建与延迟诊断治理。附 Laravel 项目真实踩坑记录与生产级配置模板。"
+- database
+description: 从零到一彻底搞懂 PostgreSQL WAL（Write-Ahead Log）：磁盘写入机制、LSN 与 XLogRecord 内部结构、归档配置实战、PITR
+  按时间点恢复完整流程、流复制搭建与延迟诊断治理。附 Laravel 项目真实踩坑记录与生产级配置模板。
 cover: /images/covers/postgresql-wal-deep-dive-cover.jpg
 ---
+
 
 ## 前言：WAL 为什么是 PostgreSQL 的心脏
 

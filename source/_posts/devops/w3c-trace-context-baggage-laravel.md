@@ -1,12 +1,18 @@
 ---
 title: 分布式追踪上下文传播实战：W3C Trace Context + Baggage——Laravel 微服务中跨进程的业务标签透传与采样策略
 date: 2026-06-06 08:00:00
-tags: [分布式追踪, W3C Trace Context, Baggage, OpenTelemetry, Laravel]
-description: "深入解析W3C Trace Context与Baggage标准在Laravel微服务中的实战应用，涵盖HTTP与队列场景的上下文传播、Baggage业务标签透传、头部与尾部采样策略对比，附完整PHP代码示例与生产踩坑记录，助你构建全链路分布式追踪体系。"
+tags:
+- 分布式
+- W3C Trace Context
+- Baggage
+- OpenTelemetry
+- Laravel
+description: 深入解析W3C Trace Context与Baggage标准在Laravel微服务中的实战应用，涵盖HTTP与队列场景的上下文传播、Baggage业务标签透传、头部与尾部采样策略对比，附完整PHP代码示例与生产踩坑记录，助你构建全链路分布式追踪体系。
 categories:
-  - devops
+- devops
 cover: /images/covers/distributed-tracing-w3c-cover.jpg
 ---
+
 
 ## 前言：为什么你的 Trace 总是"断链"？
 

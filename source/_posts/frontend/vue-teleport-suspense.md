@@ -2,7 +2,7 @@
 title: Vue 3 Teleport + Suspense 实战：模态框、全局通知、异步组件的现代化管理
 date: 2026-06-06 09:00:00
 tags:
-- Vue 3
+- Vue
 - Teleport
 - Suspense
 - 前端
@@ -17,6 +17,7 @@ description: Vue 3 Teleport 与 Suspense 实战指南：彻底解决模态框、
   Suspense、Vue 3.5 defer 新特性及常见踩坑案例，帮助你构建现代化的浮层与异步管理体系。
 cover: /images/covers/vue3-teleport-suspense-cover.jpg
 ---
+
 
 
 

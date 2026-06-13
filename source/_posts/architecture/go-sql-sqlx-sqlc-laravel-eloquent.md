@@ -6,7 +6,7 @@ tags:
 - SQL
 - sqlx
 - sqlc
-- 数据库连接池
+- 连接池
 - Laravel
 - Eloquent
 categories:
@@ -16,6 +16,7 @@ description: 深入实战 Go database/sql 标准库、sqlx 与 sqlc 代码生成
   Laravel Eloquent 开发者视角对比 Go 数据库操作的最佳实践，包含性能基准、N+1 问题排查、连接池监控、Savepoint 嵌套事务等生产级踩坑案例，助你从
   PHP 平滑迁移到 Go 高性能后端。
 ---
+
 
 
 # Go 数据库/sql 实战：连接池管理、事务控制与 sqlx/sqlc 代码生成——与 Laravel Eloquent 的对比

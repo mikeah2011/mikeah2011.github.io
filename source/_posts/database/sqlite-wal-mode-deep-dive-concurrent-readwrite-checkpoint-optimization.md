@@ -1,19 +1,20 @@
 ---
-title: "SQLite WAL 模式深度实战：并发读写、检查点调优、读副本——边缘应用与嵌入式场景的工程化高可用方案"
+title: SQLite WAL 模式深度实战：并发读写、检查点调优、读副本——边缘应用与嵌入式场景的工程化高可用方案
 date: 2026-06-10 07:53:00
 categories:
-  - database
+- database
 tags:
-  - SQLite
-  - WAL
-  - 并发
-  - 嵌入式数据库
-  - PHP
-  - Laravel
-  - 高可用
-  - 边缘计算
-description: "深入解析 SQLite WAL 模式原理，覆盖并发读写机制、检查点策略调优、读副本配置，以及在 PHP/Laravel 项目中的工程化落地实践。"
+- SQLite
+- WAL
+- 并发
+- 数据库
+- PHP
+- Laravel
+- 高可用
+- 边缘计算
+description: 深入解析 SQLite WAL 模式原理，覆盖并发读写机制、检查点策略调优、读副本配置，以及在 PHP/Laravel 项目中的工程化落地实践。
 ---
+
 
 ## 前言
 

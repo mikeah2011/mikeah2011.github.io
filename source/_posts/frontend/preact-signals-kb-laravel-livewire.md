@@ -1,16 +1,17 @@
 ---
-title: "Preact Signals 实战：轻量级状态管理——1KB 的 Signals 库在 Laravel Livewire 前端的嵌入式使用"
+title: Preact Signals 实战：轻量级状态管理——1KB 的 Signals 库在 Laravel Livewire 前端的嵌入式使用
 date: 2026-06-10 01:30:00
 categories:
-  - frontend
+- frontend
 tags:
-  - Preact Signals
-  - 状态管理
-  - Laravel Livewire
-  - 响应式编程
-  - 前端性能优化
-description: "深入实战 Preact Signals 这个仅 1KB 的响应式状态管理库，探索如何在 Laravel Livewire 项目中嵌入式使用，实现轻量级、高性能的前端状态管理方案。"
+- React
+- 状态管理
+- Livewire
+- 响应式
+- 前端性能
+description: 深入实战 Preact Signals 这个仅 1KB 的响应式状态管理库，探索如何在 Laravel Livewire 项目中嵌入式使用，实现轻量级、高性能的前端状态管理方案。
 ---
+
 
 ## 为什么要在 Livewire 项目里引入 Preact Signals？
 

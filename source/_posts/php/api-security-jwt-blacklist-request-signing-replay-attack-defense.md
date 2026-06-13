@@ -1,12 +1,21 @@
 ---
 title: API Security 深度实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击——多层防御的工程化方案
 date: 2026-06-06 10:00:00
-tags: [API安全, JWT, Laravel, 请求签名, 防重放攻击, Redis]
-description: "API 安全深度实战指南，基于 Laravel/PHP 技术栈系统讲解多层防御体系。涵盖 JWT 黑名单机制实现 Token 主动吊销、HMAC-SHA256 请求签名防篡改、Redis 滑动窗口速率限制、Nonce+Timestamp 防重放攻击、IP 白名单与 CIDR 匹配等核心方案。包含完整可运行代码、中间件执行顺序设计、性能影响评估（P99 额外延迟 5-10ms）及十大生产环境踩坑经验，适用于微服务架构和前后端分离场景的 API 安全工程化落地。"
+tags:
+- API安全
+- JWT
+- Laravel
+- 请求签名
+- 重放攻击
+- Redis
+description: API 安全深度实战指南，基于 Laravel/PHP 技术栈系统讲解多层防御体系。涵盖 JWT 黑名单机制实现 Token 主动吊销、HMAC-SHA256
+  请求签名防篡改、Redis 滑动窗口速率限制、Nonce+Timestamp 防重放攻击、IP 白名单与 CIDR 匹配等核心方案。包含完整可运行代码、中间件执行顺序设计、性能影响评估（P99
+  额外延迟 5-10ms）及十大生产环境踩坑经验，适用于微服务架构和前后端分离场景的 API 安全工程化落地。
 categories:
-  - php
+- php
 cover: /images/covers/api-security-multi-layer-defense-cover.jpg
 ---
+
 
 ## 前言
 

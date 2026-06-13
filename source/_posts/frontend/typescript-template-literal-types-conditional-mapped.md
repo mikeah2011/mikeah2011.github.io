@@ -1,12 +1,20 @@
 ---
-title: 'TypeScript 高级类型体操实战：Template Literal Types、Conditional Types、Mapped Types——从 any 到类型安全的进阶之路'
+title: TypeScript 高级类型体操实战：Template Literal Types、Conditional Types、Mapped Types——从
+  any 到类型安全的进阶之路
 date: 2026-06-07 10:00:00
-tags: [TypeScript, 类型系统, 前端工程化, 类型体操]
-description: 'TypeScript 高级类型体操实战指南，系统讲解 Template Literal Types、Conditional Types、Mapped Types 三大核心武器，从 any 到类型安全的进阶之路。涵盖 infer 提取、递归类型解包、分发式条件类型陷阱、深层 DeepReadonly 实现、类型性能优化，以及构建类型安全 API 层的完整项目案例。适合想彻底消灭 any、掌握类型推断与类型体操的前端工程师。'
+tags:
+- TypeScript
+- 类型系统
+- 工程化
+- 类型体操
+description: TypeScript 高级类型体操实战指南，系统讲解 Template Literal Types、Conditional Types、Mapped
+  Types 三大核心武器，从 any 到类型安全的进阶之路。涵盖 infer 提取、递归类型解包、分发式条件类型陷阱、深层 DeepReadonly 实现、类型性能优化，以及构建类型安全
+  API 层的完整项目案例。适合想彻底消灭 any、掌握类型推断与类型体操的前端工程师。
 categories:
-  - frontend
+- frontend
 cover: /images/covers/typescript-advanced-types-cover.jpg
 ---
+
 
 # TypeScript 高级类型体操实战：从 any 到类型安全的进阶之路
 

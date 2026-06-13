@@ -5,7 +5,7 @@ tags:
 - 索引
 - B+Tree
 - InnoDB
-- 数据库优化
+- 数据库
 categories:
 - database
 date: 2017-03-20 15:05:07
@@ -17,6 +17,7 @@ images:
 - /images/content/databases-index-1-content-1.jpg
 - /images/content/databases-index-1-content-2.jpg
 ---
+
 
 
 ## 什么是索引？

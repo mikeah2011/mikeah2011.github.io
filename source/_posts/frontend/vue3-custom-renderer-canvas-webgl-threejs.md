@@ -2,17 +2,18 @@
 title: Vue 3 Custom Renderer 实战：用 Vue 的响应式驱动 Canvas/WebGL/Three.js——游戏化电商与数据可视化的自定义渲染器
 date: 2026-06-10 03:03:00
 categories:
-  - frontend
+- frontend
 tags:
-  - Vue 3
-  - CustomRenderer
-  - Canvas
-  - WebGL
-  - Three.js
-  - 游戏化
-  - 数据可视化
+- Vue
+- CustomRenderer
+- Canvas
+- WebGL
+- Three.js
+- 游戏化
+- 可视化
 description: 深入 Vue 3 Custom Renderer API，从零构建 Canvas 2D、WebGL 和 Three.js 自定义渲染器，实战游戏化电商互动页面和高性能数据可视化大屏。
 ---
+
 ## 为什么需要 Custom Renderer？
 
 Vue 3 的核心架构做了一件很聪明的事：把**响应式系统**和**渲染逻辑**彻底分离。`@vue/reactivity` 可以独立使用，而渲染层通过 `createRenderer` 注入。这意味着你可以用 Vue 的响应式 API 驱动任何渲染目标——不只是 DOM。

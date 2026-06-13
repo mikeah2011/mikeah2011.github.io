@@ -5,7 +5,7 @@ categories:
 - go
 tags:
 - PHP
-- Fiber
+- Fibers
 - Go
 - goroutine
 - Rust
@@ -16,6 +16,7 @@ tags:
 description: 2026 年三大语言并发模型真实吞吐量对比：PHP Fiber、Go goroutine、Rust tokio，含完整基准测试代码与生产环境踩坑记录。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200
 ---
+
 
 
 ## 前言

@@ -5,7 +5,7 @@ tags:
 - 多区域部署
 - Laravel
 - CDN
-- 数据库同步
+- 数据库
 - 全球化
 - 边缘缓存
 categories:
@@ -16,6 +16,7 @@ description: 全球化 Laravel 应用多区域部署实战指南，系统覆盖 
   B2C 电商出海团队从单区域平滑演进到全球多区域部署参考。
 cover: /images/covers/multi-region-deployment-cover.jpg
 ---
+
 
 
 # 多区域部署实战：全球化 Laravel 应用——数据库同步、CDN 边缘缓存与跨区域一致性

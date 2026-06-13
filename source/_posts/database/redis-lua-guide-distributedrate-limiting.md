@@ -8,7 +8,7 @@ tags:
 - Laravel
 - Redis
 - Lua
-- 分布式限流
+- 分布式
 - 库存扣减
 description: Redis Lua 脚本原子操作实战指南，深入讲解分布式限流、库存扣减、排行榜等 B2C 电商核心场景。涵盖 EVALSHA 脚本缓存策略、KEYS
   命令避坑、redis.call 与 pcall 错误处理、Laravel 中间件集成方案与生产环境真实踩坑经验，帮助开发者用最低成本实现 Redis 原子性操作。
@@ -17,6 +17,7 @@ images:
 - /images/content/databases-1-content-1.jpg
 - /images/content/databases-1-content-2.jpg
 ---
+
 
 # Redis Lua 脚本原子操作实战：分布式限流、库存扣减、排行榜
 

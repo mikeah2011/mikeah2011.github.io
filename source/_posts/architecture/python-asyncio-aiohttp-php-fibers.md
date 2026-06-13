@@ -1,12 +1,21 @@
 ---
 title: Python asyncio 深度实战：事件循环、协程调度与 aiohttp——PHP Fibers 开发者的异步编程对比
 date: 2026-06-02 10:00:00
-tags: [Python, asyncio, aiohttp, 协程, PHP-Fibers, 异步编程, 事件循环]
+tags:
+- Python
+- asyncio
+- aiohttp
+- 协程
+- PHP Fibers
+- 异步编程
+- 事件循环
 categories:
-  - architecture
+- architecture
 cover: /images/covers/python-asyncio-cover.jpg
-description: "Python asyncio 事件循环、协程调度与 aiohttp 的深度实战指南，从 PHP Fibers 开发者视角解析异步编程核心概念。涵盖协程调度原理、异步上下文管理、aiohttp HTTP 客户端、异步数据库操作、并发控制模式，以及与 PHP Fibers 和 Go goroutine 的全面对比，帮助后端开发者掌握 Python 高并发编程。"
+description: Python asyncio 事件循环、协程调度与 aiohttp 的深度实战指南，从 PHP Fibers 开发者视角解析异步编程核心概念。涵盖协程调度原理、异步上下文管理、aiohttp
+  HTTP 客户端、异步数据库操作、并发控制模式，以及与 PHP Fibers 和 Go goroutine 的全面对比，帮助后端开发者掌握 Python 高并发编程。
 ---
+
 
 # Python asyncio 深度实战：事件循环、协程调度与 aiohttp——PHP Fibers 开发者的异步编程对比
 

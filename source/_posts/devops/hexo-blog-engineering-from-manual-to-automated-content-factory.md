@@ -2,17 +2,19 @@
 title: Hexo 博客工程化实战：GitHub Actions 自动部署、AI 辅助选题、SEO 优化、阅读量分析——从手动写作到自动化内容工厂的演进
 date: 2026-06-10 03:18:00
 categories:
-  - devops
+- devops
 tags:
-  - Hexo
-  - GitHub Actions
-  - AI
-  - SEO
-  - 自动化
-  - 博客工程化
-  - Aurora
-description: 一套完整的 Hexo 博客工程化方案：GitHub Actions 自动部署、AI 驱动的选题与写作流水线、SEO 深度优化、阅读量分析看板，从手动 hexo deploy 到自动化内容工厂的全链路实战。
+- Hexo
+- GitHub Actions
+- AI
+- SEO
+- 自动化
+- 工程化
+- Aurora
+description: 一套完整的 Hexo 博客工程化方案：GitHub Actions 自动部署、AI 驱动的选题与写作流水线、SEO 深度优化、阅读量分析看板，从手动
+  hexo deploy 到自动化内容工厂的全链路实战。
 ---
+
 
 ## 为什么要把博客"工程化"？
 

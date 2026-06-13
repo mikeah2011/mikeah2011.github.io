@@ -12,11 +12,12 @@ tags:
 - OpenAPI
 - Cypress
 - 契约测试
-- api-mock
+- API Mock
 description: KKday B2C 后端实战经验：基于 OpenAPI YAML 契约驱动开发，通过 Prism/Mockoon 自动生成 Fake Response
   JSON，结合 Cypress + Ajv 实现前后端契约测试的完整工作流。涵盖 30+ Laravel 仓库的真实踩坑记录，包括 $ref 解析、enum 演进、CI
   Pipeline 集成与错误处理模式，帮助团队将联调周期从 5 天缩短至 0 天。
 ---
+
 
 
 # OpenAPI + Fake Response + Cypress 契约测试实战——前后端联调的完整测试工作流踩坑记录

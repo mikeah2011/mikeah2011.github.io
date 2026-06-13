@@ -1,17 +1,19 @@
 ---
-title: "Laravel Lazy Collection 深度实战：惰性迭代的大数据处理——内存 O(1) 的 CSV 导入、数据库游标与生成器管道"
+title: Laravel Lazy Collection 深度实战：惰性迭代的大数据处理——内存 O(1) 的 CSV 导入、数据库游标与生成器管道
 date: 2026-06-10 06:22:00
 categories:
-  - php
+- php
 tags:
-  - Laravel
-  - Lazy Collection
-  - 生成器
-  - 性能优化
-  - 内存优化
-  - 大数据处理
-description: "深入剖析 Laravel Lazy Collection 的惰性迭代机制，涵盖内存 O(1) 的百万行 CSV 导入、数据库游标查询、生成器管道组合、自定义 LazyCollection 实现等生产级实战方案。"
+- Laravel
+- Lazy Collection
+- 生成器
+- 性能优化
+- 内存优化
+- 大数据
+description: 深入剖析 Laravel Lazy Collection 的惰性迭代机制，涵盖内存 O(1) 的百万行 CSV 导入、数据库游标查询、生成器管道组合、自定义
+  LazyCollection 实现等生产级实战方案。
 ---
+
 
 # Laravel Lazy Collection 深度实战：惰性迭代的大数据处理
 

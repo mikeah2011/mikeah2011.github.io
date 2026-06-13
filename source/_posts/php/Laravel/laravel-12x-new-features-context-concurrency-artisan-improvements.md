@@ -6,7 +6,6 @@ categories:
 - php
 tags:
 - Laravel
-- laravel-12
 - Context
 - Concurrency
 - Artisan
@@ -14,6 +13,7 @@ tags:
 description: 深度剖析 Laravel 12.x 三大核心特性：Context 全局上下文传播机制、Concurrency Fiber 并发编排、Artisan
   命令行增强。源码级分析内部实现原理，真实 B2C API 场景实战，性能基准测试数据，以及从 Laravel 11 升级的踩坑经验。
 ---
+
 
 
 # Laravel 12.x 新特性实战：Context、Concurrency、Artisan 改进深度剖析

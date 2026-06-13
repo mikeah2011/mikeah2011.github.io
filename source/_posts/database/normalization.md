@@ -2,9 +2,8 @@
 title: MySQL 三范式：数据库表设计的规范化理论与实战权衡
 tags:
 - MySQL
-- 数据库设计
+- 数据库
 - 范式
-- 数据库范式
 - 三范式
 - 反范式化
 categories:
@@ -16,6 +15,7 @@ images:
 - /images/content/databases-009-content-1.jpg
 - /images/content/databases-009-content-2.jpg
 ---
+
 
 > 数据库三范式
 

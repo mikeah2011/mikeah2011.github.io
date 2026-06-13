@@ -2,18 +2,20 @@
 title: React Native 0.76 实战：New Architecture + Hermes 引擎——对比 Flutter/uni-app 的原生移动端选型决策
 date: 2026-06-09 19:26:00
 categories:
-  - ai
+- ai
 tags:
-  - React Native
-  - New Architecture
-  - Hermes
-  - Flutter
-  - uni-app
-  - 移动端选型
-  - 跨平台
-  - 性能优化
-description: 2026 年 React Native 0.76 已默认启用 New Architecture（Fabric + TurboModules + Hermes），本文从真实项目视角出发，拆解 RN 0.76 核心变化，对比 Flutter/uni-app 的性能、生态、开发效率，并给出 B2C 电商场景下的选型决策框架。
+- React
+- New Architecture
+- Hermes
+- Flutter
+- uni-app
+- 移动端
+- 跨平台
+- 性能优化
+description: 2026 年 React Native 0.76 已默认启用 New Architecture（Fabric + TurboModules
+  + Hermes），本文从真实项目视角出发，拆解 RN 0.76 核心变化，对比 Flutter/uni-app 的性能、生态、开发效率，并给出 B2C 电商场景下的选型决策框架。
 ---
+
 
 ## 为什么 2026 年还要谈移动端选型
 

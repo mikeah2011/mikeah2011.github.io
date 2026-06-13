@@ -2,7 +2,7 @@
 title: Redis Cluster 原理探讨
 tags:
 - Redis
-- redis-cluster
+- Redis Cluster
 - 高可用
 - 集群
 - 分布式
@@ -15,6 +15,7 @@ description: Redis Cluster 高可用集群原理与实战部署指南。深入�
   --cluster create）、手动/自动故障转移、在线扩缩容（reshard/rebalance）、Laravel 应用集成配置，以及 Cluster vs
   Sentinel 选型对比。附生产环境踩坑经验与性能调优建议，适合需要高可用 Redis 架构的后端开发者。
 ---
+
 
 
 >   Redis Cluster

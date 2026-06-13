@@ -6,7 +6,7 @@ categories:
 - testing
 - php
 tags:
-- Pest PHP
+- Pest
 - expectations
 - Arch Testing
 - Mutation Testing
@@ -17,6 +17,7 @@ description: 深度剖析 Pest PHP 三大进阶能力：自定义 Expectations �
   Testing 变异测试评估测试质量。源码级分析内部实现机制，真实 Laravel B2C API 场景实战，Infection 变异测试基准数据，以及从 PHPUnit
   迁移的踩坑经验。
 ---
+
 
 # Pest PHP 实战：自定义 Expectations、Arch Testing、Mutation Testing 深度剖析
 

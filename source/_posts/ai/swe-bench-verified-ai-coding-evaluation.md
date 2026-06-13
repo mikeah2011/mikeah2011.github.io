@@ -2,15 +2,17 @@
 title: SWE-bench Verified 评测实战：AI 编程助手的真实能力边界——从 GitHub Issue 到 PR 的自动化软件工程度量
 date: 2026-06-09 14:57:00
 categories:
-  - ai
+- ai
 tags:
-  - SWE-bench
-  - AI编程助手
-  - 代码评测
-  - LLM
-  - 自动化测试
-description: 深入解析 SWE-bench Verified 评测基准的原理、架构与实战复现，从数据集构建到评测流程，带你理解如何用真实 GitHub Issue 度量 AI 编程助手的真实能力边界。
+- SWE-bench
+- AI编程助手
+- 代码评测
+- LLM
+- 自动化
+description: 深入解析 SWE-bench Verified 评测基准的原理、架构与实战复现，从数据集构建到评测流程，带你理解如何用真实 GitHub
+  Issue 度量 AI 编程助手的真实能力边界。
 ---
+
 
 ## 概述
 

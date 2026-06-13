@@ -2,17 +2,18 @@
 title: Lazygit 实战：终端 Git GUI 与高效分支管理踩坑记录
 cover: /images/covers/lazygit-terminal-git-gui-branch-management-cover.jpg
 date: 2026-06-01 10:00:00
-description: "这篇文章系统整理 Lazygit 在 macOS 与开发终端中的真实使用经验，覆盖终端Git 操作、分支管理、交互式暂存、Rebase、冲突处理、自定义配置与常见踩坑，并结合 Git CLI、SourceTree、GitKraken 做方案对比，帮助开发者建立更高效、更稳定的 Git 工作流。"
+description: 这篇文章系统整理 Lazygit 在 macOS 与开发终端中的真实使用经验，覆盖终端Git 操作、分支管理、交互式暂存、Rebase、冲突处理、自定义配置与常见踩坑，并结合
+  Git CLI、SourceTree、GitKraken 做方案对比，帮助开发者建立更高效、更稳定的 Git 工作流。
 categories:
-  - macos
+- macos
 tags:
-  - lazygit
-  - Git
-  - 终端工具
-  - macOS
-  - 效率提升
-  - 分支管理
+- Git
+- 终端工具
+- macOS
+- 效率提升
+- 分支管理
 ---
+
 
 ## 一、为什么写这篇？
 

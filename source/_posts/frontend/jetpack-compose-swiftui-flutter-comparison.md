@@ -2,17 +2,18 @@
 title: Jetpack Compose 实战：Android 声明式 UI 开发——与 SwiftUI/Flutter 的三端对比
 date: 2026-06-09 19:40:00
 categories:
-  - frontend
+- frontend
 tags:
-  - Jetpack Compose
-  - SwiftUI
-  - Flutter
-  - 声明式 UI
-  - Android
-  - 跨平台开发
-  - UI 框架对比
+- Jetpack Compose
+- SwiftUI
+- Flutter
+- 声明式
+- Android
+- 跨平台
+- UI 框架对比
 description: 深入实战 Jetpack Compose 声明式 UI 开发，从核心概念到完整项目构建，并与 SwiftUI、Flutter 进行横向对比，帮你选择最适合的跨平台方案。
 ---
+
 
 ## 前言
 

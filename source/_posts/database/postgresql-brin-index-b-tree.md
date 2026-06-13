@@ -2,16 +2,18 @@
 title: PostgreSQL BRIN Index 实战：块范围索引——时序数据/日志表的超高压缩比索引方案与对比 B-Tree 的选型决策
 date: 2026-06-10 04:00:00
 categories:
-  - database
+- database
 tags:
-  - PostgreSQL
-  - BRIN
-  - Index
-  - 时序数据
-  - 日志表
-  - 性能优化
-description: 深入讲解 PostgreSQL BRIN（Block Range Index）的原理、适用场景与实战用法。通过 Laravel 集成的完整代码示例，对比 B-Tree 索引在时序数据和日志表场景下的存储开销、查询性能与维护成本，帮助你在百万/亿级数据量下做出正确的索引选型决策。
+- PostgreSQL
+- BRIN
+- Index
+- 时序数据库
+- 日志表
+- 性能优化
+description: 深入讲解 PostgreSQL BRIN（Block Range Index）的原理、适用场景与实战用法。通过 Laravel 集成的完整代码示例，对比
+  B-Tree 索引在时序数据和日志表场景下的存储开销、查询性能与维护成本，帮助你在百万/亿级数据量下做出正确的索引选型决策。
 ---
+
 
 ## 为什么需要 BRIN Index？
 

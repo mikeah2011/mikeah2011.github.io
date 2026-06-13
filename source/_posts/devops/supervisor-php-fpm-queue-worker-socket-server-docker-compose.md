@@ -1,12 +1,23 @@
 ---
-title: "Supervisor 进程管理实战：PHP-FPM/Queue Worker/Socket Server 的统一进程治理——对比 Docker Compose 的进程编排"
+title: Supervisor 进程管理实战：PHP-FPM/Queue Worker/Socket Server 的统一进程治理——对比 Docker Compose
+  的进程编排
 date: 2026-06-10 10:00:00
-tags: [Supervisor, PHP-FPM, Laravel Queue, WebSocket, Process Management, Docker Compose, Linux]
+tags:
+- Supervisor
+- PHP-FPM
+- Queue
+- WebSocket
+- Process Management
+- Docker Compose
+- Linux
 categories:
-  - devops
+- devops
 cover: /images/covers/supervisor-process-management-cover.jpg
-description: Supervisor 是 Linux 下成熟的进程管理工具，可统一守护 PHP-FPM、Laravel Queue Worker、WebSocket Server 等长运行进程，提供崩溃自动重启、日志轮转、进程组与事件钩子等能力。本文结合 Laravel B2C 项目实战，给出 Supervisor 的完整配置模板、与 Docker Compose 的编排对比，以及在生产环境中常见的踩坑与调优策略。"
+description: Supervisor 是 Linux 下成熟的进程管理工具，可统一守护 PHP-FPM、Laravel Queue Worker、WebSocket
+  Server 等长运行进程，提供崩溃自动重启、日志轮转、进程组与事件钩子等能力。本文结合 Laravel B2C 项目实战，给出 Supervisor 的完整配置模板、与
+  Docker Compose 的编排对比，以及在生产环境中常见的踩坑与调优策略。"
 ---
+
 
 ## TL;DR
 

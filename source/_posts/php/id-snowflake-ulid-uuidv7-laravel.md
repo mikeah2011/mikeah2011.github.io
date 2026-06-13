@@ -1,12 +1,21 @@
 ---
 title: 分布式 ID 生成实战：Snowflake/ULID/UUIDv7 在 Laravel 中的选型——对比自增主键的利弊
 date: 2026-06-02 00:00:00
-tags: [分布式ID, Snowflake, ULID, UUIDv7, Laravel, 分库分表]
+tags:
+- 分布式
+- Snowflake
+- ULID
+- UUIDv7
+- Laravel
+- 分库分表
 categories:
-  - php
+- php
 cover: /images/covers/distributed-id-generation-laravel-cover.jpg
-description: 深入对比 Snowflake、ULID、UUIDv7 三种分布式 ID 方案在 Laravel 中的选型与实战集成。包含自增主键在分布式场景的四大致命缺陷分析、64位与128位 ID 的存储性能基准测试（MySQL 100万条记录插入对比）、完整的 Laravel Migration 与 Model 集成代码、自定义 Eloquent Trait 封装、分库分表路由策略实现，以及 BINARY 列排序、高并发碰撞、Kubernetes 环境机器 ID 分配等生产踩坑记录与最佳实践。
+description: 深入对比 Snowflake、ULID、UUIDv7 三种分布式 ID 方案在 Laravel 中的选型与实战集成。包含自增主键在分布式场景的四大致命缺陷分析、64位与128位
+  ID 的存储性能基准测试（MySQL 100万条记录插入对比）、完整的 Laravel Migration 与 Model 集成代码、自定义 Eloquent
+  Trait 封装、分库分表路由策略实现，以及 BINARY 列排序、高并发碰撞、Kubernetes 环境机器 ID 分配等生产踩坑记录与最佳实践。
 ---
+
 
 # 分布式 ID 生成实战：Snowflake/ULID/UUIDv7 在 Laravel 中的选型——对比自增主键的利弊
 

@@ -1,12 +1,19 @@
 ---
 title: AI Agent 数据分析实战：自然语言转 SQL、图表生成、报告自动化
-description: 后端视角拆解 AI Agent 数据分析实战：自然语言转 SQL 的语义层与 Schema 召回、多表 JOIN 防错、图表自动选型、报告模板渲染与定时分发，含完整 Python 代码与八大踩坑记录。
+description: 后端视角拆解 AI Agent 数据分析实战：自然语言转 SQL 的语义层与 Schema 召回、多表 JOIN 防错、图表自动选型、报告模板渲染与定时分发，含完整
+  Python 代码与八大踩坑记录。
 date: 2026-06-02 00:00:00
-tags: [AI Agent, 数据分析, Text-to-SQL, 图表生成, 报告自动化]
+tags:
+- AI Agent
+- 数据分析
+- Text-to-SQL
+- 图表生成
+- 自动化
 categories:
-  - ai
+- ai
 cover: /images/covers/ai-agent-data-analysis-cover.jpg
 ---
+
 
 # AI Agent 数据分析实战：自然语言转 SQL、图表生成、报告自动化
 

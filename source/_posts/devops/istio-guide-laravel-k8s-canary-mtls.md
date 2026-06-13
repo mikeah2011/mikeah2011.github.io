@@ -3,14 +3,23 @@ title: Istio 服务网格实战：Laravel 在 K8s 上的超时、重试、灰度
 cover: /images/covers/istio-guide-laravel-k8s-canary-mtls-cover.jpg
 date: 2026-05-03 09:01:02
 categories:
-  - devops
-  - kubernetes
-tags: [Kubernetes, Laravel, 服务网格安全, 微服务, 监控, mTLS, 金丝雀发布, Istio]
-description: 基于 Laravel B2C 电商 API 在 Kubernetes 上的真实生产改造经验，完整记录从 Ingress 直连架构迁移到 Istio 服务网格的落地全过程。涵盖 VirtualService 超时与重试治理、DestinationRule 连接池与熔断配置、基于 Header 和权重的金丝雀灰度发布、PeerAuthentication STRICT mTLS 全链路加密、x-request-id 链路透传，以及 sidecar 注入失败、POST 被错误重试导致库存重复锁定、流量镜像配置等生产踩坑。附 Istio vs Linkerd vs Nginx Ingress 方案对比与完整 YAML 示例。
-
-
-
+- devops
+- kubernetes
+tags:
+- Kubernetes
+- Laravel
+- 服务网格
+- 微服务
+- 监控
+- mTLS
+- 金丝雀发布
+- Istio
+description: 基于 Laravel B2C 电商 API 在 Kubernetes 上的真实生产改造经验，完整记录从 Ingress 直连架构迁移到 Istio
+  服务网格的落地全过程。涵盖 VirtualService 超时与重试治理、DestinationRule 连接池与熔断配置、基于 Header 和权重的金丝雀灰度发布、PeerAuthentication
+  STRICT mTLS 全链路加密、x-request-id 链路透传，以及 sidecar 注入失败、POST 被错误重试导致库存重复锁定、流量镜像配置等生产踩坑。附
+  Istio vs Linkerd vs Nginx Ingress 方案对比与完整 YAML 示例。
 ---
+
 我们把 Laravel B2C API 拆到 Kubernetes 之后，最开始只有 Ingress + Service：能跑，但高峰期一旦库存服务抖动，API 侧就会出现很难解释的问题：有的请求 504、有的请求 499、有的明明 Laravel 已经报超时，网关还在继续等；更麻烦的是，灰度发布只能切整批 Pod，风险很难控。
 
 后来我把 API、库存、价格三个服务接到 **Istio**，目标不是“为了上 Service Mesh”，而是解决三个很具体的问题：**调用超时统一、灰度可控、服务间访问默认加密**。如果团队只需要最轻量的透明代理，Linkerd 会更省心；但我们这里既有 HTTP 又有 gRPC，还要做按 Header 灰度和权限策略，最后选择了 Istio。

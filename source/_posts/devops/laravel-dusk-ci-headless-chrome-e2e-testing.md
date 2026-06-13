@@ -5,10 +5,10 @@ description: Laravel Dusk 端到端测试在 CI 环境中的完整实战指南�
   自动化测试防线。
 date: 2026-06-09 06:22:00
 tags:
-- laravel-dusk
-- e2e-testing
+- Laravel Dusk
+- E2E Testing
 - CI/CD
-- github-actions
+- GitHub Actions
 - headless-chrome
 - visual-regression
 - PHP
@@ -16,6 +16,7 @@ categories:
 - devops
 cover: /images/covers/laravel-dusk-ci-cover.jpg
 ---
+
 
 
 ## 一、开篇：为什么 E2E 测试在 CI 中总是"翻车"

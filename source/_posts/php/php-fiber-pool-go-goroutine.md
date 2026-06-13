@@ -1,12 +1,21 @@
 ---
-title: 'PHP 8.5 Fiber Pool 实战：协程池并发批量请求——对比 Go goroutine pool 的异步编程进阶'
+title: PHP 8.5 Fiber Pool 实战：协程池并发批量请求——对比 Go goroutine pool 的异步编程进阶
 date: 2026-06-06 10:00:00
-tags: [PHP, Fiber, 协程, 并发, Go, 异步编程, 性能优化]
+tags:
+- PHP
+- Fibers
+- 协程
+- 并发
+- Go
+- 异步编程
+- 性能优化
 categories:
-  - php
+- php
 cover: /images/covers/php-fiber-pool-cover.jpg
-description: "深入实战PHP 8.5 Fiber协程池，实现高并发批量HTTP请求与数据库查询，详解并发度控制、错误隔离与结果收集机制。全面对比Go goroutine pool与Swoole协程的调度模型、内存开销和适用场景，附带Laravel集成方案与生产环境常见陷阱排查指南，助你掌握PHP异步编程进阶技巧。"
+description: 深入实战PHP 8.5 Fiber协程池，实现高并发批量HTTP请求与数据库查询，详解并发度控制、错误隔离与结果收集机制。全面对比Go goroutine
+  pool与Swoole协程的调度模型、内存开销和适用场景，附带Laravel集成方案与生产环境常见陷阱排查指南，助你掌握PHP异步编程进阶技巧。
 ---
+
 
 # PHP 8.5 Fiber Pool 实战：协程池并发批量请求——对比 Go goroutine pool 的异步编程进阶
 

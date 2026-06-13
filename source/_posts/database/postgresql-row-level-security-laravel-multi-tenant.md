@@ -2,16 +2,18 @@
 title: PostgreSQL Row-Level Security 实战：Laravel 多租户的数据库级隔离
 date: 2026-06-10 02:36:00
 categories:
-  - database
+- database
 tags:
-  - PostgreSQL
-  - Laravel
-  - 多租户
-  - RLS
-  - Row-Level Security
-  - 数据库安全
-description: 深入 PostgreSQL Row-Level Security (RLS) 在 Laravel 多租户架构中的实战应用，对比 Application-Level Scopes 的安全性与性能权衡，提供完整的代码实现和踩坑记录。
+- PostgreSQL
+- Laravel
+- 多租户
+- RLS
+- Row-Level Security
+- 数据库
+description: 深入 PostgreSQL Row-Level Security (RLS) 在 Laravel 多租户架构中的实战应用，对比 Application-Level
+  Scopes 的安全性与性能权衡，提供完整的代码实现和踩坑记录。
 ---
+
 
 # PostgreSQL Row-Level Security 实战：Laravel 多租户的数据库级隔离
 

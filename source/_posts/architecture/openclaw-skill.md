@@ -7,13 +7,14 @@ tags:
 - Skill开发
 - 工作流
 - 自动化
-- Agent开发
+- Agent
 description: 深入讲解 OpenClaw Skill 体系架构与开发实战，涵盖 Skill 生命周期管理、元数据契约定义、文件处理与 API 调用两大实战案例、工作流编排、参数校验、错误处理、社区共享机制与设计模式，帮助开发者从零构建可扩展的
   AI Agent 能力平台。
 categories:
 - architecture
 cover: /images/covers/openclaw-skill-development-cover.jpg
 ---
+
 
 
 # OpenClaw 技能开发实战：自定义 Skill 与工作流自动化

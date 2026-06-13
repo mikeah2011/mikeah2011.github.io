@@ -1,12 +1,21 @@
 ---
 title: CSS Container Queries + View Transitions 实战：响应式设计的范式转变——Vue 3 组件级适配与页面过渡动画
 date: 2026-06-05 15:17:02
-tags: [CSS, Container Queries, View Transitions, Vue 3, 响应式设计, 前端]
+tags:
+- CSS
+- Container Queries
+- View Transitions
+- Vue
+- 响应式
+- 前端
 categories:
-  - frontend
+- frontend
 cover: /images/covers/css-container-queries-view-transitions-cover.jpg
-description: "深入解析 CSS Container Queries 与 View Transitions API 两大浏览器原生能力，告别 Media Queries 组件级适配痛点与 JS 动画库依赖。结合 Vue 3 Composition API 实现组件级响应式布局与页面丝滑过渡动画，含 container-type/@container 语法、View Transitions 生命周期、Vue Router 集成踩坑与性能对比，助你掌握响应式设计范式转变的核心技术。"
+description: 深入解析 CSS Container Queries 与 View Transitions API 两大浏览器原生能力，告别 Media
+  Queries 组件级适配痛点与 JS 动画库依赖。结合 Vue 3 Composition API 实现组件级响应式布局与页面丝滑过渡动画，含 container-type/@container
+  语法、View Transitions 生命周期、Vue Router 集成踩坑与性能对比，助你掌握响应式设计范式转变的核心技术。
 ---
+
 
 在前端开发的历史长河中，响应式设计一直是绕不开的核心议题。从 Ethan Marcotte 在 2010 年提出 Responsive Web Design 概念以来，`@media` 查询几乎成为我们处理多端适配的唯一武器。但随着组件化架构（Component-based Architecture）的全面普及，一个根本性的矛盾逐渐浮出水面：**组件需要根据自身容器的尺寸来调整布局，而非依赖视口（Viewport）的大小。**
 

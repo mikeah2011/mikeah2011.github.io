@@ -2,16 +2,18 @@
 title: Vitest + Storybook 8 实战：Vue 3 组件的单元测试 + 可视化文档——对比独立测试框架的开发体验与 CI 集成
 date: 2026-06-10 05:59:00
 categories:
-  - frontend
+- frontend
 tags:
-  - Vue 3
-  - Vitest
-  - Storybook
-  - 单元测试
-  - 组件测试
-  - CI/CD
-description: 深入对比 Vitest 与 Jest 在 Vue 3 项目中的测试体验，结合 Storybook 8 实现组件可视化测试与文档化，涵盖配置、Mock、快照测试、CI 集成全流程实战。
+- Vue
+- Vitest
+- Storybook
+- 单元测试
+- 组件测试
+- CI/CD
+description: 深入对比 Vitest 与 Jest 在 Vue 3 项目中的测试体验，结合 Storybook 8 实现组件可视化测试与文档化，涵盖配置、Mock、快照测试、CI
+  集成全流程实战。
 ---
+
 
 ## 概述
 

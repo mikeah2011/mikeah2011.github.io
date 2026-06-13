@@ -9,12 +9,13 @@ tags:
 - gorouter
 - 路由
 - 深链接
-- 声明式路由
+- 声明式
 - 移动端
 categories:
 - mobile
 cover: /images/covers/flutter-gorouter-routing-deep-link-cover.jpg
 ---
+
 
 
 # Flutter 路由实战：GoRouter 声明式路由与深链接集成踩坑记录

@@ -1,17 +1,17 @@
 ---
-title: "Svelte 5 Runes 实战：告别 Reactive 声明式——Runes 编译时响应式与 Vue Composition API 的设计哲学对比"
+title: Svelte 5 Runes 实战：告别 Reactive 声明式——Runes 编译时响应式与 Vue Composition API 的设计哲学对比
 date: 2026-06-10 02:10:00
 categories:
-  - frontend
+- frontend
 tags:
-  - Svelte
-  - Vue
-  - Runes
-  - 响应式
-  - Composition API
-  - 前端框架
-description: "深入 Svelte 5 Runes 响应式系统，从编译时 vs 运行时的角度对比 Vue Composition API，用可运行代码演示两者的设计差异与实战取舍。"
+- Svelte
+- Vue
+- Runes
+- 响应式
+- 前端框架
+description: 深入 Svelte 5 Runes 响应式系统，从编译时 vs 运行时的角度对比 Vue Composition API，用可运行代码演示两者的设计差异与实战取舍。
 ---
+
 
 ## 概述
 

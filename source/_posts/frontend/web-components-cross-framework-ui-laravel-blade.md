@@ -5,7 +5,7 @@ tags:
 - web components
 - custom elements
 - shadow dom
-- Laravel Blade
+- Blade
 - 前端
 description: 本文深入解析 Web Components 四大核心技术——Custom Elements、Shadow DOM、HTML Templates
   与 ES Modules，手把手构建一套跨框架 UI 组件库，并演示与 Laravel Blade 模板引擎的深度集成方案。涵盖 React、Vue、Angular
@@ -15,6 +15,7 @@ categories:
 - frontend
 cover: /images/covers/web-components-cross-framework-cover.jpg
 ---
+
 
 
 在前端开发的演进历程中，UI 组件化一直是核心命题。从 jQuery 插件到 React 组件，从 Vue 单文件组件到 Angular 组件体系，每一代方案都试图解决"如何构建可复用 UI"这个问题。然而，这些方案无一例外地绑定了特定的运行时框架，导致组件无法跨框架共享。

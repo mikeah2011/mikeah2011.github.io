@@ -1,11 +1,21 @@
 ---
-title: 'Playwright a11y 实战：自动化无障碍测试——axe-core 集成、CI 门禁与 WCAG 2.2 合规检查'
+title: Playwright a11y 实战：自动化无障碍测试——axe-core 集成、CI 门禁与 WCAG 2.2 合规检查
 date: 2026-06-09 20:00:00
-tags: [Playwright, a11y, Accessibility, axe-core, WCAG, 无障碍测试, CI/CD, 前端测试]
+tags:
+- Playwright
+- a11y
+- Accessibility
+- axe-core
+- WCAG
+- 无障碍
+- CI/CD
+- 前端测试
 categories:
-  - frontend
-description: '用 Playwright + axe-core 实现端到端无障碍自动化测试，集成 CI 门禁确保 WCAG 2.2 合规，覆盖颜色对比度、键盘导航、ARIA 语义等核心检查项'
+- frontend
+description: 用 Playwright + axe-core 实现端到端无障碍自动化测试，集成 CI 门禁确保 WCAG 2.2 合规，覆盖颜色对比度、键盘导航、ARIA
+  语义等核心检查项
 ---
+
 
 无障碍（Accessibility，简称 a11y）不是可选项，而是法律合规的硬性要求。欧盟《欧洲无障碍法案》（EAA）2025 年 6 月已生效，美国 Section 508、ADA 诉讼每年增长 300%。手动审计 WCAG 2.2 标准耗时且易遗漏，自动化测试是唯一可持续的路径。
 

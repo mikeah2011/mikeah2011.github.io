@@ -5,7 +5,7 @@ date: 2026-06-10 08:03:00
 categories:
 - ai
 tags:
-- Tokenizer
+- Token
 - BPE
 - tiktoken
 - Prompt Engineering
@@ -14,6 +14,7 @@ tags:
 description: 从 BPE 原理到工程落地，用 tiktoken、Tokenizer.js 和 PHP 实现精确 Token 计数，解决 Prompt 裁剪、上下文溢出、多语言
   Token 效率差异等实战问题。
 ---
+
 
 
 ## 前言

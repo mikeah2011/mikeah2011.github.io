@@ -6,7 +6,7 @@ description: 深入解析 Temporal.io 持久化工作流引擎在 Laravel 微服
   PHP SDK 完整代码示例、Laravel 集成方案、生产环境踩坑记录（序列化、确定性、版本管理、幂等性）与性能基准测试，帮助 PHP 团队用代码即工作流的方式优雅编排跨服务长事务与分布式事务。
 tags:
 - temporal.io
-- 工作流引擎
+- 工作流
 - saga模式
 - Laravel
 - 微服务
@@ -15,6 +15,7 @@ categories:
 - architecture
 cover: /images/covers/temporal-io-laravel-saga-cover.jpg
 ---
+
 
 
 ## 引言：分布式系统中长事务的痛点

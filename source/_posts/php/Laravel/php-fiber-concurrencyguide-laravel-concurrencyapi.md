@@ -10,7 +10,7 @@ tags:
 - Laravel
 - PHP
 - 架构
-- Fiber
+- Fibers
 - 协程
 - 并发
 - Swoole
@@ -20,6 +20,7 @@ description: 深入解析 PHP 8.1 Fiber 在 Laravel BFF 层的生产级落地实
   Queue Worker 异步任务 Fiber 化方案、以及 4 个真实生产踩坑案例的排查与修复过程，帮助团队在不引入 Swoole 扩展的前提下将聚合接口延迟降低
   4 倍。
 ---
+
 
 
 # PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离踩坑记录

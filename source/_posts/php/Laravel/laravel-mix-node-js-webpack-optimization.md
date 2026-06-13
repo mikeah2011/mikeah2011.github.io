@@ -8,13 +8,14 @@ categories:
 tags:
 - JavaScript
 - Webpack
-- laravel-mix
+- Laravel Mix
 - Vite
 - 前端构建
 - 性能优化
 description: 深入 Laravel Mix 与 Webpack 配置优化实战：代码分割、CSS 提取、版本哈希、生产环境 Tree Shaking 与压缩策略，对比
   Vite/esbuild 选型，附 Mix→Vite 迁移指南与常见构建错误排查。
 ---
+
 
 # Laravel Mix + Node.js：前端资源编译与 Webpack 配置优化实战踩坑记录
 

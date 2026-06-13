@@ -14,8 +14,8 @@ tags:
 - api测试
 - 前后端联调
 - Laravel
-- contract-testing
-- property-based-testing
+- Contract Testing
+- Property-Based Testing
 - CI/CD
 keywords:
 - Pact PHP
@@ -29,6 +29,7 @@ keywords:
 - OpenAPI
 - Schema Validation
 ---
+
 
 
 ## 一、问题背景与动机：为什么前后端联调总是"翻车"？

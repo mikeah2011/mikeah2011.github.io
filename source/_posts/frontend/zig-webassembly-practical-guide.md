@@ -4,7 +4,6 @@ date: 2026-06-07 12:00:00
 tags:
 - Zig
 - WebAssembly
-- WebAssembly
 - 前端性能
 - 边缘计算
 categories:
@@ -14,6 +13,7 @@ description: Zig + WebAssembly 实战指南：深入 comptime 编译期优化与
   Rust/C/AssemblyScript 编译产物体积与运行时性能，详解浏览器 JavaScript 集成、Cloudflare Workers 边缘部署与
   Deno Deploy 方案，附 1920×1080 图像处理性能基准与 5 大踩坑案例。
 ---
+
 
 
 ## 前言：为什么我要用 Zig 写 Wasm？

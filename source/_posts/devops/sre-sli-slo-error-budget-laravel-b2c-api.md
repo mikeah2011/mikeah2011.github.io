@@ -1,12 +1,21 @@
 ---
-title: 'SRE 实战入门：SLI/SLO/Error Budget 在 Laravel B2C API 中的落地——用可靠性指标驱动运维决策'
+title: SRE 实战入门：SLI/SLO/Error Budget 在 Laravel B2C API 中的落地——用可靠性指标驱动运维决策
 date: 2026-06-02 10:00:00
-tags: [SRE, SLI, SLO, Error Budget, Laravel, 可靠性工程]
+tags:
+- SRE
+- SLI
+- SLO
+- Error Budget
+- Laravel
+- 可靠性
 categories:
-  - devops
+- devops
 cover: /images/covers/sre-sli-slo-error-budget-laravel-cover.jpg
-description: 本文基于 Laravel B2C 电商 API 项目，完整落地 Google SRE 核心实践。从 SLI 指标定义与 Redis 采集、分层 SLO 目标制定，到 Error Budget 计算与预算驱动的工程决策。涵盖可用性中间件、延迟百分位追踪、吞吐量异常检测的可运行代码实现，配合 Prometheus + Grafana 监控体系，帮助团队用数据而非直觉来平衡可靠性与迭代速度。
+description: 本文基于 Laravel B2C 电商 API 项目，完整落地 Google SRE 核心实践。从 SLI 指标定义与 Redis 采集、分层
+  SLO 目标制定，到 Error Budget 计算与预算驱动的工程决策。涵盖可用性中间件、延迟百分位追踪、吞吐量异常检测的可运行代码实现，配合 Prometheus
+  + Grafana 监控体系，帮助团队用数据而非直觉来平衡可靠性与迭代速度。
 ---
+
 
 ## 前言
 

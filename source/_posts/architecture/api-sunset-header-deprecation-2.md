@@ -1,12 +1,21 @@
 ---
 title: API 生命周期管理实战：设计、版本控制、废弃通知、客户端迁移——Sunset Header 与 Deprecation 标准
 date: 2026-06-02 08:00:00
-tags: [API, RESTful, 版本控制, Sunset-Header, 生命周期管理, Laravel]
+tags:
+- API
+- RESTful
+- 版本控制
+- Sunset-Header
+- 生命周期
+- Laravel
 categories:
-  - architecture
-description: "API 生命周期管理实战全流程：从 OpenAPI 契约设计、URL/Header/MediaType 版本控制策略，到 RFC 8594 Sunset Header 与 Deprecation Header 标准化废弃通知，再到客户端迁移监控与渐进式限流下线。基于 Laravel 完整实现，提供版本检测中间件、自动通知系统、迁移看板等生产级代码，终结僵尸 API 难题。"
+- architecture
+description: API 生命周期管理实战全流程：从 OpenAPI 契约设计、URL/Header/MediaType 版本控制策略，到 RFC 8594
+  Sunset Header 与 Deprecation Header 标准化废弃通知，再到客户端迁移监控与渐进式限流下线。基于 Laravel 完整实现，提供版本检测中间件、自动通知系统、迁移看板等生产级代码，终结僵尸
+  API 难题。
 cover: /images/covers/api-lifecycle-management-cover.jpg
 ---
+
 
 ## 前言：API 不只是写完就上线
 

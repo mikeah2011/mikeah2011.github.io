@@ -8,7 +8,7 @@ tags:
 - Laravel
 - Redis
 - 微服务
-- redis cluster
+- Redis Cluster
 - 高可用
 - 故障转移
 description: Redis Cluster 集群部署与高可用架构实战指南。基于 KKday B2C API 生产环境经验，详解 Redis Cluster
@@ -21,6 +21,7 @@ images:
 - /images/content/databases-001-content-1.jpg
 - /images/content/databases-001-content-2.jpg
 ---
+
 
 # Redis Cluster 集群部署与故障转移：高可用架构实战踩坑记录
 

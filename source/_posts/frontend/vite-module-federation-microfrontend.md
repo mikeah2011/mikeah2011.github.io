@@ -1,17 +1,18 @@
 ---
-title: "Vite Module Federation 实战：微前端的构建时共享——对比 Webpack 5 的模块联邦在 Vue 3 Monorepo 中的落地"
+title: Vite Module Federation 实战：微前端的构建时共享——对比 Webpack 5 的模块联邦在 Vue 3 Monorepo 中的落地
 date: 2026-06-09 18:46:00
 categories:
-  - frontend
+- frontend
 tags:
-  - Vite
-  - Module Federation
-  - 微前端
-  - Vue 3
-  - Webpack 5
-  - Monorepo
-description: "深入对比 Vite 和 Webpack 5 的 Module Federation 实现，在 Vue 3 Monorepo 项目中从零搭建微前端共享方案，包含完整代码、踩坑记录和性能对比。"
+- Vite
+- Module Federation
+- 微前端
+- Vue
+- Webpack
+- Monorepo
+description: 深入对比 Vite 和 Webpack 5 的 Module Federation 实现，在 Vue 3 Monorepo 项目中从零搭建微前端共享方案，包含完整代码、踩坑记录和性能对比。
 ---
+
 
 ## 概述
 

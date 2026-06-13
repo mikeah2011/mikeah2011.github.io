@@ -5,17 +5,18 @@ description: 深入对比 Percy、Chromatic、BackstopJS 三大截图测试工�
   8 集成、GitHub Actions CI 流水线配置、动态内容遮罩策略、阈值调优与团队协作工作流，帮助前端团队零到一搭建自动化 UI 变更检测体系，杜绝像素级设计回归。
 date: 2026-06-06 10:00:00
 tags:
-- screenshot testing
+- Visual Regression Testing
 - percy
 - chromatic
 - backstopjs
-- Vue 3
+- Vue
 - 视觉回归
 - CI
 categories:
 - frontend
 cover: /images/covers/screenshot-testing-vue3-cover.jpg
 ---
+
 
 
 

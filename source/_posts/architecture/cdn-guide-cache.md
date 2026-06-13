@@ -16,7 +16,7 @@ tags:
 - CDN
 - 缓存
 - 性能优化
-- Terraform
+- IaC
 description: '本文是一篇 CDN 加速与缓存策略的深度实战指南，基于 Laravel B2C 电商项目的真实踩坑经验。全面覆盖 CloudFront
   Origin Shield、Cloudflare Workers、Terraform IaC 配置，详解 Cache-Control 头部设计、stale-while-revalidate
   三层防护、回源风暴治理、Geo-Based 多区域缓存一致性，以及 Nginx FastCGI/Proxy Cache 源站防护。附带完整的 PHP/JS/HCL
@@ -24,6 +24,7 @@ description: '本文是一篇 CDN 加速与缓存策略的深度实战指南，�
 
   '
 ---
+
 
 # CDN 配置实战：静态资源加速、缓存策略、回源配置
 

@@ -2,7 +2,7 @@
 title: 分布式缓存一致性实战：Cache-Aside/Write-Through/Write-Behind 在 Laravel 中的工程化落地
 date: 2026-06-02 00:00:00
 tags:
-- 缓存一致性
+- 一致性
 - cache-aside
 - write-through
 - write-behind
@@ -14,6 +14,7 @@ description: 深入解析分布式缓存一致性四大模式（Cache-Aside/Writ
   Laravel 中的工程化落地，涵盖延迟双删、Canal Binlog 监听、缓存击穿雪崩穿透防御，含完整可运行 PHP 代码与性能基准对比，助你选对缓存策略。
 cover: /images/covers/distributed-cache-consistency-laravel-cover.jpg
 ---
+
 
 
 # 分布式缓存一致性实战：Cache-Aside/Write-Through/Write-Behind 在 Laravel 中的工程化落地

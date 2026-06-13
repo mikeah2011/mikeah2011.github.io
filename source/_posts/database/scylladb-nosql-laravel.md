@@ -1,12 +1,21 @@
 ---
-title: 'ScyllaDB 实战：C++ 重写的高性能 NoSQL——Laravel 分布式缓存与高吞吐写入选型对比'
+title: ScyllaDB 实战：C++ 重写的高性能 NoSQL——Laravel 分布式缓存与高吞吐写入选型对比
 date: 2026-06-02 12:00:00
-tags: [ScyllaDB, NoSQL, Cassandra, Laravel, 分布式数据库]
-description: ScyllaDB 是 Apache Cassandra 的 C++ 重写版本，基于 Seastar 异步框架实现共享无关架构，在相同硬件上可提供 10 倍于 Cassandra 的吞吐量。本文从高吞吐写入真实场景出发，完整记录 ScyllaDB 与 Laravel 的集成实战，涵盖技术选型对比（ScyllaDB vs Cassandra vs TiDB vs MongoDB）、CQL 数据建模、Laravel 数据库驱动配置、物化视图与二级索引策略、Compaction 调优、生产部署踩坑。适合需要处理每秒数十万次写入、存储数十 TB 数据的分布式系统架构师参考。
+tags:
+- ScyllaDB
+- NoSQL
+- Cassandra
+- Laravel
+- 数据库
+description: ScyllaDB 是 Apache Cassandra 的 C++ 重写版本，基于 Seastar 异步框架实现共享无关架构，在相同硬件上可提供
+  10 倍于 Cassandra 的吞吐量。本文从高吞吐写入真实场景出发，完整记录 ScyllaDB 与 Laravel 的集成实战，涵盖技术选型对比（ScyllaDB
+  vs Cassandra vs TiDB vs MongoDB）、CQL 数据建模、Laravel 数据库驱动配置、物化视图与二级索引策略、Compaction
+  调优、生产部署踩坑。适合需要处理每秒数十万次写入、存储数十 TB 数据的分布式系统架构师参考。
 categories:
-  - database
+- database
 cover: /images/covers/scylladb-laravel-high-throughput-cover.jpg
 ---
+
 
 ## 前言
 

@@ -1,17 +1,19 @@
 ---
-title: "SingleStore 实战：分布式 SQL + 实时分析——Laravel 中的 HTAP 架构与 MySQL 兼容层"
+title: SingleStore 实战：分布式 SQL + 实时分析——Laravel 中的 HTAP 架构与 MySQL 兼容层
 date: 2026-06-09 14:22:00
 categories:
-  - database
+- database
 tags:
-  - SingleStore
-  - HTAP
-  - 分布式SQL
-  - Laravel
-  - 实时分析
-  - MySQL兼容
-description: "深入解析 SingleStore 的 HTAP 架构原理，实战 Laravel 接入 SingleStore 的完整流程，涵盖列存/行存混合、分布式 JOIN 优化、实时分析查询，以及从 MySQL 迁移的踩坑记录。"
+- SingleStore
+- HTAP
+- 分布式
+- Laravel
+- 实时分析
+- MySQL Compatibility
+description: 深入解析 SingleStore 的 HTAP 架构原理，实战 Laravel 接入 SingleStore 的完整流程，涵盖列存/行存混合、分布式
+  JOIN 优化、实时分析查询，以及从 MySQL 迁移的踩坑记录。
 ---
+
 
 ## 前言
 

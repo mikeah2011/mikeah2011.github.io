@@ -1,11 +1,21 @@
 ---
 title: LLM Evaluation 实战：RAGAS/DeepEval 评估框架——RAG 系统的忠实度、相关性与答案质量量化方法论
-description: "系统性评估 RAG 系统输出质量的完整方法论。深入解析 RAGAS 忠实度、答案相关性、上下文精确度/召回率四大核心指标，以及 DeepEval 的 GEval 自定义评估与幻觉检测机制。涵盖从评估数据集构建、LLM-as-Judge 校准技术、CI/CD 自动化集成到成本优化策略的全流程实战指南，附完整 Python 代码示例与 GitHub Actions 配置，帮助团队建立可量化、可追溯、可自动化的 RAG 质量保障体系。"
+description: 系统性评估 RAG 系统输出质量的完整方法论。深入解析 RAGAS 忠实度、答案相关性、上下文精确度/召回率四大核心指标，以及 DeepEval
+  的 GEval 自定义评估与幻觉检测机制。涵盖从评估数据集构建、LLM-as-Judge 校准技术、CI/CD 自动化集成到成本优化策略的全流程实战指南，附完整
+  Python 代码示例与 GitHub Actions 配置，帮助团队建立可量化、可追溯、可自动化的 RAG 质量保障体系。
 date: 2026-06-04 15:00:00
-tags: [LLM Evaluation, RAGAS, DeepEval, RAG, AI评估, 向量数据库]
-categories: [ai]
+tags:
+- LLM
+- RAGAS
+- DeepEval
+- RAG
+- AI评估
+- 数据库
+categories:
+- ai
 cover: /images/covers/llm-evaluation-ragas-deepeval-cover.jpg
 ---
+
 
 在 RAG（Retrieval-Augmented Generation）系统已经深入企业生产环境的今天，一个关键问题日益凸显：**我们如何系统性地评估 RAG 系统的输出质量？** 传统的"人工抽检"模式已经无法满足高频率迭代的需求。本文将深入剖析 RAGAS 和 DeepEval 两大评估框架，从指标体系、代码实现到 CI/CD 集成，为你构建完整的 RAG 评估方法论。
 

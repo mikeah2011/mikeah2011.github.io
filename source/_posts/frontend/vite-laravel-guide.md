@@ -8,7 +8,6 @@ categories:
 - php
 tags:
 - BFF
-- BFF
 - Docker
 - frontend
 - Laravel
@@ -19,6 +18,7 @@ description: 本文基于 30+ 仓库真实迁移经验，详解使用 Vite 替�
   容器环境适配、HMR 热更新优化、API 代理与 CORS 处理、前端构建优化（代码分割、Tree Shaking、Gzip 压缩）等核心内容，附常用插件配置（vite-plugin-svg-icons、unplugin-auto-import）与迁移检查清单，助你快速完成
   Vite + Laravel 工程化升级。
 ---
+
 
 # Vite + Laravel 实战：前后端分离开发工作流踩坑记录
 

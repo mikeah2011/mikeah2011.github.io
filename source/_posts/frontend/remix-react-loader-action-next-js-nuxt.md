@@ -8,12 +8,12 @@ tags:
 - remix
 - React
 - 全栈框架
-- Next.js
 - Nuxt
 categories:
 - frontend
 cover: /images/covers/remix-framework-cover.jpg
 ---
+
 
 
 

@@ -4,14 +4,20 @@ cover: /images/covers/mockery-guide-mock-cover.jpg
 date: 2026-05-16 17:11:05
 updated: 2026-05-16 17:16:43
 categories:
-  - engineering
-  - testing
-tags: [Laravel, 测试, Mockery, PHPUnit, PHP]
-description: 在 Laravel B2C 电商项目中，外部服务（支付网关、物流API、邮件推送）是测试的重灾区。本文记录了 30+ 仓库中使用 Mockery 进行外部服务 Mock 与依赖隔离的实战经验，涵盖 shouldReceive/shouldNotReceive 基础用法、接口隔离与面向接口编程、Partial Mock 与 protected 方法、Guzzle MockHandler 第三方 SDK Mock、Laravel Fake vs Mockery 选型对比、Expectation 顺序约束与 Spy 事后验证、Singleton 注入与队列测试等高频踩坑场景，附完整代码示例与架构图。
-
-
-
+- engineering
+- testing
+tags:
+- Laravel
+- 测试
+- Mock
+- PHPUnit
+- PHP
+description: 在 Laravel B2C 电商项目中，外部服务（支付网关、物流API、邮件推送）是测试的重灾区。本文记录了 30+ 仓库中使用 Mockery
+  进行外部服务 Mock 与依赖隔离的实战经验，涵盖 shouldReceive/shouldNotReceive 基础用法、接口隔离与面向接口编程、Partial
+  Mock 与 protected 方法、Guzzle MockHandler 第三方 SDK Mock、Laravel Fake vs Mockery 选型对比、Expectation
+  顺序约束与 Spy 事后验证、Singleton 注入与队列测试等高频踩坑场景，附完整代码示例与架构图。
 ---
+
 # Mockery 实战：外部服务 Mock 与依赖隔离 Laravel B2C API 踩坑记录
 
 ## 前言

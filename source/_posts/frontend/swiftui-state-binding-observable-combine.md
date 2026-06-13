@@ -1,12 +1,22 @@
 ---
 title: SwiftUI 数据流实战：@State/@Binding/@Observable 与 Combine 响应式编程——前端开发者视角
 date: 2026-06-02 10:00:00
-tags: [SwiftUI, Swift, Combine, 响应式编程, iOS, 前端, MVVM]
+tags:
+- SwiftUI
+- Swift
+- Combine
+- 响应式
+- iOS
+- 前端
+- MVVM
 categories:
-  - frontend
+- frontend
 cover: /images/covers/swiftui-dataflow-cover.jpg
-description: 从前端开发者视角深入剖析 SwiftUI 数据流系统，对比 Vue.js 响应式机制，全面讲解 @State、@Binding、@ObservedObject、@StateObject 与 iOS 17 新增 @Observable 宏的使用场景与底层原理。涵盖 Combine 响应式编程、MVVM 架构实践、状态管理最佳实践及常见踩坑案例，附完整可运行 Swift 与 Vue 对照代码示例，帮助前端工程师快速掌握 SwiftUI 状态管理精髓。
+description: 从前端开发者视角深入剖析 SwiftUI 数据流系统，对比 Vue.js 响应式机制，全面讲解 @State、@Binding、@ObservedObject、@StateObject
+  与 iOS 17 新增 @Observable 宏的使用场景与底层原理。涵盖 Combine 响应式编程、MVVM 架构实践、状态管理最佳实践及常见踩坑案例，附完整可运行
+  Swift 与 Vue 对照代码示例，帮助前端工程师快速掌握 SwiftUI 状态管理精髓。
 ---
+
 
 # SwiftUI 数据流实战：@State/@Binding/@Observable 与 Combine 响应式编程——前端开发者视角
 

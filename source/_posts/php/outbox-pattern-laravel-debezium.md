@@ -5,7 +5,7 @@ tags:
 - Outbox Pattern
 - Debezium
 - 消息队列
-- 最终一致性
+- 一致性
 - Laravel
 categories:
 - php
@@ -16,6 +16,7 @@ description: Outbox Pattern 实战指南，解决微服务架构中数据库与�
   Prometheus 告警规则，适合需要保证事件驱动架构数据一致性的 Laravel 微服务团队参考。
 cover: /images/covers/outbox-pattern-laravel-debezium-cover.jpg
 ---
+
 
 
 

@@ -3,7 +3,7 @@ title: 分库分表实战：水平拆分策略与 ShardingSphere 集成
 tags:
 - MySQL
 - 分库分表
-- 分布式数据库
+- 数据库
 - 分片
 - 雪花算法
 categories:
@@ -15,6 +15,7 @@ images:
 - /images/content/databases-017-content-1.jpg
 - /images/content/databases-017-content-2.jpg
 ---
+
 
 
 > 分库分表

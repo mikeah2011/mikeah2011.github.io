@@ -2,17 +2,27 @@
 title: Pest + PHPUnit + ParaTest：如何在 Laravel B2C API 上跑满 100% 覆盖率？
 cover: /images/covers/pest-testingguide-100-cover.jpg
 date: 2026-05-02
-description: "Pest + PHPUnit + ParaTest：如何在 Laravel B2C API 上跑满 100% 覆盖率？本文从零到一分享实战踩坑记录，涵盖 Pest 语法迁移、Mock/Stub 高级用法、RefreshDatabase 数据隔离、ParaTest 并行测试加速及 CI 覆盖率集成方案，助你构建高置信度测试体系。"
+description: Pest + PHPUnit + ParaTest：如何在 Laravel B2C API 上跑满 100% 覆盖率？本文从零到一分享实战踩坑记录，涵盖
+  Pest 语法迁移、Mock/Stub 高级用法、RefreshDatabase 数据隔离、ParaTest 并行测试加速及 CI 覆盖率集成方案，助你构建高置信度测试体系。
 categories:
-  - php
-  - testing
-tags: [Laravel, 测试, Pest, PHPUnit, ParaTest, TDD, 自动化测试, 单元测试, 覆盖率]
-简介: |
-  KKday B2C API 团队使用 Pest + PHPUnit + ParaTest 构建高覆盖率测试体系。本文分享实战踩坑记录：从 0 到跑满 100% 覆盖率的完整路径，包括断言库选择、Mock/Stubs、并行测试优化与 CI 集成方案。
+- php
+- testing
+tags:
+- Laravel
+- 测试
+- Pest
+- PHPUnit
+- ParaTest
+- TDD
+- 自动化
+- 单元测试
+- 覆盖率
+简介: 'KKday B2C API 团队使用 Pest + PHPUnit + ParaTest 构建高覆盖率测试体系。本文分享实战踩坑记录：从 0 到跑满 100%
+  覆盖率的完整路径，包括断言库选择、Mock/Stubs、并行测试优化与 CI 集成方案。
 
-
-
+  '
 ---
+
 ## 一、为什么 Laravel B2C API 需要 100% 覆盖率？
 
 在 KKday B2C 项目中，我们的核心 BFF（Backend-for-Frontend）层每天处理数万笔订单查询、商品推荐搜索与会员积分计算。任何一处逻辑错误都可能直接影响营收。

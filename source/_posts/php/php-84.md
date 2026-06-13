@@ -3,7 +3,7 @@ title: PHP 8.4 新特性实战：从内存管理到性能提升
 cover: /images/covers/php-84-new-features-cover.jpg
 tags:
 - PHP
-- php8.4
+- PHP 8.4
 - Laravel
 - Swoole
 - JIT
@@ -19,6 +19,7 @@ description: PHP 8.4 新特性全面实战指南：深度解析 JIT 编译器优
   40%。
 updated: null
 ---
+
 
 
 ## 引言：为什么关注 PHP 8.4？

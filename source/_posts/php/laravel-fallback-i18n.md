@@ -2,16 +2,18 @@
 title: Laravel 多语言内容管理实战：运营后台的翻译工作流、机器翻译预填、Fallback 链路——i18n 从技术方案到运营工具的演进
 date: 2026-06-10 02:25:00
 categories:
-  - php
+- php
 tags:
-  - Laravel
-  - i18n
-  - 多语言
-  - CMS
-  - 翻译工作流
-  - 机器翻译
-description: 从 Laravel 项目中多语言内容管理的实际痛点出发，完整实现翻译工作流（待翻译→翻译中→审核→已发布）、机器翻译预填（百度/Google/DeepL）、Fallback 链路设计，让 i18n 从技术方案变成运营工具。
+- Laravel
+- i18n
+- 多语言
+- CMS
+- 工作流
+- 机器翻译
+description: 从 Laravel 项目中多语言内容管理的实际痛点出发，完整实现翻译工作流（待翻译→翻译中→审核→已发布）、机器翻译预填（百度/Google/DeepL）、Fallback
+  链路设计，让 i18n 从技术方案变成运营工具。
 ---
+
 
 ## 背景：为什么 i18n 不只是 `__()` ？
 

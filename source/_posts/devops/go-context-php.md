@@ -1,12 +1,19 @@
 ---
 title: Go Context 深度实战：超时控制、取消传播与请求作用域——PHP 开发者的并发思维重塑
 date: 2026-06-02 08:00:00
-tags: [Go, Context, 并发编程, 超时控制, PHP对比]
+tags:
+- Go
+- Context
+- 并发编程
+- 超时控制
+- PHP Comparison
 categories:
-  - devops
-description: "深入解析 Go Context 的超时控制、取消传播与请求作用域机制，从 PHP 开发者视角理解 goroutine 并发编程。涵盖 context.WithTimeout、WithCancel、WithValue 的实战用法，对比 PHP-FPM 请求生命周期，提供 Context 泄漏检测、嵌套超时、HTTP 中间件等真实场景代码示例，帮助 PHP 开发者完成并发思维重塑。"
+- devops
+description: 深入解析 Go Context 的超时控制、取消传播与请求作用域机制，从 PHP 开发者视角理解 goroutine 并发编程。涵盖 context.WithTimeout、WithCancel、WithValue
+  的实战用法，对比 PHP-FPM 请求生命周期，提供 Context 泄漏检测、嵌套超时、HTTP 中间件等真实场景代码示例，帮助 PHP 开发者完成并发思维重塑。
 cover: /images/covers/go-context-deep-dive-cover.jpg
 ---
+
 
 ## 前言：从 PHP 的 Request Lifecycle 到 Go 的 Context
 

@@ -1,12 +1,20 @@
 ---
-title: Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh——Laravel 高并发缓存击穿的三重防御
+title: Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh——Laravel
+  高并发缓存击穿的三重防御
 date: 2026-06-07 22:00:00
-description: '深入解析Laravel高并发场景下的缓存击穿（Cache Stampede）问题，系统讲解分布式锁、概率性提前过期（XFetch算法）和后台异步刷新三重防御策略的完整实现。包含Redis Lua脚本原子化操作、秒杀场景实战、Grafana监控面板配置，附可直接落地的PHP代码与性能基准对比数据，帮助你构建生产级Redis缓存防护体系。'
-tags: [Redis, Laravel, Cache Stampede, 分布式锁, 高并发]
+description: 深入解析Laravel高并发场景下的缓存击穿（Cache Stampede）问题，系统讲解分布式锁、概率性提前过期（XFetch算法）和后台异步刷新三重防御策略的完整实现。包含Redis
+  Lua脚本原子化操作、秒杀场景实战、Grafana监控面板配置，附可直接落地的PHP代码与性能基准对比数据，帮助你构建生产级Redis缓存防护体系。
+tags:
+- Redis
+- Laravel
+- Cache Stampede
+- 分布式
+- 高并发
 categories:
-  - database
+- database
 cover: /images/covers/cache-stampede-triple-defense-cover.jpg
 ---
+
 
 ## 引言：为什么你的 Laravel 应用会在凌晨三点崩溃？
 

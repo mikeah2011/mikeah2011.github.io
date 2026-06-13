@@ -3,7 +3,7 @@ title: Database Connection Pooling 进阶实战：Supavisor vs PgBouncer vs AWS 
   Laravel 的连接风暴治理与 Session 级隔离
 date: 2026-06-07 10:00:00
 tags:
-- 数据库连接池
+- 连接池
 - connection pooling
 - Supavisor
 - PgBouncer
@@ -18,6 +18,7 @@ description: 深度对比 Supavisor、PgBouncer 与 AWS RDS Proxy 三种数据�
   池化模式在 Laravel 多租户架构中的应用，涵盖连接风暴治理、配置实战、性能基准测试、踩坑案例与选型决策树，助你精准选型并稳定运行生产级连接池。
 cover: /images/covers/database-connection-pooling-cover.jpg
 ---
+
 
 
 

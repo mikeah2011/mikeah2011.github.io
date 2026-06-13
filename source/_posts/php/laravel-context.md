@@ -7,7 +7,7 @@ tags:
 - 日志
 - 队列
 - 多租户
-- 分布式追踪
+- 分布式
 - 可观测性
 categories:
 - php
@@ -16,6 +16,7 @@ description: 深入解析 Laravel 11 引入的 Context 上下文传播机制，�
   / Correlation ID）的无侵入注入、队列 Job 跨进程的上下文透传、多租户场景下租户标识的全局治理，以及与 Monolog、OpenTelemetry
   的集成实战。帮助 Laravel 项目告别"上下文丢失"的运维困境，构建端到端可观测的分布式日志体系。
 ---
+
 
 
 

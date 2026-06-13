@@ -2,15 +2,16 @@
 title: 数据库测试策略实战：事务回滚、内存数据库、Seeding 策略、迁移速度优化——Laravel 项目的数据库测试最佳实践
 date: 2026-06-09 23:25:00
 categories:
-  - database
+- database
 tags:
-  - Laravel
-  - PHPUnit
-  - 数据库测试
-  - SQLite
-  - 测试策略
+- Laravel
+- PHPUnit
+- 数据库
+- SQLite
+- 测试策略
 description: 深入 Laravel 数据库测试的核心策略，涵盖事务回滚机制、内存数据库加速、Seeding 分层设计与迁移速度优化，帮助团队建立快速可靠的数据库测试体系。
 ---
+
 
 数据库测试是后端开发中最容易被忽视、也最容易出问题的环节。很多团队的测试套件要么不测数据库（纯 mock），要么测了但慢得离谱（每次跑 10 分钟），要么数据互相污染导致 flaky test。
 

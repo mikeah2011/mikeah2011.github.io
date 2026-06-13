@@ -1,12 +1,19 @@
 ---
 title: 多语言电商实战：i18n 全链路——翻译管理、SEO hreflang、货币格式与 Laravel 集成
 date: 2026-06-02 00:00:00
-tags: [i18n, Laravel, 国际化, SEO, 多语言电商]
+tags:
+- i18n
+- Laravel
+- 国际化
+- SEO
+- 多语言
 categories:
-  - php
-description: 多语言电商国际化全链路实战指南，覆盖 Laravel 路径前缀路由策略、翻译文件管理、hreflang SEO 标签配置、货币格式化与汇率处理、日期本地化及 RTL 语言支持，提供完整的 i18n 工程方案，帮助 B2C 电商团队高效实现海外多语言站点上线。
+- php
+description: 多语言电商国际化全链路实战指南，覆盖 Laravel 路径前缀路由策略、翻译文件管理、hreflang SEO 标签配置、货币格式化与汇率处理、日期本地化及
+  RTL 语言支持，提供完整的 i18n 工程方案，帮助 B2C 电商团队高效实现海外多语言站点上线。
 cover: /images/covers/i18n-ecommerce-cover.jpg
 ---
+
 
 ## 前言
 

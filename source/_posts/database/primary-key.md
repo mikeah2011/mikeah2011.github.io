@@ -7,7 +7,7 @@ tags:
 - 性能优化
 - 数据库
 - 雪花算法
-- 分布式ID
+- 分布式
 categories:
 - database
 date: 2019-03-20 15:05:07
@@ -17,6 +17,7 @@ images:
 - /images/content/databases-1-content-1.jpg
 - /images/content/databases-1-content-2.jpg
 ---
+
 
 ## 主键选择的核心问题
 

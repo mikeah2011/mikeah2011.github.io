@@ -2,15 +2,17 @@
 title: InfluxDB 3.0 实战：Apache Arrow 列式存储的时序数据库——对比 TimescaleDB 的写入性能与查询能力
 date: 2026-06-10 03:47:00
 categories:
-  - misc
+- misc
 tags:
-  - InfluxDB
-  - TimescaleDB
-  - 时序数据库
-  - Apache Arrow
-  - 列式存储
-description: InfluxDB 3.0 基于 Apache Arrow 重构，带来了全新的列式存储引擎和 DataFusion 查询引擎。本文从安装配置、写入性能、查询能力三个维度，与 PostgreSQL 扩展 TimescaleDB 进行深度对比，附带 Laravel 集成实战代码。
+- InfluxDB
+- TimescaleDB
+- 数据库
+- Apache Arrow
+- 列式存储
+description: InfluxDB 3.0 基于 Apache Arrow 重构，带来了全新的列式存储引擎和 DataFusion 查询引擎。本文从安装配置、写入性能、查询能力三个维度，与
+  PostgreSQL 扩展 TimescaleDB 进行深度对比，附带 Laravel 集成实战代码。
 ---
+
 
 ## 概述
 

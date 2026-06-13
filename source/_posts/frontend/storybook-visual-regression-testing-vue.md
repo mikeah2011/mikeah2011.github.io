@@ -1,12 +1,21 @@
 ---
 title: Storybook 8.x 实战：组件文档化与 Visual Regression Testing——Vue 3 组件库的设计系统治理
-description: "深入实战 Storybook 8.x 在 Vue 3 组件库中的完整应用：从 CSF3 Story 编写、autodocs 自动文档生成、MDX2 深度文档定制，到 Chromatic 与 Playwright 双轨视觉回归测试（VRT）、axe-core 无障碍检测集成、Design Token 体系化治理、组件变体矩阵管理与 CI/CD 质量门禁搭建。本文以真实 Vue 3 设计系统为背景，对比 Storybook、Histoire、Ladle 三大工具方案优劣，提供可落地的工程配置、GitHub Actions 流水线模板与团队落地清单，适合中大型前端团队构建组件库质量保障体系参考。"
+description: 深入实战 Storybook 8.x 在 Vue 3 组件库中的完整应用：从 CSF3 Story 编写、autodocs 自动文档生成、MDX2
+  深度文档定制，到 Chromatic 与 Playwright 双轨视觉回归测试（VRT）、axe-core 无障碍检测集成、Design Token 体系化治理、组件变体矩阵管理与
+  CI/CD 质量门禁搭建。本文以真实 Vue 3 设计系统为背景，对比 Storybook、Histoire、Ladle 三大工具方案优劣，提供可落地的工程配置、GitHub
+  Actions 流水线模板与团队落地清单，适合中大型前端团队构建组件库质量保障体系参考。
 date: 2026-06-04 12:00:00
-tags: [Storybook, Vue 3, Visual Regression Testing, 组件库, 设计系统]
+tags:
+- Storybook
+- Vue
+- Visual Regression Testing
+- 组件库
+- 设计系统
 categories:
-  - frontend
+- frontend
 cover: /images/covers/storybook-8x-vue3-cover.jpg
 ---
+
 
 ## 前言
 

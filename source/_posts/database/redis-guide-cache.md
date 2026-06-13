@@ -8,7 +8,7 @@ tags:
 - 微服务
 - 缓存
 - Redis
-- 分布式锁
+- 分布式
 - 高并发
 description: KKday B2C API 中 Redis 缓存失效的真实踩坑记录，深度解析缓存穿透、缓存击穿、缓存雪崩三大经典问题，涵盖过期时间陷阱、热点
   Key 淘汰策略、分布式锁竞态条件与 RedLock 高可用方案、缓存一致性（删库写库与 Canal Binlog 监听）、大对象内存优化、连接池耗尽与限流降级等生产级场景。附
@@ -18,6 +18,7 @@ images:
 - /images/content/databases-01-content-1.jpg
 - /images/content/databases-01-content-2.jpg
 ---
+
 
 # Redis 实战：缓存失效场景深度解析 - KKday B2C API 真实踩坑记录
 

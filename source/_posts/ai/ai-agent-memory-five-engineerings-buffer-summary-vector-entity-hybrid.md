@@ -1,18 +1,21 @@
 ---
-title: "AI Agent Memory 实战：对话记忆的五种工程实现——Buffer/Summary/Vector/Entity/Hybrid 策略的 Token 成本与召回精度权衡"
+title: AI Agent Memory 实战：对话记忆的五种工程实现——Buffer/Summary/Vector/Entity/Hybrid 策略的 Token
+  成本与召回精度权衡
 date: 2026-06-10 08:06:00
 categories:
-  - ai
+- ai
 tags:
-  - AI Agent
-  - Memory
-  - 对话记忆
-  - Token 成本
-  - 向量检索
-  - 知识图谱
-  - Laravel
-description: "Agent 没有记忆就没有连续性。本文对比五种对话记忆工程实现——Buffer、Summary、Vector Store、Entity Graph、Hybrid——分析各自的 Token 成本、召回精度和适用场景，并在 Laravel 中实现完整的记忆管理模块。"
+- AI Agent
+- Memory
+- 对话记忆
+- Token
+- 向量检索
+- 知识图谱
+- Laravel
+description: Agent 没有记忆就没有连续性。本文对比五种对话记忆工程实现——Buffer、Summary、Vector Store、Entity Graph、Hybrid——分析各自的
+  Token 成本、召回精度和适用场景，并在 Laravel 中实现完整的记忆管理模块。
 ---
+
 
 ## 为什么 Agent 需要记忆工程
 

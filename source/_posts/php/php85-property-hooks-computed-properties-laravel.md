@@ -10,11 +10,12 @@ tags:
 - PHP 8.5
 - Property Hooks
 - Laravel
-- 声明式编程
+- 声明式
 categories:
 - php
 cover: /images/covers/php85-property-hooks-laravel-cover.jpg
 ---
+
 
 
 

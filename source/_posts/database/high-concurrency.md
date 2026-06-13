@@ -3,7 +3,7 @@ title: Redis 高并发场景实战：缓存策略与性能优化
 tags:
 - Redis
 - 高并发
-- 分布式锁
+- 分布式
 - 缓存优化
 categories:
 - database
@@ -14,6 +14,7 @@ images:
 - /images/content/databases-001-content-1.png
 - /images/diagrams/databases-001-diagram.png
 ---
+
 
 > 背景
 

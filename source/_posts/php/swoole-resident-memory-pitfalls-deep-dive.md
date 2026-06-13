@@ -6,16 +6,17 @@ description: 深入剖析 Swoole 驻留内存模型下的常见内存泄漏陷�
   Checklist，助你建立正确的协程编程思维模式。
 tags:
 - Swoole
-- laravel-octane
+- Laravel Octane
 - 常驻内存
 - 高并发
-- php性能
+- PHP Performance
 - 内存泄漏
 - 协程
 categories:
 - php
 cover: /images/covers/swoole-resident-memory-pitfalls-cover.jpg
 ---
+
 
 
 # Swoole 常驻内存踩坑深度剖析：全局变量污染、静态属性残留、连接泄漏——PHP-FPM 到 Octane 的思维模式迁移

@@ -2,18 +2,20 @@
 title: 数据库蓝绿迁移实战：pt-osc vs gh-ost vs Laravel 大表无锁变更——生产环境零停机 Schema 演进的工程化路径
 date: 2026-06-09 15:37:00
 categories:
-  - database
+- database
 tags:
-  - pt-osc
-  - gh-ost
-  - 数据库迁移
-  - 蓝绿部署
-  - Laravel
-  - 大表变更
-  - 零停机
-  - Schema演进
-description: 深入对比 pt-osc、gh-ost 和 Laravel 原生方案在大表无锁变更中的表现，结合生产环境实战案例，提供 MySQL Schema 演进的完整工程化路径。
+- pt-osc
+- gh-ost
+- 数据库
+- 蓝绿部署
+- Laravel
+- 大表变更
+- 零停机
+- Schema演进
+description: 深入对比 pt-osc、gh-ost 和 Laravel 原生方案在大表无锁变更中的表现，结合生产环境实战案例，提供 MySQL Schema
+  演进的完整工程化路径。
 ---
+
 
 ## 前言
 

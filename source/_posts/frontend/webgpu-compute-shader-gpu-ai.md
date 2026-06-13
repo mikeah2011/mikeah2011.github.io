@@ -2,15 +2,17 @@
 title: WebGPU Compute Shader 实战：浏览器通用 GPU 计算——矩阵运算、粒子模拟与 AI 推理的前端加速方案
 date: 2026-06-10 04:27:00
 categories:
-  - frontend
+- frontend
 tags:
-  - WebGPU
-  - Compute Shader
-  - GPU计算
-  - WGSL
-  - 前端性能优化
-description: 深入 WebGPU Compute Shader 的实战应用，涵盖 WGSL 语法、矩阵乘法、粒子系统模拟和轻量级 AI 推理加速，对比 WebAssembly 和纯 JS 的性能差异，附完整可运行代码。
+- WebGPU
+- Compute Shader
+- GPU计算
+- WGSL
+- 前端性能
+description: 深入 WebGPU Compute Shader 的实战应用，涵盖 WGSL 语法、矩阵乘法、粒子系统模拟和轻量级 AI 推理加速，对比
+  WebAssembly 和纯 JS 的性能差异，附完整可运行代码。
 ---
+
 
 ## 为什么浏览器需要 GPU 计算？
 

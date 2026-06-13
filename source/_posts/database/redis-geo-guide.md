@@ -9,7 +9,7 @@ tags:
 - Redis
 - lbs
 - 性能优化
-- redis-geo
+- Redis Geo
 - geohash
 - geosearch
 - 地理位置
@@ -21,6 +21,7 @@ images:
 - /images/content/databases-redis-geo-content-1.jpg
 - /images/content/databases-redis-geo-content-2.jpg
 ---
+
 
 # Redis Geo 实战：地理位置服务与"附近的人/店"功能
 

@@ -2,16 +2,17 @@
 title: Playwright Component Testing 实战：Vue 3 组件的浏览器级测试——对比 Vitest jsdom 的真实渲染与交互验证
 date: 2026-06-10 05:46:00
 categories:
-  - frontend
+- frontend
 tags:
-  - Playwright
-  - Vue 3
-  - 组件测试
-  - Vitest
-  - E2E
-  - 前端测试
+- Playwright
+- Vue
+- 组件测试
+- Vitest
+- E2E
+- 前端测试
 description: 深入对比 Playwright Component Testing 与 Vitest jsdom 在 Vue 3 组件测试中的差异，通过真实项目实战演示浏览器级渲染、交互验证和视觉回归测试的完整方案。
 ---
+
 
 ## 为什么需要浏览器级组件测试？
 

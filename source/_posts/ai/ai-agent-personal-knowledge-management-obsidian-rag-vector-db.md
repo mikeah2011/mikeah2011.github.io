@@ -1,11 +1,22 @@
 ---
 title: 用 AI Agent 构建个人知识管理系统：Obsidian + RAG + 向量数据库
 date: 2026-06-02 12:00:00
-description: "手把手教你搭建 AI 驱动的个人知识管理系统：Obsidian 管理笔记、PARA + Zettelkasten 组织知识、ChromaDB 向量数据库存储语义索引、RAG 引擎实现智能检索。包含完整的文档加载器、智能分块策略、Embedding 生成、混合检索等 Python 代码实现，月运营成本不到 6 美元，让你的笔记库变成可对话的第二大脑。"
-tags: [AI Agent, 知识管理, Obsidian, RAG, 向量数据库, ChromaDB, Embedding]
-categories: [ai]
+description: 手把手教你搭建 AI 驱动的个人知识管理系统：Obsidian 管理笔记、PARA + Zettelkasten 组织知识、ChromaDB
+  向量数据库存储语义索引、RAG 引擎实现智能检索。包含完整的文档加载器、智能分块策略、Embedding 生成、混合检索等 Python 代码实现，月运营成本不到
+  6 美元，让你的笔记库变成可对话的第二大脑。
+tags:
+- AI Agent
+- 知识管理
+- Obsidian
+- RAG
+- 数据库
+- ChromaDB
+- Embedding
+categories:
+- ai
 cover: /images/covers/ai-agent-pkm-obsidian-rag-cover.jpg
 ---
+
 
 你是否有过这样的经历：明明记得写过一篇关于某个技术方案的笔记，但翻遍了所有文件夹都找不到？或者，你积累了几百篇笔记，但需要用的时候却不知道从何找起？
 

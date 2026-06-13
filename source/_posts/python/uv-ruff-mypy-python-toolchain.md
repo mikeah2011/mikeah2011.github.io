@@ -1,18 +1,20 @@
 ---
-title: "uv + Ruff + Mypy Python 工具链实战：Rust 驱动的 Python 开发全流程——100x 速度提升与 Laravel 开发者迁移指南"
+title: uv + Ruff + Mypy Python 工具链实战：Rust 驱动的 Python 开发全流程——100x 速度提升与 Laravel 开发者迁移指南
 date: 2026-06-09 06:29:00
 categories:
-  - python
+- python
 tags:
-  - uv
-  - Ruff
-  - Mypy
-  - Python工具链
-  - Rust
-  - Laravel迁移
-description: "用 Rust 重写的 Python 工具链 uv、Ruff、Mypy，速度提升 10-100 倍。本文从 Laravel 开发者视角出发，实战演示如何用这套工具链替代 pip、flake8、black、pylint，建立高效的 Python 开发工作流。"
+- uv
+- Ruff
+- Mypy
+- Python工具链
+- Rust
+- Laravel Migration
+description: 用 Rust 重写的 Python 工具链 uv、Ruff、Mypy，速度提升 10-100 倍。本文从 Laravel 开发者视角出发，实战演示如何用这套工具链替代
+  pip、flake8、black、pylint，建立高效的 Python 开发工作流。
 cover: https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=1200
 ---
+
 
 ## 概述
 

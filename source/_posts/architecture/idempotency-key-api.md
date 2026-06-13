@@ -1,12 +1,21 @@
 ---
-title: 'Idempotency Key 深度实战：API 幂等性的三层防护——请求去重、结果缓存与分布式锁的工程化方案'
+title: Idempotency Key 深度实战：API 幂等性的三层防护——请求去重、结果缓存与分布式锁的工程化方案
 date: 2026-06-06 13:08:25
-tags: [幂等性, Idempotency Key, API 设计, 分布式系统, Laravel, Redis]
+tags:
+- 幂等性
+- Idempotency Key
+- API 设计
+- 分布式
+- Laravel
+- Redis
 categories:
-  - architecture
+- architecture
 cover: /images/covers/idempotency-key-cover.jpg
-description: 深入解析 API 幂等性的工程化落地方案，基于 Laravel + Redis 实现三层纵深防护架构：请求去重（SET NX）、结果缓存（HASH 回放）与分布式锁（Lua 原子释放）。涵盖 Idempotency Key 选型对比（UUID/Snowflake/客户端生成）、Redis 存储方案对比、并发竞态处理、部分成功等踩坑实战，横向对比 Stripe 与支付宝幂等策略，提供完整的中间件代码与决策树，助力分布式系统下的 API 请求去重与可靠性建设。
+description: 深入解析 API 幂等性的工程化落地方案，基于 Laravel + Redis 实现三层纵深防护架构：请求去重（SET NX）、结果缓存（HASH
+  回放）与分布式锁（Lua 原子释放）。涵盖 Idempotency Key 选型对比（UUID/Snowflake/客户端生成）、Redis 存储方案对比、并发竞态处理、部分成功等踩坑实战，横向对比
+  Stripe 与支付宝幂等策略，提供完整的中间件代码与决策树，助力分布式系统下的 API 请求去重与可靠性建设。
 ---
+
 
 ## 前言：一个重复扣款的故事
 

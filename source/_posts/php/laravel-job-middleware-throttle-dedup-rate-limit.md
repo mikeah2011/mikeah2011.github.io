@@ -2,16 +2,17 @@
 title: Laravel Job Middleware 实战：限流/去重/节流的链式管道——自定义中间件实现队列任务的精细化流量治理
 date: 2026-06-10 01:10:00
 categories:
-  - php
+- php
 tags:
-  - Laravel Queue
-  - Job Middleware
-  - Rate Limiting
-  - Idempotency
-  - Throttle
-  - PHP
+- Queue
+- Job Middleware
+- Rate Limiting
+- Idempotency
+- Throttle
+- PHP
 description: 深入 Laravel Job Middleware 机制，实战限流、去重、节流三大核心场景，通过自定义中间件实现队列任务的精细化流量治理，解决生产环境中重复消费、接口过载等痛点。
 ---
+
 
 # Laravel Job Middleware 实战：限流/去重/节流的链式管道——自定义中间件实现队列任务的精细化流量治理
 

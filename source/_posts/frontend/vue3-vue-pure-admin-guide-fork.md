@@ -6,8 +6,7 @@ updated: 2026-05-05 10:04:33
 categories:
 - frontend
 tags:
-- Vue 3
-- vue-pure-admin
+- Vue
 - 前端
 - 管理后台
 - Element Plus
@@ -19,6 +18,7 @@ tags:
 description: 基于真实电商项目，深度实战 vue-pure-admin 管理后台定制化全流程：Vite 分包优化、动态路由权限、Laravel BFF
   API 对接、Docker Nginx 部署与生产踩坑记录。
 ---
+
 
 
 ## 一、为什么选 vue-pure-admin？

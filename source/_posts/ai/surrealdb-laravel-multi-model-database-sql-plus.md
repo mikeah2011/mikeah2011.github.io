@@ -2,17 +2,18 @@
 title: SurrealDB 实战：多模型数据库（文档/图/关系/向量）——Laravel 中的统一数据层新范式与 SQL++ 查询
 date: 2026-06-09 14:00:00
 categories:
-  - ai
+- ai
 tags:
-  - SurrealDB
-  - Laravel
-  - 多模型数据库
-  - 向量数据库
-  - 图数据库
-  - SQL
-  - NoSQL
-description: SurrealDB 是一款将文档、图、关系、向量和时序模型融为一体的多模型数据库。本文基于 Laravel 项目实战，涵盖安装部署、PHP SDK 集成、多模型数据建模、SurrealQL 高级查询、向量相似度搜索、实时订阅，以及与 Eloquent 的共存方案。
+- SurrealDB
+- Laravel
+- 数据库
+- 图数据库
+- SQL
+- NoSQL
+description: SurrealDB 是一款将文档、图、关系、向量和时序模型融为一体的多模型数据库。本文基于 Laravel 项目实战，涵盖安装部署、PHP
+  SDK 集成、多模型数据建模、SurrealQL 高级查询、向量相似度搜索、实时订阅，以及与 Eloquent 的共存方案。
 ---
+
 
 ## 一、为什么需要多模型数据库？
 

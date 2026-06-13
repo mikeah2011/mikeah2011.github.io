@@ -1,12 +1,19 @@
 ---
 title: Saga 编排模式深度实战：Choreography vs Orchestration vs Temporal——Laravel 分布式事务的三种实现路线对比
 date: 2026-06-05 10:00:00
-tags: [Saga, 分布式事务, Laravel, 微服务, Temporal]
+tags:
+- Saga
+- 分布式
+- Laravel
+- 微服务
+- Temporal
 categories:
-  - architecture
+- architecture
 cover: /images/covers/saga-orchestration-pattern-cover.jpg
-description: Saga 分布式事务模式深度实战，对比 Choreography 编舞模式、Orchestration 编排模式与 Temporal 工作流引擎三种实现路线。基于 Laravel 代码示例演示补偿事务、语义锁定、发件箱模式等核心机制，分析事件驱动架构下的最终一致性保障策略。涵盖超时熔断、可观测性、幂等性设计等生产级关注点，帮助架构师在微服务场景中做出合理的一致性与可用性权衡决策。
+description: Saga 分布式事务模式深度实战，对比 Choreography 编舞模式、Orchestration 编排模式与 Temporal 工作流引擎三种实现路线。基于
+  Laravel 代码示例演示补偿事务、语义锁定、发件箱模式等核心机制，分析事件驱动架构下的最终一致性保障策略。涵盖超时熔断、可观测性、幂等性设计等生产级关注点，帮助架构师在微服务场景中做出合理的一致性与可用性权衡决策。
 ---
+
 
 ## 引言：为什么需要 Saga？单体事务 vs 分布式事务的困境
 

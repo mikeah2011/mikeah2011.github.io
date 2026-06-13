@@ -9,12 +9,13 @@ tags:
 - AI
 - GitHub
 - CodeRabbit
-- Copilot
+- GitHub Copilot
 - Laravel
 - 自动化
 description: 2026 年 Code Review 自动化全景实战：CodeRabbit、GitHub Copilot Review、Danger.js
   的混合工作流设计，从单仓库试点到 30+ 仓库规模化落地的踩坑记录。
 ---
+
 
 
 ## 概述

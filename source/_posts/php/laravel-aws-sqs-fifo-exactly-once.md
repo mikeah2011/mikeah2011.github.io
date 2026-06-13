@@ -2,17 +2,19 @@
 title: Laravel + AWS SQS FIFO 实战：严格顺序消息队列——订单处理的 Exactly-Once 语义与消息分组
 date: 2026-06-09 11:00:00
 categories:
-  - php
+- php
 tags:
-  - AWS
-  - SQS
-  - FIFO
-  - 消息队列
-  - 分布式系统
-  - 订单系统
-description: 深入实战 Laravel 集成 AWS SQS FIFO 队列，详解 MessageGroupId、DeduplicationId 的设计与实现，解决订单处理中的严格顺序与 Exactly-Once 语义问题，包含完整代码示例与生产踩坑记录。
+- AWS
+- SQS
+- FIFO
+- 消息队列
+- 分布式
+- 订单系统
+description: 深入实战 Laravel 集成 AWS SQS FIFO 队列，详解 MessageGroupId、DeduplicationId 的设计与实现，解决订单处理中的严格顺序与
+  Exactly-Once 语义问题，包含完整代码示例与生产踩坑记录。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
+
 
 ## 为什么需要 FIFO 队列
 

@@ -5,11 +5,10 @@ description: Gitness 是 Harness（Drone CI 母公司）推出的开源 Git 托�
   DevOps 平台。
 date: 2026-06-10 05:42:00
 tags:
-- gitness
+- Git
 - harness
 - CI/CD
 - self-hosted
-- Git
 - DevOps
 - Docker
 - drone
@@ -17,6 +16,7 @@ categories:
 - devops
 cover: /images/covers/gitness-harness-devops-cover.jpg
 ---
+
 
 
 ## 一、为什么需要自托管 Git 平台

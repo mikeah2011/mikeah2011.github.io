@@ -3,9 +3,8 @@ title: Next.js 15 App Router 深度实战：对比 Nuxt 4 的全栈框架选型�
   的工程化落地
 date: 2026-06-05 09:00:00
 tags:
-- Next.js
-- Nuxt
 - React
+- Nuxt
 - Vue
 - app-router
 - RSC
@@ -17,6 +16,7 @@ cover: /images/covers/nextjs15-app-router-nuxt4-comparison-cover.jpg
 description: 深度对比 Next.js 15 App Router 与 Nuxt 4 全栈框架，涵盖 React Server Components、Server
   Actions、Middleware 工程化实战，结合性能基准测试与真实任务管理应用代码示例，帮助团队在 SSR 流式渲染、Edge 部署、多平台适配等维度做出精准技术选型决策。
 ---
+
 
 
 

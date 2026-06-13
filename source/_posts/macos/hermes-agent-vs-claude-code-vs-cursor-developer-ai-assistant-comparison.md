@@ -1,21 +1,24 @@
 ---
-title: "Hermes Agent vs Claude Code vs Cursor：开发者 AI 助手选型与工作流对比实战踩坑记录"
+title: Hermes Agent vs Claude Code vs Cursor：开发者 AI 助手选型与工作流对比实战踩坑记录
 cover: /images/covers/hermes-agent-vs-claude-code-vs-cursor-developer-ai-assistant-comparison-cover.jpg
 date: 2026-06-01 14:00:00
 categories:
-  - macos
-  - ai
-  - engineering
+- macos
+- ai
+- engineering
 tags:
-  - Hermes Agent
-  - Claude Code
-  - Cursor
-  - AI 助手选型
-  - 开发者工具
-  - 工作流对比
-  - 成本优化
-description: "不是三选一的零和博弈，而是搞清楚每个工具的架构边界、性能特征和成本模型。Hermes Agent vs Claude Code vs Cursor 深度对比：从 IDE 内嵌编辑层、终端推理层到自动化执行层的架构差异分析，涵盖 Laravel B2C 真实仓库基准测试、token 成本核算、多 AI 协作工作流设计，以及 847 个任务的生产环境选型经验。帮你做出不后悔的开发者 AI 助手选型决策。"
+- Hermes Agent
+- Claude Code
+- Cursor
+- AI 助手选型
+- 开发者工具
+- 工作流
+- 成本优化
+description: 不是三选一的零和博弈，而是搞清楚每个工具的架构边界、性能特征和成本模型。Hermes Agent vs Claude Code vs Cursor
+  深度对比：从 IDE 内嵌编辑层、终端推理层到自动化执行层的架构差异分析，涵盖 Laravel B2C 真实仓库基准测试、token 成本核算、多 AI 协作工作流设计，以及
+  847 个任务的生产环境选型经验。帮你做出不后悔的开发者 AI 助手选型决策。
 ---
+
 
 # Hermes Agent vs Claude Code vs Cursor：开发者 AI 助手选型与工作流对比实战踩坑记录
 

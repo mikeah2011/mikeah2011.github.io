@@ -4,14 +4,20 @@ cover: /images/covers/brew-php-switcher-homebrew-php-guide-cover.jpg
 date: 2026-05-05 00:55:55
 updated: 2026-05-05 00:59:30
 categories:
-  - macos
-  - tools
-tags: [Laravel, PHP, macOS, Homebrew, brew-php-switcher, 多版本管理, Apple Silicon]
-description: KKday 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.2/8.3 多版本共存的完整方案 | brew-php-switcher 与 Homebrew 原生方式对比 | 真实踩坑记录
-
-
-
+- macos
+- tools
+tags:
+- Laravel
+- PHP
+- macOS
+- Homebrew
+- brew-php-switcher
+- 版本管理
+- Apple Silicon
+description: KKday 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.2/8.3 多版本共存的完整方案
+  | brew-php-switcher 与 Homebrew 原生方式对比 | 真实踩坑记录
 ---
+
 # brew-php-switcher + Homebrew：macOS 多版本 PHP 管理实战与踩坑记录
 
 ## 前言：为什么需要多版本 PHP？

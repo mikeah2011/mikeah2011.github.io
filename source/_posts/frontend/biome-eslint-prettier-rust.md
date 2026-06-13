@@ -1,11 +1,22 @@
 ---
-title: 'Biome 实战：替代 ESLint + Prettier 的下一代前端工具链——Rust 驱动的超快格式化与检查'
+title: Biome 实战：替代 ESLint + Prettier 的下一代前端工具链——Rust 驱动的超快格式化与检查
 date: 2026-06-02 12:00:00
-tags: [Biome, ESLint, Prettier, 前端工具链, Rust, Linting, Formatting]
-categories: [frontend]
+tags:
+- Biome
+- ESLint
+- Prettier
+- 工具链
+- Rust
+- Linting
+- Formatting
+categories:
+- frontend
 cover: /images/covers/biome-next-gen-frontend-toolchain-cover.jpg
-description: 全面评测 Biome——用 Rust 编写的下一代前端工具链，同时替代 ESLint 和 Prettier。实测格式化速度提升 20 倍以上，零配置即可使用。涵盖从 ESLint+Prettier 迁移实战、Vue 3/React 项目集成、CI/CD 配置、自定义规则编写，以及与 Rome 项目的技术渊源对比，帮助前端团队评估是否值得切换到 Biome。
+description: 全面评测 Biome——用 Rust 编写的下一代前端工具链，同时替代 ESLint 和 Prettier。实测格式化速度提升 20 倍以上，零配置即可使用。涵盖从
+  ESLint+Prettier 迁移实战、Vue 3/React 项目集成、CI/CD 配置、自定义规则编写，以及与 Rome 项目的技术渊源对比，帮助前端团队评估是否值得切换到
+  Biome。
 ---
+
 
 在前端工程化的世界里，ESLint + Prettier 的组合统治了近十年。但随着项目规模增长，一个中型 Vue 项目的 `eslint --fix` 可能需要 30 秒以上，Prettier 格式化也需要数秒。更痛苦的是两个工具之间的配置冲突——ESLint 的格式化规则和 Prettier 的格式化规则打架，需要 `eslint-config-prettier` 来「和稀泥」。
 

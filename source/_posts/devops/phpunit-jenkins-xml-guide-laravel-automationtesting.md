@@ -11,13 +11,14 @@ tags:
 - Laravel
 - PHPUnit
 - Jenkins
-- 自动化测试
+- 自动化
 - 持续集成
 - 测试
 description: 基于 Laravel 项目的 PHPUnit 与 Jenkins 自动化测试流水线完整实战指南。从零搭建 phpunit.jenkins.xml
   配置文件，详解 CI/CD 环境下数据库隔离策略、XML 报告输出、代码覆盖率门禁、PCOV 性能优化、Paratest 并行加速，以及内存泄漏、顺序依赖、Mock
   耦合等 8 大踩坑解决方案，附 30+ 微服务持续集成统一模板方案。
 ---
+
 
 # phpunit.jenkins.xml 实战：Laravel 项目自动化测试流水线配置
 

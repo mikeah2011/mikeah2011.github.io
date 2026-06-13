@@ -4,7 +4,7 @@ date: 2026-06-03 08:00:00
 tags:
 - Laravel
 - Inertia.js
-- Vue 3
+- Vue
 - React
 - SPA
 - 全栈
@@ -16,6 +16,7 @@ description: 深入剖析 Inertia.js 如何让 Laravel 与 Vue 3/React 无缝协
   胶水代码，用全栈思维构建现代 SPA。
 cover: /images/covers/laravel-inertia-cover.jpg
 ---
+
 
 
 

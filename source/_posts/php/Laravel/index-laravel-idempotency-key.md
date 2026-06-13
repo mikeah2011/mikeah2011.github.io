@@ -4,13 +4,20 @@ cover: /images/covers/index-laravel-idempotency-key-cover.jpg
 date: 2026-05-03 09:46:04
 updated: 2026-05-03 09:48:49
 categories:
-  - php
-tags: [Laravel, MySQL, 幂等, API, Idempotency, 分布式锁, 重试机制]
-description: 结合 Laravel 订单创建接口的真实经验，深入记录一套用 Idempotency-Key、请求指纹、结果回放与状态机保护实现 API 幂等性的落地方案。覆盖唯一索引、Redis 分布式锁与 Idempotency-Key 三种防重方案的优劣对比，附带完整 Migration、中间件、Service 层代码示例与线上踩坑记录，适合面临重复提交、重试风暴等分布式一致难题的后端工程师参考。
-
-
-
+- php
+tags:
+- Laravel
+- MySQL
+- 幂等
+- API
+- Idempotency
+- 分布式
+- 重试机制
+description: 结合 Laravel 订单创建接口的真实经验，深入记录一套用 Idempotency-Key、请求指纹、结果回放与状态机保护实现 API
+  幂等性的落地方案。覆盖唯一索引、Redis 分布式锁与 Idempotency-Key 三种防重方案的优劣对比，附带完整 Migration、中间件、Service
+  层代码示例与线上踩坑记录，适合面临重复提交、重试风暴等分布式一致难题的后端工程师参考。
 ---
+
 移动端弱网下，`POST /api/orders` 最容易出事：用户点一次“提交订单”，客户端因为超时自动重试一次，网关也可能补发一次，最后数据库里落了两张单。很多团队第一反应是“加唯一索引”，但我在线上踩过几次坑后发现，**唯一索引只能防止部分重复写，解决不了客户端到底该拿到哪一次响应**。
 
 我们最后在 Laravel 里落地的是一套四段式方案：**Idempotency-Key 标识一次业务意图，请求指纹校验参数一致性，数据库记录回放响应，订单状态机兜底防误更新。** 这样客户端即使重试三次，也只会创建一张订单，而且拿到的是第一次成功写入后的同一份响应。

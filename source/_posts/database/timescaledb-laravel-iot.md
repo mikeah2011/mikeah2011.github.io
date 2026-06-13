@@ -6,7 +6,7 @@ tags:
 - PostgreSQL
 - Laravel
 - IoT
-- 时序数据库
+- 数据库
 - hypertable
 - continuous-aggregate
 - 物化视图
@@ -17,6 +17,7 @@ description: TimescaleDB 在 Laravel 项目中的完整集成实战：Hypertable
   代码示例。
 cover: /images/covers/timescaledb-laravel-iot-cover.jpg
 ---
+
 
 
 

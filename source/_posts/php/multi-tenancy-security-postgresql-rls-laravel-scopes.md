@@ -5,7 +5,7 @@ date: 2026-06-04 12:00:00
 tags:
 - Multi-Tenancy
 - postgresql-rls
-- laravel-scopes
+- Laravel Scopes
 - 行级安全
 - SaaS
 - 租户隔离
@@ -16,6 +16,7 @@ description: 深入解析多租户 SaaS 应用的行级安全策略：PostgreSQL
   Feature Test 测试套件，适合构建金融级多租户数据隔离方案的 Laravel 团队参考。
 cover: /images/covers/multi-tenancy-security-cover.jpg
 ---
+
 
 
 

@@ -14,13 +14,13 @@ tags:
 - BFF
 - KKday
 - Laravel
-- predis
 - Redis
 - 微服务
 - 缓存
-- 分布式锁
+- 分布式
 - 性能调优
 ---
+
 
 
 ## 写在前面

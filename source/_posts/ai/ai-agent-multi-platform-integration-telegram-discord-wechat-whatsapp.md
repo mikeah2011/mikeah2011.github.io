@@ -1,11 +1,22 @@
 ---
 title: AI Agent 多平台能力对比：Telegram/Discord/微信/WhatsApp 集成方案
 date: 2026-06-02 12:00:00
-description: "全面对比 AI Agent 在 Telegram、Discord、微信、WhatsApp 四大即时通讯平台的集成方案。从 Bot API 接入、消息格式、速率限制、群组支持到合规风险，提供完整的 Python 代码示例和统一消息网关架构设计。涵盖 Inline Keyboard、Embed 消息、企业微信 API、WhatsApp Business API 等实战细节，帮助开发者选择最优多平台集成策略。"
-tags: [AI Agent, Telegram, Discord, 微信, WhatsApp, 多平台集成, Bot]
-categories: [ai]
+description: 全面对比 AI Agent 在 Telegram、Discord、微信、WhatsApp 四大即时通讯平台的集成方案。从 Bot API
+  接入、消息格式、速率限制、群组支持到合规风险，提供完整的 Python 代码示例和统一消息网关架构设计。涵盖 Inline Keyboard、Embed 消息、企业微信
+  API、WhatsApp Business API 等实战细节，帮助开发者选择最优多平台集成策略。
+tags:
+- AI Agent
+- Telegram
+- Discord
+- 微信
+- WhatsApp
+- 多平台
+- Bot
+categories:
+- ai
 cover: /images/covers/ai-agent-multi-platform-cover.jpg
 ---
+
 
 AI Agent 再强大，如果只能在终端里运行，它的价值就大打折扣。真正让 AI Agent 融入日常工作流的，是它与即时通讯平台的集成能力——在你最常用的聊天工具里，随时随地与 Agent 对话、下达任务、获取结果。
 

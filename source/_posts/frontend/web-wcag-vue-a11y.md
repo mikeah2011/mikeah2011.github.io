@@ -4,7 +4,7 @@ date: 2026-06-02 10:00:00
 tags:
 - WCAG
 - a11y
-- Vue 3
+- Vue
 - 无障碍
 - 前端
 categories:
@@ -13,6 +13,7 @@ description: 本文系统讲解如何在 Vue 3 项目中实施 WCAG 2.2 无障�
   Live Region 实现，并通过 axe-core 和 Playwright 搭建自动化无障碍回归测试体系，帮助前端团队建立可持续的 a11y 治理流程。
 cover: /images/covers/wcag22-vue3-a11y-cover.jpg
 ---
+
 
 
 ## 前言

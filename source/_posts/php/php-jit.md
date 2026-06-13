@@ -3,11 +3,11 @@ title: PHP 8.5 新特性前瞻：属性钩子、JIT 改进与异步生态演进
 date: 2026-06-02 10:00:00
 tags:
 - PHP
-- php8.5
+- PHP 8.5
 - JIT
 - 异步编程
 - 属性钩子
-- php新特性
+- 新特性
 categories:
 - php
 cover: /images/covers/php-8.5-new-features-cover.jpg
@@ -15,6 +15,7 @@ description: PHP 8.5 引入属性钩子（Property Hooks）告别 getter/setter 
   策略使计算密集型任务性能提升 50-200%，同时带来 Fibers 增强、原生异步 I/O、DNF 类型和管道操作符等重大改进。本文深入剖析 PHP 8.5
   核心新特性，包含属性钩子的虚拟属性、继承覆盖、缓存透明化等实战场景，JIT 类型特化与内联优化的性能基准测试，以及 Laravel 应用的迁移适配指南，帮助开发者提前做好技术准备。
 ---
+
 
 
 

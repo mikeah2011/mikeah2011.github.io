@@ -1,15 +1,23 @@
 ---
-title: "Ansible 实战：Laravel 应用自动化部署与配置管理——从 SSH 手工操作到声明式基础设施踩坑记录"
+title: Ansible 实战：Laravel 应用自动化部署与配置管理——从 SSH 手工操作到声明式基础设施踩坑记录
 date: 2026-06-01
 categories:
-  - devops
-tags: [Ansible, Laravel, DevOps, 自动化部署, 配置管理, IaC]
-description: 基于 KKday B2C Backend Team 30+ 仓库的运维经验，记录 Ansible 在 Laravel 项目中的落地实践：Inventory 设计、Playbook 编写、Role 抽象、Vault 密钥管理、滚动部署、零停机发布，以及 Jinja2 模板渲染陷阱、幂等性违背、handler 时序、权限提升踩坑等真实问题。
+- devops
+tags:
+- Ansible
+- Laravel
+- DevOps
+- 自动化
+- 配置管理
+- IaC
+description: 基于 KKday B2C Backend Team 30+ 仓库的运维经验，记录 Ansible 在 Laravel 项目中的落地实践：Inventory
+  设计、Playbook 编写、Role 抽象、Vault 密钥管理、滚动部署、零停机发布，以及 Jinja2 模板渲染陷阱、幂等性违背、handler 时序、权限提升踩坑等真实问题。
 cover: /images/covers/devops-ansible-cover.jpg
 images:
-  - /images/content/devops-ansible-content-1.jpg
-  - /images/content/devops-ansible-content-2.jpg
+- /images/content/devops-ansible-content-1.jpg
+- /images/content/devops-ansible-content-2.jpg
 ---
+
 
 # Ansible 实战：Laravel 应用自动化部署与配置管理——从 SSH 手工操作到声明式基础设施踩坑记录
 

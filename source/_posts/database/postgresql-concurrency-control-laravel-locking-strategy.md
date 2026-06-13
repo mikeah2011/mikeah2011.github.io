@@ -2,17 +2,19 @@
 title: PostgreSQL 并发控制深度实战：行锁/表锁/Advisory Lock/Serializable 的选型决策树——Laravel 高并发写入的锁治理方法论
 date: 2026-06-10 02:45:00
 categories:
-  - database
+- database
 tags:
-  - PostgreSQL
-  - Laravel
-  - 并发控制
-  - 数据库锁
-  - 高并发
-  - Advisory Lock
-  - Serializable
-description: 深入剖析 PostgreSQL 四种锁机制的实现原理与适用场景，结合 Laravel 实战代码，构建高并发写入场景下的锁治理决策树。从行锁到 Serializable 隔离级别，覆盖库存扣减、订单去重、分布式任务调度等核心业务场景。
+- PostgreSQL
+- Laravel
+- 并发控制
+- 数据库
+- 高并发
+- Advisory Lock
+- Serializable
+description: 深入剖析 PostgreSQL 四种锁机制的实现原理与适用场景，结合 Laravel 实战代码，构建高并发写入场景下的锁治理决策树。从行锁到
+  Serializable 隔离级别，覆盖库存扣减、订单去重、分布式任务调度等核心业务场景。
 ---
+
 
 ## 概述
 

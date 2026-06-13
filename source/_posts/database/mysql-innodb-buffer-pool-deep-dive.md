@@ -1,16 +1,19 @@
 ---
-title: MySQL InnoDB Buffer Pool 深度调优：LRU 算法、预读策略、热数据治理与 SHOW ENGINE INNODB STATUS 实战解读
+title: MySQL InnoDB Buffer Pool 深度调优：LRU 算法、预读策略、热数据治理与 SHOW ENGINE INNODB STATUS
+  实战解读
 date: 2026-06-10 08:41:00
 categories:
-  - database
+- database
 tags:
-  - InnoDB
-  - Buffer Pool
-  - 性能调优
-  - LRU
-  - MySQL运维
-description: 深入剖析 InnoDB Buffer Pool 的内部机制，涵盖改进型 LRU 算法、预读策略、热数据治理，并结合 SHOW ENGINE INNODB STATUS 输出进行实战调优。
+- InnoDB
+- Buffer Pool
+- 性能调优
+- LRU
+- MySQL Operations
+description: 深入剖析 InnoDB Buffer Pool 的内部机制，涵盖改进型 LRU 算法、预读策略、热数据治理，并结合 SHOW ENGINE
+  INNODB STATUS 输出进行实战调优。
 ---
+
 
 ## 概述
 

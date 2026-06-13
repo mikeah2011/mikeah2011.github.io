@@ -2,18 +2,20 @@
 title: Laravel Reverb 2.x 实战进阶：水平扩展、Redis Pub/Sub 广播、Presence Channel 的生产级部署架构
 date: 2026-06-09 06:18:00
 categories:
-  - php
+- php
 tags:
-  - Laravel Reverb
-  - WebSocket
-  - Redis Pub/Sub
-  - Presence Channel
-  - 水平扩展
-  - 实时通信
-  - 生产部署
-description: 从单机 Reverb 到多节点水平扩展的完整路径：Redis Pub/Sub 广播原理、Presence Channel 状态同步、Nginx 反向代理配置、Supervisor 进程管理，以及生产环境中踩过的每一个坑。
+- Reverb
+- WebSocket
+- Redis Pub/Sub
+- Presence Channel
+- 水平扩展
+- 实时通信
+- 生产部署
+description: 从单机 Reverb 到多节点水平扩展的完整路径：Redis Pub/Sub 广播原理、Presence Channel 状态同步、Nginx
+  反向代理配置、Supervisor 进程管理，以及生产环境中踩过的每一个坑。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
+
 
 # Laravel Reverb 2.x 实战进阶：水平扩展、Redis Pub/Sub 广播、Presence Channel 的生产级部署架构
 

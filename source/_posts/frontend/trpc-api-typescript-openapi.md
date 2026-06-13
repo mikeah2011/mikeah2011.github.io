@@ -1,12 +1,21 @@
 ---
-title: 'tRPC 实战：端到端类型安全的 API 层——TypeScript 全栈开发者告别 OpenAPI 代码生成的新范式'
+title: tRPC 实战：端到端类型安全的 API 层——TypeScript 全栈开发者告别 OpenAPI 代码生成的新范式
 date: 2026-06-03 08:00:00
-tags: [tRPC, TypeScript, 类型安全, API, Next.js, Zod]
+tags:
+- tRPC
+- TypeScript
+- 类型安全
+- API
+- React
+- Zod
 categories:
-  - frontend
+- frontend
 cover: /images/covers/trpc-cover.jpg
-description: '深入解析 tRPC 框架核心原理与实战集成，涵盖 Procedure、Router、Context、Middleware 四大核心概念，对比 REST/OpenAPI/GraphQL 方案优劣，详解 Zod 输入验证、Next.js App Router 集成、WebSocket 订阅、错误处理与性能优化技巧，助你构建端到端类型安全的 TypeScript 全栈 API 层。'
+description: 深入解析 tRPC 框架核心原理与实战集成，涵盖 Procedure、Router、Context、Middleware 四大核心概念，对比
+  REST/OpenAPI/GraphQL 方案优劣，详解 Zod 输入验证、Next.js App Router 集成、WebSocket 订阅、错误处理与性能优化技巧，助你构建端到端类型安全的
+  TypeScript 全栈 API 层。
 ---
+
 
 # tRPC 实战：端到端类型安全的 API 层——TypeScript 全栈开发者告别 OpenAPI 代码生成的新范式
 

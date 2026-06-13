@@ -1,17 +1,20 @@
 ---
-title: Laravel Livewire 3 实战：Wireable DTO、Computed Properties、Lazy Loading——对比 Inertia.js 的全栈交互新范式
+title: Laravel Livewire 3 实战：Wireable DTO、Computed Properties、Lazy Loading——对比 Inertia.js
+  的全栈交互新范式
 date: 2026-06-10 05:18:00
 categories:
-  - php
+- php
 tags:
-  - Livewire
-  - Inertia.js
-  - Laravel 11
-  - SPA
-  - 全栈开发
-  - DTO
-description: 深入 Laravel Livewire 3 的 Wireable DTO、Computed Properties、Lazy Loading 三大核心特性，附实战代码与踩坑记录，并与 Inertia.js 进行全面对比，帮你选对全栈交互方案。
+- Livewire
+- Inertia.js
+- Laravel
+- SPA
+- 全栈开发
+- DTO
+description: 深入 Laravel Livewire 3 的 Wireable DTO、Computed Properties、Lazy Loading
+  三大核心特性，附实战代码与踩坑记录，并与 Inertia.js 进行全面对比，帮你选对全栈交互方案。
 ---
+
 
 ## 为什么需要这篇文章
 

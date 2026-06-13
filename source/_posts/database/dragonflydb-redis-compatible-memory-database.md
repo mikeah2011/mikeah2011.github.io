@@ -2,15 +2,17 @@
 title: DragonflyDB 实战：Redis 兼容的内存数据库——单实例百万 QPS、无分片架构与 Laravel 无缝迁移方案
 date: 2026-06-10 03:42:00
 categories:
-  - database
+- database
 tags:
-  - DragonflyDB
-  - Redis
-  - 内存数据库
-  - Laravel
-  - 高性能
-description: 深入解析 DragonflyDB——Redis 兼容的高性能内存数据库，涵盖架构原理、单实例百万 QPS 基准测试、Docker 部署、Laravel 缓存/队列无缝迁移，以及生产环境踩坑记录。
+- DragonflyDB
+- Redis
+- 数据库
+- Laravel
+- 高性能
+description: 深入解析 DragonflyDB——Redis 兼容的高性能内存数据库，涵盖架构原理、单实例百万 QPS 基准测试、Docker 部署、Laravel
+  缓存/队列无缝迁移，以及生产环境踩坑记录。
 ---
+
 
 ## 概述
 

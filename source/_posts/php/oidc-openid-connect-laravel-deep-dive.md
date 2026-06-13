@@ -1,12 +1,22 @@
 ---
-title: OIDC (OpenID Connect) 深度实战：从 OAuth 2.0 到 OIDC 的身份层——Laravel Socialite + 自建 OIDC Provider 的完整流程
+title: OIDC (OpenID Connect) 深度实战：从 OAuth 2.0 到 OIDC 的身份层——Laravel Socialite + 自建
+  OIDC Provider 的完整流程
 date: 2026-06-05 21:25:18
-tags: [OIDC, OAuth2, Laravel, Socialite, 认证, JWT]
+tags:
+- OIDC
+- OAuth
+- Laravel
+- Socialite
+- 认证
+- JWT
 categories:
-  - php
-description: 深入解析 OIDC（OpenID Connect）与 OAuth 2.0 的本质区别，手把手在 Laravel 中使用 Socialite 对接 Keycloak、Auth0、Google 等第三方 IdP，并基于 Laravel Passport 自建 OIDC Provider 签发 JWT ID Token。涵盖 Authorization Code Flow、PKCE、Nonce、State 安全机制，以及多租户与微服务架构下的 Token 验证策略和真实生产踩坑记录。
+- php
+description: 深入解析 OIDC（OpenID Connect）与 OAuth 2.0 的本质区别，手把手在 Laravel 中使用 Socialite
+  对接 Keycloak、Auth0、Google 等第三方 IdP，并基于 Laravel Passport 自建 OIDC Provider 签发 JWT ID
+  Token。涵盖 Authorization Code Flow、PKCE、Nonce、State 安全机制，以及多租户与微服务架构下的 Token 验证策略和真实生产踩坑记录。
 cover: /images/covers/oidc-openid-connect-laravel-cover.jpg
 ---
+
 
 ## 前言：为什么又写一篇 OIDC？
 

@@ -2,17 +2,19 @@
 title: Kubernetes NetworkPolicy 实战：Pod 间网络隔离——微服务的零信任网络策略与 Calico/Cilium 集成
 date: 2026-06-10 09:03:00
 categories:
-  - architecture
+- architecture
 tags:
-  - Kubernetes
-  - NetworkPolicy
-  - 零信任
-  - Calico
-  - Cilium
-  - 微服务安全
-  - 网络隔离
-description: 深入讲解 Kubernetes NetworkPolicy 的原理与实战，覆盖默认拒绝策略、微服务间精细授权、Calico/Cilium CNI 集成，以及从零信任角度构建 Pod 级别网络隔离的完整方案。
+- Kubernetes
+- NetworkPolicy
+- 零信任
+- Calico
+- Cilium
+- 微服务
+- 网络隔离
+description: 深入讲解 Kubernetes NetworkPolicy 的原理与实战，覆盖默认拒绝策略、微服务间精细授权、Calico/Cilium
+  CNI 集成，以及从零信任角度构建 Pod 级别网络隔离的完整方案。
 ---
+
 
 # Kubernetes NetworkPolicy 实战：Pod 间网络隔离
 

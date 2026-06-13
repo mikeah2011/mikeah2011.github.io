@@ -3,7 +3,6 @@ title: Redis 8.0 新特性实战：向量搜索、JSON Path、性能改进与 AI
 date: 2026-06-02 10:00:00
 tags:
 - Redis
-- redis8
 - 向量搜索
 - JSON
 - AI
@@ -15,6 +14,7 @@ description: Redis 8.0 是 Redis 发展史上最重要的版本升级，全面�
   Path 增强（聚合函数、复杂过滤表达式）、I/O 多线程性能提升与持久化优化。本文深入剖析 Redis 8.0 核心新特性，结合 AI 语义缓存、RAG 检索增强生成、实时推荐等实战场景，提供完整的
   Laravel 集成方案与性能基准测试数据，帮助开发者在生产环境中充分利用 Redis 8.0 的能力。
 ---
+
 
 
 
