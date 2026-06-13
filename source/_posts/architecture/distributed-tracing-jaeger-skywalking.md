@@ -3,7 +3,7 @@ title: 链路追踪实战：Jaeger/SkyWalking 在 Laravel 微服务中的应用
 cover: /images/covers/distributed-tracing-jaeger-skywalking-cover.jpg
 date: 2026-05-16 23:30:13
 updated: 2026-05-16 23:37:23
-categories: Architecture
+categories: architecture
 tags: [Laravel, 微服务, 监控]
 description: "深入实战 KKday B2C 微服务架构中 Jaeger 与 SkyWalking 双方案链路追踪落地全过程。涵盖 OpenTelemetry SDK PHP 接入、跨服务 W3C TraceContext 上下文传播、Kafka 异步消息链路续接、Head/Tail 双层采样策略设计、OTel Collector 统一汇聚架构，以及生产环境性能压测数据、Grafana 可视化看板配置与六大踩坑记录。适用于 Laravel/PHP 与 Java 混合微服务团队快速构建分布式可观测性体系。"
 

@@ -3,7 +3,7 @@ title: uni-app App 打包实战：iOS/Android 原生打包与发布 — 从 HBui
 cover: /images/covers/uni-app-app-guide-ios-android-cover.jpg
 date: 2026-05-17 06:40:07
 updated: 2026-05-17 06:42:11
-categories: Frontend
+categories: frontend
 tags:
 - uni-app
 - iOS

@@ -3,7 +3,7 @@ title: 前端构建优化实战：Vite/Webpack 分包策略与缓存优化踩坑
 cover: /images/covers/build-optimization-vite-webpack-cover.jpg
 date: 2026-05-17 07:15:07
 updated: 2026-05-17 07:16:32
-categories: Frontend
+categories: frontend
 tags:
 - Vite
 - Webpack

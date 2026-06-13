@@ -2,7 +2,7 @@
 title: 常见的设计模式
 cover: /images/covers/design-patterns-cover.jpg
 tags: [PHP, 设计模式, Laravel, 架构, SOLID]
-categories: PHP
+categories: php
 date: 2021-03-20 15:05:07
 description: '本文系统讲解 PHP 设计模式，涵盖单例模式、工厂模式、观察者模式、策略模式、装饰器模式等核心设计模式的原理与代码实现，并结合 Laravel 框架实际应用案例，帮助开发者掌握设计模式选型策略。内容包含创建型、结构型、行为型三大分类详解与 SOLID 原则实践指导，适合 PHP 中高级开发者提升架构设计能力。'
 ---

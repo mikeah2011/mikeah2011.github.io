@@ -3,7 +3,7 @@ title: 配置中心实战：Apollo/Nacos 动态配置与 Laravel 集成——热
 cover: /images/covers/config-center-apollo-nacos-cover.jpg
 date: 2026-05-16 20:00:51
 updated: 2026-05-16 20:07:32
-categories: Architecture
+categories: architecture
 tags:
 - Laravel
 - PHP

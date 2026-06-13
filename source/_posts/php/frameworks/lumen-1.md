@@ -6,7 +6,7 @@ tags:
 - micro-framework
 - Swoole
 - API
-categories: PHP
+categories: php
 date: 2021-03-20 15:05:07
 description: Lumen 是 Laravel 创始人 Taylor Otwell 推出的高性能微框架，专为构建微服务与 RESTful API 而生。本文深入讲解
   Lumen 安装、路由、中间件、Eloquent ORM 配置、常见踩坑及与 Laravel/Slim/Hyperf 的性能对比。

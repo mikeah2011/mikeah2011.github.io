@@ -3,7 +3,7 @@ title: phpseclib-gibberish-aes 敏感数据加密传输合规实战-Laravel-B2C-
 date: 2026-05-05 00:25:07
 cover: /images/covers/phpseclib-gibberish-aes-guide-cover.jpg
 updated: 2026-05-05 00:28:46
-categories: PHP
+categories: php
 tags: [Laravel, PHP, 安全]
 description: 在 KKday B2C API 处理支付回调与会员敏感资料传输时，如何用 phpseclib 3 做 RSA/AES 混合加密、前端用 gibberish-aes 做对称加密，以及在 PCI DSS / 个资法合规要求下的密钥管理、编码踩坑与架构决策。
 

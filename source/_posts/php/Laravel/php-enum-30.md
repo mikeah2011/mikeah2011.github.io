@@ -2,7 +2,7 @@
 title: PHP Enum 替魔术字符串 - 30+ 仓库重构经验与最佳实践
 cover: /images/covers/php-enum-30-cover.jpg
 date: 2026-05-03
-categories: PHP
+categories: php
 tags:
 - BFF
 - Laravel

@@ -3,7 +3,7 @@ title: Vite 预构建优化实战：依赖预构建与缓存策略的性能调�
 cover: /images/covers/vite-optimizationguide-cache-cover.jpg
 date: 2026-05-17 05:20:13
 updated: 2026-05-17 05:23:03
-categories: Frontend
+categories: frontend
 tags:
 - Laravel
 - Vite

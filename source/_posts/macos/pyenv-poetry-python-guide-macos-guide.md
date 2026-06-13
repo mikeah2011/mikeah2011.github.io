@@ -3,7 +3,7 @@ title: pyenv + poetry 实战：Python 版本与依赖管理——macOS 开发者
 cover: /images/covers/pyenv-poetry-python-guide-macos-guide-cover.jpg
 date: 2026-05-17 06:30:19
 updated: 2026-05-17 06:33:58
-categories: macOS
+categories: macos
 tags:
 - Composer
 - macOS

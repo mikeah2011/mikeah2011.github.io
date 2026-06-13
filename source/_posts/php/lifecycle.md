@@ -2,7 +2,7 @@
 title: PHP 生命周期与 SAPI
 cover: /images/covers/lifecycle-cover.jpg
 tags: [PHP, SAPI, FPM, Swoole, 性能优化]
-categories: PHP
+categories: php
 date: 2021-04-18 10:00:00
 description: "全面深入解析 PHP 生命周期的 5 个核心阶段（MINIT → RINIT → Execute → RSHUTDOWN → MSHUTDOWN），对比 CLI、PHP-FPM、Swoole、FrankenPHP、RoadRunner 五种 SAPI 架构差异与性能表现。涵盖 OPcache 原理与生产配置、JIT 编译优化、预加载机制，以及常驻内存模式下的状态管理与内存泄漏踩坑案例，帮助开发者根据业务场景选择最优运行时架构方案并做好 PHP 性能优化。"
 

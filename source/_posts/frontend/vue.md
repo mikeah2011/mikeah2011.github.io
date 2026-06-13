@@ -6,7 +6,7 @@ tags:
 - Vue
 - Vue 3
 - 前端
-categories: Frontend
+categories: frontend
 date: 2020-03-20 15:05:07
 description: Vue 是渐进式 JavaScript 框架，由尤雨溪创建，主打"易学易上手 + 响应式 + 模板语法"。Vue 3 的 Composition
   API + `<script setup>` 让大型项目的组织更清晰。本文从 Hello Vue 到响应式原理、组件通信、Vue Router 路由守卫、Pinia

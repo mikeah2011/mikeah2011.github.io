@@ -3,7 +3,7 @@ title: 'Monorepo vs Polyrepo：30+ 仓库架构选型与管理经验'
 cover: /images/covers/monorepo-vs-polyrepo-30-architecture-cover.jpg
 date: 2026-05-05 06:30:55
 updated: 2026-05-05 06:33:13
-categories: Architecture
+categories: architecture
 tags: [CI/CD, Composer, Git, Laravel, macOS, 工程管理, 微服务]
 description: "基于 KKday B2C 团队 30+ Git 仓库的真实管理经验，深度对比 Monorepo 与 Polyrepo 的优劣势、决策框架与混合架构选型策略。涵盖 Git filter-repo 历史保留合并、Composer Path Repository 配置、GitHub Actions CI/CD 路径检测矩阵策略、Docker 多阶段构建、Sparse Checkout 优化等完整迁移踩坑记录与最佳实践。"
 

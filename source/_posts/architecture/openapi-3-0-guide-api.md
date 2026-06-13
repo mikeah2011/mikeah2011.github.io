@@ -3,7 +3,7 @@ title: "OpenAPI 3.0 实战：API 文档自动生成与代码生成——Laravel 
 cover: /images/covers/openapi-3-0-guide-api-cover.jpg
 date: 2026-05-17 03:25:25
 updated: 2026-05-17 03:31:03
-categories: Architecture
+categories: architecture
 tags: [AI, Laravel, OpenAPI]
 description: "从手写 OpenAPI YAML 到自动化生成文档与代码的完整实战。涵盖 Scribe/Stoplight Elements 文档渲染、openapi-generator/oapi-codegen 代码生成、CI 集成、以及 30+ 仓库治理中踩过的坑。"
 

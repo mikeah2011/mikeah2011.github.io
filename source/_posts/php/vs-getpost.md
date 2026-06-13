@@ -8,7 +8,7 @@ tags:
 - RESTful
 - PHP
 - 网络编程
-categories: PHP
+categories: php
 date: 2019-03-20 15:05:07
 description: 深入解析 HTTP 协议中 GET 与 POST 请求方法的本质区别，涵盖语义与幂等性、TCP 数据包发送机制、请求体大小限制真相、RESTful
   API 设计规范、安全性分析及常见误区纠正，并提供 PHP $_GET/$_POST 使用示例与 cURL 测试方法，帮助开发者全面理解两种请求方法的正确使用场景与安全最佳实践。

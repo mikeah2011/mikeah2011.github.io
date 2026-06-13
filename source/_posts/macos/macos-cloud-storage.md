@@ -3,7 +3,7 @@ title: macOS 开发者云存储选型：哪些文件放哪里？如何保证一�
 cover: /images/covers/macos-cloud-storage-cover.jpg
 date: 2026-05-05 03:00:59
 updated: 2026-05-05 03:02:39
-categories: macOS
+categories: macos
 tags:
 - macOS
 - cloud-storage

@@ -3,7 +3,7 @@ title: 服务注册与发现实战-Consul-Nacos-与-Laravel-集成-微服务动�
 cover: /images/covers/service-discovery-consul-nacos-cover.jpg
 date: 2026-05-16 19:55:58
 updated: 2026-05-16 19:59:09
-categories: Architecture
+categories: architecture
 tags:
 - Laravel
 - 微服务

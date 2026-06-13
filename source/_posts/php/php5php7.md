@@ -8,7 +8,7 @@ tags:
 - 性能优化
 - 新特性
 - 迁移
-categories: PHP
+categories: php
 date: 2019-03-20 15:05:07
 description: 深入对比 PHP5、PHP7 与 PHP8 三代版本核心差异与新特性演进。全面解析 PHP7 性能优化原理（PHPNG 引擎重写、AST
   抽象语法树、JIT 即时编译、zval 内存结构优化），详解标量类型声明、空合并运算符、太空船运算符、匿名类、Throwable 统一异常处理等关键特性。提供从

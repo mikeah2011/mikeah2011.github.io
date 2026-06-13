@@ -3,7 +3,7 @@ title: 开源项目贡献代码实战-PR流程与最佳实践-Laravel-B2C-API踩
 cover: /images/engineering-cover.png
 date: 2026-05-05 10:40:23
 updated: 2026-05-05 10:42:25
-categories: Engineering
+categories: engineering
 tags:
 - Git
 - Laravel

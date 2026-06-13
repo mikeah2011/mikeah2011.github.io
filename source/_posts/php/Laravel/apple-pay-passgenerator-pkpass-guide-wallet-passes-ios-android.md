@@ -3,7 +3,7 @@ title: "Apple Pay PassGenerator PKPass 实战：如何生成 Wallet Passes 与 i
 cover: /images/covers/apple-pay-passgenerator-pkpass-guide-wallet-passes-ios-android-cover.jpg
 date: 2026-05-05 02:35:25
 updated: 2026-05-05 02:38:07
-categories: PHP
+categories: php
 tags: [Laravel, PHP, Apple Pay, PKPass, Wallet, 支付]
 description: "Apple Pay PKPass Wallet Passes 生成完整实战教程：Laravel 后端集成 PKPass 文件构建、Apple Developer 证书配置与签名校验、pass.json 核心字段解析、manifest 哈希生成、APNs 推送更新、iOS 与 Android Google Pay 兼容性踩坑，B2C 电商电子票券场景全流程详解。"
 

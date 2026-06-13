@@ -2,7 +2,7 @@
 title: GraphQL Federation 超图实战：订单、库存、价格子图拆分与网关鉴权缓存踩坑记录
 cover: /images/covers/graphql-federation-guide-cache-cover.jpg
 date: 2026-05-03 08:52:00
-categories: Architecture
+categories: architecture
 tags:
 - BFF
 - Laravel

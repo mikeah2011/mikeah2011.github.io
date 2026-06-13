@@ -2,7 +2,7 @@
 title: instanceof 与 method_exists
 cover: /images/covers/php-instanceofmethod-exists-cover.jpg
 date: 2023-03-05 10:00:00
-categories: PHP
+categories: php
 tags:
 - PHP
 - 类型检查

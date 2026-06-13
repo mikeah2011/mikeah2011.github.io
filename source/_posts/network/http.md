@@ -2,7 +2,7 @@
 title: HTTP
 cover: /images/network-cover.png
 tags: [HTTP, 网络协议, HTTPS, web, TCP]
-categories: Network
+categories: network
 date: 2019-03-20 15:05:07
 description: '全面解析HTTP协议核心知识：从HTTP/1.0到HTTP/3版本演进对比、请求方法与状态码详解、HTTPS与TLS安全握手原理、HTTP缓存机制（强缓存与协商缓存）、Cookie/Session/JWT认证方案对比，以及Keep-Alive、预连接、资源提示等HTTP性能优化实战技巧，助你深入理解Web核心协议并提升网站性能。'
 

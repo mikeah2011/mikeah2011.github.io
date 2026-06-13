@@ -4,7 +4,7 @@ cover: /images/php-cover.png
 tags:
 - Laravel
 - PHP
-categories: PHP
+categories: php
 date: 2021-03-20 15:05:07
 description: 深入解析 PHP 面向对象编程的三大特性封装、继承和多态，系统讲解 SOLID 五大设计原则并配合完整代码示例。涵盖抽象类与接口的详细对比分析，策略模式、工厂模式、观察者模式三大常用设计模式的
   PHP 实现。介绍 PHP 8.x 枚举、只读属性、命名参数、匹配表达式等新特性在面向对象中的实际应用，以及 Laravel 框架项目中常见的贫血模型、上帝控制器、过度依赖门面等反模式与重构技巧，帮助开发者写出高质量可维护的面向对象代码。

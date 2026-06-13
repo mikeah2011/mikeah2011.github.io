@@ -3,7 +3,7 @@ title: pipx-Python-CLI-工具隔离安装实战-告别依赖冲突的全局工�
 cover: /images/covers/pipx-python-cli-guide-cover.jpg
 date: 2026-05-17 06:15:10
 updated: 2026-05-17 06:17:02
-categories: macOS
+categories: macos
 tags:
 - macOS
 - Python
