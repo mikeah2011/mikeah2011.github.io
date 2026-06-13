@@ -4,12 +4,21 @@
 
 # Site
 title: Michael's Blog
-subtitle: ''
-description: '技术笔记 · macOS · PHP · Go · K8s · 网络'
+subtitle: '技术笔记与工程实践'
+description: 'Michael 的技术博客 — macOS 开发环境、PHP/Laravel 后端、Go/Rust 系统编程、AI Agent 工程化、K8s/DevOps 运维实践'
 keywords:
+  - PHP
+  - Laravel
+  - macOS
+  - Go
+  - Rust
+  - AI Agent
+  - DevOps
+  - Kubernetes
+  - 技术博客
 author: Michael
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -43,7 +52,7 @@ filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: false
-future: true
+future: false
 highlight:
   enable: false
   line_number: true
@@ -98,7 +107,7 @@ tag_map:
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-meta_generator: true
+meta_generator: false
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date

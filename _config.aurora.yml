@@ -167,8 +167,8 @@ socials:
 site_meta:
   cdn: cn
   favicon: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/blog_logo.jpeg
-  description: 'Michael 的技术博客 | Laravel · PHP · macOS · K8s · Docker · Redis'
-  keywords: 'Laravel, PHP, macOS, K8s, Docker, Redis, MySQL, 技术博客, 后端开发'
+  description: 'Michael 的技术博客 — macOS 开发环境、PHP/Laravel 后端、Go/Rust 系统编程、AI Agent 工程化、K8s/DevOps 运维实践'
+  keywords: 'PHP, Laravel, macOS, Go, Rust, AI Agent, DevOps, Kubernetes, Docker, Redis, MySQL, 技术博客, 后端开发, 系统编程'
   author: 'Michael'
 
 #! ---------------------------------------------------------------
