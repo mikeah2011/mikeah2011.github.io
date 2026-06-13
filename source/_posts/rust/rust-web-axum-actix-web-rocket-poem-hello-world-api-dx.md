@@ -660,6 +660,228 @@ async fn main() {
 
 ---
 
+## 数据库集成
+
+
+三个框架均能良好集成 sqlx/diesel/sea-orm，差异在连接池共享方式：
+
+- **Axum**：`Router::new().with_state(pool)` — State 提取器注入
+- **Actix-Web**：`App::new().app_data(web::Data::new(pool))` — 类型容器
+- **Rocket**：`#[derive(Database)]` 宏 + fairing 自动管理
+
+**ORM 选型建议**：sqlx 适合复杂查询+极致性能（编译期 SQL 验证）；Diesel 类型安全最强但 async 需额外适配；Sea-ORM 活跃记录风格与 Eloquent 相似，适合从 Laravel 迁移的团队快速上手。
+
+
+
+## 认证与授权
+
+
+**Axum JWT 中间件**（组合式，基于 `axum::middleware::from_fn`）：
+
+```rust
+async fn jwt_auth(State(config): State<AuthConfig>, req: Request, next: Next)
+    -> Result<Response, AppError>
+{
+    let token = req.headers().get("Authorization")
+        .and_then(|v| v.to_str().ok())
+        .and_then(|v| v.strip_prefix("Bearer "))
+        .ok_or(AppError::Unauthorized)?;
+    let claims = decode_token(token, &config.secret)?;
+    req.extensions_mut().insert(claims);
+    Ok(next.run(req).await)
+}
+
+// 挂载到路由组
+let protected = Router::new()
+    .route("/api/me", get(get_profile))
+    .layer(axum::middleware::from_fn_with_state(config, jwt_auth));
+```
+
+**Actix-Web JWT 中间件**（使用 `actix-web-httpauth`）：
+
+```rust
+use actix_web_httpauth::extractors::bearer::BearerAuth;
+
+async fn jwt_validated(
+    auth: BearerAuth,
+    pool: web::Data<PgPool>,
+) -> Result<HttpResponse, AppError> {
+    let claims = decode_token(auth.token(), &config.secret)?;
+    // claims 可通过 web::ReqData 扩展传递给后续 handler
+    Ok(HttpResponse::Ok().json(json!({ "user_id": claims.sub })))
+}
+
+// 注册为受保护资源
+web::resource("/api/me")
+    .wrap(HttpAuthentication::bearer(auth_validator))
+    .route(web::get().to(jwt_validated))
+```
+
+**Rocket JWT**（使用 Request Guard）：
+
+```rust
+struct AuthGuard(pub Claims);
+
+#[rocket::async_trait]
+impl<'r> FromRequest<'r> for AuthGuard {
+    type Error = ApiError;
+    async fn from_request(req: &'r Request<'_>) -> Outcome<Self, Self::Error> {
+        let token = req.headers().get_one("Authorization")
+            .and_then(|v| v.strip_prefix("Bearer "));
+        match token {
+            Some(t) => match decode_token(t) {
+                Ok(claims) => Outcome::Success(AuthGuard(claims)),
+                Err(_) => Outcome::Failure((Status::Unauthorized, ApiError::Unauthorized)),
+            },
+            None => Outcome::Failure((Status::Unauthorized, ApiError::Unauthorized)),
+        }
+    }
+}
+
+#[get("/api/me")]
+fn get_profile(auth: AuthGuard) -> Json<serde_json::Value> {
+    Json(json!({ "user_id": auth.0.sub }))
+}
+```
+
+OAuth2 三者均可通过 `oauth2` crate 集成，关键差异在回调处理的便利性。
+
+
+
+## 编译优化与开发效率
+
+
+编译时间是 Rust 开发的最大痛点。以下是实测有效的优化组合：
+
+```toml
+# Cargo.toml — 开发 profile
+[profile.dev]
+opt-level = 0          # 不优化，编译最快
+codegen-units = 256    # 最大并行编译
+
+[profile.dev.package."*"]
+opt-level = 2          # 依赖仍优化（避免调试时依赖太慢）
+
+# Cargo.toml — 发布 profile
+[profile.release]
+opt-level = 3
+codegen-units = 1      # 单 codegen unit，运行时性能最佳
+lto = "thin"           # 链接时优化（thin 平衡编译时间和性能）
+strip = true           # 去除符号表，减小二进制体积
+```
+
+**工具链加速**：
+
+```bash
+# sccache：编译缓存，重复编译提速 50-80%
+cargo install sccache
+export RUSTC_WRAPPER=sccache
+
+# mold 链接器：链接阶段提速 2-5x（Linux）
+# macOS 使用 ld64 默认已足够快
+# .cargo/config.toml
+[target.x86_64-unknown-linux-gnu]
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+
+# cargo-nextest：测试运行快 2-3x
+cargo install cargo-nextest
+cargo nextest run
+
+# cargo-watch：文件变更自动编译
+cargo install cargo-watch
+cargo watch -x check -x test
+```
+
+**Docker 构建优化（多阶段 + 缓存层）**：
+
+```dockerfile
+# 阶段一：缓存依赖
+FROM rust:1.82-slim-bookworm AS chef
+RUN cargo install cargo-chef
+WORKDIR /app
+COPY . .
+RUN cargo chef prepare --recipe-path recipe.json
+
+# 阶段二：编译依赖（利用 Docker 层缓存）
+FROM rust:1.82-slim-bookworm AS builder
+RUN cargo install cargo-chef
+WORKDIR /app
+COPY --from=chef /app/recipe.json .
+RUN cargo chef cook --release --recipe-path recipe.json
+COPY . .
+RUN cargo build --release --locked
+
+# 阶段三：最小运行时镜像
+FROM debian:bookworm-slim
+RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /app/target/release/my-api /usr/local/bin/
+EXPOSE 3000
+CMD ["my-api"]
+```
+
+**镜像体积对比**：
+
+| 方案 | 镜像大小 | 冷启动 |
+|------|---------|--------|
+| Rust Axum（Debian slim） | 80-120MB | <10ms |
+| Rust Axum（distroless） | 30-50MB | <10ms |
+| Go Gin（Alpine） | 15-25MB | <5ms |
+| Laravel 11（PHP-FPM+Nginx） | 300-500MB | 200-500ms |
+| Node.js Express（Alpine） | 80-150MB | 50-100ms |
+
+
+
+## 与 Laravel 对比
+
+
+| 维度 | Rust (Axum) | Laravel 11 |
+|------|-------------|------------|
+| 冷启动 | <10ms | 200-500ms |
+| 单机 QPS | 300k-400k | 5k-15k |
+| 内存占用 | 3-8MB | 50-100MB |
+| CRUD 开发速度 | 慢 3-5x | 基准 |
+| ORM 生态 | 发展中 | 极其成熟 |
+| 队列/任务调度 | 需自行集成 | 开箱即用 |
+| 部署复杂度 | 低（单二进制） | 中（FPM+Nginx） |
+
+**务实建议**：80% 工作是 CRUD 且性能要求不极端，Laravel 仍是最高效选择。高并发 API 网关、实时数据管道、边缘计算场景，Rust 性能密度优势转化为显著基础设施成本节约。
+
+
+
+## 生产级关注点
+
+
+**优雅关闭**：Axum 原生支持 `with_graceful_shutdown()`，监听 SIGTERM/SIGINT 后停止接受新连接并等待存量请求完成。
+
+```rust
+axum::serve(listener, app)
+    .with_graceful_shutdown(async {
+        tokio::signal::ctrl_c().await.unwrap();
+        tracing::info!("收到关闭信号，开始优雅关闭...");
+    }).await?;
+```
+
+**健康检查与 Prometheus**：`/healthz`（存活探针）、`/readyz`（就绪探针，含 DB 检测）、`/metrics`（Prometheus 格式指标），使用 `prometheus-client` crate 注册 Counter/Histogram。
+
+**Docker 多阶段构建**：
+
+```dockerfile
+FROM rust:1.82-slim-bookworm AS builder
+WORKDIR /app && COPY . .
+RUN cargo build --release --locked
+
+FROM debian:bookworm-slim
+RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /app/target/release/my-api /usr/local/bin/
+EXPOSE 3000 && CMD ["my-api"]
+```
+
+最终镜像 80-120MB，远小于 Laravel 的 300-500MB。
+
+
+
+
 ## 七、踩坑记录
 
 ### 7.1 Axum 的 State 类型陷阱
