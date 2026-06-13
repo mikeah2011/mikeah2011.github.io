@@ -1,1292 +1,1029 @@
 ---
 title: OpenClaw 模型策略实战：多模型路由与成本优化
-date: 2026-06-02 00:00:00
-description: 本文系统拆解 OpenClaw 在生产环境中的模型路由与成本优化方法，覆盖多模型分层、预算控制、Fallback、Token 治理与 AI Agent 策略闭环，帮助你在保证质量、稳定性与延迟的同时，构建真正可落地、可扩展、可持续降本的多模型架构。
-tags: [OpenClaw, AI Agent, 模型路由, 成本优化]
-categories: [架构]
+date: 2026-06-02 10:00:00
+tags: [openclaw, ai agent, 模型路由, 成本优化]
+categories:
+  - architecture
 cover: /images/covers/openclaw-model-strategy-cover.jpg
+description: "本文围绕 OpenClaw 多模型路由与成本优化展开，系统讲解 AI Agent 在生产环境中的任务分层、模型策略、预算控制、Token 治理、回退降级与可观测性设计，并结合配置示例、路由伪代码和工程实践，帮助你构建兼顾质量、时延与成本的可运营模型调度架构。"
 ---
 
-# OpenClaw 模型策略实战：多模型路由与成本优化
+在大模型进入工程化落地阶段之后，团队很快会发现一个现实问题：**模型能力并不等于系统能力，单一模型方案也很难等于可持续的业务方案**。很多项目在 PoC 阶段看起来进展顺利：研发拿到一个能力强、效果亮眼的模型，把它接入 Agent 或工作流引擎，然后让所有请求都走同一条链路。早期用户量不大、任务类型相对单一时，这种方式往往能快速上线。但当业务逐渐扩大，问题就会一批一批暴露出来：成本不可控、时延波动明显、不同任务对模型能力的需求差异巨大、长上下文请求把预算迅速吃空，而高峰期的一次模型抖动还可能直接拖垮整条链路。
 
-在 Agent 应用逐步从 Demo 走向生产之后，团队最先遇到的问题通常不是“模型能不能回答”，而是“如何在保证效果的前提下，把延迟、成本、稳定性一起控制住”。单一模型方案在 PoC 阶段看起来最省事：接一个强模型，所有请求直接打过去，功能往往很快可用。但系统规模一旦扩大，问题会迅速显现：复杂推理任务和简单分类任务混用同一高价模型，导致整体成本失控；高峰期请求竞争同一模型池，尾延迟变长；某个模型供应商发生波动时，整条链路直接受影响；不同任务对上下文长度、工具调用、结构化输出、稳定性和响应风格的要求并不一致，却被迫接受同一种能力与同一种计价方式。
+如果说“把模型接进去”只是 AI 系统的第一步，那么“把模型用对、用稳、用省”才是真正决定生产可用性的关键。也正因为如此，多模型路由（Multi-Model Routing）正在成为越来越多 AI 应用和 Agent 系统的核心能力。它并不是简单地“准备多个模型备用”，而是一套围绕**任务识别、模型分层、成本治理、质量保障与故障兜底**建立起来的调度体系。对于 OpenClaw 这类强调编排、执行与扩展性的 Agent 系统而言，多模型策略更不是锦上添花，而是系统走向生产级的必经之路。
 
-OpenClaw 这类面向 Agent 场景的框架，真正的价值并不只是“能调用模型”，而是把模型当作一种可以编排、度量、治理的资源。换句话说，模型层不再是黑盒接口，而是一个具备路由、降级、预算、观测、反馈闭环的策略系统。本文聚焦一个生产可落地的话题：如何在 OpenClaw 中设计多模型路由，并通过策略治理实现成本优化。文章会从需求动机、架构设计、按任务类型路由实现、成本监控、预算控制、fallback 策略、Token 优化技巧，以及生产环境的经验数据几个方面展开，并给出可直接改造到项目中的代码示例。
+本文将结合 OpenClaw 的使用场景，系统拆解一套面向实战的模型策略方法论：我们会从为什么需要多模型路由讲起，进一步讨论如何按任务类型选择模型、如何建立成本监控与预算控制、如何压缩 Token 消耗、如何设计回退与降级机制，以及在生产环境里如何将这些策略落到真正可运行的调度流程中。文章中会穿插配置示例、伪代码和工程实践建议，目标不是停留在概念层，而是帮助你构建一套可以上线、可以观测、可以持续迭代的 OpenClaw 模型调度架构。
 
-> 说明：本文中的 OpenClaw 代码示例采用 Python 风格伪实战代码，重点展示策略层设计。不同版本 SDK 的具体 API 可能略有差异，但架构思路、数据结构与治理方法具有较强普适性。
+## 一、为什么 OpenClaw 需要多模型路由
 
----
+很多团队第一次做 Agent 系统时，直觉上会选择“最强模型统一处理一切”。这背后的逻辑很简单：既然这个模型在推理、代码、总结、规划上都表现不错，那让它一把梭应该最省事。然而在真实业务里，这种做法通常会遭遇三个问题。
 
-## 一、为什么必须做多模型路由，而不是“一个大模型打天下”
+首先是**成本结构失衡**。并非所有请求都需要最强模型来处理。一个简单的文本分类、标签提取、JSON 结构化输出，甚至是短上下文问答，让旗舰模型来做往往属于明显的能力过剩。结果就是高单价模型被大量低价值任务占用，整体账单飞速上涨。
 
-### 1.1 任务异构性决定了模型不可能单一最优
+其次是**时延与吞吐不匹配**。强模型通常意味着更高的推理成本和更长的响应时间，而很多 Agent 环节本身只是工作流中的一个中间节点。例如工具选择、参数修正、结果重写、上下文压缩等步骤，本质上更适合用轻量模型完成。如果所有节点都绑定同一个大型模型，整个工作流的尾延迟会被大幅拉长。
 
-在真实 Agent 系统里，请求类型往往高度异构，至少会同时存在以下几类：
+最后是**风险集中**。当系统只有一个主模型时，供应商限流、区域故障、质量抖动、价格调整都会直接影响业务可用性。单模型架构表面上简单，实际上把所有不确定性都堆积在了一个点上。
 
-1. **轻量理解类任务**：意图识别、标签分类、路由判断、风险初筛。  
-2. **结构化抽取类任务**：从邮件、日志、文档里抽字段，输出 JSON。  
-3. **普通生成类任务**：客服回复、摘要、改写、报告草稿。  
-4. **高复杂推理类任务**：多步分析、代码理解、规划、工具链决策。  
-5. **长上下文任务**：跨多个文档做综合问答、审计、知识整合。  
-6. **高可靠性执行任务**：需要严格 schema、工具调用成功率、低幻觉。  
+多模型路由要解决的，正是这些问题。它的核心思想可以概括为一句话：**让不同复杂度、不同价值密度、不同时效要求的任务，匹配不同成本和能力曲线的模型**。换句话说，我们不是追求“某个模型最强”，而是追求“在当前任务与当前约束下，整体系统最优”。
 
-这些任务对模型的核心要求完全不同。意图识别最重视的是低成本和低延迟；结构化抽取更看重输出稳定性；复杂推理看重 reasoning 能力；长上下文任务看重 context window；代码生成看重语法正确率和工具调用配合能力。如果所有请求都交给一个旗舰模型，最终得到的是“平均能力不错，但整体效率极低”的架构。
+在 OpenClaw 中，这种思路尤其重要，因为 Agent 的天然特性决定了系统内存在大量异构任务：
 
-### 1.2 成本曲线呈现非线性放大
+- 用户意图理解与任务拆解
+- 工具调用前的参数构造
+- 搜索结果总结与重写
+- 长上下文记忆压缩
+- 代码生成、修复与解释
+- 低风险自动回复
+- 高价值决策建议
+- 多轮交互中的中间反思与验证
 
-很多团队在早期低估了 Token 成本，原因是他们按“单次调用价格”思考，而不是按“系统级复合成本”思考。Agent 系统中的总成本通常由以下几部分构成：
+这些任务在准确率、格式约束、逻辑复杂度、上下文长度、响应时间和预算容忍度上差异极大。如果仍然坚持一个模型覆盖全部环节，本质上是用“平均主义”消耗系统效率。
 
-- 用户请求触发的主模型调用成本
-- 计划器、工具选择器、反思器带来的额外模型调用
-- 检索增强时的 query rewrite、rerank、摘要成本
-- 失败重试与 fallback 成本
-- 长上下文拼接导致的输入 Token 暴涨
-- 结构化校验失败后的二次修复调用
+因此，从架构视角看，OpenClaw 的模型策略应该升级为一个独立的控制平面，而不是散落在代码中的几行 if/else。它至少要回答以下问题：
 
-总成本可以近似表达为：
+1. 当前请求属于什么任务类型？
+2. 对该任务而言，质量、速度、成本哪个更优先？
+3. 当前上下文长度是否已经逼近某类模型的成本阈值？
+4. 如果主模型失败，备用模型如何无缝接管？
+5. 如果预算不足，系统是否有可接受的降级路径？
+6. 如何用观测数据反向修正路由规则？
 
-```text
-TotalCost = Σ(RequestVolume × AvgTurns × AvgModelCallsPerTurn × AvgTokensPerCall × UnitPrice)
+只有这些问题被系统性回答，多模型路由才算真正落地。
+
+## 二、多模型路由的总体设计思路
+
+### 1. 从“模型调用”升级到“模型调度”
+
+许多项目把模型选择写死在某个配置项里，例如：
+
+```yaml
+llm:
+  provider: openai
+  model: gpt-4.1
 ```
 
-当系统日请求量从 1,000 提升到 100,000 时，哪怕单次只多花 0.01 元，月度也可能多出数万元。更关键的是，复杂 Agent 往往不是“一问一答”，而是一个请求背后触发 3~12 次模型调用。如果没有分层路由，成本会呈指数级外溢。
+这种配置适合单体 Demo，但不适合生产系统。因为它表达的是“默认调用哪个模型”，而不是“系统如何根据任务与约束做决策”。当你需要在摘要任务上使用便宜模型、在复杂规划上使用高能力模型、在结构化抽取上使用高稳定性模型时，这种静态配置就不够了。
 
-### 1.3 延迟、SLA 与稳定性同样需要路由治理
+更合理的方式，是把模型层设计成一个调度模块：上层只描述任务目标与策略约束，下层由路由器选择模型。示意如下：
 
-模型选择从来不是只有“贵”和“便宜”两个维度。生产环境里还要考虑：
-
-- P50/P95 延迟
-- 高峰时的吞吐能力
-- 结构化输出成功率
-- 超时率、429 频率、5xx 错误率
-- 多供应商可替换性
-- 地域合规与数据隔离要求
-
-如果业务要求首字节时间在 2 秒内，而你把所有分类请求都发给复杂推理模型，哪怕答案质量更高，也不符合 SLA。反之，如果财务审计场景必须低幻觉高一致性，那么便宜小模型即使吞吐高，也不应该承担核心结论生成。
-
-### 1.4 路由系统的目标不是“最便宜”，而是“单位业务结果最优”
-
-真正好的模型策略，不是机械地把请求都导向最低价模型，而是在给定目标下实现最优平衡：
-
-- 在准确率不下降超过阈值的前提下降低成本
-- 在成本预算不变的前提下提高吞吐
-- 在 SLA 不下降的前提下提升鲁棒性
-- 在复杂任务场景中仅将高价能力用于必要环节
-
-因此，OpenClaw 的模型策略层应该看成一个“决策中枢”：它根据任务类型、风险级别、预算状态、系统负载、历史表现，动态决定该用哪个模型、是否需要升级、是否允许降级、失败后如何切换、是否需要压缩上下文，以及本次请求是否还在预算水位内。
-
----
-
-## 二、OpenClaw 模型策略架构：把模型调用变成可治理的策略平面
-
-### 2.1 架构分层
-
-一个可落地的 OpenClaw 模型策略体系，建议拆成五层：
-
-1. **Provider Adapter 层**  
-   屏蔽不同模型供应商 API 差异，统一调用接口、错误码、token usage 和计费字段。
-
-2. **Model Registry 层**  
-   维护模型元数据，包括能力标签、价格、上下文长度、平均延迟、结构化输出支持、工具调用支持、健康状态等。
-
-3. **Routing Policy 层**  
-   根据任务、用户等级、预算、SLA、上下文规模、失败历史等信息做模型选择。
-
-4. **Execution Guardrail 层**  
-   负责超时、重试、fallback、输出校验、schema repair、熔断与限流。
-
-5. **Observability & Finance 层**  
-   采集 token 用量、调用成本、成功率、模型命中率、P95 延迟、预算水位，并驱动后续策略调整。
-
-### 2.2 逻辑架构图描述
-
-可以把整个系统理解为如下链路：
-
-```text
-[Client Request]
-      |
-      v
-[Task Analyzer / Intent Classifier]
-      |
-      v
-[Routing Policy Engine] -----> [Budget Controller]
-      |                              |
-      |                              v
-      |                        [Quota / Watermark]
-      v
-[Model Registry] <-------- [Observability Metrics]
-      |
-      v
-[Provider Adapter(s)] ----> [Primary Model]
-      |
-      +--------------------> [Fallback Model]
-      |
-      v
-[Guardrails: timeout / retry / schema validate / degrade]
-      |
-      v
-[Response + Usage + Cost Event]
-      |
-      v
-[Metrics / Billing / Feedback Loop]
+```yaml
+model_router:
+  default_strategy: balanced
+  strategies:
+    balanced:
+      primary: qwen-plus
+      fallback: qwen-turbo
+    premium:
+      primary: gpt-4.1
+      fallback: claude-sonnet
+    economy:
+      primary: qwen-turbo
+      fallback: deepseek-chat
 ```
 
-如果进一步细化成生产部署视角，可以画成：
+此时业务层表达的就不再是“直接用哪个模型”，而是“当前任务走哪种策略”。这为后续按预算、按时延、按环境动态调整留下了空间。
 
-```text
-                +-----------------------------+
-                |       OpenClaw Gateway      |
-                | auth / rate limit / trace   |
-                +-------------+---------------+
-                              |
-                              v
-                +-----------------------------+
-                |     Strategy Orchestrator   |
-                | task classify / route / QoS |
-                +------+------+------+--------+
-                       |      |      |
-          +------------+      |      +--------------+
-          |                   |                     |
-          v                   v                     v
-+----------------+   +----------------+   +----------------+
-| Small Model    |   | Mid Model      |   | Large Model    |
-| classify/extract|  | general gen    |   | reasoning/code |
-+----------------+   +----------------+   +----------------+
-          |                   |                     |
-          +---------+---------+----------+----------+
-                    |                    |
-                    v                    v
-             +-------------+      +-------------+
-             | Cost Meter  |      | SLO Monitor |
-             +------+------+      +------+------+ 
-                    |                    |
-                    +---------+----------+
-                              |
-                              v
-                    +-------------------+
-                    | Policy Feedback   |
-                    | auto tune / alert |
-                    +-------------------+
-```
+### 2. 路由维度不应只有任务类型
 
-这个架构的关键点在于：**路由并不是一次性的 if/else，而是一个有反馈闭环的策略系统**。模型选择结果会被观测层反哺，从而不断修正路由权重与预算阈值。
+很多人谈多模型路由时，只想到“根据任务类型选择模型”。这当然重要，但远远不够。真正的生产级路由至少应包含以下维度：
 
-### 2.3 Model Registry 设计
+- **任务类型**：分类、摘要、代码生成、规划、翻译、RAG 问答、函数调用等
+- **上下文规模**：输入 Token 数、历史轮次、附件长度
+- **质量等级**：是否是高价值用户、是否是关键流程、是否需要高准确率
+- **时延要求**：实时响应还是离线批处理
+- **预算状态**：团队日预算、租户预算、用户套餐预算、任务级预算
+- **模型健康度**：可用性、超时率、错误率、平均响应时间
+- **输出约束**：是否需要严格 JSON、是否有 function calling、是否要求稳定格式
 
-Registry 是路由引擎的基础。没有可靠元数据，所谓“智能路由”最后只能退化为硬编码。一个实用的模型配置结构至少需要以下字段：
+多模型路由不是单一规则，而是多个约束叠加后的决策结果。
 
-```python
-from dataclasses import dataclass, field
-from typing import Optional, set
+### 3. 把“能力”抽象为可比较的策略标签
 
-@dataclass
-class ModelProfile:
-    name: str
-    provider: str
-    max_context_tokens: int
-    input_price_per_million: float
-    output_price_per_million: float
-    avg_latency_ms: int
-    supports_json_schema: bool
-    supports_tool_calling: bool
-    supports_streaming: bool
-    capability_tags: set[str] = field(default_factory=set)
-    health_score: float = 1.0
-    enabled: bool = True
-    region: Optional[str] = None
-```
-
-其中 capability_tags 建议采用标签化建模，例如：
-
-- `classification`
-- `extraction`
-- `chat`
-- `reasoning`
-- `code`
-- `long_context`
-- `low_latency`
-- `cheap`
-- `high_reliability`
-- `json_strict`
-
-这样路由引擎就不需要直接绑定某个模型名，而是按能力集合筛选候选集，再结合实时指标打分。
-
-### 2.4 路由不是静态映射，而是“候选集 + 打分 + 约束”
-
-常见初级做法是：
-
-- 分类任务 -> 小模型 A
-- 普通问答 -> 中模型 B
-- 复杂推理 -> 大模型 C
-
-这种做法最大的问题，是一旦 A 宕机、B 升价、C 限流，策略就完全僵化。更合理的设计是三步：
-
-1. **基于任务类型筛选候选模型集合**  
-2. **根据价格、延迟、健康度、历史成功率进行打分排序**  
-3. **应用预算、上下文长度、用户等级等硬约束后做最终选择**
-
-伪代码如下：
-
-```python
-def select_model(task, registry, budget_state, runtime_state):
-    candidates = registry.filter(
-        capability=task.required_capability,
-        min_context=task.estimated_context_tokens,
-        requires_tool=task.requires_tool_call,
-        requires_json=task.requires_json_schema,
-    )
-
-    feasible = []
-    for model in candidates:
-        if not model.enabled:
-            continue
-        if budget_state.is_model_blocked(model.name):
-            continue
-        if runtime_state.is_circuit_open(model.name):
-            continue
-        score = score_model(model, task, budget_state, runtime_state)
-        feasible.append((model, score))
-
-    feasible.sort(key=lambda x: x[1], reverse=True)
-    return feasible[0][0] if feasible else None
-```
-
-这种设计的优势是：业务规则与模型名单解耦，后续新增模型时只要补充 metadata 和价格信息，就能自动进入路由体系。
-
----
-
-## 三、按任务类型路由实现：从规则路由到可演化策略
-
-这一部分重点讨论 OpenClaw 中最常见的任务路由方式：按任务类型分配模型，并给出可执行思路的代码实现。
-
-### 3.1 任务分类维度怎么定
-
-路由首先依赖任务识别。如果分类过细，策略复杂度爆炸；如果分类过粗，路由无法体现价值。实战中建议先划分为以下一级类型：
-
-- `intent_classification`：意图判断、标签分类
-- `structured_extraction`：字段抽取、信息结构化
-- `general_chat`：一般生成与对话
-- `knowledge_qa`：带检索的知识问答
-- `complex_reasoning`：复杂分析、多步骤推理
-- `code_generation`：代码生成、代码审阅
-- `workflow_planning`：Agent 规划、工具决策
-
-随后再叠加几个横切维度：
-
-- 风险等级：`low/medium/high`
-- 是否需要严格 JSON
-- 是否需要工具调用
-- 预估上下文长度
-- 用户等级或租户等级
-- 是否命中预算告警
-
-### 3.2 一个简化但实用的 Router 设计
-
-下面给出一个较完整的示例。代码目标不是绑定某个特定 SDK，而是展示路由思想。
-
-```python
-from dataclasses import dataclass
-from enum import Enum
-from typing import Optional
-
-class TaskType(str, Enum):
-    INTENT = "intent_classification"
-    EXTRACTION = "structured_extraction"
-    CHAT = "general_chat"
-    QA = "knowledge_qa"
-    REASONING = "complex_reasoning"
-    CODE = "code_generation"
-    PLAN = "workflow_planning"
-
-@dataclass
-class TaskContext:
-    task_type: TaskType
-    estimated_input_tokens: int
-    requires_json_schema: bool = False
-    requires_tool_calling: bool = False
-    risk_level: str = "low"
-    tenant_tier: str = "standard"
-    latency_slo_ms: int = 4000
-    max_cost_usd: Optional[float] = None
-
-class RoutingPolicy:
-    def __init__(self, registry, budget_controller, runtime_state):
-        self.registry = registry
-        self.budget_controller = budget_controller
-        self.runtime_state = runtime_state
-
-    def route(self, ctx: TaskContext):
-        required_tags = self._resolve_required_tags(ctx)
-        candidates = self.registry.find_by_tags(required_tags)
-        candidates = [m for m in candidates if self._hard_constraints_pass(m, ctx)]
-        scored = [(m, self._score(m, ctx)) for m in candidates]
-        scored.sort(key=lambda x: x[1], reverse=True)
-        if not scored:
-            raise RuntimeError(f"No model available for task={ctx.task_type}")
-        return scored[0][0]
-
-    def _resolve_required_tags(self, ctx: TaskContext) -> set[str]:
-        mapping = {
-            TaskType.INTENT: {"classification", "low_latency", "cheap"},
-            TaskType.EXTRACTION: {"extraction", "json_strict"},
-            TaskType.CHAT: {"chat"},
-            TaskType.QA: {"chat", "long_context"},
-            TaskType.REASONING: {"reasoning"},
-            TaskType.CODE: {"code", "reasoning"},
-            TaskType.PLAN: {"reasoning", "tool_orchestration"},
-        }
-        tags = set(mapping[ctx.task_type])
-        if ctx.requires_json_schema:
-            tags.add("json_strict")
-        if ctx.requires_tool_calling:
-            tags.add("tool_orchestration")
-        if ctx.estimated_input_tokens > 32000:
-            tags.add("long_context")
-        return tags
-
-    def _hard_constraints_pass(self, model, ctx: TaskContext) -> bool:
-        if not model.enabled:
-            return False
-        if model.max_context_tokens < ctx.estimated_input_tokens:
-            return False
-        if ctx.requires_json_schema and not model.supports_json_schema:
-            return False
-        if ctx.requires_tool_calling and not model.supports_tool_calling:
-            return False
-        if self.runtime_state.is_circuit_open(model.name):
-            return False
-        if self.budget_controller.is_blocked(model.name, ctx.tenant_tier):
-            return False
-        return True
-
-    def _score(self, model, ctx: TaskContext) -> float:
-        latency_score = max(0, 1 - model.avg_latency_ms / max(ctx.latency_slo_ms, 1))
-        health_score = model.health_score
-        cost_score = self.budget_controller.cost_fitness(model, ctx)
-        reliability = self.runtime_state.success_rate(model.name)
-
-        weight = {
-            TaskType.INTENT: (0.20, 0.25, 0.40, 0.15),
-            TaskType.EXTRACTION: (0.15, 0.30, 0.20, 0.35),
-            TaskType.CHAT: (0.25, 0.25, 0.25, 0.25),
-            TaskType.QA: (0.25, 0.20, 0.20, 0.35),
-            TaskType.REASONING: (0.35, 0.20, 0.10, 0.35),
-            TaskType.CODE: (0.35, 0.20, 0.10, 0.35),
-            TaskType.PLAN: (0.30, 0.20, 0.15, 0.35),
-        }[ctx.task_type]
-
-        w_quality, w_health, w_cost, w_reliability = weight
-        quality_proxy = self.registry.quality_score(model.name, ctx.task_type)
-        return (
-            quality_proxy * w_quality
-            + health_score * w_health
-            + cost_score * w_cost
-            + reliability * w_reliability
-            + latency_score * 0.10
-        )
-```
-
-这个设计中有几个关键点：
-
-- 不是简单按 task_type 直接返回模型，而是先映射到能力标签。
-- 预算控制器和运行时状态共同参与硬约束。
-- 最终选型通过多因子打分完成，不同任务类型的权重不同。
-- `quality_score` 可以来自离线评测或线上反馈。
-
-### 3.3 Task Analyzer：请求进入系统时如何判断任务类型
-
-任务分类本身也可以使用多层策略，而不一定每次都用模型判断。比较推荐的顺序是：
-
-1. **规则优先**：根据 API endpoint、工具链入口、调用方标识做确定性映射。  
-2. **轻模型分类**：对自然语言自由输入做意图识别。  
-3. **人工兜底标签**：允许调用方显式指定任务类型。  
-
-例如：
-
-```python
-class TaskAnalyzer:
-    def analyze(self, request) -> TaskContext:
-        if request.endpoint == "/api/extract/invoice":
-            return TaskContext(
-                task_type=TaskType.EXTRACTION,
-                estimated_input_tokens=request.estimated_tokens,
-                requires_json_schema=True,
-                risk_level="medium"
-            )
-
-        if request.endpoint == "/api/agent/plan":
-            return TaskContext(
-                task_type=TaskType.PLAN,
-                estimated_input_tokens=request.estimated_tokens,
-                requires_tool_calling=True,
-                risk_level="high"
-            )
-
-        label = lightweight_classifier(request.user_prompt)
-        return TaskContext(
-            task_type=TaskType(label),
-            estimated_input_tokens=request.estimated_tokens,
-            requires_json_schema=request.response_format == "json",
-            requires_tool_calling=request.enable_tools,
-            risk_level=request.risk_level or "low"
-        )
-```
-
-这个 Analyzer 的理念很重要：**能规则判断的不要额外调用模型**。否则你本来是为了省钱而做路由，结果每次请求先花一笔分类成本，反而得不偿失。
-
-### 3.4 OpenClaw 调用链整合示例
-
-下面给一个更接近实际项目的“路由 + 调用 + 记录 usage”流程：
-
-```python
-class OpenClawModelService:
-    def __init__(self, router, provider_factory, guardrail, usage_sink):
-        self.router = router
-        self.provider_factory = provider_factory
-        self.guardrail = guardrail
-        self.usage_sink = usage_sink
-
-    def generate(self, request):
-        task_ctx = TaskAnalyzer().analyze(request)
-        model = self.router.route(task_ctx)
-        provider = self.provider_factory.create(model.provider)
-
-        response = self.guardrail.execute_with_fallback(
-            primary_model=model,
-            task_ctx=task_ctx,
-            invoke=lambda selected_model: provider.chat(
-                model=selected_model.name,
-                messages=request.messages,
-                temperature=request.temperature,
-                response_format=request.response_format,
-                tools=request.tools,
-            )
-        )
-
-        self.usage_sink.record({
-            "request_id": request.request_id,
-            "tenant_id": request.tenant_id,
-            "task_type": task_ctx.task_type.value,
-            "model": response.model,
-            "provider": model.provider,
-            "input_tokens": response.usage.input_tokens,
-            "output_tokens": response.usage.output_tokens,
-            "latency_ms": response.latency_ms,
-            "cost_usd": response.usage.cost_usd,
-            "fallback_used": response.meta.get("fallback_used", False),
-            "success": True,
-        })
-        return response
-```
-
-这段代码的核心价值在于把业务层与模型选择彻底解耦。上层业务只表达请求意图，至于最终用哪个模型、是否发生 fallback、成本是多少，都由策略层统一决定并上报。
-
-### 3.5 一个典型的路由表
-
-在体系初期，推荐保留一份显式路由基线表，便于运营与排查：
-
-| 任务类型 | 默认模型层级 | 升级条件 | 降级条件 |
-|---|---|---|---|
-| intent_classification | 小模型 | 分类置信度低、风险高 | 预算告警 |
-| structured_extraction | 中模型 | 多字段抽取失败、严格 schema | 高峰期退回小模型 + repair |
-| general_chat | 中模型 | 用户为高级租户、上下文复杂 | 预算紧张时降到小模型 |
-| knowledge_qa | 中长上下文模型 | 需要多文档综合推理 | 文档较短时降为中模型 |
-| complex_reasoning | 大模型 | 默认 | 预算触发后仅保留关键请求 |
-| code_generation | 大模型 | 默认 | 低风险场景降到中模型 |
-| workflow_planning | 大模型 | 默认 | 系统限流时切回模板化流程 |
-
-这张表不是最终策略，而是治理基线。实际运行中还要叠加预算、健康度和 SLA 指标动态调整。
-
----
-
-## 四、成本监控与预算控制：把“省钱”变成可执行机制
-
-### 4.1 成本治理的三个层次
-
-成本优化不能只靠事后看账单，至少要做到三个层次：
-
-1. **事前约束**：请求进入前判断预算是否允许。  
-2. **事中控制**：调用过程中根据 token 增长、重试次数、fallback 行为动态止损。  
-3. **事后分析**：按租户、任务、模型、链路阶段复盘成本结构。  
-
-如果只做事后分析，团队每个月都能知道“花多了”，但没有任何手段避免下个月继续花多。
-
-### 4.2 成本计算公式与示例
-
-假设某模型计价如下：
-
-- 输入：$0.50 / 1M tokens
-- 输出：$1.50 / 1M tokens
-
-一次调用输入 8,000 tokens、输出 1,200 tokens，则单次成本为：
-
-```text
-input_cost  = 8000 / 1,000,000 * 0.50 = $0.0040
-output_cost = 1200 / 1,000,000 * 1.50 = $0.0018
-total_cost  = $0.0058
-```
-
-若一天 50,000 次请求，平均每次触发 2.4 次模型调用，则日成本约为：
-
-```text
-50000 * 2.4 * 0.0058 = $696
-```
-
-月成本约：
-
-```text
-$696 * 30 = $20,880
-```
-
-如果其中 35% 的请求其实只需要小模型，而小模型单次成本仅为 $0.0016，那么优化空间为：
-
-```text
-节省单次 = 0.0058 - 0.0016 = $0.0042
-可替换调用量 = 50000 * 2.4 * 35% = 42,000
-单日节省 = 42,000 * 0.0042 = $176.4
-单月节省 ≈ $5,292
-```
-
-这就是为什么模型路由往往是 Agent 系统里最直接、最立竿见影的降本手段。
-
-### 4.3 在 OpenClaw 中实现统一成本计量
-
-统一计量的前提是，无论调用哪个 provider，usage 字段都要标准化：
-
-```python
-from dataclasses import dataclass
-
-@dataclass
-class UsageRecord:
-    request_id: str
-    model: str
-    provider: str
-    input_tokens: int
-    output_tokens: int
-    cached_input_tokens: int = 0
-    latency_ms: int = 0
-
-def calculate_cost(usage: UsageRecord, profile: ModelProfile) -> float:
-    billable_input = max(0, usage.input_tokens - usage.cached_input_tokens)
-    input_cost = billable_input / 1_000_000 * profile.input_price_per_million
-    output_cost = usage.output_tokens / 1_000_000 * profile.output_price_per_million
-    return round(input_cost + output_cost, 8)
-```
-
-如果某些供应商支持 prompt cache、prefix cache 或者 KV cache 折扣，那么 `cached_input_tokens` 必须单独记录，否则账单和内部测算会对不上。
-
-### 4.4 Budget Controller 设计
-
-预算控制一般分成四个粒度：
-
-- **全局预算**：总平台日/月预算
-- **租户预算**：按客户或业务线配额
-- **任务预算**：高成本任务单独设限
-- **单请求预算**：防止一次请求异常爆 token
-
-示例实现：
-
-```python
-class BudgetController:
-    def __init__(self, finance_repo, thresholds):
-        self.finance_repo = finance_repo
-        self.thresholds = thresholds
-
-    def is_blocked(self, model_name: str, tenant_tier: str) -> bool:
-        spend_today = self.finance_repo.get_today_spend(model_name=model_name)
-        daily_cap = self.thresholds.model_daily_cap.get(model_name)
-        if daily_cap and spend_today >= daily_cap:
-            return True
-
-        if tenant_tier == "free" and model_name in self.thresholds.premium_models:
-            return True
-        return False
-
-    def cost_fitness(self, model, ctx) -> float:
-        estimated_cost = self.estimate_request_cost(model, ctx)
-        if ctx.max_cost_usd and estimated_cost > ctx.max_cost_usd:
-            return 0.0
-        ratio = estimated_cost / max(self.thresholds.target_cost_by_task[ctx.task_type], 1e-6)
-        return max(0.0, 1.0 - min(ratio, 1.0))
-
-    def estimate_request_cost(self, model, ctx) -> float:
-        expected_output = {
-            "intent_classification": 80,
-            "structured_extraction": 300,
-            "general_chat": 600,
-            "knowledge_qa": 900,
-            "complex_reasoning": 1500,
-            "code_generation": 1800,
-            "workflow_planning": 1200,
-        }[ctx.task_type.value]
-        return (
-            ctx.estimated_input_tokens / 1_000_000 * model.input_price_per_million
-            + expected_output / 1_000_000 * model.output_price_per_million
-        )
-```
-
-这段代码体现了一个关键实践：**路由阶段使用预估成本，结算阶段使用真实成本**。只有这样，预算才有“事前拦截”能力。
-
-### 4.5 水位控制与动态限流
-
-生产环境中建议设置多级预算水位：
-
-- 50%：只告警，不动作
-- 70%：禁用部分高价模型用于低价值请求
-- 85%：复杂任务必须带显式优先级或高级租户标识
-- 95%：仅保留核心链路，大部分请求降级到中小模型
-
-伪代码：
-
-```python
-def apply_budget_watermark(spend_ratio, task_ctx):
-    if spend_ratio < 0.5:
-        return "normal"
-    if spend_ratio < 0.7:
-        return "alert"
-    if spend_ratio < 0.85:
-        if task_ctx.task_type in {TaskType.CHAT, TaskType.INTENT}:
-            return "force_economy_model"
-        return "normal"
-    if spend_ratio < 0.95:
-        if task_ctx.task_type in {TaskType.REASONING, TaskType.CODE, TaskType.PLAN}:
-            return "require_priority_tag"
-        return "force_economy_model"
-    return "core_only"
-```
-
-这种策略的价值在于，不需要等财务复盘后人工干预，系统本身就能按预算水位自动收缩成本。
-
-### 4.6 推荐监控指标
-
-成本治理至少要看下面这些指标：
-
-- `cost_usd_total{day,month}`
-- `cost_usd_by_model`
-- `cost_usd_by_task_type`
-- `cost_usd_by_tenant`
-- `avg_cost_per_request`
-- `avg_tokens_in / avg_tokens_out`
-- `fallback_cost_overhead`
-- `retry_cost_overhead`
-- `cached_token_ratio`
-- `budget_burn_rate`
-- `quality_per_dollar`
-
-其中 `quality_per_dollar` 很关键。它不是标准账单字段，但却是策略优化的方向盘。一个模型便宜，不代表它“值”；一个模型贵，也不代表它“不划算”。最终要看单位成本换来的业务质量。
-
----
-
-## 五、模型降级与 Fallback 策略：高可用不只是重试
-
-### 5.1 为什么 fallback 不等于“失败后换一个模型再来一次”
-
-很多系统的 fallback 实现很粗糙：主模型调用失败 -> 切到备用模型重试。这种方式只能解决部分供应商故障，对成本与质量的治理帮助有限。真正成熟的 fallback 应该包含多个层次：
-
-1. **同类模型切换**：同能力、同档位模型之间切换，尽量不影响结果质量。  
-2. **跨档位降级**：从大模型降到中模型，同时收缩任务目标或输出格式。  
-3. **策略降级**：从 fully autonomous agent 降级到模板驱动或半自动流程。  
-4. **功能降级**：只返回摘要、只做分类、不做复杂推理。  
-
-### 5.2 设计 fallback 树，而不是单一备份模型
-
-例如对 `workflow_planning` 任务，可以设计如下 fallback 树：
-
-```text
-Primary: LargeReasoningModel-A
-   ├── on timeout/429 -> LargeReasoningModel-B
-   ├── on provider 5xx -> MidReasoningModel-C + shorter prompt
-   ├── on budget_high -> MidReasoningModel-C + template plan
-   └── on repeated failure -> RuleBasedPlanner + human_review_flag
-```
-
-对于 `structured_extraction`：
-
-```text
-Primary: MidJsonModel-A
-   ├── on invalid json -> same model repair pass
-   ├── on timeout -> SmallExtractModel-B
-   ├── on schema_fail twice -> regex/parser fallback
-   └── on critical fields missing -> queue for async review
-```
-
-这说明 fallback 不是“模型名单”，而是“错误类型 + 业务容忍度 + 成本状态”共同决定的策略树。
-
-### 5.3 Guardrail 执行器示例
-
-```python
-class GuardrailExecutor:
-    def __init__(self, registry, runtime_state):
-        self.registry = registry
-        self.runtime_state = runtime_state
-
-    def execute_with_fallback(self, primary_model, task_ctx, invoke):
-        tried = []
-        plan = self._build_fallback_plan(primary_model, task_ctx)
-        last_error = None
-
-        for candidate in plan:
-            try:
-                response = invoke(candidate)
-                self._validate_response(response, task_ctx)
-                response.meta["fallback_used"] = (candidate.name != primary_model.name)
-                return response
-            except Exception as e:
-                tried.append(candidate.name)
-                self.runtime_state.record_failure(candidate.name, str(e))
-                last_error = e
-                continue
-
-        raise RuntimeError(
-            f"All models failed for task={task_ctx.task_type}, tried={tried}, last_error={last_error}"
-        )
-
-    def _build_fallback_plan(self, primary_model, task_ctx):
-        siblings = self.registry.same_capability_models(primary_model, task_ctx.task_type)
-        cheaper = self.registry.cheaper_alternatives(primary_model, task_ctx.task_type)
-        return [primary_model, *siblings, *cheaper]
-
-    def _validate_response(self, response, task_ctx):
-        if task_ctx.requires_json_schema:
-            validate_json_schema(response.content)
-        if task_ctx.task_type.value == "structured_extraction":
-            ensure_required_fields(response.content)
-```
-
-真实生产中，还应根据错误类型区分：
-
-- `429/RateLimit`：优先切到同档位异供应商
-- `Timeout`：优先切低延迟模型，或缩短 prompt
-- `InvalidJSON`：优先同模型 repair，而不是直接换模型
-- `BudgetExceeded`：直接走经济型模型或功能降级
-- `ContextTooLong`：走长上下文模型，或先做压缩摘要
-
-### 5.4 Fallback 成本必须被单独统计
-
-很多团队只看主调用成本，却忽略 fallback 造成的额外费用。事实上，fallback 是隐藏账单的重要来源。推荐单独统计：
-
-```text
-fallback_cost_overhead = (all_retry_and_fallback_cost - primary_success_path_cost)
-```
-
-如果某任务的 fallback 成本占比长期高于 15%，通常意味着以下问题之一：
-
-- 路由模型选择不准确，首选模型不适合该任务
-- 输出 schema 要求与模型能力不匹配
-- 超时时间设置不合理
-- prompt 过长导致时延与失败率升高
-- 供应商健康状态未及时反映到路由层
-
-### 5.5 降级设计要对业务可见
-
-一个常被忽视的问题是，降级不应该完全黑盒。对业务方至少要有以下可见性：
-
-- 本次是否发生模型降级
-- 是否因为预算原因使用经济模式
-- 输出置信度是否下降
-- 是否建议异步复算或人工复核
-
-尤其在高风险场景，系统宁愿明确说“当前为降级结果，请谨慎使用”，也不要伪装成与高质量路径同等可信的输出。
-
----
-
-## 六、Token 用量优化：最容易落地、收益最高的工程手段
-
-### 6.1 Token 优化为什么经常比换模型更有效
-
-模型路由是“选更合适的模型”，Token 优化则是“让同一个模型少吃无效上下文”。在很多 Agent 系统中，真正的浪费并不是因为模型单价太贵，而是因为：
-
-- 把完整聊天历史无脑全量拼接
-- 检索结果一次塞入十几段长文档
-- prompt 写得冗长重复
-- 把工具返回的大块原始 JSON 直接喂回模型
-- 每一轮都重复注入同样的系统提示
-
-这类问题带来的 token 浪费常常是 20%~60%，而且对所有模型都生效。也就是说，Token 优化是最稳妥的系统性降本手段。
-
-### 6.2 控制输入 Token 的七个实用技巧
-
-#### 技巧一：分层上下文装配
-
-不要把所有信息一次性交给模型，而是按优先级分层：
-
-1. 核心系统提示
-2. 当前用户问题
-3. 必要的短期对话记忆
-4. 检索到的 top-k 证据
-5. 可选背景信息
-
-在 budget 紧张或上下文接近上限时，优先裁剪第 4、5 层，而不是动系统规则。
-
-#### 技巧二：长历史摘要化，而不是原样拼接
-
-```python
-def compress_history(messages, max_tokens=1200):
-    if estimate_tokens(messages) <= max_tokens:
-        return messages
-
-    recent = messages[-6:]
-    earlier = messages[:-6]
-    summary = summarize_messages(earlier)
-    return [
-        {"role": "system", "content": f"历史对话摘要：{summary}"},
-        *recent
-    ]
-```
-
-这类摘要策略通常能把多轮会话的上下文从数千 token 压缩到几百 token，同时保留主要事实。
-
-#### 技巧三：检索结果去重与片段级裁剪
-
-RAG 系统里常见问题是：召回 8 段文档，其中 4 段高度重复，剩下 2 段与问题无关。建议在进入模型前做：
-
-- 语义去重
-- 相邻 chunk 合并
-- 只保留命中 query 的句段
-- 表格与代码块单独处理
-
-#### 技巧四：工具结果结构化压缩
-
-不要把数据库查询结果原始 JSON 直接喂给模型。例如原始结果 300 行记录，只需要：
-
-- 汇总统计
-- 关键异常项 top-n
-- 与用户问题相关字段
-
-#### 技巧五：系统提示模块化
-
-许多团队把风格要求、业务规则、输出格式、错误处理、few-shot 示例全部拼成一个超长 system prompt。更合理的方式是按任务动态装配：
-
-```python
-def build_system_prompt(task_type, need_json=False, need_citation=False):
-    base = "你是 OpenClaw 的智能执行助手，回答必须准确、简洁、可追踪。"
-    task_rules = {
-        "intent_classification": "输出最合适的意图标签，不要解释。",
-        "structured_extraction": "仅输出结构化字段，缺失字段填 null。",
-        "general_chat": "给出清晰、分层、可执行的回答。",
-        "knowledge_qa": "优先依据提供证据回答，不足时明确说明。",
-        "complex_reasoning": "先形成内部分析，再输出结论与依据。",
-    }[task_type]
-    extra = []
-    if need_json:
-        extra.append("输出必须符合给定 JSON Schema。")
-    if need_citation:
-        extra.append("引用结论时标注证据编号。")
-    return "\n".join([base, task_rules, *extra])
-```
-
-#### 技巧六：把分类、过滤前置到小模型
-
-例如一个客服 Agent 先判断“是否需要复杂推理”，如果 70% 的请求只是 FAQ 或简单查询，就不应直接走大模型。小模型先做预分流，本身也是 token 优化的一部分。
-
-#### 技巧七：缓存稳定前缀
-
-很多请求共享相同 system prompt、知识片段、流程规范。如果供应商支持 prompt caching，可以显著降低稳定前缀的计费开销。即便供应商不支持，也可以在应用层做 prompt segment cache，减少重复拼装与重复摘要。
-
-### 6.3 输出 Token 也要管控
-
-很多团队只盯输入 token，忽视输出 token 失控。尤其在代码生成、分析报告、长摘要场景，输出 token 往往更贵。建议：
-
-- 设置 `max_output_tokens`
-- 明确要求“先结论后细节”
-- 对列表、表格、JSON 输出限定字段数
-- 对复杂分析采用“分页生成”或“先纲要后展开”
-
-示例：
-
-```python
-def output_control(task_type):
-    return {
-        "intent_classification": 32,
-        "structured_extraction": 400,
-        "general_chat": 700,
-        "knowledge_qa": 900,
-        "complex_reasoning": 1200,
-        "code_generation": 1600,
-        "workflow_planning": 900,
-    }[task_type]
-```
-
-### 6.4 一个简单的 Token Budgeter
-
-```python
-class TokenBudgeter:
-    def __init__(self, registry):
-        self.registry = registry
-
-    def fit(self, model_name, system_prompt, messages, retrieval_chunks, reserve_output=800):
-        model = self.registry.get(model_name)
-        budget = model.max_context_tokens - reserve_output
-
-        final_chunks = []
-        used = estimate_tokens(system_prompt) + estimate_tokens(messages)
-        for chunk in retrieval_chunks:
-            chunk_tokens = estimate_tokens(chunk)
-            if used + chunk_tokens > budget:
-                break
-            final_chunks.append(chunk)
-            used += chunk_tokens
-
-        return {
-            "system_prompt": system_prompt,
-            "messages": messages,
-            "retrieval_chunks": final_chunks,
-            "estimated_total": used + reserve_output
-        }
-```
-
-生产环境中，这个 Budgeter 应该与 Router 联动：如果上下文压缩后仍然放不下，就自动切到长上下文模型；如果长上下文模型太贵，则先做摘要再回答。
-
----
-
-## 七、生产环境实战经验与数据：从策略设计走向稳定收益
-
-这一部分给出一组接近真实项目治理逻辑的数据案例，用来说明多模型路由到底能带来什么收益，以及哪些坑最容易踩。
-
-### 7.1 场景背景
-
-假设我们运营的是一个企业内部 Agent 平台，主要支持以下能力：
-
-- 工单分类与分派
-- 知识库问答
-- 报销/合同/工单字段抽取
-- 自动生成周报与总结
-- 开发支持场景中的代码解释与脚本生成
-
-日均请求量约 82,000，峰值 QPS 在工作日上午达到 36。最初系统采用“一个旗舰模型跑所有任务”的方式，虽然效果稳定，但两个月后暴露出三个问题：
-
-1. 月成本远超预算，尤其是知识问答和代码解释链路。  
-2. 高峰期 P95 延迟接近 8 秒，用户感知明显下降。  
-3. 某供应商限流时，主链路整体波动。  
-
-于是引入 OpenClaw 策略层，实施按任务路由与成本治理。
-
-### 7.2 改造前后的模型分工
-
-改造前：
-
-- 所有任务统一使用大模型 L
-
-改造后：
-
-- 小模型 S：意图识别、工单分类、轻量抽取、FAQ 预判
-- 中模型 M：一般聊天、标准知识问答、结构化抽取
-- 大模型 L：复杂推理、代码生成、规划、多文档综合分析
-- 备用模型 B：与 L 能力接近，用于跨供应商 fallback
-
-### 7.3 关键策略调整项
-
-上线时并不是只做“按任务切模型”，而是同时做了以下几件事：
-
-1. 把 Task Analyzer 前置，70% 以上请求不再直接进入大模型。  
-2. 对知识问答增加 retrieval chunk 去重与压缩。  
-3. 对多轮会话引入历史摘要机制。  
-4. 对结构化抽取启用 JSON schema 校验与 repair pass。  
-5. 建立按租户和任务的预算水位控制。  
-6. 对供应商错误率做熔断，自动切备用模型。  
-
-### 7.4 改造结果数据
-
-下面是一组三周稳定运行后的观测结果：
-
-#### 1）模型命中率分布
-
-- 小模型 S：38%
-- 中模型 M：44%
-- 大模型 L：14%
-- 备用模型 B：4%
-
-说明只有 18% 左右请求真正需要高成本模型能力，而不是原先 100% 全走大模型。
-
-#### 2）单请求平均成本变化
-
-- 改造前：$0.0089 / request
-- 改造后：$0.0047 / request
-- 降幅：47.2%
-
-#### 3）日均总成本变化
-
-- 改造前：约 $730 / day
-- 改造后：约 $386 / day
-- 日节省：约 $344
-- 月节省：约 $10,320
-
-#### 4）延迟变化
-
-- 改造前 P50：2.9s，P95：7.8s
-- 改造后 P50：1.6s，P95：4.1s
-
-因为大量轻任务不再排队等待大模型资源，整体尾延迟显著下降。
-
-#### 5）质量指标变化
-
-- 工单分类准确率：93.6% -> 93.1%
-- 知识问答人工满意度：4.42 -> 4.39
-- 结构化抽取字段完整率：95.0% -> 96.3%
-- 代码解释可用率：91.2% -> 91.5%
-
-可见，只要路由策略设计得当，成本大幅下降并不必然牺牲质量。有些链路甚至因为“模型更匹配任务”而质量上升。
-
-### 7.5 质量-成本平衡的一个计算例子
-
-我们曾对知识问答链路做过 AB 测试：
-
-- 方案 A：全部使用大模型 L
-- 方案 B：简单问题先由小模型判断复杂度；若检索证据充分，则中模型 M 回答；只有复杂多文档问题进入大模型 L
-
-测试 10,000 个请求后的结果：
-
-| 指标 | 方案 A | 方案 B |
-|---|---:|---:|
-| 平均成本/请求 | $0.0102 | $0.0056 |
-| P95 延迟 | 6.9s | 4.0s |
-| 引用证据准确率 | 89.4% | 88.8% |
-| 人工满意度 | 4.46 | 4.40 |
-
-如果以“每 1 美元能支撑的满意请求数”作为简单质量/成本指标：
-
-```text
-A: 1 / 0.0102 * 4.46 ≈ 437.25
-B: 1 / 0.0056 * 4.40 ≈ 785.71
-```
-
-方案 B 在单位成本产出上明显更优，因此是更适合生产的方案。
-
-### 7.6 实战中最常见的五个坑
-
-#### 坑一：把路由策略写死在业务代码里
-
-短期看最省事，长期会导致：
-
-- 新模型上线改动面大
-- A/B 测试困难
-- 无法做统一预算治理
-- fallback 策略散落在各处
-
-正确做法是把策略收敛到统一 Router/Policy Engine。
-
-#### 坑二：没有标准化 usage 与价格口径
-
-如果不同 provider 返回的 usage 字段不一致，而内部又没有统一换算规则，就会出现“监控里成本比账单低很多”或“同样请求对不上钱”的问题。路由优化最终会失去可信度。
-
-#### 坑三：只按任务类型路由，不看上下文长度
-
-同样是知识问答，2,000 token 的 FAQ 与 80,000 token 的多文档审计，不可能用相同策略。上下文长度往往是成本与延迟的第一驱动因素。
-
-#### 坑四：fallback 只统计成功率，不统计成本
-
-如果首选模型常失败，备用模型又很贵，系统表面看“成功率很高”，实际上账单已经爆了。必须把 fallback overhead 独立出来。
-
-#### 坑五：忽略运营层面的“预算告警到策略动作”闭环
-
-很多平台有 Grafana 看板，却没有任何自动化动作。正确姿势是：预算超过阈值后，策略层自动降低高价模型曝光、缩短上下文、提升缓存使用率、限制低优先级任务。
-
-### 7.7 一个推荐的上线顺序
-
-如果你准备在 OpenClaw 里落地模型策略，不建议一次性做得过于复杂。更稳妥的路径是：
-
-**阶段一：观测先行**  
-先统一记录 usage、cost、latency、task_type、fallback、error_code。没有数据就没有优化。
-
-**阶段二：静态路由**  
-先做基于任务类型的确定性路由，建立基线收益。
-
-**阶段三：预算控制**  
-增加预算阈值、水位动作与租户配额。
-
-**阶段四：动态评分与 fallback 树**  
-把健康度、成功率、延迟、价格纳入实时打分。
-
-**阶段五：自动调优**  
-基于线上评测、反馈分数、成本趋势自动修正路由权重。
-
-这个顺序非常重要。因为在缺乏观测与基线时，上来就做“智能动态路由”，最后很容易变成一个没人敢动、也没人敢信的黑箱系统。
-
----
-
-## 八、一个更完整的 OpenClaw 策略配置示例
-
-为了便于落地，下面给一个偏配置化的示例。实际生产可以把它放在 YAML 或数据库中，由策略引擎热加载。
+如果系统里直接写大量“某某模型适合什么”的硬编码判断，后期维护会非常痛苦。更好的做法，是为模型定义统一的能力标签。例如：
 
 ```yaml
 models:
-  - name: small-classifier-v1
-    provider: provider_a
-    max_context_tokens: 16000
-    input_price_per_million: 0.12
-    output_price_per_million: 0.40
-    avg_latency_ms: 450
-    supports_json_schema: true
-    supports_tool_calling: false
-    supports_streaming: true
-    capability_tags: [classification, extraction, low_latency, cheap, json_strict]
-
-  - name: mid-general-v2
-    provider: provider_b
-    max_context_tokens: 64000
-    input_price_per_million: 0.80
-    output_price_per_million: 2.40
-    avg_latency_ms: 1200
-    supports_json_schema: true
-    supports_tool_calling: true
-    supports_streaming: true
-    capability_tags: [chat, extraction, long_context, json_strict, high_reliability]
-
-  - name: large-reasoner-v3
-    provider: provider_c
-    max_context_tokens: 128000
-    input_price_per_million: 3.00
-    output_price_per_million: 12.00
-    avg_latency_ms: 2600
-    supports_json_schema: true
-    supports_tool_calling: true
-    supports_streaming: true
-    capability_tags: [reasoning, code, long_context, tool_orchestration, high_reliability]
-
-routing:
-  task_rules:
-    intent_classification:
-      required_tags: [classification, low_latency]
-      target_cost_usd: 0.0004
-      max_output_tokens: 64
-    structured_extraction:
-      required_tags: [extraction, json_strict]
-      target_cost_usd: 0.0015
-      max_output_tokens: 400
-    general_chat:
-      required_tags: [chat]
-      target_cost_usd: 0.0030
-      max_output_tokens: 700
-    knowledge_qa:
-      required_tags: [chat, long_context]
-      target_cost_usd: 0.0042
-      max_output_tokens: 900
-    complex_reasoning:
-      required_tags: [reasoning]
-      target_cost_usd: 0.0120
-      max_output_tokens: 1400
-    code_generation:
-      required_tags: [code, reasoning]
-      target_cost_usd: 0.0150
-      max_output_tokens: 1800
-
-budget:
-  global_daily_cap_usd: 500
-  watermark_actions:
-    - ratio: 0.70
-      action: disable_large_for_low_priority
-    - ratio: 0.85
-      action: require_priority_for_reasoning
-    - ratio: 0.95
-      action: core_path_only
-
-fallback:
-  complex_reasoning:
-    - same_tier_alternative
-    - cheaper_reasoning_with_short_prompt
-    - template_mode
-  structured_extraction:
-    - same_model_repair
-    - smaller_json_model
-    - regex_parser
+  gpt-4.1:
+    tier: premium
+    strengths: [reasoning, coding, planning, json]
+    max_context: 128000
+    cost_in: 0.01
+    cost_out: 0.03
+    latency: medium
+  qwen-turbo:
+    tier: economy
+    strengths: [classification, rewrite, extraction, json]
+    max_context: 32000
+    cost_in: 0.0008
+    cost_out: 0.002
+    latency: low
+  deepseek-chat:
+    tier: balanced
+    strengths: [general, summarization, coding]
+    max_context: 64000
+    cost_in: 0.001
+    cost_out: 0.002
+    latency: low
 ```
 
-这个配置化思路有两个好处：
+路由器面对任务时，只需要匹配这些标签，而不是耦合具体厂商名称。这会带来两个好处：
 
-1. 策略可以热更新，不必每次改代码。  
-2. 运营、平台、算法三方可以围绕同一份配置协作。  
+- 替换模型时，只改配置，不改业务逻辑
+- 可以做 A/B 测试与供应商切换，而不需要重写任务定义
 
----
+### 4. 先做规则路由，再做数据驱动优化
 
-## 九、总结：多模型路由的本质，是把模型从“接口”升级为“资源系统”
+多模型路由的演进，一般要经历两个阶段。
 
-当团队开始建设 Agent 平台时，模型层常常被当作一个简单依赖：有请求就调用，拿到结果就返回。但一旦进入生产规模，这种思路很快就会失效。你会发现真正决定系统能否跑得久、跑得稳、跑得起的，不是某个模型榜单分数，而是背后的策略能力：
+第一阶段是**规则驱动**。根据经验先定义一些直观规则，例如“摘要任务优先轻量模型”“代码修复优先高能力模型”“当输入大于 20k token 时优先长上下文模型”“预算剩余低于 20% 时自动降级”。这一阶段的目标是快速建立可控性。
 
-- 是否知道什么任务该用什么模型
-- 是否能在预算内分配高价能力
-- 是否能在失败时优雅降级
-- 是否能持续观测成本、质量、延迟与健康度
-- 是否能把这些指标重新反馈给路由引擎
+第二阶段才是**数据驱动**。在你积累了足够的调用日志、成本数据、成功率数据后，可以进一步分析：
 
-OpenClaw 的模型策略实践，本质上是在做一件事：**把模型调用从“写死的 API 调用”升级为“可观测、可路由、可优化、可治理的资源编排”**。
+- 哪些任务其实不需要高价模型？
+- 哪些模型在某类输出格式上失败率更低？
+- 哪些租户愿意为质量付费，哪些更在意速度？
+- 在不同时间段，模型供应商的时延表现是否有明显差异？
 
-如果用一句话概括本文的核心结论，那就是：
+很多团队一上来就想做“智能模型选择器”，最后既没有规则也没有数据。正确顺序应当是：**先能跑，后变聪明；先可解释，后做自适应。**
 
-> 在生产环境中，多模型路由不是锦上添花，而是 Agent 系统从可用走向可运营的必要条件。
+## 三、按任务类型选择模型：从能力匹配到任务分层
 
-具体落地时，可以遵循下面这个最小闭环：
+任务类型是最直观、最核心的路由维度。问题在于，很多系统对任务类型的定义过于粗糙，往往只有“聊天”“代码”“总结”这种宽泛分类，无法支撑细粒度调度。要想让模型策略真正发挥价值，建议把 OpenClaw 中的任务进一步拆成以下几层。
 
-1. 先统一采集 usage、cost、latency、error、fallback 数据。  
-2. 按任务类型做第一版静态路由。  
-3. 加入预算控制和水位动作。  
-4. 为关键链路设计分层 fallback。  
-5. 持续压缩 token，用上下文预算约束调用。  
-6. 用线上质量数据与成本数据共同迭代路由权重。  
+### 1. 轻任务：优先低成本、高吞吐模型
 
-当这个闭环建立起来之后，你会发现模型策略的收益不仅体现在账单下降，也体现在系统延迟更稳、故障更可控、业务解释性更强、平台演进速度更快。对于 OpenClaw 这样的 Agent 框架来说，这才是真正接近生产级能力的分水岭。
+轻任务的特点是：
 
----
+- 输入短
+- 推理链路简单
+- 输出模式稳定
+- 结果错误的业务损失较低
+- 可通过规则或后处理弥补部分不足
 
-## 十、附录：一个简化的端到端调用流程参考
+典型场景包括：
 
-最后给出一段简化的端到端伪代码，串起本文提到的关键组件：
+- 文本分类与标签打标
+- FAQ 匹配前的意图归类
+- 标题生成、润色改写
+- 搜索结果摘要
+- 表单字段抽取
+- 简单 JSON 结构化输出
+- 历史消息压缩与记忆摘要
+
+这类任务适合优先使用低成本模型。例如：
+
+```yaml
+task_routes:
+  intent_classification:
+    preferred_capabilities: [classification, json]
+    strategy: economy
+    max_input_tokens: 4000
+  memory_summarization:
+    preferred_capabilities: [summarization]
+    strategy: economy
+    max_input_tokens: 8000
+  search_snippet_rewrite:
+    preferred_capabilities: [rewrite]
+    strategy: economy
+```
+
+这里的关键不是“便宜就行”，而是要确保轻任务与模型能力的边界相匹配。比如你让低价模型去做严格结构化抽取，就需要加上输出校验和重试，否则省下的模型钱可能会在后处理和人工修复上成倍还回去。
+
+### 2. 中等复杂任务：平衡质量与成本
+
+中等复杂任务通常是系统里的主力流量，它们比轻任务更依赖理解能力，但又不一定需要顶级推理模型。典型包括：
+
+- 多轮问答中的普通咨询
+- 基于检索结果的回答生成
+- 长文总结
+- 文档对比
+- API 文档解释
+- 中等复杂度代码解释与修复
+
+这一层任务适合使用“balanced”级别模型，即在成本和效果之间做折中。配置示例：
+
+```yaml
+task_routes:
+  rag_answer:
+    preferred_capabilities: [general, summarization, grounding]
+    strategy: balanced
+    fallback_strategy: economy
+  document_summary:
+    preferred_capabilities: [summarization, long_context]
+    strategy: balanced
+  code_explain:
+    preferred_capabilities: [coding, reasoning]
+    strategy: balanced
+```
+
+这一层的难点在于识别“什么时候应该升级到高能力模型”。比如文档问答表面上只是 RAG，但如果用户问题涉及跨段落推理、规范冲突判断、方案对比与取舍，它就已经不再是普通摘要任务，而更接近复杂 reasoning。此时路由器需要结合提示词标签、上下文长度和业务优先级做进一步判定。
+
+### 3. 重任务：高价值、高风险、高复杂度请求
+
+重任务往往是业务体验的决定性时刻，也是最值得花钱的地方。特点包括：
+
+- 逻辑链条长
+- 需要多步规划或复杂推理
+- 输出错误代价高
+- 结果可能直接影响决策、执行或客户交付
+
+典型场景：
+
+- Agent 自主任务规划与步骤拆解
+- 复杂代码生成、架构设计、疑难 bug 定位
+- 高价值客户咨询与专家问答
+- 合同、制度、规范类复杂条款解析
+- 多工具协同前的计划生成
+- 关键审批或自动执行前的风险评估
+
+这类任务适合 premium 路由：
+
+```yaml
+task_routes:
+  agent_planning:
+    preferred_capabilities: [planning, reasoning, tool_use]
+    strategy: premium
+    fallback_strategy: balanced
+  critical_code_generation:
+    preferred_capabilities: [coding, reasoning]
+    strategy: premium
+  policy_analysis:
+    preferred_capabilities: [reasoning, long_context, grounding]
+    strategy: premium
+```
+
+注意，这里不是说所有复杂任务都必须使用最贵模型，而是说要把预算优先留给真正影响业务结果的环节。很多系统失败的原因恰恰相反：在低价值环节过度消耗预算，反而让真正关键的任务在预算吃紧时被迫降级。
+
+### 4. 将任务识别嵌入 OpenClaw 工作流
+
+在 OpenClaw 中，任务类型最好不要依赖开发者手工传入，而应通过工作流节点元数据、提示模板和上下文分析自动识别。例如：
+
+```json
+{
+  "node": "answer_with_retrieval",
+  "task_type": "rag_answer",
+  "quality": "standard",
+  "latency_sla_ms": 5000,
+  "budget_scope": "tenant",
+  "requires_json": false,
+  "context_tokens_estimate": 12000
+}
+```
+
+路由器接收到这些信息后，才能做统一判断。一个简单的 Python 版路由器示意如下：
 
 ```python
-class OpenClawInferenceFacade:
-    def __init__(self, analyzer, router, budgeter, executor, meter):
-        self.analyzer = analyzer
-        self.router = router
-        self.budgeter = budgeter
-        self.executor = executor
-        self.meter = meter
+from dataclasses import dataclass
 
-    def handle(self, request):
-        task_ctx = self.analyzer.analyze(request)
-        selected_model = self.router.route(task_ctx)
+@dataclass
+class TaskRequest:
+    task_type: str
+    quality: str
+    latency_sla_ms: int
+    budget_scope: str
+    requires_json: bool
+    context_tokens_estimate: int
 
-        packed = self.budgeter.fit(
-            model_name=selected_model.name,
-            system_prompt=build_system_prompt(
-                task_type=task_ctx.task_type.value,
-                need_json=task_ctx.requires_json_schema,
-                need_citation=(task_ctx.task_type.value == "knowledge_qa")
-            ),
-            messages=request.messages,
-            retrieval_chunks=request.retrieval_chunks,
-            reserve_output=output_control(task_ctx.task_type.value)
-        )
 
-        response = self.executor.execute_with_fallback(
-            primary_model=selected_model,
-            task_ctx=task_ctx,
-            invoke=lambda model: call_model(
-                model=model.name,
-                system_prompt=packed["system_prompt"],
-                messages=packed["messages"],
-                retrieval_chunks=packed["retrieval_chunks"],
-                max_output_tokens=output_control(task_ctx.task_type.value),
-                response_format="json" if task_ctx.requires_json_schema else "text"
-            )
-        )
+def select_strategy(req: TaskRequest) -> str:
+    if req.task_type in {"intent_classification", "memory_summarization"}:
+        return "economy"
 
-        self.meter.record_response(
-            request=request,
-            task_ctx=task_ctx,
-            selected_model=selected_model,
-            final_model=response.model,
-            usage=response.usage,
-            latency_ms=response.latency_ms,
-            fallback_used=response.meta.get("fallback_used", False)
-        )
-        return response
+    if req.task_type in {"rag_answer", "document_summary", "code_explain"}:
+        if req.context_tokens_estimate > 24000:
+            return "balanced_long_context"
+        return "balanced"
+
+    if req.task_type in {"agent_planning", "critical_code_generation", "policy_analysis"}:
+        if req.quality == "high":
+            return "premium"
+        return "balanced"
+
+    return "balanced"
 ```
 
-在这条链路里，Task Analyzer 负责理解请求，Router 负责选模型，Budgeter 负责控制上下文，Executor 负责 fallback 与 guardrail，Meter 负责成本与指标记录。它们组合起来，才构成一个真正可运营的多模型系统。
+这个示例并不复杂，但已经体现出一个关键原则：**先把任务语义显式化，才能谈路由优化。**
 
-如果你的 OpenClaw 项目正从“能跑”走向“要长期稳定运营”，那么建议优先投资的不是更多提示词技巧，而是这一整套模型策略基础设施。因为只有把模型当成资源去治理，AI Agent 才能真正成为生产力系统，而不是昂贵的实验玩具。
+## 四、成本监控与预算控制：没有度量，就没有优化
+
+多模型路由最常见的误区，是只讨论“如何选模型”，却没有建立完整的成本观测体系。结果系统上线之后，大家只知道账单在涨，却不知道是哪些任务、哪些租户、哪些工作流、哪些上下文长度造成的增长。
+
+要把成本真正管起来，至少需要建立三层监控：调用层、业务层、预算层。
+
+### 1. 调用层：记录每一次模型请求的细粒度指标
+
+每次调用模型时，建议至少记录以下字段：
+
+- request_id
+- trace_id / workflow_id
+- tenant_id / user_id
+- task_type
+- model_name
+- provider
+- prompt_tokens
+- completion_tokens
+- total_tokens
+- estimated_cost
+- latency_ms
+- success / error_type
+- fallback_count
+- cache_hit / miss
+- timestamp
+
+示例日志结构：
+
+```json
+{
+  "trace_id": "wf_20260602_001",
+  "tenant_id": "acme",
+  "task_type": "rag_answer",
+  "model": "deepseek-chat",
+  "provider": "openrouter",
+  "prompt_tokens": 5821,
+  "completion_tokens": 732,
+  "total_tokens": 6553,
+  "estimated_cost": 0.0112,
+  "latency_ms": 2860,
+  "success": true,
+  "fallback_count": 0,
+  "cache": "miss",
+  "timestamp": "2026-06-02T10:15:23Z"
+}
+```
+
+这一步的意义在于，后续所有预算策略、优化动作与异常排查，都要依赖这些一手数据。
+
+### 2. 业务层：按任务、租户、流程聚合成本
+
+如果调用层只回答“这一次花了多少钱”，那么业务层回答的是“钱花在哪了”。
+
+建议至少构建以下聚合视角：
+
+- 按任务类型的成本占比
+- 按工作流节点的成本占比
+- 按租户的日/周/月成本曲线
+- 按模型的调用次数、成功率、平均时延
+- 按输入 Token 区间的单次平均成本
+- 按缓存命中率区分的成本节省情况
+
+举例来说，如果你发现 `memory_summarization` 占了整体调用量的 25%，但贡献价值很低，那就说明这里存在明显的优化空间；如果 `agent_planning` 调用量只占 5%，却消耗了 30% 的预算，也许就需要针对提示词和上下文裁剪做专项优化。
+
+### 3. 预算层：把成本治理前置到决策阶段
+
+很多团队的预算控制停留在“月底看账单”。这不是控制，这是事后复盘。真正有效的预算控制，一定发生在请求路由之前。
+
+常见预算维度包括：
+
+- **全局预算**：整个系统每天/每月的成本上限
+- **租户预算**：单个客户的套餐额度或合同预算
+- **用户预算**：个人账号、团队空间、部门配额
+- **任务预算**：某类任务单次允许的最大成本
+- **会话预算**：一次复杂 Agent 执行允许消耗的总预算
+
+可以把预算状态注入路由器，让预算影响模型决策。例如：
+
+```python
+@dataclass
+class BudgetState:
+    global_remaining_ratio: float
+    tenant_remaining_ratio: float
+    session_remaining_usd: float
+
+
+def apply_budget_guard(strategy: str, budget: BudgetState) -> str:
+    if budget.global_remaining_ratio < 0.1:
+        return "economy"
+
+    if budget.tenant_remaining_ratio < 0.15 and strategy == "premium":
+        return "balanced"
+
+    if budget.session_remaining_usd < 0.02 and strategy in {"premium", "balanced"}:
+        return "economy"
+
+    return strategy
+```
+
+注意，预算控制不等于一刀切降级。理想做法是：
+
+- 先保护关键任务预算
+- 再压缩非关键任务成本
+- 最后才是整体降级
+
+这意味着预算体系需要和任务优先级绑定，而不是对所有请求统一限流。
+
+### 4. 设定预算告警与自动动作
+
+预算监控如果只有图表，没有动作，也很难真正落地。建议配套以下自动化机制：
+
+- 日预算达到 60%、80%、95% 触发告警
+- 某租户成本异常飙升时自动通知运营/研发
+- 某类任务单位成本连续上涨时触发优化工单
+- premium 模型调用比例超过阈值时自动切换策略
+- 超出预算后禁用非关键任务的高阶能力
+
+示例配置：
+
+```yaml
+budget_control:
+  daily_limit_usd: 300
+  alerts:
+    - threshold: 0.6
+      action: notify
+    - threshold: 0.8
+      action: degrade_non_critical
+    - threshold: 0.95
+      action: premium_freeze
+  tenant_rules:
+    default_monthly_limit_usd: 500
+    overage_action: balanced_only
+```
+
+## 五、Token 使用优化策略：真正吞掉预算的往往不是模型单价，而是上下文浪费
+
+在模型成本构成中，很多团队最先关注的是“哪个模型更便宜”，却忽略了另一个更常见、更可控的变量：**Token 使用效率**。现实中，大量预算浪费并不是因为你选错了供应商，而是因为系统持续把不必要的上下文送进模型。
+
+对 OpenClaw 这样的 Agent 系统来说，Token 优化几乎等于系统优化，因为它直接影响三件事：
+
+- 单次请求成本
+- 响应速度
+- 上下文窗口可承载的信息密度
+
+下面分几个方面展开。
+
+### 1. 控制系统提示词的长度与重复度
+
+很多项目的 system prompt 写得像产品说明书，动辄几千 Token，而且在每一次调用中都完整重复。这样做可能让人心理上觉得“更稳”，但从成本角度看代价极高。
+
+优化方法包括：
+
+- 把稳定不变的大段说明迁移为更简洁的规则集合
+- 对不同任务使用专门化 prompt，而不是一个万能大提示词
+- 删除重复的行为约束，避免多次表达同一规则
+- 将示例数量控制在必要范围内
+
+例如，下面是一个偏臃肿的提示词：
+
+```text
+你是一个专业、严谨、负责、耐心、可靠的 AI 助手。请你仔细阅读用户输入、理解其深层意图、遵循所有格式要求、保持回答准确完整、避免幻觉、必要时给出免责声明、如果需要请进行分步推理、在输出 JSON 时不要包含额外说明……
+```
+
+压缩后可以改成：
+
+```text
+你是 OpenClaw 工作流中的结构化执行助手。
+要求：
+1. 仅基于输入内容作答；
+2. 输出必须符合 JSON Schema；
+3. 信息不足时返回 need_more_context=true。
+```
+
+短 prompt 不一定意味着效果差，关键在于是否保留了真正约束模型行为的核心信息。
+
+### 2. 对历史对话做分层记忆，而不是无脑拼接
+
+多轮对话是 Token 黑洞。很多系统的实现方式是把所有历史消息直接拼接到下一轮请求中，结果会导致成本随着轮次线性甚至指数式增加。
+
+更合理的方式是分层记忆：
+
+- **短期记忆**：保留最近 3~8 轮原始对话
+- **长期记忆摘要**：将更早历史压缩为结构化摘要
+- **事实记忆**：提取用户偏好、环境信息、关键结论
+- **任务记忆**：仅保留当前任务相关的上下文
+
+示例结构：
+
+```json
+{
+  "recent_messages": ["...最近几轮原文..."],
+  "conversation_summary": "用户正在排查 Kubernetes 服务暴露问题，已确认 Service 类型为 LoadBalancer，但云厂商侧未分配公网 IP。",
+  "facts": {
+    "cluster": "prod-cn-01",
+    "namespace": "payment",
+    "cloud": "aws"
+  }
+}
+```
+
+这样做的本质，是把“可丢失的表述细节”和“不可丢失的事实约束”分离出来，避免整个系统反复支付相同 Token 的成本。
+
+### 3. 检索增强不是检得越多越好
+
+RAG 系统的常见误区是：为了提高召回率，一次性塞入大量文档片段。结果模型面对十几段甚至几十段相似文本，不仅成本高，而且更难聚焦，答案质量反而下降。
+
+更好的策略是：
+
+- 先用 embedding / reranker 做候选压缩
+- 限制最终送入模型的片段数量，例如 3~6 段
+- 对长文档做 chunk 摘要，而不是原文硬塞
+- 去重相似片段，避免重复信息占上下文
+- 对检索结果做 metadata 过滤，如时间、文档类型、可信度
+
+一个实用的配置示例：
+
+```yaml
+retrieval:
+  top_k_initial: 20
+  rerank_top_k: 6
+  max_chunks_to_llm: 4
+  deduplicate: true
+  chunk_summary_enabled: true
+  max_context_tokens: 12000
+```
+
+### 4. 对输出长度设置上限，避免“能说就多说”
+
+有些模型天然倾向于输出更长文本。如果不加约束，completion tokens 会明显膨胀。对于结构化任务、分类任务和简要总结任务，更应明确输出边界。
+
+例如：
+
+```yaml
+response_policies:
+  intent_classification:
+    max_output_tokens: 120
+  memory_summarization:
+    max_output_tokens: 300
+  rag_answer:
+    max_output_tokens: 800
+  agent_planning:
+    max_output_tokens: 1500
+```
+
+这不仅省钱，也能减少无关信息，提升后处理稳定性。
+
+### 5. 做缓存，而不是重复生成
+
+如果某些请求具备明显重复性，例如：
+
+- 相同知识库文档的摘要
+- 常见 FAQ 的标准回答
+- 相同系统提示词 + 相同输入的结构化抽取
+- 代码库固定文件的解释
+
+那么 LLM 缓存可以带来非常直接的成本收益。缓存可以分为：
+
+- **全量响应缓存**：命中后直接返回完整结果
+- **检索缓存**：缓存文档召回结果
+- **摘要缓存**：缓存长文或历史消息的压缩版本
+- **提示模板缓存**：缓存模板编译结果
+
+即使只把高重复率任务做缓存，通常也能显著降低整体账单。
+
+## 六、回退与降级机制：保证系统不会因为一个模型失效而整体瘫痪
+
+生产环境里，模型服务的不确定性远高于很多团队的预期。常见问题包括：
+
+- 接口超时
+- 供应商限流
+- 瞬时高错误率
+- 输出格式不符合约束
+- 某区域可用性异常
+- 模型更新后质量波动
+
+因此，多模型路由不仅要解决“怎么选更优”，还要解决“主路不通时怎么活下来”。这正是回退与降级机制的价值所在。
+
+### 1. 区分三类失败：调用失败、格式失败、质量失败
+
+并不是所有失败都应该用同样的回退策略处理。至少应区分：
+
+#### 调用失败
+
+例如超时、429、5xx、网络错误。这类问题通常适合快速切到备用模型或备用供应商。
+
+#### 格式失败
+
+例如要求输出 JSON，结果模型返回了自然语言；或者 function call 参数缺失。这类问题未必需要立刻换模型，也可以先进行一次同模型重试，附加更强约束。
+
+#### 质量失败
+
+例如回答明显跑题、代码不能运行、总结遗漏关键结论。这类问题最难自动判断，但可以通过规则校验、单元测试、schema 校验、关键词约束等方式构造“近似质量门禁”。
+
+只有先区分失败类型，回退策略才不会粗暴。
+
+### 2. 设计分级回退路径
+
+推荐的回退链路一般是：
+
+1. 主模型调用
+2. 同模型快速重试
+3. 备用模型接管
+4. 降级提示或半自动模式
+5. 人工兜底 / 异步处理
+
+示例配置：
+
+```yaml
+fallback_policy:
+  rag_answer:
+    primary: deepseek-chat
+    retry_on: [timeout, rate_limit, invalid_json]
+    retry_times: 1
+    fallback_models:
+      - qwen-plus
+      - qwen-turbo
+    final_action: return_brief_answer
+
+  agent_planning:
+    primary: gpt-4.1
+    retry_on: [timeout, server_error]
+    retry_times: 1
+    fallback_models:
+      - claude-sonnet
+      - deepseek-chat
+    final_action: switch_to_human_review
+```
+
+这类配置的重点不是写得多复杂，而是让每个任务都有明确兜底路径。
+
+### 3. 降级不是失败，而是服务连续性的体现
+
+很多产品团队把降级理解为“体验变差”，所以抗拒设计降级路径。但在生产环境中，合理降级本质上是在保护主流程可用性。例如：
+
+- 把长答案降级成简答版本
+- 关闭非关键解释性文本，只返回核心结果
+- 暂停高级规划能力，保留基础问答能力
+- 把同步生成改为异步处理
+- 对高成本任务要求用户确认后再执行
+
+这些都属于可接受的工程妥协。用户通常比你想象中更能接受“系统当前提供简化版结果”，而不能接受“整个服务直接不可用”。
+
+### 4. 健康检查驱动动态路由
+
+不要等用户请求失败了才发现模型不可用。更成熟的做法是持续做模型健康探测，并把健康度指标反馈给路由器。例如：
+
+- 最近 5 分钟错误率
+- 最近 5 分钟 p95 时延
+- 限流比例
+- JSON 合法率
+- 平均重试次数
+
+一旦某个模型健康分低于阈值，就自动降低其流量权重甚至暂时摘除。示例：
+
+```python
+def health_score(error_rate, p95_latency, invalid_json_rate):
+    score = 100
+    score -= error_rate * 50
+    score -= min(p95_latency / 1000, 10) * 3
+    score -= invalid_json_rate * 30
+    return max(score, 0)
+
+
+def is_available(score: float) -> bool:
+    return score >= 60
+```
+
+### 5. 保留“最低能力模式”
+
+对于关键系统，我建议始终保留一个“最低能力模式（minimum viable intelligence mode）”。意思是，即使高级模型全部不可用，系统仍能基于规则、小模型或固定模板维持最基础的功能。比如：
+
+- FAQ 命中后直接返回模板答案
+- 分类任务退化为规则引擎
+- 文档总结退化为提取式摘要
+- 工具型任务只做参数校验，不做复杂规划
+
+这个模式未必优雅，但能在故障期争取恢复时间。
+
+## 七、实际生产环境的模型调度案例
+
+为了避免讨论停留在抽象层，下面结合几个生产环境常见场景，展示如何设计 OpenClaw 的模型调度策略。
+
+### 案例一：企业知识库问答系统
+
+#### 业务特点
+
+- 流量大，绝大多数是普通问答
+- 少量问题涉及复杂制度、跨文档对比
+- 租户对成本较敏感
+- 输出必须尽量引用依据，减少幻觉
+
+#### 路由思路
+
+1. 先对问题做意图分类，判断是 FAQ、普通检索问答还是复杂分析问答
+2. FAQ 直出或走 economy 模型
+3. 普通 RAG 问答走 balanced 模型
+4. 复杂分析类问题，如“对比两份制度差异并指出风险”，升级到 premium
+5. 当租户预算不足时，普通问答降级为 economy，复杂分析改为“分步返回 + 异步补全”
+
+#### 示例配置
+
+```yaml
+openclaw_router:
+  task_routes:
+    faq_match:
+      strategy: economy
+      model: qwen-turbo
+
+    rag_answer:
+      strategy: balanced
+      model: deepseek-chat
+      fallback_models: [qwen-plus, qwen-turbo]
+      constraints:
+        require_citation: true
+        max_context_tokens: 10000
+
+    policy_compare:
+      strategy: premium
+      model: gpt-4.1
+      fallback_models: [claude-sonnet, deepseek-chat]
+      constraints:
+        require_citation: true
+        max_context_tokens: 24000
+```
+
+#### 收益分析
+
+这种分层后，系统通常能把大多数普通请求压到中低成本模型，而只把真正复杂的问题送给高能力模型。对企业知识库这类场景而言，往往能在维持体验的前提下显著降低总账单。
+
+### 案例二：代码 Agent 与自动修复流水线
+
+#### 业务特点
+
+- 请求价值高，但调用频次相对低
+- 一部分任务是简单解释与格式修复
+- 另一部分任务是复杂代码生成、测试修复与多文件修改
+- 输出质量可通过 lint、测试、编译结果进行验证
+
+#### 路由思路
+
+1. 代码解释、注释生成、日志归类等轻任务走 balanced/economy
+2. 单文件简单修复先走 balanced
+3. 涉及多文件联动、架构调整、测试驱动修复时升级 premium
+4. 如果 premium 失败，先降级为“仅生成修复建议，不自动提交修改”
+5. 用自动测试结果反向触发重试或模型升级
+
+#### 代码示例
+
+```python
+class CodeTaskRouter:
+    def route(self, task):
+        if task.kind in {"comment_generation", "log_classification", "code_explain"}:
+            return "balanced"
+
+        if task.kind == "bug_fix":
+            if task.files_changed > 3 or task.has_failing_tests:
+                return "premium"
+            return "balanced"
+
+        if task.kind == "refactor_plan":
+            return "premium"
+
+        return "balanced"
+
+    def should_escalate(self, task, result):
+        if result.compile_failed:
+            return True
+        if result.tests_pass_rate < 0.8:
+            return True
+        return False
+```
+
+#### 关键经验
+
+代码类场景非常适合“验证驱动路由”，也就是不只根据任务前置信息选模型，还根据输出后的客观验证结果决定是否升级。这样能避免一开始就对所有任务使用最贵模型。
+
+### 案例三：客服 Agent 的分层成本治理
+
+#### 业务特点
+
+- 量大，实时性要求高
+- 大量重复咨询
+- 只有少数会话最终升级为高价值人工辅助场景
+- 成本与响应时间都高度敏感
+
+#### 路由思路
+
+1. 第一层用规则 + 向量召回处理高频 FAQ
+2. 第二层用 economy 模型处理简单咨询
+3. 第三层对投诉、升级工单、退款争议等高风险场景切到 balanced/premium
+4. 当日预算接近阈值时，先缩减普通咨询的输出长度和解释性文本
+5. 保证高风险工单仍可使用高质量模型
+
+#### 策略配置
+
+```yaml
+customer_support:
+  tiers:
+    faq:
+      action: direct_answer
+    simple_consult:
+      strategy: economy
+      max_output_tokens: 220
+    dispute_case:
+      strategy: balanced
+      max_output_tokens: 600
+    vip_escalation:
+      strategy: premium
+      max_output_tokens: 1200
+  budget_degrade:
+    level1:
+      trigger: 0.7
+      action: shorten_simple_answers
+    level2:
+      trigger: 0.85
+      action: economy_only_for_non_vip
+    level3:
+      trigger: 0.95
+      action: premium_reserved_for_dispute_and_vip
+```
+
+### 案例四：长文档分析与审阅系统
+
+#### 业务特点
+
+- 输入上下文极长
+- 用户不一定要求秒级响应，但要求结论可靠
+- 成本受输入 Token 强烈影响
+
+#### 路由思路
+
+1. 先对长文档分块摘要，用 economy/balanced 模型完成预处理
+2. 再将块摘要汇总成文档级摘要
+3. 只有在用户提出复杂分析问题时，才调用 premium 模型基于摘要与关键段落作深度推理
+4. 如果问题只是“这份文档讲了什么”，则不必直接对全文使用高价模型
+
+#### 工程价值
+
+这是典型的“先压缩，再推理”思路。很多长文档系统成本高，不是因为用户问题复杂，而是因为它们跳过了预处理阶段，直接把大段原文喂给昂贵模型。
+
+## 八、OpenClaw 中可落地的模型调度实现方案
+
+上面讲了大量原则与案例，下面进一步给出一个相对完整的工程实现思路，帮助你在 OpenClaw 中落地。
+
+### 1. 定义统一的模型注册表
+
+建议把模型信息统一放在配置中心：
+
+```yaml
+models:
+  qwen-turbo:
+    provider: openrouter
+    tier: economy
+    features: [classification, rewrite, extraction, json]
+    max_context: 32000
+    input_cost_per_1k: 0.0008
+    output_cost_per_1k: 0.002
+    healthy: true
+
+  deepseek-chat:
+    provider: openrouter
+    tier: balanced
+    features: [general, summarization, coding]
+    max_context: 64000
+    input_cost_per_1k: 0.001
+    output_cost_per_1k: 0.002
+    healthy: true
+
+  gpt-4.1:
+    provider: openai
+    tier: premium
+    features: [reasoning, planning, coding, json, long_context]
+    max_context: 128000
+    input_cost_per_1k: 0.01
+    output_cost_per_1k: 0.03
+    healthy: true
+```
+
+### 2. 定义任务画像
+
+```yaml
+tasks:
+  rag_answer:
+    preferred_features: [general, summarization]
+    preferred_tier: balanced
+    max_budget_usd: 0.03
+    max_latency_ms: 5000
+    fallback_tier: economy
+
+  agent_planning:
+    preferred_features: [planning, reasoning, tool_use]
+    preferred_tier: premium
+    max_budget_usd: 0.12
+    max_latency_ms: 12000
+    fallback_tier: balanced
+
+  memory_summarization:
+    preferred_features: [summarization]
+    preferred_tier: economy
+    max_budget_usd: 0.005
+    max_latency_ms: 3000
+    fallback_tier: economy
+```
+
+### 3. 实现路由打分器
+
+相比写死 if/else，生产环境更推荐“约束过滤 + 打分排序”。
+
+```python
+from typing import Dict, List
+
+
+def score_model(task, model, budget_remaining_ratio: float, health_score: float) -> float:
+    score = 0.0
+
+    if model["tier"] == task["preferred_tier"]:
+        score += 30
+
+    feature_overlap = len(set(task["preferred_features"]) & set(model["features"]))
+    score += feature_overlap * 10
+
+    if health_score >= 80:
+        score += 20
+    elif health_score >= 60:
+        score += 10
+
+    if budget_remaining_ratio < 0.2 and model["tier"] == "premium":
+        score -= 25
+
+    if model["input_cost_per_1k"] <= 0.001:
+        score += 8
+
+    return score
+
+
+def choose_model(task: Dict, models: List[Dict], states: Dict) -> Dict:
+    candidates = []
+    for model in models:
+        if not model["healthy"]:
+            continue
+        s = score_model(task, model, states["budget_remaining_ratio"], states["health_scores"].get(model["name"], 100))
+        candidates.append((s, model))
+    candidates.sort(key=lambda x: x[0], reverse=True)
+    return candidates[0][1]
+```
+
+这个思路的优势是，你后续可以不断扩充打分维度，而不用重写整个决策逻辑。
+
+### 4. 加入观测闭环
+
+路由器不应是静态模块，而应持续从线上数据中学习。最基础的闭环包括：
+
+- 记录每次路由决策的原因
+- 对比不同模型在同类任务上的成本与成功率
+- 定期生成“模型性价比报告”
+- 自动识别异常上涨的 Token 消耗
+- 自动下调健康分恶化模型的权重
+
+例如你可以在日志中记录：
+
+```json
+{
+  "task_type": "rag_answer",
+  "selected_model": "deepseek-chat",
+  "decision_reason": [
+    "matched preferred tier=balanced",
+    "context_tokens within limit",
+    "tenant budget remaining > 30%",
+    "health score=91"
+  ]
+}
+```
+
+这类“可解释路由”对于后续调优非常关键，否则一旦出现质量或成本问题，你甚至不知道为什么系统选了这个模型。
+
+## 九、实践中的常见误区
+
+最后，再总结几个在模型策略建设中极其常见的误区。
+
+### 1. 误区一：把多模型当成“多备胎”
+
+如果你的多模型设计只是“主模型挂了再换一个”，那本质上只是容灾，不是路由。真正的多模型策略应该在正常情况下就让不同模型承担不同角色。
+
+### 2. 误区二：只按价格选模型
+
+便宜模型不一定便宜。若其失败率更高、重试更多、输出更长、后处理更复杂，综合成本未必低。成本优化必须看端到端成本，而不是只看单价。
+
+### 3. 误区三：忽略上下文治理
+
+很多团队花很多时间比较模型单价，最后却把大量重复上下文塞进每次调用。这种情况下，再怎么换模型也只是治标不治本。
+
+### 4. 误区四：没有质量门禁就盲目降级
+
+降级前必须明确哪些质量底线不能破。例如结构化输出、工具参数合法性、关键事实引用等，否则降级会把隐性问题带入生产。
+
+### 5. 误区五：没有观测数据就谈“智能路由”
+
+没有调用日志、没有失败分类、没有任务分层、没有成本归因，再聪明的路由器也只能靠猜。
+
+## 十、结语：多模型策略的本质，是让 AI 系统具备经营能力
+
+当我们讨论 OpenClaw 的多模型路由与成本优化时，本质上讨论的已经不只是一个技术组件，而是一种更成熟的 AI 工程观：**把模型当成一种需要精细调度的计算资源，而不是一个抽象、无限、总是可用的智能接口。**
+
+在 Demo 阶段，单模型往往足够；但一旦进入生产环境，系统面临的约束会迅速增加：预算有限、SLA 存在、任务异构、质量要求分层、供应商状态波动、用户价值不同。只有把这些现实约束纳入模型调度系统，AI 应用才能真正具备持续运营能力。
+
+回到 OpenClaw 的落地实践，我们可以把这套方法论归纳成几个核心动作：
+
+1. **先给任务分层**，不要让所有请求混成一类；
+2. **建立模型注册表与能力标签**，避免路由逻辑和具体厂商强耦合；
+3. **让预算进入决策闭环**，而不是月底看账单；
+4. **把 Token 优化当成第一优先级工程事项**，持续压缩上下文浪费；
+5. **设计明确的回退与降级链路**，确保服务连续性；
+6. **建立观测与复盘机制**，用真实数据迭代策略。
+
+如果你正在构建一个真正面向生产的 OpenClaw Agent 系统，我的建议是：不要再问“我们该选哪个最好的模型”，而要开始问“在这个任务、这个预算、这个时刻、这个健康状态下，系统应该如何做出最合适的选择”。
+
+当你开始这样思考时，模型就不再只是能力来源，而会成为你架构中一个可以被治理、被度量、被优化、被经营的核心资源。而这，正是 AI 系统从可用走向可靠、从实验走向规模化的分水岭。
 
 ## 相关阅读
 
-- [OpenClaw-vs-Hermes-Agent-开源AI-Agent框架选型对比](/categories/架构/OpenClaw-vs-Hermes-Agent-开源AI-Agent框架选型对比/)
-- [OpenClaw-安全实战-权限控制-隐私保护-群聊行为边界](/categories/架构/OpenClaw-安全实战-权限控制-隐私保护-群聊行为边界/)
-- [OpenClaw-心跳机制实战-HEARTBEAT-主动检查与定时任务](/categories/架构/OpenClaw-心跳机制实战-HEARTBEAT-主动检查与定时任务/)
+- [OpenClaw 记忆系统实战：MEMORY.md 长期记忆与日常记忆管理](/categories/架构/OpenClaw-记忆系统实战-MEMORY-md-长期记忆与日常记忆管理/)
+- [OpenClaw 技能开发实战：自定义 Skill 与工作流自动化](/categories/架构/OpenClaw-技能开发实战-自定义-Skill-与工作流自动化/)
+- [OpenClaw vs Hermes Agent：开源 AI Agent 框架选型对比](/categories/架构/OpenClaw-vs-Hermes-Agent-开源AI-Agent框架选型对比/)

@@ -5,6 +5,8 @@
   "scripts": {
     "postinstall": "node scripts/postinstall-patch-aurora.js",
     "build": "hexo generate",
+    "build:local": "NODE_OPTIONS='--max-old-space-size=2048' hexo generate --incremental",
+    "build:full": "NODE_OPTIONS='--max-old-space-size=2048' hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server"

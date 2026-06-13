@@ -1,2049 +1,1662 @@
 ---
 title: OpenClaw 与 Laravel 集成：在 PHP 项目中调用 AI Agent 能力
-date: 2026-06-02 00:00:00
-description: 本文系统讲透 OpenClaw 与 Laravel 在 PHP 项目中的 AI Agent 集成方案，覆盖 Service Provider 封装、队列异步调用、结构化结果落库、错误重试、幂等治理与生产部署要点，帮助你把一次性模型调用升级为可维护、可观测、可扩展的企业级 AI 能力。
-tags: [OpenClaw, Laravel, PHP, AI-Agent, 集成]
-categories: [Laravel/PHP]
+date: 2026-06-02 10:00:00
+tags: [openclaw, laravel, php, ai-agent]
+categories:
+  - php
 cover: /images/covers/openclaw-laravel-cover.jpg
+description: "本文系统讲解 OpenClaw 与 Laravel 集成的工程实践，覆盖 PHP SDK 安装配置、HTTP API 调用、Service Provider 与 Facade 封装、队列异步处理、错误重试、幂等控制、输出校验与生产踩坑案例，并对比 SDK、HTTP 与队列化方案差异，帮助 Laravel 项目稳定接入 AI Agent 能力。"
 ---
 
-在过去几年里，Laravel 项目接入 AI 的方式，大多还停留在“把一个 prompt 发给模型接口，再把返回文本展示出来”的初级阶段。这样的集成方式当然有价值，但它和真正意义上的 **AI Agent 能力** 之间，仍然存在明显差距。一个 Agent 不只是生成文本，它还意味着任务分解、上下文记忆、工具调用、结构化输出、重试控制、异步执行以及与业务系统深度耦合后的可运营能力。
+在今天的 PHP 应用开发里，大家讨论最多的主题之一，已经不再只是“如何把一个 Web 系统写出来”，而是“如何让系统拥有一定程度的智能能力”。从智能客服、内容生成、工单分发，到数据总结、运维辅助、业务流程自动化，越来越多的企业级应用开始把 AI 能力视为基础设施，而不是锦上添花的功能。
 
-对于 PHP 团队而言，尤其是以 Laravel 为核心框架的中大型项目，问题不在于“能不能调用一个大模型”，而在于：**如何以 Laravel 的方式，把 Agent 能力纳入现有应用架构、队列体系、数据库模型、监控告警和部署流程中**。OpenClaw 的价值，就体现在它不是一个只会吐文本的简单接口，而是一套更偏 Agent Runtime 的能力封装。把它接进 Laravel 后，才能真正构建“可追踪、可重放、可治理”的 AI 工作流。
+对于 Laravel 开发者来说，这种趋势尤其明显。Laravel 本身就是一个非常适合做业务系统、后台平台、SaaS 服务与 API 网关的框架：它拥有优雅的依赖注入体系、完善的队列机制、清晰的配置管理、成熟的事件系统和极强的工程化能力。这意味着，一旦我们把 AI Agent 能力以合适的方式集成到 Laravel 中，就不仅仅是“调用一个大模型接口”这么简单，而是能够将 AI 深度嵌入到现有业务流程里，让 AI 成为应用架构中的一等公民。
 
-这篇文章会从工程化视角，完整讲解如何在 Laravel 中集成 OpenClaw，并把它包装成你团队可以长期维护的基础设施能力。文章覆盖以下内容：
+而 OpenClaw 的价值，就在于它不是只提供一个“问答接口”，而是面向 Agent 能力的调用范式。你可以把它理解为一个更贴近“智能执行单元”的抽象层：应用向它提交上下文、输入、任务目标，OpenClaw 返回结构化结果、执行过程产物，甚至在某些场景中承担多步骤推理与工具协同的职责。对于需要在 PHP 项目中稳定接入 AI 能力的团队来说，这比直接拼接多个模型 API 更容易治理，也更方便封装到 Laravel 服务层中。
 
-1. 为什么 Laravel 项目需要 AI Agent
-2. OpenClaw API / SDK 的能力边界与适配思路
-3. 使用 Laravel Service Provider 进行统一封装
-4. 基于 HTTP 调用与异步队列的集成模式
-5. Agent 返回结果的结构化处理与 Eloquent 存储
-6. 错误处理、重试、幂等和熔断策略
-7. 性能优化、成本控制与生产环境部署注意事项
+本文将从工程实践角度，系统讲解如何把 OpenClaw 集成到 Laravel 项目中。文章内容覆盖以下几个方面：
 
-同时，文中会提供较完整的代码示例，并结合真实工程经验总结一些常见踩坑点。
+1. 为什么要在 Laravel 中集成 AI Agent，而不仅仅是调用一次模型接口；
+2. OpenClaw PHP SDK 的安装与配置方式；
+3. 如何通过 Laravel Service Provider 与 Facade 做优雅封装；
+4. 如果不走 SDK，如何通过 HTTP API 直接调用；
+5. 如何结合队列实现异步执行，避免阻塞用户请求；
+6. 三类典型业务场景：智能客服、内容生成、数据分析；
+7. 生产环境必须重视的错误处理、幂等控制与重试策略。
 
----
+如果你的项目已经有一个 Laravel 10、Laravel 11 或更高版本的基础应用，那么本文的代码与架构思路可以直接迁移过去。即使你暂时还没有使用 OpenClaw，也可以把这篇文章当作“如何在 Laravel 中正确集成 AI Agent 能力”的实践指南。
 
-# 一、为什么 Laravel 项目需要 AI Agent
+## 一、为什么在 Laravel 中集成 AI Agent
 
-## 1.1 从“调用模型”到“调用能力”
+很多团队第一次接入 AI 能力时，采用的是最直接的方式：在控制器里写几行 HTTP 请求代码，调用某个模型接口，返回结果显示到前端。这种做法在 Demo 阶段足够快，但一旦业务深入，就会暴露几个典型问题。
 
-很多 Laravel 项目初次接入 AI，通常都是下面这种模式：
+### 1. 从“单次问答”走向“业务流程能力”
 
-```php
-$response = Http::withToken(config('services.llm.key'))
-    ->post('https://api.example.com/v1/chat/completions', [
-        'model' => 'gpt-4.1',
-        'messages' => [
-            ['role' => 'user', 'content' => '帮我总结这篇文章'],
-        ],
-    ])
-    ->json();
+大模型接口本质上通常是一个文本输入、文本输出的能力。但真实业务并不是简单的一问一答，而是：
+
+- 带用户身份、权限、租户信息的上下文调用；
+- 与数据库记录、工单状态、商品资料、订单信息联动；
+- 需要控制调用频率、记录日志、保留审计轨迹；
+- 可能需要异步执行，并在完成后通知用户；
+- 对输出结果有结构化要求，便于落库或后续流程消费。
+
+也就是说，企业真正需要的不是“聊天框”，而是“可嵌入业务链路中的智能代理能力”。Laravel 的服务容器、任务队列、事件广播、任务调度与中间件体系，恰好能够承接这种复杂性。
+
+### 2. Laravel 非常适合承载 AI 能力的工程化封装
+
+如果把 AI 调用逻辑散落在控制器、命令行脚本、Job 与 Service 类中，后续很快就会出现维护成本飙升的问题。Laravel 为此提供了天然的工程化结构：
+
+- `config/`：集中管理 OpenClaw 的 API 地址、密钥、超时时间、重试参数；
+- `app/Services/`：封装 AI Agent 的业务接口；
+- `app/Providers/`：把 SDK 客户端注册到容器中；
+- `app/Jobs/`：把长耗时任务转为异步处理；
+- `app/Console/`：支持批量分析、定时生成日报等自动化场景；
+- `storage/logs/`：记录调用失败、响应异常、重试轨迹。
+
+这种结构能让 AI 能力像数据库、缓存、消息队列一样，成为一个可治理的基础设施模块。
+
+### 3. AI Agent 比普通 API 更需要边界设计
+
+传统的第三方 API 集成，通常是参数固定、结果稳定、错误模式明确。而 AI Agent 的调用，往往具有这些特征：
+
+- 输入上下文长度变化大；
+- 输出可能有不确定性；
+- 某些任务耗时明显高于普通接口；
+- 需要更细粒度的降级与兜底策略；
+- 对提示词、温度、上下文裁剪、结构化输出格式有强依赖。
+
+因此，在 Laravel 中接入 OpenClaw，不应该只考虑“如何发请求”，还应该考虑：
+
+- 如何统一管理 Agent 配置；
+- 如何封装标准调用入口；
+- 如何做日志、重试、熔断、超时；
+- 如何把 AI 输出转成可被业务系统稳定消费的数据结构。
+
+这也是本文强调 Service Provider、服务类、队列与错误治理的原因。
+
+## 二、集成前的整体架构设计
+
+在写代码之前，建议先明确一套基础架构，不要等到项目调用了十几个 AI 接口后再返工。一个比较推荐的 Laravel + OpenClaw 架构可以分为五层。
+
+### 1. 配置层
+
+通过 `config/openclaw.php` 管理：
+
+- API Base URL；
+- API Key；
+- 默认 Agent 名称；
+- 超时时间；
+- 重试次数；
+- 是否记录请求与响应摘要；
+- 是否启用异步队列。
+
+### 2. 基础客户端层
+
+这一层负责直接与 OpenClaw SDK 或 HTTP API 通信，处理底层请求、认证、超时、序列化与异常映射。它的职责是“稳定发请求”，不要混入业务逻辑。
+
+### 3. 领域服务层
+
+在 `app/Services/` 下定义业务服务，例如：
+
+- `CustomerSupportAgentService`
+- `ContentGenerationService`
+- `DataInsightService`
+
+这一层负责组装上下文、定义提示词模板、解析结构化结果，并把结果转成业务对象。
+
+### 4. 异步执行层
+
+通过 Laravel Queue 将长任务异步化，例如：
+
+- 大段文档总结；
+- 批量工单归类；
+- 日报、周报生成；
+- 多轮 Agent 分析。
+
+### 5. 观察与治理层
+
+包括日志、告警、失败重试、死信队列、调用成本监控与审计记录。这一层往往是生产稳定性的关键。
+
+理解这五层之后，下面我们开始进入具体实现。
+
+## 三、OpenClaw PHP SDK 安装与配置
+
+假设 OpenClaw 提供了官方 PHP SDK，那么在 Laravel 中最推荐的集成方式，就是先通过 Composer 安装 SDK，再借助 Service Container 完成依赖注入。这样做的好处是：
+
+- 减少手写 HTTP 协议细节；
+- 更容易跟随 SDK 版本升级；
+- 统一异常和请求模型；
+- 更适合做团队协作与代码复用。
+
+### 1. 使用 Composer 安装 SDK
+
+在 Laravel 项目根目录执行：
+
+```bash
+composer require openclaw/openclaw-php
 ```
 
-这段代码本身没有问题，但它存在几个天然局限：
+如果你的项目对包版本管理比较严格，也可以指定版本：
 
-- 只适合一次性文本生成
-- 上下文管理完全靠业务代码拼接
-- 缺少统一的错误分类与重试策略
-- 结果往往是非结构化文本，不便落库和后续编排
-- 无法很好地接入队列、审计、回放和任务追踪
-- 当 AI 需要工具调用、工作流分步骤执行时，代码会迅速失控
-
-换句话说，这种做法只是“调用一个模型接口”，不是“把 AI 作为系统能力引入”。
-
-而 Agent 化之后，Laravel 项目里会出现更多典型场景：
-
-- 电商后台自动生成商品卖点、FAQ、客服回复建议
-- CRM 系统根据客户互动记录做跟进摘要和机会识别
-- 内容平台自动做文章标签提取、SEO 摘要、敏感内容校验
-- 内部知识库系统支持问答、工单路由、 SOP 推荐
-- 运营系统批量执行数据分析、文本清洗和结构化抽取
-
-这些场景有一个共同点：它们不是单次问答，而是 **受业务规则驱动的任务执行**。Laravel 作为一个成熟的 Web 应用框架，本身就已经提供了：
-
-- IOC 容器
-- 配置系统
-- 队列系统
-- 事件广播
-- Eloquent ORM
-- 日志与异常处理
-- 调度器
-- 缓存、锁与限流
-
-所以 Laravel 实际上非常适合承载 AI Agent，只要我们把 Agent 能力包装成“符合 Laravel 习惯的服务”。
-
-## 1.2 AI Agent 在传统 PHP 系统中的意义
-
-很多人一听“Agent”，容易联想到复杂自治系统，但放到企业应用里，Agent 的核心价值更务实：
-
-### 第一，统一复杂调用过程
-
-比如你要做一个“合同内容审查”功能，用户上传合同后，系统需要：
-
-1. 提取文本
-2. 分段切分
-3. 调用 AI 识别风险条款
-4. 输出结构化风险项
-5. 按风险等级入库
-6. 异步生成审查报告
-
-如果全写在 Controller 里，会非常混乱。Agent Runtime 可以把“任务请求”和“任务结果”标准化，让流程更稳定。
-
-### 第二，让异步化更自然
-
-Laravel 队列本来就适合处理耗时任务。AI 调用天然具有高延迟、不稳定和成本较高等特征，非常适合放到 Job 中异步执行。Agent 化后，可以更清晰地区分：
-
-- 任务入队
-- 状态流转
-- 调用执行
-- 回调处理
-- 补偿重试
-
-### 第三，便于做治理
-
-生产环境接入 AI 以后，真正难的从来不是第一天跑通，而是后续治理：
-
-- 哪些请求失败率高？
-- 哪些用户触发了高成本任务？
-- 某个结果为什么是这个样子？
-- 是否能重放某次请求？
-- Prompt 版本是否可追踪？
-- 输出结构变化后旧数据怎么兼容？
-
-这些都要求你把 AI 任务当成正式业务能力，而不是一个临时 HTTP 调用。
-
-## 1.3 为什么选择 OpenClaw 这一类 Agent API
-
-从工程角度看，OpenClaw 这类能力层适合 Laravel 的原因主要有三点：
-
-1. **抽象层级更高**：比直接对接底层模型 API 更接近“Agent 任务”语义。
-2. **可扩展性更好**：后续如果需要切换模型、引入工具调用、补充工作流节点，侵入业务代码的成本更低。
-3. **便于封装统一客户端**：可以在 Laravel 中做成单一入口服务，避免团队每个人各写一套调用逻辑。
-
-因此，我们这篇文章的核心目标并不是“把 OpenClaw API 调通”，而是：**设计一套 Laravel 友好的 OpenClaw 集成方案**。
-
----
-
-# 二、OpenClaw API / SDK 概述
-
-> 说明：不同版本的 OpenClaw 在实际字段命名上可能略有差异。本文重点放在 Laravel 集成模式与工程封装方式上，因此示例会采用一套清晰、稳定、可落地的通用 API 设计。
-
-## 2.1 我们需要的最小能力集合
-
-站在 Laravel 项目集成方视角，一套可用的 Agent API 至少应该支持：
-
-- 创建任务 / 发起推理请求
-- 传入上下文、系统提示词、工具配置
-- 返回 request_id / task_id / trace_id
-- 查询任务状态
-- 返回结构化结果
-- 提供错误码和重试语义
-- 支持同步或异步模式
-
-一个典型请求可以抽象成：
-
-```json
-{
-  "agent": "content-analyzer",
-  "input": {
-    "title": "Laravel 11 发布说明",
-    "body": "这里是一段较长的文章正文..."
-  },
-  "context": {
-    "tenant_id": 1001,
-    "user_id": 9527,
-    "scene": "article_summary"
-  },
-  "options": {
-    "temperature": 0.2,
-    "timeout": 30,
-    "response_format": "json"
-  },
-  "metadata": {
-    "request_id": "req_202606020001",
-    "source": "laravel-backend"
-  }
-}
+```bash
+composer require openclaw/openclaw-php:^1.0
 ```
 
-返回值可能类似：
+安装完成后，建议第一时间确认 Composer 自动加载是否生效，并查看 SDK 文档中提供的核心入口类，例如可能类似：
 
-```json
-{
-  "id": "agt_01JXYZ...",
-  "status": "completed",
-  "trace_id": "trace_abc123",
-  "output": {
-    "summary": "本文介绍了 Laravel 11 的新特性...",
-    "keywords": ["Laravel", "PHP", "框架升级"],
-    "risk_level": "low"
-  },
-  "usage": {
-    "input_tokens": 1250,
-    "output_tokens": 240
-  },
-  "latency_ms": 3860
-}
+- `OpenClaw\Client`
+- `OpenClaw\Factory`
+- `OpenClaw\Contracts\AgentClientInterface`
+
+具体类名需要以官方 SDK 文档为准，但 Laravel 侧的封装思路基本一致。
+
+### 2. 配置环境变量
+
+在 `.env` 中加入 OpenClaw 相关配置：
+
+```env
+OPENCLAW_BASE_URL=https://api.openclaw.example.com
+OPENCLAW_API_KEY=your_api_key_here
+OPENCLAW_AGENT=general-assistant
+OPENCLAW_TIMEOUT=30
+OPENCLAW_RETRY_TIMES=3
+OPENCLAW_RETRY_SLEEP_MS=500
+OPENCLAW_LOG_PAYLOAD=false
 ```
 
-如果是异步模式，第一次提交可能只返回：
+这些变量不要直接散落在代码里，而是统一写入配置文件。
 
-```json
-{
-  "id": "agt_01JXYZ...",
-  "status": "queued",
-  "trace_id": "trace_abc123"
-}
-```
+### 3. 创建 config/openclaw.php
 
-后续通过查询接口或回调获取最终结果。
-
-## 2.2 在 Laravel 中不要直接把第三方响应暴露给业务层
-
-这是一个非常重要的原则。很多团队集成第三方 API 时，会直接在业务代码里写：
-
-```php
-$result = $client->post('/v1/agents/run', $payload);
-if ($result['status'] === 'completed') {
-    return $result['output']['summary'];
-}
-```
-
-这么做短期看很快，长期却很危险，因为：
-
-- 第三方字段可能变更
-- 多个场景的输出结构不同，业务层会被迫知道太多细节
-- 错误码处理不统一
-- 后续要切换供应商时替换成本极高
-
-更好的方式是，在 Laravel 内部定义 **领域级 DTO 或 Value Object**，例如：
-
-```php
-namespace App\AI\Data;
-
-class AgentResponseData
-{
-    public function __construct(
-        public readonly string $id,
-        public readonly string $status,
-        public readonly ?string $traceId,
-        public readonly ?array $output,
-        public readonly ?array $usage,
-        public readonly ?int $latencyMs,
-        public readonly ?array $raw = null,
-    ) {}
-
-    public function isCompleted(): bool
-    {
-        return $this->status === 'completed';
-    }
-
-    public function isQueued(): bool
-    {
-        return in_array($this->status, ['queued', 'processing'], true);
-    }
-}
-```
-
-这样第三方 API 与业务逻辑之间就会有一层稳定的“防腐层”。
-
-## 2.3 SDK 与纯 HTTP 的取舍
-
-如果 OpenClaw 官方提供 PHP SDK，通常你会面临一个选择：
-
-- 直接使用 SDK
-- 只用 HTTP API，自行封装 Laravel Client
-
-我的建议是：
-
-### 当 SDK 足够成熟时
-
-可以基于 SDK 再包一层适配器，而不是让 Controller / Job 直接调用 SDK。
-
-### 当 SDK 不成熟或字段波动频繁时
-
-直接使用 Laravel HTTP Client（底层 Guzzle）往往更可控，因为：
-
-- 更容易统一超时、重试、日志和 tracing
-- 更方便与 Laravel 配置系统结合
-- 更利于 mock 和测试
-- 对响应结构的掌控更强
-
-尤其在企业项目中，**“可控”通常比“少写几行代码”更重要**。
-
-下面我们会采用 Laravel 原生 HTTP Client 封装一个 OpenClaw 客户端，这样适配面最广。
-
----
-
-# 三、Laravel Service Provider 封装
-
-## 3.1 目标：把 OpenClaw 变成 Laravel 的基础服务
-
-我们希望最终业务层可以这样用：
-
-```php
-$agent = app(\App\AI\Contracts\AgentManagerInterface::class);
-
-$response = $agent->run('content-analyzer', [
-    'title' => $article->title,
-    'body' => $article->content,
-], [
-    'scene' => 'seo_summary',
-    'user_id' => auth()->id(),
-]);
-```
-
-而不是在每个地方重复：
-
-- 拼 URL
-- 设置 token
-- 配置 timeout
-- 写 try/catch
-- 解析 JSON
-- 处理错误码
-
-所以第一步是做配置文件和 Service Provider。
-
-## 3.2 配置文件设计
-
-新建 `config/openclaw.php`：
+在 `config/openclaw.php` 中定义配置：
 
 ```php
 <?php
 
 return [
-    'base_url' => env('OPENCLAW_BASE_URL', 'https://api.openclaw.example'),
+    'base_url' => env('OPENCLAW_BASE_URL', 'https://api.openclaw.example.com'),
     'api_key' => env('OPENCLAW_API_KEY'),
+    'agent' => env('OPENCLAW_AGENT', 'general-assistant'),
     'timeout' => (int) env('OPENCLAW_TIMEOUT', 30),
-    'connect_timeout' => (int) env('OPENCLAW_CONNECT_TIMEOUT', 5),
-    'retry_times' => (int) env('OPENCLAW_RETRY_TIMES', 2),
-    'retry_sleep_ms' => (int) env('OPENCLAW_RETRY_SLEEP_MS', 300),
-    'default_agent' => env('OPENCLAW_DEFAULT_AGENT', 'general-assistant'),
-    'async_poll_interval' => (int) env('OPENCLAW_ASYNC_POLL_INTERVAL', 10),
-    'webhook_secret' => env('OPENCLAW_WEBHOOK_SECRET'),
-    'log_channel' => env('OPENCLAW_LOG_CHANNEL', 'stack'),
+    'retry_times' => (int) env('OPENCLAW_RETRY_TIMES', 3),
+    'retry_sleep_ms' => (int) env('OPENCLAW_RETRY_SLEEP_MS', 500),
+    'log_payload' => (bool) env('OPENCLAW_LOG_PAYLOAD', false),
 ];
 ```
 
-`.env` 中对应增加：
+这样，后续无论是 SDK 初始化还是 HTTP 调用，都可以从 `config('openclaw.xxx')` 获取参数。
 
-```dotenv
-OPENCLAW_BASE_URL=https://api.openclaw.example
-OPENCLAW_API_KEY=your-api-key
-OPENCLAW_TIMEOUT=30
-OPENCLAW_CONNECT_TIMEOUT=5
-OPENCLAW_RETRY_TIMES=2
-OPENCLAW_RETRY_SLEEP_MS=300
-OPENCLAW_DEFAULT_AGENT=general-assistant
-OPENCLAW_ASYNC_POLL_INTERVAL=10
-OPENCLAW_WEBHOOK_SECRET=your-webhook-secret
-OPENCLAW_LOG_CHANNEL=stack
-```
+### 4. 配置校验建议
 
-这里的配置有几个关键点：
-
-- `connect_timeout` 与 `timeout` 分开配置，避免网络抖动拖垮 PHP Worker
-- `retry_times` 只用于网络级或可重试错误，不能无脑重试所有失败
-- `webhook_secret` 用于校验回调安全性
-- `log_channel` 独立出来，方便把 AI 相关日志分流到单独文件或日志平台
-
-## 3.3 定义契约接口
-
-先定义一个统一接口 `app/AI/Contracts/AgentManagerInterface.php`：
-
-```php
-<?php
-
-namespace App\AI\Contracts;
-
-use App\AI\Data\AgentResponseData;
-
-interface AgentManagerInterface
-{
-    public function run(string $agent, array $input, array $context = [], array $options = []): AgentResponseData;
-
-    public function dispatch(string $agent, array $input, array $context = [], array $options = []): AgentResponseData;
-
-    public function retrieve(string $taskId): AgentResponseData;
-}
-```
-
-这里我们刻意拆成三类动作：
-
-- `run`：同步执行，适合简单低延迟任务
-- `dispatch`：异步投递，适合批量、耗时、高成本任务
-- `retrieve`：查询任务状态或结果
-
-## 3.4 DTO 定义
-
-`app/AI/Data/AgentResponseData.php`：
-
-```php
-<?php
-
-namespace App\AI\Data;
-
-class AgentResponseData
-{
-    public function __construct(
-        public readonly string $id,
-        public readonly string $status,
-        public readonly ?string $traceId = null,
-        public readonly ?array $output = null,
-        public readonly ?array $usage = null,
-        public readonly ?int $latencyMs = null,
-        public readonly ?string $errorCode = null,
-        public readonly ?string $errorMessage = null,
-        public readonly ?array $raw = null,
-    ) {}
-
-    public static function fromArray(array $data): self
-    {
-        return new self(
-            id: (string) ($data['id'] ?? ''),
-            status: (string) ($data['status'] ?? 'unknown'),
-            traceId: $data['trace_id'] ?? null,
-            output: $data['output'] ?? null,
-            usage: $data['usage'] ?? null,
-            latencyMs: isset($data['latency_ms']) ? (int) $data['latency_ms'] : null,
-            errorCode: $data['error']['code'] ?? null,
-            errorMessage: $data['error']['message'] ?? null,
-            raw: $data,
-        );
-    }
-
-    public function isCompleted(): bool
-    {
-        return $this->status === 'completed';
-    }
-
-    public function isFailed(): bool
-    {
-        return $this->status === 'failed';
-    }
-
-    public function isPending(): bool
-    {
-        return in_array($this->status, ['queued', 'processing', 'pending'], true);
-    }
-}
-```
-
-## 3.5 异常体系设计
-
-很多人会偷懒直接 `throw new \Exception()`，但 AI 集成里错误类型很多，不分类会让重试策略变得很糟糕。
-
-建议建立至少这几类异常：
-
-`app/AI/Exceptions/AgentException.php`
-
-```php
-<?php
-
-namespace App\AI\Exceptions;
-
-use RuntimeException;
-
-class AgentException extends RuntimeException
-{
-}
-```
-
-`app/AI/Exceptions/AgentAuthenticationException.php`
-
-```php
-<?php
-
-namespace App\AI\Exceptions;
-
-class AgentAuthenticationException extends AgentException
-{
-}
-```
-
-`app/AI/Exceptions/AgentRateLimitException.php`
-
-```php
-<?php
-
-namespace App\AI\Exceptions;
-
-class AgentRateLimitException extends AgentException
-{
-}
-```
-
-`app/AI/Exceptions/AgentRemoteException.php`
-
-```php
-<?php
-
-namespace App\AI\Exceptions;
-
-class AgentRemoteException extends AgentException
-{
-}
-```
-
-`app/AI/Exceptions/AgentTimeoutException.php`
-
-```php
-<?php
-
-namespace App\AI\Exceptions;
-
-class AgentTimeoutException extends AgentException
-{
-}
-```
-
-这一步非常关键，因为后面队列 Job 的 `backoff()` 和 `failed()` 方法会依赖这些异常类型做差异化处理。
-
-## 3.6 OpenClawClient 封装
-
-`app/AI/OpenClawClient.php`：
-
-```php
-<?php
-
-namespace App\AI;
-
-use App\AI\Data\AgentResponseData;
-use App\AI\Exceptions\AgentAuthenticationException;
-use App\AI\Exceptions\AgentRateLimitException;
-use App\AI\Exceptions\AgentRemoteException;
-use App\AI\Exceptions\AgentTimeoutException;
-use Illuminate\Http\Client\ConnectionException;
-use Illuminate\Http\Client\PendingRequest;
-use Illuminate\Http\Client\RequestException;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
-
-class OpenClawClient
-{
-    public function __construct(
-        protected string $baseUrl,
-        protected string $apiKey,
-        protected int $timeout,
-        protected int $connectTimeout,
-        protected int $retryTimes,
-        protected int $retrySleepMs,
-        protected ?string $logChannel = null,
-    ) {}
-
-    public function run(string $agent, array $input, array $context = [], array $options = []): AgentResponseData
-    {
-        $payload = $this->buildPayload($agent, $input, $context, $options + ['mode' => 'sync']);
-        $data = $this->post('/v1/agents/run', $payload);
-
-        return AgentResponseData::fromArray($data);
-    }
-
-    public function dispatch(string $agent, array $input, array $context = [], array $options = []): AgentResponseData
-    {
-        $payload = $this->buildPayload($agent, $input, $context, $options + ['mode' => 'async']);
-        $data = $this->post('/v1/agents/run', $payload);
-
-        return AgentResponseData::fromArray($data);
-    }
-
-    public function retrieve(string $taskId): AgentResponseData
-    {
-        $data = $this->get('/v1/agents/tasks/' . $taskId);
-
-        return AgentResponseData::fromArray($data);
-    }
-
-    protected function buildPayload(string $agent, array $input, array $context, array $options): array
-    {
-        return [
-            'agent' => $agent,
-            'input' => $input,
-            'context' => $context,
-            'options' => $options,
-            'metadata' => [
-                'request_id' => (string) Str::uuid(),
-                'source' => 'laravel-backend',
-                'app_env' => app()->environment(),
-            ],
-        ];
-    }
-
-    protected function request(): PendingRequest
-    {
-        return Http::baseUrl(rtrim($this->baseUrl, '/'))
-            ->acceptJson()
-            ->asJson()
-            ->withToken($this->apiKey)
-            ->timeout($this->timeout)
-            ->connectTimeout($this->connectTimeout)
-            ->retry($this->retryTimes, $this->retrySleepMs, function ($exception, PendingRequest $request) {
-                return $exception instanceof ConnectionException;
-            }, throw: false);
-    }
-
-    protected function post(string $uri, array $payload): array
-    {
-        try {
-            $response = $this->request()->post($uri, $payload);
-            return $this->handleResponse($response->status(), $response->json(), 'POST', $uri);
-        } catch (ConnectionException $e) {
-            $this->log('error', 'OpenClaw connection timeout', [
-                'uri' => $uri,
-                'message' => $e->getMessage(),
-            ]);
-
-            throw new AgentTimeoutException('OpenClaw connection timeout', previous: $e);
-        } catch (RequestException $e) {
-            throw new AgentRemoteException('OpenClaw request failed: ' . $e->getMessage(), previous: $e);
-        }
-    }
-
-    protected function get(string $uri): array
-    {
-        try {
-            $response = $this->request()->get($uri);
-            return $this->handleResponse($response->status(), $response->json(), 'GET', $uri);
-        } catch (ConnectionException $e) {
-            throw new AgentTimeoutException('OpenClaw retrieve timeout', previous: $e);
-        } catch (RequestException $e) {
-            throw new AgentRemoteException('OpenClaw retrieve failed: ' . $e->getMessage(), previous: $e);
-        }
-    }
-
-    protected function handleResponse(int $status, ?array $json, string $method, string $uri): array
-    {
-        $json ??= [];
-
-        $this->log('info', 'OpenClaw response received', [
-            'method' => $method,
-            'uri' => $uri,
-            'status' => $status,
-            'trace_id' => $json['trace_id'] ?? null,
-            'task_id' => $json['id'] ?? null,
-        ]);
-
-        if ($status === 401 || $status === 403) {
-            throw new AgentAuthenticationException($json['error']['message'] ?? 'OpenClaw authentication failed');
-        }
-
-        if ($status === 429) {
-            throw new AgentRateLimitException($json['error']['message'] ?? 'OpenClaw rate limit exceeded');
-        }
-
-        if ($status >= 500) {
-            throw new AgentRemoteException($json['error']['message'] ?? 'OpenClaw server error');
-        }
-
-        if ($status >= 400) {
-            throw new AgentRemoteException($json['error']['message'] ?? 'OpenClaw bad request');
-        }
-
-        return $json;
-    }
-
-    protected function log(string $level, string $message, array $context = []): void
-    {
-        Log::channel($this->logChannel ?: config('openclaw.log_channel'))->{$level}($message, $context);
-    }
-}
-```
-
-这段代码有几个工程要点：
-
-1. **统一请求入口**：所有 HTTP 行为集中在一个类里。
-2. **把网络错误和业务错误分离**：ConnectionException 单独转成 Timeout 异常。
-3. **日志记录 trace_id / task_id**：后面排障很重要。
-4. **只对连接级错误自动 retry**：不要对 4xx/业务失败盲目重试。
-
-## 3.7 Manager 层：给业务更稳定的调用入口
-
-`app/AI/AgentManager.php`：
-
-```php
-<?php
-
-namespace App\AI;
-
-use App\AI\Contracts\AgentManagerInterface;
-use App\AI\Data\AgentResponseData;
-
-class AgentManager implements AgentManagerInterface
-{
-    public function __construct(
-        protected OpenClawClient $client,
-    ) {}
-
-    public function run(string $agent, array $input, array $context = [], array $options = []): AgentResponseData
-    {
-        return $this->client->run($agent, $input, $context, $options);
-    }
-
-    public function dispatch(string $agent, array $input, array $context = [], array $options = []): AgentResponseData
-    {
-        return $this->client->dispatch($agent, $input, $context, $options);
-    }
-
-    public function retrieve(string $taskId): AgentResponseData
-    {
-        return $this->client->retrieve($taskId);
-    }
-}
-```
-
-你可能会觉得这层只是透传，但它的价值在于未来可以加入：
-
-- prompt 模板注册
-- agent 名称映射
-- 默认上下文注入
-- tenant 维度的鉴权控制
-- 统一 metrics 打点
-
-不要低估这层“看上去多余”的抽象。
-
-## 3.8 Service Provider 注册
-
-`app/Providers/OpenClawServiceProvider.php`：
+在生产环境里，AI 接口的配置如果缺失，最忌讳的是等到线上首次调用才报错。因此建议在应用启动阶段做一次配置校验。例如在 Service Provider 的 `register` 或 `boot` 中验证关键配置：
 
 ```php
 <?php
 
 namespace App\Providers;
 
-use App\AI\AgentManager;
-use App\AI\Contracts\AgentManagerInterface;
-use App\AI\OpenClawClient;
 use Illuminate\Support\ServiceProvider;
+use InvalidArgumentException;
+
+class OpenClawValidationServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        if (app()->environment('production') && empty(config('openclaw.api_key'))) {
+            throw new InvalidArgumentException('OPENCLAW_API_KEY 未配置。');
+        }
+    }
+}
+```
+
+这样可以把配置错误前置暴露。
+
+## 四、在 Laravel 中封装 OpenClaw Service Provider
+
+如果只是直接在控制器里 `new Client(...)`，随着项目复杂度增加，维护会变得混乱。Laravel 最推荐的方式是把 OpenClaw 客户端注册到服务容器中，并通过依赖注入使用。
+
+### 1. 创建 Service Provider
+
+首先创建 Provider：
+
+```bash
+php artisan make:provider OpenClawServiceProvider
+```
+
+然后在 `app/Providers/OpenClawServiceProvider.php` 中进行注册：
+
+```php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use OpenClaw\Client;
 
 class OpenClawServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(config_path('openclaw.php'), 'openclaw');
-
-        $this->app->singleton(OpenClawClient::class, function () {
-            return new OpenClawClient(
-                baseUrl: config('openclaw.base_url'),
+        $this->app->singleton(Client::class, function () {
+            return new Client(
                 apiKey: config('openclaw.api_key'),
-                timeout: config('openclaw.timeout'),
-                connectTimeout: config('openclaw.connect_timeout'),
-                retryTimes: config('openclaw.retry_times'),
-                retrySleepMs: config('openclaw.retry_sleep_ms'),
-                logChannel: config('openclaw.log_channel'),
-            );
-        });
-
-        $this->app->singleton(AgentManagerInterface::class, function ($app) {
-            return new AgentManager($app->make(OpenClawClient::class));
-        });
-    }
-
-    public function boot(): void
-    {
-        $this->publishes([
-            __DIR__ . '/../../config/openclaw.php' => config_path('openclaw.php'),
-        ], 'openclaw-config');
-    }
-}
-```
-
-如果你的 Laravel 版本开启了自动发现，可以按实际项目方式注册；如果没有，就在 `config/app.php` 中加入 provider。
-
----
-
-# 四、HTTP 调用与异步队列集成
-
-## 4.1 同步调用适合什么场景
-
-并不是所有 AI 功能都必须走队列。同步调用适合以下情况：
-
-- 用户主动点击后，希望立刻返回结果
-- 结果生成时间可控，通常 2-8 秒
-- 页面交互上允许短暂 loading
-- 失败后可以直接提示用户重试
-
-例如后台管理系统中“生成文章摘要”：
-
-`app/Http/Controllers/Admin/ArticleSummaryController.php`
-
-```php
-<?php
-
-namespace App\Http\Controllers\Admin;
-
-use App\AI\Contracts\AgentManagerInterface;
-use App\Http\Controllers\Controller;
-use App\Models\Article;
-use Illuminate\Http\JsonResponse;
-
-class ArticleSummaryController extends Controller
-{
-    public function __invoke(Article $article, AgentManagerInterface $agents): JsonResponse
-    {
-        $response = $agents->run('content-analyzer', [
-            'title' => $article->title,
-            'body' => $article->content,
-        ], [
-            'scene' => 'article_summary',
-            'article_id' => $article->id,
-            'operator_id' => auth()->id(),
-        ], [
-            'response_format' => 'json',
-            'temperature' => 0.2,
-        ]);
-
-        return response()->json([
-            'task_id' => $response->id,
-            'status' => $response->status,
-            'data' => $response->output,
-            'trace_id' => $response->traceId,
-        ]);
-    }
-}
-```
-
-同步调用的优点是链路短、实现简单；缺点是：
-
-- Web 请求超时风险更高
-- 用户体验受第三方延迟影响
-- 高并发场景容易占满 PHP-FPM / Octane worker
-
-所以只建议把同步方式用于“轻任务”和“低频后台操作”。
-
-## 4.2 异步队列才是主战场
-
-真正落地到生产时，大多数任务应该走异步 Job。比如：
-
-- 批量商品文案生成
-- OCR 后的内容结构化抽取
-- 工单自动分类与优先级识别
-- 会话总结
-- 客服知识推荐
-
-我们先设计一张任务表，把 Laravel 侧任务状态独立保存下来。
-
-## 4.3 任务表设计
-
-创建 migration：
-
-```php
-<?php
-
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-return new class extends Migration {
-    public function up(): void
-    {
-        Schema::create('agent_tasks', function (Blueprint $table) {
-            $table->id();
-            $table->string('biz_type')->index();
-            $table->unsignedBigInteger('biz_id')->nullable()->index();
-            $table->string('agent_name')->index();
-            $table->string('task_uuid')->unique();
-            $table->string('remote_task_id')->nullable()->index();
-            $table->string('trace_id')->nullable()->index();
-            $table->string('status')->default('pending')->index();
-            $table->json('input_payload');
-            $table->json('context_payload')->nullable();
-            $table->json('options_payload')->nullable();
-            $table->json('result_payload')->nullable();
-            $table->json('usage_payload')->nullable();
-            $table->string('error_code')->nullable();
-            $table->text('error_message')->nullable();
-            $table->unsignedInteger('attempts')->default(0);
-            $table->timestamp('queued_at')->nullable();
-            $table->timestamp('started_at')->nullable();
-            $table->timestamp('finished_at')->nullable();
-            $table->timestamps();
-        });
-    }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('agent_tasks');
-    }
-};
-```
-
-这张表的作用不是简单记日志，而是承担如下职责：
-
-- AI 任务的业务映射
-- 状态流转追踪
-- 重试次数记录
-- 回调与轮询对账
-- 审计与问题排查
-
-## 4.4 Eloquent 模型设计
-
-`app/Models/AgentTask.php`：
-
-```php
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-
-class AgentTask extends Model
-{
-    protected $fillable = [
-        'biz_type',
-        'biz_id',
-        'agent_name',
-        'task_uuid',
-        'remote_task_id',
-        'trace_id',
-        'status',
-        'input_payload',
-        'context_payload',
-        'options_payload',
-        'result_payload',
-        'usage_payload',
-        'error_code',
-        'error_message',
-        'attempts',
-        'queued_at',
-        'started_at',
-        'finished_at',
-    ];
-
-    protected $casts = [
-        'input_payload' => 'array',
-        'context_payload' => 'array',
-        'options_payload' => 'array',
-        'result_payload' => 'array',
-        'usage_payload' => 'array',
-        'queued_at' => 'datetime',
-        'started_at' => 'datetime',
-        'finished_at' => 'datetime',
-    ];
-
-    public const STATUS_PENDING = 'pending';
-    public const STATUS_QUEUED = 'queued';
-    public const STATUS_PROCESSING = 'processing';
-    public const STATUS_COMPLETED = 'completed';
-    public const STATUS_FAILED = 'failed';
-
-    public function markQueued(?string $remoteTaskId = null, ?string $traceId = null): void
-    {
-        $this->update([
-            'status' => self::STATUS_QUEUED,
-            'remote_task_id' => $remoteTaskId,
-            'trace_id' => $traceId,
-            'queued_at' => now(),
-        ]);
-    }
-
-    public function markProcessing(): void
-    {
-        $this->update([
-            'status' => self::STATUS_PROCESSING,
-            'started_at' => now(),
-        ]);
-    }
-
-    public function markCompleted(array $resultPayload = [], ?array $usagePayload = null): void
-    {
-        $this->update([
-            'status' => self::STATUS_COMPLETED,
-            'result_payload' => $resultPayload,
-            'usage_payload' => $usagePayload,
-            'finished_at' => now(),
-            'error_code' => null,
-            'error_message' => null,
-        ]);
-    }
-
-    public function markFailed(?string $errorCode, ?string $errorMessage): void
-    {
-        $this->update([
-            'status' => self::STATUS_FAILED,
-            'error_code' => $errorCode,
-            'error_message' => $errorMessage,
-            'finished_at' => now(),
-        ]);
-    }
-}
-```
-
-## 4.5 入队 Job 设计
-
-`app/Jobs/DispatchAgentTaskJob.php`：
-
-```php
-<?php
-
-namespace App\Jobs;
-
-use App\AI\Contracts\AgentManagerInterface;
-use App\Models\AgentTask;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
-
-class DispatchAgentTaskJob implements ShouldQueue
-{
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    public int $tries = 3;
-
-    public function __construct(public int $agentTaskId)
-    {
-        $this->onQueue('ai');
-    }
-
-    public function handle(AgentManagerInterface $agents): void
-    {
-        $task = AgentTask::query()->findOrFail($this->agentTaskId);
-        $task->increment('attempts');
-        $task->markProcessing();
-
-        $response = $agents->dispatch(
-            $task->agent_name,
-            $task->input_payload,
-            $task->context_payload ?? [],
-            $task->options_payload ?? [],
-        );
-
-        $task->markQueued($response->id, $response->traceId);
-
-        PollAgentTaskResultJob::dispatch($task->id)
-            ->delay(now()->addSeconds(config('openclaw.async_poll_interval', 10)))
-            ->onQueue('ai');
-    }
-}
-```
-
-这段代码体现了一个实践：
-
-- 第一阶段 Job 负责“提交远程任务”
-- 第二阶段 Job 负责“轮询远程结果”
-
-这样拆分而不是一个 Job 一直阻塞等待，是因为 Laravel Worker 不应该长时间被一个 AI 请求吊住。
-
-## 4.6 轮询 Job 设计
-
-`app/Jobs/PollAgentTaskResultJob.php`：
-
-```php
-<?php
-
-namespace App\Jobs;
-
-use App\AI\Contracts\AgentManagerInterface;
-use App\Models\AgentTask;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
-
-class PollAgentTaskResultJob implements ShouldQueue
-{
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    public int $tries = 10;
-
-    public function __construct(public int $agentTaskId)
-    {
-        $this->onQueue('ai');
-    }
-
-    public function backoff(): array
-    {
-        return [10, 20, 30, 60, 120];
-    }
-
-    public function handle(AgentManagerInterface $agents): void
-    {
-        $task = AgentTask::query()->findOrFail($this->agentTaskId);
-
-        if (!$task->remote_task_id) {
-            return;
-        }
-
-        $response = $agents->retrieve($task->remote_task_id);
-
-        if ($response->isPending()) {
-            static::dispatch($task->id)
-                ->delay(now()->addSeconds(config('openclaw.async_poll_interval', 10)))
-                ->onQueue('ai');
-            return;
-        }
-
-        if ($response->isCompleted()) {
-            $task->markCompleted($response->output ?? [], $response->usage);
-            ProcessAgentResultJob::dispatch($task->id)->onQueue('ai');
-            return;
-        }
-
-        $task->markFailed($response->errorCode, $response->errorMessage ?? 'Agent task failed');
-    }
-}
-```
-
-## 4.7 为什么不用 while 循环轮询
-
-有些人会在 Job 里写：
-
-```php
-while (true) {
-    $result = $agents->retrieve($taskId);
-    if ($result->isCompleted()) {
-        break;
-    }
-    sleep(5);
-}
-```
-
-这在开发环境里似乎能工作，但在线上是个典型反模式，因为：
-
-- 持续占用 worker
-- 无法被队列系统细粒度重试
-- 容易导致任务超时
-- sleep 期间没有任何可观测性
-- Horizon 监控粒度差
-
-正确思路是把“等待”交给队列调度器，而不是让 PHP 进程傻等。
-
----
-
-# 五、Agent 结果处理与 Eloquent 存储
-
-## 5.1 结果处理为什么不能直接把 raw JSON 塞数据库
-
-很多团队的第一反应是：
-
-- 把第三方完整响应 JSON 存下来
-- 需要用的时候再从 JSON 里解析
-
-这当然应该做一份归档，但不能只这么做。因为业务层真正需要的是结构化字段。例如文章摘要场景，业务需要的可能是：
-
-- summary
-- seo_title
-- seo_description
-- keywords
-- sentiment
-- risk_flags
-
-如果不做结构化存储，后面做查询、筛选、排序、统计都很痛苦。
-
-建议采用“双轨存储”：
-
-1. **原始结果归档**：保证可审计、可回放
-2. **业务结构化字段抽取**：保证后续业务可用
-
-## 5.2 示例：文章 AI 分析结果表
-
-建表：
-
-```php
-<?php
-
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-return new class extends Migration {
-    public function up(): void
-    {
-        Schema::create('article_ai_results', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('article_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('agent_task_id')->constrained()->cascadeOnDelete();
-            $table->text('summary')->nullable();
-            $table->string('seo_title')->nullable();
-            $table->text('seo_description')->nullable();
-            $table->json('keywords')->nullable();
-            $table->string('sentiment')->nullable();
-            $table->json('risk_flags')->nullable();
-            $table->json('raw_output')->nullable();
-            $table->timestamps();
-        });
-    }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('article_ai_results');
-    }
-};
-```
-
-模型：
-
-```php
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-
-class ArticleAiResult extends Model
-{
-    protected $fillable = [
-        'article_id',
-        'agent_task_id',
-        'summary',
-        'seo_title',
-        'seo_description',
-        'keywords',
-        'sentiment',
-        'risk_flags',
-        'raw_output',
-    ];
-
-    protected $casts = [
-        'keywords' => 'array',
-        'risk_flags' => 'array',
-        'raw_output' => 'array',
-    ];
-}
-```
-
-## 5.3 定义输出映射器
-
-不要把字段解析逻辑写到 Controller 或 Job 里，建议做专门 Mapper：
-
-`app/AI/Mappers/ArticleAnalysisResultMapper.php`
-
-```php
-<?php
-
-namespace App\AI\Mappers;
-
-class ArticleAnalysisResultMapper
-{
-    public function map(array $output): array
-    {
-        return [
-            'summary' => $output['summary'] ?? null,
-            'seo_title' => $output['seo_title'] ?? null,
-            'seo_description' => $output['seo_description'] ?? null,
-            'keywords' => $this->normalizeKeywords($output['keywords'] ?? []),
-            'sentiment' => $output['sentiment'] ?? null,
-            'risk_flags' => $output['risk_flags'] ?? [],
-            'raw_output' => $output,
-        ];
-    }
-
-    protected function normalizeKeywords(mixed $keywords): array
-    {
-        if (is_string($keywords)) {
-            return array_values(array_filter(array_map('trim', explode(',', $keywords))));
-        }
-
-        if (is_array($keywords)) {
-            return array_values(array_filter(array_map(function ($item) {
-                return is_scalar($item) ? trim((string) $item) : null;
-            }, $keywords)));
-        }
-
-        return [];
-    }
-}
-```
-
-这里的经验非常重要：**AI 输出即使声明了 JSON，也不代表永远稳定**。生产中经常出现：
-
-- keywords 本来是数组，偶尔变成逗号分隔字符串
-- 某些字段为空字符串而不是 null
-- risk_flags 明明应该是数组，却返回对象
-
-所以 Mapper 层必须做归一化，而不能盲信远程结果。
-
-## 5.4 结果消费 Job
-
-`app/Jobs/ProcessAgentResultJob.php`：
-
-```php
-<?php
-
-namespace App\Jobs;
-
-use App\AI\Mappers\ArticleAnalysisResultMapper;
-use App\Models\AgentTask;
-use App\Models\ArticleAiResult;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\DB;
-
-class ProcessAgentResultJob implements ShouldQueue
-{
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    public function __construct(public int $agentTaskId)
-    {
-        $this->onQueue('ai');
-    }
-
-    public function handle(ArticleAnalysisResultMapper $mapper): void
-    {
-        $task = AgentTask::query()->findOrFail($this->agentTaskId);
-
-        if ($task->biz_type !== 'article' || !$task->biz_id) {
-            return;
-        }
-
-        $mapped = $mapper->map($task->result_payload ?? []);
-
-        DB::transaction(function () use ($task, $mapped) {
-            ArticleAiResult::query()->updateOrCreate(
-                [
-                    'article_id' => $task->biz_id,
-                    'agent_task_id' => $task->id,
-                ],
-                $mapped,
+                baseUrl: config('openclaw.base_url'),
+                timeout: config('openclaw.timeout')
             );
         });
     }
 }
 ```
 
-为什么这里要 `updateOrCreate`？因为实际生产中经常出现：
+如果 SDK 的初始化方式不是这种命名参数形式，也可以改为数组配置、工厂模式或 Builder 模式，但原则不变：把创建逻辑集中在容器中。
 
-- webhook 与 polling 同时到达
-- 运维手动补偿重放了处理任务
-- 任务重试导致同一个结果被处理多次
+### 2. 注册到应用配置
 
-因此结果消费必须尽量幂等。
-
-## 5.5 API 设计：业务侧如何查看任务结果
-
-如果要给前端提供查询任务状态的接口，可以设计成：
-
-### 提交任务
-
-`POST /api/articles/{article}/ai-summary`
-
-返回：
-
-```json
-{
-  "task_uuid": "2cb90766-f62d-4c55-bd57-2dd8cf317746",
-  "status": "pending"
-}
-```
-
-### 查询任务状态
-
-`GET /api/agent-tasks/{task_uuid}`
-
-返回：
-
-```json
-{
-  "task_uuid": "2cb90766-f62d-4c55-bd57-2dd8cf317746",
-  "status": "completed",
-  "trace_id": "trace_abc123",
-  "result": {
-    "summary": "...",
-    "keywords": ["Laravel", "OpenClaw"]
-  },
-  "error": null
-}
-```
-
-控制器示例：
+在 Laravel 11 之前，你可能需要将 Provider 加入 `config/app.php`。如果是较新版本并使用自动发现机制，可以根据项目结构决定是否手动注册。
 
 ```php
-<?php
-
-namespace App\Http\Controllers\Api;
-
-use App\Http\Controllers\Controller;
-use App\Jobs\DispatchAgentTaskJob;
-use App\Models\AgentTask;
-use App\Models\Article;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Str;
-
-class ArticleAiSummaryController extends Controller
-{
-    public function store(Article $article): JsonResponse
-    {
-        $task = AgentTask::query()->create([
-            'biz_type' => 'article',
-            'biz_id' => $article->id,
-            'agent_name' => 'content-analyzer',
-            'task_uuid' => (string) Str::uuid(),
-            'status' => AgentTask::STATUS_PENDING,
-            'input_payload' => [
-                'title' => $article->title,
-                'body' => $article->content,
-            ],
-            'context_payload' => [
-                'scene' => 'article_summary',
-                'article_id' => $article->id,
-                'requested_by' => auth()->id(),
-            ],
-            'options_payload' => [
-                'response_format' => 'json',
-                'temperature' => 0.2,
-            ],
-        ]);
-
-        DispatchAgentTaskJob::dispatch($task->id)->onQueue('ai');
-
-        return response()->json([
-            'task_uuid' => $task->task_uuid,
-            'status' => $task->status,
-        ], 202);
-    }
-
-    public function show(string $taskUuid): JsonResponse
-    {
-        $task = AgentTask::query()->where('task_uuid', $taskUuid)->firstOrFail();
-
-        return response()->json([
-            'task_uuid' => $task->task_uuid,
-            'status' => $task->status,
-            'trace_id' => $task->trace_id,
-            'result' => $task->result_payload,
-            'error' => $task->error_code ? [
-                'code' => $task->error_code,
-                'message' => $task->error_message,
-            ] : null,
-        ]);
-    }
-}
+'providers' => [
+    // ...
+    App\Providers\OpenClawServiceProvider::class,
+],
 ```
 
-这就是比较标准的“前台发起、后台异步执行、前台轮询状态”的 Laravel API 设计。
+### 3. 再封装一层业务客户端
 
----
+只把 SDK Client 暴露到业务代码里还不够。更稳妥的做法是，在 `app/Services/AI/OpenClawManager.php` 中再包一层，用于统一处理：
 
-# 六、错误处理与重试机制
-
-## 6.1 AI 集成最怕的不是报错，而是错误被错误地处理
-
-在传统 CRUD 系统里，很多异常处理都比较直线：
-
-- 失败就报错
-- 用户重试一下
-- 后台日志看看
-
-但 AI 场景不是这样，因为错误来源多且语义不同：
-
-- 网络超时
-- DNS / TLS 问题
-- 认证失败
-- 限流
-- 上游 5xx
-- 请求参数非法
-- Agent 内部执行失败
-- 输出结构异常
-- 本地数据库写入失败
-
-如果不做分类，就很容易出现两类严重问题：
-
-1. **不该重试的错误被重试**，浪费成本甚至触发封禁
-2. **应该重试的错误没有重试**，导致大量临时失败变成永久失败
-
-## 6.2 队列 Job 中的差异化重试
-
-以提交 Job 为例：
-
-```php
-public function backoff(): array
-{
-    return [5, 15, 30];
-}
-```
-
-但更进一步，应该在 `handle()` 中结合异常类型处理：
-
-```php
-<?php
-
-namespace App\Jobs;
-
-use App\AI\Contracts\AgentManagerInterface;
-use App\AI\Exceptions\AgentAuthenticationException;
-use App\AI\Exceptions\AgentRateLimitException;
-use App\AI\Exceptions\AgentRemoteException;
-use App\AI\Exceptions\AgentTimeoutException;
-use App\Models\AgentTask;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
-
-class DispatchAgentTaskJob implements ShouldQueue
-{
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    public int $tries = 5;
-
-    public function __construct(public int $agentTaskId)
-    {
-        $this->onQueue('ai');
-    }
-
-    public function backoff(): array
-    {
-        return [10, 30, 60, 120];
-    }
-
-    public function handle(AgentManagerInterface $agents): void
-    {
-        $task = AgentTask::query()->findOrFail($this->agentTaskId);
-
-        try {
-            $task->increment('attempts');
-            $task->markProcessing();
-
-            $response = $agents->dispatch(
-                $task->agent_name,
-                $task->input_payload,
-                $task->context_payload ?? [],
-                $task->options_payload ?? [],
-            );
-
-            $task->markQueued($response->id, $response->traceId);
-
-            PollAgentTaskResultJob::dispatch($task->id)
-                ->delay(now()->addSeconds(config('openclaw.async_poll_interval', 10)))
-                ->onQueue('ai');
-        } catch (AgentAuthenticationException $e) {
-            $task->markFailed('auth_error', $e->getMessage());
-            $this->fail($e);
-        } catch (AgentRateLimitException $e) {
-            throw $e;
-        } catch (AgentTimeoutException|AgentRemoteException $e) {
-            throw $e;
-        } catch (\Throwable $e) {
-            $task->markFailed('unexpected_error', $e->getMessage());
-            throw $e;
-        }
-    }
-
-    public function failed(\Throwable $e): void
-    {
-        $task = AgentTask::query()->find($this->agentTaskId);
-        if (!$task) {
-            return;
-        }
-
-        if ($task->status !== AgentTask::STATUS_COMPLETED) {
-            $task->markFailed('dispatch_failed', $e->getMessage());
-        }
-    }
-}
-```
-
-这里的策略是：
-
-- `AgentAuthenticationException`：配置错误，重试没有意义，直接 fail
-- `AgentRateLimitException`：可能是临时问题，交给队列 backoff
-- `AgentTimeoutException / AgentRemoteException`：通常可以有限重试
-- 其他未知异常：记录并上抛，防止无声失败
-
-## 6.3 幂等性设计
-
-AI 任务很容易被重复执行，原因包括：
-
-- Job 重试
-- webhook 重发
-- 用户重复点击
-- 前端超时后又重新提交
-- worker 在处理完但 ack 前崩溃
-
-因此必须设计幂等。
-
-### 幂等键建议
-
-可以基于以下信息生成 fingerprint：
-
-- biz_type
-- biz_id
-- agent_name
-- input_payload hash
-- prompt/version
-
-例如：
-
-```php
-$fingerprint = hash('sha256', json_encode([
-    'biz_type' => 'article',
-    'biz_id' => $article->id,
-    'agent_name' => 'content-analyzer',
-    'input' => [
-        'title' => $article->title,
-        'body' => $article->content,
-    ],
-    'version' => 'v1',
-], JSON_UNESCAPED_UNICODE));
-```
-
-然后在数据库中加唯一索引，避免相同任务被重复创建。
-
-## 6.4 使用 Laravel Cache Lock 防止重复调度
-
-在任务创建入口可以加分布式锁：
-
-```php
-use Illuminate\Support\Facades\Cache;
-
-$lockKey = 'agent-task:article:' . $article->id . ':summary';
-
-$task = Cache::lock($lockKey, 10)->block(3, function () use ($article) {
-    return AgentTask::query()->firstOrCreate(
-        [
-            'biz_type' => 'article',
-            'biz_id' => $article->id,
-            'agent_name' => 'content-analyzer',
-            'status' => AgentTask::STATUS_PENDING,
-        ],
-        [
-            'task_uuid' => (string) \Illuminate\Support\Str::uuid(),
-            'input_payload' => [
-                'title' => $article->title,
-                'body' => $article->content,
-            ],
-        ],
-    );
-});
-```
-
-这可以降低并发点击带来的重复任务问题。
-
-## 6.5 回调模式下的签名校验
-
-如果 OpenClaw 支持 webhook 回调，千万不要直接信任请求体。至少应校验：
-
-- 时间戳
-- 签名
-- 重放窗口
-- task_id 是否存在
+- 默认 Agent；
+- 请求结构；
+- 日志；
+- 异常转换；
+- 返回格式标准化。
 
 示例：
 
 ```php
 <?php
 
-namespace App\Http\Controllers\Webhook;
+namespace App\Services\AI;
 
-use App\Http\Controllers\Controller;
-use App\Models\AgentTask;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Log;
+use OpenClaw\Client;
+use Throwable;
 
-class OpenClawWebhookController extends Controller
+class OpenClawManager
 {
-    public function __invoke(Request $request): Response
+    public function __construct(private readonly Client $client)
     {
-        $signature = $request->header('X-OpenClaw-Signature');
-        $timestamp = $request->header('X-OpenClaw-Timestamp');
-        $payload = $request->getContent();
+    }
 
-        $expected = hash_hmac('sha256', $timestamp . '.' . $payload, config('openclaw.webhook_secret'));
+    public function runAgent(array $input, ?string $agent = null): array
+    {
+        $agentName = $agent ?: config('openclaw.agent');
 
-        abort_unless(hash_equals($expected, (string) $signature), 401, 'Invalid signature');
-        abort_unless(abs(now()->timestamp - (int) $timestamp) <= 300, 401, 'Expired webhook');
+        try {
+            $response = $this->client->agents()->run([
+                'agent' => $agentName,
+                'input' => $input,
+            ]);
 
-        $data = $request->json()->all();
+            return [
+                'success' => true,
+                'agent' => $agentName,
+                'data' => $response,
+            ];
+        } catch (Throwable $e) {
+            Log::error('OpenClaw agent 调用失败', [
+                'agent' => $agentName,
+                'message' => $e->getMessage(),
+            ]);
 
-        $task = AgentTask::query()
-            ->where('remote_task_id', $data['id'] ?? '')
-            ->first();
-
-        if (!$task) {
-            return response('ok', 200);
+            return [
+                'success' => false,
+                'agent' => $agentName,
+                'error' => $e->getMessage(),
+            ];
         }
-
-        if (($data['status'] ?? null) === 'completed') {
-            $task->markCompleted($data['output'] ?? [], $data['usage'] ?? null);
-        } elseif (($data['status'] ?? null) === 'failed') {
-            $task->markFailed(
-                $data['error']['code'] ?? 'remote_failed',
-                $data['error']['message'] ?? 'Remote task failed'
-            );
-        }
-
-        return response('ok', 200);
     }
 }
 ```
 
-生产里 webhook 和 polling 可以并存，但要确保处理逻辑幂等。
+通过这一层封装，控制器、Job、命令行任务都只依赖 `OpenClawManager`，而不依赖底层 SDK 细节。
 
----
+### 4. 为业务调用增加接口契约
 
-# 七、性能优化与生产部署注意事项
+如果你所在团队有较强的工程规范，建议定义接口，例如：
 
-## 7.1 不要把 AI 调用当普通 API 调用
+```php
+<?php
 
-很多系统上线后性能出问题，本质原因是团队误把 AI 调用当成普通内部服务调用。实际上 AI 调用通常具备以下特征：
+namespace App\Contracts\AI;
 
-- 平均延迟更高
-- 响应体更大
-- 成本和 token 使用强相关
-- 失败形式更多样
-- 输出波动更大
-- 上游限流更严格
+interface AgentGatewayInterface
+{
+    public function runAgent(array $input, ?string $agent = null): array;
+}
+```
 
-所以生产设计必须单独考虑。
+然后让 `OpenClawManager` 实现它，再在 Provider 中绑定接口到实现类：
 
-## 7.2 队列隔离
+```php
+$this->app->bind(
+    \App\Contracts\AI\AgentGatewayInterface::class,
+    \App\Services\AI\OpenClawManager::class
+);
+```
 
-一定要把 AI 任务放到单独队列，例如：
+这样后续如果你切换供应商，或者在测试环境中使用 Fake 实现，都更容易。
+
+## 五、在控制器中调用 OpenClaw 能力
+
+封装完成后，最常见的接入方式就是在控制器中调用业务服务。这里我们以“智能客服回复”作为一个简单例子。
+
+### 1. 创建业务服务类
+
+```php
+<?php
+
+namespace App\Services;
+
+use App\Services\AI\OpenClawManager;
+
+class CustomerSupportAgentService
+{
+    public function __construct(
+        private readonly OpenClawManager $openClawManager
+    ) {
+    }
+
+    public function reply(string $question, array $context = []): array
+    {
+        $payload = [
+            'role' => 'customer_support',
+            'question' => $question,
+            'context' => $context,
+            'instructions' => [
+                '请使用专业、清晰、简洁的中文回答用户问题。',
+                '如果无法确认答案，请明确说明并引导人工客服接手。',
+                '优先引用系统提供的订单、物流和商品信息。',
+            ],
+        ];
+
+        return $this->openClawManager->runAgent($payload, 'support-agent');
+    }
+}
+```
+
+### 2. 在控制器中注入服务
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Services\CustomerSupportAgentService;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+
+class SupportController extends Controller
+{
+    public function __construct(
+        private readonly CustomerSupportAgentService $service
+    ) {
+    }
+
+    public function ask(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'question' => ['required', 'string', 'max:5000'],
+            'order_id' => ['nullable', 'integer'],
+        ]);
+
+        $context = [];
+
+        if (! empty($validated['order_id'])) {
+            // 实际项目中可查询订单信息并注入上下文
+            $context['order_id'] = $validated['order_id'];
+        }
+
+        $result = $this->service->reply($validated['question'], $context);
+
+        if (! $result['success']) {
+            return response()->json([
+                'message' => 'AI 服务暂时不可用，请稍后再试。',
+                'error' => $result['error'] ?? 'unknown_error',
+            ], 503);
+        }
+
+        return response()->json([
+            'message' => 'ok',
+            'data' => $result['data'],
+        ]);
+    }
+}
+```
+
+### 3. 路由配置
+
+```php
+use App\Http\Controllers\SupportController;
+use Illuminate\Support\Facades\Route;
+
+Route::post('/support/ask', [SupportController::class, 'ask']);
+```
+
+到这里，一个最小可用的 Laravel + OpenClaw 同步调用链路已经完成了。
+
+## 六、如果不使用 SDK：通过 HTTP API 直接调用 OpenClaw
+
+在某些场景下，你可能不想依赖 SDK，例如：
+
+- 官方 SDK 还不成熟；
+- 你希望更细粒度控制请求细节；
+- 项目已有统一的 HTTP Client 规范；
+- 你需要快速兼容多个 AI 平台。
+
+这时可以直接使用 Laravel 自带的 HTTP Client，也就是 `Illuminate\Support\Facades\Http`。
+
+### 1. 创建 HTTP 版本客户端
+
+```php
+<?php
+
+namespace App\Services\AI;
+
+use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+use RuntimeException;
+use Throwable;
+
+class OpenClawHttpClient
+{
+    protected function client(): PendingRequest
+    {
+        return Http::baseUrl(config('openclaw.base_url'))
+            ->timeout(config('openclaw.timeout'))
+            ->retry(
+                config('openclaw.retry_times'),
+                config('openclaw.retry_sleep_ms')
+            )
+            ->withToken(config('openclaw.api_key'))
+            ->acceptJson()
+            ->asJson();
+    }
+
+    public function runAgent(array $payload): array
+    {
+        try {
+            $response = $this->client()->post('/v1/agents/run', $payload);
+
+            if ($response->failed()) {
+                Log::warning('OpenClaw HTTP 调用失败', [
+                    'status' => $response->status(),
+                    'body' => $response->json(),
+                ]);
+
+                throw new RuntimeException('OpenClaw HTTP 请求失败：' . $response->status());
+            }
+
+            return $response->json();
+        } catch (Throwable $e) {
+            Log::error('OpenClaw HTTP 客户端异常', [
+                'message' => $e->getMessage(),
+            ]);
+
+            throw $e;
+        }
+    }
+}
+```
+
+### 2. 在业务层调用
+
+```php
+<?php
+
+namespace App\Services;
+
+use App\Services\AI\OpenClawHttpClient;
+
+class ContentGenerationService
+{
+    public function __construct(
+        private readonly OpenClawHttpClient $client
+    ) {
+    }
+
+    public function generateArticleOutline(string $topic, array $keywords = []): array
+    {
+        return $this->client->runAgent([
+            'agent' => 'content-agent',
+            'input' => [
+                'topic' => $topic,
+                'keywords' => $keywords,
+                'task' => '请生成一份结构化文章大纲，包含标题、一级标题、二级标题与写作建议。',
+            ],
+        ]);
+    }
+}
+```
+
+### 3. SDK 与 HTTP 两种方式如何选择
+
+通常建议遵循以下原则：
+
+- **优先 SDK**：如果 SDK 足够稳定、更新及时、抽象合理；
+- **选择 HTTP Client**：如果你需要更强的可观测性、统一中间件、更自由的兼容层；
+- **混合模式**：底层仍支持 HTTP，业务层依赖统一接口，从而避免被某一种接入方式锁死。
+
+在大型系统中，混合模式是比较理性的做法：你对上层暴露统一服务接口，而底层可以在 SDK 与 HTTP 实现之间切换。
+
+### 4. 三种接入方案对比
+
+当团队开始正式接入 OpenClaw 时，最常见的问题不是“能不能调通”，而是“应该把能力接到哪一层”。下面给出一个更适合 Laravel 项目评估的对比表：
+
+| 方案 | 适用阶段 | 优点 | 缺点 | 推荐指数 |
+| --- | --- | --- | --- | --- |
+| 官方 PHP SDK | 中长期生产项目 | 抽象统一、接入快、便于升级、代码语义更清晰 | 依赖 SDK 版本节奏，底层细节可控性略弱 | 高 |
+| Laravel HTTP Client 直连 API | 需要细粒度控制或多平台兼容 | 超时、重试、中间件、日志更容易统一治理 | 需要自己维护请求结构、异常映射和响应兼容 | 高 |
+| 控制器里直接发请求 | Demo、PoC、临时验证 | 上手最快，几分钟即可验证接口 | 代码分散、难复用、难测试、几乎不可治理 | 低 |
+| 队列异步 + 服务层封装 | 中大型业务系统 | 不阻塞请求、便于重试、易监控、可扩展成完整 AI 平台能力 | 设计成本更高，需要任务状态、幂等与审计支持 | 很高 |
+
+如果你的目标只是做一个演示页面，控制器里直接发请求也未尝不可；但如果要真正上线，建议至少采用“服务层封装 + SDK/HTTP 二选一”，而在长耗时任务中进一步升级为“服务层 + 队列异步”的组合。
+
+## 七、使用 Laravel Facade 提升调用体验
+
+虽然依赖注入是 Laravel 最推荐的方式，但在一些业务代码、命令行任务或较轻量的调用场景中，Facade 也能提升开发体验。
+
+### 1. 创建 Facade
+
+```php
+<?php
+
+namespace App\Facades;
+
+use Illuminate\Support\Facades\Facade;
+
+class OpenClaw extends Facade
+{
+    protected static function getFacadeAccessor(): string
+    {
+        return 'openclaw.manager';
+    }
+}
+```
+
+### 2. 在 Provider 中注册别名服务
+
+```php
+<?php
+
+namespace App\Providers;
+
+use App\Services\AI\OpenClawManager;
+use Illuminate\Support\ServiceProvider;
+use OpenClaw\Client;
+
+class OpenClawServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        $this->app->singleton(Client::class, function () {
+            return new Client(
+                apiKey: config('openclaw.api_key'),
+                baseUrl: config('openclaw.base_url'),
+                timeout: config('openclaw.timeout')
+            );
+        });
+
+        $this->app->singleton('openclaw.manager', function ($app) {
+            return new OpenClawManager($app->make(Client::class));
+        });
+    }
+}
+```
+
+### 3. 直接调用示例
+
+```php
+use App\Facades\OpenClaw;
+
+$result = OpenClaw::runAgent([
+    'task' => '总结下面的文本内容',
+    'text' => $content,
+], 'summary-agent');
+```
+
+Facade 用起来很方便，但从可测试性与显式依赖角度看，核心业务层仍建议使用构造函数注入。Facade 更适合作为补充，而不是唯一方案。
+
+## 八、队列异步处理：避免阻塞用户请求
+
+AI Agent 调用一个非常现实的问题，就是耗时不稳定。普通数据库查询可能几十毫秒结束，但 AI 请求可能需要几秒，复杂任务甚至更长。如果用户请求线程一直等待，接口体验会明显变差，还会占用 PHP-FPM 或 Octane 的并发资源。
+
+因此，只要任务不是必须同步返回，就应该尽量使用 Laravel Queue。
+
+### 1. 哪些场景适合异步化
+
+典型包括：
+
+- 长文本总结；
+- 批量工单分类；
+- 商品描述批量生成；
+- 报表分析与邮件推送；
+- 多步骤 Agent 推理任务；
+- 智能标签、摘要、推荐语生成。
+
+### 2. 创建 Job
+
+例如，为内容生成创建一个异步任务：
 
 ```bash
-php artisan queue:work --queue=default,emails
-php artisan queue:work --queue=ai --tries=3 --timeout=180
+php artisan make:job GenerateMarketingCopyJob
 ```
 
-原因是：
-
-- AI 任务耗时长，不能阻塞普通业务队列
-- AI 队列可以配置不同超时时间
-- Horizon 里可以单独观察吞吐和失败率
-- 后续限流、扩容、降级更方便
-
-如果你使用 Horizon，建议单独 supervisor：
+Job 代码示例：
 
 ```php
-'environments' => [
-    'production' => [
-        'supervisor-default' => [
-            'connection' => 'redis',
-            'queue' => ['default'],
-            'balance' => 'auto',
-            'processes' => 10,
-            'tries' => 3,
-        ],
-        'supervisor-ai' => [
-            'connection' => 'redis',
-            'queue' => ['ai'],
-            'balance' => 'auto',
-            'processes' => 5,
-            'tries' => 5,
-            'timeout' => 180,
-        ],
-    ],
-],
-```
+<?php
 
-## 7.3 限流与并发控制
+namespace App\Jobs;
 
-你本地压测没问题，不代表线上不会被 429 打爆。建议在 Laravel 侧主动限流。
+use App\Models\MarketingTask;
+use App\Services\ContentGenerationService;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
+use Throwable;
 
-### 方式一：提交前限流
+class GenerateMarketingCopyJob implements ShouldQueue
+{
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-```php
-use Illuminate\Support\Facades\RateLimiter;
+    public int $tries = 5;
+    public int $backoff = 60;
 
-$key = 'openclaw:tenant:' . $tenantId;
+    public function __construct(public readonly int $taskId)
+    {
+    }
 
-if (RateLimiter::tooManyAttempts($key, 60)) {
-    abort(429, 'AI request rate limit exceeded');
+    public function handle(ContentGenerationService $service): void
+    {
+        $task = MarketingTask::findOrFail($this->taskId);
+
+        $task->update(['status' => 'processing']);
+
+        $result = $service->generateArticleOutline(
+            topic: $task->topic,
+            keywords: $task->keywords ?? []
+        );
+
+        $task->update([
+            'status' => 'done',
+            'result' => $result,
+        ]);
+    }
+
+    public function failed(Throwable $e): void
+    {
+        Log::error('营销文案生成任务失败', [
+            'task_id' => $this->taskId,
+            'message' => $e->getMessage(),
+        ]);
+
+        MarketingTask::where('id', $this->taskId)->update([
+            'status' => 'failed',
+            'error_message' => $e->getMessage(),
+        ]);
+    }
 }
-
-RateLimiter::hit($key, 60);
 ```
 
-### 方式二：队列消费限流
-
-Laravel 里可以通过 middleware 控制 Job 速率，比如基于 Redis 限制每秒提交数。
-
-如果你是多租户系统，这一步尤其重要，否则一个大客户的批量任务就可能拖垮整个 Agent 通道。
-
-## 7.4 缓存结果，避免重复消耗
-
-有一类场景非常适合缓存：
-
-- 输入内容基本不变
-- 输出允许短时间复用
-- 结果计算成本较高
-
-比如文章摘要、SEO 标签提取等，可以根据内容 hash 建缓存：
+### 3. 在控制器中派发任务
 
 ```php
-$contentHash = hash('sha256', $article->title . "\n" . $article->content);
-$cacheKey = 'ai:article-summary:' . $contentHash;
+<?php
 
-$result = cache()->remember($cacheKey, now()->addDays(7), function () use ($agents, $article) {
-    $response = $agents->run('content-analyzer', [
-        'title' => $article->title,
-        'body' => $article->content,
-    ]);
+namespace App\Http\Controllers;
 
-    return $response->output;
-});
+use App\Jobs\GenerateMarketingCopyJob;
+use App\Models\MarketingTask;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+
+class MarketingController extends Controller
+{
+    public function generate(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'topic' => ['required', 'string', 'max:255'],
+            'keywords' => ['nullable', 'array'],
+        ]);
+
+        $task = MarketingTask::create([
+            'topic' => $validated['topic'],
+            'keywords' => $validated['keywords'] ?? [],
+            'status' => 'pending',
+        ]);
+
+        GenerateMarketingCopyJob::dispatch($task->id);
+
+        return response()->json([
+            'message' => '任务已提交',
+            'task_id' => $task->id,
+            'status' => 'pending',
+        ], 202);
+    }
+}
 ```
 
-这不是为了“省几毫秒”，而是为了节省真实调用成本。
+### 4. 队列设计建议
 
-## 7.5 Prompt / Agent 版本化
+在 AI 集成场景中，队列不是“可选项”，而是高并发与稳定性的基础。实践中建议：
 
-这是很多团队第一年就踩的坑：
-
-- 上线时 prompt 写在代码里
-- 后面不断修改 prompt
-- 结果风格和结构突然变化
-- 老数据和新数据混在一起，无法解释差异
-
-正确做法是对 Agent 配置做版本化。例如：
-
-```php
-return [
-    'article_summary' => [
-        'agent' => 'content-analyzer',
-        'version' => '2026-06-01',
-        'system_prompt' => '你是一个资深内容编辑，请输出 JSON 格式结果...',
-        'schema' => [
-            'summary' => 'string',
-            'seo_title' => 'string',
-            'seo_description' => 'string',
-            'keywords' => 'array',
-        ],
-    ],
-];
-```
-
-然后把 `version` 一起存入 `agent_tasks`，这样后面排查“为什么 6 月 1 日前后的结果不一样”时，就有据可依。
-
-## 7.6 监控与日志
-
-至少要打这些字段：
-
-- local task id
-- remote task id
-- trace id
-- agent name
-- biz type / biz id
-- latency
-- token usage
-- error code
-- attempt count
-
-可以在日志里统一输出 JSON context：
-
-```php
-Log::channel('openclaw')->info('Agent task completed', [
-    'task_id' => $task->id,
-    'remote_task_id' => $task->remote_task_id,
-    'trace_id' => $task->trace_id,
-    'agent' => $task->agent_name,
-    'biz_type' => $task->biz_type,
-    'biz_id' => $task->biz_id,
-    'usage' => $task->usage_payload,
-]);
-```
-
-如果你有 Prometheus / Grafana，可以进一步做这些指标：
-
-- `agent_request_total`
-- `agent_request_failed_total`
-- `agent_request_latency_ms`
-- `agent_tokens_input_total`
-- `agent_tokens_output_total`
-- `agent_queue_wait_seconds`
-
-这样才能回答真实业务问题，而不只是“有没有报错”。
-
-## 7.7 数据脱敏与合规
-
-Laravel 项目里接入 AI 时，最容易被忽略的是数据安全。尤其是 CRM、医疗、法务、财务等系统，输入里很可能包含：
-
-- 用户手机号
-- 身份证号
-- 邮箱
-- 地址
-- 合同金额
-- 内部业务备注
-
-在发送给 OpenClaw 前，应考虑：
-
-- 是否必须传全部字段
-- 是否需要脱敏
-- 是否要做 tenant 级访问隔离
-- 结果是否能长期存储
-- 日志中是否记录了原文内容
-
-建议对日志做白名单记录，而不是把完整 prompt / input 原样打到日志里。你真正需要的是 trace 能力，不是泄漏敏感信息。
-
-## 7.8 生产部署中的几个常见坑
-
-### 坑一：队列 timeout 小于远程超时
-
-比如：
-
-- OpenClaw timeout = 60 秒
-- queue worker timeout = 30 秒
-
-那么 worker 会先把 Job 杀掉，造成任务状态混乱。一般建议：
-
-- HTTP timeout < queue worker timeout < supervisor 强制回收阈值
+- 将 AI 调用放入独立队列，如 `ai`；
+- 单独配置 worker 数量，避免与邮件、通知等普通任务争抢资源；
+- 对不同类型任务设置不同超时时间；
+- 使用 Redis / SQS 等稳定队列驱动；
+- 结合 Horizon 监控失败率、耗时分布与队列积压。
 
 例如：
 
-- HTTP timeout 30s
-- worker timeout 90s
-- Horizon/supervisor 外层再留更大空间
+```php
+GenerateMarketingCopyJob::dispatch($task->id)->onQueue('ai');
+```
 
-### 坑二：重试后重复写库
+如果系统中 AI 调用量很大，这样的隔离尤为重要。
 
-如果结果处理没有幂等，重试会导致：
+### 5. 一个可运行的最小闭环示例
 
-- 重复插入记录
-- 计费数据翻倍
-- 下游事件重复触发
+很多文章只展示片段代码，但真实落地时，开发者更关心“能不能直接跑起来”。下面给出一个更贴近 Laravel 项目的最小闭环示例：从配置、路由、控制器到服务类，都能直接拼成可运行链路。即使你暂时没有 OpenClaw 官方 SDK，也可以先用 HTTP 方式完成接入验证。
 
-所以所有消费结果的逻辑都要按“至少一次投递”来设计。
+#### `config/openclaw.php`
 
-### 坑三：把第三方错误信息直接返回前端
+```php
+<?php
 
-第三方错误可能包含内部实现信息，甚至暴露供应商细节。建议统一转换成业务可理解文案，对外输出通用错误码。
+return [
+    'base_url' => env('OPENCLAW_BASE_URL', 'https://api.openclaw.example.com'),
+    'api_key' => env('OPENCLAW_API_KEY'),
+    'agent' => env('OPENCLAW_AGENT', 'general-assistant'),
+    'timeout' => (int) env('OPENCLAW_TIMEOUT', 30),
+];
+```
 
-### 坑四：没有任务审计页
+#### `app/Services/AI/OpenClawHttpClient.php`
 
-当运营、产品、客服来问“为什么这条生成失败了”，如果你只能翻日志，那这套系统很快就会变成团队负担。建议做一个简单后台页，至少能查看：
+```php
+<?php
 
-- 任务状态
-- 提交时间
-- 重试次数
-- trace id
-- 错误码
-- 原始响应摘要
+namespace App\Services\AI;
 
-### 坑五：没有降级策略
+use Illuminate\Support\Facades\Http;
 
-AI 服务不稳定时，系统应该知道如何优雅降级。例如：
+class OpenClawHttpClient
+{
+    public function run(string $agent, array $input): array
+    {
+        $response = Http::baseUrl(config('openclaw.base_url'))
+            ->withToken(config('openclaw.api_key'))
+            ->acceptJson()
+            ->asJson()
+            ->timeout(config('openclaw.timeout'))
+            ->post('/v1/agents/run', [
+                'agent' => $agent,
+                'input' => $input,
+            ])
+            ->throw();
 
-- 文章摘要功能暂时隐藏“自动生成”按钮
-- 客服建议从“实时生成”切到“模板兜底”
-- 批量任务暂停提交，只允许人工审批后重试
+        return $response->json();
+    }
+}
+```
 
-这比让整个页面一直转圈更专业。
+#### `app/Http/Controllers/AiDemoController.php`
 
----
+```php
+<?php
 
-# 八、一个相对完整的落地架构总结
+namespace App\Http\Controllers;
 
-如果把整套集成方案串起来，一个比较稳健的 Laravel + OpenClaw 架构可以是这样：
+use App\Services\AI\OpenClawHttpClient;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
-1. 前端或后台操作发起 AI 任务请求
-2. Laravel Controller 创建本地 `agent_tasks` 记录
-3. `DispatchAgentTaskJob` 异步提交任务到 OpenClaw
-4. 保存 `remote_task_id` 与 `trace_id`
-5. 通过 `PollAgentTaskResultJob` 或 webhook 获取结果
-6. 将原始结果保存到 `agent_tasks.result_payload`
-7. `ProcessAgentResultJob` 做结构化映射并写入业务表
-8. API 提供任务状态查询与最终结果读取
-9. 日志、监控、限流、重试、幂等等围绕任务表展开
+class AiDemoController extends Controller
+{
+    public function __construct(
+        private readonly OpenClawHttpClient $client
+    ) {
+    }
 
-其核心思想只有一句话：
+    public function summarize(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'text' => ['required', 'string', 'max:20000'],
+        ]);
 
-> **不要把 OpenClaw 当成一个“随手调用的第三方接口”，而要把它当成 Laravel 系统中的一类“可治理的远程执行基础设施”。**
+        $result = $this->client->run('summary-agent', [
+            'task' => '请将输入内容总结为 3 条要点，并返回 JSON。',
+            'text' => $validated['text'],
+            'output_format' => [
+                'summary' => ['string'],
+            ],
+        ]);
 
-一旦你按这个思路建设，后面接入的就不只是一个 Agent，而是一整套 AI 能力底座。
+        return response()->json($result);
+    }
+}
+```
 
----
+#### `routes/api.php`
 
-# 九、实战经验：一些值得提前避开的坑
+```php
+<?php
 
-最后再补充一些更偏实战的经验，很多都来自线上问题而不是 Demo。
+use App\Http\Controllers\AiDemoController;
+use Illuminate\Support\Facades\Route;
 
-## 9.1 先定义输出 schema，再写 prompt
+Route::post('/ai/summarize', [AiDemoController::class, 'summarize']);
+```
 
-很多人习惯先写一个“看起来很聪明”的 prompt，再让模型自由发挥。对内容生成类也许还行，但对业务系统非常危险。正确顺序应是：
+#### 本地验证命令
 
-1. 先定义业务表结构
-2. 再定义 API 返回 schema
-3. 再定义 Mapper 归一化规则
-4. 最后写 prompt 约束输出
+```bash
+curl -X POST http://127.0.0.1:8000/api/ai/summarize \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "text": "Laravel 是一套优雅的 PHP Web 框架，适合快速构建业务系统。OpenClaw 则提供了更接近 AI Agent 的执行能力，适用于客服、内容生成和数据分析场景。"
+  }'
+```
 
-因为系统真正消费的是结构，而不是文采。
+这个示例的价值在于：它不仅能帮助你验证 OpenClaw API 是否通，还能顺手验证 Laravel 的配置注入、路由、校验、异常抛出与 JSON 响应链路是否完整。一旦这个闭环跑通，后续再把业务场景拆分为客服、内容或分析服务就会轻松很多。
 
-## 9.2 不要让 Agent 直接决定最终业务状态
+## 九、实际业务场景一：智能客服
 
-比如工单分类、风控标记、内容审核等高风险场景，不建议让 Agent 结果直接改核心状态。更好的做法是：
+智能客服是 Laravel + OpenClaw 最常见、最容易落地的场景之一。很多电商、SaaS、教育与企业服务平台都需要这类能力。
 
-- Agent 给出建议和置信度
-- 系统根据规则做二次决策
-- 高风险结果进入人工审核
+### 1. 目标不只是“自动回答”
 
-AI 更适合作为“增强器”，而不是不受约束的最终裁判。
+真正可用的智能客服，不是简单调用模型回答一句话，而是结合以下信息：
 
-## 9.3 尽量保留输入快照
+- 当前用户身份；
+- 历史对话记录；
+- 订单与物流状态；
+- 商品规格、退款规则、售后政策；
+- 系统知识库与 FAQ；
+- 是否触发人工转接策略。
 
-后面排查问题时，最常见的尴尬是：
+这意味着，Agent 输入应该是“结构化上下文 + 用户问题 + 回复规则”，而不是裸文本。
 
-- 数据表里的文章内容已经被编辑过
-- 但 AI 结果是几天前生成的
-- 你已经不知道当时到底提交了什么输入
+### 2. 服务层实现示例
 
-因此建议在 `agent_tasks.input_payload` 中保留当时的输入快照，而不是只存业务主键。
+```php
+<?php
 
-## 9.4 对大文本做切片时要记录切片策略
+namespace App\Services;
 
-如果你处理的是长合同、长报告、长聊天记录，通常会做 chunking。请把这些元信息也记录下来：
+use App\Models\Order;
+use App\Models\SupportConversation;
+use App\Services\AI\OpenClawManager;
 
-- chunk size
-- overlap
-- 排序方式
-- 处理版本
-- 是否截断
+class SmartSupportService
+{
+    public function __construct(
+        private readonly OpenClawManager $openClawManager
+    ) {
+    }
 
-否则结果质量发生变化时，你很难判断是 prompt 变了、模型变了，还是切片策略变了。
+    public function answer(int $userId, string $question, ?int $orderId = null): array
+    {
+        $conversation = SupportConversation::query()
+            ->where('user_id', $userId)
+            ->latest()
+            ->take(10)
+            ->get()
+            ->reverse()
+            ->map(fn ($item) => [
+                'role' => $item->role,
+                'content' => $item->content,
+            ])
+            ->values()
+            ->all();
 
-## 9.5 尽量给每个场景单独 agent 名称
+        $order = $orderId ? Order::find($orderId) : null;
 
-不要什么都用 `general-assistant`。推荐按场景命名：
+        $payload = [
+            'agent' => 'smart-support-agent',
+            'input' => [
+                'question' => $question,
+                'conversation' => $conversation,
+                'order' => $order ? [
+                    'id' => $order->id,
+                    'status' => $order->status,
+                    'shipping_status' => $order->shipping_status,
+                    'paid_at' => $order->paid_at,
+                ] : null,
+                'rules' => [
+                    '不要编造不存在的订单状态。',
+                    '涉及退款、赔付、优惠政策时，必须以系统规则为准。',
+                    '不确定时建议转人工处理。',
+                ],
+            ],
+        ];
 
-- `article-summary-agent`
-- `ticket-classifier-agent`
-- `product-copywriter-agent`
-- `contract-risk-review-agent`
+        return $this->openClawManager->runAgent($payload['input'], $payload['agent']);
+    }
+}
+```
 
-这样日志、限流、监控、成本分析都会更清晰。
+### 3. 智能客服中的治理重点
 
----
+这个场景里，最重要的不是“回答得像不像人”，而是：
 
-# 十、结语
+- 准确率；
+- 可追溯性；
+- 是否遵守业务规则；
+- 是否能在不确定时选择转人工；
+- 是否能避免幻觉式承诺。
 
-Laravel 并不天然排斥 AI，相反，它非常适合承载企业级 AI Agent 集成。因为 Laravel 擅长的从来不只是“快速写页面”，更是把复杂业务能力沉淀为统一服务：配置、容器、队列、数据库、日志、缓存、调度，这些恰恰都是 AI 真正落地时最需要的工程基础。
+因此，建议：
 
-OpenClaw 与 Laravel 的结合，关键不在于会不会发一个 HTTP 请求，而在于你是否把它封装成：
+- 将“不可承诺退款”“不可杜撰物流信息”等规则写进系统提示；
+- 保留请求输入与关键输出摘要，便于审计；
+- 识别高风险意图，自动转人工。
 
-- 可复用的服务入口
-- 可观察的任务体系
-- 可恢复的异步流程
-- 可审计的结果存储
-- 可演进的 API 和 schema
+## 十、实际业务场景二：内容生成
 
-如果只是做 Demo，几行代码就够了；但如果你要把 AI Agent 能力放进真实 PHP 项目，真正决定成败的，往往是今天文章里这些“看上去不酷”的工程细节。
+内容生成是 AI 集成中 ROI 很高的方向。Laravel 项目经常承载 CMS、运营后台、电商商品库、SEO 系统、资讯平台与 SaaS 内容工具，因此特别适合用 OpenClaw 做内容类任务。
 
-总结一下本文的落地建议：
+### 1. 适合的内容生成任务
 
-1. 用 Laravel Service Provider + Manager 模式封装 OpenClaw
-2. 把同步调用控制在小而快的场景，主流程尽量走队列
-3. 建立本地 `agent_tasks` 表，统一承载状态、审计和追踪
-4. 用 DTO、Mapper、异常体系隔离第三方变化
-5. 对结果消费、回调处理、重复提交全面做幂等设计
-6. 生产环境必须配置限流、监控、缓存、日志与降级策略
-7. 永远把结构化输出和治理能力放在“模型效果”之前考虑
+- 商品卖点描述；
+- 文章大纲；
+- SEO 标题与摘要；
+- 推广短信与邮件文案；
+- FAQ 自动生成；
+- 知识库初稿整理。
 
-当你完成这些工作后，OpenClaw 在 Laravel 中就不再只是一个“AI 按钮”，而是你系统里的正式能力节点。后续无论是继续扩展知识问答、自动流程编排、内容理解、客服增强，还是把更多 Agent 场景沉淀到平台层，都会轻松很多。
+### 2. 生成结构化内容而不是纯文本
 
-如果你接下来准备在现有 Laravel 项目中正式接入 AI，我建议从一个低风险、高价值、易衡量 ROI 的场景开始，例如文章摘要、工单分类、商品卖点提取。先把基础设施搭好，再逐步把 Agent 能力平台化，而不是一开始就试图做一个“全自动自治系统”。
+生产环境不建议只让 AI 返回一大段自然语言，因为后续落库、展示、审核都不方便。更好的做法是要求返回结构化 JSON，例如：
 
-这才是 PHP 团队把 AI 真正用起来的更现实路径。
+```php
+<?php
+
+namespace App\Services;
+
+use App\Services\AI\OpenClawManager;
+
+class StructuredContentService
+{
+    public function __construct(
+        private readonly OpenClawManager $openClawManager
+    ) {
+    }
+
+    public function generateProductCopy(array $product): array
+    {
+        $payload = [
+            'task' => '根据商品信息生成营销文案',
+            'product' => $product,
+            'output_format' => [
+                'title' => 'string',
+                'highlights' => ['string'],
+                'description' => 'string',
+                'seo_keywords' => ['string'],
+            ],
+            'constraints' => [
+                '不要杜撰商品参数',
+                '避免夸大宣传与绝对化用语',
+                '语言风格简洁有销售力',
+            ],
+        ];
+
+        return $this->openClawManager->runAgent($payload, 'content-agent');
+    }
+}
+```
+
+这样即使 AI 输出出现偏差，也更容易校验字段完整性。
+
+### 3. 内容生成的流程设计建议
+
+推荐一个比较稳妥的流程：
+
+1. 用户提交生成请求；
+2. 系统创建任务记录；
+3. 队列异步调用 OpenClaw；
+4. AI 返回结构化草稿；
+5. 系统做字段校验与敏感词检查；
+6. 结果进入“待审核”状态；
+7. 运营人员确认后发布。
+
+这能显著降低 AI 直接出现在生产内容中的风险。
+
+## 十一、实际业务场景三：数据分析与总结
+
+第三类非常实用的方向，是把 OpenClaw 作为“数据解释器”或“分析助手”。Laravel 后台系统往往已经沉淀了丰富业务数据，但很多管理者并不想看原始报表，而是更希望得到“解释”和“建议”。
+
+### 1. 适合 AI 分析的任务
+
+- 销售日报总结；
+- 用户反馈主题归类；
+- 工单趋势分析；
+- 商品评论情绪汇总；
+- 运营活动结果说明；
+- 数据异常说明与初步归因。
+
+### 2. 数据分析服务示例
+
+```php
+<?php
+
+namespace App\Services;
+
+use App\Services\AI\OpenClawManager;
+
+class DataInsightService
+{
+    public function __construct(
+        private readonly OpenClawManager $openClawManager
+    ) {
+    }
+
+    public function summarizeSalesReport(array $reportData): array
+    {
+        $payload = [
+            'task' => '分析销售数据并生成管理摘要',
+            'data' => $reportData,
+            'requirements' => [
+                '输出三部分：核心结论、异常指标、建议动作',
+                '所有结论必须基于给定数据，不允许虚构外部事实',
+                '如数据不足，请明确指出',
+            ],
+        ];
+
+        return $this->openClawManager->runAgent($payload, 'data-analyst-agent');
+    }
+}
+```
+
+### 3. 这类场景的关键点
+
+数据分析场景与内容生成的最大区别在于：**可信度比文采更重要**。因此在提示词中应明确要求：
+
+- 只根据输入数据分析；
+- 不得补充外部事实；
+- 不足部分要明确说明；
+- 最好返回“结论 + 证据字段 + 建议”的结构化结果。
+
+例如可以要求输出：
+
+```json
+{
+  "summary": "...",
+  "insights": [
+    {
+      "title": "华东区转化率下降",
+      "evidence": ["转化率从 4.8% 降至 3.9%"],
+      "suggestion": "检查投放人群与落地页一致性"
+    }
+  ]
+}
+```
+
+这比一段泛泛而谈的自然语言分析更适合系统消费与后续展示。
+
+## 十二、错误处理：AI 集成稳定性的核心
+
+很多团队接入 AI 功能时，最容易忽略的就是错误处理。可实际上，AI 调用的失败模式往往比普通接口更多，包括：
+
+- 网络抖动；
+- 上游限流；
+- 接口超时；
+- 返回体格式异常；
+- 输出字段不完整；
+- 上下文过长；
+- 重复消费导致的数据脏写。
+
+如果没有一套清晰的错误治理机制，功能即使跑起来，也很难在生产环境中稳定运行。
+
+### 1. 区分可重试错误与不可重试错误
+
+建议先做错误分类。
+
+**可重试错误：**
+
+- 连接超时；
+- 读取超时；
+- 502 / 503 / 504；
+- 短期限流；
+- 临时网络故障。
+
+**不可重试错误：**
+
+- API Key 无效；
+- 请求参数缺失；
+- 业务输入非法；
+- 输出格式校验失败但已多次重复；
+- 指定 Agent 不存在。
+
+Laravel 中可以通过自定义异常实现：
+
+```php
+<?php
+
+namespace App\Exceptions;
+
+use RuntimeException;
+
+class OpenClawRetryableException extends RuntimeException
+{
+}
+```
+
+```php
+<?php
+
+namespace App\Exceptions;
+
+use RuntimeException;
+
+class OpenClawFatalException extends RuntimeException
+{
+}
+```
+
+### 2. 在客户端中映射异常
+
+```php
+<?php
+
+namespace App\Services\AI;
+
+use App\Exceptions\OpenClawFatalException;
+use App\Exceptions\OpenClawRetryableException;
+use Illuminate\Support\Facades\Http;
+
+class RobustOpenClawClient
+{
+    public function runAgent(array $payload): array
+    {
+        $response = Http::baseUrl(config('openclaw.base_url'))
+            ->withToken(config('openclaw.api_key'))
+            ->timeout(config('openclaw.timeout'))
+            ->post('/v1/agents/run', $payload);
+
+        if (in_array($response->status(), [502, 503, 504, 429], true)) {
+            throw new OpenClawRetryableException('OpenClaw 服务暂时不可用');
+        }
+
+        if ($response->failed()) {
+            throw new OpenClawFatalException('OpenClaw 请求失败：' . $response->status());
+        }
+
+        return $response->json();
+    }
+}
+```
+
+这样，队列系统或上层服务就能根据异常类型决定是否继续重试。
+
+## 十三、重试策略：不是简单地“失败再来一次”
+
+重试能提升成功率，但错误的重试策略也可能放大问题。例如在上游已经限流时，你瞬间重试 10 次，只会让失败更严重。因此，AI 调用的重试必须设计好节奏。
+
+### 1. 推荐使用指数退避
+
+比起固定间隔，指数退避更适合应对限流和短时抖动。例如：
+
+- 第 1 次重试：1 秒；
+- 第 2 次重试：2 秒；
+- 第 3 次重试：5 秒；
+- 第 4 次重试：10 秒。
+
+在 Job 中可以这样设置：
+
+```php
+public function backoff(): array
+{
+    return [1, 2, 5, 10, 30];
+}
+```
+
+### 2. 结合队列重试与 HTTP 重试
+
+很多人会在 HTTP 客户端上配置 `retry()`，同时队列任务本身也有 `$tries`。这并没有问题，但要注意层级关系：
+
+- **HTTP 重试**：处理非常短暂的网络抖动；
+- **队列重试**：处理更高层级的失败，例如上游短时不可用。
+
+实践建议是：
+
+- HTTP 层重试次数较少，如 2~3 次；
+- 队列层重试次数中等，如 3~5 次；
+- 超过阈值后进入失败状态，由人工或补偿任务处理。
+
+### 3. 幂等性是重试的前提
+
+如果你的任务会把 AI 输出写入数据库，那么重试前一定要考虑幂等性。否则一次失败重试可能写出多条重复数据。
+
+常见做法包括：
+
+- 为任务记录唯一业务键；
+- 状态机只允许 `pending -> processing -> done/failed` 的合法转换；
+- 写入结果前先检查是否已成功完成；
+- 使用数据库唯一索引防止重复插入。
+
+例如：
+
+```php
+if ($task->status === 'done') {
+    return;
+}
+```
+
+不要小看这一句，它能避免大量重复消费问题。
+
+## 十四、输出校验：防止 AI 结果不可用
+
+即便请求成功返回 200，也不代表结果一定能用。AI 集成中一个常见误区是：只要接口返回文本，就直接保存或展示。但在生产系统里，我们更应该关心“返回内容是否满足业务要求”。
+
+### 1. 做结构化字段验证
+
+如果你期待返回 JSON，建议在业务层增加显式校验，例如：
+
+```php
+<?php
+
+namespace App\Services;
+
+use Illuminate\Support\Arr;
+use RuntimeException;
+
+class ContentResultValidator
+{
+    public function validate(array $result): array
+    {
+        $data = $result['data'] ?? [];
+
+        if (! Arr::has($data, ['title', 'highlights', 'description'])) {
+            throw new RuntimeException('AI 返回结果字段不完整');
+        }
+
+        if (! is_array($data['highlights'])) {
+            throw new RuntimeException('AI 返回的 highlights 必须为数组');
+        }
+
+        return $data;
+    }
+}
+```
+
+### 2. 加入长度与内容约束
+
+比如：
+
+- 标题长度不超过 60；
+- 摘要长度不超过 200；
+- 不能包含违禁词；
+- 不允许输出 HTML 标签；
+- 客服场景不得承诺退款金额。
+
+这些约束都不应该只靠提示词，而应该在应用层再次检查。
+
+## 十五、真实项目里的踩坑案例
+
+很多团队在第一版接入 OpenClaw 时，都能在开发环境成功返回结果，但上线后很快暴露出一系列工程问题。下面总结几个 Laravel 项目里最常见、也最容易被忽略的坑。
+
+### 1. 把完整 Eloquent 模型直接塞进 Agent 输入
+
+很多人会图方便，直接把 `Order::find($id)` 或 `User::find($id)` 返回的整个模型数组化后发送给 Agent。短期看似省事，长期却会带来三个问题：
+
+- 输入体积迅速膨胀，增加耗时和成本；
+- 可能把手机号、地址、备注等敏感信息一并发送出去；
+- 模型字段一旦调整，提示词与输出行为也会跟着漂移。
+
+更推荐的做法是只提取“任务真正需要的字段”：
+
+```php
+$orderContext = [
+    'id' => $order->id,
+    'status' => $order->status,
+    'shipping_status' => $order->shipping_status,
+    'pay_amount' => $order->pay_amount,
+];
+```
+
+一句话原则：**给 Agent 的不是“数据库对象”，而是“经过裁剪的业务上下文”。**
+
+### 2. 队列重试后把成功结果重复写入数据库
+
+这是生产里非常高频的坑：上游已经成功返回，但在“写库”或“更新状态”阶段失败，导致 Job 被 Laravel 重新消费。如果没有幂等控制，同一份 AI 结果可能会被写入多次。
+
+典型防御方式包括：
+
+```php
+DB::transaction(function () use ($task, $result) {
+    $task->refresh();
+
+    if ($task->status === 'done') {
+        return;
+    }
+
+    $task->update([
+        'status' => 'done',
+        'result' => $result,
+    ]);
+});
+```
+
+如果是生成类内容，还可以为 `task_id + version` 建唯一索引，避免重复插入草稿记录。
+
+### 3. 只做“请求失败重试”，不做“输出失败校验”
+
+很多开发者会认真处理 500、502、503，却忽略“200 但数据结构不对”的情况。例如你期望返回 `title`、`summary`、`keywords`，结果实际只返回了一段文本，这种情况其实比 HTTP 失败更危险，因为脏数据很容易直接进入数据库。
+
+推荐做法是把“输出不符合 schema”也当成一种失败：
+
+```php
+$data = $response['data'] ?? [];
+
+throw_unless(
+    isset($data['title'], $data['summary']) && is_array($data['keywords'] ?? null),
+    \RuntimeException::class,
+    'OpenClaw 返回结构不符合预期'
+);
+```
+
+必要时可以将这类错误区分为“可自动重试”和“需要人工介入”两档。
+
+### 4. 在日志里记录完整 prompt 和用户原文
+
+开发期为了调试方便，很多人会把请求体和响应体完整打进日志。但一旦线上流量增加，这会同时引发三个问题：
+
+- 敏感数据泄露风险上升；
+- 日志文件暴涨，排障成本反而更高；
+- 审计时难以区分真正关键的信息。
+
+更好的办法是记录摘要、哈希或裁剪后的片段：
+
+```php
+Log::info('openclaw_request', [
+    'agent' => $agent,
+    'trace_id' => $traceId,
+    'input_preview' => mb_substr($question, 0, 100),
+    'input_length' => mb_strlen($question),
+]);
+```
+
+### 5. 同步接口里直接等待长任务完成
+
+在本地测试时，一次 5~8 秒的 AI 调用似乎还可以接受；但线上如果同一时间有几十个请求，PHP-FPM worker 很快就会被占满，接口雪崩并不夸张。特别是客服输入、报表分析、批量生成这类场景，更不应该强依赖同步响应。
+
+经验上可以这样划线：
+
+- 1 秒内稳定完成的轻任务，可考虑同步；
+- 1~3 秒之间的任务，要看接口 SLA 与并发量；
+- 超过 3 秒或结果需落库审核的任务，优先队列异步。
+
+很多时候，真正的优化不是“把 prompt 再缩短一点”，而是从架构上承认：**这就是异步任务。**
+
+## 十六、日志、监控与审计
+
+当 AI 功能真正进入业务核心后，日志与监控的重要性会迅速上升。你需要知道：
+
+- 调用了哪个 Agent；
+- 输入大小大概是多少；
+- 响应耗时；
+- 失败率；
+- 失败原因分布；
+- 哪些业务链路受影响最大。
+
+### 1. 记录关键日志但避免泄露敏感数据
+
+建议记录的是摘要，而不是原始全部输入。比如：
+
+```php
+Log::info('OpenClaw 调用完成', [
+    'agent' => $agentName,
+    'user_id' => $userId ?? null,
+    'duration_ms' => $duration,
+    'success' => true,
+]);
+```
+
+如果输入里包含手机号、身份证、订单地址等敏感信息，应在日志前脱敏。
+
+### 2. 结合 Laravel Horizon 与告警平台
+
+对于使用队列的项目，推荐：
+
+- 通过 Horizon 观察 AI 队列积压；
+- 对失败率突增设置告警；
+- 对平均耗时飙升设置阈值报警；
+- 对连续出现认证失败设置高优先级报警。
+
+### 3. 审计要求高的系统要保存调用轨迹
+
+例如在金融、医疗、政企或企业客服中，建议保存：
+
+- 调用时间；
+- 调用人或业务对象；
+- Agent 名称；
+- 输入摘要；
+- 输出摘要；
+- 是否经过人工审核；
+- 最终是否被用户看到或被系统执行。
+
+这对于问题追踪与合规都很重要。
+
+## 十七、提示词模板的工程化管理
+
+OpenClaw 虽然强调 Agent 能力，但本质上仍然离不开提示词与任务描述。把提示词直接写死在控制器中，是后续维护的大坑。
+
+### 1. 将模板集中管理
+
+建议把提示词模板收敛到：
+
+- `resources/prompts/` 目录；
+- 或数据库中的可版本化模板表；
+- 或专门的 Prompt Builder 类。
+
+例如：
+
+```php
+<?php
+
+namespace App\Prompts;
+
+class SupportPromptBuilder
+{
+    public static function build(array $context): array
+    {
+        return [
+            'system' => '你是一名企业客服助手，必须基于订单和规则回答问题。',
+            'rules' => [
+                '禁止编造事实',
+                '不确定时转人工',
+                '退款政策必须以系统规则为准',
+            ],
+            'context' => $context,
+        ];
+    }
+}
+```
+
+### 2. 模板版本化
+
+当你持续优化 Agent 表现时，最好能知道某次输出对应的是哪一版提示词。因此建议：
+
+- 给模板加版本号；
+- 调用时记录版本号；
+- 出问题后可快速回溯。
+
+这对于线上问题定位非常关键。
+
+## 十八、测试策略：如何验证 Laravel 中的 AI 集成
+
+AI 集成测试与普通单元测试不同，因为真实输出往往具有不确定性。因此更合理的测试思路是分层。
+
+### 1. 单元测试：Mock 客户端
+
+测试业务服务时，不应依赖真实 OpenClaw 接口，而应 Mock 网关返回值：
+
+```php
+<?php
+
+use App\Services\AI\OpenClawManager;
+use App\Services\CustomerSupportAgentService;
+
+it('can generate customer support reply', function () {
+    $manager = Mockery::mock(OpenClawManager::class);
+    $manager->shouldReceive('runAgent')
+        ->once()
+        ->andReturn([
+            'success' => true,
+            'data' => ['reply' => '您的订单正在配送中。'],
+        ]);
+
+    $service = new CustomerSupportAgentService($manager);
+
+    $result = $service->reply('我的订单到哪了？', ['order_id' => 1001]);
+
+    expect($result['success'])->toBeTrue();
+});
+```
+
+### 2. 集成测试：Fake HTTP
+
+如果你用的是 Laravel HTTP Client，可以通过 `Http::fake()` 模拟上游响应：
+
+```php
+Http::fake([
+    'api.openclaw.example.com/*' => Http::response([
+        'reply' => '测试回复',
+    ], 200),
+]);
+```
+
+### 3. 端到端验证：小流量真实调用
+
+在测试环境中，可以保留少量真实调用，用于验证：
+
+- 凭证是否有效；
+- API 是否兼容；
+- 输出结构是否变化；
+- 超时时间是否合理。
+
+但这类测试不建议作为高频 CI 主流程，而更适合作为定时健康检查或预发验证。
+
+## 十九、生产实践建议：从“能跑”到“可运营”
+
+当你把 OpenClaw 接入 Laravel 后，真正的挑战才刚开始。下面给出一些偏生产实践的建议。
+
+### 1. 不要把 AI 当成强一致核心链路
+
+例如下单、扣费、库存锁定这类核心事务，不应把 AI 调用置于其中作为必须步骤。AI 更适合作为增强层、辅助层、异步分析层，而不是强一致交易链路的硬依赖。
+
+### 2. 给每个 Agent 明确职责边界
+
+不要让一个 Agent 既做客服、又做内容生成、又做数据分析。职责越清晰，提示词越稳定，效果越容易优化。
+
+### 3. 对高价值输出增加人工审核
+
+例如：
+
+- 对外发布的营销内容；
+- 涉及法律、医疗、财务建议的文本；
+- 会自动触发业务动作的分析结论。
+
+这些内容最好有审核或双重确认机制。
+
+### 4. 做好降级策略
+
+当 OpenClaw 不可用时，系统应该怎么办？这必须提前设计。例如：
+
+- 智能客服降级为 FAQ 检索 + 人工转接；
+- 内容生成降级为“任务排队中”；
+- 数据分析降级为原始报表展示。
+
+能降级的系统，才是可上线的系统。
+
+## 二十、一个更完整的 Laravel AI 模块目录示例
+
+为了帮助你在项目中落地，下面给出一个推荐目录结构：
+
+```text
+app/
+├── Contracts/
+│   └── AI/
+│       └── AgentGatewayInterface.php
+├── Exceptions/
+│   ├── OpenClawFatalException.php
+│   └── OpenClawRetryableException.php
+├── Facades/
+│   └── OpenClaw.php
+├── Jobs/
+│   ├── GenerateMarketingCopyJob.php
+│   └── SummarizeSalesReportJob.php
+├── Prompts/
+│   ├── ContentPromptBuilder.php
+│   └── SupportPromptBuilder.php
+├── Providers/
+│   └── OpenClawServiceProvider.php
+└── Services/
+    ├── AI/
+    │   ├── OpenClawHttpClient.php
+    │   ├── OpenClawManager.php
+    │   └── RobustOpenClawClient.php
+    ├── ContentGenerationService.php
+    ├── CustomerSupportAgentService.php
+    ├── DataInsightService.php
+    ├── SmartSupportService.php
+    └── StructuredContentService.php
+config/
+└── openclaw.php
+```
+
+这个结构的核心思想是：
+
+- 底层通信与业务逻辑分离；
+- 同步与异步调用共存；
+- 提示词模板有归属；
+- 错误治理有明确位置；
+- 后续扩展新的 Agent 场景时，不需要推倒重来。
+
+## 二十一、总结
+
+把 OpenClaw 集成进 Laravel，并不是简单地“给 PHP 项目接一个 AI 接口”，而是在现有业务系统中引入一套可以稳定复用、可治理、可扩展的智能能力体系。
+
+从工程实现上看，一个成熟的 Laravel + OpenClaw 集成，至少应该具备这些特征：
+
+1. 有统一的配置文件与环境变量管理；
+2. 有 Service Provider 或服务容器封装，而不是到处手写实例化；
+3. 有统一的 AI Manager 或 Gateway 层，隔离 SDK / HTTP 细节；
+4. 在控制器之外，用服务类承载真实业务逻辑；
+5. 对长耗时任务使用队列异步执行；
+6. 针对智能客服、内容生成、数据分析等场景进行差异化设计；
+7. 有完善的异常分类、重试机制、幂等控制与输出校验；
+8. 有日志、监控、审计与降级方案，保障生产可用性。
+
+如果你目前的 Laravel 项目还停留在“在控制器里调用一次 AI 接口”的阶段，那么下一步最值得投入的方向，不是继续堆更多 prompt，而是尽快把 AI 能力模块化、服务化和工程化。因为只有这样，AI 才能真正从一个实验性功能，成长为 PHP 业务系统中的稳定生产力组件。
+
+对于 Laravel 开发者来说，OpenClaw 提供的是一种值得认真对待的集成思路：不把 AI 当成不可控的魔法黑盒，而是把它作为一个可被配置、可被封装、可被排队、可被审计、可被替换的 Agent 基础设施。这种思路一旦建立起来，你就能在客服、运营、内容、分析、自动化流程等更多场景中持续复制成功经验。
+
+如果你准备在自己的项目中实践，建议先从一个边界清晰、风险可控的业务场景切入，例如内容草稿生成或内部报表总结；等流程跑稳后，再逐步扩展到客服辅助、流程自动化与更复杂的智能代理协作。这样既能快速获得业务价值，又能避免一开始就把系统推向不可控的复杂度。
+
+Laravel 的优势，一直都不只是“开发效率高”，而在于它足够优雅地承接复杂业务。OpenClaw 的优势，也不只是“能生成文本”，而在于它代表了 AI Agent 进入工程体系的一种方式。当两者结合时，PHP 项目完全可以拥有强大的智能能力，而且这种能力是可维护、可演进、可上线的。
+
+这，才是 Laravel 集成 AI Agent 的真正意义。
 
 ## 相关阅读
 
-- [OpenClaw 技能开发实战：自定义 Skill 与工作流自动化](/categories/架构/OpenClaw-技能开发实战-自定义-Skill-与工作流自动化/)
-- [OpenClaw 模型策略实战：多模型路由与成本优化](/categories/架构/OpenClaw-模型策略实战-多模型路由与成本优化/)
-- [OpenClaw vs Hermes Agent：开源 AI Agent 框架选型对比](/categories/架构/OpenClaw-vs-Hermes-Agent-开源AI-Agent框架选型对比/)
+- [Laravel Sanctum 实战](/05_PHP/Laravel/Laravel-Sanctum-实战-SPA-API-令牌认证与移动端适配/)
+- [Laravel Passport OAuth2](/05_PHP/Laravel/Laravel-Passport-OAuth2-自定义-Grant-Type-与第三方登录实战/)
+- [OpenClaw vs Hermes Agent](/00_架构/OpenClaw-vs-Hermes-Agent-开源AI-Agent框架选型对比/)
