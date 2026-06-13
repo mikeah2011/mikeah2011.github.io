@@ -1,3 +1,4 @@
+---
 
 title: 敏感数据保护实战：加密存储、脱敏展示、审计日志合规——Laravel B2C API 多层防御踩坑记录
 date: 2026-06-01 09:00:00
@@ -15,10 +16,6 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop---
 
-
-> 在 B2C 电商系统中，用户手机号、身份证号、银行卡号、收货地址等敏感数据无处不在。一旦泄露，不仅面临法律风险（GDPR、个保法），更会直接摧毁用户信任。本文基于 KKday B2C API 30+ 仓库的真实踩坑经验，系统讲解 Laravel 中敏感数据保护的三层防线：**加密存储 → 脱敏展示 → 审计日志**。
-
-<!-- more -->
 
 ---
 

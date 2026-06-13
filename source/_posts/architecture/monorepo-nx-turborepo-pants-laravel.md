@@ -1,3 +1,4 @@
+---
 
 title: Monorepo 深度实战：Nx vs Turborepo vs Pants——大型 Laravel + 前端项目的构建缓存与任务编排
 keywords: [Monorepo]
@@ -27,59 +28,6 @@ images:
 
 
 
-
-# Monorepo 深度实战：Nx vs Turborepo vs Pants——大型 Laravel + 前端项目的构建缓存与任务编排
-
-## 一、前言：为什么 Laravel + 前端项目需要 Monorepo？
-
-在 B2C 电商、SaaS 平台等业务场景下，一个典型的全栈项目往往由多个子系统组成：Laravel 后端负责提供 REST API、后台管理、队列任务和定时调度；Vue 3 或 React 前端承载用户界面和管理后台；此外还有 TypeScript 类型定义包、PHP SDK、API 契约层、UI 组件库以及 Docker 配置和 CI/CD 脚本等共享基础设施。
-
-采用传统的多仓库架构时，这些模块分散在五到十个独立的 Git 仓库中，会引发一系列工程化痛点。首先，跨仓库依赖管理极为困难——前端团队更新了 API 类型定义后，需要手动同步 PHP SDK 的版本，任何一方的疏漏都可能导致线上类型不匹配。其次，原子提交无法实现——一个完整的功能需求往往需要同时修改后端接口和前端页面，却不得不分成两次独立的 Pull Request，增加了代码审查和合并的复杂度。第三，CI 构建效率低下——每个仓库独立构建，无法利用任务间的依赖关系进行缓存，导致大量重复计算。最后，代码复用成本高昂——共享包需要发布到 npm 或 Packagist，版本管理和发布流程冗长低效。
-
-Monorepo 将所有代码放在一个仓库中，配合专业的构建工具实现增量构建和任务编排，可以完美解决上述问题。本文将深入对比三款主流 Monorepo 构建工具——Nx、Turborepo 和 Pants，从构建缓存、任务编排、多语言支持等维度进行全面评测，并提供完整的迁移实战指南。
-
-### 典型 Monorepo 项目结构
-
-一个 Laravel 加 Vue 3 前端的 Monorepo 项目通常包含以下目录结构：
-
-```
-project-root/
-├── apps/
-│   ├── api/                  # Laravel API 主应用
-│   │   ├── app/
-│   │   ├── routes/
-│   │   ├── composer.json
-│   │   └── phpunit.xml
-│   ├── web/                  # Vue 3 前端 SPA
-│   │   ├── src/
-│   │   ├── package.json
-│   │   └── vite.config.ts
-│   └── admin/                # 后台管理前端
-│       ├── src/
-│       └── package.json
-├── packages/
-│   ├── php-sdk/              # PHP API 客户端 SDK
-│   │   ├── src/
-│   │   └── composer.json
-│   ├── ts-types/             # TypeScript API 类型定义（自动生成）
-│   │   ├── src/
-│   │   └── package.json
-│   ├── ui-components/        # 共享 Vue 组件库
-│   │   ├── src/
-│   │   └── package.json
-│   └── laravel-common/       # Laravel 共享包（Traits, Services）
-│       ├── src/
-│       └── composer.json
-├── infra/
-│   ├── docker/
-│   └── scripts/
-├── package.json              # 根 package.json（workspace 配置）
-├── composer.json              # 根 composer.json（path 仓库）
-├── nx.json                    # 或 turbo.json / BUILD 文件
-└── .github/workflows/ci.yml
-```
-
-在这个结构中，`apps` 目录存放可独立部署的应用程序，`packages` 目录存放被多个应用共享的库。通过 pnpm workspace 和 Composer path 仓库机制，所有子项目之间的依赖关系都是本地符号链接，无需经过远程包管理器，开发体验如同在一个项目中工作。
 
 ---
 

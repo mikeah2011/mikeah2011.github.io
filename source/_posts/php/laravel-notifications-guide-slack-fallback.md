@@ -1,3 +1,4 @@
+---
 
 title: Laravel-Notifications-多通道实战-邮件短信Slack企业微信集成-统一通知抽象与降级策略踩坑记录
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,10 +11,6 @@ categories:
 tags: [CI/CD, Laravel, 工程管理]
 keywords: [CI/CD, Laravel, 工程管理, Notifications, Slack]
 description: >
-Laravel Notifications 多通道通知实战指南：基于 KKday B2C 电商系统，详解如何通过统一通知抽象层集成邮件、短信、Slack 与企业微信四大通道。深入讲解 Fallback 降级策略、自定义 SmsChannel 开发、Slack Webhook 频率限制处理、SMS 短信模板审核与多语言映射，以及队列化通知序列化陷阱、access_token 缓存竞争等生产级踩坑经验与测试方案。
-
-
-
 ---
 ## 为什么需要统一的通知抽象层？
 
@@ -665,9 +662,6 @@ tags: [CI/CD, Laravel, 工程管理]
 keywords: [CI/CD, Laravel, 工程管理, Notifications, Slack]
 description: >
 Laravel Notifications 多通道通知实战指南：基于 KKday B2C 电商系统，详解如何通过统一通知抽象层集成邮件、短信、Slack 与企业微信四大通道。深入讲解 Fallback 降级策略、自定义 SmsChannel 开发、Slack Webhook 频率限制处理、SMS 短信模板审核与多语言映射，以及队列化通知序列化陷阱、access_token 缓存竞争等生产级踩坑经验与测试方案。
-
-
-
 ---
 ## 为什么需要统一的通知抽象层？
 

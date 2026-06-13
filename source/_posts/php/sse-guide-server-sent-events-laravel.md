@@ -1,3 +1,4 @@
+---
 
 title: SSE-实战-Server-Sent-Events-在-Laravel-中的应用-实时推送轻量方案与踩坑记录
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -10,10 +11,6 @@ categories:
 tags: [Laravel, SSE, Server-Sent-Events, WebSocket, 实时推送, B2C]
 keywords: [Laravel, SSE, Server-Sent-Events, WebSocket, 实时推送, Server, Sent]
 description: >-
-Laravel SSE 实战指南：Server-Sent Events 在 B2C 电商 API 中的完整应用方案。 详解订单状态实时推送、后台任务进度通知、库存变更广播等场景，涵盖 EventSource API 前端集成、 Laravel StreamedResponse 后端实现、Nginx 反向代理缓冲避坑、心跳保活机制与 Last-Event-ID 断线重连策略。 深入对比 SSE vs WebSocket vs Long Polling 的选型差异，附带 PHP-FPM 独立池配置、Redis Pub/Sub 非阻塞轮询等生产级踩坑记录， 助你快速落地 Server-Sent Events 实时推送方案。
-
-
-
 ---
 # SSE 实战：Server-Sent Events 在 Laravel 中的应用——实时推送轻量方案与踩坑记录
 
@@ -726,9 +723,6 @@ tags: [Laravel, SSE, Server-Sent-Events, WebSocket, 实时推送, B2C]
 keywords: [Laravel, SSE, Server-Sent-Events, WebSocket, 实时推送, Server, Sent]
 description: >-
 Laravel SSE 实战指南：Server-Sent Events 在 B2C 电商 API 中的完整应用方案。 详解订单状态实时推送、后台任务进度通知、库存变更广播等场景，涵盖 EventSource API 前端集成、 Laravel StreamedResponse 后端实现、Nginx 反向代理缓冲避坑、心跳保活机制与 Last-Event-ID 断线重连策略。 深入对比 SSE vs WebSocket vs Long Polling 的选型差异，附带 PHP-FPM 独立池配置、Redis Pub/Sub 非阻塞轮询等生产级踩坑记录， 助你快速落地 Server-Sent Events 实时推送方案。
-
-
-
 ---
 # SSE 实战：Server-Sent Events 在 Laravel 中的应用——实时推送轻量方案与踩坑记录
 

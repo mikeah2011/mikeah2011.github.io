@@ -1,3 +1,4 @@
+---
 
 title: PostgreSQL Partial Index + Expression Index 实战：条件索引与函数索引——Laravel 查询优化的隐藏利器
 keywords: [PostgreSQL, Partial, Index]
@@ -15,53 +16,6 @@ cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop---
 
-
-> 很多 Laravel 项目使用 PostgreSQL 时，开发者往往只会创建最基本的 B-tree 索引。但 PostgreSQL 有两种极其强大却经常被忽视的索引特性——**条件索引（Partial Index）** 和 **表达式索引（Expression Index）**。它们能让你用更小的索引体积、更低的维护开销，实现更精准的查询优化。本文将从原理到实战，手把手教你如何在 Laravel 项目中充分利用这两把"隐藏利器"。
-
-## 一、为什么你需要关注 Partial Index 和 Expression Index？
-
-在绝大多数 Laravel 项目中，我们创建索引的方式通常是这样的：
-
-```php
-Schema::table('orders', function (Blueprint $table) {
-    $table->index('status');
-    $table->index('email');
-});
-```
-
-这没问题，但有一个根本性的问题：**索引是为所有行服务的**。你的表有 100 万行订单，其中 99% 已经是 `completed` 状态，但你每次创建索引时，都会把这 99% 无用的数据也塞进去。这不仅浪费磁盘空间，还会拖慢写入性能和维护成本。
-
-更深层次的问题在于：当你在 `email` 列上创建了普通索引，然后写了一条这样的查询时：
-
-```sql
-SELECT * FROM users WHERE LOWER(email) = 'test@example.com';
-```
-
-**索引根本不会被命中**。PostgreSQL 看到的是 `LOWER(email)` 这个函数表达式，而不是原始的 `email` 值。B-tree 索引存储的是原始 `email` 值的排序，而不是 `LOWER(email)` 的排序结果。所以查询优化器只能无奈地选择全表扫描。
-
-PostgreSQL 给了我们两个优雅的解决方案：
-
-| 特性 | 解决的问题 | 核心思想 |
-|------|-----------|---------|
-| **Partial Index（条件索引）** | 只需要对满足特定条件的行建索引 | 索引只包含"有价值的行" |
-| **Expression Index（表达式索引）** | 查询条件涉及函数表达式，普通索引无法命中 | 对函数计算结果建索引 |
-
-在深入之前，让我们先理解 PostgreSQL B-tree 索引的基本工作原理，因为这两种索引都是建立在 B-tree 之上的变体。
-
-### 1.1 PostgreSQL B-tree 索引原理速览
-
-B-tree（Balance Tree，平衡树）是 PostgreSQL 默认的索引类型。它的工作方式类似于一本书的目录：
-
-- 每个索引条目包含一个键值和一个指向表中对应行的指针（TID，即 ctid）
-- B-tree 保持所有层级平衡，查询效率稳定在 O(log N)
-- 索引条目按照键值的排序顺序存储，支持范围查询（`>`, `<`, `BETWEEN`）
-- 索引条目存储在固定的 8KB 页面中，每个页面可以容纳数百到数千个条目
-
-当我们创建普通索引 `CREATE INDEX idx ON users (email)` 时，PostgreSQL 会为表中**每一行**的 `email` 值创建一个索引条目。如果表有 100 万行，索引就会有 100 万个条目。这就是为什么索引体积会随着表大小线性增长。
-
-Partial Index 和 Expression Index 的核心优势就在于：**它们可以减少索引条目的数量**，或者**让索引条目更精确地匹配查询需求**。
-
-现在，让我们正式进入这两种索引的详细讲解。
 
 ---
 
