@@ -13,6 +13,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/ai-coding-agent-security-cover.jpg
+images:
+  - /images/covers/ai-coding-agent-security-cover.jpg
 ---
 
 

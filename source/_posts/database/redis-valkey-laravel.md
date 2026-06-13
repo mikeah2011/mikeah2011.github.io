@@ -13,6 +13,8 @@ tags:
 categories:
 - database
 cover: /images/covers/redis-8-valkey-fork-comparison-cover.jpg
+images:
+  - /images/covers/redis-8-valkey-fork-comparison-cover.jpg
 description: 2026年Redis 8.0与Valkey分叉深度对比：许可证SSPL vs BSD差异、42维度功能矩阵逐项PK、多线程I/O性能基准测试（Valkey吞吐+11%）、向量搜索实战方案、Redis
   Stack模块兼容性踩坑记录。面向Laravel开发者，提供Sentinel/Cluster实战配置、版本迁移Checklist与2026-2027选型决策框架，覆盖AWS
   ElastiCache、Azure Cache等云厂商格局分析。

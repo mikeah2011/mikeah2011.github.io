@@ -13,6 +13,8 @@ tags:
   - PHP
 description: 深入解析 AI Agent 工具生态：Composio、ClawdHub、MCP 三大平台的工具发现、安装、版本管理机制，附 Laravel 集成实战代码。
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200
 ---
 
 ## 概述

@@ -1,6 +1,8 @@
 ---
 title: uni-app Native.js 原生插件开发实战：原生 SDK 集成与多平台踩坑记录
 cover: /images/covers/uni-app-native-js-guide-sdk-cover.jpg
+images:
+  - /images/covers/uni-app-native-js-guide-sdk-cover.jpg
 date: 2026-05-17 07:00:11
 updated: 2026-06-07 00:00:00
 categories:

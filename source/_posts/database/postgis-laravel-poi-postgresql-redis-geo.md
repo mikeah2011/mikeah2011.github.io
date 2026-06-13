@@ -15,6 +15,8 @@ description: 深入实战 PostGIS + Laravel 空间数据查询方案，涵盖地
 categories:
 - database
 cover: /images/covers/postgis-laravel-geo-cover.jpg
+images:
+  - /images/covers/postgis-laravel-geo-cover.jpg
 ---
 
 

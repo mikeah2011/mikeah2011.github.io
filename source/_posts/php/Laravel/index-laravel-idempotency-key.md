@@ -1,6 +1,8 @@
 ---
 title: 订单提交防重不是加唯一索引：Laravel 用 Idempotency-Key 做创建接口结果回放的实战记录
 cover: /images/covers/index-laravel-idempotency-key-cover.jpg
+images:
+  - /images/covers/index-laravel-idempotency-key-cover.jpg
 date: 2026-05-03 09:46:04
 updated: 2026-05-03 09:48:49
 categories:

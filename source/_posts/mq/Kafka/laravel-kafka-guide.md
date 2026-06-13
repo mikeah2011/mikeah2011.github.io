@@ -2,6 +2,8 @@
 title: Laravel-Kafka 消息队列异步解耦实战-KKday B2C API 订单处理与库存扣减真实踩坑记录
 date: 2026-05-03
 cover: /images/covers/laravel-kafka-guide-cover.jpg
+images:
+  - /images/covers/laravel-kafka-guide-cover.jpg
 categories:
 - mq
 - php

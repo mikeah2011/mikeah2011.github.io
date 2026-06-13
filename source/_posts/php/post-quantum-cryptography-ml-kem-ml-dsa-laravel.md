@@ -5,6 +5,8 @@ tags: [后量子密码, PQC, ML-KEM, ML-DSA, Laravel, 加密迁移]
 categories:
   - php
 cover: /images/covers/post-quantum-cryptography-laravel-cover.jpg
+images:
+  - /images/covers/post-quantum-cryptography-laravel-cover.jpg
 description: "系统讲解后量子密码学 PQC 在 Laravel 项目中的预研与落地路径。涵盖 NIST FIPS 203/204/205 标准解读、ML-KEM 密钥封装与 ML-DSA 数字签名算法原理、PHP OpenSSL/LibreSSL 集成方案、TLS 后量子配置、混合加密架构设计。对比 RSA/ECC 与 PQC 算法性能差异，提供 Crypto Agility 架构模式与渐进式迁移策略，帮助 Laravel 开发者提前应对量子计算威胁，实现 Harvest Now Decrypt Later 防护。"
 ---
 

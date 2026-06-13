@@ -1,6 +1,8 @@
 ---
 title: Laravel Pennant 特性开关实战：多租户分桶、灰度放量与回滚兜底踩坑记录
 cover: /images/covers/laravel-pennant-guide-canary-cover.jpg
+images:
+  - /images/covers/laravel-pennant-guide-canary-cover.jpg
 date: 2026-05-03 11:20:06
 updated: 2026-05-03 11:21:23
 categories:

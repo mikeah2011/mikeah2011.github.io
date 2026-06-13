@@ -1,6 +1,8 @@
 ---
 title: AI 辅助调试实战：错误分析、日志解读与性能优化建议——Laravel B2C API 真实踩坑记录
 cover: /images/covers/ai-guide-loggingperformance-cover.jpg
+images:
+  - /images/covers/ai-guide-loggingperformance-cover.jpg
 date: 2026-05-17 04:35:39
 updated: 2026-05-17 04:38:08
 categories:

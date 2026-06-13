@@ -2,6 +2,9 @@
 title: InfluxDB 3.0 实战：Apache Arrow 列式存储的时序数据库——对比 TimescaleDB 的写入性能与查询能力
 date: 2026-06-10 03:47:00
 categories:
+cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 - misc
 tags:
 - InfluxDB

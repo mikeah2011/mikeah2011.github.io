@@ -3,6 +3,9 @@ title: GDPR Cookie Consent 实战：Cookie Banner、Consent 存储、第三方�
 date: 2026-06-10 06:08:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - GDPR

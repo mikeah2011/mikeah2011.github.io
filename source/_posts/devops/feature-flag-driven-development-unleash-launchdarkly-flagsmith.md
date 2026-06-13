@@ -15,6 +15,8 @@ description: Feature Flag 驱动开发（FFDD）实战指南，深度对比 Unle
 categories:
 - devops
 cover: /images/covers/feature-flag-driven-development-cover.jpg
+images:
+  - /images/covers/feature-flag-driven-development-cover.jpg
 ---
 
 

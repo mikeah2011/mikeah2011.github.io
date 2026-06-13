@@ -1,6 +1,8 @@
 ---
 title: 云服务器选型实战-AWS-阿里云-腾讯云-B2C电商场景对比与踩坑记录
 cover: /images/covers/cloud-provider-comparison-cover.jpg
+images:
+  - /images/covers/cloud-provider-comparison-cover.jpg
 date: 2026-05-05 09:07:25
 updated: 2026-05-05 09:11:43
 categories:

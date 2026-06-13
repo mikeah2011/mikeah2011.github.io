@@ -1,6 +1,8 @@
 ---
 title: PHP-83-类型化类常量实战-枚举增强与类型安全-Laravel-B2C-API踩坑记录
 cover: /images/covers/php-83-guide-cover.jpg
+images:
+  - /images/covers/php-83-guide-cover.jpg
 date: 2026-05-16 17:30:32
 updated: 2026-05-16 17:39:33
 categories:

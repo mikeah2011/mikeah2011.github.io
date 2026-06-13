@@ -2,6 +2,9 @@
 title: PHP Stream Context 实战：HTTP 流式响应的底层机制——Laravel StreamedResponse 的逐块输出与 SSE 原理
 date: 2026-06-10 00:55:00
 categories:
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 - php
 tags:
 - Stream

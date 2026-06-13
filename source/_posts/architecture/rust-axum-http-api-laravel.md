@@ -15,6 +15,8 @@ description: 从 Laravel 开发者视角深入实战 Rust Axum 框架，涵盖�
   编译期 SQL 校验与连接池管理。含完整 RESTful API 代码示例、Axum vs Laravel 性能基准对比（10-100 倍性能差距）、异步编程踩坑案例与迁移指南，助你构建高性能类型安全的
   HTTP API。
 cover: /images/covers/rust-axum-cover.jpg
+images:
+  - /images/covers/rust-axum-cover.jpg
 ---
 
 

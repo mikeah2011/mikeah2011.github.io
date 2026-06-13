@@ -5,6 +5,8 @@ tags: [API Composition, BFF, 微服务, Laravel, 架构设计]
 categories:
   - architecture
 cover: /images/covers/api-composition-bff-cover.jpg
+images:
+  - /images/covers/api-composition-bff-cover.jpg
 description: "深入实战API Composition Pattern在Laravel BFF层的落地：scatter-gather并行查询、结果合并策略、超时裁剪与降级方案、缓存优化，对比CQRS与GraphQL Federation的适用场景，含完整可运行代码与性能基准测试，助力微服务数据聚合架构选型。"
 ---
 

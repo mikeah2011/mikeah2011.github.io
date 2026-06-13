@@ -12,6 +12,8 @@ tags:
   - 供应链安全
 description: "深入解析 OWASP Top 10 2025 版本的两大新增类别（供应链失败、异常条件处理不当），以及 OWASP LLM Top 10 2025 中的 Prompt 注入、系统提示泄漏等新威胁，并提供 Laravel 应用的实战防护代码。"
 cover: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80
+images:
+  - https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80
 ---
 
 ## 前言

@@ -1,6 +1,8 @@
 ---
 title: PHP-CS-Fixer + Pint 代码风格统一：团队协作的代码规范自动化踩坑记录
 cover: /images/covers/php-cs-fixer-pint-automation-cover.jpg
+images:
+  - /images/covers/php-cs-fixer-pint-automation-cover.jpg
 date: 2026-05-05 06:45:46
 updated: 2026-05-05 06:47:52
 categories:

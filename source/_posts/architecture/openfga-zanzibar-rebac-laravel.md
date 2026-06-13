@@ -15,6 +15,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/openfga-zanzibar-rebac-laravel-cover.jpg
+images:
+  - /images/covers/openfga-zanzibar-rebac-laravel-cover.jpg
 ---
 
 

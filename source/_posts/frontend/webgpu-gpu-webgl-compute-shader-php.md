@@ -14,6 +14,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/webgpu-gpu-computing-cover.jpg
+images:
+  - /images/covers/webgpu-gpu-computing-cover.jpg
 ---
 
 

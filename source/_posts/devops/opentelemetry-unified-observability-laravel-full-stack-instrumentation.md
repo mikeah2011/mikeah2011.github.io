@@ -1,6 +1,8 @@
 ---
 title: "OpenTelemetry 实战：统一日志/指标/追踪的可观测性标准——Laravel 应用全链路埋点"
 cover: /images/covers/opentelemetry-laravel-cover.jpg
+images:
+  - /images/covers/opentelemetry-laravel-cover.jpg
 date: 2026-06-02 08:00:00
 updated: 2026-06-02 08:00:00
 categories:

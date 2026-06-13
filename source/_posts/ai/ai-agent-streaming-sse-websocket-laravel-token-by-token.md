@@ -11,6 +11,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/ai-agent-streaming-cover.jpg
+images:
+  - /images/covers/ai-agent-streaming-cover.jpg
 description: 深入实战 AI Agent 流式响应系统：对比 SSE 与 WebSocket 方案选型，完整实现 Laravel 后端的 Token-by-Token
   推送，涵盖 OpenAI 流式 API 调用、Tool Calling 链式执行、React/Vue 前端实时渲染、Nginx 缓冲踩坑、Swoole 协程高性能方案，以及
   9 个生产环境常见问题与解决方案。

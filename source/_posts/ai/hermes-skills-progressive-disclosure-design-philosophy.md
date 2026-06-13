@@ -5,6 +5,8 @@ tags: [Hermes, AI Agent, Skills, 渐进式披露, 架构设计, 上下文管理]
 categories: [ai]
 description: AI Agent 技能越多上下文越爆？Hermes Agent 用"渐进式披露"两级加载架构破解能力悖论：skills_list 提供轻量级技能目录（~200 tokens），skill_view 按需加载完整说明（~2000 tokens），实现 93%+ Token 节省的同时保持高准确率的技能选择。本文从设计哲学、源码实现、缓存策略到 Agent 决策流程全面拆解这一机制，适合所有关注 AI Agent 上下文管理与架构优化的开发者。
 cover: /images/covers/hermes-skills-disclosure-cover.jpg
+images:
+  - /images/covers/hermes-skills-disclosure-cover.jpg
 ---
 
 # Hermes Skills 渐进式披露机制：skills_list 元数据 vs skill_view 完整加载的设计哲学

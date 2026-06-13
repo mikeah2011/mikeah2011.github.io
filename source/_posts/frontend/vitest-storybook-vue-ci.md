@@ -2,6 +2,9 @@
 title: Vitest + Storybook 8 实战：Vue 3 组件的单元测试 + 可视化文档——对比独立测试框架的开发体验与 CI 集成
 date: 2026-06-10 05:59:00
 categories:
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 - frontend
 tags:
 - Vue

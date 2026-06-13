@@ -11,6 +11,8 @@ tags:
 - 代码规范
 description: 深入探讨 .cursorrules 的工程化管理：版本控制、团队共享机制、A/B 测试框架，以及如何建立 AI 辅助编程的提示词治理体系。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200
 ---
 
 

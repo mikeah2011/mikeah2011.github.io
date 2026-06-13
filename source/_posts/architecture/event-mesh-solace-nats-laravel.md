@@ -3,6 +3,9 @@ title: Event Mesh 实战：Solace/NATS 跨云事件路由——Laravel 微服务
 date: 2026-06-09
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Event Mesh
   - Solace

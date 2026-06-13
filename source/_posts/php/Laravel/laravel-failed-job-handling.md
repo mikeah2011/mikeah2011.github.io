@@ -2,6 +2,8 @@
 title: Laravel-失败任务处理策略-重试机制死信队列与告警通知实战踩坑记录
 date: 2026-05-05 06:25:43
 cover: /images/covers/laravel-failed-job-handling-cover.jpg
+images:
+  - /images/covers/laravel-failed-job-handling-cover.jpg
 updated: 2026-05-05 06:28:14
 tags:
 - Laravel

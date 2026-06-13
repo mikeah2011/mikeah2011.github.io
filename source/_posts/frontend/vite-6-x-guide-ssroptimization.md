@@ -1,5 +1,7 @@
 ---
 cover: /images/covers/vite-6-x-guide-ssroptimization-cover.jpg
+images:
+  - /images/covers/vite-6-x-guide-ssroptimization-cover.jpg
 title: Vite 6.x 实战：插件开发、SSR、构建优化——前端工程化踩坑记录
 date: 2026-05-17 02:30:32
 updated: 2026-05-17 02:32:33

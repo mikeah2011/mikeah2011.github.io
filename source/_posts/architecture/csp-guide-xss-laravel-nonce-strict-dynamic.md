@@ -1,6 +1,8 @@
 ---
 title: CSP 内容安全策略实战 - 防御 XSS 攻击 - Laravel Nonce、strict-dynamic 与生产踩坑记录
 cover: /images/covers/csp-guide-xss-laravel-nonce-strict-dynamic-cover.jpg
+images:
+  - /images/covers/csp-guide-xss-laravel-nonce-strict-dynamic-cover.jpg
 date: 2026-05-16 22:10:07
 updated: 2026-05-16 22:16:59
 categories:

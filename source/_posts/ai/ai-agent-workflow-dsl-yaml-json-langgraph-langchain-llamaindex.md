@@ -13,6 +13,8 @@ description: AI Agent工作流DSL深度实战：对比LangGraph状态图、LangC
 categories:
 - ai
 cover: /images/covers/ai-agent-workflow-dsl-cover.jpg
+images:
+  - /images/covers/ai-agent-workflow-dsl-cover.jpg
 ---
 
 

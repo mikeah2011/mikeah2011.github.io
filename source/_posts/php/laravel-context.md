@@ -12,6 +12,8 @@ tags:
 categories:
 - php
 cover: /images/covers/laravel-context-propagation-cover.jpg
+images:
+  - /images/covers/laravel-context-propagation-cover.jpg
 description: 深入解析 Laravel 11 引入的 Context 上下文传播机制，涵盖请求级数据的隐式携带与自动传播、日志关联 ID（Trace ID
   / Correlation ID）的无侵入注入、队列 Job 跨进程的上下文透传、多租户场景下租户标识的全局治理，以及与 Monolog、OpenTelemetry
   的集成实战。帮助 Laravel 项目告别"上下文丢失"的运维困境，构建端到端可观测的分布式日志体系。

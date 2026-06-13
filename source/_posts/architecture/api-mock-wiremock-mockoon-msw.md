@@ -16,6 +16,8 @@ description: 深入解析 MSW（Mock Service Worker）、Mockoon、WireMock 三�
 categories:
 - architecture
 cover: /images/covers/api-mock-strategy-cover.jpg
+images:
+  - /images/covers/api-mock-strategy-cover.jpg
 ---
 
 

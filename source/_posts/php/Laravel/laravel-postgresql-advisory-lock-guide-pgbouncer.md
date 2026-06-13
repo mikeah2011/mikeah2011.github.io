@@ -1,6 +1,8 @@
 ---
 title: Laravel + PostgreSQL Advisory Lock 实战：补偿扫描单实例化、会话级互斥与 PgBouncer 踩坑记录
 cover: /images/covers/laravel-postgresql-advisory-lock-guide-pgbouncer-cover.jpg
+images:
+  - /images/covers/laravel-postgresql-advisory-lock-guide-pgbouncer-cover.jpg
 date: 2026-05-04 15:51:30
 updated: 2026-06-06 10:00:00
 categories:

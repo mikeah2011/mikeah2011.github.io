@@ -3,6 +3,9 @@ title: PHPStan 2.x 实战：泛型推断增强、Type Alias 与 Conditional Retu
 date: 2026-06-09 14:04:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - PHPStan
   - 类型系统

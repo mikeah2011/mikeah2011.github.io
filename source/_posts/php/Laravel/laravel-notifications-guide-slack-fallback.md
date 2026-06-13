@@ -1,6 +1,8 @@
 ---
 title: Laravel-Notifications-多通道实战-邮件短信Slack企业微信集成-统一通知抽象与降级策略踩坑记录
 cover: /images/covers/laravel-notifications-guide-slack-fallback-cover.jpg
+images:
+  - /images/covers/laravel-notifications-guide-slack-fallback-cover.jpg
 date: 2026-05-05 12:00:20
 updated: 2026-05-05 12:02:58
 categories:

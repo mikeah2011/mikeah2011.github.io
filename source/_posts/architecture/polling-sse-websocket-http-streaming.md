@@ -13,6 +13,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/realtime-communication-comparison-cover.jpg
+images:
+  - /images/covers/realtime-communication-comparison-cover.jpg
 ---
 
 

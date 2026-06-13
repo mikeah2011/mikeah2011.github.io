@@ -13,6 +13,8 @@ description: 深入剖析 Rust Tokio 异步运行时的核心架构：事件循�
 categories:
 - architecture
 cover: /images/covers/rust-tokio-async-runtime-cover.jpg
+images:
+  - /images/covers/rust-tokio-async-runtime-cover.jpg
 ---
 
 

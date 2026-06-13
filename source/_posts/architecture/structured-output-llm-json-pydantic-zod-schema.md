@@ -6,6 +6,8 @@ categories:
   - architecture
 description: 深入剖析 Structured Output 技术原理，让 LLM 返回可预测的结构化 JSON 数据。对比函数调用（Function Calling）与 JSON Schema 约束两种方案，提供 Python Pydantic 和 TypeScript Zod 两种技术栈的完整实战代码。涵盖 AI Agent 工具调用、数据抽取、Laravel 后端集成等真实场景，是将 LLM 从 Demo 级玩具升级为生产级系统的关键基础设施指南。
 cover: /images/covers/structured-output-cover.jpg
+images:
+  - /images/covers/structured-output-cover.jpg
 ---
 
 LLM 的原生输出是自由文本——不受约束的自然语言。这对人类阅读很友好，但对程序消费来说是一场灾难：字段名不一致、类型时有时无、嵌套结构随意变化、甚至返回的不是合法 JSON。Structured Output 技术通过在推理时施加 JSON Schema 约束，让 LLM 的输出变得可预测、可验证、可直接反序列化。

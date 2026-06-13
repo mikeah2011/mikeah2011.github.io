@@ -3,6 +3,9 @@ title: OpenTelemetry Operator for K8s 实战：自动注入 PHP Agent——Larav
 date: 2026-06-09 16:48:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - OpenTelemetry
   - Kubernetes

@@ -5,6 +5,8 @@ updated: 2026-06-09 07:25:00
 categories:
 - php
 cover: /images/covers/php-85-fiber-scheduler-deep-dive-cover.jpg
+images:
+  - /images/covers/php-85-fiber-scheduler-deep-dive-cover.jpg
 tags:
 - PHP 8.5
 - Fibers

@@ -3,6 +3,9 @@ title: Laravel 项目技术债治理实战：Rector 批量重构 + PHPStan 渐�
 date: 2026-06-09
 categories:
   - engineering
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - Rector

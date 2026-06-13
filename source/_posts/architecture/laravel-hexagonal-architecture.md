@@ -1,6 +1,8 @@
 ---
 title: 六边形架构实战：Laravel 中的端口与适配器模式落地踩坑记录
 cover: /images/covers/hexagonal-architecture-ports-adapters-laravel-cover.jpg
+images:
+  - /images/covers/hexagonal-architecture-ports-adapters-laravel-cover.jpg
 date: 2026-06-01 12:00:00
 updated: 2026-06-01 12:00:00
 categories:

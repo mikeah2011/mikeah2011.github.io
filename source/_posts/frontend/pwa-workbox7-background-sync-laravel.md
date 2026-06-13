@@ -3,6 +3,9 @@ title: "Progressive Web App 2026 实战：Workbox 7、Background Sync、Periodic
 date: 2026-06-09 22:11:00
 categories:
   - frontend
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 tags:
   - PWA
   - Workbox

@@ -14,6 +14,8 @@ description: 深入讲解 Grafana Pyroscope 持续性能剖析在 Laravel 生产
 categories:
 - devops
 cover: /images/covers/grafana-pyroscope-continuous-profiling-cover.jpg
+images:
+  - /images/covers/grafana-pyroscope-continuous-profiling-cover.jpg
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 title: 导入&导出优选CSV格式的理由
 cover: /images/misc-cover.png
+images:
+  - /images/misc-cover.png
 date: 2018-04-08 10:27:28
 tags:
 - CSV

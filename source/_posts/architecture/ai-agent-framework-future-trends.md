@@ -5,6 +5,8 @@ tags: [AI Agent, 记忆系统, 多模态, MCP, 本地推理, 未来趋势]
 categories:
   - architecture
 cover: /images/covers/ai-agent-future-trends-cover.jpg
+images:
+  - /images/covers/ai-agent-future-trends-cover.jpg
 description: "全面解析 2026-2027 年 AI Agent 框架四大发展趋势：记忆系统从简单 RAG 演进到结构化知识图谱与推理式记忆，支持自动演化和跨框架互操作；多模态能力从文本扩展到实时视频理解、多模态记忆和跨模态生成；MCP 协议推动工具调用标准化，实现跨框架工具共享与动态发现；本地推理通过量化技术和边缘部署实现隐私优先的高性能推理。涵盖 Hermes、OpenClaw、OpenHuman 三大框架的技术路线对比与开发者布局建议。"
 ---
 

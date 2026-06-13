@@ -9,6 +9,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/openclaw-security-cover.jpg
+images:
+  - /images/covers/openclaw-security-cover.jpg
 description: 本文围绕 OpenClaw 在企业与群聊场景中的安全落地，系统讲解权限控制、RBAC/ABAC、隐私保护、Prompt 注入防御、敏感信息脱敏、审计日志与群聊行为边界设计，并结合真实安全案例、配置示例和工程化清单，帮助团队构建可审计、可回滚、最小权限的
   AI Agent 安全基线。
 ---

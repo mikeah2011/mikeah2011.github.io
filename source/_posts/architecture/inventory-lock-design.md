@@ -1,6 +1,8 @@
 ---
 title: 电商库存系统设计-防超卖分布式锁与库存预扣减-Laravel-B2C-API实战踩坑记录
 cover: /images/covers/inventory-lock-design-cover.jpg
+images:
+  - /images/covers/inventory-lock-design-cover.jpg
 date: 2026-05-05 07:50:29
 updated: 2026-05-05 07:52:21
 categories:

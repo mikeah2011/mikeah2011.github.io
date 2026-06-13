@@ -1,6 +1,8 @@
 ---
 title: Laravel + gRPC 微服务通信实战：Proto 定义、Deadline 透传与连接复用踩坑记录
 cover: /images/covers/laravel-grpc-microservicesguide-proto-deadline-cover.jpg
+images:
+  - /images/covers/laravel-grpc-microservicesguide-proto-deadline-cover.jpg
 date: 2026-05-03 08:40:00
 categories:
   - php

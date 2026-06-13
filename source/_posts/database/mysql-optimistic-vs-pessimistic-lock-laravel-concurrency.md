@@ -11,6 +11,8 @@ tags:
 categories:
 - database
 cover: /images/covers/mysql-optimistic-vs-pessimistic-lock-cover.jpg
+images:
+  - /images/covers/mysql-optimistic-vs-pessimistic-lock-cover.jpg
 description: 深入解析 MySQL 乐观锁与悲观锁在 Laravel 高并发场景下的实战应用。从 SELECT FOR UPDATE 加锁原理、版本号冲突检测、死锁分析到
   Redis 分布式锁配合使用，结合秒杀扣库存、订单状态流转、余额扣减等真实业务场景，提供完整的 PHP/Laravel 可运行代码示例与性能基准对比，帮助开发者在高并发架构中做出正确的锁选型决策。
 ---

@@ -3,6 +3,9 @@ title: "Oxc 实战：Rust 驱动的 JavaScript/TypeScript 工具链——Parser/
 date: 2026-06-10 03:33:00
 categories:
   - rust
+cover: https://images.unsplash.com/photo-1515879218367-8466d910auj4?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1515879218367-8466d910auj4?w=1200&h=630&fit=crop
 tags:
   - Rust
   - JavaScript

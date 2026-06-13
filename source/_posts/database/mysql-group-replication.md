@@ -6,6 +6,8 @@ tags: [MySQL, Group Replication, 高可用, 主从复制, InnoDB Cluster]
 categories:
   - database
 cover: /images/covers/mysql-group-replication-cover.jpg
+images:
+  - /images/covers/mysql-group-replication-cover.jpg
 ---
 
 ## 前言

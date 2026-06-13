@@ -1,5 +1,7 @@
 ---
 cover: /images/covers/cursor-ide-guide-ai-cover.jpg
+images:
+  - /images/covers/cursor-ide-guide-ai-cover.jpg
 title: "Cursor IDE 实战：AI 驱动的代码编辑器深度体验 — Tab 补全、Composer 多文件编辑与 .cursorrules 工程化配置"
 date: 2026-05-17 03:15:22
 updated: 2026-05-17 03:19:59

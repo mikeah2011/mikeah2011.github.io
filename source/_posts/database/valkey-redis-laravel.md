@@ -6,6 +6,8 @@ description: Redis 转向 SSPL 许可证后，Linux Foundation 推出的 Valkey 
 categories:
   - database
 cover: /images/covers/valkey-redis-alternative-cover.jpg
+images:
+  - /images/covers/valkey-redis-alternative-cover.jpg
 ---
 
 ## 前言

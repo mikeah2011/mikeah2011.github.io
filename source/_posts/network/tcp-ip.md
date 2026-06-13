@@ -1,6 +1,8 @@
 ---
 title: TCP/IP 协议栈详解：三次握手、四次挥手与拥塞控制
 cover: /images/covers/tcp-ip-cover.jpg
+images:
+  - /images/covers/tcp-ip-cover.jpg
 tags:
 - TCP
 - 网络协议

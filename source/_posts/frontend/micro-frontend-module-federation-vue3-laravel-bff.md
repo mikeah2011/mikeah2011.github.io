@@ -12,6 +12,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/micro-frontend-module-federation-cover.jpg
+images:
+  - /images/covers/micro-frontend-module-federation-cover.jpg
 ---
 
 

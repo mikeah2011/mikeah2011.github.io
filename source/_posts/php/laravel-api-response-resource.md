@@ -3,6 +3,9 @@ title: Laravel API Response 嵌入式资源实战：嵌套 Resource、条件加�
 date: 2026-06-10 06:30:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - API

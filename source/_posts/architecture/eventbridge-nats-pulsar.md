@@ -11,6 +11,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/event-driven-architecture-eventbridge-nats-pulsar-cover.jpg
+images:
+  - /images/covers/event-driven-architecture-eventbridge-nats-pulsar-cover.jpg
 description: 从点对点调用到发布订阅的架构演进全景，深入对比 AWS EventBridge、NATS JetStream、Apache Pulsar
   三大事件总线的核心架构与适用场景。涵盖 CloudEvents 规范事件设计、NATS Subject-Based 路由与 Leaf Node 边缘计算、Pulsar
   计算存储分离与分层存储、统一事件总线接口的 Laravel 实战代码、死信队列与幂等消费设计，以及 Strangler Fig Pattern 渐进式迁移检查清单，帮助团队在微服务架构中选择最适合的事件驱动方案。

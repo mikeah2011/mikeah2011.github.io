@@ -3,6 +3,9 @@ title: "Redis HyperLogLog 的正确用法与常见误区"
 date: 2026-06-10 04:52:00
 categories:
   - database
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 tags:
   - Redis
   - HyperLogLog

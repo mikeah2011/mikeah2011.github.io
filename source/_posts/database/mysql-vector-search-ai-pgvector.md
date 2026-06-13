@@ -14,6 +14,8 @@ tags:
 categories:
 - database
 cover: /images/covers/mysql-vector-search-cover.jpg
+images:
+  - /images/covers/mysql-vector-search-cover.jpg
 ---
 
 

@@ -4,6 +4,9 @@ date: 2026-06-10 06:15:00
 categories:
   - ai
   - frontend
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 tags:
   - Vercel AI SDK
   - TypeScript

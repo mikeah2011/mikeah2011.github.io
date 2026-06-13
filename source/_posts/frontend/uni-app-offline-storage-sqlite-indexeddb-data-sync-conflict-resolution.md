@@ -1,6 +1,8 @@
 ---
 title: "uni-app 离线存储实战：SQLite/IndexedDB 数据同步与冲突解决——从本地持久化到多端一致性的完整工程方案"
 cover: /images/covers/2026-06-01-uni-app-offline-storage-sqlite-indexeddb-data-sync-conflict-resolution-cover.jpg
+images:
+  - /images/covers/2026-06-01-uni-app-offline-storage-sqlite-indexeddb-data-sync-conflict-resolution-cover.jpg
 date: 2026-06-01 20:00:00
 categories:
   - frontend

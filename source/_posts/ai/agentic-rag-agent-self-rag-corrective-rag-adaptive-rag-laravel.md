@@ -14,6 +14,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/agentic-rag-cover.jpg
+images:
+  - /images/covers/agentic-rag-cover.jpg
 ---
 
 

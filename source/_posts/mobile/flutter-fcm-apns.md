@@ -6,6 +6,8 @@ tags: [Flutter, 推送通知, FCM, APNs, 厂商推送]
 categories:
   - mobile
 cover: /images/covers/flutter-push-notification-fcm-apns-cover.jpg
+images:
+  - /images/covers/flutter-push-notification-fcm-apns-cover.jpg
 ---
 
 # 1. 前言：为什么推送通知是移动端的生命线

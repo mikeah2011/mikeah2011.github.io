@@ -5,6 +5,8 @@ tags: [Sentry, 错误追踪, 性能监控, Session Replay, Laravel]
 categories:
   - devops
 cover: /images/covers/sentry-error-tracking-laravel-cover.jpg
+images:
+  - /images/covers/sentry-error-tracking-laravel-cover.jpg
 description: Sentry 2026 年版错误追踪深度实战，涵盖 Laravel 集成、性能监控、Session Replay 用户操作回放、Source Map 精确定位前端错误、面包屑链路追踪等核心功能。详解采样率配置、数据脱敏清洗、告警规则设计与 Release Tracking 部署策略，帮助开发团队从「看日志猜错误」升级到「一键定位根因」的高效错误追踪工作流。
 ---
 

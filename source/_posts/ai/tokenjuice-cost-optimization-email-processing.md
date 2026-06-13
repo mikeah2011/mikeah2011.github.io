@@ -4,6 +4,8 @@ date: 2026-06-02 12:00:00
 tags: [TokenJuice, 成本优化, AI Agent, 邮件处理, Token压缩]
 categories: [ai]
 cover: /images/covers/tokenjuice-cost-optimization-cover.jpg
+images:
+  - /images/covers/tokenjuice-cost-optimization-cover.jpg
 description: 记录 TokenJuice 在 AI Agent 邮件处理场景中的 6 个月成本优化实战路径，从月均 300-500 美元压缩至个位数，保持 95% 以上处理质量。涵盖瓶颈分析、分层压缩策略、语义缓存、模型路由降级等关键技术，附带各阶段成本对比数据与实施代码，为 AI 应用成本治理提供完整参考。
 ---
 

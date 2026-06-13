@@ -3,6 +3,9 @@ title: "Laravel Eager Loading 高级实战：with() 的嵌套约束、条件预�
 date: 2026-06-09 18:15:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - Eloquent

@@ -18,6 +18,8 @@ description: 深入实战 Kubernetes Gateway API——Ingress 的下一代标准
 categories:
 - devops
 cover: /images/covers/kubernetes-gateway-api-cover.jpg
+images:
+  - /images/covers/kubernetes-gateway-api-cover.jpg
 ---
 
 

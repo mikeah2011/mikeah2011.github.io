@@ -14,6 +14,8 @@ description: SaaS 产品面临的第一道架构决策：租户数据如何隔�
   和独立库，从安全性、性能、运维成本、扩展性四个维度进行深度权衡。提供 Laravel 完整实现代码，涵盖 Global Scope 自动租户隔离、PostgreSQL
   RLS、Schema 切换中间件、连接池管理，帮助你根据业务规模和合规需求做出最优选型决策。
 cover: /images/covers/database-multi-tenancy-cover.jpg
+images:
+  - /images/covers/database-multi-tenancy-cover.jpg
 ---
 
 

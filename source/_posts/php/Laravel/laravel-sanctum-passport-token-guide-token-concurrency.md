@@ -1,6 +1,8 @@
 ---
 title: Laravel Sanctum / Passport Token 刷新机制实战：多端登录、双 Token 轮换与并发续签踩坑记录
 cover: /images/covers/laravel-sanctum-passport-token-guide-token-concurrency-cover.jpg
+images:
+  - /images/covers/laravel-sanctum-passport-token-guide-token-concurrency-cover.jpg
 date: 2026-05-03 09:11:35
 categories:
   - php

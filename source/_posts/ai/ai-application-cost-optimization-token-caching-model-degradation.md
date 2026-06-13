@@ -10,6 +10,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/ai-cost-optimization-cover.jpg
+images:
+  - /images/covers/ai-cost-optimization-cover.jpg
 description: 这篇文章系统拆解 AI成本优化 的核心方法，从 Token计费 结构、缓存策略 设计到 模型降级 路由与预算监控，结合 LLM成本 测算公式、供应商价格对比、Laravel/PHP
   实战代码与生产案例，帮助团队在保证效果与稳定性的前提下，把大模型应用从“能跑”升级为“跑得起、跑得稳、可规模化”。
 ---

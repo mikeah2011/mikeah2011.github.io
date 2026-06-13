@@ -9,6 +9,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/zig-wasm-cover.jpg
+images:
+  - /images/covers/zig-wasm-cover.jpg
 description: Zig + WebAssembly 实战指南：深入 comptime 编译期优化与零隐藏内存分配特性，手把手实现 RGBA 图像灰度处理模块，全面对比
   Rust/C/AssemblyScript 编译产物体积与运行时性能，详解浏览器 JavaScript 集成、Cloudflare Workers 边缘部署与
   Deno Deploy 方案，附 1920×1080 图像处理性能基准与 5 大踩坑案例。

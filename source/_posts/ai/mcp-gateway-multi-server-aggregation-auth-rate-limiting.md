@@ -3,6 +3,9 @@ title: "MCP Gateway 实战：多 MCP Server 聚合、鉴权、限流——企业
 date: 2026-06-09 19:00:00
 categories:
   - ai
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 tags:
   - MCP
   - AI Agent

@@ -14,6 +14,8 @@ categories:
 description: 深入对比Elixir OTP与PHP-FPM无状态模型的并发哲学，详解GenServer有状态进程、Supervisor容错树、分布式进程通信三大核心机制，附Elixir
   OTP vs PHP-FPM vs Node.js Cluster三方对比表，含完整可运行代码示例，帮你根据场景选对高并发架构方案
 cover: /images/covers/elixir-otp-cover.jpg
+images:
+  - /images/covers/elixir-otp-cover.jpg
 ---
 
 

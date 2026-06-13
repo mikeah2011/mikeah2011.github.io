@@ -13,6 +13,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/pwa-service-worker-laravel-cover.jpg
+images:
+  - /images/covers/pwa-service-worker-laravel-cover.jpg
 ---
 
 

@@ -3,6 +3,9 @@ title: Lambda Function URLs 实战：替代 API Gateway 的轻量方案——Lar
 date: 2026-06-10 08:27:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - AWS Lambda
   - Serverless

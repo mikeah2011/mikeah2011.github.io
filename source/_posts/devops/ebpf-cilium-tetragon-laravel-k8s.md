@@ -12,6 +12,8 @@ description: 深入解析 eBPF 技术在 Laravel Kubernetes 集群中的实战�
 categories:
 - devops
 cover: /images/covers/ebpf-cilium-cover.jpg
+images:
+  - /images/covers/ebpf-cilium-cover.jpg
 ---
 
 

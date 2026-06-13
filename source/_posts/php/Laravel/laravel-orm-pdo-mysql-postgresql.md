@@ -1,6 +1,8 @@
 ---
 title: Laravel-ORM-PDO-MySQL-PostgreSQL-行为差异与兼容性实战踩坑记录
 cover: /images/covers/laravel-orm-pdo-mysql-postgresql-cover.jpg
+images:
+  - /images/covers/laravel-orm-pdo-mysql-postgresql-cover.jpg
 date: 2026-05-05 00:40:36
 updated: 2026-05-05 00:43:48
 categories:

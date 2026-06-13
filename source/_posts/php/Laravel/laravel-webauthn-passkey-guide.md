@@ -1,6 +1,8 @@
 ---
 title: Laravel WebAuthn / Passkey 实战：后台无密码登录、设备绑定与挑战过期踩坑记录
 cover: /images/covers/laravel-webauthn-passkey-guide-cover.jpg
+images:
+  - /images/covers/laravel-webauthn-passkey-guide-cover.jpg
 date: 2026-05-04 15:15:59
 updated: 2026-05-04 15:17:45
 categories:

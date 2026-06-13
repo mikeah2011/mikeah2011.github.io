@@ -3,6 +3,9 @@ title: 订单退款系统架构设计：多通道退款、部分退款、退款�
 date: 2026-06-09 22:58:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - 退款
   - 状态机

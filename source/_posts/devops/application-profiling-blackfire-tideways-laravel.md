@@ -13,6 +13,8 @@ description: 深入讲解 PHP/Laravel 生态中三大 Application Profiling 工�
 categories:
 - devops
 cover: /images/covers/app-profiling-cover.jpg
+images:
+  - /images/covers/app-profiling-cover.jpg
 ---
 
 

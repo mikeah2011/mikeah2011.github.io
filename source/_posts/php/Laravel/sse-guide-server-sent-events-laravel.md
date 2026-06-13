@@ -1,6 +1,8 @@
 ---
 title: SSE-实战-Server-Sent-Events-在-Laravel-中的应用-实时推送轻量方案与踩坑记录
 cover: /images/covers/sse-guide-server-sent-events-laravel-cover.jpg
+images:
+  - /images/covers/sse-guide-server-sent-events-laravel-cover.jpg
 date: 2026-05-16 18:02:58
 updated: 2026-05-16 18:15:17
 categories:

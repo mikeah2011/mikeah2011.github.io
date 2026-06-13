@@ -13,6 +13,8 @@ tags:
   - 设计模式
 description: 深入 Rust 错误处理机制，从自定义 Error 类型到 thiserror/anyhow 选型，对比 PHP Exception 和 Go error 的设计哲学，帮助开发者在不同语言间建立统一的错误处理心智模型。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600&h=900&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600&h=900&fit=crop
 ---
 
 ## 前言

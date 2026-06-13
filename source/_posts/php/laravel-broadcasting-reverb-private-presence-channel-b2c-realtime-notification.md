@@ -6,6 +6,8 @@ description: '深度实战 Laravel Broadcasting + Reverb 在 B2C 电商场景中
 categories:
   - php
 cover: /images/covers/laravel-broadcasting-reverb-presence-cover.jpg
+images:
+  - /images/covers/laravel-broadcasting-reverb-presence-cover.jpg
 ---
 
 ## 一、引言：B2C 电商场景下的实时需求

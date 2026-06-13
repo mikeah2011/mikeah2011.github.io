@@ -6,6 +6,8 @@ description: "MySQL 8.0 Invisible Index（不可见索引）线上实战指南�
 categories:
   - database
 cover: /images/covers/mysql-invisible-index-cover.jpg
+images:
+  - /images/covers/mysql-invisible-index-cover.jpg
 ---
 
 ## 前言

@@ -15,6 +15,8 @@ description: 深入实战 Husky + lint-staged + Danger.js 组合拳，构建从�
   关联、UI 截图验证、测试覆盖门禁、架构约束检查），以及 GitHub Actions/GitLab CI 完整集成方案、monorepo 适配、Fork PR
   权限处理等 6 大真实踩坑案例与团队渐进式落地策略。
 cover: /images/covers/pr-review-checklist-automation-cover.jpg
+images:
+  - /images/covers/pr-review-checklist-automation-cover.jpg
 ---
 
 

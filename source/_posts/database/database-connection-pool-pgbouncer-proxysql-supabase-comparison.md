@@ -5,6 +5,8 @@ tags: [PgBouncer, ProxySQL, Supabase, 连接池, Laravel, 高并发]
 categories:
   - database
 cover: /images/covers/database-connection-pool-cover.jpg
+images:
+  - /images/covers/database-connection-pool-cover.jpg
 description: "Laravel 高并发场景下，PHP-FPM 的进程模型会导致数据库连接风暴。本文深度对比三大连接池方案：PgBouncer（PostgreSQL 轻量级连接池）、ProxySQL（MySQL 读写分离与查询路由）、Supabase Supavisor（Serverless 云原生连接池）。详解 Transaction 模式 vs Session 模式的取舍、Prepared Statement 兼容性问题、Laravel 数据库配置调优，以及如何通过连接池让 Laravel 从容应对万级并发。"
 ---
 

@@ -12,6 +12,8 @@ description: 深入实战 Htmx 与 Laravel 的渐进增强集成方案，通过�
 categories:
 - frontend
 cover: /images/covers/htmx-laravel-practical-cover.jpg
+images:
+  - /images/covers/htmx-laravel-practical-cover.jpg
 ---
 
 

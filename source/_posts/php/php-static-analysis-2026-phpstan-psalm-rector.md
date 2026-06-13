@@ -7,6 +7,8 @@ description: >-
 categories:
   - php
 cover: /images/covers/php-static-analysis-2026-phpstan-psalm-rector-cover.jpg
+images:
+  - /images/covers/php-static-analysis-2026-phpstan-psalm-rector-cover.jpg
 ---
 
 # PHP Static Analysis 2026 选型：PHPStan 2.x vs Psalm vs Rector——泛型推断、条件返回类型与类型体操的三工具联动

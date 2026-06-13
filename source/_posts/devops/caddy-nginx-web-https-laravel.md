@@ -5,6 +5,8 @@ tags: [Caddy, Nginx, Web服务器, HTTPS, 反向代理, Laravel, DevOps]
 categories:
   - devops
 cover: /images/covers/caddy2-next-gen-web-server-cover.jpg
+images:
+  - /images/covers/caddy2-next-gen-web-server-cover.jpg
 description: 深度实战 Caddy 2——用 Go 编写的下一代 Web 服务器，详解自动 HTTPS 零配置证书管理、反向代理、Laravel 项目部署全流程。对比 Nginx 在配置语法、性能基准、安全默认值上的差异，附 Docker/K8s 集成方案与生产环境调优指南。适合正在评估从 Nginx 迁移到 Caddy 的运维工程师和 Laravel 开发者参考。
 ---
 

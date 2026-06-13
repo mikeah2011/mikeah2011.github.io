@@ -16,6 +16,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/prompt-template-engineering-cover.jpg
+images:
+  - /images/covers/prompt-template-engineering-cover.jpg
 ---
 
 

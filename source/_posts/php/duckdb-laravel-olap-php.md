@@ -6,6 +6,8 @@ tags: [DuckDB, Laravel, OLAP, PHP, 数据分析]
 categories:
   - php
 cover: /images/covers/duckdb-laravel-olap-cover.jpg
+images:
+  - /images/covers/duckdb-laravel-olap-cover.jpg
 ---
 
 ## 前言

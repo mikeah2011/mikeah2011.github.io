@@ -13,6 +13,8 @@ tags:
 description: 深入 SurrealDB 的多模型架构，用 Rust 原生驱动实现文档、图、关系三种查询范式的统一数据层，对比 MongoDB 和 Neo4j
   的适用场景与取舍。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
+images:
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
 
 

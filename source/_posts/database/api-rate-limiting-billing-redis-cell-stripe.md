@@ -6,6 +6,8 @@ tags: [Redis, Stripe, API限流, SaaS, 按量计费, Redis Cell, Laravel]
 categories:
   - database
 cover: /images/covers/api-rate-limiting-billing-redis-cell-stripe-cover.jpg
+images:
+  - /images/covers/api-rate-limiting-billing-redis-cell-stripe-cover.jpg
 ---
 
 ## 引言：当限流遇上计费——SaaS 平台的流量治理困境

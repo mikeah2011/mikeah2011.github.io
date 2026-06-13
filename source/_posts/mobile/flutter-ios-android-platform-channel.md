@@ -5,6 +5,8 @@ tags: [Flutter, 混合开发, Platform Channel, iOS, Android]
 categories:
   - mobile
 cover: /images/covers/flutter-platform-channel-cover.jpg
+images:
+  - /images/covers/flutter-platform-channel-cover.jpg
 description: 深入解析 Flutter 混合开发中的 Platform Channel 实战方案，系统讲清与 iOS、Android 原生集成的通道选型、数据编解码、PlatformView、生命周期与常见踩坑，帮你高效完成原生集成与架构落地。
 ---
 

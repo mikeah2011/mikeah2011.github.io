@@ -1,6 +1,8 @@
 ---
 title: Laravel + PostgreSQL CDC 实战：Debezium 驱动订单变更同步、乱序修复与补数回放踩坑记录
 cover: /images/covers/laravel-postgresql-cdc-guide-debezium-cover.jpg
+images:
+  - /images/covers/laravel-postgresql-cdc-guide-debezium-cover.jpg
 date: 2026-05-04 14:23:21
 updated: 2026-05-04 14:24:58
 categories:

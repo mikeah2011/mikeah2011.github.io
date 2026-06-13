@@ -5,6 +5,8 @@ tags: [Rust, PHP, Go, 错误处理, thiserror, anyhow, 对比分析]
 description: "深入对比 Rust Result/Option/thiserror/anyhow、PHP Exception 与 Go error 三种错误处理哲学的设计权衡。从类型安全、性能开销、开发者体验到生产实战，用丰富的代码示例、跨语言对比表格和性能基准测试帮你理解每种方案的优劣。涵盖真实踩坑案例、异步场景错误处理、以及 PHP 开发者迁移 Rust 的渐进式策略。无论你是 PHP/Laravel 开发者想学 Rust，还是 Go 工程师好奇 Rust 的错误模型，本文都能给你实用的启发和指导。"
 categories: [misc]
 cover: /images/covers/rust-error-handling-cover.jpg
+images:
+  - /images/covers/rust-error-handling-cover.jpg
 ---
 
 # Rust 错误处理哲学：Result/Option/thiserror/anyhow——对比 PHP Exception 和 Go error 的设计权衡

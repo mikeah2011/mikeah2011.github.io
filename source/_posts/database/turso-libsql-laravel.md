@@ -12,6 +12,8 @@ tags:
 categories:
 - database
 cover: /images/covers/turso-libsql-advanced-edge-replication-cover.jpg
+images:
+  - /images/covers/turso-libsql-advanced-edge-replication-cover.jpg
 description: 本文深入解析 Turso + libSQL 边缘数据库的进阶架构，涵盖嵌入式副本的完整配置与内部同步机制、Turso 多节点复制组的 WAL
   流式复制原理、以及 Laravel 多区域读写分离的完整代码实现。通过性能基准测试数据与传统 MySQL 主从方案对比，帮助开发者理解嵌入式副本在亚毫秒级读取延迟上的优势。同时分享生产环境踩坑案例与高可用策略，为从
   SQLite 迁移到分布式数据库提供完整参考。

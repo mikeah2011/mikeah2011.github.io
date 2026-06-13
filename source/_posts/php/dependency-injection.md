@@ -1,6 +1,8 @@
 ---
 title: 依赖注入（DI）与 IoC 容器
 cover: /images/covers/php-dependency-injection-cover.jpg
+images:
+  - /images/covers/php-dependency-injection-cover.jpg
 tags:
 - Laravel
 - PHP

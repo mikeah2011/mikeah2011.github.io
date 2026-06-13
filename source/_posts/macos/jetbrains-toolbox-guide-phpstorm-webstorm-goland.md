@@ -1,6 +1,8 @@
 ---
 title: "JetBrains Toolbox 实战：PhpStorm/WebStorm/GoLand 配置同步踩坑记录"
 cover: /images/covers/jetbrains-toolbox-guide-phpstorm-webstorm-goland-cover.jpg
+images:
+  - /images/covers/jetbrains-toolbox-guide-phpstorm-webstorm-goland-cover.jpg
 date: 2026-05-17 04:55:35
 updated: 2026-05-17 04:59:29
 description: "JetBrains Toolbox App 完全实战指南：PhpStorm/WebStorm/GoLand/DataGrip 多 IDE 统一管理、Settings Sync 跨 IDE 配置同步、插件批量安装、版本回滚、CLI 命令行工具、macOS 权限与性能优化，含 5 个真实踩坑案例与解决方案，适合 Laravel 全栈开发者提升多 IDE 工作流效率。"

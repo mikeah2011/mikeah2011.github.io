@@ -14,6 +14,8 @@ description: ScyllaDB 是 Apache Cassandra 的 C++ 重写版本，基于 Seastar
 categories:
 - database
 cover: /images/covers/scylladb-laravel-high-throughput-cover.jpg
+images:
+  - /images/covers/scylladb-laravel-high-throughput-cover.jpg
 ---
 
 

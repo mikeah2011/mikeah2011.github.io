@@ -1,6 +1,8 @@
 ---
 title: Laravel HTTP Client 容错弹性模式实战 - 熔断降级、重试退避与超时治理踩坑记录
 cover: /images/covers/laravel-http-client-guide-circuit-breakerfallback-cover.jpg
+images:
+  - /images/covers/laravel-http-client-guide-circuit-breakerfallback-cover.jpg
 date: 2026-05-04 23:35:40
 updated: 2026-05-04 23:40:38
 categories:

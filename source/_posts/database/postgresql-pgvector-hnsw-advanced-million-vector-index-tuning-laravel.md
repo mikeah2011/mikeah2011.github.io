@@ -3,6 +3,9 @@ title: PostgreSQL pgvector + HNSW 实战进阶：百万级向量检索的索引�
   集成
 date: 2026-06-09 15:35:01
 categories:
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 - database
 tags:
 - PostgreSQL

@@ -3,6 +3,9 @@ title: Laravel Context 实战进阶：请求级上下文的全链路透传——
 date: 2026-06-10 01:11:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - Context

@@ -1,6 +1,8 @@
 ---
 title: Laravel 多租户 SaaS 实战：共享库与独立库混合架构下的租户识别、连接切换与队列串租踩坑记录
 cover: /images/covers/laravel-saas-guide-architecture-cover.jpg
+images:
+  - /images/covers/laravel-saas-guide-architecture-cover.jpg
 date: 2026-05-03 10:00:45
 updated: 2026-06-06 12:00:00
 categories:

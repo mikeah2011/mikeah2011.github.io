@@ -15,6 +15,8 @@ description: 深入实战 AWS Secrets Manager 与 Laravel 自动化密钥轮换�
 categories:
 - devops
 cover: /images/covers/secrets-rotation-aws-secrets-manager-laravel-cover.jpg
+images:
+  - /images/covers/secrets-rotation-aws-secrets-manager-laravel-cover.jpg
 ---
 
 

@@ -12,6 +12,8 @@ tags:
 categories:
 - mobile
 cover: /images/covers/flutter-i18n-cover.jpg
+images:
+  - /images/covers/flutter-i18n-cover.jpg
 ---
 
 

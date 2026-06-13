@@ -6,6 +6,8 @@ tags: [Backstage, IDP, DevOps, 开发者门户, Spotify]
 categories:
   - devops
 cover: /images/covers/backstage-developer-portal-idp-service-catalog-cover.jpg
+images:
+  - /images/covers/backstage-developer-portal-idp-service-catalog-cover.jpg
 ---
 
 # Backstage 实战：开发者门户搭建——内部开发者平台（IDP）与服务目录管理

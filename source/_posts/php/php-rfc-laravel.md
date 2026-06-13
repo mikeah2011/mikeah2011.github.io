@@ -14,6 +14,8 @@ tags:
   - 类型系统
 description: "从 PHP 8.0 的 Union Types 到 8.5 的 Pipe Operator、Clone with v2，再到 8.6 的 Debugable Enums 和正在讨论的 Friends/Scope Functions RFC——全面梳理 PHP 类型系统与语言特性的进化路线，附 Laravel 实战代码与升级建议。"
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200
 ---
 
 ## 概述

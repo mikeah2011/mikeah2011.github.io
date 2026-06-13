@@ -1,6 +1,8 @@
 ---
 title: kkday/log + kkday/monitor + kkday/tracing 实战：Laravel 可观测性架构——日志聚合、指标采集与分布式追踪踩坑记录
 cover: /images/covers/kkday-log-monitor-tracing-laravel-architectureguide-loggingdistributed-cover.jpg
+images:
+  - /images/covers/kkday-log-monitor-tracing-laravel-architectureguide-loggingdistributed-cover.jpg
 date: 2026-05-05 01:40:51
 updated: 2026-05-05 01:43:32
 categories:

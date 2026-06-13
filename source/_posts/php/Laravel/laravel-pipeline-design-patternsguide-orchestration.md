@@ -1,6 +1,8 @@
 ---
 title: Laravel Pipeline 设计模式实战 - 订单处理编排、条件分支与可中断链路踩坑记录
 cover: /images/covers/laravel-pipeline-design-patternsguide-orchestration-cover.jpg
+images:
+  - /images/covers/laravel-pipeline-design-patternsguide-orchestration-cover.jpg
 date: 2026-05-04 23:59:59
 updated: 2026-05-05 00:01:30
 categories:

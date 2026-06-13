@@ -9,6 +9,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/openclaw-heartbeat-cover.jpg
+images:
+  - /images/covers/openclaw-heartbeat-cover.jpg
 description: 本文系统讲解 OpenClaw HEARTBEAT.md 心跳机制在 AI Agent 与运维场景中的落地方法，涵盖主动健康检查、定时任务、Cron
   与 systemd 集成、故障检测、自动恢复、前进性指标设计及常见踩坑案例，帮助你构建可观测、可告警、可自愈的长期运行 Agent 运维体系。
 ---

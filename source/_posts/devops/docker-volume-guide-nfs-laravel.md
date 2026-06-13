@@ -1,6 +1,8 @@
 ---
 title: Docker-Volume-实战-数据持久化备份恢复与NFS挂载-Laravel踩坑记录
 cover: /images/covers/docker-volume-guide-nfs-laravel-cover.jpg
+images:
+  - /images/covers/docker-volume-guide-nfs-laravel-cover.jpg
 date: 2026-05-16 22:45:13
 updated: 2026-05-16 22:48:11
 tags: [DevOps, Docker, Kubernetes, Laravel]

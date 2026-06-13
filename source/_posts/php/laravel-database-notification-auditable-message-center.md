@@ -5,6 +5,8 @@ tags: [Laravel, Notifications, Database, PHP, 消息中心]
 categories:
   - php
 cover: /images/covers/laravel-database-notification-auditable-message-center-cover.jpg
+images:
+  - /images/covers/laravel-database-notification-auditable-message-center-cover.jpg
 description: Laravel Database Notification 实战指南，用数据库驱动替代 Redis 构建可审计、可查询的消息中心系统。涵盖表结构设计、自定义模型扩展、查询性能优化、归档策略、双驱动架构选型与生产踩坑，适合中大型 Laravel 项目通知系统架构参考。
 ---
 

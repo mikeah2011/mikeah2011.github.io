@@ -3,6 +3,9 @@ title: Go 语言 context 包深度解析：并发控制与取消传播
 date: 2026-06-10 02:18:00
 categories:
   - go
+cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 tags:
   - Go
   - Context

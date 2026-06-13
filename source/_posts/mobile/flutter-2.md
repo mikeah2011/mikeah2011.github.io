@@ -9,6 +9,8 @@ tags:
 categories:
 - mobile
 cover: /images/covers/flutter-in-app-update-cover.jpg
+images:
+  - /images/covers/flutter-in-app-update-cover.jpg
 description: 本文系统拆解 Flutter 应用内更新方案，覆盖版本检测、服务端策略设计、强制更新、柔性更新、灰度发布、A/B 实验、回滚治理与审核期风险控制，附
   Dart 代码示例、实战流程与常见踩坑，帮助你构建可观测、可回退的移动端更新体系。
 ---

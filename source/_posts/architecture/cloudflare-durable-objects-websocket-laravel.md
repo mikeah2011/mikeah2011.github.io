@@ -3,6 +3,9 @@ title: Cloudflare Durable Objects 实战：有状态边缘计算——对比传�
 date: 2026-06-10 01:39:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Cloudflare
   - Durable Objects

@@ -3,6 +3,9 @@ title: MySQL InnoDB Buffer Pool 深度调优：LRU 算法、预读策略、热�
   实战解读
 date: 2026-06-10 08:41:00
 categories:
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 - database
 tags:
 - InnoDB

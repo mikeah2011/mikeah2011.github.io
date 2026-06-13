@@ -3,6 +3,8 @@ title: ThinkPHP-电商后端架构设计-盲盒抽奖业务的核心逻辑实战
 date: 2026-05-05 09:50:56
 updated: 2026-05-05 09:55:25
 cover: /images/covers/thinkphp-architecture-cover.jpg
+images:
+  - /images/covers/thinkphp-architecture-cover.jpg
 categories:
 - misc
 tags:

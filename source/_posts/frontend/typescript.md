@@ -1,6 +1,8 @@
 ---
 title: TypeScript
 cover: /images/covers/typescript-cover.jpg
+images:
+  - /images/covers/typescript-cover.jpg
 tags:
 - TypeScript
 - 前端

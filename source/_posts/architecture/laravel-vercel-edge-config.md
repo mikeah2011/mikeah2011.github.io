@@ -12,6 +12,8 @@ tags:
   - 边缘计算
 description: 深入实战 Laravel 与 Vercel Edge Config 的集成，实现毫秒级 Feature Flags、A/B 测试和动态配置管理，让你的应用配置飞到边缘。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
+images:
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
 
 ## 为什么需要边缘配置？

@@ -14,6 +14,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/storybook-8x-vue3-cover.jpg
+images:
+  - /images/covers/storybook-8x-vue3-cover.jpg
 ---
 
 

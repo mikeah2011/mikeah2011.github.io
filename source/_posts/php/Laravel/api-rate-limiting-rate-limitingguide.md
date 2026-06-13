@@ -1,6 +1,8 @@
 ---
 title: API Rate Limiting - 接口限流实战 - KKday B2C API 真实踩坑记录
 cover: /images/covers/api-rate-limiting-rate-limitingguide-cover.jpg
+images:
+  - /images/covers/api-rate-limiting-rate-limitingguide-cover.jpg
 date: 2026-05-03
 categories:
   - php

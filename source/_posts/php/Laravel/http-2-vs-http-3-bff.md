@@ -1,6 +1,8 @@
 ---
 title: HTTP/2 vs HTTP/3 在 BFF 場景性能對比與真實踩坑記錄
 cover: /images/covers/http-2-vs-http-3-bff-cover.jpg
+images:
+  - /images/covers/http-2-vs-http-3-bff-cover.jpg
 date: 2026-05-02
 categories:
 - php

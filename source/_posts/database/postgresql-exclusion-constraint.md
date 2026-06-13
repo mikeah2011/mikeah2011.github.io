@@ -3,6 +3,9 @@ title: PostgreSQL Exclusion Constraint 实战：时间区间不重叠约束—�
 date: 2026-06-10 05:03:00
 categories:
   - database
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 tags:
   - PostgreSQL
   - Exclusion Constraint

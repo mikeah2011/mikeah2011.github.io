@@ -2,6 +2,9 @@
 title: CSS Houdini 深度实战：Paint API/Layout API/Worklets——浏览器渲染引擎的可编程化与自定义布局方案
 date: 2026-06-10 08:47:00
 categories:
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 - frontend
 tags:
 - CSS

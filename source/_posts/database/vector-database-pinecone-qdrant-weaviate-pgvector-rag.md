@@ -16,6 +16,8 @@ description: 向量数据库选型不再迷茫！本文深度对比 Pinecone、Q
 categories:
 - database
 cover: /images/covers/vector-database-rag-cover.jpg
+images:
+  - /images/covers/vector-database-rag-cover.jpg
 ---
 
 

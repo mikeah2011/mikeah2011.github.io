@@ -12,6 +12,8 @@ tags:
 description: 从 Terraform 迁移到 OpenTofu 的完整实战指南：State 文件原生加密、Provider 兼容性验证、Laravel
   基础设施 GitOps 工作流搭建，以及生产环境踩坑记录。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80
+images:
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80
 ---
 
 ## 概述

@@ -1,6 +1,8 @@
 ---
 title: PHPStan/Psalm 大型 Laravel 項目靜態分析最佳實踐-KKday-B2C-API 真實踩坑記錄
 cover: /images/covers/phpstan-psalm-laravel-cover.jpg
+images:
+  - /images/covers/phpstan-psalm-laravel-cover.jpg
 date: 2026-05-02
 categories:
   - php

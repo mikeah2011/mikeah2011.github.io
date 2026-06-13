@@ -1,6 +1,8 @@
 ---
 title: Linux 运维与 Shell 完全指南：权限、命令、进程管理与网络调试
 cover: /images/covers/linux-cover.jpg
+images:
+  - /images/covers/linux-cover.jpg
 tags: [DevOps, Linux, 运维, Shell]
 categories:
   - engineering

@@ -11,6 +11,8 @@ tags:
   - 软删除
 description: 深入 Laravel Eloquent 全局作用域机制，实战 Soft Delete 原理、多租户隔离、数据权限控制，以及多个全局作用域嵌套时的冲突排查与解决方案。
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200
+images:
+  - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200
 ---
 
 ## 前言

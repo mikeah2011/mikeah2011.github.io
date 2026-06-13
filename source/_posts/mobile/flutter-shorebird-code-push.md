@@ -5,6 +5,8 @@ tags: [Flutter, Hot Update, Shorebird, Code Push, 热更新]
 categories:
   - mobile
 cover: /images/covers/flutter-hot-update-shorebird-cover.jpg
+images:
+  - /images/covers/flutter-hot-update-shorebird-cover.jpg
 description: '系统讲解 Flutter 热更新在生产环境中的落地方式，覆盖 Shorebird 与自建 Code Push 思路、AOT Patch 原理、灰度发布、回滚机制、合规边界、安全验签与常见踩坑，帮助团队在追求更新效率时兼顾稳定性与风险控制。'
 ---
 

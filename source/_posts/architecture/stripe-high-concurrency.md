@@ -2,6 +2,8 @@
 title: "Stripe 支付 - 支付流程完整设计与高并发场景下的幂等性保障踩坑记录"
 date: 2026-05-04 12:01:45
 cover: /images/covers/stripe-high-concurrency-cover.jpg
+images:
+  - /images/covers/stripe-high-concurrency-cover.jpg
 description: "Stripe 支付系统完整设计实战：涵盖 PaymentIntent 支付流程、Webhook 签名验证与队列异步处理、幂等性保障（Idempotency-Key）、3D Secure 超时踩坑、高并发连接池复用等核心方案，来自 KKday B2C API 高并发场景的真实生产踩坑与架构优化记录。"
 updated: null
 tags: [Laravel, Stripe, 支付, 高并发, Webhook, 幂等性, PaymentIntent, B2C]

@@ -13,6 +13,8 @@ tags:
 categories:
 - database
 cover: /images/covers/read-write-split-proxy-cover.jpg
+images:
+  - /images/covers/read-write-split-proxy-cover.jpg
 ---
 
 

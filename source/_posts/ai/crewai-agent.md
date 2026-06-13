@@ -4,6 +4,8 @@ date: 2026-06-02 09:00:00
 tags: [CrewAI, AI Agent, 多角色协作, Python]
 categories: [ai]
 cover: /images/covers/crewai-multi-agent-collaboration-cover.jpg
+images:
+  - /images/covers/crewai-multi-agent-collaboration-cover.jpg
 description: "想系统掌握 CrewAI 多角色协作怎么落地？本文结合 Python 实战详解 Agent、Task、Crew 任务分解、Sequential/Hierarchical 流程设计，并对比 AutoGen 与 LangGraph 选型策略，帮你搭建可治理的 AI Agent 工作流。"
 ---
 

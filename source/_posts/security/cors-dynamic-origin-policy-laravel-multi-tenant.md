@@ -3,6 +3,9 @@ title: CORS 动态策略实战：基于 Origin 的动态允许列表——Larave
 date: 2026-06-10 01:53:00
 categories:
   - security
+cover: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop
 tags:
   - CORS
   - Laravel

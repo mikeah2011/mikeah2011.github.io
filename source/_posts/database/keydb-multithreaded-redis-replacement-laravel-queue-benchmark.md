@@ -3,6 +3,9 @@ title: KeyDB 实战：多线程 Redis 替代——对比 Redis/Valkey 的并发�
 date: 2026-06-10 03:52:00
 categories:
   - database
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 tags:
   - KeyDB
   - Redis

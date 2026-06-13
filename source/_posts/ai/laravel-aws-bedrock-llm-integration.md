@@ -13,6 +13,8 @@ tags:
   - PHP
 description: "在 Laravel 项目中统一接入 AWS Bedrock 托管的多种 LLM（Claude、Llama、Titan），实现模型切换、流式输出、Token 计费追踪与成本优化的完整实战方案。"
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200
 ---
 
 ## 前言

@@ -13,6 +13,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/linux-security-hardening-apparmor-selinux-seccomp-cover.jpg
+images:
+  - /images/covers/linux-security-hardening-apparmor-selinux-seccomp-cover.jpg
 description: Linux安全加固实战指南：深入解析AppArmor路径级访问控制、SELinux安全标签策略、seccomp系统调用白名单三大内核安全模块。结合Docker与Kubernetes容器逃逸CVE防护，提供从镜像构建到运行时监控的纵深防御方案，附完整代码示例与踩坑案例，适合运维工程师与开发者快速掌握容器安全加固技能。
 ---
 

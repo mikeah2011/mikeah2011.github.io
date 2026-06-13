@@ -14,6 +14,8 @@ description: OpenClaw 开源 AI Agent 框架的完整入门指南与 macOS 环�
 categories:
 - ai
 cover: /images/covers/openclaw-ai-agent-framework-macos-setup-cover.jpg
+images:
+  - /images/covers/openclaw-ai-agent-framework-macos-setup-cover.jpg
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 title: Laravel Scheduler 定时任务实战：多实例部署下的重入保护、onOneServer 失效与 Kubernetes CronJob 取舍
 cover: /images/covers/laravel-scheduler-guide-deployment-ononeserver-kubernetes-cronjob-cover.jpg
+images:
+  - /images/covers/laravel-scheduler-guide-deployment-ononeserver-kubernetes-cronjob-cover.jpg
 date: 2026-05-03 11:00:13
 updated: 2026-05-03 11:01:35
 categories:

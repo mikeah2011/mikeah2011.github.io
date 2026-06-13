@@ -14,6 +14,8 @@ description: 深度对比五大分布式限流算法：固定窗口、滑动窗�
 categories:
 - database
 cover: /images/covers/rate-limiting-cover.jpg
+images:
+  - /images/covers/rate-limiting-cover.jpg
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 title: Laravel-Dusk-浏览器自动化E2E测试实战-CI流水线集成-动态等待与选择器治理踩坑记录
 cover: /images/covers/laravel-dusk-automatione2etestingguide-ci-cover.jpg
+images:
+  - /images/covers/laravel-dusk-automatione2etestingguide-ci-cover.jpg
 date: 2026-05-05 00:05:58
 updated: 2026-05-05 00:09:22
 tags:

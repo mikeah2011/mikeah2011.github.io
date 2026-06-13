@@ -3,6 +3,9 @@ title: 前端 Bundle 分析工程化实战：rollup-plugin-visualizer + source-m
 date: 2026-06-10 03:09:00
 categories:
   - frontend
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 tags:
   - Webpack
   - Vite

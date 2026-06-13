@@ -5,6 +5,8 @@ tags: [OpenClaw, AI Agent, 记忆维护, 数据蒸馏, 自动化]
 categories:
   - architecture
 cover: /images/covers/openclaw-memory-maintenance-cover.jpg
+images:
+  - /images/covers/openclaw-memory-maintenance-cover.jpg
 description: 深入剖析 OpenClaw AI Agent 记忆维护循环的完整工作流，涵盖日常日志收集、长期记忆蒸馏与过时信息修剪三大核心环节。从设计理念到实现细节，详解如何构建自我进化的记忆系统，包括 LLM 驱动的信息提取、矛盾检测、调度策略与闭环验证机制，帮助你打造越用越聪明的 AI Agent。
 ---
 

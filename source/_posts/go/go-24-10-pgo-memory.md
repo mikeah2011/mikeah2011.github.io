@@ -3,6 +3,9 @@ title: Go 1.24 新特性速览：PGO 默认开启、内存优化与 Worker Pool 
 date: 2026-06-10 09:06:00
 categories:
   - go
+cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 tags:
   - Go1.24
   - PGO

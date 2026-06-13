@@ -5,6 +5,8 @@ tags: [Flutter, 性能优化, DevTools, 渲染优化, 包体积]
 categories:
   - mobile
 cover: /images/covers/flutter-performance-optimization-cover.jpg
+images:
+  - /images/covers/flutter-performance-optimization-cover.jpg
 description: "Flutter性能优化实战指南，涵盖DevTools性能分析工具使用方法、渲染优化策略（减少rebuild/repaint）、包体积裁剪技巧（tree-shaking/资源治理/deferred loading）。通过实际项目案例讲解如何定位掉帧卡顿、内存泄漏等性能瓶颈，包含完整的代码示例和优化前后对比数据，助你打造流畅的Flutter应用。"
 ---
 

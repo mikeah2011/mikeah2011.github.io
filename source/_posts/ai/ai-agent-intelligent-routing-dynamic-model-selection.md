@@ -3,6 +3,9 @@ title: AI Agent Intelligent Routing 实战：根据任务复杂度动态选择�
 date: 2026-06-10 00:20:00
 categories:
   - ai
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 tags:
   - AI Agent
   - 智能路由

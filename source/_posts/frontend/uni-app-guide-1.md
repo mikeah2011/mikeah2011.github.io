@@ -1,5 +1,7 @@
 ---
 cover: /images/covers/uni-app-guide-1-cover.jpg
+images:
+  - /images/covers/uni-app-guide-1-cover.jpg
 title: uni-app 微信小程序实战：登录、支付、分享完整流程
 date: 2026-05-17 06:05:13
 updated: 2026-05-17 06:09:37

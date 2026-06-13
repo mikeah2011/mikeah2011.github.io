@@ -3,6 +3,9 @@ title: FrankenPHP 2.x 实战进阶：Caddy 内嵌 PHP、HTTP/3 原生支持与 W
 date: 2026-06-09 14:00:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - FrankenPHP
   - PHP

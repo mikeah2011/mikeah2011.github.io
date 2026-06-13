@@ -5,6 +5,8 @@ tags: [Git, 版本控制, 底层原理, DevOps]
 categories:
   - devops
 cover: /images/covers/git-internals-cover.jpg
+images:
+  - /images/covers/git-internals-cover.jpg
 description: "深入剖析 Git 底层原理，全面解析对象模型（blob、tree、commit、tag）的存储结构与 SHA-1 内容寻址机制，详解 packfile 增量压缩与垃圾回收的工作流程，以及引用规范（refs）、HEAD、packed-refs 的内部实现。结合大量可运行的 git cat-file、git hash-object 命令演示，配合踩坑案例与排错指南，帮助开发者从「会用 Git」升级为「理解 Git 底层原理」，掌握数据恢复、仓库优化与高级工作流设计的核心能力。"
 ---
 

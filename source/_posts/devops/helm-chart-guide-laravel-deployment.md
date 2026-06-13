@@ -1,6 +1,8 @@
 ---
 title: Helm-Chart-实战-Laravel-应用打包与部署踩坑记录
 cover: /images/covers/helm-chart-guide-laravel-deployment-cover.jpg
+images:
+  - /images/covers/helm-chart-guide-laravel-deployment-cover.jpg
 date: 2026-05-16 23:10:35
 updated: 2026-05-16 23:12:59
 categories:

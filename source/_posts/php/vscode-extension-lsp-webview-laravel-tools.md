@@ -3,6 +3,9 @@ title: "VS Code Extension 开发实战：Language Server Protocol、Webview API 
 date: 2026-06-10 09:25:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - VS Code
   - Extension

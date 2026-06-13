@@ -3,6 +3,9 @@ title: MySQL 索引设计反模式实战：过度索引、冗余索引、幽灵�
 date: 2026-06-10 02:33:00
 categories:
   - database
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 tags:
   - MySQL
   - Index

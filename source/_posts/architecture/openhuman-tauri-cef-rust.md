@@ -13,6 +13,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/openhuman-tauri-cef-build-cover.jpg
+images:
+  - /images/covers/openhuman-tauri-cef-build-cover.jpg
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 title: PHP-OpCache 调优实战-KKday-B2C-API 高并发场景下的内存优化与真实踩坑记录
 cover: /images/covers/php-opcache-guide-high-concurrencyoptimization-cover.jpg
+images:
+  - /images/covers/php-opcache-guide-high-concurrencyoptimization-cover.jpg
 date: 2026-05-02
 categories:
 - php

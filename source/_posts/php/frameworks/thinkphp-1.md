@@ -1,6 +1,8 @@
 ---
 title: ThinkPHP 框架入门：国内主流 PHP 框架快速上手
 cover: /images/covers/thinkphp-1-cover.jpg
+images:
+  - /images/covers/thinkphp-1-cover.jpg
 tags:
 - PHP
 - ThinkPHP

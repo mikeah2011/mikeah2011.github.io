@@ -1,6 +1,8 @@
 ---
 title: PHP 垃圾回收机制（GC）
 cover: /images/covers/gc-cover.jpg
+images:
+  - /images/covers/gc-cover.jpg
 tags:
 - PHP
 - 性能优化

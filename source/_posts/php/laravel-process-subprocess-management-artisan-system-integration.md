@@ -6,6 +6,8 @@ categories:
   - php
 description: "深入实战 Laravel Process Facade 的子进程管理与外部命令编排能力。从原生 exec()/shell_exec() 的五大痛点出发，系统讲解 Process::run() 同步执行、Process::start() 异步管理、超时控制、重试机制与环境变量注入。涵盖图片批处理（ImageMagick）、数据库备份（mysqldump）、队列 Worker 生命周期管理三大实战案例，以及 Artisan 命令编排、部署脚本集成、Process::fake() 测试 Mock、进程池并发控制、shell 注入防护等生产级最佳实践。附完整的队列 Worker 健康检查与自动重启方案，帮助后端工程师将系统级任务无缝融入 Laravel 工程体系。"
 cover: /images/covers/laravel-process-subprocess-cover.jpg
+images:
+  - /images/covers/laravel-process-subprocess-cover.jpg
 ---
 
 ## 引言

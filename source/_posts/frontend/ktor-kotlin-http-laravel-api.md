@@ -6,6 +6,8 @@ description: "深入实战 Kotlin 原生 HTTP 框架 Ktor，涵盖服务端路�
 categories:
   - frontend
 cover: /images/covers/ktor-kotlin-cover.jpg
+images:
+  - /images/covers/ktor-kotlin-cover.jpg
 ---
 
 在当今服务端开发的版图中，选择一个合适的 HTTP 框架往往决定了项目的开发效率、运行性能与长期可维护性。对于 Kotlin 开发者而言，**Ktor** 作为 JetBrains 官方推出的原生 HTTP 框架，凭借其协程驱动的异步模型、极简的 DSL 风格以及同时支持服务端与客户端的能力，正在成为 Spring Boot 之外极具吸引力的选择。本文将从架构原理到实战编码，全面剖析 Ktor 的核心能力，并通过与 Laravel（PHP）和 Spring Boot（Java/Kotlin）的性能基准对比，帮助你在技术选型时做出更明智的决策。

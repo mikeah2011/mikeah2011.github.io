@@ -1,6 +1,8 @@
 ---
 title: Yii2 框架入门：Gii 代码生成与 ActiveRecord 实战
 cover: /images/covers/yii2-1-cover.jpg
+images:
+  - /images/covers/yii2-1-cover.jpg
 tags:
 - PHP
 - Yii2

@@ -1,6 +1,8 @@
 ---
 title: "GitHub Actions CI/CD 优化实战：Laravel 单体仓库的矩阵拆分、缓存命中与并行发布踩坑记录"
 cover: /images/covers/github-actions-ci-cd-optimizationguide-laravel-cache-cover.jpg
+images:
+  - /images/covers/github-actions-ci-cd-optimizationguide-laravel-cache-cover.jpg
 date: 2026-05-03 09:40:00
 categories:
   - php

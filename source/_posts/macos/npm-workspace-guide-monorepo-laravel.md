@@ -1,6 +1,8 @@
 ---
 title: npm-workspace-实战-Monorepo-项目管理与多包协作-Laravel前后端分离踩坑记录
 cover: /images/covers/npm-workspace-guide-monorepo-laravel-cover.jpg
+images:
+  - /images/covers/npm-workspace-guide-monorepo-laravel-cover.jpg
 date: 2026-05-17 07:05:31
 updated: 2026-05-17 07:08:05
 categories:

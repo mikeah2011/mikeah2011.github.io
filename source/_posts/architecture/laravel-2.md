@@ -1,6 +1,8 @@
 ---
 title: 库存预占与释放机制设计：Laravel 分布式库存的状态机实战
 cover: /images/covers/inventory-pre-occupation-release-laravel-cover.jpg
+images:
+  - /images/covers/inventory-pre-occupation-release-laravel-cover.jpg
 date: 2026-06-09 23:10:00
 updated: 2026-06-09 23:10:00
 categories:

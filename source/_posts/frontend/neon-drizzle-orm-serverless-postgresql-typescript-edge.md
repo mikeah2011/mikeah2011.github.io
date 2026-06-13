@@ -6,6 +6,8 @@ description: "深入解析 Neon Serverless PostgreSQL 与 Drizzle ORM 的集成�
 categories:
   - frontend
 cover: /images/covers/neon-drizzle-orm-serverless-postgresql-cover.jpg
+images:
+  - /images/covers/neon-drizzle-orm-serverless-postgresql-cover.jpg
 ---
 
 在 Serverless 和边缘计算逐渐成为主流部署范式的今天，数据库层的选择变得尤为关键。传统的托管 PostgreSQL（如 AWS RDS、Supabase）虽然功能强大，但在冷启动延迟、连接管理、边缘兼容性等方面仍然存在不少痛点。对于前端开发者而言，如何在边缘运行时中高效地操作关系型数据库，同时兼顾类型安全和开发体验，是一个亟待解决的问题。

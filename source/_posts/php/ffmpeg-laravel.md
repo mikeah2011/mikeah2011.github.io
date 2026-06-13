@@ -13,6 +13,8 @@ tags:
 categories:
 - php
 cover: /images/covers/ffmpeg-laravel-media-pipeline-cover.jpg
+images:
+  - /images/covers/ffmpeg-laravel-media-pipeline-cover.jpg
 ---
 
 

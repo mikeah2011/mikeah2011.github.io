@@ -1,6 +1,8 @@
 ---
 title: "PHP 属性注解实战 — 替代 DocBlock 的元数据编程与 Laravel 真实踩坑记录"
 cover: /images/covers/php-guide-docblocklaravel-cover.jpg
+images:
+  - /images/covers/php-guide-docblocklaravel-cover.jpg
 date: 2026-05-16 15:30:23
 updated: 2026-05-16 15:38:23
 categories:

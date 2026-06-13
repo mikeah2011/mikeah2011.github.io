@@ -11,6 +11,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/openhuman-obsidian-wiki-cover.jpg
+images:
+  - /images/covers/openhuman-obsidian-wiki-cover.jpg
 description: AI Agent 的记忆系统如何让用户直接查看和编辑？OpenHuman 的 Obsidian Wiki 模块将全部记忆以标准 Markdown
   文件暴露在 Obsidian Vault 中，实现 Agent 写入与用户编辑的双向流动。本文深度剖析 Wiki Sync Engine 架构、实体提取与渲染、文件监控器设计、冲突解决策略，以及
   Obsidian 插件集成方案，让你的 AI Agent 拥有透明可控的知识图谱。

@@ -2,6 +2,9 @@
 title: Jetpack Compose 实战：Android 声明式 UI 开发——与 SwiftUI/Flutter 的三端对比
 date: 2026-06-09 19:40:00
 categories:
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 - frontend
 tags:
 - Jetpack Compose

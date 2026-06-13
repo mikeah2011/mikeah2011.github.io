@@ -12,6 +12,8 @@ description: 深入 Zend VM 源码，从词法分析、语法分析到 Opcode �
 categories:
 - php
 cover: /images/covers/php-opcode-zend-vm-cover.jpg
+images:
+  - /images/covers/php-opcode-zend-vm-cover.jpg
 ---
 
 

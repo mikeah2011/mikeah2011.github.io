@@ -1,6 +1,8 @@
 ---
 title: PHP 8.1 Fibers 实战：协程并发请求与异步任务编排踩坑记录
 cover: /images/covers/php-81-fibers-guide-concurrencyorchestration-cover.jpg
+images:
+  - /images/covers/php-81-fibers-guide-concurrencyorchestration-cover.jpg
 date: 2026-05-16 16:51:25
 updated: 2026-05-16 16:57:14
 categories:

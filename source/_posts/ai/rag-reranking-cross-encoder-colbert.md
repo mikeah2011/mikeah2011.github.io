@@ -12,6 +12,8 @@ tags:
   - Laravel
 description: RAG 系统中，向量召回只是第一步，Reranking 才是决定最终答案质量的关键。本文深入 Cross-Encoder 和 ColBERT 两种重排序方案，附 Laravel/PHP 实战代码。
 cover: https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200
+images:
+  - https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200
 ---
 
 ## 概述

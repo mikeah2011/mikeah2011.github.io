@@ -3,6 +3,9 @@ title: Retry Budget 实战：Laravel HTTP Client 的重试预算治理——防�
 date: 2026-06-10 02:48:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Retry Budget
   - Laravel HTTP Client

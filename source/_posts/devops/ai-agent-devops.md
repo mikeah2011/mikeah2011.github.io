@@ -10,6 +10,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/ai-agent-devops-cover.jpg
+images:
+  - /images/covers/ai-agent-devops-cover.jpg
 description: 深入探讨如何用 AI Agent 构建从监控到告警、从修复到部署的完整 DevOps 闭环。涵盖智能异常检测、告警疲劳治理、自动修复决策、蓝绿部署智能化等核心场景，对比传统方案与
   AI 方案的优劣，附带 Prometheus + LLM 联动、自动回滚脚本等实战代码，帮助运维团队实现自驱动运维，降低 MTTR 89%。
 ---

@@ -13,6 +13,8 @@ description: PromQL 进阶实战：深入讲解 rate、histogram_quantile、labe
 categories:
 - devops
 cover: /images/covers/promql-advanced-rate-histogram-quantile-label-replace-laravel-monitoring-cover.jpg
+images:
+  - /images/covers/promql-advanced-rate-histogram-quantile-label-replace-laravel-monitoring-cover.jpg
 ---
 
 

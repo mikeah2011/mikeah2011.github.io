@@ -1,6 +1,8 @@
 ---
 title: PHP Generator -BFF 流式響應實戰-KKday-B2C-API-真實踩坑記錄
 cover: /images/covers/php-generator-bff-cover.jpg
+images:
+  - /images/covers/php-generator-bff-cover.jpg
 date: 2026-05-03
 categories:
   - php

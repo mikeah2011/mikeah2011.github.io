@@ -1,6 +1,8 @@
 ---
 title: ripgrep-实战-比-grep-快10倍的代码搜索-正则引擎并行扫描与-Laravel-大型仓库搜索踩坑记录
 cover: /images/covers/ripgrep-guide-grep-10-laravel-cover.jpg
+images:
+  - /images/covers/ripgrep-guide-grep-10-laravel-cover.jpg
 date: 2026-05-17 00:11:07
 updated: 2026-05-17 00:14:47
 categories:

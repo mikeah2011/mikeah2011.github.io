@@ -1,6 +1,8 @@
 ---
 title: PHP自动加载类机制
 cover: /images/covers/php-autoloading-cover.jpg
+images:
+  - /images/covers/php-autoloading-cover.jpg
 tags:
 - PHP
 - Composer

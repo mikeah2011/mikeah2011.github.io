@@ -13,6 +13,8 @@ tags:
   - PHP
 description: 深入实战 AI Agent 插件市场的工程化方案：从 MCP Server 注册中心、工具自动发现，到语义搜索、版本管理与依赖解析，附可直接落地的 Laravel 代码实现。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
+images:
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
 
 ## 概述

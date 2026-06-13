@@ -1,6 +1,8 @@
 ---
 title: uni-app App 打包实战：iOS/Android 原生打包与发布 — 从 HBuilderX 到上架全流程踩坑记录
 cover: /images/covers/uni-app-app-guide-ios-android-cover.jpg
+images:
+  - /images/covers/uni-app-app-guide-ios-android-cover.jpg
 date: 2026-05-17 06:40:07
 updated: 2026-05-17 06:42:11
 categories:

@@ -3,6 +3,9 @@ title: LLM Gateway Rate Limiting 实战：Token Bucket + Sliding Window + Priori
 date: 2026-06-09 17:26:00
 categories:
   - ai
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 tags:
   - LLM
   - Rate Limiting

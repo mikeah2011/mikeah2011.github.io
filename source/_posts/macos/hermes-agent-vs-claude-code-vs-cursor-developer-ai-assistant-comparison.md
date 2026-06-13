@@ -1,6 +1,8 @@
 ---
 title: Hermes Agent vs Claude Code vs Cursor：开发者 AI 助手选型与工作流对比实战踩坑记录
 cover: /images/covers/hermes-agent-vs-claude-code-vs-cursor-developer-ai-assistant-comparison-cover.jpg
+images:
+  - /images/covers/hermes-agent-vs-claude-code-vs-cursor-developer-ai-assistant-comparison-cover.jpg
 date: 2026-06-01 14:00:00
 categories:
 - macos

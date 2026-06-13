@@ -13,6 +13,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/rust-trait-enum-dispatch-cover.jpg
+images:
+  - /images/covers/rust-trait-enum-dispatch-cover.jpg
 description: 深入对比 Rust trait object 与 enum dispatch 两种多态实现：动态分发（vtable 胖指针）vs 静态分发（match
   零成本抽象），含性能基准测试、内存布局分析、Laravel 架构启发与选型决策树。帮助 PHP 开发者理解 Rust 的多态思维，掌握 dyn Trait、enum
   match、泛型三种分发策略的权衡与实战选型。

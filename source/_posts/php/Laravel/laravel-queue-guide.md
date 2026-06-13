@@ -1,6 +1,8 @@
 ---
 title: Laravel Queue - 订单扣减与邮件发送实战-KKday-B2C-API 真实踩坑记录
 cover: /images/covers/laravel-queue-guide-cover.jpg
+images:
+  - /images/covers/laravel-queue-guide-cover.jpg
 date: 2026-05-02
 categories:
   - php

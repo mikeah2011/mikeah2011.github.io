@@ -12,6 +12,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/laravel-performance-budget-lighthouse-k6-cover.jpg
+images:
+  - /images/covers/laravel-performance-budget-lighthouse-k6-cover.jpg
 description: 本文以 Laravel B2C API 项目为例，完整搭建性能预算驱动开发的工程化方案。通过 k6 设定 API 响应时间预算（p95<200ms、p99<500ms），利用
   Lighthouse CI 管控前端核心 Web 指标（LCP<2.5s、CLS<0.1），并在 GitHub Actions 中构建三阶段性能门禁流水线——快速体积检查、API
   负载预算、前端渲染预算，任一环节超标即阻断合并。涵盖预算脚本编写、阈值配置、Slack 告警、N+1 查询优化、缓存策略、队列化改造等实战技巧，附带 4 个真实踩坑案例与解决方案，帮助团队从"事后救火"转向"预算驱动开发"。

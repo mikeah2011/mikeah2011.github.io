@@ -5,6 +5,8 @@ description: 2026 年开源 AI Agent 三巨头深度评测：Hermes Agent（Nous
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 开源, 对比评测]
 categories: [ai]
 cover: /images/covers/ai-agent-hermes-openclaw-openhuman-cover.jpg
+images:
+  - /images/covers/ai-agent-hermes-openclaw-openhuman-cover.jpg
 ---
 
 2026 年是 AI Agent 爆发的一年。从年初的 DeepSeek R2 引发的开源模型竞赛，到各家 Agent 框架如雨后春笋般涌现，开发者面对的选择前所未有地丰富。在这场技术浪潮中，三个开源 AI Agent 项目脱颖而出，成为社区最受关注的「三巨头」：**Hermes Agent**（Nous Research）、**OpenClaw** 和 **OpenHuman**。

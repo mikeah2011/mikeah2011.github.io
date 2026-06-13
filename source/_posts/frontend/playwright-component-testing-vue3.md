@@ -2,6 +2,9 @@
 title: Playwright Component Testing 实战：Vue 3 组件的浏览器级测试——对比 Vitest jsdom 的真实渲染与交互验证
 date: 2026-06-10 05:46:00
 categories:
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 - frontend
 tags:
 - Playwright

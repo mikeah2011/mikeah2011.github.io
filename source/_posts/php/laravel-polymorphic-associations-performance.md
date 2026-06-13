@@ -10,6 +10,8 @@ tags:
 categories:
 - php
 cover: /images/covers/laravel-polymorphic-associations-cover.jpg
+images:
+  - /images/covers/laravel-polymorphic-associations-cover.jpg
 slug: laravel-polymorphic-associations-performance
 description: 从 B2C 电商真实场景出发，完整覆盖 Laravel 多态关联的正确用法与五种隐性性能陷阱，逐一对比 STI 单表继承、JSON 列方案和中间表方案的优劣。包含完整的迁移脚本、基准测试数据和选型决策矩阵，帮助团队在数据建模阶段做出最优决策。
 ---

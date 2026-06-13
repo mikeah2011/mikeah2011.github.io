@@ -3,6 +3,9 @@ title: AI Agent Self-Healing 实战：工具调用失败自动诊断与替代—
   的自治架构
 date: 2026-06-10 00:45:00
 categories:
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 - ai
 tags:
 - AI Agent

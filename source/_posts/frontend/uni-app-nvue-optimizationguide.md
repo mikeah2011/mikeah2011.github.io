@@ -1,6 +1,8 @@
 ---
 title: uni-app-nvue-原生渲染优化实战-页面性能调优与踩坑记录
 cover: /images/covers/uni-app-nvue-optimizationguide-cover.jpg
+images:
+  - /images/covers/uni-app-nvue-optimizationguide-cover.jpg
 date: 2026-05-17 06:50:33
 updated: 2026-05-17 06:53:22
 tags:

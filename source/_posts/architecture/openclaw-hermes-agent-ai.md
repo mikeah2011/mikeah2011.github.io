@@ -11,6 +11,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/openclaw-vs-hermes-cover.jpg
+images:
+  - /images/covers/openclaw-vs-hermes-cover.jpg
 ---
 
 

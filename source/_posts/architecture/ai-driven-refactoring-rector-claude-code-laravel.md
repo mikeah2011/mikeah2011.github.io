@@ -14,6 +14,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/ai-driven-refactoring-cover.jpg
+images:
+  - /images/covers/ai-driven-refactoring-cover.jpg
 ---
 
 

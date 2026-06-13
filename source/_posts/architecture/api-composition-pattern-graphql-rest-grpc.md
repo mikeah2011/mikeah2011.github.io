@@ -5,6 +5,8 @@ tags: [API Composition, GraphQL Federation, REST BFF, gRPC, 微服务]
 categories:
   - architecture
 cover: /images/covers/api-composition-pattern-cover.jpg
+images:
+  - /images/covers/api-composition-pattern-cover.jpg
 description: 本文深入对比 API Composition Pattern 的三种技术路线：GraphQL Federation、REST BFF 与 gRPC，聚焦微服务架构下跨服务查询聚合的核心挑战。从架构原理、N+1 问题处理、超时与错误策略、缓存方案、性能基准到团队适配等多维度进行全面分析，帮助架构师在 GraphQL Federation 的强类型 Schema、REST BFF 的渐进式演进以及 gRPC 的高性能通信之间做出理性选型决策，并给出混合架构的落地建议。
 slug: api-composition-pattern-graphql-rest-grpc
 ---

@@ -1,6 +1,8 @@
 ---
 title: 负载均衡实战：Nginx Upstream + Laravel Session 共享方案踩坑记录
 cover: /images/covers/nginx-load-balancing-session-cover.jpg
+images:
+  - /images/covers/nginx-load-balancing-session-cover.jpg
 date: 2026-05-05 07:30:03
 updated: 2026-05-05 07:32:58
 categories:

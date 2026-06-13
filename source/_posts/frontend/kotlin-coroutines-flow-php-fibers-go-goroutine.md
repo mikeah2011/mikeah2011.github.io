@@ -5,6 +5,8 @@ tags: [Kotlin, Coroutines, 并发, Flow, PHP Fibers]
 categories:
   - frontend
 cover: /images/covers/kotlin-coroutines-cover.jpg
+images:
+  - /images/covers/kotlin-coroutines-cover.jpg
 description: 深入解析 Kotlin Coroutines 并发编程核心机制——从 suspend 挂起函数的 CPS 编译器变换、CoroutineScope 结构化并发体系，到 Flow 冷流与 StateFlow/SharedFlow 热流的实战应用。横向对比 PHP Fibers 对称协程与 Go goroutine CSP 并发模型，涵盖调度器选型、异常传播、协作式取消、Channel 通信等关键话题，附带五大常见踩坑案例与最佳实践，帮助你全面掌握 Kotlin 协程并做出合理的技术选型。
 ---
 

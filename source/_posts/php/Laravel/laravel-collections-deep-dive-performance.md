@@ -1,6 +1,8 @@
 ---
 title: Laravel-Collections-深度实战-数据处理管道与性能优化踩坑记录
 cover: /images/covers/laravel-collections-deep-dive-performance-cover.jpg
+images:
+  - /images/covers/laravel-collections-deep-dive-performance-cover.jpg
 date: 2026-05-05 11:05:15
 updated: 2026-05-05 11:11:31
 categories:

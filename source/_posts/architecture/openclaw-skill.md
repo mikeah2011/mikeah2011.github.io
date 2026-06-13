@@ -13,6 +13,8 @@ description: 深入讲解 OpenClaw Skill 体系架构与开发实战，涵盖 Sk
 categories:
 - architecture
 cover: /images/covers/openclaw-skill-development-cover.jpg
+images:
+  - /images/covers/openclaw-skill-development-cover.jpg
 ---
 
 

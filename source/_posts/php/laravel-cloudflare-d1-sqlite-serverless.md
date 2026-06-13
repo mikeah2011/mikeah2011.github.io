@@ -13,6 +13,8 @@ tags:
   - 零冷启动
 description: 深入实战 Laravel 与 Cloudflare D1 边缘 SQLite 数据库的集成方案，涵盖 Workers、Wrangler CLI、本地开发环境搭建、数据迁移、查询优化，以及 Serverless 场景下消除冷启动延迟的完整方案。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
+images:
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
 
 ## 前言

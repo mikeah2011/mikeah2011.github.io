@@ -15,6 +15,8 @@ description: 深入解析多租户 SaaS 应用的行级安全策略：PostgreSQL
   RLS 策略配置、Global Scope 自动过滤、Repository 模式封装、双层纵深防御架构、十大典型数据泄露漏洞防护（原生 SQL 绕过、队列上下文丢失、关联查询泄露等），以及生产环境监控告警与安全清单。附带完整可运行代码和
   Feature Test 测试套件，适合构建金融级多租户数据隔离方案的 Laravel 团队参考。
 cover: /images/covers/multi-tenancy-security-cover.jpg
+images:
+  - /images/covers/multi-tenancy-security-cover.jpg
 ---
 
 

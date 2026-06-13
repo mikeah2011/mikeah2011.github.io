@@ -1,6 +1,8 @@
 ---
 title: "Snapshot Testing 实战：API 响应快照回归测试——用「拍快照」守护接口契约"
 cover: /images/covers/2026-06-01-snapshot-testing-api-response-regression-testing-cover.jpg
+images:
+  - /images/covers/2026-06-01-snapshot-testing-api-response-regression-testing-cover.jpg
 date: 2026-06-01 12:00:00
 categories:
   - testing

@@ -3,6 +3,9 @@ title: Laravel Concurrency 实战进阶：fpm-fork vs Process vs async HTTP 的�
   facade 的真实吞吐量测量
 date: 2026-06-09 15:21:00
 categories:
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 - php
 tags:
 - Laravel

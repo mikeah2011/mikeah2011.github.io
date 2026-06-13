@@ -1,6 +1,8 @@
 ---
 title: Laravel-Scopes-实战-查询作用域封装与复杂筛选条件复用踩坑记录
 cover: /images/covers/laravel-scopes-guide-query-cover.jpg
+images:
+  - /images/covers/laravel-scopes-guide-query-cover.jpg
 date: 2026-05-16 12:56:29
 updated: 2026-05-16 12:58:01
 categories:

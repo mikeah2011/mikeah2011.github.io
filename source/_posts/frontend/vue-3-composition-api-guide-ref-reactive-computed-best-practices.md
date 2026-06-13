@@ -1,6 +1,8 @@
 ---
 title: Vue 3 Composition API 实战-ref reactive computed 最佳实践与响应式踩坑记录
 cover: /images/covers/vue-3-composition-api-guide-ref-reactive-computed-best-practices-cover.jpg
+images:
+  - /images/covers/vue-3-composition-api-guide-ref-reactive-computed-best-practices-cover.jpg
 date: 2026-05-16 21:20:25
 updated: 2026-05-16 21:23:08
 categories:

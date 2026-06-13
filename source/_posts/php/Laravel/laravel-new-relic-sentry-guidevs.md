@@ -1,6 +1,8 @@
 ---
 title: Laravel-New-Relic-Sentry-生产环境错误追踪实战对比踩坑记录
 cover: /images/covers/laravel-new-relic-sentry-guidevs-cover.jpg
+images:
+  - /images/covers/laravel-new-relic-sentry-guidevs-cover.jpg
 date: 2026-05-05 01:25:25
 updated: 2026-05-05 01:29:09
 categories:

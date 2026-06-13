@@ -12,6 +12,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/openhuman-message-channel-cover.jpg
+images:
+  - /images/covers/openhuman-message-channel-cover.jpg
 ---
 
 

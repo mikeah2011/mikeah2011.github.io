@@ -23,6 +23,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/monorepo-nx-turborepo-pants-cover.jpg
+images:
+  - /images/covers/monorepo-nx-turborepo-pants-cover.jpg
 ---
 
 

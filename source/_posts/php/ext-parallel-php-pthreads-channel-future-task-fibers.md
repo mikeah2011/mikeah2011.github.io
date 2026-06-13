@@ -18,6 +18,8 @@ description: 深入剖析 PHP 原生多线程扩展 ext-parallel（pthreads 继�
 categories:
 - php
 cover: /images/covers/php-ext-parallel-multithreading-cover.jpg
+images:
+  - /images/covers/php-ext-parallel-multithreading-cover.jpg
 ---
 
 

@@ -14,6 +14,8 @@ tags:
 categories:
 - php
 cover: /images/covers/laravel-pipeline-source-closure-onion-model-cover.jpg
+images:
+  - /images/covers/laravel-pipeline-source-closure-onion-model-cover.jpg
 ---
 
 

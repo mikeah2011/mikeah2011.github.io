@@ -5,6 +5,8 @@ tags: [Flutter, 暗黑模式, ThemeData, 动态主题, 主题持久化]
 categories:
   - mobile
 cover: /images/covers/flutter-dark-mode-cover.jpg
+images:
+  - /images/covers/flutter-dark-mode-cover.jpg
 description: 本文系统讲解 Flutter暗黑模式 在真实项目中的落地方案，涵盖 ThemeData 与 ColorScheme 设计、动态主题切换、跟随系统、主题持久化、状态管理集成、测试验收与常见坑位排查，帮助你建立可扩展的主题架构。
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: PHPStorm-高效开发实战-快捷键-Live-Templates-调试技巧-Laravel-B2C-API踩坑记录
 cover: /images/covers/phpstorm-guide-live-templates-cover.jpg
+images:
+  - /images/covers/phpstorm-guide-live-templates-cover.jpg
 date: 2026-05-16 23:20:08
 updated: 2026-05-16 23:23:54
 categories:

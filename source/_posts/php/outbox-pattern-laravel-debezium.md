@@ -15,6 +15,8 @@ description: Outbox Pattern 实战指南，解决微服务架构中数据库与�
   与 CDC 两种实现方式的实时性/数据库负担/运维复杂度差异，附 Outbox 表膨胀、消息乱序、Debezium 断连、Schema 变更四大踩坑解决方案与
   Prometheus 告警规则，适合需要保证事件驱动架构数据一致性的 Laravel 微服务团队参考。
 cover: /images/covers/outbox-pattern-laravel-debezium-cover.jpg
+images:
+  - /images/covers/outbox-pattern-laravel-debezium-cover.jpg
 ---
 
 

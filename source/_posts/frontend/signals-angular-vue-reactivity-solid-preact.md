@@ -13,6 +13,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/signals-paradigm-comparison-cover.jpg
+images:
+  - /images/covers/signals-paradigm-comparison-cover.jpg
 description: 深度对比 Angular Signals、Vue Reactivity、Solid.js、Preact Signals 四大响应式方案的底层原理与
   API 设计，涵盖 Push-Pull 混合模型、Proxy 与函数拦截的依赖追踪差异、编译时优化策略、常见踩坑陷阱及选型决策矩阵，帮助前端开发者从原理层面理解
   Signals 范式并做出正确的架构选型。

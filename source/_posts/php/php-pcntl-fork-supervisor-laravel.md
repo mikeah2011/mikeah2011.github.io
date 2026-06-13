@@ -6,6 +6,8 @@ description: "深入讲解 PHP pcntl_fork 多进程编程实战，从 fork 模�
 categories:
   - php
 cover: /images/covers/php-multiprocess-pcntl-cover.jpg
+images:
+  - /images/covers/php-multiprocess-pcntl-cover.jpg
 ---
 
 # PHP 多进程实战：pcntl_fork + 信号处理——替代 Supervisor 的 PHP 原生进程管理与 Laravel 命令并发执行

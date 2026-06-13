@@ -10,6 +10,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/devcontainer-codespaces-cover.jpg
+images:
+  - /images/covers/devcontainer-codespaces-cover.jpg
 description: Dev Container 与 GitHub Codespaces 实战指南，手把手为 Laravel 项目配置生产级开发容器，涵盖 Dockerfile
   编写、docker-compose 多服务编排、devcontainer.json 深度解析、Xdebug 远程调试、Prebuilds 秒级启动与跨设备无缝切换工作流。对比
   Laravel Sail 与自定义 Dev Container 的选型差异，附完整可运行代码示例、踩坑案例与成本优化策略，帮助团队实现零配置入职与环境即代码的标准化开发体验。

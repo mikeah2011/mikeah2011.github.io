@@ -6,6 +6,8 @@ description: '深入探讨 Laravel Data Pipeline 作为 ETL 替代方案的实�
 categories:
   - php
 cover: /images/covers/laravel-data-pipeline-cover.jpg
+images:
+  - /images/covers/laravel-data-pipeline-cover.jpg
 ---
 
 ## 前言：为什么你需要一个 Laravel 原生 ETL 方案

@@ -5,6 +5,8 @@ description: '面向工程实践系统讲解 LangChain 中 Chain、Agent、Tool 
 tags: [LangChain, AI Agent, AI, Python, 工具开发, LCEL]
 categories: [ai]
 cover: /images/covers/langchain-chain-agent-tool-cover.jpg
+images:
+  - /images/covers/langchain-chain-agent-tool-cover.jpg
 ---
 
 # LangChain 实战：Chain/Agent/Tool 编排与自定义工具开发

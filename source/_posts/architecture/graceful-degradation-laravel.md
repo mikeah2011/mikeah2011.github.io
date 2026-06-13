@@ -12,6 +12,8 @@ description: 深入讲解 Laravel 中 Graceful Degradation 优雅降级的分层
 categories:
 - architecture
 cover: /images/covers/graceful-degradation-cover.jpg
+images:
+  - /images/covers/graceful-degradation-cover.jpg
 ---
 
 

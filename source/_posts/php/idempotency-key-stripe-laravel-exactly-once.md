@@ -11,6 +11,8 @@ tags:
 categories:
 - php
 cover: /images/covers/idempotency-key-laravel-cover.jpg
+images:
+  - /images/covers/idempotency-key-laravel-cover.jpg
 description: 深入解析 Idempotency Key 设计模式，从 Stripe API 的请求去重机制出发，完整实现 Laravel 幂等键中间件、Redis/MySQL
   存储后端、队列集成与测试策略，附生产级代码。
 ---

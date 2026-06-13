@@ -3,6 +3,9 @@ title: Golden Path Templates 实战：用 Cookiecutter/Copier 生成标准化 La
 date: 2026-06-09 20:16:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - Cookiecutter

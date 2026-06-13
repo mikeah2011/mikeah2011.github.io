@@ -1,6 +1,8 @@
 ---
 title: Laravel 服务容器深度解析-KKday-B2C-API-10 个真实踩坑记录
 cover: /images/covers/laravel-container-cover.jpg
+images:
+  - /images/covers/laravel-container-cover.jpg
 date: 2026-05-02
 categories:
   - php

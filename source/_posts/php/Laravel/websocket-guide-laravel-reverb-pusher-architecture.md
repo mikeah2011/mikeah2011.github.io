@@ -1,6 +1,8 @@
 ---
 title: WebSocket-实战-Laravel-Reverb-Pusher-实时通信-架构选型事件广播与生产环境踩坑记录
 cover: /images/covers/websocket-guide-laravel-reverb-pusher-architecture-cover.jpg
+images:
+  - /images/covers/websocket-guide-laravel-reverb-pusher-architecture-cover.jpg
 date: 2026-05-17 03:35:37
 updated: 2026-05-17 03:37:35
 categories:

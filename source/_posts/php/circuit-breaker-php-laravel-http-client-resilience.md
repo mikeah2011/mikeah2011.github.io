@@ -14,6 +14,8 @@ description: Circuit Breaker（熔断器）深度实战指南，从状态机原�
   结合。实战案例覆盖支付网关熔断降级（队列重试+人工兜底）、推荐服务降级（缓存→热门商品兜底）、Prometheus 指标采集与告警规则配置。适合微服务架构中需要构建高可用服务间调用的
   Laravel 团队参考。
 cover: /images/covers/circuit-breaker-laravel-resilience-cover.jpg
+images:
+  - /images/covers/circuit-breaker-laravel-resilience-cover.jpg
 ---
 
 

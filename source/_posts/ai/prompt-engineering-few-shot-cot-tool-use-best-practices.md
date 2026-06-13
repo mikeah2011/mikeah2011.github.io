@@ -15,6 +15,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/prompt-engineering-few-shot-cot-tool-use-cover.jpg
+images:
+  - /images/covers/prompt-engineering-few-shot-cot-tool-use-cover.jpg
 ---
 
 

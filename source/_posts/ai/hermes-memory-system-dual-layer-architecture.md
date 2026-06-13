@@ -4,6 +4,8 @@ date: 2026-06-02 10:00:00
 tags: [Hermes, AI Agent, 记忆系统, 架构设计, 插件化]
 categories: [ai]
 cover: /images/covers/hermes-memory-system-cover.jpg
+images:
+  - /images/covers/hermes-memory-system-cover.jpg
 description: 深入剖析 Hermes Agent 记忆系统的双层架构设计：底层 MemoryProvider 定义统一存储接口实现插件化，上层 MemoryManager 编排多层记忆的读写策略。涵盖短期记忆滑动窗口、长期记忆持久化、工作记忆跨会话复用的完整实现，附带自定义 MemoryProvider 开发实战、缓存策略、淘汰算法对比，适合构建可扩展的 AI Agent 记忆系统。
 ---
 

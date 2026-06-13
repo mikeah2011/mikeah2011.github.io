@@ -4,6 +4,8 @@ date: 2026-06-02 00:00:00
 tags: [Distributed Tracing, OpenTelemetry, Laravel, 链路追踪, APM, 可观测性]
 categories: [devops]
 cover: /images/covers/distributed-tracing-cover.jpg
+images:
+  - /images/covers/distributed-tracing-cover.jpg
 description: "分布式链路追踪是微服务架构的X光机。本文从零搭建 OpenTelemetry SDK 在 Laravel 中的端到端追踪体系，涵盖 OTel Collector 部署、自动仪表化（PDO/Redis/HTTP Client）、手动 Span 创建、队列上下文传播、Jaeger 后端配置、头部与尾部采样策略、Trace 与日志关联（Loki），以及生产环境性能开销评估与最佳实践，帮助你精确定位跨服务性能瓶颈。"
 ---
 

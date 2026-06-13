@@ -1,6 +1,8 @@
 ---
 title: Laravel + PostgreSQL RLS 实战：多租户数据隔离、策略下推与连接池上下文踩坑记录
 cover: /images/covers/laravel-postgresql-rls-guide-cover.jpg
+images:
+  - /images/covers/laravel-postgresql-rls-guide-cover.jpg
 date: 2026-05-03 10:51:00
 updated: 2026-05-03 10:52:45
 categories:

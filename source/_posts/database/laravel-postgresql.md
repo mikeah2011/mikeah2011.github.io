@@ -1,6 +1,8 @@
 ---
 title: Laravel 中 PostgreSQL 高级特性实战指南
 cover: /images/covers/postgresql-window-functions-cte-jsonb-pg-trgm-laravel-complex-query-cover.jpg
+images:
+  - /images/covers/postgresql-window-functions-cte-jsonb-pg-trgm-laravel-complex-query-cover.jpg
 date: 2026-06-05 10:00:00
 tags:
   - Laravel

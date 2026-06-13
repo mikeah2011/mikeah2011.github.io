@@ -1,6 +1,8 @@
 ---
 title: Laravel 缓存策略全解：Route/Config/View/Query 缘存最佳实践踩坑记录
 cover: /images/covers/laravel-cache-route-config-view-query-cache-cover.jpg
+images:
+  - /images/covers/laravel-cache-route-config-view-query-cache-cover.jpg
 date: 2026-05-05 07:55:56
 updated: 2026-05-05 07:57:44
 categories:

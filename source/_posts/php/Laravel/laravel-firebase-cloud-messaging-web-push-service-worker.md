@@ -1,6 +1,8 @@
 ---
 title: Laravel-Firebase-Cloud-Messaging-Web-Push-Service-Worker-推送通知实战
 cover: /images/covers/laravel-firebase-cloud-messaging-web-push-service-worker-cover.jpg
+images:
+  - /images/covers/laravel-firebase-cloud-messaging-web-push-service-worker-cover.jpg
 date: 2026-05-05 01:31:05
 updated: 2026-05-05 01:37:02
 categories:

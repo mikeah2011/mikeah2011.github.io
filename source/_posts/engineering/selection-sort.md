@@ -1,6 +1,8 @@
 ---
 title: 选择排序算法详解：时间复杂度与 PHP/Go/JS 实现
 cover: /images/covers/selection-sort-cover.jpg
+images:
+  - /images/covers/selection-sort-cover.jpg
 tags:
 - 算法
 - 排序算法

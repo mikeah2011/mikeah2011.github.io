@@ -1,6 +1,8 @@
 ---
 title: PHP 工作原理：SAPI、FPM、OPcache 与请求生命周期
 cover: /images/covers/how-it-works-cover.jpg
+images:
+  - /images/covers/how-it-works-cover.jpg
 tags:
 - PHP
 - FastCGI

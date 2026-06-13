@@ -1,6 +1,8 @@
 ---
 title: "spatie/laravel-data DTO 实战 - 强类型数据传输与 API 响应规范化踩坑记录"
 cover: /images/covers/laravel-data-dto-guide-api-cover.jpg
+images:
+  - /images/covers/laravel-data-dto-guide-api-cover.jpg
 date: 2026-05-04 23:20:52
 updated: 2026-05-04 23:26:39
 categories:

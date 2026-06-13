@@ -13,6 +13,8 @@ tags:
 categories:
 - php
 cover: /images/covers/php-fetch-http-client-cover.jpg
+images:
+  - /images/covers/php-fetch-http-client-cover.jpg
 description: 深入对比 PHP 生态中四种 HTTP 客户端方案：原生 cURL、Guzzle、Laravel HTTP Client 和 fetch-php
   库。从 API 设计、异步支持、错误处理、性能基准到 Laravel 集成，手把手带你用 fetch-php 搭建 JavaScript 风格的 HTTP 交互层，附完整可运行代码和踩坑记录。
 ---

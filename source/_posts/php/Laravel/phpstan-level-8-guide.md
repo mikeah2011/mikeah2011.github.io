@@ -1,6 +1,8 @@
 ---
 title: "PHPStan-Level-8-实战-静态分析类型安全与渐进式升级-Laravel-B2C-API踩坑记录"
 cover: /images/covers/phpstan-level-8-guide-cover.jpg
+images:
+  - /images/covers/phpstan-level-8-guide-cover.jpg
 date: 2026-05-16 20:10:40
 updated: 2026-05-16 20:13:46
 categories:

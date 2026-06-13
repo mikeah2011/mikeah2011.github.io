@@ -1,6 +1,8 @@
 ---
 title: Apple Pay PassGenerator PKPass 实战：如何生成 Wallet Passes 与 iOS/Android 兼容性踩坑记录
 cover: /images/covers/apple-pay-passgenerator-pkpass-guide-wallet-passes-ios-android-cover.jpg
+images:
+  - /images/covers/apple-pay-passgenerator-pkpass-guide-wallet-passes-ios-android-cover.jpg
 date: 2026-05-05 02:35:25
 updated: 2026-05-05 02:38:07
 categories:

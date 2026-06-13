@@ -12,6 +12,8 @@ tags:
 categories:
 - macos
 cover: /images/covers/arc-browser-workspace-cover.jpg
+images:
+  - /images/covers/arc-browser-workspace-cover.jpg
 ---
 
 

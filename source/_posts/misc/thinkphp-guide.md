@@ -1,6 +1,8 @@
 ---
 title: ThinkPHP-电商系统支付集成实战-支付宝微信支付回调幂等与多业务路由踩坑记录
 cover: /images/covers/thinkphp-guide-cover.jpg
+images:
+  - /images/covers/thinkphp-guide-cover.jpg
 date: 2026-05-05 10:30:21
 updated: 2026-05-05 10:34:22
 categories:

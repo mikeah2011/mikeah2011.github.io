@@ -3,6 +3,9 @@ title: "Framer Motion 实战：React/Vue 声明式动画库——Layout Animatio
 date: 2026-06-10 03:58:00
 categories:
   - frontend
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 tags:
   - Framer Motion
   - React

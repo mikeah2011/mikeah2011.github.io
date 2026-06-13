@@ -3,6 +3,9 @@ title: 30+ Laravel 仓库的 Monorepo 迁移实战：pnpm workspace + Turborepo 
   到 Monorepo 的工程化路径
 date: 2026-06-09 23:22:00
 categories:
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 - architecture
 tags:
 - Monorepo

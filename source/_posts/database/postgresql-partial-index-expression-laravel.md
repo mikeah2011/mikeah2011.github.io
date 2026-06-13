@@ -11,6 +11,8 @@ tags:
 categories:
 - database
 cover: /images/covers/postgresql-partial-expression-index-cover.jpg
+images:
+  - /images/covers/postgresql-partial-expression-index-cover.jpg
 ---
 
 

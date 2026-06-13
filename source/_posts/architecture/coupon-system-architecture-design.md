@@ -3,6 +3,9 @@ title: 电商优惠券系统架构设计：叠加规则、互斥策略、过期�
 date: 2026-06-09 22:54:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - 优惠券

@@ -4,6 +4,8 @@ date: 2026-06-03 09:00:00
 tags: [AI Agent, 多租户, SaaS, Laravel, LLM, 租户隔离]
 categories: [ai]
 cover: /images/covers/ai-agent-multi-tenant-cover.jpg
+images:
+  - /images/covers/ai-agent-multi-tenant-cover.jpg
 description: 系统拆解多租户 AI Agent SaaS 平台的工程化落地方案：Laravel 实现行级租户隔离、LLM Token 精准计量与计费、按租户动态路由模型与 Prompt 模板、向量数据库 Embedding 隔离、SSE 流式响应中的租户标记、Rate Limit 成本控制策略。覆盖数据库设计、中间件架构、安全审计等全链路实践，适合构建 B2B AI 服务的技术团队参考。
 ---
 

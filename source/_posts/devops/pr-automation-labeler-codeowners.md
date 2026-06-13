@@ -3,6 +3,9 @@ title: "PR Automation 实战：自动标签/分配/模板检查——GitHub Acti
 date: 2026-06-10 01:33:00
 categories:
   - devops
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 tags:
   - GitHub Actions
   - PR

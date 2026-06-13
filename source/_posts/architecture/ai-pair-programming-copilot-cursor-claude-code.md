@@ -14,6 +14,8 @@ description: 本文对 GitHub Copilot、Cursor 和 Claude Code 三款主流 AI P
 categories:
 - architecture
 cover: /images/covers/ai-pair-programming-eval-cover.jpg
+images:
+  - /images/covers/ai-pair-programming-eval-cover.jpg
 ---
 
 

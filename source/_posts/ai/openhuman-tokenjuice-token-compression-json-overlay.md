@@ -4,6 +4,8 @@ date: 2026-06-02 12:00:00
 tags: [OpenHuman, AI Agent, TokenJuice, Token压缩, 成本优化]
 categories: [ai]
 cover: /images/covers/openhuman-tokenjuice-token-compression-cover.jpg
+images:
+  - /images/covers/openhuman-tokenjuice-token-compression-cover.jpg
 description: 全面解析 OpenHuman TokenJuice token 压缩引擎的规则驱动架构与三层 JSON overlay 机制，涵盖 HTML→Markdown 转换、聊天记录压缩、代码摘要等多内容类型的压缩策略，实现 40-60% 的 token 节省率。附带完整代码示例与 Prompt Cache 协同方案，帮助 AI Agent 开发者大幅降低推理成本。
 ---
 

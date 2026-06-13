@@ -6,6 +6,8 @@ description: "PostgreSQL Logical Replication 实战指南：详解零停机迁�
 categories:
   - database
 cover: /images/covers/postgresql-logical-replication-cover.jpg
+images:
+  - /images/covers/postgresql-logical-replication-cover.jpg
 ---
 
 ## 前言

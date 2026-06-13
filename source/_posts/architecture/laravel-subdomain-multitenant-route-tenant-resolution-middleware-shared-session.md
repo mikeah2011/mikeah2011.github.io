@@ -3,6 +3,9 @@ title: "Laravel 子域名路由多租户实战：通配符子域识别、租户�
 date: 2026-06-10 06:25:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - 多租户

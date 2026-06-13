@@ -1,6 +1,8 @@
 ---
 title: AI 辅助代码审查实战-用 Claude GPT 提升 Code Review 效率与质量-Laravel-B2C-API 踩坑记录
 cover: /images/covers/ai-guide-claude-gpt-code-review-cover.jpg
+images:
+  - /images/covers/ai-guide-claude-gpt-code-review-cover.jpg
 date: 2026-05-05 08:15:44
 updated: 2026-05-05 08:18:39
 categories:

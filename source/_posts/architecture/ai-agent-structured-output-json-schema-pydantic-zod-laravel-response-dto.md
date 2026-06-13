@@ -6,6 +6,8 @@ tags: [AI, LLM, Structured Output, JSON Schema, Laravel, Pydantic, Zod]
 categories:
   - architecture
 cover: /images/covers/ai-agent-structured-output-cover.jpg
+images:
+  - /images/covers/ai-agent-structured-output-cover.jpg
 ---
 
 ## 引言：为什么你的 AI Agent 总在"自由发挥"？

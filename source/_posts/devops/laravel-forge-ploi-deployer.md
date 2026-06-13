@@ -6,6 +6,8 @@ categories:
   - devops
 description: Laravel项目部署选型终极指南：实战对比Forge、Ploi、Deployer三大方案，从零停机部署、队列Worker管理、多环境治理、SSL证书到数据库备份，逐维度拆解配置代码与真实踩坑经验，帮你找到最适合团队规模和DevOps能力的部署工具链。
 cover: /images/covers/forge-ploi-deployer-cover.jpg
+images:
+  - /images/covers/forge-ploi-deployer-cover.jpg
 ---
 
 # Laravel Forge vs Ploi vs Deployer 实战：三种部署方案深度对比——自动化运维、队列管理与多环境治理的选型决策

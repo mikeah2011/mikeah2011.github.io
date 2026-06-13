@@ -6,6 +6,8 @@ description: 本文结合 Laravel 工程实践，系统讲解 API 版本控制�
 categories:
   - php
 cover: /images/covers/api-versioning-cover.jpg
+images:
+  - /images/covers/api-versioning-cover.jpg
 ---
 
 在 API 生命周期足够长、客户端足够多、业务变化足够频繁的系统里，版本控制从来不是“要不要做”的问题，而是“什么时候会痛到必须做”。很多团队在系统早期图快，接口路径直接写成 `/api/orders`，移动端、小程序、Web 前端、第三方渠道都接同一套接口；等上线一年后，字段语义发生变化、认证方式升级、排序规则调整、错误码规范重构，这时才发现：原来真正困难的不是写一个 v2，而是在“不打断旧客户端”的前提下，持续、平滑、可观测地演进 API。

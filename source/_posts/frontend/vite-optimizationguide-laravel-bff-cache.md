@@ -1,6 +1,8 @@
 ---
 title: Webpack/Vite 构建优化实战：Laravel BFF 缓存命中与分包策略踩坑记录
 cover: /images/covers/vite-optimizationguide-laravel-bff-cache-cover.jpg
+images:
+  - /images/covers/vite-optimizationguide-laravel-bff-cache-cover.jpg
 date: 2026-05-03 13:35:38
 categories:
   - frontend

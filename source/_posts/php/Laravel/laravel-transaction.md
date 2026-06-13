@@ -1,6 +1,8 @@
 ---
 title: Laravel 事务回滚边界控制 - KKday B2C-API 真实踩坑记录
 cover: /images/covers/laravel-transaction-cover.jpg
+images:
+  - /images/covers/laravel-transaction-cover.jpg
 date: 2026-05-02
 categories:
   - php

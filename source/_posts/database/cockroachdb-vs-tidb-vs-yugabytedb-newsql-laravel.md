@@ -13,6 +13,8 @@ description: 深度对比 CockroachDB、TiDB、YugabyteDB 三大 NewSQL 分布�
 categories:
 - database
 cover: /images/covers/newsql-comparison-cover.jpg
+images:
+  - /images/covers/newsql-comparison-cover.jpg
 ---
 
 

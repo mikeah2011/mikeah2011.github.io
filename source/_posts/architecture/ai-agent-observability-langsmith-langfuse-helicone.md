@@ -13,6 +13,8 @@ categories:
 description: AI Agent 可观测性实战深度指南：全面对比 LangSmith、LangFuse、Helicone 三大 LLM 可观测平台，从成本追踪、延迟分析、回归测试到
   Trace 可视化，结合 Laravel/PHP 后端的真实集成方案与踩坑案例，帮助你为 AI Agent 系统选型最合适的 Observability 工具组合，构建从开发调试到生产监控的完整可观测性闭环。
 cover: /images/covers/ai-agent-observability-cover.jpg
+images:
+  - /images/covers/ai-agent-observability-cover.jpg
 ---
 
 

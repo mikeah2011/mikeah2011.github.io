@@ -1,6 +1,8 @@
 ---
 title: Laravel Folio 实战：页面路由替代传统 Controller 的新范式——从源码剖析到 B2C 电商落地踩坑记录
 cover: /images/covers/laravel-folio-page-routing-replaces-traditional-controller-cover.jpg
+images:
+  - /images/covers/laravel-folio-page-routing-replaces-traditional-controller-cover.jpg
 date: 2026-06-01 14:00:00
 categories:
 - php

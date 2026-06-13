@@ -6,6 +6,8 @@ tags: [PostgreSQL, pg_cron, pg_partman, 分区表, 定时任务, Laravel]
 categories:
   - database
 cover: /images/covers/pg-cron-pg-partman-cover.jpg
+images:
+  - /images/covers/pg-cron-pg-partman-cover.jpg
 ---
 
 ## 一、引言：为什么需要数据库内定时任务？

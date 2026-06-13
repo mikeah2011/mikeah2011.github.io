@@ -3,6 +3,9 @@ title: HTMX + Laravel 实战进阶：hx-boost/OOB Swaps/SSE 三合一——不�
 date: 2026-06-10 01:30:00
 categories:
   - frontend
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 tags:
   - HTMX
   - Laravel

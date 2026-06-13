@@ -16,6 +16,8 @@ description: 深入解析如何为 PHP 构建对标 Vercel AI SDK 的统一抽�
 categories:
 - php
 cover: /images/covers/ai-sdk-php-cover.jpg
+images:
+  - /images/covers/ai-sdk-php-cover.jpg
 ---
 
 

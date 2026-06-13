@@ -2,6 +2,9 @@
 title: PostgreSQL BRIN Index 实战：块范围索引——时序数据/日志表的超高压缩比索引方案与对比 B-Tree 的选型决策
 date: 2026-06-10 04:00:00
 categories:
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 - database
 tags:
 - PostgreSQL

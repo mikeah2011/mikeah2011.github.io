@@ -15,6 +15,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/screenshot-testing-vue3-cover.jpg
+images:
+  - /images/covers/screenshot-testing-vue3-cover.jpg
 ---
 
 

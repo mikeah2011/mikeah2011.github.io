@@ -14,6 +14,8 @@ categories:
 description: 从工具隔离、记忆分区、隐私边界、数据主权四个维度深入对比 Hermes Agent、OpenClaw、OpenHuman 三大 AI Agent
   框架的安全模型设计，涵盖 PluginContext 权限控制、Workspace 沙箱、OS Keychain 密钥管理、Prompt Injection 防护等实战安全机制，提供个人开发者到企业级的选型建议。
 cover: /images/covers/three-frameworks-security-model-comparison-cover.jpg
+images:
+  - /images/covers/three-frameworks-security-model-comparison-cover.jpg
 ---
 
 

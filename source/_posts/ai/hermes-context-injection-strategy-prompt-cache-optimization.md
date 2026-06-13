@@ -11,6 +11,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/hermes-context-injection-cover.jpg
+images:
+  - /images/covers/hermes-context-injection-cover.jpg
 description: 为什么 Hermes Agent 选择将动态上下文注入 user message 而非 system prompt？本文从 Anthropic/OpenAI
   的 prompt caching 底层机制出发，解析消息级缓存命中原理，展示如何通过分离静态与动态内容将缓存命中率从 0% 提升至 95%，有效 input tokens
   降低 70%。附带完整的上下文组装代码实现、三种注入策略对比测试与成本分析。

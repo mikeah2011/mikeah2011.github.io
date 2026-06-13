@@ -13,6 +13,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/hono-edge-web-framework-cover.jpg
+images:
+  - /images/covers/hono-edge-web-framework-cover.jpg
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 title: Vite 构建优化实战：Laravel 单仓库后台前端的分包策略、缓存命中与 sourcemap 踩坑记录
 cover: /images/covers/vite-optimizationguide-laravel-cache-sourcemap-cover.jpg
+images:
+  - /images/covers/vite-optimizationguide-laravel-cache-sourcemap-cover.jpg
 date: 2026-05-03 10:05:00
 categories:
 - frontend

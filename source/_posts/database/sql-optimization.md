@@ -11,6 +11,8 @@ categories:
 - database
 date: 2022-05-20 23:15:47
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/6411.png
+images:
+  - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/6411.png
 description: 系统梳理 MySQL SQL 优化核心方法论：从 slow_query_log 慢查询日志采集、EXPLAIN 逐字段深度解读到 pt-query-digest
   分析工作流，覆盖覆盖索引、联合索引最左前缀、前缀索引、子查询重写、分页优化等 16 种优化技巧，附真实线上踩坑案例（隐式转换、大批量锁死、NOT IN NULL）与索引最佳实践，帮助开发者快速定位并解决生产环境中的数据库性能瓶颈。
 ---

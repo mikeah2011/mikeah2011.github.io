@@ -1,6 +1,8 @@
 ---
 title: PHP 生命周期与 SAPI
 cover: /images/covers/lifecycle-cover.jpg
+images:
+  - /images/covers/lifecycle-cover.jpg
 tags:
 - PHP
 - SAPI

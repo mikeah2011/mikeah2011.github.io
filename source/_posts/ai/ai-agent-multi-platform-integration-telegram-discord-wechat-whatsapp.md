@@ -15,6 +15,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/ai-agent-multi-platform-cover.jpg
+images:
+  - /images/covers/ai-agent-multi-platform-cover.jpg
 ---
 
 

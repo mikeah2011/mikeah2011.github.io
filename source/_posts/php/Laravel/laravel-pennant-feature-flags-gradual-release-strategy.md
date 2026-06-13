@@ -1,6 +1,8 @@
 ---
 title: Laravel Pennant 实战：功能开关与灰度发布策略——从源码剖析到 B2C 生产落地
 cover: /images/covers/2026-06-01-laravel-pennant-feature-flags-gradual-release-strategy-cover.jpg
+images:
+  - /images/covers/2026-06-01-laravel-pennant-feature-flags-gradual-release-strategy-cover.jpg
 date: 2026-06-01 22:30:00
 categories:
 - php

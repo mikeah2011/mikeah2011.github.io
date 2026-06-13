@@ -3,6 +3,9 @@ title: LLM Tokenizer 工程实战：BPE/tiktoken/Tokenizer.js 应用级 Token �
   Token 效率对比
 date: 2026-06-10 08:03:00
 categories:
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 - ai
 tags:
 - Token

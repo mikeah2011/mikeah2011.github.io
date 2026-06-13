@@ -5,6 +5,8 @@ tags: [Apache-Pulsar, Kafka, Laravel, 消息队列, 多租户, 事件流]
 categories: [mq]
 description: "Apache Pulsar 多租户消息系统深度实战：计算存储分离架构、BookKeeper 存储层、分层存储与 Geo-Replication。完整对比 Kafka 在多租户、扩缩容、消息模型上的差异，提供 Laravel 集成 Pulsar 客户端的完整代码示例，涵盖消费者组、死信队列、延迟消息等场景，帮你决策 Kafka vs Pulsar 的技术选型。"
 cover: /images/covers/apache-pulsar-laravel-cover.jpg
+images:
+  - /images/covers/apache-pulsar-laravel-cover.jpg
 ---
 
 ## 引言：为什么需要下一代消息系统？

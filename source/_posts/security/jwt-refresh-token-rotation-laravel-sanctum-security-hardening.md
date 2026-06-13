@@ -3,6 +3,9 @@ title: JWT Refresh Token Rotation 实战：Refresh Token 自动轮换与检测�
 date: 2026-06-10 01:50:00
 categories:
   - security
+cover: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop
 tags:
   - JWT
   - Refresh Token

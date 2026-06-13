@@ -4,6 +4,8 @@ date: 2026-06-02 02:31:05
 tags: [AI, Laravel, LLM, PHP]
 categories: [ai]
 cover: /images/covers/ai-agent-laravel-llm-cover.jpg
+images:
+  - /images/covers/ai-agent-laravel-llm-cover.jpg
 description: 这篇文章系统拆解 AI Agent 在 Laravel 与 PHP 后端集成 LLM 的完整实践路径，涵盖统一接口设计、多 Provider 接入、Streaming 流式输出、Prompt 管理、队列异步、成本控制与故障降级，帮助你把 AI 能力真正落进可维护、可审计、可扩展的后端集成体系。
 ---
 

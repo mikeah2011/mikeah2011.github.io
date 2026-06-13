@@ -1,6 +1,8 @@
 ---
 title: Laravel-Migrations-零停机数据库变更与回滚策略实战
 cover: /images/covers/laravel-migrations-database-cover.jpg
+images:
+  - /images/covers/laravel-migrations-database-cover.jpg
 date: 2026-05-06 11:23:35
 updated: 2026-05-06 11:34:49
 tags: [Laravel, MySQL, 零停机, 工程管理]

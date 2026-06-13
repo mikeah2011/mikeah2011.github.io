@@ -11,6 +11,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/oauth2-token-exchange-cover.jpg
+images:
+  - /images/covers/oauth2-token-exchange-cover.jpg
 description: 深入解析 RFC 8693 OAuth 2.0 Token Exchange 标准，手把手实现 Laravel 中服务间最小权限令牌交换，涵盖自定义
   Grant Type、Subject/Actor 模型、范围缩减策略与审计日志，解决微服务架构下 SSO 与服务间认证的安全难题。
 ---

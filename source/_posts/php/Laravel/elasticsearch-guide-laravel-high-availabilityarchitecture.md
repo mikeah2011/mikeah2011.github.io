@@ -1,6 +1,8 @@
 ---
 title: Elasticsearch 全文搜索深度调优实战：Laravel 多字段映射、分词策略与高可用架构踩坑记录
 cover: /images/covers/elasticsearch-guide-laravel-high-availabilityarchitecture-cover.jpg
+images:
+  - /images/covers/elasticsearch-guide-laravel-high-availabilityarchitecture-cover.jpg
 date: 2026-05-02
 categories:
   - php

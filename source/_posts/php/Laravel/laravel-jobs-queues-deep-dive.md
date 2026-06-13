@@ -1,6 +1,8 @@
 ---
 title: Laravel Jobs & Queues 深度实战：延迟队列、批量任务与失败重试策略踩坑记录
 cover: /images/covers/laravel-jobs-queues-deep-dive-cover.jpg
+images:
+  - /images/covers/laravel-jobs-queues-deep-dive-cover.jpg
 date: 2026-05-16 17:51:16
 updated: 2026-05-16 17:55:11
 categories:

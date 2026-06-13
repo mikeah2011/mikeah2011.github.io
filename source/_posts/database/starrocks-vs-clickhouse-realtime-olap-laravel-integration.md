@@ -3,6 +3,9 @@ title: StarRocks 实战：高性能 OLAP 引擎——对比 ClickHouse 的实时
 date: 2026-06-09 14:27:00
 categories:
   - database
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 tags:
   - StarRocks
   - ClickHouse

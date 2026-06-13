@@ -10,6 +10,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/openclaw-soul-md-personality-cover.jpg
+images:
+  - /images/covers/openclaw-soul-md-personality-cover.jpg
 description: 本文系统解析 OpenClaw 的 SOUL.md 机制，带你从结构设计、规则编写、记忆集成到多场景切换，掌握 AI人格 的工程化落地方法。无论你想做更稳定的
   Agent配置，还是打造更贴合业务的 个性化 智能助手，都能通过这份实战指南快速建立可维护、可复用、可迭代的人格配置体系。
 ---

@@ -2,6 +2,8 @@
 title: phpseclib-gibberish-aes 敏感数据加密传输合规实战-Laravel-B2C-API 资安管理踩坑记录
 date: 2026-05-05 00:25:07
 cover: /images/covers/phpseclib-gibberish-aes-guide-cover.jpg
+images:
+  - /images/covers/phpseclib-gibberish-aes-guide-cover.jpg
 updated: 2026-05-05 00:28:46
 categories:
 - php

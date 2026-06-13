@@ -1,6 +1,8 @@
 ---
 title: Laravel + Elasticsearch 全文搜索优化实战：商品搜索召回、同义词与零停机重建索引踩坑记录
 cover: /images/covers/laravel-elasticsearch-optimizationguide-index-cover.jpg
+images:
+  - /images/covers/laravel-elasticsearch-optimizationguide-index-cover.jpg
 date: 2026-05-03 10:20:00
 categories:
 - php

@@ -14,6 +14,8 @@ description: 手把手教你用 Web Push API + VAPID 协议实现浏览器原生
   订阅管理、Laravel 后端端到端加密消息队列分发、电商订单状态/降价提醒/促销广播完整实战，对比 Firebase Cloud Messaging，附浏览器兼容性、HTTPS
   部署与常见踩坑排查指南。
 cover: /images/covers/web-push-vapid-browser-notification-cover.jpg
+images:
+  - /images/covers/web-push-vapid-browser-notification-cover.jpg
 ---
 
 

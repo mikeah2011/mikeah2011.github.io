@@ -14,6 +14,8 @@ tags:
 categories:
 - php
 cover: /images/covers/php-match-expression-cover.jpg
+images:
+  - /images/covers/php-match-expression-cover.jpg
 ---
 
 

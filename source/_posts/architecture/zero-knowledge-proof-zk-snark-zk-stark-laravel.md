@@ -6,6 +6,8 @@ categories:
   - architecture
 description: "零知识证明（ZKP）是隐私计算的核心密码学工具。本文从工程直觉出发，深入对比 ZK-SNARK 与 ZK-STARK 的 proof size、verification time、trusted setup、抗量子性等维度，在 Laravel 中实现完整的 ZKP 证明生成与验证原型，涵盖踩坑案例（大数精度、序列化兼容、性能瓶颈）及匿名投票、隐私身份验证等应用场景。"
 cover: /images/covers/zero-knowledge-proof-laravel-cover.jpg
+images:
+  - /images/covers/zero-knowledge-proof-laravel-cover.jpg
 ---
 
 > "我能证明我知道一个秘密，但不告诉你这个秘密是什么。"

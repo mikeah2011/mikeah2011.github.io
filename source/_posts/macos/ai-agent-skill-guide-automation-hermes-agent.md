@@ -1,6 +1,8 @@
 ---
 title: AI Agent Skill 开发实战：自定义技能与工作流自动化——Hermes Agent 踩坑记录
 cover: /images/covers/ai-agent-skill-guide-automation-hermes-agent-cover.jpg
+images:
+  - /images/covers/ai-agent-skill-guide-automation-hermes-agent-cover.jpg
 date: 2026-05-17 03:41:03
 updated: 2026-05-17 03:44:15
 categories:

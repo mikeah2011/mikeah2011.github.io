@@ -10,6 +10,8 @@ tags:
 - CI/CD
 description: 博客开发运维日志，记录 AI Agent 写作流水线、GitHub Actions 自动部署、Hexo 主题配置调优及选题管理系统的完整迭代过程，持续更新。
 cover: /images/covers/devlog-cover.jpg
+images:
+  - /images/covers/devlog-cover.jpg
 ---
 
 ## 什么是开发日志？

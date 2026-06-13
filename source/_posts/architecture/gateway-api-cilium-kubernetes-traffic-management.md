@@ -13,6 +13,8 @@ tags:
   - eBPF
 description: "从 Ingress 到 Gateway API 的演进，结合 Cilium 的 eBPF 数据面，在 Laravel 微服务架构中实现 L4/L7 路由、自动 mTLS 和全链路可观测性。含完整实战配置与踩坑记录。"
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
+images:
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
 
 ## 为什么从 Ingress 迁移到 Gateway API？

@@ -6,6 +6,8 @@ description: "系统讲解 GDPR 与个人信息保护法（PIPL）在 Laravel �
 categories:
   - devops
 cover: /images/covers/gdpr-pipl-laravel-cover.jpg
+images:
+  - /images/covers/gdpr-pipl-laravel-cover.jpg
 ---
 
 ## 前言

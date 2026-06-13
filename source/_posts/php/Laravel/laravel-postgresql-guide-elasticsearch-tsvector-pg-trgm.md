@@ -1,6 +1,8 @@
 ---
 title: 不用 Elasticsearch：Laravel + PostgreSQL 原生搜索实战，tsvector 排名、pg_trgm 纠错与高亮摘要踩坑记录
 cover: /images/covers/laravel-postgresql-guide-elasticsearch-tsvector-pg-trgm-cover.jpg
+images:
+  - /images/covers/laravel-postgresql-guide-elasticsearch-tsvector-pg-trgm-cover.jpg
 date: 2026-05-04 14:59:31
 updated: 2026-06-06 10:00:00
 categories:

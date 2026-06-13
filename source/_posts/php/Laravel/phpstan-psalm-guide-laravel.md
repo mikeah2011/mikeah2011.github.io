@@ -1,6 +1,8 @@
 ---
 title: PHPStan-Psalm-静态分析实战-Laravel-项目类型安全最佳实践踩坑记录
 cover: /images/covers/phpstan-psalm-guide-laravel-cover.jpg
+images:
+  - /images/covers/phpstan-psalm-guide-laravel-cover.jpg
 date: 2026-05-05 08:00:16
 updated: 2026-05-05 08:02:37
 description: 基于 30+ Laravel B2C 仓库的 PHPStan 与 Psalm 静态分析落地实战，涵盖工具选型决策、Laravel Model

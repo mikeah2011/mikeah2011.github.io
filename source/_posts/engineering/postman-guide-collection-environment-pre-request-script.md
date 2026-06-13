@@ -1,6 +1,8 @@
 ---
 title: Postman 高级实战：Collection、Environment、Pre-request Script 与 Newman CI 集成踩坑记录
 cover: /images/covers/postman-guide-collection-environment-pre-request-script-cover.jpg
+images:
+  - /images/covers/postman-guide-collection-environment-pre-request-script-cover.jpg
 date: 2026-05-17 06:20:30
 updated: 2026-05-17 06:22:38
 categories:

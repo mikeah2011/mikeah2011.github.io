@@ -13,6 +13,8 @@ description: PostgreSQL Advisory Lock 是一种数据库原生的互斥机制，
   Laravel 中 AdvisoryLockCommand 基类封装与多实例 cron 防重复执行的完整实现，重点剖析 PgBouncer transaction
   模式下 Advisory Lock 失效的根因，并给出直连绕行、事务级锁降级、应用层 Redis 锁等四种生产级解决方案，附带监控告警配置与三个真实踩坑案例。
 cover: /images/covers/pg-advisory-lock-cover.jpg
+images:
+  - /images/covers/pg-advisory-lock-cover.jpg
 ---
 
 

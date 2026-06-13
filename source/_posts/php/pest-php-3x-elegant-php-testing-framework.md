@@ -1,6 +1,8 @@
 ---
 title: "Pest PHP 3.x 实战：简洁优雅的 PHP 测试框架深度剖析"
 cover: /images/covers/2026-06-01-pest-php-3x-elegant-php-testing-framework-cover.jpg
+images:
+  - /images/covers/2026-06-01-pest-php-3x-elegant-php-testing-framework-cover.jpg
 date: 2026-06-01 10:00:00
 description: "Pest PHP 3.x 深度实战指南：从设计哲学到 Arch Testing 架构守护、Mutation Testing 测试盲区检测、自定义 Expectations 与高阶断言链式调用，详解 Datasets 数据驱动、Laravel 集成踩坑、并行测试性能优化，附 B2C API 项目 PHPUnit 迁移真实经验与框架选型对比。"
 categories:

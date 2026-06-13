@@ -1,6 +1,8 @@
 ---
 title: Composer-深度实战-自动加载插件开发私有仓库踩坑记录
 cover: /images/covers/composer-deep-dive-autoloading-cover.jpg
+images:
+  - /images/covers/composer-deep-dive-autoloading-cover.jpg
 date: 2026-05-16 19:10:33
 updated: 2026-05-16 19:13:25
 categories:

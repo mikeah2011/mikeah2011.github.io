@@ -1,6 +1,8 @@
 ---
 title: Vue 3 + vue-pure-admin 管理后台实战：从 fork 到定制化的完整踩坑记录
 cover: /images/covers/vue3-vue-pure-admin-guide-fork-cover.jpg
+images:
+  - /images/covers/vue3-vue-pure-admin-guide-fork-cover.jpg
 date: 2026-05-05 10:00:16
 updated: 2026-05-05 10:04:33
 categories:

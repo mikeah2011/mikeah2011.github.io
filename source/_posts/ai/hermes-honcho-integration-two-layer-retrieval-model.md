@@ -4,6 +4,8 @@ date: 2026-06-02 11:00:00
 tags: [Hermes, Honcho, AI Agent, 记忆召回, RAG, 上下文管理]
 categories: [ai]
 cover: /images/covers/hermes-honcho-integration-cover.jpg
+images:
+  - /images/covers/hermes-honcho-integration-cover.jpg
 description: 深度剖析 Hermes Agent 如何集成 Honcho 记忆平台实现两层召回模型：base context 提供稳定基础上下文，dialectic supplement 通过辩证式推理补充深层个性化理解。详解 Honcho 的声明式记忆机制、自适应触发策略、召回成本优化，以及在长期个性化对话场景中的工程实践，附完整配置示例与性能对比数据。
 ---
 

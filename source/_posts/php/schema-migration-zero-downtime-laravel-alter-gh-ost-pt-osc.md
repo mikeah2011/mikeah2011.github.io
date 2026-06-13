@@ -6,6 +6,8 @@ tags: [MySQL, Schema Migration, gh-ost, pt-osc, Laravel, 零停机]
 categories:
   - php
 cover: /images/covers/schema-migration-zero-downtime-cover.jpg
+images:
+  - /images/covers/schema-migration-zero-downtime-cover.jpg
 ---
 
 # Schema Migration Zero-Downtime 实战：Laravel 大表 ALTER 的 gh-ost/pt-osc 对比——生产环境无锁表变更的工程化路径

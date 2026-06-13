@@ -11,6 +11,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/agent-reasoning-patterns-guide-cover.jpg
+images:
+  - /images/covers/agent-reasoning-patterns-guide-cover.jpg
 description: 系统拆解 AI Agent 推理与规划能力实战，深入对比 ReAct、Tree-of-Thought、Graph-of-Thought 等模式的适用场景、实现思路与工程取舍，帮你构建更稳定、更聪明的智能体。
 ---
 

@@ -3,6 +3,9 @@ title: Monorepo CI Optimization 实战：Nx Affected + Turborepo Cache——Lara
   大型 Monorepo 的增量构建策略
 date: 2026-06-09 16:53:00
 categories:
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 - architecture
 tags:
 - Monorepo

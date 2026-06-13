@@ -6,6 +6,8 @@ description: 深入解析 PostgreSQL 四种事务隔离级别（Read Committed�
 categories:
   - database
 cover: /images/covers/postgresql-transaction-isolation-cover.jpg
+images:
+  - /images/covers/postgresql-transaction-isolation-cover.jpg
 ---
 
 # PostgreSQL 事务隔离级别实战：Read Committed vs Repeatable Read vs Serializable——Laravel 中的幻读、不可重复读与死锁治理

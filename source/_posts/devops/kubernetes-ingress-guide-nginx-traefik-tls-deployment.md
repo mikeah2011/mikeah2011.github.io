@@ -1,6 +1,8 @@
 ---
 title: Kubernetes-Ingress-实战-Nginx-Traefik-配置与-TLS-Laravel-B2C-API-部署踩坑记录
 cover: /images/covers/kubernetes-ingress-nginx-traefik-cover.jpg
+images:
+  - /images/covers/kubernetes-ingress-nginx-traefik-cover.jpg
 date: 2026-05-16 22:25:37
 updated: 2026-05-16 22:30:30
 categories:

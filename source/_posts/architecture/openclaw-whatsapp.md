@@ -12,6 +12,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/openclaw-whatsapp-cover.jpg
+images:
+  - /images/covers/openclaw-whatsapp-cover.jpg
 ---
 
 

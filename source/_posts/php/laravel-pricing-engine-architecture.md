@@ -3,6 +3,9 @@ title: Laravel 定价引擎架构设计实战：动态定价、阶梯折扣、�
 date: 2026-06-10 02:13:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - PHP

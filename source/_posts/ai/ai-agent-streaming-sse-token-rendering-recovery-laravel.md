@@ -15,6 +15,8 @@ categories:
 - ai
 - 架构
 cover: /images/covers/ai-agent-streaming-sse-cover.jpg
+images:
+  - /images/covers/ai-agent-streaming-sse-cover.jpg
 ---
 
 

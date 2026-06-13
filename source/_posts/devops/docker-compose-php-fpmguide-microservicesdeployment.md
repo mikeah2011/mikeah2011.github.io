@@ -1,6 +1,8 @@
 ---
 title: Docker Compose + PHP-FPM 实战：KKday B2C API 微服务部署经验
 cover: /images/covers/docker-compose-php-fpm-microservices-cover.jpg
+images:
+  - /images/covers/docker-compose-php-fpm-microservices-cover.jpg
 date: 2026-05-02
 categories:
   - devops

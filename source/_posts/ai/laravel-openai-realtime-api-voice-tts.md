@@ -13,6 +13,8 @@ tags:
   - PHP
 description: 深入实战 Laravel 集成 OpenAI Realtime API，实现语音对话、实时语音转文字、文本转语音的完整流程，包含 WebSocket 连接管理、音频流处理、会话状态维护与生产级部署方案。
 cover: https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200
+images:
+  - https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200
 ---
 
 # Laravel + OpenAI Realtime API 实战：语音对话、实时转录与 TTS

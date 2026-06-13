@@ -5,6 +5,8 @@ tags: [PHP, AOP, Interceptor, Laravel, 设计模式]
 categories:
   - php
 cover: /images/covers/php-interceptor-aop-cover.jpg
+images:
+  - /images/covers/php-interceptor-aop-cover.jpg
 description: "Laravel 中间件只能拦截 HTTP 请求层，如何在 PHP 中实现方法级的横切关注点？本文深入对比 GoAOP、PHP 8 Attribute+Proxy 动态代理、Runkit7 三种 AOP 切面编程方案，提供完整的拦截器链（洋葱模型）代码实现、Laravel 服务容器集成、生产环境踩坑记录与性能基准，助你优雅解耦日志、缓存、权限、重试等非业务逻辑。"
 ---
 

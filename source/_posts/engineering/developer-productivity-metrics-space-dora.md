@@ -5,6 +5,8 @@ tags: [SPACE, DORA, Developer-Productivity, 效能度量, 工程管理, 开发�
 description: "DORA 指标只能衡量交付速度与稳定性，却无法回答开发者是否满意、代码质量是否在下降、团队协作是否高效。本文深入解析 SPACE 框架五大维度——Satisfaction、Performance、Activity、Communication、Efficiency 的实战落地方法，覆盖代码覆盖率趋势追踪、圈复杂度自动化监控、审查周转时间优化、知识分布基尼系数计算、满意度调查设计等核心指标，并结合 35 人中型团队 6 个月的完整实施案例，提供数据采集管道架构、Grafana 仪表盘配置、度量反模式规避策略与 AI 异常检测引擎的可运行 Python 代码，帮助工程团队建立超越 DORA 的全面开发者效能度量体系。"
 categories: [engineering]
 cover: /images/covers/space-framework-productivity-cover.jpg
+images:
+  - /images/covers/space-framework-productivity-cover.jpg
 ---
 
 ## 引言：为什么 DORA 指标不够用？

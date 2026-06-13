@@ -14,6 +14,8 @@ description: 深度剖析 Hermes Agent 三层安全防护体系：cron 上下文
   子代理工具隔离阻止权限链式扩散，StreamingContextScrubber 实时扫描清洗外部内容中的 prompt injection 攻击。涵盖威胁模型分析、工具可用性矩阵、嵌套深度限制、跨
   Profile 软保护等核心安全设计，附完整的代码实现示例和最佳实践建议。
 cover: /images/covers/hermes-security-model-cover.jpg
+images:
+  - /images/covers/hermes-security-model-cover.jpg
 ---
 
 

@@ -3,6 +3,9 @@ title: Laravel 数据主权合规实战：数据出境评估、PIPL/GDPR 双合�
 date: 2026-06-10 03:12:00
 categories:
   - security
+cover: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - 数据主权

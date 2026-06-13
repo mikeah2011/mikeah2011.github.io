@@ -1,6 +1,8 @@
 ---
 title: Nginx FastCGI Cache 与 Laravel API 缓存旁路实战：秒杀落地页降压、回源一致性与灰度失效踩坑记录
 cover: /images/covers/nginx-fastcgi-cache-laravel-api-cacheguide-canary-cover.jpg
+images:
+  - /images/covers/nginx-fastcgi-cache-laravel-api-cacheguide-canary-cover.jpg
 date: 2026-05-04 14:48:21
 categories:
 - php

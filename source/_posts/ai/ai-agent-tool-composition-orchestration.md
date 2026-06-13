@@ -14,6 +14,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/ai-agent-tool-composition-cover.jpg
+images:
+  - /images/covers/ai-agent-tool-composition-cover.jpg
 ---
 
 

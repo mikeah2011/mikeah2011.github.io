@@ -1,6 +1,8 @@
 ---
 title: Laravel DDD 实战：优惠券核销的聚合边界、值对象与 afterCommit 领域事件
 cover: /images/covers/laravel-ddd-guide-aftercommit-cover.jpg
+images:
+  - /images/covers/laravel-ddd-guide-aftercommit-cover.jpg
 date: 2026-05-03 09:10:00
 categories:
   - php

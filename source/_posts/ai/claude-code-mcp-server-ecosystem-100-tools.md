@@ -14,6 +14,8 @@ tags:
 description: 深入解析 2026 年 MCP Server 生态爆发，从 Claude Code 出发，覆盖搜索引擎、浏览器、数据库、文件系统等 100+
   工具的发现、配置与实战集成。
 cover: https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200
+images:
+  - https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200
 ---
 
 

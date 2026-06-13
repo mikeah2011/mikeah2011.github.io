@@ -13,6 +13,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/openhuman-voice-stt-tts-cover.jpg
+images:
+  - /images/covers/openhuman-voice-stt-tts-cover.jpg
 ---
 
 

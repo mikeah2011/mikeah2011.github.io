@@ -17,6 +17,8 @@ description: 深入实战 OpenResty（Nginx + Lua）构建高性能自定义 API
 categories:
 - devops
 cover: /images/covers/nginx-lua-openresty-gateway-cover.jpg
+images:
+  - /images/covers/nginx-lua-openresty-gateway-cover.jpg
 ---
 
 

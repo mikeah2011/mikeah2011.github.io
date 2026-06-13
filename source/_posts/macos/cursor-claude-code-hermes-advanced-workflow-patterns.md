@@ -1,6 +1,8 @@
 ---
 title: Cursor + Claude Code + Hermes 进阶实战：多 AI 协作的高级模式、MCP 集成与团队规模化
 cover: /images/covers/2026-06-01-cursor-claude-code-hermes-advanced-workflow-patterns-cover.jpg
+images:
+  - /images/covers/2026-06-01-cursor-claude-code-hermes-advanced-workflow-patterns-cover.jpg
 date: 2026-06-01 10:00:00
 categories:
 - macos

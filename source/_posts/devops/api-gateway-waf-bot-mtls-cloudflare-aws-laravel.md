@@ -5,6 +5,8 @@ tags: [API Gateway, WAF, Bot管理, mTLS, Cloudflare, AWS WAF, Laravel, 安全, 
 categories:
   - devops
 cover: /images/covers/api-gateway-waf-bot-mtls-cover.jpg
+images:
+  - /images/covers/api-gateway-waf-bot-mtls-cover.jpg
 description: '本文是一份完整的 API Gateway 安全实战指南，涵盖 Cloudflare WAF、AWS WAF、Bot 管理策略、mTLS 双向认证四大核心模块，结合 Laravel 微服务架构详细讲解纵深防御五层模型的配置与落地，包含大量生产级代码示例与踩坑记录，适合后端工程师与 SRE 快速上手。'
 ---
 

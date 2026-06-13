@@ -1,6 +1,8 @@
 ---
 title: PHP 后期静态绑定：static 关键字与继承中的方法解析
 cover: /images/covers/php-late-static-binding-cover.jpg
+images:
+  - /images/covers/php-late-static-binding-cover.jpg
 tags:
 - PHP
 - oop

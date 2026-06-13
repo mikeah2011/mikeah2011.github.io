@@ -1,6 +1,8 @@
 ---
 title: jQuery 核心 API 速查：DOM 操作、事件处理与 AJAX
 cover: /images/frontend-cover.png
+images:
+  - /images/frontend-cover.png
 tags:
 - JavaScript
 - jQuery

@@ -6,6 +6,8 @@ description: 深入对比六边形架构与 Clean Architecture 在 Laravel 项�
 categories:
   - architecture
 cover: /images/covers/hexagonal-architecture-laravel-cover.jpg
+images:
+  - /images/covers/hexagonal-architecture-laravel-cover.jpg
 ---
 
 ## 前言：当架构思想碰撞 Laravel 框架

@@ -5,6 +5,8 @@ tags: [gRPC, Connect, Protobuf, Buf, Go, TypeScript, Laravel, 微服务]
 categories:
   - architecture
 cover: /images/covers/grpc-vs-connect-cover.jpg
+images:
+  - /images/covers/grpc-vs-connect-cover.jpg
 description: "深入对比 gRPC、gRPC-Web 与 Connect 三种 Protobuf 通信协议的核心差异，详解 Connect 协议如何以零代理方式解决浏览器流式通信难题，并给出 Go 服务端、TypeScript 前端、Laravel BFF 中间层的三端完整集成实战代码与从 gRPC-Web 迁移到 Connect 的渐进式策略。"
 ---
 

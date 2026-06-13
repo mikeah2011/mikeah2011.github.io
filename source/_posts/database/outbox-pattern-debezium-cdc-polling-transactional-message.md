@@ -11,6 +11,8 @@ tags:
 categories:
 - database
 cover: /images/covers/outbox-pattern-cover.jpg
+images:
+  - /images/covers/outbox-pattern-cover.jpg
 description: 微服务架构中数据库与消息队列的双写问题如何解决？本文深度实战 Outbox Pattern（发件箱模式），通过将业务数据与事件消息写入同一数据库事务保证原子性，再借助
   Debezium CDC 变更数据捕获、轮询发布、事务消息三种转发机制实现最终一致性。涵盖 Outbox 表设计、Debezium Connector 配置、Kafka
   消费者幂等去重、与 Saga/TCC 分布式事务方案的对比选型，附完整架构图、生产踩坑记录与监控告警方案，帮助后端工程师在微服务场景下稳健落地可靠事件驱动架构。

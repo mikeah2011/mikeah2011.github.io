@@ -11,6 +11,8 @@ tags:
 categories:
 - database
 cover: /images/covers/sqlite-laravel-embedded-cover.jpg
+images:
+  - /images/covers/sqlite-laravel-embedded-cover.jpg
 description: 深入实战 SQLite + Laravel 嵌入式应用开发，系统讲解 WAL 模式并发读写性能优化、FTS5 全文搜索引擎搭建、中文分词集成、本地优先架构设计与灾难恢复方案。从零配置部署到生产环境最佳实践，提供完整
   PHP 代码示例，帮助 Laravel 开发者用嵌入式数据库替代传统方案，构建零依赖、高性能的现代 Web 应用。
 ---

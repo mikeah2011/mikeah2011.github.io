@@ -1,6 +1,8 @@
 ---
 title: Istio 服务网格实战：Laravel K8s 环境下的 mTLS 自动加密、灰度发布与连接池优化踩坑记录
 cover: /images/covers/istio-guide-laravel-k8s-mtls-canaryoptimization-cover.jpg
+images:
+  - /images/covers/istio-guide-laravel-k8s-mtls-canaryoptimization-cover.jpg
 date: 2026-05-02
 categories:
 - php

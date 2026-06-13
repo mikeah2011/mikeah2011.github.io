@@ -1,6 +1,8 @@
 ---
 title: 消息队列面试题：RabbitMQ vs Kafka vs RocketMQ 选型对比
 cover: /images/covers/message-queue-cover.jpg
+images:
+  - /images/covers/message-queue-cover.jpg
 sticky: 80
 tags:
 - 消息队列

@@ -6,6 +6,8 @@ description: '深入对比 Strapi、Directus、Payload 三大开源 Headless CMS
 categories:
   - architecture
 cover: /images/covers/headless-cms-cover.jpg
+images:
+  - /images/covers/headless-cms-cover.jpg
 ---
 
 ## 前言：为什么 Laravel 开发者需要关注 Headless CMS

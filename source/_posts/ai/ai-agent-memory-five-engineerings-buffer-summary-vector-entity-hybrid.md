@@ -3,6 +3,9 @@ title: AI Agent Memory 实战：对话记忆的五种工程实现——Buffer/Su
   成本与召回精度权衡
 date: 2026-06-10 08:06:00
 categories:
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 - ai
 tags:
 - AI Agent

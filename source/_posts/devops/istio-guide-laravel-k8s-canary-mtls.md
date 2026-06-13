@@ -1,6 +1,8 @@
 ---
 title: Istio 服务网格实战：Laravel 在 K8s 上的超时、重试、灰度发布与 mTLS 踩坑记录
 cover: /images/covers/istio-guide-laravel-k8s-canary-mtls-cover.jpg
+images:
+  - /images/covers/istio-guide-laravel-k8s-canary-mtls-cover.jpg
 date: 2026-05-03 09:01:02
 categories:
 - devops

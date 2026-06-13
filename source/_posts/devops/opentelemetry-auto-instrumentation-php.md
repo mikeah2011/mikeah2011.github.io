@@ -13,6 +13,8 @@ description: 深入剖析 OpenTelemetry PHP 自动埋点的工作原理与实战
   API 机制、Laravel 全栈自动埋点搭建、OTLP Collector 部署、BatchSpanProcessor 优化、采样策略设计及生产环境最佳实践，附带真实基准测试数据（简单场景
   +18.6%、复杂场景 +4.7% 延迟开销），帮助 PHP 开发者在可观测性、性能监控与开发效率之间做出最优权衡。
 cover: /images/covers/opentelemetry-auto-instrumentation-php-cover.jpg
+images:
+  - /images/covers/opentelemetry-auto-instrumentation-php-cover.jpg
 ---
 
 

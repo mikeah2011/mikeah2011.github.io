@@ -4,6 +4,8 @@ date: 2026-06-02 12:00:00
 tags: [OpenHuman, AI Agent, 调度器, 数据同步, 去重]
 categories: [ai]
 cover: /images/covers/openhuman-autofetch-scheduler-cover.jpg
+images:
+  - /images/covers/openhuman-autofetch-scheduler-cover.jpg
 description: 深入解析 OpenHuman AutoFetch 调度器的架构设计，包括每 20 分钟连接遍历机制、增量同步状态管理、幂等键与内容哈希双重去重策略、以及自适应预算控制系统。涵盖 Gmail、Slack、GitHub 等多数据源的统一抽象实现，帮助 AI Agent 开发者构建高效可靠的信息自动收集引擎。
 ---
 

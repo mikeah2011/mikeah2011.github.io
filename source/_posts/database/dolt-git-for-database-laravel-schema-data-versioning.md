@@ -2,6 +2,9 @@
 title: Dolt 实战：Git for 数据库——MySQL 兼容的版本化数据库与 Laravel 的 Schema/Data 双版本控制
 date: 2026-06-09 14:00:00
 categories:
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 - database
 tags:
 - Dolt

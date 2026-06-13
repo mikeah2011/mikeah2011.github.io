@@ -6,6 +6,8 @@ description: "Go 1.18 泛型（Generics）深度实战指南，面向 PHP 开发
 categories:
   - go
 cover: /images/covers/go-generic-type-parameters-cover.jpg
+images:
+  - /images/covers/go-generic-type-parameters-cover.jpg
 ---
 
 ## 前言

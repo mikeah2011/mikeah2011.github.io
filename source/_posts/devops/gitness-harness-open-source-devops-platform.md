@@ -15,6 +15,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/gitness-harness-devops-cover.jpg
+images:
+  - /images/covers/gitness-harness-devops-cover.jpg
 ---
 
 

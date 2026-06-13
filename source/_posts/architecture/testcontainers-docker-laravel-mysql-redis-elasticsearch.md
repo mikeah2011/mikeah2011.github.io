@@ -3,6 +3,9 @@ title: "Testcontainers 实战：Docker 容器化集成测试——Laravel 测试
 date: 2026-06-10 02:16:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Testcontainers
   - Docker

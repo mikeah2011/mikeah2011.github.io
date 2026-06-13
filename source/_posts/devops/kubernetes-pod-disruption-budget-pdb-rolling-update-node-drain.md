@@ -6,6 +6,8 @@ categories:
   - devops
 description: Kubernetes Pod Disruption Budget 实战指南，详解 PDB 核心概念、minAvailable 与 maxUnavailable 配置策略、滚动更新场景、节点 drain 与维护、与 Deployment/StatefulSet 的配合使用，结合 PHP/Laravel 微服务真实案例，帮助运维团队掌握生产环境最小可用副本数保障策略。
 cover: /images/covers/k8s-pdb-cover.jpg
+images:
+  - /images/covers/k8s-pdb-cover.jpg
 ---
 
 ## 前言

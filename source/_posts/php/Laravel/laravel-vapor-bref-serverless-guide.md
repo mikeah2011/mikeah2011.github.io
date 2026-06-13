@@ -1,6 +1,8 @@
 ---
 title: Laravel Vapor / Bref Serverless 实战：报表导出与异步任务拆分、冷启动治理与临时存储踩坑记录
 cover: /images/covers/laravel-vapor-bref-serverless-guide-cover.jpg
+images:
+  - /images/covers/laravel-vapor-bref-serverless-guide-cover.jpg
 date: 2026-05-04 15:31:03
 updated: 2026-05-04 15:33:43
 categories:

@@ -3,6 +3,9 @@ title: Laravel Database Seeder 工程化实战：Seed/Faker/Factory 的生产级
 date: 2026-06-10 04:49:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - Seeder

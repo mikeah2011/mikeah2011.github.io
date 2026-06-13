@@ -3,6 +3,9 @@ title: "Eloquent vs DB Facade 性能实战：ORM 开销量化——什么时候�
 date: 2026-06-10 08:13:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - Eloquent

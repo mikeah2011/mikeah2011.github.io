@@ -12,6 +12,8 @@ tags:
 categories:
 - php
 cover: /images/covers/sensitive-data-protection-cover.jpg
+images:
+  - /images/covers/sensitive-data-protection-cover.jpg
 ---
 
 

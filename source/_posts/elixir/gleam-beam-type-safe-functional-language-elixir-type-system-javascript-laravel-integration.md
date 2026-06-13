@@ -3,6 +3,9 @@ title: "Gleam 实战：BEAM VM 上的类型安全函数式语言——对比 Eli
 date: 2026-06-10 03:30:00
 categories:
   - elixir
+cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 tags:
   - Gleam
   - BEAM

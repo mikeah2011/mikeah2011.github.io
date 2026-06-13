@@ -5,6 +5,8 @@ tags: [OpenClaw, AI Agent, 通知系统, Python, 消息分发]
 categories:
   - architecture
 cover: /images/covers/openclaw-heartbeat-notify-cover.jpg
+images:
+  - /images/covers/openclaw-heartbeat-notify-cover.jpg
 description: 深入解析 OpenClaw heartbeat-notify.py 的三层通知机制：警告级过滤精准拦截噪音、hash 去重避免通知疲劳、多通道分发确保消息可达。涵盖冷却期策略、安静时段、通道降级等关键设计决策，附完整 Python 实现代码，适用于任何需要构建可靠告警系统的 AI Agent 场景。
 ---
 

@@ -2,6 +2,8 @@
 title: 数据归档策略实战：冷热数据分离、历史数据迁移与查询兼容 — Laravel B2C API 踩坑记录
 date: 2026-06-01
 cover: /images/covers/data-archival-strategy-hot-cold-separation-laravel-b2c-cover.jpg
+images:
+  - /images/covers/data-archival-strategy-hot-cold-separation-laravel-b2c-cover.jpg
 categories:
   - database
 tags:

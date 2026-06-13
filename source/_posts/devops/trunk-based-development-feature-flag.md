@@ -13,6 +13,8 @@ description: 深入解析 Trunk-Based Development（TBD）方法论，对比 Git
   Flag 架构设计与实现。涵盖 Flag 可见性控制、灰度发布、A/B 测试、CI/CD 流程适配，以及从长生命周期分支到主干开发的团队迁移策略。适合中大型团队从
   GitFlow 平滑过渡到 TBD，消除合并冲突、加速发布节奏的工程化落地指南。
 cover: /images/covers/trunk-based-development-feature-flag-cover.jpg
+images:
+  - /images/covers/trunk-based-development-feature-flag-cover.jpg
 ---
 
 

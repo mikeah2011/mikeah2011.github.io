@@ -3,6 +3,9 @@ title: "LLM Structured Output 实战进阶：JSON Mode vs Function Calling vs Co
 date: 2026-06-10 08:09:00
 categories:
   - ai
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 tags:
   - LLM
   - Structured Output

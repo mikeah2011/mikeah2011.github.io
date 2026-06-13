@@ -5,6 +5,8 @@ tags: [Cell-Based Architecture, 单元化架构, 微服务, 架构设计, Larave
 categories:
   - architecture
 cover: /images/covers/cell-based-architecture-cover.jpg
+images:
+  - /images/covers/cell-based-architecture-cover.jpg
 description: "本文深入解析 Cell-Based Architecture（单元化架构）的核心原理与 Laravel 微服务落地实践。通过将微服务组织为独立单元（Cell），实现故障隔离、独立扩缩与跨单元智能路由，从根本上限制爆炸半径。内容涵盖单元划分策略、Global Router 路由设计、Laravel 代码实现、数据隔离方案及渐进式迁移路径，帮助团队从传统微服务架构平滑过渡到单元化架构，显著提升系统韧性与可扩展性。"
 ---
 

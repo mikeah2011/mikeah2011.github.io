@@ -17,6 +17,8 @@ tags:
 categories:
 - macos
 cover: /images/covers/nix-cover.jpg
+images:
+  - /images/covers/nix-cover.jpg
 ---
 
 

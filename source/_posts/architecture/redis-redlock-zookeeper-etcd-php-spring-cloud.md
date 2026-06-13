@@ -15,6 +15,8 @@ description: 全面对比 Redis Redlock、Zookeeper 临时顺序节点与 etcd L
   内置锁与 Redisson 看门狗模式借鉴，附 Redis/ZK/etcd 三套可运行 PHP 客户端实现、生产环境五大踩坑案例、锁监控方案与选型决策矩阵，助
   PHP 开发者在秒杀库存、定时任务防重、金融级互斥等场景做出最优分布式锁选型。
 cover: /images/covers/distributed-lock-comparison-cover.jpg
+images:
+  - /images/covers/distributed-lock-comparison-cover.jpg
 ---
 
 

@@ -5,6 +5,8 @@ tags: [Sidecar, 微服务, Envoy, Laravel, DevOps]
 categories:
   - devops
 cover: /images/covers/sidecar-pattern-laravel-cover.jpg
+images:
+  - /images/covers/sidecar-pattern-laravel-cover.jpg
 description: 深入实战 Sidecar 模式在 Laravel 微服务中的完整落地方案。详细拆解 Envoy Proxy 流量代理与熔断、Telegraf 指标采集、Filebeat 日志收集三种 Sidecar 容器的配置与编排，涵盖 Docker Compose 与 Kubernetes Pod 注入（含 Istio 自动注入）、性能开销实测及六个真实踩坑解决方案，帮助 PHP-FPM 架构的 Laravel 应用实现服务治理与可观测性基础设施下沉。
 ---
 

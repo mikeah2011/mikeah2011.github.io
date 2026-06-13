@@ -1,6 +1,8 @@
 ---
 title: Docker 29.x 实战：BuildKit、多阶段构建与镜像优化策略踩坑记录
 cover: /images/covers/docker-29-x-guide-buildkit-imageoptimization-cover.jpg
+images:
+  - /images/covers/docker-29-x-guide-buildkit-imageoptimization-cover.jpg
 date: 2026-05-17 03:45:47
 updated: 2026-05-17 03:48:30
 categories:

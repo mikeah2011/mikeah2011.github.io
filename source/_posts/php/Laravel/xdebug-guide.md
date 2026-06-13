@@ -1,6 +1,8 @@
 ---
 title: Xdebug 实战：远程调试、性能分析、代码覆盖率——Laravel B2C API 开发者完整指南
 cover: /images/covers/xdebug-guide-cover.jpg
+images:
+  - /images/covers/xdebug-guide-cover.jpg
 date: 2026-05-16 19:30:55
 updated: 2026-05-16 19:33:46
 categories:

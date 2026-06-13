@@ -3,6 +3,9 @@ title: 数据库 Schema 冲突治理实战：Laravel Migration 合并冲突检�
 date: 2026-06-10 07:58:00
 categories:
   - engineering
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - Migration

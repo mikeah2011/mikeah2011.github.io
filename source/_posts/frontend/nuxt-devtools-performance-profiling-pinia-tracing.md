@@ -2,6 +2,9 @@
 title: Nuxt DevTools 深度实战：Vue 应用的性能分析、组件树检查与 Pinia 状态追踪——开发调试的瑞士军刀
 date: 2026-06-10 08:52:00
 categories:
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 - frontend
 - nuxt
 tags:

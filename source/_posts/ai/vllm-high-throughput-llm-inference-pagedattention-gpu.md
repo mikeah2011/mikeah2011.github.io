@@ -12,6 +12,8 @@ categories:
 description: vLLM 高吞吐量 LLM 推理引擎深度实战指南，详解 PagedAttention 原理、连续批处理机制、GPU 显存优化与 AWQ/GPTQ
   量化部署，通过完整部署流程实现 LLM 推理吞吐量提升 2-4 倍，降低大模型生产环境部署成本，适合 AI 工程师和 MLOps 团队参考。
 cover: /images/covers/vllm-inference-engine-deployment-cover.jpg
+images:
+  - /images/covers/vllm-inference-engine-deployment-cover.jpg
 ---
 
 

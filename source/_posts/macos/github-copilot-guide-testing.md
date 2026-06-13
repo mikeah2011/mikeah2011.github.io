@@ -1,6 +1,8 @@
 ---
 title: GitHub Copilot 实战：代码补全、测试生成、文档编写——Laravel B2C API 全场景深度踩坑记录
 cover: /images/covers/github-copilot-guide-testing-cover.jpg
+images:
+  - /images/covers/github-copilot-guide-testing-cover.jpg
 date: 2026-05-16 23:45:56
 updated: 2026-05-16 23:49:46
 categories:

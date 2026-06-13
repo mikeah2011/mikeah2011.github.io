@@ -6,6 +6,8 @@ tags: [AI Agent, 客服系统, 多轮对话, RAG, 工单系统]
 categories:
   - ai
 cover: /images/covers/ai-agent-customer-service-cover.jpg
+images:
+  - /images/covers/ai-agent-customer-service-cover.jpg
 ---
 
 # AI Agent 客服系统实战：多轮对话、知识库检索、工单流转

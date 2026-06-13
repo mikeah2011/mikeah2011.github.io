@@ -1,6 +1,8 @@
 ---
 title: "Flutter 3.x 实战：Dart 语言基础与 Widget 体系详解"
 cover: /images/covers/flutter-dart-widget-cover.jpg
+images:
+  - /images/covers/flutter-dart-widget-cover.jpg
 date: 2026-06-01 10:00:00
 categories:
   - mobile

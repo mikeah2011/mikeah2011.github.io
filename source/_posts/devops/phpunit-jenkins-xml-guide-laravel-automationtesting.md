@@ -1,6 +1,8 @@
 ---
 title: phpunit.jenkins.xml 实战：Laravel 项目自动化测试流水线配置
 cover: /images/covers/phpunit-jenkins-xml-guide-laravel-automationtesting-cover.jpg
+images:
+  - /images/covers/phpunit-jenkins-xml-guide-laravel-automationtesting-cover.jpg
 date: 2026-05-05 02:00:14
 updated: 2026-05-05 02:02:25
 categories:

@@ -1,6 +1,8 @@
 ---
 title: "DDD 领域驱动设计实战：B2C 电商聚合根、值对象、领域事件在 Laravel 中的落地踩坑记录"
 cover: /images/covers/ddd-guide-laravel-cover.jpg
+images:
+  - /images/covers/ddd-guide-laravel-cover.jpg
 date: 2026-05-05 11:50:32
 updated: 2026-05-05 11:53:04
 categories:

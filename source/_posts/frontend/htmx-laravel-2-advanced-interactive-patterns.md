@@ -3,6 +3,9 @@ title: Htmx + Laravel 2.0 实战：超交互模式——hx-boost、OOB Swaps、S
 date: 2026-06-09 20:27:00
 categories:
   - frontend
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 tags:
   - HTMX
   - Laravel

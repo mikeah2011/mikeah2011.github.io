@@ -1,6 +1,8 @@
 ---
 title: "Firebase JWT vs 自建 Token：Laravel Passport/Sanctum 的真实选型对比踩坑记录"
 cover: /images/covers/firebase-jwt-vs-token-laravel-passport-sanctum-vs-cover.jpg
+images:
+  - /images/covers/firebase-jwt-vs-token-laravel-passport-sanctum-vs-cover.jpg
 date: 2026-05-05 01:05:47
 updated: 2026-05-05 01:08:54
 categories:

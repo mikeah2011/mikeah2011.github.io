@@ -6,6 +6,8 @@ tags: [Laravel, PHP, Stringable, Fluent String, 字符串处理]
 categories:
   - php
 cover: /images/covers/laravel-stringable-fluent-string-cover.jpg
+images:
+  - /images/covers/laravel-stringable-fluent-string-cover.jpg
 ---
 
 ## 前言

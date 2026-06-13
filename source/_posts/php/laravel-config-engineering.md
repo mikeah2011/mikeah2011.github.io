@@ -3,6 +3,9 @@ title: Laravel 配置管理工程化实战：多环境配置合并、加密配�
 date: 2026-06-09 22:18:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - 配置管理

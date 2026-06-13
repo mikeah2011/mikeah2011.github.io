@@ -16,6 +16,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/dbt-data-build-tool-cover.jpg
+images:
+  - /images/covers/dbt-data-build-tool-cover.jpg
 ---
 
 

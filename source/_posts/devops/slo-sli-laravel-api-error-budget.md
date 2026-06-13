@@ -5,6 +5,8 @@ tags: [SLO, SLI, 可靠性, 告警, DevOps, Laravel, Prometheus]
 categories:
   - devops
 cover: /images/covers/slo-sli-cover.jpg
+images:
+  - /images/covers/slo-sli-cover.jpg
 description: SLO/SLI 实战指南，用服务等级目标驱动可靠性工程决策。从概念辨析到 Laravel API 项目落地，涵盖 SLI 指标定义、Prometheus 指标采集、Grafana SLO 看板搭建、Error Budget 燃烧率告警策略设计，以及基于 Error Budget 的发布流程管控。帮助团队从「凭感觉运维」升级到「用数据说话」的可靠性治理体系。
 ---
 

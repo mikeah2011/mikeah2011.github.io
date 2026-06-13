@@ -6,6 +6,8 @@ categories:
   - php
 description: 通用 AI 编程工具不理解 Laravel 的思维方式？本文深入探讨 Laravel Boost——一款框架感知的 AI 开发加速工具。对比 GitHub Copilot、Cursor、Windsurf 等主流工具在 Laravel 场景下的表现差异，详解 Eloquent 模型智能补全、Migration 生成、Form Request 推断、API Resource 模板等核心功能。提供 VS Code 和 JetBrains 集成配置指南，帮助 Laravel 开发者从"AI 写代码"升级到"AI 理解框架"。
 cover: /images/covers/laravel-boost-ai-development-cover.jpg
+images:
+  - /images/covers/laravel-boost-ai-development-cover.jpg
 ---
 
 ## 前言

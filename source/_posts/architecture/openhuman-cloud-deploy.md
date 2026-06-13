@@ -6,6 +6,8 @@ description: "本文围绕 OpenHuman Cloud Deploy 实战，系统拆解从本地
 categories:
   - architecture
 cover: /images/covers/openhuman-cloud-deploy-cover.jpg
+images:
+  - /images/covers/openhuman-cloud-deploy-cover.jpg
 ---
 
 当 OpenHuman 从“本地单机可用”走向“团队共享入口、跨设备无缝接力、异地容灾、统一运维”时，Cloud Deploy 就不再只是把一个服务塞进云主机那么简单。你面对的是一整套工程问题：如何把本地优先的 Agent/知识服务搬上云端，如何保证桌面端、Web 端、移动端以及自动化任务之间的数据同步，如何在网络抖动、跨地域访问、服务版本迭代、数据库迁移、缓存失效和权限收缩的条件下，依然维持系统可用、一致、可审计、可回滚。

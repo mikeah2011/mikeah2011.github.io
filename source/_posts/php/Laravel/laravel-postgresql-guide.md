@@ -1,6 +1,8 @@
 ---
 title: Laravel + PostgreSQL 分区表实战：订单流水月分区、分区裁剪与冷热归档踩坑记录
 cover: /images/covers/laravel-postgresql-guide-cover.jpg
+images:
+  - /images/covers/laravel-postgresql-guide-cover.jpg
 date: 2026-05-03 11:25:22
 updated: 2026-05-03 11:29:03
 categories:

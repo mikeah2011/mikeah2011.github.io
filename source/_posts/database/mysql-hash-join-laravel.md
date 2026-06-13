@@ -13,6 +13,8 @@ description: MySQL 8.0 到 9.0 升级实战完整指南，以 Laravel B2C 电商
   Join 将多表联查提速数十倍的原理与调优、以及原生向量搜索替代 Elasticsearch 的语义检索落地。包含 ProxySQL 灰度切换方案、Laravel
   Migration 适配、性能基准测试数据、回滚预案与 12 个真实踩坑案例，帮助 DBA 和后端工程师在一个迭代周期内安全完成数据库大版本升级。
 cover: /images/covers/mysql-8-to-9-upgrade-cover.jpg
+images:
+  - /images/covers/mysql-8-to-9-upgrade-cover.jpg
 ---
 
 

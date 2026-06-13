@@ -11,6 +11,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/ai-agent-orchestration-patterns-2026-cover.jpg
+images:
+  - /images/covers/ai-agent-orchestration-patterns-2026-cover.jpg
 ---
 
 

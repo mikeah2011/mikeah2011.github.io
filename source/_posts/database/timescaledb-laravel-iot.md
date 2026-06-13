@@ -16,6 +16,8 @@ description: TimescaleDB 在 Laravel 项目中的完整集成实战：Hypertable
   10 万行/秒）、用户行为漏斗与留存分析、连续聚合物化视图配置、7 个生产踩坑与性能调优 Checklist，附 Docker Compose 环境与 Eloquent
   代码示例。
 cover: /images/covers/timescaledb-laravel-iot-cover.jpg
+images:
+  - /images/covers/timescaledb-laravel-iot-cover.jpg
 ---
 
 

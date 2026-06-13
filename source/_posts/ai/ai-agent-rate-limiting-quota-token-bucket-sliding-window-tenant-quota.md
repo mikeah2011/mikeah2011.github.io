@@ -15,6 +15,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/ai-agent-rate-limiting-cover.jpg
+images:
+  - /images/covers/ai-agent-rate-limiting-cover.jpg
 ---
 
 

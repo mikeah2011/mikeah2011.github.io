@@ -16,6 +16,8 @@ tags:
 description: 2026 年 Rust Web 框架四强对决：Axum、Actix-Web、Rocket、Poem，从 Hello World 到生产级
   API，手把手带你在性能、DX、生态三个维度做出最佳选型。
 cover: https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200
+images:
+  - https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200
 ---
 
 

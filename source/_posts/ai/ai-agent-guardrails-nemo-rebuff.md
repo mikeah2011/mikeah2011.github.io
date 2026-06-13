@@ -5,6 +5,8 @@ tags: [AI安全, Guardrails, NeMo, Rebuff, Agent]
 categories: [ai]
 description: "AI Agent 生产环境安全防护工程化方案，深入解析 NVIDIA NeMo Guardrails 与 Rebuff 两大护栏框架的架构设计与实战集成。涵盖越狱攻击防护、提示注入检测、幻觉缓解、有害内容过滤、PII 检测等多层安全机制，附 Laravel 中间件集成代码与 CI/CD 测试方案，构建企业级 AI Agent 安全体系。"
 cover: /images/covers/ai-guardrails-cover.jpg
+images:
+  - /images/covers/ai-guardrails-cover.jpg
 ---
 
 # AI Agent Guardrails 实战：NeMo Guardrails/Rebuff 护栏系统——防止越狱、幻觉与有害输出的工程化方案

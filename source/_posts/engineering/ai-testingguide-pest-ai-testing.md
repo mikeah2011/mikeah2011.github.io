@@ -1,6 +1,8 @@
 ---
 title: AI 驱动测试生成实战：Pest + AI 自动生成单元测试的最佳实践
 cover: /images/covers/ai-testingguide-pest-ai-testing-cover.jpg
+images:
+  - /images/covers/ai-testingguide-pest-ai-testing-cover.jpg
 date: 2026-05-05 08:45:30
 updated: 2026-05-05 08:48:08
 categories:

@@ -6,6 +6,8 @@ categories:
   - architecture
 description: '面向 Laravel 开发者的 Apache Flink 实战指南：从 Kafka 事件流接入、Tumbling/Sliding/Session 窗口聚合、Exactly-Once 语义（Checkpoint + 两阶段提交）到 Flink SQL CDC，涵盖完整代码示例与架构选型决策树。'
 cover: /images/covers/apache-flink-laravel-streaming-cover.jpg
+images:
+  - /images/covers/apache-flink-laravel-streaming-cover.jpg
 ---
 
 # Apache Flink 实战：流批一体计算引擎——Laravel 事件流的实时聚合、窗口计算与 Exactly-Once 语义

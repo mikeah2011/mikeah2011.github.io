@@ -1,6 +1,8 @@
 ---
 title: "Laravel Octane 性能优化实战：从 FPM 到 Swoole/RoadRunner 的高并发之路 - KKday B2C API 真实踩坑记录"
 cover: /images/covers/laravel-octane-swoole-roadrunner-performanceguide-high-concurrency-cover.jpg
+images:
+  - /images/covers/laravel-octane-swoole-roadrunner-performanceguide-high-concurrency-cover.jpg
 date: 2026-05-03
 categories:
   - php

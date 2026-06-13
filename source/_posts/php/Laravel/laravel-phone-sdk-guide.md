@@ -1,6 +1,8 @@
 ---
 title: Laravel Phone SDK 实战：国际手机号验证（+86/44/33/91/…）
 cover: /images/covers/laravel-phone-sdk-guide-cover.jpg
+images:
+  - /images/covers/laravel-phone-sdk-guide-cover.jpg
 date: 2026-05-02
 description: "深入讲解 Laravel Phone SDK（spatie/laravel-phone）在跨境业务中的实战应用，覆盖国际手机号验证、E.164 格式化、归一化存储、VoIP 号码识别、Redis 防抖、多国号码格式兼容等核心场景，附 KKday B2C 真实踩坑记录与 Pest 测试用例，帮助 PHP 开发者快速构建支持 180+ 国家和地区手机号校验的后端服务。"
 categories:

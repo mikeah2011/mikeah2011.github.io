@@ -6,6 +6,8 @@ tags: [AI Agent, GitHub Actions, CI/CD, 自动化, DevOps]
 categories:
   - devops
 cover: /images/covers/ai-agent-github-actions-cover.jpg
+images:
+  - /images/covers/ai-agent-github-actions-cover.jpg
 ---
 
 ## 引言：CI/CD 从自动化到智能化的演进

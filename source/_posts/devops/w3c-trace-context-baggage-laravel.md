@@ -11,6 +11,8 @@ description: 深入解析W3C Trace Context与Baggage标准在Laravel微服务中
 categories:
 - devops
 cover: /images/covers/distributed-tracing-w3c-cover.jpg
+images:
+  - /images/covers/distributed-tracing-w3c-cover.jpg
 ---
 
 

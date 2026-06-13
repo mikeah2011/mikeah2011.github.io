@@ -11,6 +11,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/ai-context-engineering-cover.jpg
+images:
+  - /images/covers/ai-context-engineering-cover.jpg
 description: Context Engineering 上下文工程实战：系统讲解 .cursorrules、CLAUDE.md、AGENTS.md、.windsurfrules
   规则文件的工程化配置与三层架构策略，涵盖团队共享、自动化生成、CI 校验及六个常见踩坑方案，适合 Cursor、Claude Code、Copilot 全栈开发团队。
 ---

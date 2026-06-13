@@ -3,6 +3,9 @@ title: Biome vs Oxc vs Ruff 2026 选型：Rust 驱动的 Linter/Formatter 统一
 date: 2026-06-10 06:00:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Rust
   - Linter

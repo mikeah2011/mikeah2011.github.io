@@ -3,6 +3,9 @@ title: CQRS + Event Sourcing 深度实战进阶：快照重建、投影重建、
 date: 2026-06-10 04:55:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - CQRS
   - Event Sourcing

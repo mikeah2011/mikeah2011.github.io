@@ -13,6 +13,8 @@ description: 深入探讨 MongoDB 文档数据库在 B2C 电商中的实战应�
   + jenssegers/mongodb 集成实践、聚合管道查询优化及生产环境踩坑总结，助你构建 MySQL + MongoDB 混合架构的高性能 NoSQL
   电商平台。
 cover: /images/covers/mongodb-laravel-b2c-ecommerce-cover.jpg
+images:
+  - /images/covers/mongodb-laravel-b2c-ecommerce-cover.jpg
 ---
 
 

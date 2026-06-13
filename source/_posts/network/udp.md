@@ -1,6 +1,8 @@
 ---
 title: UDP 协议详解：无连接传输与实时应用场景
 cover: /images/covers/udp-cover.jpg
+images:
+  - /images/covers/udp-cover.jpg
 tags:
 - UDP
 - TCP

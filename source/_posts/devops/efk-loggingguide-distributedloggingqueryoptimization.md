@@ -1,6 +1,8 @@
 ---
 title: EFK 日志聚合实战 - Laravel B2C API 分布式日志收集与查询优化
 cover: /images/covers/efk-loggingguide-distributedloggingqueryoptimization-cover.jpg
+images:
+  - /images/covers/efk-loggingguide-distributedloggingqueryoptimization-cover.jpg
 date: 2026-05-03
 categories:
   - devops

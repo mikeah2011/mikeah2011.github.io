@@ -11,6 +11,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/terratest-iac-testing-cover.jpg
+images:
+  - /images/covers/terratest-iac-testing-cover.jpg
 description: Terratest 实战指南：用 Go 语言为 Terraform 模块编写单元测试、集成测试与端到端测试，集成 GitHub Actions
   CI 门禁，构建 IaC 自动化测试体系，杜绝基础设施配置漂移与安全隐患。
 ---

@@ -5,6 +5,8 @@ tags: [AI Agent, Hermes, OpenClaw, OpenHuman, Prompt Cache, 性能优化]
 categories:
   - architecture
 cover: /images/covers/three-frameworks-prompt-cache-comparison-cover.jpg
+images:
+  - /images/covers/three-frameworks-prompt-cache-comparison-cover.jpg
 description: "深入对比 Hermes、OpenClaw、OpenHuman 三大 AI Agent 框架的 Prompt Cache 策略：Hermes 的临时注入（Ephemeral Injection）将 Prompt 分为稳定骨架与动态注入物，缓存命中率 70-85%；OpenClaw 的易失层级（Volatile Tier）按稳定性三级分层，命中率 60-75%；OpenHuman 的本地核心（Local Core）将高频数据预加载到内存，命中率达 80-90%。文章详解各策略的实现机制、缓存命中率分析、优势与局限，并提供不同场景下的选型建议和实战优化指南。"
 ---
 

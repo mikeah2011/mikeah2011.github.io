@@ -5,6 +5,8 @@ tags: [重试策略, Exponential Backoff, Jitter, Laravel, HTTP Client, 韧性�
 categories:
   - php
 cover: /images/covers/retry-backoff-strategy-cover.jpg
+images:
+  - /images/covers/retry-backoff-strategy-cover.jpg
 description: 在微服务架构中，粗暴的重试会引发惊群效应，将瞬时故障放大为持续性过载。本文深入 Exponential Backoff + Jitter 算法原理，在 Laravel HTTP Client 中构建生产级韧性调用体系。涵盖重试预算限制、断路器模式、幂等键设计、Swoole 协程环境适配等进阶话题，含完整代码实现与 Prometheus 监控集成，帮助 B2C 电商团队应对外部 API 瞬态故障，保障系统高可用。
 ---
 

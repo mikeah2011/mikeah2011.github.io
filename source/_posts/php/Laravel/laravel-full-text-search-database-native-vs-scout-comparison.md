@@ -11,6 +11,8 @@ tags:
 categories:
 - php
 cover: /images/covers/laravel-full-text-search-cover.jpg
+images:
+  - /images/covers/laravel-full-text-search-cover.jpg
 description: 做全文搜索就一定要上 Elasticsearch 吗？本文深入对比 Laravel 生态中的多种全文搜索方案：MySQL FULLTEXT（ngram
   解析器）、PostgreSQL tsvector/tsquery、Laravel Scout Database Driver、Meilisearch 以及 Elasticsearch。从索引原理、中文分词、查询性能、Faceting
   能力、运维成本等维度进行实测对比，提供不同数据量级下的选型建议。适合中小项目在引入重型搜索引擎前的务实评估。

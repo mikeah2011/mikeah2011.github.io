@@ -1,6 +1,8 @@
 ---
 title: Laravel Middleware 实战-KKday B2C API 请求链路追踪与真实踩坑记录
 cover: /images/covers/middleware-guide-cover.jpg
+images:
+  - /images/covers/middleware-guide-cover.jpg
 date: 2026-05-02
 categories:
 - php

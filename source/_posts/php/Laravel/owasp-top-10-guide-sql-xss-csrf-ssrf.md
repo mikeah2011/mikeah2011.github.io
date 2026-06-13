@@ -1,6 +1,8 @@
 ---
 title: OWASP Top 10 防护实战：SQL 注入/XSS/CSRF/SSRF Laravel B2C API 安全加固踩坑记录
 cover: /images/covers/owasp-top-10-guide-sql-xss-csrf-ssrf-cover.jpg
+images:
+  - /images/covers/owasp-top-10-guide-sql-xss-csrf-ssrf-cover.jpg
 date: 2026-05-16 18:40:51
 updated: 2026-05-16 18:51:52
 categories:

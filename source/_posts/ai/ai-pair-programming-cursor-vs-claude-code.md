@@ -2,6 +2,9 @@
 title: AI Pair Programming 效率量化实战：20 个真实场景的 Cursor vs Claude Code 对比
 date: 2026-06-10 01:47:00
 categories:
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 - ai
 tags:
 - AI 编程

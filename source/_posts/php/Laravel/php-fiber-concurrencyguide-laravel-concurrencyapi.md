@@ -1,6 +1,8 @@
 ---
 title: PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离踩坑记录
 cover: /images/covers/php-fiber-concurrencyguide-laravel-concurrencyapi-cover.jpg
+images:
+  - /images/covers/php-fiber-concurrencyguide-laravel-concurrencyapi-cover.jpg
 date: 2026-05-04 23:11:25
 updated: 2026-05-04 23:14:17
 categories:

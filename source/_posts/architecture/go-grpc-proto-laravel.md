@@ -6,6 +6,8 @@ description: "深入实战 Go + gRPC 高性能微服务通信方案，涵盖 Pro
 categories:
   - architecture
 cover: /images/covers/Go-gRPC-high-performance-microservice-communication-cover.jpg
+images:
+  - /images/covers/Go-gRPC-high-performance-microservice-communication-cover.jpg
 ---
 
 # Go + gRPC 实战：高性能微服务间通信——Proto 定义、流式调用与 Laravel 集成

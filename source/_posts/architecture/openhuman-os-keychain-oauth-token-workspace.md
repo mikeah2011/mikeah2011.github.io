@@ -15,6 +15,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/openhuman-security-model-cover.jpg
+images:
+  - /images/covers/openhuman-security-model-cover.jpg
 ---
 
 

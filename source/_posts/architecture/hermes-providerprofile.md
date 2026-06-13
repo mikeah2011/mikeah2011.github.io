@@ -13,6 +13,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/hermes-providerprofile-architecture-cover.jpg
+images:
+  - /images/covers/hermes-providerprofile-architecture-cover.jpg
 ---
 
 

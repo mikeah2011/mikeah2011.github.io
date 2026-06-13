@@ -6,6 +6,8 @@ description: "全面解析 Laravel 加密架构选型：应用层加密 vs 数�
 categories:
   - php
 cover: /images/covers/laravel-encryption-architecture-cover.jpg
+images:
+  - /images/covers/laravel-encryption-architecture-cover.jpg
 ---
 
 # Laravel 加密架构实战：应用层加密 vs 数据库透明加密（TDE）的选型与合规边界

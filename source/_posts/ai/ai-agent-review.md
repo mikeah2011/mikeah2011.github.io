@@ -6,6 +6,8 @@ tags: [AI Agent, 代码助手, Code Review, 重构, 文档生成]
 categories:
   - ai
 cover: /images/covers/ai-agent-code-assistant-cover.jpg
+images:
+  - /images/covers/ai-agent-code-assistant-cover.jpg
 ---
 
 # AI Agent 代码助手实战：代码生成、Review、重构、文档生成

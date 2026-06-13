@@ -1,6 +1,8 @@
 ---
 title: "PHP-性能基准测试-xhprof-Blackfire-Tideways-实战对比与-Laravel-生产环境-Profile-落地方案踩坑记录"
 cover: /images/covers/php-testing-xhprof-blackfire-tideways-guidevs-laravel-profile-cover.jpg
+images:
+  - /images/covers/php-testing-xhprof-blackfire-tideways-guidevs-laravel-profile-cover.jpg
 date: 2026-05-05 00:31:11
 updated: 2026-05-05 00:37:28
 categories:

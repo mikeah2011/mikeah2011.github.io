@@ -1,6 +1,8 @@
 ---
 title: OPcache 配置与调优：PHP 生产环境字节码缓存最佳实践
 cover: /images/covers/opcache-1-cover.jpg
+images:
+  - /images/covers/opcache-1-cover.jpg
 tags:
 - PHP
 - 性能优化

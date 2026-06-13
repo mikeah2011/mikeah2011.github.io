@@ -13,6 +13,8 @@ tags:
 categories:
 - database
 cover: /images/covers/cache-stampede-triple-defense-cover.jpg
+images:
+  - /images/covers/cache-stampede-triple-defense-cover.jpg
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 title: VS Code 高效开发实战：扩展、快捷键、调试配置 - Laravel B2C API 踩坑记录
 cover: /images/covers/vs-code-guide-cover.jpg
+images:
+  - /images/covers/vs-code-guide-cover.jpg
 date: 2026-05-17 04:25:32
 updated: 2026-05-17 04:28:02
 categories:

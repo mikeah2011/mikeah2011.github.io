@@ -6,6 +6,8 @@ tags: [AI, LLM, Claude, OpenAI, Laravel, Tool Use]
 categories:
   - architecture
 cover: /images/covers/claude-opus-o3-laravel-integration-cover.jpg
+images:
+  - /images/covers/claude-opus-o3-laravel-integration-cover.jpg
 ---
 
 ## 前言

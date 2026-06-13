@@ -3,6 +3,9 @@ title: "GitLab CI/CD 实战：从 GitHub Actions 迁移——Pipeline DAG、Auto
 date: 2026-06-10 05:37:00
 categories:
   - devops
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 tags:
   - GitLab
   - CI/CD

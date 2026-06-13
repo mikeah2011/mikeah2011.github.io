@@ -14,6 +14,8 @@ description: 深入实战 Laravel Task Scheduling 在分布式环境下的完整
   Election 高可用选主、任务分片内存优化、Prometheus/Grafana 监控告警集成、动态调度与事件驱动解耦等高级话题。基于 KKday B2C
   生产环境真实踩坑经验，详解时区陷阱、锁残留清理、连接超时处理等七大常见问题，帮助团队构建任务不丢、不重、有日志、有告警的健壮调度系统。
 cover: /images/covers/laravel-task-scheduling-cover.jpg
+images:
+  - /images/covers/laravel-task-scheduling-cover.jpg
 ---
 
 

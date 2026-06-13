@@ -1,6 +1,8 @@
 ---
 title: 算法实战：查找重复字符的多种解法对比
 cover: /images/covers/dedup-cover.jpg
+images:
+  - /images/covers/dedup-cover.jpg
 tags:
 - PHP
 - 算法

@@ -12,6 +12,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/ai-agent-data-analysis-cover.jpg
+images:
+  - /images/covers/ai-agent-data-analysis-cover.jpg
 ---
 
 

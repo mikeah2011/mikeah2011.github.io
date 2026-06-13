@@ -14,6 +14,8 @@ description: API 生命周期管理实战全流程：从 OpenAPI 契约设计、
   Sunset Header 与 Deprecation Header 标准化废弃通知，再到客户端迁移监控与渐进式限流下线。基于 Laravel 完整实现，提供版本检测中间件、自动通知系统、迁移看板等生产级代码，终结僵尸
   API 难题。
 cover: /images/covers/api-lifecycle-management-cover.jpg
+images:
+  - /images/covers/api-lifecycle-management-cover.jpg
 ---
 
 

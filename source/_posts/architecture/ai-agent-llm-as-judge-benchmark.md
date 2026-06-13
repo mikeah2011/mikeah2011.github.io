@@ -13,6 +13,8 @@ description: 本文深入探讨 AI Agent 质量评估的工程化方法论，涵
 categories:
 - architecture
 cover: /images/covers/ai-agent-evaluation-benchmark-cover.jpg
+images:
+  - /images/covers/ai-agent-evaluation-benchmark-cover.jpg
 ---
 
 

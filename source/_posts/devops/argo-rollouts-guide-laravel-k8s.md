@@ -1,6 +1,8 @@
 ---
 title: Argo Rollouts 渐进式发布实战：Laravel 在 K8s 上的金丝雀发布、自动分析与回滚踩坑记录
 cover: /images/covers/argo-rollouts-guide-laravel-k8s-cover.jpg
+images:
+  - /images/covers/argo-rollouts-guide-laravel-k8s-cover.jpg
 date: 2026-05-04 15:11:34
 updated: 2026-05-04 15:12:57
 categories:

@@ -1,6 +1,8 @@
 ---
 title: iTerm2 + Oh My Zsh 实战：终端美化与效率提升踩坑记录
 cover: /images/covers/iterm2-oh-my-zsh-guide-cover.jpg
+images:
+  - /images/covers/iterm2-oh-my-zsh-guide-cover.jpg
 date: 2026-05-16 23:15:53
 updated: 2026-05-16 23:18:38
 categories:

@@ -8,6 +8,8 @@ categories:
 title: "高性能PHP-FPM与Laravel Octane/Swoole深度实战：从瓶颈突破到生产部署"
 author: Michael
 cover: /images/covers/php-swoole-cover.jpg
+images:
+  - /images/covers/php-swoole-cover.jpg
 
 
 
@@ -16,7 +18,6 @@ cover: /images/covers/php-swoole-cover.jpg
 
 在高并发业务场景中，传统的 PHP-FPM + Apache/Nginx 模式逐渐暴露出瓶颈：**每请求加载一次代码**、**进程频繁创建销毁**、**内存泄漏累积**。我曾在一款日活跃用户千万级的电商项目中，发现高峰期 QPS 只能承受 2000 左右，响应时间超过 500ms。
 
-![PHP-FPM vs FastCGI 架构对比](https://i.imgur.com/example1.png)
 
 传统 PHP-FPM 模式采用 **C10K/C100K** 并发模型，每个请求对应一个子进程创建：
 

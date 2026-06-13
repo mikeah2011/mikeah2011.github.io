@@ -1,6 +1,8 @@
 ---
 title: macOS APP 管理神器——brew
 cover: /images/covers/brew-cover.jpg
+images:
+  - /images/covers/brew-cover.jpg
 tags: [macOS, Homebrew, tools]
 categories:
   - macos

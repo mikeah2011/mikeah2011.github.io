@@ -5,6 +5,8 @@ tags: [MySQL HeatWave, HTAP, OLAP, OLTP, Laravel, 实时分析]
 categories:
   - database
 cover: /images/covers/mysql-heatwave-htap-cover.jpg
+images:
+  - /images/covers/mysql-heatwave-htap-cover.jpg
 slug: mysql-heatwave-htap-laravel
 description: "MySQL HeatWave 是 Oracle 推出的原生 HTAP 解决方案，通过内存列存储引擎在同一数据库中同时支撑 OLTP 事务处理和 OLAP 分析查询。本文详解 HeatWave 集群搭建、Laravel 集成方案、AutoML 实战、性能基准测试、成本分析及生产环境踩坑经验，助你消除 ETL 管道延迟，实现实时数据分析。"
 ---

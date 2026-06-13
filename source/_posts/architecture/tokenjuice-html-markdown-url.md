@@ -5,6 +5,8 @@ tags: [TokenJuice, Token压缩, AI成本优化, 数据预处理]
 categories:
   - architecture
 cover: /images/covers/tokenjuice-compression-strategies-cover.jpg
+images:
+  - /images/covers/tokenjuice-compression-strategies-cover.jpg
 description: 详解 TokenJuice AI Agent 上下文压缩中间件的四大核心策略：HTML→Markdown 转换剥离结构噪声保留语义、URL 哈希缩短精简链接、正则噪声过滤清除无意义数据、输出去重消除模板重复。通过真实数据展示每种策略 60-90% 的压缩效果，组合使用可降低 80-90% token 消耗。包含完整 Python 代码实现、YAML 配置示例、踩坑案例和最佳实践指南。
 ---
 

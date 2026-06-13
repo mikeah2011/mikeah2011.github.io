@@ -15,6 +15,8 @@ tags:
 categories:
 - php
 cover: /images/covers/swoole-resident-memory-pitfalls-cover.jpg
+images:
+  - /images/covers/swoole-resident-memory-pitfalls-cover.jpg
 ---
 
 

@@ -3,6 +3,9 @@ title: PHP GD/Imagick 实战：服务端图片处理——缩放/裁剪/水印/W
 date: 2026-06-10 04:30:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - PHP
   - GD

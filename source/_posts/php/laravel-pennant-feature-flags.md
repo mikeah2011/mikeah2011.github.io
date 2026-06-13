@@ -12,6 +12,8 @@ tags:
   - A/B Testing
 description: 深入 Laravel Pennant Feature Flags 机制，从底层原理到生产级灰度放量、回滚兜底、A/B 实验的完整工程化闭环，附可运行代码。
 cover: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
+images:
+  - https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
 ---
 
 ## 为什么需要 Feature Flags

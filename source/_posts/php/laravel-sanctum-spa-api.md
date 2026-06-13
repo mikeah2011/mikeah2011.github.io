@@ -12,6 +12,8 @@ tags:
 categories:
 - php
 cover: /images/covers/laravel-sanctum-cover.jpg
+images:
+  - /images/covers/laravel-sanctum-cover.jpg
 ---
 
 

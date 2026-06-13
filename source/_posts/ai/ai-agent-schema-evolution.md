@@ -3,6 +3,9 @@ title: AI Agent Schema Evolution 实战：工具定义版本化与向后兼容�
 date: 2026-06-09 15:05:00
 categories:
   - ai
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 tags:
   - AI Agent
   - MCP

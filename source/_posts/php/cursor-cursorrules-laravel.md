@@ -3,6 +3,9 @@ title: Cursor .cursorrules 工程化实战：Laravel 项目级 AI 配置——El
 date: 2026-06-10 08:19:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Cursor
   - .cursorrules

@@ -6,6 +6,8 @@ description: 深入剖析PHP serialize/unserialize底层机制，详解__sleep/_
 categories:
   - php
 cover: /images/covers/php-serialization-deep-dive-cover.jpg
+images:
+  - /images/covers/php-serialization-deep-dive-cover.jpg
 ---
 
 ## 一、开篇引入：序列化在 PHP 生态中的核心地位

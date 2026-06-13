@@ -15,6 +15,8 @@ description: 全球化 Laravel 应用多区域部署实战指南，系统覆盖 
   跨区域分布式锁、JWT 无状态 Session 与 Redis CRDT 缓存同步、GDPR 数据驻留与合规导出。附 Terraform 多区域 IaC 部署流程与健康检查故障转移方案，适合
   B2C 电商出海团队从单区域平滑演进到全球多区域部署参考。
 cover: /images/covers/multi-region-deployment-cover.jpg
+images:
+  - /images/covers/multi-region-deployment-cover.jpg
 ---
 
 

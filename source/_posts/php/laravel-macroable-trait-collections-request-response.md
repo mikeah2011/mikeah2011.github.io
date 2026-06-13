@@ -6,6 +6,8 @@ tags: [Laravel, PHP, Macroable, 设计模式, 扩展性]
 categories:
   - php
 cover: /images/covers/laravel-macroable-trait-cover.jpg
+images:
+  - /images/covers/laravel-macroable-trait-cover.jpg
 ---
 
 ## 前言

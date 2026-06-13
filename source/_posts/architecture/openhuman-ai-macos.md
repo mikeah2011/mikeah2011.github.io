@@ -5,6 +5,8 @@ tags: [OpenHuman, AI Agent, macOS, 开源框架]
 categories:
   - architecture
 cover: /images/covers/openhuman-intro-macos-cover.jpg
+images:
+  - /images/covers/openhuman-intro-macos-cover.jpg
 description: 本文带你系统上手 OpenHuman 这一开源框架，详解 AI Agent 在 macOS 上的安装、配置、排障与实践路线，拆解超级智能所需的长期记忆、Token 预算和外部集成能力，并通过对比分析帮助你快速判断它是否适合构建下一代开源 AI 超级智能系统。
 ---
 

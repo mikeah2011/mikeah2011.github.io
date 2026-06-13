@@ -14,6 +14,8 @@ description: 深入解析 Rust 过程宏（proc macro）实战：从 derive 宏�
 categories:
 - php
 cover: /images/covers/rust-procedural-macro-cover.jpg
+images:
+  - /images/covers/rust-procedural-macro-cover.jpg
 ---
 
 

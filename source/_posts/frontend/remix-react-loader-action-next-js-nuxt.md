@@ -12,6 +12,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/remix-framework-cover.jpg
+images:
+  - /images/covers/remix-framework-cover.jpg
 ---
 
 

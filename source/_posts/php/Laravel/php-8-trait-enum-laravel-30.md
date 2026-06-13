@@ -1,6 +1,8 @@
 ---
 title: PHP 8 Trait + Enum 大型项目重构实战 -30+ Laravel 仓库经验
 cover: /images/covers/php-8-trait-enum-laravel-30-cover.jpg
+images:
+  - /images/covers/php-8-trait-enum-laravel-30-cover.jpg
 date: 2026-05-02 17:30
 categories:
   - php

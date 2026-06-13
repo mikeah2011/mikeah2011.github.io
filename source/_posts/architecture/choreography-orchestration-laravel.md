@@ -10,6 +10,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/choreography-vs-orchestration-cover.jpg
+images:
+  - /images/covers/choreography-vs-orchestration-cover.jpg
 description: 深度对比微服务编排中的两种核心范式——Choreography 事件驱动与 Orchestration 工作流驱动。以 Laravel 为技术栈，通过订单处理、支付回调等真实业务场景，详解
   Event/Listener、Redis Stream、Pipeline、Temporal 等实现方式，涵盖 Saga 补偿事务、幂等性保障、可观测性等生产踩坑经验，提供完整的选型决策树与混合架构最佳实践，助你在分布式系统设计中做出正确的编排模式决策。
 ---

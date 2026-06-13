@@ -10,6 +10,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/openclaw-memory-system-cover.jpg
+images:
+  - /images/covers/openclaw-memory-system-cover.jpg
 description: 本文系统讲解 OpenClaw 记忆系统的落地方法，围绕 MEMORY.md、长期记忆、日常记忆、AI Agent 的上下文管理与跨会话协作展开，覆盖记忆写入、读取、压缩、遗忘与容量控制策略，并结合代码示例、配置片段和实战场景说明如何构建透明、可维护、可审计的持久化记忆机制。
 ---
 

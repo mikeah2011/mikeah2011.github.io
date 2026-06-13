@@ -6,6 +6,8 @@ description: 'Service Mesh Sidecar 模式实战教程：以 Envoy Proxy + Larave
 categories:
   - architecture
 cover: /images/covers/service-mesh-sidecar-envoy-laravel-cover.jpg
+images:
+  - /images/covers/service-mesh-sidecar-envoy-laravel-cover.jpg
 ---
 
 # 服务网格 Sidecar 模式实战：Envoy Proxy + Laravel——流量镜像、熔断、重试的基础设施下沉与应用层解耦

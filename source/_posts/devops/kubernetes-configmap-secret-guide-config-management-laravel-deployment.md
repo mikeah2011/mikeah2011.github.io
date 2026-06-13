@@ -1,6 +1,8 @@
 ---
 title: "Kubernetes ConfigMap/Secret 实战：配置管理与敏感数据处理——Laravel 应用部署的配置治理踩坑记录"
 cover: /images/covers/kubernetes-configmap-secret-cover.jpg
+images:
+  - /images/covers/kubernetes-configmap-secret-cover.jpg
 date: 2026-05-16 21:50:51
 updated: 2026-05-16 21:57:35
 categories:

@@ -1,6 +1,8 @@
 ---
 title: Laravel 12.x 新特性实战：Context、Concurrency、Artisan 改进深度剖析
 cover: /images/covers/2026-06-01-laravel-12x-new-features-context-concurrency-artisan-improvements-cover.jpg
+images:
+  - /images/covers/2026-06-01-laravel-12x-new-features-context-concurrency-artisan-improvements-cover.jpg
 date: 2026-06-01 10:00:00
 categories:
 - php

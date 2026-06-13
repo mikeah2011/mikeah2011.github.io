@@ -3,6 +3,9 @@ title: Laravel 数据脱敏工程化实战：日志脱敏、API 响应脱敏、�
 date: 2026-06-09 22:45:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - 数据脱敏

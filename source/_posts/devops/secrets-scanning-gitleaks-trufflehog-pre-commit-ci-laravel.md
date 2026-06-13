@@ -3,6 +3,9 @@ title: Secrets Scanning 实战：gitleaks/trufflehog + pre-commit + CI——Lara
   Key/Token 泄漏的预防与应急响应
 date: 2026-06-09 18:49:00
 categories:
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 - devops
 tags:
 - secrets-scanning

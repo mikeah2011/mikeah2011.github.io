@@ -5,6 +5,8 @@ tags: [Hermes, AI Agent, 模型发现, 插件系统, 延迟加载]
 categories:
   - architecture
 cover: /images/covers/hermes-model-discovery-cover.jpg
+images:
+  - /images/covers/hermes-model-discovery-cover.jpg
 description: >-
   深入剖析 Hermes AI Agent 框架模型发现机制：bundled plugins 与 user overrides 如何通过分层注册表实现 last-writer-wins 优先级覆盖，延迟加载如何优化 CLI 冷启动性能 500ms+。从 providers/__init__.py 源码出发，解析 ProviderProfile 声明式注册、alias 归一化、module naming 隔离等核心设计，附踩坑指南与扩展实践。
 ---

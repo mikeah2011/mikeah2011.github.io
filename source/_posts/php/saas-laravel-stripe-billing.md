@@ -5,6 +5,8 @@ tags: [SaaS, 多租户, Stripe, Billing, Laravel, 定价模型]
 categories:
   - php
 cover: /images/covers/saas-pricing-model-cover.jpg
+images:
+  - /images/covers/saas-pricing-model-cover.jpg
 description: 多租户 SaaS 定价模型深度实战，系统拆解按量计费、阶梯定价、混合订阅等模型的数据库设计与 Laravel + Stripe Billing 集成方案。涵盖用量计量器实现、配额管理、幂等计费、Rate Limiting 限流、账单对账与税务合规等工程细节，附完整代码示例，帮助 SaaS 团队设计可扩展的商业化定价体系。
 ---
 

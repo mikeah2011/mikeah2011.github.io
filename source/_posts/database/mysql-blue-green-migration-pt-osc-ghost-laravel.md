@@ -2,6 +2,9 @@
 title: 数据库蓝绿迁移实战：pt-osc vs gh-ost vs Laravel 大表无锁变更——生产环境零停机 Schema 演进的工程化路径
 date: 2026-06-09 15:37:00
 categories:
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 - database
 tags:
 - pt-osc

@@ -3,6 +3,9 @@ title: TypeScript 6.0 前瞻：Isolated Declarations、Pattern Matching、Pipe O
   开发者视角的类型系统进化
 date: 2026-06-09 18:44:00
 categories:
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 - frontend
 tags:
 - TypeScript

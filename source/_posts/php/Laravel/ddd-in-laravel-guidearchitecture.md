@@ -1,6 +1,8 @@
 ---
 title: 领域驱动设计 (DDD) 在 Laravel 中的实践
 cover: /images/covers/ddd-in-laravel-guidearchitecture-cover.jpg
+images:
+  - /images/covers/ddd-in-laravel-guidearchitecture-cover.jpg
 tags: [Laravel, DDD, 领域驱动设计, 聚合根, 值对象, 领域事件, 限界上下文, 架构]
 categories:
   - misc

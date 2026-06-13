@@ -12,6 +12,8 @@ tags:
 categories:
 - go
 cover: /images/covers/go-embed-single-binary-cover.jpg
+images:
+  - /images/covers/go-embed-single-binary-cover.jpg
 description: 深入讲解 Go embed 包的使用方法，包括 //go:embed 指令嵌入文件、目录、字符串与字节的多种用法。实战演示如何将静态资源直接编入二进制，实现零依赖单文件部署。对比传统
   Laravel + Vite 前端资源编译方案，从部署步骤、镜像大小、跨平台能力等维度全方位分析 Go 单二进制部署的优势与适用场景，附完整示例代码、Docker
   多阶段构建、systemd 服务配置及常见踩坑经验。

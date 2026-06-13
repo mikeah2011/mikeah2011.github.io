@@ -6,6 +6,8 @@ description: "本文围绕 OpenHuman、Hermes、OpenClaw 三大开源 AI Agent �
 categories:
   - architecture
 cover: /images/covers/openhuman-vs-hermes-vs-openclaw-cover.jpg
+images:
+  - /images/covers/openhuman-vs-hermes-vs-openclaw-cover.jpg
 ---
 
 # OpenHuman vs Hermes vs OpenClaw：三大开源 AI Agent 框架深度对比

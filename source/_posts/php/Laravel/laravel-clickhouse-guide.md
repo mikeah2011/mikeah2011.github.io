@@ -1,6 +1,8 @@
 ---
 title: Laravel + ClickHouse 实战：埋点宽表、物化视图与漏斗报表性能治理踩坑记录
 cover: /images/covers/laravel-clickhouse-guide-cover.jpg
+images:
+  - /images/covers/laravel-clickhouse-guide-cover.jpg
 date: 2026-05-04 14:30:56
 updated: 2026-05-04 14:32:11
 categories:

@@ -3,6 +3,9 @@ title: 技术写作的结构化方法论实战：SCQA 框架、MECE 原则、技
 date: 2026-06-10 03:22:00
 categories:
   - engineering
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags:
   - 技术写作
   - SCQA

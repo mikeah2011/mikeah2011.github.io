@@ -2,6 +2,9 @@
 title: Go 并发控制进阶：select 的高级技巧与常见陷阱
 date: 2026-06-09 14:12:00
 categories:
+cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 - go
 tags:
 - Go

@@ -1,6 +1,8 @@
 ---
 title: kubectl-1.36-实战-Pod-Deployment-Service-基础操作与-Laravel-B2C-API-踩坑记录
 cover: /images/covers/kubectl-1-36-guide-pod-deployment-service-cover.jpg
+images:
+  - /images/covers/kubectl-1-36-guide-pod-deployment-service-cover.jpg
 date: 2026-05-16 23:00:27
 updated: 2026-05-16 23:03:36
 categories:

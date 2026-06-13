@@ -15,6 +15,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/ai-agent-memory-systems-cover.jpg
+images:
+  - /images/covers/ai-agent-memory-systems-cover.jpg
 ---
 
 

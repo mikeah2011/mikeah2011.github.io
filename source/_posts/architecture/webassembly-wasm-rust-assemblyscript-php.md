@@ -13,6 +13,8 @@ description: 面向 PHP 开发者的 WebAssembly 实战指南，从 Rust 编译 
 categories:
 - architecture
 cover: /images/covers/webassembly-wasm-cover.jpg
+images:
+  - /images/covers/webassembly-wasm-cover.jpg
 ---
 
 

@@ -6,6 +6,8 @@ description: 本文记录在真实 Laravel B2C 项目中从 Laravel Dusk 迁移�
 categories:
   - frontend
 cover: /images/covers/playwright-e2e-laravel-cover.jpg
+images:
+  - /images/covers/playwright-e2e-laravel-cover.jpg
 ---
 
 ## 前言

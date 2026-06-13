@@ -1,6 +1,8 @@
 ---
 title: Docker 基础入门：镜像、容器、Dockerfile 核心概念
 cover: /images/covers/docker-cover.jpg
+images:
+  - /images/covers/docker-cover.jpg
 tags:
 - Docker
 - 容器化

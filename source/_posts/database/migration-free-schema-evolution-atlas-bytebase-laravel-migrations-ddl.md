@@ -17,6 +17,8 @@ tags:
 categories:
 - database
 cover: /images/covers/migration-free-schema-evolution-cover.jpg
+images:
+  - /images/covers/migration-free-schema-evolution-cover.jpg
 ---
 
 

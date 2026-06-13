@@ -12,6 +12,8 @@ description: 本文深度对比 OpenAI、Cohere、Jina 三大主流 Embedding �
 categories:
 - ai
 cover: /images/covers/llm-embedding-rag-cover.jpg
+images:
+  - /images/covers/llm-embedding-rag-cover.jpg
 ---
 
 

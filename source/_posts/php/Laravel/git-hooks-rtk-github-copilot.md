@@ -1,6 +1,8 @@
 ---
 title: Git Hooks + RTK Laravel B2C API -自動代碼審查工作流 -GitHub Copilot 配合實戰
 cover: /images/covers/git-hooks-rtk-github-copilot-cover.jpg
+images:
+  - /images/covers/git-hooks-rtk-github-copilot-cover.jpg
 date: 2026-05-03
 categories:
   - php

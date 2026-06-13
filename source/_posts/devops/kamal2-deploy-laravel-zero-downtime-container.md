@@ -5,6 +5,8 @@ tags: [Kamal, Docker, Laravel, DevOps, 部署, 容器化]
 categories:
   - devops
 cover: /images/covers/kamal2-deploy-cover.jpg
+images:
+  - /images/covers/kamal2-deploy-cover.jpg
 description: "全面解析 Kamal 2 容器部署工具在 Laravel 应用中的实战应用，涵盖零停机部署流程、Docker 多阶段构建、Traefik 自动 HTTPS 证书、Accessory 附件服务管理、CI/CD 集成与健康检查回滚机制，并对比 Docker Compose 和 Kubernetes 的技术选型，帮助开发者选择最适合的容器化部署方案。"
 ---
 

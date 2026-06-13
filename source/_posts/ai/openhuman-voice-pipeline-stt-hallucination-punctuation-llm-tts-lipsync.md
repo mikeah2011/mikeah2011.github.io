@@ -4,6 +4,8 @@ date: 2026-06-02 12:00:00
 tags: [OpenHuman, 语音管线, STT, TTS, NLP, 口型同步]
 categories: [ai]
 cover: /images/covers/openhuman-voice-pipeline-cover.jpg
+images:
+  - /images/covers/openhuman-voice-pipeline-cover.jpg
 description: 全面解析 OpenHuman 桌面 AI Agent 的语音交互管线全链路，从麦克风采集、VAD 检测、STT 语音转文字，到幻觉过滤、标点恢复、LLM 语义理解，再到 TTS 语音合成与口型同步。深入探讨 Whisper 幻觉检测规则引擎、流式处理降低感知延迟、多引擎降级保障可用性等核心技术，附带 30 天生产环境性能数据和延迟预算分配方案。
 ---
 

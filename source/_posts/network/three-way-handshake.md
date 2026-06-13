@@ -1,6 +1,8 @@
 ---
 title: TCP 三次握手详解：SYN、SYN-ACK、ACK 的完整流程
 cover: /images/covers/three-way-handshake-cover.jpg
+images:
+  - /images/covers/three-way-handshake-cover.jpg
 tags:
 - TCP
 - 三次握手

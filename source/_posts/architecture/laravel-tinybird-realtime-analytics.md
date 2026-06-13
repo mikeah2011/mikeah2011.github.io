@@ -13,6 +13,8 @@ tags:
   - 数据管道
 description: 深度实战 Laravel 与 Tinybird 集成，利用 ClickHouse 驱动的 Serverless OLAP 构建实时分析 API，涵盖数据管道搭建、查询优化、Laravel 封装、踩坑记录与生产部署方案。
 cover: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
+images:
+  - https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
 ---
 
 ## 概述

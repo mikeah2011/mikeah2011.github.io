@@ -14,6 +14,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/git-bisect-automated-bug-finding-cover.jpg
+images:
+  - /images/covers/git-bisect-automated-bug-finding-cover.jpg
 ---
 
 

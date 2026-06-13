@@ -14,6 +14,8 @@ tags:
 description: 基于奇乐 MAX（qile-max）SaaS 化改造的真实经验，拆解 ThinkPHP 8 多租户架构的三种数据隔离方案（共享表/独立 Schema/独立数据库）、中间件级租户识别、RBAC
   权限分级、Redis 令牌桶资源配额，以及生产环境中遇到的 8 个真实踩坑与重构方案。
 cover: /images/covers/thinkphp-8-multi-tenant-architecture-design-cover.jpg
+images:
+  - /images/covers/thinkphp-8-multi-tenant-architecture-design-cover.jpg
 ---
 
 

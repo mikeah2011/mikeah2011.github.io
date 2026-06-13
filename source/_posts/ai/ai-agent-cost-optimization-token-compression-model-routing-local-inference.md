@@ -5,6 +5,8 @@ description: "深入分析 AI Agent 成本优化三大核心策略：Token 压�
 tags: [AI Agent, 成本优化, Token压缩, 模型路由, 本地推理, LLM, 性能优化]
 categories: [ai]
 cover: /images/covers/ai-agent-cost-optimization-cover.jpg
+images:
+  - /images/covers/ai-agent-cost-optimization-cover.jpg
 ---
 
 当 AI Agent 从「尝鲜玩具」走向「生产工具」，一个无法回避的问题浮出水面：**成本**。

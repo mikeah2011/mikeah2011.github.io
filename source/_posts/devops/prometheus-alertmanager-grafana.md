@@ -13,6 +13,8 @@ description: 本文结合 Laravel 线上系统，系统讲解 Prometheus、Grafa
 categories:
 - devops
 cover: /images/covers/prometheus-alerting-cover.jpg
+images:
+  - /images/covers/prometheus-alerting-cover.jpg
 ---
 
 

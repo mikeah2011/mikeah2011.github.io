@@ -1,6 +1,8 @@
 ---
 title: Prometheus + Grafana 监控体系实战：Laravel API 的 RED 指标、告警降噪与 SLO 看板落地踩坑记录
 cover: /images/covers/prometheus-grafana-monitoringguide-laravel-api-red-slo-cover.jpg
+images:
+  - /images/covers/prometheus-grafana-monitoringguide-laravel-api-red-slo-cover.jpg
 date: 2026-05-03 09:50:17
 updated: 2026-05-03 09:51:28
 categories:

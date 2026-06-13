@@ -13,6 +13,8 @@ categories:
 description: 深入解析分布式缓存一致性四大模式（Cache-Aside/Write-Through/Write-Behind/Read-Through）在
   Laravel 中的工程化落地，涵盖延迟双删、Canal Binlog 监听、缓存击穿雪崩穿透防御，含完整可运行 PHP 代码与性能基准对比，助你选对缓存策略。
 cover: /images/covers/distributed-cache-consistency-laravel-cover.jpg
+images:
+  - /images/covers/distributed-cache-consistency-laravel-cover.jpg
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 title: uni-app + ThinkPHP 商品详情页性能优化与预加载策略实战踩坑记录
 cover: /images/covers/2026-06-01-uni-app-thinkphp-product-detail-performance-preload-cover.jpg
+images:
+  - /images/covers/2026-06-01-uni-app-thinkphp-product-detail-performance-preload-cover.jpg
 date: 2026-06-01 12:00:00
 categories:
 - misc

@@ -6,6 +6,8 @@ tags: [AI Agent, 运维, 日志分析, 告警处理, 故障自愈, AIOps]
 categories:
   - ai
 cover: /images/covers/ai-agent-ops-assistant-cover.jpg
+images:
+  - /images/covers/ai-agent-ops-assistant-cover.jpg
 ---
 
 # AI Agent 运维助手实战：日志分析、告警处理、故障自愈

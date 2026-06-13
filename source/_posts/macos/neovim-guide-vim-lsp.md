@@ -1,6 +1,8 @@
 ---
 title: Neovim 实战：现代 Vim 配置与 LSP 集成-Laravel-B2C-API-开发效率提升踩坑记录
 cover: /images/covers/neovim-guide-vim-lsp-cover.jpg
+images:
+  - /images/covers/neovim-guide-vim-lsp-cover.jpg
 date: 2026-05-17 02:10:54
 updated: 2026-05-17 02:15:51
 categories:

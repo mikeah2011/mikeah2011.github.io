@@ -1,6 +1,8 @@
 ---
 title: Hyperf 框架入门：Swoole 驱动的高性能 PHP 协程框架
 cover: /images/covers/hyperf-1-cover.jpg
+images:
+  - /images/covers/hyperf-1-cover.jpg
 tags:
 - PHP
 - Swoole

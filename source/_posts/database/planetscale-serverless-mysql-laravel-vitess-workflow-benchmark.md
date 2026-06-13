@@ -14,6 +14,8 @@ description: PlanetScale 基于 Vitess 的无服务器 MySQL 平台实战指南�
 categories:
 - database
 cover: /images/covers/planetscale-serverless-mysql-laravel-vitess-workflow-benchmark-cover.jpg
+images:
+  - /images/covers/planetscale-serverless-mysql-laravel-vitess-workflow-benchmark-cover.jpg
 ---
 
 

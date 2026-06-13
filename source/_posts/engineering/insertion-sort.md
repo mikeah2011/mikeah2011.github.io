@@ -1,6 +1,8 @@
 ---
 title: 插入排序算法详解：时间复杂度与 PHP/Go/JS 实现
 cover: /images/covers/insertion-sort-cover.jpg
+images:
+  - /images/covers/insertion-sort-cover.jpg
 tags:
 - 排序算法
 - 插入排序

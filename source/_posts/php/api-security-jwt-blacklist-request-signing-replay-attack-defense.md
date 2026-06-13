@@ -14,6 +14,8 @@ description: API 安全深度实战指南，基于 Laravel/PHP 技术栈系统�
 categories:
 - php
 cover: /images/covers/api-security-multi-layer-defense-cover.jpg
+images:
+  - /images/covers/api-security-multi-layer-defense-cover.jpg
 ---
 
 

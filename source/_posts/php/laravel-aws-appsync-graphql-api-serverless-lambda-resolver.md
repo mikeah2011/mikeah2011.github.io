@@ -14,6 +14,8 @@ tags:
   - Lambda
 description: 深入实战 Laravel 与 AWS AppSync 集成：通过 Lambda Resolver 将 AppSync GraphQL API 接入 Laravel 后端，实现 Cognito JWT 认证、DynamoDB 数据源映射、实时订阅推送、移动端离线同步策略，以及生产环境的性能调优与踩坑记录。
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200
+images:
+  - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200
 ---
 
 ## 概述

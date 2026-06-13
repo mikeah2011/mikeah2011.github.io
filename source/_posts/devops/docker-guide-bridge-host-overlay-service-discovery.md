@@ -1,6 +1,8 @@
 ---
 title: Docker 网络实战：bridge/host/overlay 网络模式与服务发现 — Laravel B2C API 踩坑记录
 cover: /images/covers/docker-network-service-discovery-cover.jpg
+images:
+  - /images/covers/docker-network-service-discovery-cover.jpg
 date: 2026-05-16 22:35:17
 updated: 2026-05-16 22:39:35
 categories:

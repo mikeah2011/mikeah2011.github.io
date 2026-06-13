@@ -14,6 +14,8 @@ description: 从 Elixir 语言基础到 Phoenix LiveView 实战，深入讲解�
   Web 开发范式。通过聊天室和仪表盘两个实战项目，对比 LiveView、React Server Components、Laravel Reverb 和 Socket.IO
   的架构差异、开发体验与性能表现，帮助开发者选型实时 Web 技术栈。
 cover: /images/covers/elixir-phoenix-liveview-cover.jpg
+images:
+  - /images/covers/elixir-phoenix-liveview-cover.jpg
 ---
 
 

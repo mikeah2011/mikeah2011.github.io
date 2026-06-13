@@ -13,6 +13,8 @@ tags:
 description: 用 Rust 重写的 Python 工具链 uv、Ruff、Mypy，速度提升 10-100 倍。本文从 Laravel 开发者视角出发，实战演示如何用这套工具链替代
   pip、flake8、black、pylint，建立高效的 Python 开发工作流。
 cover: https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=1200
+images:
+  - https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=1200
 ---
 
 

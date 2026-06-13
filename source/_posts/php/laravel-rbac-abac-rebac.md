@@ -1,6 +1,8 @@
 ---
 title: Laravel 授权模型深度对比：RBAC vs ABAC vs ReBAC
 cover: /images/covers/rbac-abac-rebac-permission-model-laravel-authorization-cover.jpg
+images:
+  - /images/covers/rbac-abac-rebac-permission-model-laravel-authorization-cover.jpg
 date: 2026-06-05 10:00:00
 tags:
 - Laravel

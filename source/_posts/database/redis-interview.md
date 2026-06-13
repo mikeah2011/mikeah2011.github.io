@@ -23,7 +23,7 @@ description: 基础 1.说说什么是Redis? Redis图标 Redis是一种基于键�
 
 ## 1.说说什么是Redis?
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iat60I3icga9By11qSyNsNe8IvaoJAhsvjP4uBaCFDOoXCiaNGffUAcYKKg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](/images/redis-interview/redis-img-01.png)
 
 Redis图标
 
@@ -41,7 +41,7 @@ Redis是一种基于键值对（key-value）的NoSQL数据库。
 
 ## 2.Redis可以用来干什么？
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatrrBMiatBgLc3eGcIXxSwu5vc3l8LAgNDh68pd4OPiapR25nzaUVmvp6Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](/images/redis-interview/redis-img-02.png)
 
 Redis
 
@@ -69,7 +69,7 @@ Redis的应用一般会结合项目去问，以一个电商项目的用户服务
 
 ## 3.Redis 有哪些数据结构？
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatGE9iatwDjj6iavP6gcrD5XXNyrry9WExaUTKSeWbraodiaq3PcoNwFK7Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)Redis有五种基本数据结构。
+![图片](/images/redis-interview/redis-img-03.png)Redis有五种基本数据结构。
 
 **string**
 
@@ -262,7 +262,7 @@ Redis保证高可用主要有三种方式：主从、哨兵、集群。
 
 ## 13.主从复制了解吗？
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatLD7fUVicic3VU2RSul8o5FtwMHysK4Da9wOPicD1XOicy0IcsVgSgjjE0Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)Redis主从复制简图
+![图片](/images/redis-interview/redis-img-04.png)Redis主从复制简图
 
 **主从复制**，是指将一台 Redis 服务器的数据，复制到其他的 Redis 服务器。前者称为 **主节点(master)**，后者称为 **从节点(slave)**。且数据的复制是 **单向** 的，只能由主节点到从节点。Redis 主从复制支持 **主从同步** 和 **从从同步** 两种，后者是 Redis 后续版本新增的功能，以减轻主节点的同步负担。
 
@@ -279,9 +279,9 @@ Redis的复制拓扑结构可以支持单层或多层复制关系，根据拓扑
 
 1.一主一从结构
 
-一主一从结构是最简单的复制拓扑结构，用于主节点出现宕机时从节点提供故障转移支持。![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatHxPZOg5XsibcVUgTvFpGMpmkspmDU5J6YSxzwX1kzZdUp1T2l1Rj7Kw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)2.一主多从结构
+一主一从结构是最简单的复制拓扑结构，用于主节点出现宕机时从节点提供故障转移支持。![图片](/images/redis-interview/redis-img-05.png)2.一主多从结构
 
-一主多从结构（又称为星形拓扑结构）使得应用端可以利用多个从节点实现读写分离（见图6-5）。对于读占比较大的场景，可以把读命令发送到从节点来分担主节点压力。![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatD0icwxuse1PEIC5Cp5j05rnOTowEbpHk1ZVCgkLnUAzRpn5ICxg7QTg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)3.树状主从结构
+一主多从结构（又称为星形拓扑结构）使得应用端可以利用多个从节点实现读写分离（见图6-5）。对于读占比较大的场景，可以把读命令发送到从节点来分担主节点压力。![图片](/images/redis-interview/redis-img-06.png)3.树状主从结构
 
 树状主从结构（又称为树状拓扑结构）使得从节点不但可以复制主节点数据，同时可以作为其他从节点的主节点继续向下层复制。通过引入复制中间层，可以有效降低主节点负载和需要传送给从节点的数据量。
 
@@ -459,18 +459,18 @@ Redis集群通过数据分区来实现数据的分布式存储，通过自动故
 
 Redis集群的故障转移和哨兵的故障转移类似，但是Redis集群中所有的节点都要承担状态维护的任务。
 
-**故障发现**Redis集群内节点通过ping/pong消息实现节点通信，集群中每个节点都会定期向其他节点发送ping消息，接收节点回复pong 消息作为响应。如果在cluster-node-timeout时间内通信一直失败，则发送节 点会认为接收节点存在故障，把接收节点标记为主观下线（pfail）状态。![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatxkibaNUVTkZz7hs6icfTMdLQzpFhszOZiciaT1Fic1ickbNgmWRN9cEwJtZw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)当某个节点判断另一个节点主观下线后，相应的节点状态会跟随消息在集群内传播。通过Gossip消息传播，集群内节点不断收集到故障节点的下线报告。当 半数以上持有槽的主节点都标记某个节点是主观下线时。触发客观下线流程。![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatK447hYI8W5ugzWowQ6TRZtsuEHh4m1jQ0sxq2VZz1kl4jTmnictwuHg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+**故障发现**Redis集群内节点通过ping/pong消息实现节点通信，集群中每个节点都会定期向其他节点发送ping消息，接收节点回复pong 消息作为响应。如果在cluster-node-timeout时间内通信一直失败，则发送节 点会认为接收节点存在故障，把接收节点标记为主观下线（pfail）状态。![图片](/images/redis-interview/redis-img-07.png)当某个节点判断另一个节点主观下线后，相应的节点状态会跟随消息在集群内传播。通过Gossip消息传播，集群内节点不断收集到故障节点的下线报告。当 半数以上持有槽的主节点都标记某个节点是主观下线时。触发客观下线流程。![图片](/images/redis-interview/redis-img-08.png)
 
 **故障恢复**
 
 故障节点变为客观下线后，如果下线节点是持有槽的主节点则需要在它 的从节点中选出一个替换它，从而保证集群的高可用。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatJ6VpUzQ5Uz9hq24BsnqseiataQ8x6ToCk41QnqrMbAw8iahYD3JUQic9Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)故障恢复流程
+![图片](/images/redis-interview/redis-img-09.png)故障恢复流程
 
 1. 资格检查 每个从节点都要检查最后与主节点断线时间，判断是否有资格替换故障 的主节点。
 2. 准备选举时间 当从节点符合故障转移资格后，更新触发故障选举的时间，只有到达该 时间后才能执行后续流程。
 3. 发起选举 当从节点定时任务检测到达故障选举时间（failover_auth_time）到达后，发起选举流程。
-4. 选举投票 持有槽的主节点处理故障选举消息。投票过程其实是一个领导者选举的过程，如集群内有N个持有槽的主节 点代表有N张选票。由于在每个配置纪元内持有槽的主节点只能投票给一个 从节点，因此只能有一个从节点获得N/2+1的选票，保证能够找出唯一的从节点。![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatbeOyjLjqq4eBSyBibGr3RCC1UHre5ianicxW1PmL9PtGibuNFcicGUfyJ8Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+4. 选举投票 持有槽的主节点处理故障选举消息。投票过程其实是一个领导者选举的过程，如集群内有N个持有槽的主节 点代表有N张选票。由于在每个配置纪元内持有槽的主节点只能投票给一个 从节点，因此只能有一个从节点获得N/2+1的选票，保证能够找出唯一的从节点。![图片](/images/redis-interview/redis-img-10.png)
 5. 替换主节点 当从节点收集到足够的选票之后，触发替换主节点操作。
 
 > **部署Redis集群至少需要几个物理节点？**
@@ -1006,15 +1006,15 @@ Redis有**动态字符串(sds)\**、\**链表(list)\**、\**字典(ht)\**、\**�
 
 Redis并没有使用这些数据结构来直接实现键值对数据库，而是基于这些数据结构创建了一个对象系统，来表示所有的key-value。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iaty3Co6T9D2F9F8u3lvPK9awfficQY6QMJkCXdy5ynnLNicbic903JvaBSA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)我们常用的数据类型和编码对应的映射关系：
+![图片](/images/redis-interview/redis-img-11.png)我们常用的数据类型和编码对应的映射关系：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatwtGpQUP0ibTpFcnK88Eib6MhnGibCG29zRveFHBV2rWNq4H3y0pTrbXEA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)简单看一下底层数据结构，如果对数据结构掌握不错的话，理解这些结构应该不是特别难：
+![图片](/images/redis-interview/redis-img-12.png)简单看一下底层数据结构，如果对数据结构掌握不错的话，理解这些结构应该不是特别难：
 
 1. **字符串**：redis没有直接使⽤C语⾔传统的字符串表示，⽽是⾃⼰实现的叫做简单动态字符串SDS的抽象类型。
 
    C语⾔的字符串不记录⾃身的⻓度信息，⽽SDS则保存了⻓度信息，这样将获取字符串⻓度的时间由O(N)降低到了O(1)，同时可以避免缓冲区溢出和减少修改字符串⻓度时所需的内存重分配次数。
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iatia4JRrKexylvrmMmgBxtmfW9b8vudwCqofW0ZyCbDxHC0gIpAvhOZ5Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)SDS
+![图片](/images/redis-interview/redis-img-13.png)SDS
 
 1. **链表linkedlist**：redis链表是⼀个双向⽆环链表结构，很多发布订阅、慢查询、监视器功能都是使⽤到了链表来实现，每个链表的节点由⼀个listNode结构来表示，每个节点都有指向前置节点和后置节点的指针，同时表头节点的前置和后置节点都指向NULL。
 
@@ -1127,7 +1127,7 @@ Redis 早期版本存储 list 列表数据结构使用的是压缩列表 ziplist
 
 后来 Redis 新版本（3.2）对列表数据结构进行了改造，使用 `quicklist` 代替了 `ziplist` 和 `linkedlist`，quicklist是综合考虑了时间效率与空间效率引入的新型数据结构。
 
-quicklist由list和ziplist结合而成，它是一个由ziplist充当节点的双向链表。![图片](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWf5IyvQkjc4vibibgKwWma1iaticzSicZ6us2RWa52icIPTPicKDgbibXZvTD7cjvJpOCqXTtibP878hPem0Gg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+quicklist由list和ziplist结合而成，它是一个由ziplist充当节点的双向链表。![图片](/images/redis-interview/redis-img-14.png)
 
 # 其他问题
 

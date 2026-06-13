@@ -14,6 +14,8 @@ description: 本文深入解析 Web Components 四大核心技术——Custom El
 categories:
 - frontend
 cover: /images/covers/web-components-cross-framework-cover.jpg
+images:
+  - /images/covers/web-components-cross-framework-cover.jpg
 ---
 
 

@@ -3,6 +3,9 @@ title: Laravel Eloquent Subquery 优化实战：关联子查询、Lateral Join�
 date: 2026-06-10 04:11:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Eloquent
   - MySQL

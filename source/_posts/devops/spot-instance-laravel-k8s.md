@@ -15,6 +15,8 @@ description: Spot Instance 实战省钱指南：Laravel 工作负载如何利用
 categories:
 - devops
 cover: /images/covers/spot-instance-laravel-cover.jpg
+images:
+  - /images/covers/spot-instance-laravel-cover.jpg
 ---
 
 

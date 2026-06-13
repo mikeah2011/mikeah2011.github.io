@@ -13,6 +13,8 @@ tags:
 categories:
 - php
 cover: /images/covers/laravel-task-scheduling-ononeserver-cover.jpg
+images:
+  - /images/covers/laravel-task-scheduling-ononeserver-cover.jpg
 ---
 
 

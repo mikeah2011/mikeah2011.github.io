@@ -1,6 +1,8 @@
 ---
 title: Go 语言基础入门：语法、并发与标准库
 cover: /images/covers/go-cover.jpg
+images:
+  - /images/covers/go-cover.jpg
 tags:
 - Go
 - 并发

@@ -1,6 +1,8 @@
 ---
 title: Laravel-Casts-Accessors-实战-数据类型转换与计算属性踩坑记录
 cover: /images/covers/laravel-casts-accessors-guide-data-types-cover.jpg
+images:
+  - /images/covers/laravel-casts-accessors-guide-data-types-cover.jpg
 date: 2026-05-05 12:25:26
 updated: 2026-05-05 12:27:45
 categories:

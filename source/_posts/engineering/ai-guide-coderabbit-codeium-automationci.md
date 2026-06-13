@@ -1,6 +1,8 @@
 ---
 title: AI 辅助代码审查实战-CodeRabbit-Codeium 集成-自动化 CI 门禁踩坑记录
 cover: /images/covers/ai-guide-coderabbit-codeium-automationci-cover.jpg
+images:
+  - /images/covers/ai-guide-coderabbit-codeium-automationci-cover.jpg
 date: 2026-05-17 06:56:01
 updated: 2026-06-07 10:00:00
 categories:

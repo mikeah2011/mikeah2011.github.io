@@ -4,6 +4,8 @@ date: 2026-06-02 00:00:00
 tags: [LangGraph, AI Agent, 图编排, 有状态, 人机协作]
 categories: [ai]
 cover: /images/covers/langgraph-stateful-agent-graph-cover.jpg
+images:
+  - /images/covers/langgraph-stateful-agent-graph-cover.jpg
 description: "LangGraph是LangChain生态中专为有状态AI Agent设计的图编排框架。本文通过构建完整的多步研究Agent实战案例，深入讲解StateGraph核心概念、条件路由与循环机制、interrupt_before人机协作节点、MemorySaver状态持久化、LLM动态分支路由、自我反思循环与渐进退出策略，含vs AutoGen/CrewAI对比和图可视化，适合需要构建复杂Agent工作流的开发者。"
 ---
 

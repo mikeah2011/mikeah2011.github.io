@@ -3,6 +3,8 @@ title: Fork 项目维护与上游同步实战：以 Scribe/CRMEB 为例的 Fork 
 date: 2026-05-05 09:27:40
 updated: 2026-05-05 09:29:10
 cover: /images/covers/fork-guide-scribe-crmeb-fork-cover.jpg
+images:
+  - /images/covers/fork-guide-scribe-crmeb-fork-cover.jpg
 categories:
 - architecture
 tags:

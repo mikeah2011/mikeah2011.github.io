@@ -4,6 +4,8 @@ date: 2026-06-02 12:00:00
 tags: [Deno, JavaScript, TypeScript, 运行时, 前端, Bun, Node.js]
 categories: [frontend]
 cover: /images/covers/deno-2x-runtime-cover.jpg
+images:
+  - /images/covers/deno-2x-runtime-cover.jpg
 description: "Deno 2.x 安全优先的 JavaScript/TypeScript 运行时深度评测，与 Node.js 22+ 和 Bun 1.x 进行全面对比。涵盖架构设计、权限模型、npm 兼容性、性能基准测试、TypeScript 原生支持、工具链一体化等核心维度，提供可视化的选型决策树，帮助前端和全栈开发者在三大运行时之间做出最佳技术选型。"
 ---
 

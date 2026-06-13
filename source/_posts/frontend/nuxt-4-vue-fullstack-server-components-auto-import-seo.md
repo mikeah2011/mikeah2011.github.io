@@ -13,6 +13,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/nuxt-4-vue-fullstack-server-components-auto-import-seo-cover.jpg
+images:
+  - /images/covers/nuxt-4-vue-fullstack-server-components-auto-import-seo-cover.jpg
 ---
 
 

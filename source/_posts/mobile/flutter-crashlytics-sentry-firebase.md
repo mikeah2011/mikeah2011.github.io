@@ -6,6 +6,8 @@ tags: [Flutter, Crashlytics, Sentry, Firebase Crashlytics, 错误监控]
 categories:
   - mobile
 cover: /images/covers/flutter-crashlytics-sentry-firebase-cover.jpg
+images:
+  - /images/covers/flutter-crashlytics-sentry-firebase-cover.jpg
 ---
 
 ## 1. 前言：线上崩溃是用户体验的头号杀手

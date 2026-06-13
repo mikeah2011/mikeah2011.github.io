@@ -12,6 +12,8 @@ tags:
   - 性能优化
 description: 从零搭建 Laravel + Meilisearch 全文搜索，对比 Elasticsearch 和 Algolia 的开发体验、部署成本与查询性能，附完整代码和基准测试数据。
 cover: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
+images:
+  - https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200
 ---
 
 全文搜索是现代 Web 应用的刚需。用户输入几个关键词，系统需要在毫秒级返回相关结果——商品搜索、文章检索、文档查询，场景无处不在。

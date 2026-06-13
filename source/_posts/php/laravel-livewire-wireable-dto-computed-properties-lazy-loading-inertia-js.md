@@ -3,6 +3,9 @@ title: Laravel Livewire 3 实战：Wireable DTO、Computed Properties、Lazy Loa
   的全栈交互新范式
 date: 2026-06-10 05:18:00
 categories:
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 - php
 tags:
 - Livewire

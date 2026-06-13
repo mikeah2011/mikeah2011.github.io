@@ -1,6 +1,8 @@
 ---
 title: require 与 include 的区别（含 _once）
 cover: /images/covers/vs-requireinclude-cover.jpg
+images:
+  - /images/covers/vs-requireinclude-cover.jpg
 tags:
 - PHP
 - include

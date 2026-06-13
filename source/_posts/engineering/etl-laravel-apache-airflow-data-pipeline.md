@@ -17,6 +17,8 @@ description: 在 KKday B2C 后端团队的实际项目中，数据管道是连�
   Apache Airflow 的完整实战过程：DAG 编排、Operator 选型、Laravel Artisan 命令集成、增量抽取策略、错误重试、监控告警，以及踩过的
   15 个生产坑。
 cover: /images/covers/etl-laravel-apache-airflow-data-pipeline-cover.jpg
+images:
+  - /images/covers/etl-laravel-apache-airflow-data-pipeline-cover.jpg
 ---
 
 

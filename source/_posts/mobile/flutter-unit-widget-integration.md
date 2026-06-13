@@ -5,6 +5,8 @@ tags: [Flutter, 测试, Unit Test, Widget Test, Integration Test]
 categories:
   - mobile
 cover: /images/covers/flutter-testing-cover.jpg
+images:
+  - /images/covers/flutter-testing-cover.jpg
 description: 这篇 Flutter 测试实战指南系统讲透 Unit Test、Widget Test、Integration Test 的分层策略，覆盖率治理、mockito/mock 使用、CI 落地与避坑经验，帮你建立高质量、可维护的自动化测试体系。
 ---
 

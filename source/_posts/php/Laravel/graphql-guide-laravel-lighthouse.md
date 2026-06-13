@@ -1,6 +1,8 @@
 ---
 title: "GraphQL 实战-Laravel Lighthouse 与前端集成踩坑记录"
 cover: /images/covers/graphql-guide-laravel-lighthouse-cover.jpg
+images:
+  - /images/covers/graphql-guide-laravel-lighthouse-cover.jpg
 date: 2026-05-16 19:40:32
 updated: 2026-05-16 19:42:48
 categories:

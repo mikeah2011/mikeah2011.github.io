@@ -5,6 +5,8 @@ tags: [PartyKit, 实时协作, WebSocket, Laravel, CRDT, Yjs, Cloudflare, Durabl
 categories:
   - architecture
 cover: /images/covers/partykit-realtime-collaboration-cover.jpg
+images:
+  - /images/covers/partykit-realtime-collaboration-cover.jpg
 description: "PartyKit 实战指南：基于 Cloudflare Durable Objects 构建实时协作后端，结合 CRDT/Yjs 实现多人文档编辑、在线状态与实时光标同步，深度集成 Laravel 完成 JWT 认证、数据持久化与 Webhook 回调，并与 Pusher、Ably、Laravel Reverb 进行架构对比与成本分析，适合全栈开发者快速落地 WebSocket 实时协作功能。"
 ---
 

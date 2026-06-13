@@ -6,6 +6,8 @@ tags: [API, 安全, Redis, Laravel, DevOps, 密钥管理, 密钥轮换, 零停�
 categories:
   - devops
 cover: /images/covers/api-key-rotation-cover.jpg
+images:
+  - /images/covers/api-key-rotation-cover.jpg
 ---
 
 ## 前言

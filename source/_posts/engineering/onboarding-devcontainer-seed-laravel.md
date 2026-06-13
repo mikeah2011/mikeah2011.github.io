@@ -3,6 +3,9 @@ title: 新人 Onboarding 自动化实战：devcontainer + Seed 数据 + 文档�
 date: 2026-06-09
 categories:
   - engineering
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags:
   - Onboarding
   - DevContainer

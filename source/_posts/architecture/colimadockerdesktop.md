@@ -1,6 +1,8 @@
 ---
 title: Colima 替代 Docker Desktop：Laravel docker-compose 实战与性能对比
 cover: /images/covers/colima-docker-desktop-cover.jpg
+images:
+  - /images/covers/colima-docker-desktop-cover.jpg
 date: 2026-05-01 21:50:00
 categories:
 - architecture

@@ -1,5 +1,7 @@
 ---
 cover: /images/covers/javascript-cover.jpg
+images:
+  - /images/covers/javascript-cover.jpg
 title: JavaScript
 tags:
 - JavaScript

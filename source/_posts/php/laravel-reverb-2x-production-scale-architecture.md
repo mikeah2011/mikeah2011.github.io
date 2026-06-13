@@ -14,6 +14,8 @@ tags:
 description: 从单机 Reverb 到多节点水平扩展的完整路径：Redis Pub/Sub 广播原理、Presence Channel 状态同步、Nginx
   反向代理配置、Supervisor 进程管理，以及生产环境中踩过的每一个坑。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
+images:
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
 
 

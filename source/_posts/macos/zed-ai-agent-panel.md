@@ -13,6 +13,8 @@ description: Zed 2.x 是一款基于 Rust 编写的 AI 原生代码编辑器，�
 categories:
 - macos
 cover: /images/covers/zed-2x-ai-editor-cover.jpg
+images:
+  - /images/covers/zed-2x-ai-editor-cover.jpg
 ---
 
 

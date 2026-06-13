@@ -1,6 +1,8 @@
 ---
 title: uni-app 性能优化实战：首屏加载、分包加载、图片懒加载策略——从 5s 到 800ms 的性能治理全链路
 cover: /images/covers/2026-06-01-uni-app-performance-optimization-first-screen-subpackage-lazy-loading-cover.jpg
+images:
+  - /images/covers/2026-06-01-uni-app-performance-optimization-first-screen-subpackage-lazy-loading-cover.jpg
 date: 2026-06-01 10:00:00
 categories:
 - frontend

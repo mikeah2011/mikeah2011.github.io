@@ -1,6 +1,8 @@
 ---
 title: Laravel + Stripe + AliPay 双通道支付实现：回调处理、幂等性、重试机制
 cover: /images/covers/laravel-stripe-alipay-guide-cover.jpg
+images:
+  - /images/covers/laravel-stripe-alipay-guide-cover.jpg
 date: 2026-05-02
 categories:
 - php

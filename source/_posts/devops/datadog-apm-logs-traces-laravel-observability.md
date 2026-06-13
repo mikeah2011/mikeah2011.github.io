@@ -3,6 +3,9 @@ title: DataDog 实战：APM/Logs/Traces 统一可观测性——Laravel 应用�
   的选型决策
 date: 2026-06-10 06:00:00
 categories:
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 - devops
 tags:
 - Datadog

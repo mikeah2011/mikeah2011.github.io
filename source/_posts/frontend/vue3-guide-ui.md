@@ -1,6 +1,8 @@
 ---
 title: Vue3-组件库开发实战-自定义UI组件库设计与发布踩坑记录
 cover: /images/covers/vue3-guide-ui-cover.jpg
+images:
+  - /images/covers/vue3-guide-ui-cover.jpg
 date: 2026-05-17 04:06:20
 updated: 2026-05-17 04:09:52
 categories:

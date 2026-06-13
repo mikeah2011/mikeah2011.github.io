@@ -12,6 +12,8 @@ tags:
 categories:
 - mq
 cover: /images/covers/kafka-nats-pulsar-cover.jpg
+images:
+  - /images/covers/kafka-nats-pulsar-cover.jpg
 description: Kafka vs NATS vs Pulsar 三大消息队列 2026 年深度对比实战指南。从架构设计、性能基准、Laravel 微服务集成、运维复杂度到成本分析，全面覆盖
   Kafka、NATS、Pulsar 选型决策。附 PHP/Laravel 生产者消费者完整代码示例、Exactly-once 语义实现、消费者组管理与常见踩坑记录，帮助团队在高吞吐微服务场景中做出最优技术选型。
 ---

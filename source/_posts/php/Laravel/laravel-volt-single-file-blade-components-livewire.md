@@ -1,6 +1,8 @@
 ---
 title: "Laravel Volt 实战：单文件 Blade 组件与 Livewire 集成深度剖析"
 cover: /images/covers/2026-06-01-laravel-volt-single-file-blade-components-livewire-cover.jpg
+images:
+  - /images/covers/2026-06-01-laravel-volt-single-file-blade-components-livewire-cover.jpg
 date: 2026-06-01 10:00:00
 categories:
   - php

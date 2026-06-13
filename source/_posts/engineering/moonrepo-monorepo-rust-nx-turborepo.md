@@ -3,6 +3,9 @@ title: 'Moonrepo 实战：Rust 驱动的 Monorepo 管理工具——对比 Nx/Tu
 date: 2026-06-10 03:45:00
 categories:
   - engineering
+cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags:
   - moonrepo
   - Monorepo

@@ -1,6 +1,8 @@
 ---
 title: HTTP 状态码大全：2xx/3xx/4xx/5xx 分类与 RESTful 最佳实践
 cover: /images/covers/status-codes-cover.jpg
+images:
+  - /images/covers/status-codes-cover.jpg
 tags:
 - HTTP
 - RESTful

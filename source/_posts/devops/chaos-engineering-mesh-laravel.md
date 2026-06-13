@@ -5,6 +5,8 @@ tags: [Chaos Engineering, Chaos Mesh, Kubernetes, 韧性测试, Laravel, 微服�
 categories:
   - devops
 cover: /images/covers/chaos-engineering-cover.jpg
+images:
+  - /images/covers/chaos-engineering-cover.jpg
 description: Chaos Engineering 实战教程，使用 Chaos Mesh 对运行在 Kubernetes 上的 Laravel 微服务进行系统性故障注入与韧性测试。涵盖 Pod Kill、网络延迟、CPU/内存压力、JVM 故障等实验类型，详解从假设建立到实验编排的完整流程，结合 SLO 验证系统韧性，帮助团队主动发现生产环境脆弱点，在真正的故障到来前做好准备。
 ---
 

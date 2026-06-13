@@ -12,6 +12,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/hermes-cron-scheduler-cover.jpg
+images:
+  - /images/covers/hermes-cron-scheduler-cover.jpg
 ---
 
 

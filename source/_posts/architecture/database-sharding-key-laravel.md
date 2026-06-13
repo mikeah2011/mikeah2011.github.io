@@ -3,6 +3,9 @@ title: Database Sharding Key 选型实战：按用户 vs 按时间 vs 按业务�
 date: 2026-06-09 18:27:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Sharding
   - 分库分表

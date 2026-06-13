@@ -10,6 +10,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/bulkhead-pattern-laravel-cover.jpg
+images:
+  - /images/covers/bulkhead-pattern-laravel-cover.jpg
 description: 深入剖析 Bulkhead Pattern（舱壁隔离模式）的核心原理与 Laravel 生产级实战落地——从 HTTP Client 并发控制、Queue
   Worker 隔离到 DB 连接池独立故障域设计，配合 Circuit Breaker 构建企业级容错体系，涵盖 Redis 信号量实现、FPM 进程级隔离、生产环境踩坑经验与
   Prometheus 可观测性集成。

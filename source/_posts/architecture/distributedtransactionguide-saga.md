@@ -1,6 +1,8 @@
 ---
 title: 分布式事务实战-Saga-模式在订单库存支付中的应用-Laravel-B2C-API踩坑记录
 cover: /images/covers/distributedtransactionguide-saga-cover.jpg
+images:
+  - /images/covers/distributedtransactionguide-saga-cover.jpg
 date: 2026-05-16 16:12:27
 updated: 2026-05-16 16:22:05
 categories:

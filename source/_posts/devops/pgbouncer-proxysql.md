@@ -5,6 +5,8 @@ tags: [PgBouncer, ProxySQL, 连接池, 监控, 运维]
 categories:
   - devops
 cover: /images/covers/connection-pool-monitoring-cover.jpg
+images:
+  - /images/covers/connection-pool-monitoring-cover.jpg
 description: '生产环境数据库连接池监控实战指南，深入讲解 PgBouncer 与 ProxySQL 的连接泄漏检测、队列深度监控与告警阈值设计，涵盖 Prometheus 指标采集、Grafana 可视化面板搭建，以及 Laravel 应用集成方案，帮助团队在连接耗尽导致全站雪崩之前提前预警，保障高并发场景下数据库中间层的稳定性。'
 ---
 

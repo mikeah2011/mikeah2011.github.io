@@ -3,6 +3,9 @@ title: Laravel + Prometheus Pushgateway 实战：批处理任务的指标上报�
 date: 2026-06-09 13:31:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - Prometheus

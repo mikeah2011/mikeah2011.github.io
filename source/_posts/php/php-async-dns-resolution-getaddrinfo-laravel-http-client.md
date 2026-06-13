@@ -3,6 +3,9 @@ title: PHP Async DNS Resolution 实战：getaddrinfo 异步化——PHP 8.5+ 的
 date: 2026-06-10 00:49:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - PHP 8.5
   - Async DNS

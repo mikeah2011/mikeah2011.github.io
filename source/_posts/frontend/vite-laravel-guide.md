@@ -1,6 +1,8 @@
 ---
 title: Vite-Laravel-实战-前后端分离开发工作流踩坑记录
 cover: /images/covers/vite-laravel-guide-cover.jpg
+images:
+  - /images/covers/vite-laravel-guide-cover.jpg
 date: 2026-05-17 05:30:22
 updated: 2026-05-17 05:34:33
 categories:

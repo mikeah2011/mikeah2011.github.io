@@ -5,6 +5,8 @@ tags: [Laravel, Telescope, 生产环境, 性能优化]
 categories:
   - php
 cover: /images/covers/laravel-telescope-production-cover.jpg
+images:
+  - /images/covers/laravel-telescope-production-cover.jpg
 description: 本文深入探讨 Laravel Telescope 在生产环境中的实战应用，涵盖按请求百分比、Watcher类型、路由条件等多维度采样策略，以及数据库表分区、S3归档、定期清理等存储治理方案。同时详解敏感数据过滤机制，包括请求参数脱敏、响应数据脱敏与自定义Redactor实现，帮助团队在保留可观测能力的同时兼顾性能与安全合规。
 ---
 

@@ -15,6 +15,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/zustand-react-state-management-cover.jpg
+images:
+  - /images/covers/zustand-react-state-management-cover.jpg
 ---
 
 

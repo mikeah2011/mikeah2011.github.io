@@ -15,6 +15,8 @@ description: 本文全面介绍 Laravel 项目中 Composer 依赖安全审计的
 categories:
 - php
 cover: /images/covers/composer-dependency-audit-cover.jpg
+images:
+  - /images/covers/composer-dependency-audit-cover.jpg
 ---
 
 

@@ -3,6 +3,9 @@ title: "Podman 5.x 实战：无 Daemon 容器运行时——对比 Docker 的 Ro
 date: 2026-06-09 16:41:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Podman
   - Docker

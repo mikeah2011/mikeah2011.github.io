@@ -14,6 +14,8 @@ description: 面向 PHP/Laravel 开发者的 Go 并发编程实战，对比 goro
   Go 调度器（GMP 模型）、channel 通信模式、select 多路复用、sync 包同步原语，以及通过 gRPC 将 Go 微服务集成到 Laravel
   架构的实战路径。适合需要处理高并发场景（WebSocket、实时消息、第三方 API 聚合）的 PHP 开发者学习 Go 的并发思维。
 cover: /images/covers/Go-for-PHP-Developers-goroutine-channel-laravel-queue-comparison-cover.jpg
+images:
+  - /images/covers/Go-for-PHP-Developers-goroutine-channel-laravel-queue-comparison-cover.jpg
 ---
 
 

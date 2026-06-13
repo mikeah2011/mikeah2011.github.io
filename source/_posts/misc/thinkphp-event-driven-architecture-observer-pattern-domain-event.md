@@ -1,6 +1,8 @@
 ---
 title: "ThinkPHP 事件驱动架构实战：观察者模式与领域事件解耦业务逻辑——基于奇乐 MAX 电商的真实重构踩坑记录"
 cover: /images/covers/2026-06-01-thinkphp-event-driven-architecture-observer-pattern-domain-event-cover.jpg
+images:
+  - /images/covers/2026-06-01-thinkphp-event-driven-architecture-observer-pattern-domain-event-cover.jpg
 date: 2026-06-01 12:00:00
 categories:
   - misc

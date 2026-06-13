@@ -13,6 +13,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/api-abuse-prevention-cover.jpg
+images:
+  - /images/covers/api-abuse-prevention-cover.jpg
 ---
 
 

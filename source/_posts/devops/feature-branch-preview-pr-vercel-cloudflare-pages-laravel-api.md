@@ -16,6 +16,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/feature-branch-preview-cover.jpg
+images:
+  - /images/covers/feature-branch-preview-cover.jpg
 ---
 
 

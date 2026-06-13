@@ -15,6 +15,8 @@ categories:
 description: 从零到一彻底搞懂 PostgreSQL WAL（Write-Ahead Log）：磁盘写入机制、LSN 与 XLogRecord 内部结构、归档配置实战、PITR
   按时间点恢复完整流程、流复制搭建与延迟诊断治理。附 Laravel 项目真实踩坑记录与生产级配置模板。
 cover: /images/covers/postgresql-wal-deep-dive-cover.jpg
+images:
+  - /images/covers/postgresql-wal-deep-dive-cover.jpg
 ---
 
 

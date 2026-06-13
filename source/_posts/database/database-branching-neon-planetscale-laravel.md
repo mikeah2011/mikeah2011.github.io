@@ -14,6 +14,8 @@ description: Database Branching 数据库分支技术深度实战指南——对
   MySQL）两大平台的分支工作流，涵盖 Copy-on-Write 原理、Laravel 集成代码、GitHub Actions CI/CD 自动化、Schema
   Diff 预览与 PR Review 流程。同时提供 Neon vs PlanetScale vs 传统数据库分支方案的多维度对比表格，包含功能、价格、易用性、迁移难度等选型决策依据，以及实际迁移踩坑案例与最佳实践。
 cover: /images/covers/database-branching-neon-planetscale-cover.jpg
+images:
+  - /images/covers/database-branching-neon-planetscale-cover.jpg
 slug: database-branching-neon-planetscale-laravel
 ---
 

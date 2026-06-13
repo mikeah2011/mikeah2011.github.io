@@ -14,6 +14,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/hermes-mcp-integration-cover.jpg
+images:
+  - /images/covers/hermes-mcp-integration-cover.jpg
 ---
 
 

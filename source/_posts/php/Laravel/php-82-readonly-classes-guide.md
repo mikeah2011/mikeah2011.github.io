@@ -1,6 +1,8 @@
 ---
 title: "PHP 8.2 readonly Classes 实战 — 不可变对象与值对象设计"
 cover: /images/covers/php-82-readonly-classes-guide-cover.jpg
+images:
+  - /images/covers/php-82-readonly-classes-guide-cover.jpg
 date: 2026-05-16 16:31:01
 updated: 2026-05-16 16:37:58
 categories:

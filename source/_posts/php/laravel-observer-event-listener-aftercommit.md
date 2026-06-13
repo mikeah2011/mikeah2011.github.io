@@ -5,6 +5,8 @@ tags: [Laravel, Observer, Event, 设计模式, 事务]
 categories:
   - php
 cover: /images/covers/laravel-observer-vs-event-listener-cover.jpg
+images:
+  - /images/covers/laravel-observer-vs-event-listener-cover.jpg
 description: "深度对比 Laravel Observer 与 Event Listener 在事务边界、afterCommit 时序和队列化监听上的本质差异，涵盖脏读陷阱、嵌套触发、Octane 状态泄漏等 15 个真实踩坑案例与决策树，帮助你选型时避免线上事故。"
 ---
 

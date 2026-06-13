@@ -1,6 +1,8 @@
 ---
 title: Laravel Octane + Swoole 高性能 PHP 应用架构实战踩坑记录
 cover: /images/covers/laravel-octane-swoole-high-performancephparchitecture-cover.jpg
+images:
+  - /images/covers/laravel-octane-swoole-high-performancephparchitecture-cover.jpg
 date: 2026-05-16 13:06:43
 updated: 2026-05-16 13:20:09
 categories:

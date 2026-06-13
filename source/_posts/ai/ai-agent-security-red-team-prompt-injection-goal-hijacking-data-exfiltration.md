@@ -3,6 +3,9 @@ title: AI Agent 安全红队实战：Prompt Injection/Goal Hijacking/Data Exfilt
 date: 2026-06-09 15:07:00
 categories:
   - ai
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 tags:
   - AI Agent
   - 安全

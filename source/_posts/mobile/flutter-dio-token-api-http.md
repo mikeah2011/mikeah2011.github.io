@@ -14,6 +14,8 @@ tags:
 categories:
 - mobile
 cover: /images/covers/flutter-dio-networking-token-refresh-cover.jpg
+images:
+  - /images/covers/flutter-dio-networking-token-refresh-cover.jpg
 ---
 
 

@@ -3,6 +3,9 @@ title: Service Mesh Ambient Mode 实战：Istio 无 Sidecar 的零开销 mTLS—
 date: 2026-06-10 02:54:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Service Mesh
   - Istio

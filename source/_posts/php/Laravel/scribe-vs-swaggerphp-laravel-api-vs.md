@@ -1,6 +1,8 @@
 ---
 title: Scribe vs SwaggerPHP-Laravel API 文档生成工具对比实战踩坑记录
 cover: /images/covers/scribe-vs-swaggerphp-laravel-api-vs-cover.jpg
+images:
+  - /images/covers/scribe-vs-swaggerphp-laravel-api-vs-cover.jpg
 date: 2026-05-05 08:40:22
 updated: 2026-05-05 08:43:28
 categories:

@@ -1,6 +1,8 @@
 ---
 title: Laravel-Policies-Gates-RBAC-权限管理与多租户隔离实战
 cover: /images/covers/laravel-policies-gates-rbac-cover.jpg
+images:
+  - /images/covers/laravel-policies-gates-rbac-cover.jpg
 date: 2026-05-05 12:15:10
 updated: 2026-05-05 12:17:53
 categories:

@@ -14,6 +14,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/llm-evaluation-ragas-deepeval-cover.jpg
+images:
+  - /images/covers/llm-evaluation-ragas-deepeval-cover.jpg
 ---
 
 

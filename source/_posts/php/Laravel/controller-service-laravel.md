@@ -1,6 +1,8 @@
 ---
 title: Controller 薄 + Service 厚：Laravel 大项目中职责分离的真实踩坑记录
 cover: /images/covers/controller-service-laravel-cover.jpg
+images:
+  - /images/covers/controller-service-laravel-cover.jpg
 date: 2026-05-02
 categories:
   - php

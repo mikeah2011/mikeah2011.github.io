@@ -6,6 +6,8 @@ description: 深入讲解 API 网关插件开发实战，基于 Kong 和 Apache 
 categories:
   - devops
 cover: /images/covers/api-gateway-plugin-dev-cover.jpg
+images:
+  - /images/covers/api-gateway-plugin-dev-cover.jpg
 ---
 
 # API Gateway 插件开发实战：Kong/APISIX 自定义 Lua/Go 插件——认证、限流、日志的网关层下沉

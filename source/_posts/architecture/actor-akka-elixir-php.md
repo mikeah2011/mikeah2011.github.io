@@ -11,6 +11,8 @@ description: Actor模型实战深度指南，涵盖Akka（Scala/JVM）、Elixir/
 categories:
 - architecture
 cover: /images/covers/actor-model-akka-elixir-php-cover.jpg
+images:
+  - /images/covers/actor-model-akka-elixir-php-cover.jpg
 ---
 
 

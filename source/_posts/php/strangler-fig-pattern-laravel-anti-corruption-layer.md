@@ -14,6 +14,8 @@ description: Strangler Fig Pattern（绞杀者模式）实战指南，以 Larave
   Layer 数据模型翻译器与适配器实现、全量+增量数据迁移与一致性校验、1%→10%→50%→100% 分阶段切流、自动回滚判断与监控指标体系。附完整迁移 Checklist
   与反模式警示，适合需要在不停机前提下将 Laravel 单体拆分为微服务的团队参考。
 cover: /images/covers/strangler-fig-laravel-microservice-cover.jpg
+images:
+  - /images/covers/strangler-fig-laravel-microservice-cover.jpg
 ---
 
 

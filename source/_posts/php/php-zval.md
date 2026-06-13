@@ -6,6 +6,8 @@ categories:
   - php
 description: 从 C 语言层面的 zval 结构体出发，完整剖析 PHP 变量的内存管理全貌。深入解析 PHP 7/8 的 16 字节 zval 重构、引用计数的即时回收机制、写时复制（COW）的值语义与性能平衡，以及 ISREF 引用与 COW 的冲突场景。涵盖 Zend 引擎 GC 垃圾回收的三色标记算法、循环引用检测、WeakMap 打破循环引用的实战技巧，附带 Valgrind/Xdebug 内存泄漏检测方法、生成器与 cursor 流式处理大内存优化策略，帮助开发者建立 PHP 内存管理的系统性认知，精准定位生产环境中的 OOM 与内存泄漏问题。
 cover: /images/covers/php-zval-memory-cover.jpg
+images:
+  - /images/covers/php-zval-memory-cover.jpg
 ---
 
 PHP 开发者每天都在操作变量，写下无数行 `$a = "hello"`、`$b = $a` 这样的赋值语句，但很少有人真正理解这行代码在引擎层面究竟发生了什么。当应用在高并发场景下出现内存泄漏，当队列 Worker 跑了几小时后 OOM 崩溃，当 Laravel Eloquent 查询莫名占用大量内存时，这些表象的背后都指向同一个根源——PHP 变量的内存管理机制。

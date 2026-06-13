@@ -1,6 +1,8 @@
 ---
 title: PHPUnit 11.x 实战：新特性与最佳实践——从 Laravel B2C API 的断言、属性到测试架构演进踩坑记录
 cover: /images/covers/phpunit-11-x-guide-best-practices-cover.jpg
+images:
+  - /images/covers/phpunit-11-x-guide-best-practices-cover.jpg
 date: 2026-05-17 01:10:23
 updated: 2026-05-17 01:14:29
 categories:

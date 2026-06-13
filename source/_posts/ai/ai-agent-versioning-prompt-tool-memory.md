@@ -2,6 +2,9 @@
 title: AI Agent Versioning 实战：Prompt/Tool/Memory 的版本化管理
 date: 2026-06-09 18:08:00
 categories:
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 - ai
 tags:
 - AI Agent

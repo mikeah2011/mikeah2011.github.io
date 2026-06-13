@@ -3,6 +3,9 @@ title: AI Agent Sandboxing 实战：Firecracker/gVisor/Fly.io Machines——Agen
 date: 2026-06-09 17:34:00
 categories:
   - ai
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 tags:
   - Agent
   - 沙箱

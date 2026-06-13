@@ -6,6 +6,8 @@ description: 本文是一篇 OpenHuman 插件开发的完整实战指南，系�
 categories:
   - architecture
 cover: /images/covers/openhuman-plugin-oauth-cover.jpg
+images:
+  - /images/covers/openhuman-plugin-oauth-cover.jpg
 ---
 
 # OpenHuman 插件开发实战：自定义集成与 OAuth 流程

@@ -13,6 +13,8 @@ description: 深入讲解 Laravel Rate Limiting 多维限流实战方案。涵�
 categories:
 - php
 cover: /images/covers/laravel-rate-limiting-cover.jpg
+images:
+  - /images/covers/laravel-rate-limiting-cover.jpg
 ---
 
 

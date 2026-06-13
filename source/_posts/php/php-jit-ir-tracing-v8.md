@@ -5,6 +5,8 @@ tags: [PHP, JIT, 性能优化, PHP 8.5, IR框架, Tracing JIT, V8, 编译器优�
 categories:
   - php
 cover: /images/covers/php-85-jit-deep-dive-cover.jpg
+images:
+  - /images/covers/php-85-jit-deep-dive-cover.jpg
 description: 深入剖析 PHP 8.5 全新 IR 框架与 Tracing JIT 编译器的架构设计，对比 V8 TurboFan/Maglev 的激进优化策略，揭示 PHP JIT 选择保守方案背后的技术原因——请求生命周期、动态类型约束与 OPcache 的 80% 红利。附 Laravel 实战基准测试、opcache.jit 参数调优指南及 JIT 收益场景分析，助你做出最优配置决策。
 ---
 

@@ -3,6 +3,9 @@ title: API 密钥管理工程化实战：环境变量 vs Vault vs Doppler vs .en
 date: 2026-06-10 03:15:00
 categories:
   - devops
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 tags:
   - 密钥管理
   - Laravel

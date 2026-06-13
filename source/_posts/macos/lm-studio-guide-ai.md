@@ -1,6 +1,8 @@
 ---
 title: "LM Studio 实战：本地模型管理与推理 — 隐私优先的 AI 开发工作流踩坑记录"
 cover: /images/covers/lm-studio-guide-ai-cover.jpg
+images:
+  - /images/covers/lm-studio-guide-ai-cover.jpg
 date: 2026-05-17 05:40:05
 updated: 2026-05-17 05:42:40
 categories:

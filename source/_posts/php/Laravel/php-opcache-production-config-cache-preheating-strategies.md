@@ -1,6 +1,8 @@
 ---
 title: PHP OPcache 缓存预热实战：生产环境冷启动治理与自动化 Warmup 全攻略
 cover: /images/covers/php-opcache-production-config-cache-preheating-strategies-cover.jpg
+images:
+  - /images/covers/php-opcache-production-config-cache-preheating-strategies-cover.jpg
 date: 2026-06-01 09:00:00
 categories:
   - php

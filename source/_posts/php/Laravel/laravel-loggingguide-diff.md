@@ -1,6 +1,8 @@
 ---
 title: Laravel 审计日志与字段级脱敏实战：后台高风险操作留痕、Diff 快照与合规回放踩坑记录
 cover: /images/covers/laravel-loggingguide-diff-cover.jpg
+images:
+  - /images/covers/laravel-loggingguide-diff-cover.jpg
 date: 2026-05-03 10:20:55
 updated: 2026-05-03 10:23:32
 categories:

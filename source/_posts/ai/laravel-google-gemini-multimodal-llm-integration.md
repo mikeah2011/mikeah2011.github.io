@@ -12,6 +12,8 @@ tags:
   - LLM
 description: 本文从零开始，手把手教你用 Laravel 接入 Google Gemini API，实现图片理解、视频分析等多模态能力，附完整可运行代码。
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 ---
 
 ## 概述

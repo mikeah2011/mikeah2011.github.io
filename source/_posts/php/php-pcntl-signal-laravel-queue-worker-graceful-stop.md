@@ -3,6 +3,9 @@ title: PHP Process Control 实战：pcntl_signal/pcntl_async_signals 深度—�
   的优雅停止与信号处理链
 date: 2026-06-10 01:03:00
 categories:
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 - php
 tags:
 - pcntl

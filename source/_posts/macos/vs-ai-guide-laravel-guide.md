@@ -1,6 +1,8 @@
 ---
 title: 本地 vs 云端 AI 实战：成本隐私性能的权衡与 Laravel 开发者选型指南
 cover: /images/covers/vs-ai-guide-laravel-guide-cover.jpg
+images:
+  - /images/covers/vs-ai-guide-laravel-guide-cover.jpg
 date: 2026-05-17 05:50:38
 updated: 2026-05-17 05:53:29
 categories:

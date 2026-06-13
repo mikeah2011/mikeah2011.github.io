@@ -6,6 +6,8 @@ tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 企业级, 生产部署]
 categories:
   - architecture
 cover: /images/covers/ai-agent-enterprise-deploy-cover.jpg
+images:
+  - /images/covers/ai-agent-enterprise-deploy-cover.jpg
 ---
 
 # 企业级 AI Agent 部署：Hermes/OpenClaw/OpenHuman 在生产环境的适用性分析

@@ -1,6 +1,8 @@
 ---
 title: Laravel 消息幂等性设计模式实战：订单事件消费的去重表、Inbox/Outbox 与重试补偿踩坑记录
 cover: /images/covers/laravel-design-patternsguide-inbox-outbox-cover.jpg
+images:
+  - /images/covers/laravel-design-patternsguide-inbox-outbox-cover.jpg
 date: 2026-05-03 09:45:00
 categories:
   - php

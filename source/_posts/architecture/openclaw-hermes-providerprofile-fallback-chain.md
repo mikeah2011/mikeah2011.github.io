@@ -5,6 +5,8 @@ tags: [OpenClaw, Hermes, AI Agent, 模型管理, 架构对比]
 categories:
   - architecture
 cover: /images/covers/openclaw-vs-hermes-model-management-cover.jpg
+images:
+  - /images/covers/openclaw-vs-hermes-model-management-cover.jpg
 description: "深入对比 OpenClaw 与 Hermes 两大 AI Agent 框架的模型管理方案。Hermes 采用声明式 ProviderProfile 实现简洁配置，OpenClaw 通过 31 级 Fallback Chain 提供运维级精细控制。从配置复杂度、故障恢复、成本控制、多模型路由、扩展性五个维度进行详细对比，附带 ProviderProfile YAML 配置示例、Fallback Chain 配置代码和五维度评分表格。帮助开发者根据团队规模和运维能力选择最合适的模型管理架构。"
 ---
 

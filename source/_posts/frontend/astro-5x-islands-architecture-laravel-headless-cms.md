@@ -5,6 +5,8 @@ tags: [Astro, Islands Architecture, 前端框架, Laravel, Headless CMS]
 categories:
   - frontend
 cover: /images/covers/astro-5x-islands-architecture-cover.jpg
+images:
+  - /images/covers/astro-5x-islands-architecture-cover.jpg
 description: "深入解析 Astro 5.x 前端框架的 Islands Architecture（岛屿架构）核心理念与选择性水合机制，详解如何利用 Astro 进行静态站点生成并与 Laravel Headless CMS 后端集成。涵盖 Content Collections 内容管理、Server Islands 动态渲染、SSG/SSR 混合策略、Laravel API 设计与 Filament 管理面板搭建，助你构建高性能、SEO 友好的现代内容网站，实现零 JavaScript 默认与按需交互的极致性能优化。"
 ---
 

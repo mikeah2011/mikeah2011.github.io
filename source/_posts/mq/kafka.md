@@ -1,6 +1,8 @@
 ---
 title: Kafka 入门：分区、副本、消费者组与高吞吐消息架构
 cover: /images/mq-cover.png
+images:
+  - /images/mq-cover.png
 tags:
 - Kafka
 - 消息队列

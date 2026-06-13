@@ -12,6 +12,8 @@ description: Tailwind CSS v4 使用 Rust 重写的 Oxide 引擎带来 10-100 倍
   v4 的完整过程，涵盖 CSS-first 配置、@theme 指令、Vite 插件集成，以及在 Laravel Livewire 项目中的暗黑模式、表单组件、Blade
   组件库设计等实战踩坑经验与最佳实践。
 cover: /images/covers/tailwind-css-v4-engine-rewrite-performance-livewire-integration-cover.jpg
+images:
+  - /images/covers/tailwind-css-v4-engine-rewrite-performance-livewire-integration-cover.jpg
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 title: Webhook 集成最佳实践：签名验证、重试与幂等处理——Laravel B2C API 踩坑记录
 cover: /images/covers/webhook-best-practices-cover.jpg
+images:
+  - /images/covers/webhook-best-practices-cover.jpg
 date: 2026-05-17 00:55:27
 updated: 2026-05-17 00:59:34
 categories:

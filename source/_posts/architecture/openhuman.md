@@ -13,6 +13,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/openhuman-security-privacy-cover.jpg
+images:
+  - /images/covers/openhuman-security-privacy-cover.jpg
 ---
 
 

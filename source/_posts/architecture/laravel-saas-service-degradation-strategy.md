@@ -3,6 +3,9 @@ title: 服务降级清单设计实战：Laravel SaaS 的功能优先级矩阵
 date: 2026-06-10 08:16:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - SaaS

@@ -1,6 +1,8 @@
 ---
 title: Kubernetes-HPA-实战-Laravel-应用自动扩缩容策略与踩坑记录
 cover: /images/covers/kubernetes-hpa-laravel-autoscaling-cover.jpg
+images:
+  - /images/covers/kubernetes-hpa-laravel-autoscaling-cover.jpg
 date: 2026-05-17 02:45:19
 updated: 2026-05-17 02:47:22
 categories:

@@ -3,6 +3,9 @@ title: Laravel Deferred Service Provider 实战进阶：按需加载 Provider �
 date: 2026-06-10 04:45:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - 性能优化

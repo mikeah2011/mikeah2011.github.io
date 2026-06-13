@@ -1,6 +1,8 @@
 ---
 title: "Mockoon 实战：本地 Mock 服务器快速搭建与 Laravel B2C 前后端联调踩坑记录"
 cover: /images/covers/mockoon-guide-mock-laravel-b2c-cover.jpg
+images:
+  - /images/covers/mockoon-guide-mock-laravel-b2c-cover.jpg
 date: 2026-05-17 05:55:11
 updated: 2026-05-17 05:58:47
 categories:

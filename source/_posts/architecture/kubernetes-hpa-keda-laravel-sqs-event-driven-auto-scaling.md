@@ -3,6 +3,9 @@ title: Kubernetes HPA KEDA 实战：事件驱动自动扩缩——Laravel 队列
 date: 2026-06-09 16:31:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Kubernetes
   - HPA

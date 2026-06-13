@@ -3,6 +3,9 @@ title: GitHub Copilot Extensions 实战：自定义扩展开发——从 MCP Ser
 date: 2026-06-10 10:31:00
 categories:
   - ai
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 tags:
   - GitHub Copilot
   - MCP

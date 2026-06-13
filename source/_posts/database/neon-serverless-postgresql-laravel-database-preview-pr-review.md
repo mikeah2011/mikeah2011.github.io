@@ -6,6 +6,8 @@ description: Neon Serverless PostgreSQL 通过存储计算分离与 Copy-on-Writ
 categories:
   - database
 cover: /images/covers/neon-serverless-postgresql-laravel-cover.jpg
+images:
+  - /images/covers/neon-serverless-postgresql-laravel-cover.jpg
 ---
 
 ## 前言：为什么数据库需要「分支」？

@@ -1,6 +1,8 @@
 ---
 title: GET 与 POST的区别
 cover: /images/covers/php-vs-getpost-cover.jpg
+images:
+  - /images/covers/php-vs-getpost-cover.jpg
 tags:
 - HTTP
 - get

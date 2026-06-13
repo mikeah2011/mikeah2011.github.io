@@ -14,6 +14,8 @@ description: 深入探讨 AI Agent 评估的三大支柱：LLM-as-Judge 自动�
 categories:
 - ai
 cover: /images/covers/ai-agent-evaluation-cover.jpg
+images:
+  - /images/covers/ai-agent-evaluation-cover.jpg
 ---
 
 

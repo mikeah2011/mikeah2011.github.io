@@ -12,6 +12,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/coolify-self-hosted-paas-cover.jpg
+images:
+  - /images/covers/coolify-self-hosted-paas-cover.jpg
 description: Coolify 是开源自托管 PaaS 平台，提供类似 Heroku/Vercel 的一键部署体验，支持 Git 仓库、Docker 镜像、Docker
   Compose 多种部署方式，内置自动 SSL、数据库管理、实时日志和回滚功能。本文深入讲解 Coolify 架构设计与安装配置，结合 Laravel 应用的完整部署流程，包括
   Dockerfile 最佳实践、Docker Compose 多服务编排、Nginx 配置、环境变量管理、数据库备份和 CI/CD 自动部署，帮助开发者以极低成本实现生产级应用托管。

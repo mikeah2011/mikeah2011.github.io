@@ -12,6 +12,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/api-security-hardening-jwt-blacklist-request-signing-ip-whitelist-replay-attack-prevention-cover.jpg
+images:
+  - /images/covers/api-security-hardening-jwt-blacklist-request-signing-ip-whitelist-replay-attack-prevention-cover.jpg
 ---
 
 

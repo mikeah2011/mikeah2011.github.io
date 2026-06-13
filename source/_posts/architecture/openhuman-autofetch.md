@@ -6,6 +6,8 @@ tags: [OpenHuman, AI Agent, AutoFetch, 上下文管理, 自动化]
 categories:
   - architecture
 cover: /images/covers/openhuman-autofetch-context-cover.jpg
+images:
+  - /images/covers/openhuman-autofetch-context-cover.jpg
 ---
 
 在构建一个真正可持续运行的 AI Agent 系统时，大家很快都会遇到同一个核心问题：**模型本身很聪明，但它对外部世界的感知是不连续的**。用户刚刚在 Slack 里同步了一个需求，十分钟前 GitHub 上有人提交了一个破坏接口兼容性的 PR，Jira 又在半小时前把某个阻塞任务从 In Progress 改成了 Blocked。如果 Agent 没有办法在合适的节奏里自动刷新这些上下文，它的决策就会迅速退化成“基于过期信息的高质量推理”。

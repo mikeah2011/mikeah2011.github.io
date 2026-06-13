@@ -5,6 +5,8 @@ tags: [Laravel, Session, Redis, CSRF, 安全, PHP]
 categories:
   - php
 cover: /images/covers/laravel-session-deep-dive-cover.jpg
+images:
+  - /images/covers/laravel-session-deep-dive-cover.jpg
 description: 全面解析 Laravel Session 管理全链路，深度对比 file、redis、database、cookie 等六大驱动选型策略，详解分布式会话共享方案与粘性会话（Sticky Session）生产陷阱，剖析 CSRF Token 密码学生成验证机制，分享 Cookie 安全属性配置与 Redis 高性能会话存储实战，以及 Session 加密签名和安全加固方案。
 ---
 

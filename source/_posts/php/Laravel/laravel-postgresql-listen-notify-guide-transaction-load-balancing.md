@@ -2,6 +2,8 @@
 title: Laravel + PostgreSQL LISTEN/NOTIFY 实战：事务提交后事件广播、连接池与负载均衡踩坑记录
 date: 2026-05-03 11:10:43
 cover: /images/covers/laravel-postgresql-listen-notify-guide-transaction-load-balancing-cover.jpg
+images:
+  - /images/covers/laravel-postgresql-listen-notify-guide-transaction-load-balancing-cover.jpg
 updated: 2026-05-03 11:11:39
 categories:
   - php

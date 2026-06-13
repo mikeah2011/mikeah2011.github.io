@@ -6,6 +6,8 @@ categories:
   - php
 description: 'Laravel Service Container 源码深度剖析：逐行解读 bind/singleton/instance 绑定机制，深入 contextual binding 的 $buildStack 隐式传递原理与 tags 批量解析链路，完整追踪 make→resolve→build 递归反射构建流程，附电商多实现注入实战案例与性能优化陷阱，助你彻底掌握 IoC/DI 容器的设计哲学。'
 cover: /images/covers/laravel-service-container-cover.jpg
+images:
+  - /images/covers/laravel-service-container-cover.jpg
 ---
 
 ## 引言：为什么需要理解 Service Container 源码

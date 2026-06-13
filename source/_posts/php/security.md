@@ -1,6 +1,8 @@
 ---
 title: PHP 安全防护：XSS、SQL 注入、CSRF 与文件上传漏洞
 cover: /images/covers/security-php-cover.jpg
+images:
+  - /images/covers/security-php-cover.jpg
 tags:
 - PHP
 - 安全

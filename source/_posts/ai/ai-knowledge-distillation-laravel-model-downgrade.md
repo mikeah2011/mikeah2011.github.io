@@ -3,6 +3,9 @@ title: AI Agent Knowledge Distillation 实战：大模型蒸馏到小模型—�
 date: 2026-06-09 13:42:00
 categories:
   - ai
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 tags:
   - Knowledge Distillation
   - LLM

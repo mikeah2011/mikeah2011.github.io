@@ -15,6 +15,8 @@ description: 电商推荐系统从零到生产的完整实战，涵盖 User-Base
 categories:
 - architecture
 cover: /images/covers/recommendation-system-cover.jpg
+images:
+  - /images/covers/recommendation-system-cover.jpg
 ---
 
 

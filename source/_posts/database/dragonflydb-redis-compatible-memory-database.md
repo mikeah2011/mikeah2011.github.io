@@ -2,6 +2,9 @@
 title: DragonflyDB 实战：Redis 兼容的内存数据库——单实例百万 QPS、无分片架构与 Laravel 无缝迁移方案
 date: 2026-06-10 03:42:00
 categories:
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 - database
 tags:
 - DragonflyDB

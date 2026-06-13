@@ -1,6 +1,8 @@
 ---
 title: PHP 接口 vs 抽象类：面向对象设计的选型决策
 cover: /images/covers/vs-interfaceabstract-cover.jpg
+images:
+  - /images/covers/vs-interfaceabstract-cover.jpg
 tags:
 - PHP
 - 面向对象

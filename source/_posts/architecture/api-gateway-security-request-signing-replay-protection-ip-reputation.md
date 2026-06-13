@@ -3,6 +3,9 @@ title: API 网关安全实战：请求签名验证、重放攻击防护、IP 信
 date: 2026-06-09 22:40:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - API安全
   - 网关

@@ -5,6 +5,8 @@ tags: [Laravel Herd, macOS, PHP, Valet, 开发环境]
 categories:
   - macos
 cover: /images/covers/laravel-herd-macos-cover.jpg
+images:
+  - /images/covers/laravel-herd-macos-cover.jpg
 description: "Laravel Herd 是 macOS 原生 PHP 开发环境管理工具，零依赖安装即可获得 PHP 多版本、Nginx、Dnsmasq 全套开发组件。本文深度对比 Herd 与 Valet/Homestead/Sail 的优劣，详解多站点配置、Xdebug 调试、Node.js 管理、Herd Pro 高级功能及真实开发工作流踩坑记录，一站式提升 macOS PHP 开发体验。"
 ---
 

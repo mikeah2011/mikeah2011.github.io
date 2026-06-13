@@ -2,6 +2,9 @@
 title: 2026年AI编程工具横评：Claude Code vs GitHub Copilot vs Cursor
 date: 2026-06-10 02:29:00
 categories:
+cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 - ai
 tags:
 - AI 编程

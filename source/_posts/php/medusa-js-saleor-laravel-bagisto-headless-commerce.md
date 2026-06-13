@@ -3,6 +3,9 @@ title: "Medusa.js 实战：开源电商后端——对比 Saleor/Laravel + Bagis
 date: 2026-06-10 05:26:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Medusa.js
   - Saleor

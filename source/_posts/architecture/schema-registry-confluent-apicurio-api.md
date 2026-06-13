@@ -6,6 +6,8 @@ tags: [schema registry, confluent, apicurio, 事件驱动, api 治理]
 categories:
   - architecture
 cover: /images/covers/schema-registry-cover.jpg
+images:
+  - /images/covers/schema-registry-cover.jpg
 ---
 
 ## 引言：数据契约——事件驱动架构中被忽视的阿喀琉斯之踵

@@ -14,6 +14,8 @@ tags:
   - Constrained-Decoding
 description: "深入解析 LLM Structured Generation 的三大主流方案（Outlines、LMQL、Instructor），从底层 constrained decoding 原理到 Laravel 项目集成实战，彻底解决 LLM 输出格式不稳定的问题。"
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200
+images:
+  - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200
 ---
 
 ## 概述

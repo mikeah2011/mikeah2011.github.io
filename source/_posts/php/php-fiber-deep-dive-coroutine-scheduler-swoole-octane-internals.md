@@ -13,6 +13,8 @@ tags:
 categories:
 - php
 cover: /images/covers/php-fiber-deep-dive-coroutine-scheduler-swoole-octane-internals-cover.jpg
+images:
+  - /images/covers/php-fiber-deep-dive-coroutine-scheduler-swoole-octane-internals-cover.jpg
 ---
 
 

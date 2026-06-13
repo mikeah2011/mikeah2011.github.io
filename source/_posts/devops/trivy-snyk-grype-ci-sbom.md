@@ -16,6 +16,8 @@ description: 容器安全扫描实战指南，深入对比 Trivy、Snyk、Grype 
 categories:
 - devops
 cover: /images/covers/container-security-scanning-cover.jpg
+images:
+  - /images/covers/container-security-scanning-cover.jpg
 ---
 
 

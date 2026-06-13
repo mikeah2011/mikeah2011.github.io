@@ -14,6 +14,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/hermes-memory-security-cover.jpg
+images:
+  - /images/covers/hermes-memory-security-cover.jpg
 ---
 
 

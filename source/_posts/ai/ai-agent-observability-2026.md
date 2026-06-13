@@ -6,6 +6,8 @@ tags: [AI Agent, Observability, LangSmith, LangFuse, LLM]
 categories:
   - ai
 cover: /images/covers/ai-agent-observability-2026-cover.jpg
+images:
+  - /images/covers/ai-agent-observability-2026-cover.jpg
 ---
 
 2026 年的 AI Agent 已经不是"调一个大模型接口"这么简单了。一个生产级的 Agent 系统通常涉及多轮推理、工具调用、RAG 检索、子 Agent 协作、结构化输出校验、外部 API 调用，以及在运行时动态决定下一步行为的复杂编排。当你的 Agent 一天处理上万条请求，你需要回答的问题早已超越了"它能不能跑通"——而是**为什么这次回答不对**、**哪个步骤拖慢了延迟**、**新版本的 Prompt 是否导致了回归**、**标注团队如何高效地给输出打分**、**Token 成本如何归因到具体的 Agent 步骤**。

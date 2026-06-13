@@ -1,6 +1,8 @@
 ---
 title: Laravel + PgBouncer 连接池实战：PostgreSQL 连接风暴治理、事务池模式与 Prepared Statement 踩坑记录
 cover: /images/covers/laravel-pgbouncer-guide-postgresql-transaction-prepared-statement-cover.jpg
+images:
+  - /images/covers/laravel-pgbouncer-guide-postgresql-transaction-prepared-statement-cover.jpg
 date: 2026-05-03 10:10:28
 updated: 2026-05-03 10:12:38
 categories:

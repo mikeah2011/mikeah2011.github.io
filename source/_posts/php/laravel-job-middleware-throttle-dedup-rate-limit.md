@@ -2,6 +2,9 @@
 title: Laravel Job Middleware 实战：限流/去重/节流的链式管道——自定义中间件实现队列任务的精细化流量治理
 date: 2026-06-10 01:10:00
 categories:
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 - php
 tags:
 - Queue

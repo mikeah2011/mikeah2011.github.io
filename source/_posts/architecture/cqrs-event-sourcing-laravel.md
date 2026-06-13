@@ -12,6 +12,8 @@ categories:
 description: 本文以 Laravel 订单系统为实战案例，从零实现完整的 CQRS + Event Sourcing 架构。涵盖聚合根基类、领域事件设计、事件存储与快照优化、读模型投影与
   Saga 编排。提供可运行的端到端代码实现，包括乐观锁并发控制、事件版本迁移、投影器重建，帮助你理解命令查询职责分离与事件溯源如何解决复杂业务场景下的审计追溯、时间旅行调试和读写性能独立优化问题。
 cover: /images/covers/cqrs-event-sourcing-laravel-cover.jpg
+images:
+  - /images/covers/cqrs-event-sourcing-laravel-cover.jpg
 ---
 
 

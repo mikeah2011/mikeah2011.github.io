@@ -6,6 +6,8 @@ tags: [Laravel, PHP, Concurrency, 异步, 并发编程]
 categories:
   - php
 cover: /images/covers/laravel-concurrency-facade-cover.jpg
+images:
+  - /images/covers/laravel-concurrency-facade-cover.jpg
 ---
 
 ## 一、引言：为什么 PHP 需要并发？

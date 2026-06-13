@@ -14,6 +14,8 @@ tags:
 categories:
 - mobile
 cover: /images/covers/flutter-gorouter-routing-deep-link-cover.jpg
+images:
+  - /images/covers/flutter-gorouter-routing-deep-link-cover.jpg
 ---
 
 

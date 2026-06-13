@@ -16,6 +16,8 @@ tags:
 categories:
 - php
 cover: /images/covers/fusionauth-laravel-cover.jpg
+images:
+  - /images/covers/fusionauth-laravel-cover.jpg
 ---
 
 

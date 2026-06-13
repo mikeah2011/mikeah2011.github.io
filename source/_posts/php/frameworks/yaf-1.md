@@ -1,6 +1,8 @@
 ---
 title: Yaf 框架入门：鸟哥的 C 扩展级 PHP 框架
 cover: /images/covers/yaf-1-cover.jpg
+images:
+  - /images/covers/yaf-1-cover.jpg
 tags:
 - PHP
 - 架构

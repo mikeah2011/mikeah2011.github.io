@@ -1,6 +1,8 @@
 ---
 title: 约瑟夫环问题：数学推导与多种语言实现
 cover: /images/covers/josephus-cover.jpg
+images:
+  - /images/covers/josephus-cover.jpg
 tags:
 - 算法
 - josephus

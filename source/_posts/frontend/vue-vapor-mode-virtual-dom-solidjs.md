@@ -6,6 +6,8 @@ categories:
   - frontend
 description: 深入剖析 Vue Vapor Mode 的编译时优化机制——如何完全绕过 Virtual DOM，将模板直接编译为精确 DOM 操作指令。对比 SolidJS 细粒度响应式与 Svelte 编译策略，涵盖运行时性能基准测试、迁移策略与 Laravel BFF 集成实践，帮助前端开发者在大型实时应用中获得 30%+ 的渲染性能提升。
 cover: /images/covers/vue-vapor-mode-cover.jpg
+images:
+  - /images/covers/vue-vapor-mode-cover.jpg
 ---
 
 ## 前言

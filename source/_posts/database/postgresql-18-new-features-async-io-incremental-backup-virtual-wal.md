@@ -13,6 +13,8 @@ description: PostgreSQL 18 全面解析：深度剖析异步I/O（io_uring）子
 categories:
 - database
 cover: /images/covers/postgresql-18-new-features-cover.jpg
+images:
+  - /images/covers/postgresql-18-new-features-cover.jpg
 ---
 
 

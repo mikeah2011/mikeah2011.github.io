@@ -10,6 +10,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/rag-vector-db-chunking-cover.jpg
+images:
+  - /images/covers/rag-vector-db-chunking-cover.jpg
 description: 本文系统拆解 RAG 落地中的关键决策，覆盖向量数据库选型、Chunking 切分策略、Embedding 模型选择与检索优化方法，深入比较
   Milvus、Qdrant、Weaviate、pgvector 等方案，并结合代码示例讲清召回准确率、延迟、成本与工程可维护性的平衡，帮助你构建真正可上线的企业知识库与问答系统。
 ---

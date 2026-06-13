@@ -10,6 +10,8 @@ categories:
 - php
 description: 深入剖析PHP异常处理体系：从SPL异常层级的语义边界与选型指南，到PHP 7+ Throwable接口的Error与Exception本质区别，再到自定义异常设计模式（异常码Enum、富异常、异常工厂），最终落地Laravel异常分层策略、Handler生命周期、统一API响应格式与生产环境反模式排查，助力中大型B2C项目构建专业级异常架构。
 cover: /images/covers/php-exception-handling-cover.jpg
+images:
+  - /images/covers/php-exception-handling-cover.jpg
 ---
 
 

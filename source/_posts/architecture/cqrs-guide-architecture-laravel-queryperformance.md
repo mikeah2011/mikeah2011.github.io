@@ -1,6 +1,8 @@
 ---
 title: CQRS-模式实战-读写分离架构在-Laravel-中的落地-B2C电商查询性能优化与事件驱动踩坑记录
 cover: /images/architecture-cover.png
+images:
+  - /images/architecture-cover.png
 tags:
 - Laravel
 - CQRS
@@ -35,7 +37,6 @@ author: Michael
 2. **缓存策略混乱**：写操作频繁失效缓存，读操作大量 miss，缓存命中率低于 40%
 3. **扩展困难**：想给读操作加 Elasticsearch，却发现 Repository 里混了一堆写逻辑
 
-![CQRS 前后对比](https://i.imgur.com/cqrs-before-after.png)
 
 ```
 ┌─────────────────────────────────────────────────────┐

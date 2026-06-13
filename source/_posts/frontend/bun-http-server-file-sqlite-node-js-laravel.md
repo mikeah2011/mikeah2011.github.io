@@ -5,6 +5,8 @@ tags: [Bun, JavaScript, 全栈, Node.js, SQLite, 性能]
 categories:
   - frontend
 cover: /images/covers/bun-fullstack-cover.jpg
+images:
+  - /images/covers/bun-fullstack-cover.jpg
 description: 深入剖析 Bun 全栈开发平台的三大核心能力——HTTP Server、File I/O 与 SQLite 内置集成，通过性能基准测试与 Node.js 进行全方位对比，揭示 JavaScriptCore 引擎与 Zig 底层优化带来的数量级提升。面向 Laravel/PHP 开发者提供完整的迁移指南，涵盖包管理、路由、中间件、ORM 映射等实战踩坑经验，助你从 PHP 生态无缝过渡到高性能 JavaScript 全栈开发。
 ---
 

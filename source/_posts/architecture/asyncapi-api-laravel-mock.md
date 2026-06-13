@@ -5,6 +5,8 @@ tags: [AsyncAPI, 事件驱动, 微服务, Laravel, 消息队列, API规范]
 categories:
   - architecture
 cover: /images/covers/asyncapi-cover.jpg
+images:
+  - /images/covers/asyncapi-cover.jpg
 description: "AsyncAPI 是事件驱动架构的 API 规范标准，本文以 Laravel 微服务为背景，详解如何使用 AsyncAPI 规范消息契约、搭建 Mock 服务器、自动生成 DTO 与消费者骨架代码、在 CI/CD 中集成契约测试。涵盖 Kafka/RabbitMQ/Redis Streams 多 Broker 场景，实现事件通信的文档化、可测试与可治理。"
 ---
 

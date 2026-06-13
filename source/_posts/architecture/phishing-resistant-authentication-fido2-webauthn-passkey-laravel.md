@@ -3,6 +3,9 @@ title: "Phishing-Resistant Authentication 实战：FIDO2/WebAuthn + Passkey 的�
 date: 2026-06-09 18:57:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - FIDO2
   - WebAuthn

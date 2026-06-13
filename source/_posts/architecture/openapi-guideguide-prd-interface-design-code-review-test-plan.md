@@ -1,6 +1,8 @@
 ---
 title: OpenAPI 设计指南实战-从 PRD 到 Interface Design 到 Code Review 到 Test Plan 全链路踩坑记录
 cover: /images/covers/openapi-prd-code-review-cover.jpg
+images:
+  - /images/covers/openapi-prd-code-review-cover.jpg
 date: 2026-05-05 02:15:21
 updated: 2026-05-05 02:17:41
 categories:

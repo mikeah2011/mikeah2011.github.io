@@ -12,6 +12,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/distributed-tracing-cover.jpg
+images:
+  - /images/covers/distributed-tracing-cover.jpg
 ---
 
 

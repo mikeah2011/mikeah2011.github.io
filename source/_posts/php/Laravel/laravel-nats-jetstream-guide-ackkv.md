@@ -1,6 +1,8 @@
 ---
 title: Laravel + NATS JetStream 实战：订单通知削峰、Ack 重投与 KV 配置同步踩坑记录
 cover: /images/covers/laravel-nats-jetstream-guide-ackkv-cover.jpg
+images:
+  - /images/covers/laravel-nats-jetstream-guide-ackkv-cover.jpg
 date: 2026-05-04 16:01:38
 updated: 2026-05-04 16:05:52
 categories:

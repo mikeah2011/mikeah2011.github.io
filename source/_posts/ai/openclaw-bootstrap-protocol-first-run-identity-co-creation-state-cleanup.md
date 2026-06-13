@@ -13,6 +13,8 @@ description: 全面解析 OpenClaw Bootstrap 协议的五阶段引导流程：�
   与用户协作定义人格而非预设模板，详解渐进式引导机制、模板系统语法与填充逻辑、三层状态清理（软/中/硬）的安全确认与备份回滚策略，对比预设人格与共创方案的优劣，附完整的对话式
   Bootstrap 交互示例。
 cover: /images/covers/openclaw-bootstrap-protocol-cover.jpg
+images:
+  - /images/covers/openclaw-bootstrap-protocol-cover.jpg
 ---
 
 

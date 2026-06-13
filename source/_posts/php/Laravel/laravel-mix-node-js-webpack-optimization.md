@@ -1,6 +1,8 @@
 ---
 title: Laravel-Mix-Node.js-前端资源编译与-Webpack-配置优化实战踩坑记录
 cover: /images/covers/laravel-mix-node-js-webpack-optimization-cover.jpg
+images:
+  - /images/covers/laravel-mix-node-js-webpack-optimization-cover.jpg
 date: 2026-05-05 02:40:38
 updated: 2026-05-05 02:42:06
 categories:

@@ -13,6 +13,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/swift-vapor-laravel-benchmark-cover.jpg
+images:
+  - /images/covers/swift-vapor-laravel-benchmark-cover.jpg
 ---
 
 

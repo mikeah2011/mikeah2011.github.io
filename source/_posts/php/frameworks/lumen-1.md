@@ -1,6 +1,8 @@
 ---
 title: Lumen 微框架入门：Laravel 精简版的 API 开发实战
 cover: /images/covers/lumen-1-cover.jpg
+images:
+  - /images/covers/lumen-1-cover.jpg
 tags:
 - lumen
 - micro-framework

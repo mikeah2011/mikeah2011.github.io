@@ -5,6 +5,8 @@ tags: [DORA, 工程效能, DevOps, CI/CD, Laravel, 度量]
 categories:
   - devops
 cover: /images/covers/dora-metrics-laravel-team-cover.jpg
+images:
+  - /images/covers/dora-metrics-laravel-team-cover.jpg
 description: 本文基于 Laravel B2C 项目实战，完整落地 DORA 四大核心指标——部署频率、变更前置时间、变更失败率和 MTTR。涵盖 GitHub Actions 自动采集、Prometheus 可视化、Grafana 看板搭建，以及 Error Budget 驱动的工程决策。提供可运行的 PHP 代码实现，帮助团队从低效迈向精英级交付效能，用数据而非直觉来驱动持续改进。
 ---
 

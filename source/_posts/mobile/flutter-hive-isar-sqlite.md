@@ -6,6 +6,8 @@ description: 本文从 Flutter 实战角度系统对比本地存储方案，围�
 categories:
   - mobile
 cover: /images/covers/flutter-local-storage-cover.jpg
+images:
+  - /images/covers/flutter-local-storage-cover.jpg
 ---
 
 # Flutter 本地存储实战：Hive/Isar/SQLite 数据持久化方案对比

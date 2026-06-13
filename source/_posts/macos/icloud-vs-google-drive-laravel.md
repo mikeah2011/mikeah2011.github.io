@@ -1,6 +1,8 @@
 ---
 title: iCloud-vs-Google-Drive-Laravel-项目同步策略备份还原实战踩坑记录
 cover: /images/covers/icloud-vs-google-drive-laravel-cover.jpg
+images:
+  - /images/covers/icloud-vs-google-drive-laravel-cover.jpg
 date: 2026-05-05 02:20:35
 updated: 2026-05-05 02:22:40
 categories:

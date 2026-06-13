@@ -1,6 +1,8 @@
 ---
 title: "uni-app 推送通知实战：极光推送/个推/UniPush 集成与厂商通道适配——从 SDK 接入到生产环境消息必达的完整方案"
 cover: /images/covers/uni-app-push-notification-jpush-getui-unipush-vendor-channel-adaptation-cover.jpg
+images:
+  - /images/covers/uni-app-push-notification-jpush-getui-unipush-vendor-channel-adaptation-cover.jpg
 date: 2026-06-01 08:00:00
 categories:
   - frontend

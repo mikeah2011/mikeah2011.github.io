@@ -1,6 +1,8 @@
 ---
 title: Laravel API Resource 實戰：BFF 架構下的數據轉換與格式化 - KKday B2C API 真實踩坑記錄
 cover: /images/covers/laravel-api-resource-bff-architectureguide-cover.jpg
+images:
+  - /images/covers/laravel-api-resource-bff-architectureguide-cover.jpg
 date: 2026-05-03
 categories:
   - php

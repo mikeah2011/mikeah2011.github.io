@@ -14,6 +14,8 @@ description: FinOps 实战指南：从零搭建 Laravel 微服务云成本治理
 categories:
 - devops
 cover: /images/covers/finops-aws-kubecost-cover.jpg
+images:
+  - /images/covers/finops-aws-kubecost-cover.jpg
 ---
 
 

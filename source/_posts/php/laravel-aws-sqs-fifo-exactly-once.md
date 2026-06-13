@@ -13,6 +13,8 @@ tags:
 description: 深入实战 Laravel 集成 AWS SQS FIFO 队列，详解 MessageGroupId、DeduplicationId 的设计与实现，解决订单处理中的严格顺序与
   Exactly-Once 语义问题，包含完整代码示例与生产踩坑记录。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
+images:
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
 
 

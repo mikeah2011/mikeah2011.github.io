@@ -15,6 +15,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/laravel-dusk-ci-cover.jpg
+images:
+  - /images/covers/laravel-dusk-ci-cover.jpg
 ---
 
 

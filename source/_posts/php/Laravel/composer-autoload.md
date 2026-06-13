@@ -1,6 +1,8 @@
 ---
 title: Composer 依賴管理優化與 autoload 快取清理實戰 - KKday-B2C-API 真實踩坑記錄
 cover: /images/covers/composer-autoload-cover.jpg
+images:
+  - /images/covers/composer-autoload-cover.jpg
 date: 2026-05-03
 categories:
 - php

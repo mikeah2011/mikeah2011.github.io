@@ -11,6 +11,8 @@ tags:
 categories:
 - database
 cover: /images/covers/mysql-partition-table-laravel-cover.jpg
+images:
+  - /images/covers/mysql-partition-table-laravel-cover.jpg
 description: 深入讲解MySQL分区表实战：Range/List/Hash三种分区策略对比，Laravel中月度订单表的分区设计、Partition Pruning查询路由、自动分区维护Artisan命令、归档清理及性能基准测试，涵盖主键设计、外键限制等真实踩坑指南。
 ---
 

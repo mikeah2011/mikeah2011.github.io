@@ -5,6 +5,8 @@ tags: [LLM, Speculative Decoding, 推理优化, vLLM, Laravel, 流式响应]
 categories: [ai]
 description: 深入解析 LLM Speculative Decoding（投机采样）的原理与工程实践，涵盖 Draft Model 验证机制、拒绝采样无损加速理论推导，vLLM、llama.cpp、Ollama 三大推理框架的投机采样配置与性能对比，Medusa 与 EAGLE 多头自推测方案分析，以及通过 Laravel SSE 流式代理架构实现端到端低延迟响应集成，附完整基准测试数据与生产部署最佳实践。
 cover: /images/covers/llm-speculative-decoding-cover.jpg
+images:
+  - /images/covers/llm-speculative-decoding-cover.jpg
 ---
 
 # LLM Speculative Decoding 实战：投机采样加速推理——本地模型部署的延迟优化与 Laravel 流式响应集成

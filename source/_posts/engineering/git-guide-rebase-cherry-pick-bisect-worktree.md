@@ -1,6 +1,8 @@
 ---
 title: Git 高级用法实战：Rebase、Cherry-pick、Bisect、Worktree 踩坑记录
 cover: /images/covers/git-guide-rebase-cherry-pick-bisect-worktree-cover.jpg
+images:
+  - /images/covers/git-guide-rebase-cherry-pick-bisect-worktree-cover.jpg
 date: 2026-05-16 18:30:46
 updated: 2026-05-16 18:34:57
 categories:

@@ -1,6 +1,8 @@
 ---
 title: Grafana Tempo + OpenTelemetry 实战：Laravel 异步订单链路追踪、消息上下文透传与采样治理踩坑记录
 cover: /images/covers/grafana-tempo-opentelemetry-guide-laravel-cover.jpg
+images:
+  - /images/covers/grafana-tempo-opentelemetry-guide-laravel-cover.jpg
 date: 2026-05-03 10:55:06
 updated: 2026-05-03 10:56:22
 categories:

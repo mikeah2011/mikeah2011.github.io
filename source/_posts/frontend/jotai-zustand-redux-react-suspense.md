@@ -12,6 +12,8 @@ categories:
 description: 深入讲解 Jotai 原子化状态管理的核心 API（atom、derived atom、atomFamily、atomWithStorage），系统对比
   Jotai vs Zustand vs Redux Toolkit 在响应粒度、模板代码、Suspense 集成上的本质差异，涵盖表单管理、多层筛选、跨组件共享等实战场景与性能优化策略，帮助前端开发者做出最佳状态管理选型。
 cover: /images/covers/jotai-atomic-state-management-cover.jpg
+images:
+  - /images/covers/jotai-atomic-state-management-cover.jpg
 ---
 
 

@@ -3,6 +3,9 @@ title: "MCP Gateway 实战进阶：多租户 MCP Server 聚合层——鉴权、
 date: 2026-06-10 00:00:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - MCP
   - API Gateway

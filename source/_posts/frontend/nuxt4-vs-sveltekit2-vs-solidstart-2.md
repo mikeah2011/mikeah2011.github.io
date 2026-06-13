@@ -3,6 +3,9 @@ title: Nuxt 4 vs SvelteKit 2 vs SolidStart 2 2026 全栈框架选型：SSR/SSG/I
 date: 2026-06-09 18:35:00
 categories:
   - frontend
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 tags:
   - Nuxt
   - SvelteKit

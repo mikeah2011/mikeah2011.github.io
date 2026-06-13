@@ -1,6 +1,8 @@
 ---
 title: "Laravel Observers 实战：模型事件监听与审计日志自动记录——30+ 仓库踩坑记录"
 cover: /images/covers/laravel-observers-guide-logging-cover.jpg
+images:
+  - /images/covers/laravel-observers-guide-logging-cover.jpg
 date: 2026-05-05 11:15:29
 updated: 2026-05-05 11:46:48
 categories:

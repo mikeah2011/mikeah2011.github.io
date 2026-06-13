@@ -11,6 +11,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/llm-local-deployment-cover.jpg
+images:
+  - /images/covers/llm-local-deployment-cover.jpg
 description: 本文系统讲解 LLM 本地部署方案选型与 GPU 优化实践，重点对比 ollama、vllm、llama.cpp 在 macOS、Linux、Apple
   Silicon 与 NVIDIA GPU 场景下的优缺点，并结合量化、KV Cache、Metal、CUDA、并发压测、常见踩坑与部署策略，帮助开发者和团队完成本地大模型落地。
 ---

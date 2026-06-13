@@ -12,6 +12,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/hermes-subagent-architecture-cover.jpg
+images:
+  - /images/covers/hermes-subagent-architecture-cover.jpg
 ---
 
 

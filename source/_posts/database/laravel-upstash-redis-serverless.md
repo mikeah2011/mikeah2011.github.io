@@ -11,6 +11,8 @@ tags:
   - 边缘计算
 description: 深入实战 Upstash Redis 在 Laravel 项目中的应用，涵盖无连接池架构、按请求计费模型、边缘部署策略，以及与传统 Redis 方案的完整对比。
 cover: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
+images:
+  - https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200
 ---
 
 ## 概述

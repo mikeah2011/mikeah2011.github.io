@@ -1,6 +1,8 @@
 ---
 title: macOS 常用命令
 cover: /images/covers/common-commands-cover.jpg
+images:
+  - /images/covers/common-commands-cover.jpg
 date: 2025-05-25 10:00:00
 updated: 2026-06-06 10:00:00
 categories:

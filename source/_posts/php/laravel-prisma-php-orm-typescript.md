@@ -16,6 +16,8 @@ description: 2026 年 PHP ORM 与 TypeScript ORM 全维度深度对比：Laravel
 categories:
 - php
 cover: /images/covers/laravel-vs-prisma-2026-cover.jpg
+images:
+  - /images/covers/laravel-vs-prisma-2026-cover.jpg
 ---
 
 

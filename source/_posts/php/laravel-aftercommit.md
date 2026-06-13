@@ -2,6 +2,9 @@
 title: Laravel 多表事务一致性实战：订单创建跨 5 张表的事务边界、死锁预防与 afterCommit 事件时序踩坑记录
 date: 2026-06-09 19:52:00
 categories:
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 - php
 tags:
 - Laravel

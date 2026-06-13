@@ -5,6 +5,8 @@ tags: [OpenHuman, TokenJuice, Token压缩, 成本优化]
 categories:
   - architecture
 cover: /images/covers/openhuman-tokenjuice-cover.jpg
+images:
+  - /images/covers/openhuman-tokenjuice-cover.jpg
 description: 本文结合 OpenHuman 真实落地场景，系统拆解 TokenJuice 如何通过 Token压缩、上下文裁剪、摘要缓存、语义去重与动态预算控制，实现 LLM 应用的成本优化与延迟下降。包含配置示例、压测数据、排障清单与多模型接入实践，帮助你在保证回答质量的前提下，把高频 AI 工作流真正带入可规模化、可观测、可持续运行状态。
 ---
 

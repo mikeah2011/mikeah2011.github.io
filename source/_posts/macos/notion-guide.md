@@ -1,6 +1,8 @@
 ---
 title: "Notion 实战：个人知识库与项目管理 - 开发者工作流搭建与效率提升踩坑记录"
 cover: /images/covers/notion-guide-cover.jpg
+images:
+  - /images/covers/notion-guide-cover.jpg
 date: 2026-05-17 05:25:31
 updated: 2026-05-17 05:27:53
 categories:

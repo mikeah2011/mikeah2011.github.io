@@ -1,6 +1,8 @@
 ---
 title: K8s HPA/VPA 自动扩缩容实战：Laravel API 从 CPU 误判到自定义指标扩容踩坑记录
 cover: /images/devops-cover.png
+images:
+  - /images/devops-cover.png
 date: 2026-05-03 08:35:00
 categories:
   - devops

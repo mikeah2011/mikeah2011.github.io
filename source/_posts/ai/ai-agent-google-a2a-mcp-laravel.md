@@ -5,6 +5,8 @@ tags: [AI Agent, A2A, MCP, Laravel, 多代理, 协议]
 categories:
   - ai
 cover: /images/covers/ai-agent-a2a-mcp-cover.jpg
+images:
+  - /images/covers/ai-agent-a2a-mcp-cover.jpg
 description: 深入解析 Google A2A 与 MCP 两大 AI Agent 通信协议的互补架构，涵盖跨组织 Agent 互操作标准、Laravel 集成实战、安全认证与生产部署，助你构建多代理协作系统。
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: Confluence-团队技术文档管理最佳实践-权限模板生命周期与-Laravel-多仓库协作踩坑记录
 cover: /images/covers/confluence-best-practices-lifecycle-laravel-cover.jpg
+images:
+  - /images/covers/confluence-best-practices-lifecycle-laravel-cover.jpg
 date: 2026-05-17 06:00:53
 updated: 2026-05-17 06:02:54
 categories:

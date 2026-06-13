@@ -3,6 +3,9 @@ title: Anti-Corruption Layer 实战进阶：Laravel 微服务间的防腐层设�
 date: 2026-06-10 02:50:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - Anti-Corruption Layer
   - 微服务

@@ -15,6 +15,8 @@ tags:
 categories:
 - php
 cover: /images/covers/php-weakmap-weakreference-cover.jpg
+images:
+  - /images/covers/php-weakmap-weakreference-cover.jpg
 ---
 
 

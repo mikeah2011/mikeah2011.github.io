@@ -11,6 +11,8 @@ categories:
 - database
 date: 2020-07-25 20:55:57
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/image-20221004222258747.png
+images:
+  - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/image-20221004222258747.png
 description: Redis Cluster 高可用集群原理与实战部署指南。深入解析 16384 哈希槽分配机制、Gossip 协议节点通信、自动故障检测与转移流程。涵盖集群搭建（redis-cli
   --cluster create）、手动/自动故障转移、在线扩缩容（reshard/rebalance）、Laravel 应用集成配置，以及 Cluster vs
   Sentinel 选型对比。附生产环境踩坑经验与性能调优建议，适合需要高可用 Redis 架构的后端开发者。

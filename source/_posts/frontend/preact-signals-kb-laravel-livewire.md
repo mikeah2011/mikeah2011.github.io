@@ -2,6 +2,9 @@
 title: Preact Signals 实战：轻量级状态管理——1KB 的 Signals 库在 Laravel Livewire 前端的嵌入式使用
 date: 2026-06-10 01:30:00
 categories:
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 - frontend
 tags:
 - React

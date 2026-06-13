@@ -1,6 +1,8 @@
 ---
 title: Laravel-Service-Container-实战-依赖注入上下文绑定延迟加载踩坑记录
 cover: /images/covers/service-container-guide-dependency-injection-cover.jpg
+images:
+  - /images/covers/service-container-guide-dependency-injection-cover.jpg
 date: 2026-05-16 15:41:01
 updated: 2026-05-16 15:51:42
 categories:

@@ -11,6 +11,8 @@ tags:
 categories:
 - php
 cover: /images/covers/php-ffi-c-rust-cover.jpg
+images:
+  - /images/covers/php-ffi-c-rust-cover.jpg
 description: PHP FFI实战指南：无需编写PHP扩展即可通过FFI调用C与Rust共享库，实现高性能数值计算与系统级操作。详解libffi调用链路、C头文件解析、Rust
   cbindgen工具链、Rayon并行框架集成、BLAKE3哈希与图像处理实战。涵盖内存安全管理、段错误防护、Laravel服务提供者封装、性能基准测试（30-150倍加速），对比PHP
   Extension、FFI与纯PHP三种方案，助你构建兼具开发效率与运行性能的现代化PHP应用。

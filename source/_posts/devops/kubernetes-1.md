@@ -1,6 +1,8 @@
 ---
 title: Kubernetes 基础操作命令
 cover: /images/covers/kubernetes-1-cover.jpg
+images:
+  - /images/covers/kubernetes-1-cover.jpg
 tags:
 - Kubernetes
 - K8s

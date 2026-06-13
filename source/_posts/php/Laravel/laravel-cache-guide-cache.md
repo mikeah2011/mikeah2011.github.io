@@ -1,6 +1,8 @@
 ---
 title: Laravel Cache 实战：KKday B2C API 多缓存后端配置與失效策略對比
 cover: /images/covers/laravel-cache-guide-cache-cover.jpg
+images:
+  - /images/covers/laravel-cache-guide-cache-cover.jpg
 date: 2026-05-03
 categories:
 - php

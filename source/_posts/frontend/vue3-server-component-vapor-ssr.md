@@ -2,6 +2,9 @@
 title: Vue 3 Server Component (Vapor SSR) 实战：Vue 的服务端组件——对比 React RSC 的数据获取与流式渲染策略
 date: 2026-06-09 16:15:00
 categories:
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 - frontend
 tags:
 - Vue

@@ -6,6 +6,8 @@ categories:
   - frontend
 description: '深入讲解 Laravel Echo 2.x 与 Reverb 的实战集成，利用 Presence Channel 实现 B2C 电商场景下的在线客服系统与多人协同编辑。涵盖 WebSocket 长连接管理、Whisper 低延迟广播、实时成员感知、Y.js CRDT 协同方案，以及生产环境踩坑经验与性能优化，帮助 Laravel 开发者构建自主可控的全栈实时交互功能。'
 cover: /images/covers/laravel-echo-reverb-presence-cover.jpg
+images:
+  - /images/covers/laravel-echo-reverb-presence-cover.jpg
 ---
 
 ## 前言

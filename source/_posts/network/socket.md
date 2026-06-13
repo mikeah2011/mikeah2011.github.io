@@ -1,6 +1,8 @@
 ---
 title: Socket 编程实战：TCP/UDP 网络通信与 Laravel WebSocket 集成
 cover: /images/covers/socket-cover.jpg
+images:
+  - /images/covers/socket-cover.jpg
 tags:
 - Socket
 - TCP/IP

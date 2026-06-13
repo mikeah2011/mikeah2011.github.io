@@ -1,6 +1,8 @@
 ---
 title: Laravel Telescope 开发调试实战：请求追踪、队列监控与慢查询定位踩坑记录
 cover: /images/covers/laravel-telescope-guide-monitoringslow-query-cover.jpg
+images:
+  - /images/covers/laravel-telescope-guide-monitoringslow-query-cover.jpg
 date: 2026-05-16 20:30:46
 updated: 2026-05-16 20:35:29
 categories:

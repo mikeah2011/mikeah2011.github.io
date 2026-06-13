@@ -14,6 +14,8 @@ description: 本文深入探讨如何利用 Cloudflare Workers 实现 Laravel �
 categories:
 - devops
 cover: /images/covers/cloudflare-workers-laravel-edge-cover.jpg
+images:
+  - /images/covers/cloudflare-workers-laravel-edge-cover.jpg
 ---
 
 

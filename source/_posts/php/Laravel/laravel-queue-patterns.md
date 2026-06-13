@@ -1,6 +1,8 @@
 ---
 title: Laravel Queue 队列实战踩坑记录 - KKday B2C API 真实经验分享
 cover: /images/covers/laravel-queue-patterns-cover.jpg
+images:
+  - /images/covers/laravel-queue-patterns-cover.jpg
 date: 2026-05-03
 categories:
   - php

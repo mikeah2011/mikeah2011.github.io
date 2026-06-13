@@ -13,6 +13,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/ai-agent-debugging-cover.jpg
+images:
+  - /images/covers/ai-agent-debugging-cover.jpg
 ---
 
 

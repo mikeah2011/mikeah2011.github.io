@@ -14,6 +14,8 @@ tags:
 categories:
 - database
 cover: /images/covers/cockroachdb-laravel-cover.jpg
+images:
+  - /images/covers/cockroachdb-laravel-cover.jpg
 ---
 
 

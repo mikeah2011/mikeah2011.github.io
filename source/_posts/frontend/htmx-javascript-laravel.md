@@ -11,6 +11,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/htmx-laravel-practical-guide-cover.jpg
+images:
+  - /images/covers/htmx-laravel-practical-guide-cover.jpg
 description: HTMX 是一个仅 14KB 的轻量级 JavaScript 库，通过 HTML 属性即可实现 AJAX 请求、动态内容替换和实时交互，无需复杂的前端框架。本文深入讲解
   HTMX 核心概念与 Laravel + Blade 的完整集成方案，涵盖中间件设计、CRUD 全栈实现、实时搜索、无限滚动、拖拽排序、乐观 UI 等实战模式，并提供与
   React/Vue 的方案对比和渐进式迁移策略，帮助后端开发者用最少的代码构建优秀的交互体验。

@@ -1,6 +1,8 @@
 ---
 title: Laravel + PostgreSQL SKIP LOCKED 实战：不用 Redis 也能做任务出队、重试回收与死锁规避
 cover: /images/covers/laravel-postgresql-skip-locked-guide-redis-lock-cover.jpg
+images:
+  - /images/covers/laravel-postgresql-skip-locked-guide-redis-lock-cover.jpg
 date: 2026-05-03 10:35:34
 updated: 2026-05-03 10:39:12
 categories:

@@ -6,6 +6,8 @@ description: "Laravel Zero 是基于 Laravel 组件的 Artisan-only 微框架，
 categories:
   - php
 cover: /images/covers/laravel-zero-artisan-cli-cover.jpg
+images:
+  - /images/covers/laravel-zero-artisan-cli-cover.jpg
 ---
 
 在日常后端开发中，我们并不总是需要一个完整的 Web 框架。定时任务、数据迁移脚本、队列消费者、API 数据同步……这些纯 CLI 场景若强行套用 Laravel 全栈框架，不仅要承担 HTTP 中间件栈、Session、CSRF、路由等无用组件的内存开销，还要在部署时带上 Nginx/FPM 的整套链路。**Laravel Zero** 正是为这类场景而生的微框架——它保留了 Laravel 最精华的 Artisan 内核与服务容器，去掉了所有 HTTP 相关组件，让你用熟悉的语法编写轻量、高效、可测试的命令行应用。

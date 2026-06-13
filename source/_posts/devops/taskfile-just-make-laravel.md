@@ -13,6 +13,8 @@ tags:
   - DevOps
 description: "对比 Taskfile、Just、Make 三大构建任务运行器，以 Laravel 项目自动化脚本治理为背景，从安装、语法、跨平台、并行执行、依赖管理等维度深度评测，给出 2026 年的选型建议。"
 cover: https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200
+images:
+  - https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200
 ---
 
 ## 概述

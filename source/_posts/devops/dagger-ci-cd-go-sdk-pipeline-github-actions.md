@@ -14,6 +14,8 @@ description: Dagger 实战深度指南：用 Go SDK 将 CI/CD 流水线代码化
 categories:
 - devops
 cover: /images/covers/dagger-ci-cd-pipeline-cover.jpg
+images:
+  - /images/covers/dagger-ci-cd-pipeline-cover.jpg
 ---
 
 

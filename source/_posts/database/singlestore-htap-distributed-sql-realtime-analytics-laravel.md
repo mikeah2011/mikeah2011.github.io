@@ -2,6 +2,9 @@
 title: SingleStore 实战：分布式 SQL + 实时分析——Laravel 中的 HTAP 架构与 MySQL 兼容层
 date: 2026-06-09 14:22:00
 categories:
+cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 - database
 tags:
 - SingleStore

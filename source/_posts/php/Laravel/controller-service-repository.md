@@ -1,6 +1,8 @@
 ---
 title: Controller-Service-Repository 三層架構設計與大項目職責分離 - 真實踩坑記錄
 cover: /images/covers/controller-service-repository-cover.jpg
+images:
+  - /images/covers/controller-service-repository-cover.jpg
 date: 2026-05-03
 categories:
 - php

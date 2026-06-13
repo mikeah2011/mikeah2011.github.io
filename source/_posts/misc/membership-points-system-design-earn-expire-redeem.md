@@ -14,6 +14,8 @@ tags:
   - B2C 电商
 description: "深度剖析 B2C 电商会员积分系统的完整设计，涵盖积分获取、消耗、过期、兑换四大核心流程的架构设计与源码实现。从账户+流水+过期批次三层数据模型，到乐观锁CAS防并发超扣、FIFO积分过期策略、幂等键防重复扣减等关键技术细节，结合 Laravel B2C API 真实项目中日均10万笔订单的踩坑经验，提供完整的 PHP 代码方案、性能基准测试数据与三种一致性保障方案对比，助你构建生产级积分系统。"
 cover: /images/covers/biz-points-system-cover.jpg
+images:
+  - /images/covers/biz-points-system-cover.jpg
 ---
 
 # 会员积分系统设计：积分获取/消耗/过期/兑换的完整业务闭环

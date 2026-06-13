@@ -1,6 +1,8 @@
 ---
 title: EasySwoole
 cover: /images/covers/easyswoole-1-cover.jpg
+images:
+  - /images/covers/easyswoole-1-cover.jpg
 tags: [PHP, Swoole, 架构, 高并发]
 categories:
   - php

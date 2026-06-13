@@ -3,6 +3,9 @@ title: CSS Popover API + Anchor Positioning 实战：浏览器原生弹出层—
 date: 2026-06-10 04:14:00
 categories:
   - frontend
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 tags:
   - CSS
   - Popover

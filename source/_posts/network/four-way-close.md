@@ -1,6 +1,8 @@
 ---
 title: TCP四次挥手详解：状态转换、抓包分析与常见面试题
 cover: /images/covers/four-way-close-cover.jpg
+images:
+  - /images/covers/four-way-close-cover.jpg
 tags:
 - TCP
 - 网络协议

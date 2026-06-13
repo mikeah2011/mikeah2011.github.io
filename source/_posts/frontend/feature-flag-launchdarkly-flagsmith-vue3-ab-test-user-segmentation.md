@@ -2,6 +2,9 @@
 title: 前端 Feature Flag 实战：LaunchDarkly/Flagsmith + Vue 3——客户端灰度发布、A/B 测试与用户分群的工程化
 date: 2026-06-09 16:00:00
 categories:
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 - frontend
 tags:
 - Feature Flags

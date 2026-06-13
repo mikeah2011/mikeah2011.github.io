@@ -9,6 +9,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/solidjs-fine-grained-reactivity-cover.jpg
+images:
+  - /images/covers/solidjs-fine-grained-reactivity-cover.jpg
 description: 深入解析 SolidJS 细粒度响应式前端框架的核心原理，对比 React/Vue 的 Virtual DOM 机制，详解 Signals、Effects、Memos
   等响应式原语的实战用法与性能优化技巧。涵盖从 React 迁移路径、常见踩坑记录、任务管理应用完整案例，以及 JS Framework Benchmark 性能基准测试数据，帮助开发者全面评估
   SolidJS 前端框架的选型价值。

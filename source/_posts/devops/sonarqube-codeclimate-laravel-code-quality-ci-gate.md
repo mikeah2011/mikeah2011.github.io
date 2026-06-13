@@ -2,6 +2,9 @@
 title: SonarQube + CodeClimate 实战：代码质量量化治理——Laravel 30+ 仓库的技术债务仪表盘与 CI 门禁
 date: 2026-06-10 05:09:00
 categories:
+cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 - devops
 tags:
 - SonarQube

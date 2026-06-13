@@ -6,6 +6,8 @@ description: 生产环境慢查询监控实战指南，深入对比 PostgreSQL p
 categories:
   - database
 cover: /images/covers/pg-stat-perf-schema-cover.jpg
+images:
+  - /images/covers/pg-stat-perf-schema-cover.jpg
 ---
 
 # pg_stat_statements + MySQL Performance Schema 实战：数据库慢查询的生产级监控——从 EXPLAIN 到等待事件的根因分析

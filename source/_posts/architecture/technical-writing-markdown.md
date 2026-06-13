@@ -6,6 +6,8 @@ tags: [Technical Writing, Markdown, 博客, 方法论]
 categories:
   - architecture
 cover: /images/covers/technical-writing-cover.jpg
+images:
+  - /images/covers/technical-writing-cover.jpg
 ---
 
 ## 前言：为什么工程师需要写作方法论

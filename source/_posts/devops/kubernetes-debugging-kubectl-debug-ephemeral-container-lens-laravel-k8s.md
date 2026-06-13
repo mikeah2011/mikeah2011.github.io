@@ -15,6 +15,8 @@ tags:
 categories:
 - devops
 cover: /images/covers/kubernetes-debugging-laravel-cover.jpg
+images:
+  - /images/covers/kubernetes-debugging-laravel-cover.jpg
 ---
 
 

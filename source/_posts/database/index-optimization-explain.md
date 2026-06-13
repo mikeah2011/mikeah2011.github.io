@@ -1,6 +1,8 @@
 ---
 title: 数据库索引优化实战-覆盖索引联合索引与索引下推-Laravel-B2C-API踩坑记录
 cover: /images/databases-cover.png
+images:
+  - /images/databases-cover.png
 date: 2026-05-17 05:15:30
 updated: 2026-05-17 05:17:34
 categories:

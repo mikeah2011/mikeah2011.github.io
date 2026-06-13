@@ -13,6 +13,8 @@ tags:
 categories:
 - ai
 cover: /images/covers/ai-agent-automated-testing-cover.jpg
+images:
+  - /images/covers/ai-agent-automated-testing-cover.jpg
 ---
 
 

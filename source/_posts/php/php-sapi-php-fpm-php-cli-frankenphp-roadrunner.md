@@ -14,6 +14,8 @@ description: 深度对比 PHP 四大 SAPI（php-fpm、php-cli、FrankenPHP、Roa
 categories:
 - php
 cover: /images/covers/php-sapi-deep-comparison-cover.jpg
+images:
+  - /images/covers/php-sapi-deep-comparison-cover.jpg
 ---
 
 

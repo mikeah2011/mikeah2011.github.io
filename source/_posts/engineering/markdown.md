@@ -1,6 +1,8 @@
 ---
 title: Markdown 语法速查：标题、代码块、表格与 Mermaid 图表
 cover: /images/covers/markdown-cover.jpg
+images:
+  - /images/covers/markdown-cover.jpg
 tags:
 - 工程管理
 - Markdown

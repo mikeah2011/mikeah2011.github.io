@@ -6,6 +6,8 @@ description: "深入解析AI Agent Code Interpreter沙箱化代码执行方案�
 categories:
   - architecture
 cover: /images/covers/ai-agent-code-interpreter-sandboxed-execution-cover.jpg
+images:
+  - /images/covers/ai-agent-code-interpreter-sandboxed-execution-cover.jpg
 ---
 
 # AI Agent with Code Interpreter 实战：沙箱化代码执行——让 Agent 安全运行用户代码的 Docker/Firecracker 方案

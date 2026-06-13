@@ -3,6 +3,9 @@ title: CircleCI 实战：Orbs、Pipeline Parameters、Dynamic Config——对比
 date: 2026-06-10 05:35:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel
   - CI/CD

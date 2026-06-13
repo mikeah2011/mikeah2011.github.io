@@ -1,6 +1,8 @@
 ---
 title: Composer 脚本实战：自动化构建、测试、部署流程踩坑记录
 cover: /images/covers/composer-guide-automationtestingdeployment-cover.jpg
+images:
+  - /images/covers/composer-guide-automationtestingdeployment-cover.jpg
 date: 2026-05-16 20:25:38
 updated: 2026-05-16 20:28:29
 categories:

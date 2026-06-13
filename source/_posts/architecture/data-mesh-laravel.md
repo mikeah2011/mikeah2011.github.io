@@ -13,6 +13,8 @@ description: Data Mesh 深度实践篇：手把手在 Laravel 微服务中实现
   契约定义、联邦计算治理策略的编码化落地（数据质量、访问控制、Schema 演进）、自助数据平台的查询引擎构建、生产环境踩坑记录与渐进式迁移方案。附完整可运行代码示例、方案对比表格与架构决策指南，适合正在考虑将
   Data Mesh 引入 Laravel 技术栈的架构师和后端工程师。
 cover: /images/covers/data-mesh-laravel-cover.jpg
+images:
+  - /images/covers/data-mesh-laravel-cover.jpg
 ---
 
 

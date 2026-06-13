@@ -1,6 +1,8 @@
 ---
 title: CRMEB-开源商城二次实战-从-fork-到生产部署踩坑记录
 cover: /images/covers/crmeb-guide-fork-deployment-cover.jpg
+images:
+  - /images/covers/crmeb-guide-fork-deployment-cover.jpg
 date: 2026-05-05 10:15:59
 updated: 2026-05-05 10:23:51
 categories:

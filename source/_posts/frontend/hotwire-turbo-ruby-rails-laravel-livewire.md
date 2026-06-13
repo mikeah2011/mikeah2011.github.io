@@ -6,6 +6,8 @@ tags: [Hotwire, Turbo, Laravel, Livewire, 前端, Rails]
 categories:
   - frontend
 cover: /images/covers/hotwire-turbo-laravel-cover.jpg
+images:
+  - /images/covers/hotwire-turbo-laravel-cover.jpg
 ---
 
 在现代 Web 开发中，前端技术栈的选择往往决定了项目的开发效率、可维护性和用户体验。近年来，Ruby on Rails 社区提出了一个极具影响力的理念——**HTML over the wire**（通过网络传输 HTML），并由此诞生了 Hotwire（HTML Over The Wire）技术栈。与此同时，PHP 生态中的 Laravel 框架也发展出了自己的全栈交互方案 Livewire。本文将深入探讨 Hotwire/Turbo 的设计理念、核心机制，以及如何在 Laravel 中集成和使用 Turbo，并对 Livewire 与 Turbo 进行全方位的对比分析。

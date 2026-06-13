@@ -6,6 +6,8 @@ description: "本文介绍如何用 Rector + LLM 组合实现 30+ Laravel 仓库
 categories:
   - php
 cover: /images/covers/rector-llm-refactoring-cover.jpg
+images:
+  - /images/covers/rector-llm-refactoring-cover.jpg
 ---
 
 # Rector + LLM 代码重构实战：AI 辅助识别重构机会与自动生成 PR——Laravel 30+ 仓库的批量治理

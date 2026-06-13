@@ -16,6 +16,8 @@ description: Vue 3 Teleport 与 Suspense 实战指南：彻底解决模态框、
   Teleport vs 普通组件方案、Suspense vs defineAsyncComponent 的差异，包含多层嵌套 Teleport、Portal 管理器模式、嵌套
   Suspense、Vue 3.5 defer 新特性及常见踩坑案例，帮助你构建现代化的浮层与异步管理体系。
 cover: /images/covers/vue3-teleport-suspense-cover.jpg
+images:
+  - /images/covers/vue3-teleport-suspense-cover.jpg
 ---
 
 

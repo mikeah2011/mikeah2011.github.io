@@ -3,6 +3,9 @@ title: API Federation 实战：Apollo Federation v2 + Laravel Lighthouse——�
 date: 2026-06-09 15:54:00
 categories:
   - architecture
+cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 tags:
   - GraphQL
   - Apollo Federation

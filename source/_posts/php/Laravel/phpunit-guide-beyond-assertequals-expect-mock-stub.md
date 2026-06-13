@@ -1,6 +1,8 @@
 ---
 title: PHPUnit 断言实战：Beyond assertEquals——掌握 expect、mock、stub 踩坑记录
 cover: /images/covers/phpunit-guide-beyond-assertequals-expect-mock-stub-cover.jpg
+images:
+  - /images/covers/phpunit-guide-beyond-assertequals-expect-mock-stub-cover.jpg
 date: 2026-05-05 00:20:10
 updated: 2026-05-05 00:22:27
 categories:

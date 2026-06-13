@@ -3,6 +3,9 @@ title: 微前端沙箱隔离实战：JS Sandbox + CSS Scope + 路由隔离——
 date: 2026-06-10 03:00:00
 categories:
   - frontend
+cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 tags:
   - 微前端
   - qiankun

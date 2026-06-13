@@ -1,6 +1,8 @@
 ---
 title: MQ 消息队列深度对比：RabbitMQ vs Kafka vs RocketMQ 选型指南
 cover: /images/covers/mq-comparison-cover.jpg
+images:
+  - /images/covers/mq-comparison-cover.jpg
 tags:
 - 消息队列
 - RabbitMQ

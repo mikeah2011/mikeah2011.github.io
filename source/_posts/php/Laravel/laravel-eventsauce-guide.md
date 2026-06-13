@@ -1,6 +1,8 @@
 ---
 title: Laravel EventSauce 事件溯源实战：订单状态机、快照重建与读模型投影踩坑记录
 cover: /images/covers/laravel-eventsauce-guide-cover.jpg
+images:
+  - /images/covers/laravel-eventsauce-guide-cover.jpg
 date: 2026-05-05 00:15:06
 updated: 2026-05-05 00:17:52
 categories:

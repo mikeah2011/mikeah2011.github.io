@@ -5,6 +5,8 @@ tags: [OpenHuman, OAuth, 集成, Gmail, Notion, GitHub, Slack]
 categories:
   - architecture
 cover: /images/covers/openhuman-118-integrations-cover.jpg
+images:
+  - /images/covers/openhuman-118-integrations-cover.jpg
 description: 本文系统拆解 OpenHuman 118+ 集成体系与 OAuth 落地方法，手把手打通 Gmail、Notion、GitHub、Slack 一键授权连接，覆盖回调配置、Scope 最小化、Token 刷新、排障案例、自动化编排与安全治理，适合想把 OpenHuman 真正用于企业协作和 AI 工作流集成的开发者与架构师。
 ---
 

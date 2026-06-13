@@ -15,6 +15,8 @@ tags:
 categories:
 - frontend
 cover: /images/covers/laravel-pwa-migration-cover.jpg
+images:
+  - /images/covers/laravel-pwa-migration-cover.jpg
 ---
 
 

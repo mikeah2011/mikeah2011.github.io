@@ -13,6 +13,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/hermes-skills-hub-distribution-cover.jpg
+images:
+  - /images/covers/hermes-skills-hub-distribution-cover.jpg
 ---
 
 

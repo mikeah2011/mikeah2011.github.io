@@ -1,6 +1,8 @@
 ---
 title: Laravel Events & Listeners 实战：事件驱动解耦订单/库存/通知
 cover: /images/covers/laravel-events-listeners-guide-cover.jpg
+images:
+  - /images/covers/laravel-events-listeners-guide-cover.jpg
 date: 2026-05-05 11:55:39
 updated: 2026-05-05 11:57:28
 categories:

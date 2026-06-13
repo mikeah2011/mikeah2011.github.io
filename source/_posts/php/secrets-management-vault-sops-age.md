@@ -12,6 +12,8 @@ tags:
 categories:
 - php
 cover: /images/covers/secrets-management-vault-sops-age-cover.jpg
+images:
+  - /images/covers/secrets-management-vault-sops-age-cover.jpg
 description: 深入对比 HashiCorp Vault、SOPS、age 三大密钥管理方案，Laravel 实战集成——从 AppRole 认证、动态数据库凭证轮换到
   Transit 加密引擎与审计日志全覆盖。告别明文 .env，实现企业级 DevSecOps 密钥管控，附完整代码示例与迁移路线图。
 ---

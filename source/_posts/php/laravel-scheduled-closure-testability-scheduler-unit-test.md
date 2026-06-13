@@ -6,6 +6,8 @@ description: 深入剖析 Laravel Scheduler 中闭包任务的三大可测试性
 categories:
   - php
 cover: /images/covers/laravel-scheduled-closure-testability-cover.jpg
+images:
+  - /images/covers/laravel-scheduled-closure-testability-cover.jpg
 ---
 
 ## 引言：为什么 Scheduler 中的闭包难以测试

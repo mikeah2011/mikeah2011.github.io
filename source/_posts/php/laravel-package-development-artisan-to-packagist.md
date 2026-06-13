@@ -17,6 +17,8 @@ tags:
 categories:
 - php
 cover: /images/covers/laravel-package-development-artisan-to-packagist-cover.jpg
+images:
+  - /images/covers/laravel-package-development-artisan-to-packagist-cover.jpg
 ---
 
 

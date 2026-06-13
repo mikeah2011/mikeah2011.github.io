@@ -1,6 +1,8 @@
 ---
 title: Laravel Reverb 实战：订单状态实时推送与多实例部署踩坑记录
 cover: /images/covers/laravel-reverb-guide-deployment-cover.jpg
+images:
+  - /images/covers/laravel-reverb-guide-deployment-cover.jpg
 date: 2026-05-03 07:45:00
 categories:
 - php

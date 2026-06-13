@@ -1,6 +1,8 @@
 ---
 title: OPcache 配置实战：PHP 生产环境性能调优与常见陷阱
 cover: /images/covers/opcache-guide-php-common-cover.jpg
+images:
+  - /images/covers/opcache-guide-php-common-cover.jpg
 date: 2026-05-05 07:15:35
 updated: 2026-05-05 07:18:04
 categories:

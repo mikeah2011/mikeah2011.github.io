@@ -14,6 +14,8 @@ tags:
 categories:
 - architecture
 cover: /images/covers/temporal-io-laravel-saga-cover.jpg
+images:
+  - /images/covers/temporal-io-laravel-saga-cover.jpg
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 title: Laravel-Redis-Queue-Horizon-实战-队列监控失败重试与性能调优
 cover: /images/covers/laravel-redis-queue-horizon-guide-monitoring-cover.jpg
+images:
+  - /images/covers/laravel-redis-queue-horizon-guide-monitoring-cover.jpg
 date: 2026-05-05 09:36:00
 updated: 2026-05-05 09:38:26
 categories:

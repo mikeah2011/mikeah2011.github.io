@@ -1,6 +1,8 @@
 ---
 title: Laravel CQRS 实战：订单查询模型拆分、投影同步与后台列表性能治理
 cover: /images/covers/laravel-cqrs-guide-query-cover.jpg
+images:
+  - /images/covers/laravel-cqrs-guide-query-cover.jpg
 date: 2026-05-03 08:15:00
 categories:
 - php

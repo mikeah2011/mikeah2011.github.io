@@ -1,6 +1,8 @@
 ---
 title: Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与KKday真实踩坑记录
 cover: /images/covers/bff-laravel-graphql-to-json-kkday-cover.jpg
+images:
+  - /images/covers/bff-laravel-graphql-to-json-kkday-cover.jpg
 date: 2026-05-02 18:30
 categories:
 - php

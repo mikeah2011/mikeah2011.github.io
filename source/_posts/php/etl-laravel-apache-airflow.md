@@ -10,6 +10,8 @@ tags:
 categories:
 - php
 cover: /images/covers/laravel-airflow-etl-cover.jpg
+images:
+  - /images/covers/laravel-airflow-etl-cover.jpg
 ---
 
 

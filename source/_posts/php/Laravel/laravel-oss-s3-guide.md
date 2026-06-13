@@ -2,6 +2,8 @@
 title: Laravel + OSS/S3 对象存储实战：前端直传、临时签名与回源踩坑记录
 date: 2026-05-02 09:20:00
 cover: /images/covers/laravel-oss-s3-guide-cover.jpg
+images:
+  - /images/covers/laravel-oss-s3-guide-cover.jpg
 categories:
 - php
 tags:

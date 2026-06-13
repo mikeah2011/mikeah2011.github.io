@@ -1,6 +1,8 @@
 ---
 title: Laravel + PostgreSQL JSONB 实战：商品筛选的 GIN 索引、局部索引与在线迁移踩坑记录
 cover: /images/covers/laravel-postgresql-jsonb-guide-gin-index-index-cover.jpg
+images:
+  - /images/covers/laravel-postgresql-jsonb-guide-gin-index-index-cover.jpg
 date: 2026-05-03 09:55:09
 updated: 2026-05-03 09:59:00
 categories:

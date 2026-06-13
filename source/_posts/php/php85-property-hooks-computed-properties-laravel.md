@@ -14,6 +14,8 @@ tags:
 categories:
 - php
 cover: /images/covers/php85-property-hooks-laravel-cover.jpg
+images:
+  - /images/covers/php85-property-hooks-laravel-cover.jpg
 ---
 
 

@@ -13,6 +13,8 @@ description: TypeScript 高级类型体操实战指南，系统讲解 Template L
 categories:
 - frontend
 cover: /images/covers/typescript-advanced-types-cover.jpg
+images:
+  - /images/covers/typescript-advanced-types-cover.jpg
 ---
 
 

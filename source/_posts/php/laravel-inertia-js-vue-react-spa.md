@@ -15,6 +15,8 @@ description: 深入剖析 Inertia.js 如何让 Laravel 与 Vue 3/React 无缝协
   Inertia Protocol 原理、SSR 服务端渲染、表单处理、权限控制、性能优化等核心实战，含完整任务管理系统代码示例，帮你告别 CORS/JWT/API
   胶水代码，用全栈思维构建现代 SPA。
 cover: /images/covers/laravel-inertia-cover.jpg
+images:
+  - /images/covers/laravel-inertia-cover.jpg
 ---
 
 

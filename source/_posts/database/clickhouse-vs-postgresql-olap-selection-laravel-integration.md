@@ -13,6 +13,8 @@ tags:
 categories:
 - database
 cover: /images/covers/clickhouse-vs-postgresql-olap-selection-laravel-integration-cover.jpg
+images:
+  - /images/covers/clickhouse-vs-postgresql-olap-selection-laravel-integration-cover.jpg
 ---
 
 

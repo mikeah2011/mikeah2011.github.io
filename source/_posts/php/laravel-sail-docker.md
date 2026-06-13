@@ -3,6 +3,9 @@ title: Laravel Sail 深度实战：Docker 开发环境的官方方案
 date: 2026-06-10 08:34:00
 categories:
   - php
+cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+images:
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 tags:
   - Laravel Sail
   - Docker

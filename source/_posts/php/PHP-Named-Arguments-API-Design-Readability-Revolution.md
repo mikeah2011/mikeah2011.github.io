@@ -5,6 +5,8 @@ tags: [PHP, Laravel, Named Arguments, 代码重构, API设计, 可读性]
 categories:
   - php
 cover: /images/covers/php-named-arguments-cover.jpg
+images:
+  - /images/covers/php-named-arguments-cover.jpg
 description: 'PHP 8.0 命名参数（Named Arguments）深度实战：在 Laravel Query Builder、Eloquent Scope、Form Request、Event/Listener 中重构多参数调用，提升 API 可读性与可维护性。涵盖魔术方法兼容性陷阱、接口契约脆弱性、可变参数限制等踩坑记录，附完整代码示例与渐进式重构策略。'
 ---
 

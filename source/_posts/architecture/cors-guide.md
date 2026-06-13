@@ -1,6 +1,8 @@
 ---
 title: CORS-跨域资源共享配置与安全策略-Laravel-B2C-API实战踩坑记录
 cover: /images/covers/cors-guide-cover.jpg
+images:
+  - /images/covers/cors-guide-cover.jpg
 date: 2026-05-16 21:40:49
 updated: 2026-05-16 21:43:57
 categories:

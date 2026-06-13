@@ -1,6 +1,8 @@
 ---
 title: 服务注册与发现实战-Consul-Nacos-与-Laravel-集成-微服务动态路由与健康检查踩坑记录
 cover: /images/covers/service-discovery-consul-nacos-cover.jpg
+images:
+  - /images/covers/service-discovery-consul-nacos-cover.jpg
 date: 2026-05-16 19:55:58
 updated: 2026-05-16 19:59:09
 categories:

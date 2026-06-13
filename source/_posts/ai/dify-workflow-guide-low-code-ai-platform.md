@@ -4,6 +4,8 @@ date: 2026-06-02 12:00:00
 tags: [Dify, AI, 低代码, 工作流, Agent]
 categories: [ai]
 cover: /images/covers/dify-workflow-guide-cover.jpg
+images:
+  - /images/covers/dify-workflow-guide-cover.jpg
 description: "想系统掌握 Dify 低代码 AI应用搭建与工作流编排？本文从部署、RAG 知识库、Agent 配置到工作流设计与生产实践，带你快速搭建可落地、可扩展、可上线的企业级 AI 应用方案。"
 ---
 

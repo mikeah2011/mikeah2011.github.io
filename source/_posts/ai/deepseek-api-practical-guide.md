@@ -5,6 +5,8 @@ date: 2026-06-07 10:00:00
 tags: [DeepSeek, AI, LLM, Laravel, API, 推理模型]
 categories: [ai, php]
 cover: /images/covers/deepseek-api-laravel-cover.jpg
+images:
+  - /images/covers/deepseek-api-laravel-cover.jpg
 ---
 
 在 2024-2025 年的大模型竞赛中，DeepSeek（深度求索）异军突起，凭借其开源策略、极具竞争力的定价以及强大的推理能力，迅速成为开发者社区中备受关注的国产大模型之一。本文将从实战角度出发，全面介绍 DeepSeek API 的接入方法，涵盖思维链（Chain-of-Thought）输出解析、Tool Use / Function Calling、流式输出实现、Laravel 框架深度集成，以及成本对比和生产环境最佳实践。
