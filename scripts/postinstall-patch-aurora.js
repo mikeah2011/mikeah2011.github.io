@@ -38,11 +38,17 @@ if (fs.existsSync(themeJsDir)) {
     const jsPath = path.join(themeJsDir, jsFile);
     let content = fs.readFileSync(jsPath, 'utf8');
     const linkStr = 'Links:{name:"Links",path:"/links",i18n:{"zh-CN":"友情链接","zh-TW":"友情鏈接",en:"Friend Links"}}';
-    const catStr = 'Categories:{name:"Categories",path:"/categories",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}}';
+    const catStr = 'Categories:{name:"Categories",path:"/category",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}}';
     if (content.includes(linkStr) && !content.includes(catStr)) {
-      content = content.replace(linkStr, linkStr + ',' + catStr);
+      // If already has Categories with /categories path, replace it
+      const oldCatStr = 'Categories:{name:"Categories",path:"/categories",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}}';
+      if (content.includes(oldCatStr)) {
+        content = content.replace(oldCatStr, catStr);
+      } else {
+        content = content.replace(linkStr, linkStr + ',' + catStr);
+      }
       fs.writeFileSync(jsPath, content, 'utf8');
-      console.log('Patched: added Categories menu to ' + jsFile);
+      console.log('Patched: added/fixed Categories menu in ' + jsFile);
     } else if (content.includes(catStr)) {
       console.log('Skip Patch 3 (' + jsFile + '): already patched');
     }
@@ -65,6 +71,49 @@ if (fs.existsSync(siteFile)) {
   );
   fs.writeFileSync(siteFile, content, 'utf8');
   console.log('Patched: fixed SiteGenerator in site.js');
+}
+
+// Patch 6: Fix baidusitemap double-slash issue (url + root + path = ///)
+const baiduSitemapFile = path.join(ROOT, 'node_modules/hexo-generator-baidu-sitemap/baidusitemap.ejs');
+if (fs.existsSync(baiduSitemapFile)) {
+  const fixedEjs = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<%
+  var baiduUrl = config.url
+  if (config.baidusitemap.url) {
+    baiduUrl = config.baidusitemap.url
+  }
+  var url = baiduUrl.replace(/\\/+$/, '') + '/';
+  posts.forEach(function(post){
+  if(post.categories){ -%>
+  <url>
+    <loc><%- encodeURI(url + post.path.replace(/^\\/+/, '')) %></loc>
+    <lastmod><%= post.updated.toDate().toISOString().replace(/T.*$/i, "") || post.date.toDate().toISOString().replace(/T.*$/i, "") %></lastmod>
+  </url>
+<%}}) -%>
+</urlset> -`;
+  const current = fs.readFileSync(baiduSitemapFile, 'utf8');
+  if (current.includes("replace(/\\\\/+$/,")) {
+    console.log('Skip Patch 6: already patched');
+  } else {
+    fs.writeFileSync(baiduSitemapFile, fixedEjs, 'utf8');
+    console.log('Patched: fixed baidusitemap double-slash');
+  }
+}
+
+// Patch 5: Truncate search content to reduce search.json size (46MB → ~2MB)
+const searchMapperFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/helpers/mapper.js');
+if (fs.existsSync(searchMapperFile)) {
+  let content = fs.readFileSync(searchMapperFile, 'utf8');
+  const searchNeedle = 'content: filterHTMLCharacters(post.content),';
+  const searchReplace = 'content: filterHTMLCharacters(post.content).slice(0, 500),';
+  if (content.includes(searchNeedle)) {
+    content = content.replace(searchNeedle, searchReplace);
+    fs.writeFileSync(searchMapperFile, content, 'utf8');
+    console.log('Patched: truncated search content to 500 chars');
+  } else if (content.includes(searchReplace)) {
+    console.log('Skip Patch 5: already patched');
+  }
 }
 
 // Patch 2: Strip directory prefix from slug (fix %2F in URLs)

@@ -10,11 +10,13 @@ tags:
 - 数据保护
 - 合规
 - PHP
+keywords: [Laravel, 敏感数据, 加密存储, 数据脱敏, 审计日志, 合规, PHP]
 categories:
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
-  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop---
+  - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
+---
 
 
 ---

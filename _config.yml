@@ -176,7 +176,7 @@ robotstxt:
 # Baidu sitemap
 baidusitemap:
   path: baidusitemap.xml
-  url: https://mikeah2011.github.io/
+  url: https://mikeah2011.github.io
 
 # 外链自动加 nofollow（保留白名单）
 nofollow:

@@ -8,6 +8,7 @@ tags:
 - 性能优化
 - 数据库
 - range分区
+keywords: [MySQL, 分区表, Laravel, Range分区, List分区, Hash分区, 性能优化, Partition Pruning]
 categories:
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
