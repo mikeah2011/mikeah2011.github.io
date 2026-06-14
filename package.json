@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "postinstall": "node scripts/postinstall-patch-aurora.js",
-    "build": "hexo generate",
+    "build": "hexo generate && node scripts/patch-categories-chunk.js",
     "build:local": "NODE_OPTIONS='--max-old-space-size=2048' hexo generate --incremental",
-    "build:full": "NODE_OPTIONS='--max-old-space-size=2048' hexo generate",
+    "build:full": "NODE_OPTIONS='--max-old-space-size=2048' hexo generate && node scripts/patch-categories-chunk.js",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server"
