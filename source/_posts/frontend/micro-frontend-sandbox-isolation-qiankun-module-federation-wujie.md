@@ -2,8 +2,8 @@
 title: 微前端沙箱隔离实战：JS Sandbox + CSS Scope + 路由隔离——qiankun/Module Federation/Wujie 的工程化对比与选型决策
 date: 2026-06-10 03:00:00
 categories:
-keywords: [JS Sandbox, CSS Scope, qiankun, Module Federation, Wujie, 微前端沙箱隔离实战, 路由隔离, 的工程化对比与选型决策, 前端]
   - frontend
+keywords: [JS Sandbox, CSS Scope, qiankun, Module Federation, Wujie, 微前端沙箱隔离实战, 路由隔离, 的工程化对比与选型决策, 前端]
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

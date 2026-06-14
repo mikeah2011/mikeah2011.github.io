@@ -2,8 +2,8 @@
 title: 数据库变更数据推送实战：MySQL binlog → Kafka → Laravel Event 的实时数据同步管道
 date: 2026-06-10 02:40:00
 categories:
-keywords: [MySQL binlog, Kafka, Laravel Event, 数据库变更数据推送实战, 的实时数据同步管道, 数据库]
   - database
+keywords: [MySQL binlog, Kafka, Laravel Event, 数据库变更数据推送实战, 的实时数据同步管道, 数据库]
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

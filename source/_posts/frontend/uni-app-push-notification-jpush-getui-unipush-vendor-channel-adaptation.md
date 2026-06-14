@@ -5,8 +5,8 @@ images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-06-01 08:00:00
 categories:
-keywords: [uni, app, UniPush, SDK, 推送通知实战, 极光推送, 个推, 集成与厂商通道适配, 接入到生产环境消息必达的完整方案, 前端]
   - frontend
+keywords: [uni, app, UniPush, SDK, 推送通知实战, 极光推送, 个推, 集成与厂商通道适配, 接入到生产环境消息必达的完整方案, 前端]
   - mobile
 tags:
   - uni-app

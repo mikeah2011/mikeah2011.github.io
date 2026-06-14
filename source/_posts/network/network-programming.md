@@ -13,8 +13,8 @@ tags:
 - 网络编程
 - 面试
 categories:
-keywords: [TCP, IP, Socket, HTTP, 网络编程基础, 模型, 协议, 网络]
   - network
+keywords: [TCP, IP, Socket, HTTP, 网络编程基础, 模型, 协议, 网络]
 date: 2018-03-20 15:05:07
 description: 本文系统梳理计算机网络核心知识，涵盖OSI七层模型、TCP/IP四层体系结构、TCP三次握手与四次挥手、UDP协议、HTTP/HTTPS原理、Socket网络编程、ARP与DNS协议、加密算法RSA/AES等高频面试考点。深入解析网络编程中的常见问题与底层原理，适合后端开发与网络工程师面试复习，帮助全面掌握计算机网络与网络编程核心技能。
 ---

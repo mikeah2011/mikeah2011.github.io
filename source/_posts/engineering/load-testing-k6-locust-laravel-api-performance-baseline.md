@@ -5,8 +5,8 @@ images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-06-01 12:00:00
 categories:
-keywords: [k6, Locust, Laravel API, 负载测试实战, 进行压力测试与性能基线, 测试]
   - testing
+keywords: [k6, Locust, Laravel API, 负载测试实战, 进行压力测试与性能基线, 测试]
   - performance
 tags:
   - k6

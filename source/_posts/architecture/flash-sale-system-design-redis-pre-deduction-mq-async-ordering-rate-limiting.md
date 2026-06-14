@@ -2,8 +2,8 @@
 title: "电商秒杀系统设计：Redis 预扣减 + 消息队列异步下单 + 限流策略实战踩坑记录"
 date: 2026-06-01 14:00:00
 categories:
-keywords: [Redis, 电商秒杀系统设计, 预扣减, 消息队列异步下单, 限流策略实战踩坑记录, 架构]
   - architecture
+keywords: [Redis, 电商秒杀系统设计, 预扣减, 消息队列异步下单, 限流策略实战踩坑记录, 架构]
 tags:
   - 秒杀
   - Redis
