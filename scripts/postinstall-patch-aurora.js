@@ -8,21 +8,21 @@
 const fs = require('fs');
 const path = require('path');
 
-// __dirname = scripts/, need project root = __dirname/..
 const ROOT = path.resolve(__dirname, '..');
 
-// Patch 1: Categories in defaultPages
+// Patch 1: Categories in defaultPages + fix page path
 const indexFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/generators/index.js');
 if (fs.existsSync(indexFile)) {
   let content = fs.readFileSync(indexFile, 'utf8');
   const needle = "const defaultPages = ['Tags', 'Archives', 'Links']";
   if (content.includes(needle)) {
     content = content.replace(needle, "const defaultPages = ['Tags', 'Archives', 'Links', 'Categories']");
-    // Also fix page path to use menu config path (Vue route is /category, not /categories)
-    content = content.replace(
-      "path: `${page.toLocaleLowerCase()}/index.html`,",
-      "path: `${(themeConfig.menu[page] && themeConfig.menu[page].path ? themeConfig.menu[page].path.replace(/^\//, '') : page.toLocaleLowerCase())}/index.html`,"
-    );
+    // Fix page path: use menu config path instead of hardcoded toLowerCase
+    const pathNeedle = 'path: `${page.toLocaleLowerCase()}/index.html`,';
+    const pathReplace = "path: `${(themeConfig.menu[page] && themeConfig.menu[page].path ? themeConfig.menu[page].path.replace(/^\\//, '') : page.toLocaleLowerCase())}/index.html`,";
+    if (content.includes(pathNeedle)) {
+      content = content.replace(pathNeedle, pathReplace);
+    }
     fs.writeFileSync(indexFile, content, 'utf8');
     console.log('Patched: added Categories to aurora-page defaultPages + fixed path');
   } else {
@@ -30,12 +30,10 @@ if (fs.existsSync(indexFile)) {
   }
 }
 
-// Patch 3: Add Categories to theme JS menu (fixes missing nav item)
+// Patch 3: Add Categories to theme JS menu
 const themeJsDir = path.join(ROOT, 'node_modules/hexo-theme-aurora/source/static/js');
-console.log('Patch 3: checking', themeJsDir, 'exists:', fs.existsSync(themeJsDir));
 if (fs.existsSync(themeJsDir)) {
   const jsFiles = fs.readdirSync(themeJsDir).filter(f => f.endsWith('.js'));
-  console.log('Patch 3: found', jsFiles.length, 'JS files');
   for (const jsFile of jsFiles) {
     const jsPath = path.join(themeJsDir, jsFile);
     let content = fs.readFileSync(jsPath, 'utf8');
@@ -44,9 +42,9 @@ if (fs.existsSync(themeJsDir)) {
     if (content.includes(linkStr) && !content.includes(catStr)) {
       content = content.replace(linkStr, linkStr + ',' + catStr);
       fs.writeFileSync(jsPath, content, 'utf8');
-      console.log(`Patched: added Categories menu to ${jsFile}`);
+      console.log('Patched: added Categories menu to ' + jsFile);
     } else if (content.includes(catStr)) {
-      console.log(`Skip Patch 3 (${jsFile}): already patched`);
+      console.log('Skip Patch 3 (' + jsFile + '): already patched');
     }
   }
 }
@@ -55,19 +53,16 @@ if (fs.existsSync(themeJsDir)) {
 const siteFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/generators/site.js');
 if (fs.existsSync(siteFile)) {
   let content = fs.readFileSync(siteFile, 'utf8');
-
   // Remove `return;` after throwError so the class always exports
   content = content.replace(
     /throwError\(\s*\n?\s*'Aurora Plugin Error',\s*\n?\s*`[^`]+`\s*\n?\s*\);\s*\n?\s*return;/,
     "throwError(\n      'Aurora Plugin Error',\n      `Aurora Plugin fail to get current Aurora Theme version, please make sure you have the theme installed.`\n    );"
   );
-
   // Guard themePack.version access
   content = content.replace(
     'configs.theme_config.version = themePack.version;',
     'configs.theme_config.version = themePack ? themePack.version : "unknown";'
   );
-
   fs.writeFileSync(siteFile, content, 'utf8');
   console.log('Patched: fixed SiteGenerator in site.js');
 }
@@ -76,13 +71,11 @@ if (fs.existsSync(siteFile)) {
 const mapperFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/helpers/mapper.js');
 if (fs.existsSync(mapperFile)) {
   let content = fs.readFileSync(mapperFile, 'utf8');
-
   if (content.includes('flatSlug')) {
     console.log('Skip Patch 2: already patched');
   } else {
     const slugRegex = /const pathSlug\s*=\s*\n\s*configs\.theme_config\.site\.pathSlug\s*!==\s*undefined\s*\n\s*\?\s*configs\.theme_config\.site\.pathSlug\s*===\s*'uid'\s*\n\s*\?\s*uid\s*\n\s*:\s*post\.slug\s*\n\s*:\s*post\.slug;/;
-    const newCode = `  const rawSlug = post.slug || '';\n  const flatSlug = rawSlug.includes('/') ? rawSlug.split('/').pop() : rawSlug;\n  const pathSlug =\n    configs.theme_config.site.pathSlug !== undefined\n      ? configs.theme_config.site.pathSlug === 'uid'\n        ? uid\n        : flatSlug\n      : flatSlug;`;
-
+    const newCode = "  const rawSlug = post.slug || '';\n  const flatSlug = rawSlug.includes('/') ? rawSlug.split('/').pop() : rawSlug;\n  const pathSlug =\n    configs.theme_config.site.pathSlug !== undefined\n      ? configs.theme_config.site.pathSlug === 'uid'\n        ? uid\n        : flatSlug\n      : flatSlug;";
     if (slugRegex.test(content)) {
       content = content.replace(slugRegex, newCode);
       fs.writeFileSync(mapperFile, content, 'utf8');
