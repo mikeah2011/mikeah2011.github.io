@@ -57,9 +57,6 @@ authors:
 #！ @docs https://aurora.tridiamond.tech/guide/menu.html
 #! ---------------------------------------------------------------
 menu:
-  About: true  # 关于页
-  Tags: true # 标签页
-  Archives: true # 归档页
   Categories:
     name: '分类'
     path: '/category'
@@ -67,49 +64,48 @@ menu:
       zh-CN: '分类'
       zh-TW: '分類'
       en: 'Categories'
+  Tags: true # 标签页
   Project:
-    name: '开源项目'
+    name: '开源'
     i18n:
-      cn: '开源项目'
-      zh-CN: '开源项目'
+      cn: '开源'
+      zh-CN: '开源'
       en: 'Projects'
     children:
       DictTool:
         name: '数据词典生成'
         path: 'https://github.com/mikeah2011/mysql_to_markdown'
+        i18n:
+          zh-CN: '数据词典生成'
+          en: 'DictTool'
       PackageRealase:
         name: '软件发布打包'
         path: 'https://github.com/mikeah2011/packageRelaseManger'
+        i18n:
+          zh-CN: '软件发布打包'
+          en: 'PackageRelease'
       RightWay:
         name: '正确的成长方式'
         path: 'https://github.com/mikeah2011/The_Right_Way_Of_Growth'
-  GitHub:
-    name: 'GitHub'
-    path: 'https://github.com/mikeah2011'
+        i18n:
+          zh-CN: '正确的成长方式'
+          en: 'The Right Way'
+  Archives: true # 归档页
+  Contact:
+    name: '联系'
     i18n:
-      cn: 'GitHub'
-      zh-CN: 'GitHub'
-      en: 'GitHub'
-  E-Mail:
-    name: 'Mail Me'
+      cn: '联系'
+      zh-CN: '联系'
+      en: 'Contact'
     path: 'mailto:mikeah2011@gmail.com'
-    i18n:
-      cn: 'Mail Me'
-      zh-CN: 'Mail Me'
-      en: 'Mail Me'
-#  Contact:
-#    name: 'Contact'
-#    i18n:
-#      cn: '联系我'
-#      en: 'Contact'
-#    path: ''
   MessageBoard:
-    name: 'MessageBoard'
+    name: '留言板'
     i18n:
       cn: '留言板'
       zh-CN: '留言板'
       en: 'Message Board'
     path: '/page/message-board'
+  About: true  # 关于页
 #  pages-menu:
 #    name: 'Top Menu'
 #    children:
