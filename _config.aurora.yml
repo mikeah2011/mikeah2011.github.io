@@ -62,7 +62,7 @@ menu:
   Archives: true # 归档页
   Categories:
     name: '分类'
-    path: '/categories'
+    path: '/category'
     i18n:
       zh-CN: '分类'
       zh-TW: '分類'
