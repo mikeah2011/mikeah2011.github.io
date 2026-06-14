@@ -38,20 +38,21 @@ if (fs.existsSync(themeJsDir)) {
     const jsPath = path.join(themeJsDir, jsFile);
     let content = fs.readFileSync(jsPath, 'utf8');
 
-    // Old built-in menu object (fixed order: About, Archives, Tags, Links, Categories)
-    const oldMenu = 'const n={About:{name:"About",path:"/about",i18n:{"zh-CN":"关于","zh-TW":"關於",en:"About"}},Archives:{name:"Archives",path:"/archives",i18n:{"zh-CN":"归档","zh-TW":"歸檔",en:"Archives"}},Tags:{name:"Tags",path:"/tags",i18n:{"zh-CN":"标签","zh-TW":"標簽",en:"Tags"}},Links:{name:"Links",path:"/links",i18n:{"zh-CN":"友情链接","zh-TW":"友情鏈接",en:"Friend Links"}},Categories:{name:"Categories",path:"/category",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}}}';
+    // Use regex to match the menu object regardless of minified variable names
+    // The About item is always the anchor - it's the first key in the built-in menu
+    const menuRegex = /const \w+=\{About:\{name:"About",path:"\/about",i18n:\{"zh-CN":"关于","zh-TW":"關於",en:"About"\}\},Archives:\{name:"Archives",path:"\/archives",i18n:\{"zh-CN":"归档","zh-TW":"歸檔",en:"Archives"\}\},Tags:\{name:"Tags",path:"\/tags",i18n:\{"zh-CN":"标签","zh-TW":"標簽",en:"Tags"\}\},Links:\{name:"Links",path:"\/links",i18n:\{"zh-CN":"友情链接","zh-TW":"友情鏈接",en:"Friend Links"\}\}\}/;
 
-    // New menu with desired order + all items built-in
-    const newMenu = 'const n={Categories:{name:"Categories",path:"/category",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}},Tags:{name:"Tags",path:"/tags",i18n:{"zh-CN":"标签","zh-TW":"標簽",en:"Tags"}},Project:{name:"开源",path:null,i18n:{"zh-CN":"开源",en:"Projects"}},Archives:{name:"Archives",path:"/archives",i18n:{"zh-CN":"归档","zh-TW":"歸檔",en:"Archives"}},Contact:{name:"联系",path:"mailto:mikeah2011@gmail.com",i18n:{"zh-CN":"联系",en:"Contact"}},MessageBoard:{name:"留言板",path:"/page/message-board",i18n:{"cn":"留言板","zh-CN":"留言板",en:"Message Board"}},About:{name:"About",path:"/about",i18n:{"zh-CN":"关于","zh-TW":"關於",en:"About"}}}';
-
-    if (content.includes(oldMenu)) {
-      content = content.replace(oldMenu, newMenu);
+    const match = content.match(menuRegex);
+    if (match) {
+      const varName = match[0].match(/const (\w+)=/)[1];
+      const newMenu = `const ${varName}={Categories:{name:"Categories",path:"/category",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}},Tags:{name:"Tags",path:"/tags",i18n:{"zh-CN":"标签","zh-TW":"標簽",en:"Tags"}},Project:{name:"开源",path:null,i18n:{"zh-CN":"开源",en:"Projects"}},Archives:{name:"Archives",path:"/archives",i18n:{"zh-CN":"归档","zh-TW":"歸檔",en:"Archives"}},Contact:{name:"联系",path:"mailto:mikeah2011@gmail.com",i18n:{"zh-CN":"联系",en:"Contact"}},MessageBoard:{name:"留言板",path:"/page/message-board",i18n:{"cn":"留言板","zh-CN":"留言板",en:"Message Board"}},About:{name:"About",path:"/about",i18n:{"zh-CN":"关于","zh-TW":"關於",en:"About"}}}`;
+      content = content.replace(menuRegex, newMenu);
       fs.writeFileSync(jsPath, content, 'utf8');
-      console.log('Patched: reordered menu in ' + jsFile);
-    } else if (content.includes(newMenu)) {
+      console.log('Patched: reordered menu in ' + jsFile + ' (var=' + varName + ')');
+    } else if (content.includes('Categories:{name:"Categories"')) {
       console.log('Skip Patch 3 (' + jsFile + '): already patched');
     } else {
-      console.log('Skip Patch 3 (' + jsFile + '): old menu pattern not found');
+      console.log('Skip Patch 3 (' + jsFile + '): menu pattern not found');
     }
   }
 }
