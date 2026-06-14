@@ -23,6 +23,25 @@ if (fs.existsSync(indexFile)) {
   }
 }
 
+// Patch 3: Add Categories to theme JS menu (fixes missing nav item)
+const themeJsDir = path.join(ROOT, 'node_modules/hexo-theme-aurora/source/static/js');
+if (fs.existsSync(themeJsDir)) {
+  const jsFiles = fs.readdirSync(themeJsDir).filter(f => f.endsWith('.js'));
+  for (const jsFile of jsFiles) {
+    const jsPath = path.join(themeJsDir, jsFile);
+    let content = fs.readFileSync(jsPath, 'utf8');
+    const linkStr = 'Links:{name:"Links",path:"/links",i18n:{"zh-CN":"友情链接","zh-TW":"友情鏈接",en:"Friend Links"}}';
+    const catStr = 'Categories:{name:"Categories",path:"/categories",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}}';
+    if (content.includes(linkStr) && !content.includes(catStr)) {
+      content = content.replace(linkStr, linkStr + ',' + catStr);
+      fs.writeFileSync(jsPath, content, 'utf8');
+      console.log(`Patched: added Categories menu to ${jsFile}`);
+    } else if (content.includes(catStr)) {
+      console.log(`Skip Patch 3 (${jsFile}): already patched`);
+    }
+  }
+}
+
 // Patch 2: Strip directory prefix from slug (fix %2F in URLs)
 const mapperFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/helpers/mapper.js');
 if (fs.existsSync(mapperFile)) {

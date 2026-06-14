@@ -63,6 +63,10 @@ menu:
   Categories: true # 分类页
   Project:
     name: '开源项目'
+    i18n:
+      cn: '开源项目'
+      zh-CN: '开源项目'
+      en: 'Projects'
     children:
       DictTool:
         name: '数据词典生成'
@@ -76,9 +80,17 @@ menu:
   GitHub:
     name: 'GitHub'
     path: 'https://github.com/mikeah2011'
+    i18n:
+      cn: 'GitHub'
+      zh-CN: 'GitHub'
+      en: 'GitHub'
   E-Mail:
     name: 'Mail Me'
     path: 'mailto:mikeah2011@gmail.com'
+    i18n:
+      cn: 'Mail Me'
+      zh-CN: 'Mail Me'
+      en: 'Mail Me'
 #  Contact:
 #    name: 'Contact'
 #    i18n:
@@ -89,6 +101,7 @@ menu:
     name: 'MessageBoard'
     i18n:
       cn: '留言板'
+      zh-CN: '留言板'
       en: 'Message Board'
     path: '/page/message-board'
 #  pages-menu:
