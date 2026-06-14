@@ -26,7 +26,7 @@ const CATEGORIES_JS = `
     // Build page structure
     var wrapper = document.createElement("div");
     wrapper.className = "flex flex-col mt-20";
-    wrapper.innerHTML = '<div class="post-header"><ul class="breadcrumbs flex flex-row gap-6 text-white z-50 px-4"><li><a href="/" style="color:inherit;text-decoration:none">首页</a></li><li>›</li><li>分类</li></ul><h1 class="post-title text-white uppercase">分类</h1></div><div class="main-grid"><div class="relative"><div class="post-html bg-ob-deep-800 px-14 py-16 rounded-2xl shadow-xl block"></div></div><div class="col-span-1"><div></div></div></div>';
+    wrapper.innerHTML = '<div class="post-header"><ul class="breadcrumbs flex flex-row gap-6 text-white z-50 px-4"><li><a href="/" style="color:inherit;text-decoration:none">首页</a></li><li>›</li><li>分类</li></ul><h1 class="post-title text-white uppercase">分类</h1></div><div class="post-html bg-ob-deep-800 px-14 py-16 rounded-2xl shadow-xl block" style="width:100%"></div>';
 
     var box = wrapper.querySelector(".post-html");
 
