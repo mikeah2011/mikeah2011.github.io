@@ -105,19 +105,37 @@ const categoriesJsPath = path.join(PUBLIC_DIR, 'static', 'js', 'categories.js');
 fs.writeFileSync(categoriesJsPath, CATEGORIES_JS.trim(), 'utf8');
 console.log('Written: categories.js');
 
-// 2. Inject <script> tag into index.html
+// 2. Inject <script> tag into ALL HTML files (SPA shell is duplicated per route)
 const indexPath = path.join(PUBLIC_DIR, 'index.html');
 if (fs.existsSync(indexPath)) {
-  let html = fs.readFileSync(indexPath, 'utf8');
+  const rootHtml = fs.readFileSync(indexPath, 'utf8');
   const scriptTag = '<script src="/static/js/categories.js"></script>';
-  if (!html.includes('categories.js')) {
-    // Add before </body>
-    html = html.replace('</body>', scriptTag + '</body>');
-    fs.writeFileSync(indexPath, html, 'utf8');
-    console.log('Injected: <script> for categories.js into index.html');
-  } else {
-    console.log('Skip inject: categories.js script tag already present');
+
+  // Find all index.html files in public/
+  function findHtmlFiles(dir) {
+    let results = [];
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        results = results.concat(findHtmlFiles(full));
+      } else if (entry.name === 'index.html') {
+        results.push(full);
+      }
+    }
+    return results;
   }
+
+  const allHtml = findHtmlFiles(PUBLIC_DIR);
+  let injected = 0;
+  for (const htmlPath of allHtml) {
+    let html = fs.readFileSync(htmlPath, 'utf8');
+    if (!html.includes('categories.js') && html.includes('</body>')) {
+      html = html.replace('</body>', scriptTag + '</body>');
+      fs.writeFileSync(htmlPath, html, 'utf8');
+      injected++;
+    }
+  }
+  console.log(`Injected categories.js into ${injected} HTML files (${allHtml.length} total)`);
 } else {
   console.log('WARNING: index.html not found in public/');
 }

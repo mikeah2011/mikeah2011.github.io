@@ -30,27 +30,28 @@ if (fs.existsSync(indexFile)) {
   }
 }
 
-// Patch 3: Add Categories to theme JS menu
+// Patch 3: Reorder menu items + add all custom items as built-in
 const themeJsDir = path.join(ROOT, 'node_modules/hexo-theme-aurora/source/static/js');
 if (fs.existsSync(themeJsDir)) {
   const jsFiles = fs.readdirSync(themeJsDir).filter(f => f.endsWith('.js'));
   for (const jsFile of jsFiles) {
     const jsPath = path.join(themeJsDir, jsFile);
     let content = fs.readFileSync(jsPath, 'utf8');
-    const linkStr = 'Links:{name:"Links",path:"/links",i18n:{"zh-CN":"友情链接","zh-TW":"友情鏈接",en:"Friend Links"}}';
-    const catStr = 'Categories:{name:"Categories",path:"/category",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}}';
-    if (content.includes(linkStr) && !content.includes(catStr)) {
-      // If already has Categories with /categories path, replace it
-      const oldCatStr = 'Categories:{name:"Categories",path:"/categories",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}}';
-      if (content.includes(oldCatStr)) {
-        content = content.replace(oldCatStr, catStr);
-      } else {
-        content = content.replace(linkStr, linkStr + ',' + catStr);
-      }
+
+    // Old built-in menu object (fixed order: About, Archives, Tags, Links, Categories)
+    const oldMenu = 'const n={About:{name:"About",path:"/about",i18n:{"zh-CN":"关于","zh-TW":"關於",en:"About"}},Archives:{name:"Archives",path:"/archives",i18n:{"zh-CN":"归档","zh-TW":"歸檔",en:"Archives"}},Tags:{name:"Tags",path:"/tags",i18n:{"zh-CN":"标签","zh-TW":"標簽",en:"Tags"}},Links:{name:"Links",path:"/links",i18n:{"zh-CN":"友情链接","zh-TW":"友情鏈接",en:"Friend Links"}},Categories:{name:"Categories",path:"/category",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}}}';
+
+    // New menu with desired order + all items built-in
+    const newMenu = 'const n={Categories:{name:"Categories",path:"/category",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}},Tags:{name:"Tags",path:"/tags",i18n:{"zh-CN":"标签","zh-TW":"標簽",en:"Tags"}},Project:{name:"开源",path:null,i18n:{"zh-CN":"开源",en:"Projects"}},Archives:{name:"Archives",path:"/archives",i18n:{"zh-CN":"归档","zh-TW":"歸檔",en:"Archives"}},Contact:{name:"联系",path:"mailto:mikeah2011@gmail.com",i18n:{"zh-CN":"联系",en:"Contact"}},MessageBoard:{name:"留言板",path:"/page/message-board",i18n:{"cn":"留言板","zh-CN":"留言板",en:"Message Board"}},About:{name:"About",path:"/about",i18n:{"zh-CN":"关于","zh-TW":"關於",en:"About"}}}';
+
+    if (content.includes(oldMenu)) {
+      content = content.replace(oldMenu, newMenu);
       fs.writeFileSync(jsPath, content, 'utf8');
-      console.log('Patched: added/fixed Categories menu in ' + jsFile);
-    } else if (content.includes(catStr)) {
+      console.log('Patched: reordered menu in ' + jsFile);
+    } else if (content.includes(newMenu)) {
       console.log('Skip Patch 3 (' + jsFile + '): already patched');
+    } else {
+      console.log('Skip Patch 3 (' + jsFile + '): old menu pattern not found');
     }
   }
 }
