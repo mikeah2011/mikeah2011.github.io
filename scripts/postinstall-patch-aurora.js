@@ -2,6 +2,8 @@
  * Postinstall patch: fix hexo-plugin-aurora issues.
  * 1. Add 'Categories' to defaultPages (fixes /categories 404)
  * 2. Strip directory prefix from slug (fixes %2F encoding in URLs)
+ * 3. Add Categories to theme JS menu (fixes missing nav item)
+ * 4. Fix SiteGenerator early return (fixes build crash)
  */
 const fs = require('fs');
 const path = require('path');
@@ -42,13 +44,34 @@ if (fs.existsSync(themeJsDir)) {
   }
 }
 
+// Patch 4: Fix SiteGenerator early return in site.js
+const siteFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/generators/site.js');
+if (fs.existsSync(siteFile)) {
+  let content = fs.readFileSync(siteFile, 'utf8');
+
+  // Remove `return;` after throwError so the class always exports
+  content = content.replace(
+    /throwError\(\s*\n?\s*'Aurora Plugin Error',\s*\n?\s*`[^`]+`\s*\n?\s*\);\s*\n?\s*return;/,
+    "throwError(\n      'Aurora Plugin Error',\n      `Aurora Plugin fail to get current Aurora Theme version, please make sure you have the theme installed.`\n    );"
+  );
+
+  // Guard themePack.version access
+  content = content.replace(
+    'configs.theme_config.version = themePack.version;',
+    'configs.theme_config.version = themePack ? themePack.version : "unknown";'
+  );
+
+  fs.writeFileSync(siteFile, content, 'utf8');
+  console.log('Patched: fixed SiteGenerator in site.js');
+}
+
 // Patch 2: Strip directory prefix from slug (fix %2F in URLs)
 const mapperFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/helpers/mapper.js');
 if (fs.existsSync(mapperFile)) {
   let content = fs.readFileSync(mapperFile, 'utf8');
 
   if (content.includes('flatSlug')) {
-    console.log('Skip Patch 3: already patched');
+    console.log('Skip Patch 2: already patched');
   } else {
     const slugRegex = /const pathSlug\s*=\s*\n\s*configs\.theme_config\.site\.pathSlug\s*!==\s*undefined\s*\n\s*\?\s*configs\.theme_config\.site\.pathSlug\s*===\s*'uid'\s*\n\s*\?\s*uid\s*\n\s*:\s*post\.slug\s*\n\s*:\s*post\.slug;/;
     const newCode = `  const rawSlug = post.slug || '';\n  const flatSlug = rawSlug.includes('/') ? rawSlug.split('/').pop() : rawSlug;\n  const pathSlug =\n    configs.theme_config.site.pathSlug !== undefined\n      ? configs.theme_config.site.pathSlug === 'uid'\n        ? uid\n        : flatSlug\n      : flatSlug;`;
