@@ -19,7 +19,7 @@ tags:
 - Contract Testing
 - Property-Based Testing
 - CI/CD
-keywords: - Pact PHP - Schemathesis - 契约测试 - Contract Testing - API 一致性 - 前后端联调 - Laravel API 测试 - Consumer-Driven Contract - OpenAPI - Schema Validation
+keywords: [Pact PHP , Schemathesis , 契约测试 , Contract Testing , API 一致性 , 前后端联调 , Laravel API 测试 , Consumer, OpenAPI , Schema Validation]
 ---
 
 
