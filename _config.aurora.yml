@@ -60,7 +60,13 @@ menu:
   About: true  # 关于页
   Tags: true # 标签页
   Archives: true # 归档页
-  Categories: true # 分类页
+  Categories:
+    name: '分类'
+    path: '/categories'
+    i18n:
+      zh-CN: '分类'
+      zh-TW: '分類'
+      en: 'Categories'
   Project:
     name: '开源项目'
     i18n:
