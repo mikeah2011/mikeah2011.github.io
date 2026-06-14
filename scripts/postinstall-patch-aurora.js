@@ -18,8 +18,13 @@ if (fs.existsSync(indexFile)) {
   const needle = "const defaultPages = ['Tags', 'Archives', 'Links']";
   if (content.includes(needle)) {
     content = content.replace(needle, "const defaultPages = ['Tags', 'Archives', 'Links', 'Categories']");
+    // Also fix page path to use menu config path (Vue route is /category, not /categories)
+    content = content.replace(
+      "path: `${page.toLocaleLowerCase()}/index.html`,",
+      "path: `${(themeConfig.menu[page] && themeConfig.menu[page].path ? themeConfig.menu[page].path.replace(/^\//, '') : page.toLocaleLowerCase())}/index.html`,"
+    );
     fs.writeFileSync(indexFile, content, 'utf8');
-    console.log('Patched: added Categories to aurora-page defaultPages');
+    console.log('Patched: added Categories to aurora-page defaultPages + fixed path');
   } else {
     console.log('Skip Patch 1: already patched');
   }
