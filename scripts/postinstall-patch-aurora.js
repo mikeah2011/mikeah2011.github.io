@@ -27,8 +27,10 @@ if (fs.existsSync(indexFile)) {
 
 // Patch 3: Add Categories to theme JS menu (fixes missing nav item)
 const themeJsDir = path.join(ROOT, 'node_modules/hexo-theme-aurora/source/static/js');
+console.log('Patch 3: checking', themeJsDir, 'exists:', fs.existsSync(themeJsDir));
 if (fs.existsSync(themeJsDir)) {
   const jsFiles = fs.readdirSync(themeJsDir).filter(f => f.endsWith('.js'));
+  console.log('Patch 3: found', jsFiles.length, 'JS files');
   for (const jsFile of jsFiles) {
     const jsPath = path.join(themeJsDir, jsFile);
     let content = fs.readFileSync(jsPath, 'utf8');
