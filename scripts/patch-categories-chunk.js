@@ -56,7 +56,14 @@ const CATEGORIES_JS = `
 
   function checkAndRender() {
     var p = window.location.pathname.replace(/\\/+$/, "");
-    if (p !== "/category" && p !== "/category/") return;
+
+    // Redirect old /category → /categories
+    if (p === "/category" || p === "/category/") {
+      window.location.replace("/categories");
+      return;
+    }
+
+    if (p !== "/categories" && p !== "/categories/") return;
 
     var dataPromise = fetch("/api/categories.json").then(function(r){ return r.json(); });
 

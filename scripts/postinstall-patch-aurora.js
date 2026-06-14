@@ -45,15 +45,60 @@ if (fs.existsSync(themeJsDir)) {
     const match = content.match(menuRegex);
     if (match) {
       const varName = match[0].match(/const (\w+)=/)[1];
-      const newMenu = `const ${varName}={Categories:{name:"Categories",path:"/category",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}},Tags:{name:"Tags",path:"/tags",i18n:{"zh-CN":"标签","zh-TW":"標簽",en:"Tags"}},Project:{name:"开源",path:null,i18n:{"zh-CN":"开源",en:"Projects"}},Archives:{name:"Archives",path:"/archives",i18n:{"zh-CN":"归档","zh-TW":"歸檔",en:"Archives"}},Contact:{name:"联系",path:"mailto:mikeah2011@gmail.com",i18n:{"zh-CN":"联系",en:"Contact"}},MessageBoard:{name:"留言板",path:"/page/message-board",i18n:{"cn":"留言板","zh-CN":"留言板",en:"Message Board"}},About:{name:"About",path:"/about",i18n:{"zh-CN":"关于","zh-TW":"關於",en:"About"}}}`;
+      const newMenu = `const ${varName}={Categories:{name:"Categories",path:"/categories",i18n:{"zh-CN":"分类","zh-TW":"分類",en:"Categories"}},Tags:{name:"Tags",path:"/tags",i18n:{"zh-CN":"标签","zh-TW":"標簽",en:"Tags"}},Project:{name:"开源",path:null,i18n:{"zh-CN":"开源",en:"Projects"}},Archives:{name:"Archives",path:"/archives",i18n:{"zh-CN":"归档","zh-TW":"歸檔",en:"Archives"}},Contact:{name:"联系",path:"mailto:mikeah2011@gmail.com",i18n:{"zh-CN":"联系",en:"Contact"}},MessageBoard:{name:"留言板",path:"/page/message-board",i18n:{"cn":"留言板","zh-CN":"留言板",en:"Message Board"}},About:{name:"About",path:"/about",i18n:{"zh-CN":"关于","zh-TW":"關於",en:"About"}}}`;
       content = content.replace(menuRegex, newMenu);
+
+      // Also patch Vue Router route: /category → /categories
+      content = content.replace('name:"category",path:"/category"', 'name:"category",path:"/categories"');
+
       fs.writeFileSync(jsPath, content, 'utf8');
       console.log('Patched: reordered menu in ' + jsFile + ' (var=' + varName + ')');
-    } else if (content.includes('Categories:{name:"Categories"')) {
-      console.log('Skip Patch 3 (' + jsFile + '): already patched');
+    } else if (content.includes('Categories:{name:"Categories",path:"/categories"')) {
+      // Already patched with /categories - but check if Vue Router also needs update
+      if (content.includes('name:"category",path:"/category"')) {
+        content = content.replace('name:"category",path:"/category"', 'name:"category",path:"/categories"');
+        fs.writeFileSync(jsPath, content, 'utf8');
+        console.log('Patched: Vue Router /category → /categories in ' + jsFile);
+      } else {
+        console.log('Skip Patch 3 (' + jsFile + '): already fully patched');
+      }
+    } else if (content.includes('Categories:{name:"Categories",path:"/category"')) {
+      // Patched with old /category path - update path in both menu and router
+      content = content.replace(/path:"\/category"/g, 'path:"/categories"');
+      content = content.replace('name:"category",path:"/category"', 'name:"category",path:"/categories"');
+      fs.writeFileSync(jsPath, content, 'utf8');
+      console.log('Patched: updated /category → /categories in ' + jsFile);
     } else {
       console.log('Skip Patch 3 (' + jsFile + '): menu pattern not found');
     }
+  }
+}
+
+// Patch 3b: Also patch the page generator to create /categories/index.html
+// and add a redirect from /category to /categories
+const generatorFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/generators/index.js');
+if (fs.existsSync(generatorFile)) {
+  let genContent = fs.readFileSync(generatorFile, 'utf8');
+  // The generator uses themeConfig.menu.Categories.path to create the page
+  // We also need to create a redirect at the old /category path
+  if (!genContent.includes('// PATCHED: redirect /category')) {
+    const redirectCode = `
+        // PATCHED: redirect /category → /categories
+        pageData.push({
+          path: 'category/index.html',
+          data: {},
+          layout: ['index']
+        });
+    `;
+    // Insert after the defaultPages loop
+    genContent = genContent.replace(
+      "    site.pages.forEach(function (page) {",
+      redirectCode + "\n    site.pages.forEach(function (page) {"
+    );
+    fs.writeFileSync(generatorFile, genContent, 'utf8');
+    console.log('Patched: added /category redirect page in generator');
+  } else {
+    console.log('Skip Patch 3b: already patched');
   }
 }
 

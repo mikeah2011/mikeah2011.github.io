@@ -59,7 +59,7 @@ authors:
 menu:
   Categories:
     name: '分类'
-    path: '/category'
+    path: '/categories'
     i18n:
       zh-CN: '分类'
       zh-TW: '分類'
