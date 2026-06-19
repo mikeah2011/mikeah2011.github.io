@@ -1,6 +1,7 @@
 ---
 title: OpenHuman TokenJuice 深度剖析：规则驱动的 token 压缩引擎与分层 JSON overlay 机制
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [OpenHuman, AI Agent, TokenJuice, Token压缩, 成本优化]
 keywords: [OpenHuman TokenJuice, token, JSON overlay, 深度剖析, 规则驱动的, 压缩引擎与分层, 机制, AI]
 categories: [ai]

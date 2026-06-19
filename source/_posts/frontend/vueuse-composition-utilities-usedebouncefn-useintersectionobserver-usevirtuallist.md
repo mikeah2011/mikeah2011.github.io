@@ -3,10 +3,11 @@
 title: VueUse 实战：200+ Composition Utilities 最佳实践——useDebounceFn/useIntersectionObserver/useVirtualList
 keywords: [VueUse, Composition Utilities, useDebounceFn, useIntersectionObserver, useVirtualList, 最佳实践]
 date: 2026-06-06 13:08:25
+author: Michael
 tags:
 - Vue
 - 前端工具库
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

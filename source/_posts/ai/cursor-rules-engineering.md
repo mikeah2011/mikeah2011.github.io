@@ -3,7 +3,8 @@
 title: Cursor Rules 工程化实战：.cursorrules 版本控制、团队共享与 A/B 测试——AI 辅助编程的提示词治理
 keywords: [Cursor Rules, cursorrules, AI, 工程化实战, 版本控制, 团队共享与, 辅助编程的提示词治理]
 date: 2026-06-09 06:25:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 tags:
 - Cursor

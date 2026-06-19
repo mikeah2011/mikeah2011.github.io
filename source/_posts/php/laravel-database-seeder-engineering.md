@@ -2,7 +2,8 @@
 title: Laravel Database Seeder 工程化实战：Seed/Faker/Factory 的生产级数据初始化
 keywords: [Laravel Database Seeder, Seed, Faker, Factory, 工程化实战, 的生产级数据初始化, PHP]
 date: 2026-06-10 04:49:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

@@ -1,9 +1,10 @@
 ---
 title: 'PostgreSQL 扩展生态实战：pg_trgm + pgcrypto + pg_stat_statements + pgvector——Laravel 开发者最常用的 8 个扩展深度指南'
 date: 2026-06-06 18:00:00
+author: Michael
 tags: [PostgreSQL, pg_trgm, pgcrypto, pg_stat_statements, pgvector, Laravel, 扩展]
 keywords: [PostgreSQL, pg, trgm, pgcrypto, stat, statements, pgvector, Laravel, 扩展生态实战, 开发者最常用的]
-categories:
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

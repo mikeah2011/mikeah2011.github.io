@@ -2,7 +2,8 @@
 title: MCP Resources vs Tools vs Prompts 实战：三种原语的工程化选型——何时用 Resource 而非 Tool？
 keywords: [MCP Resources vs Tools vs Prompts, Resource, Tool, 三种原语的工程化选型, 何时用, 而非, AI]
 date: 2026-06-09 23:45:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

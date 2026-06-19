@@ -2,7 +2,8 @@
 title: AI Agent 安全红队实战：Prompt Injection/Goal Hijacking/Data Exfiltration 攻防——生产级 Agent 的渗透测试方法论
 keywords: [AI Agent, Prompt Injection, Goal Hijacking, Data Exfiltration, Agent, 安全红队实战, 攻防, 生产级, 的渗透测试方法论, AI]
 date: 2026-06-09 15:07:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

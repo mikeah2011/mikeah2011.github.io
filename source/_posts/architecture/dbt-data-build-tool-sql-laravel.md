@@ -2,6 +2,7 @@
 
 title: dbt (data build tool) 实战：SQL 优先的数据转换框架——Laravel 项目的数据仓库建模与版本化治理
 date: 2026-06-05 12:00:00
+author: Michael
 description: dbt (data build tool) 是 SQL 优先的数据转换框架，实现 ELT 模式下数据仓库的工程化治理。本文以 Laravel 项目为背景，深入讲解 dbt 的分层建模策略（Staging → Intermediate → Marts）、增量计算、SCD Type 2 快照、自动化数据质量测试与 CI/CD 集成。涵盖 Sources 声明、Jinja2 模板、dbt Docs 血缘文档、Slim CI 优化，以及软删除、多态关联、金额分转元等 Laravel 特有数据模式的处理方案。对比 dbt Cloud 与 Core、Airflow 与 Spark，附完整可运行代码示例与生产踩坑指南。
 tags:
 - dbt
@@ -11,7 +12,7 @@ tags:
 - data-modeling
 - analytics-engineering
 - Laravel
-categories:
+categories: [architecture]
   - architecture
 keywords: [dbt, data build tool, SQL, Laravel, 优先的数据转换框架, 项目的数据仓库建模与版本化治理]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

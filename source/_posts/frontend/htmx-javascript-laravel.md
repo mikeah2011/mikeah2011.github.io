@@ -3,6 +3,7 @@
 title: HTMX 实战：不用 JavaScript 框架也能做交互——Laravel + HTMX 的超轻量前后端方案
 keywords: [HTMX, JavaScript, Laravel, 不用, 框架也能做交互, 的超轻量前后端方案]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - HTMX
 - 前端
@@ -10,7 +11,7 @@ tags:
 - Blade
 - 轻量级
 - 交互
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

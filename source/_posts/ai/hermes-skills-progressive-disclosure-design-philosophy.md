@@ -1,6 +1,7 @@
 ---
 title: Hermes Skills 渐进式披露机制：skills_list 元数据 vs skill_view 完整加载的设计哲学
 date: 2026-06-02 14:00:00
+author: Michael
 tags: [Hermes, AI Agent, Skills, 渐进式披露, 架构设计, 上下文管理]
 keywords: [Hermes Skills, skills, list, vs skill, view, 渐进式披露机制, 元数据, 完整加载的设计哲学, AI]
 categories: [ai]

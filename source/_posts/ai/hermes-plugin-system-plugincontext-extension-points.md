@@ -1,6 +1,7 @@
 ---
 title: Hermes 插件系统深度剖析：PluginContext 注册、tool/CLI/slash command 扩展点
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [Hermes, AI Agent, 插件系统, PluginContext, 扩展点]
 keywords: [Hermes, PluginContext, tool, CLI, slash command, 插件系统深度剖析, 注册, 扩展点, AI]
 categories: [ai]

@@ -1,6 +1,7 @@
 ---
 title: 'Laravel Cloud 实战：Laravel 官方 PaaS 平台——一键部署、自动扩缩与开发者体验评测'
 date: 2026-06-03 10:00:00
+author: Michael
 tags: [Laravel Cloud, PaaS, 部署, 自动扩缩, 开发者体验]
 keywords: [Laravel Cloud, Laravel, PaaS, 官方, 平台, 一键部署, 自动扩缩与开发者体验评测, DevOps]
 categories: [devops]

@@ -2,7 +2,8 @@
 title: AI Agent Output Validation 实战：LLM 输出的多层校验——Regex/JSON Schema/Pydantic/业务规则的四重防线
 keywords: [AI Agent Output Validation, LLM, Regex, JSON Schema, Pydantic, 输出的多层校验, 业务规则的四重防线, AI]
 date: 2026-06-10 00:40:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

@@ -2,7 +2,8 @@
 title: GraphQL Federation 超图实战：订单、库存、价格子图拆分与网关鉴权缓存
 keywords: [GraphQL Federation, 超图实战, 订单, 库存, 价格子图拆分与网关鉴权缓存, 架构]
 date: 2026-06-09 19:48:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

@@ -4,6 +4,7 @@ title: Laravel Package 开发实战：从 artisan make:package 到 Packagist 发
 keywords: [Laravel Package, artisan make, package, Packagist, Service Provider, Facade, Config, 开发实战, 发布]
 description: Laravel Package 开发全流程实战：从 artisan make:package 脚手架到 Packagist 发布，详解 Service Provider 注册与引导生命周期、Facade 动态代理原理、Config mergeConfigFrom 合并策略，Orchestra Testbench 测试隔离方案与语义化版本发布最佳实践，附完整踩坑记录与十条核心开发规范。
 date: 2026-06-05 12:00:00
+author: Michael
 tags:
 - Laravel
 - Package
@@ -13,7 +14,7 @@ tags:
 - service-provider
 - facade
 - orchestra-testbench
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

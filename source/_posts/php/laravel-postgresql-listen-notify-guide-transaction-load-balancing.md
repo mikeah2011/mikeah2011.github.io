@@ -1,11 +1,12 @@
 ---
 title: Laravel + PostgreSQL LISTEN/NOTIFY 实战：事务提交后事件广播、连接池与负载均衡踩坑记录
 date: 2026-05-03 11:10:43
+author: Michael
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 updated: 2026-05-03 11:11:39
-categories:
+categories: [php]
   - php
 tags: [Laravel, PostgreSQL, PgBouncer, LISTEN/NOTIFY, 消息通知]
 keywords: [Laravel, PostgreSQL LISTEN, NOTIFY, 事务提交后事件广播, 连接池与负载均衡踩坑记录, PHP]

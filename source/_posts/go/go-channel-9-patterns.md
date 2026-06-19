@@ -3,7 +3,8 @@
 title: Go 语言并发模式：Channel 的九种实用用法
 keywords: [Go, Channel, 语言并发模式, 的九种实用用法]
 date: 2026-06-09 14:13:00
-categories:
+author: Michael
+categories: [go]
   - go
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:

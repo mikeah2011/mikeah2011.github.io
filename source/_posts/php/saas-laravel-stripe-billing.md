@@ -1,9 +1,10 @@
 ---
 title: 多租户 SaaS 定价模型实战：按量计费、阶梯定价、用量配额——Laravel + Stripe Billing 集成
 date: 2026-06-02 08:00:00
+author: Michael
 tags: [SaaS, 多租户, Stripe, Billing, Laravel, 定价模型]
 keywords: [SaaS, Laravel, Stripe Billing, 多租户, 定价模型实战, 按量计费, 阶梯定价, 用量配额, PHP]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

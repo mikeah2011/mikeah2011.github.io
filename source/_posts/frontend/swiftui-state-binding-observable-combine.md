@@ -3,6 +3,7 @@
 title: SwiftUI 数据流实战：@State/@Binding/@Observable 与 Combine 响应式编程——前端开发者视角
 keywords: [SwiftUI, State, Binding, Observable, Combine, 数据流实战, 响应式编程, 前端开发者视角]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - SwiftUI
 - Swift
@@ -11,7 +12,7 @@ tags:
 - iOS
 - 前端
 - MVVM
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

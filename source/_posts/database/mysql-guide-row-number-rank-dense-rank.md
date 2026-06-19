@@ -1,8 +1,9 @@
 ---
 title: MySQL-窗口函数-实战-ROW_NUMBER-RANK-DENSE_RANK-在运营报表中的应用
 date: 2026-05-05 12:06:01
+author: Michael
 updated: 2026-05-05 12:09:02
-categories:
+categories: [database]
   - database
 tags: [Laravel, MySQL, 窗口函数, SQL, 性能优化, EXPLAIN]
 keywords: [MySQL, ROW, NUMBER, RANK, DENSE, 窗口函数, 在运营报表中的应用, 数据库]

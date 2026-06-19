@@ -1,8 +1,9 @@
 ---
 title: "AWS-RDS-实战-数据库托管备份恢复与性能优化-Laravel-B2C-API踩坑记录"
 date: 2026-05-17 02:21:55
+author: Michael
 updated: 2026-05-17 02:26:08
-categories:
+categories: [architecture]
   - architecture
   - aws
 tags: [AWS, MySQL, PostgreSQL, 监控]

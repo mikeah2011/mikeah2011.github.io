@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-16 20:50:45
+author: Michael
 updated: 2026-05-16 20:55:31
-categories:
+categories: [php]
   - php
 tags: [KKday, Laravel, Redis, 性能优化, 缓存]
 keywords: [Laravel Response Cache, 全页缓存与局部缓存策略踩坑记录, PHP]

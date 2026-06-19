@@ -3,8 +3,9 @@
 title: Redis-Lua-脚本原子操作实战-分布式限流库存扣减排行榜-Laravel-B2C-API踩坑记录
 keywords: [Redis, Lua, Laravel, B2C, API, 脚本原子操作实战, 分布式限流库存扣减排行榜, 踩坑记录]
 date: 2026-05-05 06:35:56
+author: Michael
 updated: 2026-05-05 06:38:03
-categories:
+categories: [database]
 - database
 tags:
 - Laravel

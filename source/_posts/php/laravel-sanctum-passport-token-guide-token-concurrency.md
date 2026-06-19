@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-03 09:11:35
-categories:
+author: Michael
+categories: [php]
   - php
 tags: [Laravel, Sanctum, Passport, OAuth, Token, Redis, 认证, 多端登录]
 keywords: [Laravel Sanctum, Passport Token, Token, 刷新机制实战, 多端登录, 轮换与并发续签踩坑记录, PHP]

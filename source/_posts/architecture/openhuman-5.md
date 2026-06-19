@@ -4,13 +4,14 @@ title: OpenHuman 消息通道实战：多平台消息收发与工作流触发
 keywords: [OpenHuman, 消息通道实战, 多平台消息收发与工作流触发]
 description: 本文系统拆解 OpenHuman 消息通道在 Slack、Discord、Telegram、企业微信与 Email 中的多平台消息收发实践，覆盖统一消息模型、Webhook 接入、签名校验、路由分发、工作流触发、权限控制与排障方案，帮助你把 AI Agent 真正落地为稳定可审计的企业级自动化入口。
 date: 2026-06-02 02:30:00
+author: Michael
 tags:
 - OpenHuman
 - AI Agent
 - 消息通道
 - 多平台
 - 工作流
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

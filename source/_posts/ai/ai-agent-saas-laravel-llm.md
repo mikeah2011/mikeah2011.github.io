@@ -1,6 +1,7 @@
 ---
 title: AI Agent 多租户实战：SaaS 场景下的 Agent 隔离、用量计量与按租户路由——Laravel + LLM 的工程化方案
 date: 2026-06-03 09:00:00
+author: Michael
 tags: [AI Agent, 多租户, SaaS, Laravel, LLM, 租户隔离]
 keywords: [AI Agent, SaaS, Agent, Laravel, LLM, 多租户实战, 场景下的, 隔离, 用量计量与按租户路由, 的工程化方案]
 categories: [ai]

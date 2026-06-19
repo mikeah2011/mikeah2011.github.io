@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-16 23:20:08
+author: Michael
 updated: 2026-05-16 23:23:54
-categories:
+categories: [macos]
 - macos
 - editor
 tags:

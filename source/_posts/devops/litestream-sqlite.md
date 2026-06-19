@@ -2,7 +2,8 @@
 title: Litestream 实战：SQLite 流式复制与灾难恢复——本地优先应用的零依赖高可用方案
 keywords: [Litestream, SQLite, 流式复制与灾难恢复, 本地优先应用的零依赖高可用方案, DevOps]
 date: 2026-06-09 19:57:00
-categories:
+author: Michael
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

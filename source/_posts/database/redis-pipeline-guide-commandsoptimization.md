@@ -1,8 +1,9 @@
 ---
 title: Redis Pipeline 实战：批量命令优化与网络延迟治理（Laravel B2C API 踩坑记录）
 date: 2026-05-16 13:30:43
+author: Michael
 updated: 2026-05-16 13:33:19
-categories:
+categories: [database]
   - database
 tags: [Laravel, Redis, Pipeline, 性能优化, 缓存]
 keywords: [Redis Pipeline, Laravel B2C API, 批量命令优化与网络延迟治理, 踩坑记录, 数据库]

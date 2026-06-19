@@ -2,7 +2,8 @@
 title: Laravel CSP 动态策略实战：按租户/按页面/按用户角色的 Content Security Policy 动态生成
 keywords: [Laravel CSP, Content Security Policy, 动态策略实战, 按租户, 按页面, 按用户角色的, 动态生成]
 date: 2026-06-10 01:58:00
-categories:
+author: Michael
+categories: [security]
   - security
 cover: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop
 images:

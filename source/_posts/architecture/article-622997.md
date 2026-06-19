@@ -2,6 +2,7 @@
 
 title: 三大框架安全模型对比：工具隔离、记忆分区、隐私边界、数据主权
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - AI Agent
 - Hermes
@@ -10,7 +11,7 @@ tags:
 - 安全模型
 - 隐私
 - 数据主权
-categories:
+categories: [architecture]
   - architecture
 keywords: [三大框架安全模型对比, 工具隔离, 记忆分区, 隐私边界, 数据主权]
 description: 从工具隔离、记忆分区、隐私边界、数据主权四个维度深入对比 Hermes Agent、OpenClaw、OpenHuman 三大 AI Agent 框架的安全模型设计，涵盖 PluginContext 权限控制、Workspace 沙箱、OS Keychain 密钥管理、Prompt Injection 防护等实战安全机制，提供个人开发者到企业级的选型建议。

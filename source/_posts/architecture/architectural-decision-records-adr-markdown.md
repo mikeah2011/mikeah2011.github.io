@@ -3,13 +3,14 @@
 title: Architectural Decision Records (ADR) 实战：用 Markdown 管理架构决策——团队技术共识的可追溯性
 keywords: [Architectural Decision Records, ADR, Markdown, 管理架构决策, 团队技术共识的可追溯性]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - adr
 - 架构决策
 - Markdown
 - 团队协作
 - 文档化
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

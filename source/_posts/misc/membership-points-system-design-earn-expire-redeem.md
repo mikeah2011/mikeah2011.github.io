@@ -1,7 +1,8 @@
 ---
 title: "会员积分系统设计：积分获取/消耗/过期/兑换的完整业务闭环"
 date: 2026-06-01 14:00:00
-categories:
+author: Michael
+categories: [misc]
   - misc
 keywords: [会员积分系统设计, 积分获取, 消耗, 过期, 兑换的完整业务闭环, 技术杂谈]
 tags:

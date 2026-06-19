@@ -3,7 +3,8 @@
 title: Claude Code + MCP 生态实战：2026 MCP Server 工具市场的爆发——从搜索到浏览器到数据库的 100+ 工具集成指南
 keywords: [Claude Code, MCP, MCP Server, 生态实战, 工具市场的爆发, 从搜索到浏览器到数据库的, 工具集成指南]
 date: 2026-06-09 14:42:00
-categories:
+author: Michael
+categories: [ai]
 - ai
 tags:
 - Claude Code

@@ -3,7 +3,8 @@
 title: AI Agent Self-Healing 实战：工具调用失败自动诊断与替代——Fallback Chain + Error Pattern Matching
 keywords: [AI Agent Self, Healing, Fallback Chain, Error Pattern Matching, 工具调用失败自动诊断与替代, AI]
 date: 2026-06-10 00:45:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-17 07:20:49
+author: Michael
 updated: 2026-05-17 07:25:12
-categories:
+categories: [frontend]
 - frontend
 tags:
 - Vite

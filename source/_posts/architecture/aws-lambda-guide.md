@@ -1,8 +1,9 @@
 ---
 title: AWS-Lambda-实战-无服务器函数计算-Laravel-B2C-API-踩坑记录
 date: 2026-05-17 03:50:11
+author: Michael
 updated: 2026-05-17 03:52:32
-categories:
+categories: [architecture]
   - architecture
   - aws
 tags: [AWS, Laravel, PHP]

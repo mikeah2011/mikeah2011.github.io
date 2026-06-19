@@ -3,6 +3,7 @@
 title: Nuxt 4 实战：Vue 全栈框架的新范式——服务器组件、自动导入与 SEO 优化
 keywords: [Nuxt, Vue, SEO, 全栈框架的新范式, 服务器组件, 自动导入与]
 date: 2026-06-02 10:00:00
+author: Michael
 description: Nuxt 4 实战指南，深入解析 Vue 全栈框架三大核心新特性：服务器组件（Server Components）实现零 JS 服务端渲染、改进的自动导入系统提升开发效率、全新 SEO 工具链支持结构化数据与 Open Graph。文章涵盖从 Nuxt 3 迁移的破坏性变更与踩坑记录、与 Laravel BFF 架构集成方案、性能优化策略（Bundle 优化、图片优化、首屏加载），附带完整可运行代码示例，适合 B2C 电商前端团队参考。
 tags:
 - Nuxt
@@ -10,7 +11,7 @@ tags:
 - SSR
 - SEO
 - 全栈框架
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

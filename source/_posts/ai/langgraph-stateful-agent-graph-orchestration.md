@@ -1,6 +1,7 @@
 ---
 title: LangGraph 实战：有状态的 AI Agent 图编排——条件路由、循环与人机协作节点
 date: 2026-06-02 00:00:00
+author: Michael
 tags: [LangGraph, AI Agent, 图编排, 有状态, 人机协作]
 keywords: [LangGraph, AI Agent, 有状态的, 图编排, 条件路由, 循环与人机协作节点, AI]
 categories: [ai]

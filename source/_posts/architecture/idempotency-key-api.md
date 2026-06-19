@@ -3,6 +3,7 @@
 title: Idempotency Key 深度实战：API 幂等性的三层防护——请求去重、结果缓存与分布式锁的工程化方案
 keywords: [Idempotency Key, API, 深度实战, 幂等性的三层防护, 请求去重, 结果缓存与分布式锁的工程化方案]
 date: 2026-06-06 13:08:25
+author: Michael
 tags:
 - 幂等性
 - Idempotency Key
@@ -10,7 +11,7 @@ tags:
 - 分布式
 - Laravel
 - Redis
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

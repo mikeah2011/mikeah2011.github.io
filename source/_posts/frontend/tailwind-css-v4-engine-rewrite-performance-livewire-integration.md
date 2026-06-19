@@ -3,12 +3,13 @@
 title: Tailwind CSS v4 实战：引擎重写后的性能飞跃与 Laravel Livewire 集成
 keywords: [Tailwind CSS v4, Laravel Livewire, 引擎重写后的性能飞跃与]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - Tailwind CSS
 - Livewire
 - CSS
 - 工程化
-categories:
+categories: [frontend]
 - frontend
 description: Tailwind CSS v4 使用 Rust 重写的 Oxide 引擎带来 10-100 倍构建性能提升，本文深度解析从 v3 迁移到 v4 的完整过程，涵盖 CSS-first 配置、@theme 指令、Vite 插件集成，以及在 Laravel Livewire 项目中的暗黑模式、表单组件、Blade 组件库设计等实战踩坑经验与最佳实践。
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

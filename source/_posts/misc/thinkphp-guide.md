@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 date: 2026-05-05 10:30:21
+author: Michael
 updated: 2026-05-05 10:34:22
-categories:
+categories: [misc]
   - misc
 tags: [ThinkPHP, 支付, 支付宝, 微信支付, 电商, 踩坑]
 keywords: [ThinkPHP, 电商系统支付集成实战, 支付宝微信支付回调幂等与多业务路由踩坑记录, 技术杂谈]

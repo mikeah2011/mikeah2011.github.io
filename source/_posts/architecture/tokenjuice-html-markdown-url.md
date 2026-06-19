@@ -1,9 +1,10 @@
 ---
 title: TokenJuice 压缩策略详解：HTML→Markdown、URL 缩短、输出去重、正则噪声过滤
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [TokenJuice, Token压缩, AI成本优化, 数据预处理]
 keywords: [TokenJuice, HTML, Markdown, URL, 压缩策略详解, 缩短, 输出去重, 正则噪声过滤, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

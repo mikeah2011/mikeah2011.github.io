@@ -1,9 +1,10 @@
 ---
 title: 'MQTT + Laravel 实战：IoT 消息协议与 PHP 后端集成——设备数据采集、指令下发与规则引擎'
 date: 2026-06-06 10:00:00
+author: Michael
 tags: [MQTT, Laravel, IoT, 消息队列, PHP, EMQX, Mosquitto]
 keywords: [MQTT, Laravel, IoT, PHP, 消息协议与, 后端集成, 设备数据采集, 指令下发与规则引擎]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

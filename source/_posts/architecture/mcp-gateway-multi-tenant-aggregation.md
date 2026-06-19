@@ -2,7 +2,8 @@
 title: "MCP Gateway 实战进阶：多租户 MCP Server 聚合层——鉴权、限流、审计日志与工具发现的统一治理"
 keywords: [MCP Gateway, MCP Server, 实战进阶, 多租户, 聚合层, 鉴权, 限流, 审计日志与工具发现的统一治理, 架构]
 date: 2026-06-10 00:00:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

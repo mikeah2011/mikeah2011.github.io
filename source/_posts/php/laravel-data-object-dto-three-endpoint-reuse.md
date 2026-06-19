@@ -3,6 +3,7 @@
 title: Laravel Data Object 深度实战：spatie/laravel-data 的 Inertia/Form Request/API Response
 keywords: [Laravel Data Object, spatie, laravel, data, Inertia, Form Request, API Response, 深度实战]
 date: 2026-06-07 10:00:00
+author: Michael
 tags:
 - Laravel
 - DTO
@@ -10,7 +11,7 @@ tags:
 - Inertia
 - TypeScript
 - API
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

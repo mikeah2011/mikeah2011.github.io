@@ -3,13 +3,14 @@
 title: OAuth 2.1 实战：从 OAuth 2.0 到 2.1 的迁移指南——PKCE 强制、隐式流废弃与安全加固
 keywords: [OAuth, PKCE, 的迁移指南, 强制, 隐式流废弃与安全加固]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - OAuth
 - PKCE
 - 安全
 - Laravel
 - api认证
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

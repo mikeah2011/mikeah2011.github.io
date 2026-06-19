@@ -3,13 +3,14 @@
 title: Laravel Action Pattern 实战：用单一职责的 Action 类替代胖 Service 的大型项目重构经验
 keywords: [Laravel Action Pattern, Action, Service, 用单一职责的, 类替代胖, 的大型项目重构经验]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - Laravel
 - action-pattern
 - 设计模式
 - 重构
 - PHP
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

@@ -3,6 +3,7 @@
 title: PHP FFI 实战：调用 C/Rust 共享库——高性能计算与系统调用的跨语言集成
 keywords: [PHP FFI, Rust, 调用, 共享库, 高性能计算与系统调用的跨语言集成]
 date: 2026-06-05 23:23:38
+author: Michael
 tags:
 - PHP
 - FFI
@@ -10,7 +11,7 @@ tags:
 - Rust
 - 高性能
 - 跨语言
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

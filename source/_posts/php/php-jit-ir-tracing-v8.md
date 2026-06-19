@@ -1,9 +1,10 @@
 ---
 title: PHP 8.5 JIT 深度剖析：从 IR 框架到 Tracing JIT——为什么 PHP 的 JIT 不像 V8 那样激进？
 date: 2026-06-05 12:00:00
+author: Michael
 tags: [PHP, JIT, 性能优化, PHP 8.5, IR框架, Tracing JIT, V8, 编译器优化]
 keywords: [PHP, JIT, IR, Tracing JIT, V8, 深度剖析, 框架到, 不像, 那样激进]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

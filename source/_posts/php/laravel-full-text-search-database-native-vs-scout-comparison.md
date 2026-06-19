@@ -3,13 +3,14 @@
 title: Laravel Full-Text Search 实战：不用 Elasticsearch 也能做——数据库原生全文搜索与 Laravel Scout
 keywords: [Laravel Full, Text Search, Elasticsearch, Laravel Scout, 不用, 也能做, 数据库原生全文搜索与]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - Laravel
 - MySQL
 - PostgreSQL
 - 全文搜索
 - Scout
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

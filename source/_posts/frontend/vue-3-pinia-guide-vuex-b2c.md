@@ -3,8 +3,9 @@
 title: Vue 3 + Pinia 状态管理实战-替代 Vuex 的现代方案与 B2C 电商踩坑记录
 keywords: [Vue, Pinia, Vuex, B2C, 状态管理实战, 替代, 的现代方案与, 电商踩坑记录]
 date: 2026-05-16 21:35:11
+author: Michael
 updated: 2026-05-16 21:37:51
-categories:
+categories: [frontend]
 - frontend
 tags:
 - TypeScript

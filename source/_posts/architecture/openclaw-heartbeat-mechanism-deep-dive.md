@@ -3,13 +3,14 @@
 title: OpenClaw 心跳机制深度剖析：主动检查循环、安静时段、去重通知、记忆策展
 keywords: [OpenClaw, 心跳机制深度剖析, 主动检查循环, 安静时段, 去重通知, 记忆策展]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - OpenClaw
 - AI Agent
 - 心跳机制
 - 消息去重
 - 记忆策展
-categories:
+categories: [architecture]
 - 架构
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

@@ -3,7 +3,8 @@
 title: SurrealDB 实战：多模型数据库（文档/图/关系/向量）——Laravel 中的统一数据层新范式与 SQL++ 查询
 keywords: [SurrealDB, Laravel, SQL, 多模型数据库, 文档, 关系, 向量, 中的统一数据层新范式与, 查询, AI]
 date: 2026-06-09 14:00:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

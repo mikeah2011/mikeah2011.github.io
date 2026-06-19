@@ -3,7 +3,8 @@
 title: Laravel Reverb 2.x 实战进阶：水平扩展、Redis Pub/Sub 广播、Presence Channel 的生产级部署架构
 keywords: [Laravel Reverb, Redis Pub, Sub, Presence Channel, 实战进阶, 水平扩展, 广播, 的生产级部署架构]
 date: 2026-06-09 06:18:00
-categories:
+author: Michael
+categories: [php]
 - php
 tags:
 - Reverb

@@ -3,6 +3,7 @@
 title: PHP 8.5 Asymmetric Visibility 实战：只读公开+可写私有的属性设计——Laravel DTO 与 Value Object
 keywords: [PHP, Asymmetric Visibility, Laravel DTO, Value Object, 只读公开, 可写私有的属性设计]
 date: 2026-06-04 14:00:00
+author: Michael
 tags:
 - PHP 8.5
 - asymmetric visibility
@@ -10,7 +11,7 @@ tags:
 - Value Object
 - Laravel
 - 面向对象
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

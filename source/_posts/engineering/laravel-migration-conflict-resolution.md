@@ -2,7 +2,8 @@
 title: 数据库 Schema 冲突治理实战：Laravel Migration 合并冲突检测、顺序依赖分析与团队协作的最佳实践
 keywords: [Schema, Laravel Migration, 数据库, 冲突治理实战, 合并冲突检测, 顺序依赖分析与团队协作的最佳实践, 工程化]
 date: 2026-06-10 07:58:00
-categories:
+author: Michael
+categories: [engineering]
   - engineering
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:

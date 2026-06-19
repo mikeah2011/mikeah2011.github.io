@@ -3,13 +3,14 @@
 title: Technical Debt Quadrant 实战：象限法分类技术债务——Laravel 项目中 reckless/prudent/deliberate/inadvertent
 keywords: [Technical Debt Quadrant, Laravel, reckless, prudent, deliberate, inadvertent, 象限法分类技术债务, 项目中]
 date: 2026-06-06 12:00:00
+author: Michael
 tags:
 - 技术债
 - 架构
 - Laravel
 - 代码质量
 - 工程化
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

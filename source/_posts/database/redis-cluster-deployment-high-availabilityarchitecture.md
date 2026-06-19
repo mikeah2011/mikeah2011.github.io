@@ -3,8 +3,9 @@
 title: Redis Cluster 集群部署与故障转移：高可用架构实战踩坑记录
 keywords: [Redis Cluster, 集群部署与故障转移, 高可用架构实战踩坑记录]
 date: 2026-05-05 07:10:43
+author: Michael
 updated: 2026-05-05 07:13:41
-categories:
+categories: [database]
 - database
 tags:
 - Laravel

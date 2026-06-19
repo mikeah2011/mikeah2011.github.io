@@ -2,7 +2,8 @@
 title: Angular 19+ Signals 实战：Zoneless 变更检测、Resource API 与 SSR——对比 Vue/React 的现代 Angular 复兴
 keywords: [Angular, Signals, Zoneless, Resource API, SSR, Vue, React, 变更检测, 的现代, 复兴]
 date: 2026-06-10 03:37:00
-categories:
+author: Michael
+categories: [frontend]
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

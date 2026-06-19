@@ -1,9 +1,10 @@
 ---
 title: 'PHP GC 深度剖析：循环引用检测、根缓冲区、同步/异步垃圾回收——写时复制与引用计数之外的第三条路'
 date: 2026-06-05 00:00:00
+author: Michael
 tags: [PHP, GC, 内存管理, 垃圾回收, Zend Engine]
 keywords: [PHP GC, 深度剖析, 循环引用检测, 根缓冲区, 同步, 异步垃圾回收, 写时复制与引用计数之外的第三条路, PHP]
-categories:
+categories: [php]
   - php
 description: 'PHP垃圾回收(GC)机制深度剖析：从引用计数、写时复制到循环引用检测的三重内存管理策略。详解zval结构、根缓冲区、同步/异步GC触发条件，对比Go/Java/Python GC设计，附Laravel队列Worker内存泄漏排查实战与gc_collect_cycles()性能调优指南，助你彻底理解PHP内存管理底层原理。'
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

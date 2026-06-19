@@ -1,9 +1,10 @@
 ---
 title: 'Dependency Injection 容器深度对比：Laravel Container vs Symfony DI vs PHP-DI 的设计哲学'
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [PHP, 依赖注入, Laravel, Symfony, PHP-DI, 设计模式, 架构]
 keywords: [Dependency Injection, Laravel Container vs Symfony DI vs PHP, DI, 容器深度对比, 的设计哲学, PHP]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

@@ -1,9 +1,10 @@
 ---
 title: Supabase 实战：开源 Firebase 替代——实时数据库、Auth、Edge Functions 与 Laravel B2C 集成
 date: 2026-06-03 10:00:00
+author: Michael
 tags: [Supabase, Firebase, PostgreSQL, Realtime, Auth, Laravel]
 keywords: [Supabase, Firebase, Auth, Edge Functions, Laravel B2C, 开源, 替代, 实时数据库, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

@@ -1,8 +1,9 @@
 ---
 title: OpenAI Codex CLI 实战：自动化代码生成与重构踩坑记录
 date: 2026-05-17 05:45:09
+author: Michael
 updated: 2026-05-17 05:47:02
-categories:
+categories: [macos]
   - macos
   - tools
 tags: [AI, Laravel, OpenAI, Codex, CLI]

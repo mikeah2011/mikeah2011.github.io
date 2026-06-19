@@ -1,9 +1,10 @@
 ---
 title: OpenClaw 微信集成深度剖析：iLink 协议、bot token 认证与 X-WECHAT-UIN 头部机制
 date: 2026-06-02 07:22:45
+author: Michael
 tags: [OpenClaw, 微信, iLink, 即时通讯, AI Agent]
 keywords: [OpenClaw, iLink, bot token, WECHAT, UIN, 微信集成深度剖析, 协议, 认证与, 头部机制, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

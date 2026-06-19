@@ -3,7 +3,8 @@
 title: Hexo 博客工程化实战：GitHub Actions 自动部署、AI 辅助选题、SEO 优化、阅读量分析——从手动写作到自动化内容工厂的演进
 keywords: [Hexo, GitHub Actions, AI, SEO, 博客工程化实战, 自动部署, 辅助选题, 阅读量分析, 从手动写作到自动化内容工厂的演进, DevOps]
 date: 2026-06-10 03:18:00
-categories:
+author: Michael
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

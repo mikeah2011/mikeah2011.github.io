@@ -2,7 +2,8 @@
 title: PHP Fibers vs Async PHP 2026 生态全景：Fibers/AMPHP v4/ReactPHP v4/Swoole 6 的性能基准与选型决策树
 keywords: [PHP Fibers vs Async PHP, Fibers, AMPHP v4, ReactPHP v4, Swoole, 生态全景, 的性能基准与选型决策树, PHP]
 date: 2026-06-09 13:48:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

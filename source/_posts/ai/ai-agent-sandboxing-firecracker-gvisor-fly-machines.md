@@ -2,7 +2,8 @@
 title: AI Agent Sandboxing 实战：Firecracker/gVisor/Fly.io Machines——Agent 代码执行的微虚拟机隔离与资源配额治理
 keywords: [AI Agent Sandboxing, Firecracker, gVisor, Fly.io Machines, Agent, 代码执行的微虚拟机隔离与资源配额治理, AI]
 date: 2026-06-09 17:34:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

@@ -2,7 +2,8 @@
 title: Laravel API Response 嵌入式资源实战：嵌套 Resource、条件加载与稀疏字段集
 keywords: [Laravel API Response, Resource, 嵌入式资源实战, 嵌套, 条件加载与稀疏字段集, PHP]
 date: 2026-06-10 06:30:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

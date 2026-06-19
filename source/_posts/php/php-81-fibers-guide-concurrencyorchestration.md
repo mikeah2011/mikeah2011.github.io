@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-16 16:51:25
+author: Michael
 updated: 2026-05-16 16:57:14
-categories:
+categories: [php]
 - php
 - runtime
 tags:

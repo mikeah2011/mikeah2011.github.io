@@ -2,7 +2,8 @@
 
 title: 对象存储实战：文件上传、CDN 加速与权限控制的架构设计与 Laravel 落地踩坑记录
 date: 2026-06-01 16:00:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
   - 云服务
   - php

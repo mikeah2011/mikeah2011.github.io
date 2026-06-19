@@ -3,6 +3,7 @@
 title: OpenTelemetry Baggage 实战：跨服务上下文传播——分布式追踪中的业务标签透传与采样策略
 keywords: [OpenTelemetry Baggage, 跨服务上下文传播, 分布式追踪中的业务标签透传与采样策略]
 date: 2026-06-03 00:00:00
+author: Michael
 tags:
 - OpenTelemetry
 - Baggage
@@ -11,7 +12,7 @@ tags:
 - 可观测性
 - 微服务
 - 链路追踪
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

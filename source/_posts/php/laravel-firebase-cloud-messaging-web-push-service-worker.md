@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-05 01:31:05
+author: Michael
 updated: 2026-05-05 01:37:02
-categories:
+categories: [php]
   - php
 tags: [KKday, Laravel, 前端]
 keywords: [Laravel, Firebase, Cloud, Messaging, Web, Push, Service, Worker, 推送通知实战, PHP]

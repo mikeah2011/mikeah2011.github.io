@@ -3,6 +3,7 @@
 title: Python asyncio 深度实战：事件循环、协程调度与 aiohttp——PHP Fibers 开发者的异步编程对比
 keywords: [Python asyncio, aiohttp, PHP Fibers, 深度实战, 事件循环, 协程调度与, 开发者的异步编程对比]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - Python
 - asyncio
@@ -11,7 +12,7 @@ tags:
 - PHP Fibers
 - 异步编程
 - 事件循环
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

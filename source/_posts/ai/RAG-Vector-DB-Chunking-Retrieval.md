@@ -3,13 +3,14 @@
 title: RAG 系统实战：向量数据库选型、Chunking 策略、检索优化
 keywords: [RAG, Chunking, 系统实战, 向量数据库选型, 策略, 检索优化]
 date: 2026-06-02 02:31:05
+author: Michael
 tags:
 - RAG
 - 数据库
 - Chunking
 - 检索优化
 - Embedding
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

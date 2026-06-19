@@ -7,7 +7,8 @@ images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/ai-assistant.jpg
 title: Hermes Agent 实战：多平台 AI 助手配置与使用——从零搭建个人 AI 工作流踩坑记录
 date: 2026-05-23 10:00:00
-categories:
+author: Michael
+categories: [macos]
 - macos
 - tools
 tags:

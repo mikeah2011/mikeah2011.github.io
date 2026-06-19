@@ -3,7 +3,8 @@
 title: RAG System Anti-Patterns 实战：Chunking 陷阱、幻觉传播、检索质量下降、向量漂移——10 个常见错误与系统性修复方案
 keywords: [RAG System Anti, Patterns, Chunking, 陷阱, 幻觉传播, 检索质量下降, 向量漂移, 个常见错误与系统性修复方案, AI]
 date: 2026-06-10 09:21:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

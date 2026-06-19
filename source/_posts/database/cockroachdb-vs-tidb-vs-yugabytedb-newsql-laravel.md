@@ -3,6 +3,7 @@
 title: CockroachDB vs TiDB vs YugabyteDB 实战：三大分布式 SQL 数据库深度对比——Laravel 中的 NewSQL 选型决策与性能基准
 keywords: [CockroachDB vs TiDB vs YugabyteDB, SQL, Laravel, NewSQL, 三大分布式, 数据库深度对比, 中的, 选型决策与性能基准]
 date: 2026-06-07 10:00:00
+author: Michael
 tags:
 - cockroachdb
 - TiDB
@@ -11,7 +12,7 @@ tags:
 - 数据库
 - Laravel
 description: 深度对比 CockroachDB、TiDB、YugabyteDB 三大 NewSQL 分布式数据库在 Laravel 项目中的实战选型指南。涵盖架构原理、MySQL 兼容性、分布式事务、性能基准测试、Eloquent ORM 集成、迁移踩坑记录与运维最佳实践，帮助 Laravel 开发者从 MySQL 平滑迁移到分布式数据库，彻底告别分库分表的运维噩梦。
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

@@ -1,6 +1,7 @@
 ---
 title: OpenClaw 多模型路由实战：SambaNova/Mistral/Copilot/DeepSeek/Moonshot 选型与降级
 date: 2026-06-02 00:00:00
+author: Michael
 tags: [OpenClaw, AI Agent, 多模型路由, 降级策略, LLM]
 keywords: [OpenClaw, SambaNova, Mistral, Copilot, DeepSeek, Moonshot, 多模型路由实战, 选型与降级, AI]
 categories: [ai]

@@ -3,7 +3,8 @@
 title: Playwright Component Testing 实战：Vue 3 组件的浏览器级测试——对比 Vitest jsdom 的真实渲染与交互验证
 keywords: [Playwright Component Testing, Vue, Vitest jsdom, 组件的浏览器级测试, 的真实渲染与交互验证, 前端]
 date: 2026-06-10 05:46:00
-categories:
+author: Michael
+categories: [frontend]
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

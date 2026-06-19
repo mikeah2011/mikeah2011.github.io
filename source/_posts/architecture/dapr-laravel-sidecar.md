@@ -3,6 +3,7 @@
 title: Dapr 实战：分布式应用运行时——Laravel 微服务的 Sidecar 模式、服务调用与发布订阅
 keywords: [Dapr, Laravel, Sidecar, 分布式应用运行时, 微服务的, 服务调用与发布订阅]
 date: 2026-06-04 09:00:01
+author: Michael
 tags:
 - dapr
 - 微服务
@@ -10,7 +11,7 @@ tags:
 - Laravel
 - 服务网格
 - 发布订阅
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

@@ -3,6 +3,7 @@
 title: Git Hooks 深度实战：Husky/lint-staged/lefthook 选型——代码风格、提交规范与 CI 门禁的自动化治理
 keywords: [Git Hooks, Husky, lint, staged, lefthook, CI, 深度实战, 代码风格, 提交规范与, 门禁的自动化治理]
 date: 2026-06-06 12:00:00
+author: Michael
 tags:
 - Git
 - husky
@@ -10,7 +11,7 @@ tags:
 - lefthook
 - 代码规范
 - CI/CD
-categories:
+categories: [devops]
 - devops
 description: 深入对比 Git Hooks 管理工具 Husky、lint-staged 与 lefthook 的原理、配置与性能差异，涵盖代码规范自动化、Conventional Commits 提交校验、CI/CD 门禁策略及实战踩坑，帮助团队选型并建立从客户端钩子到流水线的完整代码质量治理体系。
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

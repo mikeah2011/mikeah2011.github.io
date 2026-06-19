@@ -1,7 +1,8 @@
 ---
 title: 订单退款系统架构设计：多通道退款、部分退款、退款状态机、财务对账——Laravel B2C 的退款引擎设计
 date: 2026-06-09 22:58:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 keywords: [Laravel B2C, 订单退款系统架构设计, 多通道退款, 部分退款, 退款状态机, 财务对账, 的退款引擎设计, 架构]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

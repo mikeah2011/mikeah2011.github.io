@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-03 08:40:00
-categories:
+author: Michael
+categories: [php]
   - php
 tags: [BFF, Laravel, 微服务, gRPC, Proto, 性能优化]
 keywords: [Laravel, gRPC, Proto, Deadline, 微服务通信实战, 定义, 透传与连接复用踩坑记录, PHP]

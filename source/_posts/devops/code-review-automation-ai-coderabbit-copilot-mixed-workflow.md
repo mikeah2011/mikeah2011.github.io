@@ -3,7 +3,8 @@
 title: Code Review Automation 2026 实战：AI PR Review + 人工确认的混合工作流——CodeRabbit/GitHub
 keywords: [Code Review Automation, AI PR Review, CodeRabbit, GitHub, 人工确认的混合工作流, DevOps]
 date: 2026-06-09 14:54:00
-categories:
+author: Michael
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

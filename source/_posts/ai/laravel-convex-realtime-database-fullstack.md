@@ -3,7 +3,8 @@
 title: Laravel + Convex 实战：实时数据库驱动的全栈应用——对比 Supabase/Firebase 的响应式数据层
 keywords: [Laravel, Convex, Supabase, Firebase, 实时数据库驱动的全栈应用, 的响应式数据层]
 date: 2026-06-09 06:44:00
-categories:
+author: Michael
+categories: [ai]
 - ai
 tags:
 - Laravel

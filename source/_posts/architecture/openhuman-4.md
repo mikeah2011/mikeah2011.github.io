@@ -3,13 +3,14 @@
 title: OpenHuman 知识图谱构建实战：实体索引、关系提取与力导向可视化
 keywords: [OpenHuman, 知识图谱构建实战, 实体索引, 关系提取与力导向可视化]
 date: 2026-06-02 07:22:45
+author: Michael
 tags:
 - OpenHuman
 - AI Agent
 - 知识图谱
 - NLP
 - 可视化
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

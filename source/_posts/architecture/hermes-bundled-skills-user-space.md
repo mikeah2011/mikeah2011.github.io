@@ -1,9 +1,10 @@
 ---
 title: Hermes 技能同步机制：bundled skills → user space 的增量同步与用户修改保留策略
 date: 2026-06-02 00:00:00
+author: Michael
 tags: [Hermes, Skills, 同步机制, AI Agent, 版本管理]
 keywords: [Hermes, bundled skills, user space, 技能同步机制, 的增量同步与用户修改保留策略, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

@@ -1,9 +1,10 @@
 ---
 title: Flutter 测试实战：Unit/Widget/Integration 三层测试体系
 date: 2026-06-01 10:00:00
+author: Michael
 tags: [Flutter, 测试, Unit Test, Widget Test, Integration Test]
 keywords: [Flutter, Unit, Widget, Integration, 测试实战, 三层测试体系, 移动端]
-categories:
+categories: [mobile]
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:

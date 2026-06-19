@@ -2,7 +2,8 @@
 title: HTTP Server-Sent Events 进阶实战：EventSource API 的重连、Last-Event-ID、数据恢复——Laravel 流式推送的可靠性保障
 keywords: [HTTP Server, Sent Events, EventSource API, Last, Event, ID, Laravel, 进阶实战, 的重连, 数据恢复]
 date: 2026-06-09 17:09:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

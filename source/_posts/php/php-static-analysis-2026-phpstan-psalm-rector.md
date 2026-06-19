@@ -2,6 +2,7 @@
 
 title: 'PHP Static Analysis 2026 选型：PHPStan 2.x vs Psalm vs Rector——泛型推断、条件返回类型与类型体操的三工具联动'
 date: 2026-06-09 17:59:00
+author: Michael
 tags: [PHP, PHPStan, Psalm, Rector, Static Analysis, 泛型, 类型推断, 代码质量, Laravel]
 keywords: [PHP, PHPStan, Psalm, Rector, Static Analysis, Static, Analysis]
 description: PHP静态分析工具2026选型实战：PHPStan 2.x泛型推断引擎、Psalm类型体操、Rector自动化重构三工具联动，覆盖Laravel项目中的条件返回类型、泛型推断、代码质量防线配置。

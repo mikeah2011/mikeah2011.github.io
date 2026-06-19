@@ -1,6 +1,7 @@
 ---
 title: CrewAI 实战：多角色 Agent 协作与任务分解策略
 date: 2026-06-02 09:00:00
+author: Michael
 tags: [CrewAI, AI Agent, 多角色协作, Python]
 keywords: [CrewAI, Agent, 多角色, 协作与任务分解策略, AI]
 categories: [ai]

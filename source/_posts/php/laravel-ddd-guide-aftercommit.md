@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-03 09:10:00
-categories:
+author: Michael
+categories: [php]
   - php
 tags: [Laravel, 架构, DDD, 领域驱动设计, 设计模式, 聚合根, 值对象, 领域事件, afterCommit]
 keywords: [Laravel DDD, afterCommit, 优惠券核销的聚合边界, 值对象与, 领域事件, PHP]

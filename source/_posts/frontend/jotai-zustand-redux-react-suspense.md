@@ -3,13 +3,14 @@
 title: Jotai 实战：原子化状态管理——对比 Zustand/Redux 的细粒度响应式与 React Suspense 集成
 keywords: [Jotai, Zustand, Redux, React Suspense, 原子化状态管理, 的细粒度响应式与]
 date: 2026-06-05 12:00:00
+author: Michael
 tags:
 - jotai
 - React
 - 状态管理
 - 前端
 - zustand
-categories:
+categories: [frontend]
 - frontend
 description: 深入讲解 Jotai 原子化状态管理的核心 API（atom、derived atom、atomFamily、atomWithStorage），系统对比 Jotai vs Zustand vs Redux Toolkit 在响应粒度、模板代码、Suspense 集成上的本质差异，涵盖表单管理、多层筛选、跨组件共享等实战场景与性能优化策略，帮助前端开发者做出最佳状态管理选型。
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

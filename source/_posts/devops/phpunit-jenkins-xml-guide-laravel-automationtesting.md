@@ -5,8 +5,9 @@ cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-05 02:00:14
+author: Michael
 updated: 2026-05-05 02:02:25
-categories:
+categories: [devops]
   - devops
   - cicd
 keywords: [phpunit.jenkins.xml, Laravel, 项目自动化测试流水线配置]

@@ -1,6 +1,7 @@
 ---
 title: 'LLM Speculative Decoding 实战：投机采样加速推理——本地模型部署的延迟优化与 Laravel 流式响应集成'
 date: 2026-06-07 10:00:00
+author: Michael
 tags: [LLM, Speculative Decoding, 推理优化, vLLM, Laravel, 流式响应]
 keywords: [LLM Speculative Decoding, Laravel, 投机采样加速推理, 本地模型部署的延迟优化与, 流式响应集成, AI]
 categories: [ai]

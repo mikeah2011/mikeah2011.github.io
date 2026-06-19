@@ -3,7 +3,8 @@
 title: AI Agent Memory 实战：对话记忆的五种工程实现——Buffer/Summary/Vector/Entity/Hybrid 策略的 Token
 keywords: [AI Agent Memory, Buffer, Summary, Vector, Entity, Hybrid, Token, 对话记忆的五种工程实现, 策略的, AI]
 date: 2026-06-10 08:06:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

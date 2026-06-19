@@ -3,6 +3,7 @@
 title: Edge-Side Rendering 实战：Cloudflare Workers + Hono 在边缘渲染动态页面——对比 SSR/SSG/ISR
 keywords: [Edge, Side Rendering, Cloudflare Workers, Hono, SSR, SSG, ISR, 在边缘渲染动态页面]
 date: 2026-06-03 09:00:00
+author: Michael
 tags:
 - edge-rendering
 - Cloudflare Workers
@@ -12,7 +13,7 @@ tags:
 - ISR
 - edge-computing
 - Serverless
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

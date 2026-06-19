@@ -3,7 +3,8 @@
 title: SingleStore 实战：分布式 SQL + 实时分析——Laravel 中的 HTAP 架构与 MySQL 兼容层
 keywords: [SingleStore, SQL, Laravel, HTAP, MySQL, 分布式, 实时分析, 中的, 架构与, 兼容层]
 date: 2026-06-09 14:22:00
-categories:
+author: Michael
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

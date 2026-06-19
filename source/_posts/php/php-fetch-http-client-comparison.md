@@ -3,6 +3,7 @@
 title: PHP fetch() 实战：用 fetch-php 打造 JavaScript 风格的 HTTP 客户端——对比 cURL/Guzzle/Laravel
 keywords: [PHP fetch, fetch, php, JavaScript, HTTP, cURL, Guzzle, Laravel, 打造, 风格的]
 date: 2026-06-10 08:00:00
+author: Michael
 tags:
 - PHP
 - fetch-php
@@ -11,7 +12,7 @@ tags:
 - Laravel
 - curl
 - 异步编程
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

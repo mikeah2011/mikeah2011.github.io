@@ -4,9 +4,10 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-05 09:45:41
+author: Michael
 updated: 2026-05-05 09:48:50
 tags: [Git, Laravel, 代码质量, 工程管理]
-categories:
+categories: [engineering]
   - engineering
   - process
 description: "在 KKday B2C Backend Team 的 30+ 仓库实战中，我们从「有 CR 就行」进化到「CR 驱动代码质量」的完整经历：如何设计 CR 流程、选择工具链、制定 checklist、培养团队 CR 文化，以及真实踩过的坑。这不是概念介绍，是从混乱到标准化的全过程记录。"

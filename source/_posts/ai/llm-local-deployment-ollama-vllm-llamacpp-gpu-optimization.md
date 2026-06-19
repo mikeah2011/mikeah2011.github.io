@@ -3,6 +3,7 @@
 title: LLM 本地部署实战：Ollama/vLLM/llama.cpp 选型与 GPU 优化
 keywords: [LLM, Ollama, vLLM, llama.cpp, GPU, 本地部署实战, 选型与]
 date: 2026-06-02 03:00:00
+author: Michael
 tags:
 - LLM
 - Ollama
@@ -10,7 +11,7 @@ tags:
 - llama.cpp
 - GPU优化
 - 本地部署
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

@@ -1,8 +1,9 @@
 ---
 title: "AWS EC2 实战：实例管理、安全组与自动扩展——Laravel B2C API 部署踩坑记录"
 date: 2026-05-17 01:55:35
+author: Michael
 updated: 2026-05-17 02:02:35
-categories:
+categories: [architecture]
   - architecture
   - aws
 tags: [AWS, DevOps, KKday, Kubernetes, Laravel, 架构]

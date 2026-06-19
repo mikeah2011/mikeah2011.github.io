@@ -10,10 +10,11 @@ tags:
 - K8s
 - 容器编排
 - DevOps
-categories:
+categories: [devops]
 - devops
 - kubernetes
 date: 2021-03-20 10:23:13
+author: Michael
 description: 本文系统整理 Kubernetes 常用 kubectl 命令，涵盖 Pod、Deployment、Service 的创建与管理、ConfigMap/Secret 配置、HPA 自动扩缩容、资源限制及故障排查技巧，适合 K8s 入门与日常运维参考。
 ---
 

@@ -3,6 +3,7 @@
 title: SQLite + Laravel 嵌入式应用实战：WAL 模式、FTS5 全文搜索、本地优先架构
 keywords: [SQLite, Laravel, WAL, FTS5, 嵌入式应用实战, 全文搜索, 本地优先架构]
 date: 2026-06-06 02:08:57
+author: Michael
 tags:
 - SQLite
 - Laravel
@@ -10,7 +11,7 @@ tags:
 - FTS5
 - 数据库
 - 本地优先
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

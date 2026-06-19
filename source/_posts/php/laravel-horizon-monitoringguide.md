@@ -4,11 +4,12 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-04 23:16:04
+author: Michael
 description: "深入讲解 Laravel Horizon 队列监控的生产环境实战经验，涵盖 Redis 驱动的多队列优先级设计与任务调度策略、Prometheus 指标采集与 Grafana 告警集成、Worker 假死检测与自动恢复、K8s 部署冲突排查，帮助你在高并发场景下实现 Queue 性能优化与稳定运维。"
 updated: 2026-05-04 23:17:57
 tags: [Laravel, Redis, 消息队列, 监控]
 keywords: [Laravel, Horizon, 队列监控与生产环境运维实战, 多队列优先级, 指标采集与自动恢复踩坑记录, 技术杂谈, PHP]
-categories:
+categories: [php]
   - misc
   - php
 

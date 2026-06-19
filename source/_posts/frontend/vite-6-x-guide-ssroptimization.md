@@ -6,8 +6,9 @@ images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 title: Vite 6.x 实战：插件开发、SSR、构建优化——前端工程化踩坑记录
 date: 2026-05-17 02:30:32
+author: Michael
 updated: 2026-05-17 02:32:33
-categories:
+categories: [frontend]
 - frontend
 tags:
 - Vite

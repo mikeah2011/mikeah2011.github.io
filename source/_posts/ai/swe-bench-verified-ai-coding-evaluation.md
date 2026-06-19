@@ -3,7 +3,8 @@
 title: SWE-bench Verified 评测实战：AI 编程助手的真实能力边界——从 GitHub Issue 到 PR 的自动化软件工程度量
 keywords: [SWE, bench Verified, AI, GitHub Issue, PR, 评测实战, 编程助手的真实能力边界, 的自动化软件工程度量]
 date: 2026-06-09 14:57:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

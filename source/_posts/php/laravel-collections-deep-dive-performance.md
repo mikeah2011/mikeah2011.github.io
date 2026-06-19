@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-05 11:05:15
+author: Michael
 updated: 2026-05-05 11:11:31
-categories:
+categories: [php]
   - php
 tags: [Laravel, PHP, Collection, 性能优化, 数据处理]
 keywords: [Laravel, Collections, 深度实战, 数据处理管道与性能优化踩坑记录, PHP]

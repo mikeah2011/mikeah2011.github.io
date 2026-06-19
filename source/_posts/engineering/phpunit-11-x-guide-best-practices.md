@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-17 01:10:23
+author: Michael
 updated: 2026-05-17 01:14:29
-categories:
+categories: [engineering]
 - php
 tags:
 - PHPUnit

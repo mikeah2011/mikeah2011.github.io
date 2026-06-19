@@ -1,6 +1,7 @@
 ---
 title: Apache Pulsar 实战：多租户消息系统与 Laravel 集成——对比 Kafka 的下一代事件流平台
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [Apache-Pulsar, Kafka, Laravel, 消息队列, 多租户, 事件流]
 keywords: [Apache Pulsar, Laravel, Kafka, 多租户消息系统与, 的下一代事件流平台, 消息队列]
 categories: [mq]

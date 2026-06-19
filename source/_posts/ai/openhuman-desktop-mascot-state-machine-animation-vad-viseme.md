@@ -1,6 +1,7 @@
 ---
 title: OpenHuman 桌面吉祥物架构：状态机驱动的动画、VAD 语音捕获、viseme 口型同步
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [OpenHuman, 桌面应用, 状态机, VAD, viseme, 动画系统]
 keywords: [OpenHuman, VAD, viseme, 桌面吉祥物架构, 状态机驱动的动画, 语音捕获, 口型同步, AI]
 categories: [ai]

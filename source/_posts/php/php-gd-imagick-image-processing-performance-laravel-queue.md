@@ -2,7 +2,8 @@
 title: PHP GD/Imagick 实战：服务端图片处理——缩放/裁剪/水印/WebP 转换的性能对比与 Laravel 队列化方案
 keywords: [PHP GD, Imagick, WebP, Laravel, 服务端图片处理, 缩放, 裁剪, 水印, 转换的性能对比与, 队列化方案]
 date: 2026-06-10 04:30:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

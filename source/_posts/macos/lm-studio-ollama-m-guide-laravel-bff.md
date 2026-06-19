@@ -7,7 +7,8 @@ images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/local-llm.jpg
 title: LM Studio + Ollama：M 芯片 Mac 上的本地大模型实战（Laravel BFF 开发者视角）
 date: 2026-05-24 10:00:00
-categories:
+author: Michael
+categories: [macos]
 - macos
 - php
 tags:

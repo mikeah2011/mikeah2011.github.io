@@ -1,6 +1,7 @@
 ---
 title: OpenHuman 模型路由架构：hint:reasoning/fast/vision/summarize 任务驱动路由策略
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [OpenHuman, 模型路由, AI Agent, 架构设计, 任务调度]
 keywords: [OpenHuman, hint, reasoning, fast, vision, summarize, 模型路由架构, 任务驱动路由策略, AI]
 categories: [ai]

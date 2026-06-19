@@ -3,6 +3,7 @@
 title: PHP Opcode 深度剖析：Zend VM 指令集、编译阶段与运行时执行——从源码理解 include/require 的性能差异
 keywords: [PHP Opcode, Zend VM, include, require, 深度剖析, 指令集, 编译阶段与运行时执行, 从源码理解, 的性能差异]
 date: 2026-06-06 12:00:00
+author: Michael
 tags:
 - PHP
 - opcode
@@ -10,7 +11,7 @@ tags:
 - 性能优化
 - 编译原理
 description: 深入 Zend VM 源码，从词法分析、语法分析到 Opcode 执行全链路剖析 PHP 编译机制。对比 include/require/include_once/require_once 四兄弟在指令集层面的性能差异，结合 opcache 缓存策略、JIT 编译器调优与 Laravel 生产环境实战，帮助开发者彻底掌握 Opcode 级别的底层性能调优方法。
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

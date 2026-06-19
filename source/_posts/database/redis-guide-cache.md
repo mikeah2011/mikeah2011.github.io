@@ -3,7 +3,8 @@
 title: Redis 实战：缓存失效场景深度解析 - KKday B2C API 真实踩坑记录
 keywords: [Redis, KKday B2C API, 缓存失效场景深度解析, 真实踩坑记录]
 date: 2026-05-03
-categories:
+author: Michael
+categories: [database]
 - database
 tags:
 - Laravel

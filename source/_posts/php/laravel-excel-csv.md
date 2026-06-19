@@ -1,7 +1,8 @@
 ---
 title: Laravel 数据导入导出实战：Excel/CSV 大文件处理与队列化踩坑记录
 date: 2026-06-01
-categories:
+author: Michael
+categories: [php]
   - php
 tags: [Laravel, Excel, CSV, Maatwebsite, PhpSpreadsheet, 队列, 性能优化]
 keywords: [Laravel, Excel, CSV, 数据导入导出实战, 大文件处理与队列化踩坑记录, PHP]

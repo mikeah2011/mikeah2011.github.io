@@ -1,9 +1,10 @@
 ---
 title: 'AsyncAPI 实战：事件驱动架构的 API 规范——Laravel 微服务中的事件文档化、Mock 与代码生成'
 date: 2026-06-04 11:00:00
+author: Michael
 tags: [AsyncAPI, 事件驱动, 微服务, Laravel, 消息队列, API规范]
 keywords: [AsyncAPI, API, Laravel, Mock, 事件驱动架构的, 规范, 微服务中的事件文档化, 与代码生成, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

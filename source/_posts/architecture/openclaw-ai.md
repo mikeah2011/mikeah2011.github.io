@@ -3,13 +3,14 @@
 title: OpenClaw + 微信实战：个人 AI 助手接入微信私聊与群聊
 keywords: [OpenClaw, AI, 微信实战, 个人, 助手接入微信私聊与群聊]
 date: 2026-06-02 09:00:00
+author: Michael
 tags:
 - OpenClaw
 - AI Agent
 - 微信
 - 聊天机器人
 - 自动化
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

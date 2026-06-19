@@ -1,6 +1,7 @@
 ---
 title: OpenHuman 源适配器架构：Gmail/Slack/GitHub 数据摄入 → 规范化 → 分块 → 记忆树的完整管道
 date: 2026-06-02 00:00:00
+author: Michael
 tags: [OpenHuman, 数据管道, Gmail, Slack, GitHub, AI Agent, 记忆系统]
 keywords: [OpenHuman, Gmail, Slack, GitHub, 源适配器架构, 数据摄入, 规范化, 分块, 记忆树的完整管道, AI]
 categories: [ai]

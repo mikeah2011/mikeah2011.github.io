@@ -3,8 +3,9 @@
 title: PHP 8.5 Fiber 调度器深度实战：手动调度 vs 自动让出——从 yield 到 Fibers 的协程演化与 Swoole 协程对比
 keywords: [PHP, Fiber, yield, Fibers, Swoole, 调度器深度实战, 手动调度, 自动让出, 的协程演化与, 协程对比]
 date: 2026-06-09 06:15:00
+author: Michael
 updated: 2026-06-09 07:25:00
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

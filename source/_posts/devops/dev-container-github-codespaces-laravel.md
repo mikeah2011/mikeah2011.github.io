@@ -3,13 +3,14 @@
 title: Dev Container + GitHub Codespaces 实战：云端开发环境——Laravel 项目的一键环境搭建与跨设备无缝切换
 keywords: [Dev Container, GitHub Codespaces, Laravel, 云端开发环境, 项目的一键环境搭建与跨设备无缝切换]
 date: 2026-06-07 16:24:45
+author: Michael
 tags:
 - Dev Container
 - GitHub Codespaces
 - Docker
 - Laravel
 - 云端开发
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

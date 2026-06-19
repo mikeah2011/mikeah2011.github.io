@@ -4,10 +4,11 @@ cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-16 22:45:13
+author: Michael
 updated: 2026-05-16 22:48:11
 tags: [DevOps, Docker, Kubernetes, Laravel]
 keywords: [Docker, Volume, NFS, Laravel, 数据持久化备份恢复与, 挂载, 踩坑记录, DevOps]
-categories:
+categories: [devops]
   - devops
   - docker
 description: 从本地开发到生产部署，Docker Volume 是数据持久化的核心基础设施。本文基于 KKday B2C 真实场景，深入实战 bind mount、named volume、tmpfs、NFS 挂载的选型与踩坑，覆盖 MySQL/Redis/文件存储的数据备份恢复策略，以及多节点共享存储的高可用方案。

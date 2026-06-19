@@ -1,8 +1,9 @@
 ---
 title: Prometheus + Grafana 实战：Laravel 应用监控——指标采集、告警与可视化踩坑记录
 date: 2026-05-17 00:20:31
+author: Michael
 updated: 2026-05-17 00:24:20
-categories:
+categories: [architecture]
   - architecture
   - php
 tags: [Laravel, 监控, Prometheus, Grafana, RED方法, USE方法, AlertManager, PHP-FPM, 微服务, 可观测性]

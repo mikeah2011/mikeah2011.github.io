@@ -3,8 +3,9 @@
 title: Redis-Geo-实战-地理位置服务与附近的人店功能-Laravel-B2C-API踩坑记录
 keywords: [Redis, Geo, Laravel, B2C, API, 地理位置服务与附近的人店功能, 踩坑记录]
 date: 2026-05-16 15:05:58
+author: Michael
 updated: 2026-05-16 15:09:40
-categories:
+categories: [database]
 - database
 tags:
 - Laravel

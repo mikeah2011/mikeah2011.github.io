@@ -1,10 +1,11 @@
 ---
 title: Laravel 加密架构实战：应用层加密 vs 数据库透明加密（TDE）的选型与合规边界
 date: 2026-06-02 00:00:00
+author: Michael
 tags: [Laravel, 加密, TDE, 安全, 合规]
 keywords: [Laravel, TDE, 加密架构实战, 应用层加密, 数据库透明加密, 的选型与合规边界, PHP]
 description: "全面解析 Laravel 加密架构选型：应用层加密 vs 数据库透明加密（TDE）的深度对比与合规边界分析。涵盖 AES-256-GCM 认证加密实现、自定义 Cast 字段级加密、HMAC 索引列解决加密字段搜索难题、MySQL TDE 配置实战、AWS KMS 密钥管理集成、密钥轮换策略，以及 PCI DSS/GDPR/等保 2.0 对加密方案的具体要求。附带真实踩坑记录（加密后模糊查询失效、密钥轮换期间数据不可读）和混合加密架构设计方案，适合需要数据安全合规的 Laravel 企业级项目参考。"
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

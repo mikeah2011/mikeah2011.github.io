@@ -10,9 +10,10 @@ tags:
 - TCP
 - 网络协议
 - Socket
-categories:
+categories: [network]
   - network
 date: 2016-03-20 15:05:07
+author: Michael
 description: 全面解析UDP和TCP网络协议的核心差异与应用场景。深入介绍UDP无连接、面向报文的特性，对比TCP的可靠传输机制（三次握手、四次挥手），涵盖UDP首部格式、Socket编程实战（PHP代码示例）、DNS查询/视频直播/在线游戏等典型应用，以及QUIC协议、应用层ACK等UDP可靠传输实现思路和网络编程常见踩坑。
 ---
 

@@ -3,13 +3,14 @@
 title: Laravel Pennant 2.x 进阶实战：自定义 Driver、Feature 分组与租户级灰度策略——多租户 SaaS 的功能开关治理
 keywords: [Laravel Pennant, Driver, Feature, SaaS, 进阶实战, 自定义, 分组与租户级灰度策略, 多租户, 的功能开关治理]
 date: 2026-06-05 10:00:00
+author: Michael
 tags:
 - Pennant
 - Feature Flags
 - 灰度发布
 - 多租户
 - SaaS
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

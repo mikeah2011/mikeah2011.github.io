@@ -3,6 +3,7 @@
 title: Supply Chain Security 实战：npm audit + composer audit + SLSA 框架——Laravel 全栈项目的供应链安全治理与
 keywords: [Supply Chain Security, npm audit, composer audit, SLSA, Laravel, 全栈项目的供应链安全治理与]
 date: 2026-06-06 18:00:00
+author: Michael
 tags:
 - 供应链安全
 - SLSA
@@ -11,7 +12,7 @@ tags:
 - CI/CD
 - Laravel
 - 安全
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

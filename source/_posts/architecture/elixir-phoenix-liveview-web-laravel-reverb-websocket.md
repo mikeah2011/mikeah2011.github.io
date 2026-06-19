@@ -3,6 +3,7 @@
 title: Elixir + Phoenix LiveView 实战：函数式语言做实时 Web——对比 Laravel Reverb 与 WebSocket 的开发体验
 keywords: [Elixir, Phoenix LiveView, Web, Laravel Reverb, WebSocket, 函数式语言做实时, 的开发体验]
 date: 2026-06-03 01:12:12
+author: Michael
 tags:
 - Elixir
 - Phoenix
@@ -10,7 +11,7 @@ tags:
 - 实时Web
 - Reverb
 - WebSocket
-categories:
+categories: [architecture]
 - architecture
 description: 从 Elixir 语言基础到 Phoenix LiveView 实战，深入讲解服务端渲染 + WebSocket diff patch 的实时 Web 开发范式。通过聊天室和仪表盘两个实战项目，对比 LiveView、React Server Components、Laravel Reverb 和 Socket.IO 的架构差异、开发体验与性能表现，帮助开发者选型实时 Web 技术栈。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -2,7 +2,8 @@
 title: "Laravel Deferred Provider 实战：按需加载 Service Provider——大型应用冷启动时间的极致优化"
 keywords: [Laravel Deferred Provider, Service Provider, 按需加载, 大型应用冷启动时间的极致优化, PHP]
 date: 2026-06-09 15:26:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

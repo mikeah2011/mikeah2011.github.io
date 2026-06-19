@@ -3,13 +3,14 @@
 title: Flutter App 打包实战：iOS/Android/Web/桌面多平台发布流程
 keywords: [Flutter App, iOS, Android, Web, 打包实战, 桌面多平台发布流程]
 date: 2026-06-02 00:00:00
+author: Michael
 tags:
 - Flutter
 - Build
 - Release
 - CI/CD
 - 多平台
-categories:
+categories: [mobile]
 - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:

@@ -3,7 +3,8 @@
 title: SQLite WAL 模式深度实战：并发读写、检查点调优、读副本——边缘应用与嵌入式场景的工程化高可用方案
 keywords: [SQLite WAL, 模式深度实战, 并发读写, 检查点调优, 读副本, 边缘应用与嵌入式场景的工程化高可用方案, 数据库]
 date: 2026-06-10 07:53:00
-categories:
+author: Michael
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

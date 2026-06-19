@@ -3,6 +3,7 @@
 title: CSS Container Queries + View Transitions 实战：响应式设计的范式转变——Vue 3 组件级适配与页面过渡动画
 keywords: [CSS Container Queries, View Transitions, Vue, 响应式设计的范式转变, 组件级适配与页面过渡动画]
 date: 2026-06-05 15:17:02
+author: Michael
 tags:
 - CSS
 - Container Queries
@@ -10,7 +11,7 @@ tags:
 - Vue
 - 响应式
 - 前端
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

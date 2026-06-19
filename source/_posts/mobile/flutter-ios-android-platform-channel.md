@@ -1,9 +1,10 @@
 ---
 title: Flutter 混合开发实战：与原生 iOS/Android 模块集成（Platform Channel）
 date: 2026-06-02 10:00:00
+author: Michael
 tags: [Flutter, 混合开发, Platform Channel, iOS, Android]
 keywords: [Flutter, iOS, Android, Platform Channel, 混合开发实战, 与原生, 模块集成, 移动端]
-categories:
+categories: [mobile]
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:

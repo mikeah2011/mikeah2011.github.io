@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-04 16:01:38
+author: Michael
 updated: 2026-05-04 16:05:52
-categories:
+categories: [php]
   - php
 tags: [Laravel, 微服务, 消息队列, NATS, JetStream, 消息中间件]
 keywords: [Laravel, NATS JetStream, Ack, KV, 订单通知削峰, 重投与, 配置同步踩坑记录, PHP]

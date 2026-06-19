@@ -3,6 +3,7 @@
 title: PostgreSQL Partial Index + Expression Index 实战：条件索引与函数索引——Laravel 查询优化的隐藏利器
 keywords: [PostgreSQL, Partial, Index]
 date: 2026-06-07 22:00:00
+author: Michael
 description: 深入讲解PostgreSQL Partial Index条件索引与Expression Index函数索引的原理与实战，附Laravel迁移代码、EXPLAIN性能对比、组合索引技巧，帮你用更小索引体积实现数量级查询加速，告别全表扫描慢查询。
 tags:
 - PostgreSQL
@@ -10,7 +11,7 @@ tags:
 - Partial Index
 - Expression Index
 - 数据库
-categories:
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

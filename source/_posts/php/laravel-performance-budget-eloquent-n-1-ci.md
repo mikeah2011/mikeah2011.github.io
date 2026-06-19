@@ -2,7 +2,8 @@
 title: "Laravel Performance Budget 实战进阶：Eloquent 查询计数、N+1 自动检测、内存峰值 CI 门禁——从响应时间到资源预算的全链路治理"
 keywords: [Laravel Performance Budget, Eloquent, CI, 实战进阶, 查询计数, 自动检测, 内存峰值, 门禁, 从响应时间到资源预算的全链路治理, PHP]
 date: 2026-06-10 06:33:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

@@ -3,12 +3,13 @@
 title: Flutter 应用内更新实战：版本检测、强制更新、灰度发布策略
 keywords: [Flutter, 应用内更新实战, 版本检测, 强制更新, 灰度发布策略]
 date: 2026-06-02 09:00:00
+author: Michael
 tags:
 - Flutter
 - 应用更新
 - 灰度发布
 - 移动端
-categories:
+categories: [mobile]
 - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:

@@ -1,10 +1,11 @@
 ---
 title: "Laravel Concurrency 实战：12.x Concurrency facade 的底层实现——fpm-fork vs Process vs async HTTP 的三选一"
 date: 2026-06-06 16:53:54
+author: Michael
 description: "深入剖析 Laravel 12.x Concurrency facade 的三种并发驱动——fork（pcntl_fork）、process（Symfony Process）、async（curl_multi HTTP）的底层实现原理、性能基准测试对比与生产环境踩坑指南。涵盖 FPM 兼容性、闭包序列化陷阱、数据库连接池耗尽、超时控制等实战经验，帮你做出正确的并发选型决策。"
 tags: [Laravel, PHP, Concurrency, 异步, 并发编程]
 keywords: [Laravel Concurrency, Concurrency facade, fpm, fork vs Process vs async HTTP, 的底层实现, 的三选一, PHP]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

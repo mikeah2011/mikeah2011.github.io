@@ -1,6 +1,7 @@
 ---
 title: "Stripe 支付 - 支付流程完整设计与高并发场景下的幂等性保障踩坑记录"
 date: 2026-05-04 12:01:45
+author: Michael
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
@@ -8,7 +9,7 @@ description: "Stripe 支付系统完整设计实战：涵盖 PaymentIntent 支�
 updated: null
 tags: [Laravel, Stripe, 支付, 高并发, Webhook, 幂等性, PaymentIntent, B2C]
 keywords: [Stripe, 支付, 支付流程完整设计与高并发场景下的幂等性保障踩坑记录, 技术杂谈]
-categories:
+categories: [architecture]
   - misc
   - payment
 

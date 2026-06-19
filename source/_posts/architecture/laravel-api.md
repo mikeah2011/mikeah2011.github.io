@@ -2,7 +2,8 @@
 title: Laravel 数据脱敏工程化实战：日志脱敏、API 响应脱敏、数据库字段加密——统一的脱敏注解与序列化器设计
 keywords: [Laravel, API, 数据脱敏工程化实战, 日志脱敏, 响应脱敏, 数据库字段加密, 统一的脱敏注解与序列化器设计, 架构]
 date: 2026-06-09 22:45:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

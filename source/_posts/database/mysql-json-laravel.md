@@ -3,6 +3,7 @@
 title: MySQL 9.x 新特性实战：向量搜索、JSON 增强、性能改进与 Laravel 适配
 keywords: [MySQL, JSON, Laravel, 新特性实战, 向量搜索, 增强, 性能改进与, 适配]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - MySQL
 - MySQL 9
@@ -10,7 +11,7 @@ tags:
 - JSON
 - 性能优化
 - Laravel
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

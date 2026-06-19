@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-06-01 10:30:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 tags: [Event Storming, DDD, 领域建模, Laravel, B2C, 电商]
 keywords: [Event Storming, 从业务事件到代码实现的领域建模方法论, 架构]

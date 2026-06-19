@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 19:50:32
+author: Michael
 updated: 2026-05-16 19:53:26
-categories:
+categories: [architecture]
   - architecture
   - runtime
 tags: [Laravel, Nginx, PHP, 性能优化]

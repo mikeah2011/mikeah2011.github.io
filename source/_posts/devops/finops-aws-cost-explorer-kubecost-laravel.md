@@ -3,6 +3,7 @@
 title: FinOps 实战：AWS Cost Explorer + Kubecost 云成本治理——Laravel 微服务的按服务分摊、标签策略与预算告警
 keywords: [FinOps, AWS Cost Explorer, Kubecost, Laravel, 云成本治理, 微服务的按服务分摊, 标签策略与预算告警]
 date: 2026-06-03 10:00:00
+author: Michael
 tags:
 - FinOps
 - AWS
@@ -11,7 +12,7 @@ tags:
 - Laravel
 - 微服务
 description: FinOps 实战指南：从零搭建 Laravel 微服务云成本治理体系。详解 AWS Cost Explorer 原生成本分析能力、Kubecost K8s 级别成本归因部署、Laravel 微服务标签策略设计、按服务分摊配置、AWS Budgets 预算告警与自动化关停机制。涵盖 Reserved Instance/Savings Plans/Spot 混合购买策略、Laravel 特有的队列/缓存/数据库成本优化点，以及 showback vs chargeback 成本文化建设。帮助团队实现云成本全链路可见性与自动化治理。
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

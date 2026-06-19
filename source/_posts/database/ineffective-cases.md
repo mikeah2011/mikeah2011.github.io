@@ -2,9 +2,10 @@
 title: 索引失效的 12 种原因
 tags: [MySQL, 索引, 性能优化, EXPLAIN, 慢查询]
 keywords: [索引失效的, 种原因, 数据库]
-categories:
+categories: [database]
   - database
 date: 2019-05-20 10:00:00
+author: Michael
 description: MySQL 索引建了却不走？本文深度盘点索引失效的 12 种典型场景，包含 EXPLAIN 输出对比、函数操作与隐式类型转换导致索引失效的详细分析、OR 和 LIKE 的优化替代方案，以及生产环境慢查询踩坑案例。从 EXPLAIN 到慢查询日志，手把手教你排查 SQL 性能问题，掌握 MySQL 索引优化的核心套路。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

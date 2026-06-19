@@ -6,12 +6,13 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-03 07:10:00
+author: Michael
 tags:
 - DevOps
 - Laravel
 - PHP
 - 性能优化
-categories:
+categories: [php]
 - php
 - runtime
 description: 深度解析 PHP 8.4 十大新特性，结合 KKday B2C-API 真实升级场景，涵盖纤程(Fiber)优化、属性钩子、DOM\Text 扩展、性能对比、兼容性踩坑记录，提供可直接复用的生产级代码。

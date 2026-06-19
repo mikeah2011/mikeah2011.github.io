@@ -2,9 +2,10 @@
 title: AI Agent 代码助手实战：代码生成、Review、重构、文档生成
 description: 后端视角拆解 AI Agent 代码助手：代码生成、Review、重构、文档生成四大场景，含 AST 解析与 Prompt Engineering 实战。
 date: 2026-06-02 00:00:00
+author: Michael
 tags: [AI Agent, 代码助手, Code Review, 重构, 文档生成]
 keywords: [AI Agent, Review, 代码助手实战, 代码生成, 重构, 文档生成, AI]
-categories:
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

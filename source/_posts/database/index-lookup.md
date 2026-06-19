@@ -9,9 +9,10 @@ tags:
 - 覆盖索引
 - EXPLAIN
 - 性能优化
-categories:
+categories: [database]
 - database
 date: 2017-03-20 15:05:07
+author: Michael
 description: 深入解析MySQL索引回表原理：从B+树结构出发，详解回表查询的完整流程、EXPLAIN中Using index的含义，对比覆盖索引与索引下推优化策略，附Laravel Eloquent实战示例，助你彻底理解并避免不必要的回表开销。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

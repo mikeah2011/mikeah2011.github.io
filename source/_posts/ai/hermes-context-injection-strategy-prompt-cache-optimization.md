@@ -3,6 +3,7 @@
 title: Hermes 上下文注入策略：为什么注入 user message 而非 system prompt？（prompt cache 优化）
 keywords: [Hermes, user message, system prompt, prompt cache, 上下文注入策略, 为什么注入, 而非]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - Hermes
 - AI Agent
@@ -10,7 +11,7 @@ tags:
 - 缓存优化
 - Token
 - 架构设计
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

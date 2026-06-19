@@ -6,7 +6,8 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-03 10:05:00
-categories:
+author: Michael
+categories: [frontend]
 - frontend
 - php
 tags:

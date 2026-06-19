@@ -1,9 +1,10 @@
 ---
 title: 'API Gateway 安全实战：WAF + Bot 管理 + mTLS——Cloudflare/AWS WAF 与 Laravel 微服务的纵深防御架构'
 date: 2026-06-05 10:00:00
+author: Michael
 tags: [API Gateway, WAF, Bot管理, mTLS, Cloudflare, AWS WAF, Laravel, 安全, 微服务]
 keywords: [API Gateway, WAF, Bot, mTLS, Cloudflare, AWS WAF, Laravel, 安全实战, 微服务的纵深防御架构, DevOps]
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

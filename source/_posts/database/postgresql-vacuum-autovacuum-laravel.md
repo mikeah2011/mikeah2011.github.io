@@ -3,13 +3,14 @@
 title: PostgreSQL Vacuum 调优实战：autovacuum 参数、表膨胀治理、索引碎片整理——高写入 Laravel 应用的数据库维护指南
 keywords: [PostgreSQL Vacuum, autovacuum, Laravel, 调优实战, 参数, 表膨胀治理, 索引碎片整理, 高写入, 应用的数据库维护指南]
 date: 2026-06-06 12:00:00
+author: Michael
 tags:
 - PostgreSQL
 - Vacuum
 - 性能优化
 - 数据库
 - Laravel
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

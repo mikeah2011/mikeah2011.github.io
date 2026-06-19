@@ -3,13 +3,14 @@
 title: 用 AI Agent 实现自动化 DevOps：监控、告警、修复、部署闭环
 keywords: [AI Agent, DevOps, 实现自动化, 告警, 修复, 部署闭环]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - AI Agent
 - DevOps
 - 自动化
 - 监控
 - CI/CD
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

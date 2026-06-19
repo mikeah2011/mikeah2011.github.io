@@ -3,6 +3,7 @@
 title: Laravel 性能预算实战：用 Lighthouse CI + k6 设定 API 响应时间预算——从"事后优化"到"预算驱动开发"的范式转变
 keywords: [Laravel, Lighthouse CI, k6, API, 性能预算实战, 设定, 响应时间预算, 事后优化, 预算驱动开发, 的范式转变]
 date: 2026-06-06 18:00:00
+author: Michael
 tags:
 - 性能预算
 - lighthouse ci
@@ -11,7 +12,7 @@ tags:
 - 性能优化
 - CI/CD
 - API
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

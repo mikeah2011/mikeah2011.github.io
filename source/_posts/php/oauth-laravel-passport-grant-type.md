@@ -3,6 +3,7 @@
 title: OAuth 2.0 实战：Laravel Passport 自定义 Grant Type 与第三方登录
 keywords: [OAuth, Laravel Passport, Grant Type, 自定义, 与第三方登录]
 date: 2026-06-01 09:00:00
+author: Michael
 tags:
 - Laravel
 - OAuth
@@ -13,7 +14,7 @@ tags:
 - 第三方登录
 - Grant Type
 description: 本文结合真实项目场景，系统讲解 OAuth 2.0 与 Laravel Passport 的落地实践，覆盖标准与自定义 Grant Type、微信/GitHub 第三方登录接入、Token 刷新与撤销、Scope 与 PKCE 安全策略，并对 Token 管理与认证授权方案做工程化对比，适合需要统一认证授权体系的 Laravel 团队参考。
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

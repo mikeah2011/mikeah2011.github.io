@@ -3,7 +3,8 @@
 title: PHP Process Control 实战：pcntl_signal/pcntl_async_signals 深度——Laravel Queue Worker
 keywords: [PHP Process Control, pcntl, signal, async, signals, Laravel Queue Worker, PHP]
 date: 2026-06-10 01:03:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

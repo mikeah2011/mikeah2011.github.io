@@ -3,13 +3,14 @@
 title: TanStack Query (React Query) 实战：服务端状态管理——缓存策略、乐观更新与 Laravel API 的最佳配合
 keywords: [TanStack Query, React Query, Laravel API, 服务端状态管理, 缓存策略, 乐观更新与, 的最佳配合]
 date: 2026-06-05 10:00:00
+author: Michael
 tags:
 - TanStack Query
 - React
 - 前端
 - 状态管理
 - Laravel API
-categories:
+categories: [frontend]
 - frontend
 description: 深入解析 TanStack Query（React Query）在真实项目中的服务端状态管理实战：从 QueryClient、useQuery、useMutation 核心概念，到 staleTime 与 gcTime 缓存策略配置、乐观更新的完整 onMutate/onError/onSettled 流程、与 Laravel API 的分页配合、无限滚动、全局错误拦截，再到 TanStack Query vs SWR 选型对比，帮助前端开发者告别 useEffect 手动管理服务端数据的痛点，构建体验更流畅的 React 应用。
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

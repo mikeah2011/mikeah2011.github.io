@@ -3,6 +3,7 @@
 title: Laravel Vapor 实战：AWS Serverless 部署——Lambda + API Gateway 的无服务器 PHP 生产架构与成本分析
 keywords: [Laravel Vapor, AWS Serverless, Lambda, API Gateway, PHP, 的无服务器, 生产架构与成本分析]
 date: 2026-06-03 10:00:00
+author: Michael
 tags:
 - Vapor
 - AWS
@@ -13,7 +14,7 @@ tags:
 - PHP Deployment
 - 无服务器
 - 成本分析
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

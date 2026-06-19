@@ -3,6 +3,7 @@
 title: Inngest 实战：Durable Functions for PHP——Laravel 中的持久化工作流、步骤重试与长时间运行任务编排
 keywords: [Inngest, Durable Functions for PHP, Laravel, 中的持久化工作流, 步骤重试与长时间运行任务编排]
 date: 2026-06-04 10:00:00
+author: Michael
 tags:
 - Inngest
 - durable-functions
@@ -10,7 +11,7 @@ tags:
 - 工作流
 - 任务编排
 - PHP
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

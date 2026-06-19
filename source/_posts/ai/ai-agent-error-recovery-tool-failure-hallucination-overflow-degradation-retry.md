@@ -3,6 +3,7 @@
 title: AI Agent Error Recovery 实战：工具调用失败、LLM 幻觉、上下文溢出的自动降级与重试策略
 keywords: [AI Agent Error Recovery, LLM, 工具调用失败, 幻觉, 上下文溢出的自动降级与重试策略]
 date: 2026-06-05 12:00:00
+author: Michael
 tags:
 - AI Agent
 - error-recovery
@@ -10,7 +11,7 @@ tags:
 - LLM
 - Laravel
 - 重试策略
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

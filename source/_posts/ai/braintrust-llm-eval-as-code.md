@@ -3,7 +3,8 @@
 title: Braintrust 实战：LLM 评估即代码——Eval/Prompt/Score 的声明式管理与 CI 回归测试闭环
 keywords: [Braintrust, LLM, Eval, Prompt, Score, CI, 评估即代码, 的声明式管理与, 回归测试闭环, AI]
 date: 2026-06-10 00:15:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

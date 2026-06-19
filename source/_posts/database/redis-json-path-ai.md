@@ -3,13 +3,14 @@
 title: Redis 8.0 新特性实战：向量搜索、JSON Path、性能改进与 AI 场景应用
 keywords: [Redis, JSON Path, AI, 新特性实战, 向量搜索, 性能改进与, 场景应用]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - Redis
 - 向量搜索
 - JSON
 - AI
 - 性能优化
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

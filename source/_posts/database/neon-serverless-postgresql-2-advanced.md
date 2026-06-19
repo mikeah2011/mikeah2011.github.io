@@ -2,7 +2,8 @@
 title: Neon Serverless PostgreSQL 2.x 实战进阶：Autoscaling、Instant Restore 与 AI Agent 数据库连接的最佳实践
 keywords: [Neon Serverless PostgreSQL, Autoscaling, Instant Restore, AI Agent, 实战进阶, 数据库连接的最佳实践, 数据库]
 date: 2026-06-09 14:25:00
-categories:
+author: Michael
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

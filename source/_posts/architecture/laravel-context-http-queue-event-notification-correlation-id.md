@@ -2,7 +2,8 @@
 title: Laravel Context 实战进阶：请求级上下文的全链路透传——HTTP → Queue → Event → Notification 的 Correlation ID 治理
 keywords: [Laravel Context, HTTP, Queue, Event, Notification, Correlation ID, 实战进阶, 请求级上下文的全链路透传, 治理, 架构]
 date: 2026-06-10 01:11:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

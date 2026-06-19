@@ -1,10 +1,11 @@
 ---
 title: 'Laravel Data Pipeline 实战：ETL 替代方案——从 API 拉取、转换到入库的声明式管道与队列集成'
 date: 2026-06-07 10:00:00
+author: Michael
 tags: [Laravel, ETL, Data Pipeline, 队列, API]
 keywords: [Laravel Data Pipeline, ETL, API, 替代方案, 拉取, 转换到入库的声明式管道与队列集成, PHP]
 description: '深入探讨 Laravel Data Pipeline 作为 ETL 替代方案的实战指南。涵盖声明式管道设计、API 数据拉取与转换、队列集成与异步处理、数据入库最佳实践。通过完整代码示例演示如何用 Laravel 原生能力构建生产级数据处理管道，对比传统 ETL 工具的优劣势，包含大量踩坑案例与分层重试策略，适合需要处理复杂数据流的 Laravel 开发者。'
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

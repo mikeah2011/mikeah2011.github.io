@@ -3,13 +3,14 @@
 title: Laravel 12.x Pipeline 实战：复杂业务流程编排与条件分支——从 if-else 地狱到管道模式的重构之路
 keywords: [Laravel, Pipeline, if, else, 复杂业务流程编排与条件分支, 地狱到管道模式的重构之路]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - Laravel
 - Pipeline
 - 设计模式
 - 重构
 - PHP
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

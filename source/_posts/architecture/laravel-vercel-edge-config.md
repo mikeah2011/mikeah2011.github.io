@@ -2,7 +2,8 @@
 title: Laravel + Vercel Edge Config 实战：Feature Flags、A/B 测试与动态配置——边缘计算的配置管理
 keywords: [Laravel, Vercel Edge Config, Feature Flags, 测试与动态配置, 边缘计算的配置管理, 架构]
 date: 2026-06-09 11:01:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 tags:
   - Laravel

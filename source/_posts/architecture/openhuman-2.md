@@ -3,13 +3,14 @@
 title: OpenHuman 潜意识循环：后台认知、任务评估、"做梦"离线整合的技术实现
 keywords: [OpenHuman, 潜意识循环, 后台认知, 任务评估, 做梦, 离线整合的技术实现]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - OpenHuman
 - 潜意识循环
 - 后台认知
 - 离线整合
 - ai架构
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

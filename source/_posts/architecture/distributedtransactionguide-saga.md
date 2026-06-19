@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 16:12:27
+author: Michael
 updated: 2026-05-16 16:22:05
-categories:
+categories: [architecture]
 - architecture
 - microservice
 tags:

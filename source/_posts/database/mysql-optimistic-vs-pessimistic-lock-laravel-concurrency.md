@@ -3,6 +3,7 @@
 title: MySQL 乐观锁 vs 悲观锁实战：SELECT FOR UPDATE vs 版本号——Laravel 订单并发更新的选型决策
 keywords: [MySQL, SELECT FOR UPDATE vs, Laravel, 乐观锁, 悲观锁实战, 版本号, 订单并发更新的选型决策]
 date: 2026-06-06 12:00:00
+author: Michael
 tags:
 - MySQL
 - 乐观锁
@@ -10,7 +11,7 @@ tags:
 - Laravel
 - 并发控制
 - 数据库
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

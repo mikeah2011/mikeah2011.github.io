@@ -3,13 +3,14 @@
 title: GitHub Actions 矩阵策略实战：多 PHP 版本、多数据库的并行测试与条件发布
 keywords: [GitHub Actions, PHP, 矩阵策略实战, 版本, 多数据库的并行测试与条件发布]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - GitHub Actions
 - CI/CD
 - 矩阵策略
 - PHP
 - 自动化
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

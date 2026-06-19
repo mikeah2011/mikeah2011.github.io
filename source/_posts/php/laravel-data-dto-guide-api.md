@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-04 23:20:52
+author: Michael
 updated: 2026-05-04 23:26:39
-categories:
+categories: [php]
   - php
 tags: [Laravel, PHP, DTO, spatie/laravel-data, API]
 keywords: [spatie, laravel, data DTO, API, 强类型数据传输与, 响应规范化踩坑记录, PHP]

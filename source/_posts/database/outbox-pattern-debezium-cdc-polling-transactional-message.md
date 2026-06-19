@@ -3,6 +3,7 @@
 title: Outbox Pattern 深度实战：保证数据库与消息队列的最终一致性——Debezium CDC vs 轮询 vs 事务消息的选型决策
 keywords: [Outbox Pattern, Debezium CDC vs, 深度实战, 保证数据库与消息队列的最终一致性, 轮询, 事务消息的选型决策]
 date: 2026-06-06 10:00:00
+author: Michael
 tags:
 - Outbox Pattern
 - Debezium
@@ -10,7 +11,7 @@ tags:
 - 消息队列
 - 一致性
 - 分布式
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

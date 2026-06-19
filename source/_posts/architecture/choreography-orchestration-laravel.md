@@ -3,13 +3,14 @@
 title: Choreography vs Orchestration 实战：事件驱动 vs 工作流驱动——Laravel 微服务中的两种分布式编排范式深度对比
 keywords: [Choreography vs Orchestration, Laravel, 事件驱动, 工作流驱动, 微服务中的两种分布式编排范式深度对比]
 date: 2026-06-07 10:00:00
+author: Michael
 tags:
 - 微服务
 - 事件驱动
 - 编排模式
 - Laravel
 - 分布式
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

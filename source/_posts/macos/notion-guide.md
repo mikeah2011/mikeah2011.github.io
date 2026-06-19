@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 05:25:31
+author: Michael
 updated: 2026-05-17 05:27:53
-categories:
+categories: [macos]
   - macos
   - tools
 tags: [macOS, 工程管理, 架构]

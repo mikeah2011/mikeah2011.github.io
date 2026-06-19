@@ -3,6 +3,7 @@
 title: FFmpeg + Laravel 实战：音视频转码、截图、水印——上传处理管道与队列化异步任务
 keywords: [FFmpeg, Laravel, 音视频转码, 截图, 水印, 上传处理管道与队列化异步任务]
 date: 2026-06-06 10:00:00
+author: Michael
 description: 深入实战指南：如何将 FFmpeg 与 Laravel 框架深度集成，构建涵盖视频转码、音频提取、缩略图截图、水印叠加的完整音视频处理管道。通过 Laravel Queue 实现队列化异步任务调度，支持多分辨率转码、HLS 切片、硬件加速，并对比自建方案与云转码服务（AWS MediaConvert / 阿里云 MPS）的选型策略。附完整 Job 类、踩坑案例与生产环境最佳实践。
 tags:
 - FFmpeg
@@ -10,7 +11,7 @@ tags:
 - 音视频
 - 队列
 - 异步任务
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

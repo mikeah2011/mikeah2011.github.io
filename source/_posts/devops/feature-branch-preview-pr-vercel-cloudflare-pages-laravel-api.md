@@ -4,6 +4,7 @@ title: Feature Branch Preview 实战：PR 级预览环境——Vercel Preview/Cl
 keywords: [Feature Branch Preview, PR, Vercel Preview, Cloudflare Pages Preview, 级预览环境]
 description: Feature Branch Preview 全栈实战指南：Vercel Preview 与 Cloudflare Pages 前端自动部署、Fly.io/Railway 后端 API 预览、Neon 数据库分支隔离，结合 GitHub Actions CI/CD 自动化编排与生命周期管理，完整拆解 PR 级预览环境的架构设计、多平台选型对比与费用估算，实现每个 PR 独立可访问的全栈预览 URL，提升代码 Review 效率与团队协作体验。
 date: 2026-06-07 12:00:00
+author: Michael
 tags:
 - preview
 - Vercel
@@ -12,7 +13,7 @@ tags:
 - CI/CD
 - Laravel
 - 全栈
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

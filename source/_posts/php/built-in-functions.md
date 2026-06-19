@@ -11,9 +11,10 @@ tags:
 - 性能优化
 - 字符串处理
 - 数组操作
-categories:
+categories: [php]
 - php
 date: 2019-03-20 15:05:07
+author: Michael
 description: PHP 内置函数是日常开发中最常用的工具，涵盖字符串处理、数组操作、数学计算、日期时间、文件操作和 JSON 解析等核心领域。本文全面梳理 PHP 内置函数的分类与用法，提供可运行的代码示例，深入分析 isset 与 empty、strpos 与 str_contains 等常见易混淆点，对比 PHP 8.x 新增函数的性能优势，并给出生产环境下的最佳实践建议，帮助开发者写出更高效、更安全的 PHP 代码。
 ---
 

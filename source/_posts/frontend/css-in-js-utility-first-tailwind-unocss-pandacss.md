@@ -3,12 +3,13 @@
 title: CSS-in-JS vs Utility-First 实战：Tailwind vs UnoCSS vs PandaCSS 的工程选型与性能对比
 keywords: [CSS, JS vs Utility, First, Tailwind vs UnoCSS vs PandaCSS, 的工程选型与性能对比]
 date: 2026-06-06 10:00:00
+author: Michael
 tags:
 - CSS-in-JS
 - Tailwind CSS
 - Utility-First
 - 工程化
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

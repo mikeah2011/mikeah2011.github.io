@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-05 02:10:21
+author: Michael
 updated: 2026-05-05 02:13:29
-categories:
+categories: [engineering]
 - engineering
 - testing
 tags:

@@ -2,7 +2,8 @@
 title: Laravel Validation 深度实战：自定义 Rule 类、Form Request 嵌套验证、API 响应标准化——30+ 仓库的验证治理方法论
 keywords: [Laravel Validation, Rule, Form Request, API, 深度实战, 自定义, 嵌套验证, 响应标准化, 仓库的验证治理方法论, PHP]
 date: 2026-06-10 04:43:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

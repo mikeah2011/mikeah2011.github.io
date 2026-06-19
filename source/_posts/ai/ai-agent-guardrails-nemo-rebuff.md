@@ -1,6 +1,7 @@
 ---
 title: AI Agent Guardrails 实战：NeMo Guardrails/Rebuff 护栏系统——防止越狱、幻觉与有害输出的工程化方案
 date: 2026-06-03 10:00:00
+author: Michael
 tags: [AI安全, Guardrails, NeMo, Rebuff, Agent]
 keywords: [AI Agent Guardrails, NeMo Guardrails, Rebuff, 护栏系统, 防止越狱, 幻觉与有害输出的工程化方案, AI]
 categories: [ai]

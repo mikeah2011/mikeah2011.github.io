@@ -2,7 +2,8 @@
 title: Service Mesh Ambient Mode 实战：Istio 无 Sidecar 的零开销 mTLS——Laravel 微服务的流量管理新范式与性能基准
 keywords: [Service Mesh Ambient Mode, Istio, Sidecar, mTLS, Laravel, 的零开销, 微服务的流量管理新范式与性能基准, 架构]
 date: 2026-06-10 02:54:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

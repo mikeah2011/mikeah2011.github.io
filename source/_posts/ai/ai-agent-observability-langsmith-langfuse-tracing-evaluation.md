@@ -1,6 +1,7 @@
 ---
 title: AI Agent 可观测性实战：LangSmith/LangFuse 追踪、调试、评估
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [AI Agent, 可观测性, LangSmith, LangFuse, 追踪, 评估]
 keywords: [AI Agent, LangSmith, LangFuse, 可观测性实战, 追踪, 调试, 评估, AI]
 categories: [ai]

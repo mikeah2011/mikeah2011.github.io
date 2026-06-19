@@ -2,7 +2,8 @@
 title: "PostgreSQL pg_stat_activity 深度实战：连接池监控、锁等待链分析与慢查询实时追踪——生产环境的数据库诊断工具箱"
 keywords: [PostgreSQL pg, stat, activity, 深度实战, 连接池监控, 锁等待链分析与慢查询实时追踪, 生产环境的数据库诊断工具箱, 数据库]
 date: 2026-06-10 08:45:00
-categories:
+author: Michael
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

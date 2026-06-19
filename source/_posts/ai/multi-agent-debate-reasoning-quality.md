@@ -2,7 +2,8 @@
 title: Multi-Agent Debate 实战：用对抗式多 Agent 提升推理质量——对比 Single Agent 的准确率与成本权衡
 keywords: [Multi, Agent Debate, Agent, Single Agent, 用对抗式多, 提升推理质量, 的准确率与成本权衡, AI]
 date: 2026-06-09 15:15:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

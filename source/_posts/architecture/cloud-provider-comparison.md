@@ -7,7 +7,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-05 09:07:25
 updated: 2026-05-05 09:11:43
-categories:
+categories: [architecture]
 - architecture
 tags:
 - AWS

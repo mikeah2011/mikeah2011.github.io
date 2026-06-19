@@ -1,9 +1,10 @@
 ---
 title: Flutter 暗黑模式实战：ThemeData 动态切换与主题持久化
 date: 2026-06-01 10:00:00
+author: Michael
 tags: [Flutter, 暗黑模式, ThemeData, 动态主题, 主题持久化]
 keywords: [Flutter, ThemeData, 暗黑模式实战, 动态切换与主题持久化, 移动端]
-categories:
+categories: [mobile]
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:

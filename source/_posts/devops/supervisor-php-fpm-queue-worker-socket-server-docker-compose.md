@@ -3,6 +3,7 @@
 title: Supervisor 进程管理实战：PHP-FPM/Queue Worker/Socket Server 的统一进程治理——对比 Docker Compose
 keywords: [Supervisor, PHP, FPM, Queue Worker, Socket Server, Docker Compose, 进程管理实战, 的统一进程治理]
 date: 2026-06-10 10:00:00
+author: Michael
 tags:
 - Supervisor
 - PHP-FPM
@@ -11,7 +12,7 @@ tags:
 - Process Management
 - Docker Compose
 - Linux
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

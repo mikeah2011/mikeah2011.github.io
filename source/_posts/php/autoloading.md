@@ -9,9 +9,10 @@ tags:
 - PHP
 - Composer
 - PSR-4
-categories:
+categories: [php]
   - php
 date: 2019-03-20 15:05:07
+author: Michael
 description: 深入解析PHP自动加载机制：从__autoload到spl_autoload_register，详解PSR-4规范、Composer自动加载原理、classmap与PSR-4性能对比，以及Laravel框架自动加载实战与常见问题排查指南。
 ---
 

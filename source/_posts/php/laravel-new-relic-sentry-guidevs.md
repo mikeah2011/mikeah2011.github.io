@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-05 01:25:25
+author: Michael
 updated: 2026-05-05 01:29:09
-categories:
+categories: [php]
   - php
 tags: [Laravel, 监控]
 keywords: [Laravel, New, Relic, Sentry, 生产环境错误追踪实战对比踩坑记录, PHP]

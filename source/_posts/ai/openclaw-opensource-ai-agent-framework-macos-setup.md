@@ -3,6 +3,7 @@
 title: OpenClaw 实战：开源 AI Agent 框架入门与 macOS 环境搭建
 keywords: [OpenClaw, AI Agent, macOS, 开源, 框架入门与, 环境搭建]
 date: 2026-06-02 03:00:00
+author: Michael
 tags:
 - OpenClaw
 - AI Agent
@@ -10,7 +11,7 @@ tags:
 - 开源框架
 - Agent
 description: OpenClaw 开源 AI Agent 框架的完整入门指南与 macOS 环境搭建实战。从个人 AI 助手基础设施的定位出发，详解 OpenClaw 的核心架构（Gateway 控制平面、消息渠道接入、技能与工具治理、多 Agent 协作、持久记忆与本地优先设计）。手把手演示 macOS 环境下的安装配置、首个 Agent 创建、技能系统配置、MEMORY.md 持久化记忆管理，对比 LangChain/AutoGen/Dify 等常见方案的架构差异，附真实场景踩坑记录与选型决策框架，帮助开发者判断 OpenClaw 是否适合自己的技术栈。
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

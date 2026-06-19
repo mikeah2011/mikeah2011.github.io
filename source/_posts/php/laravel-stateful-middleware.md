@@ -2,7 +2,8 @@
 title: Laravel Stateful Middleware 实战：请求级状态管理——在中间件间传递上下文数据的工程化模式与依赖注入
 keywords: [Laravel Stateful Middleware, 请求级状态管理, 在中间件间传递上下文数据的工程化模式与依赖注入, PHP]
 date: 2026-06-10 04:37:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

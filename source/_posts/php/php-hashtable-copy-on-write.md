@@ -2,7 +2,8 @@
 title: PHP 数组底层实现深度剖析：HashTable 结构、Copy-on-Write 与性能调优
 keywords: [PHP, HashTable, Copy, Write, 数组底层实现深度剖析, 结构, 与性能调优]
 date: 2026-06-10 04:40:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

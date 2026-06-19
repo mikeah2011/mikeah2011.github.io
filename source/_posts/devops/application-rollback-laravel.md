@@ -3,13 +3,14 @@
 title: Application Rollback 策略实战：数据库回滚、功能开关降级、流量切换——Laravel 零数据丢失回滚的工程化方案
 keywords: [Application Rollback, Laravel, 策略实战, 数据库回滚, 功能开关降级, 流量切换, 零数据丢失回滚的工程化方案, DevOps]
 date: 2026-06-05 12:00:00
+author: Michael
 tags:
 - rollback
 - 部署
 - Laravel
 - Feature Flags
 - 运维
-categories:
+categories: [devops]
   - devops
 description: Laravel应用零数据丢失回滚工程化方案完整落地：详解Expand-Contract数据库Schema变更模式、Laravel Pennant功能开关秒级降级、Blue-Green与Canary流量切换策略，附回滚Runbook模板、自动化回滚编排器代码与定期回滚演练脚本，帮助团队构建生产级回滚体系。
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

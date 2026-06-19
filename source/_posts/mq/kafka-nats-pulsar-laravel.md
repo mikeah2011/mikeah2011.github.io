@@ -3,6 +3,7 @@
 title: Kafka vs NATS vs Pulsar 2026 实战：三大消息队列深度对比——Laravel 微服务中的吞吐量、延迟与运维复杂度选型决策
 keywords: [Kafka vs NATS vs Pulsar, Laravel, 三大消息队列深度对比, 微服务中的吞吐量, 延迟与运维复杂度选型决策]
 date: 2026-06-07 10:00:00
+author: Michael
 tags:
 - Kafka
 - NATS
@@ -11,7 +12,7 @@ tags:
 - Laravel
 - 微服务
 - 高吞吐
-categories:
+categories: [mq]
 - mq
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:

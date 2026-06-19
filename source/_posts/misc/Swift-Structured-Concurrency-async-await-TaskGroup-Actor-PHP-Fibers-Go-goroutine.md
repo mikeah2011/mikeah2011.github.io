@@ -3,6 +3,7 @@
 title: Swift Structured Concurrency 实战：async/await、TaskGroup、Actor 模型——与 PHP Fibers/Go
 keywords: [Swift Structured Concurrency, async, await, TaskGroup, Actor, PHP Fibers, Go, 模型]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - Swift
 - Concurrency
@@ -11,7 +12,7 @@ tags:
 - Actor
 - PHP Fibers
 - Go
-categories:
+categories: [misc]
 - misc
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:

@@ -1,6 +1,7 @@
 ---
 title: LLM Function Calling 进阶实战：Parallel Tool Calls/Forced Tool Use/Tool Choice 策略——AI Agent 工具调用的工程化深度优化
 date: 2026-06-05 10:00:00
+author: Michael
 tags: [AI Agent, LLM, Function Calling, 工具调用, Tool Use]
 keywords: [LLM Function Calling, Parallel Tool Calls, Forced Tool Use, Tool Choice, AI Agent, 进阶实战, 策略, 工具调用的工程化深度优化, AI]
 categories: [ai]

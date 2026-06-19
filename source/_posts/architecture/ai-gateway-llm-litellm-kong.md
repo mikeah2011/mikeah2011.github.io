@@ -3,6 +3,7 @@
 title: AI Gateway 实战：统一 LLM 调用层——LiteLLM/Kong AI Gateway 的路由、限流与可观测性
 keywords: [AI Gateway, LLM, LiteLLM, Kong AI Gateway, 统一, 调用层, 的路由, 限流与可观测性]
 date: 2026-06-02 00:00:00
+author: Michael
 tags:
 - ai-gateway
 - LiteLLM
@@ -10,7 +11,7 @@ tags:
 - LLM
 - 可观测性
 - 限流
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

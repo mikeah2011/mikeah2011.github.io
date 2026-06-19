@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-02
-categories:
+author: Michael
+categories: [php]
   - php
 tags: [Laravel, 依赖注入, IoC, 服务容器, ServiceProvider, PHP]
 keywords: [Laravel, KKday, B2C, API, 服务容器深度解析, 个真实踩坑记录, PHP]

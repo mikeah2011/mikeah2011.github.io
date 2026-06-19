@@ -5,6 +5,7 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-31 22:00:00
+author: Michael
 description: "本文系统梳理 MCP（Model Context Protocol）在 2026 年的生态现状，覆盖协议架构、客户端与服务器分类、AI工程中的工具集成模式、LLM 调用链设计、安全边界、配置实践与常见踩坑案例。文章结合 Hermes Agent、Claude、Cursor 等场景，分析 MCP 生态系统的演进趋势，并给出可落地的代码示例、对比表格与部署建议，帮助开发者快速理解 MCP 如何成为 AI工程与多工具协同的关键基础设施。"
 tags:
   - AI
@@ -12,7 +13,7 @@ tags:
   - Agent
   - 工具集成
   - 技术调研
-categories:
+categories: [engineering]
   - engineering
 ---
 

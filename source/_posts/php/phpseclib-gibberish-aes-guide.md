@@ -3,11 +3,12 @@
 title: phpseclib-gibberish-aes 敏感数据加密传输合规实战-Laravel-B2C-API 资安管理踩坑记录
 keywords: [phpseclib, gibberish, aes, Laravel, B2C, API, 敏感数据加密传输合规实战, 资安管理踩坑记录]
 date: 2026-05-05 00:25:07
+author: Michael
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 updated: 2026-05-05 00:28:46
-categories:
+categories: [php]
 - php
 tags:
 - Laravel

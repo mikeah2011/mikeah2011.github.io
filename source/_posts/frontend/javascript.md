@@ -8,9 +8,10 @@ title: JavaScript
 tags:
 - JavaScript
 - 前端
-categories:
+categories: [frontend]
 - frontend
 date: 2019-03-20 15:05:07
+author: Michael
 description: JavaScript 是 Web 的脚本语言，从浏览器交互发展到 Node.js 全栈、Electron 桌面、React Native 移动端。本文梳理核心概念、ES6+ 关键特性和常见陷阱。
 ---
 

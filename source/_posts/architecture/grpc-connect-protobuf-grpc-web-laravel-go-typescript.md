@@ -1,9 +1,10 @@
 ---
 title: 'gRPC vs Connect 实战：Protobuf 通信的新旧对比——gRPC-Web 的替代方案与 Laravel/Go/TypeScript 三端集成'
 date: 2026-06-05 10:00:00
+author: Michael
 tags: [gRPC, Connect, Protobuf, Buf, Go, TypeScript, Laravel, 微服务]
 keywords: [gRPC vs Connect, Protobuf, gRPC, Web, Laravel, Go, TypeScript, 通信的新旧对比, 的替代方案与, 三端集成]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

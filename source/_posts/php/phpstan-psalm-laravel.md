@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-02
-categories:
+author: Michael
+categories: [php]
   - php
 tags: [CI/CD, Laravel, PHP, PHPStan, Psalm, 静态分析, 代码质量]
 keywords: [PHPStan, Psalm, Laravel, KKday, B2C, API, 大型, 項目靜態分析最佳實踐, 真實踩坑記錄, PHP]

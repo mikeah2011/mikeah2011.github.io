@@ -2,7 +2,8 @@
 title: Sovereign Cloud 实战：数据主权合规——GDPR/PIPL 跨境数据存储架构与 Laravel 多区域部署策略
 keywords: [Sovereign Cloud, GDPR, PIPL, Laravel, 数据主权合规, 跨境数据存储架构与, 多区域部署策略, 架构]
 date: 2026-06-09 14:30:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

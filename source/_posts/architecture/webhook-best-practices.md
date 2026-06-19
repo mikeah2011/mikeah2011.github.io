@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-17 00:55:27
+author: Michael
 updated: 2026-05-17 00:59:34
-categories:
+categories: [architecture]
   - architecture
   - api
 tags: [KKday, Laravel, 微服务]

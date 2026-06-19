@@ -3,7 +3,8 @@
 title: GitHub Actions 自定义 Action 开发实战：复用 CI/CD 工作流组件
 keywords: [GitHub Actions, Action, CI, CD, 自定义, 开发实战, 复用, 工作流组件]
 date: 2026-06-01
-categories:
+author: Michael
+categories: [devops]
 - devops
 tags:
 - GitHub Actions

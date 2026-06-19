@@ -2,7 +2,8 @@
 title: KeyDB 实战：多线程 Redis 替代——对比 Redis/Valkey 的并发模型、复制机制与 Laravel 队列性能基准
 keywords: [KeyDB, Redis, Valkey, Laravel, 多线程, 替代, 的并发模型, 复制机制与, 队列性能基准, 数据库]
 date: 2026-06-10 03:52:00
-categories:
+author: Michael
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

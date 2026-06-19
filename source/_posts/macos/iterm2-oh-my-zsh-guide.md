@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-16 23:15:53
+author: Michael
 updated: 2026-05-16 23:18:38
-categories:
+categories: [macos]
   - macos
   - tools
 tags: [macOS, 工程管理, 终端, zsh, iTerm2, 开发工具, Oh My Zsh, 命令行]

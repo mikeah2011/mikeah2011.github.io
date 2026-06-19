@@ -3,12 +3,13 @@
 title: OpenClaw 模型策略实战：多模型路由与成本优化
 keywords: [OpenClaw, 模型策略实战, 多模型路由与成本优化]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - OpenClaw
 - AI Agent
 - 模型路由
 - 成本优化
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 22:10:07
+author: Michael
 updated: 2026-05-16 22:16:59
-categories:
+categories: [architecture]
   - architecture
   - php
 tags: [Laravel, 安全, OWASP, XSS, CSP]

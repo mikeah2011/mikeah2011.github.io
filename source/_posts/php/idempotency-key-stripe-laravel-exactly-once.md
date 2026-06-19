@@ -3,13 +3,14 @@
 title: 幂等键 (Idempotency Key) 设计模式实战：Stripe 风格的请求去重——Laravel 中间件实现与分布式缓存的 Exactly-Once
 keywords: [Idempotency Key, Stripe, Laravel, Exactly, Once, 幂等键, 设计模式实战, 风格的请求去重, 中间件实现与分布式缓存的]
 date: 2026-06-05 09:00:00
+author: Michael
 tags:
 - Idempotency
 - Laravel
 - 分布式
 - API设计
 - Redis
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

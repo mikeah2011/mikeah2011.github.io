@@ -1,10 +1,11 @@
 ---
 title: MySQL Invisible Index 实战：线上索引安全验证——对比 EXPLAIN 与实际执行计划的索引生效分析
 date: 2026-06-06 10:00:00
+author: Michael
 tags: [MySQL, 索引优化, EXPLAIN, 性能调优, 数据库]
 keywords: [MySQL Invisible Index, EXPLAIN, 线上索引安全验证, 与实际执行计划的索引生效分析, 数据库]
 description: "MySQL 8.0 Invisible Index（不可见索引）线上实战指南：通过 ALTER INDEX INVISIBLE 安全验证冗余索引，对比 EXPLAIN 静态执行计划与 EXPLAIN ANALYZE 实际执行计划的索引生效差异，详解三步走索引安全删除流程，涵盖 B2C 电商联合索引验证案例、Performance Schema 慢查询监控、pt-online-schema-change 配合删除，附完整踩坑记录与最佳实践 Checklist。"
-categories:
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

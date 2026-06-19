@@ -3,12 +3,13 @@
 title: SolidJS 实战：细粒度响应式前端框架——无 Virtual DOM 的极致性能与 React 开发者迁移路径
 keywords: [SolidJS, Virtual DOM, React, 细粒度响应式前端框架, 的极致性能与, 开发者迁移路径]
 date: 2026-06-04 08:00:00
+author: Michael
 tags:
 - SolidJS
 - 前端框架
 - 响应式
 - TypeScript
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

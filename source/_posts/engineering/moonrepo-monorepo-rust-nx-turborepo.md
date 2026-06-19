@@ -2,7 +2,8 @@
 title: 'Moonrepo 实战：Rust 驱动的 Monorepo 管理工具——对比 Nx/Turborepo 的任务编排、缓存与多语言支持'
 keywords: [Moonrepo, Rust, Monorepo, Nx, Turborepo, 驱动的, 管理工具, 的任务编排, 缓存与多语言支持, 工程化]
 date: 2026-06-10 03:45:00
-categories:
+author: Michael
+categories: [engineering]
   - engineering
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:

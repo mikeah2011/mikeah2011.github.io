@@ -2,7 +2,8 @@
 title: Golden Path Templates 实战：用 Cookiecutter/Copier 生成标准化 Laravel 微服务脚手架——Onboarding 效率提升 10x
 keywords: [Golden Path Templates, Cookiecutter, Copier, Laravel, Onboarding, 生成标准化, 微服务脚手架, 效率提升, 架构]
 date: 2026-06-09 20:16:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

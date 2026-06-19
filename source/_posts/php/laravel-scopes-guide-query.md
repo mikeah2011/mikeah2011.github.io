@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-16 12:56:29
+author: Michael
 updated: 2026-05-16 12:58:01
-categories:
+categories: [php]
   - php
 tags: [Laravel, Eloquent, 查询优化, PHP, 数据库]
 keywords: [Laravel, Scopes, 查询作用域封装与复杂筛选条件复用踩坑记录, PHP]

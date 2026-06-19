@@ -3,6 +3,7 @@
 title: Biome 实战：替代 ESLint + Prettier 的下一代前端工具链——Rust 驱动的超快格式化与检查
 keywords: [Biome, ESLint, Prettier, Rust, 替代, 的下一代前端工具链, 驱动的超快格式化与检查]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - Biome
 - ESLint
@@ -11,7 +12,7 @@ tags:
 - Rust
 - Linting
 - Formatting
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

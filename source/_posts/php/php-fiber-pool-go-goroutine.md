@@ -3,6 +3,7 @@
 title: PHP 8.5 Fiber Pool 实战：协程池并发批量请求——对比 Go goroutine pool 的异步编程进阶
 keywords: [PHP, Fiber Pool, Go goroutine pool, 协程池并发批量请求, 的异步编程进阶]
 date: 2026-06-06 10:00:00
+author: Michael
 tags:
 - PHP
 - Fibers
@@ -11,7 +12,7 @@ tags:
 - Go
 - 异步编程
 - 性能优化
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

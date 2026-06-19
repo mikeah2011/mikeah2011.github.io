@@ -1,6 +1,7 @@
 ---
 title: "AI 模型微调实战：LoRA/QLoRA 领域适配与评估指标设计"
 date: 2026-06-02 03:00:00
+author: Michael
 tags: [LoRA, qlora, 模型微调, peft, 领域适配, 评估指标]
 keywords: [AI, LoRA, QLoRA, 模型微调实战, 领域适配与评估指标设计]
 categories: [ai]

@@ -1,10 +1,11 @@
 ---
 title: API Key Rotation 实战：无缝轮换策略——双 Key 并行期、客户端自动刷新与 Redis 缓存热切换
 date: 2026-06-06 10:30:00
+author: Michael
 description: "生产环境 API Key 轮换的完整工程方案：双 Key 并行期（Grace Period）实现零停机无缝切换，Redis Lua 脚本保证缓存热切换原子性，Laravel 中间件自动拦截与降级，Python/JS 客户端 SDK 无感刷新，AWS Secrets Manager 与 HashiCorp Vault 密钥管理集成，Prometheus 监控告警与审计日志。含 5 个真实踩坑案例与完整 Checklist，适用于 Laravel 微服务架构的密钥管理最佳实践。"
 tags: [API, 安全, Redis, Laravel, DevOps, 密钥管理, 密钥轮换, 零停机]
 keywords: [API Key Rotation, Key, Redis, 无缝轮换策略, 并行期, 客户端自动刷新与, 缓存热切换, DevOps]
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

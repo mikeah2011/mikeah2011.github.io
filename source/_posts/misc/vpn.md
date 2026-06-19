@@ -7,7 +7,8 @@ images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/network-security.jpg
 title: VPN & 机场笔记
 date: 2026-05-25 10:00:00
-categories:
+author: Michael
+categories: [misc]
   - misc
 tags:
 - macOS

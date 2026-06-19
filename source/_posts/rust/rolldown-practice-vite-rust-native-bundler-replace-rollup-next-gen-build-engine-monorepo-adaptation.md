@@ -2,7 +2,8 @@
 title: Rolldown 实战：Vite 的 Rust 原生打包器——替代 Rollup 的下一代构建引擎与 Monorepo 大型项目适配
 keywords: [Rolldown, Vite, Rust, Rollup, Monorepo, 原生打包器, 替代, 的下一代构建引擎与, 大型项目适配]
 date: 2026-06-10 03:25:00
-categories:
+author: Michael
+categories: [rust]
   - rust
 cover: https://images.unsplash.com/photo-1515879218367-8466d910auj4?w=1200&h=630&fit=crop
 images:

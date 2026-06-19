@@ -1,9 +1,10 @@
 ---
 title: "MySQL JSON 列深度实战：JSON_EXTRACT、Generated Column、Multi-Valued Index——Laravel 中的半结构化数据查询优化"
 date: 2026-06-06 16:53:54
+author: Michael
 tags: [MySQL, JSON, Laravel, 索引优化, 数据库]
 keywords: [MySQL JSON, JSON, EXTRACT, Generated Column, Multi, Valued Index, Laravel, 列深度实战, 中的半结构化数据查询优化, 数据库]
-categories:
+categories: [database]
   - database
 description: "MySQL JSON列深度实战教程：从JSON_EXTRACT提取函数、JSON_SET更新操作到->与->>操作符的微妙差异，全面覆盖Generated Column生成列索引与Multi-Valued Index多值索引的创建和使用。深入对比JSON与TEXT类型在内部存储格式、写入校验、部分更新方面的差异，剖析EAV模式的多表JOIN痛点及JSON列的优雅替代方案。详解虚拟列与存储列的性能选型、JSON_SCHEMA_VALID数据校验、NULL值三大陷阱、索引维护开销控制。提供Laravel Migration集成Eloquent查询优化的完整代码示例，附百万级数据性能基准测试对比和四步JSON迁移实战策略，助你在灵活性与查询性能之间找到最佳平衡点。"
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

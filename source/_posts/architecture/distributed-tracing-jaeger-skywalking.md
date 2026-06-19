@@ -5,8 +5,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 23:30:13
+author: Michael
 updated: 2026-05-16 23:37:23
-categories:
+categories: [architecture]
   - architecture
 keywords: [Jaeger, SkyWalking, Laravel, 链路追踪实战, 微服务中的应用]
 tags:

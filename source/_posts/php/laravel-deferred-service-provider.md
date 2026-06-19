@@ -2,7 +2,8 @@
 title: Laravel Deferred Service Provider 实战进阶：按需加载 Provider 的冷启动优化
 keywords: [Laravel Deferred Service Provider, Provider, 实战进阶, 按需加载, 的冷启动优化, PHP]
 date: 2026-06-10 04:45:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

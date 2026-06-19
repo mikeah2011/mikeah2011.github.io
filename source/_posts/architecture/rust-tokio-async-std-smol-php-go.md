@@ -3,6 +3,7 @@
 title: Rust 异步生态对比：Tokio vs async-std vs Smol——运行时选型、性能基准与 PHP/Go 开发者迁移指南
 keywords: [Rust, Tokio vs async, std vs Smol, PHP, Go, 异步生态对比, 运行时选型, 性能基准与, 开发者迁移指南]
 date: 2026-06-05 10:30:00
+author: Michael
 tags:
 - Rust
 - tokio
@@ -10,7 +11,7 @@ tags:
 - smol
 - 异步编程
 - 并发
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

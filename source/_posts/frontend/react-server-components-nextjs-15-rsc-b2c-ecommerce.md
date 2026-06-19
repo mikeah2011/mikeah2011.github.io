@@ -3,12 +3,13 @@
 title: React Server Components 实战：Next.js 15 RSC 模式在 B2C 电商中的落地踩坑记录
 keywords: [React Server Components, Next.js, RSC, B2C, 模式在, 电商中的落地踩坑记录]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - React
 - RSC
 - Server Components
 - 前端架构
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

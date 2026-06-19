@@ -1,10 +1,11 @@
 ---
 title: 'TALL Stack 全栈实战：Tailwind + Alpine.js + Livewire + Laravel——快速原型开发的全 PHP 方案对比 Vue/React SPA'
 date: 2026-06-06 10:00:00
+author: Michael
 description: '深入解析 TALL Stack（Tailwind CSS、Alpine.js、Livewire、Laravel）全栈开发方案，通过客户管理系统实战项目，详解 Livewire 组件生命周期、实时搜索、CRUD 表单、数据表格等核心场景，并从架构设计、开发效率、性能表现、可维护性等维度与 Vue/React SPA 进行全面对比，帮助 PHP 团队快速选型适合的技术栈。'
 tags: [TALL Stack, Laravel, Livewire, Alpine.js, Tailwind CSS, 全栈开发]
 keywords: [TALL Stack, Tailwind, Alpine.js, Livewire, Laravel, PHP, Vue, React SPA, 全栈实战, 快速原型开发的全]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

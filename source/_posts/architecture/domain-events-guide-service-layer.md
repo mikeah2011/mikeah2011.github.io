@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-05 08:20:19
+author: Michael
 updated: 2026-05-05 08:22:17
-categories:
+categories: [architecture]
   - architecture
   - ddd
 tags: [DDD, Domain-Events, Laravel, 微服务, 架构]

@@ -1,8 +1,9 @@
 ---
 title: 百万级数据表查询优化实战-Laravel-B2C-API-EXPLAIN-深度分析索引重构与分页治理踩坑记录
 date: 2026-05-05 00:45:46
+author: Michael
 updated: 2026-05-05 00:50:30
-categories:
+categories: [database]
   - database
 tags: [Laravel, MySQL, 性能优化, EXPLAIN, 索引优化, 覆盖索引, 游标分页]
 keywords: [Laravel, B2C, API, EXPLAIN, 百万级数据表查询优化实战, 深度分析索引重构与分页治理踩坑记录, 数据库]

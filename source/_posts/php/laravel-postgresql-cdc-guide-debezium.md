@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-04 14:23:21
+author: Michael
 updated: 2026-05-04 14:24:58
-categories:
+categories: [php]
   - php
   - database
 tags: [Laravel, PostgreSQL, 消息队列, Debezium, CDC, Kafka]

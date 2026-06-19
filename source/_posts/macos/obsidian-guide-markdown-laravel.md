@@ -1,8 +1,9 @@
 ---
 title: Obsidian 实战-本地优先的 Markdown 知识管理-插件生态与 Laravel 开发者工作流踩坑记录
 date: 2026-05-17 05:10:32
+author: Michael
 updated: 2026-05-17 05:13:03
-categories:
+categories: [macos]
   - macos
   - docs
 tags: [macOS, Obsidian, Markdown, 知识管理, 工程管理, Laravel]

@@ -3,7 +3,8 @@
 title: TypeScript 6.0 前瞻：Isolated Declarations、Pattern Matching、Pipe Operator——PHP
 keywords: [TypeScript, Isolated Declarations, Pattern Matching, Pipe Operator, PHP, 前瞻, 前端]
 date: 2026-06-09 18:44:00
-categories:
+author: Michael
+categories: [frontend]
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

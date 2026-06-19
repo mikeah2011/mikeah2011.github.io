@@ -3,7 +3,8 @@
 title: AI Agent Versioning 实战：Prompt/Tool/Memory 的版本化管理
 keywords: [AI Agent Versioning, Prompt, Tool, Memory, 的版本化管理, AI]
 date: 2026-06-09 18:08:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

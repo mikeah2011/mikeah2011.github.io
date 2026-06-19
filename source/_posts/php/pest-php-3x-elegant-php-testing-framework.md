@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-06-01 10:00:00
+author: Michael
 description: "Pest PHP 3.x 深度实战指南：从设计哲学到 Arch Testing 架构守护、Mutation Testing 测试盲区检测、自定义 Expectations 与高阶断言链式调用，详解 Datasets 数据驱动、Laravel 集成踩坑、并行测试性能优化，附 B2C API 项目 PHPUnit 迁移真实经验与框架选型对比。"
-categories:
+categories: [php]
   - php
   - testing
 tags: [Pest, PHP, Laravel, PHPUnit, Testing, Arch Testing, Mutation Testing, Datasets, Higher Order Expectations]

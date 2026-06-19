@@ -1,9 +1,10 @@
 ---
 title: OpenHuman Google Meet Agent 深度剖析：嵌入 webview、实时转录、TTS 注入会议音频流
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [OpenHuman, GoogleMeet, Webview, TTS, 实时转录]
 keywords: [OpenHuman Google Meet Agent, webview, TTS, 深度剖析, 嵌入, 实时转录, 注入会议音频流, macOS]
-categories:
+categories: [macos]
   - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:

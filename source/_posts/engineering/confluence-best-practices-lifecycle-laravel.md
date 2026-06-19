@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-17 06:00:53
+author: Michael
 updated: 2026-05-17 06:02:54
-categories:
+categories: [engineering]
   - engineering
   - docs
 tags: [Confluence, Laravel, macOS, 工程管理, 文档管理, Jira]

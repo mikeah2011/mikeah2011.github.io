@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-17 04:50:38
+author: Michael
 updated: 2026-05-17 04:52:00
-categories:
+categories: [frontend]
   - frontend
   - php
 tags: [Laravel, Vite, Webpack, 前端]

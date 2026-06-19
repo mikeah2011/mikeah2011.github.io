@@ -1,10 +1,11 @@
 ---
 title: Technical Writing 实战：技术博客的写作方法论——从选题到发布的完整工作流与 Markdown 工程化
 date: 2026-06-06 12:00:00
+author: Michael
 description: 本文是一套经过实战验证的技术博客写作方法论，系统覆盖选题验证、金字塔结构大纲、STAR 叙事、Markdown 工程化、Hexo CI/CD 自动发布与 SEO 优化全流程。通过 frontmatter 规范、markdownlint 校验、GitHub Actions 流水线，帮助后端工程师将 Technical Writing 纳入工程化体系，持续产出高质量技术博客，建立个人品牌影响力。
 tags: [Technical Writing, Markdown, 博客, 方法论]
 keywords: [Technical Writing, Markdown, 技术博客的写作方法论, 从选题到发布的完整工作流与, 工程化, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

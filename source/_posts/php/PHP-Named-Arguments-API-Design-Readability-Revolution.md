@@ -1,9 +1,10 @@
 ---
 title: PHP Named Arguments 深度实战：API 设计的可读性革命——Laravel Builder/Query 的命名参数重构案例
 date: 2026-06-07 12:00:00
+author: Michael
 tags: [PHP, Laravel, Named Arguments, 代码重构, API设计, 可读性]
 keywords: [PHP Named Arguments, API, Laravel Builder, Query, 深度实战, 设计的可读性革命, 的命名参数重构案例, PHP]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

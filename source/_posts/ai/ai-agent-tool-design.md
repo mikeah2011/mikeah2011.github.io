@@ -2,7 +2,8 @@
 title: AI Agent Tool Design 深度实战：工具定义规范、参数校验、错误分类、重试策略与降级方案
 keywords: [AI Agent Tool Design, 深度实战, 工具定义规范, 参数校验, 错误分类, 重试策略与降级方案, AI]
 date: 2026-06-10 09:27:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

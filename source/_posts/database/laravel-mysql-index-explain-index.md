@@ -1,7 +1,8 @@
 ---
 title: Laravel + MySQL 索引性能调研笔记：EXPLAIN 分析、覆盖索引、最左前缀原则
 date: 2026-05-02
-categories:
+author: Michael
+categories: [database]
   - database
 tags: [Laravel, MySQL, 索引, EXPLAIN, 性能优化]
 keywords: [Laravel, MySQL, EXPLAIN, 索引性能调研笔记, 分析, 覆盖索引, 最左前缀原则, 数据库]

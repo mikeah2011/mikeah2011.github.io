@@ -3,6 +3,7 @@
 title: SvelteKit 2.x 实战：全栈框架新选择——与 Next.js/Nuxt 的性能对比与开发体验评测
 keywords: [SvelteKit, Next.js, Nuxt, 全栈框架新选择, 的性能对比与开发体验评测]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - SvelteKit
 - Svelte
@@ -10,7 +11,7 @@ tags:
 - Nuxt
 - 全栈框架
 - 前端
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

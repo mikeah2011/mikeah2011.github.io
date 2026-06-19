@@ -2,9 +2,10 @@
 title: OpenHuman AutoFetch 实战：每 20 分钟自动拉取上下文的智能机制
 description: 本文深度拆解 OpenHuman AutoFetch 如何以每 20 分钟自动拉取上下文的方式，为 AI Agent 持续同步 Slack、GitHub、Jira 等外部信息源。你将看到 AutoFetch 配置、增量抓取、上下文管理、Memory Tree 集成、限流优化与故障排查实战，帮助你把长期运行的智能体真正做成稳定、低噪声、可扩展的生产级系统。
 date: 2026-06-02 02:30:00
+author: Michael
 tags: [OpenHuman, AI Agent, AutoFetch, 上下文管理, 自动化]
 keywords: [OpenHuman AutoFetch, 分钟自动拉取上下文的智能机制, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

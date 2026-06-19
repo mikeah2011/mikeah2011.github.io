@@ -3,6 +3,7 @@
 title: Vue 3 Signal Proposal 实战：Vue 的 Signals 实现——对比 Angular/Solid 的细粒度响应式与 Vue Reactivity
 keywords: [Vue, Signal Proposal, Signals, Angular, Solid, Vue Reactivity, 实现, 的细粒度响应式与]
 date: 2026-06-10 01:16:00
+author: Michael
 tags:
 - Vue
 - Signals
@@ -12,7 +13,7 @@ tags:
 - 前端架构
 - TC39
 - Proxy
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

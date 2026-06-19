@@ -1,9 +1,10 @@
 ---
 title: Laravel Telescope 生产环境实战：采样策略、存储治理、敏感数据过滤——开发调试利器的安全生产化
 date: 2026-06-05 12:00:00
+author: Michael
 tags: [Laravel, Telescope, 生产环境, 性能优化]
 keywords: [Laravel Telescope, 生产环境实战, 采样策略, 存储治理, 敏感数据过滤, 开发调试利器的安全生产化, PHP]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

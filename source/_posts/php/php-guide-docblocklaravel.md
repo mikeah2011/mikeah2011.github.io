@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-16 15:30:23
+author: Michael
 updated: 2026-05-16 15:38:23
-categories:
+categories: [php]
   - php
 tags: [Laravel, PHP, PHP 8, Attribute, DocBlock, 反射, 中间件]
 keywords: [PHP, DocBlock, Laravel, 属性注解实战, 替代, 的元数据编程与, 真实踩坑记录]

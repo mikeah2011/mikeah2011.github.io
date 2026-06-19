@@ -3,7 +3,8 @@
 title: QuestDB 实战：高性能时序数据库——SQL 兼容、零依赖部署与 IoT/监控场景的 Laravel 集成方案
 keywords: [QuestDB, SQL, IoT, Laravel, 高性能时序数据库, 兼容, 零依赖部署与, 监控场景的, 集成方案, 数据库]
 date: 2026-06-10 04:01:00
-categories:
+author: Michael
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

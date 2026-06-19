@@ -3,13 +3,14 @@
 title: Trigger.dev 实战：开源背景任务平台——对比 Laravel Queue/Horizon 的可视化编排与可观测性优势
 keywords: [Trigger.dev, Laravel Queue, Horizon, 开源背景任务平台, 的可视化编排与可观测性优势]
 date: 2026-06-04 12:00:00
+author: Michael
 tags:
 - trigger.dev
 - Laravel
 - background jobs
 - 任务编排
 - 可观测性
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

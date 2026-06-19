@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-16 22:55:57
+author: Michael
 updated: 2026-05-16 22:58:46
-categories:
+categories: [engineering]
   - engineering
   - php
 tags: [CI/CD, Laravel, PHP, 测试]

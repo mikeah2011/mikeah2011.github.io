@@ -1,9 +1,10 @@
 ---
 title: Flutter + Firebase 实战：Auth/Firestore/FCM 一体化后端方案
 date: 2026-06-02 10:00:00
+author: Michael
 tags: [Flutter, Firebase, Auth, Firestore, FCM]
 keywords: [Flutter, Firebase, Auth, Firestore, FCM, 一体化后端方案, 移动端]
-categories:
+categories: [mobile]
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:

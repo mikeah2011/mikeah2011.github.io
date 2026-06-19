@@ -3,7 +3,8 @@
 title: REST API 终结者模式实战：PATCH vs PUT vs POST 的语义边界——Laravel 中的幂等设计与客户端缓存一致性
 keywords: [REST API, PATCH vs PUT vs POST, Laravel, 终结者模式实战, 的语义边界, 中的幂等设计与客户端缓存一致性, 架构]
 date: 2026-06-10 08:00:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

@@ -8,10 +8,11 @@ tags:
 - InnoDB
 - B+Tree
 - 性能优化
-categories:
+categories: [database]
   - database
 keywords: [聚簇索引与非聚簇索引]
 date: 2015-10-03 20:14:56
+author: Michael
 description: 深入解析 MySQL 聚簇索引与非聚簇索引的底层原理与性能差异。通过 B+ Tree 结构图解、回表查询过程演示、InnoDB 索引选择规则详解，帮助开发者理解为什么主键查询最快、二级索引需要回表、覆盖索引能避免回表。附 UUID vs 自增主键的性能对比测试数据和 Laravel 项目中的最佳实践建议。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

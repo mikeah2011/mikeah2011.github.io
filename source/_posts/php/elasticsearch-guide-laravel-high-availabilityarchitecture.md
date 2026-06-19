@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-02
-categories:
+author: Michael
+categories: [php]
   - php
 tags: [Elasticsearch, KKday, 微服务, Laravel, PHP, 搜索, 全文检索, 高可用]
 keywords: [Elasticsearch, Laravel, 全文搜索深度调优实战, 多字段映射, 分词策略与高可用架构踩坑记录, PHP]

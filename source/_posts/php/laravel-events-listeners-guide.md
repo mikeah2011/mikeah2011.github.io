@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-05 11:55:39
+author: Michael
 updated: 2026-05-05 11:57:28
-categories:
+categories: [php]
   - php
 tags: [KKday, Laravel, PHP, 架构, 事件驱动, 设计模式]
 keywords: [Laravel Events, Listeners, 事件驱动解耦订单, 库存, 通知, PHP]

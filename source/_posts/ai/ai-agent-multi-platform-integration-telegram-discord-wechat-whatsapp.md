@@ -3,6 +3,7 @@
 title: AI Agent 多平台能力对比：Telegram/Discord/微信/WhatsApp 集成方案
 keywords: [AI Agent, Telegram, Discord, WhatsApp, 多平台能力对比, 微信, 集成方案]
 date: 2026-06-02 12:00:00
+author: Michael
 description: 全面对比 AI Agent 在 Telegram、Discord、微信、WhatsApp 四大即时通讯平台的集成方案。从 Bot API 接入、消息格式、速率限制、群组支持到合规风险，提供完整的 Python 代码示例和统一消息网关架构设计。涵盖 Inline Keyboard、Embed 消息、企业微信 API、WhatsApp Business API 等实战细节，帮助开发者选择最优多平台集成策略。
 tags:
 - AI Agent
@@ -12,7 +13,7 @@ tags:
 - WhatsApp
 - 多平台
 - Bot
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

@@ -1,7 +1,8 @@
 ---
 title: 电商物流追踪系统设计：多承运商对接、状态机流转、异常处理、用户通知——Laravel 的物流聚合层架构
 date: 2026-06-09 22:50:00
-categories:
+author: Michael
+categories: [php]
   - php
 keywords: [Laravel, 电商物流追踪系统设计, 多承运商对接, 状态机流转, 异常处理, 用户通知, 的物流聚合层架构, PHP]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

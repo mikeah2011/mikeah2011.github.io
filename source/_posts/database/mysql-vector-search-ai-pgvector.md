@@ -4,6 +4,7 @@ title: MySQL 9.x Vector Search 实战：原生向量搜索与 AI 集成——对
 keywords: [MySQL, Vector Search, AI, pgvector, 原生向量搜索与, 的选型决策]
 description: MySQL 9.x 原生向量搜索（Vector Search）实战指南：从 VECTOR 数据类型、HNSW 索引、距离函数到 Laravel 全栈集成，完整实现 RAG 语义检索与混合搜索。深度对比 pgvector 在性能、功能、生态上的差异，结合百万级基准测试数据与 5 个真实踩坑案例，给出 MySQL Vector Search vs pgvector 的选型决策矩阵，帮助 MySQL 技术团队零成本为项目加上 AI 向量搜索能力。
 date: 2026-06-06 10:00:00
+author: Michael
 tags:
 - MySQL
 - Vector Search
@@ -11,7 +12,7 @@ tags:
 - AI
 - 数据库
 - Laravel
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

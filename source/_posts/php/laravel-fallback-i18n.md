@@ -3,7 +3,8 @@
 title: Laravel 多语言内容管理实战：运营后台的翻译工作流、机器翻译预填、Fallback 链路——i18n 从技术方案到运营工具的演进
 keywords: [Laravel, Fallback, i18n, 多语言内容管理实战, 运营后台的翻译工作流, 机器翻译预填, 链路, 从技术方案到运营工具的演进, PHP]
 date: 2026-06-10 02:25:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

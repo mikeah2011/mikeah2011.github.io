@@ -3,13 +3,14 @@
 title: OpenClaw + Discord 实战：多频道 AI 助手与社区管理
 keywords: [OpenClaw, Discord, AI, 多频道, 助手与社区管理]
 date: 2026-06-02 09:00:00
+author: Michael
 tags:
 - OpenClaw
 - AI Agent
 - Discord
 - 社区管理
 - Bot
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

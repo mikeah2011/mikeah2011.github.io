@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-17 01:20:17
+author: Michael
 updated: 2026-05-17 01:49:40
-categories:
+categories: [engineering]
   - engineering
   - testing
 tags: [Laravel, PHP, 测试]

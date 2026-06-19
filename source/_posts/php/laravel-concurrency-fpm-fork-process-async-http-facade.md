@@ -3,7 +3,8 @@
 title: Laravel Concurrency 实战进阶：fpm-fork vs Process vs async HTTP 的性能基准——12.x Concurrency
 keywords: [Laravel Concurrency, fpm, fork vs Process vs async HTTP, Concurrency, 实战进阶, 的性能基准, PHP]
 date: 2026-06-09 15:21:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

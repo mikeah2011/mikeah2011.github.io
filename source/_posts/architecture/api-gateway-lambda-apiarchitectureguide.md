@@ -3,8 +3,9 @@
 title: API Gateway + Lambda 实战：无服务器 API 架构设计与 Laravel 集成踩坑记录
 keywords: [API Gateway, Lambda, API, Laravel, 无服务器, 架构设计与, 集成踩坑记录]
 date: 2026-05-17 04:40:41
+author: Michael
 updated: 2026-05-17 04:44:02
-categories:
+categories: [architecture]
 - architecture
 - api
 tags:

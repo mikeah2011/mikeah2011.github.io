@@ -3,8 +3,9 @@
 title: ShardingSphere-Proxy 分库分表实战：Laravel 订单中心按用户路由、全局 ID 与跨片查询降级踩坑记录
 keywords: [ShardingSphere, Proxy, Laravel, ID, 分库分表实战, 订单中心按用户路由, 全局, 与跨片查询降级踩坑记录]
 date: 2026-05-03 09:40:55
+author: Michael
 updated: 2026-05-03 09:40:55
-categories:
+categories: [database]
 - database
 tags:
 - Laravel

@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-02
-categories:
+author: Michael
+categories: [php]
   - php
 tags: [KKday, Laravel, 架构]
 keywords: [Controller, Service, Laravel, 大项目中职责分离的真实踩坑记录, PHP]

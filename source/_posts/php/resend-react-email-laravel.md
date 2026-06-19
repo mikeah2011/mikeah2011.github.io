@@ -1,9 +1,10 @@
 ---
 title: Resend + React Email 实战：用代码设计邮件模板——Laravel 事务邮件的现代工程化方案
 date: 2026-06-04 09:00:00
+author: Michael
 tags: [Resend, React Email, Laravel, 邮件, Mailable, 前端]
 keywords: [Resend, React Email, Laravel, 用代码设计邮件模板, 事务邮件的现代工程化方案, PHP]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

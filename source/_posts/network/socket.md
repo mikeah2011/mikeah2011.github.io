@@ -13,9 +13,10 @@ tags:
 - WebSocket
 - Laravel
 - Swoole
-categories:
+categories: [network]
 - network
 date: 2019-03-20 15:05:07
+author: Michael
 description: 本文全面解析Socket网络编程技术，从Socket在TCP/IP协议栈中的位置、编程模型入手，深入对比TCP Socket与UDP Socket的区别，提供完整的PHP Socket编程示例（服务端与客户端）。重点讲解WebSocket与传统Socket的本质差异，演示多进程Socket服务的实现方式，以及如何在Laravel框架中结合Laravel Reverb实现WebSocket实时通信。同时涵盖Socket编程常见错误排查方法和调试工具，适合PHP开发者系统掌握Socket编程。
 ---
 

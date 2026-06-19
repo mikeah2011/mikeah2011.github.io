@@ -2,7 +2,8 @@
 title: "Progressive Web App 2026 实战：Workbox 7、Background Sync、Periodic Sync——Laravel 应用的离线优先 PWA 改造指南"
 keywords: [Progressive Web App, Workbox, Background Sync, Periodic Sync, Laravel, PWA, 应用的离线优先, 改造指南, 前端]
 date: 2026-06-09 22:11:00
-categories:
+author: Michael
+categories: [frontend]
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

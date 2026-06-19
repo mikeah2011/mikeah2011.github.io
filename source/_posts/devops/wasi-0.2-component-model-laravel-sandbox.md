@@ -3,12 +3,13 @@
 title: WASI 0.2 组件模型实战：服务端 WebAssembly——在 Laravel 中安全运行不受信任的用户代码沙箱
 keywords: [WASI, WebAssembly, Laravel, 组件模型实战, 服务端, 中安全运行不受信任的用户代码沙箱]
 date: 2026-06-06 10:00:00
+author: Michael
 tags:
 - WebAssembly
 - Laravel
 - 沙箱
 - 安全
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

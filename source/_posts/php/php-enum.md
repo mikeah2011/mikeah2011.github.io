@@ -2,7 +2,8 @@
 title: PHP Enum 序列化实战：Enum 与 JSON/Database/Queue 的互转——Laravel Cast、Job 序列化与 API 响应的类型安全闭环
 keywords: [PHP Enum, Enum, JSON, Database, Queue, Laravel Cast, Job, API, 序列化实战, 的互转]
 date: 2026-06-10 06:40:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

@@ -5,8 +5,9 @@ cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 07:05:31
+author: Michael
 updated: 2026-05-17 07:08:05
-categories:
+categories: [macos]
   - macos
   - php
 tags: [JavaScript, Laravel, macOS]

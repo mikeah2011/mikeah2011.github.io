@@ -2,7 +2,8 @@
 title: Laravel 项目技术债治理实战：Rector 批量重构 + PHPStan 渐进式升级 + CI 门禁——30+ 仓库的代码质量治理方法论
 keywords: [Laravel, Rector, PHPStan, CI, 项目技术债治理实战, 批量重构, 渐进式升级, 门禁, 仓库的代码质量治理方法论, 工程化]
 date: 2026-06-09
-categories:
+author: Michael
+categories: [engineering]
   - engineering
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:

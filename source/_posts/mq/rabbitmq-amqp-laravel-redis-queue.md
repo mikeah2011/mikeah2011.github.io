@@ -1,6 +1,7 @@
 ---
 title: RabbitMQ 实战：AMQP 协议、死信队列、延迟消息与 Laravel 集成——对比 Redis Queue 的选型决策
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [RabbitMQ, AMQP, Laravel, 消息队列, 死信队列, Redis]
 keywords: [RabbitMQ, AMQP, Laravel, Redis Queue, 协议, 死信队列, 延迟消息与, 的选型决策, 消息队列]
 categories: [mq]

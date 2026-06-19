@@ -3,6 +3,7 @@
 title: PHP 8.5 新特性前瞻：属性钩子、JIT 改进与异步生态演进
 keywords: [PHP, JIT, 新特性前瞻, 属性钩子, 改进与异步生态演进]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - PHP
 - PHP 8.5
@@ -10,7 +11,7 @@ tags:
 - 异步编程
 - 属性钩子
 - 新特性
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

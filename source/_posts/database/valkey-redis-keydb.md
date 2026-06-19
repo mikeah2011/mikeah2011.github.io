@@ -2,7 +2,8 @@
 title: Valkey 实战：Redis 开源分叉的独立演进——2026 年 Redis/Valkey/KeyDB 三足鼎立的选型决策树
 keywords: [Valkey, Redis, KeyDB, 开源分叉的独立演进, 三足鼎立的选型决策树, 数据库]
 date: 2026-06-10 05:33:00
-categories:
+author: Michael
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

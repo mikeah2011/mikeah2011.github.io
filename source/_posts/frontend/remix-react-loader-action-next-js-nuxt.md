@@ -4,12 +4,13 @@ title: Remix 框架实战：React 全栈的 Loader/Action 范式——对比 Nex
 keywords: [Remix, React, Loader, Action, Next.js, Nuxt, 框架实战, 全栈的, 范式, 的嵌套路由与数据获取哲学]
 description: Remix（React Router v7）实战深度解析：深入 Loader/Action 服务端数据范式、嵌套路由并行加载、useFetcher 乐观 UI 更新等核心机制，系统对比 Next.js App Router Server Components 与 Nuxt 4 组合式函数的数据获取哲学差异，涵盖错误边界、Bundle Size、TTFB 性能对比及选型指南，帮助开发者在 2026 年全栈框架之争中做出正确技术选型。
 date: 2026-06-07 10:00:00
+author: Michael
 tags:
 - remix
 - React
 - 全栈框架
 - Nuxt
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

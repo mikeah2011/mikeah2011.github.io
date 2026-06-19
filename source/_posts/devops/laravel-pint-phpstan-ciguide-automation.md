@@ -1,8 +1,9 @@
 ---
 title: Laravel-Pint-PHPStan-CI集成实战-代码质量门禁自动化与渐进式治理踩坑记录
 date: 2026-05-05 07:20:44
+author: Michael
 updated: 2026-05-05 07:23:51
-categories:
+categories: [devops]
   - devops
   - cicd
 tags: [CI/CD, Laravel, 代码质量, Pint, PHPStan, 代码规范, GitHub Actions]

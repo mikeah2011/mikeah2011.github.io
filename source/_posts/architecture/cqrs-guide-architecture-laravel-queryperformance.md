@@ -13,7 +13,7 @@ tags:
 - 事件驱动
 - B2C
 - 性能优化
-categories:
+categories: [architecture]
 - architecture
 - php
 date: 2026-05-05 09:40:37

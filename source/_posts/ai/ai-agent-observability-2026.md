@@ -1,10 +1,11 @@
 ---
 title: AI Agent 可观测性 2026 全景：LangSmith vs LangFuse vs Braintrust vs Arize——LLM 应用的追踪、评估、标注与生产调试闭环
 date: 2026-06-07 10:00:00
+author: Michael
 description: 深度对比 2026 年四大 LLM Observability 平台——LangSmith、LangFuse、Braintrust 与 Arize Phoenix，从 Tracing 追踪、Evaluation 评估、Annotation 标注、Production Debugging 生产调试到 Cost Tracking 成本追踪五个维度，全景解析 AI Agent 可观测性最佳实践。包含可运行代码示例、团队选型建议与定价对比，助你构建生产级可观测性闭环。
 tags: [AI Agent, Observability, LangSmith, LangFuse, LLM]
 keywords: [AI Agent, LangSmith vs LangFuse vs Braintrust vs Arize, LLM, 可观测性, 全景, 应用的追踪, 评估, 标注与生产调试闭环, AI]
-categories:
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

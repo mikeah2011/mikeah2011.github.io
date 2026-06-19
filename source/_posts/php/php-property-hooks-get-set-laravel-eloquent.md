@@ -1,9 +1,10 @@
 ---
 title: "PHP 8.6 属性钩子 (Property Hooks) 深度实战：__get/__set 的编译期替代——Laravel Eloquent 模型的声明式数据验证革命"
 date: 2026-06-05 12:00:00
+author: Michael
 tags: [PHP, Property Hooks, PHP 8.6, Laravel, Eloquent]
 keywords: [PHP, Property Hooks, get, set, Laravel Eloquent, 属性钩子, 深度实战, 的编译期替代, 模型的声明式数据验证革命]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

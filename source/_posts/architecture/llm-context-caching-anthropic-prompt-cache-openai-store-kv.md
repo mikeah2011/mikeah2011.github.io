@@ -1,9 +1,10 @@
 ---
 title: LLM Context Caching 进阶实战：Anthropic Prompt Cache + OpenAI Context Store——系统提示复用、KV Cache 共享与成本直降 90%
 date: 2026-06-07 16:24:45
+author: Michael
 tags: [LLM, Context Caching, Anthropic, OpenAI, AI成本优化, Prompt Cache]
 keywords: [LLM Context Caching, Anthropic Prompt Cache, OpenAI Context Store, KV Cache, 进阶实战, 系统提示复用, 共享与成本直降, 架构]
-categories:
+categories: [architecture]
   - architecture
 description: 深入解析 LLM Context Caching 核心技术——从 Transformer KV Cache 底层原理到 Anthropic Prompt Cache（90%成本折扣）与 OpenAI Prompt Caching（自动50%折扣）的生产级实战。涵盖多级缓存断点设计、Laravel RAG 管道集成、缓存预热策略、监控诊断体系与成本测算模型，附完整可运行代码示例与常见踩坑清单，帮助 AI 工程师将 LLM 推理成本压缩 50%-90%。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -5,8 +5,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-03 09:46:04
+author: Michael
 updated: 2026-05-03 09:48:49
-categories:
+categories: [php]
   - php
 keywords: [Laravel, Idempotency, Key, 订单提交防重不是加唯一索引, 做创建接口结果回放的实战记录]
 tags:

@@ -3,13 +3,14 @@
 title: Circuit Breaker 深度实战：PHP 手写熔断器 vs Laravel HTTP Client 的 resilience 模式——从原理到生产落地
 keywords: [Circuit Breaker, PHP, vs Laravel HTTP Client, resilience, 深度实战, 手写熔断器, 从原理到生产落地]
 date: 2026-06-02 00:00:00
+author: Michael
 tags:
 - circuit breaker
 - 熔断器
 - Laravel
 - Resilience
 - 高可用
-categories:
+categories: [php]
 - php
 description: Circuit Breaker（熔断器）深度实战指南，从状态机原理到生产落地完整覆盖。手写基于 Redis 的分布式熔断器实现三状态机（Closed/Open/Half-Open）、失败计数与慢调用检测、半开探测与自动恢复；对比 Laravel HTTP Client 内置的 retry/timeout 重试机制，封装 ResilientHttpClient 将熔断器与 HTTP Client 结合。实战案例覆盖支付网关熔断降级（队列重试+人工兜底）、推荐服务降级（缓存→热门商品兜底）、Prometheus 指标采集与告警规则配置。适合微服务架构中需要构建高可用服务间调用的 Laravel 团队参考。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

@@ -3,6 +3,7 @@
 title: AI Context Engineering 实战：系统化管理 AI 上下文——.cursorrules/CLAUDE.md/AGENTS.md 的工程化配置与团队共享
 keywords: [AI Context Engineering, AI, cursorrules, CLAUDE.md, AGENTS.md, 系统化管理, 上下文, 的工程化配置与团队共享]
 date: 2026-06-07 11:00:00
+author: Michael
 tags:
 - AI
 - Context Engineering
@@ -10,7 +11,7 @@ tags:
 - Claude
 - GitHub Copilot
 - 工程化
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

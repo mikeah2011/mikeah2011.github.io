@@ -3,6 +3,7 @@
 title: HTTP/3 (QUIC) 实战：Caddy/H2O 服务器配置——Laravel 应用的协议升级与多路复用性能收益量化
 keywords: [HTTP, QUIC, Caddy, H2O, Laravel, 服务器配置, 应用的协议升级与多路复用性能收益量化]
 date: 2026-06-05 23:23:38
+author: Michael
 tags:
 - HTTP/3
 - QUIC
@@ -10,7 +11,7 @@ tags:
 - h2o
 - Laravel
 - 性能优化
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

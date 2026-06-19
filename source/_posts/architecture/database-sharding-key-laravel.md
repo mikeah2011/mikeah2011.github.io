@@ -2,7 +2,8 @@
 title: Database Sharding Key 选型实战：按用户 vs 按时间 vs 按业务域——Laravel 多库架构的分片策略决策树
 keywords: [Database Sharding Key, Laravel, 选型实战, 按用户, 按时间, 按业务域, 多库架构的分片策略决策树, 架构]
 date: 2026-06-09 18:27:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

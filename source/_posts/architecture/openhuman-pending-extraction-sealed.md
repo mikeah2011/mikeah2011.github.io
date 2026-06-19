@@ -3,13 +3,14 @@
 title: OpenHuman 叶子生命周期深度剖析：pending_extraction 到 sealed 的状态机设计
 keywords: [OpenHuman, pending, extraction, sealed, 叶子生命周期深度剖析, 的状态机设计]
 date: 2026-06-02 07:22:45
+author: Michael
 tags:
 - OpenHuman
 - AI Agent
 - 状态机
 - memory-tree
 - 数据生命周期
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

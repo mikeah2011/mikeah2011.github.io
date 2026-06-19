@@ -3,6 +3,7 @@
 title: Playwright a11y 实战：自动化无障碍测试——axe-core 集成、CI 门禁与 WCAG 2.2 合规检查
 keywords: [Playwright a11y, axe, core, CI, WCAG, 自动化无障碍测试, 门禁与, 合规检查]
 date: 2026-06-09 20:00:00
+author: Michael
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
@@ -15,7 +16,7 @@ tags:
 - 无障碍
 - CI/CD
 - 前端测试
-categories:
+categories: [frontend]
 - frontend
 description: 用 Playwright + axe-core 实现端到端无障碍自动化测试，集成 CI 门禁确保 WCAG 2.2 合规，覆盖颜色对比度、键盘导航、ARIA 语义等核心检查项
 ---

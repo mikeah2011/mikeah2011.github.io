@@ -3,6 +3,7 @@
 title: Go 测试实战：表驱动测试、Testify 断言、httptest Mock——从 Pest PHP 到 Go 的测试思维迁移
 keywords: [Go, Testify, httptest Mock, Pest PHP, 测试实战, 表驱动测试, 断言, 的测试思维迁移]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - Go
 - 测试
@@ -11,7 +12,7 @@ tags:
 - Pest
 - TDD
 - 基准测试
-categories:
+categories: [architecture]
 - architecture
 description: Go 测试实战全面指南：表驱动测试、Testify 断言库、httptest HTTP Mock、基准测试。从 Pest PHP/Laravel 开发者视角，深入对比 Go testing 包与 PHPUnit/Pest 的测试哲学差异，提供 Mock 接口、子测试并行、覆盖率分析等完整代码示例，助你掌握 Go 测试最佳实践与 TDD 工作流。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

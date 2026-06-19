@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-04 15:15:59
+author: Michael
 updated: 2026-05-04 15:17:45
-categories:
+categories: [php]
   - php
 tags: [Laravel, 安全, WebAuthn, Passkey, FIDO2, 无密码登录]
 keywords: [Laravel WebAuthn, Passkey, 后台无密码登录, 设备绑定与挑战过期踩坑记录, PHP]

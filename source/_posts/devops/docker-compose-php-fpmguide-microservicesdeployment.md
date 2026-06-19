@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-02
-categories:
+author: Michael
+categories: [devops]
   - devops
   - docker
 tags: [Docker, PHP, PHP-FPM, Docker Compose, 微服务, DevOps, Laravel, 容器化]

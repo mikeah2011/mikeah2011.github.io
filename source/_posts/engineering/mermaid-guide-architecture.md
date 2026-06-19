@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-16 21:00:33
+author: Michael
 updated: 2026-05-16 21:04:26
-categories:
+categories: [engineering]
   - engineering
   - docs
 tags: [mermaid, 架构图, 流程图, 时序图, 文档工具, 工程管理]

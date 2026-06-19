@@ -3,13 +3,14 @@
 title: Go error handling 深度实战：errors.Join/Wrap/Is/As 与自定义错误类型——对比 PHP Exception 层级的设计哲学
 keywords: [Go error handling, errors.Join, Wrap, PHP Exception, 深度实战, 与自定义错误类型, 层级的设计哲学]
 date: 2026-06-07 12:00:00
+author: Michael
 tags:
 - Go
 - 错误处理
 - PHP
 - 设计模式
 - 后端开发
-categories:
+categories: [go]
 - go
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:

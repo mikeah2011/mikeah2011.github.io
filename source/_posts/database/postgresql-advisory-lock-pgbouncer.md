@@ -3,13 +3,14 @@
 title: PostgreSQL Advisory Lock 实战进阶：会话级互斥、分布式任务调度、与 PgBouncer 连接池的兼容性踩坑
 keywords: [PostgreSQL Advisory Lock, PgBouncer, 实战进阶, 会话级互斥, 分布式任务调度, 连接池的兼容性踩坑]
 date: 2026-06-06 09:30:00
+author: Michael
 tags:
 - PostgreSQL
 - Advisory Lock
 - 分布式
 - PgBouncer
 - Laravel
-categories:
+categories: [database]
 - database
 description: PostgreSQL Advisory Lock 是一种数据库原生的互斥机制，无需引入 Redis 或 ZooKeeper 即可实现分布式任务调度中的单实例执行保障。本文深入对比会话级锁与事务级锁的选择边界，详解 Laravel 中 AdvisoryLockCommand 基类封装与多实例 cron 防重复执行的完整实现，重点剖析 PgBouncer transaction 模式下 Advisory Lock 失效的根因，并给出直连绕行、事务级锁降级、应用层 Redis 锁等四种生产级解决方案，附带监控告警配置与三个真实踩坑案例。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

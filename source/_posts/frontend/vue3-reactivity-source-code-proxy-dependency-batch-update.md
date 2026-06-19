@@ -3,7 +3,8 @@
 title: Vue 3 Reactivity 源码剖析：Proxy 拦截、依赖收集与批量更新的底层实现——从 effect() 到 trigger() 的响应式全链路
 keywords: [Vue, Reactivity, Proxy, effect, trigger, 源码剖析, 拦截, 依赖收集与批量更新的底层实现, 的响应式全链路, 前端]
 date: 2026-06-10 08:43:00
-categories:
+author: Michael
+categories: [frontend]
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

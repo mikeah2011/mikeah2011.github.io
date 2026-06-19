@@ -2,7 +2,8 @@
 title: 'PHP Security Hardening 实战：生产环境的完整加固清单'
 keywords: [PHP Security Hardening, 生产环境的完整加固清单]
 date: 2026-06-10 09:09:00
-categories:
+author: Michael
+categories: [security]
   - security
 cover: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop
 images:

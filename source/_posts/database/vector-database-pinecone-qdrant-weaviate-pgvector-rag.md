@@ -3,6 +3,7 @@
 title: Vector Database 选型实战：Pinecone vs Qdrant vs Weaviate vs pgvector——RAG 应用的向量存储深度对比
 keywords: [Vector Database, Pinecone vs Qdrant vs Weaviate vs pgvector, RAG, 选型实战, 应用的向量存储深度对比]
 date: 2026-06-03 08:00:00
+author: Michael
 tags:
 - 数据库
 - Pinecone
@@ -13,7 +14,7 @@ tags:
 - AI
 - Embedding
 description: 向量数据库选型不再迷茫！本文深度对比 Pinecone、Qdrant、Weaviate、pgvector、Milvus、ChromaDB 六大主流向量数据库，涵盖 RAG 检索增强生成架构原理、ANN 算法选型、Laravel/PHP 完整集成代码、性能基准与成本分析。无论你是构建 AI 知识库、语义搜索还是 RAG 应用，都能找到最适合的向量存储方案。含 pgvector SQL 混合搜索、Qdrant 混合检索、多租户策略与生产级优化实践。
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

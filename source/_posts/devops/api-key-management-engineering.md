@@ -2,7 +2,8 @@
 title: API 密钥管理工程化实战：环境变量 vs Vault vs Doppler vs .env.vault
 keywords: [API, vs Vault vs Doppler vs, env.vault, 密钥管理工程化实战, 环境变量, DevOps]
 date: 2026-06-10 03:15:00
-categories:
+author: Michael
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

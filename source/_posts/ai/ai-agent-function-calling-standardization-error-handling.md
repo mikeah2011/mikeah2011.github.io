@@ -1,6 +1,7 @@
 ---
 title: AI Agent 工具调用实战：Function Calling 标准化与错误处理
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [AI Agent, Function Calling, OpenAI, 工具调用, 错误处理]
 keywords: [AI Agent, Function Calling, 工具调用实战, 标准化与错误处理, AI]
 categories: [ai]

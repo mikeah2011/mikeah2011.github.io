@@ -3,6 +3,7 @@
 title: PostgreSQL 高级特性实战：Window Functions + CTE + JSONB + pg_trgm——Laravel 中的复杂查询重写与性能调优
 keywords: [PostgreSQL, Window Functions, CTE, JSONB, pg, trgm, Laravel, 高级特性实战, 中的复杂查询重写与性能调优]
 date: 2026-06-05 09:00:00
+author: Michael
 tags:
 - PostgreSQL
 - Laravel
@@ -11,7 +12,7 @@ tags:
 - JSONB
 - pg_trgm
 - 性能调优
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

@@ -9,9 +9,10 @@ tags:
 - 性能优化
 - B+Tree
 - InnoDB
-categories:
+categories: [database]
 - database
 date: 2016-03-13 14:05:07
+author: Michael
 description: 全面解析MySQL索引类型，深入对比B+Tree索引、Hash索引、全文索引（Full-Text Index）和空间索引（R-Tree/Spatial Index）的底层结构、适用场景与性能差异。包含B+Tree索引的ASCII结构图解、Hash索引vs B+Tree索引的详细对比、MySQL全文索引使用示例、空间索引GIS查询示例，以及各类索引的EXPLAIN输出分析。帮助开发者根据查询模式选择最优索引策略，显著提升数据库查询性能。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

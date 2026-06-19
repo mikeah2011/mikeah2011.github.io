@@ -3,6 +3,7 @@
 title: tRPC 实战：端到端类型安全的 API 层——TypeScript 全栈开发者告别 OpenAPI 代码生成的新范式
 keywords: [tRPC, API, TypeScript, OpenAPI, 端到端类型安全的, 全栈开发者告别, 代码生成的新范式]
 date: 2026-06-03 08:00:00
+author: Michael
 tags:
 - tRPC
 - TypeScript
@@ -10,7 +11,7 @@ tags:
 - API
 - React
 - Zod
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

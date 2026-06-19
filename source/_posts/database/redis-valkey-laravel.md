@@ -3,6 +3,7 @@
 title: Redis 8.0 Valkey 分叉深度对比：2026 年 Redis 生态分裂后的选型决策——性能基准、功能差异与 Laravel 兼容性
 keywords: [Redis, Valkey, Laravel, 分叉深度对比, 生态分裂后的选型决策, 性能基准, 功能差异与, 兼容性]
 date: 2026-06-07 17:39:00
+author: Michael
 tags:
 - Redis
 - Valkey
@@ -12,7 +13,7 @@ tags:
 - 性能基准
 - sspl
 - 向量搜索
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

@@ -2,7 +2,8 @@
 title: AI Agent Resume/Checkpoint 实战：长时间运行 Agent 的断点恢复——状态快照 + 上下文重建 + 人机审批恢复点
 keywords: [AI Agent Resume, Checkpoint, Agent, 长时间运行, 的断点恢复, 状态快照, 上下文重建, 人机审批恢复点, AI]
 date: 2026-06-09 17:30:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

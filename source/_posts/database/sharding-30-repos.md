@@ -3,8 +3,9 @@
 title: MySQL-分库分表实战-30-仓库数据库拆分经验与踩坑记录
 keywords: [MySQL, 分库分表实战, 仓库数据库拆分经验与踩坑记录]
 date: 2026-05-05 06:40:43
+author: Michael
 updated: 2026-05-05 06:42:39
-categories:
+categories: [database]
 - database
 tags:
 - KKday

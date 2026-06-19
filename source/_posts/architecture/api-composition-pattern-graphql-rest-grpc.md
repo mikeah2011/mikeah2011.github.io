@@ -1,9 +1,10 @@
 ---
 title: API Composition Pattern 进阶：GraphQL Federation vs REST BFF vs gRPC——跨服务查询聚合的三种路线深度对比
 date: 2026-06-04 09:00:00
+author: Michael
 tags: [API Composition, GraphQL Federation, REST BFF, gRPC, 微服务]
 keywords: [API Composition Pattern, GraphQL Federation vs REST BFF vs gRPC, 跨服务查询聚合的三种路线深度对比, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

@@ -3,6 +3,7 @@
 title: Laravel Context 实战：请求级上下文传播——日志关联、队列透传与多租户标识的统一治理
 keywords: [Laravel Context, 请求级上下文传播, 日志关联, 队列透传与多租户标识的统一治理]
 date: 2026-06-06 10:30:00
+author: Michael
 tags:
 - Laravel
 - Context
@@ -11,7 +12,7 @@ tags:
 - 多租户
 - 分布式
 - 可观测性
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

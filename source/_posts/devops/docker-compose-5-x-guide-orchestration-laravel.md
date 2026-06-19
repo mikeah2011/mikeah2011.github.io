@@ -6,12 +6,13 @@ cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-16 22:00:37
+author: Michael
 updated: 2026-05-16 22:04:36
 tags:
 - DevOps
 - Docker
 - Laravel
-categories:
+categories: [devops]
 - devops
 - docker
 description: Docker Compose 5.x 多服务编排实战：PHP-FPM + MySQL + Redis + Elasticsearch + Mailpit 的 Laravel 开发环境搭建，涵盖健康检查、depends_on 条件启动、Volume 持久化、网络隔离、Init 脚本等核心踩坑记录。

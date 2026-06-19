@@ -3,12 +3,13 @@
 title: OpenClaw 心跳机制实战：HEARTBEAT.md 主动检查与定时任务
 keywords: [OpenClaw, HEARTBEAT.md, 心跳机制实战, 主动检查与定时任务]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - OpenClaw
 - AI Agent
 - 心跳机制
 - DevOps
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

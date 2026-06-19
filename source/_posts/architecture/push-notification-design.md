@@ -5,8 +5,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 21:10:35
+author: Michael
 updated: 2026-05-16 21:14:39
-categories:
+categories: [architecture]
   - architecture
 keywords: [Laravel B2C API, 消息推送系统设计实战, 多通道, 优先级, 失败重试, 降级策略, 踩坑记录]
 tags:

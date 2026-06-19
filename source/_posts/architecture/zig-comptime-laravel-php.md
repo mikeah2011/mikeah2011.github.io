@@ -3,6 +3,7 @@
 title: Zig 实战：C 的现代替代——comptime 编译期计算、手动内存管理与 Laravel PHP 扩展的 Zig 重写路径
 keywords: [Zig, comptime, Laravel PHP, 的现代替代, 编译期计算, 手动内存管理与, 扩展的, 重写路径]
 date: 2026-06-07 12:00:00
+author: Michael
 tags:
 - Zig
 - 系统编程
@@ -12,7 +13,7 @@ tags:
 - Laravel
 - comptime
 - 内存管理
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

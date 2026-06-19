@@ -3,6 +3,7 @@
 title: Laravel PWA 改造实战：Service Worker 离线缓存、后台同步、推送通知——从传统 Web 应用到渐进式 Web 应用的完整迁移路径
 keywords: [Laravel PWA, Service Worker, Web, 改造实战, 离线缓存, 后台同步, 推送通知, 从传统, 应用到渐进式, 应用的完整迁移路径]
 date: 2026-06-07 10:00:00
+author: Michael
 description: 深入实战讲解如何将 Laravel Web 应用改造为渐进式 Web 应用（PWA）。从 Web App Manifest 配置、Service Worker 注册与生命周期管理，到 Cache First、Network First、Stale While Revalidate 三级离线缓存策略详解，再到 Background Sync API 后台同步与 Web Push 推送通知的 Laravel 后端实现，涵盖 Workbox 集成、Nginx HTTPS 配置、Lighthouse 评分优化及生产环境部署踩坑指南，助你一站式掌握 PWA 迁移全流程。
 tags:
 - Laravel
@@ -11,7 +12,7 @@ tags:
 - JavaScript
 - 性能优化
 - web-push
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

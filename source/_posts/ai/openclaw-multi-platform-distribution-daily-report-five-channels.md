@@ -3,6 +3,7 @@
 title: OpenClaw 多平台分发架构：daily-report.py 五通道（Telegram/Slack/飞书/QQ/微信）实现
 keywords: [OpenClaw, daily, report.py, Telegram, Slack, QQ, 多平台分发架构, 五通道, 飞书, 微信]
 date: 2026-06-02 00:00:00
+author: Michael
 tags:
 - OpenClaw
 - 多平台
@@ -11,7 +12,7 @@ tags:
 - 飞书
 - 消息推送
 - AI Agent
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

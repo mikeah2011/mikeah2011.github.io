@@ -3,6 +3,7 @@
 title: Data Consistency Patterns 实战：Saga/TCC/2PC/XA 在 Laravel 中的选型决策树——从理论到生产落地的完整路径
 keywords: [Data Consistency Patterns, Saga, TCC, PC, XA, Laravel, 中的选型决策树, 从理论到生产落地的完整路径]
 date: 2026-06-06 10:00:00
+author: Michael
 tags:
 - 分布式
 - Saga
@@ -12,7 +13,7 @@ tags:
 - Laravel
 - 微服务
 - 一致性
-categories:
+categories: [architecture]
 - architecture
 description: 本文系统对比分布式事务四大主流模式——Saga、TCC、2PC、XA 在 Laravel 微服务架构中的工程实现与选型策略。从数据库层 XA 协议的两阶段提交原理，到应用层 2PC 的自定义协调器设计，再到业务层 TCC 的资源预留与幂等防护，以及 Saga 编排式的最终一致性保障，每种模式均附带可运行的 PHP 代码实现。文章还收录了生产环境五大踩坑案例：XA 悬挂事务清理、TCC 空回滚与幂等陷阱、Saga 幻影数据问题、Confirm 重试风暴治理、不可逆操作的语义补偿方案，并给出基于业务约束的选型决策树，帮助 Laravel 团队在强一致与最终一致性之间做出理性权衡。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

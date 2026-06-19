@@ -3,12 +3,13 @@
 title: AI Agent + 数据库实战：Text-to-SQL、智能查询、数据治理
 keywords: [AI Agent, Text, SQL, 数据库实战, 智能查询, 数据治理]
 date: 2026-06-02 02:31:05
+author: Michael
 tags:
 - AI
 - Text-to-SQL
 - 数据库
 - 数据治理
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 02:40:53
+author: Michael
 updated: 2026-05-17 02:42:45
-categories:
+categories: [macos]
 - macos
 - linux
 tags:

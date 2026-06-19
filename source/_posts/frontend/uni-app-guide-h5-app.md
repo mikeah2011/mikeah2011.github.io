@@ -5,8 +5,9 @@ images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 title: uni-app 多端适配实战：H5/微信小程序/App 一套代码搞定踩坑记录
 date: 2026-05-05 10:10:56
+author: Michael
 updated: 2026-05-05 10:13:47
-categories:
+categories: [frontend]
   - frontend
 keywords: [uni, app, H5, 多端适配实战, 微信小程序, 一套代码搞定踩坑记录]
 tags:

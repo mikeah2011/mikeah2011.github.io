@@ -3,7 +3,8 @@
 title: Vibe Coding 实战：AI-first 开发范式——从需求描述到可运行代码的全流程，对比传统 TDD 的生产力跃迁
 keywords: [Vibe Coding, AI, first, TDD, 开发范式, 从需求描述到可运行代码的全流程, 对比传统, 的生产力跃迁]
 date: 2026-06-09 15:00:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

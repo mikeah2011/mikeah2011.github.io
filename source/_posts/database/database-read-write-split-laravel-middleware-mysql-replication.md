@@ -2,7 +2,8 @@
 
 title: 数据库读写分离实战：Laravel 中间件 + MySQL 主从复制配置
 date: 2026-06-01 12:00:00
-categories:
+author: Michael
+categories: [database]
   - database
 keywords: [Laravel, MySQL, 数据库读写分离实战, 中间件, 主从复制配置]
 tags:

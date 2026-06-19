@@ -3,6 +3,7 @@
 title: Terratest 实战：基础设施即代码的自动化测试——Terraform 模块的单元测试、集成测试与 CI 门禁
 keywords: [Terratest, Terraform, CI, 基础设施即代码的自动化测试, 模块的单元测试, 集成测试与, 门禁]
 date: 2026-06-05 08:00:00
+author: Michael
 tags:
 - Terratest
 - IaC
@@ -10,7 +11,7 @@ tags:
 - CI/CD
 - DevOps
 - 自动化
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

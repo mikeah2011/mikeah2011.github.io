@@ -1,7 +1,8 @@
 ---
 title: "PHP 生产环境调试实战：strace/dtrace/gdb 三板斧——不改代码就能定位死锁、内存泄漏与系统调用瓶颈"
 date: 2026-06-10 06:35:00
-categories:
+author: Michael
+categories: [php]
   - php
 tags:
   - 调试

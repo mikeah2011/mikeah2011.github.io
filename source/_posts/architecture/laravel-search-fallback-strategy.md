@@ -2,7 +2,8 @@
 title: Laravel 搜索降级策略实战：Elasticsearch 不可用时自动回退数据库 LIKE/Full-Text
 keywords: [Laravel, Elasticsearch, LIKE, Full, Text, 搜索降级策略实战, 不可用时自动回退数据库, 架构]
 date: 2026-06-10 02:21:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

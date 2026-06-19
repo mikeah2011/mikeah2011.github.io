@@ -3,7 +3,8 @@
 title: PHP Fiber vs Generator vs Swoole Coroutine 深度对比：三种异步模式的底层机制、调度策略与适用场景决策树
 keywords: [PHP Fiber vs Generator vs Swoole Coroutine, 深度对比, 三种异步模式的底层机制, 调度策略与适用场景决策树, PHP]
 date: 2026-06-10 08:30:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

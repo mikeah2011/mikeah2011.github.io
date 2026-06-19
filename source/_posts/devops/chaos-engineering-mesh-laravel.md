@@ -1,9 +1,10 @@
 ---
 title: Chaos Engineering 实战：用 Chaos Mesh 对 Laravel 微服务进行故障注入与韧性测试
 date: 2026-06-02 08:00:00
+author: Michael
 tags: [Chaos Engineering, Chaos Mesh, Kubernetes, 韧性测试, Laravel, 微服务]
 keywords: [Chaos Engineering, Chaos Mesh, Laravel, 微服务进行故障注入与韧性测试, DevOps]
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

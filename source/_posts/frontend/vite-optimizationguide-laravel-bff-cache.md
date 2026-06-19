@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-03 13:35:38
-categories:
+author: Michael
+categories: [frontend]
   - frontend
   - php
 tags: [Vite, Webpack, 前端构建, Laravel, 缓存, 分包策略]

@@ -1,9 +1,10 @@
 ---
 title: 开发者如何选择 AI Agent 框架？基于工作流、隐私需求、技术栈的决策矩阵
 date: 2026-06-02 09:00:00
+author: Michael
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 框架选型, 决策矩阵]
 keywords: [AI Agent, 开发者如何选择, 基于工作流, 隐私需求, 技术栈的决策矩阵, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

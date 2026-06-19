@@ -2,7 +2,8 @@
 title: "Medusa.js 实战：开源电商后端——对比 Saleor/Laravel + Bagisto 的 Headless Commerce 选型决策"
 keywords: [Medusa.js, Saleor, Laravel, Bagisto, Headless Commerce, 开源电商后端, 选型决策, PHP]
 date: 2026-06-10 05:26:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

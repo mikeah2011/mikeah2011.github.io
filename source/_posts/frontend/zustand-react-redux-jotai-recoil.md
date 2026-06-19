@@ -4,6 +4,7 @@ title: Zustand 实战：轻量级 React 状态管理——对比 Redux/Jotai/Rec
 keywords: [Zustand, React, Redux, Jotai, Recoil, 轻量级, 状态管理, 的工程选型与最佳实践]
 description: 本文深入解析 Zustand——React 生态中最受欢迎的轻量级状态管理库。通过对比 Redux Toolkit、Jotai、Recoil 的包体积、学习曲线、TypeScript 支持与中间件生态，帮助开发者做出合理的工程选型决策。文章涵盖 Zustand 核心 API（create、selector、shallow）、Slice Pattern 模块化拆分、persist/immer/devtools 中间件实战、从 Redux 迁移的完整指南、性能优化策略（transient updates、精确订阅）以及 TypeScript 类型安全最佳实践，并附带完整电商购物车示例代码与单元测试。
 date: 2026-06-04 10:00:00
+author: Michael
 tags:
 - zustand
 - React
@@ -11,7 +12,7 @@ tags:
 - redux
 - jotai
 - recoil
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

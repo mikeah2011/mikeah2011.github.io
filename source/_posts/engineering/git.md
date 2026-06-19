@@ -6,10 +6,11 @@ images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 tags: [Git, 版本控制, 工程化]
 keywords: [Git, 版本控制, 工程化]
-categories:
+categories: [engineering]
   - engineering
   - git
 date: 2020-03-20 15:05:07
+author: Michael
 description: >
 ---
 # Git 基础命令与工作流实战指南

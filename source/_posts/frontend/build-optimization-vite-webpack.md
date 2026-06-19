@@ -5,8 +5,9 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-17 07:15:07
+author: Michael
 updated: 2026-05-17 07:16:32
-categories:
+categories: [frontend]
   - frontend
 keywords: [Vite, Webpack, 前端构建优化实战, 分包策略与缓存优化踩坑记录]
 tags:

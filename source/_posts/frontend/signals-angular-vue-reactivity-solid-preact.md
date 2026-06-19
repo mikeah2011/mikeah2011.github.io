@@ -3,6 +3,7 @@
 title: Signals 范式对比：Angular Signals vs Vue Reactivity vs Solid Reactivity vs Preact
 keywords: [Signals, Angular Signals vs Vue Reactivity vs Solid Reactivity vs Preact, 范式对比]
 date: 2026-06-05 09:00:00
+author: Michael
 tags:
 - Signals
 - Angular
@@ -11,7 +12,7 @@ tags:
 - React
 - 响应式
 - 前端架构
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

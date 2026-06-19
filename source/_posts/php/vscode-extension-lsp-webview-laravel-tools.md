@@ -2,7 +2,8 @@
 title: "VS Code Extension 开发实战：Language Server Protocol、Webview API 与 Laravel 项目定制化工具——从 HelloWorld 到发布 Marketplace"
 keywords: [VS Code Extension, Language Server Protocol, Webview API, Laravel, HelloWorld, Marketplace, 开发实战, 项目定制化工具, 到发布, PHP]
 date: 2026-06-10 09:25:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

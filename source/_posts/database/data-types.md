@@ -2,9 +2,10 @@
 title: MySQL 数据类型选型
 tags: [MySQL, 数据库, SQL, Laravel, 数据类型]
 keywords: [MySQL, 数据类型选型, 数据库]
-categories:
+categories: [database]
   - database
 date: 2019-04-20 10:00:00
+author: Michael
 description: 'MySQL 数据类型选型完全指南：深入对比 INT/BIGINT/TINYINT 整数类型、CHAR/VARCHAR/TEXT 字符串类型、DATETIME/TIMESTAMP 时间类型、DECIMAL/FLOAT 浮点类型，结合 Laravel Eloquent 模型定义与 Migration 最佳实践，附生产环境踩坑案例与性能影响分析，帮助开发者在建表时做出正确选择。'
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

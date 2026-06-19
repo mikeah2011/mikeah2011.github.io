@@ -2,7 +2,8 @@
 title: "Framer Motion 实战：React/Vue 声明式动画库——Layout Animation、Shared Layout 与手势交互的生产级方案"
 keywords: [Framer Motion, React, Vue, Layout Animation, Shared Layout, 声明式动画库, 与手势交互的生产级方案, 前端]
 date: 2026-06-10 03:58:00
-categories:
+author: Michael
+categories: [frontend]
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

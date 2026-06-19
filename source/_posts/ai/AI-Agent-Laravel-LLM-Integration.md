@@ -1,6 +1,7 @@
 ---
 title: AI Agent + Laravel 实战：在 PHP 后端中集成 LLM 能力
 date: 2026-06-02 02:31:05
+author: Michael
 tags: [AI, Laravel, LLM, PHP]
 keywords: [AI Agent, Laravel, PHP, LLM, 后端中集成, 能力, AI]
 categories: [ai]

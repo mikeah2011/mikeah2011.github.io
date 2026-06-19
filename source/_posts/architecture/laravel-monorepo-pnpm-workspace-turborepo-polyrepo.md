@@ -3,7 +3,8 @@
 title: 30+ Laravel 仓库的 Monorepo 迁移实战：pnpm workspace + Turborepo + 共享包治理——从 Polyrepo
 keywords: [Laravel, Monorepo, pnpm workspace, Turborepo, Polyrepo, 仓库的, 迁移实战, 共享包治理, 架构]
 date: 2026-06-09 23:22:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

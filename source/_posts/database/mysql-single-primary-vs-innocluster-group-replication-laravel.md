@@ -1,12 +1,13 @@
 ---
 title: MySQL 单主模式 vs InnoDB Cluster：Group Replication 的两种形态——自动故障切换、读扩展与 Laravel 适配对比
 date: 2026-06-10 07:51:00
+author: Michael
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 tags: [MySQL, InnoDB Cluster, Group Replication, 高可用, Laravel, 故障切换]
 keywords: [MySQL, vs InnoDB Cluster, Group Replication, Laravel, 单主模式, 的两种形态, 自动故障切换, 读扩展与, 适配对比, 数据库]
-categories:
+categories: [database]
   - database
 description: "深度对比 MySQL Group Replication 的单主模式与 InnoDB Cluster 架构：从底层复制原理到 MySQL Router 自动路由，再到 Laravel 项目的读写分离适配与故障切换实战，附完整可运行代码与踩坑记录。"
 ---

@@ -3,6 +3,7 @@
 title: Feature Flag Driven Development 实战：Unleash/LaunchDarkly/Flagsmith 选型——渐进式发布、A/B
 keywords: [Feature Flag Driven Development, Unleash, LaunchDarkly, Flagsmith, 渐进式发布]
 date: 2026-06-06 10:00:00
+author: Michael
 tags:
 - Feature Flags
 - Unleash
@@ -11,7 +12,7 @@ tags:
 - 渐进式发布
 - A/B测试
 description: Feature Flag 驱动开发（FFDD）实战指南，深度对比 Unleash、LaunchDarkly、Flagsmith 三大 Feature Flag 平台的架构设计、SDK 集成与选型策略。涵盖渐进式发布、百分比灰度、Canary Release、A/B 测试实验设计与统计显著性分析，以及 Feature Flag 技术债务的生命周期管理、Kill Switch 降级策略和自动化清理方案，帮助团队实现功能发布与部署解耦，安全高效地交付软件。
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

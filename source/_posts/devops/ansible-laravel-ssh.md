@@ -3,7 +3,8 @@
 title: Ansible 实战：Laravel 应用自动化部署与配置管理——从 SSH 手工操作到声明式基础设施踩坑记录
 keywords: [Ansible, Laravel, SSH, 应用自动化部署与配置管理, 手工操作到声明式基础设施踩坑记录]
 date: 2026-06-01
-categories:
+author: Michael
+categories: [devops]
 - devops
 tags:
 - Ansible

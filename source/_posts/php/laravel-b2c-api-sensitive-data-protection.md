@@ -2,6 +2,7 @@
 
 title: 敏感数据保护实战：加密存储、脱敏展示、审计日志合规——Laravel B2C API 多层防御踩坑记录
 date: 2026-06-01 09:00:00
+author: Michael
 description: 本文围绕 Laravel B2C API 的敏感数据保护实践，系统拆解加密存储、数据脱敏、审计日志三层防线，结合真实踩坑案例讲解字段级加密、哈希索引查询、日志脱敏、权限分级展示、密钥轮换与合规审计落地方法，帮助团队建立可执行的敏感数据保护体系。
 tags:
 - Laravel
@@ -11,7 +12,7 @@ tags:
 - 合规
 - PHP
 keywords: [Laravel, 敏感数据, 加密存储, 数据脱敏, 审计日志, 合规, PHP]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-05 08:40:22
+author: Michael
 updated: 2026-05-05 08:43:28
-categories:
+categories: [php]
   - php
 tags: [Laravel, OpenAPI, Swagger, API文档, Scribe]
 keywords: [Scribe vs SwaggerPHP, Laravel API, 文档生成工具对比实战踩坑记录, PHP]

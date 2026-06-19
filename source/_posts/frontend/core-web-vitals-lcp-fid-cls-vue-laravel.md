@@ -3,6 +3,7 @@
 title: Core Web Vitals 实战：LCP/FID/CLS 优化——Vue 3 + Laravel 前后端协同性能治理
 keywords: [Core Web Vitals, LCP, FID, CLS, Vue, Laravel, 前后端协同性能治理]
 date: 2026-06-02 00:00:00
+author: Michael
 tags:
 - Core Web Vitals
 - LCP
@@ -12,7 +13,7 @@ tags:
 - Laravel
 - 性能优化
 - 前端
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

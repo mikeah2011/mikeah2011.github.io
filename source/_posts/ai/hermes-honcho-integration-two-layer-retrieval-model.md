@@ -1,6 +1,7 @@
 ---
 title: Hermes Honcho 集成深度剖析：两层召回模型（base context + dialectic supplement）
 date: 2026-06-02 11:00:00
+author: Michael
 tags: [Hermes, Honcho, AI Agent, 记忆召回, RAG, 上下文管理]
 keywords: [Hermes Honcho, base context, dialectic supplement, 集成深度剖析, 两层召回模型, AI]
 categories: [ai]

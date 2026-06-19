@@ -1,6 +1,7 @@
 ---
 title: Deno 2.x 实战：安全优先的 JavaScript 运行时——与 Node.js/Bun 的三选一决策
 date: 2026-06-02 12:00:00
+author: Michael
 tags: [Deno, JavaScript, TypeScript, 运行时, 前端, Bun, Node.js]
 keywords: [Deno, JavaScript, Node.js, Bun, 安全优先的, 运行时, 的三选一决策, 前端]
 categories: [frontend]

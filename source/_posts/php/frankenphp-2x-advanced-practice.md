@@ -2,7 +2,8 @@
 title: FrankenPHP 2.x 实战进阶：Caddy 内嵌 PHP、HTTP/3 原生支持与 Worker 模式性能基准——对比 Octane 的新选择
 keywords: [FrankenPHP, Caddy, PHP, HTTP, Worker, Octane, 实战进阶, 内嵌, 原生支持与, 模式性能基准]
 date: 2026-06-09 14:00:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

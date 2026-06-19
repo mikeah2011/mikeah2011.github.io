@@ -11,10 +11,11 @@ tags:
 - 自动加载
 - PHP Basics
 - OPcache
-categories:
+categories: [php]
   - php
 keywords: [require, include, once, 的区别]
 date: 2021-04-15 10:00:00
+author: Michael
 description: 全面对比PHP中require与include四大语句的区别与最佳实践。深入详解Fatal Error与Warning的差异机制、require_once和include_once的内部去重原理与哈希表查表实现、相对路径与__DIR__魔术常量的安全用法、循环包含的识别与PHPStan静态检测方案、OPcache对文件加载的opcode缓存影响与部署时重置策略、完整的性能基准测试代码与对比数据、Composer PSR-4自动加载替代手动require的完整迁移指南，以及LFI和RFI文件包含漏洞的防御措施与安全编码实践，附速查表、决策流程图与常见陷阱案例。
 ---
 

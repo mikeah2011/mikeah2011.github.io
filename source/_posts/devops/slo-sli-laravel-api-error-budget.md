@@ -1,9 +1,10 @@
 ---
 title: SLO/SLI 实战：用服务等级目标驱动可靠性——Laravel API 的 Error Budget 与告警策略
 date: 2026-06-02 08:00:00
+author: Michael
 tags: [SLO, SLI, 可靠性, 告警, DevOps, Laravel, Prometheus]
 keywords: [SLO, SLI, Laravel API, Error Budget, 用服务等级目标驱动可靠性, 与告警策略, DevOps]
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

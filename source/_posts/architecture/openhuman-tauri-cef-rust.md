@@ -3,6 +3,7 @@
 title: OpenHuman 源码编译实战：Tauri + CEF + Rust 构建桌面应用
 keywords: [OpenHuman, Tauri, CEF, Rust, 源码编译实战, 构建桌面应用]
 date: 2026-06-02 10:00:00
+author: Michael
 description: 本文围绕 OpenHuman 源码编译实战，系统拆解 Tauri、CEF、Rust 构建桌面应用的完整链路，覆盖环境准备、目录结构、CEF 依赖下载、Cargo 与前端打包、跨平台构建、常见报错排查和工程化优化建议。适合想深入理解桌面应用架构、提升本地编译成功率与发布稳定性的开发者阅读。
 tags:
 - OpenHuman
@@ -11,7 +12,7 @@ tags:
 - Rust
 - 桌面应用
 - 编译
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

@@ -4,6 +4,7 @@ title: Laravel Task Scheduling 进阶实战：Schedule::job()->onOneServer() 的
 keywords: [Laravel Task Scheduling, Schedule, job, onOneServer, Redis, 进阶实战, 互斥实现, 多实例部署下的任务去重原理]
 description: 深入剖析 Laravel onOneServer() 多实例任务去重原理，详解 Redis 分布式互斥锁 SET NX EX 原子操作、锁生命周期管理与故障降级方案。涵盖 K8s 多 Pod 部署、Sentinel 高可用配置、Watchdog 锁续期实战代码，助你构建不重复执行的健壮定时任务系统。
 date: 2026-06-07 12:00:00
+author: Michael
 tags:
 - Laravel
 - Task Scheduling
@@ -11,7 +12,7 @@ tags:
 - onOneServer
 - 分布式
 - Cron
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

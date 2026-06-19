@@ -3,13 +3,14 @@
 title: Crossplane 实战：Kubernetes 原生基础设施编排——替代 Terraform 的云资源 GitOps 声明式管理
 keywords: [Crossplane, Kubernetes, Terraform, GitOps, 原生基础设施编排, 替代, 的云资源, 声明式管理]
 date: 2026-06-04 10:00:00
+author: Michael
 tags:
 - crossplane
 - Kubernetes
 - IaC
 - GitOps
 - 基础设施
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

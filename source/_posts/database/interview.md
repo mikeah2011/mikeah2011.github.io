@@ -2,9 +2,10 @@
 title: MySQL 面试题速查
 tags: [MySQL, 面试, 索引, 事务, 锁, 性能优化]
 keywords: [MySQL, 面试题速查, 数据库]
-categories:
+categories: [database]
   - database
 date: 2021-03-20 15:05:07
+author: Michael
 description: MySQL 高频面试题速答：索引（B+ 树、聚簇/二级、覆盖、最左前缀、失效）、事务（ACID、隔离级别、MVCC）、锁（行锁/间隙锁/意向锁、死锁）、存储引擎、SQL 优化、主从复制、MySQL 8.0+新特性（CTE、窗口函数）、性能调优、分区分表、高级复制拓扑。一题一行，配跳转链接，助你高效备战技术面试。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

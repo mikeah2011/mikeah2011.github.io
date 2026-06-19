@@ -1,7 +1,8 @@
 ---
 title: "Data Mesh 实战：领域数据产品化——Laravel 微服务中的数据所有权、联邦治理与自助查询层"
 date: 2026-06-09 20:20:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 tags: [data-mesh, 数据架构, 微服务, Laravel, 数据治理]
 keywords: [Data Mesh, Laravel, 领域数据产品化, 微服务中的数据所有权, 联邦治理与自助查询层, 架构]

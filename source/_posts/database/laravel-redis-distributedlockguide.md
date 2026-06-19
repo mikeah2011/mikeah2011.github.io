@@ -3,7 +3,8 @@
 title: Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录
 keywords: [Laravel Redis, KKday B2C API, 分布式锁失效场景实战, 真实踩坑记录]
 date: 2026-05-02
-categories:
+author: Michael
+categories: [database]
 - database
 tags:
 - BFF

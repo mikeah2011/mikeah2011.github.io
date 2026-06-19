@@ -5,8 +5,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 20:00:51
+author: Michael
 updated: 2026-05-16 20:07:32
-categories:
+categories: [architecture]
   - architecture
 keywords: [Apollo, Nacos, Laravel, 配置中心实战, 动态配置与, 热更新与多环境治理踩坑记录]
 tags:

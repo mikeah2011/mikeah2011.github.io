@@ -5,7 +5,8 @@ cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 date: 2026-06-01 10:00:00
-categories:
+author: Michael
+categories: [mobile]
   - mobile
 tags:
   - Flutter

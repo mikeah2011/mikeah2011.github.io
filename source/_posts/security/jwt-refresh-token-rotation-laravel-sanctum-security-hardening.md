@@ -2,7 +2,8 @@
 title: JWT Refresh Token Rotation 实战：Refresh Token 自动轮换与检测重用——Laravel Sanctum 的安全加固指南
 keywords: [JWT Refresh Token Rotation, Refresh Token, Laravel Sanctum, 自动轮换与检测重用, 的安全加固指南]
 date: 2026-06-10 01:50:00
-categories:
+author: Michael
+categories: [security]
   - security
 cover: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop
 images:

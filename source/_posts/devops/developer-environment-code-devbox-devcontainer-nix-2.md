@@ -3,6 +3,7 @@
 title: Developer Environment as Code 实战：Devbox + devcontainer + Nix——从"在我机器上能跑"到"在所有机器上都能跑"
 keywords: [Developer Environment as Code, Devbox, devcontainer, Nix, 在我机器上能跑, 在所有机器上都能跑, DevOps]
 date: 2026-06-05 09:00:00
+author: Michael
 tags:
 - Devbox
 - DevContainer
@@ -10,7 +11,7 @@ tags:
 - DevOps
 - 开发环境
 - 容器化
-categories:
+categories: [devops]
   - devops
 description: 深入对比 Devbox、devcontainer、Nix 三大开发环境即代码方案，提供 Laravel 项目完整配置示例、踩坑解决方案与团队渐进式迁移路线图，告别'在我机器上能跑'的开发环境一致性难题。
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

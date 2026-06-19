@@ -3,6 +3,7 @@
 title: Laravel 幂等性设计模式实战：请求去重、支付回调防重复、队列消息 Exactly-Once——B2C 电商的防重放工程化方案
 keywords: [Laravel, Exactly, Once, B2C, 幂等性设计模式实战, 请求去重, 支付回调防重复, 队列消息, 电商的防重放工程化方案]
 date: 2026-06-05 10:30:00
+author: Michael
 tags:
 - Laravel
 - PHP
@@ -10,7 +11,7 @@ tags:
 - 分布式
 - 电商
 - Redis
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

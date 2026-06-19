@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-16 22:51:09
+author: Michael
 updated: 2026-05-16 22:54:14
-categories:
+categories: [architecture]
   - architecture
   - infra
 tags: [Laravel, Nginx, 安全, 监控]

@@ -3,13 +3,14 @@
 title: AI Agent Long-Running Tasks 实战：持久化状态、断点恢复、人机审批节点——生产级 Agent 的长时间运行任务编排
 keywords: [AI Agent Long, Running Tasks, Agent, 持久化状态, 断点恢复, 人机审批节点, 生产级, 的长时间运行任务编排]
 date: 2026-06-05 10:00:00
+author: Michael
 tags:
 - AI Agent
 - workflow
 - durable-execution
 - Human-in-the-Loop
 - Temporal
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

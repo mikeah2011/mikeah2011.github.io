@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 date: 2026-05-05 02:30:33
+author: Michael
 updated: 2026-05-05 02:31:49
-categories:
+categories: [devops]
 - devops
 - docker
 tags:

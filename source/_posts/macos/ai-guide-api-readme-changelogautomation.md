@@ -3,8 +3,9 @@
 title: AI 辅助文档生成实战：API 文档、README、CHANGELOG 自动化踩坑记录
 keywords: [AI, API, README, CHANGELOG, 辅助文档生成实战, 文档, 自动化踩坑记录]
 date: 2026-05-17 05:05:53
+author: Michael
 updated: 2026-05-17 05:08:10
-categories:
+categories: [macos]
 - macos
 tags:
 - AI

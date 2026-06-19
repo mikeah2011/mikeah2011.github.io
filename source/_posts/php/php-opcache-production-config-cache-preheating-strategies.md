@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-06-01 09:00:00
-categories:
+author: Michael
+categories: [php]
   - php
   - performance
 tags: [Laravel, OPcache, PHP, 性能优化, DevOps, Kubernetes, Docker]

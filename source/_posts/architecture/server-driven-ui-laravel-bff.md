@@ -3,13 +3,14 @@
 title: Server-Driven UI 实战：后端驱动前端渲染——JSON UI 描述协议在 Laravel BFF 中的落地与对比传统 SPA
 keywords: [Server, Driven UI, JSON UI, Laravel BFF, SPA, 后端驱动前端渲染, 描述协议在, 中的落地与对比传统]
 date: 2026-06-03 00:00:00
+author: Michael
 tags:
 - server-driven-ui
 - BFF
 - 架构
 - Laravel
 - 前端
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

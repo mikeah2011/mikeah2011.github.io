@@ -2,7 +2,8 @@
 title: "Laravel Queue Sharding 实战：按优先级/租户/业务域分片队列——高吞吐场景的队列架构演进与 Horizon 监控治理"
 keywords: [Laravel Queue Sharding, Horizon, 按优先级, 租户, 业务域分片队列, 高吞吐场景的队列架构演进与, 监控治理, 架构]
 date: 2026-06-09 18:18:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

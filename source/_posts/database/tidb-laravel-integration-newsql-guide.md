@@ -3,13 +3,14 @@
 title: TiDB 实战：分布式 SQL 数据库在 Laravel 中的集成——MySQL 兼容的 NewSQL 选型指南
 keywords: [TiDB, SQL, Laravel, MySQL, NewSQL, 分布式, 数据库在, 中的集成, 兼容的, 选型指南]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - TiDB
 - MySQL
 - 数据库
 - NewSQL
 - Laravel
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

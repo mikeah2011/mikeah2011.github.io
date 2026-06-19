@@ -2,7 +2,8 @@
 title: "Zero-Copy Architecture 实战：mmap/sendfile/io_uring 的零拷贝优化——PHP 应用的大文件传输性能治理"
 keywords: [Zero, Copy Architecture, mmap, sendfile, io, uring, PHP, 的零拷贝优化, 应用的大文件传输性能治理, 架构]
 date: 2026-06-09 14:45:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

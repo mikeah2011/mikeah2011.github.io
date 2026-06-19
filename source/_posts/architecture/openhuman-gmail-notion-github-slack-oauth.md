@@ -1,9 +1,10 @@
 ---
 title: OpenHuman 118+ 集成实战：Gmail/Notion/GitHub/Slack 一键 OAuth 连接
 date: 2026-06-02 00:00:00
+author: Michael
 tags: [OpenHuman, OAuth, 集成, Gmail, Notion, GitHub, Slack]
 keywords: [OpenHuman, Gmail, Notion, GitHub, Slack, OAuth, 集成实战, 一键, 连接, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

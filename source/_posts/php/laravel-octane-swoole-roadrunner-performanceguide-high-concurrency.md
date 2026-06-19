@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-03
-categories:
+author: Michael
+categories: [php]
   - php
 tags: [Laravel, PHP, Redis, 微服务, 性能优化, Octane, Swoole, RoadRunner, 高并发]
 keywords: [Laravel Octane, FPM, Swoole, RoadRunner, KKday B2C API, 性能优化实战, 的高并发之路, 真实踩坑记录, PHP]

@@ -3,13 +3,14 @@
 title: AI 应用成本优化实战：Token 计费、缓存策略、模型降级路由
 keywords: [AI, Token, 应用成本优化实战, 计费, 缓存策略, 模型降级路由]
 date: 2026-06-02 03:00:00
+author: Michael
 tags:
 - AI成本优化
 - Token
 - 缓存策略
 - 模型降级
 - LLM
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

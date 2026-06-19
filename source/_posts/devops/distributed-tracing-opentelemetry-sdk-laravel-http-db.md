@@ -1,6 +1,7 @@
 ---
 title: Distributed Tracing 实战：OpenTelemetry SDK 在 Laravel 中的端到端链路追踪——从 HTTP 入口到 DB 出口
 date: 2026-06-02 00:00:00
+author: Michael
 tags: [Distributed Tracing, OpenTelemetry, Laravel, 链路追踪, APM, 可观测性]
 keywords: [Distributed Tracing, OpenTelemetry SDK, Laravel, HTTP, DB, 中的端到端链路追踪, 入口到, 出口, DevOps]
 categories: [devops]

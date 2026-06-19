@@ -2,7 +2,8 @@
 title: Cursor .cursorrules 工程化实战：Laravel 项目级 AI 配置——Eloquent 规范、测试策略、架构约束的版本控制与团队共享
 keywords: [Cursor, cursorrules, Laravel, AI, Eloquent, 工程化实战, 项目级, 规范, 测试策略, 架构约束的版本控制与团队共享]
 date: 2026-06-10 08:19:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

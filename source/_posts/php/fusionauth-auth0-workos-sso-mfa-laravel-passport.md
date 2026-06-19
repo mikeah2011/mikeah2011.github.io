@@ -3,6 +3,7 @@
 title: FusionAuth 实战：开源身份认证平台——对比 Auth0/WorkOS 的自托管 SSO/MFA/社交登录完整方案与 Laravel Passport
 keywords: [FusionAuth, Auth0, WorkOS, SSO, MFA, Laravel Passport, 开源身份认证平台, 的自托管, 社交登录完整方案与]
 date: 2026-06-07 10:00:00
+author: Michael
 description: FusionAuth 开源身份认证平台实战指南：自托管部署 SSO 单点登录、MFA 多因素认证、社交登录（Google/GitHub/微信），完整 Laravel Passport 集成教程，对比 Auth0/WorkOS 定价与功能，附 Docker Compose、OAuth2 流程、JWT 中间件、用户迁移生产级代码示例。
 tags:
 - fusionauth
@@ -13,7 +14,7 @@ tags:
 - auth0
 - 认证
 - 身份认证
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

@@ -4,7 +4,8 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-03
-categories:
+author: Michael
+categories: [php]
   - php
 tags: [BFF, KKday, Laravel, API-Resource, 微服务]
 keywords: [Laravel API Resource, BFF, KKday B2C API, 實戰, 架構下的數據轉換與格式化, 真實踩坑記錄, PHP]

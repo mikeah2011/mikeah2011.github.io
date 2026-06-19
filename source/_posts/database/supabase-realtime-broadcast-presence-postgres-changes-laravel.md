@@ -3,6 +3,7 @@
 title: Supabase Realtime 实战：数据库变更实时推送——Broadcast/Presence/Postgres Changes 与 Laravel
 keywords: [Supabase Realtime, Broadcast, Presence, Postgres Changes, Laravel, 数据库变更实时推送]
 date: 2026-06-07 10:00:00
+author: Michael
 tags:
 - Supabase
 - Realtime
@@ -11,7 +12,7 @@ tags:
 - postgres
 - broadcast
 - presence
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

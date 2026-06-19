@@ -13,9 +13,10 @@ tags:
 - Laravel
 - 分布式
 - 高吞吐
-categories:
+categories: [mq]
   - mq
 date: 2019-03-20 15:05:07
+author: Michael
 description: 深入解析Apache Kafka消息队列核心架构与原理：Broker集群、Topic与Partition分区机制、Consumer Group消费组与Rebalance重平衡、Producer生产者分区策略与acks确认机制。附PHP/Laravel实战代码示例，涵盖消息顺序性保证、死信队列DLQ处理、Exactly-Once语义、监控运维方案与生产环境踩坑案例总结，帮助后端工程师全面掌握Kafka高吞吐异步解耦架构设计。
 ---
 

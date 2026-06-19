@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 date: 2026-05-17 05:15:30
+author: Michael
 updated: 2026-05-17 05:17:34
-categories:
+categories: [database]
 - database
 tags:
 - MySQL

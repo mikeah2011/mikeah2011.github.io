@@ -3,6 +3,7 @@
 title: Composer Dependency Audit 实战：安全漏洞检测与 License 合规——Laravel 项目的供应链安全工程化治理
 keywords: [Composer Dependency Audit, License, Laravel, 安全漏洞检测与, 合规, 项目的供应链安全工程化治理]
 date: 2026-06-05 08:00:00
+author: Michael
 tags:
 - Composer
 - 安全
@@ -11,7 +12,7 @@ tags:
 - CI/CD
 - License
 description: 本文全面介绍 Laravel 项目中 Composer 依赖安全审计的工程化实践，涵盖 composer audit 命令深度解析、安全漏洞检测工具选型对比（Roave/Enlightn/Composer Audit）、CI/CD 门禁集成（GitHub Actions/GitLab CI）、License 许可证合规检查与 GPL/AGPL 风险规避、SBOM 软件物料清单生成、Dependabot/Renovate 自动安全补丁策略，以及供应链攻击防御、allow-plugins 白名单、私有 Packagist 镜像等最佳实践，帮助 PHP 开发团队构建完整的依赖链安全治理体系。
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

@@ -9,10 +9,11 @@ tags:
 - 插入排序
 - 时间复杂度
 - PHP
-categories:
+categories: [engineering]
   - engineering
 keywords: [PHP, Go, JS, 插入排序算法详解, 时间复杂度与, 实现]
 date: 2020-03-20 15:05:07
+author: Michael
 description: 插入排序（Insertion Sort）是一种简单直观的排序算法，其核心思想是将未排序元素逐个插入已排序序列的正确位置。本文深入讲解插入排序的算法原理与图解演示，详细分析最好 O(n)、最坏 O(n²)、平均 O(n²) 的时间复杂度以及 O(1) 空间复杂度，探讨其稳定性特征，并提供 PHP、JavaScript、Go、Python 四种语言的实现代码。同时介绍二分插入排序优化版本，附带与冒泡排序、选择排序的性能对比表格，以及 LeetCode 相关题目推荐和适用场景分析。
 ---
 

@@ -3,6 +3,7 @@
 title: Railway vs Fly.io vs Render：2026 年 Laravel 应用云部署平台选型对比
 keywords: [Railway vs Fly.io vs Render, Laravel, 应用云部署平台选型对比]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - railway
 - Fly.io
@@ -10,7 +11,7 @@ tags:
 - 云部署
 - Laravel
 - PaaS
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-17 02:35:29
+author: Michael
 updated: 2026-05-17 02:37:30
-categories:
+categories: [engineering]
   - engineering
   - testing
 tags: [Laravel, 测试, API, Postman, Apifox, CI/CD]

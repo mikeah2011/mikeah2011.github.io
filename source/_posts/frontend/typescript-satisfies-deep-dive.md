@@ -3,7 +3,8 @@
 title: TypeScript satisfies 深度实战：类型收窄与类型断言的替代方案
 keywords: [TypeScript satisfies, 深度实战, 类型收窄与类型断言的替代方案, 前端]
 date: 2026-06-10 08:54:00
-categories:
+author: Michael
+categories: [frontend]
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

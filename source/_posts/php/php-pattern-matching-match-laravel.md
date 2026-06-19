@@ -3,7 +3,8 @@
 title: PHP 8.6 Pattern Matching 提案前瞻：match 表达式的进化——结构化模式匹配与 Laravel 状态机的深度集成
 keywords: [PHP, Pattern Matching, match, Laravel, 提案前瞻, 表达式的进化, 结构化模式匹配与, 状态机的深度集成]
 date: 2026-06-09 15:23:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

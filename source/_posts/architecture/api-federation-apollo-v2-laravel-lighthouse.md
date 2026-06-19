@@ -2,7 +2,8 @@
 title: API Federation 实战：Apollo Federation v2 + Laravel Lighthouse——微服务 GraphQL 超图的统一网关与鉴权
 keywords: [API Federation, Apollo Federation v2, Laravel Lighthouse, GraphQL, 微服务, 超图的统一网关与鉴权, 架构]
 date: 2026-06-09 15:54:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

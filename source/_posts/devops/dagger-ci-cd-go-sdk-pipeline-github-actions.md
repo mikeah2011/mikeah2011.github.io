@@ -3,6 +3,7 @@
 title: Dagger 实战：用代码定义 CI/CD 流水线——Go SDK 驱动的可移植 Pipeline 与 GitHub Actions 选型对比
 keywords: [Dagger, CI, CD, Go SDK, Pipeline, GitHub Actions, 用代码定义, 流水线, 驱动的可移植, 选型对比]
 date: 2026-06-03 00:00:00
+author: Michael
 tags:
 - dagger
 - CI/CD
@@ -11,7 +12,7 @@ tags:
 - Pipeline
 - GitHub Actions
 description: Dagger 实战深度指南：用 Go SDK 将 CI/CD 流水线代码化，彻底告别 YAML 地狱。详解 Dagger Engine 容器化执行引擎架构、Go SDK 核心 API、Laravel 应用完整 Pipeline 构建实战，以及与 GitHub Actions、GitLab CI 的全面选型对比。涵盖缓存优化、Secrets 管理、DAG 并行调度、本地调试复现等核心能力，帮助 DevOps 团队实现真正可移植、可测试、可复用的 CI/CD 基础设施。
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

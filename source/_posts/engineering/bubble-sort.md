@@ -10,10 +10,11 @@ tags:
 - 数据结构
 - 算法
 - bubble-sort
-categories:
+categories: [engineering]
   - engineering
 keywords: [PHP, Go, JS, 冒泡排序算法详解, 优化策略与, 实现]
 date: 2020-03-20 15:05:07
+author: Michael
 description: 冒泡排序是最基础的排序算法之一，通过重复遍历数组，依次比较相邻元素并交换，使较大元素逐渐"浮"到数组末端。本文深入讲解冒泡排序的多语言实现（PHP、Python、JavaScript）、时间复杂度分析（最好O(n)、平均O(n²)、最差O(n²)），介绍提前终止优化和双向冒泡排序（Cocktail Sort）等算法优化技巧，并提供与其他排序算法的对比，帮助开发者全面掌握冒泡排序。
 ---
 

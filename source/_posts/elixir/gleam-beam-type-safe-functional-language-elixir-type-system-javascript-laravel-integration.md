@@ -2,7 +2,8 @@
 title: "Gleam 实战：BEAM VM 上的类型安全函数式语言——对比 Elixir 的类型系统、编译到 JS 与 Laravel 集成方案"
 keywords: [Gleam, BEAM VM, Elixir, JS, Laravel, 上的类型安全函数式语言, 的类型系统, 编译到, 集成方案]
 date: 2026-06-10 03:30:00
-categories:
+author: Michael
+categories: [elixir]
   - elixir
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:

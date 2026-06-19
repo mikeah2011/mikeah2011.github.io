@@ -3,6 +3,7 @@
 title: Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh——Laravel
 keywords: [Cache Stampede, Lock, Probabilistic Early Expiration, Background Refresh, Laravel, 防护深度实战]
 date: 2026-06-07 22:00:00
+author: Michael
 description: 深入解析Laravel高并发场景下的缓存击穿（Cache Stampede）问题，系统讲解分布式锁、概率性提前过期（XFetch算法）和后台异步刷新三重防御策略的完整实现。包含Redis Lua脚本原子化操作、秒杀场景实战、Grafana监控面板配置，附可直接落地的PHP代码与性能基准对比数据，帮助你构建生产级Redis缓存防护体系。
 tags:
 - Redis
@@ -10,7 +11,7 @@ tags:
 - Cache Stampede
 - 分布式
 - 高并发
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

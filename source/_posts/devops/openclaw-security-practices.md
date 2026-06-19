@@ -3,12 +3,13 @@
 title: OpenClaw 安全实战：权限控制、隐私保护、群聊行为边界
 keywords: [OpenClaw, 安全实战, 权限控制, 隐私保护, 群聊行为边界]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - OpenClaw
 - AI Agent
 - 安全
 - 隐私保护
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 date: 2026-05-05 10:15:59
+author: Michael
 updated: 2026-05-05 10:23:51
-categories:
+categories: [misc]
 - misc
 tags:
 - Docker

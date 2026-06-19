@@ -3,13 +3,14 @@
 title: Laravel Precognition 实战：表单预验证——前后端实时校验的全新交互范式
 keywords: [Laravel Precognition, 表单预验证, 前后端实时校验的全新交互范式]
 date: 2026-06-06 02:08:57
+author: Michael
 tags:
 - Laravel
 - Precognition
 - 表单验证
 - 前端交互
 - Livewire
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

@@ -2,7 +2,8 @@
 title: Back-Pressure 实战：Laravel 队列/HTTP/API 的反压治理——队列溢出保护、连接池限流与客户端退避的端到端方案
 keywords: [Back, Pressure, Laravel, HTTP, API, 队列, 的反压治理, 队列溢出保护, 连接池限流与客户端退避的端到端方案, PHP]
 date: 2026-06-09 18:32:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

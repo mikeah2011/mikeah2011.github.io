@@ -2,9 +2,10 @@
 title: MySQL SQL 性能优化 52 条实战策略
 tags: [MySQL, SQL优化, 性能优化, 索引, 查询优化, 数据库, EXPLAIN, 慢查询]
 keywords: [MySQL SQL, 性能优化, 条实战策略, 数据库]
-categories:
+categories: [database]
   - database
 date: 2020-03-20 15:05:07
+author: Michael
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - /images/content/databases-1-content-1.jpg

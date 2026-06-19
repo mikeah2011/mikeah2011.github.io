@@ -3,7 +3,8 @@
 title: OpenTofu 实战：开源 Terraform 替代——State 加密、Provider 兼容与 Laravel 基础设施 GitOps 迁移路径
 keywords: [OpenTofu, Terraform, State, Provider, Laravel, GitOps, 开源, 替代, 加密, 兼容与]
 date: 2026-06-09 06:34:00
-categories:
+author: Michael
+categories: [devops]
 - devops
 tags:
 - IaC

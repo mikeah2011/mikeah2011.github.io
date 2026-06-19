@@ -2,7 +2,8 @@
 title: Laravel 定价引擎架构设计实战：动态定价、阶梯折扣、优惠券叠加、价格快照——B2C 电商的价格治理全链路踩坑记录
 keywords: [Laravel, B2C, 定价引擎架构设计实战, 动态定价, 阶梯折扣, 优惠券叠加, 价格快照, 电商的价格治理全链路踩坑记录, PHP]
 date: 2026-06-10 02:13:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

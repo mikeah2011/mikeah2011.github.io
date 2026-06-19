@@ -1,9 +1,10 @@
 ---
 title: Functional Core Imperative Shell 实战：Laravel 中的函数式核心——纯函数业务逻辑与副作用隔离
 date: 2026-06-06 12:00:00
+author: Michael
 tags: [Functional Programming, Laravel, 架构模式, Clean Architecture]
 keywords: [Functional Core Imperative Shell, Laravel, 中的函数式核心, 纯函数业务逻辑与副作用隔离, PHP]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

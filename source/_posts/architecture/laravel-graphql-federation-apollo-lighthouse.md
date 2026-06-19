@@ -5,7 +5,8 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-06-09 13:21:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 tags:
   - Laravel

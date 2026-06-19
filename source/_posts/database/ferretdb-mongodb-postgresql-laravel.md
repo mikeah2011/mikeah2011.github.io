@@ -3,13 +3,14 @@
 title: FerretDB 实战：开源 MongoDB 替代——PostgreSQL 驱动的文档数据库与 Laravel 集成的迁移路径
 keywords: [FerretDB, MongoDB, PostgreSQL, Laravel, 开源, 替代, 驱动的文档数据库与, 集成的迁移路径]
 date: 2026-06-07 12:00:00
+author: Michael
 tags:
 - FerretDB
 - MongoDB
 - PostgreSQL
 - Laravel
 - 数据库
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

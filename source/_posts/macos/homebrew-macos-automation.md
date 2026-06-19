@@ -1,8 +1,9 @@
 ---
 title: "Homebrew-自动更新脚本开发-macOS-开发环境自动化实战踩坑记录"
 date: 2026-05-05 08:26:03
+author: Michael
 updated: 2026-05-05 08:29:14
-categories:
+categories: [macos]
   - macos
   - tools
 tags: [Homebrew, 自动化, macOS, 脚本开发, 开发环境]

@@ -3,8 +3,9 @@
 title: Redis Stream 实战：消息队列替代方案与消费者组管理 Laravel 踩坑记录
 keywords: [Redis Stream, Laravel, 消息队列替代方案与消费者组管理, 踩坑记录]
 date: 2026-05-16 13:00:44
+author: Michael
 updated: 2026-05-16 13:03:40
-categories:
+categories: [database]
 - database
 tags:
 - Laravel

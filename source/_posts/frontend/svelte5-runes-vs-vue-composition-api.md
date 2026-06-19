@@ -3,7 +3,8 @@
 title: Svelte 5 Runes 实战：告别 Reactive 声明式——Runes 编译时响应式与 Vue Composition API 的设计哲学对比
 keywords: [Svelte, Runes, Reactive, Vue Composition API, 告别, 声明式, 编译时响应式与, 的设计哲学对比, 前端]
 date: 2026-06-10 02:10:00
-categories:
+author: Michael
+categories: [frontend]
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

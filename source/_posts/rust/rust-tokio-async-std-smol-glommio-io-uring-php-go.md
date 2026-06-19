@@ -3,7 +3,8 @@
 title: Rust 异步生态全景：Tokio vs async-std vs smol vs glommio——运行时选型、io_uring 集成与 PHP/Go
 keywords: [Rust, Tokio vs async, std vs smol vs glommio, io, uring, PHP, Go, 异步生态全景, 运行时选型, 集成与]
 date: 2026-06-09 06:00:00
-categories:
+author: Michael
+categories: [rust]
 - rust
 tags:
 - Rust

@@ -3,10 +3,11 @@
 title: Laravel + OSS/S3 对象存储实战：前端直传、临时签名与回源踩坑记录
 keywords: [Laravel, OSS, S3, 对象存储实战, 前端直传, 临时签名与回源踩坑记录]
 date: 2026-05-02 09:20:00
+author: Michael
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-categories:
+categories: [php]
 - php
 tags:
 - AWS

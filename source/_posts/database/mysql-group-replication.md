@@ -2,9 +2,10 @@
 title: MySQL Group Replication 实战：多主复制与自动故障转移——对比传统主从的高可用架构选型
 description: 深入实战 MySQL Group Replication（MGR）高可用架构，详解 Paxos 协议原理、单主/多主模式对比、自动故障转移机制与 InnoDB Cluster 集成方案。涵盖 3 节点集群搭建全流程、MySQL Router 代理配置、Laravel 应用层对接实践，以及与传统主从复制、半同步复制、Galera Cluster 的全面选型对比。附生产环境踩坑指南、性能基准测试与 Prometheus 监控方案，助你构建零数据丢失的 MySQL 高可用架构。
 date: 2026-06-06 10:00:00
+author: Michael
 tags: [MySQL, Group Replication, 高可用, 主从复制, InnoDB Cluster]
 keywords: [MySQL Group Replication, 多主复制与自动故障转移, 对比传统主从的高可用架构选型, 数据库]
-categories:
+categories: [database]
   - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

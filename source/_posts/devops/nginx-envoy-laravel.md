@@ -1,9 +1,10 @@
 ---
 title: 金丝雀发布实战：渐进式流量放量——Nginx/Envoy 权重路由与 Laravel 版本共存
 date: 2026-06-02 00:00:00
+author: Michael
 tags: [金丝雀发布, Nginx, Envoy, Laravel, CI/CD, 渐进式发布]
 keywords: [Nginx, Envoy, Laravel, 金丝雀发布实战, 渐进式流量放量, 权重路由与, 版本共存, DevOps]
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

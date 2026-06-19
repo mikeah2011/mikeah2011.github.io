@@ -7,7 +7,8 @@ images:
   - https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/laravel-code.jpg
 title: Docker-Compose-Laravel-本地开发环境实战-PHP-FPM-8.3-MySQL-8.0-Redis-7-Mailpit-完整搭建指南
 date: 2026-05-21 10:00:00
-categories:
+author: Michael
+categories: [devops]
 - devops
 - database
 tags:

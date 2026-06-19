@@ -2,7 +2,8 @@
 title: "Effect-TS 实战进阶：Laravel 全栈的 TypeScript 函数式编程——类型安全的错误处理、依赖注入与并发原语的生产落地"
 keywords: [Effect, TS, Laravel, TypeScript, 实战进阶, 全栈的, 函数式编程, 类型安全的错误处理, 依赖注入与并发原语的生产落地, 前端]
 date: 2026-06-10 01:25:00
-categories:
+author: Michael
+categories: [frontend]
   - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

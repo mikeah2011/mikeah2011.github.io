@@ -2,7 +2,8 @@
 title: 新人 Onboarding 自动化实战：devcontainer + Seed 数据 + 文档生成——Laravel 团队的零摩擦入职方案
 keywords: [Onboarding, devcontainer, Seed, Laravel, 新人, 自动化实战, 数据, 文档生成, 团队的零摩擦入职方案, 工程化]
 date: 2026-06-09
-categories:
+author: Michael
+categories: [engineering]
   - engineering
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:

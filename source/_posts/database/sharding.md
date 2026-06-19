@@ -7,10 +7,11 @@ tags:
 - 数据库
 - 分片
 - 雪花算法
-categories:
+categories: [database]
   - database
 keywords: [ShardingSphere, 分库分表实战, 水平拆分策略与, 数据库]
 date: 2019-03-20 15:05:07
+author: Michael
 description: 全面解析MySQL分库分表技术方案：详解范围分片、哈希分片、一致性哈希三大分片策略与PHP代码实现，ShardingSphere、MyCat、Vitess、ProxySQL中间件选型与配置示例，雪花算法PHP实现，跨分片查询策略（映射表、二次查询、绑定表），分布式事务2PC/TCC/Saga对比，以及电商平台真实迁移案例复盘，助你从容应对海量数据场景。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

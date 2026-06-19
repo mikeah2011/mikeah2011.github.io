@@ -1,6 +1,7 @@
 ---
 title: Hermes 记忆系统双层架构：MemoryProvider 插件化 + MemoryManager 编排模式
 date: 2026-06-02 10:00:00
+author: Michael
 tags: [Hermes, AI Agent, 记忆系统, 架构设计, 插件化]
 keywords: [Hermes, MemoryProvider, MemoryManager, 记忆系统双层架构, 插件化, 编排模式, AI]
 categories: [ai]

@@ -3,13 +3,14 @@
 title: AutoGen 实战：微软多 Agent 对话框架与代码执行沙箱
 keywords: [AutoGen, Agent, 微软多, 对话框架与代码执行沙箱]
 date: 2026-06-02 09:00:00
+author: Michael
 tags:
 - AutoGen
 - AI Agent
 - 微软
 - Multi-Agent
 - Python
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

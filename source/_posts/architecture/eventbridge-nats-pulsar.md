@@ -2,6 +2,7 @@
 
 title: 事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计——从点对点到发布订阅的演进
 date: 2026-06-02 00:00:00
+author: Michael
 tags:
 - 事件驱动
 - eventbridge
@@ -9,7 +10,7 @@ tags:
 - Apache Pulsar
 - CQRS
 - 事件溯源
-categories:
+categories: [architecture]
   - architecture
 keywords: [EventBridge, NATS, Pulsar, 事件驱动架构全景实战, 统一事件总线设计, 从点对点到发布订阅的演进]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

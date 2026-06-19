@@ -3,7 +3,8 @@
 title: Progressive Delivery 实战：Feature Flag + 渐进式发布——Unleash + Argo Rollouts 的完整工程化工作流
 keywords: [Progressive Delivery, Feature Flag, Unleash, Argo Rollouts, 渐进式发布, 的完整工程化工作流, DevOps]
 date: 2026-06-09 20:20:00
-categories:
+author: Michael
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

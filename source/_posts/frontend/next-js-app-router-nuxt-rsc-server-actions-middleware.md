@@ -3,6 +3,7 @@
 title: Next.js 15 App Router 深度实战：对比 Nuxt 4 的全栈框架选型——RSC/Server Actions/Middleware
 keywords: [Next.js, App Router, Nuxt, RSC, Server Actions, Middleware, 深度实战, 的全栈框架选型]
 date: 2026-06-05 09:00:00
+author: Michael
 tags:
 - React
 - Nuxt
@@ -11,7 +12,7 @@ tags:
 - RSC
 - SSR
 - 全栈框架
-categories:
+categories: [frontend]
 - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

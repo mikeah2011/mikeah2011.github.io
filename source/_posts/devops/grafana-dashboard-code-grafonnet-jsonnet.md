@@ -1,9 +1,10 @@
 ---
 title: 'Grafana Dashboard as Code 实战：Grafonnet/Jsonnet 可视化即代码——监控面板的版本控制与团队协作'
 date: 2026-06-06 10:00:00
+author: Michael
 tags: [Grafana, Jsonnet, Grafonnet, Dashboard as Code, DevOps, 可观测性]
 keywords: [Grafana Dashboard as Code, Grafonnet, Jsonnet, 可视化即代码, 监控面板的版本控制与团队协作, DevOps]
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

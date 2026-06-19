@@ -1,6 +1,7 @@
 ---
 title: Multi-Modal RAG 实战：图文混合检索——CLIP 嵌入、跨模态向量搜索与电商商品图文问答落地
 date: 2026-06-03 10:00:00
+author: Michael
 tags: [RAG, CLIP, 向量搜索, 多模态, 电商]
 keywords: [Multi, Modal RAG, CLIP, 图文混合检索, 嵌入, 跨模态向量搜索与电商商品图文问答落地, AI]
 categories: [ai]

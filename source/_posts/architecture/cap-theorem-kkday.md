@@ -3,7 +3,8 @@
 title: CAP 定理论在 KKday B2C 微服务中的取舍与实战
 keywords: [CAP, KKday B2C, 定理论在, 微服务中的取舍与实战]
 date: 2026-05-03
-categories:
+author: Michael
+categories: [architecture]
 - architecture
 tags:
 - 架构

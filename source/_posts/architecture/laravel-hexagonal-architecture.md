@@ -5,8 +5,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-06-01 12:00:00
+author: Michael
 updated: 2026-06-01 12:00:00
-categories:
+categories: [architecture]
   - architecture
 keywords: [Laravel, 六边形架构实战, 中的端口与适配器模式落地踩坑记录]
 tags:

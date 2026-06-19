@@ -2,7 +2,8 @@
 title: "AI Agent 编排模式实战：ReAct/Plan-and-Execute/Multi-Agent 协作架构设计"
 keywords: [AI Agent, ReAct, Plan, Execute, Multi, Agent, 编排模式实战, 协作架构设计, AI, 架构]
 date: 2026-05-31 23:00:00
-categories:
+author: Michael
+categories: [ai]
   - ai
   - architecture
 tags:

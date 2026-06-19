@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-02
+author: Michael
 description: "深入解析 Laravel RESTful API 版本控制实战方案，涵盖 v2、v2_1、v3 多版本演进策略、路由中间件版本协商、独立控制器封装与向后兼容设计，配合 HTTP 410 废弃标记、Feature Flag 灰度发布及 OpenAPI 契约文档，帮助团队实现 API 平滑迁移与有序废弃。"
-categories:
+categories: [architecture]
   - architecture
   - php
 tags: [Laravel, API版本控制, RESTful, 向后兼容]

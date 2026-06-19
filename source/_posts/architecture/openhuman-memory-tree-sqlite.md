@@ -3,13 +3,14 @@
 title: OpenHuman 本地优先架构：Memory Tree SQLite 本地存储 vs 后端代理的隐私边界分析
 keywords: [OpenHuman, Memory Tree SQLite, 本地优先架构, 本地存储, 后端代理的隐私边界分析]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - OpenHuman
 - 本地优先
 - SQLite
 - 隐私
 - 架构设计
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-04 23:59:59
+author: Michael
 updated: 2026-05-05 00:01:30
-categories:
+categories: [php]
   - php
 tags: [Laravel, Pipeline, 设计模式, 重构, PHP, 中间件]
 keywords: [Laravel Pipeline, 设计模式实战, 订单处理编排, 条件分支与可中断链路踩坑记录, PHP]

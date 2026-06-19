@@ -3,6 +3,7 @@
 title: AI Agent 评估实战：LLM-as-Judge、Benchmark 设计与回归测试——如何量化 Agent 质量
 keywords: [AI Agent, LLM, Judge, Benchmark, Agent, 评估实战, 设计与回归测试, 如何量化, 质量]
 date: 2026-06-02 12:00:00
+author: Michael
 tags:
 - AI Agent
 - LLM
@@ -10,7 +11,7 @@ tags:
 - 评估
 - 自动化
 description: 本文深入探讨 AI Agent 质量评估的工程化方法论，涵盖 LLM-as-Judge（大模型裁判）实现规模化自动评分、自定义 Benchmark 评测基准设计、以及回归测试在持续集成中的落地实践。通过 Ragas、DeepEval 等框架的实战对比，结合 Laravel 项目场景，给出从评估维度定义、评分标准制定到 CI/CD 流水线集成的完整方案，帮助团队量化 AI Agent 输出质量，构建可靠的 Agent 质量保障体系。
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

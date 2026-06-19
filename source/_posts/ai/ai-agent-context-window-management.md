@@ -3,12 +3,13 @@
 title: AI Agent Context Window 管理实战：对话裁剪、摘要压缩、滑动窗口策略——长对话场景的成本与质量平衡
 keywords: [AI Agent Context Window, 管理实战, 对话裁剪, 摘要压缩, 滑动窗口策略, 长对话场景的成本与质量平衡]
 date: 2026-06-06 12:00:00
+author: Michael
 tags:
 - AI Agent
 - Context Window
 - Token
 - 长对话管理
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

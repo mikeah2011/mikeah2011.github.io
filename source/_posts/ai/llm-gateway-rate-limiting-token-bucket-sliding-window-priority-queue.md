@@ -2,7 +2,8 @@
 title: LLM Gateway Rate Limiting 实战：Token Bucket + Sliding Window + Priority Queue——多租户 SaaS 的 LLM 调用流量治理
 keywords: [LLM Gateway Rate Limiting, Token Bucket, Sliding Window, Priority Queue, SaaS, LLM, 多租户, 调用流量治理, AI]
 date: 2026-06-09 17:26:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

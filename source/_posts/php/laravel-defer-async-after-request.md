@@ -3,13 +3,14 @@
 title: Laravel Defer 实战：请求结束后异步执行——对比 Queue/afterResponse/callback 的资源回收与执行时机
 keywords: [Laravel Defer, Queue, afterResponse, callback, 请求结束后异步执行, 的资源回收与执行时机]
 date: 2026-06-06 12:00:00
+author: Michael
 tags:
 - Laravel
 - defer
 - 异步执行
 - 性能优化
 - PHP
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

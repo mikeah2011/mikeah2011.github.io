@@ -3,7 +3,8 @@
 title: MySQL 複雜查詢性能優化實戰 - KKday B2C API 多表 JOIN 與子查詢 EXPLAIN 聯合分析
 keywords: [MySQL, KKday B2C API, JOIN, EXPLAIN, 複雜查詢性能優化實戰, 多表, 與子查詢, 聯合分析, 数据库]
 date: 2026-05-03
-categories:
+author: Michael
+categories: [database]
   - database
 tags:
 - KKday

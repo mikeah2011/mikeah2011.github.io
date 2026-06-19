@@ -3,13 +3,14 @@
 title: Saga 编排模式深度实战：Choreography vs Orchestration vs Temporal——Laravel 分布式事务的三种实现路线对比
 keywords: [Saga, Choreography vs Orchestration vs Temporal, Laravel, 编排模式深度实战, 分布式事务的三种实现路线对比]
 date: 2026-06-05 10:00:00
+author: Michael
 tags:
 - Saga
 - 分布式
 - Laravel
 - 微服务
 - Temporal
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

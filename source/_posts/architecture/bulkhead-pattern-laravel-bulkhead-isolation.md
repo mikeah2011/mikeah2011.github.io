@@ -3,13 +3,14 @@
 title: Bulkhead Pattern 实战：舱壁隔离——Laravel HTTP Client/Queue/DB 连接池的独立故障域设计
 keywords: [Bulkhead Pattern, Laravel HTTP Client, Queue, DB, 舱壁隔离, 连接池的独立故障域设计]
 date: 2026-06-06 10:00:00
+author: Michael
 tags:
 - bulkhead
 - Laravel
 - 微服务
 - 架构模式
 - 容错
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

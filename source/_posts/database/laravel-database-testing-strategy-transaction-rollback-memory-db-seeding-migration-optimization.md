@@ -2,7 +2,8 @@
 
 title: 数据库测试策略实战：事务回滚、内存数据库、Seeding 策略、迁移速度优化——Laravel 项目的数据库测试最佳实践
 date: 2026-06-09 23:25:00
-categories:
+author: Michael
+categories: [database]
   - database
 keywords: [Seeding, Laravel, 数据库测试策略实战, 事务回滚, 内存数据库, 策略, 迁移速度优化, 项目的数据库测试最佳实践, 数据库]
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

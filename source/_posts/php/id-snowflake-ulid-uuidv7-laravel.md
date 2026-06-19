@@ -3,6 +3,7 @@
 title: 分布式 ID 生成实战：Snowflake/ULID/UUIDv7 在 Laravel 中的选型——对比自增主键的利弊
 keywords: [ID, Snowflake, ULID, UUIDv7, Laravel, 分布式, 生成实战, 中的选型, 对比自增主键的利弊]
 date: 2026-06-02 00:00:00
+author: Michael
 tags:
 - 分布式
 - Snowflake
@@ -10,7 +11,7 @@ tags:
 - UUIDv7
 - Laravel
 - 分库分表
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

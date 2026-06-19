@@ -3,6 +3,7 @@
 title: Coolify 实战：开源 Heroku/Vercel 替代——自托管 PaaS 平台与 Laravel 一键部署
 keywords: [Coolify, Heroku, Vercel, PaaS, Laravel, 开源, 替代, 自托管, 平台与, 一键部署]
 date: 2026-06-02 10:00:00
+author: Michael
 tags:
 - coolify
 - PaaS
@@ -11,7 +12,7 @@ tags:
 - Laravel
 - 部署
 - Docker
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

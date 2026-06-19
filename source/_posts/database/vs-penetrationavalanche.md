@@ -11,9 +11,10 @@ tags:
 - PHP
 - Laravel
 - 高并发
-categories:
+categories: [database]
   - database
 date: 2019-03-20 15:05:07
+author: Michael
 description: 全面对比Redis缓存穿透、缓存雪崩与缓存击穿三大经典缓存问题的触发条件、影响范围与核心差异，深入剖析缓存空值、布隆过滤器、随机化TTL、互斥锁与逻辑过期等主流防护方案优缺点与选型策略，结合PHP/Laravel生产环境代码示例与高并发架构最佳实践，帮助开发者在不同业务场景下做出合理的Redis缓存防护决策
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

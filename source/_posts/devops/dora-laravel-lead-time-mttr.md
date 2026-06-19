@@ -1,9 +1,10 @@
 ---
 title: '工程效能度量实战：DORA 四大指标在 Laravel 团队中的落地——Lead Time、部署频率与 MTTR'
 date: 2026-06-02 10:00:00
+author: Michael
 tags: [DORA, 工程效能, DevOps, CI/CD, Laravel, 度量]
 keywords: [DORA, Laravel, Lead Time, MTTR, 工程效能度量实战, 四大指标在, 团队中的落地, 部署频率与, DevOps]
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

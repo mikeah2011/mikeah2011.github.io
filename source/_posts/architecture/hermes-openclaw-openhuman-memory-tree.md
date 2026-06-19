@@ -1,9 +1,10 @@
 ---
 title: Hermes 注册表驱动 vs OpenClaw 文件原生 vs OpenHuman Memory Tree：扩展性权衡分析
 date: 2026-06-02 10:00:00
+author: Michael
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 架构对比, 扩展性]
 keywords: [Hermes, vs OpenClaw, vs OpenHuman Memory Tree, 注册表驱动, 文件原生, 扩展性权衡分析, 架构]
-categories:
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

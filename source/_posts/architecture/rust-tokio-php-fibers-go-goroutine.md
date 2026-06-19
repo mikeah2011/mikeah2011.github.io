@@ -3,6 +3,7 @@
 title: Rust + Tokio 异步运行时深度实战：事件循环、任务调度、背压控制——对比 PHP Fibers 与 Go goroutine
 keywords: [Rust, Tokio, PHP Fibers, Go goroutine, 异步运行时深度实战, 事件循环, 任务调度, 背压控制]
 date: 2026-06-03 01:12:12
+author: Michael
 tags:
 - Rust
 - tokio
@@ -11,7 +12,7 @@ tags:
 - go goroutine
 - 事件循环
 description: 深入剖析 Rust Tokio 异步运行时的核心架构：事件循环（Reactor）原理、work-stealing 任务调度算法、背压控制实战（Bounded Channel / Semaphore / Rate Limiter），并与 PHP Fibers、Go goroutine 的 GMP 模型进行系统对比。涵盖性能基准测试、生产环境踩坑案例、选型决策树，帮助开发者在高并发场景下做出正确的异步运行时技术选型。
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

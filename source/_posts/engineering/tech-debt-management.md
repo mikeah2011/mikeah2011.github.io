@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 date: 2026-05-05 07:00:50
+author: Michael
 updated: 2026-05-05 07:04:13
-categories:
+categories: [engineering]
   - engineering
   - process
 tags: [KKday, Laravel, 代码质量, 工程管理]

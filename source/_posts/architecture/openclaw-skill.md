@@ -3,6 +3,7 @@
 title: OpenClaw 技能开发实战：自定义 Skill 与工作流自动化
 keywords: [OpenClaw, Skill, 技能开发实战, 自定义, 与工作流自动化]
 date: 2026-06-02 09:00:00
+author: Michael
 tags:
 - OpenClaw
 - AI Agent
@@ -11,7 +12,7 @@ tags:
 - 自动化
 - Agent
 description: 深入讲解 OpenClaw Skill 体系架构与开发实战，涵盖 Skill 生命周期管理、元数据契约定义、文件处理与 API 调用两大实战案例、工作流编排、参数校验、错误处理、社区共享机制与设计模式，帮助开发者从零构建可扩展的 AI Agent 能力平台。
-categories:
+categories: [architecture]
 - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

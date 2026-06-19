@@ -1,10 +1,11 @@
 ---
 title: 'API Gateway 插件开发实战：Kong/APISIX 自定义 Lua/Go 插件——认证、限流、日志的网关层下沉'
 date: 2026-06-06 10:00:00
+author: Michael
 tags: [API Gateway, Kong, APISIX, Lua, Go, 插件开发]
 keywords: [API Gateway, Kong, APISIX, Lua, Go, 插件开发实战, 自定义, 插件, 认证, 限流]
 description: 深入讲解 API 网关插件开发实战，基于 Kong 和 Apache APISIX 两大主流开源网关，使用 Lua 和 Go 自定义开发认证、限流、日志插件。涵盖插件生命周期、Schema 配置、Redis 滑动窗口限流、结构化日志采集、多租户认证等生产级场景，包含踩坑排查与性能测试对比，帮助团队将横切关注点下沉到网关层，统一安全管理与流量治理。
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

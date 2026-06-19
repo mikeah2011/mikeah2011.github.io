@@ -1,6 +1,7 @@
 ---
 title: AI Agent 成本优化对比：Token 压缩、模型路由、本地推理策略
 date: 2026-06-02 12:00:00
+author: Michael
 description: "深入分析 AI Agent 成本优化三大核心策略：Token 压缩（System Prompt 精简、LLMLingua、智能上下文裁剪）、模型路由（规则路由、LLM 分类路由、嵌入向量路由）和本地推理（Ollama/vLLM/llama.cpp）。通过量化对比实验，展示每种策略在不同场景下的成本节省效果，组合优化可降低 80% 以上运营成本，附完整 Python 代码实现和部署方案。"
 tags: [AI Agent, 成本优化, Token压缩, 模型路由, 本地推理, LLM, 性能优化]
 keywords: [AI Agent, Token, 成本优化对比, 压缩, 模型路由, 本地推理策略, AI]

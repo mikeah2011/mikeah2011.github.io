@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-17 07:00:11
+author: Michael
 updated: 2026-06-07 00:00:00
-categories:
+categories: [frontend]
 - frontend
 tags:
 - uni-app

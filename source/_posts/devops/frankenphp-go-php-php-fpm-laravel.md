@@ -1,9 +1,10 @@
 ---
 title: FrankenPHP 实战：Go 驱动的 PHP 应用服务器——替代 PHP-FPM 的现代部署方案与 Laravel 集成
 date: 2026-06-03 10:00:00
+author: Michael
 tags: [FrankenPHP, Go, PHP, Laravel, 应用服务器, 性能优化]
 keywords: [FrankenPHP, Go, PHP, FPM, Laravel, 驱动的, 应用服务器, 替代, 的现代部署方案与, DevOps]
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

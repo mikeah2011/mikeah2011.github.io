@@ -4,6 +4,7 @@ title: AI Agent 自动化测试实战：测试用例生成、执行、结果分�
 keywords: [AI Agent, 自动化测试实战, 测试用例生成, 执行, 结果分析闭环]
 description: 从架构设计到生产落地，系统讲解 AI Agent 如何跑通测试用例生成—执行编排—失败归因—覆盖率分析—反馈修正的完整闭环。涵盖单元/集成/E2E 三层测试生成策略、CI 增量验证与并行执行、规则+模型混合归因、风险加权覆盖率、Flaky 检测器实现，以及六个真实生产踩坑案例与修复方案。
 date: 2026-06-02 00:00:00
+author: Michael
 tags:
 - AI Agent
 - 自动化
@@ -11,7 +12,7 @@ tags:
 - CI/CD
 - 覆盖率
 - Flaky 测试
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

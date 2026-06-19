@@ -3,6 +3,7 @@
 title: Azure Container Apps 实战：Laravel 微服务在 Azure 生态的部署与自动扩缩容
 keywords: [Azure Container Apps, Laravel, Azure, 微服务在, 生态的部署与自动扩缩容]
 date: 2026-06-02 00:00:00
+author: Michael
 tags:
 - azure
 - container-apps
@@ -10,7 +11,7 @@ tags:
 - 微服务
 - Serverless
 - KEDA
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

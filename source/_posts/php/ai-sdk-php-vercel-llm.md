@@ -3,6 +3,7 @@
 title: AI SDK for PHP 实战：Vercel AI SDK 的 PHP 版——统一 LLM 调用、流式响应与工具调用的抽象层设计
 keywords: [AI SDK for PHP, Vercel AI SDK, PHP, LLM, 统一, 调用, 流式响应与工具调用的抽象层设计]
 date: 2026-06-04 15:00:00
+author: Michael
 tags:
 - ai-sdk
 - PHP
@@ -12,7 +13,7 @@ tags:
 - 工具调用
 - Laravel
 description: 深入解析如何为 PHP 构建对标 Vercel AI SDK 的统一抽象层——AI SDK for PHP。文章涵盖 Provider 接口设计、OpenAI 与 Anthropic 多供应商无缝切换、基于 SSE 的流式响应实现、多步工具调用编排（ToolRunner）、JSON Schema 结构化输出验证，以及 Laravel Service Provider、Facade、Middleware 完整集成方案。包含连接池优化、指数退避重试、Token 计数等生产环境踩坑经验，帮助 PHP 开发者以统一接口调用主流 LLM，快速构建 AI 驱动的 Web 应用。
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

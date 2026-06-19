@@ -3,13 +3,14 @@
 title: OpenClaw 群聊行为准则：HEARTBEAT_OK 静默策略、反应礼仪、平台格式适配
 keywords: [OpenClaw, HEARTBEAT, OK, 群聊行为准则, 静默策略, 反应礼仪, 平台格式适配]
 date: 2026-06-02 00:00:00
+author: Michael
 tags:
 - OpenClaw
 - 群聊
 - 静默策略
 - 行为准则
 - AI Agent
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

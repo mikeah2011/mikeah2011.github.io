@@ -3,13 +3,14 @@
 title: MongoDB + Laravel 实战：文档数据库在 B2C 电商中的适用场景——产品目录、用户行为日志与 EAV 模型的替代方案
 keywords: [MongoDB, Laravel, B2C, EAV, 文档数据库在, 电商中的适用场景, 产品目录, 用户行为日志与, 模型的替代方案]
 date: 2026-06-05 21:25:18
+author: Michael
 tags:
 - MongoDB
 - Laravel
 - B2C
 - NoSQL
 - 数据库
-categories:
+categories: [database]
 - database
 description: 深入探讨 MongoDB 文档数据库在 B2C 电商中的实战应用，涵盖产品目录文档模型设计替代 EAV 方案、用户行为日志高吞吐写入、Laravel + jenssegers/mongodb 集成实践、聚合管道查询优化及生产环境踩坑总结，助你构建 MySQL + MongoDB 混合架构的高性能 NoSQL 电商平台。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

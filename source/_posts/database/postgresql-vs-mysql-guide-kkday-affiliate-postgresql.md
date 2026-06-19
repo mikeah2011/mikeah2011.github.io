@@ -3,8 +3,9 @@
 title: PostgreSQL-vs-MySQL-选型实战-KKday-Affiliate-项目为什么选 PostgreSQL 以及边界在哪里
 keywords: [PostgreSQL, MySQL, KKday, Affiliate, 选型实战, 项目为什么选, 以及边界在哪里]
 date: 2026-05-05 01:11:02
+author: Michael
 updated: 2026-05-05 01:13:41
-categories:
+categories: [database]
 - database
 tags:
 - KKday

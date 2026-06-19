@@ -1,10 +1,11 @@
 ---
 title: 'Flutter 推送通知实战：FCM/APNs 双通道集成与厂商通道适配'
 date: 2026-06-02 00:00:00
+author: Michael
 description: '本文系统梳理 Flutter 推送通知落地方案，覆盖 FCM、APNs 与国内厂商通道的集成思路、代码实践、常见排障、路由抽象、统计闭环与到达率优化，帮助你构建可上线的跨平台推送系统。'
 tags: [Flutter, 推送通知, FCM, APNs, 厂商推送]
 keywords: [Flutter, FCM, APNs, 推送通知实战, 双通道集成与厂商通道适配, 移动端]
-categories:
+categories: [mobile]
   - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:

@@ -2,7 +2,8 @@
 
 title: 云存储实战：AWS S3/阿里云 OSS/MinIO 三大对象存储深度对比与 Laravel 多驱动集成
 date: 2026-06-01 14:00:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
   - 云服务
   - php

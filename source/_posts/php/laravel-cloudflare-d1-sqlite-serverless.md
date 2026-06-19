@@ -2,7 +2,8 @@
 title: Laravel + Cloudflare D1 实战：边缘 SQLite 数据库——Serverless 场景下的零冷启动方案
 keywords: [Laravel, Cloudflare D1, SQLite, Serverless, 边缘, 数据库, 场景下的零冷启动方案, PHP]
 date: 2026-06-09 06:39:00
-categories:
+author: Michael
+categories: [php]
   - php
 tags:
   - Laravel

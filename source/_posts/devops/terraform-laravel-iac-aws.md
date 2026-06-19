@@ -3,7 +3,8 @@
 title: Terraform 实战：Laravel 应用基础设施即代码（IaC）— 从手动点 AWS 控制台到代码化部署的踩坑记录
 keywords: [Terraform, Laravel, IaC, AWS, 应用基础设施即代码, 从手动点, 控制台到代码化部署的踩坑记录]
 date: 2026-06-01
-categories:
+author: Michael
+categories: [devops]
 - devops
 tags:
 - IaC

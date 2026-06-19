@@ -2,7 +2,8 @@
 title: Laravel + Meilisearch 实战：轻量级全文搜索引擎——对比 Elasticsearch/Algolia 的开发体验与性能基准
 keywords: [Laravel, Meilisearch, Elasticsearch, Algolia, 轻量级全文搜索引擎, 的开发体验与性能基准, PHP]
 date: 2026-06-09 06:42:00
-categories:
+author: Michael
+categories: [php]
   - php
 tags:
   - Laravel

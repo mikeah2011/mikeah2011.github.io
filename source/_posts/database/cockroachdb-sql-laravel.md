@@ -3,6 +3,7 @@
 title: CockroachDB 实战：分布式 SQL 数据库——Laravel 中的全球分布式事务与强一致性选型指南
 keywords: [CockroachDB, SQL, Laravel, 分布式, 数据库, 中的全球分布式事务与强一致性选型指南]
 date: 2026-06-03 08:00:00
+author: Michael
 description: CockroachDB 是基于 Raft 共识协议的分布式 SQL 数据库，兼容 PostgreSQL 协议，原生支持全球多区域部署与强一致性事务。本文从架构原理出发，深入讲解 CockroachDB 与 Laravel 的集成方式——包括数据库连接配置、Eloquent ORM 适配、分布式事务编写、Geo-Partitioning 地理分区策略，以及自增 ID 迁移、写热点规避等实战踩坑经验。同时对比 TiDB、YugabyteDB 等 NewSQL 方案，提供完整的选型决策流程与成本分析，帮助 Laravel 开发者在全球化业务场景下做出最优数据库选型。
 tags:
 - cockroachdb
@@ -10,7 +11,7 @@ tags:
 - NewSQL
 - Laravel
 - raft
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

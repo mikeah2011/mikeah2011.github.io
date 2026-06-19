@@ -2,7 +2,8 @@
 title: Laravel + Prometheus Pushgateway 实战：批处理任务的指标上报——替代 Pull 模式的定时任务监控方案
 keywords: [Laravel, Prometheus Pushgateway, Pull, 批处理任务的指标上报, 替代, 模式的定时任务监控方案, PHP]
 date: 2026-06-09 13:31:00
-categories:
+author: Michael
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

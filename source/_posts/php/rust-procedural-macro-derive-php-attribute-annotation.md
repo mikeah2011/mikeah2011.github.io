@@ -3,6 +3,7 @@
 title: Rust procedural macro 实战：derive 宏与编译期代码生成——PHP Attribute/Annotation 的 Rust
 keywords: [Rust procedural macro, derive, PHP Attribute, Annotation, Rust, 宏与编译期代码生成]
 date: 2026-06-07 12:00:00
+author: Michael
 tags:
 - Rust
 - procedural-macro
@@ -10,7 +11,7 @@ tags:
 - 编译期元编程
 - php-attribute
 description: 深入解析 Rust 过程宏（proc macro）实战：从 derive 宏到 attribute 宏，手把手实现编译期数据校验与路由注册。对比 PHP 8.0 Attribute 运行时反射机制，涵盖 syn/quote 库详解、cargo expand 调试技巧、TokenStream 与 AST 解析，附完整项目代码与 PHP→Rust 迁移对照表。
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

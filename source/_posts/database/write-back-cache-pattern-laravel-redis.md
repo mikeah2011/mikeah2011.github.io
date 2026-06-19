@@ -3,13 +3,14 @@
 title: Write-Back Cache Pattern 实战：批量回写缓存策略——Laravel 高写入场景下的 Redis 缓存治理与数据一致性
 keywords: [Write, Back Cache Pattern, Laravel, Redis, 批量回写缓存策略, 高写入场景下的, 缓存治理与数据一致性]
 date: 2026-06-04 10:00:00
+author: Michael
 tags:
 - write-back-cache
 - Redis
 - Laravel
 - 缓存策略
 - 高写入
-categories:
+categories: [database]
 - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

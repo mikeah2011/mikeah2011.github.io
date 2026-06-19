@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-16 20:15:46
+author: Michael
 updated: 2026-05-16 20:20:00
-categories:
+categories: [php]
   - php
 tags: [Laravel, PHP, 代码质量]
 keywords: [Rector, PHP, Laravel, 自动化代码重构与升级实战, 仓库批量治理踩坑记录]

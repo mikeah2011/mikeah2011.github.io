@@ -3,6 +3,7 @@
 title: 用 AI Agent 构建个人知识管理系统：Obsidian + RAG + 向量数据库
 keywords: [AI Agent, Obsidian, RAG, 构建个人知识管理系统, 向量数据库]
 date: 2026-06-02 12:00:00
+author: Michael
 description: 手把手教你搭建 AI 驱动的个人知识管理系统：Obsidian 管理笔记、PARA + Zettelkasten 组织知识、ChromaDB 向量数据库存储语义索引、RAG 引擎实现智能检索。包含完整的文档加载器、智能分块策略、Embedding 生成、混合检索等 Python 代码实现，月运营成本不到 6 美元，让你的笔记库变成可对话的第二大脑。
 tags:
 - AI Agent
@@ -12,7 +13,7 @@ tags:
 - 数据库
 - ChromaDB
 - Embedding
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

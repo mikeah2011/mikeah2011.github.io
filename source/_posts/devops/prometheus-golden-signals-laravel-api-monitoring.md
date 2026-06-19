@@ -1,9 +1,10 @@
 ---
 title: "Red Metrics Rate Error Duration 实战：用 Prometheus 四黄金信号监控 Laravel API——从指标采集到告警的完整完整链路"
 date: 2026-06-06 10:00:00
+author: Michael
 tags: [Prometheus, Monitoring, Laravel, Grafana, RED Metrics]
 keywords: [Red Metrics Rate Error Duration, Prometheus, Laravel API, 四黄金信号监控, 从指标采集到告警的完整完整链路, DevOps]
-categories:
+categories: [devops]
   - devops
 description: "本文深入讲解如何基于 Google SRE 四大黄金信号与 RED Metrics 理论，为 Laravel API 搭建完整的 Prometheus 监控体系。从 Laravel 中间件埋点、Redis 共享存储、Prometheus 采集配置，到 Grafana 可视化面板和 Alertmanager 智能告警，提供可直接复用的生产级代码。同时通过三个真实的 B2C 电商监控案例（秒杀延迟飙升、支付回调周期性 5xx、流量骤降 DNS 故障），详解排查思路与踩坑经验，帮助后端工程师和 SRE 从零构建端到端可观测性链路。"
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

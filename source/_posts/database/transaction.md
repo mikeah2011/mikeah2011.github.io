@@ -9,9 +9,10 @@ tags:
 - MVCC
 - InnoDB
 - 并发控制
-categories:
+categories: [database]
   - database
 date: 2020-03-20 15:05:07
+author: Michael
 description: 深入理解MySQL事务机制，涵盖ACID四大特性、四种隔离级别区别与原理、InnoDB MVCC多版本并发控制实现、行锁/间隙锁/临键锁等锁机制详解，以及Laravel中事务的实际代码示例与常见踩坑案例，帮助开发者全面掌握MySQL并发控制技术。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

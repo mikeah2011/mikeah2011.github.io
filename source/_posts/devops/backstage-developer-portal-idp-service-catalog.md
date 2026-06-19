@@ -1,10 +1,11 @@
 ---
 title: Backstage 实战：开发者门户搭建——内部开发者平台（IDP）与服务目录管理
 date: 2026-06-02 10:00:00
+author: Michael
 description: Backstage 实战指南，详解 Spotify 开源开发者门户平台的架构设计与落地实践。涵盖 Software Catalog 服务目录管理、TechDocs 文档即代码、Scaffolder 模板脚手架三大核心模块，以及与 Laravel CI/CD 集成、自定义 Plugin 开发、Kubernetes 部署方案。包含新人 Onboarding 从 2 周缩短至 3 天的真实效果数据，适合 30+ 仓库规模的技术团队搭建内部开发者平台参考。
 tags: [Backstage, IDP, DevOps, 开发者门户, Spotify]
 keywords: [Backstage, IDP, 开发者门户搭建, 内部开发者平台, 与服务目录管理, DevOps]
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

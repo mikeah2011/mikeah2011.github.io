@@ -3,6 +3,7 @@
 title: PHP SAPI 深度对比：php-fpm vs php-cli vs FrankenPHP vs RoadRunner——进程模型、请求生命周期与内存管理的本质差异
 keywords: [PHP SAPI, php, fpm vs php, cli vs FrankenPHP vs RoadRunner, 深度对比, 进程模型, 请求生命周期与内存管理的本质差异]
 date: 2026-06-05 10:00:00
+author: Michael
 tags:
 - PHP
 - SAPI
@@ -12,7 +13,7 @@ tags:
 - 进程模型
 - 性能优化
 description: 深度对比 PHP 四大 SAPI（php-fpm、php-cli、FrankenPHP、RoadRunner）的进程模型、请求生命周期与内存管理差异，涵盖 OPcache/JIT 行为、常驻内存泄漏陷阱与防范、性能基准及选型决策树，助你在 FastCGI、Go 嵌入式与 Worker 架构间精准选型。
-categories:
+categories: [php]
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

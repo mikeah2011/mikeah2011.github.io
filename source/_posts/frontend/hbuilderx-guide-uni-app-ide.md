@@ -6,8 +6,9 @@ cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 date: 2026-05-17 06:45:42
+author: Michael
 updated: 2026-05-17 06:49:02
-categories:
+categories: [frontend]
 - frontend
 tags:
 - Vue

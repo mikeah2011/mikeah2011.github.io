@@ -5,8 +5,9 @@ cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-05 02:20:35
+author: Michael
 updated: 2026-05-05 02:22:40
-categories:
+categories: [macos]
   - macos
   - php
 tags: [DevOps, Laravel, macOS]

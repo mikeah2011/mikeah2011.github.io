@@ -1,8 +1,9 @@
 ---
 title: AWS Step Functions 实战：工作流编排与自动化 - Laravel B2C API 踩坑记录
 date: 2026-05-17 04:15:28
+author: Michael
 updated: 2026-05-17 04:19:04
-categories:
+categories: [architecture]
   - architecture
   - aws
 tags: [AWS, KKday, Laravel, 架构]

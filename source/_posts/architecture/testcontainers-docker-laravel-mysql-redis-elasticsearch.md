@@ -2,7 +2,8 @@
 title: "Testcontainers 实战：Docker 容器化集成测试——Laravel 测试中的真实 MySQL/Redis/Elasticsearch 环境"
 keywords: [Testcontainers, Docker, Laravel, MySQL, Redis, Elasticsearch, 容器化集成测试, 测试中的真实, 环境, 架构]
 date: 2026-06-10 02:16:00
-categories:
+author: Michael
+categories: [architecture]
   - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

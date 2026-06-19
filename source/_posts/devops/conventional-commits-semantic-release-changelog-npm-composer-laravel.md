@@ -1,9 +1,10 @@
 ---
 title: 'Conventional Commits + Semantic Release 实战：自动版本号、CHANGELOG 生成与npm/Composer 包发布——Laravel 项目的发布自动化流水线'
 date: 2026-06-05 10:00:00
+author: Michael
 tags: [Conventional Commits, Semantic Release, 自动化, CI/CD, Laravel]
 keywords: [Conventional Commits, Semantic Release, CHANGELOG, npm, Composer, Laravel, 自动版本号, 生成与, 包发布, 项目的发布自动化流水线]
-categories:
+categories: [devops]
   - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

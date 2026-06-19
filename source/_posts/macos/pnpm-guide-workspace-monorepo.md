@@ -5,8 +5,9 @@ cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-16 23:55:19
+author: Michael
 updated: 2026-05-16 23:58:45
-categories:
+categories: [macos]
   - macos
 keywords: [pnpm, Workspace Monorepo, 高效磁盘空间利用与, 包管理踩坑记录]
 tags:

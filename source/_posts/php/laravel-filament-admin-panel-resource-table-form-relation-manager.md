@@ -2,9 +2,10 @@
 title: Laravel Filament 3.x 实战：Admin Panel 快速开发——Resource/Table/Form/Relation Manager 与自定义页面的生产级落地
 description: 'Laravel Filament 3.x 全栈后台管理框架实战指南，涵盖 Admin Panel 安装配置、Resource 自动生成 CRUD、Table/Form 组件深度用法、Relation Manager 关联管理、Widget 仪表盘、Spatie 权限集成与生产部署优化，帮助开发者快速构建现代化管理面板。'
 date: 2026-06-07 10:00:00
+author: Michael
 tags: [Laravel, Filament, Admin Panel, PHP, CRUD]
 keywords: [Laravel Filament, Admin Panel, Resource, Table, Form, Relation Manager, 快速开发, 与自定义页面的生产级落地, PHP]
-categories:
+categories: [php]
   - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

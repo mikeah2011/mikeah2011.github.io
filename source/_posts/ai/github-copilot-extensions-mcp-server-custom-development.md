@@ -2,7 +2,8 @@
 title: GitHub Copilot Extensions 实战：自定义扩展开发——从 MCP Server 到 Copilot Chat 的工具集成与团队级 Prompt 治理
 keywords: [GitHub Copilot Extensions, MCP Server, Copilot Chat, Prompt, 自定义扩展开发, 的工具集成与团队级, 治理, AI]
 date: 2026-06-10 10:31:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

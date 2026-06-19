@@ -4,8 +4,9 @@ cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fi
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-05 00:15:06
+author: Michael
 updated: 2026-05-05 00:17:52
-categories:
+categories: [php]
   - php
 tags: [Laravel, 架构]
 keywords: [Laravel EventSauce, 事件溯源实战, 订单状态机, 快照重建与读模型投影踩坑记录, PHP]

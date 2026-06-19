@@ -3,13 +3,14 @@
 title: Coze 实战：字节跳动 AI Bot 平台与插件生态集成
 keywords: [Coze, AI Bot, 字节跳动, 平台与插件生态集成]
 date: 2026-06-02 09:00:00
+author: Michael
 tags:
 - Coze
 - 字节跳动
 - ai bot
 - 插件生态
 - AI Agent
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

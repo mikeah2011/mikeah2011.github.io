@@ -4,6 +4,7 @@ title: Laravel Dusk CI 实战：Headless Chrome 在 GitHub Actions 中的 E2E �
 keywords: [Laravel Dusk CI, Headless Chrome, GitHub Actions, E2E, 中的, 动态等待, 选择器治理与视觉回归]
 description: Laravel Dusk 端到端测试在 CI 环境中的完整实战指南。从 Headless Chrome 配置、GitHub Actions 流水线搭建，到动态等待策略、选择器治理规范、视觉回归测试（Visual Regression）的落地，涵盖常见踩坑与调试技巧，帮助团队在持续集成中建立可靠的 UI 自动化测试防线。
 date: 2026-06-09 06:22:00
+author: Michael
 tags:
 - Laravel Dusk
 - E2E Testing
@@ -12,7 +13,7 @@ tags:
 - headless-chrome
 - visual-regression
 - PHP
-categories:
+categories: [devops]
 - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

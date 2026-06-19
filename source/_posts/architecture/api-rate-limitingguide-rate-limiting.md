@@ -1,8 +1,9 @@
 ---
 title: API-限流实战-Rate-Limiting-滑动窗口-令牌桶算法-Laravel-B2C-API-踩坑记录
 date: 2026-05-16 23:05:07
+author: Michael
 updated: 2026-05-16 23:07:00
-categories:
+categories: [architecture]
   - architecture
   - api
 tags: [Laravel, Redis]

@@ -3,7 +3,8 @@
 title: LLM Tokenizer 工程实战：BPE/tiktoken/Tokenizer.js 应用级 Token 计数——精确预算、Prompt 裁剪与多语言
 keywords: [LLM Tokenizer, BPE, tiktoken, Tokenizer.js, Token, Prompt, 工程实战, 应用级, 计数, 精确预算]
 date: 2026-06-10 08:03:00
-categories:
+author: Michael
+categories: [ai]
   - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

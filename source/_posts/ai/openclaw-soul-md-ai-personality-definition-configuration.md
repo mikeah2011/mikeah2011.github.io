@@ -3,13 +3,14 @@
 title: OpenClaw SOUL.md 实战：AI 人格定义与个性化配置
 keywords: [OpenClaw SOUL.md, AI, 人格定义与个性化配置]
 date: 2026-06-02 03:00:00
+author: Michael
 tags:
 - OpenClaw
 - SOUL.md
 - AI人格
 - 个性化
 - Agent
-categories:
+categories: [ai]
 - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
