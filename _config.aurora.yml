@@ -138,7 +138,7 @@ theme:
 #! ---------------------------------------------------------------
 injects:
   scripts:
-    - <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+    - <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@v0.9.2/autoload.js"></script>
     - <meta name="google-site-verification" content="xf2d-Tpmx9BSNsssXAIiFIuOhBsgj5xnTjvCIznHM-k">
   css: []
 

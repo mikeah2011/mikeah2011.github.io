@@ -142,7 +142,7 @@ theme: aurora
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:mikeah2011/mikeah2011.git
+  repo: git@github.com:mikeah2011/mikeah2011.github.io.git
   branch: main
 
 # SEO: sitemap / RSS / robots.txt
@@ -168,6 +168,9 @@ robotstxt:
   useragent: "*"
   allow:
     - /
+  disallow:
+    - /api/
+    - /static/
   sitemap:
     - https://mikeah2011.github.io/sitemap.xml
     - https://mikeah2011.github.io/baidusitemap.xml

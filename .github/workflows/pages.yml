@@ -49,9 +49,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Patch categories page
-        run: node scripts/patch-categories-chunk.js
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
