@@ -163,6 +163,43 @@ if (fs.existsSync(searchMapperFile)) {
   }
 }
 
+// Patch 7: Fix html lang="en" → "zh-CN" in layout template
+const layoutFile = path.join(ROOT, 'node_modules/hexo-theme-aurora/layout/index.ejs');
+if (fs.existsSync(layoutFile)) {
+  let content = fs.readFileSync(layoutFile, 'utf8');
+  if (content.includes('lang="en"')) {
+    content = content.replace('lang="en"', 'lang="zh-CN"');
+    fs.writeFileSync(layoutFile, content, 'utf8');
+    console.log('Patched: html lang="en" → "zh-CN"');
+  } else {
+    console.log('Skip Patch 7: already patched');
+  }
+}
+
+// Patch 8: Add OG tags, canonical, and move google-site-verification to <head>
+if (fs.existsSync(layoutFile)) {
+  let content = fs.readFileSync(layoutFile, 'utf8');
+  if (!content.includes('og:title')) {
+    // Add OG tags + canonical right after <meta charset>
+    const ogTags = '<meta property="og:type" content="website">' +
+      '<meta property="og:site_name" content="Michael\'s Blog">' +
+      '<meta property="og:title" content="Michael\'s Blog">' +
+      '<meta property="og:description" content="Michael 的技术博客 — macOS 开发环境、PHP/Laravel 后端、Go/Rust 系统编程、AI Agent 工程化、K8s/DevOps 运维实践">' +
+      '<meta property="og:url" content="https://mikeah2011.github.io">' +
+      '<meta property="og:image" content="https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/blog_logo.jpeg">' +
+      '<meta name="twitter:card" content="summary_large_image">' +
+      '<meta name="twitter:title" content="Michael\'s Blog">' +
+      '<meta name="twitter:description" content="Michael 的技术博客 — macOS 开发环境、PHP/Laravel 后端、Go/Rust 系统编程、AI Agent 工程化、K8s/DevOps 运维实践">' +
+      '<link rel="canonical" href="https://mikeah2011.github.io">' +
+      '<meta name="google-site-verification" content="xf2d-Tpmx9BSNsssXAIiFIuOhBsgj5xnTjvCIznHM-k">';
+    content = content.replace('<meta charset="utf-8">', '<meta charset="utf-8">' + ogTags);
+    fs.writeFileSync(layoutFile, content, 'utf8');
+    console.log('Patched: added OG tags, canonical, google-verification to <head>');
+  } else {
+    console.log('Skip Patch 8: already patched');
+  }
+}
+
 // Patch 2: Strip directory prefix from slug (fix %2F in URLs)
 const mapperFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/helpers/mapper.js');
 if (fs.existsSync(mapperFile)) {

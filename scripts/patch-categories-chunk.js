@@ -193,3 +193,15 @@ if (fs.existsSync(indexPath)) {
 } else {
   console.log('WARNING: index.html not found in public/');
 }
+
+// 3. Copy 404.html to root for GitHub Pages
+const src404 = path.join(PUBLIC_DIR, 'page', '404.html');
+const dst404 = path.join(PUBLIC_DIR, '404.html');
+if (fs.existsSync(src404) && !fs.existsSync(dst404)) {
+  fs.copyFileSync(src404, dst404);
+  console.log('Copied: 404.html → public/ root');
+} else if (fs.existsSync(dst404)) {
+  console.log('Skip 404 copy: already exists at root');
+} else {
+  console.log('WARNING: /page/404.html not found');
+}
