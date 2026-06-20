@@ -10,8 +10,6 @@ updated: 2026-05-04 23:17:57
 tags: [Laravel, Redis, 消息队列, 监控]
 keywords: [Laravel, Horizon, 队列监控与生产环境运维实战, 多队列优先级, 指标采集与自动恢复踩坑记录, 技术杂谈, PHP]
 categories: [php]
-  - misc
-  - php
 
 
 

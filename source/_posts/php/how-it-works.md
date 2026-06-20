@@ -12,7 +12,6 @@ tags:
 - Web服务器
 - 性能优化
 categories: [php]
-- php
 date: 2019-03-20 15:05:07
 author: Michael
 description: 深入解析PHP工作原理，涵盖CGI、FastCGI协议与PHP-FPM进程管理机制。详解Nginx与PHP-FPM的请求处理流程，包括PHP 7/8 JIT编译器、Zend Engine性能改进、OPcache缓存原理与配置优化。对比CLI模式与FPM模式的区别，提供PHP-FPM调优实战参数配置与502 Bad Gateway等常见问题排查方案。

@@ -7,7 +7,6 @@ updated: 2026-05-05 06:58:22
 tags: [Laravel, MySQL, 性能优化]
 keywords: [MySQL, pt, query, digest, SQL, Laravel, B2C, API, 慢查询治理实战, 分析]
 categories: [database]
-  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - /images/content/databases-slow-query-01-content-1.jpg

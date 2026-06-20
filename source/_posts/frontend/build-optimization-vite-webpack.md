@@ -8,7 +8,6 @@ date: 2026-05-17 07:15:07
 author: Michael
 updated: 2026-05-17 07:16:32
 categories: [frontend]
-  - frontend
 keywords: [Vite, Webpack, 前端构建优化实战, 分包策略与缓存优化踩坑记录]
 tags:
 - Vite

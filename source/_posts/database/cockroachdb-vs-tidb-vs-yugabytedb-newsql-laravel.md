@@ -13,7 +13,6 @@ tags:
 - Laravel
 description: 深度对比 CockroachDB、TiDB、YugabyteDB 三大 NewSQL 分布式数据库在 Laravel 项目中的实战选型指南。涵盖架构原理、MySQL 兼容性、分布式事务、性能基准测试、Eloquent ORM 集成、迁移踩坑记录与运维最佳实践，帮助 Laravel 开发者从 MySQL 平滑迁移到分布式数据库，彻底告别分库分表的运维噩梦。
 categories: [database]
-- database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

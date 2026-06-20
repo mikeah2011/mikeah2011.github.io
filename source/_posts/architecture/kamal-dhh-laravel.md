@@ -9,7 +9,6 @@ date: 2026-06-09 16:45:00
 author: Michael
 updated: 2026-06-09 16:45:00
 categories: [architecture]
-- architecture
 tags:
 - Kamal
 - kamal2

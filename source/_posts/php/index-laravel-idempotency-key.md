@@ -8,7 +8,6 @@ date: 2026-05-03 09:46:04
 author: Michael
 updated: 2026-05-03 09:48:49
 categories: [php]
-  - php
 keywords: [Laravel, Idempotency, Key, 订单提交防重不是加唯一索引, 做创建接口结果回放的实战记录]
 tags:
 - Laravel

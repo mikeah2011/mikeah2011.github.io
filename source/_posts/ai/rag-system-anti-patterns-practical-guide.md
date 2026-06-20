@@ -5,7 +5,6 @@ keywords: [RAG System Anti, Patterns, Chunking, 陷阱, 幻觉传播, 检索质�
 date: 2026-06-10 09:21:00
 author: Michael
 categories: [ai]
-  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

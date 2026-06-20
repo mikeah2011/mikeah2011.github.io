@@ -5,7 +5,6 @@ keywords: [SonarQube, CodeClimate, Laravel, CI, 代码质量量化治理, 仓库
 date: 2026-06-10 05:09:00
 author: Michael
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

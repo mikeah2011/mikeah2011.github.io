@@ -10,8 +10,6 @@ updated: null
 tags: [Laravel, Stripe, 支付, 高并发, Webhook, 幂等性, PaymentIntent, B2C]
 keywords: [Stripe, 支付, 支付流程完整设计与高并发场景下的幂等性保障踩坑记录, 技术杂谈]
 categories: [architecture]
-  - misc
-  - payment
 
 
 

@@ -7,7 +7,6 @@ images:
 date: 2023-03-05 10:00:00
 author: Michael
 categories: [php]
-  - php
 keywords: [instanceof, method, exists]
 tags:
 - PHP

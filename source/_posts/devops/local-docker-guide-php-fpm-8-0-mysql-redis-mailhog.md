@@ -9,8 +9,6 @@ date: 2026-05-05 02:05:09
 author: Michael
 updated: 2026-05-05 02:07:40
 categories: [devops]
-- devops
-- database
 tags:
 - Docker
 - Laravel

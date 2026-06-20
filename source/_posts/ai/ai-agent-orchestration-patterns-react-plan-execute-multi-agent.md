@@ -4,8 +4,6 @@ keywords: [AI Agent, ReAct, Plan, Execute, Multi, Agent, 编排模式实战, 协
 date: 2026-05-31 23:00:00
 author: Michael
 categories: [ai]
-  - ai
-  - architecture
 tags:
   - AI Agent
   - React

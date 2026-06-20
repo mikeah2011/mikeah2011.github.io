@@ -9,8 +9,6 @@ date: 2026-05-16 23:00:27
 author: Michael
 updated: 2026-05-16 23:03:36
 categories: [devops]
-- devops
-- kubernetes
 tags:
 - KKday
 - Kubernetes

@@ -5,7 +5,6 @@ author: Michael
 tags: [PHP, Property Hooks, PHP 8.6, Laravel, Eloquent]
 keywords: [PHP, Property Hooks, get, set, Laravel Eloquent, 属性钩子, 深度实战, 的编译期替代, 模型的声明式数据验证革命]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

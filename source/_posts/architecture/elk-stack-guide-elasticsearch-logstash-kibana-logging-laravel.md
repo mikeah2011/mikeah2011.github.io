@@ -9,8 +9,6 @@ date: 2026-05-17 03:06:55
 author: Michael
 updated: 2026-05-17 03:10:28
 categories: [architecture]
-- architecture
-- logging
 tags:
 - Elasticsearch
 - Laravel

@@ -6,7 +6,6 @@ tags: [Service Mesh, Envoy, Sidecar, Laravel, 流量镜像, 熔断, 重试]
 keywords: [Sidecar, Envoy Proxy, Laravel, 服务网格, 模式实战, 流量镜像, 熔断, 重试的基础设施下沉与应用层解耦, 架构]
 description: 'Service Mesh Sidecar 模式实战教程：以 Envoy Proxy + Laravel 为技术栈，从零配置流量镜像（Shadowing）实现灰度验证、熔断器（Circuit Breaking）防止级联故障、自动重试策略提升请求成功率。详解 Envoy 静态配置、Laravel Docker Compose 编排、生产环境踩坑（镜像流量计费、熔断阈值调优、重试风暴防护），含完整 YAML 配置与 PHP 代码示例，助你将流量治理从应用层下沉到基础设施层。'
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

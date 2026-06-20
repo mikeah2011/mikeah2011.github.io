@@ -8,9 +8,6 @@ images:
 date: 2026-06-01 10:00:00
 author: Michael
 categories: [macos]
-- macos
-- ai
-- engineering
 tags:
 - Cursor
 - Claude Code

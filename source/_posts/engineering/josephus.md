@@ -12,8 +12,6 @@ tags:
 - 环形链表
 - 递归
 categories: [engineering]
-  - engineering
-  - algorithms
 keywords: [约瑟夫环问题, 数学推导与多种语言实现, 工程化]
 date: 2020-03-20 15:05:07
 author: Michael

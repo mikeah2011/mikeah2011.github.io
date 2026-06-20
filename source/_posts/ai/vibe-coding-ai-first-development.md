@@ -5,7 +5,6 @@ keywords: [Vibe Coding, AI, first, TDD, 开发范式, 从需求描述到可运�
 date: 2026-06-09 15:00:00
 author: Michael
 categories: [ai]
-  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

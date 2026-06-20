@@ -6,7 +6,6 @@ author: Michael
 tags: [OpenHuman, AI Agent, 模型路由, 多模型策略, 成本优化]
 keywords: [OpenHuman, 模型路由实战, 智能选择推理, 快速, 视觉模型的策略, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

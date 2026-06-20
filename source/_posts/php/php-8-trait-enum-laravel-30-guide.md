@@ -7,7 +7,6 @@ date: 2026-05-02
 author: Michael
 description: "基于30+仓库的实战经验，详解PHP 8新特性在Laravel项目中的应用：用Enum枚举替代魔术字符串实现类型安全，用Trait特性聚合Service层共享逻辑，以及Match表达式、Union Types、Readonly等特性的踩坑指南与平滑迁移策略。"
 categories: [php]
-  - php
 tags: [Laravel, PHP, 代码质量]
 keywords: [PHP, Trait, Enum, Laravel, 重构旧, 项目, 仓库的实战经验]
 

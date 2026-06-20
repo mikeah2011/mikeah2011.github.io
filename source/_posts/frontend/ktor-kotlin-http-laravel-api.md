@@ -6,7 +6,6 @@ tags: [Ktor, Kotlin, HTTP框架, 异步, 性能对比]
 keywords: [Ktor, Kotlin, HTTP, Laravel API, 原生, 异步服务端, 客户端开发与, 性能基准对比, 前端]
 description: "深入实战 Kotlin 原生 HTTP 框架 Ktor，涵盖服务端路由与插件机制、JWT 认证、客户端连接池与重试策略、WebSocket 实时通信等核心功能。通过标准化基准测试对比 Ktor、Laravel 与 Spring Boot 在吞吐量、延迟、冷启动及高并发场景下的性能差异，剖析协程模型与进程模型的本质区别，并提供 Docker 容器化部署与 GraalVM Native Image 优化方案，助力技术选型决策。"
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

@@ -6,8 +6,6 @@ images:
 tags: [Laravel, DDD, 领域驱动设计, 聚合根, 值对象, 领域事件, 限界上下文, 架构]
 keywords: [DDD, Laravel, 领域驱动设计, 中的实践, 技术杂谈, PHP]
 categories: [php]
-  - misc
-  - php
 date: 2026-05-03 11:46:40
 author: Michael
 description: "本文深入探讨领域驱动设计（DDD）在 Laravel 项目中的落地实践，涵盖聚合根、值对象、领域事件、限界上下文等核心概念的完整代码实现。通过真实的踩坑案例，详解 Eloquent ORM 与 DDD 的冲突解决、跨聚合边界访问、领域事件可靠性保证等难题，提供从贫血模型到富领域模型的渐进式迁移方案与性能优化策略。"

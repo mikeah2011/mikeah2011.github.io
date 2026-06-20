@@ -5,7 +5,6 @@ author: Michael
 tags: [Laravel, Forge, Ploi, Deployer, DevOps, 部署, CI/CD, 运维]
 keywords: [Laravel Forge vs Ploi vs Deployer, 三种部署方案深度对比, 自动化运维, 队列管理与多环境治理的选型决策, DevOps]
 categories: [devops]
-  - devops
 description: Laravel项目部署选型终极指南：实战对比Forge、Ploi、Deployer三大方案，从零停机部署、队列Worker管理、多环境治理、SSL证书到数据库备份，逐维度拆解配置代码与真实踩坑经验，帮你找到最适合团队规模和DevOps能力的部署工具链。
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:

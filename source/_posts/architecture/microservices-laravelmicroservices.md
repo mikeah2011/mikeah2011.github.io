@@ -7,8 +7,6 @@ date: 2026-05-05 07:40:27
 author: Michael
 updated: 2026-05-05 07:43:36
 categories: [architecture]
-  - architecture
-  - php
 tags: [Laravel, 微服务, 架构]
 keywords: [Laravel, 微服务拆分策略, 从单体, 到微服务的渐进式演进踩坑记录, 架构, PHP]
 description: "基于 KKday 30+ Laravel 仓库的实战经验，深入剖析微服务（Microservices）架构设计的核心决策链：服务拆分时机判断与反信号识别、Bounded Context 边界划分与 Event Storming 领域建模、Strangler Fig 渐进式迁移四阶段、API Gateway 与 BFF 聚合层设计、数据库拆分与 CDC 同步、分布式事务状态机补偿方案、熔断降级策略，含完整踩坑记录与架构总览图。"

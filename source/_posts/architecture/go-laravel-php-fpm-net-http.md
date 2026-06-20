@@ -5,7 +5,6 @@ author: Michael
 tags: [Go, 微服务, Laravel, PHP-FPM, 性能优化]
 keywords: [Go, Laravel, PHP, FPM, Go net, http, 微服务实战, 重写, 高性能热点模块, 的迁移路径]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

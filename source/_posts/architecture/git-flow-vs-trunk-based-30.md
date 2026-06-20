@@ -7,8 +7,6 @@ date: 2026-05-05 06:50:50
 author: Michael
 updated: 2026-05-05 06:53:31
 categories: [architecture]
-  - architecture
-  - git
 tags: [CI/CD, Git, KKday, 工程管理]
 keywords: [Git Flow vs Trunk, Based, 仓库的分支策略选型与踩坑记录, 架构]
 description: 在管理 30+ 仓库的 KKday B2C 团队中，如何在 Git Flow 和 Trunk-Based Development 之间做出选型决策？本文基于真实项目经验，覆盖从单体到微服务、从发布周期到 CI/CD 管道的完整分支策略选型与踩坑记录。

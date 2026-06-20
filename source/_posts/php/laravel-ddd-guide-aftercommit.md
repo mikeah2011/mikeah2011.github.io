@@ -6,7 +6,6 @@ images:
 date: 2026-05-03 09:10:00
 author: Michael
 categories: [php]
-  - php
 tags: [Laravel, 架构, DDD, 领域驱动设计, 设计模式, 聚合根, 值对象, 领域事件, afterCommit]
 keywords: [Laravel DDD, afterCommit, 优惠券核销的聚合边界, 值对象与, 领域事件, PHP]
 description: 深入讲解 Laravel 中 DDD（领域驱动设计）的实战落地：以优惠券核销场景为例，完整覆盖聚合边界划分、值对象建模、聚合根行为封装、领域事件与 afterCommit 事务一致性、跨聚合协调、测试策略及常见踩坑记录，帮助中高级 PHP 开发者在真实项目中用好聚合、领域事件与事务边界。

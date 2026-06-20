@@ -9,7 +9,6 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 updated: 2026-05-05 00:28:46
 categories: [php]
-- php
 tags:
 - Laravel
 - PHP

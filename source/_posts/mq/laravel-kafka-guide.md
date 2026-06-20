@@ -8,8 +8,6 @@ cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 categories: [mq]
-  - mq
-  - php
 tags:
 - KKday
 - Laravel

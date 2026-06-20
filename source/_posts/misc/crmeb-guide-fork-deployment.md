@@ -9,7 +9,6 @@ date: 2026-05-05 10:15:59
 author: Michael
 updated: 2026-05-05 10:23:51
 categories: [misc]
-- misc
 tags:
 - Docker
 - Nginx

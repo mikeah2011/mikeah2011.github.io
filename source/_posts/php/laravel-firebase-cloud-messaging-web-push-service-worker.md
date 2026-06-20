@@ -7,7 +7,6 @@ date: 2026-05-05 01:31:05
 author: Michael
 updated: 2026-05-05 01:37:02
 categories: [php]
-  - php
 tags: [KKday, Laravel, 前端]
 keywords: [Laravel, Firebase, Cloud, Messaging, Web, Push, Service, Worker, 推送通知实战, PHP]
 description: 在 KKday B2C 旅行平台落地 FCM Web Push 的完整方案：从 Firebase 项目配置、Service Worker 注册、Laravel 后端 topic 订阅与消息发送，到静默推送失效、Token 轮换、多端去重等真实踩坑记录。

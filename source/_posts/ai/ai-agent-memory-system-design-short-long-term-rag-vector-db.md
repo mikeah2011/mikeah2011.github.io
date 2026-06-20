@@ -5,7 +5,6 @@ keywords: [AI Agent, RAG, 记忆系统设计, 短期, 长期记忆, 与向量数
 date: 2026-06-01 12:00:00
 author: Michael
 categories: [ai]
-- ai
 tags:
 - AI Agent
 - 记忆系统

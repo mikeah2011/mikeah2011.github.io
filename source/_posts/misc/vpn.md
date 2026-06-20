@@ -9,7 +9,6 @@ title: VPN & 机场笔记
 date: 2026-05-25 10:00:00
 author: Michael
 categories: [misc]
-  - misc
 tags:
 - macOS
 - VPN

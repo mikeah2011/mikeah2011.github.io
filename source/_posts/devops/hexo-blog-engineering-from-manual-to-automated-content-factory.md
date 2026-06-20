@@ -5,7 +5,6 @@ keywords: [Hexo, GitHub Actions, AI, SEO, 博客工程化实战, 自动部署, �
 date: 2026-06-10 03:18:00
 author: Michael
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

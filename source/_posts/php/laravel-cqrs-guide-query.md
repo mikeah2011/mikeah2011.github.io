@@ -8,7 +8,6 @@ images:
 date: 2026-05-03 08:15:00
 author: Michael
 categories: [php]
-- php
 tags:
 - Laravel
 - MySQL

@@ -8,7 +8,6 @@ date: 2026-05-05 12:00:20
 author: Michael
 updated: 2026-05-05 12:02:58
 categories: [php]
-  - php
 tags: [CI/CD, Laravel, 工程管理]
 keywords: [CI/CD, Laravel, 工程管理, Notifications, Slack]
 description: >

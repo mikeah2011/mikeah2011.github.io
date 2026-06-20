@@ -8,7 +8,6 @@ date: 2026-05-05 10:10:56
 author: Michael
 updated: 2026-05-05 10:13:47
 categories: [frontend]
-  - frontend
 keywords: [uni, app, H5, 多端适配实战, 微信小程序, 一套代码搞定踩坑记录]
 tags:
 - Vue

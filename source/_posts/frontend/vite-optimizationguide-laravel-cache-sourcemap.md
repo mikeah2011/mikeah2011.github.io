@@ -8,8 +8,6 @@ images:
 date: 2026-05-03 10:05:00
 author: Michael
 categories: [frontend]
-- frontend
-- php
 tags:
 - Laravel
 - Vite

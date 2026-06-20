@@ -7,8 +7,6 @@ date: 2026-05-16 19:20:11
 author: Michael
 updated: 2026-05-16 19:24:13
 categories: [devops]
-  - devops
-  - kubernetes
 tags: [CI/CD, DevOps, Kubernetes, Laravel, ArgoCD, GitOps]
 keywords: [ArgoCD GitOps, Laravel, 应用持续部署与回滚踩坑记录, DevOps]
 description: 从传统 CI/CD push 模式迁移到 ArgoCD GitOps pull 模式，涵盖 Application CRD 定义、Helm Chart 打包、自动同步与手动审批、回滚策略、多环境管理（dev/staging/prod）以及 Laravel 特有的 .env 注入踩坑记录。

@@ -8,8 +8,6 @@ date: 2026-05-16 20:41:01
 author: Michael
 updated: 2026-05-16 20:48:35
 categories: [architecture]
-  - architecture
-  - search
 keywords: [Elasticsearch, Laravel B2C API, 搜索系统设计实战, 索引设计, 分词策略与相关性调优, 踩坑记录]
 tags:
 - Elasticsearch

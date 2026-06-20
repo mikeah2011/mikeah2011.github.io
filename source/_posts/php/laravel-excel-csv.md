@@ -3,7 +3,6 @@ title: Laravel 数据导入导出实战：Excel/CSV 大文件处理与队列化�
 date: 2026-06-01
 author: Michael
 categories: [php]
-  - php
 tags: [Laravel, Excel, CSV, Maatwebsite, PhpSpreadsheet, 队列, 性能优化]
 keywords: [Laravel, Excel, CSV, 数据导入导出实战, 大文件处理与队列化踩坑记录, PHP]
 description: '在 B2C 电商后端开发中，Laravel 数据导入导出是高频需求：商品批量上架、订单导出、会员数据迁移、运营报表生成等场景均涉及 Excel 与 CSV 处理。本文基于 30+ Laravel 仓库的真实踩坑经验，深度解析 PhpSpreadsheet、Maatwebsite/Excel、League CSV 三大方案的选型策略，重点解决大文件处理的内存溢出、超时、乱码等痛点，并给出基于 Laravel Queue 的队列化异步导入导出完整落地方案，附可运行的代码示例与性能对比。'

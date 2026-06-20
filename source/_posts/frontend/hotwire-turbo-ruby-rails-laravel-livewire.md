@@ -6,7 +6,6 @@ description: 深入对比 Hotwire/Turbo 与 Laravel Livewire 两大渐进增强�
 tags: [Hotwire, Turbo, Laravel, Livewire, 前端, Rails]
 keywords: [Hotwire, Turbo, Ruby on Rails, Laravel, Livewire vs Turbo, 的前端哲学在, 中复用, 渐进增强路线对比, 前端]
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

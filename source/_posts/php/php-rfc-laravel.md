@@ -4,7 +4,6 @@ keywords: [PHP, RFC, Laravel, 前瞻, 类型系统进化, 解读与异步生态�
 date: 2026-06-09 13:57:00
 author: Michael
 categories: [php]
-  - php
 tags:
   - PHP 8.5
   - PHP 8.6

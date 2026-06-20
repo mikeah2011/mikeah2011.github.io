@@ -9,7 +9,6 @@ cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 categories: [architecture]
-- architecture
 tags:
 - Git
 - Laravel

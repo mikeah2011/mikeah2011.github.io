@@ -5,7 +5,6 @@ keywords: [GitHub Actions, Action, CI, CD, 自定义, 开发实战, 复用, 工�
 date: 2026-06-01
 author: Michael
 categories: [devops]
-- devops
 tags:
 - GitHub Actions
 - CI/CD

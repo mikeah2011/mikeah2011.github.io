@@ -5,7 +5,6 @@ author: Michael
 tags: [FrankenPHP, Go, PHP, Laravel, 应用服务器, 性能优化]
 keywords: [FrankenPHP, Go, PHP, FPM, Laravel, 驱动的, 应用服务器, 替代, 的现代部署方案与, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

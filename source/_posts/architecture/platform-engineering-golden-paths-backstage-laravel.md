@@ -5,7 +5,6 @@ author: Michael
 tags: [Platform Engineering, Backstage, Golden Paths, 微服务, Laravel, IDP]
 keywords: [Platform Engineering, Golden Paths, Backstage, Laravel, 与服务模板, 自助创建标准化, 微服务脚手架, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

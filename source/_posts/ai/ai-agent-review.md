@@ -6,7 +6,6 @@ author: Michael
 tags: [AI Agent, 代码助手, Code Review, 重构, 文档生成]
 keywords: [AI Agent, Review, 代码助手实战, 代码生成, 重构, 文档生成, AI]
 categories: [ai]
-  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

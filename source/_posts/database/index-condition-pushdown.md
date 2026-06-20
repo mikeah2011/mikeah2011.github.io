@@ -11,7 +11,6 @@ tags:
 - 联合索引
 - Laravel
 categories: [database]
-- database
 date: 2019-03-20 15:05:07
 author: Michael
 description: 深入解析MySQL索引下推ICP优化原理，通过EXPLAIN输出对比有无ICP的回表次数差异，详解InnoDB二级索引限制、范围扫描场景，附Laravel Eloquent代码示例与性能基准数据，助你掌握联合索引性能调优核心技巧。

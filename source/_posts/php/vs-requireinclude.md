@@ -12,7 +12,6 @@ tags:
 - PHP Basics
 - OPcache
 categories: [php]
-  - php
 keywords: [require, include, once, 的区别]
 date: 2021-04-15 10:00:00
 author: Michael

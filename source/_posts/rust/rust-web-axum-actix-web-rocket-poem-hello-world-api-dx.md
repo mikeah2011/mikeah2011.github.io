@@ -5,7 +5,6 @@ keywords: [Rust Web, Axum vs Actix, Web vs Rocket vs Poem, Hello World, 到生�
 date: 2026-06-08 00:05:00
 author: Michael
 categories: [rust]
-- rust
 tags:
 - Rust
 - axum

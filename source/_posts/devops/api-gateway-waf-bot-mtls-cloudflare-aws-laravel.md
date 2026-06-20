@@ -5,7 +5,6 @@ author: Michael
 tags: [API Gateway, WAF, Bot管理, mTLS, Cloudflare, AWS WAF, Laravel, 安全, 微服务]
 keywords: [API Gateway, WAF, Bot, mTLS, Cloudflare, AWS WAF, Laravel, 安全实战, 微服务的纵深防御架构, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

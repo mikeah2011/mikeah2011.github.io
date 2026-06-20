@@ -5,7 +5,6 @@ author: Michael
 tags: [Chaos Engineering, Chaos Mesh, Kubernetes, 韧性测试, Laravel, 微服务]
 keywords: [Chaos Engineering, Chaos Mesh, Laravel, 微服务进行故障注入与韧性测试, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

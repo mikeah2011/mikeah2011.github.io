@@ -8,8 +8,6 @@ images:
 date: 2026-05-03 09:01:02
 author: Michael
 categories: [devops]
-- devops
-- kubernetes
 tags:
 - Kubernetes
 - Laravel

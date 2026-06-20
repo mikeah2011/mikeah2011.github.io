@@ -12,7 +12,6 @@ tags:
 - 主从复制
 - Laravel
 categories: [database]
-  - database
 keywords: [ProxySQL, MaxScale, Laravel, 读写分离中间件实战, 透明路由, 连接池复用与主从延迟的工程化治理]
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

@@ -6,7 +6,6 @@ description: 深度对比 2026 年四大 LLM Observability 平台——LangSmith
 tags: [AI Agent, Observability, LangSmith, LangFuse, LLM]
 keywords: [AI Agent, LangSmith vs LangFuse vs Braintrust vs Arize, LLM, 可观测性, 全景, 应用的追踪, 评估, 标注与生产调试闭环, AI]
 categories: [ai]
-  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

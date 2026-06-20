@@ -6,7 +6,6 @@ author: Michael
 tags: [Svelte, Runes, 响应式, Vue, React, 前端框架]
 keywords: [Svelte, Runes, Vue Reactivity, React Compiler, 实战深度, 编译时响应式信号的底层原理, 的设计理念差异, 前端]
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

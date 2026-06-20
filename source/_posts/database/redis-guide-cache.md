@@ -5,7 +5,6 @@ keywords: [Redis, KKday B2C API, 缓存失效场景深度解析, 真实踩坑记
 date: 2026-05-03
 author: Michael
 categories: [database]
-- database
 tags:
 - Laravel
 - 微服务

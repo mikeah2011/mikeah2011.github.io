@@ -6,7 +6,6 @@ description: 本文是一套经过实战验证的技术博客写作方法论，�
 tags: [Technical Writing, Markdown, 博客, 方法论]
 keywords: [Technical Writing, Markdown, 技术博客的写作方法论, 从选题到发布的完整工作流与, 工程化, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

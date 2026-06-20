@@ -5,7 +5,6 @@ author: Michael
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 架构对比, 扩展性]
 keywords: [Hermes, vs OpenClaw, vs OpenHuman Memory Tree, 注册表驱动, 文件原生, 扩展性权衡分析, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

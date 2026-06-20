@@ -6,7 +6,6 @@ author: Michael
 tags: [Laravel, PHP, Macroable, 设计模式, 扩展性]
 keywords: [Laravel Macroable Trait, Collections, Request, Response, 为框架类动态扩展方法, 的可扩展性设计, PHP]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

@@ -6,7 +6,6 @@ date: 2026-05-02
 author: Michael
 description: 基于 KKday B2C API 百万级订单实战经验，深度解析 Predis 与 Laravel Redis 缓存体系。涵盖缓存穿透、雪崩、击穿三大失效模式的工程解决方案，SET NX 与 Redlock 分布式锁的 Lua 原子实现与续期机制，Predis vs PhpRedis 性能基准对比，以及连接池优化、TTL 随机化、大 Key 拆分、缓存与 DB 双写一致性等生产环境踩坑案例与性能调优最佳实践。
 categories: [database]
-- database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-020-content-1.jpg

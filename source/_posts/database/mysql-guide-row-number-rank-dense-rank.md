@@ -4,7 +4,6 @@ date: 2026-05-05 12:06:01
 author: Michael
 updated: 2026-05-05 12:09:02
 categories: [database]
-  - database
 tags: [Laravel, MySQL, 窗口函数, SQL, 性能优化, EXPLAIN]
 keywords: [MySQL, ROW, NUMBER, RANK, DENSE, 窗口函数, 在运营报表中的应用, 数据库]
 description: 结合 Laravel B2C 后台真实报表场景，拆解 MySQL 8 窗口函数 ROW_NUMBER、RANK、DENSE_RANK 在分组 Top N、并列排名、环比计算、移动平均中的落地方式。涵盖窗口函数语法详解、与子查询 Top N 的性能对比、EXPLAIN 执行计划分析、索引配合策略，以及临时表放大、分页口径错乱、排序抖动等生产踩坑记录。适合需要在后端报表中实现复杂排名逻辑的 Laravel 开发者。

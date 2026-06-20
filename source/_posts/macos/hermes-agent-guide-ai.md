@@ -9,8 +9,6 @@ title: Hermes Agent 实战：多平台 AI 助手配置与使用——从零搭�
 date: 2026-05-23 10:00:00
 author: Michael
 categories: [macos]
-- macos
-- tools
 tags:
 - AI
 - DevOps

@@ -7,8 +7,6 @@ date: 2026-05-05 00:40:36
 author: Michael
 updated: 2026-05-05 00:43:48
 categories: [php]
-  - php
-  - database
 tags: [Laravel, MySQL, PostgreSQL]
 keywords: [Laravel, ORM, PDO, MySQL, PostgreSQL, 行为差异与兼容性实战踩坑记录, PHP, 数据库]
 description: 在 KKday B2C 同一 Laravel 代码库中同时支持 MySQL 和 PostgreSQL 的真实踩坑记录——从 Eloquent Query Builder 的 SQL 生成差异、PDO 驱动行为、Schema Migration 到类型映射，涵盖大小写敏感、JSON 查询、NULL 语义、事务隔离级别等 10 大常见陷阱与生产级解决方案。

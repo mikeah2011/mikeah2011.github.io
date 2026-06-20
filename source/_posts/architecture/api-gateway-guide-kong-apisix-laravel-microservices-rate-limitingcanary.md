@@ -6,8 +6,6 @@ date: 2026-05-16 18:20:19
 author: Michael
 updated: 2026-05-16 18:23:07
 categories: [architecture]
-- architecture
-- php
 tags:
 - API Gateway
 - Kong

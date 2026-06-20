@@ -13,7 +13,6 @@ tags:
 - 面试题
 - Wireshark
 categories: [network]
-  - network
 date: 2017-03-20 15:05:07
 author: Michael
 description: TCP四次挥手是连接关闭的核心机制，客户端与服务端通过四次报文交换安全终止全双工连接。本文深入解析FIN_WAIT_1、FIN_WAIT_2、CLOSE_WAIT、TIME_WAIT、LAST_ACK等状态转换过程，分析大量CLOSE_WAIT的成因与排查方案，介绍netstat/ss命令实战技巧，对比三次握手与四次挥手的设计差异，并提供Laravel连接池与优雅关闭的最佳实践，帮助开发者全面掌握TCP连接关闭原理与网络编程调试能力。

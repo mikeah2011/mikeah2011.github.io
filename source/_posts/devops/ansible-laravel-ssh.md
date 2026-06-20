@@ -5,7 +5,6 @@ keywords: [Ansible, Laravel, SSH, 应用自动化部署与配置管理, 手工�
 date: 2026-06-01
 author: Michael
 categories: [devops]
-- devops
 tags:
 - Ansible
 - Laravel

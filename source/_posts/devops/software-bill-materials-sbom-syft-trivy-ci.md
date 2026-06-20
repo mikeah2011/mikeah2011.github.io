@@ -5,7 +5,6 @@ author: Michael
 tags: [SBOM, 供应链安全, Syft, Trivy, CI/CD, 合规]
 keywords: [Software Bill of Materials, SBOM, Syft, Trivy, CI, 生成依赖清单, 供应链安全合规与, 集成踩坑记录, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

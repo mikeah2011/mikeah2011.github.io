@@ -9,7 +9,6 @@ date: 2026-05-17 06:15:10
 author: Michael
 updated: 2026-05-17 06:17:02
 categories: [macos]
-- macos
 tags:
 - macOS
 - Python

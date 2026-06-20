@@ -5,7 +5,6 @@ author: Michael
 tags: [Laravel, Queue, Dead Letter Queue, 消息队列, 可靠性]
 keywords: [Retry with Dead Letter Queue, Laravel, 深度实战, 队列的失败消息治理, 告警, 人工介入与自动修复的闭环, PHP]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

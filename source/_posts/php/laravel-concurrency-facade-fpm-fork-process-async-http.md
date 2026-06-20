@@ -6,7 +6,6 @@ description: "深入剖析 Laravel 12.x Concurrency facade 的三种并发驱动
 tags: [Laravel, PHP, Concurrency, 异步, 并发编程]
 keywords: [Laravel Concurrency, Concurrency facade, fpm, fork vs Process vs async HTTP, 的底层实现, 的三选一, PHP]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

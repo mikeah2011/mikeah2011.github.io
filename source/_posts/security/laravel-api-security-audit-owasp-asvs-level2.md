@@ -4,7 +4,6 @@ keywords: [Laravel API Security Audit, OWASP ASVS Level, 合规检查清单]
 date: 2026-06-10 09:15:00
 author: Michael
 categories: [security]
-  - security
 cover: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop

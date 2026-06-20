@@ -9,8 +9,6 @@ date: 2026-05-16 23:45:56
 author: Michael
 updated: 2026-05-16 23:49:46
 categories: [macos]
-- macos
-- testing
 tags:
 - AI
 - KKday

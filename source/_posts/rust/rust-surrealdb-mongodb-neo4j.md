@@ -5,7 +5,6 @@ keywords: [Rust, SurrealDB, MongoDB, Neo4j, 多模型数据库, 文档, 关系, 
 date: 2026-06-09 06:05:00
 author: Michael
 categories: [rust]
-- rust
 tags:
 - Rust
 - SurrealDB

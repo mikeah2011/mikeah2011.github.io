@@ -6,7 +6,6 @@ date: 2026-05-17 05:05:53
 author: Michael
 updated: 2026-05-17 05:08:10
 categories: [macos]
-- macos
 tags:
 - AI
 - Git

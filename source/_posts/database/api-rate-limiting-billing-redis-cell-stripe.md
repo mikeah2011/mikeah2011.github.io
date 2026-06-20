@@ -6,7 +6,6 @@ description: '深入解析SaaS场景下API限流与按量计费的完整联动�
 tags: [Redis, Stripe, API限流, SaaS, 按量计费, Redis Cell, Laravel]
 keywords: [API, Redis Cell, Stripe Usage Records, SaaS, 限流与计费联动实战, 调用量计费的, 流量治理与账单闭环, 数据库]
 categories: [database]
-  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

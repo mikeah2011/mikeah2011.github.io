@@ -4,7 +4,6 @@ keywords: [AI Agent Plugin Marketplace, Agent, MCP Server, 构建可发现的, �
 date: 2026-06-09 17:21:00
 author: Michael
 categories: [ai]
-  - ai
 tags:
   - AI Agent
   - Plugin Marketplace

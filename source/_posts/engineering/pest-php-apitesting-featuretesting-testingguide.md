@@ -7,8 +7,6 @@ date: 2026-05-17 01:20:17
 author: Michael
 updated: 2026-05-17 01:49:40
 categories: [engineering]
-  - engineering
-  - testing
 tags: [Laravel, PHP, 测试]
 keywords: [Pest PHP API, Feature, Laravel B2C API, 浏览器测试实战, 测试金字塔落地踩坑记录, 工程化, 测试]
 description: "Pest PHP 测试指南：详解 Laravel B2C 项目中 API 测试、功能测试与 Dusk 浏览器 E2E 测试实战，涵盖 PHPUnit 迁移 Pest、断言链写法、RefreshDatabase 选型、Http::fake/Queue::fake 三件套、测试金字塔策略与 CI 集成踩坑记录，适用于 PHP Laravel 工程师构建高置信度测试体系。"

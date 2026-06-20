@@ -12,7 +12,6 @@ tags:
 - 前端
 description: 本文深入解析 Web Components 四大核心技术——Custom Elements、Shadow DOM、HTML Templates 与 ES Modules，手把手构建一套跨框架 UI 组件库，并演示与 Laravel Blade 模板引擎的深度集成方案。涵盖 React、Vue、Angular 三大框架适配实践、设计令牌系统、主题定制、表单集成、ElementInternals API、无障碍访问、懒加载优化等工程化细节，适合需要跨技术栈共享组件或在 Laravel 全栈项目中引入现代化前端组件体系的开发者。
 categories: [frontend]
-- frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

@@ -4,7 +4,6 @@ keywords: [Oxc, Rust, JavaScript, TypeScript, Parser, Linter, Formatter, Transfo
 date: 2026-06-10 03:33:00
 author: Michael
 categories: [rust]
-  - rust
 cover: https://images.unsplash.com/photo-1515879218367-8466d910auj4?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1515879218367-8466d910auj4?w=1200&h=630&fit=crop

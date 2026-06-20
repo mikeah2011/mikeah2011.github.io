@@ -8,7 +8,6 @@ date: 2026-05-17 06:05:13
 author: Michael
 updated: 2026-05-17 06:09:37
 categories: [frontend]
-  - frontend
 keywords: [uni, app, 微信小程序实战, 登录, 支付, 分享完整流程]
 tags:
 - uni-app

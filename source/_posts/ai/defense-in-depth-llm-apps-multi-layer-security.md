@@ -5,7 +5,6 @@ keywords: [Defense in Depth for LLM Apps, AI, 多层, 输入过滤, 输出审查
 date: 2026-06-09 14:30:00
 author: Michael
 categories: [ai]
-  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

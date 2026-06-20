@@ -9,8 +9,6 @@ date: 2026-05-16 18:30:46
 author: Michael
 updated: 2026-05-16 18:34:57
 categories: [engineering]
-- engineering
-- git
 tags:
 - Git
 - rebase

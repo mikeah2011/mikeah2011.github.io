@@ -4,7 +4,6 @@ keywords: [Laravel, Meilisearch, Elasticsearch, Algolia, 轻量级全文搜索�
 date: 2026-06-09 06:42:00
 author: Michael
 categories: [php]
-  - php
 tags:
   - Laravel
   - Meilisearch

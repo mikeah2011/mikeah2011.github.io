@@ -5,7 +5,6 @@ author: Michael
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 模型路由, ProviderProfile]
 keywords: [Hermes ProviderProfile vs OpenClaw Fallback Chain vs OpenHuman Hint Router, 三大框架模型路由对比, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

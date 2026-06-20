@@ -5,7 +5,6 @@ author: Michael
 tags: [Laravel, AI, 代码补全, 开发工具, Boost, GitHub Copilot]
 keywords: [Laravel Boost, AI, Laravel, 驱动的, 开发加速, 智能代码补全与框架感知的上下文注入, PHP]
 categories: [php]
-  - php
 description: 通用 AI 编程工具不理解 Laravel 的思维方式？本文深入探讨 Laravel Boost——一款框架感知的 AI 开发加速工具。对比 GitHub Copilot、Cursor、Windsurf 等主流工具在 Laravel 场景下的表现差异，详解 Eloquent 模型智能补全、Migration 生成、Form Request 推断、API Resource 模板等核心功能。提供 VS Code 和 JetBrains 集成配置指南，帮助 Laravel 开发者从"AI 写代码"升级到"AI 理解框架"。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

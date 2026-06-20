@@ -9,8 +9,6 @@ date: 2026-05-05 02:15:21
 author: Michael
 updated: 2026-05-05 02:17:41
 categories: [architecture]
-- architecture
-- testing
 tags:
 - BFF
 - Laravel

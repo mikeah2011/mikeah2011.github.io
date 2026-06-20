@@ -5,7 +5,6 @@ author: Michael
 tags: [PHP, zval, 内存管理, COW, 性能调优]
 keywords: [PHP, zval, 引用计数与写时复制深度剖析, 变量底层结构, 内存泄漏检测与性能调优]
 categories: [php]
-  - php
 description: 从 C 语言层面的 zval 结构体出发，完整剖析 PHP 变量的内存管理全貌。深入解析 PHP 7/8 的 16 字节 zval 重构、引用计数的即时回收机制、写时复制（COW）的值语义与性能平衡，以及 ISREF 引用与 COW 的冲突场景。涵盖 Zend 引擎 GC 垃圾回收的三色标记算法、循环引用检测、WeakMap 打破循环引用的实战技巧，附带 Valgrind/Xdebug 内存泄漏检测方法、生成器与 cursor 流式处理大内存优化策略，帮助开发者建立 PHP 内存管理的系统性认知，精准定位生产环境中的 OOM 与内存泄漏问题。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

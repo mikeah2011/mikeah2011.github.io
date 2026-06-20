@@ -5,7 +5,6 @@ keywords: [MySQL, KKday B2C API, JOIN, EXPLAIN, 複雜查詢性能優化實戰, 
 date: 2026-05-03
 author: Michael
 categories: [database]
-  - database
 tags:
 - KKday
 - MySQL

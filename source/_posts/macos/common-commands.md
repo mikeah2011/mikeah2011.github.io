@@ -9,8 +9,6 @@ date: 2025-05-25 10:00:00
 author: Michael
 updated: 2026-06-06 10:00:00
 categories: [macos]
-- macos
-- linux
 tags:
 - macOS
 - CLI

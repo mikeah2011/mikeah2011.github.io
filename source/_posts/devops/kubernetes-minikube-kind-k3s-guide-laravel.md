@@ -9,8 +9,6 @@ date: 2026-05-16 23:25:38
 author: Michael
 updated: 2026-05-16 23:28:41
 categories: [devops]
-- devops
-- kubernetes
 tags:
 - Docker
 - Kubernetes

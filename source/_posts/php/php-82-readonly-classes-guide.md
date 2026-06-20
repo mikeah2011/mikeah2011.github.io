@@ -7,8 +7,6 @@ date: 2026-05-16 16:31:01
 author: Michael
 updated: 2026-05-16 16:37:58
 categories: [php]
-  - php
-  - runtime
 tags: [Laravel, PHP, 架构]
 keywords: [PHP, readonly Classes, 不可变对象与值对象设计]
 description: "从 PHP 8.1 readonly 属性到 8.2 readonly class 全面实战指南：深入讲解不可变对象与值对象设计模式，覆盖 DTO 重构、Money/DateRange 值对象、领域模型 ID 封装、Laravel Validation 交互、序列化兼容、性能基准测试，附 PHP 8.1→8.2 迁移清单与踩坑记录。"

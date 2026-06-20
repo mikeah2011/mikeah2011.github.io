@@ -8,7 +8,6 @@ description: 本文系统讲解 mise（原 rtx）在 macOS 下统一管理 Node.
 date: 2026-06-01 10:00:00
 author: Michael
 categories: [macos]
-  - macos
 keywords: [mise, rtx, nvm, rbenv, pyenv, 多语言版本管理替代, 的统一方案]
 tags:
 - mise

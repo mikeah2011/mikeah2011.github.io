@@ -6,8 +6,6 @@ images:
 date: 2026-05-03
 author: Michael
 categories: [php]
-  - php
-  - git
 tags: [AI, Laravel, 工程管理]
 keywords: [Git Hooks, RTK Laravel B2C API, GitHub Copilot, 自動代碼審查工作流, 配合實戰, PHP]
 description: 結合 GitHub Copilot 與 RTK (Runtime Testing Kit) v0.38.0，建立 Laravel B2C API 自動代碼審查工作流，包含 Pest 測試生成、PSR-12 規範檢查、依賴安全掃描等完整實戰經驗。

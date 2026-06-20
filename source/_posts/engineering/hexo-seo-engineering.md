@@ -3,7 +3,6 @@ title: 技术博客 SEO 工程化实战：Hexo 站点的 Schema.org、Sitemap �
 date: 2026-06-10 01:36:00
 author: Michael
 categories: [engineering]
-  - engineering
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

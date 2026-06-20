@@ -8,8 +8,6 @@ images:
 date: 2026-06-01 22:30:00
 author: Michael
 categories: [php]
-- php
-- engineering
 tags:
 - Pennant
 - Feature Flags

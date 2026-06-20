@@ -5,7 +5,6 @@ keywords: [Cursor Rules, cursorrules, AI, 工程化实战, 版本控制, 团队�
 date: 2026-06-09 06:25:00
 author: Michael
 categories: [ai]
-  - ai
 tags:
 - Cursor
 - AI 编程

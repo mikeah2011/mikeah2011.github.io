@@ -4,7 +4,6 @@ keywords: [Laravel Validation, Rule, Form Request, API, 深度实战, 自定义,
 date: 2026-06-10 04:43:00
 author: Michael
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

@@ -12,7 +12,6 @@ tags:
 - 推送通知
 - PWA
 categories: [frontend]
-- frontend
 description: 手把手教你用 Web Push API + VAPID 协议实现浏览器原生推送通知：涵盖 Service Worker 注册与 PushManager 订阅管理、Laravel 后端端到端加密消息队列分发、电商订单状态/降价提醒/促销广播完整实战，对比 Firebase Cloud Messaging，附浏览器兼容性、HTTPS 部署与常见踩坑排查指南。
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

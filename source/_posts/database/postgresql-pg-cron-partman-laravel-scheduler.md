@@ -6,7 +6,6 @@ author: Michael
 tags: [PostgreSQL, pg_cron, pg_partman, 分区表, 定时任务, Laravel]
 keywords: [PostgreSQL pg, cron, pg, partman, Laravel Scheduler, 数据库内定时任务与自动分区管理, 替代, 的数据库原生方案, 数据库]
 categories: [database]
-  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

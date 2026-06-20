@@ -13,7 +13,6 @@ tags:
 - 前端资源
 - 静态资源
 categories: [go]
-- go
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop

@@ -6,7 +6,6 @@ author: Michael
 tags: [Laravel, Filament, Admin Panel, PHP, CRUD]
 keywords: [Laravel Filament, Admin Panel, Resource, Table, Form, Relation Manager, 快速开发, 与自定义页面的生产级落地, PHP]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

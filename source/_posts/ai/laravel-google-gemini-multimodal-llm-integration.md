@@ -4,7 +4,6 @@ keywords: [Laravel, Google Gemini API, LLM, PHP, 多模态, 图文理解, 视频
 date: 2026-06-09 08:28:00
 author: Michael
 categories: [ai]
-  - ai
 tags:
   - Laravel
   - Gemini

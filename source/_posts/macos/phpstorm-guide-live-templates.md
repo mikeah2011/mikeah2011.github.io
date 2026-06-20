@@ -9,8 +9,6 @@ date: 2026-05-16 23:20:08
 author: Michael
 updated: 2026-05-16 23:23:54
 categories: [macos]
-- macos
-- editor
 tags:
 - Laravel
 - macOS

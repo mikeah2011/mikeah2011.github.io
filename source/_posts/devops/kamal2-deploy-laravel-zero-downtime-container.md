@@ -5,7 +5,6 @@ author: Michael
 tags: [Kamal, Docker, Laravel, DevOps, 部署, 容器化]
 keywords: [Kamal, DHH, Docker Compose, K8s, Laravel, 的容器部署工具, 的极简部署哲学与, 应用一键发布, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

@@ -5,7 +5,6 @@ author: Michael
 tags: [MySQL, binlog, CDC, 主从复制, 数据恢复]
 keywords: [MySQL binlog, Row, Statement, Mixed, CDC, 深度实战, 格式对比, 从主从复制到, 到数据恢复的完整应用链, 数据库]
 categories: [database]
-  - database
 description: "MySQL binlog 深度实战：全面对比 Row、Statement、Mixed 三种格式的优缺点与适用场景，涵盖主从复制配置、Debezium CDC 实时数据管道搭建、binlog 数据恢复与 PITR 时间点恢复方案，附生产环境踩坑总结与最佳实践。"
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

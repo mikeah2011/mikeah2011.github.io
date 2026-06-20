@@ -7,7 +7,6 @@ date: 2026-05-16 12:56:29
 author: Michael
 updated: 2026-05-16 12:58:01
 categories: [php]
-  - php
 tags: [Laravel, Eloquent, 查询优化, PHP, 数据库]
 keywords: [Laravel, Scopes, 查询作用域封装与复杂筛选条件复用踩坑记录, PHP]
 description: 在 B2C API 中，商品列表、订单查询、后台筛选几乎每个接口都在重复写 where/orderBy/with。Laravel Scopes（本地作用域 + 全局作用域）可以把查询逻辑封装进 Model，让 Controller 和 Service 变薄。本文从 30+ 仓库的真实踩坑出发，拆解 Local Scope、Global Scope、Dynamic Scope 的实战用法与陷阱。

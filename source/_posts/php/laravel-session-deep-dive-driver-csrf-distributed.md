@@ -5,7 +5,6 @@ author: Michael
 tags: [Laravel, Session, Redis, CSRF, 安全, PHP]
 keywords: [Laravel Session, Session, CSRF Token, Cookie, Redis, 深度实战, 驱动选型, 分布式, 生成, 的会话管理全链路]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

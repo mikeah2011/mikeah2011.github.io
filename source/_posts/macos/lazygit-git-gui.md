@@ -9,7 +9,6 @@ date: 2026-06-01 10:00:00
 author: Michael
 description: 这篇文章系统整理 Lazygit 在 macOS 与开发终端中的真实使用经验，覆盖终端Git 操作、分支管理、交互式暂存、Rebase、冲突处理、自定义配置与常见踩坑，并结合 Git CLI、SourceTree、GitKraken 做方案对比，帮助开发者建立更高效、更稳定的 Git 工作流。
 categories: [macos]
-- macos
 tags:
 - Git
 - 终端工具

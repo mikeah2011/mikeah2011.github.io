@@ -9,8 +9,6 @@ date: 2026-05-02
 author: Michael
 description: Apifox、Postman、ApiPost、Mockoon 四款主流 API 工具深度横评：从本地 Mock、团队协作、中文支持、文档生成到 CI/CD 集成，逐项对比优劣。附 Laravel BFF 真实开发踩坑经验、Mockoon/Postman 可运行代码示例、Apifox AutoAPI 工作流实战，帮你选对工具少走弯路。
 categories: [php]
-- php
-- testing
 tags:
 - BFF
 - Laravel

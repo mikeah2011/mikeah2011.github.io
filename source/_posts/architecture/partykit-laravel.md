@@ -5,7 +5,6 @@ author: Michael
 tags: [PartyKit, 实时协作, WebSocket, Laravel, CRDT, Yjs, Cloudflare, Durable Objects]
 keywords: [PartyKit, Laravel, 实时协作后端, 多人编辑, 在线状态, 实时光标与, 应用集成, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

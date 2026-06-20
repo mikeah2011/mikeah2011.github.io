@@ -5,7 +5,6 @@ author: Michael
 tags: [Web3, ethers.js, web3.php, Laravel, 智能合约, DApp, Solidity]
 keywords: [Web3, ethers.js, web3.php, Laravel DApp, 集成实战, 钱包连接与智能合约交互, 后端的签名验证与事件监听, PHP]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

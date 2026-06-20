@@ -9,7 +9,6 @@ date: 2026-05-05 09:15:36
 author: Michael
 updated: 2026-05-05 09:18:15
 categories: [architecture]
-- architecture
 tags:
 - Laravel
 - OpenAPI

@@ -13,7 +13,6 @@ tags:
 - PHP Fibers
 - Go
 categories: [misc]
-- misc
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop

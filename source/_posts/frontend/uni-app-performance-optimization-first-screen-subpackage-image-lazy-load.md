@@ -7,9 +7,6 @@ title: uni-app 性能优化实战：首屏加载、分包加载、图片懒加�
 date: 2026-06-01 12:00:00
 author: Michael
 categories: [frontend]
-  - frontend
-  - engineering
-  - mobile
 keywords: [uni, app, 性能优化实战, 首屏加载, 分包加载, 图片懒加载的工程化治理]
 tags:
 - uni-app

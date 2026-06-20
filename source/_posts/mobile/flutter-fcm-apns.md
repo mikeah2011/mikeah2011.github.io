@@ -6,7 +6,6 @@ description: '本文系统梳理 Flutter 推送通知落地方案，覆盖 FCM�
 tags: [Flutter, 推送通知, FCM, APNs, 厂商推送]
 keywords: [Flutter, FCM, APNs, 推送通知实战, 双通道集成与厂商通道适配, 移动端]
 categories: [mobile]
-  - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

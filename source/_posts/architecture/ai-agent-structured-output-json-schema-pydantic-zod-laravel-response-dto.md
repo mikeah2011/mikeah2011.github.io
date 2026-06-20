@@ -6,7 +6,6 @@ description: "深入实战 AI Agent Structured Output 全链路方案：从 Open
 tags: [AI, LLM, Structured Output, JSON Schema, Laravel, Pydantic, Zod]
 keywords: [AI Agent Structured Output, JSON Schema, Pydantic, Zod, Laravel Response DTO, 深度实战, 强制, 校验与, 的端到端类型安全, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

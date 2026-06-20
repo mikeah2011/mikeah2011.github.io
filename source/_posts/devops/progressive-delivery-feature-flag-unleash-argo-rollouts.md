@@ -5,7 +5,6 @@ keywords: [Progressive Delivery, Feature Flag, Unleash, Argo Rollouts, 渐进式
 date: 2026-06-09 20:20:00
 author: Michael
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

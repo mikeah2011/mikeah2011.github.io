@@ -3,7 +3,6 @@ title: SQL语句性能分析工具 - explain
 tags: [MySQL, EXPLAIN, 查询优化, 索引, 性能分析, Laravel]
 keywords: [SQL, explain, 语句性能分析工具, 数据库]
 categories: [database]
-  - database
 date: 2019-03-20 15:05:07
 author: Michael
 description: '深入解析 MySQL EXPLAIN 执行计划的各项字段含义，包括 type 访问类型、key 索引使用、rows 扫描行数、Extra 附加信息等核心指标。文章附带 Laravel 框架中的 EXPLAIN 调用代码示例，以及三个真实优化案例（全表扫描、filesort、临时表），帮助开发者快速定位慢查询瓶颈并制定优化策略。'

@@ -5,7 +5,6 @@ keywords: [Redis, KKday B2C API, 缓存穿透, 击穿, 雪崩防护与分布式�
 date: 2026-05-02
 author: Michael
 categories: [database]
-- database
 tags:
 - KKday
 - Redis

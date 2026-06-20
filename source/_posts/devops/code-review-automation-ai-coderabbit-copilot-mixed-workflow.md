@@ -5,7 +5,6 @@ keywords: [Code Review Automation, AI PR Review, CodeRabbit, GitHub, 人工确�
 date: 2026-06-09 14:54:00
 author: Michael
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

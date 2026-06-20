@@ -8,7 +8,6 @@ images:
 date: 2026-06-01
 author: Michael
 categories: [macos]
-- macos
 tags:
 - Raycast
 - macOS

@@ -9,8 +9,6 @@ date: 2026-05-05 00:55:55
 author: Michael
 updated: 2026-05-05 00:59:30
 categories: [macos]
-- macos
-- tools
 tags:
 - Laravel
 - PHP

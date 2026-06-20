@@ -4,7 +4,6 @@ keywords: [Laravel, Vercel Edge Config, Feature Flags, 测试与动态配置, �
 date: 2026-06-09 11:01:00
 author: Michael
 categories: [architecture]
-  - architecture
 tags:
   - Laravel
   - Vercel

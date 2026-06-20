@@ -8,7 +8,6 @@ images:
 date: 2026-05-02 18:30
 author: Michael
 categories: [php]
-- php
 tags:
 - KKday
 - Laravel

@@ -5,7 +5,6 @@ keywords: [PostgreSQL, Advisory Lock, Serializable, Laravel, 并发控制深度�
 date: 2026-06-10 02:45:00
 author: Michael
 categories: [database]
-  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

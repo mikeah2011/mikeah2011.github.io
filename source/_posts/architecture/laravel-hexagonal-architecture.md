@@ -8,7 +8,6 @@ date: 2026-06-01 12:00:00
 author: Michael
 updated: 2026-06-01 12:00:00
 categories: [architecture]
-  - architecture
 keywords: [Laravel, 六边形架构实战, 中的端口与适配器模式落地踩坑记录]
 tags:
 - Laravel

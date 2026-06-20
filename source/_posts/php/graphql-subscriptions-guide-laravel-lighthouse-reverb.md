@@ -8,7 +8,6 @@ images:
 date: 2026-05-03 09:26:32
 author: Michael
 categories: [php]
-- php
 tags:
 - Laravel
 - WebSocket

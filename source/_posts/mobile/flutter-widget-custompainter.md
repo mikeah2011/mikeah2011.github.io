@@ -5,7 +5,6 @@ author: Michael
 tags: [Flutter, CustomPainter, 动画, 手势处理, Widget, 自定义Widget]
 keywords: [Flutter, Widget, CustomPainter, 自定义, 动画, 手势处理, 移动端]
 categories: [mobile]
-  - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

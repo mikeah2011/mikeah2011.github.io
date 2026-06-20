@@ -5,7 +5,6 @@ keywords: [Laravel, Convex, Supabase, Firebase, 实时数据库驱动的全栈�
 date: 2026-06-09 06:44:00
 author: Michael
 categories: [ai]
-- ai
 tags:
 - Laravel
 - Convex

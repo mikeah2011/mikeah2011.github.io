@@ -5,7 +5,6 @@ keywords: [Secrets Scanning, gitleaks, trufflehog, pre, commit, CI, Laravel, API
 date: 2026-06-09 18:49:00
 author: Michael
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

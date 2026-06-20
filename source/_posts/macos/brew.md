@@ -6,7 +6,6 @@ images:
 tags: [macOS, Homebrew, tools]
 keywords: [macOS APP, brew, 管理神器, macOS]
 categories: [macos]
-  - macos
 date: 2022-12-08 09:11:30
 author: Michael
 description: 'macOS Homebrew 完全指南：brew install 命令速查、Cask vs Formula 区别、brew services 服务管理、Brewfile 一键备份恢复、中国区镜像源配置（清华/中科大/阿里云）、Apple Silicon M 系列芯片适配、Homebrew vs MacPorts vs Nix 对比及常见报错排查（权限错误/网络超时/SHA256 校验失败），附 60+ 款常用开发工具一键安装命令，助你高效管理 Mac 开发环境。'

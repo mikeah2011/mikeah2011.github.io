@@ -5,7 +5,6 @@ keywords: [Laravel, Fallback, i18n, 多语言内容管理实战, 运营后台的
 date: 2026-06-10 02:25:00
 author: Michael
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

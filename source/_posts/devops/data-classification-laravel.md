@@ -5,7 +5,6 @@ author: Michael
 tags: [Data Classification, 数据治理, 数据加密, 数据脱敏, Laravel, GDPR, PIPL]
 keywords: [Data Classification, Laravel, 敏感数据分级, 加密存储, 脱敏展示, 应用的数据治理框架, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

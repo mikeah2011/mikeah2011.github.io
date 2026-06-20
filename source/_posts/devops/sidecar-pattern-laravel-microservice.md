@@ -5,7 +5,6 @@ author: Michael
 tags: [Sidecar, 微服务, Envoy, Laravel, DevOps]
 keywords: [Sidecar Pattern, Laravel, Sidecar, Envoy, Telegraf, Filebeat, 微服务的, 代理, 的基础设施下沉, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

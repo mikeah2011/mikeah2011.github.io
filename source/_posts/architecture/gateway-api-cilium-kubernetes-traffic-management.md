@@ -4,7 +4,6 @@ keywords: [Gateway API, Cilium, Kubernetes, Laravel, L4, L7, mTLS, 流量管理�
 date: 2026-06-09 06:37:00
 author: Michael
 categories: [architecture]
-  - architecture
 tags:
   - Kubernetes
   - Gateway API

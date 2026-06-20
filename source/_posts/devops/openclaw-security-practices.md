@@ -10,7 +10,6 @@ tags:
 - 安全
 - 隐私保护
 categories: [devops]
-- devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

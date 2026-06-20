@@ -8,7 +8,6 @@ tags:
 - redo log
 - 事务
 categories: [database]
-  - database
 date: 2018-03-20 15:05:07
 author: Michael
 description: 深入解析MySQL三大核心日志：redo log重做日志、binlog归档日志、undo log回滚日志的工作原理与区别。详解WAL机制、两阶段提交(2PC)、InnoDB崩溃恢复流程、MVCC多版本并发控制原理，附MySQL日志查看SQL命令与五大常见踩坑案例，助你全面掌握MySQL事务一致性保障机制与生产环境日志配置最佳实践。

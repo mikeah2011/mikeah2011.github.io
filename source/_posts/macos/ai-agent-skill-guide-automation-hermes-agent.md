@@ -9,8 +9,6 @@ date: 2026-05-17 03:41:03
 author: Michael
 updated: 2026-05-17 03:44:15
 categories: [macos]
-- macos
-- tools
 tags:
 - AI
 - Agent

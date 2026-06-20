@@ -5,7 +5,6 @@ author: Michael
 tags: [OpenClaw, AI Agent, 记忆维护, 数据蒸馏, 自动化]
 keywords: [OpenClaw, 记忆维护循环, 日常日志, 长期记忆蒸馏, 过时信息修剪, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

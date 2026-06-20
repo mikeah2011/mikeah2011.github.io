@@ -9,8 +9,6 @@ title: LM Studio + Ollama：M 芯片 Mac 上的本地大模型实战（Laravel B
 date: 2026-05-24 10:00:00
 author: Michael
 categories: [macos]
-- macos
-- php
 tags:
 - AI
 - Laravel

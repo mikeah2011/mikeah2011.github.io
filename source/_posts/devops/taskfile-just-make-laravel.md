@@ -4,7 +4,6 @@ keywords: [Taskfile vs Just vs Make, Laravel, 构建任务运行器的现代替�
 date: 2026-06-09 06:31:00
 author: Michael
 categories: [devops]
-  - devops
 tags:
   - Taskfile
   - Just

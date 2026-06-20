@@ -13,7 +13,6 @@ tags:
 - 备份
 description: PostgreSQL 18 全面解析：深度剖析异步I/O（io_uring）子系统带来的15%-42%吞吐量提升、原生增量备份节省95%存储空间、虚拟WAL将逻辑复制延迟降低85%。本文包含详尽的PostgreSQL 17 vs 18性能对比基准测试数据、完整的Laravel应用升级指南与配置代码、生产环境回滚策略及最佳实践Checklist，助你平滑完成数据库版本升级。
 categories: [database]
-- database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

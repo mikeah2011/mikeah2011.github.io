@@ -5,7 +5,6 @@ author: Michael
 tags: [Windsurf, Augment Code, AI IDE, Cursor, Claude Code, AI 编程, macOS, 开发工具]
 keywords: [Windsurf, Augment Code, AI, native IDE, Cursor, Claude Code, macOS, 新势力, 的功能, 性能与定价]
 categories: [macos]
-  - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

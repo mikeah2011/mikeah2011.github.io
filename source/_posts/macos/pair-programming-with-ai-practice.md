@@ -5,7 +5,6 @@ author: Michael
 tags: [AI, Cursor, Claude Code, 开发效率, 结对编程]
 keywords: [Pair Programming with AI, AI, Cursor, Claude Code, 结对编程的生产力研究, 个真实编码场景效率对比, macOS]
 categories: [macos]
-  - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

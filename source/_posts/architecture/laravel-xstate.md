@@ -5,7 +5,6 @@ author: Michael
 tags: [状态机, Laravel, XState, 订单系统, 事件驱动]
 keywords: [Laravel, XState, 订单状态机实战, 实现复杂订单流转, 可视化状态图与事件驱动, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

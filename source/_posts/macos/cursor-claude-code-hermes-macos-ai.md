@@ -6,7 +6,6 @@ images:
 date: 2026-06-01 08:00:00
 author: Michael
 categories: [macos]
-  - macos
 tags: [Cursor, Claude Code, Hermes Agent, AI 编程, 工作流, macOS, AI 协作, 开发工具]
 keywords: [Cursor, Claude Code, Hermes, macOS, AI, 开发者多, 协作工作流实战踩坑记录]
 description: "深入对比 Cursor、Claude Code、Hermes 三大 AI 编程工具在 macOS 上的多 AI 协作工作流实战。揭秘 Tab 补全预测流水线、Tool Use 协议到 Skill+Cron 自动化系统架构，覆盖跨仓库重构、依赖安全巡检、代码审查等真实踩坑记录，附成本对比与效率提升数据，助你搭建高效的多 AI 协作编程工作流。"

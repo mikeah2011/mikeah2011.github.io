@@ -3,7 +3,6 @@ title: "PHP 生产环境调试实战：strace/dtrace/gdb 三板斧——不改�
 date: 2026-06-10 06:35:00
 author: Michael
 categories: [php]
-  - php
 tags:
   - 调试
   - strace

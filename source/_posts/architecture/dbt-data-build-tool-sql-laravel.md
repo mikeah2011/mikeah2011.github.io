@@ -13,7 +13,6 @@ tags:
 - analytics-engineering
 - Laravel
 categories: [architecture]
-  - architecture
 keywords: [dbt, data build tool, SQL, Laravel, 优先的数据转换框架, 项目的数据仓库建模与版本化治理]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

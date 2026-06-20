@@ -6,8 +6,6 @@ images:
 date: 2026-05-03 13:35:38
 author: Michael
 categories: [frontend]
-  - frontend
-  - php
 tags: [Vite, Webpack, 前端构建, Laravel, 缓存, 分包策略]
 keywords: [Webpack, Vite, Laravel BFF, 构建优化实战, 缓存命中与分包策略踩坑记录, 前端, PHP]
 description: 基于 KKday B2C API 真实踩坑经验，深入剖析 Laravel BFF 架构下的 Vite/Webpack 构建优化方案，涵盖分包策略、manualChunks 路由级懒加载、长生命周期缓存命中、Nginx Cache-Control 配置、CDN 资源失效排查与 sourcemap 生产环境取舍，附 5 个真实踩坑记录与解决方案。

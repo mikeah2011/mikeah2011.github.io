@@ -6,7 +6,6 @@ date: 2026-05-03 09:40:55
 author: Michael
 updated: 2026-05-03 09:40:55
 categories: [database]
-- database
 tags:
 - Laravel
 - MySQL

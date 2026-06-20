@@ -9,8 +9,6 @@ date: 2026-05-04 14:59:31
 author: Michael
 updated: 2026-06-06 10:00:00
 categories: [php]
-- php
-- database
 tags:
 - Elasticsearch
 - Laravel

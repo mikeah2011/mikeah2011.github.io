@@ -8,7 +8,6 @@ tags:
 - PHP
 - 架构
 categories: [php]
-  - php
 keywords: [PHP Fibers, Go goroutine, Swoole, 进程, 线程和协程对比, 协程]
 date: 2019-03-20 15:05:07
 author: Michael

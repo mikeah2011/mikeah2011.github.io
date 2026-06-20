@@ -12,8 +12,6 @@ tags:
 - 时间复杂度
 - 数据结构
 categories: [engineering]
-  - engineering
-  - algorithms
 keywords: [PHP, Go, JS, 选择排序算法详解, 时间复杂度与, 实现, 工程化]
 date: 2020-03-20 15:05:07
 author: Michael

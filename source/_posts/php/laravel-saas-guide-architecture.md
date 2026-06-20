@@ -9,7 +9,6 @@ date: 2026-05-03 10:00:45
 author: Michael
 updated: 2026-06-06 12:00:00
 categories: [php]
-- php
 tags:
 - Laravel
 - MySQL

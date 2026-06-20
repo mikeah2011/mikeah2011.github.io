@@ -8,8 +8,6 @@ date: 2026-05-05 02:20:35
 author: Michael
 updated: 2026-05-05 02:22:40
 categories: [macos]
-  - macos
-  - php
 tags: [DevOps, Laravel, macOS]
 keywords: [DevOps, Laravel, macOS, Cloud, Google, Drive]
 description: >

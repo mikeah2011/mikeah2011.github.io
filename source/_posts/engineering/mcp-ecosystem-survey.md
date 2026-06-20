@@ -14,7 +14,7 @@ tags:
   - 工具集成
   - 技术调研
 categories: [engineering]
-  - engineering
+
 ---
 
 # 2026年AI Agent工具集成标准：MCP生态全景调研

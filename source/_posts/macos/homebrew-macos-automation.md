@@ -4,8 +4,6 @@ date: 2026-05-05 08:26:03
 author: Michael
 updated: 2026-05-05 08:29:14
 categories: [macos]
-  - macos
-  - tools
 tags: [Homebrew, 自动化, macOS, 脚本开发, 开发环境]
 keywords: [Homebrew, macOS, 自动更新脚本开发, 开发环境自动化实战踩坑记录]
 description: "macOS 开发者必备：Homebrew 自动更新脚本开发全流程实战，涵盖 LaunchAgent 定时调度、brew pin 版本锁定、Brewfile 团队协作、更新失败回滚策略与 Slack 通知。基于 KKday 30+ 仓库团队真实踩坑经验，助你实现无人值守的 Homebrew 依赖管理。"

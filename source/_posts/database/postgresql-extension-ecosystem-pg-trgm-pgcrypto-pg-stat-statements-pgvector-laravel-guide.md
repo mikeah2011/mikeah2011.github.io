@@ -5,7 +5,6 @@ author: Michael
 tags: [PostgreSQL, pg_trgm, pgcrypto, pg_stat_statements, pgvector, Laravel, 扩展]
 keywords: [PostgreSQL, pg, trgm, pgcrypto, stat, statements, pgvector, Laravel, 扩展生态实战, 开发者最常用的]
 categories: [database]
-  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

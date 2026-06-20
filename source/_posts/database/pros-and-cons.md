@@ -8,7 +8,6 @@ tags:
 - B+树
 - 性能优化
 categories: [database]
-- database
 date: 2019-05-10 10:00:00
 author: Michael
 description: 深入解析MySQL索引的优缺点：索引如何加速查询（B+树O(logN)查找）、为什么会让写入变慢、占用多少磁盘空间、什么时候该加索引什么时候不该加。包含CREATE INDEX语法、EXPLAIN执行计划分析、性能对比基准测试、复合索引实战示例，以及每个字段都加索引、联合索引乱序等常见反模式的避坑指南，助你做出正确的索引决策。

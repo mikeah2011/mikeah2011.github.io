@@ -5,7 +5,6 @@ keywords: [Go, WASI, 学习笔记, 特性预览, 迭代器, 性能提升]
 date: 2026-06-09 23:45:00
 author: Michael
 categories: [go]
-  - go
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop

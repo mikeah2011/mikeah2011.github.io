@@ -6,7 +6,6 @@ description: '深入解析 TALL Stack（Tailwind CSS、Alpine.js、Livewire、La
 tags: [TALL Stack, Laravel, Livewire, Alpine.js, Tailwind CSS, 全栈开发]
 keywords: [TALL Stack, Tailwind, Alpine.js, Livewire, Laravel, PHP, Vue, React SPA, 全栈实战, 快速原型开发的全]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

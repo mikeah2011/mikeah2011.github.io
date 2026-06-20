@@ -5,7 +5,6 @@ author: Michael
 tags: [AI Agent, Hermes, OpenClaw, OpenHuman, 框架选型, 决策矩阵]
 keywords: [AI Agent, 开发者如何选择, 基于工作流, 隐私需求, 技术栈的决策矩阵, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

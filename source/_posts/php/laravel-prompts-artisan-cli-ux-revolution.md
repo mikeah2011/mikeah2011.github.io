@@ -5,7 +5,6 @@ author: Michael
 tags: [Laravel Prompts, CLI, Artisan, 终端交互, UX]
 keywords: [Laravel Prompts, confirm, multisearch, progress, Artisan, UX, 终端交互式命令行工具的现代化替代方案, 命令的, 革新, PHP]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

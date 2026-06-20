@@ -7,8 +7,6 @@ date: 2026-05-16 22:35:17
 author: Michael
 updated: 2026-05-16 22:39:35
 categories: [devops]
-  - devops
-  - docker
 tags: [DevOps, Docker, Laravel, 网络, 服务发现, 容器化, 微服务]
 keywords: [Docker, bridge, host, overlay, Laravel B2C API, 网络实战, 网络模式与服务发现, 踩坑记录, DevOps]
 description: "Docker 网络模式深度实战：bridge、host、overlay 三大网络模型对比与选型指南。详解自定义 bridge DNS 服务发现、overlay 跨主机通信、internal 网络隔离策略，结合 Laravel B2C API 真实踩坑经验，覆盖从本地开发到 Swarm 集群的全链路网络配置。"

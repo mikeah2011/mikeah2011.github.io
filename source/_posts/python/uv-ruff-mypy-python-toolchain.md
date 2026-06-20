@@ -5,7 +5,6 @@ keywords: [uv, Ruff, Mypy Python, Rust, Python, Laravel, 工具链实战, 驱动
 date: 2026-06-09 06:29:00
 author: Michael
 categories: [python]
-- python
 tags:
 - uv
 - Ruff

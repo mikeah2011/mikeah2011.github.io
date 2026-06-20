@@ -13,7 +13,6 @@ tags:
 - 网络编程
 - 面试
 categories: [network]
-  - network
 keywords: [TCP, IP, Socket, HTTP, 网络编程基础, 模型, 协议, 网络]
 date: 2018-03-20 15:05:07
 author: Michael

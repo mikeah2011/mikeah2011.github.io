@@ -6,7 +6,6 @@ description: 本文深入探讨如何将 AI Agent 集成到 GitHub Actions 构�
 tags: [AI Agent, GitHub Actions, CI/CD, 自动化, DevOps]
 keywords: [AI Agent, GitHub Actions, CI, CD, 智能化与自动化决策, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

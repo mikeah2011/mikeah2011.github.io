@@ -8,8 +8,6 @@ images:
 date: 2026-05-02
 author: Michael
 categories: [php]
-- misc
-- php
 tags:
 - Laravel
 - Reverb

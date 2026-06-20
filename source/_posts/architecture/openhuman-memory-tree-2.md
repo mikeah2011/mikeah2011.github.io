@@ -5,7 +5,6 @@ author: Michael
 tags: [OpenHuman, AI Agent, Memory Tree, 知识管理, 本地AI]
 keywords: [OpenHuman Memory Tree, 深度剖析, 确定性分块, 实体提取, 主题树与全局摘要的四层架构, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

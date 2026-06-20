@@ -5,7 +5,6 @@ author: Michael
 tags: [Laravel, modular-monolith, 架构设计, 模块化, 微服务]
 keywords: [Laravel Modular Monolith, Laravel, 模块化单体架构, 介于单体与微服务之间的最佳平衡点与, 落地踩坑记录, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

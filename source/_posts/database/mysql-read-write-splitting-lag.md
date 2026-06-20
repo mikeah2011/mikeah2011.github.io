@@ -4,7 +4,6 @@ title: 数据库读写分离延迟治理实战：主从延迟监控、强制走�
 date: 2026-06-09 22:21:00
 author: Michael
 categories: [database]
-  - database
 keywords: [数据库读写分离延迟治理实战, 主从延迟监控, 强制走主策略与中间件透明路由, 数据库]
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

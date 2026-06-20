@@ -5,7 +5,6 @@ keywords: [Vue, Server Component, Vapor SSR, React RSC, 的服务端组件, 的�
 date: 2026-06-09 16:15:00
 author: Michael
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

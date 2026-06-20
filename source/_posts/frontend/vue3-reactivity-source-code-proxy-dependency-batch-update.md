@@ -5,7 +5,6 @@ keywords: [Vue, Reactivity, Proxy, effect, trigger, 源码剖析, 拦截, 依赖
 date: 2026-06-10 08:43:00
 author: Michael
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

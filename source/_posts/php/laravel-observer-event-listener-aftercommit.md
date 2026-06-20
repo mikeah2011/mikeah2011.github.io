@@ -5,7 +5,6 @@ author: Michael
 tags: [Laravel, Observer, Event, 设计模式, 事务]
 keywords: [Laravel Observer, Event Listener, afterCommit, Observer, 的选型决策, 时序, 事务边界, 队列化监听, 不总是最佳选择, PHP]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

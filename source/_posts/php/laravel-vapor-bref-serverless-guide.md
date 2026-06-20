@@ -7,7 +7,6 @@ date: 2026-05-04 15:31:03
 author: Michael
 updated: 2026-05-04 15:33:43
 categories: [php]
-  - php
 tags: [AWS, Laravel, PHP, 消息队列]
 keywords: [Laravel Vapor, Bref Serverless, 报表导出与异步任务拆分, 冷启动治理与临时存储踩坑记录, PHP]
 description: 结合 Laravel 报表导出与异步任务的线上改造经验，记录如何用 Vapor/Bref 把 API、队列与对象存储拆到 Serverless，重点覆盖冷启动、临时文件、批处理与成本控制踩坑。

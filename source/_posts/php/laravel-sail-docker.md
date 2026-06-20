@@ -4,7 +4,6 @@ keywords: [Laravel Sail, Docker, 深度实战, 开发环境的官方方案, PHP]
 date: 2026-06-10 08:34:00
 author: Michael
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

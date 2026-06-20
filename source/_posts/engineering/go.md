@@ -12,7 +12,6 @@ tags:
 - goroutine
 - Channel
 categories: [engineering]
-- engineering
 date: 2020-03-20 15:05:07
 author: Michael
 description: Go（Golang）是 Google 2009 年开源的静态编译型语言，主打简洁语法 + 原生并发（goroutine/channel）+ 编译速度快，是云原生时代的事实标准。Docker、K8s、etcd 全用 Go 写，适合构建高并发网络服务、CLI 工具和云基础设施。

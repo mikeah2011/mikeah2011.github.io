@@ -12,8 +12,6 @@ tags:
 - quicksort
 - 分治法
 categories: [engineering]
-  - engineering
-  - algorithms
 keywords: [PHP, Go, JS, 快速排序算法详解, 分治思想与, 实现]
 date: 2020-03-20 15:05:07
 author: Michael

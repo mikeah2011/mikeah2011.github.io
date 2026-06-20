@@ -5,7 +5,6 @@ keywords: [InfluxDB, Apache Arrow, TimescaleDB, 列式存储的时序数据库, 
 date: 2026-06-10 03:47:00
 author: Michael
 categories: [misc]
-  - misc
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop

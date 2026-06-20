@@ -4,7 +4,6 @@ keywords: [Service Mesh, Sidecar, Ambient Mesh, Istio, Laravel, mTLS, 微服务�
 date: 2026-06-09 15:49:00
 author: Michael
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

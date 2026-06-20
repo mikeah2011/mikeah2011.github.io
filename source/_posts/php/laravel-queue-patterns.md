@@ -6,7 +6,6 @@ images:
 date: 2026-05-03
 author: Michael
 categories: [php]
-  - php
 tags: [KKday, Laravel, Redis, 消息队列]
 keywords: [Laravel Queue, KKday B2C API, 队列实战踩坑记录, 真实经验分享, PHP]
 description: 深度分享 KKday B2C API 项目中 Laravel Queue 的实战经验：涵盖 Redis、SQS、Database、RabbitMQ 驱动选型对比，任务丢失与重复执行的幂等性设计，Supervisor 多进程管理与队列积压处理，Redis 分布式锁、队列监控告警等生产踩坑记录与解决方案

@@ -5,7 +5,6 @@ keywords: [OpenTofu, Terraform, State, Provider, Laravel, GitOps, 开源, 替代
 date: 2026-06-09 06:34:00
 author: Michael
 categories: [devops]
-- devops
 tags:
 - IaC
 - GitOps

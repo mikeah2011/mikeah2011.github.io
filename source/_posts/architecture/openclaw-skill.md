@@ -13,7 +13,6 @@ tags:
 - Agent
 description: 深入讲解 OpenClaw Skill 体系架构与开发实战，涵盖 Skill 生命周期管理、元数据契约定义、文件处理与 API 调用两大实战案例、工作流编排、参数校验、错误处理、社区共享机制与设计模式，帮助开发者从零构建可扩展的 AI Agent 能力平台。
 categories: [architecture]
-- architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

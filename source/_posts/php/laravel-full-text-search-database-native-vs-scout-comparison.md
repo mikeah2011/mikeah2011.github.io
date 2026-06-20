@@ -11,7 +11,6 @@ tags:
 - 全文搜索
 - Scout
 categories: [php]
-- php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

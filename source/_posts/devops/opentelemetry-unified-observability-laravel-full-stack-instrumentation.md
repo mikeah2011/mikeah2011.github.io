@@ -8,7 +8,6 @@ date: 2026-06-02 08:00:00
 author: Michael
 updated: 2026-06-02 08:00:00
 categories: [devops]
-  - devops
 tags:
   - OpenTelemetry
   - 可观测性

@@ -6,8 +6,6 @@ date: 2026-05-26 10:30:00
 author: Michael
 updated: 2026-05-26 10:30:00
 categories: [engineering]
-- engineering
-- ai
 tags:
 - AI
 - mimo

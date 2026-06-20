@@ -6,8 +6,6 @@ images:
 date: 2026-05-03
 author: Michael
 categories: [php]
-  - php
-  - bff
 tags: [BFF, Laravel, WebSocket]
 keywords: [PHP Generator, BFF, KKday, B2C, API, 流式響應實戰, 真實踩坑記錄, PHP]
 description: PHP Generator 在 BFF 層的流式響應實戰，結合 KKday-B2C-API 真實踩坑經驗，分享如何利用 Generator 實現漸進式數據傳輸與錯誤容錯機制。

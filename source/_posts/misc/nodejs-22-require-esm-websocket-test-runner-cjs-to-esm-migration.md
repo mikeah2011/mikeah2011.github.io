@@ -4,7 +4,6 @@ keywords: [Node.js, require, esm, WebSocket Client, test runner, CommonJS, çš„å…
 date: 2026-06-09 19:03:00
 author: Michael
 categories: [misc]
-  - misc
 cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop

@@ -5,7 +5,6 @@ author: Michael
 tags: [gRPC, Connect, Protobuf, Buf, Go, TypeScript, Laravel, 微服务]
 keywords: [gRPC vs Connect, Protobuf, gRPC, Web, Laravel, Go, TypeScript, 通信的新旧对比, 的替代方案与, 三端集成]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

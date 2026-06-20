@@ -4,7 +4,6 @@ keywords: [AI Agent Feedback Loop, Agent, 用户隐式反馈驱动的, 自动改
 date: 2026-06-09 15:15:00
 author: Michael
 categories: [ai]
-  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

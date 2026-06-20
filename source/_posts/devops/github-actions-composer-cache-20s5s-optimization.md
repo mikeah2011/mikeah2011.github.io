@@ -9,8 +9,6 @@ date: 2026-05-05 02:30:33
 author: Michael
 updated: 2026-05-05 02:31:49
 categories: [devops]
-- devops
-- docker
 tags:
 - CI/CD
 - Composer

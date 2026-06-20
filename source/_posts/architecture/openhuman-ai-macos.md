@@ -5,7 +5,6 @@ author: Michael
 tags: [OpenHuman, AI Agent, macOS, 开源框架]
 keywords: [OpenHuman, AI, macOS, 开源, 超级智能框架入门与, 安装, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

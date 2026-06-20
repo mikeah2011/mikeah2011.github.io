@@ -11,7 +11,6 @@ tags:
 - 并发控制
 - 消息队列
 categories: [ai]
-- ai
 description: 深入剖析 OpenHuman 基于 SQLite 的后台作业系统架构，涵盖持久化队列设计、3 Worker 池分工策略、信号量限流与自适应限流、Lease 心跳恢复机制、死信队列管理等核心组件，包含完整的 TypeScript 代码实现与 Schema 设计，对比 RabbitMQ 和 Redis Stream 方案，为本地 AI Agent 提供零外部依赖的可靠作业系统参考。
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:

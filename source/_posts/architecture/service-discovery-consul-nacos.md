@@ -9,7 +9,6 @@ date: 2026-05-16 19:55:58
 author: Michael
 updated: 2026-05-16 19:59:09
 categories: [architecture]
-- architecture
 tags:
 - Laravel
 - 微服务

@@ -8,7 +8,6 @@ date: 2026-05-16 23:30:13
 author: Michael
 updated: 2026-05-16 23:37:23
 categories: [architecture]
-  - architecture
 keywords: [Jaeger, SkyWalking, Laravel, 链路追踪实战, 微服务中的应用]
 tags:
 - Laravel

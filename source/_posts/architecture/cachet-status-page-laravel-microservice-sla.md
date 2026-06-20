@@ -5,7 +5,6 @@ keywords: [Cachet, Incident, Laravel, SLA, 开源状态页面, 组件状态, 订
 date: 2026-06-10 05:49:00
 author: Michael
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -5,7 +5,6 @@ author: Michael
 tags: [Supabase, Firebase, PostgreSQL, Realtime, Auth, Laravel]
 keywords: [Supabase, Firebase, Auth, Edge Functions, Laravel B2C, 开源, 替代, 实时数据库, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

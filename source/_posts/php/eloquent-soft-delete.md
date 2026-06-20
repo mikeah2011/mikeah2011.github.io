@@ -4,7 +4,6 @@ keywords: [Eloquent, Soft Delete, 全局作用域深度实战, 多租户, 数据
 date: 2026-06-09 06:20:00
 author: Michael
 categories: [php]
-  - php
 tags:
   - Laravel
   - Eloquent

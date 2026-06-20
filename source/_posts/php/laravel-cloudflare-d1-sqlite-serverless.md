@@ -4,7 +4,6 @@ keywords: [Laravel, Cloudflare D1, SQLite, Serverless, 边缘, 数据库, 场景
 date: 2026-06-09 06:39:00
 author: Michael
 categories: [php]
-  - php
 tags:
   - Laravel
   - Cloudflare

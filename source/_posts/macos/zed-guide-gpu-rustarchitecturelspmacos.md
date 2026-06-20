@@ -7,8 +7,6 @@ date: 2026-05-17 03:00:19
 author: Michael
 updated: 2026-05-17 03:02:47
 categories: [macos]
-  - macos
-  - editor
 tags: [AI, macOS, 前端]
 keywords: [Zed, GPU, Rust, LSP, macOS, 编辑器实战, 下一代, 加速代码编辑器, 集成与, 开发效率提升踩坑记录]
 description: "Zed 是 Atom 创始人打造的下一代 GPU 加速代码编辑器，用 Rust 编写，GPUI 渲染引擎让编辑体验丝滑。本文从 Laravel B2C 开发者视角出发，实战配置 Zed 的 LSP 集成、Vim 模式、AI 功能、协作编辑，以及与 VS Code/PHPStorm 的真实对比踩坑记录。"

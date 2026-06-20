@@ -7,8 +7,6 @@ date: 2026-05-03 11:00:13
 author: Michael
 updated: 2026-05-03 11:01:35
 categories: [php]
-  - php
-  - kubernetes
 tags: [DevOps, Kubernetes, Laravel, 定时任务, Scheduler, onOneServer]
 keywords: [Laravel Scheduler, onOneServer, Kubernetes CronJob, 定时任务实战, 多实例部署下的重入保护, 失效与, 取舍, PHP]
 description: 结合 Laravel 订单超时关闭、库存回补与报表汇总场景，深度记录 Scheduler 在多实例部署下的拆分策略、重入保护与 withoutOverlapping 陷阱、onOneServer 依赖共享缓存锁的前提条件、Kubernetes CronJob 的 concurrencyPolicy 与失败重试配置，以及从单机迁移到容器化部署过程中的真实踩坑记录与监控告警方案。

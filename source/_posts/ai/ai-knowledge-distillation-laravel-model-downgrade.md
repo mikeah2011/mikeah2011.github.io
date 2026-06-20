@@ -4,7 +4,6 @@ keywords: [AI Agent Knowledge Distillation, Laravel, 大模型蒸馏到小模型
 date: 2026-06-09 13:42:00
 author: Michael
 categories: [ai]
-  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

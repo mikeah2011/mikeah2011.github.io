@@ -4,7 +4,6 @@ keywords: [Gleam, BEAM VM, Elixir, JS, Laravel, 上的类型安全函数式语�
 date: 2026-06-10 03:30:00
 author: Michael
 categories: [elixir]
-  - elixir
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop

@@ -9,8 +9,6 @@ date: 2026-05-17 03:55:18
 author: Michael
 updated: 2026-05-17 03:57:41
 categories: [macos]
-- macos
-- observability
 tags:
 - Hermes Agent
 - AI Agent

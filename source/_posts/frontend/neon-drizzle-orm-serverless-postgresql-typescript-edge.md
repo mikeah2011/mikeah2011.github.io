@@ -6,7 +6,6 @@ tags: [Neon, Drizzle ORM, PostgreSQL, Serverless, TypeScript, Edge Runtime]
 keywords: [Neon, Drizzle ORM, Serverless PostgreSQL, TypeScript, ORM, Supabase, 边缘, 的开发体验与冷启动性能, 前端]
 description: "深入解析 Neon Serverless PostgreSQL 与 Drizzle ORM 的集成实战，涵盖计算存储分离架构、自动休眠与冷启动优化、数据库分支工作流、Edge Runtime 部署方案。对比 Supabase + Prisma 在开发体验、类型安全、迁移透明度、边缘兼容性与成本模型上的差异，附完整可运行的 TypeScript 代码示例与生产环境踩坑记录，帮助前端团队在边缘计算场景下选择最优数据库 ORM 方案。"
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

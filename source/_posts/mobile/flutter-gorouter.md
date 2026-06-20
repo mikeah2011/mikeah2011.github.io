@@ -13,7 +13,6 @@ tags:
 - 声明式
 - 移动端
 categories: [mobile]
-- mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

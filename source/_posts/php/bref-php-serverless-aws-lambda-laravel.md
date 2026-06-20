@@ -5,7 +5,6 @@ author: Michael
 tags: [Bref, Serverless, AWS-Lambda, PHP, Laravel, 无服务器]
 keywords: [Bref, PHP Serverless, AWS Lambda, Laravel, 上运行, 的无服务器工程化方案, PHP]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

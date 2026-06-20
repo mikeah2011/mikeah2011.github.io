@@ -4,7 +4,6 @@ keywords: [PHP Fibers vs Async PHP, Fibers, AMPHP v4, ReactPHP v4, Swoole, ç”Ÿæ€
 date: 2026-06-09 13:48:00
 author: Michael
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

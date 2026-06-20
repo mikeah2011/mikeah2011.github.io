@@ -6,7 +6,6 @@ author: Michael
 tags: [OpenHuman, AI Agent, AutoFetch, 上下文管理, 自动化]
 keywords: [OpenHuman AutoFetch, 分钟自动拉取上下文的智能机制, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

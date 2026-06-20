@@ -6,7 +6,6 @@ images:
 date: 2026-05-02
 author: Michael
 categories: [php]
-  - php
 tags: [Laravel, Queue, Redis, 消息队列, KKday]
 keywords: [Laravel Queue, KKday, B2C, API, 订单扣减与邮件发送实战, 真实踩坑记录, PHP]
 description: KKday B2C API 中 Laravel Queue 深度实战：Redis 队列架构设计与选型、OrderSyncJob 超时导致用户等待、RetryableTrait 配置不当引发无限重试循环、Worker 并发数设置不合理造成数据库压力、指数退避重试策略与 Supervisor 生产部署等踩坑经验与完整解决方案，附 Queue 监控与故障排查 Checklist

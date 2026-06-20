@@ -4,7 +4,6 @@ keywords: [Onboarding, devcontainer, Seed, Laravel, 新人, 自动化实战, 数
 date: 2026-06-09
 author: Michael
 categories: [engineering]
-  - engineering
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

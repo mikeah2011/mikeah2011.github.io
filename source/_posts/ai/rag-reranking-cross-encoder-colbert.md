@@ -4,7 +4,6 @@ keywords: [RAG Reranking, Cross, Encoder, ColBERT, 重排序与, 延迟交互, �
 date: 2026-06-07 23:50:00
 author: Michael
 categories: [ai]
-  - ai
 tags:
   - RAG
   - Reranking

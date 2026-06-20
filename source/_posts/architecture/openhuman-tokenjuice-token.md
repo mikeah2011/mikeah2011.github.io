@@ -5,7 +5,6 @@ author: Michael
 tags: [OpenHuman, TokenJuice, Token压缩, 成本优化]
 keywords: [OpenHuman TokenJuice, Token, 智能, 压缩与成本优化, 降低, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -7,8 +7,6 @@ date: 2026-05-16 22:25:37
 author: Michael
 updated: 2026-05-16 22:30:30
 categories: [devops]
-  - devops
-  - kubernetes
 tags: [KKday, Kubernetes, Laravel, Nginx, Traefik, Ingress, 安全]
 keywords: [Kubernetes, Ingress, Nginx, Traefik, TLS, Laravel, B2C, API, 配置与, 部署踩坑记录]
 description: Kubernetes Ingress 实战：Nginx/Traefik 配置与 TLS，Laravel B2C API 部署踩坑记录。涵盖 Ingress Controller 选型、Path/Host 路由、cert-manager 自动证书、Rate Limiting、安全头配置，以及生产环境真实踩坑经验。

@@ -5,7 +5,6 @@ author: Michael
 tags: [LLM, Structured Output, Pydantic, Zod, AI Agent, JSON Schema]
 keywords: [Structured Output, LLM, JSON, Pydantic, Zod schema, 返回结构化, 驱动的可靠输出, 架构]
 categories: [architecture]
-  - architecture
 description: 深入剖析 Structured Output 技术原理，让 LLM 返回可预测的结构化 JSON 数据。对比函数调用（Function Calling）与 JSON Schema 约束两种方案，提供 Python Pydantic 和 TypeScript Zod 两种技术栈的完整实战代码。涵盖 AI Agent 工具调用、数据抽取、Laravel 后端集成等真实场景，是将 LLM 从 Demo 级玩具升级为生产级系统的关键基础设施指南。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

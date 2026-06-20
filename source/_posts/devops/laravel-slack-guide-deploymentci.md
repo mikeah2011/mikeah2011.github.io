@@ -9,8 +9,6 @@ date: 2026-05-05 01:15:58
 author: Michael
 updated: 2026-05-05 01:23:43
 categories: [devops]
-- devops
-- php
 tags:
 - CI/CD
 - Laravel

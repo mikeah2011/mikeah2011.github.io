@@ -4,7 +4,6 @@ keywords: [Laravel, AWS Bedrock, Amazon, LLM, Claude, Llama, Titan, 托管, 服�
 date: 2026-06-09 06:51:00
 author: Michael
 categories: [ai]
-  - ai
 tags:
   - Laravel
   - AWS Bedrock

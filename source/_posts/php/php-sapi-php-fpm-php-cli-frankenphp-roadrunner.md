@@ -14,7 +14,6 @@ tags:
 - 性能优化
 description: 深度对比 PHP 四大 SAPI（php-fpm、php-cli、FrankenPHP、RoadRunner）的进程模型、请求生命周期与内存管理差异，涵盖 OPcache/JIT 行为、常驻内存泄漏陷阱与防范、性能基准及选型决策树，助你在 FastCGI、Go 嵌入式与 Worker 架构间精准选型。
 categories: [php]
-- php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

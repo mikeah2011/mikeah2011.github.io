@@ -4,7 +4,6 @@ keywords: [Laravel, 测试性能优化实战, 并行测试, 数据库内存模�
 date: 2026-06-09 23:18:00
 author: Michael
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

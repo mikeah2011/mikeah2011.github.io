@@ -6,7 +6,6 @@ author: Michael
 tags: [AI Agent, 客服系统, 多轮对话, RAG, 工单系统]
 keywords: [AI Agent, 客服系统实战, 多轮对话, 知识库检索, 工单流转, AI]
 categories: [ai]
-  - ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

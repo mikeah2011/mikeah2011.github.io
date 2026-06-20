@@ -6,7 +6,6 @@ tags: [API, Laravel, RESTful, 版本控制, 版本管理, URL版本控制]
 keywords: [API, URL, Header, MediaType, 版本控制进阶, 三种策略的工程实践, PHP]
 description: 本文结合 Laravel 工程实践，系统讲解 API 版本控制的三种主流方案：URL版本、Header版本、MediaType 版本，覆盖 RESTful 设计取舍、路由拆分、中间件解析、控制器与资源层实现、缓存配置、Swagger/OpenAPI 文档分版、灰度发布与兼容治理，帮助团队建立可落地、可演进的 API 版本管理体系。
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

@@ -5,7 +5,6 @@ keywords: [Vue, Custom Renderer, Canvas, WebGL, Three.js, 的响应式驱动, �
 date: 2026-06-10 03:03:00
 author: Michael
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

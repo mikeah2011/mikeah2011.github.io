@@ -9,8 +9,6 @@ date: 2026-05-16 16:12:27
 author: Michael
 updated: 2026-05-16 16:22:05
 categories: [architecture]
-- architecture
-- microservice
 tags:
 - KKday
 - Laravel

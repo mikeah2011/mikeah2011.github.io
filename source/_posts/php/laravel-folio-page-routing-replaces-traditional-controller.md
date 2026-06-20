@@ -8,8 +8,6 @@ images:
 date: 2026-06-01 14:00:00
 author: Michael
 categories: [php]
-- php
-- frontend
 tags:
 - Laravel Folio
 - 文件路由

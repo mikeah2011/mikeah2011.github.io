@@ -4,7 +4,6 @@ keywords: [Laravel Ephemeral Cache, 无持久化的高速缓存, 高频计数器
 date: 2026-06-10 06:17:00
 author: Michael
 categories: [php]
-  - php
 tags:
   - Laravel
   - Cache

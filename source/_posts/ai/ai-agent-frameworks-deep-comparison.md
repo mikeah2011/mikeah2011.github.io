@@ -4,8 +4,6 @@ keywords: [AI Agent, Hermes Agent vs Claude Code vs Codex vs Cline vs Goose, 年
 date: 2026-05-31 14:00:00
 author: Michael
 categories: [ai]
-  - ai
-  - engineering
 tags:
   - AI Agent
   - Hermes Agent

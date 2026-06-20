@@ -5,7 +5,6 @@ author: Michael
 tags: [OpenClaw, AI Agent, 记忆架构, 分层设计, 状态管理]
 keywords: [OpenClaw, daily notes vs MEMORY.md vs heartbeat, state.json, 分层记忆架构, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

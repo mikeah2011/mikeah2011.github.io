@@ -10,8 +10,6 @@ tags:
 - 容器化
 - DevOps
 categories: [devops]
-  - devops
-  - docker
 date: 2020-03-20 15:05:07
 author: Michael
 description: Docker 是一个开源的容器化平台，通过 Linux Namespace + Cgroups 把进程打包成可移植的镜像，做到「一次构建、到处运行」。本文梳理核心概念、常用命令和踩坑笔记。

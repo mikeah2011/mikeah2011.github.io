@@ -7,8 +7,6 @@ description: "Pest 单元测试测试框架在 Laravel B2C API 项目中的实�
 tags: [Laravel, Pest, PHP, PHPUnit, 测试, 并发测试, KKday]
 keywords: [Pest, Laravel B2C API, 单元测试实战, 数据驱动与并发测试踩坑记录, PHP, 测试]
 categories: [php]
-  - php
-  - testing
 title: Pest 单元测试实战：Laravel B2C API 数据驱动与并发测试踩坑记录
 author: Michael
 

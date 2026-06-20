@@ -9,8 +9,6 @@ date: 2026-05-03 10:35:34
 author: Michael
 updated: 2026-05-03 10:39:12
 categories: [php]
-  - php
-  - database
 tags:
 - Laravel
 - PostgreSQL

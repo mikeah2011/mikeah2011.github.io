@@ -4,7 +4,6 @@ keywords: [LLM Structured Generation, Outlines, LMQL, Instructor, JSON Schema, L
 date: 2026-06-09 08:35:00
 author: Michael
 categories: [ai]
-  - ai
 tags:
   - LLM
   - Structured-Generation

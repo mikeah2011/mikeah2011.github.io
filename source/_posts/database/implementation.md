@@ -8,7 +8,6 @@ tags:
 - B+Tree
 - InnoDB
 categories: [database]
-  - database
 date: 2015-03-20 15:05:07
 author: Michael
 description: 深入解析MySQL索引的四种底层实现结构：Hash索引基于哈希表实现等值查询O(1)但不支持范围查询；B+Tree索引是InnoDB和MyISAM的默认选择，支持范围查询、排序和最左前缀匹配；全文索引（FULLTEXT）采用倒排索引实现自然语言搜索；R-Tree索引基于多维树结构处理GIS空间数据查询。本文详解各结构原理、适用场景与常见陷阱。

@@ -8,8 +8,6 @@ date: 2026-05-17 07:05:31
 author: Michael
 updated: 2026-05-17 07:08:05
 categories: [macos]
-  - macos
-  - php
 tags: [JavaScript, Laravel, macOS]
 keywords: [JavaScript, Laravel, macOS, Monorepo]
 description: >

@@ -4,7 +4,6 @@ title: 数据库蓝绿迁移实战：pt-osc vs gh-ost vs Laravel 大表无锁变
 date: 2026-06-09 15:37:00
 author: Michael
 categories: [database]
-  - database
 keywords: [pt, osc vs gh, ost vs Laravel, Schema, 数据库蓝绿迁移实战, 大表无锁变更, 生产环境零停机, 演进的工程化路径, 数据库]
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

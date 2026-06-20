@@ -5,7 +5,6 @@ author: Michael
 tags: [Grafana Loki, 日志, ELK, 可观测性, Laravel]
 keywords: [Grafana Loki, ELK, Laravel, 轻量级日志聚合替代, 应用的日志采集与查询优化, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

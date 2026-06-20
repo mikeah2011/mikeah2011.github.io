@@ -7,7 +7,6 @@ images:
 date: 2026-06-09 13:21:00
 author: Michael
 categories: [architecture]
-  - architecture
 tags:
   - Laravel
   - GraphQL

@@ -9,8 +9,6 @@ date: 2026-05-17 03:45:47
 author: Michael
 updated: 2026-05-17 03:48:30
 categories: [devops]
-- devops
-- docker
 tags:
 - CI/CD
 - Docker

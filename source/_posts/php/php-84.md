@@ -15,8 +15,6 @@ tags:
 - OPcache
 - 协程
 categories: [php]
-- php
-- runtime
 date: 2026-05-03 13:24:17
 author: Michael
 description: PHP 8.4 新特性全面实战指南：深度解析 JIT 编译器优化、原生协程支持、枚举协变检查、match 返回类型推导等核心特性。结合 Laravel + Swoole 生产环境案例，涵盖 OPcache 调优、内存泄漏检测、Docker 部署与性能基准测试，附完整可运行代码示例，助你将 QPS 提升 57%、内存降低 40%。

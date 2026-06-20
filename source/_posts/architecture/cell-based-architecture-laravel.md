@@ -5,7 +5,6 @@ author: Michael
 tags: [Cell-Based Architecture, 单元化架构, 微服务, 架构设计, Laravel, 故障隔离]
 keywords: [Cell, Based Architecture, Laravel, 单元化架构在, 微服务中的落地, 故障隔离, 独立扩缩与跨单元路由, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -6,7 +6,6 @@ tags: [Laravel Zero, CLI, Artisan, PHP, 队列, Cron]
 keywords: [Laravel Zero, Artisan, only, CLI, Worker, Cron Job, HTTP, 微框架, 构建, 队列]
 description: "Laravel Zero 是基于 Laravel 组件的 Artisan-only 微框架，专为 CLI 工具、队列 Worker 与 Cron Job 等纯命令行场景设计。本文通过实战代码演示 Laravel Zero 的项目搭建、Artisan 命令开发、Eloquent 数据库集成、Queue Worker 部署、Cron Job 调度配置与 Supervisor 容器化运维，并对比 Symfony Console 与独立脚本方案的选型差异，附带 PHAR 打包、踩坑排查与测试最佳实践。"
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

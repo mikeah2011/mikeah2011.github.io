@@ -4,7 +4,6 @@ keywords: [PHP Opcache, Preloading, opcache.preload, Laravel, 预加载, 深度�
 date: 2026-06-10 06:46:00
 author: Michael
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

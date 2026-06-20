@@ -7,8 +7,6 @@ date: 2026-05-17 04:50:38
 author: Michael
 updated: 2026-05-17 04:52:00
 categories: [frontend]
-  - frontend
-  - php
 tags: [Laravel, Vite, Webpack, 前端]
 keywords: [Vite, Webpack, Laravel, Mix, 前端构建工具选型对比实战, 前端, PHP]
 description: 从 Laravel B2C 项目真实场景出发，深度对比 Vite、Webpack、Laravel Mix 三套构建工具的架构原理、开发体验、构建性能与生产优化策略，附完整迁移踩坑记录。

@@ -11,7 +11,6 @@ tags:
 - 性能优化
 description: 面向 PHP 开发者的 WebAssembly 实战指南，从 Rust 编译 Wasm 的图像处理模块（灰度化、高斯模糊、缩放）到 AssemblyScript 实现的数据验证和 CSV 解析器，再到 WASI 服务端沙箱化运行不受信代码的完整方案。涵盖 Rust wasm-pack 打包流程、Vue 前端集成、Laravel 中通过 WasmRunner 调用 WASI 模块的安全沙箱设计、浏览器端 AES-256-GCM 加密、边缘计算部署，以及 Wasm vs JS 性能基准测试（矩阵乘法 49 倍加速、Fibonacci 27 倍加速），适合探索跨平台高性能计算新赛道的 PHP 开发者。
 categories: [architecture]
-- architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

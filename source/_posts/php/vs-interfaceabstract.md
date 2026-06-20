@@ -11,7 +11,6 @@ tags:
 - 设计模式
 - SOLID
 categories: [php]
-  - php
 date: 2021-03-20 15:05:07
 author: Michael
 description: 深入解析PHP接口与抽象类的区别、使用场景及最佳实践。涵盖接口与抽象类的定义、SOLID原则、Laravel实战案例、PHP 8+新特性、PHPUnit测试技巧及常见反模式，帮助开发者在面向对象设计中做出正确的架构决策。

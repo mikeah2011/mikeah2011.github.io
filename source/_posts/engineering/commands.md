@@ -12,8 +12,6 @@ tags:
 - 运维
 - Shell
 categories: [engineering]
-  - engineering
-  - linux
 date: 2019-03-20 15:05:07
 author: Michael
 description: Linux命令行是运维工程师和开发者日常工作的核心工具。本文系统整理了文件操作、网络调试、进程管理、磁盘存储、系统监控、权限管理等常用Linux命令，涵盖实用示例与真实踩坑案例，帮助你快速掌握DevOps与系统管理必备的命令行技能，提升服务器运维效率。

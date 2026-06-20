@@ -6,7 +6,6 @@ author: Michael
 tags: [OpenHuman, AI Agent, macOS, 桌面吉祥物, Mascot, 语音合成, Google Meet]
 keywords: [OpenHuman, Mascot, Google Meet, 桌面吉祥物实战, 交互, 语音合成, 参与, macOS]
 categories: [macos]
-  - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

@@ -4,7 +4,6 @@ date: 2026-05-05 00:45:46
 author: Michael
 updated: 2026-05-05 00:50:30
 categories: [database]
-  - database
 tags: [Laravel, MySQL, 性能优化, EXPLAIN, 索引优化, 覆盖索引, 游标分页]
 keywords: [Laravel, B2C, API, EXPLAIN, 百万级数据表查询优化实战, 深度分析索引重构与分页治理踩坑记录, 数据库]
 description: 在 KKday B2C API 中面对千万级订单表和百万级商品表的真实查询优化实战——从 EXPLAIN 逐行分析到覆盖索引设计、从 OFFSET 分页风暴到游标分页、从慢查询埋点到归档策略，完整还原一次「P1 级慢查询治理」的全过程。

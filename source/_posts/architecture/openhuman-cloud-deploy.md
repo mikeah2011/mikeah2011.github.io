@@ -6,7 +6,6 @@ tags: [OpenHuman, Cloud Deploy, 云端部署, 多设备同步, DevOps, AI Agent]
 keywords: [OpenHuman Cloud Deploy, 云端部署与多设备同步, 架构]
 description: "本文围绕 OpenHuman Cloud Deploy 实战，系统拆解从本地优先架构到云端部署的完整链路，覆盖 Docker/Kubernetes/Serverless 部署方案对比、多设备同步协议设计、数据一致性保障、安全加固与成本优化，附带真实踩坑记录与可落地配置示例。适合个人开发者、小团队和内部平台工程师，把 OpenHuman 从本地工具升级为可长期维护的云端平台。"
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

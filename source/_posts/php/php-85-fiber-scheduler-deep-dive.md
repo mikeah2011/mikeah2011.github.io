@@ -6,7 +6,6 @@ date: 2026-06-09 06:15:00
 author: Michael
 updated: 2026-06-09 07:25:00
 categories: [php]
-- php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

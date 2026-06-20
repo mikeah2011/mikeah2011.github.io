@@ -4,7 +4,6 @@ keywords: [CDN, 配置实战, 静态资源加速与缓存失效策略, 架构]
 date: 2026-05-31 10:00:00
 author: Michael
 categories: [architecture]
-  - architecture
 tags:
   - CDN
   - 缓存策略

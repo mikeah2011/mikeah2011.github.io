@@ -3,7 +3,6 @@ title: 技术博客 SEO 实战：Hexo 站点的搜索引擎优化完全指南
 date: 2026-06-09 17:05:00
 author: Michael
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

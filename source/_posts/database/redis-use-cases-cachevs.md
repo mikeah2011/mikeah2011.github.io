@@ -6,7 +6,6 @@ date: 2026-05-02
 author: Michael
 description: 基于 KKday 三年 Laravel B2C API 实战经验，系统对比 Redis 四大核心使用场景：Session 会话管理、购物车 Hash+List 设计、计次功能 Lua 原子操作与全页缓存穿透防护。深入解析各场景的数据结构选型、TTL 策略、并发控制方案，附 Redis 与 Memcached 对比表、redis-cli 监控命令与生产环境告警配置，帮助开发者在电商 B2C 项目中做出最优缓存架构决策。
 categories: [database]
-- database
 tags:
 - KKday
 - Laravel

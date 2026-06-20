@@ -10,7 +10,6 @@ tags:
 - B+树
 - 数据库
 categories: [database]
-- database
 date: 2020-03-20 15:05:07
 author: Michael
 description: 全面解析MySQL存储引擎InnoDB与MyISAM的核心区别，涵盖事务支持、锁机制、索引结构、B+树实现、MVCC多版本并发控制等关键特性对比。深入讲解InnoDB Buffer Pool、Change Buffer、Redo Log等架构组件，并对比Memory、CSV、Archive等其他存储引擎的适用场景，提供MySQL 8.0+存储引擎选型决策指南与代码示例。

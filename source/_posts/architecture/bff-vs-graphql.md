@@ -10,8 +10,6 @@ images:
 - /images/content/architecture-1-content-1.jpg
 - /images/content/architecture-1-content-2.jpg
 categories: [architecture]
-- architecture
-- bff
 tags:
 - BFF
 - Laravel

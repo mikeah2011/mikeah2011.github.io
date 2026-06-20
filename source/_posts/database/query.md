@@ -3,7 +3,6 @@ title: SQL查询语句的流程
 tags: [MySQL, SQL查询, 执行流程, 优化器, EXPLAIN, 性能优化]
 keywords: [SQL, 查询语句的流程, 数据库]
 categories: [database]
-  - database
 date: 2021-03-20 15:05:07
 author: Michael
 description: '深入解析MySQL SQL查询语句的完整执行流程，逐一剖析连接器、分析器、优化器、执行器四大核心组件的工作原理与内部机制，详解代价模型决策过程与EXPLAIN输出字段解读，对比MySQL 5.7与8.0在查询缓存、直方图统计、执行计划缓存上的关键差异，附各阶段查询优化实战技巧，帮助开发者全面掌握SQL查询优化原理。'

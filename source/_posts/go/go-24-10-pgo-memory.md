@@ -4,7 +4,6 @@ keywords: [Go, PGO, Worker Pool, 新特性速览, 默认开启, 内存优化与]
 date: 2026-06-10 09:06:00
 author: Michael
 categories: [go]
-  - go
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop

@@ -5,7 +5,6 @@ author: Michael
 tags: [Bun, JavaScript, 运行时, Node.js, Laravel]
 keywords: [Bun, SQLite, FFI, Shell, Node.js, Laravel, 新特性实战, 内置, 原生调用, 脚本]
 categories: [frontend]
-  - frontend
 description: "深入实战 Bun 2.x 三大核心新特性：内置 SQLite 数据库、FFI 原生 C/Rust 调用、跨平台 Shell 脚本。通过性能基准测试全面对比 Node.js 22，并附 Laravel 前端工具链从 npm 迁移到 Bun 的完整指南与踩坑解决方案。"
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

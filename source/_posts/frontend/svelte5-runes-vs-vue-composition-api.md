@@ -5,7 +5,6 @@ keywords: [Svelte, Runes, Reactive, Vue Composition API, 告别, 声明式, 编�
 date: 2026-06-10 02:10:00
 author: Michael
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

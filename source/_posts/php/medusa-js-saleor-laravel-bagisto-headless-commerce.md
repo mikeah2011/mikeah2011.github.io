@@ -4,7 +4,6 @@ keywords: [Medusa.js, Saleor, Laravel, Bagisto, Headless Commerce, 开源电商�
 date: 2026-06-10 05:26:00
 author: Michael
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

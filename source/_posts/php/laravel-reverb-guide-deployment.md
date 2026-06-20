@@ -8,7 +8,6 @@ images:
 date: 2026-05-03 07:45:00
 author: Michael
 categories: [php]
-- php
 tags:
 - Laravel
 - Nginx

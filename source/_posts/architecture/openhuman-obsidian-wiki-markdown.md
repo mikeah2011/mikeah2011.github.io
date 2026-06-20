@@ -5,7 +5,6 @@ author: Michael
 tags: [OpenHuman, Obsidian, Markdown, 知识管理]
 keywords: [OpenHuman Obsidian Wiki, Markdown, 知识库与数据同步, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

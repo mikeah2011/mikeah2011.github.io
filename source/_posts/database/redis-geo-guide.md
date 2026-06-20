@@ -6,7 +6,6 @@ date: 2026-05-16 15:05:58
 author: Michael
 updated: 2026-05-16 15:09:40
 categories: [database]
-- database
 tags:
 - Laravel
 - Redis

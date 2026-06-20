@@ -10,7 +10,6 @@ images:
 - /images/content/databases-015-content-1.jpg
 - /images/content/databases-015-content-2.jpg
 categories: [database]
-- database
 tags:
 - Laravel
 - Redis

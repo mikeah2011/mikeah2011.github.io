@@ -5,7 +5,6 @@ keywords: [Rust, Tokio vs async, std vs smol vs glommio, io, uring, PHP, Go, 异
 date: 2026-06-09 06:00:00
 author: Michael
 categories: [rust]
-- rust
 tags:
 - Rust
 - tokio

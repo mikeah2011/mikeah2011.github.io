@@ -8,8 +8,6 @@ date: 2026-05-05 02:00:14
 author: Michael
 updated: 2026-05-05 02:02:25
 categories: [devops]
-  - devops
-  - cicd
 keywords: [phpunit.jenkins.xml, Laravel, 项目自动化测试流水线配置]
 tags:
 - CI/CD

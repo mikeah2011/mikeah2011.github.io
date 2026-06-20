@@ -5,7 +5,6 @@ author: Michael
 tags: [Laravel Herd, macOS, PHP, Valet, 开发环境]
 keywords: [Laravel Herd, macOS, PHP, Valet, Homestead, 原生, 环境管理, 替代, 的一键开发体验与多站点配置]
 categories: [macos]
-  - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

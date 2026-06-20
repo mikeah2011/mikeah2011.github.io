@@ -8,8 +8,6 @@ images:
 date: 2026-06-01 12:00:00
 author: Michael
 categories: [php]
-- testing
-- php
 tags:
 - Pest
 - expectations

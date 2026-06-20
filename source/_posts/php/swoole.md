@@ -4,8 +4,6 @@ description: "深入剖析 Swoole 协程引擎与 Laravel Octane 在 PHP 高性�
 tags: [PHP, Swoole, Laravel, Octane, 协程, 高性能, 并发]
 keywords: [PHP, FPM, Laravel Octane, Swoole, 高性能, 深度实战, 从瓶颈突破到生产部署]
 categories: [php]
-  - php
-  - runtime
 title: "高性能PHP-FPM与Laravel Octane/Swoole深度实战：从瓶颈突破到生产部署"
 author: Michael
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

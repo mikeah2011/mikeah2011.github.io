@@ -4,7 +4,6 @@ keywords: [PR Automation, GitHub Actions, Labeler, CODEOWNERS, 自动标签, 分
 date: 2026-06-10 01:33:00
 author: Michael
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

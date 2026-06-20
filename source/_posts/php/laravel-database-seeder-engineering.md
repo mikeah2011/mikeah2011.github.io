@@ -4,7 +4,6 @@ keywords: [Laravel Database Seeder, Seed, Faker, Factory, 工程化实战, 的�
 date: 2026-06-10 04:49:00
 author: Michael
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

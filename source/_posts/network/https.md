@@ -15,8 +15,6 @@ tags:
 - 证书
 - CA
 categories: [network]
-- network
-- infra
 date: 2017-03-20 15:05:07
 author: Michael
 description: HTTPS全称Hyper Text Transfer Protocol over SecureSocket Layer，是以安全为目标的HTTP通道。通过TLS/SSL加密层保护数据传输的机密性与完整性，防止中间人攻击与数据窃听。本文深入讲解HTTPS原理、TLS握手流程、证书类型对比、Let's Encrypt实战配置及PHP/Laravel强制HTTPS方案。

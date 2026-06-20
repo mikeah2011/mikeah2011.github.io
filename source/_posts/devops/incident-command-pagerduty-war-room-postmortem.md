@@ -5,7 +5,6 @@ author: Michael
 tags: [Incident Command, PagerDuty, SRE, War Room, Postmortem, 应急响应, 生产故障]
 keywords: [Incident Command, PagerDuty, War Room, Postmortem, 生产故障应急响应, 协作与, 文化, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

@@ -11,7 +11,6 @@ tags:
 - 无障碍
 - 前端
 categories: [frontend]
-- frontend
 description: 本文系统讲解如何在 Vue 3 项目中实施 WCAG 2.2 无障碍标准，涵盖 POUR 四大原则、语义化 HTML、ARIA 属性使用、键盘导航陷阱解决方案、屏幕阅读器焦点管理与 Live Region 实现，并通过 axe-core 和 Playwright 搭建自动化无障碍回归测试体系，帮助前端团队建立可持续的 a11y 治理流程。
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:

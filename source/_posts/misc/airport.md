@@ -4,7 +4,6 @@ title: 2026 科学上网机场推荐大全
 date: 2026-05-27 10:00:00
 author: Michael
 categories: [misc]
-  - misc
 keywords: [科学上网机场推荐大全, 技术杂谈]
 tags:
 - VPN

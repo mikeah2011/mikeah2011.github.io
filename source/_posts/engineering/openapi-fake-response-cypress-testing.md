@@ -9,8 +9,6 @@ date: 2026-05-05 02:10:21
 author: Michael
 updated: 2026-05-05 02:13:29
 categories: [engineering]
-- engineering
-- testing
 tags:
 - BFF
 - Laravel

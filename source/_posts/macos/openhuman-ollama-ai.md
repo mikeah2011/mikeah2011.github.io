@@ -6,7 +6,6 @@ author: Michael
 tags: [OpenHuman, Ollama, 本地 AI, 本地部署, 隐私优先, LLM, macOS]
 keywords: [OpenHuman, Ollama, AI, 本地, 模型部署与隐私优先推理, macOS]
 categories: [macos]
-  - macos
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop

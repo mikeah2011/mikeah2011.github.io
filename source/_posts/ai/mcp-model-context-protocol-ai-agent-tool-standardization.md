@@ -4,8 +4,6 @@ keywords: [MCP, Model Context Protocol, AI Agent, 工具标准化与生态集成
 date: 2026-06-01 10:00:00
 author: Michael
 categories: [ai]
-  - ai
-  - architecture
 tags:
   - MCP
   - Model Context Protocol

@@ -5,7 +5,6 @@ keywords: [Laravel, AWS SQS FIFO, Exactly, Once, 严格顺序消息队列, 订�
 date: 2026-06-09 11:00:00
 author: Michael
 categories: [php]
-- php
 tags:
 - AWS
 - SQS

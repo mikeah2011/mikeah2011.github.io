@@ -4,8 +4,6 @@ date: 2026-05-05 07:20:44
 author: Michael
 updated: 2026-05-05 07:23:51
 categories: [devops]
-  - devops
-  - cicd
 tags: [CI/CD, Laravel, 代码质量, Pint, PHPStan, 代码规范, GitHub Actions]
 keywords: [Laravel, Pint, PHPStan, CI, 集成实战, 代码质量门禁自动化与渐进式治理踩坑记录, DevOps]
 description: Laravel 项目 Pint + PHPStan + GitHub Actions CI 代码质量门禁自动化实战指南，涵盖流水线设计、baseline 管理、渐进式 level 提升策略、增量检查优化、Pint 与 PHP-CS-Fixer 对比、PHPStan 各级别详解及 30+ 仓库团队协作踩坑记录。

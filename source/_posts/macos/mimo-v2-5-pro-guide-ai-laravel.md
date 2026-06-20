@@ -9,8 +9,6 @@ date: 2026-05-17 06:25:05
 author: Michael
 updated: 2026-05-17 06:28:31
 categories: [macos]
-- macos
-- php
 tags:
 - AI
 - Laravel

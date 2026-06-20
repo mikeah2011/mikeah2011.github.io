@@ -10,7 +10,6 @@ tags:
 - EXPLAIN
 - 慢查询
 categories: [database]
-- database
 date: 2022-05-20 23:15:47
 author: Michael
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/6411.png

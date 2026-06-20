@@ -8,7 +8,6 @@ date: 2026-06-09 23:10:00
 author: Michael
 updated: 2026-06-09 23:10:00
 categories: [architecture]
-  - architecture
 keywords: [Laravel, 库存预占与释放机制设计, 分布式库存的状态机实战]
 tags:
 - Laravel

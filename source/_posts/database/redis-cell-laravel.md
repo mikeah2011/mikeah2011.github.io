@@ -12,7 +12,6 @@ tags:
 - 算法
 description: 深度对比五大分布式限流算法：固定窗口、滑动窗口计数器、滑动窗口日志、令牌桶与漏桶，以及 Redis Cell 原生模块的原理与适用场景。文章提供每种算法的 Redis Lua 原子脚本实现，详解 Laravel 中间件的滑动窗口限流与多维限流方案，涵盖生产环境 8 大踩坑案例（热点 key、Lua 阻塞、Redis 故障降级、限流绕过等），附完整可运行代码与算法选型决策树，适合中高级后端工程师快速选型落地。
 categories: [database]
-  - database
 keywords: [Redis Cell, Laravel, 分布式限流算法深度对比, 滑动窗口, 令牌桶, 漏桶, 的适用场景与, 实现]
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:

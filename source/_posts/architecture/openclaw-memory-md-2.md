@@ -5,7 +5,6 @@ author: Michael
 tags: [OpenClaw, AI Agent, 隐私安全, 记忆系统, 群聊安全]
 keywords: [OpenClaw, MEMORY.md, 隐私感知记忆分区, 主会话隔离, 群聊上下文的安全边界, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

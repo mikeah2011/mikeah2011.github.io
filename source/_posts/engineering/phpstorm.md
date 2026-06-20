@@ -16,8 +16,6 @@ tags:
 - PHP
 - Xdebug
 categories: [engineering]
-- engineering
-- editor
 date: 2019-03-20 15:05:07
 author: Michael
 description: PhpStorm 是 JetBrains 出品的 PHP 集成开发环境，被视为 PHP 生态最强 IDE。智能补全、深度重构、内置数据库 / Git / Docker / Vagrant / Composer / 调试器一站式整合。

@@ -9,7 +9,6 @@ date: 2026-05-05 10:40:23
 author: Michael
 updated: 2026-05-05 10:42:25
 categories: [engineering]
-- engineering
 tags:
 - Git
 - Laravel

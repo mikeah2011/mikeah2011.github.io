@@ -5,7 +5,6 @@ author: Michael
 tags: [SQLite, libSQL, Turso, 边缘计算, 数据库]
 keywords: [SQLite, libSQL, Turso, PostgreSQL, Laravel Lite, 现代化实战, 边缘数据库, 的嵌入式数据层与, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

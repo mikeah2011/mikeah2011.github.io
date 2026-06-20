@@ -9,8 +9,6 @@ date: 2026-05-02
 author: Michael
 description: Pest + PHPUnit + ParaTest：如何在 Laravel B2C API 上跑满 100% 覆盖率？本文从零到一分享实战踩坑记录，涵盖 Pest 语法迁移、Mock/Stub 高级用法、RefreshDatabase 数据隔离、ParaTest 并行测试加速及 CI 覆盖率集成方案，助你构建高置信度测试体系。
 categories: [php]
-- php
-- testing
 tags:
 - Laravel
 - 测试

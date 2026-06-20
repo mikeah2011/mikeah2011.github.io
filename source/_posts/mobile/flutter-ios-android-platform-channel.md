@@ -5,7 +5,6 @@ author: Michael
 tags: [Flutter, 混合开发, Platform Channel, iOS, Android]
 keywords: [Flutter, iOS, Android, Platform Channel, 混合开发实战, 与原生, 模块集成, 移动端]
 categories: [mobile]
-  - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

@@ -10,8 +10,6 @@ description: "开源项目License选型实战指南：详解MIT、Apache 2.0、G
 tags: [License, 开源, 工程管理, MIT, Apache, GPL, 合规]
 keywords: [License, MIT, Apache, GPL, 开源项目, 选型实战, 选择策略与合规踩坑记录, 工程化]
 categories: [engineering]
-  - engineering
-  - process
 
 
 

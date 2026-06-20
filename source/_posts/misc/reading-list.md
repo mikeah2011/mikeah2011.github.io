@@ -12,7 +12,6 @@ tags:
 - Laravel
 - 面试准备
 categories: [misc]
-  - misc
 keywords: [技术书单与学习资源推荐, 技术杂谈]
 date: 2021-03-20 15:05:07
 author: Michael

@@ -4,8 +4,6 @@ date: 2026-05-17 03:50:11
 author: Michael
 updated: 2026-05-17 03:52:32
 categories: [architecture]
-  - architecture
-  - aws
 tags: [AWS, Laravel, PHP]
 keywords: [AWS, Lambda, Laravel, B2C, API, 无服务器函数计算, 踩坑记录, 架构]
 description: "AWS Lambda 无服务器函数计算实战：从 Laravel 开发者视角，覆盖 Lambda 函数开发、API Gateway 集成、冷启动优化、VPC 配置、Layer 管理、异步事件处理、成本控制，基于 B2C 电商场景的真实踩坑经验。"

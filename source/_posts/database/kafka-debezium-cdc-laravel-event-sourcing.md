@@ -5,7 +5,6 @@ keywords: [Kafka, Debezium CDC, Laravel Event Sourcing, 数据库变更事件流
 date: 2026-06-09 19:30:00
 author: Michael
 categories: [database]
-- database
 tags:
 - Kafka
 - Debezium

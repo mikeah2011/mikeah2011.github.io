@@ -15,7 +15,6 @@ tags:
 - 幂等性
 - 分布式
 categories: [mq]
-  - mq
 keywords: [RabbitMQ vs Kafka vs RocketMQ, 消息队列面试题, 选型对比, 消息队列]
 date: 2019-03-20 15:05:07
 author: Michael

@@ -4,7 +4,6 @@ title: 开发日志与踩坑记录
 date: 2024-09-01 10:00:00
 author: Michael
 categories: [misc]
-  - 博客
 keywords: [开发日志与踩坑记录]
 tags:
 - 开发日志

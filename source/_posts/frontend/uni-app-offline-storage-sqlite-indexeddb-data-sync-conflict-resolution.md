@@ -6,8 +6,6 @@ images:
 date: 2026-06-01 20:00:00
 author: Michael
 categories: [frontend]
-  - frontend
-  - mobile
 keywords: [uni, app, SQLite, IndexedDB, 离线存储实战, 数据同步与冲突解决, 从本地持久化到多端一致性的完整工程方案, 前端, 移动端]
 tags:
   - uni-app

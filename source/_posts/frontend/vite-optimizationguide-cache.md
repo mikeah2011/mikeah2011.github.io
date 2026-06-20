@@ -9,7 +9,6 @@ date: 2026-05-17 05:20:13
 author: Michael
 updated: 2026-05-17 05:23:03
 categories: [frontend]
-- frontend
 tags:
 - Laravel
 - Vite

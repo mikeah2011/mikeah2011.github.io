@@ -9,8 +9,6 @@ date: 2026-05-05 10:45:10
 author: Michael
 updated: 2026-05-05 10:47:51
 categories: [architecture]
-- architecture
-- php
 tags:
 - KKday
 - Laravel

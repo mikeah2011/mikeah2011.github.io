@@ -6,7 +6,6 @@ tags: [AI Agent, Code Interpreter, Docker, Firecracker, gVisor, nsjail, 沙箱, 
 keywords: [AI Agent with Code Interpreter, Agent, Docker, Firecracker, 沙箱化代码执行, 安全运行用户代码的, 架构]
 description: "深入解析AI Agent Code Interpreter沙箱化代码执行方案，对比Docker容器、gVisor内核隔离、Firecracker microVM与nsjail四大架构的安全性、性能与适用场景，含完整Python/PHP代码实现、seccomp配置、Kubernetes部署与监控告警最佳实践。"
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

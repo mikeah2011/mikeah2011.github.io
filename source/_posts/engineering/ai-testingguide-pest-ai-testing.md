@@ -9,8 +9,6 @@ date: 2026-05-05 08:45:30
 author: Michael
 updated: 2026-05-05 08:48:08
 categories: [engineering]
-- engineering
-- testing
 tags:
 - AI
 - Laravel

@@ -14,7 +14,6 @@ tags:
 - WeakMap
 - Swoole
 categories: [php]
-- php
 date: 2021-04-10 10:00:00
 author: Michael
 description: 深入解析PHP垃圾回收机制(GC)：从C层zval结构体、引用计数、写时复制到循环引用检测三色标记算法的完整原理。涵盖Xdebug/Blackfire内存泄漏排查、Swoole协程GC差异、WeakMap实战、gc_collect_cycles调优，对比Java/Go/Python GC，附Laravel队列Worker OOM排查案例。

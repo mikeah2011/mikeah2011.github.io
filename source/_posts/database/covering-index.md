@@ -7,7 +7,6 @@ tags:
 - 性能优化
 - 索引
 categories: [database]
-- database
 date: 2019-05-15 10:00:00
 author: Michael
 description: 覆盖索引是 MySQL 性能优化的利器——当查询所需的所有字段都包含在二级索引中时，数据库无需回表查询聚簇索引，可大幅减少磁盘随机 IO。本文深入解析覆盖索引的底层原理（B+树、聚簇索引、二级索引的关系）、EXPLAIN 中 Using index 的完整解读、ORDER BY + LIMIT 场景下的优化策略、实际踩坑案例（写入变慢的元凶）、MySQL 8.0 相关新特性、Laravel 框架中的最佳实践，以及覆盖索引与索引下推（ICP）的区别与配合，助你全面掌握这一核心优化技巧。

@@ -14,7 +14,6 @@ tags:
 - 性能优化
 - 前端
 categories: [frontend]
-- frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

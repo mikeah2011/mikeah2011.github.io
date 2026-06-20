@@ -4,7 +4,6 @@ keywords: [MySQL Histogram, Laravel, 统计实战, 直方图驱动的查询优�
 date: 2026-06-10 04:18:00
 author: Michael
 categories: [database]
-  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

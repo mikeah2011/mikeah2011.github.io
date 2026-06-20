@@ -8,7 +8,6 @@ tags:
 - 分片
 - 雪花算法
 categories: [database]
-  - database
 keywords: [ShardingSphere, 分库分表实战, 水平拆分策略与, 数据库]
 date: 2019-03-20 15:05:07
 author: Michael

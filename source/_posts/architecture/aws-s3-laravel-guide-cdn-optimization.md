@@ -6,8 +6,6 @@ date: 2026-05-05 08:05:44
 author: Michael
 updated: 2026-05-05 08:08:13
 categories: [architecture]
-- architecture
-- php
 tags:
 - AWS
 - S3

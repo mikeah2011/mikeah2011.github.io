@@ -4,7 +4,6 @@ keywords: [Laravel, OpenAI Realtime API, TTS, PHP, AI, 语音对话, 实时转�
 date: 2026-06-09 06:49:00
 author: Michael
 categories: [ai]
-  - ai
 tags:
   - Laravel
   - OpenAI

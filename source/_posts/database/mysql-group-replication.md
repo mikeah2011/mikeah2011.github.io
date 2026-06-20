@@ -6,7 +6,6 @@ author: Michael
 tags: [MySQL, Group Replication, 高可用, 主从复制, InnoDB Cluster]
 keywords: [MySQL Group Replication, 多主复制与自动故障转移, 对比传统主从的高可用架构选型, 数据库]
 categories: [database]
-  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

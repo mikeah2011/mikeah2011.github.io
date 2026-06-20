@@ -8,7 +8,6 @@ date: 2026-05-16 20:00:51
 author: Michael
 updated: 2026-05-16 20:07:32
 categories: [architecture]
-  - architecture
 keywords: [Apollo, Nacos, Laravel, 配置中心实战, 动态配置与, 热更新与多环境治理踩坑记录]
 tags:
 - Laravel

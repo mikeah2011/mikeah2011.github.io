@@ -8,8 +8,6 @@ images:
 date: 2026-05-01 21:50:00
 author: Michael
 categories: [architecture]
-- architecture
-- docker
 tags:
 - Docker
 - Laravel

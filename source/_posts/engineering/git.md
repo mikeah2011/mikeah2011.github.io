@@ -7,8 +7,6 @@ images:
 tags: [Git, 版本控制, 工程化]
 keywords: [Git, 版本控制, 工程化]
 categories: [engineering]
-  - engineering
-  - git
 date: 2020-03-20 15:05:07
 author: Michael
 description: >

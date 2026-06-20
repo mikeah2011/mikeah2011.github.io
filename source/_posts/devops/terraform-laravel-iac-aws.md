@@ -5,7 +5,6 @@ keywords: [Terraform, Laravel, IaC, AWS, 应用基础设施即代码, 从手动�
 date: 2026-06-01
 author: Michael
 categories: [devops]
-- devops
 tags:
 - IaC
 - Laravel

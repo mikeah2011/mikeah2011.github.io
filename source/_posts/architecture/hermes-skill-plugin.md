@@ -5,7 +5,6 @@ author: Michael
 tags: [Hermes, Skill, Plugin, 扩展机制, AI Agent]
 keywords: [Hermes Skill vs Plugin, Skill, Plugin, 扩展点对比, 什么时候用, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

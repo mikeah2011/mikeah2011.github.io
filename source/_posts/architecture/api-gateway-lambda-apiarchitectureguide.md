@@ -6,8 +6,6 @@ date: 2026-05-17 04:40:41
 author: Michael
 updated: 2026-05-17 04:44:02
 categories: [architecture]
-- architecture
-- api
 tags:
 - AWS
 - API Gateway

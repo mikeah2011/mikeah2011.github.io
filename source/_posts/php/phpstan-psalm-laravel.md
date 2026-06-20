@@ -6,7 +6,6 @@ images:
 date: 2026-05-02
 author: Michael
 categories: [php]
-  - php
 tags: [CI/CD, Laravel, PHP, PHPStan, Psalm, 静态分析, 代码质量]
 keywords: [PHPStan, Psalm, Laravel, KKday, B2C, API, 大型, 項目靜態分析最佳實踐, 真實踩坑記錄, PHP]
 description: 基於 KKday B2C API 項目經驗，深入解析 PHPStan 和 Psalm 在大型 Laravel 應用中的配置技巧、性能優化與真實踩坑記錄。從 10 個實際問題出發，提供可落地的代碼品質提升方案。

@@ -12,7 +12,6 @@ tags:
 - 认证
 - JWT
 categories: [php]
-- php
 description: 深入解析 OIDC（OpenID Connect）与 OAuth 2.0 的本质区别，手把手在 Laravel 中使用 Socialite 对接 Keycloak、Auth0、Google 等第三方 IdP，并基于 Laravel Passport 自建 OIDC Provider 签发 JWT ID Token。涵盖 Authorization Code Flow、PKCE、Nonce、State 安全机制，以及多租户与微服务架构下的 Token 验证策略和真实生产踩坑记录。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:

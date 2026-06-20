@@ -8,8 +8,6 @@ date: 2026-06-01 10:00:00
 author: Michael
 description: 深度剖析 Pact Consumer-Driven Contract Testing 与 Schemathesis Property-Based Testing 的架构原理、源码实现与 Laravel B2C API 生产环境踩坑记录。从问题动机到 CI 集成，从 Mock 策略到 Schema 演进，全面覆盖前后端接口一致性保障的技术路径。
 categories: [engineering]
-- engineering
-- testing
 tags:
 - Pact
 - schemathesis

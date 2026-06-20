@@ -4,7 +4,6 @@ keywords: [Laravel Pennant, Feature Flags, 深度实战, 灰度放量回滚兜�
 date: 2026-06-09 15:30:00
 author: Michael
 categories: [php]
-  - php
 tags:
   - Laravel
   - Pennant

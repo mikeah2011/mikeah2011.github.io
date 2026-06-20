@@ -5,7 +5,6 @@ keywords: [Laravel Database Retry, RDS, 与断路器实战, 瞬态连接失败�
 date: 2026-06-10 06:28:00
 author: Michael
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

@@ -6,7 +6,6 @@ description: "生产环境 API Key 轮换的完整工程方案：双 Key 并行�
 tags: [API, 安全, Redis, Laravel, DevOps, 密钥管理, 密钥轮换, 零停机]
 keywords: [API Key Rotation, Key, Redis, 无缝轮换策略, 并行期, 客户端自动刷新与, 缓存热切换, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

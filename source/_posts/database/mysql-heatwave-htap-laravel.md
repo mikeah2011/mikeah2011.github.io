@@ -5,7 +5,6 @@ author: Michael
 tags: [MySQL HeatWave, HTAP, OLAP, OLTP, Laravel, 实时分析]
 keywords: [MySQL HeatWave, OLTP, OLAP, Laravel, HTAP, 一体化, 中的实时分析查询与, 架构落地, 数据库]
 categories: [database]
-  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

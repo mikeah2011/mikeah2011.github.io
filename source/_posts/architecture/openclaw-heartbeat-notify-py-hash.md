@@ -5,7 +5,6 @@ author: Michael
 tags: [OpenClaw, AI Agent, 通知系统, Python, 消息分发]
 keywords: [OpenClaw heartbeat, notify.py, hash, 实现, 警告级过滤, 去重与多通道分发, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

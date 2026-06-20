@@ -10,7 +10,6 @@ tags:
 - ThinkPHP
 - 架构
 categories: [php]
-- php
 date: 2019-03-20 15:05:07
 author: Michael
 description: ThinkPHP（TP）是国内使用最广的 PHP 框架，基于 MVC 架构，以全中文文档和约定优于配置著称。本文深入讲解 TP6/TP8 核心特性、ORM、中间件、事件系统、队列、验证器、缓存配置，并对比 TP6 与 TP8 差异及 ThinkPHP 与 Laravel 选型，附实战踩坑与安全防护经验，是国内 PHP 开发者的实用参考指南。

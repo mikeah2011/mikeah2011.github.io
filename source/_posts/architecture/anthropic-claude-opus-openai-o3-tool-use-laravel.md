@@ -6,7 +6,6 @@ description: '深入实战 Anthropic Claude Opus 4 与 OpenAI o3 两大最新推
 tags: [AI, LLM, Claude, OpenAI, Laravel, Tool Use]
 keywords: [Anthropic Claude Opus, OpenAI o3, Tool Use, Laravel, 最新推理模型接入, 思维链输出, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

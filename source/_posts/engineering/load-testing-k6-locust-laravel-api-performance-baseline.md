@@ -6,8 +6,6 @@ images:
 date: 2026-06-01 12:00:00
 author: Michael
 categories: [engineering]
-  - testing
-  - performance
 keywords: [k6, Locust, Laravel API, 负载测试实战, 进行压力测试与性能基线, 测试]
 tags:
   - k6

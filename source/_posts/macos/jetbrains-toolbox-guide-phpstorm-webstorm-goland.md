@@ -8,8 +8,6 @@ author: Michael
 updated: 2026-05-17 04:59:29
 description: "JetBrains Toolbox App 完全实战指南：PhpStorm/WebStorm/GoLand/DataGrip 多 IDE 统一管理、Settings Sync 跨 IDE 配置同步、插件批量安装、版本回滚、CLI 命令行工具、macOS 权限与性能优化，含 5 个真实踩坑案例与解决方案，适合 Laravel 全栈开发者提升多 IDE 工作流效率。"
 categories: [macos]
-  - macos
-  - editor
 tags: [macOS, JetBrains, PhpStorm, WebStorm, GoLand, IDE, 工程管理]
 keywords: [JetBrains Toolbox, PhpStorm, WebStorm, GoLand, 配置同步踩坑记录, macOS]
 简介: |

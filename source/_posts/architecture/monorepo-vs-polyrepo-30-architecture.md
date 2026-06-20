@@ -9,7 +9,6 @@ date: 2026-05-05 06:30:55
 author: Michael
 updated: 2026-05-05 06:33:13
 categories: [architecture]
-- architecture
 tags:
 - CI/CD
 - Composer

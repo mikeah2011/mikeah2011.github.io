@@ -5,7 +5,6 @@ author: Michael
 tags: [DORA, 工程效能, DevOps, CI/CD, Laravel, 度量]
 keywords: [DORA, Laravel, Lead Time, MTTR, 工程效能度量实战, 四大指标在, 团队中的落地, 部署频率与, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

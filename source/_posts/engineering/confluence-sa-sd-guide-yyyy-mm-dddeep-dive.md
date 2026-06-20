@@ -8,8 +8,6 @@ date: 2026-05-05 02:26:04
 author: Michael
 updated: 2026-05-05 02:28:42
 categories: [engineering]
-  - engineering
-  - docs
 tags: [KKday, 工程管理, 技术文档, Laravel]
 keywords: [KKday, 工程管理, 技术文档, Laravel, Confluence, SA, SD]
 description: >

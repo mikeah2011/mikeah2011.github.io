@@ -5,7 +5,6 @@ author: Michael
 tags: [Tech Lead, 工程管理, Code Review, 架构决策, 团队赋能]
 keywords: [Tech Lead, Senior Engineer, Code Review, 的角色跃迁, 架构决策, 与团队赋能, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

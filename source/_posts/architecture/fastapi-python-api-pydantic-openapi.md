@@ -5,7 +5,6 @@ author: Michael
 tags: [FastAPI, Python, Pydantic, OpenAPI, REST API, 依赖注入]
 keywords: [FastAPI, Python API, Pydantic, OpenAPI, 高性能, 校验, 依赖注入与, 自动生成, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

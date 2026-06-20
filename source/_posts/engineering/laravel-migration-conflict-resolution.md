@@ -4,7 +4,6 @@ keywords: [Schema, Laravel Migration, 数据库, 冲突治理实战, 合并冲�
 date: 2026-06-10 07:58:00
 author: Michael
 categories: [engineering]
-  - engineering
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

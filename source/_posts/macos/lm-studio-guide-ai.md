@@ -7,8 +7,6 @@ date: 2026-05-17 05:40:05
 author: Michael
 updated: 2026-05-17 05:42:40
 categories: [macos]
-  - macos
-  - tools
 tags: [LM Studio, AI, macOS, 本地模型, Ollama, Laravel, HuggingFace, Metal, 安全, GGUF]
 keywords: [LM Studio, AI, 本地模型管理与推理, 隐私优先的, 开发工作流踩坑记录, macOS]
 description: "从 Ollama 迁移到 LM Studio 的完整实战记录：涵盖 GUI 模型管理、HuggingFace 一键下载 GGUF 模型、Local Server OpenAI 兼容 API、Apple Silicon M 芯片 Metal 加速推理、量化级别选择指南、多模型切换策略，以及在 Laravel B2C 项目中集成本地 LLM 实现代码审查、文档生成与自然语言转 SQL 的完整方案，附性能基准测试与安全合规策略。"

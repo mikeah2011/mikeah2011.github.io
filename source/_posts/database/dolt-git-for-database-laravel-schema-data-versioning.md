@@ -5,7 +5,6 @@ keywords: [Dolt, Git for, MySQL, Laravel, Schema, Data, 数据库, 兼容的版�
 date: 2026-06-09 14:00:00
 author: Michael
 categories: [database]
-  - database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

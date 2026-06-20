@@ -4,7 +4,6 @@ keywords: [Laravel, Tinybird, API, ClickHouse, Serverless OLAP, 实时分析, �
 date: 2026-06-09 06:46:00
 author: Michael
 categories: [architecture]
-  - architecture
 tags:
   - Laravel
   - Tinybird

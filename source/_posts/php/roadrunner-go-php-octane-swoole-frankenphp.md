@@ -5,7 +5,6 @@ author: Michael
 tags: [RoadRunner, PHP, Octane, Swoole, FrankenPHP, 高性能]
 keywords: [RoadRunner, Go, PHP, Octane, Swoole, FrankenPHP, 驱动的, 高性能应用服务器, 的进程模型与选型决策]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

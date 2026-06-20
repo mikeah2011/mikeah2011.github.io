@@ -5,7 +5,6 @@ keywords: [Laravel Reverb, Redis Pub, Sub, Presence Channel, 实战进阶, 水�
 date: 2026-06-09 06:18:00
 author: Michael
 categories: [php]
-- php
 tags:
 - Reverb
 - WebSocket

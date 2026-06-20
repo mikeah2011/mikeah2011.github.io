@@ -7,8 +7,6 @@ date: 2026-05-05 00:31:11
 author: Michael
 updated: 2026-05-05 00:37:28
 categories: [php]
-  - php
-  - testing
 tags: [KKday, Laravel, PHP]
 keywords: [PHP, xhprof, Blackfire, Tideways, Laravel, Profile, 性能基准测试, 实战对比与, 生产环境, 落地方案踩坑记录]
 description: "在 KKday B2C API 项目中，我们面临过一个经典难题：某个商品搜索接口 P99 从 200ms 飙升到 2s，但日志和 APM 看不出异常。本文记录了我们如何用 xhprof、Blackfire、Tideways 三套工具链定位根因，并建立了可持续的性能基准测试工作流。"

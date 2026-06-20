@@ -5,7 +5,6 @@ keywords: [Claude Code, MCP, MCP Server, 生态实战, 工具市场的爆发, �
 date: 2026-06-09 14:42:00
 author: Michael
 categories: [ai]
-- ai
 tags:
 - Claude Code
 - MCP

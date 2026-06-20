@@ -8,7 +8,6 @@ images:
 date: 2026-05-03 10:20:00
 author: Michael
 categories: [php]
-- php
 tags:
 - Elasticsearch
 - KKday

@@ -5,7 +5,6 @@ author: Michael
 tags: [Prompt Caching, LLM, AI, 成本优化, Anthropic, OpenAI, KV Cache, System Prompt]
 keywords: [Prompt Caching, Anthropic, OpenAI, System Prompt, KV Cache, 缓存策略对比, 复用, 与成本优化的工程化落地, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

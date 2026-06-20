@@ -4,7 +4,6 @@ keywords: [Laravel, AWS AppSync, GraphQL API, Serverless, Lambda Resolver, å®žæ—
 date: 2026-06-09 10:58:00
 author: Michael
 categories: [php]
-  - php
 tags:
   - GraphQL
   - AWS

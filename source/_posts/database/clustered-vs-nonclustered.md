@@ -9,7 +9,6 @@ tags:
 - B+Tree
 - 性能优化
 categories: [database]
-  - database
 keywords: [聚簇索引与非聚簇索引]
 date: 2015-10-03 20:14:56
 author: Michael

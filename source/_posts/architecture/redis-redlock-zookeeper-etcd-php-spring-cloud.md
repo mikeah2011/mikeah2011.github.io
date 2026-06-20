@@ -11,7 +11,6 @@ tags:
 - etcd
 - PHP
 categories: [architecture]
-  - architecture
 keywords: [Redis Redlock vs Zookeeper vs etcd, PHP, Spring Cloud, 分布式锁深度对比, 开发者的分布式互斥选型与]
 description: 全面对比 Redis Redlock、Zookeeper 临时顺序节点与 etcd Lease 三大分布式锁方案，从 CAP 定位、一致性模型、性能基准到 PHP 实战代码逐层剖析。涵盖 SET NX EX + Lua 原子锁、Redlock 多数派算法、Kleppmann vs antirez 经典争论、Laravel 内置锁与 Redisson 看门狗模式借鉴，附 Redis/ZK/etcd 三套可运行 PHP 客户端实现、生产环境五大踩坑案例、锁监控方案与选型决策矩阵，助 PHP 开发者在秒杀库存、定时任务防重、金融级互斥等场景做出最优分布式锁选型。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

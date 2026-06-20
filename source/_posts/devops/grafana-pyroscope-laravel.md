@@ -13,7 +13,6 @@ tags:
 - 可观测性
 description: 深入讲解 Grafana Pyroscope 持续性能剖析在 Laravel 生产环境中的完整实战方案。涵盖架构解析、Docker Compose 与 Kubernetes Helm Chart 部署、pyroscope-php SDK 集成、火焰图与差分火焰图阅读方法论、CPU/内存/阻塞多维剖析、N+1 查询根因定位、Profile-Guided Optimization 代码级优化，以及与 Grafana Tempo Trace-Profile 联动、成本优化与数据保留策略。附带完整可运行代码示例和电商大促性能故障诊断全流程案例，帮助团队构建可观测性第四支柱。
 categories: [devops]
-- devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

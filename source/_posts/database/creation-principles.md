@@ -9,7 +9,6 @@ tags:
 - 数据库
 - Laravel
 categories: [database]
-- database
 date: 2018-03-20 15:05:07
 author: Michael
 description: MySQL 索引创建的黄金法则与实战指南。深入讲解索引创建的六大原则：选择性高的列优先、覆盖查询减少回表、联合索引遵循最左前缀、避免冗余索引与重复索引。结合 Laravel Migration 代码示例和 EXPLAIN 分析，详解在线 DDL 加索引的踩坑经验，帮助开发者在百万级数据表上安全高效地创建索引。

@@ -5,7 +5,6 @@ date: 2026-05-04 11:22:00 +0800
 author: Michael
 description: "深入实战 Laravel BFF（Backend for Frontend）中间层聚合模式。本文以 KKday 真实项目为例，讲解如何用 Laravel 构建 API 聚合层，统一调用 Search、Recommend、Member 等 Java 微服务，实现数据裁剪、Redis 多级缓存、Cache-Stampede 防护、并行 HTTP 请求、降级策略、Request 级缓存等核心能力。涵盖 PHP 8.0 Enum 重构、Pest 契约测试、Docker 开发环境搭建等完整工程实践，适合需要在微服务架构中引入 BFF 中间层的后端与全栈工程师参考。"
 categories: [architecture]
-  - architecture
 tags:
   - BFF
   - Laravel

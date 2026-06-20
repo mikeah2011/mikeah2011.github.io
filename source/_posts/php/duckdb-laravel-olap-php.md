@@ -6,7 +6,6 @@ author: Michael
 tags: [DuckDB, Laravel, OLAP, PHP, 数据分析]
 keywords: [DuckDB, Laravel, OLAP, PHP, 嵌入式, 引擎, 进程内做百万级数据分析]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

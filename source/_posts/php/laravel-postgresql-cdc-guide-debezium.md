@@ -7,8 +7,6 @@ date: 2026-05-04 14:23:21
 author: Michael
 updated: 2026-05-04 14:24:58
 categories: [php]
-  - php
-  - database
 tags: [Laravel, PostgreSQL, 消息队列, Debezium, CDC, Kafka]
 keywords: [Laravel, PostgreSQL CDC, Debezium, 驱动订单变更同步, 乱序修复与补数回放踩坑记录, PHP, 数据库]
 description: 结合订单中心与查询侧分离场景，深入记录如何在 Laravel 中用 PostgreSQL CDC + Debezium + Kafka 做变更数据捕获与同步。涵盖 Debezium 完整配置、Laravel Kafka Consumer 消费 CDC 事件、版本闸门乱序修复、补数回放 Artisan 命令，以及乱序、重复投递、DDL 漂移、Initial Snapshot 污染等真实生产踩坑清单。

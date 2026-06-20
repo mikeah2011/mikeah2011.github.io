@@ -9,7 +9,6 @@ date: 2026-05-17 03:25:25
 author: Michael
 updated: 2026-05-17 03:31:03
 categories: [architecture]
-- architecture
 tags:
 - AI
 - Laravel

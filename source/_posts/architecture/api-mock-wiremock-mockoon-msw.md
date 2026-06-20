@@ -14,7 +14,6 @@ tags:
 - 前后端分离
 description: 深入解析 MSW（Mock Service Worker）、Mockoon、WireMock 三层 API Mock 体系的选型与实战落地。覆盖浏览器端 Service Worker 请求拦截、GUI 模板驱动的联调 Mock 服务、JVM 精确匹配与状态机驱动的集成测试三个层次，结合环境变量路由、Pact 契约测试、CI/CD Mock 泄露检测等工程化机制，实现前后端分离开发中的接口隔离与并行交付。含 Laravel/Vue 集成代码、8 大踩坑案例与完整 GitHub Actions 流水线配置。
 categories: [architecture]
-- architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop

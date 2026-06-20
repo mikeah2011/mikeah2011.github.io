@@ -4,7 +4,6 @@ keywords: [Moonrepo, Rust, Monorepo, Nx, Turborepo, 驱动的, 管理工具, 的
 date: 2026-06-10 03:45:00
 author: Michael
 categories: [engineering]
-  - engineering
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop

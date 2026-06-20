@@ -5,7 +5,6 @@ author: Michael
 tags: [Bun, JavaScript, HTTP Server, 性能对比, 全栈开发]
 keywords: [Bun.serve, HTTP API, Express, Fastify, Hono, 构建高性能, 的性能基准与开发体验对比, 前端]
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

@@ -7,8 +7,6 @@ date: 2026-05-05 07:00:50
 author: Michael
 updated: 2026-05-05 07:04:13
 categories: [engineering]
-  - engineering
-  - process
 tags: [KKday, Laravel, 代码质量, 工程管理]
 keywords: [Laravel, B2C, API, 技术债务管理, 量化追踪与偿还遗留代码, 实战踩坑记录, 工程化]
 description: 技术债务管理实战指南——在30+ Laravel仓库中如何量化债务指标、建立周度记分卡追踪系统、用Impact/Effort公式精准排优先级，并通过童子军规则、绞杀者模式与Sprint预算制持续偿还。含PHPStan质量门禁、DEBT注释规范、GitHub Actions自动化守护完整方案与5个真实踩坑记录。

@@ -13,7 +13,6 @@ tags:
 - Redis Geo
 description: 深入实战 PostGIS + Laravel 空间数据查询方案，涵盖地理围栏（ST_Contains/ST_Within）、附近 POI 搜索（ST_DWithin/KNN）、骑手轨迹路径规划（ST_MakeLine/ST_Length）等核心场景。提供完整的 Laravel Migration、Eloquent 模型封装和 Controller 实现代码，附 Redis GEO 和 MongoDB 地理查询的性能对比数据，以及坐标系偏移、空间索引失效、SRID 不一致等生产环境踩坑记录。适合本地生活、外卖配送、网约车等需要空间查询能力的 Laravel 项目参考。
 categories: [database]
-- database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

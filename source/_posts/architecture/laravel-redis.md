@@ -12,7 +12,6 @@ tags:
 - 电商
 description: 电商推荐系统从零到生产的完整实战，涵盖 User-Based 和 Item-Based 协同过滤算法的 Laravel/PHP 实现、基于商品属性的内容推荐与 OpenAI Embedding 语义向量生成、Qdrant 向量数据库集成与混合检索（关键词+向量 RRF 融合排序）、多路召回实时排序引擎设计。包含 Redis Pipeline 批量计算优化、LSH 粗筛解决全量用户遍历性能瓶颈、冷启动解决方案、推荐效果 CTR/CVR 监控告警，以及从全量遍历 10 分钟优化到 30 秒的性能调优经验，适合 Laravel 电商项目搭建推荐系统的完整技术参考。
 categories: [architecture]
-  - architecture
 keywords: [Laravel, Redis, 电商推荐系统设计实战, 协同过滤, 内容推荐, 实时排序, 向量数据库落地]
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:

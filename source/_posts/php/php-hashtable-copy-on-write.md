@@ -4,7 +4,6 @@ keywords: [PHP, HashTable, Copy, Write, 数组底层实现深度剖析, 结构, 
 date: 2026-06-10 04:40:00
 author: Michael
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

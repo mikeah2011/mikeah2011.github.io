@@ -5,7 +5,6 @@ author: Michael
 tags: [PHP, 异步编程, Fibers, Swoole, ReactPHP, AMPHP]
 keywords: [PHP, Fibers, Swoole, ReactPHP, AMPHP, 异步生态全景实战, 异步编程的四条路线对比与选型指南]
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

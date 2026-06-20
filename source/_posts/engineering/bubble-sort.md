@@ -11,7 +11,6 @@ tags:
 - 算法
 - bubble-sort
 categories: [engineering]
-  - engineering
 keywords: [PHP, Go, JS, 冒泡排序算法详解, 优化策略与, 实现]
 date: 2020-03-20 15:05:07
 author: Michael

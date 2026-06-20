@@ -8,7 +8,6 @@ date: 2026-05-17 04:25:32
 author: Michael
 updated: 2026-05-17 04:28:02
 categories: [macos]
-- macos
 tags:
 - Laravel
 - PHP

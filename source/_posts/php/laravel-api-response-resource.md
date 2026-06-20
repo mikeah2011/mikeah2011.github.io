@@ -4,7 +4,6 @@ keywords: [Laravel API Response, Resource, 嵌入式资源实战, 嵌套, 条件
 date: 2026-06-10 06:30:00
 author: Michael
 categories: [php]
-  - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

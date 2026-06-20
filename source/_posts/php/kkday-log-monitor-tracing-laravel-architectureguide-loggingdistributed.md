@@ -8,7 +8,6 @@ date: 2026-05-05 01:40:51
 author: Michael
 updated: 2026-05-05 01:43:32
 categories: [php]
-  - php
 keywords: [kkday, log, monitor, tracing, Laravel, 可观测性架构, 日志聚合, 指标采集与分布式追踪踩坑记录]
 tags:
 - KKday

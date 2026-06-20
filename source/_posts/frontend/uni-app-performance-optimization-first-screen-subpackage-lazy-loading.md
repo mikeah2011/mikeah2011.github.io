@@ -7,7 +7,6 @@ images:
 date: 2026-06-01 10:00:00
 author: Michael
 categories: [frontend]
-  - frontend
 keywords: [uni, app, ms, 性能优化实战, 首屏加载, 分包加载, 图片懒加载策略, 的性能治理全链路]
 tags:
 - uni-app

@@ -8,8 +8,6 @@ images:
 date: 2026-05-03
 author: Michael
 categories: [php]
-- php
-- docker
 tags:
 - Composer
 - PHP

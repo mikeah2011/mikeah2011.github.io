@@ -5,7 +5,6 @@ author: Michael
 tags: [Dependabot, Renovate, CI/CD, Laravel, 依赖管理, 安全]
 keywords: [Dependabot vs Renovate, Laravel, Node.js, PR, 依赖自动更新策略, 项目的自动, 与安全补丁工作流, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

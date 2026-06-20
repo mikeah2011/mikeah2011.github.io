@@ -5,7 +5,6 @@ author: Michael
 tags: [PgBouncer, ProxySQL, 连接池, 监控, 运维]
 keywords: [PgBouncer, ProxySQL, 数据库连接池监控实战, 的连接泄漏检测, 队列深度监控与告警阈值设计, DevOps]
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

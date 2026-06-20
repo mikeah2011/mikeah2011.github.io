@@ -5,7 +5,6 @@ keywords: [Vitest, Storybook, Vue, CI, 组件的单元测试, 可视化文档, �
 date: 2026-06-10 05:59:00
 author: Michael
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

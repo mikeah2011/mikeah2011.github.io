@@ -4,7 +4,6 @@ keywords: [OWASP Top, LLM, API, Laravel, 版本更新实战, 相关漏洞, 安�
 date: 2026-06-07 23:38:00
 author: Michael
 categories: [php]
-  - php
 tags:
   - OWASP
   - 安全

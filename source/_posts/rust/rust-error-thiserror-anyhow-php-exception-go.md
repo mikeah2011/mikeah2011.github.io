@@ -4,7 +4,6 @@ keywords: [Rust, Error, thiserror, anyhow, PHP Exception, Go error, 错误处理
 date: 2026-06-07 23:57:00
 author: Michael
 categories: [rust]
-  - rust
 tags:
   - Rust
   - 错误处理

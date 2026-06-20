@@ -5,7 +5,6 @@ author: Michael
 tags: [Flutter, 测试, Unit Test, Widget Test, Integration Test]
 keywords: [Flutter, Unit, Widget, Integration, 测试实战, 三层测试体系, 移动端]
 categories: [mobile]
-  - mobile
 cover: https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=630&fit=crop

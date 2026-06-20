@@ -7,8 +7,6 @@ date: 2026-05-03 09:55:09
 author: Michael
 updated: 2026-05-03 09:59:00
 categories: [php]
-  - php
-  - database
 tags: [Laravel, PostgreSQL, JSONB, GIN索引, 电商, 性能优化]
 keywords: [Laravel, PostgreSQL JSONB, GIN, 商品筛选的, 索引, 局部索引与在线迁移踩坑记录, PHP, 数据库]
 description: 结合电商商品筛选场景，详细记录在 Laravel 中落地 PostgreSQL JSONB 的完整实战方案，涵盖动态属性建模、GIN 索引与局部索引设计、Eloquent 查询封装、EXPLAIN ANALYZE 性能调优、常见踩坑与 MySQL 到 PostgreSQL 在线迁移策略，附对比表格与完整代码示例。

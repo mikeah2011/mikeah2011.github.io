@@ -8,7 +8,6 @@ date: 2026-05-17 06:30:19
 author: Michael
 updated: 2026-05-17 06:33:58
 categories: [macos]
-  - macos
 keywords: [pyenv, poetry, Python, macOS, pip, 版本与依赖管理, 开发者从, 到现代工具链的迁移指南踩坑记录]
 tags:
 - Composer

@@ -5,7 +5,6 @@ author: Michael
 tags: [Astro, Islands Architecture, 前端框架, Laravel, Headless CMS]
 keywords: [Astro, Web, Islands Architecture, Laravel Headless CMS, 内容优先的, 后端集成, 前端]
 categories: [frontend]
-  - frontend
 cover: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop

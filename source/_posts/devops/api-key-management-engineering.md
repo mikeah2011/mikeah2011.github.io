@@ -4,7 +4,6 @@ keywords: [API, vs Vault vs Doppler vs, env.vault, 密钥管理工程化实战, 
 date: 2026-06-10 03:15:00
 author: Michael
 categories: [devops]
-  - devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

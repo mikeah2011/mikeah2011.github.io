@@ -13,8 +13,6 @@ tags:
 - PHP
 - 性能优化
 categories: [php]
-- php
-- runtime
 description: 深度解析 PHP 8.4 十大新特性，结合 KKday B2C-API 真实升级场景，涵盖纤程(Fiber)优化、属性钩子、DOM\Text 扩展、性能对比、兼容性踩坑记录，提供可直接复用的生产级代码。
 ---
 

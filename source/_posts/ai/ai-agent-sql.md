@@ -12,7 +12,6 @@ tags:
 - 图表生成
 - 自动化
 categories: [ai]
-- ai
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop

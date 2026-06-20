@@ -8,7 +8,6 @@ date: 2026-05-16 18:02:58
 author: Michael
 updated: 2026-05-16 18:15:17
 categories: [php]
-  - php
 tags: [Laravel, SSE, Server-Sent-Events, WebSocket, 实时推送, B2C]
 keywords: [Laravel, SSE, Server-Sent-Events, WebSocket, 实时推送, Server, Sent]
 description: >-

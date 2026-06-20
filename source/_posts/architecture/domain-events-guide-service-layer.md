@@ -7,8 +7,6 @@ date: 2026-05-05 08:20:19
 author: Michael
 updated: 2026-05-05 08:22:17
 categories: [architecture]
-  - architecture
-  - ddd
 tags: [DDD, Domain-Events, Laravel, 微服务, 架构]
 keywords: [Domain, Events, Service, Layer, Laravel, B2C, API, 解耦实战, 用事件驱动替代, 直接调用]
 description: 在 30+ 仓库的 Laravel B2C 项目中，Service Layer 膨胀是常见问题。本文详解如何用 Domain Events 替代 Service Layer 直接调用，实现订单、库存、通知的彻底解耦。包含完整重构代码对比、事件版本控制、生产踩坑（事件顺序/死信/调试）与 Pest 测试实战。

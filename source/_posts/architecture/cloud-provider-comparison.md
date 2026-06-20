@@ -8,7 +8,6 @@ images:
 date: 2026-05-05 09:07:25
 updated: 2026-05-05 09:11:43
 categories: [architecture]
-- architecture
 tags:
 - AWS
 - DevOps

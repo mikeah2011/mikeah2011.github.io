@@ -6,7 +6,6 @@ images:
 date: 2026-05-03
 author: Michael
 categories: [php]
-  - php
 tags: [BFF, Laravel, 监控]
 keywords: [Laravel, KKday, B2C, API, 健康檢查與監控實戰, 生產環境穩定性保障方案, PHP]
 description: 基於 KKday-B2C-API 生產環境的完整健康檢查與監控方案，包含自定義健康檢查中間件、Telescope 集成、Prometheus+Grafana 儀表板配置，以及真實踩坑記錄。

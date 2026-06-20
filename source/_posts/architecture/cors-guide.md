@@ -9,8 +9,6 @@ date: 2026-05-16 21:40:49
 author: Michael
 updated: 2026-05-16 21:43:57
 categories: [architecture]
-  - architecture
-  - infra
 tags:
 - CORS
 - Laravel

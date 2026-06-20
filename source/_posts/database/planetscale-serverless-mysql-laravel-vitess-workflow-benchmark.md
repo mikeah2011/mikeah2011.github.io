@@ -13,7 +13,6 @@ tags:
 - Database
 description: PlanetScale 基于 Vitess 的无服务器 MySQL 平台实战指南，涵盖 Laravel 集成配置、分支工作流与 Online DDL 零停机迁移、性能基准测试对比 AWS RDS、生产踩坑总结（外键禁用、乐观锁、GROUP BY 严格模式等），帮助团队评估 PlanetScale 适用场景与成本优势。
 categories: [database]
-- database
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop

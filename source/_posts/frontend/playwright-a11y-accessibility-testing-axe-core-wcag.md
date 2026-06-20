@@ -17,7 +17,6 @@ tags:
 - CI/CD
 - 前端测试
 categories: [frontend]
-- frontend
 description: 用 Playwright + axe-core 实现端到端无障碍自动化测试，集成 CI 门禁确保 WCAG 2.2 合规，覆盖颜色对比度、键盘导航、ARIA 语义等核心检查项
 ---
 

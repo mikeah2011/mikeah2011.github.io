@@ -6,8 +6,6 @@ images:
 date: 2026-06-01 08:00:00
 author: Michael
 categories: [frontend]
-  - frontend
-  - mobile
 keywords: [uni, app, UniPush, SDK, 推送通知实战, 极光推送, 个推, 集成与厂商通道适配, 接入到生产环境消息必达的完整方案, 前端]
 tags:
   - uni-app

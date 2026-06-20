@@ -16,7 +16,6 @@ tags:
 - grpcroute
 description: 深入实战 Kubernetes Gateway API——Ingress 的下一代标准，全面解析 GatewayClass、Gateway、HTTPRoute 三层资源模型在 Laravel 微服务中的流量管理新范式。涵盖请求头改写、流量拆分、金丝雀发布、gRPC 路由、跨命名空间引用等核心能力，对比 Ingress 的架构差异与迁移路径，结合 Envoy Gateway 与 Nginx Gateway Fabric 的实战配置与性能基准，帮助 Laravel 团队从 Ingress 无缝过渡到 Gateway API 的标准化流量治理方案。
 categories: [devops]
-- devops
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop

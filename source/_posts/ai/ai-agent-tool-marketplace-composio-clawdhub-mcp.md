@@ -4,7 +4,6 @@ keywords: [AI Agent Tool Marketplace, Composio, ClawdHub, MCP, 生态, 工具发
 date: 2026-06-09 08:38:00
 author: Michael
 categories: [ai]
-  - ai
 tags:
   - AI Agent
   - Tool Marketplace

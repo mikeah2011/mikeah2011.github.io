@@ -6,7 +6,6 @@ author: Michael
 tags: [schema registry, confluent, apicurio, 事件驱动, api 治理]
 keywords: [Schema Registry, Confluent, Apicurio API, Schema, 契约演进, 事件驱动系统中的, 兼容性治理, 架构]
 categories: [architecture]
-  - architecture
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
