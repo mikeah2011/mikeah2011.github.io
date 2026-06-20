@@ -1,4 +1,4 @@
-
+---
 title: Deno Deploy 实战：零配置边缘 JavaScript 部署——对比 Cloudflare Workers 的开发体验与性能
 keywords: [Deno, Deploy]
 date: 2026-06-03 08:00:00

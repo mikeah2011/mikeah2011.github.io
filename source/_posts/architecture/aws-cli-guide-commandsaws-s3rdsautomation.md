@@ -1,4 +1,4 @@
-
+---
 title: AWS CLI 实战：命令行管理 AWS 资源 — 实例/S3/RDS 自动化运维踩坑记录
 keywords: [AWS, CLI]
 date: 2026-05-17 04:20:41

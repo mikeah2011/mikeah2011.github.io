@@ -1,4 +1,4 @@
-
+---
 title: AI Agent 规划能力实战：ReAct/Tree-of-Thought/Graph-of-Thought 推理模式
 keywords: [AI, Agent]
 date: 2026-06-02 12:00:00

@@ -1,4 +1,4 @@
-
+---
 title: Laravel Polymorphic Associations 实战：多态关联的性能陷阱与替代方案——STI、JSON 列、中间表的选型决策
 keywords: [Laravel, Polymorphic, Associations]
 date: 2026-06-04 09:00:00

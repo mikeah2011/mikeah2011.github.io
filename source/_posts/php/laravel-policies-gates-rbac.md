@@ -1,4 +1,4 @@
-
+---
 title: Laravel-Policies-Gates-RBAC-权限管理与多租户隔离实战
 keywords: [Laravel, Policies, Gates]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop

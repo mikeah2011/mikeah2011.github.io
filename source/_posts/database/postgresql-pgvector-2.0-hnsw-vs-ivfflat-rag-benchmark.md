@@ -1,4 +1,4 @@
-
+---
 title: PostgreSQL pgvector 2.0 实战：向量索引性能基准——HNSW vs IVFFlat 在百万级 RAG 检索中的选型
 keywords: [PostgreSQL]
 date: 2026-06-06 00:00:00
