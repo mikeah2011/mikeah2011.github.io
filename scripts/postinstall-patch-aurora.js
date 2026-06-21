@@ -200,6 +200,26 @@ if (fs.existsSync(layoutFile)) {
   }
 }
 
+// Patch 9: Cache-bust statistic.json to bypass CDN stale cache
+if (fs.existsSync(themeJsDir)) {
+  const jsFiles9 = fs.readdirSync(themeJsDir).filter(f => f.endsWith('.js'));
+  for (const jsFile of jsFiles9) {
+    const jsPath = path.join(themeJsDir, jsFile);
+    let content = fs.readFileSync(jsPath, 'utf8');
+    // Change: ft.get("/statistic.json") → ft.get("/statistic.json?v="+Date.now())
+    if (content.includes('ft.get("/statistic.json")')) {
+      content = content.replace(
+        'ft.get("/statistic.json")',
+        'ft.get("/statistic.json?v="+Date.now())'
+      );
+      fs.writeFileSync(jsPath, content, 'utf8');
+      console.log('Patched: cache-bust statistic.json in ' + jsFile);
+    } else if (content.includes('statistic.json?v=')) {
+      console.log('Skip Patch 9 (' + jsFile + '): already patched');
+    }
+  }
+}
+
 // Patch 2: Strip directory prefix from slug (fix %2F in URLs)
 const mapperFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/helpers/mapper.js');
 if (fs.existsSync(mapperFile)) {
