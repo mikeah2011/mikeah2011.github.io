@@ -220,6 +220,28 @@ if (fs.existsSync(themeJsDir)) {
   }
 }
 
+// Patch 10: Cache-bust JS bundle in HTML template to bypass CDN/browser cache
+if (fs.existsSync(layoutFile)) {
+  let content = fs.readFileSync(layoutFile, 'utf8');
+  const buildTs = Date.now();
+  // Add ?v=timestamp to the main JS bundle src
+  if (content.includes('src="/static/js/120aa8f8.js"') && !content.includes('120aa8f8.js?v=')) {
+    content = content.replace(
+      'src="/static/js/120aa8f8.js"',
+      'src="/static/js/120aa8f8.js?v=' + buildTs + '"'
+    );
+    fs.writeFileSync(layoutFile, content, 'utf8');
+    console.log('Patched: cache-bust JS bundle in HTML (v=' + buildTs + ')');
+  } else if (content.includes('120aa8f8.js?v=')) {
+    // Update the timestamp
+    content = content.replace(/120aa8f8\.js\?v=\d+/, '120aa8f8.js?v=' + buildTs);
+    fs.writeFileSync(layoutFile, content, 'utf8');
+    console.log('Patched: updated JS cache-bust timestamp (v=' + buildTs + ')');
+  } else {
+    console.log('Skip Patch 10: JS bundle reference not found');
+  }
+}
+
 // Patch 2: Strip directory prefix from slug (fix %2F in URLs)
 const mapperFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/helpers/mapper.js');
 if (fs.existsSync(mapperFile)) {
