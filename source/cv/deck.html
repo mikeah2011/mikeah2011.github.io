@@ -1,22 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
 <title>马成军 · 求职简报</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+<link rel="stylesheet" href="assets/cv-ui.css">
 <style>
   :root {
-    --bg: #0e171b;
-    --surface: #16232a;
-    --surface-2: #1c2c34;
-    --ink: #e6eef0;
-    --muted: #8aa0a8;
-    --accent: #46bfc9;
-    --accent-dim: #46bfc933;
-    --hairline: #24343b;
+    --bg:#f5f7f7; --surface:#ffffff; --surface-2:#eceff0;
+    --ink:#0e2128; --muted:#5c6f77; --accent:#0b6e78; --accent-dim:#0b6e7814; --hairline:#dbe2e3;
   }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#0e171b; --surface:#16232a; --surface-2:#1c2c34;
+      --ink:#e6eef0; --muted:#8aa0a8; --accent:#46bfc9; --accent-dim:#46bfc933; --hairline:#24343b;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg:#f5f7f7; --surface:#ffffff; --surface-2:#eceff0;
+    --ink:#0e2128; --muted:#5c6f77; --accent:#0b6e78; --accent-dim:#0b6e7814; --hairline:#dbe2e3;
+  }
+  :root[data-theme="dark"] {
+    --bg:#0e171b; --surface:#16232a; --surface-2:#1c2c34;
+    --ink:#e6eef0; --muted:#8aa0a8; --accent:#46bfc9; --accent-dim:#46bfc933; --hairline:#24343b;
+  }
+
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; }
   body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "PingFang TC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Microsoft JhengHei",
+                 "Noto Sans SC", "Noto Sans TC", sans-serif;
     overflow: hidden;
+    transition: background-color .3s ease, color .3s ease;
+  }
+  html[lang="zh-TW"] body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei",
+                 "Noto Sans TC", "Segoe UI", sans-serif;
   }
 
   .deck { position: relative; width: 100%; height: 100dvh; }
@@ -25,8 +49,11 @@
     display: none;
     flex-direction: column;
     justify-content: center;
-    padding: clamp(24px, 6vh, 72px) clamp(24px, 7vw, 96px);
-    padding-bottom: calc(clamp(24px, 6vh, 72px) + 48px);
+    overflow-y: auto; -webkit-overflow-scrolling: touch;
+    padding: clamp(20px, 6vh, 72px) clamp(18px, 7vw, 96px);
+    padding-left: max(clamp(18px, 7vw, 96px), env(safe-area-inset-left));
+    padding-right: max(clamp(18px, 7vw, 96px), env(safe-area-inset-right));
+    padding-bottom: calc(clamp(20px, 6vh, 72px) + 52px + env(safe-area-inset-bottom));
   }
   .slide.active { display: flex; animation: rise 420ms cubic-bezier(0.16, 1, 0.3, 1); }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
@@ -36,69 +63,65 @@
     font-size: clamp(12px, 1.4vw, 14px); font-weight: 700; letter-spacing: 0.26em;
     color: var(--accent); margin-bottom: clamp(10px, 2vh, 20px);
   }
-  h1 { margin: 0; font-size: clamp(34px, 6.5vw, 68px); line-height: 1.15; letter-spacing: 0.02em; text-wrap: balance; }
-  h2 { margin: 0 0 clamp(14px, 3vh, 28px); font-size: clamp(26px, 4.2vw, 44px); line-height: 1.2; text-wrap: balance; }
-  .sub { font-size: clamp(15px, 2vw, 21px); color: var(--muted); margin-top: clamp(10px, 2vh, 18px); }
+  h1 { margin: 0; font-size: clamp(32px, 6.5vw, 68px); line-height: 1.15; letter-spacing: 0.02em; text-wrap: balance; }
+  h2 { margin: 0 0 clamp(14px, 3vh, 28px); font-size: clamp(24px, 4.2vw, 44px); line-height: 1.2; text-wrap: balance; }
+  .sub { font-size: clamp(14px, 2vw, 21px); color: var(--muted); margin-top: clamp(10px, 2vh, 18px); }
   .accent { color: var(--accent); }
   .num { font-variant-numeric: tabular-nums; }
 
-  /* cover */
-  .cover .latin { font-size: clamp(16px, 2.4vw, 26px); color: var(--muted); font-weight: 400; margin-left: 0.4em; }
-  .cover .role { margin-top: clamp(12px, 2.5vh, 22px); font-size: clamp(20px, 3vw, 32px); font-weight: 600; color: var(--accent); }
-  .cover .contact { margin-top: clamp(20px, 5vh, 44px); font-size: clamp(13px, 1.6vw, 16px); color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 26px; }
+  .cover .latin { font-size: clamp(15px, 2.4vw, 26px); color: var(--muted); font-weight: 400; margin-left: 0.4em; }
+  .cover .role { margin-top: clamp(12px, 2.5vh, 22px); font-size: clamp(19px, 3vw, 32px); font-weight: 600; color: var(--accent); }
+  .cover .contact { margin-top: clamp(18px, 5vh, 44px); font-size: clamp(12.5px, 1.6vw, 16px); color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 22px; }
 
-  /* stat tiles */
   .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.6vw, 18px); }
   .tile {
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 10px;
-    padding: clamp(14px, 2.4vh, 26px) clamp(14px, 1.8vw, 24px);
+    padding: clamp(12px, 2.4vh, 26px) clamp(12px, 1.8vw, 24px); min-width: 0;
   }
-  .tile .v { font-size: clamp(24px, 3.6vw, 42px); font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.1; }
-  .tile .k { margin-top: 6px; font-size: clamp(12px, 1.4vw, 15px); color: var(--muted); }
+  .tile .v { font-size: clamp(21px, 3.6vw, 42px); font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .tile .k { margin-top: 6px; font-size: clamp(11.5px, 1.4vw, 15px); color: var(--muted); overflow-wrap: anywhere; }
   @media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 380px) { .tiles { grid-template-columns: 1fr; } }
 
-  /* timeline */
   .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(10px, 2vh, 18px); }
   .timeline li {
-    display: grid; grid-template-columns: clamp(120px, 16vw, 170px) 1fr; gap: 18px; align-items: baseline;
+    display: grid; grid-template-columns: clamp(96px, 16vw, 170px) 1fr; gap: clamp(10px, 2vw, 18px); align-items: baseline;
     padding-left: 18px; border-left: 2px solid var(--hairline); position: relative;
   }
   .timeline li::before {
     content: ""; position: absolute; left: -6px; top: 0.55em;
     width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
   }
-  .timeline .t { color: var(--muted); font-size: clamp(13px, 1.6vw, 16px); font-variant-numeric: tabular-nums; }
-  .timeline .co { font-weight: 700; font-size: clamp(15px, 2vw, 20px); }
-  .timeline .what { color: var(--muted); font-size: clamp(13px, 1.6vw, 16px); display: block; margin-top: 2px; }
+  .timeline li > span:last-child { min-width: 0; }
+  .timeline .t { color: var(--muted); font-size: clamp(12.5px, 1.6vw, 16px); font-variant-numeric: tabular-nums; }
+  .timeline .co { font-weight: 700; font-size: clamp(14.5px, 2vw, 20px); overflow-wrap: anywhere; }
+  .timeline .what { color: var(--muted); font-size: clamp(12.5px, 1.6vw, 16px); display: block; margin-top: 2px; overflow-wrap: anywhere; }
   .timeline li.now { border-left-color: var(--accent); }
   .timeline li.now .co { color: var(--accent); }
 
-  /* bullets */
-  ul.points { margin: 0; padding-left: 1.1em; display: grid; gap: clamp(8px, 1.8vh, 14px); font-size: clamp(14px, 1.9vw, 19px); line-height: 1.55; }
+  ul.points { margin: 0; padding-left: 1.1em; display: grid; gap: clamp(8px, 1.8vh, 14px); font-size: clamp(13.5px, 1.9vw, 19px); line-height: 1.55; }
+  ul.points li { overflow-wrap: anywhere; }
   ul.points li::marker { color: var(--accent); }
   ul.points strong { color: var(--accent); font-weight: 700; }
   .callout {
     margin-top: clamp(14px, 3vh, 24px); padding: clamp(10px, 1.8vh, 16px) clamp(14px, 1.8vw, 22px);
     background: var(--accent-dim); border-left: 3px solid var(--accent); border-radius: 6px;
-    font-size: clamp(14px, 1.9vw, 19px);
+    font-size: clamp(13.5px, 1.9vw, 19px); overflow-wrap: anywhere;
   }
 
-  /* before/after */
   .ba { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.6vw, 18px); margin-top: clamp(12px, 2.4vh, 22px); }
-  .ba .cell { background: var(--surface); border: 1px solid var(--hairline); border-radius: 10px; padding: clamp(12px, 2vh, 20px); }
-  .ba .m { font-size: clamp(12px, 1.4vw, 15px); color: var(--muted); }
-  .ba .val { margin-top: 6px; font-size: clamp(17px, 2.4vw, 26px); font-weight: 700; font-variant-numeric: tabular-nums; }
-  .ba .val .from { color: var(--muted); font-weight: 400; text-decoration: line-through; text-decoration-color: #8aa0a880; margin-right: 8px; font-size: 0.75em; }
+  .ba .cell { background: var(--surface); border: 1px solid var(--hairline); border-radius: 10px; padding: clamp(12px, 2vh, 20px); min-width: 0; }
+  .ba .m { font-size: clamp(11.5px, 1.4vw, 15px); color: var(--muted); overflow-wrap: anywhere; }
+  .ba .val { margin-top: 6px; font-size: clamp(16px, 2.4vw, 26px); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .ba .val .from { color: var(--muted); font-weight: 400; text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 55%, transparent); margin-right: 8px; font-size: 0.75em; }
   .ba .val .to { color: var(--accent); }
   @media (max-width: 640px) { .ba { grid-template-columns: 1fr; } }
 
-  /* skills table */
-  .skills { display: grid; grid-template-columns: clamp(110px, 14vw, 150px) 1fr; gap: 8px 20px; font-size: clamp(13px, 1.7vw, 17px); }
+  .skills { display: grid; grid-template-columns: clamp(96px, 14vw, 150px) 1fr; gap: 8px clamp(12px, 2vw, 20px); font-size: clamp(12.5px, 1.7vw, 17px); }
   .skills dt { color: var(--accent); font-weight: 700; margin: 0; }
-  .skills dd { margin: 0; color: var(--ink); }
+  .skills dd { margin: 0; color: var(--ink); overflow-wrap: anywhere; min-width: 0; }
 
-  /* links slide */
-  .links { display: grid; gap: clamp(10px, 2vh, 16px); margin-top: clamp(14px, 3vh, 26px); font-size: clamp(14px, 1.9vw, 19px); }
+  .links { display: grid; gap: clamp(10px, 2vh, 16px); margin-top: clamp(14px, 3vh, 26px); font-size: clamp(13.5px, 1.9vw, 19px); }
   .links a {
     color: var(--ink); text-decoration: none;
     background: var(--surface); border: 1px solid var(--hairline); border-radius: 10px;
@@ -109,164 +132,178 @@
   .links .lk { color: var(--accent); font-weight: 700; white-space: nowrap; }
   .links .lv { color: var(--muted); font-size: 0.85em; word-break: break-all; }
 
-  /* chrome */
+  .toolbar {
+    position: fixed; top: max(14px, env(safe-area-inset-top)); right: max(14px, env(safe-area-inset-right));
+    z-index: 5;
+  }
+
   .chrome {
     position: fixed; left: 0; right: 0; bottom: 0;
     display: flex; align-items: center; justify-content: space-between;
     padding: 10px clamp(16px, 3vw, 32px); gap: 16px;
-    background: linear-gradient(transparent, #0e171bd9 40%);
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    background: var(--surface); border-top: 1px solid var(--hairline);
     font-size: 13px; color: var(--muted);
   }
-  .dots { display: flex; gap: 7px; }
+  .dots { display: flex; gap: 7px; flex-wrap: wrap; }
   .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--hairline); border: none; padding: 0; cursor: pointer; }
   .dot.on { background: var(--accent); }
   .dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .navbtns { display: flex; gap: 8px; }
   .navbtns button {
-    background: var(--surface); color: var(--ink); border: 1px solid var(--hairline);
+    background: var(--surface-2); color: var(--ink); border: 1px solid var(--hairline);
     border-radius: 8px; padding: 6px 14px; font-size: 14px; cursor: pointer;
   }
   .navbtns button:hover, .navbtns button:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
   .counter { font-variant-numeric: tabular-nums; }
 
-  /* print → landscape PDF, one slide per page */
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+
   @media print {
-    body { overflow: visible; background: #0e171b; }
+    :root, :root[data-theme="dark"] {
+      --bg:#f5f7f7; --surface:#ffffff; --surface-2:#eceff0;
+      --ink:#0e2128; --muted:#5c6f77; --accent:#0b6e78; --accent-dim:#0b6e7814; --hairline:#dbe2e3;
+    }
+    body { overflow: visible; }
     .deck { height: auto; }
-    .slide { display: flex !important; position: relative; height: 100vh; page-break-after: always; animation: none; }
-    .chrome { display: none; }
+    .slide { display: flex !important; position: relative; height: 100vh; page-break-after: always; animation: none; overflow: visible; }
+    .toolbar, .chrome { display: none; }
   }
   @page { size: A4 landscape; margin: 0; }
 </style>
+</head>
+<body>
+
+<div class="toolbar" data-cv-toolbar></div>
 
 <div class="deck" id="deck">
 
   <!-- 1 · cover -->
-  <section class="slide cover active" aria-label="封面">
-    <div class="eyebrow">求职简报 · 2026</div>
-    <h1>马成军<span class="latin">Michael Ma</span></h1>
-    <div class="role">资深后端工程师</div>
-    <p class="sub">13 年研发经验 · 高并发交易系统 · AI 工程化</p>
+  <section class="slide cover active" data-i18n-attr="aria-label:s1.aria">
+    <div class="eyebrow" data-i18n="s1.eyebrow">求职简报 · 2026</div>
+    <h1><span data-i18n="name.main">马成军</span><span class="latin" data-i18n="name.alt">Michael Ma</span></h1>
+    <div class="role" data-i18n="s1.role">资深后端工程师</div>
+    <p class="sub" data-i18n="s1.sub">13 年研发经验 · 高并发交易系统 · AI 工程化</p>
     <div class="contact">
       <span>📧 mikeah2011@gmail.com</span>
       <span class="num">📱 +86 188-0196-3698</span>
-      <span>📍 上海</span>
+      <span>📍 <span data-i18n="loc">上海</span></span>
       <span>🔗 github.com/mikeah2011</span>
     </div>
   </section>
 
   <!-- 2 · key numbers -->
-  <section class="slide" aria-label="关键数字">
-    <div class="eyebrow">一页看懂</div>
-    <h2>关键数字</h2>
+  <section class="slide" data-i18n-attr="aria-label:s2.aria">
+    <div class="eyebrow" data-i18n="s2.eyebrow">一页看懂</div>
+    <h2 data-i18n="s2.h">关键数字</h2>
     <div class="tiles">
-      <div class="tile"><div class="v">13 年</div><div class="k">后端研发经验（OTA / 电商 / MarTech）</div></div>
-      <div class="tile"><div class="v">3000+</div><div class="k">KKday 核心仓库提交（两仓第一贡献人）</div></div>
-      <div class="tile"><div class="v">10+</div><div class="k">全球联盟渠道串接（Google / Naver…）</div></div>
-      <div class="tile"><div class="v">25s → 2s</div><div class="k">故障救火后关键 API p99</div></div>
-      <div class="tile"><div class="v">+50%</div><div class="k">CVR 提升目标（专项组组长）</div></div>
-      <div class="tile"><div class="v">2 届</div><div class="k">KKday 年度优秀员工（2023、2024）</div></div>
+      <div class="tile"><div class="v" data-i18n="s2.t1.v">13 年</div><div class="k" data-i18n="s2.t1.k">后端研发经验（OTA / 电商 / MarTech）</div></div>
+      <div class="tile"><div class="v">3000+</div><div class="k" data-i18n="s2.t2.k">KKday 核心仓库提交（两仓第一贡献人）</div></div>
+      <div class="tile"><div class="v">10+</div><div class="k" data-i18n="s2.t3.k">全球联盟渠道串接（Google / Naver…）</div></div>
+      <div class="tile"><div class="v">25s → 2s</div><div class="k" data-i18n="s2.t4.k">故障救火后关键 API p99</div></div>
+      <div class="tile"><div class="v">+50%</div><div class="k" data-i18n="s2.t5.k">CVR 提升目标（专项组组长）</div></div>
+      <div class="tile"><div class="v" data-i18n="s2.t6.v">2 届</div><div class="k" data-i18n="s2.t6.k">KKday 年度优秀员工（2023、2024）</div></div>
     </div>
   </section>
 
   <!-- 3 · timeline -->
-  <section class="slide" aria-label="职业轨迹">
-    <div class="eyebrow">职业轨迹</div>
-    <h2>13 年，四段进阶</h2>
+  <section class="slide" data-i18n-attr="aria-label:s3.aria">
+    <div class="eyebrow" data-i18n="s3.eyebrow">职业轨迹</div>
+    <h2 data-i18n="s3.h">13 年，四段进阶</h2>
     <ul class="timeline">
-      <li><span class="t num">2013 – 2017</span><span><span class="co">远丰科技集团 · 全栈开发</span><span class="what">多商户 SaaS 电商（1 万+ 商家）· IM 系统（日消息 200 万+）</span></span></li>
-      <li><span class="t num">2017 – 2021</span><span><span class="co">商派云起 Shopex · Lead Developer</span><span class="what">Apple 中国经销商平台（5 个月 GMV ¥100 亿）· 金番茄奖</span></span></li>
-      <li><span class="t num">2021 – 2022</span><span><span class="co">径硕科技 JINGdigital · 资深后端</span><span class="what">MarTech/SCRM 微服务矩阵（10+ 服务）· 埋点追踪主责</span></span></li>
-      <li class="now"><span class="t num">2022 – 至今</span><span><span class="co">KKday · 资深后端工程师</span><span class="what">联盟营销平台负责人 → B2C 交易链路 → CVR 专项组组长</span></span></li>
+      <li><span class="t num" data-i18n="s3.i1.t">2013 – 2017</span><span><span class="co" data-i18n="s3.i1.co">远丰科技集团 · 全栈开发</span><span class="what" data-i18n="s3.i1.what">多商户 SaaS 电商（1 万+ 商家）· IM 系统（日消息 200 万+）</span></span></li>
+      <li><span class="t num" data-i18n="s3.i2.t">2017 – 2021</span><span><span class="co" data-i18n="s3.i2.co">商派云起 Shopex · Lead Developer</span><span class="what" data-i18n="s3.i2.what">Apple 中国经销商平台（5 个月 GMV ¥100 亿）· 金番茄奖</span></span></li>
+      <li><span class="t num" data-i18n="s3.i3.t">2021 – 2022</span><span><span class="co" data-i18n="s3.i3.co">径硕科技 JINGdigital · 资深后端</span><span class="what" data-i18n="s3.i3.what">MarTech/SCRM 微服务矩阵（10+ 服务）· 埋点追踪主责</span></span></li>
+      <li class="now"><span class="t num" data-i18n="s3.i4.t">2022 – 至今</span><span><span class="co" data-i18n="s3.i4.co">KKday · 资深后端工程师</span><span class="what" data-i18n="s3.i4.what">联盟营销平台负责人 → B2C 交易链路 → CVR 专项组组长</span></span></li>
     </ul>
   </section>
 
   <!-- 4 · affiliate -->
-  <section class="slide" aria-label="联盟营销平台">
-    <div class="eyebrow">KKday · 2022.11 – 2025.03</div>
-    <h2>联盟营销平台负责人</h2>
+  <section class="slide" data-i18n-attr="aria-label:s4.aria">
+    <div class="eyebrow" data-i18n="s4.eyebrow">KKday · 2022.11 – 2025.03</div>
+    <h2 data-i18n="s4.h">联盟营销平台负责人</h2>
     <ul class="points">
-      <li>两大核心服务<strong>第一贡献人</strong>：affiliate-service <span class="num">2117</span> 次提交（占 <span class="num">56%</span>）+ affiliate-api <span class="num">1077</span> 次，承担 Code Owner 职责</li>
-      <li><strong>Google 官方渠道</strong>：Things To Do 商品 Feeds、POI Ranking、Transit 欧铁路线同步</li>
-      <li>串接 ShopBack、美安、亚洲万里通、Naver Shopping 等 <span class="num">10+</span> 异业渠道</li>
-      <li>自研<strong>分润结算系统</strong>：规则引擎 + 月度结算重刷 + BigQuery 归因</li>
+      <li data-i18n-html="s4.b1"></li>
+      <li data-i18n-html="s4.b2"></li>
+      <li data-i18n-html="s4.b3"></li>
+      <li data-i18n-html="s4.b4"></li>
     </ul>
-    <div class="callout">联盟业务年同比增长 <strong class="num">200%</strong>，API 延迟下降 <strong class="num">65%</strong>（120ms → 35ms）</div>
+    <div class="callout" data-i18n-html="s4.callout"></div>
   </section>
 
   <!-- 5 · b2c -->
-  <section class="slide" aria-label="B2C 交易链路">
-    <div class="eyebrow">KKday · 2025.02 – 至今</div>
-    <h2>B2C 核心交易链路</h2>
+  <section class="slide" data-i18n-attr="aria-label:s5.aria">
+    <div class="eyebrow" data-i18n="s5.eyebrow">KKday · 2025.02 – 至今</div>
+    <h2 data-i18n="s5.h">B2C 核心交易链路</h2>
     <ul class="points">
-      <li><strong>USJ 订单改期</strong>：跨 4 服务改造、主笔 <span class="num">7</span> 份 SA/SD，「权益继承、条件重审」决策表四方一次对齐，保障 TOP 供应商续约</li>
-      <li><strong>GYG B2B 动态变价</strong>：商品列表 → 订单全链路动价，低版本 App 保护机制</li>
-      <li><strong>订购页改版</strong>：多规格×多旅客映射透传，上线 <span class="num">0</span> P0/P1 流出</li>
-      <li><strong>商品架构升级</strong>：方案分组、组合商品、月历下放，治理 <span class="num">15+</span> 跨端差异场景</li>
+      <li data-i18n-html="s5.b1"></li>
+      <li data-i18n-html="s5.b2"></li>
+      <li data-i18n-html="s5.b3"></li>
+      <li data-i18n-html="s5.b4"></li>
     </ul>
   </section>
 
   <!-- 6 · stability -->
-  <section class="slide" aria-label="稳定性案例">
-    <div class="eyebrow">稳定性案例</div>
-    <h2>大面积故障救火 · 主救火窗口</h2>
+  <section class="slide" data-i18n-attr="aria-label:s6.aria">
+    <div class="eyebrow" data-i18n="s6.eyebrow">稳定性案例</div>
+    <h2 data-i18n="s6.h">大面积故障救火 · 主救火窗口</h2>
     <ul class="points">
-      <li><strong>根因定位</strong>：微服务依赖拖垮 PHP-FPM worker 池，App 宕机 15 分钟</li>
-      <li><strong>7 天完成 P0+P1 加固</strong>：超时优化 · 异常兜底 · Redis 轻量熔断器 · 双层 Kill Switch</li>
+      <li data-i18n-html="s6.b1"></li>
+      <li data-i18n-html="s6.b2"></li>
     </ul>
     <div class="ba">
-      <div class="cell"><div class="m">cart/validate p99</div><div class="val"><span class="from">25s+</span><span class="to">&lt; 2s</span></div></div>
-      <div class="cell"><div class="m">5xx 错误率</div><div class="val"><span class="from">0.05%</span><span class="to">&lt; 0.01%</span></div></div>
-      <div class="cell"><div class="m">iOS 下单白屏</div><div class="val"><span class="from">高频</span><span class="to">根治</span></div></div>
+      <div class="cell"><div class="m" data-i18n="s6.c1.m">cart/validate p99</div><div class="val"><span class="from">25s+</span><span class="to">&lt; 2s</span></div></div>
+      <div class="cell"><div class="m" data-i18n="s6.c2.m">5xx 错误率</div><div class="val"><span class="from">0.05%</span><span class="to">&lt; 0.01%</span></div></div>
+      <div class="cell"><div class="m" data-i18n="s6.c3.m">iOS 下单白屏</div><div class="val"><span class="from" data-i18n="s6.c3.from">高频</span><span class="to" data-i18n="s6.c3.to">根治</span></div></div>
     </div>
   </section>
 
   <!-- 7 · leadership -->
-  <section class="slide" aria-label="管理与领导力">
-    <div class="eyebrow">管理与领导力</div>
-    <h2>售前 CVR 增转专项组 · 组长</h2>
+  <section class="slide" data-i18n-attr="aria-label:s7.aria">
+    <div class="eyebrow" data-i18n="s7.eyebrow">管理与领导力</div>
+    <h2 data-i18n="s7.h">售前 CVR 增转专项组 · 组长</h2>
     <ul class="points">
-      <li>带领 <strong>6 人跨端小组</strong>（iOS / Android / Web / BE），直接对 PM 负责、承担小组共责</li>
-      <li>北极星指标：<strong class="num">CVR 1.2% → 1.8%（+50%）</strong>，等同营收结构性增长</li>
-      <li>机制建设：站会 · 1on1 · OKR 对齐 · 团队章程</li>
-      <li>统筹售前链路：商品页 → 购物车 → 订购页 全端体验与性能优化</li>
+      <li data-i18n-html="s7.b1"></li>
+      <li data-i18n-html="s7.b2"></li>
+      <li data-i18n-html="s7.b3"></li>
+      <li data-i18n-html="s7.b4"></li>
     </ul>
   </section>
 
   <!-- 8 · AI -->
-  <section class="slide" aria-label="AI 工程化">
-    <div class="eyebrow">AI 工程化 · 自驱项目</div>
-    <h2>把 AI 落进研发流程</h2>
+  <section class="slide" data-i18n-attr="aria-label:s8.aria">
+    <div class="eyebrow" data-i18n="s8.eyebrow">AI 工程化 · 自驱项目</div>
+    <h2 data-i18n="s8.h">把 AI 落进研发流程</h2>
     <ul class="points">
-      <li><strong>VM Health Center</strong>（TypeScript + Slack Bolt + Elasticsearch，独立开发）：团队作战看板 + 服务健康告警 + <strong>AI 根因分析</strong>，自动聚合 Jira / GitHub / Confluence 日报周报</li>
-      <li><strong>Maestro</strong>（TypeScript CLI）：编排 CodeRabbit / Copilot / Codex / Gemini 等<strong>多 AI 审查机器人的收敛层</strong>——分类 · 三层去重 · 自动修复 · 收敛监控</li>
-      <li><strong>Claude API 应用</strong>：8 语系 SEO slug 自动生成（hash 变更检测控费）、Git 工作流 AI 审查自动化</li>
+      <li data-i18n-html="s8.b1"></li>
+      <li data-i18n-html="s8.b2"></li>
+      <li data-i18n-html="s8.b3"></li>
     </ul>
   </section>
 
   <!-- 9 · skills -->
-  <section class="slide" aria-label="核心技能">
-    <div class="eyebrow">技能矩阵</div>
-    <h2>核心技能</h2>
+  <section class="slide" data-i18n-attr="aria-label:s9.aria">
+    <div class="eyebrow" data-i18n="s9.eyebrow">技能矩阵</div>
+    <h2 data-i18n="s9.h">核心技能</h2>
     <dl class="skills">
-      <dt>语言</dt><dd>PHP（精通，8 年+）、TypeScript / Node.js、Go、Shell</dd>
-      <dt>框架</dt><dd>Laravel / Hyperf / ThinkPHP、Gin / go-zero、Vue</dd>
-      <dt>数据中间件</dt><dd>MySQL、PostgreSQL、Redis、Elasticsearch、BigQuery、RabbitMQ、Kafka</dd>
-      <dt>云原生</dt><dd>Docker、Kubernetes、AWS / GCP Serverless、GitHub Actions、Grafana</dd>
-      <dt>架构</dt><dd>微服务、BFF、事件驱动、熔断限流与高可用设计</dd>
-      <dt>AI 工程</dt><dd>Claude API / Copilot SDK、AI Agent 工作流编排、AI 辅助研发流程</dd>
+      <dt data-i18n="s9.k1.k"></dt><dd data-i18n="s9.k1.v"></dd>
+      <dt data-i18n="s9.k2.k"></dt><dd data-i18n="s9.k2.v"></dd>
+      <dt data-i18n-html="s9.k3.k"></dt><dd data-i18n="s9.k3.v"></dd>
+      <dt data-i18n="s9.k4.k"></dt><dd data-i18n="s9.k4.v"></dd>
+      <dt data-i18n="s9.k5.k"></dt><dd data-i18n="s9.k5.v"></dd>
+      <dt data-i18n-html="s9.k6.k"></dt><dd data-i18n="s9.k6.v"></dd>
     </dl>
   </section>
 
   <!-- 10 · closing -->
-  <section class="slide" aria-label="联系方式与完整简历">
-    <div class="eyebrow">谢谢</div>
-    <h2>期待与你聊聊</h2>
+  <section class="slide" data-i18n-attr="aria-label:s10.aria">
+    <div class="eyebrow" data-i18n="s10.eyebrow">谢谢</div>
+    <h2 data-i18n="s10.h">期待与你聊聊</h2>
     <div class="links">
-      <a href="https://mikeah2011.github.io/cv/" target="_blank" rel="noopener"><span class="lk">📄 完整简历 · 在线阅读与下载</span><span class="lv">mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown</span></a>
-      <a href="https://github.com/mikeah2011" target="_blank" rel="noopener"><span class="lk">🔗 GitHub</span><span class="lv">github.com/mikeah2011</span></a>
-      <a href="https://mikeah2011.github.io" target="_blank" rel="noopener"><span class="lk">✍️ 技术博客</span><span class="lv">mikeah2011.github.io</span></a>
-      <a href="mailto:mikeah2011@gmail.com"><span class="lk">📧 邮箱</span><span class="lv">mikeah2011@gmail.com · 📱 +86 188-0196-3698</span></a>
+      <a href="https://mikeah2011.github.io/cv/" target="_blank" rel="noopener"><span class="lk" data-i18n="s10.l1.k"></span><span class="lv" data-i18n="s10.l1.v"></span></a>
+      <a href="https://github.com/mikeah2011" target="_blank" rel="noopener"><span class="lk" data-i18n="s10.l2.k"></span><span class="lv">github.com/mikeah2011</span></a>
+      <a href="https://mikeah2011.github.io" target="_blank" rel="noopener"><span class="lk" data-i18n="s10.l3.k"></span><span class="lv">mikeah2011.github.io</span></a>
+      <a href="mailto:mikeah2011@gmail.com"><span class="lk" data-i18n="s10.l4.k"></span><span class="lv">mikeah2011@gmail.com · 📱 +86 188-0196-3698</span></a>
     </div>
   </section>
 
@@ -274,53 +311,237 @@
 
 <div class="chrome">
   <span class="counter" id="counter">1 / 10</span>
-  <nav class="dots" id="dots" aria-label="幻灯片导航"></nav>
+  <nav class="dots" id="dots" data-i18n-attr="aria-label:nav.deck"></nav>
   <div class="navbtns">
-    <button id="prev" aria-label="上一页">←</button>
-    <button id="next" aria-label="下一页">→</button>
+    <button id="prev" data-i18n-attr="aria-label:nav.prev">←</button>
+    <button id="next" data-i18n-attr="aria-label:nav.next">→</button>
   </div>
 </div>
 
+<script src="assets/cv-ui.js"></script>
 <script>
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const dotsWrap = document.getElementById('dots');
-  const counter = document.getElementById('counter');
-  let cur = Math.min(Math.max(parseInt(location.hash.slice(1), 10) - 1 || 0, 0), slides.length - 1);
+var DECK_DICT = {
+'zh-CN': {
+  'html.title': '马成军 · 求职简报',
+  'name.main': '马成军', 'name.alt': 'Michael Ma', 'loc': '上海',
+  'nav.deck': '幻灯片导航', 'nav.prev': '上一页', 'nav.next': '下一页', 'nav.slide': '第 {n} 页',
+  's1.aria': '封面', 's1.eyebrow': '求职简报 · 2026', 's1.role': '资深后端工程师',
+  's1.sub': '13 年研发经验 · 高并发交易系统 · AI 工程化',
+  's2.aria': '关键数字', 's2.eyebrow': '一页看懂', 's2.h': '关键数字',
+  's2.t1.v': '13 年', 's2.t1.k': '后端研发经验（OTA / 电商 / MarTech）',
+  's2.t2.k': 'KKday 核心仓库提交（两仓第一贡献人）',
+  's2.t3.k': '全球联盟渠道串接（Google / Naver…）',
+  's2.t4.k': '故障救火后关键 API p99',
+  's2.t5.k': 'CVR 提升目标（专项组组长）',
+  's2.t6.v': '2 届', 's2.t6.k': 'KKday 年度优秀员工（2023、2024）',
+  's3.aria': '职业轨迹', 's3.eyebrow': '职业轨迹', 's3.h': '13 年，四段进阶',
+  's3.i1.t': '2013 – 2017', 's3.i1.co': '远丰科技集团 · 全栈开发', 's3.i1.what': '多商户 SaaS 电商（1 万+ 商家）· IM 系统（日消息 200 万+）',
+  's3.i2.t': '2017 – 2021', 's3.i2.co': '商派云起 Shopex · Lead Developer', 's3.i2.what': 'Apple 中国经销商平台（5 个月 GMV ¥100 亿）· 金番茄奖',
+  's3.i3.t': '2021 – 2022', 's3.i3.co': '径硕科技 JINGdigital · 资深后端', 's3.i3.what': 'MarTech/SCRM 微服务矩阵（10+ 服务）· 埋点追踪主责',
+  's3.i4.t': '2022 – 至今', 's3.i4.co': 'KKday · 资深后端工程师', 's3.i4.what': '联盟营销平台负责人 → B2C 交易链路 → CVR 专项组组长',
+  's4.aria': '联盟营销平台', 's4.eyebrow': 'KKday · 2022.11 – 2025.03', 's4.h': '联盟营销平台负责人',
+  's4.b1': '两大核心服务<strong>第一贡献人</strong>：affiliate-service <span class="num">2117</span> 次提交（占 <span class="num">56%</span>）+ affiliate-api <span class="num">1077</span> 次，承担 Code Owner 职责',
+  's4.b2': '<strong>Google 官方渠道</strong>：Things To Do 商品 Feeds、POI Ranking、Transit 欧铁路线同步',
+  's4.b3': '串接 ShopBack、美安、亚洲万里通、Naver Shopping 等 <span class="num">10+</span> 异业渠道',
+  's4.b4': '自研<strong>分润结算系统</strong>：规则引擎 + 月度结算重刷 + BigQuery 归因',
+  's4.callout': '联盟业务年同比增长 <strong class="num">200%</strong>，API 延迟下降 <strong class="num">65%</strong>（120ms → 35ms）',
+  's5.aria': 'B2C 交易链路', 's5.eyebrow': 'KKday · 2025.02 – 至今', 's5.h': 'B2C 核心交易链路',
+  's5.b1': '<strong>USJ 订单改期</strong>：跨 4 服务改造、主笔 <span class="num">7</span> 份 SA/SD，「权益继承、条件重审」决策表四方一次对齐，保障 TOP 供应商续约',
+  's5.b2': '<strong>GYG B2B 动态变价</strong>：商品列表 → 订单全链路动价，低版本 App 保护机制',
+  's5.b3': '<strong>订购页改版</strong>：多规格×多旅客映射透传，上线 <span class="num">0</span> P0/P1 流出',
+  's5.b4': '<strong>商品架构升级</strong>：方案分组、组合商品、月历下放，治理 <span class="num">15+</span> 跨端差异场景',
+  's6.aria': '稳定性案例', 's6.eyebrow': '稳定性案例', 's6.h': '大面积故障救火 · 主救火窗口',
+  's6.b1': '<strong>根因定位</strong>：微服务依赖拖垮 PHP-FPM worker 池，App 宕机 15 分钟',
+  's6.b2': '<strong>7 天完成 P0+P1 加固</strong>：超时优化 · 异常兜底 · Redis 轻量熔断器 · 双层 Kill Switch',
+  's6.c1.m': 'cart/validate p99', 's6.c2.m': '5xx 错误率', 's6.c3.m': 'iOS 下单白屏',
+  's6.c3.from': '高频', 's6.c3.to': '根治',
+  's7.aria': '管理与领导力', 's7.eyebrow': '管理与领导力', 's7.h': '售前 CVR 增转专项组 · 组长',
+  's7.b1': '带领 <strong>6 人跨端小组</strong>（iOS / Android / Web / BE），直接对 PM 负责、承担小组共责',
+  's7.b2': '北极星指标：<strong class="num">CVR 1.2% → 1.8%（+50%）</strong>，等同营收结构性增长',
+  's7.b3': '机制建设：站会 · 1on1 · OKR 对齐 · 团队章程',
+  's7.b4': '统筹售前链路：商品页 → 购物车 → 订购页 全端体验与性能优化',
+  's8.aria': 'AI 工程化', 's8.eyebrow': 'AI 工程化 · 自驱项目', 's8.h': '把 AI 落进研发流程',
+  's8.b1': '<strong>VM Health Center</strong>（TypeScript + Slack Bolt + Elasticsearch，独立开发）：团队作战看板 + 服务健康告警 + <strong>AI 根因分析</strong>，自动聚合 Jira / GitHub / Confluence 日报周报',
+  's8.b2': '<strong>Maestro</strong>（TypeScript CLI）：编排 CodeRabbit / Copilot / Codex / Gemini 等<strong>多 AI 审查机器人的收敛层</strong>——分类 · 三层去重 · 自动修复 · 收敛监控',
+  's8.b3': '<strong>Claude API 应用</strong>：8 语系 SEO slug 自动生成（hash 变更检测控费）、Git 工作流 AI 审查自动化',
+  's9.aria': '核心技能', 's9.eyebrow': '技能矩阵', 's9.h': '核心技能',
+  's9.k1.k': '语言', 's9.k1.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go、Shell',
+  's9.k2.k': '框架', 's9.k2.v': 'Laravel / Hyperf / ThinkPHP、Gin / go-zero、Vue',
+  's9.k3.k': '数据 &amp; 中间件', 's9.k3.v': 'MySQL、PostgreSQL、Redis、Elasticsearch、BigQuery、RabbitMQ、Kafka',
+  's9.k4.k': '云原生', 's9.k4.v': 'Docker、Kubernetes、AWS / GCP Serverless、GitHub Actions、Grafana',
+  's9.k5.k': '架构', 's9.k5.v': '微服务、BFF、事件驱动、熔断限流与高可用设计',
+  's9.k6.k': 'AI &amp; 工程', 's9.k6.v': 'Claude API / Copilot SDK、AI Agent 工作流编排、AI 辅助研发流程',
+  's10.aria': '联系方式与完整简历', 's10.eyebrow': '谢谢', 's10.h': '期待与你聊聊',
+  's10.l1.k': '📄 完整简历 · 在线阅读与下载', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
+  's10.l2.k': '🔗 GitHub', 's10.l3.k': '✍️ 技术博客', 's10.l4.k': '📧 邮箱'
+},
 
-  slides.forEach((s, i) => {
-    const d = document.createElement('button');
-    d.className = 'dot';
-    d.setAttribute('aria-label', '第 ' + (i + 1) + ' 页：' + (s.getAttribute('aria-label') || ''));
-    d.addEventListener('click', () => go(i));
-    dotsWrap.appendChild(d);
+'zh-TW': {
+  'html.title': '馬成軍 · 求職簡報',
+  'name.main': '馬成軍', 'name.alt': 'Michael Ma', 'loc': '上海',
+  'nav.deck': '投影片導覽', 'nav.prev': '上一頁', 'nav.next': '下一頁', 'nav.slide': '第 {n} 頁',
+  's1.aria': '封面', 's1.eyebrow': '求職簡報 · 2026', 's1.role': '資深後端工程師',
+  's1.sub': '13 年研發經驗 · 高並發交易系統 · AI 工程化',
+  's2.aria': '關鍵數字', 's2.eyebrow': '一頁看懂', 's2.h': '關鍵數字',
+  's2.t1.v': '13 年', 's2.t1.k': '後端研發經驗（OTA / 電商 / MarTech）',
+  's2.t2.k': 'KKday 核心儲存庫提交（兩庫首要貢獻者）',
+  's2.t3.k': '全球聯盟通路串接（Google / Naver…）',
+  's2.t4.k': '故障搶救後關鍵 API p99',
+  's2.t5.k': 'CVR 提升目標（專案組組長）',
+  's2.t6.v': '2 屆', 's2.t6.k': 'KKday 年度優秀員工（2023、2024）',
+  's3.aria': '職涯軌跡', 's3.eyebrow': '職涯軌跡', 's3.h': '13 年，四段進階',
+  's3.i1.t': '2013 – 2017', 's3.i1.co': '遠豐科技集團 · 全端開發', 's3.i1.what': '多商戶 SaaS 電商（1 萬+ 商家）· IM 系統（日訊息 200 萬+）',
+  's3.i2.t': '2017 – 2021', 's3.i2.co': '商派雲起 Shopex · Lead Developer', 's3.i2.what': 'Apple 中國經銷商平台（5 個月 GMV ¥100 億）· 金番茄獎',
+  's3.i3.t': '2021 – 2022', 's3.i3.co': '徑碩科技 JINGdigital · 資深後端', 's3.i3.what': 'MarTech/SCRM 微服務矩陣（10+ 服務）· 埋點追蹤主責',
+  's3.i4.t': '2022 – 至今', 's3.i4.co': 'KKday · 資深後端工程師', 's3.i4.what': '聯盟行銷平台負責人 → B2C 交易鏈路 → CVR 專案組組長',
+  's4.aria': '聯盟行銷平台', 's4.eyebrow': 'KKday · 2022.11 – 2025.03', 's4.h': '聯盟行銷平台負責人',
+  's4.b1': '兩大核心服務<strong>首要貢獻者</strong>：affiliate-service <span class="num">2117</span> 次提交（占 <span class="num">56%</span>）+ affiliate-api <span class="num">1077</span> 次，擔任 Code Owner',
+  's4.b2': '<strong>Google 官方通路</strong>：Things To Do 商品 Feeds、POI Ranking、Transit 歐鐵路線同步',
+  's4.b3': '串接 ShopBack、美安、亞洲萬里通、Naver Shopping 等 <span class="num">10+</span> 異業通路',
+  's4.b4': '自研<strong>分潤結算系統</strong>：規則引擎 + 月度結算重跑 + BigQuery 歸因',
+  's4.callout': '聯盟業務年增長 <strong class="num">200%</strong>，API 延遲降低 <strong class="num">65%</strong>（120ms → 35ms）',
+  's5.aria': 'B2C 交易鏈路', 's5.eyebrow': 'KKday · 2025.02 – 至今', 's5.h': 'B2C 核心交易鏈路',
+  's5.b1': '<strong>USJ 訂單改期</strong>：跨 4 服務改造、主筆 <span class="num">7</span> 份 SA/SD，「權益繼承、條件重審」決策表四方一次對齊，確保 TOP 供應商續約',
+  's5.b2': '<strong>GYG B2B 動態變價</strong>：商品列表 → 訂單全鏈路動價，低版本 App 保護機制',
+  's5.b3': '<strong>訂購頁改版</strong>：多規格×多旅客映射透傳，上線 <span class="num">0</span> P0/P1 流出',
+  's5.b4': '<strong>商品架構升級</strong>：方案分組、組合商品、月曆下放，治理 <span class="num">15+</span> 跨端差異情境',
+  's6.aria': '穩定性案例', 's6.eyebrow': '穩定性案例', 's6.h': '大規模故障搶救 · 主要搶救窗口',
+  's6.b1': '<strong>根因定位</strong>：微服務相依拖垮 PHP-FPM worker 池，App 當機 15 分鐘',
+  's6.b2': '<strong>7 天完成 P0+P1 強化</strong>：逾時優化 · 例外兜底 · Redis 輕量熔斷器 · 雙層 Kill Switch',
+  's6.c1.m': 'cart/validate p99', 's6.c2.m': '5xx 錯誤率', 's6.c3.m': 'iOS 下單白屏',
+  's6.c3.from': '高頻', 's6.c3.to': '根治',
+  's7.aria': '管理與領導力', 's7.eyebrow': '管理與領導力', 's7.h': '售前 CVR 增轉專案組 · 組長',
+  's7.b1': '帶領 <strong>6 人跨端小組</strong>（iOS / Android / Web / BE），直接向 PM 負責、承擔小組共責',
+  's7.b2': '北極星指標：<strong class="num">CVR 1.2% → 1.8%（+50%）</strong>，等同營收結構性增長',
+  's7.b3': '機制建設：站立會議 · 1on1 · OKR 對齊 · 團隊章程',
+  's7.b4': '統籌售前鏈路：商品頁 → 購物車 → 訂購頁 全端體驗與效能優化',
+  's8.aria': 'AI 工程化', 's8.eyebrow': 'AI 工程化 · 自主專案', 's8.h': '把 AI 落進研發流程',
+  's8.b1': '<strong>VM Health Center</strong>（TypeScript + Slack Bolt + Elasticsearch，獨立開發）：團隊作戰看板 + 服務健康告警 + <strong>AI 根因分析</strong>，自動彙整 Jira / GitHub / Confluence 日報週報',
+  's8.b2': '<strong>Maestro</strong>（TypeScript CLI）：編排 CodeRabbit / Copilot / Codex / Gemini 等<strong>多 AI 審查機器人的收斂層</strong>——分類 · 三層去重 · 自動修復 · 收斂監控',
+  's8.b3': '<strong>Claude API 應用</strong>：8 語系 SEO slug 自動產生（hash 變更偵測控管費用）、Git 工作流 AI 審查自動化',
+  's9.aria': '核心技能', 's9.eyebrow': '技能矩陣', 's9.h': '核心技能',
+  's9.k1.k': '語言', 's9.k1.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go、Shell',
+  's9.k2.k': '框架', 's9.k2.v': 'Laravel / Hyperf / ThinkPHP、Gin / go-zero、Vue',
+  's9.k3.k': '資料 &amp; 中介軟體', 's9.k3.v': 'MySQL、PostgreSQL、Redis、Elasticsearch、BigQuery、RabbitMQ、Kafka',
+  's9.k4.k': '雲原生', 's9.k4.v': 'Docker、Kubernetes、AWS / GCP Serverless、GitHub Actions、Grafana',
+  's9.k5.k': '架構', 's9.k5.v': '微服務、BFF、事件驅動、熔斷限流與高可用設計',
+  's9.k6.k': 'AI &amp; 工程', 's9.k6.v': 'Claude API / Copilot SDK、AI Agent 工作流編排、AI 輔助研發流程',
+  's10.aria': '聯絡方式與完整履歷', 's10.eyebrow': '謝謝', 's10.h': '期待與你聊聊',
+  's10.l1.k': '📄 完整履歷 · 線上閱讀與下載', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
+  's10.l2.k': '🔗 GitHub', 's10.l3.k': '✍️ 技術部落格', 's10.l4.k': '📧 郵箱'
+},
+
+'en': {
+  'html.title': 'Michael Ma · Career Deck',
+  'name.main': 'Michael Ma', 'name.alt': '马成军', 'loc': 'Shanghai',
+  'nav.deck': 'Slide navigation', 'nav.prev': 'Previous slide', 'nav.next': 'Next slide', 'nav.slide': 'Slide {n}',
+  's1.aria': 'Cover', 's1.eyebrow': 'CAREER DECK · 2026', 's1.role': 'Senior Backend Engineer',
+  's1.sub': '13 years of experience · High-concurrency transaction systems · AI engineering',
+  's2.aria': 'Key numbers', 's2.eyebrow': 'AT A GLANCE', 's2.h': 'Key Numbers',
+  's2.t1.v': '13 yrs', 's2.t1.k': 'Backend engineering (OTA / e-commerce / MarTech)',
+  's2.t2.k': 'Commits to KKday’s core repositories (top contributor on both)',
+  's2.t3.k': 'Global affiliate channels integrated (Google / Naver…)',
+  's2.t4.k': 'Critical API p99 after incident response',
+  's2.t5.k': 'Conversion-rate target (as task-force lead)',
+  's2.t6.v': '2×', 's2.t6.k': 'KKday Employee of the Year (2023, 2024)',
+  's3.aria': 'Career trajectory', 's3.eyebrow': 'CAREER TRAJECTORY', 's3.h': '13 Years, Four Chapters',
+  's3.i1.t': '2013 – 2017', 's3.i1.co': 'Yuanfeng Technology Group · Full-Stack', 's3.i1.what': 'Multi-merchant SaaS e-commerce (10,000+ merchants) · IM system (2M+ daily messages)',
+  's3.i2.t': '2017 – 2021', 's3.i2.co': 'Shopex · Lead Developer', 's3.i2.what': 'Apple China reseller platform (¥10B GMV in 5 months) · Golden Tomato Award',
+  's3.i3.t': '2021 – 2022', 's3.i3.co': 'JINGdigital · Senior Backend', 's3.i3.what': 'MarTech/SCRM microservice suite (10+ services) · owned event tracking',
+  's3.i4.t': '2022 – Present', 's3.i4.co': 'KKday · Senior Backend Engineer', 's3.i4.what': 'Affiliate platform owner → B2C transaction flow → Conversion task-force lead',
+  's4.aria': 'Affiliate marketing platform', 's4.eyebrow': 'KKDAY · 2022.11 – 2025.03', 's4.h': 'Affiliate Marketing Platform Owner',
+  's4.b1': '<strong>Top contributor</strong> on two core services: affiliate-service, <span class="num">2,117</span> commits (<span class="num">56%</span> of total) + affiliate-api, <span class="num">1,077</span> commits — serving as Code Owner',
+  's4.b2': '<strong>Official Google integrations</strong>: Things To Do product feeds, POI ranking, Google Transit European rail sync',
+  's4.b3': 'Integrated <span class="num">10+</span> affiliate channels including ShopBack, Market America, Asia Miles and Naver Shopping',
+  's4.b4': 'Designed the <strong>commission settlement system</strong>: rules engine + monthly re-runnable settlement + BigQuery attribution',
+  's4.callout': 'Affiliate revenue grew <strong class="num">200%</strong> YoY; API latency down <strong class="num">65%</strong> (120ms → 35ms)',
+  's5.aria': 'B2C transaction flow', 's5.eyebrow': 'KKDAY · 2025.02 – PRESENT', 's5.h': 'B2C Core Transaction Flow',
+  's5.b1': '<strong>USJ booking-date changes</strong>: re-architected across 4 services, authored <span class="num">7</span> SA/SD docs; a single cross-team decision table secured a top-tier supplier renewal',
+  's5.b2': '<strong>GYG B2B dynamic pricing</strong>: end-to-end pricing from listings to checkout, with a legacy-app safeguard',
+  's5.b3': '<strong>Checkout rebuild</strong>: many-to-many SKU-to-traveler mapping, shipped with <span class="num">zero</span> P0/P1 escapes',
+  's5.b4': '<strong>Product architecture upgrade</strong>: package grouping, bundles, calendar delegation — resolved <span class="num">15+</span> cross-platform inconsistencies',
+  's6.aria': 'Reliability case study', 's6.eyebrow': 'RELIABILITY CASE STUDY', 's6.h': 'Major Outage Response · Incident Lead',
+  's6.b1': '<strong>Root cause</strong>: a microservice dependency exhausted the PHP-FPM worker pool, taking the app down for 15 minutes',
+  's6.b2': '<strong>P0+P1 hardening in 7 days</strong>: timeout tuning · exception fallbacks · a lightweight Redis circuit breaker · two-tier kill switch',
+  's6.c1.m': 'cart/validate p99', 's6.c2.m': '5xx error rate', 's6.c3.m': 'iOS checkout white-screen',
+  's6.c3.from': 'Frequent', 's6.c3.to': 'Eliminated',
+  's7.aria': 'Leadership', 's7.eyebrow': 'LEADERSHIP', 's7.h': 'Lead, Pre-Purchase Conversion Task Force',
+  's7.b1': 'Leading a <strong>6-person cross-platform team</strong> (iOS / Android / Web / Backend), reporting directly to the PM with shared accountability',
+  's7.b2': 'North-star metric: <strong class="num">CVR 1.2% → 1.8% (+50%)</strong> — a structural revenue lift',
+  's7.b3': 'Built the operating rhythm: standups · 1-on-1s · OKR alignment · a team charter',
+  's7.b4': 'Coordinating the full pre-purchase funnel — product page → cart → checkout — for experience and performance',
+  's8.aria': 'AI engineering', 's8.eyebrow': 'AI ENGINEERING · SELF-INITIATED', 's8.h': 'Putting AI Into the Engineering Workflow',
+  's8.b1': '<strong>VM Health Center</strong> (TypeScript + Slack Bolt + Elasticsearch, built solo): a team dashboard and service-health monitor with <strong>AI root-cause analysis</strong>, aggregating Jira / GitHub / Confluence into daily and weekly reports',
+  's8.b2': '<strong>Maestro</strong> (TypeScript CLI): a <strong>convergence layer for multiple AI review bots</strong> — CodeRabbit / Copilot / Codex / Gemini — with classification, three-stage dedup, auto-fix and convergence monitoring',
+  's8.b3': '<strong>Claude API applications</strong>: automated SEO slug generation across 8 locales with hash-based cost control, and a Git workflow AI-review automation system',
+  's9.aria': 'Core skills', 's9.eyebrow': 'SKILL MATRIX', 's9.h': 'Core Skills',
+  's9.k1.k': 'Languages', 's9.k1.v': 'PHP (expert, 8+ yrs), TypeScript / Node.js, Go, Shell',
+  's9.k2.k': 'Frameworks', 's9.k2.v': 'Laravel / Hyperf / ThinkPHP, Gin / go-zero, Vue',
+  's9.k3.k': 'Data &amp; Messaging', 's9.k3.v': 'MySQL, PostgreSQL, Redis, Elasticsearch, BigQuery, RabbitMQ, Kafka',
+  's9.k4.k': 'Cloud Native', 's9.k4.v': 'Docker, Kubernetes, AWS / GCP Serverless, GitHub Actions, Grafana',
+  's9.k5.k': 'Architecture', 's9.k5.v': 'Microservices, BFF, event-driven design, circuit breaking & rate limiting',
+  's9.k6.k': 'AI &amp; Tooling', 's9.k6.v': 'Claude API / Copilot SDK, AI agent workflow orchestration, AI-assisted engineering',
+  's10.aria': 'Contact and full résumé', 's10.eyebrow': 'THANK YOU', 's10.h': 'Let’s Talk',
+  's10.l1.k': '📄 Full Résumé · Read & Download', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
+  's10.l2.k': '🔗 GitHub', 's10.l3.k': '✍️ Tech Blog', 's10.l4.k': '📧 Email'
+}
+};
+
+// These lookups and function definitions must exist BEFORE CVUI.init() runs:
+// init() synchronously applies the initial language, which fires the
+// onLang callback (refreshDots) immediately — if dotsWrap/slides were still
+// unassigned `var` hoists at that point, buildDots() would crash.
+var slides = Array.from(document.querySelectorAll('.slide'));
+var dotsWrap = document.getElementById('dots');
+var counter = document.getElementById('counter');
+var cur = Math.min(Math.max(parseInt(location.hash.slice(1), 10) - 1 || 0, 0), slides.length - 1);
+var dots = [];
+
+function buildDots() {
+  dotsWrap.innerHTML = '';
+  var lang = document.documentElement.getAttribute('lang') || 'zh-CN';
+  var d = DECK_DICT[lang] || DECK_DICT['zh-CN'];
+  slides.forEach(function (s, i) {
+    var b = document.createElement('button');
+    b.className = 'dot' + (i === cur ? ' on' : '');
+    b.setAttribute('aria-label', (d['nav.slide'] || 'Slide {n}').replace('{n}', i + 1));
+    b.addEventListener('click', function () { go(i); });
+    dotsWrap.appendChild(b);
   });
-  const dots = Array.from(dotsWrap.children);
+  dots = Array.from(dotsWrap.children);
+}
 
-  function go(i) {
-    cur = (i + slides.length) % slides.length;
-    slides.forEach((s, j) => s.classList.toggle('active', j === cur));
-    dots.forEach((d, j) => d.classList.toggle('on', j === cur));
-    counter.textContent = (cur + 1) + ' / ' + slides.length;
-    history.replaceState(null, '', '#' + (cur + 1));
-  }
+function refreshDots() { buildDots(); }
 
-  document.getElementById('prev').addEventListener('click', () => go(cur - 1));
-  document.getElementById('next').addEventListener('click', () => go(cur + 1));
-  document.addEventListener('keydown', (e) => {
-    if (['ArrowRight', 'ArrowDown', ' ', 'PageDown'].includes(e.key)) { e.preventDefault(); go(cur + 1); }
-    if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); go(cur - 1); }
-    if (e.key === 'Home') go(0);
-    if (e.key === 'End') go(slides.length - 1);
-  });
+function go(i) {
+  cur = (i + slides.length) % slides.length;
+  slides.forEach(function (s, j) { s.classList.toggle('active', j === cur); });
+  dots.forEach(function (d, j) { d.classList.toggle('on', j === cur); });
+  counter.textContent = (cur + 1) + ' / ' + slides.length;
+  history.replaceState(null, '', '#' + (cur + 1));
+}
 
-  let touchX = null;
-  document.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
-  document.addEventListener('touchend', (e) => {
-    if (touchX === null) return;
-    const dx = e.changedTouches[0].clientX - touchX;
-    if (Math.abs(dx) > 48) go(cur + (dx < 0 ? 1 : -1));
-    touchX = null;
-  }, { passive: true });
+var current = CVUI.init(DECK_DICT, { onLang: refreshDots });
 
-  go(cur);
+document.getElementById('prev').addEventListener('click', function () { go(cur - 1); });
+document.getElementById('next').addEventListener('click', function () { go(cur + 1); });
+document.addEventListener('keydown', function (e) {
+  if (['ArrowRight', 'ArrowDown', ' ', 'PageDown'].indexOf(e.key) > -1) { e.preventDefault(); go(cur + 1); }
+  if (['ArrowLeft', 'ArrowUp', 'PageUp'].indexOf(e.key) > -1) { e.preventDefault(); go(cur - 1); }
+  if (e.key === 'Home') go(0);
+  if (e.key === 'End') go(slides.length - 1);
+});
+
+var touchX = null;
+document.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+document.addEventListener('touchend', function (e) {
+  if (touchX === null) return;
+  var dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 48) go(cur + (dx < 0 ? 1 : -1));
+  touchX = null;
+}, { passive: true });
+
+go(cur);
 </script>
+</body>
+</html>
