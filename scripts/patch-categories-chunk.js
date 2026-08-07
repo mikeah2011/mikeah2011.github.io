@@ -156,6 +156,8 @@ const CATEGORIES_JS = `
 })();
 `;
 
+function main() {
+
 const categoriesJsPath = path.join(PUBLIC_DIR, 'static', 'js', 'categories.js');
 fs.writeFileSync(categoriesJsPath, CATEGORIES_JS.trim(), 'utf8');
 console.log('Written: categories.js');
@@ -208,4 +210,19 @@ if (fs.existsSync(src404) && !fs.existsSync(dst404)) {
   console.log('Skip 404 copy: already exists at root');
 } else {
   console.log('WARNING: /page/404.html not found');
+}
+
+}
+
+/*
+ * Hexo auto-requires every file under scripts/ as a plugin at startup. This
+ * file is not a Hexo plugin — it is a standalone post-build step invoked as
+ * `node scripts/patch-categories-chunk.js` (see the `build` npm script), and
+ * it writes into public/. When Hexo required it before public/ existed, the
+ * top-level writeFileSync threw ENOENT and Hexo logged a misleading
+ * "Script load failed" error, even though the real run later succeeded.
+ * Guarding on require.main keeps the plugin load a no-op.
+ */
+if (require.main === module) {
+  main();
 }
