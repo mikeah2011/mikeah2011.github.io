@@ -9,13 +9,22 @@
  * Usage:
  *   <div data-cv-toolbar></div>
  *   <script src="assets/cv-ui.js"></script>
- *   <script>CVUI.init(DICT)</script>
+ *   <script>CVUI.init(DICT, { files: FILES })</script>
  *
  * Dictionary shape: { 'zh-CN': {key: value}, 'zh-TW': {...}, 'en': {...} }
  * Markup hooks:
  *   data-i18n="key"       → textContent
  *   data-i18n-html="key"  → innerHTML (for strings carrying <strong>/<span>)
  *   data-i18n-attr="attr:key,attr:key"
+ *
+ * File-resource hooks (downloads that actually differ per language/theme,
+ * not just a relabeled link to the same file):
+ *   data-cv-file="key"         on the <a> — href swaps on language/theme change
+ *   data-cv-file-desc          on a descendant — its text becomes the resource's desc
+ * `options.files` shape: { key: { lang: {href, desc} | {dark: {href,desc}, light: {href,desc}} } }
+ * A resource with dark/light sub-keys switches with the theme toggle (falling
+ * back to the OS preference while the toggle is on "system"); a flat
+ * {href, desc} resource is language-only.
  */
 (function (global) {
   'use strict';
@@ -71,6 +80,11 @@
 
   function CVUI() {}
 
+  function effectiveTheme(mode) {
+    if (mode !== 'system') return mode;
+    return global.matchMedia && global.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
   CVUI.init = function (dict, options) {
     var opts = options || {};
     var root = document.documentElement;
@@ -79,7 +93,23 @@
 
     var langBtns = [].slice.call(document.querySelectorAll('[data-cv-lang]'));
     var themeBtn = document.querySelector('[data-cv-theme-btn]');
+    var fileEls = [].slice.call(document.querySelectorAll('[data-cv-file]'));
     var current = { lang: detectLang(), theme: store.get(THEME_KEY) || 'system' };
+
+    function applyFiles() {
+      if (!opts.files || !fileEls.length) return;
+      var theme = effectiveTheme(current.theme);
+      fileEls.forEach(function (el) {
+        var res = (opts.files[el.getAttribute('data-cv-file')] || {})[current.lang];
+        if (!res) return;
+        var entry = res.dark || res.light ? (res[theme] || res.dark || res.light) : res;
+        if (entry.href) el.setAttribute('href', entry.href);
+        if (entry.desc) {
+          var desc = el.querySelector('[data-cv-file-desc]');
+          if (desc) desc.textContent = entry.desc;
+        }
+      });
+    }
 
     function applyLang(lang) {
       var d = dict[lang] || dict['zh-CN'] || {};
@@ -110,6 +140,7 @@
         b.setAttribute('aria-pressed', String(b.getAttribute('data-cv-lang') === lang));
       });
       renderThemeBtn(); // the hint text ("主题：浅色…") is language-specific
+      applyFiles();
       if (typeof opts.onLang === 'function') opts.onLang(lang);
     }
 
@@ -127,6 +158,7 @@
       if (mode === 'system') root.removeAttribute('data-theme');
       else root.setAttribute('data-theme', mode);
       renderThemeBtn();
+      applyFiles();
       if (typeof opts.onTheme === 'function') opts.onTheme(mode);
     }
 
@@ -148,6 +180,14 @@
       if (e.key === LANG_KEY && e.newValue) applyLang(e.newValue);
       if (e.key === THEME_KEY && e.newValue) applyTheme(e.newValue);
     });
+
+    // While the toggle is on "system", an OS-level light/dark switch should
+    // still swap themed file links even though no explicit applyTheme() runs.
+    if (global.matchMedia) {
+      global.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+        if (current.theme === 'system') applyFiles();
+      });
+    }
 
     applyLang(current.lang);
     applyTheme(current.theme);
