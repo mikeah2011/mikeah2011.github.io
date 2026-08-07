@@ -165,12 +165,16 @@ const indexPath = path.join(PUBLIC_DIR, 'index.html');
 if (fs.existsSync(indexPath)) {
   const scriptTag = '<script src="/static/js/categories.js"></script>';
 
+  // Standalone static pages that are not part of the Aurora SPA.
+  const SKIP_DIRS = new Set(['cv']);
+
   // Find all index.html files in public/
   function findHtmlFiles(dir) {
     let results = [];
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const full = path.join(dir, entry.name);
       if (entry.isDirectory()) {
+        if (dir === PUBLIC_DIR && SKIP_DIRS.has(entry.name)) continue;
         results = results.concat(findHtmlFiles(full));
       } else if (entry.name === 'index.html') {
         results.push(full);
