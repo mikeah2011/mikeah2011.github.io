@@ -72,6 +72,10 @@
   .cover .latin { font-size: clamp(15px, 2.4vw, 26px); color: var(--muted); font-weight: 400; margin-left: 0.4em; }
   .cover .role { margin-top: clamp(12px, 2.5vh, 22px); font-size: clamp(19px, 3vw, 32px); font-weight: 600; color: var(--accent); }
   .cover .contact { margin-top: clamp(18px, 5vh, 44px); font-size: clamp(12.5px, 1.6vw, 16px); color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 22px; }
+  .cover .contact span, .cover .contact a { display: inline-flex; align-items: center; gap: 6px; }
+  .cover .contact a { color: inherit; text-decoration: none; }
+  .cover .contact a:hover, .cover .contact a:focus-visible { color: var(--accent); outline: none; }
+  .cover .contact svg { width: 15px; height: 15px; flex: none; color: var(--brand, currentColor); }
 
   .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.6vw, 18px); }
   .tile {
@@ -129,7 +133,8 @@
     display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
   }
   .links a:hover, .links a:focus-visible { border-color: var(--accent); outline: none; }
-  .links .lk { color: var(--accent); font-weight: 700; white-space: nowrap; }
+  .links .lk { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); font-weight: 700; white-space: nowrap; }
+  .links .lk svg { width: 19px; height: 19px; flex: none; color: var(--brand, currentColor); }
   .links .lv { color: var(--muted); font-size: 0.85em; word-break: break-all; }
 
   .toolbar {
@@ -185,10 +190,18 @@
     <div class="role" data-i18n="s1.role">资深后端工程师</div>
     <p class="sub" data-i18n="s1.sub">13 年研发经验 · 高并发交易系统 · AI 工程化</p>
     <div class="contact">
-      <span>📧 mikeah2011@gmail.com</span>
-      <span class="num">📱 +86 188-0196-3698</span>
-      <span>📍 <span data-i18n="loc">上海</span></span>
-      <span>🔗 github.com/mikeah2011</span>
+      <a href="mailto:mikeah2011@gmail.com" style="--brand:#EA4335">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+        mikeah2011@gmail.com</a>
+      <a class="num" href="tel:+8618801963698">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><path d="M10.5 18.5h3"/></svg>
+        +86 188-0196-3698</a>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10.5" r="2.6"/></svg>
+        <span data-i18n="loc">上海</span></span>
+      <a href="https://github.com/mikeah2011" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        github.com/mikeah2011</a>
     </div>
   </section>
 
@@ -300,10 +313,18 @@
     <div class="eyebrow" data-i18n="s10.eyebrow">谢谢</div>
     <h2 data-i18n="s10.h">期待与你聊聊</h2>
     <div class="links">
-      <a href="https://mikeah2011.github.io/cv/" target="_blank" rel="noopener"><span class="lk" data-i18n="s10.l1.k"></span><span class="lv" data-i18n="s10.l1.v"></span></a>
-      <a href="https://github.com/mikeah2011" target="_blank" rel="noopener"><span class="lk" data-i18n="s10.l2.k"></span><span class="lv">github.com/mikeah2011</span></a>
-      <a href="https://mikeah2011.github.io" target="_blank" rel="noopener"><span class="lk" data-i18n="s10.l3.k"></span><span class="lv">mikeah2011.github.io</span></a>
-      <a href="mailto:mikeah2011@gmail.com"><span class="lk" data-i18n="s10.l4.k"></span><span class="lv">mikeah2011@gmail.com · 📱 +86 188-0196-3698</span></a>
+      <a href="https://mikeah2011.github.io/cv/" target="_blank" rel="noopener">
+        <span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h4.5"/></svg><span data-i18n="s10.l1.k"></span></span>
+        <span class="lv" data-i18n="s10.l1.v"></span></a>
+      <a href="https://github.com/mikeah2011" target="_blank" rel="noopener">
+        <span class="lk"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span data-i18n="s10.l2.k"></span></span>
+        <span class="lv">github.com/mikeah2011</span></a>
+      <a href="https://mikeah2011.github.io" target="_blank" rel="noopener" style="--brand:#e08a2e">
+        <span class="lk"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5A1.5 1.5 0 0 0 3 5v14a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 19V5a1.5 1.5 0 0 0-1.5-1.5h-15zM7 7.5h10v2H7v-2zm0 4h10v2H7v-2zm0 4h6.5v2H7v-2z"/></svg><span data-i18n="s10.l3.k"></span></span>
+        <span class="lv">mikeah2011.github.io</span></a>
+      <a href="mailto:mikeah2011@gmail.com" style="--brand:#EA4335">
+        <span class="lk"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg><span data-i18n="s10.l4.k"></span></span>
+        <span class="lv">mikeah2011@gmail.com · +86 188-0196-3698</span></a>
     </div>
   </section>
 
@@ -372,8 +393,8 @@ var DECK_DICT = {
   's9.k5.k': '架构', 's9.k5.v': '微服务、BFF、事件驱动、熔断限流与高可用设计',
   's9.k6.k': 'AI &amp; 工程', 's9.k6.v': 'Claude API / Copilot SDK、AI Agent 工作流编排、AI 辅助研发流程',
   's10.aria': '联系方式与完整简历', 's10.eyebrow': '谢谢', 's10.h': '期待与你聊聊',
-  's10.l1.k': '📄 完整简历 · 在线阅读与下载', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
-  's10.l2.k': '🔗 GitHub', 's10.l3.k': '✍️ 技术博客', 's10.l4.k': '📧 邮箱'
+  's10.l1.k': '完整简历 · 在线阅读与下载', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
+  's10.l2.k': 'GitHub', 's10.l3.k': '技术博客', 's10.l4.k': '邮箱'
 },
 
 'zh-TW': {
@@ -427,8 +448,8 @@ var DECK_DICT = {
   's9.k5.k': '架構', 's9.k5.v': '微服務、BFF、事件驅動、熔斷限流與高可用設計',
   's9.k6.k': 'AI &amp; 工程', 's9.k6.v': 'Claude API / Copilot SDK、AI Agent 工作流編排、AI 輔助研發流程',
   's10.aria': '聯絡方式與完整履歷', 's10.eyebrow': '謝謝', 's10.h': '期待與你聊聊',
-  's10.l1.k': '📄 完整履歷 · 線上閱讀與下載', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
-  's10.l2.k': '🔗 GitHub', 's10.l3.k': '✍️ 技術部落格', 's10.l4.k': '📧 郵箱'
+  's10.l1.k': '完整履歷 · 線上閱讀與下載', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
+  's10.l2.k': 'GitHub', 's10.l3.k': '技術部落格', 's10.l4.k': '郵箱'
 },
 
 'en': {
@@ -482,8 +503,8 @@ var DECK_DICT = {
   's9.k5.k': 'Architecture', 's9.k5.v': 'Microservices, BFF, event-driven design, circuit breaking & rate limiting',
   's9.k6.k': 'AI &amp; Tooling', 's9.k6.v': 'Claude API / Copilot SDK, AI agent workflow orchestration, AI-assisted engineering',
   's10.aria': 'Contact and full résumé', 's10.eyebrow': 'THANK YOU', 's10.h': 'Let’s Talk',
-  's10.l1.k': '📄 Full Résumé · Read & Download', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
-  's10.l2.k': '🔗 GitHub', 's10.l3.k': '✍️ Tech Blog', 's10.l4.k': '📧 Email'
+  's10.l1.k': 'Full Résumé · Read & Download', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
+  's10.l2.k': 'GitHub', 's10.l3.k': 'Tech Blog', 's10.l4.k': 'Email'
 }
 };
 

@@ -25,10 +25,14 @@
   var THEME_KEY = 'cv-theme';
   var LANG_LABEL = { 'zh-CN': '简', 'zh-TW': '繁', 'en': 'EN' };
 
+  // Single button cycles through these in order; the icon shown is always
+  // the CURRENTLY active mode, and a click advances to the next one.
+  var THEME_ORDER = ['light', 'dark', 'system'];
+
   var UI_STRINGS = {
-    'zh-CN': { lang: '语言切换', theme: '主题切换', light: '浅色', system: '跟随系统', dark: '深色' },
-    'zh-TW': { lang: '語言切換', theme: '主題切換', light: '淺色', system: '跟隨系統', dark: '深色' },
-    'en':    { lang: 'Language', theme: 'Theme', light: 'Light', system: 'System', dark: 'Dark' }
+    'zh-CN': { lang: '语言切换', light: '浅色', system: '跟随系统', dark: '深色', themeHint: '主题：{mode}（点击切换）' },
+    'zh-TW': { lang: '語言切換', light: '淺色', system: '跟隨系統', dark: '深色', themeHint: '主題：{mode}（點擊切換）' },
+    'en':    { lang: 'Language', light: 'Light', system: 'System', dark: 'Dark', themeHint: 'Theme: {mode} (click to switch)' }
   };
 
   var ICONS = {
@@ -59,12 +63,9 @@
     var lang = LANGS.map(function (l) {
       return '<button type="button" data-cv-lang="' + l + '" aria-pressed="false">' + LANG_LABEL[l] + '</button>';
     }).join('');
-    var theme = ['light', 'system', 'dark'].map(function (t) {
-      return '<button type="button" data-cv-theme="' + t + '" aria-pressed="false">' + ICONS[t] + '</button>';
-    }).join('');
     mount.innerHTML =
       '<div class="cv-seg" data-cv-group="lang" role="group">' + lang + '</div>' +
-      '<div class="cv-seg cv-icons" data-cv-group="theme" role="group">' + theme + '</div>';
+      '<button type="button" class="cv-theme-btn" data-cv-theme-btn></button>';
     mount.classList.add('cv-toolbar');
   }
 
@@ -77,7 +78,7 @@
     if (mount) buildToolbar(mount);
 
     var langBtns = [].slice.call(document.querySelectorAll('[data-cv-lang]'));
-    var themeBtns = [].slice.call(document.querySelectorAll('[data-cv-theme]'));
+    var themeBtn = document.querySelector('[data-cv-theme-btn]');
     var current = { lang: detectLang(), theme: store.get(THEME_KEY) || 'system' };
 
     function applyLang(lang) {
@@ -104,26 +105,28 @@
       });
 
       var lg = document.querySelector('[data-cv-group="lang"]');
-      var tg = document.querySelector('[data-cv-group="theme"]');
       if (lg) lg.setAttribute('aria-label', ui.lang);
-      if (tg) tg.setAttribute('aria-label', ui.theme);
-      themeBtns.forEach(function (b) {
-        var t = ui[b.getAttribute('data-cv-theme')];
-        if (t) { b.setAttribute('title', t); b.setAttribute('aria-label', t); }
-      });
       langBtns.forEach(function (b) {
         b.setAttribute('aria-pressed', String(b.getAttribute('data-cv-lang') === lang));
       });
+      renderThemeBtn(); // the hint text ("主题：浅色…") is language-specific
       if (typeof opts.onLang === 'function') opts.onLang(lang);
+    }
+
+    function renderThemeBtn() {
+      if (!themeBtn) return;
+      var ui = UI_STRINGS[current.lang] || UI_STRINGS['zh-CN'];
+      var label = (ui.themeHint || '{mode}').replace('{mode}', ui[current.theme] || current.theme);
+      themeBtn.innerHTML = ICONS[current.theme] || ICONS.system;
+      themeBtn.setAttribute('title', label);
+      themeBtn.setAttribute('aria-label', label);
     }
 
     function applyTheme(mode) {
       current.theme = mode;
       if (mode === 'system') root.removeAttribute('data-theme');
       else root.setAttribute('data-theme', mode);
-      themeBtns.forEach(function (b) {
-        b.setAttribute('aria-pressed', String(b.getAttribute('data-cv-theme') === mode));
-      });
+      renderThemeBtn();
       if (typeof opts.onTheme === 'function') opts.onTheme(mode);
     }
 
@@ -133,12 +136,12 @@
         applyLang(l); store.set(LANG_KEY, l);
       });
     });
-    themeBtns.forEach(function (b) {
-      b.addEventListener('click', function () {
-        var t = b.getAttribute('data-cv-theme');
-        applyTheme(t); store.set(THEME_KEY, t);
+    if (themeBtn) {
+      themeBtn.addEventListener('click', function () {
+        var next = THEME_ORDER[(THEME_ORDER.indexOf(current.theme) + 1) % THEME_ORDER.length];
+        applyTheme(next); store.set(THEME_KEY, next);
       });
-    });
+    }
 
     // A choice made in another tab should land here too.
     global.addEventListener('storage', function (e) {
