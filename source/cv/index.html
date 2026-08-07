@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>马成军 Michael Ma · 简历</title>
+<style>
+  :root { --ink: #1a2b33; --paper: #fcfcfa; --accent: #0e7c86; --muted: #5b6b72; --hairline: #dce3e4; --surface: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #e4ecee; --paper: #131c20; --accent: #4fc3cc; --muted: #93a5ac; --hairline: #2b3a40; --surface: #16232a; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    background: var(--paper); color: var(--ink);
+    font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    padding: 32px;
+  }
+  main { max-width: 560px; width: 100%; }
+  h1 { margin: 0; font-size: 30px; letter-spacing: 0.04em; }
+  h1 small { font-size: 16px; color: var(--muted); font-weight: 400; margin-left: 10px; }
+  .role { color: var(--accent); font-weight: 600; margin: 8px 0 28px; }
+  .cards { display: grid; gap: 12px; }
+  .cards a {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 10px;
+    padding: 16px 20px; color: var(--ink); text-decoration: none;
+  }
+  .cards a:hover, .cards a:focus-visible { border-color: var(--accent); outline: none; }
+  .cards .t { font-weight: 700; }
+  .cards .d { color: var(--muted); font-size: 13px; }
+  .group { margin: 24px 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.2em; color: var(--muted); }
+  footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
+  footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>马成军<small>Michael Ma</small></h1>
+  <p class="role">资深后端工程师 · 13 年研发经验 · 高并发交易系统 / AI 工程化</p>
+  <div class="cards">
+    <a href="resume.html"><span class="t">📄 完整简历</span><span class="d">在线阅读 · HTML</span></a>
+    <a href="deck.html"><span class="t">🎬 求职简报</span><span class="d">10 页幻灯片 · 方向键翻页</span></a>
+  </div>
+
+  <p class="group">下载</p>
+  <div class="cards">
+    <a href="简历_马成军.pdf" download><span class="t">⬇️ 简历 PDF</span><span class="d">A4 · 4 页</span></a>
+    <a href="简历简报_马成军.pdf" download><span class="t">⬇️ 简报 PDF</span><span class="d">16:9 · 10 页</span></a>
+    <a href="简历简报_马成军.pptx" download><span class="t">⬇️ 简报 PPTX</span><span class="d">PowerPoint / Keynote 可打开</span></a>
+  </div>
+
+  <p class="group">源文件</p>
+  <div class="cards">
+    <a href="resume.md"><span class="t">📝 Markdown</span><span class="d">resume.md</span></a>
+    <a href="deck.md"><span class="t">🖥 Marp 源稿</span><span class="d">deck.md</span></a>
+  </div>
+  <footer>📧 <a href="mailto:mikeah2011@gmail.com">mikeah2011@gmail.com</a> ｜ 🔗 <a href="https://github.com/mikeah2011">github.com/mikeah2011</a></footer>
+</main>
+</body>
+</html>
