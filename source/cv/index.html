@@ -2,57 +2,45 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>马成军 Michael Ma · 资深后端工程师</title>
 <meta name="description" content="马成军（Michael Ma）· 资深后端工程师 · 13 年研发经验 · 高并发交易系统与 AI 工程化">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="马成军 Michael Ma · 资深后端工程师">
+<meta property="og:description" content="13 年研发经验 · 高并发交易系统 · 分布式架构 · AI 工程化">
+<meta property="og:type" content="profile">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
 <style>
   :root {
-    --paper:      #f4f6f6;
-    --surface:    #ffffff;
-    --surface-2:  #eceff0;
-    --ink:        #0f2229;
-    --ink-2:      #3c5058;
-    --muted:      #5c6f77;
-    --line:       #dbe2e3;
-    --accent:     #0b6e78;
-    --accent-ink: #ffffff;
-    --accent-dim: #0b6e7814;
-    --glow:       #0b6e7822;
-    --shadow:     0 1px 2px #0f222908, 0 8px 24px -12px #0f222926;
-    --shadow-lg:  0 2px 4px #0f22290a, 0 18px 40px -16px #0f222933;
+    --paper:#f5f7f7; --surface:#ffffff; --surface-2:#eaeeef;
+    --ink:#0e2128; --ink-2:#3a4e56; --muted:#5c6f77; --line:#dce3e4;
+    --accent:#0b6e78; --accent-dim:#0b6e7812; --glow:#0b6e781f;
+    --shadow:0 1px 2px #0e212808, 0 8px 22px -12px #0e212824;
+    --shadow-lg:0 2px 4px #0e21280a, 0 20px 44px -18px #0e212830;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper:      #0b1416;
-      --surface:    #121e22;
-      --surface-2:  #17262b;
-      --ink:        #e8f0f1;
-      --ink-2:      #b3c5ca;
-      --muted:      #7e959c;
-      --line:       #22343a;
-      --accent:     #3fbecb;
-      --accent-ink: #05191c;
-      --accent-dim: #3fbecb1a;
-      --glow:       #3fbecb26;
-      --shadow:     0 1px 2px #0006, 0 8px 24px -12px #0009;
-      --shadow-lg:  0 2px 4px #0007, 0 18px 40px -16px #000b;
+      --paper:#0a1315; --surface:#111d21; --surface-2:#16242a;
+      --ink:#e9f1f2; --ink-2:#b2c4c9; --muted:#7e959c; --line:#203238;
+      --accent:#3fbecb; --accent-dim:#3fbecb17; --glow:#3fbecb24;
+      --shadow:0 1px 2px #0006, 0 8px 22px -12px #0009;
+      --shadow-lg:0 2px 4px #0007, 0 20px 44px -18px #000b;
     }
   }
   :root[data-theme="light"] {
-    --paper:#f4f6f6; --surface:#ffffff; --surface-2:#eceff0;
-    --ink:#0f2229; --ink-2:#3c5058; --muted:#5c6f77; --line:#dbe2e3;
-    --accent:#0b6e78; --accent-ink:#ffffff; --accent-dim:#0b6e7814; --glow:#0b6e7822;
-    --shadow:0 1px 2px #0f222908, 0 8px 24px -12px #0f222926;
-    --shadow-lg:0 2px 4px #0f22290a, 0 18px 40px -16px #0f222933;
+    --paper:#f5f7f7; --surface:#ffffff; --surface-2:#eaeeef;
+    --ink:#0e2128; --ink-2:#3a4e56; --muted:#5c6f77; --line:#dce3e4;
+    --accent:#0b6e78; --accent-dim:#0b6e7812; --glow:#0b6e781f;
+    --shadow:0 1px 2px #0e212808, 0 8px 22px -12px #0e212824;
+    --shadow-lg:0 2px 4px #0e21280a, 0 20px 44px -18px #0e212830;
   }
   :root[data-theme="dark"] {
-    --paper:#0b1416; --surface:#121e22; --surface-2:#17262b;
-    --ink:#e8f0f1; --ink-2:#b3c5ca; --muted:#7e959c; --line:#22343a;
-    --accent:#3fbecb; --accent-ink:#05191c; --accent-dim:#3fbecb1a; --glow:#3fbecb26;
-    --shadow:0 1px 2px #0006, 0 8px 24px -12px #0009;
-    --shadow-lg:0 2px 4px #0007, 0 18px 40px -16px #000b;
+    --paper:#0a1315; --surface:#111d21; --surface-2:#16242a;
+    --ink:#e9f1f2; --ink-2:#b2c4c9; --muted:#7e959c; --line:#203238;
+    --accent:#3fbecb; --accent-dim:#3fbecb17; --glow:#3fbecb24;
+    --shadow:0 1px 2px #0006, 0 8px 22px -12px #0009;
+    --shadow-lg:0 2px 4px #0007, 0 20px 44px -18px #000b;
   }
 
   * { box-sizing: border-box; }
@@ -61,324 +49,469 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
-    line-height: 1.6;
-    transition: background-color .35s ease, color .35s ease;
-    /* Faint dot lattice — engineering-drawing texture, not a gradient wash. */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "PingFang TC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Microsoft JhengHei",
+                 "Noto Sans SC", "Noto Sans TC", sans-serif;
+    line-height: 1.65;
+    transition: background-color .3s ease, color .3s ease;
     background-image: radial-gradient(var(--line) 1px, transparent 1px);
-    background-size: 22px 22px;
+    background-size: 24px 24px;
     background-position: -1px -1px;
   }
+  :lang(zh-TW) body, html[lang="zh-TW"] body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei",
+                 "Noto Sans TC", "Segoe UI", sans-serif;
+  }
   .mono {
-    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
     font-variant-numeric: tabular-nums;
   }
+  [hidden] { display: none !important; }
 
-  .wrap { max-width: 980px; margin: 0 auto; padding: clamp(28px, 6vw, 72px) clamp(18px, 4vw, 40px) 64px; }
+  .wrap {
+    max-width: 1000px; margin: 0 auto;
+    padding: clamp(24px, 5vw, 68px) clamp(16px, 4vw, 44px) clamp(48px, 8vw, 80px);
+    padding-left: max(clamp(16px, 4vw, 44px), env(safe-area-inset-left));
+    padding-right: max(clamp(16px, 4vw, 44px), env(safe-area-inset-right));
+  }
 
-  /* ── header ─────────────────────────────────────────────── */
-  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
-  .eyebrow {
-    font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 14px;
-  }
-  h1 {
-    margin: 0;
-    font-size: clamp(38px, 8vw, 76px);
-    line-height: .98;
-    letter-spacing: -.03em;
-    font-weight: 800;
-  }
-  h1 .latin {
-    display: block; margin-top: .18em;
-    font-size: .38em; font-weight: 500; letter-spacing: .04em;
-    color: var(--muted);
-  }
-  .role {
-    margin: 22px 0 0; font-size: clamp(15px, 2.2vw, 19px); font-weight: 650; color: var(--accent);
-  }
-  .tagline { margin: 6px 0 0; color: var(--ink-2); font-size: clamp(13px, 1.8vw, 16px); }
-
-  /* theme control */
-  .theme {
-    display: inline-flex; padding: 3px; gap: 2px; flex: none;
+  /* ── toolbar ────────────────────────────────────────────── */
+  .toolbar { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; margin-bottom: clamp(20px, 4vw, 34px); }
+  .seg {
+    display: inline-flex; padding: 3px; gap: 2px;
     background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px;
   }
-  .theme button {
-    display: grid; place-items: center; width: 32px; height: 32px;
+  .seg button {
+    display: grid; place-items: center; min-width: 34px; height: 30px; padding: 0 10px;
     border: 0; border-radius: 999px; background: transparent; color: var(--muted);
+    font: inherit; font-size: 12.5px; font-weight: 600; letter-spacing: .02em;
     cursor: pointer; transition: background-color .2s, color .2s;
   }
-  .theme button:hover { color: var(--ink); }
-  .theme button[aria-pressed="true"] { background: var(--surface); color: var(--accent); box-shadow: var(--shadow); }
-  .theme button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .theme svg { width: 16px; height: 16px; }
+  .seg button:hover { color: var(--ink); }
+  .seg button[aria-pressed="true"] { background: var(--surface); color: var(--accent); box-shadow: var(--shadow); }
+  .seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .seg.icons button { min-width: 32px; padding: 0; }
+  .seg svg { width: 16px; height: 16px; }
+
+  /* ── header ─────────────────────────────────────────────── */
+  .eyebrow { font-size: 10.5px; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); }
+  h1 {
+    margin: 12px 0 0; font-weight: 800;
+    font-size: clamp(34px, 7.5vw, 68px); line-height: 1.02; letter-spacing: -.028em;
+    text-wrap: balance;
+  }
+  h1 .alt {
+    display: block; margin-top: .2em;
+    font-size: clamp(15px, 2.6vw, 24px); font-weight: 500; letter-spacing: .02em; color: var(--muted);
+  }
+  .role { margin: 20px 0 0; font-size: clamp(15px, 2.1vw, 19px); font-weight: 650; color: var(--accent); }
+  .tagline { margin: 5px 0 0; color: var(--ink-2); font-size: clamp(13px, 1.7vw, 15.5px); }
 
   /* ── contact rail ───────────────────────────────────────── */
-  .rail { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .rail { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
   .chip {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 9px 15px 9px 12px; border-radius: 999px;
     background: var(--surface); border: 1px solid var(--line);
-    color: var(--ink); text-decoration: none; font-size: 13.5px; font-weight: 550;
+    color: var(--ink); text-decoration: none;
+    font-size: 13px; font-weight: 550; white-space: nowrap;
     transition: border-color .2s, transform .2s, box-shadow .2s, color .2s;
   }
-  .chip svg { width: 16px; height: 16px; flex: none; }
+  .chip svg { width: 16px; height: 16px; flex: none; color: var(--brand, currentColor); transition: color .2s; }
   .chip:hover, .chip:focus-visible {
     border-color: var(--accent); color: var(--accent);
     transform: translateY(-2px); box-shadow: var(--shadow); outline: none;
   }
-  .chip .brand { color: var(--brand, currentColor); transition: color .2s; }
-  .chip:hover .brand { color: var(--accent); }
+  .chip:hover svg, .chip:focus-visible svg { color: var(--accent); }
 
   /* ── stats ──────────────────────────────────────────────── */
   .stats {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-    margin: 44px 0 0; background: var(--line);
+    margin-top: clamp(32px, 5vw, 46px); background: var(--line);
     border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
   }
-  .stat { background: var(--surface); padding: 20px 18px; }
+  .stat { background: var(--surface); padding: clamp(16px, 2.4vw, 22px) clamp(14px, 2vw, 20px); }
   .stat b {
-    display: block; font-size: clamp(20px, 3.4vw, 30px); font-weight: 750;
-    letter-spacing: -.02em; color: var(--accent); font-variant-numeric: tabular-nums;
+    display: block; font-size: clamp(19px, 3.2vw, 29px); font-weight: 750;
+    letter-spacing: -.02em; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.15;
   }
-  .stat span { display: block; margin-top: 4px; font-size: 12.5px; color: var(--muted); }
-  @media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat span { display: block; margin-top: 5px; font-size: clamp(11.5px, 1.4vw, 12.5px); color: var(--muted); line-height: 1.45; }
+  @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
 
   /* ── sections ───────────────────────────────────────────── */
-  section { margin-top: 52px; }
+  section { margin-top: clamp(38px, 6vw, 56px); }
   .label {
     display: flex; align-items: center; gap: 14px;
-    font-size: 11px; letter-spacing: .28em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 18px;
+    font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 16px;
   }
   .label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
-  /* primary bento */
-  .bento { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 720px) { .bento { grid-template-columns: 1fr; } }
+  .bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 760px) { .bento { grid-template-columns: 1fr; } }
   .card {
     position: relative; overflow: hidden;
-    display: flex; flex-direction: column; gap: 10px;
-    padding: 26px; border-radius: 16px;
+    display: flex; flex-direction: column; gap: 9px;
+    padding: clamp(20px, 3vw, 27px); border-radius: 16px;
     background: var(--surface); border: 1px solid var(--line);
     color: inherit; text-decoration: none;
     transition: transform .28s cubic-bezier(.16,1,.3,1), box-shadow .28s, border-color .28s;
   }
   .card::before {
     content: ""; position: absolute; inset: 0;
-    background: radial-gradient(420px 180px at var(--mx, 50%) 0%, var(--glow), transparent 70%);
-    opacity: 0; transition: opacity .32s;
+    background: radial-gradient(400px 170px at var(--mx, 50%) 0%, var(--glow), transparent 70%);
+    opacity: 0; transition: opacity .3s;
   }
-  .card:hover, .card:focus-visible {
-    transform: translateY(-4px); box-shadow: var(--shadow-lg);
-    border-color: var(--accent); outline: none;
-  }
+  .card:hover, .card:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--accent); outline: none; }
   .card:hover::before, .card:focus-visible::before { opacity: 1; }
   .card > * { position: relative; }
-  .card .ico {
-    display: grid; place-items: center; width: 42px; height: 42px; border-radius: 11px;
-    background: var(--accent-dim); color: var(--accent);
-  }
-  .card .ico svg { width: 21px; height: 21px; }
-  .card h2 { margin: 6px 0 0; font-size: 19px; letter-spacing: -.01em; }
+  .card .ico { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--accent-dim); color: var(--accent); }
+  .card .ico svg { width: 20px; height: 20px; }
+  .card h2 { margin: 5px 0 0; font-size: clamp(17px, 2.2vw, 19px); letter-spacing: -.012em; }
   .card p { margin: 0; color: var(--ink-2); font-size: 13.5px; }
-  .card .meta { margin-top: auto; padding-top: 12px; font-size: 11.5px; color: var(--muted); letter-spacing: .05em; }
-  .card .go {
-    display: inline-flex; align-items: center; gap: 6px;
-    margin-top: 12px; font-size: 13px; font-weight: 650; color: var(--accent);
-  }
+  .card .meta { margin-top: auto; padding-top: 10px; font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+  .card .go { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 13px; font-weight: 650; color: var(--accent); }
   .card .go svg { width: 14px; height: 14px; transition: transform .25s; }
   .card:hover .go svg { transform: translateX(4px); }
 
-  /* file rows */
-  .files { display: grid; gap: 10px; }
+  .files { display: grid; gap: 9px; }
   .file {
-    display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 14px;
-    padding: 14px 18px; border-radius: 12px;
+    display: grid; grid-template-columns: 36px minmax(0,1fr) auto; align-items: center; gap: 13px;
+    padding: 13px clamp(14px, 2vw, 18px); border-radius: 12px;
     background: var(--surface); border: 1px solid var(--line);
     color: inherit; text-decoration: none;
     transition: border-color .2s, transform .2s, box-shadow .2s;
   }
-  .file:hover, .file:focus-visible {
-    border-color: var(--accent); transform: translateX(3px); box-shadow: var(--shadow); outline: none;
-  }
-  .file .fi { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 9px; background: var(--surface-2); color: var(--accent); }
-  .file .fi svg { width: 18px; height: 18px; }
-  .file .nm { font-size: 14.5px; font-weight: 600; }
-  .file .ds { display: block; margin-top: 2px; font-size: 11.5px; color: var(--muted); letter-spacing: .04em; }
+  .file:hover, .file:focus-visible { border-color: var(--accent); transform: translateX(3px); box-shadow: var(--shadow); outline: none; }
+  .file .fi { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; background: var(--surface-2); color: var(--accent); }
+  .file .fi svg { width: 17px; height: 17px; }
+  .file .nm { font-size: 14px; font-weight: 600; }
+  .file .ds { display: block; margin-top: 1px; font-size: 11px; color: var(--muted); letter-spacing: .03em; }
   .file .dl { color: var(--muted); transition: color .2s, transform .2s; }
-  .file .dl svg { width: 17px; height: 17px; display: block; }
+  .file .dl svg { width: 16px; height: 16px; display: block; }
   .file:hover .dl { color: var(--accent); transform: translateY(2px); }
 
   footer {
-    margin-top: 60px; padding-top: 22px; border-top: 1px solid var(--line);
-    display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between;
-    font-size: 12.5px; color: var(--muted);
+    margin-top: clamp(44px, 7vw, 64px); padding-top: 20px; border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between;
+    font-size: 12px; color: var(--muted);
   }
   footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
   footer a:hover, footer a:focus-visible { color: var(--accent); border-color: var(--accent); outline: none; }
 
-  /* entrance */
   @media (prefers-reduced-motion: no-preference) {
-    .rise { opacity: 0; transform: translateY(12px); animation: rise .6s cubic-bezier(.16,1,.3,1) forwards; }
+    .rise { opacity: 0; transform: translateY(10px); animation: rise .55s cubic-bezier(.16,1,.3,1) forwards; }
     @keyframes rise { to { opacity: 1; transform: none; } }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  }
+
+  /* very small phones */
+  @media (max-width: 360px) {
+    .chip { font-size: 12px; padding: 8px 12px 8px 10px; }
+    .stats { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    :root { --paper:#fff; --surface:#fff; --ink:#111; --muted:#555; --line:#ccc; --accent:#0b6e78; }
+    body { background-image: none; }
+    .toolbar, .card .go, .file .dl { display: none; }
+    .card, .file, .stat { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header class="top rise">
-    <div>
-      <div class="eyebrow mono">Curriculum Vitae</div>
-      <h1>马成军<span class="latin">Michael&nbsp;Ma</span></h1>
-      <p class="role">资深后端工程师 · 13 年研发经验</p>
-      <p class="tagline">高并发交易系统 · 分布式架构 · AI 工程化 · 上海</p>
+  <div class="toolbar rise">
+    <div class="seg" role="group" data-aria="lang">
+      <button type="button" data-lang="zh-CN" aria-pressed="true">简</button>
+      <button type="button" data-lang="zh-TW" aria-pressed="false">繁</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
-
-    <div class="theme" role="group" aria-label="主题切换">
-      <button type="button" data-set="light" aria-pressed="false" title="浅色" aria-label="浅色主题">
+    <div class="seg icons" role="group" data-aria="theme">
+      <button type="button" data-set="light" aria-pressed="false" data-title="theme.light">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg>
       </button>
-      <button type="button" data-set="system" aria-pressed="true" title="跟随系统" aria-label="跟随系统主题">
+      <button type="button" data-set="system" aria-pressed="true" data-title="theme.system">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8.5 20.5h7M12 17v3.5"/></svg>
       </button>
-      <button type="button" data-set="dark" aria-pressed="false" title="深色" aria-label="深色主题">
+      <button type="button" data-set="dark" aria-pressed="false" data-title="theme.dark">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8z"/></svg>
       </button>
     </div>
+  </div>
+
+  <header class="rise" style="animation-delay:.05s">
+    <div class="eyebrow mono" data-i18n="eyebrow">Curriculum Vitae</div>
+    <h1><span data-i18n="name.main">马成军</span><span class="alt" data-i18n="name.alt">Michael Ma</span></h1>
+    <p class="role" data-i18n="role">资深后端工程师 · 13 年研发经验</p>
+    <p class="tagline" data-i18n="tagline">高并发交易系统 · 分布式架构 · AI 工程化 · 上海</p>
   </header>
 
-  <nav class="rail rise" style="animation-delay:.06s" aria-label="联系方式">
+  <nav class="rail rise" style="animation-delay:.1s" data-aria="contact">
     <a class="chip" href="mailto:mikeah2011@gmail.com" style="--brand:#EA4335">
-      <svg class="brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
       mikeah2011@gmail.com
     </a>
-    <a class="chip" href="https://github.com/mikeah2011" target="_blank" rel="noopener" style="--brand:currentColor">
-      <svg class="brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    <a class="chip" href="https://github.com/mikeah2011" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
       github.com/mikeah2011
     </a>
     <a class="chip" href="https://www.linkedin.com/in/michael-ma-923223116/" target="_blank" rel="noopener" style="--brand:#0A66C2">
-      <svg class="brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
       LinkedIn
     </a>
-    <a class="chip" href="https://mikeah2011.github.io" target="_blank" rel="noopener" style="--brand:#e8892b">
-      <svg class="brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5A1.5 1.5 0 0 0 3 5v14a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 19V5a1.5 1.5 0 0 0-1.5-1.5h-15zM7 7.5h10v2H7v-2zm0 4h10v2H7v-2zm0 4h6.5v2H7v-2z"/></svg>
-      技术博客
+    <a class="chip" href="https://mikeah2011.github.io" target="_blank" rel="noopener" style="--brand:#e08a2e">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5A1.5 1.5 0 0 0 3 5v14a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 19V5a1.5 1.5 0 0 0-1.5-1.5h-15zM7 7.5h10v2H7v-2zm0 4h10v2H7v-2zm0 4h6.5v2H7v-2z"/></svg>
+      <span data-i18n="link.blog">技术博客</span>
     </a>
   </nav>
 
-  <div class="stats rise" style="animation-delay:.12s">
-    <div class="stat"><b>13 年</b><span>后端研发经验</span></div>
-    <div class="stat"><b>3000+</b><span>核心仓库提交</span></div>
-    <div class="stat"><b>25s → 2s</b><span>关键 API p99 优化</span></div>
-    <div class="stat"><b>1300+</b><span>技术文章产出</span></div>
+  <div class="stats rise" style="animation-delay:.15s">
+    <div class="stat"><b data-i18n="stat.1.v">13 年</b><span data-i18n="stat.1.k">后端研发经验</span></div>
+    <div class="stat"><b>3000+</b><span data-i18n="stat.2.k">核心仓库提交</span></div>
+    <div class="stat"><b>25s → 2s</b><span data-i18n="stat.3.k">关键 API p99 优化</span></div>
+    <div class="stat"><b>1300+</b><span data-i18n="stat.4.k">技术文章产出</span></div>
   </div>
 
-  <section class="rise" style="animation-delay:.18s">
-    <div class="label mono">在线阅读</div>
+  <section class="rise" style="animation-delay:.2s">
+    <div class="label mono" data-i18n="sec.read">在线阅读</div>
     <div class="bento">
       <a class="card" href="resume.html">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h4.5"/></svg></div>
-        <h2>完整简历</h2>
-        <p>工作经历、核心技能、项目成果与荣誉的完整呈现。</p>
-        <div class="meta mono">HTML · 响应式 · 支持深浅色</div>
-        <span class="go">开始阅读
+        <h2 data-i18n="cv.title">完整简历</h2>
+        <p data-i18n="cv.desc">工作经历、核心技能、项目成果与荣誉的完整呈现。</p>
+        <div class="meta mono" data-i18n="cv.meta">HTML · 响应式 · 支持深浅色</div>
+        <span class="go"><span data-i18n="cv.cta">开始阅读</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12.5 5.5 19 12l-6.5 6.5"/></svg>
         </span>
       </a>
-
       <a class="card" href="deck.html">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="1.8"/><path d="M9 20.5h6M12 16.5v4"/></svg></div>
-        <h2>求职简报</h2>
-        <p>10 页幻灯片，快速了解职业轨迹与关键项目成果。</p>
-        <div class="meta mono">10 页 · 键盘 / 触摸翻页</div>
-        <span class="go">开始播放
+        <h2 data-i18n="dk.title">求职简报</h2>
+        <p data-i18n="dk.desc">10 页幻灯片，快速了解职业轨迹与关键项目成果。</p>
+        <div class="meta mono" data-i18n="dk.meta">10 页 · 键盘 / 触摸翻页</div>
+        <span class="go"><span data-i18n="dk.cta">开始播放</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12.5 5.5 19 12l-6.5 6.5"/></svg>
         </span>
       </a>
     </div>
   </section>
 
-  <section class="rise" style="animation-delay:.24s">
-    <div class="label mono">下载</div>
+  <section class="rise" style="animation-delay:.25s">
+    <div class="label mono" data-i18n="sec.dl">下载</div>
     <div class="files">
       <a class="file" href="简历_马成军.pdf" download>
         <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2.5V8h5.5"/></svg></span>
-        <span><span class="nm">简历 PDF</span><span class="ds mono">A4 · 4 页 · 882 KB</span></span>
+        <span><span class="nm" data-i18n="f.cvpdf">简历 PDF</span><span class="ds mono" data-i18n="f.cvpdf.d">A4 · 4 页 · 882 KB</span></span>
         <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v12M7 10.5l5 5 5-5M4.5 20.5h15"/></svg></span>
       </a>
       <a class="file" href="简历简报_马成军.pdf" download>
         <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="12" rx="1.6"/><path d="M9 20h6M12 16.5V20"/></svg></span>
-        <span><span class="nm">简报 PDF</span><span class="ds mono">16:9 · 10 页 · 385 KB</span></span>
+        <span><span class="nm" data-i18n="f.dkpdf">简报 PDF</span><span class="ds mono" data-i18n="f.dkpdf.d">16:9 · 10 页 · 385 KB</span></span>
         <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v12M7 10.5l5 5 5-5M4.5 20.5h15"/></svg></span>
       </a>
       <a class="file" href="简历简报_马成军.pptx" download>
         <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3.5" width="18" height="14" rx="1.8"/><path d="M7.5 13V8h2.6a1.7 1.7 0 0 1 0 3.4H7.5M8.5 20.5h7"/></svg></span>
-        <span><span class="nm">简报 PPTX</span><span class="ds mono">PowerPoint / Keynote · 1.7 MB</span></span>
+        <span><span class="nm" data-i18n="f.pptx">简报 PPTX</span><span class="ds mono" data-i18n="f.pptx.d">PowerPoint / Keynote · 1.7 MB</span></span>
         <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v12M7 10.5l5 5 5-5M4.5 20.5h15"/></svg></span>
       </a>
     </div>
   </section>
 
   <section class="rise" style="animation-delay:.3s">
-    <div class="label mono">源文件</div>
+    <div class="label mono" data-i18n="sec.src">源文件</div>
     <div class="files">
       <a class="file" href="resume.md">
         <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 8.5 5 13l4.5 4.5M14.5 8.5 19 13l-4.5 4.5"/></svg></span>
-        <span><span class="nm">简历 Markdown</span><span class="ds mono">resume.md</span></span>
+        <span><span class="nm" data-i18n="f.cvmd">简历 Markdown</span><span class="ds mono">resume.md</span></span>
         <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 5.5h5v5M18.5 5.5 10 14M16 13.5v5h-10v-10h5"/></svg></span>
       </a>
       <a class="file" href="deck.md">
         <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 8.5 5 13l4.5 4.5M14.5 8.5 19 13l-4.5 4.5"/></svg></span>
-        <span><span class="nm">简报 Marp 源稿</span><span class="ds mono">deck.md</span></span>
+        <span><span class="nm" data-i18n="f.dkmd">简报 Marp 源稿</span><span class="ds mono">deck.md</span></span>
         <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 5.5h5v5M18.5 5.5 10 14M16 13.5v5h-10v-10h5"/></svg></span>
       </a>
     </div>
   </section>
 
   <footer>
-    <span>马成军 Michael Ma · 资深后端工程师</span>
+    <span data-i18n="foot.name">马成军 Michael Ma · 资深后端工程师</span>
     <span><a href="mailto:mikeah2011@gmail.com">mikeah2011@gmail.com</a> · <a href="https://mikeah2011.github.io" target="_blank" rel="noopener">mikeah2011.github.io</a></span>
   </footer>
 
 </div>
 
 <script>
-  (function () {
-    var root = document.documentElement;
-    var KEY = 'cv-theme';
-    var btns = Array.prototype.slice.call(document.querySelectorAll('.theme button'));
+(function () {
+  var root = document.documentElement;
 
-    function apply(mode) {
-      if (mode === 'system') root.removeAttribute('data-theme');
-      else root.setAttribute('data-theme', mode);
-      btns.forEach(function (b) {
-        b.setAttribute('aria-pressed', String(b.dataset.set === mode));
-      });
+  var I18N = {
+    'zh-CN': {
+      'html.title': '马成军 Michael Ma · 资深后端工程师',
+      'eyebrow': 'Curriculum Vitae',
+      'name.main': '马成军', 'name.alt': 'Michael Ma',
+      'role': '资深后端工程师 · 13 年研发经验',
+      'tagline': '高并发交易系统 · 分布式架构 · AI 工程化 · 上海',
+      'link.blog': '技术博客',
+      'stat.1.v': '13 年', 'stat.1.k': '后端研发经验',
+      'stat.2.k': '核心仓库提交',
+      'stat.3.k': '关键 API p99 优化',
+      'stat.4.k': '技术文章产出',
+      'sec.read': '在线阅读', 'sec.dl': '下载', 'sec.src': '源文件',
+      'cv.title': '完整简历',
+      'cv.desc': '工作经历、核心技能、项目成果与荣誉的完整呈现。',
+      'cv.meta': 'HTML · 响应式 · 支持深浅色', 'cv.cta': '开始阅读',
+      'dk.title': '求职简报',
+      'dk.desc': '10 页幻灯片，快速了解职业轨迹与关键项目成果。',
+      'dk.meta': '10 页 · 键盘 / 触摸翻页', 'dk.cta': '开始播放',
+      'f.cvpdf': '简历 PDF', 'f.cvpdf.d': 'A4 · 4 页 · 882 KB',
+      'f.dkpdf': '简报 PDF', 'f.dkpdf.d': '16:9 · 10 页 · 385 KB',
+      'f.pptx': '简报 PPTX', 'f.pptx.d': 'PowerPoint / Keynote · 1.7 MB',
+      'f.cvmd': '简历 Markdown', 'f.dkmd': '简报 Marp 源稿',
+      'foot.name': '马成军 Michael Ma · 资深后端工程师',
+      'aria.lang': '语言切换', 'aria.theme': '主题切换', 'aria.contact': '联系方式',
+      'theme.light': '浅色', 'theme.system': '跟随系统', 'theme.dark': '深色'
+    },
+    'zh-TW': {
+      'html.title': '馬成軍 Michael Ma · 資深後端工程師',
+      'eyebrow': 'Curriculum Vitae',
+      'name.main': '馬成軍', 'name.alt': 'Michael Ma',
+      'role': '資深後端工程師 · 13 年研發經驗',
+      'tagline': '高並發交易系統 · 分散式架構 · AI 工程化 · 上海',
+      'link.blog': '技術部落格',
+      'stat.1.v': '13 年', 'stat.1.k': '後端研發經驗',
+      'stat.2.k': '核心儲存庫提交',
+      'stat.3.k': '關鍵 API p99 優化',
+      'stat.4.k': '技術文章產出',
+      'sec.read': '線上閱讀', 'sec.dl': '下載', 'sec.src': '原始檔',
+      'cv.title': '完整履歷',
+      'cv.desc': '工作經歷、核心技能、專案成果與榮譽的完整呈現。',
+      'cv.meta': 'HTML · 響應式 · 支援深淺色', 'cv.cta': '開始閱讀',
+      'dk.title': '求職簡報',
+      'dk.desc': '10 頁投影片，快速了解職涯軌跡與關鍵專案成果。',
+      'dk.meta': '10 頁 · 鍵盤 / 觸控翻頁', 'dk.cta': '開始播放',
+      'f.cvpdf': '履歷 PDF', 'f.cvpdf.d': 'A4 · 4 頁 · 882 KB',
+      'f.dkpdf': '簡報 PDF', 'f.dkpdf.d': '16:9 · 10 頁 · 385 KB',
+      'f.pptx': '簡報 PPTX', 'f.pptx.d': 'PowerPoint / Keynote · 1.7 MB',
+      'f.cvmd': '履歷 Markdown', 'f.dkmd': '簡報 Marp 原始稿',
+      'foot.name': '馬成軍 Michael Ma · 資深後端工程師',
+      'aria.lang': '語言切換', 'aria.theme': '主題切換', 'aria.contact': '聯絡方式',
+      'theme.light': '淺色', 'theme.system': '跟隨系統', 'theme.dark': '深色'
+    },
+    'en': {
+      'html.title': 'Michael Ma · Senior Backend Engineer',
+      'eyebrow': 'Curriculum Vitae',
+      'name.main': 'Michael Ma', 'name.alt': '马成军',
+      'role': 'Senior Backend Engineer · 13 Years of Experience',
+      'tagline': 'High-concurrency transaction systems · Distributed architecture · AI engineering · Shanghai',
+      'link.blog': 'Tech Blog',
+      'stat.1.v': '13 yrs', 'stat.1.k': 'Backend engineering',
+      'stat.2.k': 'Commits to core repositories',
+      'stat.3.k': 'Critical API p99 improvement',
+      'stat.4.k': 'Technical articles published',
+      'sec.read': 'Read Online', 'sec.dl': 'Downloads', 'sec.src': 'Source Files',
+      'cv.title': 'Full Résumé',
+      'cv.desc': 'Career history, core skills, project outcomes and recognition.',
+      'cv.meta': 'HTML · Responsive · Light & dark', 'cv.cta': 'Start reading',
+      'dk.title': 'Career Deck',
+      'dk.desc': 'A 10-slide overview of career trajectory and key project outcomes.',
+      'dk.meta': '10 slides · Keyboard / touch', 'dk.cta': 'Start presenting',
+      'f.cvpdf': 'Résumé PDF', 'f.cvpdf.d': 'A4 · 4 pages · 882 KB',
+      'f.dkpdf': 'Deck PDF', 'f.dkpdf.d': '16:9 · 10 slides · 385 KB',
+      'f.pptx': 'Deck PPTX', 'f.pptx.d': 'PowerPoint / Keynote · 1.7 MB',
+      'f.cvmd': 'Résumé Markdown', 'f.dkmd': 'Deck Marp Source',
+      'foot.name': 'Michael Ma · Senior Backend Engineer',
+      'aria.lang': 'Language', 'aria.theme': 'Theme', 'aria.contact': 'Contact'
     }
+  };
 
-    var saved;
-    try { saved = localStorage.getItem(KEY); } catch (e) { /* private mode */ }
-    apply(saved || 'system');
+  var LANG_KEY = 'cv-lang', THEME_KEY = 'cv-theme';
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
 
-    btns.forEach(function (b) {
-      b.addEventListener('click', function () {
-        var mode = b.dataset.set;
-        apply(mode);
-        try { localStorage.setItem(KEY, mode); } catch (e) { /* ignore */ }
-      });
+  /* ── language ─────────────────────────────────────────── */
+  var langBtns = [].slice.call(document.querySelectorAll('[data-lang]'));
+
+  function detectLang() {
+    var saved = store.get(LANG_KEY);
+    if (saved && I18N[saved]) return saved;
+    var navs = navigator.languages || [navigator.language || 'zh-CN'];
+    for (var i = 0; i < navs.length; i++) {
+      var l = navs[i].toLowerCase();
+      if (l.indexOf('zh') === 0) {
+        // Hant regions keep Traditional; everything else Simplified.
+        return /hant|tw|hk|mo/.test(l) ? 'zh-TW' : 'zh-CN';
+      }
+      if (l.indexOf('en') === 0) return 'en';
+    }
+    return 'zh-CN';
+  }
+
+  function applyLang(lang) {
+    var d = I18N[lang] || I18N['zh-CN'];
+    root.setAttribute('lang', lang);
+    document.title = d['html.title'];
+
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var v = d[el.dataset.i18n];
+      if (v != null) el.textContent = v;
     });
+    document.querySelectorAll('[data-aria]').forEach(function (el) {
+      var v = d['aria.' + el.dataset.aria];
+      if (v) el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('[data-title]').forEach(function (el) {
+      var v = d[el.dataset.title];
+      if (v) { el.setAttribute('title', v); el.setAttribute('aria-label', v); }
+    });
+    langBtns.forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+    });
+  }
 
-    // Point the card's hover glow at the cursor.
+  /* ── theme ────────────────────────────────────────────── */
+  var themeBtns = [].slice.call(document.querySelectorAll('[data-set]'));
+
+  function applyTheme(mode) {
+    if (mode === 'system') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    themeBtns.forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.set === mode));
+    });
+  }
+
+  /* ── init ─────────────────────────────────────────────── */
+  applyLang(detectLang());
+  applyTheme(store.get(THEME_KEY) || 'system');
+
+  langBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      applyLang(b.dataset.lang);
+      store.set(LANG_KEY, b.dataset.lang);
+    });
+  });
+  themeBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      applyTheme(b.dataset.set);
+      store.set(THEME_KEY, b.dataset.set);
+    });
+  });
+
+  // Point each card's hover glow at the cursor (pointer devices only).
+  if (window.matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('.card').forEach(function (c) {
       c.addEventListener('pointermove', function (e) {
         var r = c.getBoundingClientRect();
         c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
       });
     });
-  })();
+  }
+})();
 </script>
 </body>
 </html>
