@@ -111,6 +111,18 @@
   .role ul { margin: 6px 0 0; padding-left: 1.15em; }
   .role li { margin: 5px 0; }
   .role li::marker { color: var(--accent); }
+
+  /* Visual tiering instead of collapsing: recruiters scan a CV rather than
+     read it, so nothing is hidden (hiding would also break print-to-PDF and
+     select-all-copy). Headline results keep full weight; supporting detail
+     recedes slightly so the eye lands on the strongest lines first. */
+  .role li.detail {
+    font-size: 0.93em;
+    color: var(--ink-2);
+    margin: 4px 0;
+  }
+  .role li.detail::marker { color: var(--line); }
+  .role li.detail strong { font-weight: 600; color: inherit; }
   @media (max-width: 620px) {
     .job { grid-template-columns: 1fr; row-gap: 4px; }
     .when { padding-top: 0; }
@@ -218,24 +230,31 @@
         <div class="phase">
           <h4 data-i18n="j1.p2.h"></h4>
           <ul>
-            <li data-i18n-html="j1.p2.b1"></li><li data-i18n-html="j1.p2.b2"></li>
-            <li data-i18n-html="j1.p2.b3"></li><li data-i18n-html="j1.p2.b4"></li>
-            <li data-i18n-html="j1.p2.b5"></li><li data-i18n-html="j1.p2.b6"></li>
+            <li data-i18n-html="j1.p2.b1"></li>
+            <li data-i18n-html="j1.p2.b4"></li>
+            <li class="detail" data-i18n-html="j1.p2.b2"></li>
+            <li class="detail" data-i18n-html="j1.p2.b3"></li>
+            <li class="detail" data-i18n-html="j1.p2.b5"></li>
+            <li class="detail" data-i18n-html="j1.p2.b6"></li>
           </ul>
         </div>
         <div class="phase">
           <h4 data-i18n="j1.p3.h"></h4>
           <ul>
-            <li data-i18n-html="j1.p3.b1"></li><li data-i18n-html="j1.p3.b2"></li>
-            <li data-i18n-html="j1.p3.b3"></li><li data-i18n-html="j1.p3.b4"></li>
-            <li data-i18n-html="j1.p3.b5"></li><li data-i18n-html="j1.p3.b6"></li>
+            <li data-i18n-html="j1.p3.b1"></li>
+            <li class="detail" data-i18n-html="j1.p3.b2"></li>
+            <li class="detail" data-i18n-html="j1.p3.b3"></li>
+            <li class="detail" data-i18n-html="j1.p3.b4"></li>
+            <li class="detail" data-i18n-html="j1.p3.b5"></li>
+            <li class="detail" data-i18n-html="j1.p3.b6"></li>
           </ul>
         </div>
         <div class="phase">
           <h4 data-i18n-html="j1.p4.h"></h4>
           <ul>
-            <li data-i18n-html="j1.p4.b1"></li><li data-i18n-html="j1.p4.b2"></li>
-            <li data-i18n-html="j1.p4.b3"></li>
+            <li data-i18n-html="j1.p4.b1"></li>
+            <li class="detail" data-i18n-html="j1.p4.b2"></li>
+            <li class="detail" data-i18n-html="j1.p4.b3"></li>
           </ul>
         </div>
       </div>
