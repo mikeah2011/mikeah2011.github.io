@@ -16,6 +16,7 @@ style: |
     --muted: #8aa0a8; --accent: #46bfc9; --accent-dim: #46bfc933; --hairline: #24343b;
   }
   section { background: #0e171b; color: #e6eef0; }
+  .eyebrow { font-weight: 700; letter-spacing: 0.26em; color: var(--accent); font-size: 0.45em; margin-bottom: 14px; }
   h1 { font-size: 1.7em; }
   h1 small { font-size: 0.5em; color: var(--muted); font-weight: 400; margin-left: 0.3em; }
   h2 { color: var(--accent); }
@@ -62,7 +63,7 @@ style: |
 
 <!-- _paginate: false -->
 
-###### CAREER DECK · 2026
+<div class="eyebrow">CAREER DECK · 2026</div>
 
 # Michael Ma <small>马成军</small>
 
@@ -78,7 +79,7 @@ style: |
 
 ---
 
-###### AT A GLANCE
+<div class="eyebrow">AT A GLANCE</div>
 
 # Key Numbers
 
@@ -93,7 +94,7 @@ style: |
 
 ---
 
-###### CAREER TRAJECTORY
+<div class="eyebrow">CAREER TRAJECTORY</div>
 
 # 13 Years, Four Chapters
 
@@ -106,7 +107,7 @@ style: |
 
 ---
 
-###### KKDAY · 2022.11 – 2025.03
+<div class="eyebrow">KKDAY · 2022.11 – 2025.03</div>
 
 # Affiliate Marketing Platform Owner
 
@@ -121,7 +122,7 @@ style: |
 
 ---
 
-###### KKDAY · 2025.02 – PRESENT
+<div class="eyebrow">KKDAY · 2025.02 – PRESENT</div>
 
 # B2C Core Transaction Flow
 
@@ -134,7 +135,7 @@ style: |
 
 ---
 
-###### RELIABILITY CASE STUDY
+<div class="eyebrow">RELIABILITY CASE STUDY</div>
 
 # Major Outage Response · Incident Lead
 
@@ -151,7 +152,7 @@ style: |
 
 ---
 
-###### LEADERSHIP
+<div class="eyebrow">LEADERSHIP</div>
 
 # Lead, Pre-Purchase Conversion Task Force
 
@@ -164,7 +165,7 @@ style: |
 
 ---
 
-###### AI ENGINEERING · SELF-INITIATED
+<div class="eyebrow">AI ENGINEERING · SELF-INITIATED</div>
 
 # Putting AI Into the Engineering Workflow
 
@@ -176,7 +177,7 @@ style: |
 
 ---
 
-###### SKILL MATRIX
+<div class="eyebrow">SKILL MATRIX</div>
 
 # Core Skills
 
@@ -193,7 +194,7 @@ style: |
 
 <!-- _paginate: false -->
 
-###### THANK YOU
+<div class="eyebrow">THANK YOU</div>
 
 # Let’s Talk
 

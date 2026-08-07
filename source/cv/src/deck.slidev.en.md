@@ -1,7 +1,7 @@
 ---
 theme: default
 background: '#0e171b'
-class: text-center
+class: text-left
 highlighter: shiki
 lineNumbers: false
 title: Michael Ma · Career Deck (Slidev source)
@@ -14,6 +14,7 @@ css: unocss
   background: #0e171b;
   color: #e6eef0;
 }
+.slidev-layout .eyebrow { font-weight: 700; letter-spacing: 0.26em; color: #46bfc9; font-size: 0.8em; margin-bottom: 14px; }
 .slidev-layout h1 small { font-size: 0.5em; color: #8aa0a8; font-weight: 400; margin-left: 0.3em; }
 .slidev-layout h2, .slidev-layout strong, .slidev-layout a { color: #46bfc9; }
 .slidev-layout .role { margin-top: 0.3em; font-size: 1.3em; font-weight: 600; color: #46bfc9; }
@@ -51,7 +52,7 @@ css: unocss
 .slidev-layout .links .lv { color: #8aa0a8; font-size: 0.85em; }
 </style>
 
-###### CAREER DECK · 2026
+<div class="eyebrow">CAREER DECK · 2026</div>
 
 # Michael Ma <small>马成军</small>
 
@@ -70,7 +71,7 @@ layout: default
 class: text-left
 ---
 
-###### AT A GLANCE
+<div class="eyebrow">AT A GLANCE</div>
 
 # Key Numbers
 
@@ -88,7 +89,7 @@ layout: default
 class: text-left
 ---
 
-###### CAREER TRAJECTORY
+<div class="eyebrow">CAREER TRAJECTORY</div>
 
 # 13 Years, Four Chapters
 
@@ -104,7 +105,7 @@ layout: default
 class: text-left
 ---
 
-###### KKDAY · 2022.11 – 2025.03
+<div class="eyebrow">KKDAY · 2022.11 – 2025.03</div>
 
 # Affiliate Marketing Platform Owner
 
@@ -122,7 +123,7 @@ layout: default
 class: text-left
 ---
 
-###### KKDAY · 2025.02 – PRESENT
+<div class="eyebrow">KKDAY · 2025.02 – PRESENT</div>
 
 # B2C Core Transaction Flow
 
@@ -138,7 +139,7 @@ layout: default
 class: text-left
 ---
 
-###### RELIABILITY CASE STUDY
+<div class="eyebrow">RELIABILITY CASE STUDY</div>
 
 # Major Outage Response · Incident Lead
 
@@ -158,7 +159,7 @@ layout: default
 class: text-left
 ---
 
-###### LEADERSHIP
+<div class="eyebrow">LEADERSHIP</div>
 
 # Lead, Pre-Purchase Conversion Task Force
 
@@ -174,7 +175,7 @@ layout: default
 class: text-left
 ---
 
-###### AI ENGINEERING · SELF-INITIATED
+<div class="eyebrow">AI ENGINEERING · SELF-INITIATED</div>
 
 # Putting AI Into the Engineering Workflow
 
@@ -189,7 +190,7 @@ layout: default
 class: text-left
 ---
 
-###### SKILL MATRIX
+<div class="eyebrow">SKILL MATRIX</div>
 
 # Core Skills
 
@@ -207,7 +208,7 @@ layout: default
 class: text-left
 ---
 
-###### THANK YOU
+<div class="eyebrow">THANK YOU</div>
 
 # Let’s Talk
 

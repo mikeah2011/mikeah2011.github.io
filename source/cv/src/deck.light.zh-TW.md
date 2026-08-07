@@ -16,6 +16,7 @@ style: |
     --muted: #5c6f77; --accent: #0b6e78; --accent-dim: #0b6e7814; --hairline: #dbe2e3;
   }
   section { background: #f5f7f7; color: #0e2128; }
+  .eyebrow { font-weight: 700; letter-spacing: 0.26em; color: var(--accent); font-size: 0.45em; margin-bottom: 14px; }
   h1 { font-size: 1.7em; }
   h1 small { font-size: 0.5em; color: var(--muted); font-weight: 400; margin-left: 0.3em; }
   h2 { color: var(--accent); }
@@ -62,7 +63,7 @@ style: |
 
 <!-- _paginate: false -->
 
-###### 求職簡報 · 2026
+<div class="eyebrow">求職簡報 · 2026</div>
 
 # 馬成軍 <small>Michael Ma</small>
 
@@ -78,7 +79,7 @@ style: |
 
 ---
 
-###### 一頁看懂
+<div class="eyebrow">一頁看懂</div>
 
 # 關鍵數字
 
@@ -93,7 +94,7 @@ style: |
 
 ---
 
-###### 職涯軌跡
+<div class="eyebrow">職涯軌跡</div>
 
 # 13 年，四段進階
 
@@ -106,7 +107,7 @@ style: |
 
 ---
 
-###### KKday · 2022.11 – 2025.03
+<div class="eyebrow">KKday · 2022.11 – 2025.03</div>
 
 # 聯盟行銷平台負責人
 
@@ -121,7 +122,7 @@ style: |
 
 ---
 
-###### KKday · 2025.02 – 至今
+<div class="eyebrow">KKday · 2025.02 – 至今</div>
 
 # B2C 核心交易鏈路
 
@@ -134,7 +135,7 @@ style: |
 
 ---
 
-###### 穩定性案例
+<div class="eyebrow">穩定性案例</div>
 
 # 大規模故障搶救 · 主要搶救窗口
 
@@ -151,7 +152,7 @@ style: |
 
 ---
 
-###### 管理與領導力
+<div class="eyebrow">管理與領導力</div>
 
 # 售前 CVR 增轉專案組 · 組長
 
@@ -164,7 +165,7 @@ style: |
 
 ---
 
-###### AI 工程化 · 自主專案
+<div class="eyebrow">AI 工程化 · 自主專案</div>
 
 # 把 AI 落進研發流程
 
@@ -176,7 +177,7 @@ style: |
 
 ---
 
-###### 技能矩陣
+<div class="eyebrow">技能矩陣</div>
 
 # 核心技能
 
@@ -193,7 +194,7 @@ style: |
 
 <!-- _paginate: false -->
 
-###### 謝謝
+<div class="eyebrow">謝謝</div>
 
 # 期待與你聊聊
 

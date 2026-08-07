@@ -1,7 +1,7 @@
 ---
 theme: default
 background: '#0e171b'
-class: text-center
+class: text-left
 highlighter: shiki
 lineNumbers: false
 title: 马成军 · 求职简报（Slidev 源稿）
@@ -14,6 +14,7 @@ css: unocss
   background: #0e171b;
   color: #e6eef0;
 }
+.slidev-layout .eyebrow { font-weight: 700; letter-spacing: 0.26em; color: #46bfc9; font-size: 0.8em; margin-bottom: 14px; }
 .slidev-layout h1 small { font-size: 0.5em; color: #8aa0a8; font-weight: 400; margin-left: 0.3em; }
 .slidev-layout h2, .slidev-layout strong, .slidev-layout a { color: #46bfc9; }
 .slidev-layout .role { margin-top: 0.3em; font-size: 1.3em; font-weight: 600; color: #46bfc9; }
@@ -51,7 +52,7 @@ css: unocss
 .slidev-layout .links .lv { color: #8aa0a8; font-size: 0.85em; }
 </style>
 
-###### 求职简报 · 2026
+<div class="eyebrow">求职简报 · 2026</div>
 
 # 马成军 <small>Michael Ma</small>
 
@@ -70,7 +71,7 @@ layout: default
 class: text-left
 ---
 
-###### 一页看懂
+<div class="eyebrow">一页看懂</div>
 
 # 关键数字
 
@@ -88,7 +89,7 @@ layout: default
 class: text-left
 ---
 
-###### 职业轨迹
+<div class="eyebrow">职业轨迹</div>
 
 # 13 年，四段进阶
 
@@ -104,7 +105,7 @@ layout: default
 class: text-left
 ---
 
-###### KKday · 2022.11 – 2025.03
+<div class="eyebrow">KKday · 2022.11 – 2025.03</div>
 
 # 联盟营销平台负责人
 
@@ -122,7 +123,7 @@ layout: default
 class: text-left
 ---
 
-###### KKday · 2025.02 – 至今
+<div class="eyebrow">KKday · 2025.02 – 至今</div>
 
 # B2C 核心交易链路
 
@@ -138,7 +139,7 @@ layout: default
 class: text-left
 ---
 
-###### 稳定性案例
+<div class="eyebrow">稳定性案例</div>
 
 # 大面积故障救火 · 主救火窗口
 
@@ -158,7 +159,7 @@ layout: default
 class: text-left
 ---
 
-###### 管理与领导力
+<div class="eyebrow">管理与领导力</div>
 
 # 售前 CVR 增转专项组 · 组长
 
@@ -174,7 +175,7 @@ layout: default
 class: text-left
 ---
 
-###### AI 工程化 · 自驱项目
+<div class="eyebrow">AI 工程化 · 自驱项目</div>
 
 # 把 AI 落进研发流程
 
@@ -189,7 +190,7 @@ layout: default
 class: text-left
 ---
 
-###### 技能矩阵
+<div class="eyebrow">技能矩阵</div>
 
 # 核心技能
 
@@ -207,7 +208,7 @@ layout: default
 class: text-left
 ---
 
-###### 谢谢
+<div class="eyebrow">谢谢</div>
 
 # 期待与你聊聊
 
