@@ -6,8 +6,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-05 12:15:10
 updated: 2026-05-05 12:17:53
-categories:
-  - php
+categories: [php]
 tags:
 - Laravel
 - RBAC

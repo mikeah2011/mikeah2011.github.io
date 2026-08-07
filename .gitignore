@@ -20,3 +20,6 @@ themes/aurora/
 
 # yarn lock (project uses npm/package-lock.json)
 yarn.lock
+
+# 内部审计报告（含未修复问题的定位信息，不对外公开）
+AUDIT-REPORT-*.md

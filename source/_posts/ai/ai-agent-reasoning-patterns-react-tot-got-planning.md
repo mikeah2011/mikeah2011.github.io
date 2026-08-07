@@ -9,8 +9,7 @@ tags:
 - Graph-of-Thought
 - 推理
 - 规划
-categories:
-  - ai
+categories: [ai]
 cover: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop
 images:
 description: 系统拆解 AI Agent 推理与规划能力实战，深入对比 ReAct、Tree-of-Thought、Graph-of-Thought 等模式的适用场景、实现思路与工程取舍，帮你构建更稳定、更聪明的智能体。

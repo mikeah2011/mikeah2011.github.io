@@ -8,8 +8,7 @@ tags:
 - batch
 - 内存优化
 - PHP
-categories:
-  - php
+categories: [php]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
 description: Laravel Batch Job 大数据量批处理实战指南：深入讲解内存溢出治理、chunkById 分块策略、进度追踪、失败重试与断点续传等核心问题。涵盖

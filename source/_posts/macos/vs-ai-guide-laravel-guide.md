@@ -6,9 +6,7 @@ images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-17 05:50:38
 updated: 2026-05-17 05:53:29
-categories:
-  - macos
-  - php
+categories: [macos, php]
 tags:
 - AI
 - DevOps

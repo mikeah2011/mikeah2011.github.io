@@ -6,8 +6,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-16 20:30:46
 updated: 2026-05-16 20:35:29
-categories:
-  - php
+categories: [php]
 tags:
 - Laravel
 - Telescope

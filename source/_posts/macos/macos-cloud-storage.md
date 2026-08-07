@@ -6,8 +6,7 @@ images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 date: 2026-05-05 03:00:59
 updated: 2026-05-05 03:02:39
-categories:
-  - macos
+categories: [macos]
 tags:
 - macOS
 - cloud-storage

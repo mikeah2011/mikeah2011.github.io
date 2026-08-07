@@ -6,9 +6,7 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-05 08:50:56
 updated: 2026-05-05 08:53:49
-categories:
-  - architecture
-  - infra
+categories: [architecture, infra]
 tags:
 - AWS
 - DevOps

@@ -6,9 +6,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-16 20:25:38
 updated: 2026-05-16 20:28:29
-categories:
-  - php
-  - docker
+categories: [php, docker]
 tags:
 - CI/CD
 - Composer

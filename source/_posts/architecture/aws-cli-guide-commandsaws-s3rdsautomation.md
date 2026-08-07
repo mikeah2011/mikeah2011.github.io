@@ -3,9 +3,7 @@ title: AWS CLI 实战：命令行管理 AWS 资源 — 实例/S3/RDS 自动化�
 keywords: [AWS, CLI]
 date: 2026-05-17 04:20:41
 updated: 2026-05-17 04:23:55
-categories:
-  - architecture
-  - devops
+categories: [architecture, devops]
 tags:
 - AWS
 - DevOps

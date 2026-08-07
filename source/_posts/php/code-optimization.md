@@ -7,8 +7,7 @@ tags:
 - 代码规范
 - 重构
 - 最佳实践
-categories:
-  - php
+categories: [php]
 date: 2019-10-06 15:06:38
 cover: https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/5ea38ff8793f7854-20221006153725317.jpg
 images:

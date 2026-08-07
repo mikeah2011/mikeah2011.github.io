@@ -6,8 +6,7 @@ images:
 date: 2026-05-17 06:35:34
 updated: 2026-05-17 06:38:35
 keywords: [uni-app, 条件编译, Vue, 跨平台, 微信小程序, 平台适配]
-categories:
-  - frontend
+categories: [frontend]
 tags:
 - Vue
 - uni-app
