@@ -91,6 +91,14 @@ menu:
           zh-CN: '正确的成长方式'
           en: 'The Right Way'
   Archives: true # 归档页
+  Resume:
+    name: '简历'
+    i18n:
+      cn: '简历'
+      zh-CN: '简历'
+      zh-TW: '簡歷'
+      en: 'Resume'
+    path: 'https://mikeah2011.github.io/cv/'
   Contact:
     name: '联系'
     i18n:
