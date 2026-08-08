@@ -141,51 +141,22 @@
   footer a { color: var(--muted); text-decoration: none; }
   footer a:hover, footer a:focus-visible { color: var(--accent); outline: none; }
 
-  /* Download dropdown (top bar + floating fab share the same markup/JS) */
-  .dl-row { display: flex; justify-content: flex-end; margin: -8px 0 4px; }
-  .dl-dd { position: relative; }
-  .dl-trigger {
-    display: inline-flex; align-items: center; gap: 7px;
-    font: inherit; font-size: 12.5px; font-weight: 600; color: var(--accent);
-    background: var(--accent-dim); border: 1px solid transparent; border-radius: 999px;
-    padding: 7px 14px; cursor: pointer; transition: background-color .15s ease, color .15s ease;
-  }
-  .dl-trigger:hover, .dl-trigger:focus-visible { background: var(--accent); color: #fff; outline: none; }
-  .dl-trigger svg { width: 14px; height: 14px; flex: none; }
-  .dl-trigger .caret { transition: transform .15s ease; }
-  .dl-trigger[aria-expanded="true"] .caret { transform: rotate(180deg); }
-  .dl-menu {
-    position: absolute; top: calc(100% + 8px); right: 0; z-index: 40;
-    min-width: 230px; background: var(--surface); border: 1px solid var(--line);
-    border-radius: 12px; box-shadow: var(--shadow); padding: 6px;
-  }
-  .dl-menu a {
-    display: flex; align-items: center; gap: 10px; padding: 8px 9px; border-radius: 8px;
-    color: inherit; text-decoration: none; font-size: 13px;
-  }
-  .dl-menu a:hover, .dl-menu a:focus-visible { background: var(--surface-2); outline: none; }
-  .dl-menu .fi {
-    width: 26px; height: 26px; border-radius: 7px; flex: none;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800; color: #fff; background: #111827;
-  }
-  .dl-menu .tx { display: flex; flex-direction: column; min-width: 0; }
-  .dl-menu .nm { font-weight: 600; }
-  .dl-menu .ds { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
-
-  /* Floating scroll widget: appears once the page has scrolled past the header */
-  .scroll-fab {
+  /* Bottom-right fixed cluster: scroll-progress ring (appears once scrolled)
+     plus direct-download buttons (always visible, current language only —
+     no dropdown, since there's nothing left to choose once the theme axis
+     is dropped). */
+  .dl-fab {
     position: fixed; right: clamp(14px, 3vw, 30px); bottom: clamp(14px, 3vw, 30px); z-index: 50;
     display: flex; flex-direction: column; align-items: center; gap: 10px;
-    opacity: 0; transform: translateY(14px); pointer-events: none;
-    transition: opacity .25s ease, transform .25s ease;
   }
-  .scroll-fab.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
   .fab-progress {
     position: relative; width: 48px; height: 48px; border-radius: 50%; padding: 0;
     background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
     display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--accent);
+    opacity: 0; transform: translateY(8px); pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
   }
+  .fab-progress.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
   .fab-progress .ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
   .fab-progress .ring-bg { fill: none; stroke: var(--line); stroke-width: 2.5; }
   .fab-progress .ring-fg {
@@ -197,13 +168,13 @@
   .fab-progress:hover .pct { display: none; }
   .fab-progress:hover .up { display: block; }
   .fab-dl {
-    width: 40px; height: 40px; border-radius: 50%; padding: 0;
+    width: 40px; height: 40px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
-    color: var(--accent); cursor: pointer;
+    font-size: 11px; font-weight: 800; color: #fff; text-decoration: none;
+    box-shadow: var(--shadow); cursor: pointer;
   }
-  .fab-dl svg { width: 17px; height: 17px; }
-  .fab-dd .dl-menu { top: auto; bottom: calc(100% + 8px); }
+  .fab-dl.badge-md { background: #111827; }
+  .fab-dl.badge-pdf { background: #c0392b; }
 
   @media (prefers-reduced-motion: reduce) { * { transition-duration: .01ms !important; } }
 
@@ -214,7 +185,7 @@
     }
     body { font-size: 12.5px; }
     .sheet { max-width: none; padding: 0; }
-    .bar, .dl-row, .scroll-fab, footer { display: none; }
+    .bar, .dl-fab, footer { display: none; }
     section { margin-top: 22px; }
     .job { margin-bottom: 20px; }
     .phase, .role > ul, .plain li, .role .org-note { break-inside: avoid; }
@@ -228,18 +199,7 @@
 
   <div class="bar" data-cv-toolbar></div>
 
-  <div class="dl-row">
-    <div class="dl-dd">
-      <button type="button" class="dl-trigger" id="dlTopBtn" aria-haspopup="true" aria-expanded="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span data-i18n="dl.md.btn">下载简历 Markdown</span>
-        <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="dl-menu" id="dlTopMenu" hidden></div>
-    </div>
-  </div>
-
-  <div class="scroll-fab" id="scrollFab" aria-hidden="true">
+  <div class="dl-fab" id="dlFab">
     <button type="button" class="fab-progress" id="fabProgress" data-i18n-attr="title:dl.top,aria-label:dl.top">
       <svg class="ring" viewBox="0 0 40 40" aria-hidden="true">
         <circle cx="20" cy="20" r="17" class="ring-bg"/>
@@ -248,12 +208,8 @@
       <span class="pct" id="fabPct">0%</span>
       <svg class="up" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    <div class="dl-dd fab-dd">
-      <button type="button" class="fab-dl" id="dlFabBtn" aria-haspopup="true" aria-expanded="false" data-i18n-attr="title:dl.md.btn,aria-label:dl.md.btn">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="dl-menu" id="dlFabMenu" hidden></div>
-    </div>
+    <a class="fab-dl badge-md" id="dlMdLink" href="src/resume.md" download data-i18n-attr="title:dl.md.btn,aria-label:dl.md.btn">M↓</a>
+    <a class="fab-dl badge-pdf" id="dlPdfLink" href="downloads/简历_马成军.pdf" download data-i18n-attr="title:dl.pdf.btn,aria-label:dl.pdf.btn">PDF</a>
   </div>
 
   <header>
@@ -409,6 +365,19 @@
 
 <script src="assets/cv-ui.js"></script>
 <script>
+// Direct-download links carry no language/theme picker of their own — they
+// just always point at whatever the page's own toolbar currently shows.
+var RESUME_MD_FILES = { 'zh-CN': 'src/resume.md', 'zh-TW': 'src/resume.zh-TW.md', 'en': 'src/resume.en.md' };
+var RESUME_PDF_FILES = {
+  'zh-CN': 'downloads/简历_马成军.pdf',
+  'zh-TW': 'downloads/简历_马成军.zh-TW.pdf',
+  'en': 'downloads/简历_马成军.en.pdf'
+};
+function updateResumeDownloadLinks(lang) {
+  document.getElementById('dlMdLink').href = RESUME_MD_FILES[lang] || RESUME_MD_FILES['zh-CN'];
+  document.getElementById('dlPdfLink').href = RESUME_PDF_FILES[lang] || RESUME_PDF_FILES['zh-CN'];
+}
+
 CVUI.init({
 'zh-CN': {
   'html.title': '马成军 · 资深后端工程师简历',
@@ -476,7 +445,8 @@ CVUI.init({
   'aw.3': '远丰科技「技术之星」（<span class="num">2016、2018</span>）',
   'foot.name': '马成军 Michael Ma · 资深后端工程师',
   'foot.tip': '浏览器打印（⌘P）即可导出 A4 PDF',
-  'dl.md.btn': '下载简历 Markdown', 'dl.top': '回到顶部'
+  'dl.md.btn': '下载简历 Markdown', 'dl.top': '回到顶部',
+  'dl.pdf.btn': '下载简历 PDF'
 },
 
 'zh-TW': {
@@ -545,7 +515,8 @@ CVUI.init({
   'aw.3': '遠豐科技「技術之星」（<span class="num">2016、2018</span>）',
   'foot.name': '馬成軍 Michael Ma · 資深後端工程師',
   'foot.tip': '瀏覽器列印（⌘P）即可匯出 A4 PDF',
-  'dl.md.btn': '下載履歷 Markdown', 'dl.top': '回到頂部'
+  'dl.md.btn': '下載履歷 Markdown', 'dl.top': '回到頂部',
+  'dl.pdf.btn': '下載履歷 PDF'
 },
 
 'en': {
@@ -614,52 +585,14 @@ CVUI.init({
   'aw.3': 'Yuanfeng Technology Star (<span class="num">2016, 2018</span>)',
   'foot.name': 'Michael Ma · Senior Backend Engineer',
   'foot.tip': 'Print from your browser (⌘P) to export as A4 PDF',
-  'dl.md.btn': 'Download Résumé Markdown', 'dl.top': 'Back to top'
+  'dl.md.btn': 'Download Résumé Markdown', 'dl.top': 'Back to top',
+  'dl.pdf.btn': 'Download Résumé PDF'
 }
-});
+}, { onLang: updateResumeDownloadLinks });
 
 (function () {
-  var MD_FILES = [
-    { lang: '简体中文 · Simplified', file: 'resume.md', href: 'src/resume.md' },
-    { lang: '繁體中文 · Traditional', file: 'resume.zh-TW.md', href: 'src/resume.zh-TW.md' },
-    { lang: 'English', file: 'resume.en.md', href: 'src/resume.en.md' }
-  ];
-
-  function buildMenu() {
-    var frag = document.createDocumentFragment();
-    MD_FILES.forEach(function (f) {
-      var a = document.createElement('a');
-      a.href = f.href;
-      a.setAttribute('download', '');
-      a.innerHTML = '<span class="fi">M↓</span><span class="tx"><span class="nm">' + f.lang +
-        '</span><span class="ds">' + f.file + '</span></span>';
-      frag.appendChild(a);
-    });
-    return frag;
-  }
-  document.getElementById('dlTopMenu').appendChild(buildMenu());
-  document.getElementById('dlFabMenu').appendChild(buildMenu());
-
-  function closeMenus() {
-    document.querySelectorAll('.dl-menu').forEach(function (m) { m.setAttribute('hidden', ''); });
-    document.querySelectorAll('.dl-trigger, .fab-dl').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
-  }
-  function wireDropdown(btnId, menuId) {
-    var btn = document.getElementById(btnId), menu = document.getElementById(menuId);
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var willOpen = menu.hasAttribute('hidden');
-      closeMenus();
-      if (willOpen) { menu.removeAttribute('hidden'); btn.setAttribute('aria-expanded', 'true'); }
-    });
-  }
-  wireDropdown('dlTopBtn', 'dlTopMenu');
-  wireDropdown('dlFabBtn', 'dlFabMenu');
-  document.addEventListener('click', closeMenus);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenus(); });
-
-  // Scroll progress ring + floating fab visibility
-  var fab = document.getElementById('scrollFab');
+  // Scroll progress ring + back-to-top visibility
+  var ring = document.getElementById('fabProgress');
   var ringFg = document.getElementById('ringFg');
   var pctEl = document.getElementById('fabPct');
   var CIRC = 2 * Math.PI * 17;
@@ -670,12 +603,12 @@ CVUI.init({
     var pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrollTop / scrollable) * 100)) : 0;
     ringFg.style.strokeDashoffset = String(CIRC - (CIRC * pct / 100));
     pctEl.textContent = Math.round(pct) + '%';
-    fab.classList.toggle('show', scrollTop > 320);
+    ring.classList.toggle('show', scrollTop > 320);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   onScroll();
-  document.getElementById('fabProgress').addEventListener('click', function () {
+  ring.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
