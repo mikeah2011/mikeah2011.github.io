@@ -103,7 +103,13 @@
     [data-desktop-only] { display: inline-flex; }
     .viewer-body { display: flex; gap: 20px; align-items: flex-start; }
     .pane[hidden] { display: block; }
-    #source-pane, #preview-pane { flex: 1 1 50%; min-width: 0; max-height: calc(100vh - 70px); overflow-y: auto; position: sticky; top: 70px; }
+    /* `height`, not just `max-height`: with only a cap, a pane shorter
+       than the viewport shrinks to fit its own content instead of filling
+       the available space — which left .pane-center centering a box that
+       was already exactly its own height, a no-op. An explicit height
+       gives centering (and the slide's own width-driven zoom) real room
+       to work with. */
+    #source-pane, #preview-pane { flex: 1 1 50%; min-width: 0; height: calc(100vh - 70px); overflow-y: auto; position: sticky; top: 70px; }
     body.preview-only #source-pane { display: none; }
     body.preview-only #preview-pane { flex: 1 1 100%; }
     /* Slides are shorter than the pane in both split and full-page mode,
@@ -111,7 +117,7 @@
        center the whole viewport+chrome block instead. The plain markdown
        résumé preview is a document meant to be read top-down, so it opts
        out (see .pane-center gating in JS). */
-    #preview-pane.pane-center { display: flex; flex-direction: column; justify-content: center; }
+    #preview-pane.pane-center { display: flex; flex-direction: column; align-items: stretch; justify-content: center; }
   }
 
   /* ---- source pane ---- */
@@ -385,13 +391,17 @@
     // correctly whether it's in the narrow split-view column or blown up
     // in full-page mode, instead of a fixed font-size looking right at
     // exactly one width and wrong everywhere else.
+    // `viewport` isn't attached to the document yet at this point in
+    // renderSlides() — the caller appends the returned root right after —
+    // so getBoundingClientRect() here would still read a detached box (0
+    // width). The caller does the first measurement synchronously right
+    // after appending (see below); this observer only needs to cover
+    // whatever resizes happen after that.
     if (window.ResizeObserver) {
       new ResizeObserver(function (entries) {
         var width = entries[0].contentRect.width;
         viewport.style.setProperty('--zoom', width / 1280);
       }).observe(viewport);
-    } else {
-      viewport.style.setProperty('--zoom', viewport.getBoundingClientRect().width / 1280);
     }
 
     var sections = [].slice.call(viewport.children);
@@ -488,6 +498,8 @@
       var parsed = kind === 'slidev' ? parseSlidev(text) : parseMarp(text);
       previewPane.classList.add('pane-center');
       previewPane.appendChild(renderSlides(parsed.css, parsed.slides, kind === 'slidev' ? 'slidev-layout' : ''));
+      var newViewport = previewPane.querySelector('.slideshow-viewport');
+      newViewport.style.setProperty('--zoom', newViewport.getBoundingClientRect().width / 1280);
     }
   }).catch(function (err) {
     document.getElementById('src-code').textContent = '加载失败：' + err.message;
@@ -508,6 +520,27 @@
   document.getElementById('expand-btn').addEventListener('click', function () {
     var on = document.body.classList.toggle('preview-only');
     document.getElementById('expand-btn-label').textContent = on ? '分栏查看' : '整页预览';
+    // The ResizeObserver in renderSlides() should catch this resize on its
+    // own, but it didn't fire reliably for this particular class-driven
+    // aspect-ratio resize in testing — recompute directly as a fallback so
+    // toggling modes doesn't leave the zoom stuck at whatever it was
+    // before, which read as "the text is too small" in full-page mode.
+    // getBoundingClientRect() forces the layout the class toggle just
+    // triggered to actually resolve first, so this reads the real,
+    // post-toggle width synchronously — no need to wait a frame for it
+    // (and rAF turned out not to be reliable in every embedding context
+    // anyway, so don't depend on it here).
+    document.querySelectorAll('.slideshow-viewport').forEach(function (vp) {
+      vp.style.setProperty('--zoom', vp.getBoundingClientRect().width / 1280);
+    });
+  });
+
+  // Same fallback for plain window resizing (rotating a phone, resizing
+  // the browser window) — same reasoning as the expand-btn handler above.
+  window.addEventListener('resize', function () {
+    document.querySelectorAll('.slideshow-viewport').forEach(function (vp) {
+      vp.style.setProperty('--zoom', vp.getBoundingClientRect().width / 1280);
+    });
   });
 })();
 </script>
