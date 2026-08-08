@@ -251,7 +251,12 @@
        multi-bullet .phase to stay together pushed 200px+ of empty space
        ahead of it and spilled the CV onto an extra page; the heading rules
        below are what actually prevent orphaned headings. */
-    .role li, .impact li, .plain li, .role .org-note, .tiles, .tile { break-inside: avoid; }
+    /* Only the metric tiles are genuinely atomic — one sliced in half looks
+       broken. Text blocks use orphans/widows instead: forcing a whole 4-line
+       bullet onto the next page strands far more space than letting it split
+       with at least two lines left on each side. */
+    .tiles, .tile { break-inside: avoid; }
+    .role li, .impact li, .plain li, .role .org-note { orphans: 2; widows: 2; }
     /* Chrome cannot fragment a grid container across pages, so a .job that
        straddles a page boundary is pushed down whole — the KKday block is
        500px+, which stranded most of a page and added a third one. Floating
@@ -421,6 +426,7 @@
       <div class="when num"><span data-i18n="j4.when">2013.06 – 2017.12</span><span class="place" data-i18n="loc">上海</span></div>
       <div class="role">
         <h3><span data-i18n="j4.co">远丰科技集团</span><span class="title" data-i18n="j4.role">｜全栈开发工程师</span></h3>
+        <p class="org-note" data-i18n="j4.note"></p>
         <ul>
           <li data-i18n-html="j4.b1"></li><li data-i18n-html="j4.b2"></li>
         </ul>
@@ -525,11 +531,12 @@ var RESUME_DICT = {
   'j2.b1': '主责 <strong>JS 埋点追踪服务</strong>（jstracking）：全渠道行为采集与内容营销归因，营销自动化核心数据源',
   'j2.b2': '主力参与 <strong>JINGsocial 主系统</strong>前后端分离改造（v2）与老架构维护（合计 <span class="num">300+</span> 次提交），并横向覆盖 EDM、短信网关、问卷、获客线索、企业微信等 <span class="num">8+</span> 微服务的迭代与稳定性',
   'j3.when': '2017.12 – 2021.03', 'j3.co': '商派云起软件（Shopex）', 'j3.role': '｜技术专家 / Lead Developer',
-  'j3.note': '国内头部电商 SaaS 服务商。主导 Apple 中国经销商平台交付与高并发性能优化。',
-  'j3.b1': '交付 <strong>Apple 中国经销商平台</strong>（上线 <span class="num">5</span> 个月 GMV 超 <span class="num">¥100 亿</span>）：串接顺丰、宝尊 OMS 等 <span class="num">15+</span> 支付/物流系统，OMS/WMS 操作自动化率 <span class="num">98%</span>，服务 <span class="num">3500+</span> 零售门店、<span class="num">25 万+</span> DAU',
+  'j3.note': '国内头部电商 SaaS 服务商。任技术专家 / Lead Developer，并主导高并发性能优化。',
+  'j3.b1': '<strong>Apple 中国经销商平台</strong>（上线 <span class="num">5</span> 个月 GMV 超 <span class="num">¥100 亿</span>）：主责预售、交易、支付回调、配送发货核心链路，带 <span class="num">6–7</span> 人跨端小组（后端 / 前端 / UI）交付小程序端，并负责发版与服务器运维；串接顺丰、宝尊 OMS 等 <span class="num">15+</span> 支付/物流系统，OMS/WMS 操作自动化率 <span class="num">98%</span>，服务 <span class="num">3500+</span> 零售门店、<span class="num">25 万+</span> DAU',
   'j3.b2': '高性能优惠券系统获公司<strong>金番茄奖</strong>；H5 接口吞吐量提升 <span class="num">17.5</span> 倍（<span class="num">200 → 3500 TPS</span>），压测调优（NGINX 缓存 + TSung）达 <span class="num">12K TPS</span>',
   'j3.b3': '基于 go-zero 构建短信网关服务（日发送量 <span class="num">100 万+</span>）；数据导出从 OOM 失败优化至 <span class="num">1000 万行 / 10 分钟</span>',
   'j4.when': '2013.06 – 2017.12', 'j4.co': '远丰科技集团', 'j4.role': '｜全栈开发工程师',
+  'j4.note': '电商 SaaS 服务商。全栈负责多商户电商平台、IM 系统与缓存层的开发与优化。',
   'j4.b1': '开发多商户 SaaS 电商平台（支撑 <span class="num">1 万+</span> 商家），支持 <span class="num">10</span> 国语言（Google/有道翻译 API 混合流程，翻译成本降低 <span class="num">70%</span>）',
   'j4.b2': '基于网易云信构建 IM 系统（日消息量 <span class="num">200 万+</span>）；设计 Redis 缓存层，数据库负载降低 <span class="num">60%</span>',
   'oss.1': '<strong>SwaggerNotes</strong>（PHP/Laravel 扩展包，100% 独立开发）：自动生成 Swagger 注释并产出 OpenAPI 接口文件；已发布至 Packagist，累计下载 <span class="num">2.6k+</span>',
@@ -585,11 +592,12 @@ var RESUME_DICT = {
   'j2.b1': '主責 <strong>JS 埋點追蹤服務</strong>（jstracking）：全通路行為蒐集與內容行銷歸因，行銷自動化核心資料來源',
   'j2.b2': '主力參與 <strong>JINGsocial 主系統</strong>前後端分離改造（v2）與舊架構維護（合計 <span class="num">300+</span> 次提交），並橫向涵蓋 EDM、簡訊閘道、問卷、名單開發、企業微信等 <span class="num">8+</span> 微服務的迭代與穩定性',
   'j3.when': '2017.12 – 2021.03', 'j3.co': '商派雲起軟體（Shopex）', 'j3.role': '｜技術專家 / Lead Developer',
-  'j3.note': '國內頭部電商 SaaS 服務商。主導 Apple 中國經銷商平台交付與高並發效能優化。',
-  'j3.b1': '交付 <strong>Apple 中國經銷商平台</strong>（上線 <span class="num">5</span> 個月 GMV 超 <span class="num">¥100 億</span>）：串接順豐、寶尊 OMS 等 <span class="num">15+</span> 支付／物流系統，OMS/WMS 操作自動化率 <span class="num">98%</span>，服務 <span class="num">3500+</span> 零售門市、<span class="num">25 萬+</span> DAU',
+  'j3.note': '國內頭部電商 SaaS 服務商。任技術專家 / Lead Developer，並主導高並發效能優化。',
+  'j3.b1': '<strong>Apple 中國經銷商平台</strong>（上線 <span class="num">5</span> 個月 GMV 超 <span class="num">¥100 億</span>）：主責預售、交易、支付回調、配送出貨核心鏈路，帶 <span class="num">6–7</span> 人跨端小組（後端／前端／UI）交付小程式端，並負責發版與伺服器維運；串接順豐、寶尊 OMS 等 <span class="num">15+</span> 支付／物流系統，OMS/WMS 操作自動化率 <span class="num">98%</span>，服務 <span class="num">3500+</span> 零售門市、<span class="num">25 萬+</span> DAU',
   'j3.b2': '高效能優惠券系統獲公司<strong>金番茄獎</strong>；H5 介面吞吐量提升 <span class="num">17.5</span> 倍（<span class="num">200 → 3500 TPS</span>），壓測調校（NGINX 快取 + TSung）達 <span class="num">12K TPS</span>',
   'j3.b3': '以 go-zero 建構簡訊閘道服務（日發送量 <span class="num">100 萬+</span>）；資料匯出從 OOM 失敗優化至 <span class="num">1000 萬列 / 10 分鐘</span>',
   'j4.when': '2013.06 – 2017.12', 'j4.co': '遠豐科技集團', 'j4.role': '｜全端開發工程師',
+  'j4.note': '電商 SaaS 服務商。全端負責多商戶電商平台、IM 系統與快取層的開發與最佳化。',
   'j4.b1': '開發多商戶 SaaS 電商平台（支撐 <span class="num">1 萬+</span> 商家），支援 <span class="num">10</span> 國語言（Google／有道翻譯 API 混合流程，翻譯成本降低 <span class="num">70%</span>）',
   'j4.b2': '以網易雲信建構 IM 系統（日訊息量 <span class="num">200 萬+</span>）；設計 Redis 快取層，資料庫負載降低 <span class="num">60%</span>',
   'oss.1': '<strong>SwaggerNotes</strong>（PHP/Laravel 擴充套件，100% 獨立開發）：自動產生 Swagger 註解並輸出 OpenAPI 介面檔；已發布至 Packagist，累計下載 <span class="num">2.6k+</span>',
@@ -611,7 +619,7 @@ var RESUME_DICT = {
   'sec.oss': 'Open Source &amp; Personal Projects', 'sec.awards': 'Awards',
   'sec.summary': 'Profile', 'sec.skills': 'Core Skills', 'sec.exp': 'Experience',
   'sec.ai': 'AI Engineering', 'sec.oss': 'Open Source &amp; Personal Projects', 'sec.awards': 'Awards',
-  'sum.lede': '<span class="num">13</span> years of backend engineering focused on <strong>high-concurrency transaction systems</strong> and <strong>distributed architecture</strong>. Having led incident response on a large-scale outage and maintained core transaction systems for years, I know what unreliable output costs in production — so when I extended into <strong>AI engineering</strong> this past year, the first thing I built was a convergence layer and cost controls, not another generator.',
+  'sum.lede': '<span class="num">13</span> years of backend engineering on <strong>high-concurrency transaction systems</strong> and <strong>distributed architecture</strong>. Having run incident response on a major outage and maintained core transaction systems for years, I know what unreliable output costs in production — so extending into <strong>AI engineering</strong>, I built a convergence layer and cost controls first, not another generator.',
   'm.1.v': '13 yrs', 'm.1.k': 'Backend engineering · OTA / e-commerce / MarTech',
   'm.2.v': '&yen;10B+', 'm.2.k': 'GMV within 5 months, Apple China reseller platform',
   'm.3.v': '25s &rarr; 2s', 'm.3.k': 'Critical API p99 after major-outage response',
@@ -635,7 +643,7 @@ var RESUME_DICT = {
   'j1.p1.h': 'Pre-Purchase Conversion Task Force · Lead (2026 H2 – Present)',
   'j1.p1.b1': 'Formed and lead a <strong>6-person cross-platform team</strong> (iOS/Android/Web/Backend) against a single north-star metric — conversion <span class="num">1.2% → 1.8%</span> (<span class="num">+50%</span>); established standups, 1-on-1s and OKR alignment across the pre-purchase funnel (product page → cart → checkout)',
   'j1.p2.h': 'B2C Core Transaction Flow (2025.02 – Present)',
-  'j1.p2.b1': '<strong>USJ (Universal Studios Japan) booking-date changes</strong>: re-architected across four services and authored <span class="num">7</span> SA/SD documents. Turned scattered coupon and loyalty-point revalidation rules into an auditable decision table under an "entitlements inherit, conditions re-evaluate" principle — approved by all four teams in a single review, securing renewal with a top-tier ticketing supplier',
+  'j1.p2.b1': '<strong>USJ (Universal Studios Japan) booking-date changes</strong>: re-architected across four services, authoring <span class="num">7</span> SA/SD documents. Turned scattered coupon and loyalty-point revalidation rules into an auditable decision table — approved by all four teams in a single review, securing renewal with a top-tier ticketing supplier',
   'j1.p2.b4': '<strong>Major outage response (incident lead)</strong>: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool and shipped P0+P1 hardening in <span class="num">7</span> days (timeouts, fallbacks, a Redis circuit breaker, two-tier kill switch) — cart/validate p99 <span class="num">25s+ → &lt;2s</span>, iOS checkout white-screen eliminated, 5xx held below <span class="num">0.01%</span> since',
   'j1.p2.b5': '',
   'j1.p3.h': 'Affiliate Marketing Platform · Platform Owner (2022.11 – 2025.03)',
@@ -647,11 +655,12 @@ var RESUME_DICT = {
   'j2.b1': 'Owned the <strong>JavaScript event-tracking service</strong> (jstracking): omnichannel behavioral collection and content-marketing attribution, the primary data source for marketing automation',
   'j2.b2': '',
   'j3.when': '2017.12 – 2021.03', 'j3.co': 'Shopex', 'j3.role': ' ｜ Technical Expert / Lead Developer',
-  'j3.note': 'A leading domestic e-commerce SaaS provider. Led delivery of the Apple China reseller platform and high-concurrency performance work.',
-  'j3.b1': 'Delivered the <strong>Apple China reseller platform</strong> (surpassing <span class="num">&yen;10B</span> GMV within 5 months of launch): integrated <span class="num">15+</span> payment and logistics systems including SF Express and Baozun OMS, reached <span class="num">98%</span> OMS/WMS automation, and served <span class="num">3,500+</span> retail stores and <span class="num">250K+</span> daily active users',
+  'j3.note': 'A leading domestic e-commerce SaaS provider. Technical Expert / Lead Developer, also driving high-concurrency performance work.',
+  'j3.b1': '<strong>Apple China reseller platform</strong> (surpassing <span class="num">&yen;10B</span> GMV within 5 months of launch): owned the core flow — pre-order, checkout, payment callbacks, fulfilment and shipping — leading a <span class="num">6–7</span> person cross-functional team (backend / frontend / UI); integrated <span class="num">15+</span> payment and logistics systems including SF Express and Baozun OMS, reached <span class="num">98%</span> OMS/WMS automation, serving <span class="num">3,500+</span> retail stores and <span class="num">250K+</span> DAU',
   'j3.b2': 'Received the company\'s <strong>Golden Tomato Award</strong> for a high-performance coupon system; raised H5 API throughput <span class="num">17.5&times;</span> (<span class="num">200 &rarr; 3,500 TPS</span>) and reached <span class="num">12K TPS</span> under load testing (NGINX caching + TSung tuning)',
   'j3.b3': 'Built an SMS gateway on go-zero handling <span class="num">1M+</span> messages/day; optimized data export from OOM failures to <span class="num">10M rows in 10 minutes</span>',
   'j4.when': '2013.06 – 2017.12', 'j4.co': 'Yuanfeng Technology Group', 'j4.role': ' ｜ Full-Stack Engineer',
+  'j4.note': '',
   'j4.b1': 'Built a multi-merchant SaaS e-commerce platform serving <span class="num">10,000+</span> merchants with <span class="num">10</span>-language support, using a hybrid Google/Youdao translation pipeline that cut translation costs <span class="num">70%</span>',
   'j4.b2': '',
   'oss.1': '<strong>SwaggerNotes</strong> (PHP/Laravel package, built solo): generates Swagger annotations and OpenAPI specification files; published on Packagist with <span class="num">2.6k+</span> downloads',

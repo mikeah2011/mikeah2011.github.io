@@ -9,7 +9,7 @@
 
 ## Profile
 
-13 years of backend engineering focused on **high-concurrency transaction systems** and **distributed architecture**. Having led incident response on a large-scale outage and maintained core transaction systems for years, I know what unreliable output costs in production — so when I extended into **AI engineering** this past year, the first thing I built was a convergence layer and cost controls, not another generator.
+13 years of backend engineering on **high-concurrency transaction systems** and **distributed architecture**. Having run incident response on a major outage and maintained core transaction systems for years, I know what unreliable output costs in production — so extending into **AI engineering**, I built a convergence layer and cost controls first, not another generator.
 
 **13 yrs** — Backend engineering · OTA / e-commerce / MarTech  
 **¥10B+** — GMV within 5 months, Apple China reseller platform  
@@ -54,7 +54,7 @@ A leading global travel-experience platform operating in 50+ countries. Progress
 - Formed and lead a **6-person cross-platform team** (iOS/Android/Web/Backend) against a single north-star metric — conversion 1.2% → 1.8% (+50%); established standups, 1-on-1s and OKR alignment across the pre-purchase funnel (product page → cart → checkout)
 
 **② B2C Core Transaction Flow (2025.02 – Present)**
-- **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services and authored 7 SA/SD documents. Turned scattered coupon and loyalty-point revalidation rules into an auditable decision table under an "entitlements inherit, conditions re-evaluate" principle — approved by all four teams in a single review, securing renewal with a top-tier ticketing supplier
+- **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services, authoring 7 SA/SD documents. Turned scattered coupon and loyalty-point revalidation rules into an auditable decision table — approved by all four teams in a single review, securing renewal with a top-tier ticketing supplier
 - **Major outage response (incident lead)**: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool and shipped P0+P1 hardening in 7 days (timeouts, fallbacks, a Redis circuit breaker, two-tier kill switch) — cart/validate p99 25s+ → <2s, iOS checkout white-screen eliminated, 5xx held below 0.01% since
 
 **③ Affiliate Marketing Platform · Platform Owner (2022.11 – 2025.03)**
@@ -75,9 +75,9 @@ A B2B MarTech/SCRM marketing-automation SaaS vendor. Responsible for backend dev
 ### Shopex — Technical Expert / Lead Developer
 **2017.12 – 2021.03 ｜ Shanghai, China (UTC+8)**
 
-A leading domestic e-commerce SaaS provider. Led delivery of the Apple China reseller platform and high-concurrency performance work.
+A leading domestic e-commerce SaaS provider. Technical Expert / Lead Developer, also driving high-concurrency performance work.
 
-- Delivered the **Apple China reseller platform** (surpassing ¥10B GMV within 5 months of launch): integrated 15+ payment and logistics systems including SF Express and Baozun OMS, reached 98% OMS/WMS automation, and served 3,500+ retail stores and 250K+ daily active users
+- **Apple China reseller platform** (surpassing ¥10B GMV within 5 months of launch): owned the core flow — pre-order, checkout, payment callbacks, fulfilment and shipping — leading a 6–7 person cross-functional team (backend / frontend / UI); integrated 15+ payment and logistics systems including SF Express and Baozun OMS, reached 98% OMS/WMS automation, serving 3,500+ retail stores and 250K+ DAU
 - Received the company's **Golden Tomato Award** for a high-performance coupon system; raised H5 API throughput 17.5× (200 → 3,500 TPS) and reached 12K TPS under load testing (NGINX caching + TSung tuning)
 - Built an SMS gateway on go-zero handling 1M+ messages/day; optimized data export from OOM failures to 10M rows in 10 minutes
 
