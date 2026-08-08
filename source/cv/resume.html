@@ -164,9 +164,16 @@
     stroke-dasharray: 106.8; stroke-dashoffset: 106.8; transition: stroke-dashoffset .1s linear;
   }
   .fab-progress .pct { font-size: 9.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
-  .fab-progress .up { display: none; width: 18px; height: 18px; }
-  .fab-progress:hover .pct { display: none; }
-  .fab-progress:hover .up { display: block; }
+  .fab-top {
+    width: 40px; height: 40px; border-radius: 50%; padding: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
+    color: var(--accent); cursor: pointer;
+    opacity: 0; transform: translateY(8px); pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .fab-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .fab-top svg { width: 18px; height: 18px; }
   .fab-dl {
     width: 40px; height: 40px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
@@ -200,13 +207,15 @@
   <div class="bar" data-cv-toolbar></div>
 
   <div class="dl-fab" id="dlFab">
-    <button type="button" class="fab-progress" id="fabProgress" data-i18n-attr="title:dl.top,aria-label:dl.top">
+    <div class="fab-progress" id="fabProgress" aria-hidden="true">
       <svg class="ring" viewBox="0 0 40 40" aria-hidden="true">
         <circle cx="20" cy="20" r="17" class="ring-bg"/>
         <circle cx="20" cy="20" r="17" class="ring-fg" id="ringFg"/>
       </svg>
       <span class="pct" id="fabPct">0%</span>
-      <svg class="up" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <button type="button" class="fab-top" id="fabTop" data-i18n-attr="title:dl.top,aria-label:dl.top">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <a class="fab-dl badge-md" id="dlMdLink" href="src/resume.md" download data-i18n-attr="title:dl.md.btn,aria-label:dl.md.btn">M↓</a>
     <a class="fab-dl badge-pdf" id="dlPdfLink" href="downloads/简历_马成军.pdf" download data-i18n-attr="title:dl.pdf.btn,aria-label:dl.pdf.btn">PDF</a>
@@ -591,8 +600,9 @@ CVUI.init({
 }, { onLang: updateResumeDownloadLinks });
 
 (function () {
-  // Scroll progress ring + back-to-top visibility
+  // Scroll progress ring (display-only) + a dedicated back-to-top button
   var ring = document.getElementById('fabProgress');
+  var top = document.getElementById('fabTop');
   var ringFg = document.getElementById('ringFg');
   var pctEl = document.getElementById('fabPct');
   var CIRC = 2 * Math.PI * 17;
@@ -604,11 +614,12 @@ CVUI.init({
     ringFg.style.strokeDashoffset = String(CIRC - (CIRC * pct / 100));
     pctEl.textContent = Math.round(pct) + '%';
     ring.classList.toggle('show', scrollTop > 320);
+    top.classList.toggle('show', scrollTop > 320);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   onScroll();
-  ring.addEventListener('click', function () {
+  top.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();

@@ -154,7 +154,8 @@
     font-size: 10.5px; font-weight: 800; color: #fff; text-decoration: none;
     box-shadow: 0 1px 2px #0002, 0 8px 24px -12px #0004; cursor: pointer;
   }
-  .dl-btn.badge-md { background: #111827; }
+  .dl-btn.badge-marp { background: #3b4a6b; }
+  .dl-btn.badge-slidev { background: #7c3aed; }
   .dl-btn.badge-pdf { background: #c0392b; }
   .dl-btn.badge-pptx { background: #d24726; }
 
@@ -198,7 +199,8 @@
 <div class="toolbar" data-cv-toolbar></div>
 
 <div class="dl-fab">
-  <a class="dl-btn badge-md" id="dlMdLink" download data-i18n-attr="title:dl.md,aria-label:dl.md">M↓</a>
+  <a class="dl-btn badge-marp" id="dlMarpLink" download data-i18n-attr="title:dl.marp,aria-label:dl.marp">M</a>
+  <a class="dl-btn badge-slidev" id="dlSlidevLink" download data-i18n-attr="title:dl.slidev,aria-label:dl.slidev">S</a>
   <a class="dl-btn badge-pdf" id="dlPdfLink" download data-i18n-attr="title:dl.pdf,aria-label:dl.pdf">PDF</a>
   <a class="dl-btn badge-pptx" id="dlPptxLink" download data-i18n-attr="title:dl.pptx,aria-label:dl.pptx">P</a>
 </div>
@@ -417,7 +419,7 @@ var DECK_DICT = {
   's10.aria': '联系方式与完整简历', 's10.eyebrow': '谢谢', 's10.h': '期待与你聊聊',
   's10.l1.k': '完整简历 · 在线阅读与下载', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
   's10.l2.k': 'GitHub', 's10.l3.k': '技术博客', 's10.l4.k': '邮箱',
-  'dl.md': '下载简报 Markdown', 'dl.pdf': '下载简报 PDF', 'dl.pptx': '下载简报 PPTX'
+  'dl.marp': '下载简报 Marp 源稿', 'dl.slidev': '下载简报 Slidev 源稿', 'dl.pdf': '下载简报 PDF', 'dl.pptx': '下载简报 PPTX'
 },
 
 'zh-TW': {
@@ -473,7 +475,7 @@ var DECK_DICT = {
   's10.aria': '聯絡方式與完整履歷', 's10.eyebrow': '謝謝', 's10.h': '期待與你聊聊',
   's10.l1.k': '完整履歷 · 線上閱讀與下載', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
   's10.l2.k': 'GitHub', 's10.l3.k': '技術部落格', 's10.l4.k': '郵箱',
-  'dl.md': '下載簡報 Markdown', 'dl.pdf': '下載簡報 PDF', 'dl.pptx': '下載簡報 PPTX'
+  'dl.marp': '下載簡報 Marp 原始稿', 'dl.slidev': '下載簡報 Slidev 原始稿', 'dl.pdf': '下載簡報 PDF', 'dl.pptx': '下載簡報 PPTX'
 },
 
 'en': {
@@ -529,7 +531,7 @@ var DECK_DICT = {
   's10.aria': 'Contact and full résumé', 's10.eyebrow': 'THANK YOU', 's10.h': 'Let’s Talk',
   's10.l1.k': 'Full Résumé · Read & Download', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
   's10.l2.k': 'GitHub', 's10.l3.k': 'Tech Blog', 's10.l4.k': 'Email',
-  'dl.md': 'Download Deck Markdown', 'dl.pdf': 'Download Deck PDF', 'dl.pptx': 'Download Deck PPTX'
+  'dl.marp': 'Download Deck Marp Source', 'dl.slidev': 'Download Deck Slidev Source', 'dl.pdf': 'Download Deck PDF', 'dl.pptx': 'Download Deck PPTX'
 }
 };
 
@@ -571,10 +573,17 @@ function go(i) {
 // page is currently showing — no picker. Read straight off <html> rather
 // than off `current` because onLang/onTheme (and the very first call, at
 // init) can fire before `current = CVUI.init(...)` has finished assigning.
-var DECK_MD_FILES = {
+var DECK_MARP_FILES = {
   'zh-CN': { dark: 'src/deck.md', light: 'src/deck.light.md' },
   'zh-TW': { dark: 'src/deck.zh-TW.md', light: 'src/deck.light.zh-TW.md' },
   'en': { dark: 'src/deck.en.md', light: 'src/deck.light.en.md' }
+};
+// Slidev source ships one file per language only — no separate light/dark
+// variant exists for it (unlike the Marp source, PDF, and PPTX).
+var DECK_SLIDEV_FILES = {
+  'zh-CN': 'src/deck.slidev.md',
+  'zh-TW': 'src/deck.slidev.zh-TW.md',
+  'en': 'src/deck.slidev.en.md'
 };
 var DECK_FILES = {
   'zh-CN': {
@@ -599,7 +608,8 @@ function updateDeckDownloadLinks() {
   var lang = document.documentElement.getAttribute('lang') || 'zh-CN';
   var theme = deckCurrentTheme();
   var files = DECK_FILES[lang] || DECK_FILES['zh-CN'];
-  document.getElementById('dlMdLink').href = (DECK_MD_FILES[lang] || DECK_MD_FILES['zh-CN'])[theme];
+  document.getElementById('dlMarpLink').href = (DECK_MARP_FILES[lang] || DECK_MARP_FILES['zh-CN'])[theme];
+  document.getElementById('dlSlidevLink').href = DECK_SLIDEV_FILES[lang] || DECK_SLIDEV_FILES['zh-CN'];
   document.getElementById('dlPdfLink').href = files.pdf[theme];
   document.getElementById('dlPptxLink').href = files.pptx[theme];
 }
