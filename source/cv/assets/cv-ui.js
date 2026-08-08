@@ -17,6 +17,12 @@
  *   data-i18n-html="key"  → innerHTML (for strings carrying <strong>/<span>)
  *   data-i18n-attr="attr:key,attr:key"
  *
+ * Setting a key to '' (or null) in one language HIDES that element for that
+ * language — the résumé uses this to run a shorter English version off the
+ * same markup, since English CV convention wants a tighter document than the
+ * Chinese one. Omitting the key entirely is different: the element is left
+ * untouched. Pages whose dictionaries have no empty values are unaffected.
+ *
  * File-resource hooks (downloads that actually differ per language/theme,
  * not just a relabeled link to the same file):
  *   data-cv-file="key"         on the <a> — href swaps on language/theme change
@@ -118,13 +124,23 @@
       root.setAttribute('lang', lang);
       if (d['html.title']) document.title = d['html.title'];
 
+      // Three cases, deliberately distinct:
+      //   undefined ("key absent")  → leave the element alone (back-compat)
+      //   '' or null ("key emptied") → this language drops the entry entirely
+      //   a value                    → write it and make sure it's visible
+      // The empty case is what lets one language carry fewer entries than
+      // another without maintaining a second copy of the markup.
+      function applyEntry(el, v, write) {
+        if (v === '' || v === null) { el.hidden = true; return; }
+        if (v === undefined) return;
+        el.hidden = false;
+        write(el, v);
+      }
       document.querySelectorAll('[data-i18n]').forEach(function (el) {
-        var v = d[el.getAttribute('data-i18n')];
-        if (v != null) el.textContent = v;
+        applyEntry(el, d[el.getAttribute('data-i18n')], function (e, v) { e.textContent = v; });
       });
       document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
-        var v = d[el.getAttribute('data-i18n-html')];
-        if (v != null) el.innerHTML = v;
+        applyEntry(el, d[el.getAttribute('data-i18n-html')], function (e, v) { e.innerHTML = v; });
       });
       document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
         el.getAttribute('data-i18n-attr').split(',').forEach(function (pair) {

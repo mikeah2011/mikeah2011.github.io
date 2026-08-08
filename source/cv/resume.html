@@ -87,6 +87,44 @@
   strong { font-weight: 600; }
   .num { font-variant-numeric: tabular-nums; }
 
+  /* Metrics are the strongest thing on this CV, so let them catch the eye
+     during a scan. Dates and the phone number also carry .num (for tabular
+     alignment) but aren't achievements, so they deliberately stay neutral. */
+  .summary .num, .role .num, .plain .num, .impact .num { font-weight: 600; color: var(--accent); }
+
+  /* Headline metrics, lifted so the first screen has somewhere to land
+     instead of opening on five equally-weighted bullets. Same tile language
+     as the deck's "key numbers" slide, retuned for body-copy scale. */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-top: 2px; }
+  .tile {
+    background: var(--surface-2); border: 1px solid var(--line);
+    border-radius: 8px; padding: 10px 13px; min-width: 0;
+  }
+  .tile .v {
+    font-size: 18.5px; font-weight: 700; color: var(--accent);
+    font-variant-numeric: tabular-nums; line-height: 1.15;
+  }
+  .tile .k { margin-top: 3px; font-size: 11.5px; color: var(--muted); line-height: 1.45; overflow-wrap: anywhere; }
+  @media (max-width: 620px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 380px) { .tiles { grid-template-columns: 1fr; } }
+
+  .impact ul { margin: 0; padding-left: 1.15em; }
+  .impact li { margin: 7px 0; }
+  .impact li::marker { color: var(--accent); }
+
+  /* A language may drop an entry by setting its dictionary value to '' —
+     the English CV runs shorter than the Chinese one off this same markup.
+     The !important is load-bearing: author rules above would otherwise win
+     over the UA stylesheet's [hidden] { display: none }. */
+  [hidden] { display: none !important; }
+  /* ...and once every child is dropped, the empty container must not leave
+     its margins behind. */
+  ul:not(:has(> li:not([hidden]))),
+  .phase:not(:has(li:not([hidden]))) { display: none; }
+  /* A whole section can end up content-less too (the Awards line is a
+     single [hidden] <p>, not a <ul>, so the rule above doesn't reach it). */
+  section.plain:not(:has(:is(li, p):not([hidden]))) { display: none; }
+
   .skills { display: grid; grid-template-columns: 9.5em 1fr; row-gap: 9px; column-gap: 18px; font-size: 14px; }
   .skills dt { font-weight: 600; color: var(--muted); margin: 0; }
   .skills dd { margin: 0; }
@@ -132,6 +170,7 @@
   .plain ul { margin: 0; padding-left: 1.15em; }
   .plain li { margin: 6px 0; }
   .plain li::marker { color: var(--accent); }
+  .awards-line { margin: 0; }
 
   footer {
     margin-top: clamp(34px, 5vw, 46px); padding-top: 14px; border-top: 1px solid var(--line);
@@ -190,12 +229,21 @@
       --ink:#1a2b33; --ink-2:#3a4e56; --muted:#5c6f77; --paper:#fff; --surface:#fff;
       --surface-2:#eef2f2; --line:#dce3e4; --accent:#0e7c86; --accent-dim:#0e7c8614;
     }
-    body { font-size: 12.5px; }
+    body { font-size: 12px; }
     .sheet { max-width: none; padding: 0; }
     .bar, .dl-fab, footer { display: none; }
-    section { margin-top: 22px; }
-    .job { margin-bottom: 20px; }
-    .phase, .role > ul, .plain li, .role .org-note { break-inside: avoid; }
+    section { margin-top: 14px; }
+    .job { margin-bottom: 10px; }
+    .phase, .role > ul, .plain li, .role .org-note, .tiles, .tile, .impact li { break-inside: avoid; }
+    /* Tile fills don't survive most print settings; a hairline keeps the
+       metrics band legible on paper without relying on background graphics. */
+    .tile { background: none; border-color: var(--line); padding: 5px 9px; }
+    .tile .v { font-size: 14px; }
+    .tiles { gap: 6px; margin-top: 0; }
+    /* A single trailing line (the awards summary) shouldn't strand itself
+       alone on an otherwise-blank last page — keep it with whatever
+       precedes it rather than letting it break away. */
+    section.plain + section.plain { break-before: avoid; }
     .eyebrow, .role h3, .role .org-note, .phase h4, .when { break-after: avoid; }
     a { border: none !important; }
   }
@@ -249,12 +297,28 @@
   <section class="summary">
     <div class="eyebrow" data-i18n="sec.summary">个人简介</div>
     <p class="lede" data-i18n-html="sum.lede"></p>
+    <div class="tiles">
+      <div class="tile"><div class="v" data-i18n-html="m.1.v"></div><div class="k" data-i18n="m.1.k"></div></div>
+      <div class="tile"><div class="v" data-i18n-html="m.2.v"></div><div class="k" data-i18n="m.2.k"></div></div>
+      <div class="tile"><div class="v" data-i18n-html="m.3.v"></div><div class="k" data-i18n="m.3.k"></div></div>
+      <div class="tile"><div class="v" data-i18n-html="m.4.v"></div><div class="k" data-i18n="m.4.k"></div></div>
+      <div class="tile"><div class="v" data-i18n-html="m.5.v"></div><div class="k" data-i18n="m.5.k"></div></div>
+      <div class="tile"><div class="v" data-i18n-html="m.6.v"></div><div class="k" data-i18n="m.6.k"></div></div>
+    </div>
     <ul>
       <li data-i18n-html="sum.1"></li>
       <li data-i18n-html="sum.2"></li>
       <li data-i18n-html="sum.3"></li>
-      <li data-i18n-html="sum.4"></li>
-      <li data-i18n-html="sum.5"></li>
+    </ul>
+  </section>
+
+  <section class="impact">
+    <div class="eyebrow" data-i18n="sec.ai">AI 工程化实践</div>
+    <ul>
+      <li data-i18n-html="ai.1"></li>
+      <li data-i18n-html="ai.2"></li>
+      <li data-i18n-html="ai.3"></li>
+      <li data-i18n-html="ai.4"></li>
     </ul>
   </section>
 
@@ -262,12 +326,10 @@
     <div class="eyebrow" data-i18n="sec.skills">核心技能</div>
     <dl class="skills">
       <dt data-i18n="sk.1.k"></dt><dd data-i18n-html="sk.1.v"></dd>
-      <dt data-i18n="sk.2.k"></dt><dd data-i18n-html="sk.2.v"></dd>
+      <dt data-i18n-html="sk.2.k"></dt><dd data-i18n-html="sk.2.v"></dd>
       <dt data-i18n-html="sk.3.k"></dt><dd data-i18n-html="sk.3.v"></dd>
       <dt data-i18n-html="sk.4.k"></dt><dd data-i18n-html="sk.4.v"></dd>
-      <dt data-i18n="sk.5.k"></dt><dd data-i18n-html="sk.5.v"></dd>
-      <dt data-i18n="sk.6.k"></dt><dd data-i18n-html="sk.6.v"></dd>
-      <dt data-i18n="sk.7.k"></dt><dd data-i18n-html="sk.7.v"></dd>
+      <dt data-i18n-html="sk.5.k"></dt><dd data-i18n-html="sk.5.v"></dd>
     </dl>
   </section>
 
@@ -282,36 +344,22 @@
 
         <div class="phase">
           <h4 data-i18n="j1.p1.h"></h4>
-          <ul><li data-i18n-html="j1.p1.b1"></li><li data-i18n-html="j1.p1.b2"></li></ul>
+          <ul><li data-i18n-html="j1.p1.b1"></li></ul>
         </div>
         <div class="phase">
           <h4 data-i18n="j1.p2.h"></h4>
           <ul>
             <li data-i18n-html="j1.p2.b1"></li>
             <li data-i18n-html="j1.p2.b4"></li>
-            <li class="detail" data-i18n-html="j1.p2.b2"></li>
-            <li class="detail" data-i18n-html="j1.p2.b3"></li>
-            <li class="detail" data-i18n-html="j1.p2.b5"></li>
-            <li class="detail" data-i18n-html="j1.p2.b6"></li>
+            <li data-i18n-html="j1.p2.b5"></li>
           </ul>
         </div>
         <div class="phase">
           <h4 data-i18n="j1.p3.h"></h4>
           <ul>
             <li data-i18n-html="j1.p3.b1"></li>
-            <li class="detail" data-i18n-html="j1.p3.b2"></li>
-            <li class="detail" data-i18n-html="j1.p3.b3"></li>
-            <li class="detail" data-i18n-html="j1.p3.b4"></li>
-            <li class="detail" data-i18n-html="j1.p3.b5"></li>
-            <li class="detail" data-i18n-html="j1.p3.b6"></li>
-          </ul>
-        </div>
-        <div class="phase">
-          <h4 data-i18n-html="j1.p4.h"></h4>
-          <ul>
-            <li data-i18n-html="j1.p4.b1"></li>
-            <li class="detail" data-i18n-html="j1.p4.b2"></li>
-            <li class="detail" data-i18n-html="j1.p4.b3"></li>
+            <li data-i18n-html="j1.p3.b4"></li>
+            <li data-i18n-html="j1.p3.b5"></li>
           </ul>
         </div>
       </div>
@@ -324,7 +372,6 @@
         <p class="org-note" data-i18n="j2.note"></p>
         <ul>
           <li data-i18n-html="j2.b1"></li><li data-i18n-html="j2.b2"></li>
-          <li data-i18n-html="j2.b3"></li><li data-i18n-html="j2.b4"></li>
         </ul>
       </div>
     </div>
@@ -333,9 +380,10 @@
       <div class="when num"><span data-i18n="j3.when">2017.12 – 2021.03</span><span class="place" data-i18n="loc">上海</span></div>
       <div class="role">
         <h3><span data-i18n="j3.co">商派云起软件（Shopex）</span><span class="title" data-i18n="j3.role">｜技术专家 / Lead Developer</span></h3>
+        <p class="org-note" data-i18n="j3.note"></p>
         <ul>
           <li data-i18n-html="j3.b1"></li><li data-i18n-html="j3.b2"></li>
-          <li data-i18n-html="j3.b3"></li><li data-i18n-html="j3.b4"></li>
+          <li data-i18n-html="j3.b3"></li>
         </ul>
       </div>
     </div>
@@ -345,7 +393,7 @@
       <div class="role">
         <h3><span data-i18n="j4.co">远丰科技集团</span><span class="title" data-i18n="j4.role">｜全栈开发工程师</span></h3>
         <ul>
-          <li data-i18n-html="j4.b1"></li><li data-i18n-html="j4.b2"></li><li data-i18n-html="j4.b3"></li>
+          <li data-i18n-html="j4.b1"></li><li data-i18n-html="j4.b2"></li>
         </ul>
       </div>
     </div>
@@ -354,15 +402,13 @@
   <section class="plain">
     <div class="eyebrow" data-i18n-html="sec.oss">开源与个人项目</div>
     <ul>
-      <li data-i18n-html="oss.1"></li><li data-i18n-html="oss.2"></li><li data-i18n-html="oss.3"></li>
+      <li data-i18n-html="oss.1"></li><li data-i18n-html="oss.2"></li>
     </ul>
   </section>
 
   <section class="plain">
     <div class="eyebrow" data-i18n="sec.awards">荣誉奖项</div>
-    <ul>
-      <li data-i18n-html="aw.1"></li><li data-i18n-html="aw.2"></li><li data-i18n-html="aw.3"></li>
-    </ul>
+    <p class="awards-line" data-i18n-html="aw.line"></p>
   </section>
 
   <footer>
@@ -394,64 +440,53 @@ CVUI.init({
   'headline': '资深后端工程师 · 13 年研发经验 · 高并发交易系统 / AI 工程化',
   'loc': '上海', 'link.blog': '技术博客',
   'sec.summary': '个人简介', 'sec.skills': '核心技能', 'sec.exp': '工作经历',
-  'sec.oss': '开源与个人项目', 'sec.awards': '荣誉奖项',
-  'sum.lede': '<span class="num">13</span> 年后端研发经验，专注<strong>高并发电商交易系统</strong>与<strong>分布式架构</strong>，在 OTA（在线旅游）、电商、MarTech 领域有完整的业务纵深：',
-  'sum.1': '现任 KKday（全球旅游体验平台）资深后端工程师，<strong>售前 CVR 增转专项组组长</strong>，带领 6 人跨端小组以转化率提升 <span class="num">50%</span>（<span class="num">1.2% → 1.8%</span>）为北极星指标',
-  'sum.2': '以第一贡献人身份主导 KKday 联盟营销平台（两大核心仓库合计 <span class="num">3000+</span> 次提交），支撑 Google、Naver、ShopBack 等 <span class="num">10+</span> 全球渠道',
-  'sum.3': '线上稳定性专家：主导大规模故障救火，关键 API p99 从 <span class="num">25s+</span> 降至 <span class="num">2s</span> 以内，5xx 错误率稳定低于 <span class="num">0.01%</span>',
-  'sum.4': 'AI 工程化先行者：自研团队健康监控平台（AI 根因分析）、多 AI 代码审查机器人编排工具，将 AI 深度落地到研发流程',
-  'sum.5': '连续两届 KKday 年度优秀员工（<span class="num">2023、2024</span>）',
-  'sk.1.k': '编程语言', 'sk.1.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go、Shell、Java（协作）',
-  'sk.2.k': '框架', 'sk.2.v': 'Laravel / Hyperf / ThinkPHP / Yii2、Gin / go-zero、Vue / ElementUI',
-  'sk.3.k': '数据与中间件', 'sk.3.v': 'MySQL、PostgreSQL、Redis、Elasticsearch、Google BigQuery、RabbitMQ、AWS SQS、Kafka',
-  'sk.4.k': '云原生与运维', 'sk.4.v': 'Docker、Kubernetes、AWS Lambda / GCP Cloud Run、Ansible、GitHub Actions、Prometheus / Grafana / Kibana',
-  'sk.5.k': '架构能力', 'sk.5.v': '微服务、BFF、事件驱动、熔断限流与高可用设计、API 设计与文档工程',
-  'sk.6.k': 'AI 工程', 'sk.6.v': 'Claude API / Copilot SDK 应用开发、AI Agent 工作流编排、AI 辅助研发流程建设',
-  'sk.7.k': '业务专长', 'sk.7.v': '联盟营销 / 分润结算、订单交易链路、动态定价、SCRM / 营销自动化、SaaS 平台',
+  'sec.ai': 'AI 工程化实践', 'sec.oss': '开源与个人项目', 'sec.awards': '荣誉奖项',
+  'sum.lede': '<span class="num">13</span> 年后端研发经验，专注<strong>高并发电商交易系统</strong>与<strong>分布式架构</strong>；近一年将重心延伸至 <strong>AI 工程化</strong>——用工程手段把发散、不稳定的 AI 输出收敛成可靠的研发基础设施。',
+  'm.1.v': '13 年', 'm.1.k': '后端研发 · OTA / 电商 / MarTech',
+  'm.2.v': '¥100 亿', 'm.2.k': 'Apple 中国经销商平台上线 5 个月 GMV',
+  'm.3.v': '25s → 2s', 'm.3.k': '大促故障救火后关键 API p99',
+  'm.4.v': '200%', 'm.4.k': 'KKday 联盟业务年同比增长',
+  'm.5.v': '4 个', 'm.5.k': 'Maestro 编排收敛的 AI 审查机器人',
+  'm.6.v': '3 个', 'm.6.k': '自研 AI 工程化平台（监控 / 审查编排 / 内容流水线）',
+  'sum.1': '<strong>AI 工程化</strong>：自研多 AI 审查机器人收敛层（Maestro）与 AI 根因分析监控平台（VM Health Center），解决多源 AI 输出重复、不可靠、无法收敛的工程问题',
+  'sum.2': '<strong>交易系统纵深</strong>：以第一贡献人身份主导 KKday 联盟营销平台（<span class="num">3000+</span> 次提交，业务年同比增长 <span class="num">200%</span>），并负责 B2C 主干线核心交易链路',
+  'sum.3': '<strong>稳定性与团队</strong>：主导大规模故障救火（关键 API p99 <span class="num">25s+ → &lt;2s</span>，5xx 稳定 <span class="num">&lt;0.01%</span>）；现兼任售前 CVR 增转专项组组长，带领 <span class="num">6</span> 人跨端小组',
+  'ai.1': '<strong>Maestro</strong>（TypeScript CLI）——<strong>多 AI 审查机器人收敛层</strong>：编排 CodeRabbit / Copilot / Codex / Gemini <span class="num">4</span> 个审查机器人，问题分类 → 三层去重 → 自动修复 → 回复并解决讨论串 → 收敛监控与人工升级判断，把发散的 AI 意见收敛成可执行的修改队列',
+  'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，<span class="num">79/86</span> 次提交独立开发）——团队作战看板 + 服务健康监控：聚合 Jira / GitHub / Confluence 自动生成日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析',
+  'ai.3': '<strong>Claude API 生产化落地</strong>：<span class="num">8</span> 语系 SEO slug 自动生成，以 hash 变更检测控制调用成本；Git 工作流 + AI 代码审查自动化，支持 CLI / Webhook / GitHub Actions 多形态部署',
+  'ai.4': '<strong>单源多产出内容流水线</strong>（本简历站）：一份内容源自动导出三语 × 深浅色 × HTML / PDF / PPTX / Markdown 共 <span class="num">20+</span> 份产物；针对 Marp CLI 渲染不稳定（SVG 图标随机降级为字面文本）设计导出后校验与自动重试',
+  'sk.1.k': 'AI 工程', 'sk.1.v': 'Claude API / Copilot SDK 应用开发、多 AI Agent 编排与收敛、AI 辅助研发流程建设',
+  'sk.2.k': '语言与框架', 'sk.2.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go；Laravel / Hyperf、Gin / go-zero、Vue',
+  'sk.3.k': '数据与中间件', 'sk.3.v': 'MySQL、PostgreSQL、Redis、Elasticsearch、Google BigQuery、RabbitMQ、Kafka',
+  'sk.4.k': '云原生与运维', 'sk.4.v': 'Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana',
+  'sk.5.k': '架构与业务', 'sk.5.v': '微服务、BFF、事件驱动、熔断限流与高可用设计；联盟营销 / 分润结算、订单交易链路、动态定价',
   'j1.when': '2022.11 – 至今', 'j1.co': 'KKday（酷游天国际旅行社）', 'j1.role': '｜资深后端工程师',
-  'j1.note': '全球领先的旅游体验预订平台（覆盖 50+ 国家/地区）。历任联盟营销平台负责人、B2C 主干线核心后端，现兼任售前 CVR 增转专项组组长。',
+  'j1.note': '全球领先的旅游体验预订平台（覆盖 50+ 国家/地区）。四年间历任联盟营销平台负责人、B2C 主干线核心后端，现兼任售前 CVR 增转专项组组长。',
   'j1.p1.h': '售前 CVR 增转专项组 · 组长（2026 H2 – 至今）',
-  'j1.p1.b1': '组建并带领 <strong>6 人跨端小组</strong>（iOS/Android/Web/BE），以「CVR <span class="num">1.2% → 1.8%</span>（<span class="num">+50%</span>）」为唯一北极星指标，直接对 PM 负责、承担小组共责',
-  'j1.p1.b2': '建立站会、1on1、OKR 对齐等轻量协作机制，统筹售前链路（商品页 → 购物车 → 订购页）全端体验与性能优化',
+  'j1.p1.b1': '组建并带领 <strong>6 人跨端小组</strong>（iOS / Android / Web / BE），以「CVR <span class="num">1.2% → 1.8%</span>（<span class="num">+50%</span>）」为唯一北极星指标，直接对 PM 负责；建立站会、1on1、OKR 对齐机制，统筹售前链路（商品页 → 购物车 → 订购页）全端体验与性能优化',
   'j1.p2.h': 'B2C 核心交易链路（2025.02 – 至今，b2c-api 783 次提交）',
-  'j1.p2.b1': '<strong>USJ（大阪环球影城）订单改期</strong>：跨 B2C/Order/MKT/Member 四大服务改造，主笔 <span class="num">7</span> 份 SA/SD；提出「权益继承、条件重审」原则，将散乱的优惠券/积分重验规则整理为可审计决策表，四方一次对齐通过；重构金额试算器与订单状态机，保障公司 TOP 级票券供应商续约',
-  'j1.p2.b2': '<strong>GYG B2B 动态变价</strong>：主笔 <span class="num">3</span> 份 SA/SD，打通商品列表/SKU/购物车/订单全链路动价；决策「新开独立 API」替代改造 5 个旧调用点，并设计低版本 App 建议更新机制，避免错误价格露出',
-  'j1.p2.b3': '<strong>订购页改版</strong>：旅客信息扩充、排序、幽灵旅客机制及多规格×多旅客映射透传，上线后 <span class="num">0</span> P0/P1 流出',
-  'j1.p2.b4': '<strong>大面积故障救火（主救火窗口）</strong>：定位微服务依赖拖垮 PHP-FPM worker 池的根因，<span class="num">7</span> 天内完成 P0+P1 加固——超时优化、异常兜底、基于 Redis 的轻量熔断器、双层 Feature Flag / Kill Switch；cart/validate API p99 由 <span class="num">25s+</span> 降至 <span class="num">&lt;2s</span>，根治 iOS 下单白屏，保障大促平稳运行；此后 5xx 错误率连续多周 <span class="num">&lt;0.01%</span>',
-  'j1.p2.b5': '<strong>票券/Tour 商品架构升级</strong>：主导方案分组、组合商品、OpenDate 月历下放、商品页特化等专案，独立完成 SA/SD → Mock → API → 单测 → 文档全流程；建立「BFF 层版本兼容 + App 渐进升级」标准解法，修复 <span class="num">15+</span> 跨端差异场景',
-  'j1.p2.b6': '端到端交付延伸：iOS Live Activity 出发日推播、行前关怀排程、会员缓存治理、优惠券批量校验（跨 <span class="num">5</span> 个微服务）',
+  'j1.p2.b1': '<strong>USJ（大阪环球影城）订单改期</strong>：跨 B2C / Order / MKT / Member 四大服务改造，主笔 <span class="num">7</span> 份 SA/SD；提出「权益继承、条件重审」原则，将散乱的优惠券/积分重验规则整理为可审计决策表，四方一次对齐通过；重构金额试算器与订单状态机，保障公司 TOP 级票券供应商续约',
+  'j1.p2.b4': '<strong>大面积故障救火（主救火窗口）</strong>：定位微服务依赖拖垮 PHP-FPM worker 池的根因，<span class="num">7</span> 天内完成 P0+P1 加固（超时优化、异常兜底、Redis 轻量熔断器、双层 Feature Flag / Kill Switch）——cart/validate API p99 由 <span class="num">25s+</span> 降至 <span class="num">&lt;2s</span>，根治 iOS 下单白屏，此后 5xx 错误率连续多周 <span class="num">&lt;0.01%</span>',
+  'j1.p2.b5': '<strong>票券/Tour 商品架构升级</strong>：主导方案分组、组合商品、OpenDate 月历下放等专案，独立完成 SA/SD → Mock → API → 单测 → 文档全流程；建立「BFF 层版本兼容 + App 渐进升级」标准解法，修复 <span class="num">15+</span> 跨端差异场景',
   'j1.p3.h': '联盟营销平台 · 平台负责人（2022.11 – 2025.03）',
-  'j1.p3.b1': '以第一贡献人身份主导 affiliate-service（<span class="num">2117/3747</span> 次提交，占 <span class="num">56%</span>）与 affiliate-api（<span class="num">1077</span> 次提交）两大核心服务，承担 Code Owner 与 PR 把关职责，推动联盟业务年同比增长 <span class="num">200%</span>',
-  'j1.p3.b2': '<strong>Google 官方渠道串接</strong>：Things To Do 商品 Feeds 生成/压缩/增量上传、POI Ranking 采集与排名、Google Transit 欧铁点对点路线同步（验签、时区、黑名单治理）',
-  'j1.p3.b3': '串接 ShopBack、美安（Market America）、亚洲万里通、Naver Shopping 等 <span class="num">10+</span> 异业联盟渠道，覆盖返现、里程、比价多种合作模式',
+  'j1.p3.b1': '以第一贡献人身份主导 affiliate-service（<span class="num">2117/3747</span> 次提交，占 <span class="num">56%</span>）与 affiliate-api（<span class="num">1077</span> 次提交），承担 Code Owner 与 PR 把关职责；串接 Google Things To Do 官方渠道及 ShopBack、亚洲万里通、Naver Shopping 等 <span class="num">10+</span> 异业渠道，推动联盟业务年同比增长 <span class="num">200%</span>',
   'j1.p3.b4': '设计<strong>分润结算系统</strong>：分润规则引擎、月度结算与重刷能力、BigQuery 数据归因；基于 RabbitMQ 事件驱动打通订单/商品数据流',
   'j1.p3.b5': '性能与可观测性：多级缓存与统一 Cache Key 管理、慢 SQL 治理、联盟订单监控与 Slack 图文日报，API 延迟降低 <span class="num">65%</span>（<span class="num">120ms → 35ms</span>）',
-  'j1.p3.b6': '主导 Affiliate → KKPartners 平台迁移技术方案，完成新旧系统平滑过渡；为管理后台自研「数据库类型 → CRUD 组件」自动映射引擎并维护公司级共享 SDK',
-  'j1.p4.h': 'AI 工程化与内部平台（自驱项目，2026）',
-  'j1.p4.b1': '<strong>VM Health Center</strong>（TypeScript/Node.js + Slack Bolt + Elasticsearch，<span class="num">79/86</span> 次提交独立开发）：团队作战看板 + 服务健康监控平台——自动聚合 Jira/GitHub/Confluence 生成团队日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析',
-  'j1.p4.b2': '<strong>Maestro</strong>（TypeScript CLI）：统一编排 CodeRabbit/Copilot/Codex/Gemini 等多个 AI PR 审查机器人的「收敛层」——问题分类、三层去重、自动修复、回复与解决讨论串、收敛监控与人工升级判断',
-  'j1.p4.b3': '其他落地：Claude API 驱动的 <span class="num">8</span> 语系 SEO slug 自动生成（hash 变更检测控费）、Git 工作流 + AI 代码审查自动化系统（CLI/Webhook/GitHub Actions 多形态部署）',
   'j2.when': '2021.03 – 2022.10', 'j2.co': '径硕科技（JINGdigital）', 'j2.role': '｜资深后端工程师',
   'j2.note': 'B2B MarTech/SCRM 营销自动化 SaaS 厂商。负责营销自动化微服务矩阵的后端研发（Laravel/Yii2/YAF，10+ 服务）。',
   'j2.b1': '主责 <strong>JS 埋点追踪服务</strong>（jstracking）：全渠道行为采集与内容营销归因，营销自动化核心数据源',
-  'j2.b2': '主力参与 <strong>JINGsocial 主系统</strong>前后端分离改造（v2）与老架构（YAF）维护，合计 <span class="num">300+</span> 次提交',
-  'j2.b3': '横向覆盖 EDM 邮件营销、短信网关、问卷、获客线索、企业微信、数据迁移等 <span class="num">8+</span> 微服务的迭代与稳定性',
-  'j2.b4': '参与 Ansible 运维基础设施，具备从开发到部署的全链路能力',
+  'j2.b2': '主力参与 <strong>JINGsocial 主系统</strong>前后端分离改造（v2）与老架构维护（合计 <span class="num">300+</span> 次提交），并横向覆盖 EDM、短信网关、问卷、获客线索、企业微信等 <span class="num">8+</span> 微服务的迭代与稳定性',
   'j3.when': '2017.12 – 2021.03', 'j3.co': '商派云起软件（Shopex）', 'j3.role': '｜技术专家 / Lead Developer',
-  'j3.b1': '交付 <strong>Apple 中国经销商平台</strong>（上线 5 个月 GMV 超 <span class="num">¥100 亿</span>）：串接顺丰、宝尊 OMS 等 <span class="num">15+</span> 支付/物流系统，OMS/WMS 操作自动化率 <span class="num">98%</span>，服务 <span class="num">3500+</span> 零售门店、<span class="num">25 万+</span> DAU',
+  'j3.note': '国内头部电商 SaaS 服务商。主导 Apple 中国经销商平台交付与高并发性能优化。',
+  'j3.b1': '交付 <strong>Apple 中国经销商平台</strong>（上线 <span class="num">5</span> 个月 GMV 超 <span class="num">¥100 亿</span>）：串接顺丰、宝尊 OMS 等 <span class="num">15+</span> 支付/物流系统，OMS/WMS 操作自动化率 <span class="num">98%</span>，服务 <span class="num">3500+</span> 零售门店、<span class="num">25 万+</span> DAU',
   'j3.b2': '高性能优惠券系统获公司<strong>金番茄奖</strong>；H5 接口吞吐量提升 <span class="num">17.5</span> 倍（<span class="num">200 → 3500 TPS</span>），压测调优（NGINX 缓存 + TSung）达 <span class="num">12K TPS</span>',
-  'j3.b3': '基于 go-zero 构建短信网关服务，日发送量 <span class="num">100 万+</span>',
-  'j3.b4': '数据导出优化：从 OOM 失败到 <span class="num">1000 万行 / 10 分钟</span>',
+  'j3.b3': '基于 go-zero 构建短信网关服务（日发送量 <span class="num">100 万+</span>）；数据导出从 OOM 失败优化至 <span class="num">1000 万行 / 10 分钟</span>',
   'j4.when': '2013.06 – 2017.12', 'j4.co': '远丰科技集团', 'j4.role': '｜全栈开发工程师',
   'j4.b1': '开发多商户 SaaS 电商平台（支撑 <span class="num">1 万+</span> 商家），支持 <span class="num">10</span> 国语言（Google/有道翻译 API 混合流程，翻译成本降低 <span class="num">70%</span>）',
-  'j4.b2': '基于网易云信构建 IM 系统，日消息量 <span class="num">200 万+</span>',
-  'j4.b3': '设计 Redis 缓存层，数据库负载降低 <span class="num">60%</span>；两次获评公司「技术之星」（<span class="num">2016、2018</span>）',
+  'j4.b2': '基于网易云信构建 IM 系统（日消息量 <span class="num">200 万+</span>）；设计 Redis 缓存层，数据库负载降低 <span class="num">60%</span>',
   'oss.1': '<strong>SwaggerNotes</strong>（PHP/Laravel 扩展包，100% 独立开发）：自动生成 Swagger 注释并产出 OpenAPI 接口文件；已发布至 Packagist，累计下载 <span class="num">2.6k+</span>',
-  'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文档生成器）：<span class="num">2</span> 个 PR 已合并进主线，列名于官方贡献者',
-  'oss.3': '<strong>技术博客</strong>（Hexo）：<span class="num">1300+</span> 篇技术文章，覆盖 PHP / 架构 / 数据库 / AI 工程，至今仍在更新',
-  'aw.1': 'KKday 年度优秀员工（<span class="num">2023、2024</span>，连续两届）',
-  'aw.2': 'Shopex 金番茄奖（<span class="num">2020</span>）',
-  'aw.3': '远丰科技「技术之星」（<span class="num">2016、2018</span>）',
+  'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文档生成器）：<span class="num">2</span> 个 PR 已合并进主线，列名于官方贡献者；另维护技术博客 <span class="num">1300+</span> 篇，至今仍在更新',
+  'aw.line': 'KKday 年度优秀员工（<span class="num">2023、2024</span> 连续两届）· Shopex 金番茄奖（<span class="num">2020</span>）· 远丰科技「技术之星」（<span class="num">2016、2018</span>）',
   'foot.name': '马成军 Michael Ma · 资深后端工程师',
   'foot.tip': '浏览器打印（⌘P）即可导出 A4 PDF',
   'dl.md.btn': '下载简历 Markdown', 'dl.top': '回到顶部',
@@ -464,64 +499,53 @@ CVUI.init({
   'headline': '資深後端工程師 · 13 年研發經驗 · 高並發交易系統 / AI 工程化',
   'loc': '上海', 'link.blog': '技術部落格',
   'sec.summary': '個人簡介', 'sec.skills': '核心技能', 'sec.exp': '工作經歷',
-  'sec.oss': '開源與個人專案', 'sec.awards': '榮譽獎項',
-  'sum.lede': '<span class="num">13</span> 年後端研發經驗，專注<strong>高並發電商交易系統</strong>與<strong>分散式架構</strong>，在 OTA（線上旅遊）、電商、MarTech 領域有完整的業務縱深：',
-  'sum.1': '現任 KKday（全球旅遊體驗平台）資深後端工程師，<strong>售前 CVR 增轉專案組組長</strong>，帶領 6 人跨端小組以轉換率提升 <span class="num">50%</span>（<span class="num">1.2% → 1.8%</span>）為北極星指標',
-  'sum.2': '以首要貢獻者身分主導 KKday 聯盟行銷平台（兩大核心儲存庫合計 <span class="num">3000+</span> 次提交），支撐 Google、Naver、ShopBack 等 <span class="num">10+</span> 全球通路',
-  'sum.3': '線上穩定性專家：主導大規模故障搶救，關鍵 API p99 從 <span class="num">25s+</span> 降至 <span class="num">2s</span> 以內，5xx 錯誤率穩定低於 <span class="num">0.01%</span>',
-  'sum.4': 'AI 工程化先行者：自研團隊健康監控平台（AI 根因分析）、多 AI 程式碼審查機器人編排工具，將 AI 深度落地至研發流程',
-  'sum.5': '連續兩屆 KKday 年度優秀員工（<span class="num">2023、2024</span>）',
-  'sk.1.k': '程式語言', 'sk.1.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go、Shell、Java（協作）',
-  'sk.2.k': '框架', 'sk.2.v': 'Laravel / Hyperf / ThinkPHP / Yii2、Gin / go-zero、Vue / ElementUI',
-  'sk.3.k': '資料與中介軟體', 'sk.3.v': 'MySQL、PostgreSQL、Redis、Elasticsearch、Google BigQuery、RabbitMQ、AWS SQS、Kafka',
-  'sk.4.k': '雲原生與維運', 'sk.4.v': 'Docker、Kubernetes、AWS Lambda / GCP Cloud Run、Ansible、GitHub Actions、Prometheus / Grafana / Kibana',
-  'sk.5.k': '架構能力', 'sk.5.v': '微服務、BFF、事件驅動、熔斷限流與高可用設計、API 設計與文件工程',
-  'sk.6.k': 'AI 工程', 'sk.6.v': 'Claude API / Copilot SDK 應用開發、AI Agent 工作流編排、AI 輔助研發流程建置',
-  'sk.7.k': '業務專長', 'sk.7.v': '聯盟行銷 / 分潤結算、訂單交易鏈路、動態定價、SCRM / 行銷自動化、SaaS 平台',
+  'sec.ai': 'AI 工程化實踐', 'sec.oss': '開源與個人專案', 'sec.awards': '榮譽獎項',
+  'sum.lede': '<span class="num">13</span> 年後端研發經驗，專注<strong>高並發電商交易系統</strong>與<strong>分散式架構</strong>；近一年將重心延伸至 <strong>AI 工程化</strong>——用工程手段把發散、不穩定的 AI 輸出收斂成可靠的研發基礎設施。',
+  'm.1.v': '13 年', 'm.1.k': '後端研發 · OTA / 電商 / MarTech',
+  'm.2.v': '¥100 億', 'm.2.k': 'Apple 中國經銷商平台上線 5 個月 GMV',
+  'm.3.v': '25s → 2s', 'm.3.k': '大型促銷故障搶救後關鍵 API p99',
+  'm.4.v': '200%', 'm.4.k': 'KKday 聯盟業務年增長',
+  'm.5.v': '4 個', 'm.5.k': 'Maestro 編排收斂的 AI 審查機器人',
+  'm.6.v': '3 個', 'm.6.k': '自研 AI 工程化平台（監控 / 審查編排 / 內容流水線）',
+  'sum.1': '<strong>AI 工程化</strong>：自研多 AI 審查機器人收斂層（Maestro）與 AI 根因分析監控平台（VM Health Center），解決多來源 AI 輸出重複、不可靠、無法收斂的工程問題',
+  'sum.2': '<strong>交易系統縱深</strong>：以首要貢獻者身分主導 KKday 聯盟行銷平台（<span class="num">3000+</span> 次提交，業務年增長 <span class="num">200%</span>），並負責 B2C 主幹線核心交易鏈路',
+  'sum.3': '<strong>穩定性與團隊</strong>：主導大規模故障搶救（關鍵 API p99 <span class="num">25s+ → &lt;2s</span>，5xx 穩定 <span class="num">&lt;0.01%</span>）；現兼任售前 CVR 增轉專案組組長，帶領 <span class="num">6</span> 人跨端小組',
+  'ai.1': '<strong>Maestro</strong>（TypeScript CLI）——<strong>多 AI 審查機器人收斂層</strong>：編排 CodeRabbit / Copilot / Codex / Gemini <span class="num">4</span> 個審查機器人，問題分類 → 三層去重 → 自動修復 → 回覆並解決討論串 → 收斂監控與人工升級判斷，將發散的 AI 意見收斂成可執行的修改佇列',
+  'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，<span class="num">79/86</span> 次提交獨立開發）——團隊作戰看板 + 服務健康監控：彙整 Jira / GitHub / Confluence 自動產生日報週報、訂購漏斗與後端服務健康告警、AI 初步根因分析',
+  'ai.3': '<strong>Claude API 生產化落地</strong>：<span class="num">8</span> 語系 SEO slug 自動產生，以 hash 變更偵測控管呼叫成本；Git 工作流 + AI 程式碼審查自動化，支援 CLI / Webhook / GitHub Actions 多形態部署',
+  'ai.4': '<strong>單一來源多產出內容流水線</strong>（本履歷網站）：一份內容來源自動匯出三語 × 深淺色 × HTML / PDF / PPTX / Markdown 共 <span class="num">20+</span> 份產物；針對 Marp CLI 渲染不穩定（SVG 圖示隨機降級為字面文字）設計匯出後驗證與自動重試',
+  'sk.1.k': 'AI 工程', 'sk.1.v': 'Claude API / Copilot SDK 應用開發、多 AI Agent 編排與收斂、AI 輔助研發流程建置',
+  'sk.2.k': '語言與框架', 'sk.2.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go；Laravel / Hyperf、Gin / go-zero、Vue',
+  'sk.3.k': '資料與中介軟體', 'sk.3.v': 'MySQL、PostgreSQL、Redis、Elasticsearch、Google BigQuery、RabbitMQ、Kafka',
+  'sk.4.k': '雲原生與維運', 'sk.4.v': 'Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana',
+  'sk.5.k': '架構與業務', 'sk.5.v': '微服務、BFF、事件驅動、熔斷限流與高可用設計；聯盟行銷 / 分潤結算、訂單交易鏈路、動態定價',
   'j1.when': '2022.11 – 至今', 'j1.co': 'KKday（酷遊天國際旅行社）', 'j1.role': '｜資深後端工程師',
-  'j1.note': '全球領先的旅遊體驗預訂平台（涵蓋 50+ 國家/地區）。歷任聯盟行銷平台負責人、B2C 主幹線核心後端，現兼任售前 CVR 增轉專案組組長。',
+  'j1.note': '全球領先的旅遊體驗預訂平台（涵蓋 50+ 國家/地區）。四年間歷任聯盟行銷平台負責人、B2C 主幹線核心後端，現兼任售前 CVR 增轉專案組組長。',
   'j1.p1.h': '售前 CVR 增轉專案組 · 組長（2026 H2 – 至今）',
-  'j1.p1.b1': '組建並帶領 <strong>6 人跨端小組</strong>（iOS/Android/Web/BE），以「CVR <span class="num">1.2% → 1.8%</span>（<span class="num">+50%</span>）」為唯一北極星指標，直接向 PM 負責、承擔小組共責',
-  'j1.p1.b2': '建立站立會議、1on1、OKR 對齊等輕量協作機制，統籌售前鏈路（商品頁 → 購物車 → 訂購頁）全端體驗與效能優化',
+  'j1.p1.b1': '組建並帶領 <strong>6 人跨端小組</strong>（iOS / Android / Web / BE），以「CVR <span class="num">1.2% → 1.8%</span>（<span class="num">+50%</span>）」為唯一北極星指標，直接向 PM 負責；建立站立會議、1on1、OKR 對齊機制，統籌售前鏈路（商品頁 → 購物車 → 訂購頁）全端體驗與效能優化',
   'j1.p2.h': 'B2C 核心交易鏈路（2025.02 – 至今，b2c-api 783 次提交）',
   'j1.p2.b1': '<strong>USJ（大阪環球影城）訂單改期</strong>：跨 B2C/Order/MKT/Member 四大服務改造，主筆 <span class="num">7</span> 份 SA/SD；提出「權益繼承、條件重審」原則，將散亂的優惠券／點數重驗規則整理為可稽核決策表，四方一次對齊通過；重構金額試算器與訂單狀態機，確保公司 TOP 級票券供應商續約',
-  'j1.p2.b2': '<strong>GYG B2B 動態變價</strong>：主筆 <span class="num">3</span> 份 SA/SD，打通商品列表／SKU／購物車／訂單全鏈路動價；決策「新開獨立 API」取代改造 5 個舊呼叫點，並設計低版本 App 建議更新機制，避免錯誤價格外露',
-  'j1.p2.b3': '<strong>訂購頁改版</strong>：旅客資訊擴充、排序、幽靈旅客機制及多規格×多旅客映射透傳，上線後 <span class="num">0</span> P0/P1 流出',
-  'j1.p2.b4': '<strong>大規模故障搶救（主要搶救窗口）</strong>：定位微服務相依拖垮 PHP-FPM worker 池的根因，<span class="num">7</span> 天內完成 P0+P1 強化——逾時優化、例外兜底、以 Redis 實作的輕量熔斷器、雙層 Feature Flag / Kill Switch；cart/validate API p99 由 <span class="num">25s+</span> 降至 <span class="num">&lt;2s</span>，根治 iOS 下單白屏，確保大型促銷平穩運行；此後 5xx 錯誤率連續多週 <span class="num">&lt;0.01%</span>',
-  'j1.p2.b5': '<strong>票券／Tour 商品架構升級</strong>：主導方案分組、組合商品、OpenDate 月曆下放、商品頁特化等專案，獨立完成 SA/SD → Mock → API → 單元測試 → 文件全流程；建立「BFF 層版本相容 + App 漸進升級」標準解法，修復 <span class="num">15+</span> 跨端差異情境',
-  'j1.p2.b6': '端到端交付延伸：iOS Live Activity 出發日推播、行前關懷排程、會員快取治理、優惠券批次驗證（跨 <span class="num">5</span> 個微服務）',
+  'j1.p2.b4': '<strong>大規模故障搶救（主要搶救窗口）</strong>：定位微服務相依拖垮 PHP-FPM worker 池的根因，<span class="num">7</span> 天內完成 P0+P1 強化（逾時優化、例外兜底、Redis 輕量熔斷器、雙層 Feature Flag / Kill Switch）——cart/validate API p99 由 <span class="num">25s+</span> 降至 <span class="num">&lt;2s</span>，根治 iOS 下單白屏，此後 5xx 錯誤率連續多週 <span class="num">&lt;0.01%</span>',
+  'j1.p2.b5': '<strong>票券／Tour 商品架構升級</strong>：主導方案分組、組合商品、OpenDate 月曆下放等專案，獨立完成 SA/SD → Mock → API → 單元測試 → 文件全流程；建立「BFF 層版本相容 + App 漸進升級」標準解法，修復 <span class="num">15+</span> 跨端差異情境',
   'j1.p3.h': '聯盟行銷平台 · 平台負責人（2022.11 – 2025.03）',
-  'j1.p3.b1': '以首要貢獻者身分主導 affiliate-service（<span class="num">2117/3747</span> 次提交，占 <span class="num">56%</span>）與 affiliate-api（<span class="num">1077</span> 次提交）兩大核心服務，擔任 Code Owner 與 PR 把關，推動聯盟業務年增長 <span class="num">200%</span>',
-  'j1.p3.b2': '<strong>Google 官方通路串接</strong>：Things To Do 商品 Feeds 產生／壓縮／增量上傳、POI Ranking 擷取與排名、Google Transit 歐鐵點對點路線同步（驗簽、時區、黑名單治理）',
-  'j1.p3.b3': '串接 ShopBack、美安（Market America）、亞洲萬里通、Naver Shopping 等 <span class="num">10+</span> 異業聯盟通路，涵蓋回饋、哩程、比價多種合作模式',
+  'j1.p3.b1': '以首要貢獻者身分主導 affiliate-service（<span class="num">2117/3747</span> 次提交，占 <span class="num">56%</span>）與 affiliate-api（<span class="num">1077</span> 次提交），擔任 Code Owner 與 PR 把關；串接 Google Things To Do 官方通路及 ShopBack、亞洲萬里通、Naver Shopping 等 <span class="num">10+</span> 異業通路，推動聯盟業務年增長 <span class="num">200%</span>',
   'j1.p3.b4': '設計<strong>分潤結算系統</strong>：分潤規則引擎、月度結算與重跑能力、BigQuery 資料歸因；以 RabbitMQ 事件驅動打通訂單／商品資料流',
   'j1.p3.b5': '效能與可觀測性：多級快取與統一 Cache Key 管理、慢查詢治理、聯盟訂單監控與 Slack 圖文日報，API 延遲降低 <span class="num">65%</span>（<span class="num">120ms → 35ms</span>）',
-  'j1.p3.b6': '主導 Affiliate → KKPartners 平台遷移技術方案，完成新舊系統平順轉換；為管理後台自研「資料庫型別 → CRUD 元件」自動對映引擎並維護公司級共用 SDK',
-  'j1.p4.h': 'AI 工程化與內部平台（自主專案，2026）',
-  'j1.p4.b1': '<strong>VM Health Center</strong>（TypeScript/Node.js + Slack Bolt + Elasticsearch，<span class="num">79/86</span> 次提交獨立開發）：團隊作戰看板 + 服務健康監控平台——自動彙整 Jira/GitHub/Confluence 產生團隊日報週報、訂購漏斗與後端服務健康告警、AI 初步根因分析',
-  'j1.p4.b2': '<strong>Maestro</strong>（TypeScript CLI）：統一編排 CodeRabbit/Copilot/Codex/Gemini 等多個 AI PR 審查機器人的「收斂層」——問題分類、三層去重、自動修復、回覆與解決討論串、收斂監控與人工升級判斷',
-  'j1.p4.b3': '其他落地：Claude API 驅動的 <span class="num">8</span> 語系 SEO slug 自動產生（hash 變更偵測控管費用）、Git 工作流 + AI 程式碼審查自動化系統（CLI/Webhook/GitHub Actions 多形態部署）',
   'j2.when': '2021.03 – 2022.10', 'j2.co': '徑碩科技（JINGdigital）', 'j2.role': '｜資深後端工程師',
   'j2.note': 'B2B MarTech/SCRM 行銷自動化 SaaS 廠商。負責行銷自動化微服務矩陣的後端研發（Laravel/Yii2/YAF，10+ 服務）。',
   'j2.b1': '主責 <strong>JS 埋點追蹤服務</strong>（jstracking）：全通路行為蒐集與內容行銷歸因，行銷自動化核心資料來源',
-  'j2.b2': '主力參與 <strong>JINGsocial 主系統</strong>前後端分離改造（v2）與舊架構（YAF）維護，合計 <span class="num">300+</span> 次提交',
-  'j2.b3': '橫向涵蓋 EDM 郵件行銷、簡訊閘道、問卷、名單開發、企業微信、資料遷移等 <span class="num">8+</span> 微服務的迭代與穩定性',
-  'j2.b4': '參與 Ansible 維運基礎設施，具備從開發到部署的全鏈路能力',
+  'j2.b2': '主力參與 <strong>JINGsocial 主系統</strong>前後端分離改造（v2）與舊架構維護（合計 <span class="num">300+</span> 次提交），並橫向涵蓋 EDM、簡訊閘道、問卷、名單開發、企業微信等 <span class="num">8+</span> 微服務的迭代與穩定性',
   'j3.when': '2017.12 – 2021.03', 'j3.co': '商派雲起軟體（Shopex）', 'j3.role': '｜技術專家 / Lead Developer',
-  'j3.b1': '交付 <strong>Apple 中國經銷商平台</strong>（上線 5 個月 GMV 超 <span class="num">¥100 億</span>）：串接順豐、寶尊 OMS 等 <span class="num">15+</span> 支付／物流系統，OMS/WMS 操作自動化率 <span class="num">98%</span>，服務 <span class="num">3500+</span> 零售門市、<span class="num">25 萬+</span> DAU',
+  'j3.note': '國內頭部電商 SaaS 服務商。主導 Apple 中國經銷商平台交付與高並發效能優化。',
+  'j3.b1': '交付 <strong>Apple 中國經銷商平台</strong>（上線 <span class="num">5</span> 個月 GMV 超 <span class="num">¥100 億</span>）：串接順豐、寶尊 OMS 等 <span class="num">15+</span> 支付／物流系統，OMS/WMS 操作自動化率 <span class="num">98%</span>，服務 <span class="num">3500+</span> 零售門市、<span class="num">25 萬+</span> DAU',
   'j3.b2': '高效能優惠券系統獲公司<strong>金番茄獎</strong>；H5 介面吞吐量提升 <span class="num">17.5</span> 倍（<span class="num">200 → 3500 TPS</span>），壓測調校（NGINX 快取 + TSung）達 <span class="num">12K TPS</span>',
-  'j3.b3': '以 go-zero 建構簡訊閘道服務，日發送量 <span class="num">100 萬+</span>',
-  'j3.b4': '資料匯出優化：從 OOM 失敗到 <span class="num">1000 萬列 / 10 分鐘</span>',
+  'j3.b3': '以 go-zero 建構簡訊閘道服務（日發送量 <span class="num">100 萬+</span>）；資料匯出從 OOM 失敗優化至 <span class="num">1000 萬列 / 10 分鐘</span>',
   'j4.when': '2013.06 – 2017.12', 'j4.co': '遠豐科技集團', 'j4.role': '｜全端開發工程師',
   'j4.b1': '開發多商戶 SaaS 電商平台（支撐 <span class="num">1 萬+</span> 商家），支援 <span class="num">10</span> 國語言（Google／有道翻譯 API 混合流程，翻譯成本降低 <span class="num">70%</span>）',
-  'j4.b2': '以網易雲信建構 IM 系統，日訊息量 <span class="num">200 萬+</span>',
-  'j4.b3': '設計 Redis 快取層，資料庫負載降低 <span class="num">60%</span>；兩次獲評公司「技術之星」（<span class="num">2016、2018</span>）',
+  'j4.b2': '以網易雲信建構 IM 系統（日訊息量 <span class="num">200 萬+</span>）；設計 Redis 快取層，資料庫負載降低 <span class="num">60%</span>',
   'oss.1': '<strong>SwaggerNotes</strong>（PHP/Laravel 擴充套件，100% 獨立開發）：自動產生 Swagger 註解並輸出 OpenAPI 介面檔；已發布至 Packagist，累計下載 <span class="num">2.6k+</span>',
-  'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文件產生器）：<span class="num">2</span> 個 PR 已合併進主線，列名於官方貢獻者',
-  'oss.3': '<strong>技術部落格</strong>（Hexo）：<span class="num">1300+</span> 篇技術文章，涵蓋 PHP／架構／資料庫／AI 工程，至今仍在更新',
-  'aw.1': 'KKday 年度優秀員工（<span class="num">2023、2024</span>，連續兩屆）',
-  'aw.2': 'Shopex 金番茄獎（<span class="num">2020</span>）',
-  'aw.3': '遠豐科技「技術之星」（<span class="num">2016、2018</span>）',
+  'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文件產生器）：<span class="num">2</span> 個 PR 已合併進主線，列名於官方貢獻者；另維護技術部落格 <span class="num">1300+</span> 篇，至今仍在更新',
+  'aw.line': 'KKday 年度優秀員工（<span class="num">2023、2024</span> 連續兩屆）· Shopex 金番茄獎（<span class="num">2020</span>）· 遠豐科技「技術之星」（<span class="num">2016、2018</span>）',
   'foot.name': '馬成軍 Michael Ma · 資深後端工程師',
   'foot.tip': '瀏覽器列印（⌘P）即可匯出 A4 PDF',
   'dl.md.btn': '下載履歷 Markdown', 'dl.top': '回到頂部',
@@ -535,63 +559,54 @@ CVUI.init({
   'loc': 'Shanghai, China', 'link.blog': 'Tech Blog',
   'sec.summary': 'Profile', 'sec.skills': 'Core Skills', 'sec.exp': 'Experience',
   'sec.oss': 'Open Source &amp; Personal Projects', 'sec.awards': 'Awards',
-  'sum.lede': '<span class="num">13</span> years of backend engineering focused on <strong>high-concurrency e-commerce transaction systems</strong> and <strong>distributed architecture</strong>, with deep domain experience across OTA (online travel), e-commerce and MarTech:',
-  'sum.1': 'Senior Backend Engineer at KKday (global travel-experience platform) and <strong>Lead of the Pre-Purchase Conversion Task Force</strong>, driving a 6-person cross-platform team toward a north-star metric of <span class="num">+50%</span> conversion (<span class="num">1.2% → 1.8%</span>)',
-  'sum.2': 'Top contributor and owner of KKday\'s affiliate marketing platform (<span class="num">3,000+</span> commits across its two core repositories), powering <span class="num">10+</span> global channels including Google, Naver and ShopBack',
-  'sum.3': 'Production reliability specialist: led incident response on a large-scale outage, cutting critical API p99 latency from <span class="num">25s+</span> to under <span class="num">2s</span> and holding the 5xx error rate below <span class="num">0.01%</span>',
-  'sum.4': 'Early adopter of AI engineering: built an in-house team health-monitoring platform with AI root-cause analysis, and an orchestration layer that converges multiple AI code-review bots',
-  'sum.5': 'KKday Employee of the Year, two consecutive years (<span class="num">2023, 2024</span>)',
-  'sk.1.k': 'Languages', 'sk.1.v': 'PHP (expert, 8+ yrs), TypeScript / Node.js, Go, Shell, Java (collaborative)',
-  'sk.2.k': 'Frameworks', 'sk.2.v': 'Laravel / Hyperf / ThinkPHP / Yii2, Gin / go-zero, Vue / ElementUI',
-  'sk.3.k': 'Data &amp; Messaging', 'sk.3.v': 'MySQL, PostgreSQL, Redis, Elasticsearch, Google BigQuery, RabbitMQ, AWS SQS, Kafka',
-  'sk.4.k': 'Cloud &amp; DevOps', 'sk.4.v': 'Docker, Kubernetes, AWS Lambda / GCP Cloud Run, Ansible, GitHub Actions, Prometheus / Grafana / Kibana',
-  'sk.5.k': 'Architecture', 'sk.5.v': 'Microservices, BFF, event-driven design, circuit breaking &amp; rate limiting, API design and documentation engineering',
-  'sk.6.k': 'AI Engineering', 'sk.6.v': 'Claude API / Copilot SDK application development, AI agent workflow orchestration, AI-assisted engineering process design',
-  'sk.7.k': 'Domain', 'sk.7.v': 'Affiliate marketing &amp; commission settlement, order transaction flows, dynamic pricing, SCRM / marketing automation, SaaS platforms',
+  'sec.summary': 'Profile', 'sec.skills': 'Core Skills', 'sec.exp': 'Experience',
+  'sec.ai': 'AI Engineering', 'sec.oss': 'Open Source &amp; Personal Projects', 'sec.awards': 'Awards',
+  'sum.lede': '<span class="num">13</span> years of backend engineering focused on <strong>high-concurrency transaction systems</strong> and <strong>distributed architecture</strong>; over the past year, extended into <strong>AI engineering</strong> — building the infrastructure that turns noisy, unreliable AI output into something production teams can rely on.',
+  'm.1.v': '13 yrs', 'm.1.k': 'Backend engineering · OTA / e-commerce / MarTech',
+  'm.2.v': '&yen;10B+', 'm.2.k': 'GMV within 5 months, Apple China reseller platform',
+  'm.3.v': '25s &rarr; 2s', 'm.3.k': 'Critical API p99 after major-outage response',
+  'm.4.v': '200%', 'm.4.k': 'YoY growth, KKday affiliate business',
+  'm.5.v': '4', 'm.5.k': 'AI review bots orchestrated by Maestro',
+  'm.6.v': '3', 'm.6.k': 'Self-built AI engineering platforms',
+  'sum.1': '<strong>AI engineering</strong>: built a convergence layer for multiple AI review bots (Maestro) and an AI-assisted root-cause monitoring platform (VM Health Center), solving the practical problem of duplicated, unreliable, unconverged AI output',
+  'sum.2': '<strong>Transaction-systems depth</strong>: top contributor and owner of KKday\'s affiliate marketing platform (<span class="num">3,000+</span> commits, <span class="num">200%</span> YoY growth), and owner of the B2C core transaction flow',
+  'sum.3': '',
+  'ai.1': '<strong>Maestro</strong> (TypeScript CLI) — a <strong>convergence layer for AI review bots</strong>: orchestrates <span class="num">4</span> bots (CodeRabbit, Copilot, Codex, Gemini) through classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation — turning scattered AI feedback into an actionable fix queue',
+  'ai.2': '<strong>VM Health Center</strong> (TypeScript/Node.js + Slack Bolt + Elasticsearch, <span class="num">79/86</span> commits, built solo) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis',
+  'ai.3': '<strong>Claude API in production</strong>: SEO slug generation across <span class="num">8</span> locales with hash-based change detection for cost control; a Git workflow and AI code-review automation system deployable as CLI, webhook or GitHub Actions',
+  'ai.4': '',
+  'sk.1.k': 'AI Engineering', 'sk.1.v': 'Claude API / Copilot SDK application development, multi-agent orchestration and convergence, AI-assisted engineering process design',
+  'sk.2.k': 'Languages &amp; Frameworks', 'sk.2.v': 'PHP (expert, 8+ yrs), TypeScript / Node.js, Go; Laravel / Hyperf, Gin / go-zero, Vue',
+  'sk.3.k': 'Data &amp; Messaging', 'sk.3.v': 'MySQL, PostgreSQL, Redis, Elasticsearch, Google BigQuery, RabbitMQ, Kafka',
+  'sk.4.k': 'Cloud &amp; DevOps', 'sk.4.v': 'Docker, Kubernetes, AWS Lambda / GCP Cloud Run, GitHub Actions, Prometheus / Grafana / Kibana',
+  'sk.5.k': 'Architecture &amp; Domain', 'sk.5.v': 'Microservices, BFF, event-driven design, circuit breaking &amp; rate limiting; affiliate marketing / commission settlement, order transaction flows, dynamic pricing',
   'j1.when': '2022.11 – Present', 'j1.co': 'KKday', 'j1.role': ' ｜ Senior Backend Engineer',
-  'j1.note': 'A leading global travel-experience booking platform operating in 50+ countries and regions. Progressed from affiliate platform owner to core backend engineer on the B2C mainline, now concurrently leading the Pre-Purchase Conversion Task Force.',
+  'j1.note': 'A leading global travel-experience booking platform operating in 50+ countries and regions. Over four years, progressed from affiliate platform owner to core backend engineer on the B2C mainline, now concurrently leading the Pre-Purchase Conversion Task Force.',
   'j1.p1.h': 'Pre-Purchase Conversion Task Force · Lead (2026 H2 – Present)',
-  'j1.p1.b1': 'Formed and lead a <strong>6-person cross-platform team</strong> (iOS/Android/Web/Backend) against a single north-star metric — conversion from <span class="num">1.2% to 1.8%</span> (<span class="num">+50%</span>) — reporting directly to the PM and holding shared accountability for the group',
-  'j1.p1.b2': 'Established lightweight collaboration rituals (standups, 1-on-1s, OKR alignment) and coordinate end-to-end experience and performance work across the pre-purchase funnel: product page → cart → checkout',
+  'j1.p1.b1': 'Formed and lead a <strong>6-person cross-platform team</strong> (iOS/Android/Web/Backend) against a single north-star metric — conversion from <span class="num">1.2% to 1.8%</span> (<span class="num">+50%</span>) — reporting directly to the PM; established standups, 1-on-1s and OKR alignment, and coordinate experience and performance work across the pre-purchase funnel (product page → cart → checkout)',
   'j1.p2.h': 'B2C Core Transaction Flow (2025.02 – Present, 783 commits to b2c-api)',
   'j1.p2.b1': '<strong>USJ (Universal Studios Japan) booking-date changes</strong>: re-architected across four services (B2C/Order/MKT/Member) and authored <span class="num">7</span> SA/SD documents. Introduced an "entitlements inherit, conditions re-evaluate" principle that turned scattered coupon and loyalty-point revalidation rules into an auditable decision table — approved by all four teams in a single review. Rebuilt the price calculator and order state machine, securing renewal with a top-tier ticketing supplier',
-  'j1.p2.b2': '<strong>GYG B2B dynamic pricing</strong>: authored <span class="num">3</span> SA/SD documents covering dynamic pricing across listings, SKU pages, cart and orders. Chose to introduce a dedicated API rather than retrofit five legacy call sites, and designed an app-upgrade prompt so older clients never surface stale prices',
-  'j1.p2.b3': '<strong>Checkout page rebuild</strong>: expanded traveler fields, ordering, placeholder-traveler handling and many-to-many SKU-to-traveler mapping — shipped with <span class="num">zero</span> P0/P1 escapes',
-  'j1.p2.b4': '<strong>Major outage response (incident lead)</strong>: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool, then shipped P0+P1 hardening within <span class="num">7</span> days — timeout tuning, exception fallbacks, a lightweight Redis-based circuit breaker and two-tier feature flag / kill switch. Cut cart/validate p99 from <span class="num">25s+</span> to <span class="num">&lt;2s</span>, eliminated the iOS checkout white-screen, and kept a major campaign stable; 5xx has stayed below <span class="num">0.01%</span> for many weeks since',
-  'j1.p2.b5': '<strong>Ticketing / Tour product architecture</strong>: led package grouping, bundled products, OpenDate calendar delegation and product-page specialization — owning the full cycle from SA/SD through mock, API, unit tests and documentation. Established a "BFF-layer version compatibility + progressive app rollout" playbook and resolved <span class="num">15+</span> cross-platform inconsistencies',
-  'j1.p2.b6': 'End-to-end delivery beyond the core flow: iOS Live Activity departure-day notifications, pre-trip care scheduling, member cache governance and bulk coupon validation — spanning <span class="num">5</span> microservices',
+  'j1.p2.b4': '<strong>Major outage response (incident lead)</strong>: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool, then shipped P0+P1 hardening within <span class="num">7</span> days (timeout tuning, exception fallbacks, a lightweight Redis-based circuit breaker, two-tier feature flag / kill switch) — cut cart/validate p99 from <span class="num">25s+</span> to <span class="num">&lt;2s</span>, eliminated the iOS checkout white-screen, and kept 5xx below <span class="num">0.01%</span> for many weeks since',
+  'j1.p2.b5': '',
   'j1.p3.h': 'Affiliate Marketing Platform · Platform Owner (2022.11 – 2025.03)',
-  'j1.p3.b1': 'Top contributor and owner of two core services — affiliate-service (<span class="num">2,117 of 3,747</span> commits, <span class="num">56%</span>) and affiliate-api (<span class="num">1,077</span> commits) — serving as Code Owner and PR gatekeeper while the affiliate business grew <span class="num">200%</span> year over year',
-  'j1.p3.b2': '<strong>Official Google channel integrations</strong>: Things To Do product feed generation, compression and incremental upload; POI ranking collection; Google Transit point-to-point European rail sync (signature verification, time zones, blacklist governance)',
-  'j1.p3.b3': 'Integrated <span class="num">10+</span> affiliate channels including ShopBack, Market America, Asia Miles and Naver Shopping — covering cashback, air-mile and price-comparison partnership models',
+  'j1.p3.b1': 'Top contributor and owner of two core services — affiliate-service (<span class="num">2,117 of 3,747</span> commits, <span class="num">56%</span>) and affiliate-api (<span class="num">1,077</span> commits) — as Code Owner and PR gatekeeper; integrated Google\'s Things To Do channel and <span class="num">10+</span> partner channels including ShopBack, Asia Miles and Naver Shopping, growing the affiliate business <span class="num">200%</span> YoY',
   'j1.p3.b4': 'Designed the <strong>commission settlement system</strong>: rules engine, monthly settlement with re-run capability, BigQuery attribution, and a RabbitMQ event-driven pipeline connecting order and product data',
-  'j1.p3.b5': 'Performance and observability: multi-tier caching with unified cache-key management, slow-query remediation, affiliate order monitoring and daily Slack digests — reducing API latency <span class="num">65%</span> (<span class="num">120ms → 35ms</span>)',
-  'j1.p3.b6': 'Led the technical plan for the Affiliate → KKPartners platform migration and delivered a seamless cutover; built a database-type-to-CRUD-component mapping engine for the admin console and maintained a company-wide shared SDK',
-  'j1.p4.h': 'AI Engineering &amp; Internal Platforms (self-initiated, 2026)',
-  'j1.p4.b1': '<strong>VM Health Center</strong> (TypeScript/Node.js + Slack Bolt + Elasticsearch, <span class="num">79 of 86</span> commits, built solo): a team operations dashboard and service health monitor that aggregates Jira/GitHub/Confluence into daily and weekly reports, surfaces checkout-funnel and backend health alerts, and produces preliminary AI root-cause analysis',
-  'j1.p4.b2': '<strong>Maestro</strong> (TypeScript CLI): a convergence layer orchestrating multiple AI PR-review bots (CodeRabbit, Copilot, Codex, Gemini) — issue classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation to human review',
-  'j1.p4.b3': 'Additional work: Claude API–driven SEO slug generation across <span class="num">8</span> locales with hash-based change detection for cost control; a Git workflow and AI code-review automation system deployable as CLI, webhook or GitHub Actions',
+  'j1.p3.b5': '',
   'j2.when': '2021.03 – 2022.10', 'j2.co': 'JINGdigital', 'j2.role': ' ｜ Senior Backend Engineer',
   'j2.note': 'A B2B MarTech/SCRM marketing-automation SaaS vendor. Responsible for backend development across a marketing-automation microservice suite (Laravel/Yii2/YAF, 10+ services).',
   'j2.b1': 'Owned the <strong>JavaScript event-tracking service</strong> (jstracking): omnichannel behavioral collection and content-marketing attribution, the primary data source for marketing automation',
-  'j2.b2': 'Core contributor to the <strong>JINGsocial platform</strong> — the frontend/backend decoupling rebuild (v2) and maintenance of the legacy YAF architecture, <span class="num">300+</span> commits combined',
-  'j2.b3': 'Delivered iteration and reliability work across <span class="num">8+</span> microservices spanning email marketing, SMS gateway, surveys, lead generation, WeCom and data migration',
-  'j2.b4': 'Contributed to Ansible-based infrastructure, covering the full path from development through deployment',
+  'j2.b2': '',
   'j3.when': '2017.12 – 2021.03', 'j3.co': 'Shopex', 'j3.role': ' ｜ Technical Expert / Lead Developer',
-  'j3.b1': 'Delivered the <strong>Apple China reseller platform</strong> (surpassing <span class="num">¥10B</span> GMV within 5 months of launch): integrated <span class="num">15+</span> payment and logistics systems including SF Express and Baozun OMS, reached <span class="num">98%</span> OMS/WMS automation, and served <span class="num">3,500+</span> retail stores and <span class="num">250K+</span> daily active users',
-  'j3.b2': 'Received the company\'s <strong>Golden Tomato Award</strong> for a high-performance coupon system; raised H5 API throughput <span class="num">17.5×</span> (<span class="num">200 → 3,500 TPS</span>) and reached <span class="num">12K TPS</span> under load testing (NGINX caching + TSung tuning)',
-  'j3.b3': 'Built an SMS gateway service on go-zero handling <span class="num">1M+</span> messages per day',
-  'j3.b4': 'Optimized data export from OOM failures to <span class="num">10M rows in 10 minutes</span>',
+  'j3.note': 'A leading domestic e-commerce SaaS provider. Led delivery of the Apple China reseller platform and high-concurrency performance work.',
+  'j3.b1': 'Delivered the <strong>Apple China reseller platform</strong> (surpassing <span class="num">&yen;10B</span> GMV within 5 months of launch): integrated <span class="num">15+</span> payment and logistics systems including SF Express and Baozun OMS, reached <span class="num">98%</span> OMS/WMS automation, and served <span class="num">3,500+</span> retail stores and <span class="num">250K+</span> daily active users',
+  'j3.b2': 'Received the company\'s <strong>Golden Tomato Award</strong> for a high-performance coupon system; raised H5 API throughput <span class="num">17.5&times;</span> (<span class="num">200 &rarr; 3,500 TPS</span>) and reached <span class="num">12K TPS</span> under load testing (NGINX caching + TSung tuning)',
+  'j3.b3': 'Built an SMS gateway on go-zero handling <span class="num">1M+</span> messages/day; optimized data export from OOM failures to <span class="num">10M rows in 10 minutes</span>',
   'j4.when': '2013.06 – 2017.12', 'j4.co': 'Yuanfeng Technology Group', 'j4.role': ' ｜ Full-Stack Engineer',
   'j4.b1': 'Built a multi-merchant SaaS e-commerce platform serving <span class="num">10,000+</span> merchants with <span class="num">10</span>-language support, using a hybrid Google/Youdao translation pipeline that cut translation costs <span class="num">70%</span>',
-  'j4.b2': 'Built an IM system on NetEase Cloud handling <span class="num">2M+</span> messages per day',
-  'j4.b3': 'Designed a Redis caching layer that reduced database load <span class="num">60%</span>; twice named company Technology Star (<span class="num">2016, 2018</span>)',
-  'oss.1': '<strong>SwaggerNotes</strong> (PHP/Laravel package, built solo): generates Swagger annotations and OpenAPI specification files; published on Packagist with <span class="num">2.6k+</span> downloads',
+  'j4.b2': '',
+  'oss.1': '',
   'oss.2': '<strong>knuckleswtf/scribe</strong> (<span class="num">2.3k</span> ⭐ Laravel API documentation generator): <span class="num">2</span> pull requests merged upstream, listed among official contributors',
-  'oss.3': '<strong>Technical blog</strong> (Hexo): <span class="num">1,300+</span> articles covering PHP, architecture, databases and AI engineering — still actively updated',
-  'aw.1': 'KKday Employee of the Year (<span class="num">2023, 2024</span> — two consecutive years)',
-  'aw.2': 'Shopex Golden Tomato Award (<span class="num">2020</span>)',
-  'aw.3': 'Yuanfeng Technology Star (<span class="num">2016, 2018</span>)',
+  'aw.line': '',
   'foot.name': 'Michael Ma · Senior Backend Engineer',
   'foot.tip': 'Print from your browser (⌘P) to export as A4 PDF',
   'dl.md.btn': 'Download Résumé Markdown', 'dl.top': 'Back to top',
