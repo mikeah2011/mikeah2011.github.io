@@ -3,13 +3,13 @@
 **资深后端工程师 · 13 年研发经验 · 高并发交易系统 / AI 工程化**
 
 📧 mikeah2011@gmail.com ｜ 📱 +86 188-0196-3698 ｜ 📍 上海
-🔗 GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 技术博客: [mikeah2011.github.io](https://mikeah2011.github.io)
+🔗 GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 领英: [linkedin.com/in/michael-ma-923223116](https://www.linkedin.com/in/michael-ma-923223116/) ｜ 技术博客: [mikeah2011.github.io](https://mikeah2011.github.io)
 
 ---
 
 ## 个人简介
 
-13 年后端研发经验，专注**高并发电商交易系统**与**分布式架构**；近一年将重心延伸至 **AI 工程化**——用工程手段把发散、不稳定的 AI 输出收敛成可靠的研发基础设施。
+13 年后端研发经验，专注**高并发电商交易系统**与**分布式架构**。正因为救过大面积线上故障、长期维护核心交易链路，更清楚不可靠的输出流进生产会造成什么后果——近一年将重心延伸至 **AI 工程化**，先建的是收敛层与控费机制，而不是又一个生成器。
 
 **13 年** — 后端研发 · OTA / 电商 / MarTech  
 **¥100 亿** — Apple 中国经销商平台上线 5 个月 GMV  
@@ -19,7 +19,7 @@
 **3 个** — 自研 AI 工程化平台（监控 / 审查编排 / 内容流水线）
 
 - **AI 工程化**：自研多 AI 审查机器人收敛层（Maestro）与 AI 根因分析监控平台（VM Health Center），解决多源 AI 输出重复、不可靠、无法收敛的工程问题
-- **交易系统纵深**：以第一贡献人身份主导 KKday 联盟营销平台（3000+ 次提交，业务年同比增长 200%），并负责 B2C 主干线核心交易链路
+- **交易系统纵深**：以第一贡献人身份主导 KKday 联盟营销平台（业务年同比增长 200%），并负责 B2C 主干线核心交易链路
 - **稳定性与团队**：主导大规模故障救火（关键 API p99 25s+ → <2s，5xx 稳定 <0.01%）；现兼任售前 CVR 增转专项组组长，带领 6 人跨端小组
 
 ---
@@ -27,7 +27,7 @@
 ## AI 工程化实践
 
 - **Maestro**（TypeScript CLI）——**多 AI 审查机器人收敛层**：编排 CodeRabbit / Copilot / Codex / Gemini 4 个审查机器人，问题分类 → 三层去重 → 自动修复 → 回复并解决讨论串 → 收敛监控与人工升级判断，把发散的 AI 意见收敛成可执行的修改队列
-- **VM Health Center**（TypeScript / Node.js + Slack Bolt + Elasticsearch，79/86 次提交独立开发）——团队作战看板 + 服务健康监控：聚合 Jira / GitHub / Confluence 自动生成日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析
+- **VM Health Center**（TypeScript / Node.js + Slack Bolt + Elasticsearch，从 0 到 1 独立开发）——团队作战看板 + 服务健康监控：聚合 Jira / GitHub / Confluence 自动生成日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析
 - **Claude API 生产化落地**：8 语系 SEO slug 自动生成，以 hash 变更检测控制调用成本；Git 工作流 + AI 代码审查自动化，支持 CLI / Webhook / GitHub Actions 多形态部署
 - **单源多产出内容流水线**（本简历站）：一份内容源自动导出三语 × 深浅色 × HTML / PDF / PPTX / Markdown 共 20+ 份产物；针对 Marp CLI 渲染不稳定（SVG 图标随机降级为字面文本）设计导出后校验与自动重试
 
@@ -38,10 +38,10 @@
 | 领域 | 技能 |
 |------|------|
 | AI 工程 | Claude API / Copilot SDK 应用开发、多 AI Agent 编排与收敛、AI 辅助研发流程建设 |
-| 语言与框架 | PHP（精通，8 年+）、TypeScript / Node.js、Go；Laravel / Hyperf、Gin / go-zero、Vue |
+| 语言与框架 | PHP（精通，8 年+）、TypeScript / Node.js、Go、Python（可读）；Laravel / Hyperf、Gin / go-zero、Vue |
 | 数据与中间件 | MySQL、PostgreSQL、Redis、Elasticsearch、Google BigQuery、RabbitMQ、Kafka |
 | 云原生与运维 | Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana |
-| 架构与业务 | 微服务、BFF、事件驱动、熔断限流与高可用设计；联盟营销 / 分润结算、订单交易链路、动态定价 |
+| 架构与业务 | 微服务与 BFF 分层、RabbitMQ 事件驱动、Redis 熔断器与双层 Kill Switch、多级缓存与 Cache Key 治理；联盟分润结算、订单交易链路、动态定价 |
 
 ---
 
@@ -55,13 +55,13 @@
 **① 售前 CVR 增转专项组 · 组长（2026 H2 – 至今）**
 - 组建并带领 **6 人跨端小组**（iOS / Android / Web / BE），以「CVR 1.2% → 1.8%（+50%）」为唯一北极星指标，直接对 PM 负责；建立站会、1on1、OKR 对齐机制，统筹售前链路（商品页 → 购物车 → 订购页）全端体验与性能优化
 
-**② B2C 核心交易链路（2025.02 – 至今，b2c-api 783 次提交）**
+**② B2C 核心交易链路（2025.02 – 至今）**
 - **USJ（大阪环球影城）订单改期**：跨 B2C / Order / MKT / Member 四大服务改造，主笔 7 份 SA/SD；提出「权益继承、条件重审」原则，将散乱的优惠券/积分重验规则整理为可审计决策表，四方一次对齐通过；重构金额试算器与订单状态机，保障公司 TOP 级票券供应商续约
 - **大面积故障救火（主救火窗口）**：定位微服务依赖拖垮 PHP-FPM worker 池的根因，7 天内完成 P0+P1 加固（超时优化、异常兜底、Redis 轻量熔断器、双层 Feature Flag / Kill Switch）——cart/validate API p99 由 25s+ 降至 <2s，根治 iOS 下单白屏，此后 5xx 错误率连续多周 <0.01%
 - **票券/Tour 商品架构升级**：主导方案分组、组合商品、OpenDate 月历下放等专案，独立完成 SA/SD → Mock → API → 单测 → 文档全流程；建立「BFF 层版本兼容 + App 渐进升级」标准解法，修复 15+ 跨端差异场景
 
 **③ 联盟营销平台 · 平台负责人（2022.11 – 2025.03）**
-- 以第一贡献人身份主导 affiliate-service（2117/3747 次提交，占 56%）与 affiliate-api（1077 次提交），承担 Code Owner 与 PR 把关职责；串接 Google Things To Do 官方渠道及 ShopBack、亚洲万里通、Naver Shopping 等 10+ 异业渠道，推动联盟业务年同比增长 200%
+- 以第一贡献人身份主导 affiliate-service（占 56% 提交）与 affiliate-api 两大核心服务，承担 Code Owner 与 PR 把关职责；串接 Google Things To Do 官方渠道及 ShopBack、亚洲万里通、Naver Shopping 等 10+ 异业渠道，推动联盟业务年同比增长 200%
 - 设计**分润结算系统**：分润规则引擎、月度结算与重刷能力、BigQuery 数据归因；基于 RabbitMQ 事件驱动打通订单/商品数据流
 - 性能与可观测性：多级缓存与统一 Cache Key 管理、慢 SQL 治理、联盟订单监控与 Slack 图文日报，API 延迟降低 65%（120ms → 35ms）
 

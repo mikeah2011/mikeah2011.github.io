@@ -1,15 +1,15 @@
 # Michael Ma（马成军）
 
-**Senior Backend Engineer · 13 Years of Experience · High-Concurrency Transaction Systems / AI Engineering**
+**Senior Backend Engineer · High-Concurrency Transaction Systems & AI Engineering**
 
-📧 mikeah2011@gmail.com ｜ 📱 +86 188-0196-3698 ｜ 📍 Shanghai, China
-🔗 GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ Tech Blog: [mikeah2011.github.io](https://mikeah2011.github.io)
+📧 mikeah2011@gmail.com ｜ 📱 +86 188-0196-3698 ｜ 📍 Shanghai, China (UTC+8)
+🔗 GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [linkedin.com/in/michael-ma-923223116](https://www.linkedin.com/in/michael-ma-923223116/) ｜ Tech Blog: [mikeah2011.github.io](https://mikeah2011.github.io)
 
 ---
 
 ## Profile
 
-13 years of backend engineering focused on **high-concurrency transaction systems** and **distributed architecture**; over the past year, extended into **AI engineering** — building the infrastructure that turns noisy, unreliable AI output into something production teams can rely on.
+13 years of backend engineering focused on **high-concurrency transaction systems** and **distributed architecture**. Having led incident response on a large-scale outage and maintained core transaction systems for years, I know what unreliable output costs in production — so when I extended into **AI engineering** this past year, the first thing I built was a convergence layer and cost controls, not another generator.
 
 **13 yrs** — Backend engineering · OTA / e-commerce / MarTech  
 **¥10B+** — GMV within 5 months, Apple China reseller platform  
@@ -19,14 +19,14 @@
 **3** — Self-built AI engineering platforms
 
 - **AI engineering**: built a convergence layer for multiple AI review bots (Maestro) and an AI-assisted root-cause monitoring platform (VM Health Center), solving the practical problem of duplicated, unreliable, unconverged AI output
-- **Transaction-systems depth**: top contributor and owner of KKday's affiliate marketing platform (3,000+ commits, 200% YoY growth), and owner of the B2C core transaction flow
+- **Transaction-systems depth**: top contributor and owner of KKday's affiliate marketing platform (200% YoY growth), and owner of the B2C core transaction flow
 
 ---
 
 ## AI Engineering
 
 - **Maestro** (TypeScript CLI) — a **convergence layer for AI review bots**: orchestrates 4 bots (CodeRabbit, Copilot, Codex, Gemini) through classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation — turning scattered AI feedback into an actionable fix queue
-- **VM Health Center** (TypeScript/Node.js + Slack Bolt + Elasticsearch, 79/86 commits, built solo) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis
+- **VM Health Center** (TypeScript/Node.js + Slack Bolt + Elasticsearch, built solo from scratch) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis
 - **Claude API in production**: SEO slug generation across 8 locales with hash-based change detection for cost control; a Git workflow and AI code-review automation system deployable as CLI, webhook or GitHub Actions
 
 ---
@@ -36,35 +36,35 @@
 | Domain | Skill |
 |------|------|
 | AI Engineering | Claude API / Copilot SDK application development, multi-agent orchestration and convergence, AI-assisted engineering process design |
-| Languages & Frameworks | PHP (expert, 8+ yrs), TypeScript / Node.js, Go; Laravel / Hyperf, Gin / go-zero, Vue |
+| Languages & Frameworks | PHP (expert, 8+ yrs), TypeScript / Node.js, Go, Python (reading proficiency); Laravel / Hyperf, Gin / go-zero, Vue |
 | Data & Messaging | MySQL, PostgreSQL, Redis, Elasticsearch, Google BigQuery, RabbitMQ, Kafka |
 | Cloud & DevOps | Docker, Kubernetes, AWS Lambda / GCP Cloud Run, GitHub Actions, Prometheus / Grafana / Kibana |
-| Architecture & Domain | Microservices, BFF, event-driven design, circuit breaking & rate limiting; affiliate marketing / commission settlement, order transaction flows, dynamic pricing |
+| Architecture & Domain | Microservices and BFF layering, RabbitMQ event-driven pipelines, Redis circuit breakers with two-tier kill switches, multi-tier caching and cache-key governance; commission settlement, order transaction flows, dynamic pricing |
 
 ---
 
 ## Experience
 
 ### KKday — Senior Backend Engineer
-**2022.11 – Present ｜ Shanghai, China**
+**2022.11 – Present ｜ Shanghai, China (UTC+8)**
 
-A leading global travel-experience booking platform operating in 50+ countries and regions. Over four years, progressed from affiliate platform owner to core backend engineer on the B2C mainline, now concurrently leading the Pre-Purchase Conversion Task Force.
+A leading global travel-experience platform operating in 50+ countries. Progressed from affiliate platform owner → B2C core backend → lead of the Pre-Purchase Conversion Task Force.
 
 **① Pre-Purchase Conversion Task Force · Lead (2026 H2 – Present)**
-- Formed and lead a **6-person cross-platform team** (iOS/Android/Web/Backend) against a single north-star metric — conversion from 1.2% to 1.8% (+50%) — reporting directly to the PM; established standups, 1-on-1s and OKR alignment, and coordinate experience and performance work across the pre-purchase funnel (product page → cart → checkout)
+- Formed and lead a **6-person cross-platform team** (iOS/Android/Web/Backend) against a single north-star metric — conversion 1.2% → 1.8% (+50%); established standups, 1-on-1s and OKR alignment across the pre-purchase funnel (product page → cart → checkout)
 
-**② B2C Core Transaction Flow (2025.02 – Present, 783 commits to b2c-api)**
-- **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services (B2C/Order/MKT/Member) and authored 7 SA/SD documents. Introduced an "entitlements inherit, conditions re-evaluate" principle that turned scattered coupon and loyalty-point revalidation rules into an auditable decision table — approved by all four teams in a single review. Rebuilt the price calculator and order state machine, securing renewal with a top-tier ticketing supplier
-- **Major outage response (incident lead)**: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool, then shipped P0+P1 hardening within 7 days (timeout tuning, exception fallbacks, a lightweight Redis-based circuit breaker, two-tier feature flag / kill switch) — cut cart/validate p99 from 25s+ to <2s, eliminated the iOS checkout white-screen, and kept 5xx below 0.01% for many weeks since
+**② B2C Core Transaction Flow (2025.02 – Present)**
+- **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services and authored 7 SA/SD documents. Turned scattered coupon and loyalty-point revalidation rules into an auditable decision table under an "entitlements inherit, conditions re-evaluate" principle — approved by all four teams in a single review, securing renewal with a top-tier ticketing supplier
+- **Major outage response (incident lead)**: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool and shipped P0+P1 hardening in 7 days (timeouts, fallbacks, a Redis circuit breaker, two-tier kill switch) — cart/validate p99 25s+ → <2s, iOS checkout white-screen eliminated, 5xx held below 0.01% since
 
 **③ Affiliate Marketing Platform · Platform Owner (2022.11 – 2025.03)**
-- Top contributor and owner of two core services — affiliate-service (2,117 of 3,747 commits, 56%) and affiliate-api (1,077 commits) — as Code Owner and PR gatekeeper; integrated Google's Things To Do channel and 10+ partner channels including ShopBack, Asia Miles and Naver Shopping, growing the affiliate business 200% YoY
+- Top contributor and owner of two core services — affiliate-service (56% of all commits) and affiliate-api — as Code Owner and PR gatekeeper; integrated Google's Things To Do channel and 10+ partner channels including ShopBack, Asia Miles and Naver Shopping, growing the affiliate business 200% YoY
 - Designed the **commission settlement system**: rules engine, monthly settlement with re-run capability, BigQuery attribution, and a RabbitMQ event-driven pipeline connecting order and product data
 
 ---
 
 ### JINGdigital — Senior Backend Engineer
-**2021.03 – 2022.10 ｜ Shanghai, China**
+**2021.03 – 2022.10 ｜ Shanghai, China (UTC+8)**
 
 A B2B MarTech/SCRM marketing-automation SaaS vendor. Responsible for backend development across a marketing-automation microservice suite (Laravel/Yii2/YAF, 10+ services).
 
@@ -73,7 +73,7 @@ A B2B MarTech/SCRM marketing-automation SaaS vendor. Responsible for backend dev
 ---
 
 ### Shopex — Technical Expert / Lead Developer
-**2017.12 – 2021.03 ｜ Shanghai, China**
+**2017.12 – 2021.03 ｜ Shanghai, China (UTC+8)**
 
 A leading domestic e-commerce SaaS provider. Led delivery of the Apple China reseller platform and high-concurrency performance work.
 
@@ -84,7 +84,7 @@ A leading domestic e-commerce SaaS provider. Led delivery of the Apple China res
 ---
 
 ### Yuanfeng Technology Group — Full-Stack Engineer
-**2013.06 – 2017.12 ｜ Shanghai, China**
+**2013.06 – 2017.12 ｜ Shanghai, China (UTC+8)**
 
 - Built a multi-merchant SaaS e-commerce platform serving 10,000+ merchants with 10-language support, using a hybrid Google/Youdao translation pipeline that cut translation costs 70%
 

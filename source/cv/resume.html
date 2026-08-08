@@ -229,12 +229,33 @@
       --ink:#1a2b33; --ink-2:#3a4e56; --muted:#5c6f77; --paper:#fff; --surface:#fff;
       --surface-2:#eef2f2; --line:#dce3e4; --accent:#0e7c86; --accent-dim:#0e7c8614;
     }
-    body { font-size: 12px; }
+    /* 1.68 is generous for screen reading but wastes a lot of paper; 1.55
+       keeps bullets comfortable while buying back enough vertical room that
+       a break-inside:avoid block near a page edge doesn't spill the CV onto
+       an extra, nearly-empty page. */
+    body { font-size: 12px; line-height: 1.55; }
     .sheet { max-width: none; padding: 0; }
     .bar, .dl-fab, footer { display: none; }
-    section { margin-top: 14px; }
-    .job { margin-bottom: 10px; }
-    .phase, .role > ul, .plain li, .role .org-note, .tiles, .tile, .impact li { break-inside: avoid; }
+    section { margin-top: 12px; }
+    .job { margin-bottom: 8px; }
+    /* On screen the bullets get room to breathe; on paper that whitespace is
+       what pushes a two-page CV onto a third, nearly-empty page. */
+    .summary li, .impact li, .role li, .plain li { margin: 3px 0; }
+    /* Protect the atoms (a single bullet, a metric tile) from being split,
+       but let long blocks flow across the page break. Forcing a whole
+       multi-bullet .phase to stay together pushed 200px+ of empty space
+       ahead of it and spilled the CV onto an extra page; the heading rules
+       below are what actually prevent orphaned headings. */
+    .role li, .impact li, .plain li, .role .org-note, .tiles, .tile { break-inside: avoid; }
+    /* Chrome cannot fragment a grid container across pages, so a .job that
+       straddles a page boundary is pushed down whole — the KKday block is
+       500px+, which stranded most of a page and added a third one. Floating
+       the date column keeps the same two-column look while letting the block
+       break naturally. */
+    .job { display: block; }
+    .job::after { content: ""; display: block; clear: both; }
+    .when { float: left; width: 132px; }
+    .role { margin-left: 156px; }
     /* Tile fills don't survive most print settings; a hairline keeps the
        metrics band legible on paper without relying on background graphics. */
     .tile { background: none; border-color: var(--line); padding: 5px 9px; }
@@ -288,6 +309,9 @@
       <a href="https://github.com/mikeah2011" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
         github.com/mikeah2011</a>
+      <a href="https://www.linkedin.com/in/michael-ma-923223116/" target="_blank" rel="noopener" style="--brand:#0A66C2">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+        <span data-i18n="link.linkedin">领英</span></a>
       <a href="https://mikeah2011.github.io" target="_blank" rel="noopener" style="--brand:#e08a2e">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5A1.5 1.5 0 0 0 3 5v14a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 19V5a1.5 1.5 0 0 0-1.5-1.5h-15zM7 7.5h10v2H7v-2zm0 4h10v2H7v-2zm0 4h6.5v2H7v-2z"/></svg>
         <span data-i18n="link.blog">技术博客</span></a>
@@ -438,10 +462,10 @@ CVUI.init({
   'html.title': '马成军 · 资深后端工程师简历',
   'name.main': '马成军', 'name.alt': 'Michael Ma',
   'headline': '资深后端工程师 · 13 年研发经验 · 高并发交易系统 / AI 工程化',
-  'loc': '上海', 'link.blog': '技术博客',
+  'loc': '上海', 'link.blog': '技术博客', 'link.linkedin': '领英',
   'sec.summary': '个人简介', 'sec.skills': '核心技能', 'sec.exp': '工作经历',
   'sec.ai': 'AI 工程化实践', 'sec.oss': '开源与个人项目', 'sec.awards': '荣誉奖项',
-  'sum.lede': '<span class="num">13</span> 年后端研发经验，专注<strong>高并发电商交易系统</strong>与<strong>分布式架构</strong>；近一年将重心延伸至 <strong>AI 工程化</strong>——用工程手段把发散、不稳定的 AI 输出收敛成可靠的研发基础设施。',
+  'sum.lede': '<span class="num">13</span> 年后端研发经验，专注<strong>高并发电商交易系统</strong>与<strong>分布式架构</strong>。正因为救过大面积线上故障、长期维护核心交易链路，更清楚不可靠的输出流进生产会造成什么后果——近一年将重心延伸至 <strong>AI 工程化</strong>，先建的是收敛层与控费机制，而不是又一个生成器。',
   'm.1.v': '13 年', 'm.1.k': '后端研发 · OTA / 电商 / MarTech',
   'm.2.v': '¥100 亿', 'm.2.k': 'Apple 中国经销商平台上线 5 个月 GMV',
   'm.3.v': '25s → 2s', 'm.3.k': '大促故障救火后关键 API p99',
@@ -449,27 +473,27 @@ CVUI.init({
   'm.5.v': '4 个', 'm.5.k': 'Maestro 编排收敛的 AI 审查机器人',
   'm.6.v': '3 个', 'm.6.k': '自研 AI 工程化平台（监控 / 审查编排 / 内容流水线）',
   'sum.1': '<strong>AI 工程化</strong>：自研多 AI 审查机器人收敛层（Maestro）与 AI 根因分析监控平台（VM Health Center），解决多源 AI 输出重复、不可靠、无法收敛的工程问题',
-  'sum.2': '<strong>交易系统纵深</strong>：以第一贡献人身份主导 KKday 联盟营销平台（<span class="num">3000+</span> 次提交，业务年同比增长 <span class="num">200%</span>），并负责 B2C 主干线核心交易链路',
+  'sum.2': '<strong>交易系统纵深</strong>：以第一贡献人身份主导 KKday 联盟营销平台（业务年同比增长 <span class="num">200%</span>），并负责 B2C 主干线核心交易链路',
   'sum.3': '<strong>稳定性与团队</strong>：主导大规模故障救火（关键 API p99 <span class="num">25s+ → &lt;2s</span>，5xx 稳定 <span class="num">&lt;0.01%</span>）；现兼任售前 CVR 增转专项组组长，带领 <span class="num">6</span> 人跨端小组',
   'ai.1': '<strong>Maestro</strong>（TypeScript CLI）——<strong>多 AI 审查机器人收敛层</strong>：编排 CodeRabbit / Copilot / Codex / Gemini <span class="num">4</span> 个审查机器人，问题分类 → 三层去重 → 自动修复 → 回复并解决讨论串 → 收敛监控与人工升级判断，把发散的 AI 意见收敛成可执行的修改队列',
-  'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，<span class="num">79/86</span> 次提交独立开发）——团队作战看板 + 服务健康监控：聚合 Jira / GitHub / Confluence 自动生成日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析',
+  'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，从 0 到 1 独立开发）——团队作战看板 + 服务健康监控：聚合 Jira / GitHub / Confluence 自动生成日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析',
   'ai.3': '<strong>Claude API 生产化落地</strong>：<span class="num">8</span> 语系 SEO slug 自动生成，以 hash 变更检测控制调用成本；Git 工作流 + AI 代码审查自动化，支持 CLI / Webhook / GitHub Actions 多形态部署',
   'ai.4': '<strong>单源多产出内容流水线</strong>（本简历站）：一份内容源自动导出三语 × 深浅色 × HTML / PDF / PPTX / Markdown 共 <span class="num">20+</span> 份产物；针对 Marp CLI 渲染不稳定（SVG 图标随机降级为字面文本）设计导出后校验与自动重试',
   'sk.1.k': 'AI 工程', 'sk.1.v': 'Claude API / Copilot SDK 应用开发、多 AI Agent 编排与收敛、AI 辅助研发流程建设',
-  'sk.2.k': '语言与框架', 'sk.2.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go；Laravel / Hyperf、Gin / go-zero、Vue',
+  'sk.2.k': '语言与框架', 'sk.2.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go、Python（可读）；Laravel / Hyperf、Gin / go-zero、Vue',
   'sk.3.k': '数据与中间件', 'sk.3.v': 'MySQL、PostgreSQL、Redis、Elasticsearch、Google BigQuery、RabbitMQ、Kafka',
   'sk.4.k': '云原生与运维', 'sk.4.v': 'Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana',
-  'sk.5.k': '架构与业务', 'sk.5.v': '微服务、BFF、事件驱动、熔断限流与高可用设计；联盟营销 / 分润结算、订单交易链路、动态定价',
+  'sk.5.k': '架构与业务', 'sk.5.v': '微服务与 BFF 分层、RabbitMQ 事件驱动、Redis 熔断器与双层 Kill Switch、多级缓存与 Cache Key 治理；联盟分润结算、订单交易链路、动态定价',
   'j1.when': '2022.11 – 至今', 'j1.co': 'KKday（酷游天国际旅行社）', 'j1.role': '｜资深后端工程师',
   'j1.note': '全球领先的旅游体验预订平台（覆盖 50+ 国家/地区）。四年间历任联盟营销平台负责人、B2C 主干线核心后端，现兼任售前 CVR 增转专项组组长。',
   'j1.p1.h': '售前 CVR 增转专项组 · 组长（2026 H2 – 至今）',
   'j1.p1.b1': '组建并带领 <strong>6 人跨端小组</strong>（iOS / Android / Web / BE），以「CVR <span class="num">1.2% → 1.8%</span>（<span class="num">+50%</span>）」为唯一北极星指标，直接对 PM 负责；建立站会、1on1、OKR 对齐机制，统筹售前链路（商品页 → 购物车 → 订购页）全端体验与性能优化',
-  'j1.p2.h': 'B2C 核心交易链路（2025.02 – 至今，b2c-api 783 次提交）',
+  'j1.p2.h': 'B2C 核心交易链路（2025.02 – 至今）',
   'j1.p2.b1': '<strong>USJ（大阪环球影城）订单改期</strong>：跨 B2C / Order / MKT / Member 四大服务改造，主笔 <span class="num">7</span> 份 SA/SD；提出「权益继承、条件重审」原则，将散乱的优惠券/积分重验规则整理为可审计决策表，四方一次对齐通过；重构金额试算器与订单状态机，保障公司 TOP 级票券供应商续约',
   'j1.p2.b4': '<strong>大面积故障救火（主救火窗口）</strong>：定位微服务依赖拖垮 PHP-FPM worker 池的根因，<span class="num">7</span> 天内完成 P0+P1 加固（超时优化、异常兜底、Redis 轻量熔断器、双层 Feature Flag / Kill Switch）——cart/validate API p99 由 <span class="num">25s+</span> 降至 <span class="num">&lt;2s</span>，根治 iOS 下单白屏，此后 5xx 错误率连续多周 <span class="num">&lt;0.01%</span>',
   'j1.p2.b5': '<strong>票券/Tour 商品架构升级</strong>：主导方案分组、组合商品、OpenDate 月历下放等专案，独立完成 SA/SD → Mock → API → 单测 → 文档全流程；建立「BFF 层版本兼容 + App 渐进升级」标准解法，修复 <span class="num">15+</span> 跨端差异场景',
   'j1.p3.h': '联盟营销平台 · 平台负责人（2022.11 – 2025.03）',
-  'j1.p3.b1': '以第一贡献人身份主导 affiliate-service（<span class="num">2117/3747</span> 次提交，占 <span class="num">56%</span>）与 affiliate-api（<span class="num">1077</span> 次提交），承担 Code Owner 与 PR 把关职责；串接 Google Things To Do 官方渠道及 ShopBack、亚洲万里通、Naver Shopping 等 <span class="num">10+</span> 异业渠道，推动联盟业务年同比增长 <span class="num">200%</span>',
+  'j1.p3.b1': '以第一贡献人身份主导 affiliate-service（占 <span class="num">56%</span> 提交）与 affiliate-api 两大核心服务，承担 Code Owner 与 PR 把关职责；串接 Google Things To Do 官方渠道及 ShopBack、亚洲万里通、Naver Shopping 等 <span class="num">10+</span> 异业渠道，推动联盟业务年同比增长 <span class="num">200%</span>',
   'j1.p3.b4': '设计<strong>分润结算系统</strong>：分润规则引擎、月度结算与重刷能力、BigQuery 数据归因；基于 RabbitMQ 事件驱动打通订单/商品数据流',
   'j1.p3.b5': '性能与可观测性：多级缓存与统一 Cache Key 管理、慢 SQL 治理、联盟订单监控与 Slack 图文日报，API 延迟降低 <span class="num">65%</span>（<span class="num">120ms → 35ms</span>）',
   'j2.when': '2021.03 – 2022.10', 'j2.co': '径硕科技（JINGdigital）', 'j2.role': '｜资深后端工程师',
@@ -497,10 +521,10 @@ CVUI.init({
   'html.title': '馬成軍 · 資深後端工程師履歷',
   'name.main': '馬成軍', 'name.alt': 'Michael Ma',
   'headline': '資深後端工程師 · 13 年研發經驗 · 高並發交易系統 / AI 工程化',
-  'loc': '上海', 'link.blog': '技術部落格',
+  'loc': '上海', 'link.blog': '技術部落格', 'link.linkedin': '領英',
   'sec.summary': '個人簡介', 'sec.skills': '核心技能', 'sec.exp': '工作經歷',
   'sec.ai': 'AI 工程化實踐', 'sec.oss': '開源與個人專案', 'sec.awards': '榮譽獎項',
-  'sum.lede': '<span class="num">13</span> 年後端研發經驗，專注<strong>高並發電商交易系統</strong>與<strong>分散式架構</strong>；近一年將重心延伸至 <strong>AI 工程化</strong>——用工程手段把發散、不穩定的 AI 輸出收斂成可靠的研發基礎設施。',
+  'sum.lede': '<span class="num">13</span> 年後端研發經驗，專注<strong>高並發電商交易系統</strong>與<strong>分散式架構</strong>。正因為搶救過大規模線上故障、長期維護核心交易鏈路，更清楚不可靠的輸出流進生產會造成什麼後果——近一年將重心延伸至 <strong>AI 工程化</strong>，先建的是收斂層與控費機制，而不是又一個生成器。',
   'm.1.v': '13 年', 'm.1.k': '後端研發 · OTA / 電商 / MarTech',
   'm.2.v': '¥100 億', 'm.2.k': 'Apple 中國經銷商平台上線 5 個月 GMV',
   'm.3.v': '25s → 2s', 'm.3.k': '大型促銷故障搶救後關鍵 API p99',
@@ -508,27 +532,27 @@ CVUI.init({
   'm.5.v': '4 個', 'm.5.k': 'Maestro 編排收斂的 AI 審查機器人',
   'm.6.v': '3 個', 'm.6.k': '自研 AI 工程化平台（監控 / 審查編排 / 內容流水線）',
   'sum.1': '<strong>AI 工程化</strong>：自研多 AI 審查機器人收斂層（Maestro）與 AI 根因分析監控平台（VM Health Center），解決多來源 AI 輸出重複、不可靠、無法收斂的工程問題',
-  'sum.2': '<strong>交易系統縱深</strong>：以首要貢獻者身分主導 KKday 聯盟行銷平台（<span class="num">3000+</span> 次提交，業務年增長 <span class="num">200%</span>），並負責 B2C 主幹線核心交易鏈路',
+  'sum.2': '<strong>交易系統縱深</strong>：以首要貢獻者身分主導 KKday 聯盟行銷平台（業務年增長 <span class="num">200%</span>），並負責 B2C 主幹線核心交易鏈路',
   'sum.3': '<strong>穩定性與團隊</strong>：主導大規模故障搶救（關鍵 API p99 <span class="num">25s+ → &lt;2s</span>，5xx 穩定 <span class="num">&lt;0.01%</span>）；現兼任售前 CVR 增轉專案組組長，帶領 <span class="num">6</span> 人跨端小組',
   'ai.1': '<strong>Maestro</strong>（TypeScript CLI）——<strong>多 AI 審查機器人收斂層</strong>：編排 CodeRabbit / Copilot / Codex / Gemini <span class="num">4</span> 個審查機器人，問題分類 → 三層去重 → 自動修復 → 回覆並解決討論串 → 收斂監控與人工升級判斷，將發散的 AI 意見收斂成可執行的修改佇列',
-  'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，<span class="num">79/86</span> 次提交獨立開發）——團隊作戰看板 + 服務健康監控：彙整 Jira / GitHub / Confluence 自動產生日報週報、訂購漏斗與後端服務健康告警、AI 初步根因分析',
+  'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，從 0 到 1 獨立開發）——團隊作戰看板 + 服務健康監控：彙整 Jira / GitHub / Confluence 自動產生日報週報、訂購漏斗與後端服務健康告警、AI 初步根因分析',
   'ai.3': '<strong>Claude API 生產化落地</strong>：<span class="num">8</span> 語系 SEO slug 自動產生，以 hash 變更偵測控管呼叫成本；Git 工作流 + AI 程式碼審查自動化，支援 CLI / Webhook / GitHub Actions 多形態部署',
   'ai.4': '<strong>單一來源多產出內容流水線</strong>（本履歷網站）：一份內容來源自動匯出三語 × 深淺色 × HTML / PDF / PPTX / Markdown 共 <span class="num">20+</span> 份產物；針對 Marp CLI 渲染不穩定（SVG 圖示隨機降級為字面文字）設計匯出後驗證與自動重試',
   'sk.1.k': 'AI 工程', 'sk.1.v': 'Claude API / Copilot SDK 應用開發、多 AI Agent 編排與收斂、AI 輔助研發流程建置',
-  'sk.2.k': '語言與框架', 'sk.2.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go；Laravel / Hyperf、Gin / go-zero、Vue',
+  'sk.2.k': '語言與框架', 'sk.2.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go、Python（可讀）；Laravel / Hyperf、Gin / go-zero、Vue',
   'sk.3.k': '資料與中介軟體', 'sk.3.v': 'MySQL、PostgreSQL、Redis、Elasticsearch、Google BigQuery、RabbitMQ、Kafka',
   'sk.4.k': '雲原生與維運', 'sk.4.v': 'Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana',
-  'sk.5.k': '架構與業務', 'sk.5.v': '微服務、BFF、事件驅動、熔斷限流與高可用設計；聯盟行銷 / 分潤結算、訂單交易鏈路、動態定價',
+  'sk.5.k': '架構與業務', 'sk.5.v': '微服務與 BFF 分層、RabbitMQ 事件驅動、Redis 熔斷器與雙層 Kill Switch、多級快取與 Cache Key 治理；聯盟分潤結算、訂單交易鏈路、動態定價',
   'j1.when': '2022.11 – 至今', 'j1.co': 'KKday（酷遊天國際旅行社）', 'j1.role': '｜資深後端工程師',
   'j1.note': '全球領先的旅遊體驗預訂平台（涵蓋 50+ 國家/地區）。四年間歷任聯盟行銷平台負責人、B2C 主幹線核心後端，現兼任售前 CVR 增轉專案組組長。',
   'j1.p1.h': '售前 CVR 增轉專案組 · 組長（2026 H2 – 至今）',
   'j1.p1.b1': '組建並帶領 <strong>6 人跨端小組</strong>（iOS / Android / Web / BE），以「CVR <span class="num">1.2% → 1.8%</span>（<span class="num">+50%</span>）」為唯一北極星指標，直接向 PM 負責；建立站立會議、1on1、OKR 對齊機制，統籌售前鏈路（商品頁 → 購物車 → 訂購頁）全端體驗與效能優化',
-  'j1.p2.h': 'B2C 核心交易鏈路（2025.02 – 至今，b2c-api 783 次提交）',
+  'j1.p2.h': 'B2C 核心交易鏈路（2025.02 – 至今）',
   'j1.p2.b1': '<strong>USJ（大阪環球影城）訂單改期</strong>：跨 B2C/Order/MKT/Member 四大服務改造，主筆 <span class="num">7</span> 份 SA/SD；提出「權益繼承、條件重審」原則，將散亂的優惠券／點數重驗規則整理為可稽核決策表，四方一次對齊通過；重構金額試算器與訂單狀態機，確保公司 TOP 級票券供應商續約',
   'j1.p2.b4': '<strong>大規模故障搶救（主要搶救窗口）</strong>：定位微服務相依拖垮 PHP-FPM worker 池的根因，<span class="num">7</span> 天內完成 P0+P1 強化（逾時優化、例外兜底、Redis 輕量熔斷器、雙層 Feature Flag / Kill Switch）——cart/validate API p99 由 <span class="num">25s+</span> 降至 <span class="num">&lt;2s</span>，根治 iOS 下單白屏，此後 5xx 錯誤率連續多週 <span class="num">&lt;0.01%</span>',
   'j1.p2.b5': '<strong>票券／Tour 商品架構升級</strong>：主導方案分組、組合商品、OpenDate 月曆下放等專案，獨立完成 SA/SD → Mock → API → 單元測試 → 文件全流程；建立「BFF 層版本相容 + App 漸進升級」標準解法，修復 <span class="num">15+</span> 跨端差異情境',
   'j1.p3.h': '聯盟行銷平台 · 平台負責人（2022.11 – 2025.03）',
-  'j1.p3.b1': '以首要貢獻者身分主導 affiliate-service（<span class="num">2117/3747</span> 次提交，占 <span class="num">56%</span>）與 affiliate-api（<span class="num">1077</span> 次提交），擔任 Code Owner 與 PR 把關；串接 Google Things To Do 官方通路及 ShopBack、亞洲萬里通、Naver Shopping 等 <span class="num">10+</span> 異業通路，推動聯盟業務年增長 <span class="num">200%</span>',
+  'j1.p3.b1': '以首要貢獻者身分主導 affiliate-service（占 <span class="num">56%</span> 提交）與 affiliate-api 兩大核心服務，擔任 Code Owner 與 PR 把關；串接 Google Things To Do 官方通路及 ShopBack、亞洲萬里通、Naver Shopping 等 <span class="num">10+</span> 異業通路，推動聯盟業務年增長 <span class="num">200%</span>',
   'j1.p3.b4': '設計<strong>分潤結算系統</strong>：分潤規則引擎、月度結算與重跑能力、BigQuery 資料歸因；以 RabbitMQ 事件驅動打通訂單／商品資料流',
   'j1.p3.b5': '效能與可觀測性：多級快取與統一 Cache Key 管理、慢查詢治理、聯盟訂單監控與 Slack 圖文日報，API 延遲降低 <span class="num">65%</span>（<span class="num">120ms → 35ms</span>）',
   'j2.when': '2021.03 – 2022.10', 'j2.co': '徑碩科技（JINGdigital）', 'j2.role': '｜資深後端工程師',
@@ -555,13 +579,13 @@ CVUI.init({
 'en': {
   'html.title': 'Michael Ma · Senior Backend Engineer — Résumé',
   'name.main': 'Michael Ma', 'name.alt': '马成军',
-  'headline': 'Senior Backend Engineer · 13 Years of Experience · High-Concurrency Transaction Systems / AI Engineering',
-  'loc': 'Shanghai, China', 'link.blog': 'Tech Blog',
+  'headline': 'Senior Backend Engineer · High-Concurrency Transaction Systems &amp; AI Engineering',
+  'loc': 'Shanghai, China (UTC+8)', 'link.blog': 'Tech Blog', 'link.linkedin': 'LinkedIn',
   'sec.summary': 'Profile', 'sec.skills': 'Core Skills', 'sec.exp': 'Experience',
   'sec.oss': 'Open Source &amp; Personal Projects', 'sec.awards': 'Awards',
   'sec.summary': 'Profile', 'sec.skills': 'Core Skills', 'sec.exp': 'Experience',
   'sec.ai': 'AI Engineering', 'sec.oss': 'Open Source &amp; Personal Projects', 'sec.awards': 'Awards',
-  'sum.lede': '<span class="num">13</span> years of backend engineering focused on <strong>high-concurrency transaction systems</strong> and <strong>distributed architecture</strong>; over the past year, extended into <strong>AI engineering</strong> — building the infrastructure that turns noisy, unreliable AI output into something production teams can rely on.',
+  'sum.lede': '<span class="num">13</span> years of backend engineering focused on <strong>high-concurrency transaction systems</strong> and <strong>distributed architecture</strong>. Having led incident response on a large-scale outage and maintained core transaction systems for years, I know what unreliable output costs in production — so when I extended into <strong>AI engineering</strong> this past year, the first thing I built was a convergence layer and cost controls, not another generator.',
   'm.1.v': '13 yrs', 'm.1.k': 'Backend engineering · OTA / e-commerce / MarTech',
   'm.2.v': '&yen;10B+', 'm.2.k': 'GMV within 5 months, Apple China reseller platform',
   'm.3.v': '25s &rarr; 2s', 'm.3.k': 'Critical API p99 after major-outage response',
@@ -569,27 +593,27 @@ CVUI.init({
   'm.5.v': '4', 'm.5.k': 'AI review bots orchestrated by Maestro',
   'm.6.v': '3', 'm.6.k': 'Self-built AI engineering platforms',
   'sum.1': '<strong>AI engineering</strong>: built a convergence layer for multiple AI review bots (Maestro) and an AI-assisted root-cause monitoring platform (VM Health Center), solving the practical problem of duplicated, unreliable, unconverged AI output',
-  'sum.2': '<strong>Transaction-systems depth</strong>: top contributor and owner of KKday\'s affiliate marketing platform (<span class="num">3,000+</span> commits, <span class="num">200%</span> YoY growth), and owner of the B2C core transaction flow',
+  'sum.2': '<strong>Transaction-systems depth</strong>: top contributor and owner of KKday\'s affiliate marketing platform (<span class="num">200%</span> YoY growth), and owner of the B2C core transaction flow',
   'sum.3': '',
   'ai.1': '<strong>Maestro</strong> (TypeScript CLI) — a <strong>convergence layer for AI review bots</strong>: orchestrates <span class="num">4</span> bots (CodeRabbit, Copilot, Codex, Gemini) through classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation — turning scattered AI feedback into an actionable fix queue',
-  'ai.2': '<strong>VM Health Center</strong> (TypeScript/Node.js + Slack Bolt + Elasticsearch, <span class="num">79/86</span> commits, built solo) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis',
+  'ai.2': '<strong>VM Health Center</strong> (TypeScript/Node.js + Slack Bolt + Elasticsearch, built solo from scratch) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis',
   'ai.3': '<strong>Claude API in production</strong>: SEO slug generation across <span class="num">8</span> locales with hash-based change detection for cost control; a Git workflow and AI code-review automation system deployable as CLI, webhook or GitHub Actions',
   'ai.4': '',
   'sk.1.k': 'AI Engineering', 'sk.1.v': 'Claude API / Copilot SDK application development, multi-agent orchestration and convergence, AI-assisted engineering process design',
-  'sk.2.k': 'Languages &amp; Frameworks', 'sk.2.v': 'PHP (expert, 8+ yrs), TypeScript / Node.js, Go; Laravel / Hyperf, Gin / go-zero, Vue',
+  'sk.2.k': 'Languages &amp; Frameworks', 'sk.2.v': 'PHP (expert, 8+ yrs), TypeScript / Node.js, Go, Python (reading proficiency); Laravel / Hyperf, Gin / go-zero, Vue',
   'sk.3.k': 'Data &amp; Messaging', 'sk.3.v': 'MySQL, PostgreSQL, Redis, Elasticsearch, Google BigQuery, RabbitMQ, Kafka',
   'sk.4.k': 'Cloud &amp; DevOps', 'sk.4.v': 'Docker, Kubernetes, AWS Lambda / GCP Cloud Run, GitHub Actions, Prometheus / Grafana / Kibana',
-  'sk.5.k': 'Architecture &amp; Domain', 'sk.5.v': 'Microservices, BFF, event-driven design, circuit breaking &amp; rate limiting; affiliate marketing / commission settlement, order transaction flows, dynamic pricing',
+  'sk.5.k': 'Architecture &amp; Domain', 'sk.5.v': 'Microservices and BFF layering, RabbitMQ event-driven pipelines, Redis circuit breakers with two-tier kill switches, multi-tier caching and cache-key governance; commission settlement, order transaction flows, dynamic pricing',
   'j1.when': '2022.11 – Present', 'j1.co': 'KKday', 'j1.role': ' ｜ Senior Backend Engineer',
-  'j1.note': 'A leading global travel-experience booking platform operating in 50+ countries and regions. Over four years, progressed from affiliate platform owner to core backend engineer on the B2C mainline, now concurrently leading the Pre-Purchase Conversion Task Force.',
+  'j1.note': 'A leading global travel-experience platform operating in 50+ countries. Progressed from affiliate platform owner → B2C core backend → lead of the Pre-Purchase Conversion Task Force.',
   'j1.p1.h': 'Pre-Purchase Conversion Task Force · Lead (2026 H2 – Present)',
-  'j1.p1.b1': 'Formed and lead a <strong>6-person cross-platform team</strong> (iOS/Android/Web/Backend) against a single north-star metric — conversion from <span class="num">1.2% to 1.8%</span> (<span class="num">+50%</span>) — reporting directly to the PM; established standups, 1-on-1s and OKR alignment, and coordinate experience and performance work across the pre-purchase funnel (product page → cart → checkout)',
-  'j1.p2.h': 'B2C Core Transaction Flow (2025.02 – Present, 783 commits to b2c-api)',
-  'j1.p2.b1': '<strong>USJ (Universal Studios Japan) booking-date changes</strong>: re-architected across four services (B2C/Order/MKT/Member) and authored <span class="num">7</span> SA/SD documents. Introduced an "entitlements inherit, conditions re-evaluate" principle that turned scattered coupon and loyalty-point revalidation rules into an auditable decision table — approved by all four teams in a single review. Rebuilt the price calculator and order state machine, securing renewal with a top-tier ticketing supplier',
-  'j1.p2.b4': '<strong>Major outage response (incident lead)</strong>: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool, then shipped P0+P1 hardening within <span class="num">7</span> days (timeout tuning, exception fallbacks, a lightweight Redis-based circuit breaker, two-tier feature flag / kill switch) — cut cart/validate p99 from <span class="num">25s+</span> to <span class="num">&lt;2s</span>, eliminated the iOS checkout white-screen, and kept 5xx below <span class="num">0.01%</span> for many weeks since',
+  'j1.p1.b1': 'Formed and lead a <strong>6-person cross-platform team</strong> (iOS/Android/Web/Backend) against a single north-star metric — conversion <span class="num">1.2% → 1.8%</span> (<span class="num">+50%</span>); established standups, 1-on-1s and OKR alignment across the pre-purchase funnel (product page → cart → checkout)',
+  'j1.p2.h': 'B2C Core Transaction Flow (2025.02 – Present)',
+  'j1.p2.b1': '<strong>USJ (Universal Studios Japan) booking-date changes</strong>: re-architected across four services and authored <span class="num">7</span> SA/SD documents. Turned scattered coupon and loyalty-point revalidation rules into an auditable decision table under an "entitlements inherit, conditions re-evaluate" principle — approved by all four teams in a single review, securing renewal with a top-tier ticketing supplier',
+  'j1.p2.b4': '<strong>Major outage response (incident lead)</strong>: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool and shipped P0+P1 hardening in <span class="num">7</span> days (timeouts, fallbacks, a Redis circuit breaker, two-tier kill switch) — cart/validate p99 <span class="num">25s+ → &lt;2s</span>, iOS checkout white-screen eliminated, 5xx held below <span class="num">0.01%</span> since',
   'j1.p2.b5': '',
   'j1.p3.h': 'Affiliate Marketing Platform · Platform Owner (2022.11 – 2025.03)',
-  'j1.p3.b1': 'Top contributor and owner of two core services — affiliate-service (<span class="num">2,117 of 3,747</span> commits, <span class="num">56%</span>) and affiliate-api (<span class="num">1,077</span> commits) — as Code Owner and PR gatekeeper; integrated Google\'s Things To Do channel and <span class="num">10+</span> partner channels including ShopBack, Asia Miles and Naver Shopping, growing the affiliate business <span class="num">200%</span> YoY',
+  'j1.p3.b1': 'Top contributor and owner of two core services — affiliate-service (<span class="num">56%</span> of all commits) and affiliate-api — as Code Owner and PR gatekeeper; integrated Google\'s Things To Do channel and <span class="num">10+</span> partner channels including ShopBack, Asia Miles and Naver Shopping, growing the affiliate business <span class="num">200%</span> YoY',
   'j1.p3.b4': 'Designed the <strong>commission settlement system</strong>: rules engine, monthly settlement with re-run capability, BigQuery attribution, and a RabbitMQ event-driven pipeline connecting order and product data',
   'j1.p3.b5': '',
   'j2.when': '2021.03 – 2022.10', 'j2.co': 'JINGdigital', 'j2.role': ' ｜ Senior Backend Engineer',
