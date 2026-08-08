@@ -60,6 +60,7 @@ A leading global travel-experience platform operating in 50+ countries. Progress
 **③ Affiliate Marketing Platform · Platform Owner (2022.11 – 2025.03)**
 - Top contributor and owner of two core services — affiliate-service (56% of all commits) and affiliate-api — as Code Owner and PR gatekeeper; integrated Google's Things To Do channel and 10+ partner channels including ShopBack, Asia Miles and Naver Shopping, growing the affiliate business 200% YoY
 - Designed the **commission settlement system**: rules engine, monthly settlement with re-run capability, BigQuery attribution, and a RabbitMQ event-driven pipeline connecting order and product data
+
 ---
 
 ### JINGdigital — Senior Backend Engineer
@@ -68,6 +69,7 @@ A leading global travel-experience platform operating in 50+ countries. Progress
 A B2B MarTech/SCRM marketing-automation SaaS vendor. Responsible for backend development across a marketing-automation microservice suite (Laravel/Yii2/YAF, 10+ services).
 
 - Owned the **JavaScript event-tracking service** (jstracking): omnichannel behavioral collection and content-marketing attribution, the primary data source for marketing automation
+
 ---
 
 ### Shopex — Technical Expert / Lead Developer
@@ -78,6 +80,7 @@ A leading domestic e-commerce SaaS provider. Led delivery of the Apple China res
 - Delivered the **Apple China reseller platform** (surpassing ¥10B GMV within 5 months of launch): integrated 15+ payment and logistics systems including SF Express and Baozun OMS, reached 98% OMS/WMS automation, and served 3,500+ retail stores and 250K+ daily active users
 - Received the company's **Golden Tomato Award** for a high-performance coupon system; raised H5 API throughput 17.5× (200 → 3,500 TPS) and reached 12K TPS under load testing (NGINX caching + TSung tuning)
 - Built an SMS gateway on go-zero handling 1M+ messages/day; optimized data export from OOM failures to 10M rows in 10 minutes
+
 ---
 
 ### Yuanfeng Technology Group — Full-Stack Engineer
@@ -89,4 +92,5 @@ A leading domestic e-commerce SaaS provider. Led delivery of the Apple China res
 
 ## Open Source & Personal Projects
 
+- **SwaggerNotes** (PHP/Laravel package, built solo): generates Swagger annotations and OpenAPI specification files; published on Packagist with 2.6k+ downloads
 - **knuckleswtf/scribe** (2.3k ⭐ Laravel API documentation generator): 2 pull requests merged upstream, listed among official contributors

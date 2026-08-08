@@ -150,17 +150,6 @@
   .role li { margin: 5px 0; }
   .role li::marker { color: var(--accent); }
 
-  /* Visual tiering instead of collapsing: recruiters scan a CV rather than
-     read it, so nothing is hidden (hiding would also break print-to-PDF and
-     select-all-copy). Headline results keep full weight; supporting detail
-     recedes slightly so the eye lands on the strongest lines first. */
-  .role li.detail {
-    font-size: 0.93em;
-    color: var(--ink-2);
-    margin: 4px 0;
-  }
-  .role li.detail::marker { color: var(--line); }
-  .role li.detail strong { font-weight: 600; color: inherit; }
   @media (max-width: 620px) {
     .job { grid-template-columns: 1fr; row-gap: 4px; }
     .when { padding-top: 0; }
@@ -442,7 +431,7 @@
   <section class="plain sec-oss">
     <div class="eyebrow" data-i18n-html="sec.oss">开源与个人项目</div>
     <ul>
-      <li data-i18n-html="oss.1"></li><li data-i18n-html="oss.2"></li>
+      <li data-i18n-html="oss.1"></li><li data-i18n-html="oss.2"></li><li data-i18n-html="oss.3"></li>
     </ul>
   </section>
 
@@ -520,7 +509,7 @@ var RESUME_DICT = {
   'sk.4.k': '云原生与运维', 'sk.4.v': 'Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana',
   'sk.5.k': '架构与业务', 'sk.5.v': '微服务与 BFF 分层、RabbitMQ 事件驱动、Redis 熔断器与双层 Kill Switch、多级缓存与 Cache Key 治理；联盟分润结算、订单交易链路、动态定价',
   'j1.when': '2022.11 – 至今', 'j1.co': 'KKday（酷游天国际旅行社）', 'j1.role': '｜资深后端工程师',
-  'j1.note': '全球领先的旅游体验预订平台（覆盖 50+ 国家/地区）。四年间历任联盟营销平台负责人、B2C 主干线核心后端，现兼任售前 CVR 增转专项组组长。',
+  'j1.note': '全球领先的旅游体验预订平台（覆盖 50+ 国家/地区）。近四年历任联盟营销平台负责人、B2C 主干线核心后端，现兼任售前 CVR 增转专项组组长。',
   'j1.p1.h': '售前 CVR 增转专项组 · 组长（2026 H2 – 至今）',
   'j1.p1.b1': '组建并带领 <strong>6 人跨端小组</strong>（iOS / Android / Web / BE），以「CVR <span class="num">1.2% → 1.8%</span>（<span class="num">+50%</span>）」为唯一北极星指标，直接对 PM 负责；建立站会、1on1、OKR 对齐机制，统筹售前链路（商品页 → 购物车 → 订购页）全端体验与性能优化',
   'j1.p2.h': 'B2C 核心交易链路（2025.02 – 至今）',
@@ -544,7 +533,8 @@ var RESUME_DICT = {
   'j4.b1': '开发多商户 SaaS 电商平台（支撑 <span class="num">1 万+</span> 商家），支持 <span class="num">10</span> 国语言（Google/有道翻译 API 混合流程，翻译成本降低 <span class="num">70%</span>）',
   'j4.b2': '基于网易云信构建 IM 系统（日消息量 <span class="num">200 万+</span>）；设计 Redis 缓存层，数据库负载降低 <span class="num">60%</span>',
   'oss.1': '<strong>SwaggerNotes</strong>（PHP/Laravel 扩展包，100% 独立开发）：自动生成 Swagger 注释并产出 OpenAPI 接口文件；已发布至 Packagist，累计下载 <span class="num">2.6k+</span>',
-  'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文档生成器）：<span class="num">2</span> 个 PR 已合并进主线，列名于官方贡献者；另维护技术博客 <span class="num">1300+</span> 篇，至今仍在更新',
+  'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文档生成器）：<span class="num">2</span> 个 PR 已合并进主线，列名于官方贡献者',
+  'oss.3': '<strong>技术博客</strong>：<span class="num">1300+</span> 篇技术文章，覆盖 PHP / 架构 / 数据库 / AI 工程，至今仍在更新',
   'aw.line': 'KKday 年度优秀员工（<span class="num">2023、2024</span> 连续两届）· Shopex 金番茄奖（<span class="num">2020</span>）· 远丰科技「技术之星」（<span class="num">2016、2018</span>）',
   'foot.name': '马成军 Michael Ma · 资深后端工程师 / 技术负责人',
   'foot.tip': '浏览器打印（⌘P）即可导出 A4 PDF',
@@ -579,7 +569,7 @@ var RESUME_DICT = {
   'sk.4.k': '雲原生與維運', 'sk.4.v': 'Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana',
   'sk.5.k': '架構與業務', 'sk.5.v': '微服務與 BFF 分層、RabbitMQ 事件驅動、Redis 熔斷器與雙層 Kill Switch、多級快取與 Cache Key 治理；聯盟分潤結算、訂單交易鏈路、動態定價',
   'j1.when': '2022.11 – 至今', 'j1.co': 'KKday（酷遊天國際旅行社）', 'j1.role': '｜資深後端工程師',
-  'j1.note': '全球領先的旅遊體驗預訂平台（涵蓋 50+ 國家/地區）。四年間歷任聯盟行銷平台負責人、B2C 主幹線核心後端，現兼任售前 CVR 增轉專案組組長。',
+  'j1.note': '全球領先的旅遊體驗預訂平台（涵蓋 50+ 國家/地區）。近四年歷任聯盟行銷平台負責人、B2C 主幹線核心後端，現兼任售前 CVR 增轉專案組組長。',
   'j1.p1.h': '售前 CVR 增轉專案組 · 組長（2026 H2 – 至今）',
   'j1.p1.b1': '組建並帶領 <strong>6 人跨端小組</strong>（iOS / Android / Web / BE），以「CVR <span class="num">1.2% → 1.8%</span>（<span class="num">+50%</span>）」為唯一北極星指標，直接向 PM 負責；建立站立會議、1on1、OKR 對齊機制，統籌售前鏈路（商品頁 → 購物車 → 訂購頁）全端體驗與效能優化',
   'j1.p2.h': 'B2C 核心交易鏈路（2025.02 – 至今）',
@@ -603,7 +593,8 @@ var RESUME_DICT = {
   'j4.b1': '開發多商戶 SaaS 電商平台（支撐 <span class="num">1 萬+</span> 商家），支援 <span class="num">10</span> 國語言（Google／有道翻譯 API 混合流程，翻譯成本降低 <span class="num">70%</span>）',
   'j4.b2': '以網易雲信建構 IM 系統（日訊息量 <span class="num">200 萬+</span>）；設計 Redis 快取層，資料庫負載降低 <span class="num">60%</span>',
   'oss.1': '<strong>SwaggerNotes</strong>（PHP/Laravel 擴充套件，100% 獨立開發）：自動產生 Swagger 註解並輸出 OpenAPI 介面檔；已發布至 Packagist，累計下載 <span class="num">2.6k+</span>',
-  'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文件產生器）：<span class="num">2</span> 個 PR 已合併進主線，列名於官方貢獻者；另維護技術部落格 <span class="num">1300+</span> 篇，至今仍在更新',
+  'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文件產生器）：<span class="num">2</span> 個 PR 已合併進主線，列名於官方貢獻者',
+  'oss.3': '<strong>技術部落格</strong>：<span class="num">1300+</span> 篇技術文章，涵蓋 PHP／架構／資料庫／AI 工程，至今仍在更新',
   'aw.line': 'KKday 年度優秀員工（<span class="num">2023、2024</span> 連續兩屆）· Shopex 金番茄獎（<span class="num">2020</span>）· 遠豐科技「技術之星」（<span class="num">2016、2018</span>）',
   'foot.name': '馬成軍 Michael Ma · 資深後端工程師 / 技術負責人',
   'foot.tip': '瀏覽器列印（⌘P）即可匯出 A4 PDF',
@@ -663,8 +654,11 @@ var RESUME_DICT = {
   'j4.when': '2013.06 – 2017.12', 'j4.co': 'Yuanfeng Technology Group', 'j4.role': ' ｜ Full-Stack Engineer',
   'j4.b1': 'Built a multi-merchant SaaS e-commerce platform serving <span class="num">10,000+</span> merchants with <span class="num">10</span>-language support, using a hybrid Google/Youdao translation pipeline that cut translation costs <span class="num">70%</span>',
   'j4.b2': '',
-  'oss.1': '',
+  'oss.1': '<strong>SwaggerNotes</strong> (PHP/Laravel package, built solo): generates Swagger annotations and OpenAPI specification files; published on Packagist with <span class="num">2.6k+</span> downloads',
   'oss.2': '<strong>knuckleswtf/scribe</strong> (<span class="num">2.3k</span> ⭐ Laravel API documentation generator): <span class="num">2</span> pull requests merged upstream, listed among official contributors',
+  // The blog is written in Chinese, so it carries little weight with an
+  // English-reading recruiter — and the link is already in the header.
+  'oss.3': '',
   'aw.line': '',
   'foot.name': 'Michael Ma · Senior Backend Engineer / Tech Lead',
   'foot.tip': 'Print from your browser (⌘P) to export as A4 PDF',
