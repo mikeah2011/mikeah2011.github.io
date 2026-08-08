@@ -142,6 +142,40 @@
     z-index: 5;
   }
 
+  .dl-toolbar {
+    position: fixed; top: max(14px, env(safe-area-inset-top)); left: max(14px, env(safe-area-inset-left));
+    z-index: 5; display: flex; gap: 8px;
+  }
+  .dl-dd { position: relative; }
+  .dl-btn {
+    display: grid; place-items: center; width: 32px; height: 32px; padding: 0;
+    border: 1px solid var(--hairline); border-radius: 999px;
+    background: var(--surface-2); color: var(--muted); cursor: pointer;
+    transition: background-color .2s, color .2s, border-color .2s;
+  }
+  .dl-btn:hover, .dl-btn:focus-visible { color: var(--accent); border-color: var(--accent); outline: none; }
+  .dl-btn svg { width: 16px; height: 16px; }
+  .dl-menu {
+    position: absolute; top: calc(100% + 8px); left: 0; z-index: 40;
+    min-width: 220px; background: var(--surface); border: 1px solid var(--hairline);
+    border-radius: 12px; box-shadow: 0 1px 2px #0002, 0 8px 24px -12px #0004; padding: 6px;
+  }
+  .dl-menu a {
+    display: flex; align-items: center; gap: 10px; padding: 8px 9px; border-radius: 8px;
+    color: inherit; text-decoration: none; font-size: 13px;
+  }
+  .dl-menu a:hover, .dl-menu a:focus-visible { background: var(--surface-2); outline: none; }
+  .dl-menu .fi {
+    width: 26px; height: 26px; border-radius: 7px; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; color: #fff;
+  }
+  .dl-menu .fi.badge-pdf { background: #c0392b; }
+  .dl-menu .fi.badge-pptx { background: #d24726; }
+  .dl-menu .tx { display: flex; flex-direction: column; min-width: 0; }
+  .dl-menu .nm { font-weight: 600; }
+  .dl-menu .ds { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
   .chrome {
     position: fixed; left: 0; right: 0; bottom: 0;
     display: flex; align-items: center; justify-content: space-between;
@@ -172,7 +206,7 @@
     body { overflow: visible; }
     .deck { height: auto; }
     .slide { display: flex !important; position: relative; height: 100vh; page-break-after: always; animation: none; overflow: visible; }
-    .toolbar, .chrome { display: none; }
+    .toolbar, .dl-toolbar, .chrome { display: none; }
   }
   @page { size: A4 landscape; margin: 0; }
 </style>
@@ -180,6 +214,21 @@
 <body>
 
 <div class="toolbar" data-cv-toolbar></div>
+
+<div class="dl-toolbar">
+  <div class="dl-dd">
+    <button type="button" class="dl-btn" id="dlPdfBtn" aria-haspopup="true" aria-expanded="false" data-i18n-attr="title:dl.pdf,aria-label:dl.pdf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg>
+    </button>
+    <div class="dl-menu" id="dlPdfMenu" hidden></div>
+  </div>
+  <div class="dl-dd">
+    <button type="button" class="dl-btn" id="dlPptxBtn" aria-haspopup="true" aria-expanded="false" data-i18n-attr="title:dl.pptx,aria-label:dl.pptx">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg>
+    </button>
+    <div class="dl-menu" id="dlPptxMenu" hidden></div>
+  </div>
+</div>
 
 <div class="deck" id="deck">
 
@@ -394,7 +443,8 @@ var DECK_DICT = {
   's9.k6.k': 'AI &amp; 工程', 's9.k6.v': 'Claude API / Copilot SDK、AI Agent 工作流编排、AI 辅助研发流程',
   's10.aria': '联系方式与完整简历', 's10.eyebrow': '谢谢', 's10.h': '期待与你聊聊',
   's10.l1.k': '完整简历 · 在线阅读与下载', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
-  's10.l2.k': 'GitHub', 's10.l3.k': '技术博客', 's10.l4.k': '邮箱'
+  's10.l2.k': 'GitHub', 's10.l3.k': '技术博客', 's10.l4.k': '邮箱',
+  'dl.pdf': '下载简报 PDF', 'dl.pptx': '下载简报 PPTX'
 },
 
 'zh-TW': {
@@ -449,7 +499,8 @@ var DECK_DICT = {
   's9.k6.k': 'AI &amp; 工程', 's9.k6.v': 'Claude API / Copilot SDK、AI Agent 工作流編排、AI 輔助研發流程',
   's10.aria': '聯絡方式與完整履歷', 's10.eyebrow': '謝謝', 's10.h': '期待與你聊聊',
   's10.l1.k': '完整履歷 · 線上閱讀與下載', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
-  's10.l2.k': 'GitHub', 's10.l3.k': '技術部落格', 's10.l4.k': '郵箱'
+  's10.l2.k': 'GitHub', 's10.l3.k': '技術部落格', 's10.l4.k': '郵箱',
+  'dl.pdf': '下載簡報 PDF', 'dl.pptx': '下載簡報 PPTX'
 },
 
 'en': {
@@ -504,7 +555,8 @@ var DECK_DICT = {
   's9.k6.k': 'AI &amp; Tooling', 's9.k6.v': 'Claude API / Copilot SDK, AI agent workflow orchestration, AI-assisted engineering',
   's10.aria': 'Contact and full résumé', 's10.eyebrow': 'THANK YOU', 's10.h': 'Let’s Talk',
   's10.l1.k': 'Full Résumé · Read & Download', 's10.l1.v': 'mikeah2011.github.io/cv — HTML / PDF / PPTX / Markdown',
-  's10.l2.k': 'GitHub', 's10.l3.k': 'Tech Blog', 's10.l4.k': 'Email'
+  's10.l2.k': 'GitHub', 's10.l3.k': 'Tech Blog', 's10.l4.k': 'Email',
+  'dl.pdf': 'Download Deck PDF', 'dl.pptx': 'Download Deck PPTX'
 }
 };
 
@@ -543,6 +595,73 @@ function go(i) {
 }
 
 var current = CVUI.init(DECK_DICT, { onLang: refreshDots });
+
+// Deck download buttons: language follows the page's own language toggle
+// (current.lang, kept live by CVUI.init); the popup's own axis of choice is
+// the theme (dark/light), the one thing the deck's toolbar doesn't expose
+// a direct link for.
+var DECK_FILES = {
+  'zh-CN': {
+    pdf: { dark: { href: 'downloads/简历简报_马成军.pdf', desc: '16:9 · 10 页 · 593 KB' },
+           light: { href: 'downloads/简历简报_马成军.light.pdf', desc: '16:9 · 10 页 · 593 KB' } },
+    pptx: { dark: { href: 'downloads/简历简报_马成军.pptx', desc: 'PowerPoint / Keynote · 1.6 MB' },
+            light: { href: 'downloads/简历简报_马成军.light.pptx', desc: 'PowerPoint / Keynote · 1.6 MB' } }
+  },
+  'zh-TW': {
+    pdf: { dark: { href: 'downloads/简历简报_马成军.zh-TW.pdf', desc: '16:9 · 10 頁 · 682 KB' },
+           light: { href: 'downloads/简历简报_马成军.zh-TW.light.pdf', desc: '16:9 · 10 頁 · 682 KB' } },
+    pptx: { dark: { href: 'downloads/简历简报_马成军.zh-TW.pptx', desc: 'PowerPoint / Keynote · 1.6 MB' },
+            light: { href: 'downloads/简历简报_马成军.zh-TW.light.pptx', desc: 'PowerPoint / Keynote · 1.7 MB' } }
+  },
+  'en': {
+    pdf: { dark: { href: 'downloads/简历简报_马成军.en.pdf', desc: '16:9 · 10 slides · 387 KB' },
+           light: { href: 'downloads/简历简报_马成军.en.light.pdf', desc: '16:9 · 10 slides · 387 KB' } },
+    pptx: { dark: { href: 'downloads/简历简报_马成军.en.pptx', desc: 'PowerPoint / Keynote · 1.6 MB' },
+            light: { href: 'downloads/简历简报_马成军.en.light.pptx', desc: 'PowerPoint / Keynote · 1.6 MB' } }
+  }
+};
+var DECK_THEME_LABEL = {
+  'zh-CN': { dark: '深色主题', light: '浅色主题' },
+  'zh-TW': { dark: '深色主題', light: '淺色主題' },
+  'en': { dark: 'Dark theme', light: 'Light theme' }
+};
+
+function buildDeckMenu(kind, badgeClass, badgeText) {
+  var files = (DECK_FILES[current.lang] || DECK_FILES['zh-CN'])[kind];
+  var labels = DECK_THEME_LABEL[current.lang] || DECK_THEME_LABEL['zh-CN'];
+  var frag = document.createDocumentFragment();
+  ['dark', 'light'].forEach(function (mode) {
+    var f = files[mode];
+    var a = document.createElement('a');
+    a.href = f.href;
+    a.setAttribute('download', '');
+    a.innerHTML = '<span class="fi ' + badgeClass + '">' + badgeText + '</span><span class="tx"><span class="nm">' +
+      labels[mode] + '</span><span class="ds">' + f.desc + '</span></span>';
+    frag.appendChild(a);
+  });
+  return frag;
+}
+function closeDlMenus() {
+  document.querySelectorAll('.dl-toolbar .dl-menu').forEach(function (m) { m.setAttribute('hidden', ''); m.innerHTML = ''; });
+  document.querySelectorAll('.dl-toolbar .dl-btn').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+}
+function wireDlDropdown(btnId, menuId, kind, badgeClass, badgeText) {
+  var btn = document.getElementById(btnId), menu = document.getElementById(menuId);
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var willOpen = menu.hasAttribute('hidden');
+    closeDlMenus();
+    if (willOpen) {
+      menu.appendChild(buildDeckMenu(kind, badgeClass, badgeText));
+      menu.removeAttribute('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+}
+wireDlDropdown('dlPdfBtn', 'dlPdfMenu', 'pdf', 'badge-pdf', 'PDF');
+wireDlDropdown('dlPptxBtn', 'dlPptxMenu', 'pptx', 'badge-pptx', 'P');
+document.addEventListener('click', closeDlMenus);
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDlMenus(); });
 
 document.getElementById('prev').addEventListener('click', function () { go(cur - 1); });
 document.getElementById('next').addEventListener('click', function () { go(cur + 1); });
