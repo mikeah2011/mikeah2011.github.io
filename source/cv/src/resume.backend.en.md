@@ -56,7 +56,7 @@ A leading global travel-experience platform operating in 50+ countries. Progress
 ---
 
 ### JINGdigital — Senior Backend Engineer
-**2021.03 – 2022.10 ｜ Shanghai, China (UTC+8)**
+**2022.04 – 2022.10 ｜ Shanghai, China (UTC+8)**
 
 A B2B MarTech/SCRM marketing-automation SaaS vendor. Responsible for backend development across a marketing-automation microservice suite (Laravel/Yii2/YAF, 10+ services).
 
@@ -65,7 +65,7 @@ A B2B MarTech/SCRM marketing-automation SaaS vendor. Responsible for backend dev
 ---
 
 ### Shopex — Technical Expert / Lead Developer
-**2017.12 – 2021.03 ｜ Shanghai, China (UTC+8)**
+**2017.12 – 2022.04 ｜ Shanghai, China (UTC+8)**
 
 A leading domestic e-commerce SaaS provider. Technical Expert / Lead Developer, also driving high-concurrency performance work.
 
