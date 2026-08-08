@@ -130,27 +130,41 @@
   .doc-preview td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
   .doc-preview td:first-child { color: var(--muted); white-space: nowrap; padding-right: 18px; }
 
-  /* ---- slide preview (marp/slidev) ---- */
+  /* ---- slide preview (marp/slidev): one slide at a time, like the real
+     deck.html player, instead of a long vertical scroll of every slide. ---- */
   #slide-preview-style { display: none; }
-  .slide-preview-list { display: grid; gap: 16px; }
-  .slide-preview-list section {
-    border-radius: 14px; box-shadow: 0 1px 2px #0002, 0 8px 24px -12px #0004;
-    overflow: auto;
+  .slideshow-viewport {
+    position: relative; width: 100%; aspect-ratio: 16/9;
+    border-radius: 14px; overflow: hidden; box-shadow: 0 1px 2px #0002, 0 8px 24px -12px #0004;
   }
-  /* The extracted deck CSS assumes a fixed 16:9 export canvas, not a
-     narrow phone screen — below the split-view breakpoint, drop the
-     forced aspect ratio so a 3-column tile grid can wrap to its own
-     height instead of getting clipped inside a too-short box. */
-  @media (min-width: 900px) {
-    .slide-preview-list section { aspect-ratio: 16/9; }
+  .slideshow-viewport section {
+    position: absolute; inset: 0; overflow: auto;
+    display: flex; flex-direction: column; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity .25s ease;
   }
+  .slideshow-viewport section.active { opacity: 1; pointer-events: auto; }
   /* The extracted deck CSS lays tiles/before-after cards out in a fixed
      3-column grid sized for a 16:9 canvas; override it (not just rely on
      source order, since the deck's own CSS loads after this one) so it
-     doesn't spill past a phone-width card. */
+     doesn't spill past a phone-width slide. */
   @media (max-width: 899px) {
-    .slide-preview-list .tiles, .slide-preview-list .ba { grid-template-columns: repeat(2, 1fr) !important; }
+    .slideshow-viewport .tiles, .slideshow-viewport .ba { grid-template-columns: repeat(2, 1fr) !important; }
   }
+  .slideshow-chrome {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    margin-top: 14px;
+  }
+  .slideshow-chrome button {
+    display: grid; place-items: center; width: 30px; height: 30px; flex: none;
+    border: 1px solid var(--line); border-radius: 999px; background: var(--surface-2);
+    color: var(--ink-2); cursor: pointer;
+  }
+  .slideshow-chrome button:hover { color: var(--accent); border-color: var(--accent); }
+  .slideshow-chrome button svg { width: 15px; height: 15px; }
+  .slideshow-dots { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; justify-content: center; }
+  .slideshow-dots button { width: 8px; height: 8px; padding: 0; border-radius: 50%; background: var(--line); border: none; }
+  .slideshow-dots button.on { background: var(--accent); }
+  .slideshow-counter { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 12px; color: var(--muted); min-width: 3.5em; text-align: center; }
 </style>
 </head>
 <body>
@@ -298,24 +312,81 @@
       styleTag.id = 'slide-preview-style';
       document.head.appendChild(styleTag);
     }
-    // Scope the extracted deck CSS to the preview list so its bare
+    // Scope the extracted deck CSS to the viewport so its bare
     // `section` / `.eyebrow` rules can't leak onto this page's own chrome.
     styleTag.textContent = css.replace(/(^|\})\s*([^{}]+)\{/g, function (m, brace, sel) {
       var scoped = sel.split(',').map(function (s) {
         s = s.trim();
-        return s === ':root' ? '.slide-preview-list' : '.slide-preview-list ' + s;
+        return s === ':root' ? '.slideshow-viewport' : '.slideshow-viewport ' + s;
       }).join(', ');
       return brace + ' ' + scoped + '{';
     });
-    var list = document.createElement('div');
-    list.className = 'slide-preview-list';
+
+    var root = document.createElement('div');
+    var viewport = document.createElement('div');
+    viewport.className = 'slideshow-viewport';
     slides.forEach(function (body) {
       var section = document.createElement('section');
       if (wrapperClass) section.className = wrapperClass;
       section.innerHTML = body;
-      list.appendChild(section);
+      viewport.appendChild(section);
     });
-    return list;
+    root.appendChild(viewport);
+
+    var sections = [].slice.call(viewport.children);
+    var chrome = document.createElement('div');
+    chrome.className = 'slideshow-chrome';
+    var prevBtn = document.createElement('button');
+    prevBtn.type = 'button'; prevBtn.setAttribute('aria-label', '上一页');
+    prevBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 8 12l7 7"/></svg>';
+    var dotsWrap = document.createElement('div');
+    dotsWrap.className = 'slideshow-dots';
+    var counter = document.createElement('span');
+    counter.className = 'slideshow-counter';
+    var nextBtn = document.createElement('button');
+    nextBtn.type = 'button'; nextBtn.setAttribute('aria-label', '下一页');
+    nextBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>';
+    chrome.appendChild(prevBtn); chrome.appendChild(dotsWrap); chrome.appendChild(counter); chrome.appendChild(nextBtn);
+    root.appendChild(chrome);
+
+    var dots = sections.map(function (_, i) {
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.setAttribute('aria-label', '第 ' + (i + 1) + ' 页');
+      d.addEventListener('click', function () { go(i); });
+      dotsWrap.appendChild(d);
+      return d;
+    });
+
+    var cur = 0;
+    function go(i) {
+      cur = (i + sections.length) % sections.length;
+      sections.forEach(function (s, j) { s.classList.toggle('active', j === cur); });
+      dots.forEach(function (d, j) { d.classList.toggle('on', j === cur); });
+      counter.textContent = (cur + 1) + ' / ' + sections.length;
+    }
+    prevBtn.addEventListener('click', function () { go(cur - 1); });
+    nextBtn.addEventListener('click', function () { go(cur + 1); });
+
+    // Arrow keys navigate whichever slideshow is currently on screen; only
+    // one deck preview ever exists per page load, so no scoping needed.
+    document.addEventListener('keydown', function (e) {
+      if (root.offsetParent === null) return; // this preview isn't visible
+      if (['ArrowRight', 'ArrowDown', ' ', 'PageDown'].indexOf(e.key) > -1) { e.preventDefault(); go(cur + 1); }
+      if (['ArrowLeft', 'ArrowUp', 'PageUp'].indexOf(e.key) > -1) { e.preventDefault(); go(cur - 1); }
+    });
+
+    var touchX = null;
+    viewport.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+    viewport.addEventListener('touchend', function (e) {
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 48) go(cur + (dx < 0 ? 1 : -1));
+      touchX = null;
+    }, { passive: true });
+
+    go(0);
+    return root;
   }
 
   // ---- source-pane light "highlighting" (no external tokenizer, just the
