@@ -63,23 +63,15 @@ A leading global travel-experience platform operating in 50+ countries. Progress
 
 ---
 
-### JINGdigital — Senior Backend Engineer
-**2022.04 – 2022.10 ｜ Shanghai, China (UTC+8)**
-
-A B2B MarTech/SCRM marketing-automation SaaS vendor. Responsible for backend development across a marketing-automation microservice suite (Laravel/Yii2/YAF, 10+ services).
-
-- Owned the **JavaScript event-tracking service** (jstracking): omnichannel behavioral collection and content-marketing attribution, the primary data source for marketing automation
-
----
-
 ### Shopex — Technical Expert / Lead Developer
-**2017.12 – 2022.04 ｜ Shanghai, China (UTC+8)**
+**2017.12 – 2022.10 ｜ Shanghai, China (UTC+8)**
 
-A leading domestic e-commerce SaaS provider. Technical Expert / Lead Developer, also driving high-concurrency performance work.
+A leading domestic e-commerce and B2B MarTech/SCRM marketing-automation SaaS provider. Responsible for backend development across a marketing-automation microservice suite (Laravel/Yii2/YAF, 10+ services), and drove high-concurrency performance and stability work.
 
 - **Apple China reseller platform** (surpassing ¥10B GMV within 5 months of launch): owned the core flow — pre-order, checkout, payment callbacks, fulfilment and shipping — leading a 6–7 person cross-functional team (backend / frontend / UI); integrated 15+ payment and logistics systems including SF Express and Baozun OMS, reached 98% OMS/WMS automation, serving 3,500+ retail stores and 250K+ DAU
 - Received the company's **Golden Tomato Award** for a high-performance coupon system; raised H5 API throughput 17.5× (200 → 3,500 TPS) and reached 12K TPS under load testing (NGINX caching + TSung tuning)
-- Built an SMS gateway on go-zero handling 1M+ messages/day; optimized data export from OOM failures to 10M rows in 10 minutes
+- Owned the **marketing event-tracking service**: omnichannel behavioral collection and content-marketing attribution, the primary data source for marketing automation
+- Contributed to a front-/back-end separation rewrite (v2) and legacy-system maintenance (300+ commits combined), while covering iteration and stability across 8+ microservices including EDM, SMS gateway, surveys and lead generation
 
 ---
 
@@ -87,6 +79,7 @@ A leading domestic e-commerce SaaS provider. Technical Expert / Lead Developer, 
 **2013.06 – 2017.12 ｜ Shanghai, China (UTC+8)**
 
 - Built a multi-merchant SaaS e-commerce platform serving 10,000+ merchants with 10-language support, using a hybrid Google/Youdao translation pipeline that cut translation costs 70%
+- Built an SMS gateway handling 1M+ messages/day; optimized data export from OOM failures to 10M rows in 10 minutes
 
 ---
 
