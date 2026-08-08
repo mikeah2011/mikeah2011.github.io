@@ -1,6 +1,6 @@
 # 马成军（Michael Ma）
 
-**资深后端工程师 / 技术负责人 · 13 年研发经验 · 高并发交易系统 · AI 工程化**
+**资深后端工程师 / 技术负责人 · 13 年研发经验 · 高并发交易系统 · 分布式架构**
 
 📧 mikeah2011@gmail.com ｜ 📱 +86 188-0196-3698 ｜ 📍 上海
 🔗 GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 领英: [linkedin.com/in/michael-ma-923223116](https://www.linkedin.com/in/michael-ma-923223116/) ｜ 技术博客: [mikeah2011.github.io](https://mikeah2011.github.io)
@@ -9,27 +9,18 @@
 
 ## 个人简介
 
-13 年后端研发经验，专注**高并发电商交易系统**与**分布式架构**。正因为救过大面积线上故障、长期维护核心交易链路，更清楚不可靠的输出流进生产会造成什么后果——近一年将重心延伸至 **AI 工程化**，先建的是收敛层与控费机制，而不是又一个生成器。
+13 年后端研发经验，专注**高并发电商交易系统**与**分布式架构**，在 OTA（在线旅游）、电商、MarTech 领域有完整的业务纵深：从 Apple 中国经销商平台（5 个月 GMV ¥100 亿）到 KKday 联盟营销平台与 B2C 主干线，长期负责交易链路的性能、稳定性与架构演进。
 
 **13 年** — 后端研发 · OTA / 电商 / MarTech  
 **¥100 亿** — Apple 中国经销商平台上线 5 个月 GMV  
 **25s → 2s** — 大促故障救火后关键 API p99  
 **200%** — KKday 联盟业务年同比增长  
-**Review −50%** — Maestro 收敛 4 个 AI 审查机器人，300+ PR  
-**20+ 人** — 自研 AI 平台跨 7 个团队日常使用
+**17.5×** — H5 接口吞吐量提升（200 → 3500 TPS）  
+**10+** — 串接全球异业渠道（Google / Naver / ShopBack）
 
-- **AI 工程化**：自研多 AI 审查机器人收敛层（Maestro）与 AI 根因分析监控平台（VM Health Center），解决多源 AI 输出重复、不可靠、无法收敛的工程问题
 - **交易系统纵深**：以第一贡献人身份主导 KKday 联盟营销平台（业务年同比增长 200%），并负责 B2C 主干线核心交易链路
 - **稳定性与团队**：主导大规模故障救火（关键 API p99 25s+ → <2s，5xx 稳定 <0.01%）；现兼任售前 CVR 增转专项组组长，带领 6 人跨端小组
-
----
-
-## AI 工程化实践
-
-- **Maestro**（TypeScript CLI）——**多 AI 审查机器人收敛层**：编排 CodeRabbit / Copilot / Codex / Gemini 4 个机器人，经问题分类 → 三层去重 → 自动修复 → 回复并解决讨论串 → 收敛监控与人工升级判断，把发散的 AI 意见收敛成可执行的修改队列；**已成为团队日常流程**：10 人使用、累计走过 300+ 个 PR，Code Review 耗时**减半**、误报率下降 70%
-- **VM Health Center**（TypeScript / Node.js + Slack Bolt + Elasticsearch，从 0 到 1 独立开发）——团队作战看板 + 服务健康监控：聚合 Jira / GitHub / Confluence 自动生成日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析；**跨 7 个团队（Product / Web / App / QA / Order / B2C 等）20+ 人日常使用**，每日触发告警，故障定位时间缩短 40%
-- **Claude API 生产化落地**：8 语系 SEO slug 自动生成，已覆盖近 3000 个商品页、累计约 5 万次调用，以 hash 变更检测跳过未变更内容持续控费；Git 工作流 + AI 代码审查自动化，支持 CLI / Webhook / GitHub Actions 多形态部署
-- **单源多产出内容流水线**（本简历站）：一份内容源自动导出三语 × 深浅色 × HTML / PDF / PPTX / Markdown 共 20+ 份产物；针对 Marp CLI 渲染不稳定（SVG 图标随机降级为字面文本）设计导出后校验与自动重试
+- **AI 工程化**：自研多 AI 审查机器人收敛层（Maestro）与 AI 根因分析监控平台（VM Health Center），解决多源 AI 输出重复、不可靠、无法收敛的工程问题
 
 ---
 
@@ -90,6 +81,15 @@ B2B MarTech/SCRM 营销自动化 SaaS 厂商。负责营销自动化微服务矩
 
 - 开发多商户 SaaS 电商平台（支撑 1 万+ 商家），支持 10 国语言（Google/有道翻译 API 混合流程，翻译成本降低 70%）
 - 基于网易云信构建 IM 系统（日消息量 200 万+）；设计 Redis 缓存层，数据库负载降低 60%
+
+---
+
+## AI 工程化实践
+
+- **Maestro**（TypeScript CLI）——**多 AI 审查机器人收敛层**：编排 CodeRabbit / Copilot / Codex / Gemini 4 个机器人，经问题分类 → 三层去重 → 自动修复 → 回复并解决讨论串 → 收敛监控与人工升级判断，把发散的 AI 意见收敛成可执行的修改队列；**已成为团队日常流程**：10 人使用、累计走过 300+ 个 PR，Code Review 耗时**减半**、误报率下降 70%
+- **VM Health Center**（TypeScript / Node.js + Slack Bolt + Elasticsearch，从 0 到 1 独立开发）——团队作战看板 + 服务健康监控：聚合 Jira / GitHub / Confluence 自动生成日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析；**跨 7 个团队（Product / Web / App / QA / Order / B2C 等）20+ 人日常使用**，每日触发告警，故障定位时间缩短 40%
+- **Claude API 生产化落地**：8 语系 SEO slug 自动生成，已覆盖近 3000 个商品页、累计约 5 万次调用，以 hash 变更检测跳过未变更内容持续控费；Git 工作流 + AI 代码审查自动化，支持 CLI / Webhook / GitHub Actions 多形态部署
+- **单源多产出内容流水线**（本简历站）：一份内容源自动导出三语 × 深浅色 × HTML / PDF / PPTX / Markdown 共 20+ 份产物；针对 Marp CLI 渲染不稳定（SVG 图标随机降级为字面文本）设计导出后校验与自动重试
 
 ---
 

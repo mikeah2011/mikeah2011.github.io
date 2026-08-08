@@ -222,6 +222,22 @@
   .fab-dl.badge-md { background: #111827; }
   .fab-dl.badge-pdf { background: #c0392b; }
 
+  /* Backend/architecture variant (?v=backend): identical content, different
+     emphasis. The AI section drops below Experience so a backend reader hits
+     transaction systems first, instead of maintaining a second document that
+     would drift out of sync. Only applied when the variant is active, so the
+     default flow layout is untouched. */
+  body.v-backend .sheet { display: flex; flex-direction: column; }
+  body.v-backend .bar        { order: 1; }
+  body.v-backend header      { order: 2; }
+  body.v-backend .summary    { order: 3; }
+  body.v-backend .sec-skills { order: 4; }
+  body.v-backend .sec-exp    { order: 5; }
+  body.v-backend .impact     { order: 6; }
+  body.v-backend .sec-oss    { order: 7; }
+  body.v-backend .sec-awards { order: 8; }
+  body.v-backend footer      { order: 9; }
+
   @media (prefers-reduced-motion: reduce) { * { transition-duration: .01ms !important; } }
 
   @media print {
@@ -346,7 +362,7 @@
     </ul>
   </section>
 
-  <section>
+  <section class="sec-skills">
     <div class="eyebrow" data-i18n="sec.skills">核心技能</div>
     <dl class="skills">
       <dt data-i18n="sk.1.k"></dt><dd data-i18n-html="sk.1.v"></dd>
@@ -357,7 +373,7 @@
     </dl>
   </section>
 
-  <section>
+  <section class="sec-exp">
     <div class="eyebrow" data-i18n="sec.exp">工作经历</div>
 
     <div class="job">
@@ -423,14 +439,14 @@
     </div>
   </section>
 
-  <section class="plain">
+  <section class="plain sec-oss">
     <div class="eyebrow" data-i18n-html="sec.oss">开源与个人项目</div>
     <ul>
       <li data-i18n-html="oss.1"></li><li data-i18n-html="oss.2"></li>
     </ul>
   </section>
 
-  <section class="plain">
+  <section class="plain sec-awards">
     <div class="eyebrow" data-i18n="sec.awards">荣誉奖项</div>
     <p class="awards-line" data-i18n-html="aw.line"></p>
   </section>
@@ -444,24 +460,43 @@
 
 <script src="assets/cv-ui.js"></script>
 <script>
+// `?v=backend` serves a backend/architecture-focused reading of the SAME
+// content: the AI section drops below Experience (CSS order), the headline
+// and lede lead with transaction systems, and two AI metric tiles swap for
+// backend ones. Keeping it as a variant rather than a second file is what
+// stops the two versions from drifting apart.
+var VARIANT = new URLSearchParams(location.search).get('v') === 'backend' ? 'backend' : '';
+if (VARIANT) document.body.classList.add('v-backend');
+
 // Direct-download links carry no language/theme picker of their own — they
 // just always point at whatever the page's own toolbar currently shows.
-var RESUME_MD_FILES = { 'zh-CN': 'src/resume.md', 'zh-TW': 'src/resume.zh-TW.md', 'en': 'src/resume.en.md' };
+var RESUME_MD_FILES = {
+  '':        { 'zh-CN': 'src/resume.md', 'zh-TW': 'src/resume.zh-TW.md', 'en': 'src/resume.en.md' },
+  'backend': { 'zh-CN': 'src/resume.backend.md', 'zh-TW': 'src/resume.backend.zh-TW.md', 'en': 'src/resume.backend.en.md' }
+};
 var RESUME_PDF_FILES = {
-  'zh-CN': 'downloads/简历_马成军.pdf',
-  'zh-TW': 'downloads/简历_马成军.zh-TW.pdf',
-  'en': 'downloads/简历_马成军.en.pdf'
+  '': {
+    'zh-CN': 'downloads/简历_马成军.pdf',
+    'zh-TW': 'downloads/简历_马成军.zh-TW.pdf',
+    'en': 'downloads/简历_马成军.en.pdf'
+  },
+  'backend': {
+    'zh-CN': 'downloads/简历_马成军.backend.pdf',
+    'zh-TW': 'downloads/简历_马成军.backend.zh-TW.pdf',
+    'en': 'downloads/简历_马成军.backend.en.pdf'
+  }
 };
 function updateResumeDownloadLinks(lang) {
-  document.getElementById('dlMdLink').href = RESUME_MD_FILES[lang] || RESUME_MD_FILES['zh-CN'];
-  document.getElementById('dlPdfLink').href = RESUME_PDF_FILES[lang] || RESUME_PDF_FILES['zh-CN'];
+  var md = RESUME_MD_FILES[VARIANT], pdf = RESUME_PDF_FILES[VARIANT];
+  document.getElementById('dlMdLink').href = md[lang] || md['zh-CN'];
+  document.getElementById('dlPdfLink').href = pdf[lang] || pdf['zh-CN'];
 }
 
-CVUI.init({
+var RESUME_DICT = {
 'zh-CN': {
   'html.title': '马成军 · 资深后端工程师简历',
   'name.main': '马成军', 'name.alt': 'Michael Ma',
-  'headline': '资深后端工程师 · 13 年研发经验 · 高并发交易系统 / AI 工程化',
+  'headline': '资深后端工程师 / 技术负责人 · 13 年研发经验 · 高并发交易系统 · AI 工程化',
   'loc': '上海', 'link.blog': '技术博客', 'link.linkedin': '领英',
   'sec.summary': '个人简介', 'sec.skills': '核心技能', 'sec.exp': '工作经历',
   'sec.ai': 'AI 工程化实践', 'sec.oss': '开源与个人项目', 'sec.awards': '荣誉奖项',
@@ -470,14 +505,14 @@ CVUI.init({
   'm.2.v': '¥100 亿', 'm.2.k': 'Apple 中国经销商平台上线 5 个月 GMV',
   'm.3.v': '25s → 2s', 'm.3.k': '大促故障救火后关键 API p99',
   'm.4.v': '200%', 'm.4.k': 'KKday 联盟业务年同比增长',
-  'm.5.v': '4 个', 'm.5.k': 'Maestro 编排收敛的 AI 审查机器人',
-  'm.6.v': '3 个', 'm.6.k': '自研 AI 工程化平台（监控 / 审查编排 / 内容流水线）',
+  'm.5.v': 'Review −50%', 'm.5.k': 'Maestro 收敛 4 个 AI 审查机器人，300+ PR',
+  'm.6.v': '20+ 人', 'm.6.k': '自研 AI 平台跨 7 个团队日常使用',
   'sum.1': '<strong>AI 工程化</strong>：自研多 AI 审查机器人收敛层（Maestro）与 AI 根因分析监控平台（VM Health Center），解决多源 AI 输出重复、不可靠、无法收敛的工程问题',
   'sum.2': '<strong>交易系统纵深</strong>：以第一贡献人身份主导 KKday 联盟营销平台（业务年同比增长 <span class="num">200%</span>），并负责 B2C 主干线核心交易链路',
   'sum.3': '<strong>稳定性与团队</strong>：主导大规模故障救火（关键 API p99 <span class="num">25s+ → &lt;2s</span>，5xx 稳定 <span class="num">&lt;0.01%</span>）；现兼任售前 CVR 增转专项组组长，带领 <span class="num">6</span> 人跨端小组',
-  'ai.1': '<strong>Maestro</strong>（TypeScript CLI）——<strong>多 AI 审查机器人收敛层</strong>：编排 CodeRabbit / Copilot / Codex / Gemini <span class="num">4</span> 个审查机器人，问题分类 → 三层去重 → 自动修复 → 回复并解决讨论串 → 收敛监控与人工升级判断，把发散的 AI 意见收敛成可执行的修改队列',
-  'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，从 0 到 1 独立开发）——团队作战看板 + 服务健康监控：聚合 Jira / GitHub / Confluence 自动生成日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析',
-  'ai.3': '<strong>Claude API 生产化落地</strong>：<span class="num">8</span> 语系 SEO slug 自动生成，以 hash 变更检测控制调用成本；Git 工作流 + AI 代码审查自动化，支持 CLI / Webhook / GitHub Actions 多形态部署',
+  'ai.1': '<strong>Maestro</strong>（TypeScript CLI）——<strong>多 AI 审查机器人收敛层</strong>：编排 CodeRabbit / Copilot / Codex / Gemini <span class="num">4</span> 个机器人，经问题分类 → 三层去重 → 自动修复 → 回复并解决讨论串 → 收敛监控与人工升级判断，把发散的 AI 意见收敛成可执行的修改队列；<strong>已成为团队日常流程</strong>：<span class="num">10</span> 人使用、累计走过 <span class="num">300+</span> 个 PR，Code Review 耗时<strong>减半</strong>、误报率下降 <span class="num">70%</span>',
+  'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，从 0 到 1 独立开发）——团队作战看板 + 服务健康监控：聚合 Jira / GitHub / Confluence 自动生成日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析；<strong>跨 <span class="num">7</span> 个团队（Product / Web / App / QA / Order / B2C 等）<span class="num">20+</span> 人日常使用</strong>，每日触发告警，故障定位时间缩短 <span class="num">40%</span>',
+  'ai.3': '<strong>Claude API 生产化落地</strong>：<span class="num">8</span> 语系 SEO slug 自动生成，已覆盖近 <span class="num">3000</span> 个商品页、累计约 <span class="num">5 万</span>次调用，以 hash 变更检测跳过未变更内容持续控费；Git 工作流 + AI 代码审查自动化，支持 CLI / Webhook / GitHub Actions 多形态部署',
   'ai.4': '<strong>单源多产出内容流水线</strong>（本简历站）：一份内容源自动导出三语 × 深浅色 × HTML / PDF / PPTX / Markdown 共 <span class="num">20+</span> 份产物；针对 Marp CLI 渲染不稳定（SVG 图标随机降级为字面文本）设计导出后校验与自动重试',
   'sk.1.k': 'AI 工程', 'sk.1.v': 'Claude API / Copilot SDK 应用开发、多 AI Agent 编排与收敛、AI 辅助研发流程建设',
   'sk.2.k': '语言与框架', 'sk.2.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go、Python（可读）；Laravel / Hyperf、Gin / go-zero、Vue',
@@ -511,7 +546,7 @@ CVUI.init({
   'oss.1': '<strong>SwaggerNotes</strong>（PHP/Laravel 扩展包，100% 独立开发）：自动生成 Swagger 注释并产出 OpenAPI 接口文件；已发布至 Packagist，累计下载 <span class="num">2.6k+</span>',
   'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文档生成器）：<span class="num">2</span> 个 PR 已合并进主线，列名于官方贡献者；另维护技术博客 <span class="num">1300+</span> 篇，至今仍在更新',
   'aw.line': 'KKday 年度优秀员工（<span class="num">2023、2024</span> 连续两届）· Shopex 金番茄奖（<span class="num">2020</span>）· 远丰科技「技术之星」（<span class="num">2016、2018</span>）',
-  'foot.name': '马成军 Michael Ma · 资深后端工程师',
+  'foot.name': '马成军 Michael Ma · 资深后端工程师 / 技术负责人',
   'foot.tip': '浏览器打印（⌘P）即可导出 A4 PDF',
   'dl.md.btn': '下载简历 Markdown', 'dl.top': '回到顶部',
   'dl.pdf.btn': '下载简历 PDF'
@@ -520,7 +555,7 @@ CVUI.init({
 'zh-TW': {
   'html.title': '馬成軍 · 資深後端工程師履歷',
   'name.main': '馬成軍', 'name.alt': 'Michael Ma',
-  'headline': '資深後端工程師 · 13 年研發經驗 · 高並發交易系統 / AI 工程化',
+  'headline': '資深後端工程師 / 技術負責人 · 13 年研發經驗 · 高並發交易系統 · AI 工程化',
   'loc': '上海', 'link.blog': '技術部落格', 'link.linkedin': '領英',
   'sec.summary': '個人簡介', 'sec.skills': '核心技能', 'sec.exp': '工作經歷',
   'sec.ai': 'AI 工程化實踐', 'sec.oss': '開源與個人專案', 'sec.awards': '榮譽獎項',
@@ -529,14 +564,14 @@ CVUI.init({
   'm.2.v': '¥100 億', 'm.2.k': 'Apple 中國經銷商平台上線 5 個月 GMV',
   'm.3.v': '25s → 2s', 'm.3.k': '大型促銷故障搶救後關鍵 API p99',
   'm.4.v': '200%', 'm.4.k': 'KKday 聯盟業務年增長',
-  'm.5.v': '4 個', 'm.5.k': 'Maestro 編排收斂的 AI 審查機器人',
-  'm.6.v': '3 個', 'm.6.k': '自研 AI 工程化平台（監控 / 審查編排 / 內容流水線）',
+  'm.5.v': 'Review −50%', 'm.5.k': 'Maestro 收斂 4 個 AI 審查機器人，300+ PR',
+  'm.6.v': '20+ 人', 'm.6.k': '自研 AI 平台跨 7 個團隊日常使用',
   'sum.1': '<strong>AI 工程化</strong>：自研多 AI 審查機器人收斂層（Maestro）與 AI 根因分析監控平台（VM Health Center），解決多來源 AI 輸出重複、不可靠、無法收斂的工程問題',
   'sum.2': '<strong>交易系統縱深</strong>：以首要貢獻者身分主導 KKday 聯盟行銷平台（業務年增長 <span class="num">200%</span>），並負責 B2C 主幹線核心交易鏈路',
   'sum.3': '<strong>穩定性與團隊</strong>：主導大規模故障搶救（關鍵 API p99 <span class="num">25s+ → &lt;2s</span>，5xx 穩定 <span class="num">&lt;0.01%</span>）；現兼任售前 CVR 增轉專案組組長，帶領 <span class="num">6</span> 人跨端小組',
-  'ai.1': '<strong>Maestro</strong>（TypeScript CLI）——<strong>多 AI 審查機器人收斂層</strong>：編排 CodeRabbit / Copilot / Codex / Gemini <span class="num">4</span> 個審查機器人，問題分類 → 三層去重 → 自動修復 → 回覆並解決討論串 → 收斂監控與人工升級判斷，將發散的 AI 意見收斂成可執行的修改佇列',
-  'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，從 0 到 1 獨立開發）——團隊作戰看板 + 服務健康監控：彙整 Jira / GitHub / Confluence 自動產生日報週報、訂購漏斗與後端服務健康告警、AI 初步根因分析',
-  'ai.3': '<strong>Claude API 生產化落地</strong>：<span class="num">8</span> 語系 SEO slug 自動產生，以 hash 變更偵測控管呼叫成本；Git 工作流 + AI 程式碼審查自動化，支援 CLI / Webhook / GitHub Actions 多形態部署',
+  'ai.1': '<strong>Maestro</strong>（TypeScript CLI）——<strong>多 AI 審查機器人收斂層</strong>：編排 CodeRabbit / Copilot / Codex / Gemini <span class="num">4</span> 個機器人，經問題分類 → 三層去重 → 自動修復 → 回覆並解決討論串 → 收斂監控與人工升級判斷，將發散的 AI 意見收斂成可執行的修改佇列；<strong>已成為團隊日常流程</strong>：<span class="num">10</span> 人使用、累計走過 <span class="num">300+</span> 個 PR，Code Review 耗時<strong>減半</strong>、誤報率下降 <span class="num">70%</span>',
+  'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，從 0 到 1 獨立開發）——團隊作戰看板 + 服務健康監控：彙整 Jira / GitHub / Confluence 自動產生日報週報、訂購漏斗與後端服務健康告警、AI 初步根因分析；<strong>跨 <span class="num">7</span> 個團隊（Product / Web / App / QA / Order / B2C 等）<span class="num">20+</span> 人日常使用</strong>，每日觸發告警，故障定位時間縮短 <span class="num">40%</span>',
+  'ai.3': '<strong>Claude API 生產化落地</strong>：<span class="num">8</span> 語系 SEO slug 自動產生，已涵蓋近 <span class="num">3000</span> 個商品頁、累計約 <span class="num">5 萬</span>次呼叫，以 hash 變更偵測跳過未變更內容持續控費；Git 工作流 + AI 程式碼審查自動化，支援 CLI / Webhook / GitHub Actions 多形態部署',
   'ai.4': '<strong>單一來源多產出內容流水線</strong>（本履歷網站）：一份內容來源自動匯出三語 × 深淺色 × HTML / PDF / PPTX / Markdown 共 <span class="num">20+</span> 份產物；針對 Marp CLI 渲染不穩定（SVG 圖示隨機降級為字面文字）設計匯出後驗證與自動重試',
   'sk.1.k': 'AI 工程', 'sk.1.v': 'Claude API / Copilot SDK 應用開發、多 AI Agent 編排與收斂、AI 輔助研發流程建置',
   'sk.2.k': '語言與框架', 'sk.2.v': 'PHP（精通，8 年+）、TypeScript / Node.js、Go、Python（可讀）；Laravel / Hyperf、Gin / go-zero、Vue',
@@ -570,7 +605,7 @@ CVUI.init({
   'oss.1': '<strong>SwaggerNotes</strong>（PHP/Laravel 擴充套件，100% 獨立開發）：自動產生 Swagger 註解並輸出 OpenAPI 介面檔；已發布至 Packagist，累計下載 <span class="num">2.6k+</span>',
   'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文件產生器）：<span class="num">2</span> 個 PR 已合併進主線，列名於官方貢獻者；另維護技術部落格 <span class="num">1300+</span> 篇，至今仍在更新',
   'aw.line': 'KKday 年度優秀員工（<span class="num">2023、2024</span> 連續兩屆）· Shopex 金番茄獎（<span class="num">2020</span>）· 遠豐科技「技術之星」（<span class="num">2016、2018</span>）',
-  'foot.name': '馬成軍 Michael Ma · 資深後端工程師',
+  'foot.name': '馬成軍 Michael Ma · 資深後端工程師 / 技術負責人',
   'foot.tip': '瀏覽器列印（⌘P）即可匯出 A4 PDF',
   'dl.md.btn': '下載履歷 Markdown', 'dl.top': '回到頂部',
   'dl.pdf.btn': '下載履歷 PDF'
@@ -579,7 +614,7 @@ CVUI.init({
 'en': {
   'html.title': 'Michael Ma · Senior Backend Engineer — Résumé',
   'name.main': 'Michael Ma', 'name.alt': '马成军',
-  'headline': 'Senior Backend Engineer · High-Concurrency Transaction Systems &amp; AI Engineering',
+  'headline': 'Senior Backend Engineer / Tech Lead · High-Concurrency Transaction Systems &amp; AI Engineering',
   'loc': 'Shanghai, China (UTC+8)', 'link.blog': 'Tech Blog', 'link.linkedin': 'LinkedIn',
   'sec.summary': 'Profile', 'sec.skills': 'Core Skills', 'sec.exp': 'Experience',
   'sec.oss': 'Open Source &amp; Personal Projects', 'sec.awards': 'Awards',
@@ -590,14 +625,14 @@ CVUI.init({
   'm.2.v': '&yen;10B+', 'm.2.k': 'GMV within 5 months, Apple China reseller platform',
   'm.3.v': '25s &rarr; 2s', 'm.3.k': 'Critical API p99 after major-outage response',
   'm.4.v': '200%', 'm.4.k': 'YoY growth, KKday affiliate business',
-  'm.5.v': '4', 'm.5.k': 'AI review bots orchestrated by Maestro',
-  'm.6.v': '3', 'm.6.k': 'Self-built AI engineering platforms',
+  'm.5.v': 'Review −50%', 'm.5.k': 'Maestro converging 4 AI review bots, 300+ PRs',
+  'm.6.v': '20+', 'm.6.k': 'Daily users of self-built AI platforms, 7 teams',
   'sum.1': '<strong>AI engineering</strong>: built a convergence layer for multiple AI review bots (Maestro) and an AI-assisted root-cause monitoring platform (VM Health Center), solving the practical problem of duplicated, unreliable, unconverged AI output',
   'sum.2': '<strong>Transaction-systems depth</strong>: top contributor and owner of KKday\'s affiliate marketing platform (<span class="num">200%</span> YoY growth), and owner of the B2C core transaction flow',
   'sum.3': '',
-  'ai.1': '<strong>Maestro</strong> (TypeScript CLI) — a <strong>convergence layer for AI review bots</strong>: orchestrates <span class="num">4</span> bots (CodeRabbit, Copilot, Codex, Gemini) through classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation — turning scattered AI feedback into an actionable fix queue',
-  'ai.2': '<strong>VM Health Center</strong> (TypeScript/Node.js + Slack Bolt + Elasticsearch, built solo from scratch) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis',
-  'ai.3': '<strong>Claude API in production</strong>: SEO slug generation across <span class="num">8</span> locales with hash-based change detection for cost control; a Git workflow and AI code-review automation system deployable as CLI, webhook or GitHub Actions',
+  'ai.1': '<strong>Maestro</strong> (TypeScript CLI) — a <strong>convergence layer for AI review bots</strong>: orchestrates <span class="num">4</span> bots (CodeRabbit, Copilot, Codex, Gemini) through classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation. <strong>Now part of the team\'s daily workflow</strong>: <span class="num">10</span> engineers, <span class="num">300+</span> PRs processed, review time <strong>cut in half</strong> and false positives down <span class="num">70%</span>',
+  'ai.2': '<strong>VM Health Center</strong> (TypeScript/Node.js + Slack Bolt + Elasticsearch, built solo from scratch) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis. <strong>Used daily by <span class="num">20+</span> people across <span class="num">7</span> teams</strong> (Product, Web, App, QA, Order, B2C), firing alerts every day and cutting incident triage time by <span class="num">40%</span>',
+  'ai.3': '<strong>Claude API in production</strong>: SEO slug generation across <span class="num">8</span> locales covering nearly <span class="num">3,000</span> product pages and ~<span class="num">50k</span> API calls, with hash-based change detection skipping unchanged content to hold cost down; a Git workflow and AI code-review automation system deployable as CLI, webhook or GitHub Actions',
   'ai.4': '',
   'sk.1.k': 'AI Engineering', 'sk.1.v': 'Claude API / Copilot SDK application development, multi-agent orchestration and convergence, AI-assisted engineering process design',
   'sk.2.k': 'Languages &amp; Frameworks', 'sk.2.v': 'PHP (expert, 8+ yrs), TypeScript / Node.js, Go, Python (reading proficiency); Laravel / Hyperf, Gin / go-zero, Vue',
@@ -631,12 +666,52 @@ CVUI.init({
   'oss.1': '',
   'oss.2': '<strong>knuckleswtf/scribe</strong> (<span class="num">2.3k</span> ⭐ Laravel API documentation generator): <span class="num">2</span> pull requests merged upstream, listed among official contributors',
   'aw.line': '',
-  'foot.name': 'Michael Ma · Senior Backend Engineer',
+  'foot.name': 'Michael Ma · Senior Backend Engineer / Tech Lead',
   'foot.tip': 'Print from your browser (⌘P) to export as A4 PDF',
   'dl.md.btn': 'Download Résumé Markdown', 'dl.top': 'Back to top',
   'dl.pdf.btn': 'Download Résumé PDF'
 }
-}, { onLang: updateResumeDownloadLinks });
+};
+
+// Only the keys that actually change between the two readings. Everything
+// else — every bullet, every job, the whole AI section — is shared, so a
+// content fix lands in both versions at once.
+var BACKEND_OVERRIDES = {
+'zh-CN': {
+  'headline': '资深后端工程师 / 技术负责人 · 13 年研发经验 · 高并发交易系统 · 分布式架构',
+  'sum.lede': '<span class="num">13</span> 年后端研发经验，专注<strong>高并发电商交易系统</strong>与<strong>分布式架构</strong>，在 OTA（在线旅游）、电商、MarTech 领域有完整的业务纵深：从 Apple 中国经销商平台（<span class="num">5</span> 个月 GMV <span class="num">¥100 亿</span>）到 KKday 联盟营销平台与 B2C 主干线，长期负责交易链路的性能、稳定性与架构演进。',
+  'm.5.v': '17.5×', 'm.5.k': 'H5 接口吞吐量提升（200 → 3500 TPS）',
+  'm.6.v': '10+', 'm.6.k': '串接全球异业渠道（Google / Naver / ShopBack）'
+},
+'zh-TW': {
+  'headline': '資深後端工程師 / 技術負責人 · 13 年研發經驗 · 高並發交易系統 · 分散式架構',
+  'sum.lede': '<span class="num">13</span> 年後端研發經驗，專注<strong>高並發電商交易系統</strong>與<strong>分散式架構</strong>，在 OTA（線上旅遊）、電商、MarTech 領域有完整的業務縱深：從 Apple 中國經銷商平台（<span class="num">5</span> 個月 GMV <span class="num">¥100 億</span>）到 KKday 聯盟行銷平台與 B2C 主幹線，長期負責交易鏈路的效能、穩定性與架構演進。',
+  'm.5.v': '17.5×', 'm.5.k': 'H5 介面吞吐量提升（200 → 3500 TPS）',
+  'm.6.v': '10+', 'm.6.k': '串接全球異業通路（Google / Naver / ShopBack）'
+},
+'en': {
+  'headline': 'Senior Backend Engineer / Tech Lead · High-Concurrency Transaction Systems &amp; Distributed Architecture',
+  'sum.lede': '<span class="num">13</span> years of backend engineering focused on <strong>high-concurrency e-commerce transaction systems</strong> and <strong>distributed architecture</strong>, with deep domain experience across OTA, e-commerce and MarTech — from Apple\'s China reseller platform (<span class="num">¥10B+</span> GMV in <span class="num">5</span> months) to KKday\'s affiliate platform and B2C mainline, owning the performance, reliability and architectural evolution of transaction flows.',
+  'm.5.v': '17.5×', 'm.5.k': 'H5 API throughput gain (200 → 3,500 TPS)',
+  'm.6.v': '10+', 'm.6.k': 'Global partner channels integrated (Google / Naver / ShopBack)'
+}
+};
+
+if (VARIANT === 'backend') {
+  ['zh-CN', 'zh-TW', 'en'].forEach(function (l) {
+    var d = RESUME_DICT[l];
+    // Rotate the profile bullets so transaction depth leads and the AI one
+    // lands last, matching the demoted AI section — done by rotation rather
+    // than by restating the text, so there's only ever one copy to edit.
+    var ai = d['sum.1'];
+    d['sum.1'] = d['sum.2'];
+    d['sum.2'] = d['sum.3'];
+    d['sum.3'] = ai;
+    Object.assign(d, BACKEND_OVERRIDES[l]);
+  });
+}
+
+CVUI.init(RESUME_DICT, { onLang: updateResumeDownloadLinks });
 
 (function () {
   // Scroll progress ring (display-only) + a dedicated back-to-top button

@@ -1,6 +1,6 @@
 # Michael Ma（马成军）
 
-**Senior Backend Engineer / Tech Lead · High-Concurrency Transaction Systems & AI Engineering**
+**Senior Backend Engineer / Tech Lead · High-Concurrency Transaction Systems & Distributed Architecture**
 
 📧 mikeah2011@gmail.com ｜ 📱 +86 188-0196-3698 ｜ 📍 Shanghai, China (UTC+8)
 🔗 GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [linkedin.com/in/michael-ma-923223116](https://www.linkedin.com/in/michael-ma-923223116/) ｜ Tech Blog: [mikeah2011.github.io](https://mikeah2011.github.io)
@@ -9,25 +9,17 @@
 
 ## Profile
 
-13 years of backend engineering focused on **high-concurrency transaction systems** and **distributed architecture**. Having led incident response on a large-scale outage and maintained core transaction systems for years, I know what unreliable output costs in production — so when I extended into **AI engineering** this past year, the first thing I built was a convergence layer and cost controls, not another generator.
+13 years of backend engineering focused on **high-concurrency e-commerce transaction systems** and **distributed architecture**, with deep domain experience across OTA, e-commerce and MarTech — from Apple's China reseller platform (¥10B+ GMV in 5 months) to KKday's affiliate platform and B2C mainline, owning the performance, reliability and architectural evolution of transaction flows.
 
 **13 yrs** — Backend engineering · OTA / e-commerce / MarTech  
 **¥10B+** — GMV within 5 months, Apple China reseller platform  
 **25s → 2s** — Critical API p99 after major-outage response  
 **200%** — YoY growth, KKday affiliate business  
-**Review −50%** — Maestro converging 4 AI review bots, 300+ PRs  
-**20+** — Daily users of self-built AI platforms, 7 teams
+**17.5×** — H5 API throughput gain (200 → 3,500 TPS)  
+**10+** — Global partner channels integrated (Google / Naver / ShopBack)
 
-- **AI engineering**: built a convergence layer for multiple AI review bots (Maestro) and an AI-assisted root-cause monitoring platform (VM Health Center), solving the practical problem of duplicated, unreliable, unconverged AI output
 - **Transaction-systems depth**: top contributor and owner of KKday's affiliate marketing platform (200% YoY growth), and owner of the B2C core transaction flow
-
----
-
-## AI Engineering
-
-- **Maestro** (TypeScript CLI) — a **convergence layer for AI review bots**: orchestrates 4 bots (CodeRabbit, Copilot, Codex, Gemini) through classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation. **Now part of the team's daily workflow**: 10 engineers, 300+ PRs processed, review time **cut in half** and false positives down 70%
-- **VM Health Center** (TypeScript/Node.js + Slack Bolt + Elasticsearch, built solo from scratch) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis. **Used daily by 20+ people across 7 teams** (Product, Web, App, QA, Order, B2C), firing alerts every day and cutting incident triage time by 40%
-- **Claude API in production**: SEO slug generation across 8 locales covering nearly 3,000 product pages and ~50k API calls, with hash-based change detection skipping unchanged content to hold cost down; a Git workflow and AI code-review automation system deployable as CLI, webhook or GitHub Actions
+- **AI engineering**: built a convergence layer for multiple AI review bots (Maestro) and an AI-assisted root-cause monitoring platform (VM Health Center), solving the practical problem of duplicated, unreliable, unconverged AI output
 
 ---
 
@@ -84,6 +76,14 @@ A leading domestic e-commerce SaaS provider. Led delivery of the Apple China res
 **2013.06 – 2017.12 ｜ Shanghai, China (UTC+8)**
 
 - Built a multi-merchant SaaS e-commerce platform serving 10,000+ merchants with 10-language support, using a hybrid Google/Youdao translation pipeline that cut translation costs 70%
+
+---
+
+## AI Engineering
+
+- **Maestro** (TypeScript CLI) — a **convergence layer for AI review bots**: orchestrates 4 bots (CodeRabbit, Copilot, Codex, Gemini) through classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation. **Now part of the team's daily workflow**: 10 engineers, 300+ PRs processed, review time **cut in half** and false positives down 70%
+- **VM Health Center** (TypeScript/Node.js + Slack Bolt + Elasticsearch, built solo from scratch) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis. **Used daily by 20+ people across 7 teams** (Product, Web, App, QA, Order, B2C), firing alerts every day and cutting incident triage time by 40%
+- **Claude API in production**: SEO slug generation across 8 locales covering nearly 3,000 product pages and ~50k API calls, with hash-based change detection skipping unchanged content to hold cost down; a Git workflow and AI code-review automation system deployable as CLI, webhook or GitHub Actions
 
 ---
 
