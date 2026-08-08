@@ -381,7 +381,15 @@
     slides.forEach(function (body) {
       var section = document.createElement('section');
       if (wrapperClass) section.className = wrapperClass;
-      section.innerHTML = body;
+      // Slide bodies are real Marp/Slidev markdown, not pre-rendered HTML —
+      // marp-cli turns `# title` into <h1> at export time, but nothing here
+      // does that for the live preview, so the literal "#" was leaking
+      // through as plain text. Every slide has exactly one such line (its
+      // title); everything else in these sources is already raw HTML.
+      section.innerHTML = body.replace(/^#{1,3} (.+)$/m, function (m, text) {
+        var level = m.match(/^#+/)[0].length;
+        return '<h' + level + '>' + text + '</h' + level + '>';
+      });
       viewport.appendChild(section);
     });
     root.appendChild(viewport);
