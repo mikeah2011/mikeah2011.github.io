@@ -12,6 +12,14 @@
     --paper:#f5f7f7; --surface:#ffffff; --surface-2:#eceff0;
     --ink:#0e2128; --ink-2:#3a4e56; --muted:#5c6f77; --line:#dbe2e3;
     --accent:#0b6e78; --accent-dim:#0b6e7814;
+    /* Proxies for the deck-preview color remap (see .slideshow-viewport
+       below): must live on an ANCESTOR of .slideshow-viewport, not on it.
+       Defining them on the same selector that also redeclares --accent
+       etc. would make --vw-accent's own `var(--accent)` resolve against
+       that selector's (about-to-be-overwritten) --accent instead of the
+       real root value — an indirect cycle, same failure as a direct one. */
+    --vw-bg: var(--paper); --vw-surface: var(--surface); --vw-ink: var(--ink);
+    --vw-muted: var(--muted); --vw-accent: var(--accent); --vw-accent-dim: var(--accent-dim); --vw-hairline: var(--line);
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -98,6 +106,12 @@
     #source-pane, #preview-pane { flex: 1 1 50%; min-width: 0; max-height: calc(100vh - 70px); overflow-y: auto; position: sticky; top: 70px; }
     body.preview-only #source-pane { display: none; }
     body.preview-only #preview-pane { flex: 1 1 100%; }
+    /* Slides are shorter than the pane in both split and full-page mode,
+       so they were sitting flush against the top with dead space below —
+       center the whole viewport+chrome block instead. The plain markdown
+       résumé preview is a document meant to be read top-down, so it opts
+       out (see .pane-center gating in JS). */
+    #preview-pane.pane-center { display: flex; flex-direction: column; justify-content: center; }
   }
 
   /* ---- source pane ---- */
@@ -133,23 +147,28 @@
   /* ---- slide preview (marp/slidev): one slide at a time, like the real
      deck.html player, instead of a long vertical scroll of every slide. ---- */
   #slide-preview-style { display: none; }
+  /* Slides render at a fixed 1280×720 canvas and get CSS-scaled to fit
+     whatever width the viewport actually has (JS keeps --zoom in sync via
+     ResizeObserver). Without this, a slide styled with fixed em/px sizes
+     for a real 16:9 export looks correctly proportioned only by accident
+     at one specific width — shrink the box (split view) and the same
+     text reads too large for its slide; grow it (full-page) and the same
+     text reads too small, exactly backwards from what changing the box
+     size should do. Scaling the whole rendered canvas keeps every
+     relative proportion correct at any size, the same trick Marp's own
+     player and PowerPoint/Keynote use. */
   .slideshow-viewport {
     position: relative; width: 100%; aspect-ratio: 16/9;
     border-radius: 14px; overflow: hidden; box-shadow: 0 1px 2px #0002, 0 8px 24px -12px #0004;
   }
   .slideshow-viewport section {
-    position: absolute; inset: 0; overflow: auto;
+    position: absolute; top: 0; left: 0; width: 1280px; height: 720px;
+    transform: scale(var(--zoom, 1)); transform-origin: top left;
+    overflow: hidden;
     display: flex; flex-direction: column; justify-content: center;
     opacity: 0; pointer-events: none; transition: opacity .25s ease;
   }
   .slideshow-viewport section.active { opacity: 1; pointer-events: auto; }
-  /* The extracted deck CSS lays tiles/before-after cards out in a fixed
-     3-column grid sized for a 16:9 canvas; override it (not just rely on
-     source order, since the deck's own CSS loads after this one) so it
-     doesn't spill past a phone-width slide. */
-  @media (max-width: 899px) {
-    .slideshow-viewport .tiles, .slideshow-viewport .ba { grid-template-columns: repeat(2, 1fr) !important; }
-  }
   .slideshow-chrome {
     display: flex; align-items: center; justify-content: center; gap: 14px;
     margin-top: 14px;
@@ -230,6 +249,17 @@
   document.getElementById('raw-link').href = file;
 
   var kind = file.indexOf('slidev') > -1 ? 'slidev' : (file.indexOf('deck') === 0 ? 'marp' : 'plain');
+
+  // The deck sources bake in one fixed palette each (a real Marp/Slidev file
+  // can't reference this page's live theme) — map those known literals back
+  // to this viewer's own theme tokens so the preview re-colors with the
+  // theme toggle instead of always showing whichever palette the specific
+  // file happened to ship with. Slidev sources only ever ship the dark set.
+  var DECK_PALETTE = {
+    dark: { bg: '#0e171b', surface: '#16232a', ink: '#e6eef0', muted: '#8aa0a8', accent: '#46bfc9', accentDim: '#46bfc933', hairline: '#24343b' },
+    light: { bg: '#f5f7f7', surface: '#ffffff', ink: '#0e2128', muted: '#5c6f77', accent: '#0b6e78', accentDim: '#0b6e7814', hairline: '#dbe2e3' }
+  };
+  var deckTheme = file.indexOf('.light.') > -1 ? 'light' : 'dark';
 
   // ---- tiny inline-markdown helper (bold + links); everything here already
   // ships as <strong>/<span> HTML in the deck sources, so this only matters
@@ -312,6 +342,23 @@
       styleTag.id = 'slide-preview-style';
       document.head.appendChild(styleTag);
     }
+    // Re-point every literal color this specific file was authored with at
+    // this viewer's own theme tokens, so the preview re-colors live with
+    // the theme toggle instead of being stuck on whichever palette the
+    // file happened to ship with.
+    var pal = DECK_PALETTE[deckTheme];
+    var VAR_MAP = {
+      bg: '--vw-bg', surface: '--vw-surface', ink: '--vw-ink',
+      muted: '--vw-muted', accent: '--vw-accent', accentDim: '--vw-accent-dim', hairline: '--vw-hairline'
+    };
+    // Longest hex literal first — `--accent-dim`'s 8-digit value starts
+    // with the same 6 digits as `--accent`, so replacing the short one
+    // first would corrupt it into `var(--accent)33` (invalid, and the
+    // whole declaration then gets dropped).
+    Object.keys(pal).sort(function (a, b) { return pal[b].length - pal[a].length; }).forEach(function (key) {
+      var hex = pal[key].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      css = css.replace(new RegExp(hex, 'gi'), 'var(' + VAR_MAP[key] + ')');
+    });
     // Scope the extracted deck CSS to the viewport so its bare
     // `section` / `.eyebrow` rules can't leak onto this page's own chrome.
     styleTag.textContent = css.replace(/(^|\})\s*([^{}]+)\{/g, function (m, brace, sel) {
@@ -332,6 +379,20 @@
       viewport.appendChild(section);
     });
     root.appendChild(viewport);
+
+    // Keep the fixed 1280×720 canvas scaled to whatever width the viewport
+    // is actually rendered at — this is what makes the same slide read
+    // correctly whether it's in the narrow split-view column or blown up
+    // in full-page mode, instead of a fixed font-size looking right at
+    // exactly one width and wrong everywhere else.
+    if (window.ResizeObserver) {
+      new ResizeObserver(function (entries) {
+        var width = entries[0].contentRect.width;
+        viewport.style.setProperty('--zoom', width / 1280);
+      }).observe(viewport);
+    } else {
+      viewport.style.setProperty('--zoom', viewport.getBoundingClientRect().width / 1280);
+    }
 
     var sections = [].slice.call(viewport.children);
     var chrome = document.createElement('div');
@@ -425,6 +486,7 @@
       previewPane.appendChild(doc);
     } else {
       var parsed = kind === 'slidev' ? parseSlidev(text) : parseMarp(text);
+      previewPane.classList.add('pane-center');
       previewPane.appendChild(renderSlides(parsed.css, parsed.slides, kind === 'slidev' ? 'slidev-layout' : ''));
     }
   }).catch(function (err) {
