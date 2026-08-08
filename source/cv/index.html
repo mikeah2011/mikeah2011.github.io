@@ -228,13 +228,22 @@
 
     .top { display: flex; align-items: flex-start; justify-content: space-between; gap: clamp(24px, 4vw, 48px); }
     .top header { flex: 1 1 auto; min-width: 0; }
-    /* Chips size to their content and wrap; justify-content:flex-end keeps
-       the block flush with the page's right edge beside the header. */
+    /* A real 2-column grid, not flex-wrap: at a flex-wrap's mercy, the
+       Email+LinkedIn / GitHub+Blog pairing broke apart into 3-then-1 the
+       moment the row had room for a third chip. Grid's fixed column count
+       keeps the pairing exact at every desktop width, while `max-content`
+       columns still let each chip size to its own content and the wider
+       gap below give the row room to breathe now that it isn't fighting
+       a max-width to force the wrap. */
     .top .rail {
-      flex: 0 1 auto; margin-top: 4px; align-self: center;
-      justify-content: flex-end; gap: 8px;
-      max-width: 460px;
+      display: grid; grid-template-columns: repeat(2, max-content);
+      justify-content: end; gap: 12px 16px;
+      margin-top: 4px; align-self: center;
     }
+    /* Desktop has room to spare, so let these chips breathe rather than
+       reusing the same tight padding/gap the mobile layout needs. */
+    .top .rail .chip { gap: 12px; padding: 11px 18px 11px 14px; }
+    .top .rail .chip svg { width: 17px; height: 17px; }
     /* Same Email+LinkedIn / GitHub+Blog grouping used on phones, so the
        relationship between the four items reads the same at every width. */
     .top .rail a:nth-child(1) { order: 1; } /* Email */
