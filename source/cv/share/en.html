@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  由 ../export-og.sh 生成，不要手改 —— 三个语言版本的结构必须保持一致。
+
+  这是一个「分享入口」：社交平台的爬虫不执行 JS，抓到的永远是 HTML 源码里
+  那组静态 og 标签，一个 URL 只能声明一张预览图。站点的语言切换是前端做的，
+  爬虫看不见 —— 所以要让不同语言的受众看到对应语言的卡片，只能让每个语言
+  各有自己的 URL，这就是它们。
+
+  跳转刻意只用 JS，不用 meta refresh：不少爬虫会跟随 meta refresh 然后改读
+  目标页的 og 标签，那就前功尽弃了。爬虫不跑 JS，读完标签就停在这里；真人
+  会被送到对应语言的简历。
+
+  noindex 是因为这三个页面对搜索引擎是重复内容，真正该被收录的是 canonical
+  指向的那一页。这不影响社交预览 —— 抓预览卡片的爬虫不看 robots 指令。
+-->
+<title>Michael Ma · Senior Backend Engineer</title>
+<meta name="description" content="13 years of experience · High-concurrency transaction systems · Distributed architecture · AI engineering">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://mikeah2011.github.io/cv/">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://mikeah2011.github.io/cv/share/en.html">
+<meta property="og:site_name" content="Michael Ma">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Michael Ma · Senior Backend Engineer">
+<meta property="og:description" content="13 years of experience · High-concurrency transaction systems · Distributed architecture · AI engineering">
+<meta property="og:image" content="https://mikeah2011.github.io/cv/assets/og-cover.en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Michael Ma · Senior Backend Engineer · 13 Years of Experience">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b6e78'/><text x='50' y='69' font-family='-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' font-size='58' font-weight='800' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
+<style>
+  body {
+    margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px;
+    background: #0a1315; color: #7e959c;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "PingFang TC", sans-serif;
+    font-size: 14px;
+  }
+  a { color: #3fbecb; }
+</style>
+</head>
+<body>
+  <p>Taking you to the résumé…</p>
+  <p><a href="../index.html?lang=en">Not redirected? Continue here</a></p>
+  <script>location.replace('../index.html?lang=en');</script>
+</body>
+</html>

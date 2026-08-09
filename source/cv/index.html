@@ -371,7 +371,7 @@
   <section class="rise" style="animation-delay:.2s">
     <h2 class="label mono" data-i18n="sec.read">在线阅读</h2>
     <div class="bento">
-      <a class="card" href="resume.html">
+      <a class="card" href="resume.html" data-cv-navlink="resume.html">
         <div class="card-head">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h4.5"/></svg></div>
           <h3 data-i18n="cv.title">完整简历</h3>
@@ -382,7 +382,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12.5 5.5 19 12l-6.5 6.5"/></svg>
         </span>
       </a>
-      <a class="card" href="deck.html">
+      <a class="card" href="deck.html" data-cv-navlink="deck.html">
         <div class="card-head">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="1.8"/><path d="M9 20.5h6M12 16.5v4"/></svg></div>
           <h3 data-i18n="dk.title">简历简报</h3>
@@ -623,28 +623,40 @@
       'en': { href: 'src/view.html?f=deck.slidev.en.md', desc: 'src/deck.slidev.en.md' }
     },
     // The targeted versions open the résumé itself with its variant picker
-    // pre-set, so the reader can flip between framings from there — the href
-    // is language-independent because resume.html carries its own language
-    // toggle; only the one-line "what this version leads with" needs
-    // translating.
+    // pre-set, so the reader can flip between framings from there. The href
+    // carries ?lang= for the same reason syncNavLang exists: a reader arriving
+    // from share/en.html has no stored preference, so the language has to
+    // travel in the URL or the next page falls back to Chinese. These entries
+    // go through the files table rather than data-cv-navlink because the
+    // one-line "what this version leads with" needs translating anyway.
     cvbackend: {
-      'zh-CN': { href: 'resume.html?v=backend', desc: '高并发 / 分布式架构侧重' },
-      'zh-TW': { href: 'resume.html?v=backend', desc: '高並發 / 分散式架構側重' },
-      'en': { href: 'resume.html?v=backend', desc: 'Leads with systems depth' }
+      'zh-CN': { href: 'resume.html?v=backend&lang=zh-CN', desc: '高并发 / 分布式架构侧重' },
+      'zh-TW': { href: 'resume.html?v=backend&lang=zh-TW', desc: '高並發 / 分散式架構側重' },
+      'en': { href: 'resume.html?v=backend&lang=en', desc: 'Leads with systems depth' }
     },
     cvlead: {
-      'zh-CN': { href: 'resume.html?v=lead', desc: '带队交付 / 跨团队协调侧重' },
-      'zh-TW': { href: 'resume.html?v=lead', desc: '帶隊交付 / 跨團隊協調側重' },
-      'en': { href: 'resume.html?v=lead', desc: 'Leads with team delivery' }
+      'zh-CN': { href: 'resume.html?v=lead&lang=zh-CN', desc: '带队交付 / 跨团队协调侧重' },
+      'zh-TW': { href: 'resume.html?v=lead&lang=zh-TW', desc: '帶隊交付 / 跨團隊協調側重' },
+      'en': { href: 'resume.html?v=lead&lang=en', desc: 'Leads with team delivery' }
     },
     cvai: {
-      'zh-CN': { href: 'resume.html?v=ai', desc: 'Claude API / Agent 编排侧重' },
-      'zh-TW': { href: 'resume.html?v=ai', desc: 'Claude API / Agent 編排側重' },
-      'en': { href: 'resume.html?v=ai', desc: 'Leads with AI engineering' }
+      'zh-CN': { href: 'resume.html?v=ai&lang=zh-CN', desc: 'Claude API / Agent 编排侧重' },
+      'zh-TW': { href: 'resume.html?v=ai&lang=zh-TW', desc: 'Claude API / Agent 編排側重' },
+      'en': { href: 'resume.html?v=ai&lang=en', desc: 'Leads with AI engineering' }
     }
   };
 
-  CVUI.init(I18N, { files: FILES });
+  // 站内跳转要自己把当前语言带上。cv-ui.js 刻意不把 ?lang= 写进 localStorage
+  // （那是分享链接的一次性指定，不该劫持访客既有的偏好），代价是语言不会自动
+  // 延续到下一页 —— 从 share/en.html 进来的读者点一下「完整简历」就会掉回中文。
+  // 原始 href 存在属性里，重复调用才不会把 lang 参数越叠越多。
+  function syncNavLang(lang) {
+    [].forEach.call(document.querySelectorAll('[data-cv-navlink]'), function (a) {
+      var base = a.getAttribute('data-cv-navlink');
+      a.href = base + (base.indexOf('?') > -1 ? '&' : '?') + 'lang=' + lang;
+    });
+  }
+  CVUI.init(I18N, { files: FILES, onLang: syncNavLang });
 
   // Point each card's hover glow at the cursor (pointer devices only).
   if (window.matchMedia('(hover: hover)').matches) {
