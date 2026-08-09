@@ -64,6 +64,12 @@
     font-size: 13px; color: var(--ink-2); flex: 1 1 auto; min-width: 0;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
+  /* 篇幅统计跟在文件名后面 —— 这是源码查看器该有的信息（字数、行数），
+     刻意不做「阅读时间」：简历是扫读不是通读，那个数字没有真实意义。
+     窄屏先于文件名之外被藏起来，标题栏已经够挤了。 */
+  .viewer-stats { font-size: 12px; color: var(--muted); flex: none; white-space: nowrap; }
+  .viewer-stats:empty { display: none; }
+  @media (max-width: 700px) { .viewer-stats { display: none; } }
   .viewer-tabs { display: inline-flex; padding: 3px; gap: 2px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px; flex: none; }
   .viewer-tabs button {
     border: 0; background: transparent; border-radius: 999px; padding: 6px 14px;
@@ -198,6 +204,7 @@
     <span data-i18n="back">返回</span>
   </a>
   <span class="viewer-fname" id="fname">—</span>
+  <span class="viewer-stats mono" id="stats"></span>
   <div class="viewer-tabs" role="tablist" data-mobile-only>
     <button type="button" data-tab="source" aria-selected="true" data-i18n="tab.source">源码</button>
     <button type="button" data-tab="preview" aria-selected="false" data-i18n="tab.preview">预览</button>
@@ -510,6 +517,8 @@
     return r.text();
   }).then(function (text) {
     document.getElementById('src-code').innerHTML = highlightSource(text);
+    docStats = measure(text);
+    renderStats(controller.lang);
 
     var previewPane = document.getElementById('preview-pane');
     if (kind === 'plain') {
@@ -571,17 +580,20 @@
     'zh-CN': {
       'html.title': '源文件预览',
       'back': '返回', 'tab.source': '源码', 'tab.preview': '预览',
-      'raw': '原始文件 ↗', 'expand': '整页预览', 'collapse': '分栏查看'
+      'raw': '原始文件 ↗', 'expand': '整页预览', 'collapse': '分栏查看',
+      'unit.cjk': '字', 'unit.latin': '词', 'unit.lines': '行'
     },
     'zh-TW': {
       'html.title': '原始檔預覽',
       'back': '返回', 'tab.source': '原始碼', 'tab.preview': '預覽',
-      'raw': '原始檔 ↗', 'expand': '整頁預覽', 'collapse': '分欄檢視'
+      'raw': '原始檔 ↗', 'expand': '整頁預覽', 'collapse': '分欄檢視',
+      'unit.cjk': '字', 'unit.latin': '詞', 'unit.lines': '行'
     },
     'en': {
       'html.title': 'Source Viewer',
       'back': 'Back', 'tab.source': 'Source', 'tab.preview': 'Preview',
-      'raw': 'Raw file ↗', 'expand': 'Full width', 'collapse': 'Split view'
+      'raw': 'Raw file ↗', 'expand': 'Full width', 'collapse': 'Split view',
+      'unit.cjk': 'characters', 'unit.latin': 'words', 'unit.lines': 'lines'
     }
   };
   var VARIANTS = ['', 'backend', 'lead', 'ai'];
@@ -599,7 +611,9 @@
   // CVUI fires onLang once during init to paint the initial state; only a real
   // click should navigate, so the first call is swallowed.
   var booted = false;
-  CVUI.init(VIEW_DICT, {
+  // `var` hoists, so the fetch callback further up can read controller.lang:
+  // it is declared by then, and .then() only runs after init has assigned it.
+  var controller = CVUI.init(VIEW_DICT, {
     onLang: function (lang) {
       relabel(lang);
       if (!booted || lang === parsed.lang) return;
@@ -607,8 +621,59 @@
     }
   });
 
+  // 篇幅在 fetch 回来后算一次存起来，之后只重画文案 —— 切语言若和当前文件
+  // 语系一致（比如带 ?lang= 进来），页面不会重新加载，统计得能自己换单位。
+  var docStats = null;
+
+  // Marp / Slidev 用 `---` 分隔幻灯片，每张之后可以再跟一段属于该页的 YAML。
+  // 只剥文件头那一段是不够的 —— 漏掉的键名全是拉丁字母，会把词数灌到超过
+  // 汉字数，让一份中文简报被判成英文稿、单位显示成「词」。
+  function stripFrontMatter(md) {
+    var lines = md.split('\n'), out = [], i = 0, j;
+    if (lines[0] === '---') {
+      for (i = 1; i < lines.length && lines[i] !== '---'; i++);
+      i++;
+    }
+    for (; i < lines.length; i++) {
+      if (lines[i].trim() !== '---') { out.push(lines[i]); continue; }
+      // 分隔符本身丢弃；紧随其后的连续 `key:` 行是该页配置，一并丢弃。
+      // 要求紧邻，正文里的「GitHub: ...」这类行才不会被误伤。
+      for (j = i + 1; j < lines.length && /^[A-Za-z][\w-]*\s*:/.test(lines[j]); j++);
+      i = j - 1;
+    }
+    return out.join('\n');
+  }
+
+  function measure(text) {
+    var body = stripFrontMatter(text)
+      .replace(/```[\s\S]*?```/g, '')
+      // 连内容一起丢：Slidev 源稿内联了一整段 CSS，只剥 <style> 标签会把
+      // 几十行选择器和属性名当成正文词汇。
+      .replace(/<(style|script)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+      .replace(/[#*_>|`~-]/g, ' ');
+    // 中文没有空格分词，按「词」计毫无意义；哪种字符占多数就用哪种口径。
+    var cjk = (body.match(/[一-鿿]/g) || []).length;
+    var latin = (body.match(/[A-Za-z][A-Za-z0-9@.'+-]*/g) || []).length;
+    return {
+      unit: cjk >= latin ? 'unit.cjk' : 'unit.latin',
+      n: Math.max(cjk, latin),
+      lines: text.replace(/\n+$/, '').split('\n').length
+    };
+  }
+
+  function renderStats(lang) {
+    var el = document.getElementById('stats');
+    if (!docStats) { el.textContent = ''; return; }
+    var d = VIEW_DICT[lang] || VIEW_DICT['zh-CN'];
+    el.textContent = docStats.n.toLocaleString('en-US') + ' ' + d[docStats.unit] +
+                     ' · ' + docStats.lines.toLocaleString('en-US') + ' ' + d['unit.lines'];
+  }
+
   function relabel(lang) {
     var d = VIEW_DICT[lang] || VIEW_DICT['zh-CN'];
+    renderStats(lang);
     expandLabel.textContent = document.body.classList.contains('preview-only')
       ? d.collapse : d.expand;
     var seg = document.querySelector('[data-variant-group]');
