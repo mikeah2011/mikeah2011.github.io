@@ -347,7 +347,7 @@
       <a class="card" href="deck.html">
         <div class="card-head">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="1.8"/><path d="M9 20.5h6M12 16.5v4"/></svg></div>
-          <h2 data-i18n="dk.title">求职简报</h2>
+          <h2 data-i18n="dk.title">简历简报</h2>
         </div>
         <p data-i18n="dk.desc">10 页幻灯片，快速了解职业轨迹与关键项目成果。</p>
         <div class="meta mono" data-i18n="dk.meta">10 页 · 键盘 / 触摸翻页</div>
@@ -400,6 +400,27 @@
         </a>
       </div>
     </div>
+
+    <div class="file-group">
+      <div class="label mono" data-i18n="sec.variants">投递版本</div>
+      <div class="files">
+        <a class="file" data-cv-file="cvbackend" href="resume.html?v=backend">
+          <span class="fi badge-md"><svg viewBox="0 0 24 24"><text x="12" y="16.5" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif" font-size="9" font-weight="800" fill="currentColor">BE</text></svg></span>
+          <span><span class="nm" data-i18n="f.cvbackend">纯后端版</span><span class="ds mono" data-cv-file-desc>高并发 / 分布式架构侧重</span></span>
+          <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12.5 5.5 19 12l-6.5 6.5"/></svg></span>
+        </a>
+        <a class="file" data-cv-file="cvlead" href="resume.html?v=lead">
+          <span class="fi badge-marp"><svg viewBox="0 0 24 24"><text x="12" y="16.5" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif" font-size="9" font-weight="800" fill="currentColor">TL</text></svg></span>
+          <span><span class="nm" data-i18n="f.cvlead">Tech Lead 版</span><span class="ds mono" data-cv-file-desc>带队交付 / 跨团队协调侧重</span></span>
+          <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12.5 5.5 19 12l-6.5 6.5"/></svg></span>
+        </a>
+        <a class="file" data-cv-file="cvai" href="resume.html?v=ai">
+          <span class="fi badge-slidev"><svg viewBox="0 0 24 24"><text x="12" y="16.5" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif" font-size="9" font-weight="800" fill="currentColor">AI</text></svg></span>
+          <span><span class="nm" data-i18n="f.cvai">AI 工程版</span><span class="ds mono" data-cv-file-desc>Claude API / Agent 编排侧重</span></span>
+          <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12.5 5.5 19 12l-6.5 6.5"/></svg></span>
+        </a>
+      </div>
+    </div>
   </section>
 
   <footer>
@@ -428,13 +449,15 @@
       'cv.title': '完整简历',
       'cv.desc': '工作经历、核心技能、项目成果与荣誉的完整呈现。',
       'cv.meta': 'HTML · 响应式 · 支持深浅色', 'cv.cta': '开始阅读',
-      'dk.title': '求职简报',
+      'dk.title': '简历简报',
       'dk.desc': '10 页幻灯片，快速了解职业轨迹与关键项目成果。',
       'dk.meta': '10 页 · 键盘 / 触摸翻页', 'dk.cta': '开始播放',
       'f.cvpdf': '简历 PDF',
       'f.dkpdf': '简报 PDF',
       'f.pptx': '简报 PPTX',
       'f.cvmd': '简历 Markdown', 'f.dkmd': '简报 Marp 源稿', 'f.dkslidev': '简报 Slidev 源稿',
+      'sec.variants': '投递版本',
+      'f.cvbackend': '纯后端版', 'f.cvlead': 'Tech Lead 版', 'f.cvai': 'AI 工程版',
       'foot.name': '马成军 Michael Ma · 资深后端工程师',
       'aria.contact': '联系方式'
     },
@@ -453,13 +476,15 @@
       'cv.title': '完整履歷',
       'cv.desc': '工作經歷、核心技能、專案成果與榮譽的完整呈現。',
       'cv.meta': 'HTML · 響應式 · 支援深淺色', 'cv.cta': '開始閱讀',
-      'dk.title': '求職簡報',
+      'dk.title': '履歷簡報',
       'dk.desc': '10 頁投影片，快速了解職涯軌跡與關鍵專案成果。',
       'dk.meta': '10 頁 · 鍵盤 / 觸控翻頁', 'dk.cta': '開始播放',
       'f.cvpdf': '履歷 PDF',
       'f.dkpdf': '簡報 PDF',
       'f.pptx': '簡報 PPTX',
       'f.cvmd': '履歷 Markdown', 'f.dkmd': '簡報 Marp 原始稿', 'f.dkslidev': '簡報 Slidev 原始稿',
+      'sec.variants': '投遞版本',
+      'f.cvbackend': '純後端版', 'f.cvlead': 'Tech Lead 版', 'f.cvai': 'AI 工程版',
       'foot.name': '馬成軍 Michael Ma · 資深後端工程師',
       'aria.contact': '聯絡方式'
     },
@@ -485,6 +510,8 @@
       'f.dkpdf': 'Deck PDF',
       'f.pptx': 'Deck PPTX',
       'f.cvmd': 'Résumé Markdown', 'f.dkmd': 'Deck Marp Source', 'f.dkslidev': 'Deck Slidev Source',
+      'sec.variants': 'Targeted Versions',
+      'f.cvbackend': 'Backend IC', 'f.cvlead': 'Tech Lead', 'f.cvai': 'AI Engineering',
       'foot.name': 'Michael Ma · Senior Backend Engineer',
       'aria.contact': 'Contact'
     }
@@ -551,6 +578,26 @@
       'zh-CN': { href: 'src/view.html?f=deck.slidev.md', desc: 'src/deck.slidev.md' },
       'zh-TW': { href: 'src/view.html?f=deck.slidev.zh-TW.md', desc: 'src/deck.slidev.zh-TW.md' },
       'en': { href: 'src/view.html?f=deck.slidev.en.md', desc: 'src/deck.slidev.en.md' }
+    },
+    // The targeted versions open the résumé itself with its variant picker
+    // pre-set, so the reader can flip between framings from there — the href
+    // is language-independent because resume.html carries its own language
+    // toggle; only the one-line "what this version leads with" needs
+    // translating.
+    cvbackend: {
+      'zh-CN': { href: 'resume.html?v=backend', desc: '高并发 / 分布式架构侧重' },
+      'zh-TW': { href: 'resume.html?v=backend', desc: '高並發 / 分散式架構側重' },
+      'en': { href: 'resume.html?v=backend', desc: 'Leads with systems depth' }
+    },
+    cvlead: {
+      'zh-CN': { href: 'resume.html?v=lead', desc: '带队交付 / 跨团队协调侧重' },
+      'zh-TW': { href: 'resume.html?v=lead', desc: '帶隊交付 / 跨團隊協調側重' },
+      'en': { href: 'resume.html?v=lead', desc: 'Leads with team delivery' }
+    },
+    cvai: {
+      'zh-CN': { href: 'resume.html?v=ai', desc: 'Claude API / Agent 编排侧重' },
+      'zh-TW': { href: 'resume.html?v=ai', desc: 'Claude API / Agent 編排側重' },
+      'en': { href: 'resume.html?v=ai', desc: 'Leads with AI engineering' }
     }
   };
 

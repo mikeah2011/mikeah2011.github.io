@@ -31,6 +31,10 @@
  * A resource with dark/light sub-keys switches with the theme toggle (falling
  * back to the OS preference while the toggle is on "system"); a flat
  * {href, desc} resource is language-only.
+ *
+ * init() returns { lang, theme, setDict(nextDict) }. setDict swaps the whole
+ * dictionary and re-renders at the current language — for pages that serve
+ * several content variants off one set of markup.
  */
 (function (global) {
   'use strict';
@@ -62,6 +66,15 @@
   };
 
   function detectLang() {
+    // An explicit ?lang= wins over everything: it's what makes a link
+    // shareable in a specific language, and what lets the PDF export drive
+    // the page deterministically instead of depending on the browser locale.
+    // Deliberately NOT persisted — following someone's link shouldn't
+    // overwrite the visitor's own saved choice.
+    try {
+      var forced = new URLSearchParams(location.search).get('lang');
+      if (forced && LANGS.indexOf(forced) > -1) return forced;
+    } catch (e) { /* no URLSearchParams — fall through to the usual order */ }
     var saved = store.get(LANG_KEY);
     if (saved && LANGS.indexOf(saved) > -1) return saved;
     var navs = global.navigator.languages || [global.navigator.language || 'zh-CN'];
@@ -93,6 +106,11 @@
 
   CVUI.init = function (dict, options) {
     var opts = options || {};
+    // Held in a variable rather than used directly so a page can swap the
+    // whole dictionary later (see `setDict` on the returned controller) —
+    // that's what lets the résumé switch between its targeted variants
+    // without a reload, reusing the same markup and language state.
+    var activeDict = dict;
     var root = document.documentElement;
     var mount = document.querySelector('[data-cv-toolbar]');
     if (mount) buildToolbar(mount);
@@ -118,7 +136,7 @@
     }
 
     function applyLang(lang) {
-      var d = dict[lang] || dict['zh-CN'] || {};
+      var d = activeDict[lang] || activeDict['zh-CN'] || {};
       var ui = UI_STRINGS[lang] || UI_STRINGS['zh-CN'];
       current.lang = lang;
       root.setAttribute('lang', lang);
@@ -204,6 +222,14 @@
         if (current.theme === 'system') applyFiles();
       });
     }
+
+    // Swap the whole dictionary and re-render at the current language. The
+    // caller owns building the replacement, so pages with several content
+    // variants keep one pristine base and merge their own deltas over it.
+    current.setDict = function (next) {
+      activeDict = next;
+      applyLang(current.lang);
+    };
 
     applyLang(current.lang);
     applyTheme(current.theme);
