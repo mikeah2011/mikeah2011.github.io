@@ -498,20 +498,18 @@ var RESUME_MD_FILES = {
   '': langFiles(''), 'backend': langFiles('.backend'),
   'lead': langFiles('.lead'), 'ai': langFiles('.ai')
 };
-// A variant only gets an entry once its PDFs have actually been exported —
-// anything missing falls back to the general résumé rather than linking at a
-// file that would 404. `lead` and `ai` are still pending that export.
+function pdfFiles(prefix) {
+  return {
+    'zh-CN': 'downloads/简历_马成军' + prefix + '.pdf',
+    'zh-TW': 'downloads/简历_马成军' + prefix + '.zh-TW.pdf',
+    'en': 'downloads/简历_马成军' + prefix + '.en.pdf'
+  };
+}
+// Kept in step with export-resume-pdf.sh — a variant listed here must have had
+// its PDFs exported, or the button links at a 404.
 var RESUME_PDF_FILES = {
-  '': {
-    'zh-CN': 'downloads/简历_马成军.pdf',
-    'zh-TW': 'downloads/简历_马成军.zh-TW.pdf',
-    'en': 'downloads/简历_马成军.en.pdf'
-  },
-  'backend': {
-    'zh-CN': 'downloads/简历_马成军.backend.pdf',
-    'zh-TW': 'downloads/简历_马成军.backend.zh-TW.pdf',
-    'en': 'downloads/简历_马成军.backend.en.pdf'
-  }
+  '': pdfFiles(''), 'backend': pdfFiles('.backend'),
+  'lead': pdfFiles('.lead'), 'ai': pdfFiles('.ai')
 };
 function updateResumeDownloadLinks(lang) {
   var md = RESUME_MD_FILES[VARIANT] || RESUME_MD_FILES[''];
