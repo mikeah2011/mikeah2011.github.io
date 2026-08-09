@@ -22,6 +22,18 @@ const { execFileSync } = require("child_process");
 const CHECK = process.env.CHECK === "1";
 const FILE = "index.html";
 
+// 页脚「更新于」的日期：取 git 里最后一次改动简历内容或产物的提交日期。
+// 用 git 而不是文件 mtime —— clone 出来的仓库 mtime 全是 checkout 时间。
+// 回填这次改动本身会产生新提交，所以显示的日期会比"现在"晚一步；对一个
+// 精确到天的时间戳来说这个误差无所谓。
+function lastContentDate() {
+  try {
+    const d = execFileSync("git", ["log", "-1", "--format=%cs", "--", "src", "downloads", "resume.html", "deck.html"],
+      { encoding: "utf8" }).trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : null;
+  } catch (e) { return null; }
+}
+
 // Spotlight is the only page-count source available without extra tooling;
 // Chrome-printed PDFs use compressed object streams, so the count is not
 // greppable out of the raw bytes. If Spotlight has not indexed a file it
@@ -60,6 +72,18 @@ html = html.replace(
     return p1 + file + p3 + next + p5;
   }
 );
+
+const updated = lastContentDate();
+if (updated) {
+  html = html.replace(
+    /(<time class="mono" data-cv-updated datetime=")([\d-]+)("[^>]*>)([\d-]+)(<\/time>)/,
+    (all, a, oldAttr, b, oldText, c) => {
+      if (oldAttr === updated && oldText === updated) return all;
+      changes.push(["页脚更新日期", oldText, updated]);
+      return a + updated + b + updated + c;
+    }
+  );
+}
 
 missing.forEach(f => console.error("缺少文件: " + f));
 

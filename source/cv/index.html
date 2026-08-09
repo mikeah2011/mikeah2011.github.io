@@ -3,13 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex">
 <title>马成军 Michael Ma · 资深后端工程师</title>
 <meta name="description" content="马成军（Michael Ma）· 资深后端工程师 · 13 年研发经验 · 高并发交易系统与 AI 工程化">
 <meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://mikeah2011.github.io/cv/">
+<!--
+  og 标签是给爬虫看的，而爬虫不执行 JS —— 它抓到的永远是这份源码里的
+  简中内容，跟页面上的语言切换无关。所以这里不做多语言，就用简中。
+  og:image 由 ../export-og.sh 从 assets/og-cover.html 生成。
+-->
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://mikeah2011.github.io/cv/">
+<meta property="og:site_name" content="马成军 Michael Ma">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:title" content="马成军 Michael Ma · 资深后端工程师">
 <meta property="og:description" content="13 年研发经验 · 高并发交易系统 · 分布式架构 · AI 工程化">
-<meta property="og:type" content="profile">
+<meta property="og:image" content="https://mikeah2011.github.io/cv/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="马成军 Michael Ma · 资深后端工程师 · 13 年研发经验">
+<meta name="twitter:card" content="summary_large_image">
+<!--
+  只声明个人身份与技能，不写 worksFor：现任雇主在简历正文里已经写明，
+  但没必要额外做成搜索引擎可直接消费的结构化事实。
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "马成军",
+  "alternateName": "Michael Ma",
+  "jobTitle": "资深后端工程师",
+  "description": "13 年后端研发经验，专注高并发交易系统、分布式架构与 AI 工程化。",
+  "url": "https://mikeah2011.github.io/cv/",
+  "image": "https://mikeah2011.github.io/cv/assets/og-cover.png",
+  "address": { "@type": "PostalAddress", "addressLocality": "上海", "addressCountry": "CN" },
+  "knowsAbout": ["高并发交易系统", "分布式架构", "微服务", "PHP", "Go", "TypeScript", "AI 工程化", "Claude API"],
+  "sameAs": [
+    "https://github.com/mikeah2011",
+    "https://www.linkedin.com/in/michael-ma-923223116/",
+    "https://mikeah2011.github.io"
+  ]
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b6e78'/><text x='50' y='69' font-family='-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,sans-serif' font-size='58' font-weight='800' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
 <link rel="stylesheet" href="assets/cv-ui.css">
 <style>
@@ -138,10 +174,12 @@
 
   /* ── sections ───────────────────────────────────────────── */
   section { margin-top: clamp(20px, 3vw, 26px); }
+  /* 这是 <h2>：四个区块标题要进文档大纲，屏幕阅读器才跳得过去。
+     字重和外边距显式压掉 h2 的浏览器默认值，视觉上仍是一条小标签。 */
   .label {
     display: flex; align-items: center; gap: 14px;
-    font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 12px;
+    font-size: 10.5px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 12px;
   }
   .label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
@@ -169,7 +207,7 @@
      on the page already uses. */
   .card .ico { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: #e34f26; color: #fff; flex: none; }
   .card .ico svg { width: 15px; height: 15px; }
-  .card h2 { margin: 0; font-size: clamp(15px, 1.8vw, 16.5px); letter-spacing: -.012em; }
+  .card h3 { margin: 0; font-size: clamp(15px, 1.8vw, 16.5px); letter-spacing: -.012em; }
   .card p { margin: 0; color: var(--ink-2); font-size: 12.5px; }
   .card .meta { margin-top: auto; padding-top: 4px; font-size: 10.5px; color: var(--muted); letter-spacing: .04em; }
   .card .go { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 12.5px; font-weight: 650; color: var(--accent); }
@@ -331,12 +369,12 @@
   </div>
 
   <section class="rise" style="animation-delay:.2s">
-    <div class="label mono" data-i18n="sec.read">在线阅读</div>
+    <h2 class="label mono" data-i18n="sec.read">在线阅读</h2>
     <div class="bento">
       <a class="card" href="resume.html">
         <div class="card-head">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h4.5"/></svg></div>
-          <h2 data-i18n="cv.title">完整简历</h2>
+          <h3 data-i18n="cv.title">完整简历</h3>
         </div>
         <p data-i18n="cv.desc">工作经历、核心技能、项目成果与荣誉的完整呈现。</p>
         <div class="meta mono" data-i18n="cv.meta">HTML · 响应式 · 支持深浅色</div>
@@ -347,7 +385,7 @@
       <a class="card" href="deck.html">
         <div class="card-head">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="1.8"/><path d="M9 20.5h6M12 16.5v4"/></svg></div>
-          <h2 data-i18n="dk.title">简历简报</h2>
+          <h3 data-i18n="dk.title">简历简报</h3>
         </div>
         <p data-i18n="dk.desc">10 页幻灯片，快速了解职业轨迹与关键项目成果。</p>
         <div class="meta mono" data-i18n="dk.meta">10 页 · 键盘 / 触摸翻页</div>
@@ -360,7 +398,7 @@
 
   <section class="rise files-section" style="animation-delay:.25s">
     <div class="file-group">
-      <div class="label mono" data-i18n="sec.variants">投递版本</div>
+      <h2 class="label mono" data-i18n="sec.variants">投递版本</h2>
       <div class="files">
         <a class="file" data-cv-file="cvbackend" href="resume.html?v=backend">
           <span class="fi badge-md"><svg viewBox="0 0 24 24"><text x="12" y="16.5" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif" font-size="9" font-weight="800" fill="currentColor">BE</text></svg></span>
@@ -381,7 +419,7 @@
     </div>
 
     <div class="file-group">
-      <div class="label mono" data-i18n="sec.src">源文件</div>
+      <h2 class="label mono" data-i18n="sec.src">源文件</h2>
       <div class="files">
         <a class="file" data-cv-file="cvmd" href="src/view.html?f=resume.md">
           <span class="fi badge-md"><svg viewBox="0 0 24 24"><text x="12" y="16.5" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif" font-size="10" font-weight="800" fill="currentColor">M↓</text></svg></span>
@@ -402,7 +440,7 @@
     </div>
 
     <div class="file-group">
-      <div class="label mono" data-i18n="sec.dl">下载</div>
+      <h2 class="label mono" data-i18n="sec.dl">下载</h2>
       <div class="files">
         <a class="file" data-cv-file="cvpdf" href="downloads/简历_马成军.pdf" download>
           <span class="fi badge-pdf"><svg viewBox="0 0 24 24"><text x="12" y="16" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif" font-size="8.5" font-weight="800" fill="currentColor">PDF</text></svg></span>
@@ -424,7 +462,12 @@
   </section>
 
   <footer>
-    <span data-i18n="foot.name">马成军 Michael Ma · 资深后端工程师</span>
+    <span>
+      <span data-i18n="foot.name">马成军 Michael Ma · 资深后端工程师</span>
+      · <span data-i18n="foot.updated">更新于</span>
+      <!-- 由 ./sync-download-meta.sh 从 git 里最后一次改动简历内容的日期回填 -->
+      <time class="mono" data-cv-updated datetime="2026-08-09">2026-08-09</time>
+    </span>
     <span><a href="mailto:mikeah2011@gmail.com">mikeah2011@gmail.com</a> · <a href="https://mikeah2011.github.io" target="_blank" rel="noopener">mikeah2011.github.io</a></span>
   </footer>
 
@@ -448,7 +491,7 @@
       'sec.read': '在线阅读', 'sec.dl': '下载', 'sec.src': '源文件',
       'cv.title': '完整简历',
       'cv.desc': '工作经历、核心技能、项目成果与荣誉的完整呈现。',
-      'cv.meta': 'HTML · 响应式 · 支持深浅色', 'cv.cta': '开始阅读',
+      'cv.meta': '通用版 · HTML · 响应式 · 支持深浅色', 'cv.cta': '开始阅读',
       'dk.title': '简历简报',
       'dk.desc': '10 页幻灯片，快速了解职业轨迹与关键项目成果。',
       'dk.meta': '10 页 · 键盘 / 触摸翻页', 'dk.cta': '开始播放',
@@ -458,7 +501,7 @@
       'f.cvmd': '简历 Markdown', 'f.dkmd': '简报 Marp 源稿', 'f.dkslidev': '简报 Slidev 源稿',
       'sec.variants': '投递版本',
       'f.cvbackend': '纯后端版', 'f.cvlead': 'Tech Lead 版', 'f.cvai': 'AI 工程版',
-      'foot.name': '马成军 Michael Ma · 资深后端工程师',
+      'foot.name': '马成军 Michael Ma · 资深后端工程师', 'foot.updated': '更新于',
       'aria.contact': '联系方式'
     },
     'zh-TW': {
@@ -475,7 +518,7 @@
       'sec.read': '線上閱讀', 'sec.dl': '下載', 'sec.src': '原始檔',
       'cv.title': '完整履歷',
       'cv.desc': '工作經歷、核心技能、專案成果與榮譽的完整呈現。',
-      'cv.meta': 'HTML · 響應式 · 支援深淺色', 'cv.cta': '開始閱讀',
+      'cv.meta': '通用版 · HTML · 響應式 · 支援深淺色', 'cv.cta': '開始閱讀',
       'dk.title': '履歷簡報',
       'dk.desc': '10 頁投影片，快速了解職涯軌跡與關鍵專案成果。',
       'dk.meta': '10 頁 · 鍵盤 / 觸控翻頁', 'dk.cta': '開始播放',
@@ -485,7 +528,7 @@
       'f.cvmd': '履歷 Markdown', 'f.dkmd': '簡報 Marp 原始稿', 'f.dkslidev': '簡報 Slidev 原始稿',
       'sec.variants': '投遞版本',
       'f.cvbackend': '純後端版', 'f.cvlead': 'Tech Lead 版', 'f.cvai': 'AI 工程版',
-      'foot.name': '馬成軍 Michael Ma · 資深後端工程師',
+      'foot.name': '馬成軍 Michael Ma · 資深後端工程師', 'foot.updated': '更新於',
       'aria.contact': '聯絡方式'
     },
     'en': {
@@ -502,7 +545,7 @@
       'sec.read': 'Read Online', 'sec.dl': 'Downloads', 'sec.src': 'Source Files',
       'cv.title': 'Full Résumé',
       'cv.desc': 'Career history, core skills, project outcomes and recognition.',
-      'cv.meta': 'HTML · Responsive · Light & dark', 'cv.cta': 'Start reading',
+      'cv.meta': 'General version · HTML · Responsive · Light & dark', 'cv.cta': 'Start reading',
       'dk.title': 'Career Deck',
       'dk.desc': 'A 10-slide overview of career trajectory and key project outcomes.',
       'dk.meta': '10 slides · Keyboard / touch', 'dk.cta': 'Start presenting',
@@ -512,7 +555,7 @@
       'f.cvmd': 'Résumé Markdown', 'f.dkmd': 'Deck Marp Source', 'f.dkslidev': 'Deck Slidev Source',
       'sec.variants': 'Targeted Versions',
       'f.cvbackend': 'Backend IC', 'f.cvlead': 'Tech Lead', 'f.cvai': 'AI Engineering',
-      'foot.name': 'Michael Ma · Senior Backend Engineer',
+      'foot.name': 'Michael Ma · Senior Backend Engineer', 'foot.updated': 'Updated',
       'aria.contact': 'Contact'
     }
   };

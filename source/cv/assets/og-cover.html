@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>og-cover</title>
+<!--
+  社交预览图（1200×630）的源文件，由 ../export-og.sh 用 Chrome headless
+  截成 assets/og-cover.png。改完这个文件记得重跑那个脚本。
+
+  固定深色 —— 预览卡片是别人的聊天窗口里的一张图，跟不了对方的主题；
+  深色在 LINE / Slack / 微信的浅底气泡上对比度更好、也更像"一张卡"。
+  只用系统字体，避免渲染时字体没加载完就截图。
+-->
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 84px;
+    background: #0a1315;
+    background-image: radial-gradient(#203238 1.4px, transparent 1.4px);
+    background-size: 30px 30px;
+    color: #e9f1f2;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+    line-height: 1.5;
+  }
+  /* Accent wash bleeding in from the upper right, so the card does not read
+     as a flat rectangle at thumbnail size. */
+  .glow {
+    position: absolute; top: -280px; right: -220px;
+    width: 760px; height: 760px; border-radius: 50%;
+    background: radial-gradient(circle, #3fbecb26 0%, transparent 68%);
+  }
+  .rule { position: absolute; left: 0; top: 0; width: 10px; height: 100%; background: #3fbecb; }
+
+  .eyebrow {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+    font-size: 17px; letter-spacing: .34em; text-transform: uppercase; color: #7e959c;
+  }
+  h1 {
+    margin-top: 16px;
+    font-size: 92px; font-weight: 800; letter-spacing: -.03em; line-height: 1;
+  }
+  h1 small { display: block; margin-top: 12px; font-size: 30px; font-weight: 500; color: #7e959c; letter-spacing: 0; }
+  .role { margin-top: 26px; font-size: 32px; font-weight: 650; color: #3fbecb; }
+  .tagline { margin-top: 8px; font-size: 23px; color: #b2c4c9; }
+
+  .stats { display: flex; gap: 52px; margin-top: 40px; padding-top: 30px; border-top: 1px solid #203238; }
+  .stat b {
+    display: block; font-size: 34px; font-weight: 750; color: #3fbecb;
+    letter-spacing: -.02em; font-variant-numeric: tabular-nums;
+  }
+  .stat span { display: block; margin-top: 2px; font-size: 17px; color: #7e959c; }
+
+  .url {
+    position: absolute; right: 84px; bottom: 46px;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+    font-size: 19px; color: #7e959c;
+  }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="rule"></div>
+
+  <div class="eyebrow">Curriculum Vitae</div>
+  <h1>马成军<small>Michael Ma</small></h1>
+  <div class="role">资深后端工程师 · 13 年研发经验</div>
+  <div class="tagline">高并发交易系统 · 分布式架构 · AI 工程化</div>
+
+  <div class="stats">
+    <div class="stat"><b>13 年</b><span>后端研发经验</span></div>
+    <div class="stat"><b>3000+</b><span>核心仓库提交</span></div>
+    <div class="stat"><b>25s → 2s</b><span>关键 API p99 优化</span></div>
+    <div class="stat"><b>1300+</b><span>技术文章产出</span></div>
+  </div>
+
+  <div class="url">mikeah2011.github.io/cv</div>
+</body>
+</html>
