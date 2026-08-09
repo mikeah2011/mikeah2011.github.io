@@ -91,12 +91,11 @@ class: text-left
 
 <div class="eyebrow">職涯軌跡</div>
 
-# 13 年，四段進階
+# 13 年，三段進階
 
 <ul class="timeline">
   <li><span class="t">2013 – 2017</span><span><span class="co">遠豐科技集團 · 全端開發</span><span class="what">多商戶 SaaS 電商（1 萬+ 商家）· IM 系統（日訊息 200 萬+）</span></span></li>
   <li><span class="t">2017 – 2022</span><span><span class="co">商派雲起 Shopex · Lead Developer</span><span class="what">Apple 中國經銷商平台（5 個月 GMV ¥100 億）· 金番茄獎</span></span></li>
-  <li><span class="t">2022</span><span><span class="co">徑碩科技 JINGdigital · 資深後端</span><span class="what">MarTech/SCRM 微服務矩陣（10+ 服務）· 埋點追蹤主責</span></span></li>
   <li class="now"><span class="t">2022 – 至今</span><span><span class="co">KKday · 資深後端工程師</span><span class="what">聯盟行銷平台負責人 → B2C 交易鏈路 → CVR 專案組負責人</span></span></li>
 </ul>
 

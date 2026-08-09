@@ -91,12 +91,11 @@ class: text-left
 
 <div class="eyebrow">职业轨迹</div>
 
-# 13 年，四段进阶
+# 13 年，三段进阶
 
 <ul class="timeline">
   <li><span class="t">2013 – 2017</span><span><span class="co">远丰科技集团 · 全栈开发</span><span class="what">多商户 SaaS 电商（1 万+ 商家）· IM 系统（日消息 200 万+）</span></span></li>
   <li><span class="t">2017 – 2022</span><span><span class="co">商派云起 Shopex · Lead Developer</span><span class="what">Apple 中国经销商平台（5 个月 GMV ¥100 亿）· 金番茄奖</span></span></li>
-  <li><span class="t">2022</span><span><span class="co">径硕科技 JINGdigital · 资深后端</span><span class="what">MarTech/SCRM 微服务矩阵（10+ 服务）· 埋点追踪主责</span></span></li>
   <li class="now"><span class="t">2022 – 至今</span><span><span class="co">KKday · 资深后端工程师</span><span class="what">联盟营销平台负责人 → B2C 交易链路 → CVR 专项组负责人</span></span></li>
 </ul>
 

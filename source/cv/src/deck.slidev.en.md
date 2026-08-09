@@ -91,12 +91,11 @@ class: text-left
 
 <div class="eyebrow">CAREER TRAJECTORY</div>
 
-# 13 Years, Four Chapters
+# 13 Years, Three Chapters
 
 <ul class="timeline">
   <li><span class="t">2013 – 2017</span><span><span class="co">Yuanfeng Technology Group · Full-Stack</span><span class="what">Multi-merchant SaaS e-commerce (10,000+ merchants) · IM system (2M+ daily messages)</span></span></li>
   <li><span class="t">2017 – 2022</span><span><span class="co">Shopex · Lead Developer</span><span class="what">Apple China reseller platform (¥10B GMV in 5 months) · Golden Tomato Award</span></span></li>
-  <li><span class="t">2022</span><span><span class="co">JINGdigital · Senior Backend</span><span class="what">MarTech/SCRM microservice suite (10+ services) · owned event tracking</span></span></li>
   <li class="now"><span class="t">2022 – Present</span><span><span class="co">KKday · Senior Backend Engineer</span><span class="what">Affiliate platform owner → B2C transaction flow → Conversion task-force lead</span></span></li>
 </ul>
 
