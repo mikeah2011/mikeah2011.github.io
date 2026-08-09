@@ -1,7 +1,7 @@
 ---
 marp: true
 html: true
-title: "馬成軍 · 求職簡報"
+title: "馬成軍 · 履歷簡報"
 size: 16:9
 paginate: true
 theme: default
@@ -63,7 +63,7 @@ style: |
 
 <!-- _paginate: false -->
 
-<div class="eyebrow">求職簡報 · 2026</div>
+<div class="eyebrow">履歷簡報 · 2026</div>
 
 # 馬成軍 <small>Michael Ma</small>
 
@@ -88,7 +88,7 @@ style: |
       <li class="tile"><div class="v">3000+</div><div class="k">KKday 核心儲存庫提交（兩庫首要貢獻者）</div></li>
       <li class="tile"><div class="v">10+</div><div class="k">全球聯盟通路串接（Google / Naver…）</div></li>
       <li class="tile"><div class="v">25s → 2s</div><div class="k">故障搶救後關鍵 API p99</div></li>
-      <li class="tile"><div class="v">+50%</div><div class="k">CVR 提升目標（專案組組長）</div></li>
+      <li class="tile"><div class="v">+50%</div><div class="k">CVR 提升目標（專案組負責人）</div></li>
       <li class="tile"><div class="v">2 屆</div><div class="k">KKday 年度優秀員工（2023、2024）</div></li>
     </ul>
 
@@ -102,7 +102,7 @@ style: |
       <li><span class="t">2013 – 2017</span><span><span class="co">遠豐科技集團 · 全端開發</span><span class="what">多商戶 SaaS 電商（1 萬+ 商家）· IM 系統（日訊息 200 萬+）</span></span></li>
       <li><span class="t">2017 – 2022</span><span><span class="co">商派雲起 Shopex · Lead Developer</span><span class="what">Apple 中國經銷商平台（5 個月 GMV ¥100 億）· 金番茄獎</span></span></li>
       <li><span class="t">2022</span><span><span class="co">徑碩科技 JINGdigital · 資深後端</span><span class="what">MarTech/SCRM 微服務矩陣（10+ 服務）· 埋點追蹤主責</span></span></li>
-      <li class="now"><span class="t">2022 – 至今</span><span><span class="co">KKday · 資深後端工程師</span><span class="what">聯盟行銷平台負責人 → B2C 交易鏈路 → CVR 專案組組長</span></span></li>
+      <li class="now"><span class="t">2022 – 至今</span><span><span class="co">KKday · 資深後端工程師</span><span class="what">聯盟行銷平台負責人 → B2C 交易鏈路 → CVR 專案組負責人</span></span></li>
     </ul>
 
 ---
@@ -112,7 +112,7 @@ style: |
 # 聯盟行銷平台負責人
 
 <ul class="points">
-      <li>兩大核心服務<strong>首要貢獻者</strong>：affiliate-service <span>2117</span> 次提交（占 <span>56%</span>）+ affiliate-api <span>1077</span> 次，擔任 Code Owner</li>
+      <li>兩大核心服務<strong>首要貢獻者</strong>：affiliate-service（提交占比過半）與 affiliate-api，擔任 Code Owner 與 PR 把關</li>
       <li><strong>Google 官方通路</strong>：Things To Do 商品 Feeds、POI Ranking、Transit 歐鐵路線同步</li>
       <li>串接 ShopBack、美安、亞洲萬里通、Naver Shopping 等 <span>10+</span> 異業通路</li>
       <li>自研<strong>分潤結算系統</strong>：規則引擎 + 月度結算重跑 + BigQuery 歸因</li>
@@ -152,14 +152,14 @@ style: |
 
 ---
 
-<div class="eyebrow">管理與領導力</div>
+<div class="eyebrow">帶隊交付</div>
 
-# 售前 CVR 增轉專案組 · 組長
+# 售前 CVR 增轉專案組 · 負責人
 
 <ul class="points">
       <li>帶領 <strong>6 人跨端小組</strong>（iOS / Android / Web / BE），直接向 PM 負責、承擔小組共責</li>
       <li>北極星指標：<strong>CVR 1.2% → 1.8%（+50%）</strong>，等同營收結構性增長</li>
-      <li>機制建設：站立會議 · 1on1 · OKR 對齊 · 團隊章程</li>
+      <li>機制建設：站立會議 · 1on1 · OKR 對齊 · CVR 健康監控看板</li>
       <li>統籌售前鏈路：商品頁 → 購物車 → 訂購頁 全端體驗與效能優化</li>
     </ul>
 

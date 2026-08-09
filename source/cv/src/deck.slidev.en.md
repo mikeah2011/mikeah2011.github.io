@@ -110,7 +110,7 @@ class: text-left
 # Affiliate Marketing Platform Owner
 
 <ul class="points">
-  <li><strong>Top contributor</strong> on two core services: affiliate-service, <span>2,117</span> commits (<span>56%</span> of total) + affiliate-api, <span>1,077</span> commits — serving as Code Owner</li>
+  <li><strong>Top contributor</strong> and owner of two core services — affiliate-service (majority of all commits) and affiliate-api — as Code Owner and PR gatekeeper</li>
   <li><strong>Official Google integrations</strong>: Things To Do product feeds, POI ranking, Google Transit European rail sync</li>
   <li>Integrated <span>10+</span> affiliate channels including ShopBack, Market America, Asia Miles and Naver Shopping</li>
   <li>Designed the <strong>commission settlement system</strong>: rules engine + monthly re-runnable settlement + BigQuery attribution</li>
@@ -141,7 +141,7 @@ class: text-left
 
 <div class="eyebrow">RELIABILITY CASE STUDY</div>
 
-# Major Outage Response · Incident Lead
+# Major Outage Response · Primary Responder
 
 <ul class="points">
   <li><strong>Root cause</strong>: a microservice dependency exhausted the PHP-FPM worker pool, taking the app down for 15 minutes</li>
@@ -159,14 +159,14 @@ layout: default
 class: text-left
 ---
 
-<div class="eyebrow">LEADERSHIP</div>
+<div class="eyebrow">TEAM DELIVERY</div>
 
-# Lead, Pre-Purchase Conversion Task Force
+# Owner, Pre-Purchase Conversion Task Force
 
 <ul class="points">
   <li>Leading a <strong>6-person cross-platform team</strong> (iOS / Android / Web / Backend), reporting directly to the PM with shared accountability</li>
   <li>North-star metric: <strong>CVR 1.2% → 1.8% (+50%)</strong> — a structural revenue lift</li>
-  <li>Built the operating rhythm: standups · 1-on-1s · OKR alignment · a team charter</li>
+  <li>Built the operating rhythm: standups · 1-on-1s · OKR alignment · a CVR health dashboard</li>
   <li>Coordinating the full pre-purchase funnel — product page → cart → checkout — for experience and performance</li>
 </ul>
 

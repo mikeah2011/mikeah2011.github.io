@@ -4,7 +4,7 @@ background: '#0e171b'
 class: text-left
 highlighter: shiki
 lineNumbers: false
-title: 马成军 · 求职简报（Slidev 源稿）
+title: 马成军 · 简历简报（Slidev 源稿）
 css: unocss
 ---
 
@@ -52,7 +52,7 @@ css: unocss
 .slidev-layout .links .lv { color: #8aa0a8; font-size: 0.85em; }
 </style>
 
-<div class="eyebrow">求职简报 · 2026</div>
+<div class="eyebrow">简历简报 · 2026</div>
 
 # 马成军 <small>Michael Ma</small>
 
@@ -80,7 +80,7 @@ class: text-left
   <li class="tile"><div class="v">3000+</div><div class="k">KKday 核心仓库提交（两仓第一贡献人）</div></li>
   <li class="tile"><div class="v">10+</div><div class="k">全球联盟渠道串接（Google / Naver…）</div></li>
   <li class="tile"><div class="v">25s → 2s</div><div class="k">故障救火后关键 API p99</div></li>
-  <li class="tile"><div class="v">+50%</div><div class="k">CVR 提升目标（专项组组长）</div></li>
+  <li class="tile"><div class="v">+50%</div><div class="k">CVR 提升目标（专项组负责人）</div></li>
   <li class="tile"><div class="v">2 届</div><div class="k">KKday 年度优秀员工（2023、2024）</div></li>
 </ul>
 
@@ -97,7 +97,7 @@ class: text-left
   <li><span class="t">2013 – 2017</span><span><span class="co">远丰科技集团 · 全栈开发</span><span class="what">多商户 SaaS 电商（1 万+ 商家）· IM 系统（日消息 200 万+）</span></span></li>
   <li><span class="t">2017 – 2022</span><span><span class="co">商派云起 Shopex · Lead Developer</span><span class="what">Apple 中国经销商平台（5 个月 GMV ¥100 亿）· 金番茄奖</span></span></li>
   <li><span class="t">2022</span><span><span class="co">径硕科技 JINGdigital · 资深后端</span><span class="what">MarTech/SCRM 微服务矩阵（10+ 服务）· 埋点追踪主责</span></span></li>
-  <li class="now"><span class="t">2022 – 至今</span><span><span class="co">KKday · 资深后端工程师</span><span class="what">联盟营销平台负责人 → B2C 交易链路 → CVR 专项组组长</span></span></li>
+  <li class="now"><span class="t">2022 – 至今</span><span><span class="co">KKday · 资深后端工程师</span><span class="what">联盟营销平台负责人 → B2C 交易链路 → CVR 专项组负责人</span></span></li>
 </ul>
 
 ---
@@ -110,7 +110,7 @@ class: text-left
 # 联盟营销平台负责人
 
 <ul class="points">
-  <li>两大核心服务<strong>第一贡献人</strong>：affiliate-service <span>2117</span> 次提交（占 <span>56%</span>）+ affiliate-api <span>1077</span> 次，承担 Code Owner 职责</li>
+  <li>两大核心服务<strong>第一贡献人</strong>：affiliate-service（提交占比过半）与 affiliate-api，承担 Code Owner 与 PR 把关职责</li>
   <li><strong>Google 官方渠道</strong>：Things To Do 商品 Feeds、POI Ranking、Transit 欧铁路线同步</li>
   <li>串接 ShopBack、美安、亚洲万里通、Naver Shopping 等 <span>10+</span> 异业渠道</li>
   <li>自研<strong>分润结算系统</strong>：规则引擎 + 月度结算重刷 + BigQuery 归因</li>
@@ -159,14 +159,14 @@ layout: default
 class: text-left
 ---
 
-<div class="eyebrow">管理与领导力</div>
+<div class="eyebrow">带队交付</div>
 
-# 售前 CVR 增转专项组 · 组长
+# 售前 CVR 增转专项组 · 负责人
 
 <ul class="points">
   <li>带领 <strong>6 人跨端小组</strong>（iOS / Android / Web / BE），直接对 PM 负责、承担小组共责</li>
   <li>北极星指标：<strong>CVR 1.2% → 1.8%（+50%）</strong>，等同营收结构性增长</li>
-  <li>机制建设：站会 · 1on1 · OKR 对齐 · 团队章程</li>
+  <li>机制建设：站会 · 1on1 · OKR 对齐 · CVR 健康监控看板</li>
   <li>统筹售前链路：商品页 → 购物车 → 订购页 全端体验与性能优化</li>
 </ul>
 
