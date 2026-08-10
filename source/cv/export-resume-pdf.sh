@@ -75,4 +75,10 @@ done
 
 echo
 echo "done — $ok written, $failed failed"
+
+# Chrome 内嵌 PingFang 子集时会把一部分汉字的 /ToUnicode 映射指到康熙部首
+# 码位 —— 字形看不出差别，但文字抽取会坏，ATS 用中文关键词就检索不到。
+# 每次导出都得跟一道修正，否则新产出的 PDF 又是坏的。
+./fix-pdf-text.sh
+
 [ "$failed" -eq 0 ]

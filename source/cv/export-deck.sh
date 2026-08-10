@@ -65,4 +65,9 @@ done
 
 echo
 echo "done — $ok written, $failed failed"
+
+# 注意：简报 PDF 的文字抽取编码是坏的（PingFang 子集把部分汉字映射到康熙
+# 部首码位），这里刻意不修 —— 见 fix-pdf-text.sh 文件头的取舍说明。简报是
+# 人打开来看的，修它要付 70–80% 的体积代价。
+
 [ "$failed" -eq 0 ]

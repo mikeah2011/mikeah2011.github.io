@@ -69,7 +69,7 @@ HTML 页面各自内联一份 i18n 字典（`index.html`、`resume.html`、`deck
 改完内容后按这个顺序跑：
 
 ```bash
-./export-resume-pdf.sh     # 简历 PDF：4 变体 × 3 语系 = 12 份
+./export-resume-pdf.sh     # 简历 PDF：4 变体 × 3 语系 = 12 份（末尾自动跑 fix-pdf-text.sh）
 ./export-deck.sh           # 简报 PDF + PPTX：6 源稿 × 2 格式 = 12 份
 ./export-og.sh             # 社交卡片 4 张 + share/ 三个入口页
 ./sync-download-meta.sh    # 把真实页数/体积回写进 index.html 的下载描述
@@ -86,6 +86,7 @@ HTML 页面各自内联一份 i18n 字典（`index.html`、`resume.html`、`deck
 
 ```bash
 ./sync-download-meta.sh --check   # 下载描述是否与产物一致
+./fix-pdf-text.sh --check         # 简历 PDF 的文字抽取编码是否正确
 ./stats.sh                        # 各变体 × 语系的篇幅表
 ./stats.sh --check                # 有漂移时退出码非 0
 ```
@@ -102,5 +103,8 @@ HTML 页面各自内联一份 i18n 字典（`index.html`、`resume.html`、`deck
 1. 所有 PDF 相对源稿过期了很久，没人发现 → `export-*.sh`
 2. 简报的时间轴没跟上简历的改动 → `stats.sh` 的漂移告警
 3. 下载描述标着「2 页 1.0 MB」，实际是 3 页 1.1 MB → `sync-download-meta.sh`
+4. 中文简历 PDF 每份有 160–200 个字抽取成康熙部首（`马成军` → `⻢成军`），
+   字形看不出差别，ATS 用中文关键词却检索不到 → `fix-pdf-text.sh`
 
-能生成的就不手写，能检查的就别靠记性。
+能生成的就不手写，能检查的就别靠记性 —— 前三个都是「看起来没问题」拖了很久
+才发现的，第四个更甚：它连看都看不出来。
