@@ -73,6 +73,29 @@ html = html.replace(
   }
 );
 
+// The FILES object above drives the JS-rendered description, but each
+// download link also carries the same text as static markup (data-cv-file-desc)
+// so the page reads correctly before JS runs. That copy lives in a different
+// shape — no desc: key to match on — so it needs its own pass, keyed off the
+// href already sitting on the same <a>.
+html = html.replace(
+  /(data-cv-file="[a-z]+"\s+href="(downloads\/[^"]+)"[^>]*>[\s\S]*?data-cv-file-desc>)([^<]+)(<\/span>)/g,
+  (all, p1, file, desc, p4) => {
+    if (!fs.existsSync(file)) { missing.push(file); return all; }
+    let next = desc;
+
+    const pages = pageCount(file);
+    if (pages !== null) {
+      next = next.replace(/(\d+)(\s*(?:页|頁|pages|slides))/, (m, n, unit) =>
+        Number(n) === pages ? m : pages + unit);
+    }
+    next = next.replace(/[\d.]+\s*(?:KB|MB)\s*$/, humanSize(fs.statSync(file).size));
+
+    if (next !== desc) changes.push([file.replace("downloads/", "") + " (静态兜底)", desc, next]);
+    return p1 + next + p4;
+  }
+);
+
 const updated = lastContentDate();
 if (updated) {
   html = html.replace(
