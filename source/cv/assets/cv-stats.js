@@ -61,8 +61,12 @@
     return null;
   }
 
+  // 版本必须在 send 时现读，不能用加载时捕获的 params —— resume.html 的版本
+  // 切换走 history.replaceState 就地改 URL、不刷新页面，那份快照会过期。
+  // 症状是矛盾的一行：切到 lead 再点下载，detail 记着 .lead.pdf，variant 却
+  // 还是切换前的值。lang 没有这个问题（detectLang 读的是实时的 <html lang>）。
   function detectVariant() {
-    var v = params.get('v') || '';
+    var v = new URLSearchParams(location.search).get('v') || '';
     return ['', 'backend', 'lead', 'ai'].indexOf(v) > -1 ? v : '';
   }
 

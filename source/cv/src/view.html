@@ -275,6 +275,12 @@
     var p = new URLSearchParams();
     p.set('f', nextFile);
     p.set('lang', parseFile(nextFile).lang);
+    // Carry the ?to= delivery tag across. This is a programmatic jump, not an
+    // <a href>, so cv-stats.js's link rewriting can't reach it — drop it here
+    // and every page after the first file switch lands in the "untagged"
+    // bucket, looking like a stranger arriving from search.
+    var tag = qs.get('to');
+    if (tag) p.set('to', tag);
     location.href = location.pathname + '?' + p.toString();
   }
 
