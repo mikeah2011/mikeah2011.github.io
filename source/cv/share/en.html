@@ -48,6 +48,6 @@
 <body>
   <p>Taking you to the résumé…</p>
   <p><a href="../index.html?lang=en">Not redirected? Continue here</a></p>
-  <script>location.replace('../index.html?lang=en');</script>
+  <script>(function(){var t=new URLSearchParams(location.search).get('to');location.replace('../index.html?lang=en'+(t?'&to='+encodeURIComponent(t.slice(0,60)):''));})()</script>
 </body>
 </html>

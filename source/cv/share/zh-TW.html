@@ -48,6 +48,6 @@
 <body>
   <p>正在前往履歷…</p>
   <p><a href="../index.html?lang=zh-TW">如果沒有自動跳轉，請點這裡</a></p>
-  <script>location.replace('../index.html?lang=zh-TW');</script>
+  <script>(function(){var t=new URLSearchParams(location.search).get('to');location.replace('../index.html?lang=zh-TW'+(t?'&to='+encodeURIComponent(t.slice(0,60)):''));})()</script>
 </body>
 </html>

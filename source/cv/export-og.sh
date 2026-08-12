@@ -93,6 +93,11 @@ const ICON = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox
 fs.mkdirSync('share', { recursive: true });
 for (const [lang, t] of Object.entries(LANGS)) {
   const target = `../index.html?lang=${lang}`;
+  // 投递对象标记（?to=）要穿过这层跳转传下去，否则从 share/en.html?to=acme
+  // 进来的访问就丢了标记，统计里认不出是哪一家。用 JS 拼而不是写死，因为
+  // 标记是每次分享时才决定的。
+  const forward = `(function(){var t=new URLSearchParams(location.search).get('to');`
+    + `location.replace('${target}'+(t?'&to='+encodeURIComponent(t.slice(0,60)):''));})()`;
   fs.writeFileSync(`share/${lang}.html`, `<!doctype html>
 <html lang="${t.htmlLang}">
 <head>
@@ -143,7 +148,7 @@ for (const [lang, t] of Object.entries(LANGS)) {
 <body>
   <p>${t.redirecting}</p>
   <p><a href="${target}">${t.fallback}</a></p>
-  <script>location.replace('${target}');</script>
+  <script>${forward}</script>
 </body>
 </html>
 `);
