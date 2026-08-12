@@ -92,18 +92,27 @@
       })()
     });
 
-    // sendBeacon 是发即忘的，页面跳转也能送达 —— 下载点击后马上离开页面的
-    // 场景就靠它。不支持时退回 fetch + keepalive。
+    // Content-Type 必须是 text/plain，不能是 application/json。
+    //
+    // application/json 不在 CORS 安全名单里，跨源请求会先发 OPTIONS 预检 ——
+    // 而 sendBeacon 是发即忘的，处理预检很不可靠：实测即使 Worker 正确回应了
+    // 预检（204 + 完整 CORS 头），beacon 照样丢包，什么都不记录，且没有任何
+    // 报错。text/plain 在安全名单内，不触发预检，直接送达。
+    //
+    // 服务端用 request.json() 解析，不看 Content-Type，所以照样能读。
+    var BODY_TYPE = 'text/plain;charset=UTF-8';
+
+    // sendBeacon 页面跳转也能送达 —— 下载点击后马上离开页面的场景就靠它。
     try {
       if (navigator.sendBeacon &&
-          navigator.sendBeacon(ENDPOINT, new Blob([payload], { type: 'application/json' }))) {
+          navigator.sendBeacon(ENDPOINT, new Blob([payload], { type: BODY_TYPE }))) {
         return;
       }
     } catch (e) { /* 落到下面 */ }
     try {
       fetch(ENDPOINT, {
         method: 'POST', body: payload, keepalive: true, mode: 'cors',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': BODY_TYPE }
       }).catch(function () { });
     } catch (e) { /* 统计失败绝不影响页面 */ }
   }
