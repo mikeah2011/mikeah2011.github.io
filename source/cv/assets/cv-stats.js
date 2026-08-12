@@ -1,15 +1,15 @@
 /**
  * 简历站访问统计（客户端）
  *
- * ENDPOINT 为空时这个文件完全静默 —— 不发任何请求，简历站维持零外部请求。
- * 部署好 Worker 之后把地址填进来才开始上报。
+ * ENDPOINT 为空时这个文件完全静默 —— 不发任何请求。目前已配置，正在上报。
  * 部署步骤见私有仓库 jobsearch/analytics/README.md。
  */
 (function () {
   'use strict';
 
-  // 填成 'https://cv-stats.<你的子域>.workers.dev/h'
-  var ENDPOINT = '';
+  // 已部署。想临时停止上报就把这里改回空字符串 —— 整个文件会完全静默。
+  // Worker 源码与部署手册在私有仓库 jobsearch/analytics/。
+  var ENDPOINT = 'https://cv-stats.mikeah2011.workers.dev/h';
 
   // 投递对象标记的参数名。带 ?to=acme 的链接进来，后续站内跳转都会带着它，
   // 所以「从首页点进简历、再下载 PDF」会记在同一个标记下。
@@ -57,7 +57,7 @@
     if (/\/src\/view\.html$/.test(p)) return 'view';
     if (/\/resume\.html$/.test(p)) return 'resume';
     if (/\/deck\.html$/.test(p)) return 'deck';
-    if (/\/cv\/(index\.html)?$/.test(p)) return 'index';
+    if (p === BASE || p === BASE + 'index.html') return 'index';
     return null;
   }
 
