@@ -51,9 +51,11 @@
   }
 
   // ---- 当前页面的身份 ----
+  // share/ 下那三个中转页刻意不在这里，也不该加进来：它们存在的意义是给不跑 JS
+  // 的社交平台爬虫读 og 标签，不是给人停留的页面，算一次浏览会让「浏览次数」
+  // 虚高一倍。它们本来也不加载这个脚本。服务端白名单同样不含 share，两边一致。
   function detectPage() {
     var p = location.pathname;
-    if (/\/share\//.test(p)) return 'share';
     if (/\/src\/view\.html$/.test(p)) return 'view';
     if (/\/resume\.html$/.test(p)) return 'resume';
     if (/\/deck\.html$/.test(p)) return 'deck';
