@@ -47,14 +47,14 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 ## Experience
 
 ### KKday — Senior Backend Engineer
-**2022.11 – Present ｜ Shanghai, China (UTC+8)**
+**2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
 A leading global travel-experience platform operating in 50+ countries. Progressed from affiliate platform owner → B2C core backend → owner of the Pre-Purchase Conversion Task Force (currently ~80% of my time, with the remaining 20% wrapping up and handing off the B2C core flow).
 
-**1) Pre-Purchase Conversion Task Force · Owner (2026 H2 – Present)**
+**1) Pre-Purchase Conversion Task Force · Owner (2026 H2)**
 - Formed and lead a **6-person cross-platform team** (iOS/Android/Web/Backend) against a single north-star metric — conversion 1.2% → 1.8% (+50%); established standups, 1-on-1s and OKR alignment across the pre-purchase funnel (product page → cart → checkout), and built a CVR health-monitoring dashboard so results are visible and verifiable
 
-**2) B2C Core Transaction Flow (2025.02 – Present, now being handed off)**
+**2) B2C Core Transaction Flow (2025.02 – 2026.08)**
 - **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services, authoring 7 SA/SD documents. Turned scattered coupon and loyalty-point revalidation rules into an auditable decision table — approved by all four teams in a single review, securing renewal with a top-tier ticketing supplier
 - **Major outage response (as primary responder)**: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool and shipped P0+P1 hardening in 7 days (timeouts, fallbacks, a Redis circuit breaker, two-tier kill switch) — cart/validate p99 25s+ → <2s, iOS checkout white-screen eliminated, 5xx held below 0.01% since
 - **Ticketing/tour product architecture**: led package grouping, bundled products, and OpenDate calendar delegation — owning the full cycle from SA/SD through mock, API, unit tests and documentation. Established a "BFF-layer version compatibility + progressive app rollout" playbook, resolving 15+ cross-platform inconsistencies

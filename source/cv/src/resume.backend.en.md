@@ -39,14 +39,14 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 ## Experience
 
 ### KKday — Senior Backend Engineer
-**2022.11 – Present ｜ Shanghai, China (UTC+8)**
+**2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
 A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → currently focused on the technical implementation and monitoring dashboard for pre-purchase conversion (~80% of my time), while wrapping up and handing off the B2C core flow (~20%).
 
-**1) Pre-Purchase Conversion Task Force (2026 H2 – Present)**
+**1) Pre-Purchase Conversion Task Force (2026 H2)**
 - Drive end-to-end performance optimization across the pre-purchase funnel (product page → cart → checkout) against a technical target of conversion 1.2% → 1.8% (+50%); built a CVR health-monitoring dashboard that quantifies the real impact of each optimization
 
-**2) B2C Core Transaction Flow (2025.02 – Present, now being handed off)**
+**2) B2C Core Transaction Flow (2025.02 – 2026.08)**
 - **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services (B2C/Order/MKT/Member), authoring 7 SA/SD documents. Introduced an "entitlements inherit, conditions re-evaluate" principle that turned scattered coupon and loyalty-point revalidation rules into an auditable decision table; rebuilt the price calculator and order state machine, securing renewal with a top-tier ticketing supplier
 - **Major outage response**: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool and shipped P0+P1 hardening in 7 days (timeout tuning, exception fallbacks, a lightweight Redis circuit breaker, two-tier feature flag / kill switch) — cart/validate API p99 from 25s+ to <2s, iOS checkout white-screen eliminated, 5xx held below 0.01% for many weeks since
 - **Ticketing/tour product architecture**: led package grouping, bundled products and OpenDate calendar delegation — owning the full cycle from SA/SD through mock, API, unit tests and documentation. Established a "BFF-layer version compatibility + progressive app rollout" playbook and resolved 15+ cross-platform inconsistencies

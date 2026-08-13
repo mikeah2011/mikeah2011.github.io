@@ -47,14 +47,14 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 ## Experience
 
 ### KKday — Senior Backend Engineer
-**2022.11 – Present ｜ Shanghai, China (UTC+8)**
+**2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
 A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → currently also owner of the Pre-Purchase Conversion Task Force (~80% of my time, with the remaining 20% wrapping up and handing off the B2C core flow while mentoring the team taking it over).
 
-**1) Pre-Purchase Conversion Task Force · Owner (2026 H2 – Present)**
+**1) Pre-Purchase Conversion Task Force · Owner (2026 H2)**
 - Formed and lead a **6-person cross-platform team** (iOS / Android / Web / Backend) against a single north-star metric — conversion 1.2% → 1.8% (+50%) — reporting directly to the PM; established standups, 1-on-1s and OKR alignment, coordinating end-to-end experience and performance work across the pre-purchase funnel (product page → cart → checkout), and built a CVR health-monitoring dashboard so results are visible and verifiable
 
-**2) B2C Core Transaction Flow (2025.02 – Present, now being handed off)**
+**2) B2C Core Transaction Flow (2025.02 – 2026.08)**
 - **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services, authoring 7 SA/SD documents. Turned scattered coupon and loyalty-point revalidation rules into an auditable decision table — approved by all four teams in a single review; rebuilt the price calculator and order state machine, securing renewal with a top-tier ticketing supplier
 - **Major outage response (as primary responder)**: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool and shipped P0+P1 hardening in 7 days — cart/validate API p99 from 25s+ to <2s, iOS checkout white-screen eliminated, 5xx held below 0.01% for many weeks since
 - **Ticketing/tour product architecture**: led package grouping, bundled products and OpenDate calendar delegation; established a "BFF-layer version compatibility + progressive app rollout" playbook and resolved 15+ cross-platform inconsistencies

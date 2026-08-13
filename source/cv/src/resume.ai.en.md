@@ -48,14 +48,14 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 ## Experience
 
 ### KKday — Senior Backend Engineer
-**2022.11 – Present ｜ Shanghai, China (UTC+8)**
+**2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
 A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → currently also owner of the Pre-Purchase Conversion Task Force. Maestro and VM Health Center were both self-initiated projects.
 
-**1) Pre-Purchase Conversion Task Force · Owner (2026 H2 – Present)**
+**1) Pre-Purchase Conversion Task Force · Owner (2026 H2)**
 - Formed and lead a 6-person cross-platform team against a single north-star metric — conversion 1.2% → 1.8% (+50%); built a CVR health-monitoring dashboard so results are visible and verifiable
 
-**2) B2C Core Transaction Flow (2025.02 – Present, now being handed off)**
+**2) B2C Core Transaction Flow (2025.02 – 2026.08)**
 - **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services (B2C/Order/MKT/Member), authoring 7 SA/SD documents; introduced an "entitlements inherit, conditions re-evaluate" principle that turned scattered coupon and loyalty-point revalidation rules into an auditable decision table
 - **Major outage response (as primary responder)**: traced the root cause to a microservice dependency exhausting the PHP-FPM worker pool and shipped P0+P1 hardening in 7 days — cart/validate API p99 from 25s+ to <2s, 5xx held below 0.01% for many weeks since
 - **Ticketing/tour product architecture**: established a "BFF-layer version compatibility + progressive app rollout" playbook and resolved 15+ cross-platform inconsistencies
