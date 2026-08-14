@@ -85,6 +85,7 @@ Hexo 会把 `scripts/` 下的每个文件当插件自动 require，所以这里�
 | `postinstall-patch-aurora.js` | `postinstall` | 给 Aurora 主题打 10 处补丁 |
 | `patch-categories-chunk.js` | `build` 之后 | 生成分类页（图标 / 描述 / 计数 / 折叠） |
 | `sitemap-cv.js` | Hexo 插件（`after_generate`） | 把 `/cv/` 补进两份 sitemap |
+| `seo-per-page-meta.js` | Hexo 插件（`after_generate`，优先级 15） | 给每页写入独立的 title / description / canonical / og |
 | `sitemap-page-paths.js` | Hexo 插件（`after_generate`，优先级 20） | 核对 sitemap 每条 URL 是否真的有产物 |
 | `restore-hexo-generators.js` | Hexo 插件（`before_generate`） | 补回被 Aurora 删掉的 tag / category generator |
 
@@ -109,6 +110,13 @@ Aurora 把自定义页发布在 `/page/` 下，两边对不上；`source/` 里�
 自定义页的发布位置有个例外：front-matter 写 `type: about` 的页面发布到站点根
 目录，其余落在 `/page/` 下。`source/about/` 下两个页面都用了这个 —— 导航栏的
 「About」写死指向 `/about`，`about/resume.md` 又是专门用来接旧链接的。
+
+`seo-per-page-meta.js` 补的是 SPA 外壳的固有缺陷：所有路由共用同一个静态
+`layout/index.ejs`，里面的 meta 是写死的站点级默认值，所以全站 8000+ 个 HTML
+原本只有两种 canonical、两种 og:title —— 1317 篇文章统统把 canonical 指向首页，
+等于告诉搜索引擎它们都是首页的副本。外壳里也完全没有 `<title>`（标题由 Vue 在
+客户端设），不执行 JS 的抓取器看到的是无标题页面。脚本在 `after_generate` 阶段
+按路由回填，canonical 一律自指。
 
 ## 文章质量校验
 
