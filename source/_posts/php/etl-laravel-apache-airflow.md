@@ -9,13 +9,11 @@ tags:
 - airflow
 - 数据管道
 categories:
-  - php
 - php
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
-
-
+---
 
 在很多团队里，Laravel 负责业务系统，Airflow 负责调度平台，MySQL、Redis、对象存储和分析库负责承接数据，大家各自都能跑，但真正一到“日报、对账、埋点回流、用户标签、订单宽表、跨系统同步”这些场景时，问题就会迅速暴露：任务散落在 crontab、Laravel Scheduler、队列 Worker、SQL 脚本和临时 Python 文件中，失败没人看见，重跑没有边界，口径不统一，数据晚到时全链路一起乱。
 
