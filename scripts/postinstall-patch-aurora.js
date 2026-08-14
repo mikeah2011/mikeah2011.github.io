@@ -220,25 +220,34 @@ if (fs.existsSync(themeJsDir)) {
   }
 }
 
-// Patch 10: Cache-bust JS bundle in HTML template to bypass CDN/browser cache
+// Patch 10: 撤销给主 bundle 加 ?v= 查询串的做法 —— 它会让整个 SPA 白屏。
+//
+// 原先这里往 layout 的入口 script 上加 ?v=Date.now() 来绕开 CDN 缓存。但主
+// bundle 是 ES module，而另外 14 个 chunk 里都写着裸的相对导入：
+//
+//     from"./120aa8f8.js"
+//
+// ES module 以 URL 作为身份标识，带不带查询串算两个不同模块。于是浏览器会把
+// 主 bundle 加载并执行两遍 —— 入口一份（带 ?v=），懒加载 chunk 再引一份（不带）。
+// 两个 Vue/router 实例互相拆台，报 nextSibling / className 读到 null，#app 被
+// 清空。首页不走懒加载 chunk 所以幸存，文章页必崩 —— 1317 篇全部打不开，而
+// 构建和 HTTP 状态码全是正常的。
+//
+// 这个 cache-bust 本来就是多余的：120aa8f8.js 是 Vite 按内容哈希生成的文件名，
+// 内容变了文件名就变，这本身就是 cache-busting。加查询串只会让每次构建的产物
+// 都被当成新资源，反而彻底废掉浏览器缓存。
+//
+// 保留这段而不是直接删掉，是因为已经打过旧补丁的 node_modules 里 layout 仍带着
+// ?v=，需要把它擦掉；全新 npm ci 的情况下这里是 no-op。
+// 注意 Patch 9 的 statistic.json?v= 不受影响 —— 那是 fetch 一个 JSON，不是 ES
+// module，不存在模块重复实例化的问题。
 if (fs.existsSync(layoutFile)) {
-  let content = fs.readFileSync(layoutFile, 'utf8');
-  const buildTs = Date.now();
-  // Add ?v=timestamp to the main JS bundle src
-  if (content.includes('src="/static/js/120aa8f8.js"') && !content.includes('120aa8f8.js?v=')) {
-    content = content.replace(
-      'src="/static/js/120aa8f8.js"',
-      'src="/static/js/120aa8f8.js?v=' + buildTs + '"'
-    );
-    fs.writeFileSync(layoutFile, content, 'utf8');
-    console.log('Patched: cache-bust JS bundle in HTML (v=' + buildTs + ')');
-  } else if (content.includes('120aa8f8.js?v=')) {
-    // Update the timestamp
-    content = content.replace(/120aa8f8\.js\?v=\d+/, '120aa8f8.js?v=' + buildTs);
-    fs.writeFileSync(layoutFile, content, 'utf8');
-    console.log('Patched: updated JS cache-bust timestamp (v=' + buildTs + ')');
+  const content = fs.readFileSync(layoutFile, 'utf8');
+  if (/120aa8f8\.js\?v=\d+/.test(content)) {
+    fs.writeFileSync(layoutFile, content.replace(/(120aa8f8\.js)\?v=\d+/g, '$1'), 'utf8');
+    console.log('Patched: removed JS bundle cache-bust query (双实例白屏的根因)');
   } else {
-    console.log('Skip Patch 10: JS bundle reference not found');
+    console.log('Skip Patch 10: JS bundle cache-bust query not present');
   }
 }
 
