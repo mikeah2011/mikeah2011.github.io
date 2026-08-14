@@ -19,7 +19,7 @@ type: about
 
 - **框架**：[Hexo](https://hexo.io) + [Aurora 主题](https://aurora.tridiamond.tech)
 - **托管**：GitHub Pages，每次 push 自动构建部署
-- **搜索**：[Pagefind](https://pagefind.app) 静态全文搜索，无后端
+- **搜索**：Aurora 内置的静态索引，构建时生成，按标题 / 标签 / 分类匹配，无后端
 - **源码**：[github.com/mikeah2011/mikeah2011.github.io](https://github.com/mikeah2011/mikeah2011.github.io)
 
 ---
@@ -27,7 +27,9 @@ type: about
 ## 联系方式
 
 - **GitHub**：[@mikeah2011](https://github.com/mikeah2011)
-- **Email**：欢迎在文章下评论，或通过 GitHub 联系
+- **Email**：[mikeah2011@gmail.com](mailto:mikeah2011@gmail.com)
+
+> 评论功能目前关闭中。有想法或发现错误，走上面两个渠道都能找到我。
 
 ---
 

@@ -14,10 +14,7 @@ description: 朋友们的博客与值得收藏的技术站点。
 - 站点能正常访问，加载 < 5s，无大量广告
 - 双向友链（你也加上我）
 
-发起方式（任选其一）：
-
-1. 在本页 **评论区** 留下你的站点信息（推荐）
-2. 通过 GitHub Issue: <https://github.com/mikeah2011/mikeah2011.github.io/issues>
+发起方式：开一个 GitHub Issue —— <https://github.com/mikeah2011/mikeah2011.github.io/issues>
 
 请按以下格式提供：
 
