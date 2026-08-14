@@ -91,8 +91,18 @@ Hexo 会把 `scripts/` 下的每个文件当插件自动 require，所以这里�
 
 补丁全部打在 `node_modules/` 里，不改上游仓库，重装依赖会自动重打。修的都是
 Aurora 上游的实际问题：`/categories` 404、slug 里的 `%2F` 编码、SiteGenerator
-提前 return 导致构建崩、`baidusitemap` 的双斜杠、`lang="en"` 写死、以及把
-`search.json` 从 46MB 截到 ~2MB。改动点和原因都在脚本注释里。
+提前 return 导致构建崩、`baidusitemap` 的双斜杠、`lang="en"` 写死。改动点和原因
+都在脚本注释里。
+
+其中两条值得单独知道：
+
+- **Patch 10 是反向操作** —— 撤掉给主 bundle 加 `?v=` 的做法。那个查询串会让
+  ES module 被加载两遍（另外 14 个 chunk 里是裸的 `from"./120aa8f8.js"`），两个
+  Vue 实例互相拆台，全站文章白屏。文件名本身就是内容哈希，不需要再 cache-bust。
+- **Patch 5 决定搜索索引装什么** —— 现在是「标题 + 标签 + 分类」，不含正文，
+  `search.json` 683 KB。这个索引每次页面加载都会被无条件拉取，所以体积直接
+  计入每次访问的成本。注意不能把 `content` 置空：主题的 `search()` 在
+  `content` 为空时直接判定不匹配，置空等于让搜索永远返回零结果。
 
 `sitemap-cv.js` 单独存在是因为两个 sitemap 生成器都会主动丢掉 `skip_render`
 的页面 —— 简历站正好是 `skip_render` 的，只能事后往路由里补。

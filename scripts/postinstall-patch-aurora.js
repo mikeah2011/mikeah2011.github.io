@@ -148,18 +148,42 @@ if (fs.existsSync(baiduSitemapFile)) {
   }
 }
 
-// Patch 5: Truncate search content to reduce search.json size (46MB → ~2MB)
+// Patch 5: 搜索索引的 content 换成「标题 + 标签 + 分类」，不再塞正文。
+//
+// 原先是把 post.content 截到 500 字符，为的是把 search.json 从 46MB 压到 ~2MB。
+// 但这个索引是每次页面加载都无条件 XHR 拉取的（挂在搜索弹窗组件的 onMounted 上，
+// 弹窗随布局常驻），实测 1855 KB 里 79.7% 就是这段正文。而文章平均 43000 字，
+// 500 字符只覆盖 1.2% —— 花掉页面近半的重量，换来的「正文搜索」其实很有限。
+//
+// 注意不能直接置空。主题的 search() 是这么写的：
+//
+//     if (l !== "" ? terms.forEach(...) : C = !1, C) { push(结果) }
+//
+// l 是 content 的小写，为空时直接 C = false，该条目永远不会进结果 —— 置空等于让
+// 搜索对任何关键词都返回零结果。所以这里换成一段紧凑但保证非空的可搜文本，
+// 末尾的 'Untitled' 兜底与主题内部对无标题文章的处理一致。
+//
+// 顺带修掉一个既有缺陷：索引里有 tags_index / categories_index 两个字段，但
+// search() 从来不读，标签和分类一直搜不到。并进 content 之后就能搜了。
 const searchMapperFile = path.join(ROOT, 'node_modules/hexo-plugin-aurora/lib/helpers/mapper.js');
 if (fs.existsSync(searchMapperFile)) {
-  let content = fs.readFileSync(searchMapperFile, 'utf8');
-  const searchNeedle = 'content: filterHTMLCharacters(post.content),';
-  const searchReplace = 'content: filterHTMLCharacters(post.content).slice(0, 500),';
-  if (content.includes(searchNeedle)) {
-    content = content.replace(searchNeedle, searchReplace);
-    fs.writeFileSync(searchMapperFile, content, 'utf8');
-    console.log('Patched: truncated search content to 500 chars');
-  } else if (content.includes(searchReplace)) {
+  const src = fs.readFileSync(searchMapperFile, 'utf8');
+  const patched =
+    "content: (filterHTMLCharacters([post.title, post.tags.reduce(flattenMapper, ''), " +
+    "post.categories.reduce(flattenMapper, '')].join(' ').replace(/,/g, ' ')) || '').trim() || 'Untitled',";
+  // 上游原样 / 旧补丁截断版，两种都要能迁移过来
+  const known = [
+    'content: filterHTMLCharacters(post.content),',
+    'content: filterHTMLCharacters(post.content).slice(0, 500),'
+  ];
+  const hit = known.find((n) => src.includes(n));
+  if (src.includes(patched)) {
     console.log('Skip Patch 5: already patched');
+  } else if (hit) {
+    fs.writeFileSync(searchMapperFile, src.replace(hit, patched), 'utf8');
+    console.log('Patched: search index content → 标题+标签+分类（不再包含正文）');
+  } else {
+    console.log('Skip Patch 5: search mapper content field not in a known shape');
   }
 }
 
