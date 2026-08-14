@@ -198,16 +198,28 @@ site_meta:
 #! @docs https://aurora.tridiamond.tech/guide/plugins.html
 #! ---------------------------------------------------------------
 
-# For local development only!
+# 已停用。Gitalk 的设计要求把 GitHub OAuth App 的 clientSecret 发到浏览器才能
+# 换 token，也就是说这个凭据必然是公开的 —— 不是配置写错，是方案本身的缺陷。
+#
+# 而且 Aurora 的 SiteGenerator 会把整份主题配置原样写进 api/site.json（只删掉
+# deploy 和 server 两项），所以这里填什么都会被发布到线上，enable 设成 false
+# 也拦不住。凭据值必须留空，不能只靠开关。
+#
+# 原来那对 clientID / clientSecret 自 2022-10-07 起就在 public 仓库的 git 历史
+# 里，并且一直挂在 https://mikeah2011.github.io/api/site.json 上。清掉配置只能
+# 止住继续发布，历史里的救不回来 —— 那个 OAuth App 必须去 GitHub 后台吊销。
+#
+# 后续要恢复评论的话用 Giscus：它走 GitHub Discussions，全程不需要 client
+# secret 落到前端。
 gitalk:
-  enable: true
+  enable: false
   autoExpand: true
-  clientID: '62b38a1ff79157b21444'
-  clientSecret: '160b9c9071799bf3ceb745e60ee11f75ee3aa3e6'
+  clientID: ''
+  clientSecret: ''
   repo: 'comments'
   owner: 'mikeah2011'
   admin: [ 'mikeah2011' ]
-  id: '8CbS6eMpvpz2K2dcjDpTA5'
+  id: ''
   language: zh-CN
   distractionFreeMode: true
   recentComment: true
