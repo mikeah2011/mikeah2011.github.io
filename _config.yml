@@ -191,22 +191,36 @@ nofollow:
     - mikeah2011.github.io
     - github.com/mikeah2011
 
-# 压缩（hexo-yam: HTML/CSS/JS）
-neat_enable: true
-neat_html:
+# 压缩（hexo-yam）
+# 注意：配置根键是 minify，不是 neat_*。neat_* 是 hexo-yam v4 及更早的键名，
+# v9 完全不读，写了也只是让所有项跑默认值。
+minify:
   enable: true
-  exclude:
-neat_css:
-  enable: true
-  exclude:
-    - '*.min.css'
-neat_js:
-  enable: true
-  mangle: true
-  output:
-  compress:
-  exclude:
-    - '*.min.js'
+  html:
+    enable: true
+    exclude:
+  css:
+    enable: true
+    exclude:
+      - '*.min.css'
+  js:
+    enable: true
+    mangle: true
+    exclude:
+      - '*.min.js'
+  # 预压缩产物一律不生成。GitHub Pages 前面的 Fastly 自己做实时压缩，
+  # 不会对静态文件做 .gz/.br 的内容协商 —— 生成出来只是躺在那儿当裸文件，
+  # 却要为全站 200MB 的 api/*.json 各跑一遍 gzip level 9 和 brotli quality 11
+  # （两者都是 hexo-yam 的默认最高档）。关掉后干净构建 160s -> 110s，产物
+  # 24689 -> 8527 个文件。峰值内存只降约 10%（3.27 -> 2.94 GB）—— 内存大头在
+  # 堆外的文件 I/O Buffer，不在压缩这里。
+  # 若将来换到自建 Nginx / Cloudflare 并开启 pre-compressed 静态服务，再打开。
+  gzip:
+    enable: false
+  brotli:
+    enable: false
+  zstd:
+    enable: false
 
 # 禁用 swig 标签处理（避免 GitHub Actions 语法被误识别）
 swig:

@@ -85,6 +85,7 @@ Hexo 会把 `scripts/` 下的每个文件当插件自动 require，所以这里�
 | `postinstall-patch-aurora.js` | `postinstall` | 给 Aurora 主题打 10 处补丁 |
 | `patch-categories-chunk.js` | `build` 之后 | 生成分类页（图标 / 描述 / 计数 / 折叠） |
 | `sitemap-cv.js` | Hexo 插件 | 把 `/cv/` 补进两份 sitemap |
+| `restore-hexo-generators.js` | Hexo 插件（`before_generate`） | 补回被 Aurora 删掉的 tag / category generator |
 
 补丁全部打在 `node_modules/` 里，不改上游仓库，重装依赖会自动重打。修的都是
 Aurora 上游的实际问题：`/categories` 404、slug 里的 `%2F` 编码、SiteGenerator
@@ -93,6 +94,11 @@ Aurora 上游的实际问题：`/categories` 404、slug 里的 `%2F` 编码、Si
 
 `sitemap-cv.js` 单独存在是因为两个 sitemap 生成器都会主动丢掉 `skip_render`
 的页面 —— 简历站正好是 `skip_render` 的，只能事后往路由里补。
+
+`restore-hexo-generators.js` 修的是一个竞态：Aurora 会 `delete` 掉 Hexo 的
+`tag` / `category` generator（它假定这些路由由 SPA 前端渲染），而 `package.json`
+里又装着这两个 generator 包，谁先执行取决于插件加载顺序，构建之间并不稳定。
+结果是 `/tags/<tag>/` 时有时无，退出码始终为 0。脚本注释里有四次构建的实测数据。
 
 ## 文章质量校验
 
@@ -109,8 +115,17 @@ Aurora 上游的实际问题：`/categories` 404、slug 里的 `%2F` 编码、Si
 ## SEO 与产物
 
 `sitemap.xml` / `baidusitemap.xml` / `atom.xml` / `rss.xml` / `robots.txt` 全部构建时生成；
-`hexo-yam` 压缩 HTML/CSS/JS 并产出 `.gz` 与 `.br`；`hexo-filter-nofollow` 给站外链接
-加 `nofollow`（本站与个人 GitHub 除外）。
+`hexo-yam` 负责 HTML/CSS/JS 的 minify；`hexo-filter-nofollow` 给站外链接加 `nofollow`
+（本站与个人 GitHub 除外）。
+
+预压缩（`.gz` / `.br`）**刻意关闭**。GitHub Pages 前面的 Fastly 自己做实时压缩，
+不会对静态文件做预压缩内容协商 —— 生成出来只会当裸文件躺着，却要为全站 200MB 的
+`api/*.json` 各跑一遍 gzip level 9 和 brotli quality 11。关掉之后构建从 160s 降到
+110s，产物从 24689 个文件降到 8527 个。换到自建 Nginx / Cloudflare 再打开。
+
+一次干净构建的开销：**约 110 秒、峰值内存 3～4 GB**。内存主要在堆外（文件 I/O 的
+Buffer），所以 `--max-old-space-size` 压不下去 —— 调小只会让 V8 更早 OOM。2GB 内存
+的机器跑不动，CI 用的 GitHub 托管 runner（16GB）没问题。
 
 ## 版权
 
