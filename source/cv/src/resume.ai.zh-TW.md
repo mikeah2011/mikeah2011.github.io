@@ -38,7 +38,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 領英: [link
 | 領域 | 技能 |
 |------|------|
 | AI 工程 | Claude API / Copilot SDK 應用開發、多 AI Agent 編排與收斂、Prompt 設計與成本控制、AI 輔助研發流程建置 |
-| 語言與框架 | TypeScript / Node.js、PHP（精通，8 年+）、Go、Python（可讀）；Laravel / Hyperf、Gin / go-zero、Vue |
+| 語言與框架 | TypeScript / Node.js、PHP（精通，8 年+）、Go（基礎）、Python（可讀）；Laravel / Hyperf、Vue |
 | 資料與中介軟體 | Elasticsearch、Google BigQuery、MySQL、PostgreSQL、Redis、RabbitMQ、Kafka |
 | 雲原生與維運 | Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana |
 | 架構與業務 | 微服務與 BFF 分層、事件驅動架構、Redis 熔斷器；聯盟分潤結算、訂單交易鏈路、動態定價 |

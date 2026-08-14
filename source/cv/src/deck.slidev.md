@@ -194,8 +194,8 @@ class: text-left
 # 核心技能
 
 <dl class="skills">
-  <dt>语言</dt><dd>PHP（精通，8 年+）、TypeScript / Node.js、Go、Shell</dd>
-  <dt>框架</dt><dd>Laravel / Hyperf / ThinkPHP、Gin / go-zero、Vue</dd>
+  <dt>语言</dt><dd>PHP（精通，8 年+）、TypeScript / Node.js、Go（基础）、Shell</dd>
+  <dt>框架</dt><dd>Laravel / Hyperf / ThinkPHP、Vue</dd>
   <dt>数据 & 中间件</dt><dd>MySQL、PostgreSQL、Redis、Elasticsearch、BigQuery、RabbitMQ、Kafka</dd>
   <dt>云原生</dt><dd>Docker、Kubernetes、AWS / GCP Serverless、GitHub Actions、Grafana</dd>
   <dt>架构</dt><dd>微服务、BFF、事件驱动、熔断限流与高可用设计</dd>

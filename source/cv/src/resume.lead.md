@@ -39,7 +39,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 领英: [link
 | 架构与业务 | 微服务与 BFF 分层、RabbitMQ 事件驱动、Redis 熔断器与双层 Kill Switch、多级缓存与 Cache Key 治理；联盟分润结算、订单交易链路、动态定价 |
 | 团队协作机制 | 跨职能对齐（多团队/多服务）、OKR 与站会/1on1 机制、决策文档化（SA/SD）、效果可视化看板 |
 | AI 工程 | Claude API / Copilot SDK 应用开发、多 AI Agent 编排与收敛、AI 辅助研发流程建设 |
-| 语言与框架 | PHP（精通，8 年+）、TypeScript / Node.js、Go、Python（可读）；Laravel / Hyperf、Gin / go-zero、Vue |
+| 语言与框架 | PHP（精通，8 年+）、TypeScript / Node.js、Go（基础）、Python（可读）；Laravel / Hyperf、Vue |
 | 数据与云原生 | MySQL、PostgreSQL、Redis、Elasticsearch、BigQuery、RabbitMQ、Kafka；Docker、Kubernetes、GitHub Actions |
 
 ---

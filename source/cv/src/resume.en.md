@@ -37,7 +37,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 | Domain | Skill |
 |------|------|
 | AI Engineering | Claude API / Copilot SDK application development, multi-agent orchestration and convergence, AI-assisted engineering process design |
-| Languages & Frameworks | PHP (expert, 8+ yrs), TypeScript / Node.js, Go, Python (reading proficiency); Laravel / Hyperf, Gin / go-zero, Vue |
+| Languages & Frameworks | PHP (expert, 8+ yrs), TypeScript / Node.js, Go (basic), Python (reading proficiency); Laravel / Hyperf, Vue |
 | Data & Messaging | MySQL, PostgreSQL, Redis, Elasticsearch, Google BigQuery, RabbitMQ, Kafka |
 | Cloud & DevOps | Docker, Kubernetes, AWS Lambda / GCP Cloud Run, GitHub Actions, Prometheus / Grafana / Kibana |
 | Architecture & Domain | Microservices and BFF layering, RabbitMQ event-driven pipelines, Redis circuit breakers with two-tier kill switches, multi-tier caching and cache-key governance; commission settlement, order transaction flows, dynamic pricing |
