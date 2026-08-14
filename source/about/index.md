@@ -2,6 +2,9 @@
 title: 关于
 date: 2025-05-01
 layout: page
+# Aurora 的 page generator 只把 type 为 about 的页面发布到站点根目录，其余自定义
+# 页一律落在 /page/ 下。主题导航栏的「About」写死指向 /about，缺了这行就会 404。
+type: about
 ---
 
 ## 你好，我是 Michael 👋

@@ -84,7 +84,8 @@ Hexo 会把 `scripts/` 下的每个文件当插件自动 require，所以这里�
 |------|------|--------|
 | `postinstall-patch-aurora.js` | `postinstall` | 给 Aurora 主题打 10 处补丁 |
 | `patch-categories-chunk.js` | `build` 之后 | 生成分类页（图标 / 描述 / 计数 / 折叠） |
-| `sitemap-cv.js` | Hexo 插件 | 把 `/cv/` 补进两份 sitemap |
+| `sitemap-cv.js` | Hexo 插件（`after_generate`） | 把 `/cv/` 补进两份 sitemap |
+| `sitemap-page-paths.js` | Hexo 插件（`after_generate`，优先级 20） | 核对 sitemap 每条 URL 是否真的有产物 |
 | `restore-hexo-generators.js` | Hexo 插件（`before_generate`） | 补回被 Aurora 删掉的 tag / category generator |
 
 补丁全部打在 `node_modules/` 里，不改上游仓库，重装依赖会自动重打。修的都是
@@ -99,6 +100,15 @@ Aurora 上游的实际问题：`/categories` 404、slug 里的 `%2F` 编码、Si
 `tag` / `category` generator（它假定这些路由由 SPA 前端渲染），而 `package.json`
 里又装着这两个 generator 包，谁先执行取决于插件加载顺序，构建之间并不稳定。
 结果是 `/tags/<tag>/` 时有时无，退出码始终为 0。脚本注释里有四次构建的实测数据。
+
+`sitemap-page-paths.js` 是这类问题的安全网。sitemap 生成器写的是源码路径，而
+Aurora 把自定义页发布在 `/page/` 下，两边对不上；`source/` 里的静态资源也会被
+当成页面收进去。它逐条核对 `<loc>` 有没有对应产物，能改写的改写、不能的剔除并
+告警 —— 上面那个竞态之所以拖了很久，就是因为没人核对过 sitemap 和产物。
+
+自定义页的发布位置有个例外：front-matter 写 `type: about` 的页面发布到站点根
+目录，其余落在 `/page/` 下。`source/about/` 下两个页面都用了这个 —— 导航栏的
+「About」写死指向 `/about`，`about/resume.md` 又是专门用来接旧链接的。
 
 ## 文章质量校验
 

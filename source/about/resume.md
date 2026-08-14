@@ -3,6 +3,9 @@ title: Resume
 date: 2025-05-01
 updated: 2026-08-07
 layout: page
+# 同 about/index.md：这页存在的意义就是接住指向 /about/resume.html 的旧链接，
+# 落在 /page/ 下就接不到了。type 在 Aurora 里只影响发布路径，不参与渲染。
+type: about
 ---
 
 ## 简历已迁移
