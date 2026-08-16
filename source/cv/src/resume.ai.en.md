@@ -11,7 +11,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 
 13 years of high-concurrency backend engineering, with the past year extended into **AI engineering** — where the first things I built were a convergence layer and cost controls, not another generator. Having maintained core transaction systems for years and led incident response on a large-scale outage, I know exactly what unreliable output costs once it reaches production. That's the first principle I bring to AI engineering.
 
-**Review ~50%↓** — Maestro converging 4 AI review bots, 300+ PRs  
+**False positives ~70%↓** — Maestro converging 4 AI review bots, 300+ PRs  
 **20+** — Daily users of self-built AI platforms across 7 teams  
 **40%↓** — Incident triage time via VM Health Center  
 **13 yrs** — Backend engineering · high-concurrency systems background  
@@ -26,7 +26,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 
 ## AI Engineering
 
-- **Maestro** (TypeScript CLI) — a **convergence layer for AI review bots**: orchestrates 4 bots (CodeRabbit, Copilot, Codex, Gemini) through classification → three-stage deduplication → auto-fix → thread replies and resolution → convergence monitoring and escalation to human review, turning divergent AI opinions into an actionable change queue. **Now part of the team's daily workflow**: 10 engineers, 300+ PRs processed; per the team's own assessment, review time cut roughly in half and false positives down about 70%
+- **Maestro** (TypeScript CLI) — a **convergence layer for AI review bots**: orchestrates 4 bots (CodeRabbit, Copilot, Codex, Gemini) through classification → three-stage deduplication → auto-fix → thread replies and resolution → convergence monitoring and escalation to human review, turning divergent AI opinions into an actionable change queue. **Now part of the team's daily workflow**: 10 engineers, 300+ PRs processed; per the team's own assessment, review time noticeably shorter and false positives down about 70%
 - **VM Health Center** (TypeScript / Node.js + Slack Bolt + Elasticsearch, built solo from scratch) — a team dashboard and service health monitor: aggregates Jira / GitHub / Confluence into daily and weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis — rule-based log-keyword matching narrows down 1–2 suspicious traces, then an LLM helps pinpoint the underlying issue. **Used daily by 20+ people across 7 teams** (Product / Web / App / QA / Order / B2C), firing alerts every day and cutting incident triage time by 40%
 - **Claude API in production**: SEO slug generation across 8 locales covering nearly 3,000 product pages and ~50k API calls, with hash-based change detection skipping unchanged content to hold cost down; a Git workflow and AI code-review automation system deployable as CLI, webhook or GitHub Actions
 - **Single-source multi-output content pipeline** (this résumé site): one content source exports 20+ artifacts across three languages × light/dark × HTML / PDF / PPTX / Markdown; four targeted versions layer deltas over a single base, so a factual correction lands everywhere at once instead of drifting between copies
@@ -50,10 +50,10 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 ### KKday — Senior Backend Engineer
 **2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
-A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → currently also owner of the Pre-Purchase Conversion Task Force. Maestro and VM Health Center were both self-initiated projects.
+A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → in H2 2026 also owner of the Pre-Purchase Conversion Task Force. Maestro and VM Health Center were both self-initiated projects.
 
 **1) Pre-Purchase Conversion Task Force · Owner (2026 H2)**
-- Formed and lead a 6-person cross-platform team against a single north-star metric — conversion 1.2% → 1.8% (+50%); built a CVR health-monitoring dashboard so results are visible and verifiable
+- Formed and led a 6-person cross-platform team against a single north-star metric — conversion 1.2% → 1.8% (+50%); built a CVR health-monitoring dashboard so results are visible and verifiable
 
 **2) B2C Core Transaction Flow (2025.02 – 2026.08)**
 - **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services (B2C/Order/MKT/Member), authoring 7 SA/SD documents; introduced an "entitlements inherit, conditions re-evaluate" principle that turned scattered coupon and loyalty-point revalidation rules into an auditable decision table

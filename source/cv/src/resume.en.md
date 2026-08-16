@@ -15,18 +15,18 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 **¥10B+** — GMV within 5 months, Apple China reseller platform  
 **25s → 2s** — Critical API p99 after major-outage response  
 **200%** — YoY growth, KKday affiliate business  
-**Review ~50%↓** — Maestro converging 4 AI review bots, 300+ PRs  
+**False positives ~70%↓** — Maestro converging 4 AI review bots, 300+ PRs  
 **20+** — Daily users of self-built AI platforms, 7 teams
 
 - **AI engineering**: built a convergence layer for multiple AI review bots (Maestro) and an AI-assisted root-cause monitoring platform (VM Health Center), solving the practical problem of duplicated, unreliable, unconverged AI output
 - **Transaction-systems depth**: top contributor and owner of KKday's affiliate marketing platform (200% YoY growth), and owner of the B2C core transaction flow
-- **Stability & leadership**: led incident response on a large-scale outage (critical API p99 25s+ → <2s, 5xx held below 0.01%); currently also owner of the Pre-Purchase Conversion Task Force, coordinating a 6-person cross-platform team
+- **Stability & leadership**: led incident response on a large-scale outage (critical API p99 25s+ → <2s, 5xx held below 0.01%); in H2 2026 also owner of the Pre-Purchase Conversion Task Force, coordinating a 6-person cross-platform team
 
 ---
 
 ## AI Engineering
 
-- **Maestro** (TypeScript CLI) — a **convergence layer for AI review bots**: orchestrates 4 bots (CodeRabbit, Copilot, Codex, Gemini) through classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation. **Now part of the team's daily workflow**: 10 engineers, 300+ PRs processed; per the team's own assessment, review time **cut roughly in half** and false positives down about 70%
+- **Maestro** (TypeScript CLI) — a **convergence layer for AI review bots**: orchestrates 4 bots (CodeRabbit, Copilot, Codex, Gemini) through classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation. **Now part of the team's daily workflow**: 10 engineers, 300+ PRs processed; per the team's own assessment, review time **noticeably shorter** and false positives down about 70%
 - **VM Health Center** (TypeScript/Node.js + Slack Bolt + Elasticsearch, built solo from scratch) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis (rule-based log-keyword matching narrows down 1–2 suspicious traces, then an LLM helps pinpoint the underlying issue). **Used daily by 20+ people across 7 teams** (Product, Web, App, QA, Order, B2C), firing alerts every day and cutting incident triage time by 40%
 - **Claude API in production**: SEO slug generation across 8 locales covering nearly 3,000 product pages and ~50k API calls, with hash-based change detection skipping unchanged content to hold cost down; a Git workflow and AI code-review automation system deployable as CLI, webhook or GitHub Actions
 
@@ -49,10 +49,10 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 ### KKday — Senior Backend Engineer
 **2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
-A leading global travel-experience platform operating in 50+ countries. Progressed from affiliate platform owner → B2C core backend → owner of the Pre-Purchase Conversion Task Force (currently ~80% of my time, with the remaining 20% wrapping up and handing off the B2C core flow).
+A leading global travel-experience platform operating in 50+ countries. Progressed from affiliate platform owner → B2C core backend → owner of the Pre-Purchase Conversion Task Force (in H2 2026, ~80% of my time, with the remaining 20% wrapping up and handing off the B2C core flow).
 
 **1) Pre-Purchase Conversion Task Force · Owner (2026 H2)**
-- Formed and lead a **6-person cross-platform team** (iOS/Android/Web/Backend) against a single north-star metric — conversion 1.2% → 1.8% (+50%); established standups, 1-on-1s and OKR alignment across the pre-purchase funnel (product page → cart → checkout), and built a CVR health-monitoring dashboard so results are visible and verifiable
+- Formed and led a **6-person cross-platform team** (iOS/Android/Web/Backend) against a single north-star metric — conversion 1.2% → 1.8% (+50%); established standups, 1-on-1s and OKR alignment across the pre-purchase funnel (product page → cart → checkout), and built a CVR health-monitoring dashboard so results are visible and verifiable
 
 **2) B2C Core Transaction Flow (2025.02 – 2026.08)**
 - **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services, authoring 7 SA/SD documents. Turned scattered coupon and loyalty-point revalidation rules into an auditable decision table — approved by all four teams in a single review, securing renewal with a top-tier ticketing supplier
@@ -62,7 +62,7 @@ A leading global travel-experience platform operating in 50+ countries. Progress
 **3) Affiliate Marketing Platform · Platform Owner (2022.11 – 2025.03)**
 - Top contributor and owner of two core services — affiliate-service (majority of all commits) and affiliate-api — as Code Owner and PR gatekeeper; integrated Google's Things To Do channel and 10+ partner channels including ShopBack, Asia Miles and Naver Shopping, growing the affiliate business 200% YoY
 - Designed the **commission settlement system**: rules engine, monthly settlement with re-run capability, BigQuery attribution, and a RabbitMQ event-driven pipeline connecting order and product data
-- Performance and observability: multi-tier caching with unified cache-key management, slow-query remediation, affiliate order monitoring and daily Slack digests — reducing API latency 65% (120ms → 35ms)
+- Performance and observability: multi-tier caching with unified cache-key management, slow-query remediation, affiliate order monitoring and daily Slack digests — reducing API latency ~70% (120ms → 35ms)
 
 ---
 

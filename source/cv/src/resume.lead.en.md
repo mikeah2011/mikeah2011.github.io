@@ -49,10 +49,10 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 ### KKday — Senior Backend Engineer
 **2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
-A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → currently also owner of the Pre-Purchase Conversion Task Force (~80% of my time, with the remaining 20% wrapping up and handing off the B2C core flow while mentoring the team taking it over).
+A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → in H2 2026 also owner of the Pre-Purchase Conversion Task Force (~80% of my time, with the remaining 20% wrapping up and handing off the B2C core flow while mentoring the team taking it over).
 
 **1) Pre-Purchase Conversion Task Force · Owner (2026 H2)**
-- Formed and lead a **6-person cross-platform team** (iOS / Android / Web / Backend) against a single north-star metric — conversion 1.2% → 1.8% (+50%) — reporting directly to the PM; established standups, 1-on-1s and OKR alignment, coordinating end-to-end experience and performance work across the pre-purchase funnel (product page → cart → checkout), and built a CVR health-monitoring dashboard so results are visible and verifiable
+- Formed and led a **6-person cross-platform team** (iOS / Android / Web / Backend) against a single north-star metric — conversion 1.2% → 1.8% (+50%) — reporting directly to the PM; established standups, 1-on-1s and OKR alignment, coordinating end-to-end experience and performance work across the pre-purchase funnel (product page → cart → checkout), and built a CVR health-monitoring dashboard so results are visible and verifiable
 
 **2) B2C Core Transaction Flow (2025.02 – 2026.08)**
 - **USJ (Universal Studios Japan) booking-date changes**: re-architected across four services, authoring 7 SA/SD documents. Turned scattered coupon and loyalty-point revalidation rules into an auditable decision table — approved by all four teams in a single review; rebuilt the price calculator and order state machine, securing renewal with a top-tier ticketing supplier
@@ -62,7 +62,7 @@ A leading global travel-experience platform operating in 50+ countries. Over nea
 **3) Affiliate Marketing Platform · Platform Owner (2022.11 – 2025.03)**
 - Top contributor and owner of two core services — affiliate-service (majority of all commits) and affiliate-api — as Code Owner and PR gatekeeper; integrated Google's Things To Do channel and 10+ partner channels including ShopBack, Asia Miles and Naver Shopping, growing the affiliate business 200% YoY
 - Designed the **commission settlement system**: rules engine, monthly settlement with re-run capability, BigQuery attribution
-- Performance and observability: multi-tier caching with unified cache-key management, affiliate order monitoring and daily Slack digests — reducing API latency 65% (120ms → 35ms)
+- Performance and observability: multi-tier caching with unified cache-key management, affiliate order monitoring and daily Slack digests — reducing API latency ~70% (120ms → 35ms)
 
 ---
 

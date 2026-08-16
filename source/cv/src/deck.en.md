@@ -117,7 +117,7 @@ style: |
       <li>Designed the <strong>commission settlement system</strong>: rules engine + monthly re-runnable settlement + BigQuery attribution</li>
     </ul>
 
-<div class="callout">Affiliate revenue grew <strong>200%</strong> YoY; API latency down <strong>65%</strong> (120ms → 35ms)</div>
+<div class="callout">Affiliate revenue grew <strong>200%</strong> YoY; API latency down <strong>~70%</strong> (120ms → 35ms)</div>
 
 ---
 

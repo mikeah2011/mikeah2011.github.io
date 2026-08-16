@@ -117,7 +117,7 @@ style: |
       <li>自研<strong>分潤結算系統</strong>：規則引擎 + 月度結算重跑 + BigQuery 歸因</li>
     </ul>
 
-<div class="callout">聯盟業務年增長 <strong>200%</strong>，API 延遲降低 <strong>65%</strong>（120ms → 35ms）</div>
+<div class="callout">聯盟業務年增長 <strong>200%</strong>，API 延遲降低約 <strong>70%</strong>（120ms → 35ms）</div>
 
 ---
 

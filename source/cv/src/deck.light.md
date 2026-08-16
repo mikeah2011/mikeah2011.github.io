@@ -117,7 +117,7 @@ style: |
       <li>自研<strong>分润结算系统</strong>：规则引擎 + 月度结算重刷 + BigQuery 归因</li>
     </ul>
 
-<div class="callout">联盟业务年同比增长 <strong>200%</strong>，API 延迟下降 <strong>65%</strong>（120ms → 35ms）</div>
+<div class="callout">联盟业务年同比增长 <strong>200%</strong>，API 延迟下降约 <strong>70%</strong>（120ms → 35ms）</div>
 
 ---
 

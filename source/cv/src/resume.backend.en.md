@@ -16,7 +16,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 **17.5×** — H5 API throughput (200 → 3,500 TPS)  
 **25s → 2s** — Critical API p99 after major-outage response  
 **200%** — YoY growth, KKday affiliate business  
-**65%↓** — Affiliate platform API latency (120ms → 35ms)
+**70%↓** — Affiliate platform API latency (120ms → 35ms)
 
 - **Transaction-systems depth**: top contributor and owner of KKday's affiliate marketing platform (200% YoY growth), and owner of the B2C core transaction flow spanning orders, payment callbacks and ticketing architecture
 - **High concurrency & reliability**: led incident response on a large-scale outage (critical API p99 25s+ → <2s, 5xx held below 0.01%); raised H5 API throughput 17.5× on the Apple China reseller platform, reaching 12K TPS under load testing
@@ -41,7 +41,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 ### KKday — Senior Backend Engineer
 **2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
-A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → currently focused on the technical implementation and monitoring dashboard for pre-purchase conversion (~80% of my time), while wrapping up and handing off the B2C core flow (~20%).
+A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → in H2 2026 focused on the technical implementation and monitoring dashboard for pre-purchase conversion (~80% of my time), while wrapping up and handing off the B2C core flow (~20%).
 
 **1) Pre-Purchase Conversion Task Force (2026 H2)**
 - Drive end-to-end performance optimization across the pre-purchase funnel (product page → cart → checkout) against a technical target of conversion 1.2% → 1.8% (+50%); built a CVR health-monitoring dashboard that quantifies the real impact of each optimization
@@ -54,7 +54,7 @@ A leading global travel-experience platform operating in 50+ countries. Over nea
 **3) Affiliate Marketing Platform (2022.11 – 2025.03)**
 - Top contributor and owner of two core services — affiliate-service (majority of all commits) and affiliate-api — as Code Owner and PR gatekeeper; integrated Google's Things To Do channel and 10+ partner channels including ShopBack, Asia Miles and Naver Shopping, growing the affiliate business 200% YoY
 - Designed the **commission settlement system**: rules engine, monthly settlement with re-run capability, BigQuery attribution, and a RabbitMQ event-driven pipeline connecting order and product data
-- Performance and observability: multi-tier caching with unified cache-key management, slow-query remediation, affiliate order monitoring and daily Slack digests — reducing API latency 65% (120ms → 35ms)
+- Performance and observability: multi-tier caching with unified cache-key management, slow-query remediation, affiliate order monitoring and daily Slack digests — reducing API latency ~70% (120ms → 35ms)
 
 ---
 
