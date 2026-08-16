@@ -76,7 +76,7 @@ A leading domestic e-commerce and B2B MarTech/SCRM marketing-automation SaaS pro
 An e-commerce SaaS provider. Full-stack ownership of a multi-merchant commerce platform, IM system and caching layer.
 
 - Built a multi-merchant SaaS e-commerce platform serving 10,000+ merchants with 10-language support, using a hybrid Google/Youdao translation pipeline that cut translation costs 70%
-- Built an SMS gateway handling 1M+ messages/day; optimized data export from OOM failures to 10M rows in 10 minutes
+- Optimized data export from OOM failures to 10M rows in 10 minutes
 - Built an IM system on NetEase Cloud handling 2M+ messages/day; designed a Redis caching layer that reduced database load 60%
 
 ---
