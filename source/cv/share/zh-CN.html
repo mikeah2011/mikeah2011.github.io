@@ -46,8 +46,20 @@
 </style>
 </head>
 <body>
-  <p>正在前往简历…</p>
-  <p><a href="../index.html?lang=zh-CN">如果没有自动跳转，请点这里</a></p>
-  <script>(function(){var t=new URLSearchParams(location.search).get('to');location.replace('../index.html?lang=zh-CN'+(t?'&to='+encodeURIComponent(t.slice(0,60)):''));})()</script>
+  <p id="msg">正在前往简历…</p>
+  <p><a id="cont" href="../index.html?lang=zh-CN">如果没有自动跳转，请点这里</a></p>
+  <div id="shareBox" style="display:flex;gap:8px;margin-top:6px"></div>
+  <script>(function(){
+    var params=new URLSearchParams(location.search);var to=params.get('to');var shareUrl=location.href;var cont=document.getElementById('cont');
+    function copy(text){ if(navigator.clipboard&&navigator.clipboard.writeText) return navigator.clipboard.writeText(text); var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta);return Promise.resolve(); }
+    var box=document.getElementById('shareBox');
+    var copyBtn=document.createElement('button'); copyBtn.textContent='复制链接'; copyBtn.style.padding='8px 12px'; copyBtn.style.borderRadius='8px'; copyBtn.style.border='1px solid rgba(255,255,255,.08)'; copyBtn.style.background='transparent'; copyBtn.style.color='inherit'; copyBtn.style.cursor='pointer';
+    var ld=document.createElement('button'); ld.textContent='领英'; ld.style.padding='8px 12px'; ld.style.borderRadius='8px'; ld.style.border='1px solid rgba(255,255,255,.08)'; ld.style.background='transparent'; ld.style.color='inherit'; ld.style.cursor='pointer';
+    copyBtn.addEventListener('click', function(){ copy(shareUrl).then(function(){ copyBtn.textContent='已复制'; setTimeout(function(){ copyBtn.textContent='复制链接'; },1200); }); });
+    ld.addEventListener('click', function(){ window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(shareUrl),'_blank','noopener'); });
+    box.appendChild(copyBtn); box.appendChild(ld);
+    var redirect=function(){ cont.href='../index.html?lang=zh-CN'+(to?'&to='+encodeURIComponent(to.slice(0,60)): ''); location.replace(cont.href); };
+    setTimeout(redirect,1800);
+  })()</script>
 </body>
 </html>

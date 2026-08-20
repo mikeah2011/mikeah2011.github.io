@@ -979,11 +979,18 @@ var controller = CVUI.init(buildVariantDict(''), { onLang: updateResumeDownloadL
     pop.style.background='var(--surface)'; pop.style.color='var(--ink)'; pop.style.padding='8px';
     pop.style.borderRadius='8px'; pop.style.boxShadow='0 6px 18px rgba(0,0,0,.12)'; pop.style.zIndex=9999;
     pop.style.display='flex'; pop.style.gap='8px';
-    pop.innerHTML = '<button id="cvCopyBtn" style="padding:6px 10px;border-radius:6px;border:1px solid var(--line);background:transparent;cursor:pointer">复制链接</button>' +
-                    '<button id="cvTwBtn" style="padding:6px 10px;border-radius:6px;border:1px solid var(--line);background:transparent;cursor:pointer">Twitter</button>' +
-                    '<button id="cvLdBtn" style="padding:6px 10px;border-radius:6px;border:1px solid var(--line);background:transparent;cursor:pointer">LinkedIn</button>';
+    var lang = (window.controller && window.controller.lang) || document.documentElement.getAttribute('lang') || 'en';
+    var L = {
+      'zh-CN': { copy: '复制链接', twitter: 'Twitter', linkedin: '领英', copied: '链接已复制' },
+      'zh-TW': { copy: '複製連結', twitter: 'Twitter', linkedin: 'LinkedIn', copied: '連結已複製' },
+      'en':    { copy: 'Copy link', twitter: 'Twitter', linkedin: 'LinkedIn', copied: 'Link copied' }
+    }[lang] || { copy: 'Copy link', twitter: 'Twitter', linkedin: 'LinkedIn', copied: 'Link copied' };
+
+    pop.innerHTML = '<button id="cvCopyBtn" style="padding:6px 10px;border-radius:6px;border:1px solid var(--line);background:transparent;cursor:pointer">'+L.copy+'</button>' +
+                    '<button id="cvTwBtn" style="padding:6px 10px;border-radius:6px;border:1px solid var(--line);background:transparent;cursor:pointer">'+L.twitter+'</button>' +
+                    '<button id="cvLdBtn" style="padding:6px 10px;border-radius:6px;border:1px solid var(--line);background:transparent;cursor:pointer">'+L.linkedin+'</button>';
     document.body.appendChild(pop);
-    document.getElementById('cvCopyBtn').addEventListener('click', function(ev){ ev.stopPropagation(); copyToClipboard(shareUrl).then(function(){ flash('链接已复制'); }); });
+    document.getElementById('cvCopyBtn').addEventListener('click', function(ev){ ev.stopPropagation(); copyToClipboard(shareUrl).then(function(){ flash(L.copied); }); });
     document.getElementById('cvTwBtn').addEventListener('click', function(ev){ ev.stopPropagation(); window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(shareUrl)+'&text='+encodeURIComponent(document.title),'_blank','noopener'); });
     document.getElementById('cvLdBtn').addEventListener('click', function(ev){ ev.stopPropagation(); window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(shareUrl),'_blank','noopener'); });
     setTimeout(function(){

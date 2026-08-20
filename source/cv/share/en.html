@@ -46,8 +46,25 @@
 </style>
 </head>
 <body>
-  <p>Taking you to the résumé…</p>
-  <p><a href="../index.html?lang=en">Not redirected? Continue here</a></p>
-  <script>(function(){var t=new URLSearchParams(location.search).get('to');location.replace('../index.html?lang=en'+(t?'&to='+encodeURIComponent(t.slice(0,60)):''));})()</script>
+  <p id="msg">Taking you to the résumé…</p>
+  <p><a id="cont" href="../index.html?lang=en">Not redirected? Continue here</a></p>
+  <div id="shareBox" style="display:flex;gap:8px;margin-top:6px"></div>
+  <script>(function(){
+    var params = new URLSearchParams(location.search);
+    var to = params.get('to');
+    var shareUrl = location.href;
+    var cont = document.getElementById('cont');
+    function copy(text){ if(navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text); var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta);return Promise.resolve(); }
+    // Build UI
+    var box = document.getElementById('shareBox');
+    var copyBtn = document.createElement('button'); copyBtn.textContent='Copy link'; copyBtn.style.padding='8px 12px'; copyBtn.style.borderRadius='8px'; copyBtn.style.border='1px solid rgba(255,255,255,.08)'; copyBtn.style.background='transparent'; copyBtn.style.color='inherit'; copyBtn.style.cursor='pointer';
+    var tw = document.createElement('button'); tw.textContent='Twitter'; tw.style.padding='8px 12px'; tw.style.borderRadius='8px'; tw.style.border='1px solid rgba(255,255,255,.08)'; tw.style.background='transparent'; tw.style.color='inherit'; tw.style.cursor='pointer';
+    copyBtn.addEventListener('click', function(){ copy(shareUrl).then(function(){ copyBtn.textContent='Link copied'; setTimeout(function(){ copyBtn.textContent='Copy link'; },1200); }); });
+    tw.addEventListener('click', function(){ window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(shareUrl),'_blank','noopener'); });
+    box.appendChild(copyBtn); box.appendChild(tw);
+    // delayed redirect to resume (short pause so user can copy)
+    var redirect = function(){ cont.href = '../index.html?lang=en' + (to ? '&to='+encodeURIComponent(to.slice(0,60)) : ''); location.replace(cont.href); };
+    setTimeout(redirect, 1800);
+  })()</script>
 </body>
 </html>
