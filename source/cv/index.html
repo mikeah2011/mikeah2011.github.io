@@ -245,17 +245,17 @@
   .file .dl svg { width: 15px; height: 15px; display: block; }
   .file:hover .dl { color: var(--accent); transform: translateY(2px); }
 
-  .share-row { display: flex; justify-content: flex-end; margin-top: 12px; }
   .share-icon {
-    display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%;
-    background: var(--surface); border: 1px solid var(--line); color: var(--accent);
-    box-shadow: var(--shadow); cursor: pointer;
-    transition: border-color .2s, transform .2s, box-shadow .2s;
+    display: grid; place-items: center; width: 32px; height: 32px; padding: 0;
+    border-radius: 999px; background: var(--surface-2, var(--surface));
+    border: 1px solid var(--line); color: var(--muted); cursor: pointer;
+    transition: background-color .2s, color .2s, border-color .2s;
   }
   .share-icon:hover, .share-icon:focus-visible {
-    border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-lg); outline: none;
+    color: var(--accent); border-color: var(--accent); outline: none;
   }
-  .share-icon svg { width: 18px; height: 18px; }
+  .share-icon:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .share-icon svg { width: 16px; height: 16px; }
   .share-modal {
     position: fixed; inset: 0; z-index: 1000; display: none;
     align-items: center; justify-content: center; padding: 18px;
@@ -408,12 +408,6 @@
     <div class="stat"><b>3000+</b><span data-i18n="stat.2.k">核心仓库提交</span></div>
     <div class="stat"><b>25s → 2s</b><span data-i18n="stat.3.k">关键 API p99 优化</span></div>
     <div class="stat"><b>1300+</b><span data-i18n="stat.4.k">技术文章产出</span></div>
-  </div>
-
-  <div class="share-row rise" style="animation-delay:.18s">
-    <button class="share-icon" id="shareIndexBtn" type="button" data-i18n-attr="title:share.btn,aria-label:share.btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
-    </button>
   </div>
 
   <section class="rise" style="animation-delay:.2s">
@@ -738,7 +732,32 @@
       a.href = base + (base.indexOf('?') > -1 ? '&' : '?') + 'lang=' + lang;
     });
   }
-  CVUI.init(I18N, { files: FILES, onLang: syncNavLang });
+  function syncShareButtonLabel(lang) {
+    var btn = document.getElementById('shareIndexBtn');
+    if (!btn) return;
+    var label = (I18N[lang] && I18N[lang]['share.btn']) || I18N.en['share.btn'];
+    btn.setAttribute('title', label);
+    btn.setAttribute('aria-label', label);
+  }
+
+  window.controller = CVUI.init(I18N, {
+    files: FILES,
+    onLang: function (lang) {
+      syncNavLang(lang);
+      syncShareButtonLabel(lang);
+    }
+  });
+
+  var toolbar = document.querySelector('[data-cv-toolbar]');
+  if (toolbar && !document.getElementById('shareIndexBtn')) {
+    var shareBtn = document.createElement('button');
+    shareBtn.className = 'share-icon';
+    shareBtn.id = 'shareIndexBtn';
+    shareBtn.type = 'button';
+    shareBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>';
+    toolbar.appendChild(shareBtn);
+    syncShareButtonLabel(window.controller.lang);
+  }
 
   // Point each card's hover glow at the cursor (pointer devices only).
   if (window.matchMedia('(hover: hover)').matches) {
