@@ -245,6 +245,48 @@
   .file .dl svg { width: 15px; height: 15px; display: block; }
   .file:hover .dl { color: var(--accent); transform: translateY(2px); }
 
+  .share-row { display: flex; justify-content: flex-end; margin-top: 12px; }
+  .share-icon {
+    display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%;
+    background: var(--surface); border: 1px solid var(--line); color: var(--accent);
+    box-shadow: var(--shadow); cursor: pointer;
+    transition: border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .share-icon:hover, .share-icon:focus-visible {
+    border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-lg); outline: none;
+  }
+  .share-icon svg { width: 18px; height: 18px; }
+  .share-modal {
+    position: fixed; inset: 0; z-index: 1000; display: none;
+    align-items: center; justify-content: center; padding: 18px;
+    background: rgba(4, 12, 14, .62); backdrop-filter: blur(6px);
+  }
+  .share-modal.open { display: flex; }
+  .share-panel {
+    width: min(420px, 100%); border-radius: 18px;
+    background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-lg);
+    padding: 18px; color: var(--ink);
+  }
+  .share-panel h2 { margin: 0 0 6px; font-size: 17px; }
+  .share-panel p { margin: 0 0 14px; color: var(--muted); font-size: 12.5px; }
+  .share-field { display: grid; gap: 6px; margin-bottom: 12px; }
+  .share-field label { font-size: 12px; color: var(--muted); }
+  .share-field input {
+    width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
+    background: var(--paper); color: var(--ink); font: inherit; outline: none;
+  }
+  .share-field input:focus { border-color: var(--accent); }
+  .share-preview {
+    overflow-wrap: anywhere; margin: 0 0 14px; padding: 9px 10px; border-radius: 10px;
+    background: var(--surface-2); color: var(--muted); font-size: 11.5px;
+  }
+  .share-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+  .share-actions button {
+    border: 1px solid var(--line); border-radius: 999px; padding: 8px 13px;
+    background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; font-weight: 650;
+  }
+  .share-actions .primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+
   footer {
     margin-top: clamp(20px, 3.4vw, 28px); padding-top: 12px; border-top: 1px solid var(--line);
     display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between;
@@ -358,10 +400,6 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5A1.5 1.5 0 0 0 3 5v14a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 19V5a1.5 1.5 0 0 0-1.5-1.5h-15zM7 7.5h10v2H7v-2zm0 4h10v2H7v-2zm0 4h6.5v2H7v-2z"/></svg>
         <span data-i18n="link.blog">技术博客</span>
       </a>
-      <button class="chip" id="shareIndexBtn" type="button" title="Share" aria-label="Share" style="--brand:#0e7c86">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
-        分享
-      </button>
     </nav>
   </div>
 
@@ -370,6 +408,12 @@
     <div class="stat"><b>3000+</b><span data-i18n="stat.2.k">核心仓库提交</span></div>
     <div class="stat"><b>25s → 2s</b><span data-i18n="stat.3.k">关键 API p99 优化</span></div>
     <div class="stat"><b>1300+</b><span data-i18n="stat.4.k">技术文章产出</span></div>
+  </div>
+
+  <div class="share-row rise" style="animation-delay:.18s">
+    <button class="share-icon" id="shareIndexBtn" type="button" data-i18n-attr="title:share.btn,aria-label:share.btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
+    </button>
   </div>
 
   <section class="rise" style="animation-delay:.2s">
@@ -477,6 +521,23 @@
 
 </div>
 
+<div class="share-modal" id="shareModal" role="dialog" aria-modal="true" aria-labelledby="shareTitle">
+  <div class="share-panel">
+    <h2 id="shareTitle" data-i18n="share.title">分享简历</h2>
+    <p data-i18n="share.desc">输入投递对象，生成带 to 参数的分享链接。</p>
+    <div class="share-field">
+      <label for="shareToInput" data-i18n="share.to">分享给谁</label>
+      <input id="shareToInput" type="text" maxlength="60" placeholder="GitHub" data-i18n-attr="placeholder:share.placeholder">
+    </div>
+    <div class="share-preview mono" id="sharePreview"></div>
+    <div class="share-actions">
+      <button type="button" id="shareCloseBtn" data-i18n="share.cancel">取消</button>
+      <button type="button" id="shareNativeBtn" data-i18n="share.native">系统分享</button>
+      <button type="button" class="primary" id="shareCopyBtn" data-i18n="share.copy">复制链接</button>
+    </div>
+  </div>
+</div>
+
 <script src="assets/cv-ui.js"></script>
 <!-- 访问统计。端点未配置时完全静默，不发任何请求。见 assets/cv-stats.js -->
 <script src="assets/cv-stats.js" defer></script>
@@ -508,7 +569,12 @@
       'sec.variants': '投递版本',
       'f.cvbackend': '纯后端版', 'f.cvlead': 'Tech Lead 版', 'f.cvai': 'AI 工程版',
       'foot.name': '马成军 Michael Ma · 资深后端工程师', 'foot.updated': '更新于',
-      'aria.contact': '联系方式'
+      'aria.contact': '联系方式',
+      'share.btn': '分享简历', 'share.title': '分享简历',
+      'share.desc': '输入投递对象，生成带 to 参数的分享链接。',
+      'share.to': '分享给谁', 'share.placeholder': '例如 GitHub / Recruiter / Company',
+      'share.cancel': '取消', 'share.native': '系统分享', 'share.copy': '复制链接',
+      'share.copied': '链接已复制'
     },
     'zh-TW': {
       'html.title': '馬成軍 Michael Ma · 資深後端工程師',
@@ -535,7 +601,12 @@
       'sec.variants': '投遞版本',
       'f.cvbackend': '純後端版', 'f.cvlead': 'Tech Lead 版', 'f.cvai': 'AI 工程版',
       'foot.name': '馬成軍 Michael Ma · 資深後端工程師', 'foot.updated': '更新於',
-      'aria.contact': '聯絡方式'
+      'aria.contact': '聯絡方式',
+      'share.btn': '分享履歷', 'share.title': '分享履歷',
+      'share.desc': '輸入投遞對象，產生帶 to 參數的分享連結。',
+      'share.to': '分享給誰', 'share.placeholder': '例如 GitHub / Recruiter / Company',
+      'share.cancel': '取消', 'share.native': '系統分享', 'share.copy': '複製連結',
+      'share.copied': '連結已複製'
     },
     'en': {
       'html.title': 'Michael Ma · Senior Backend Engineer',
@@ -562,7 +633,12 @@
       'sec.variants': 'Targeted Versions',
       'f.cvbackend': 'Backend IC', 'f.cvlead': 'Tech Lead', 'f.cvai': 'AI Engineering',
       'foot.name': 'Michael Ma · Senior Backend Engineer', 'foot.updated': 'Updated',
-      'aria.contact': 'Contact'
+      'aria.contact': 'Contact',
+      'share.btn': 'Share résumé', 'share.title': 'Share résumé',
+      'share.desc': 'Enter the recipient to generate a share link with a to parameter.',
+      'share.to': 'Recipient', 'share.placeholder': 'e.g. GitHub / Recruiter / Company',
+      'share.cancel': 'Cancel', 'share.native': 'Share', 'share.copy': 'Copy link',
+      'share.copied': 'Link copied'
     }
   };
 
@@ -677,16 +753,32 @@
 </script>
 
 <script>
-// share button on index (copy / native share)
+// share button on index (recipient-aware copy / native share)
 (function(){
   var btn = document.getElementById('shareIndexBtn');
+  var modal = document.getElementById('shareModal');
+  var input = document.getElementById('shareToInput');
+  var preview = document.getElementById('sharePreview');
+  var copyBtn = document.getElementById('shareCopyBtn');
+  var nativeBtn = document.getElementById('shareNativeBtn');
+  var closeBtn = document.getElementById('shareCloseBtn');
   if (!btn) return;
   function buildShareUrl(){
     var lang = (window.controller && window.controller.lang) || document.documentElement.getAttribute('lang') || 'en';
     var u = new URL(location.origin + '/cv/share/' + lang + '.html');
     var v = new URLSearchParams(location.search).get('v');
+    var to = input && input.value.trim();
     if (v) u.searchParams.set('v', v);
+    if (to) u.searchParams.set('to', to.slice(0, 60));
     return u.toString();
+  }
+  function strings(){
+    var lang = (window.controller && window.controller.lang) || document.documentElement.getAttribute('lang') || 'en';
+    return {
+      'zh-CN': { copied: '链接已复制', fallback: '分享链接' },
+      'zh-TW': { copied: '連結已複製', fallback: '分享連結' },
+      'en': { copied: 'Link copied', fallback: 'Share link' }
+    }[lang] || { copied: 'Link copied', fallback: 'Share link' };
   }
   function copyToClipboard(text){
     if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
@@ -699,10 +791,32 @@
     n.style.position='fixed'; n.style.right='20px'; n.style.bottom='90px'; n.style.background='rgba(0,0,0,0.8)'; n.style.color='#fff'; n.style.padding='8px 12px'; n.style.borderRadius='8px'; n.style.zIndex=9999; document.body.appendChild(n);
     setTimeout(function(){ n.style.transition='opacity .25s'; n.style.opacity='0'; setTimeout(function(){ n.remove(); },250); }, 1400);
   }
-  btn.addEventListener('click', function(e){ e.stopPropagation(); var shareUrl = buildShareUrl(); var lang = (window.controller && window.controller.lang) || document.documentElement.getAttribute('lang') || 'en';
-    var L = { 'zh-CN': { copied: '链接已复制', share: '分享' }, 'zh-TW': { copied: '連結已複製', share: '分享' }, 'en': { copied: 'Link copied', share: 'Share' } }[lang] || { copied: 'Link copied', share: 'Share' };
-    if (navigator.share){ navigator.share({title: document.title, text: document.querySelector('meta[name="description"]')&&document.querySelector('meta[name="description"]').getAttribute('content')||'', url: shareUrl}).catch(function(){}); return; }
-    copyToClipboard(shareUrl).then(function(){ flash(L.copied); });
+  function refreshPreview(){ if (preview) preview.textContent = buildShareUrl(); }
+  function openModal(){
+    refreshPreview();
+    modal.classList.add('open');
+    setTimeout(function(){ input && input.focus(); }, 30);
+  }
+  function closeModal(){ modal.classList.remove('open'); }
+  btn.addEventListener('click', function(e){ e.stopPropagation(); openModal(); });
+  input && input.addEventListener('input', refreshPreview);
+  closeBtn && closeBtn.addEventListener('click', closeModal);
+  modal && modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeModal(); });
+  copyBtn && copyBtn.addEventListener('click', function(){
+    copyToClipboard(buildShareUrl()).then(function(){ flash(strings().copied); closeModal(); });
+  });
+  nativeBtn && nativeBtn.addEventListener('click', function(){
+    var shareUrl = buildShareUrl();
+    if (navigator.share) {
+      navigator.share({
+        title: document.title,
+        text: document.querySelector('meta[name="description"]') && document.querySelector('meta[name="description"]').getAttribute('content') || '',
+        url: shareUrl
+      }).then(closeModal).catch(function(){});
+      return;
+    }
+    copyToClipboard(shareUrl).then(function(){ flash(strings().copied); closeModal(); });
   });
 })();
 </script>
