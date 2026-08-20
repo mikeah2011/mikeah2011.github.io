@@ -358,6 +358,10 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5A1.5 1.5 0 0 0 3 5v14a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 19V5a1.5 1.5 0 0 0-1.5-1.5h-15zM7 7.5h10v2H7v-2zm0 4h10v2H7v-2zm0 4h6.5v2H7v-2z"/></svg>
         <span data-i18n="link.blog">技术博客</span>
       </a>
+      <button class="chip" id="shareIndexBtn" type="button" title="Share" aria-label="Share" style="--brand:#0e7c86">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
+        分享
+      </button>
     </nav>
   </div>
 
@@ -669,6 +673,35 @@
       });
     });
   }
+})();
+</script>
+
+<script>
+// share button on index (copy / native share)
+(function(){
+  var btn = document.getElementById('shareIndexBtn');
+  if (!btn) return;
+  function buildShareUrl(){
+    var lang = (window.controller && window.controller.lang) || document.documentElement.getAttribute('lang') || 'en';
+    var u = new URL(location.origin + '/cv/share/' + lang + '.html');
+    var v = new URLSearchParams(location.search).get('v');
+    if (v) u.searchParams.set('v', v);
+    return u.toString();
+  }
+  function copyToClipboard(text){
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly',''); ta.style.position='absolute'; ta.style.left='-9999px'; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta); return Promise.resolve();
+  }
+  function flash(msg){
+    var n = document.createElement('div'); n.textContent = msg;
+    n.style.position='fixed'; n.style.right='20px'; n.style.bottom='90px'; n.style.background='rgba(0,0,0,0.8)'; n.style.color='#fff'; n.style.padding='8px 12px'; n.style.borderRadius='8px'; n.style.zIndex=9999; document.body.appendChild(n);
+    setTimeout(function(){ n.style.transition='opacity .25s'; n.style.opacity='0'; setTimeout(function(){ n.remove(); },250); }, 1400);
+  }
+  btn.addEventListener('click', function(e){ e.stopPropagation(); var shareUrl = buildShareUrl(); if (navigator.share){ navigator.share({title: document.title, text: document.querySelector('meta[name="description"]')&&document.querySelector('meta[name="description"]').getAttribute('content')||'', url: shareUrl}).catch(function(){}); return; }
+    copyToClipboard(shareUrl).then(function(){ flash('链接已复制'); });
+  });
 })();
 </script>
 </body>
