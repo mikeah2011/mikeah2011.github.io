@@ -49,9 +49,21 @@
   var THEME_ORDER = ['light', 'dark', 'system'];
 
   var UI_STRINGS = {
-    'zh-CN': { lang: '语言切换', light: '浅色', system: '跟随系统', dark: '深色', themeHint: '主题：{mode}（点击切换）' },
-    'zh-TW': { lang: '語言切換', light: '淺色', system: '跟隨系統', dark: '深色', themeHint: '主題：{mode}（點擊切換）' },
-    'en':    { lang: 'Language', light: 'Light', system: 'System', dark: 'Dark', themeHint: 'Theme: {mode} (click to switch)' }
+    'zh-CN': {
+      lang: '语言切换', light: '浅色', system: '跟随系统', dark: '深色', themeHint: '主题：{mode}（点击切换）',
+      share: '分享', home: '返回首页', shareTo: '分享给（可选）', shareToPh: '例如：HR-Lily', shareCopy: '复制链接', shareNative: '系统分享',
+      shareClose: '取消', shareCopied: '链接已复制', shareFallback: '分享链接', shareHint: '输入投递对象，生成带 to 参数的分享链接。'
+    },
+    'zh-TW': {
+      lang: '語言切換', light: '淺色', system: '跟隨系統', dark: '深色', themeHint: '主題：{mode}（點擊切換）',
+      share: '分享', home: '返回首頁', shareTo: '分享給（可選）', shareToPh: '例如：HR-Lily', shareCopy: '複製連結', shareNative: '系統分享',
+      shareClose: '取消', shareCopied: '連結已複製', shareFallback: '分享連結', shareHint: '輸入投遞對象，產生帶 to 參數的分享連結。'
+    },
+    'en': {
+      lang: 'Language', light: 'Light', system: 'System', dark: 'Dark', themeHint: 'Theme: {mode} (click to switch)',
+      share: 'Share', home: 'Home', shareTo: 'Share to (optional)', shareToPh: 'e.g. HR-Lily', shareCopy: 'Copy link', shareNative: 'System share',
+      shareClose: 'Cancel', shareCopied: 'Link copied', shareFallback: 'Share link', shareHint: 'Add a recipient to generate a share link with the to parameter.'
+    }
   };
 
   var ICONS = {
@@ -87,13 +99,31 @@
     return 'zh-CN';
   }
 
+  function isCvHomePage() {
+    var p = String(global.location && global.location.pathname || '');
+    return /\/cv\/$/.test(p) || /\/cv\/index\.html$/.test(p);
+  }
+
+  function cvHomeHref() {
+    var p = String(global.location && global.location.pathname || '');
+    return /\/cv\/src\//.test(p) ? '../index.html' : 'index.html';
+  }
+
   function buildToolbar(mount) {
     var lang = LANGS.map(function (l) {
       return '<button type="button" data-cv-lang="' + l + '" aria-pressed="false">' + LANG_LABEL[l] + '</button>';
     }).join('');
+    var share = '<button type="button" class="cv-icon-btn share-icon" data-cv-action="share" aria-label="Share" title="Share">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>' +
+      '</button>';
+    var home = isCvHomePage() ? '' :
+      '<a class="cv-icon-btn cv-home-btn" data-cv-action="home" href="' + cvHomeHref() + '" aria-label="Home" title="Home">' +
+      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4.2 19 9.7V20a1 1 0 0 1-1 1h-4.6v-6h-2.8v6H6a1 1 0 0 1-1-1V9.7z"/></svg>' +
+      '</a>';
     mount.innerHTML =
+      '<div class="cv-seg" data-cv-group="lang" role="group">' + lang + '</div>' +
       '<button type="button" class="cv-theme-btn" data-cv-theme-btn></button>' +
-      '<div class="cv-seg" data-cv-group="lang" role="group">' + lang + '</div>';
+      share + home;
     mount.classList.add('cv-toolbar');
   }
 
@@ -117,6 +147,8 @@
 
     var langBtns = [].slice.call(document.querySelectorAll('[data-cv-lang]'));
     var themeBtn = document.querySelector('[data-cv-theme-btn]');
+    var shareBtn = document.querySelector('[data-cv-action="share"]');
+    var homeBtn = document.querySelector('[data-cv-action="home"]');
     var fileEls = [].slice.call(document.querySelectorAll('[data-cv-file]'));
     var current = { lang: detectLang(), theme: store.get(THEME_KEY) || 'system' };
 
@@ -174,8 +206,147 @@
         b.setAttribute('aria-pressed', String(b.getAttribute('data-cv-lang') === lang));
       });
       renderThemeBtn(); // the hint text ("主题：浅色…") is language-specific
+      if (shareBtn) {
+        shareBtn.setAttribute('title', ui.share);
+        shareBtn.setAttribute('aria-label', ui.share);
+      }
+      if (homeBtn) {
+        homeBtn.setAttribute('title', ui.home);
+        homeBtn.setAttribute('aria-label', ui.home);
+      }
       applyFiles();
       if (typeof opts.onLang === 'function') opts.onLang(lang);
+    }
+
+    function copyToClipboard(text) {
+      if (global.navigator.clipboard && global.navigator.clipboard.writeText) {
+        return global.navigator.clipboard.writeText(text);
+      }
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      return Promise.resolve();
+    }
+
+    function flash(msg) {
+      var n = document.createElement('div');
+      n.textContent = msg;
+      n.style.position = 'fixed';
+      n.style.right = '20px';
+      n.style.bottom = '90px';
+      n.style.background = 'rgba(0,0,0,0.8)';
+      n.style.color = '#fff';
+      n.style.padding = '8px 12px';
+      n.style.borderRadius = '8px';
+      n.style.zIndex = 9999;
+      document.body.appendChild(n);
+      setTimeout(function () {
+        n.style.transition = 'opacity .25s';
+        n.style.opacity = '0';
+        setTimeout(function () { n.remove(); }, 250);
+      }, 1400);
+    }
+
+    function buildShareUrl(toValue) {
+      var u = new URL(global.location.href);
+      var to = (toValue || '').trim();
+      u.searchParams.set('lang', current.lang);
+      if (to) u.searchParams.set('to', to.slice(0, 60));
+      else u.searchParams.delete('to');
+      return u.toString();
+    }
+
+    function bindSharePrompt() {
+      if (!shareBtn || isCvHomePage()) return;
+      CVUI._shareManaged = true;
+      shareBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var ui = UI_STRINGS[current.lang] || UI_STRINGS['en'];
+        var old = document.getElementById('cvShareModal');
+        if (old) old.remove();
+
+        var modal = document.createElement('div');
+        modal.id = 'cvShareModal';
+        modal.className = 'cv-share-modal';
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.innerHTML =
+          '<div class="cv-share-panel">' +
+          '  <h2 id="cvShareTitle">' + ui.share + '</h2>' +
+          '  <p>' + ui.shareHint + '</p>' +
+          '  <div class="cv-share-field">' +
+          '    <label for="cvShareToInput">' + ui.shareTo + '</label>' +
+          '    <input id="cvShareToInput" type="text" maxlength="60" placeholder="' + ui.shareToPh + '">' +
+          '  </div>' +
+          '  <div class="cv-share-preview mono" id="cvSharePreview"></div>' +
+          '  <div class="cv-share-actions">' +
+          '    <button type="button" id="cvShareCloseBtn">' + ui.shareClose + '</button>' +
+          '    <button type="button" id="cvShareNativeBtn">' + ui.shareNative + '</button>' +
+          '    <button type="button" class="primary" id="cvShareCopyBtn">' + ui.shareCopy + '</button>' +
+          '  </div>' +
+          '</div>';
+        document.body.appendChild(modal);
+        modal.classList.add('open');
+
+        var toInput = modal.querySelector('#cvShareToInput');
+        var preview = modal.querySelector('#cvSharePreview');
+        var btnClose = modal.querySelector('#cvShareCloseBtn');
+        var btnCopy = modal.querySelector('#cvShareCopyBtn');
+        var btnNative = modal.querySelector('#cvShareNativeBtn');
+
+        function currentUrl() {
+          return buildShareUrl(toInput && toInput.value || '');
+        }
+        function renderPreview() {
+          preview.textContent = currentUrl();
+        }
+        function close() {
+          modal.remove();
+          document.removeEventListener('keydown', onKeydown);
+        }
+        function onKeydown(ev) {
+          if (ev.key === 'Escape') close();
+        }
+
+        renderPreview();
+        if (toInput) {
+          toInput.addEventListener('input', renderPreview);
+          setTimeout(function () { toInput.focus(); }, 10);
+        }
+        modal.addEventListener('click', function (ev) {
+          if (ev.target === modal) close();
+        });
+        document.addEventListener('keydown', onKeydown);
+        btnClose.addEventListener('click', close);
+        btnCopy.addEventListener('click', function () {
+          copyToClipboard(currentUrl()).then(function () {
+            flash(ui.shareCopied);
+            close();
+          });
+        });
+        btnNative.addEventListener('click', function () {
+          var shareUrl = currentUrl();
+          if (global.navigator.share) {
+            global.navigator.share({
+              title: document.title,
+              text: document.querySelector('meta[name="description"]') && document.querySelector('meta[name="description"]').getAttribute('content') || '',
+              url: shareUrl
+            }).then(close).catch(function () {});
+            return;
+          }
+          copyToClipboard(shareUrl).then(function () {
+            flash(ui.shareCopied || ui.shareFallback);
+            close();
+          });
+        });
+      });
     }
 
     function renderThemeBtn() {
@@ -233,6 +404,7 @@
 
     applyLang(current.lang);
     applyTheme(current.theme);
+    bindSharePrompt();
     return current;
   };
 

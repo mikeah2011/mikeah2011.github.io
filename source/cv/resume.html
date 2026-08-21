@@ -223,7 +223,6 @@
   }
   .fab-dl.badge-md { background: #111827; }
   .fab-dl.badge-pdf { background: #c0392b; }
-
   /* Backend/architecture variant (?v=backend): identical content, different
      emphasis. The AI section drops below Experience so a backend reader hits
      transaction systems first, instead of maintaining a second document that
@@ -340,9 +339,6 @@
     </button>
     <a class="fab-dl badge-md" id="dlMdLink" href="src/resume.md" download data-i18n-attr="title:dl.md.btn,aria-label:dl.md.btn">M↓</a>
     <a class="fab-dl badge-pdf" id="dlPdfLink" href="downloads/简历_马成军.pdf" download data-i18n-attr="title:dl.pdf.btn,aria-label:dl.pdf.btn">PDF</a>
-    <button type="button" class="fab-dl badge-share" id="shareBtn" title="Share" aria-label="Share">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
-    </button>
   </div>
 
   <header>
@@ -930,7 +926,8 @@ var controller = CVUI.init(buildVariantDict(''), { onLang: updateResumeDownloadL
 
 // share / copy-button for résumé
 (function(){
-  var shareBtn = document.getElementById('shareBtn');
+  if (window.CVUI && window.CVUI._shareManaged) return;
+  var shareBtn = document.querySelector('[data-cv-action="share"]');
   if (!shareBtn) return;
   function buildShareUrl(){
     var lang = (window.controller && window.controller.lang) || document.documentElement.getAttribute('lang') || 'en';

@@ -733,7 +733,7 @@
     });
   }
   function syncShareButtonLabel(lang) {
-    var btn = document.getElementById('shareIndexBtn');
+    var btn = document.querySelector('[data-cv-action="share"]');
     if (!btn) return;
     var label = (I18N[lang] && I18N[lang]['share.btn']) || I18N.en['share.btn'];
     btn.setAttribute('title', label);
@@ -748,16 +748,7 @@
     }
   });
 
-  var toolbar = document.querySelector('[data-cv-toolbar]');
-  if (toolbar && !document.getElementById('shareIndexBtn')) {
-    var shareBtn = document.createElement('button');
-    shareBtn.className = 'share-icon';
-    shareBtn.id = 'shareIndexBtn';
-    shareBtn.type = 'button';
-    shareBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>';
-    toolbar.appendChild(shareBtn);
-    syncShareButtonLabel(window.controller.lang);
-  }
+  syncShareButtonLabel(window.controller.lang);
 
   // Point each card's hover glow at the cursor (pointer devices only).
   if (window.matchMedia('(hover: hover)').matches) {
@@ -774,7 +765,8 @@
 <script>
 // share button on index (recipient-aware copy / native share)
 (function(){
-  var btn = document.getElementById('shareIndexBtn');
+  if (window.CVUI && window.CVUI._shareManaged) return;
+  var btn = document.querySelector('[data-cv-action="share"]');
   var modal = document.getElementById('shareModal');
   var input = document.getElementById('shareToInput');
   var preview = document.getElementById('sharePreview');
