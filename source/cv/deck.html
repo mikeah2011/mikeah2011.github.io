@@ -171,7 +171,6 @@
   .dl-btn.badge-slidev { background: #7c3aed; }
   .dl-btn.badge-pdf { background: #c0392b; }
   .dl-btn.badge-pptx { background: #d24726; }
-
   .chrome {
     position: fixed; left: 0; right: 0; bottom: 0;
     display: flex; align-items: center; justify-content: space-between;
@@ -634,6 +633,29 @@ var current = CVUI.init(DECK_DICT, {
   onLang: function (lang) { refreshDots(); updateDeckDownloadLinks(); },
   onTheme: updateDeckDownloadLinks
 });
+
+(function () {
+  var btn = document.getElementById('deckShareBtn');
+  if (!btn) return;
+  function buildShareUrl() {
+    var lang = document.documentElement.getAttribute('lang') || 'zh-CN';
+    var u = new URL(location.origin + '/cv/share/' + lang + '.html');
+    var v = new URLSearchParams(location.search).get('v');
+    if (v) u.searchParams.set('v', v);
+    return u.toString();
+  }
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var shareUrl = buildShareUrl();
+    if (navigator.share) {
+      navigator.share({ title: document.title, text: document.querySelector('meta[name="description"]') && document.querySelector('meta[name="description"]').getAttribute('content') || '', url: shareUrl }).catch(function(){});
+      return;
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(shareUrl);
+    }
+  });
+})();
 
 document.getElementById('prev').addEventListener('click', function () { go(cur - 1); });
 document.getElementById('next').addEventListener('click', function () { go(cur + 1); });
