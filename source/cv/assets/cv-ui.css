@@ -62,4 +62,54 @@
 .cv-theme-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .cv-theme-btn svg { width: 16px; height: 16px; }
 
+.cv-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2, var(--surface));
+  color: var(--muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.cv-icon-btn:hover { color: var(--accent); border-color: var(--accent); }
+.cv-icon-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cv-icon-btn svg { width: 16px; height: 16px; }
+
+.cv-share-modal {
+  position: fixed; inset: 0; z-index: 1000; display: none;
+  align-items: center; justify-content: center; padding: 18px;
+  background: rgba(4, 12, 14, .62); backdrop-filter: blur(6px);
+}
+.cv-share-modal.open { display: flex; }
+.cv-share-panel {
+  width: min(420px, 100%); border-radius: 18px;
+  background: var(--surface); border: 1px solid var(--line);
+  box-shadow: var(--shadow, 0 8px 24px -12px rgba(0,0,0,.4));
+  padding: 18px; color: var(--ink);
+}
+.cv-share-panel h2 { margin: 0 0 6px; font-size: 17px; }
+.cv-share-panel p { margin: 0 0 14px; color: var(--muted); font-size: 12.5px; }
+.cv-share-field { display: grid; gap: 6px; margin-bottom: 12px; }
+.cv-share-field label { font-size: 12px; color: var(--muted); }
+.cv-share-field input {
+  width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
+  background: var(--paper, var(--surface)); color: var(--ink); font: inherit; outline: none;
+}
+.cv-share-field input:focus { border-color: var(--accent); }
+.cv-share-preview {
+  overflow-wrap: anywhere; margin: 0 0 14px; padding: 9px 10px; border-radius: 10px;
+  background: var(--surface-2); color: var(--muted); font-size: 11.5px;
+}
+.cv-share-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.cv-share-actions button {
+  border: 1px solid var(--line); border-radius: 999px; padding: 8px 13px;
+  background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; font-weight: 650;
+}
+.cv-share-actions .primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+
 @media print { .cv-toolbar { display: none !important; } }

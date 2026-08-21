@@ -635,7 +635,8 @@ var current = CVUI.init(DECK_DICT, {
 });
 
 (function () {
-  var btn = document.getElementById('deckShareBtn');
+  if (window.CVUI && window.CVUI._shareManaged) return;
+  var btn = document.querySelector('[data-cv-action="share"]');
   if (!btn) return;
   function buildShareUrl() {
     var lang = document.documentElement.getAttribute('lang') || 'zh-CN';

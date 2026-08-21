@@ -926,7 +926,8 @@ var controller = CVUI.init(buildVariantDict(''), { onLang: updateResumeDownloadL
 
 // share / copy-button for résumé
 (function(){
-  var shareBtn = document.querySelector('[data-cv-toolbar] .share-icon');
+  if (window.CVUI && window.CVUI._shareManaged) return;
+  var shareBtn = document.querySelector('[data-cv-action="share"]');
   if (!shareBtn) return;
   function buildShareUrl(){
     var lang = (window.controller && window.controller.lang) || document.documentElement.getAttribute('lang') || 'en';
