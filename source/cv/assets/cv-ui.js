@@ -92,8 +92,8 @@
       return '<button type="button" data-cv-lang="' + l + '" aria-pressed="false">' + LANG_LABEL[l] + '</button>';
     }).join('');
     mount.innerHTML =
-      '<div class="cv-seg" data-cv-group="lang" role="group">' + lang + '</div>' +
-      '<button type="button" class="cv-theme-btn" data-cv-theme-btn></button>';
+      '<button type="button" class="cv-theme-btn" data-cv-theme-btn></button>' +
+      '<div class="cv-seg" data-cv-group="lang" role="group">' + lang + '</div>';
     mount.classList.add('cv-toolbar');
   }
 
