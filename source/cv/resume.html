@@ -119,6 +119,7 @@
     html[lang="zh-TW"] .contact {
       flex-wrap: nowrap;
       column-gap: 8px;
+      font-size: 13.5px;
     }
     html[lang="zh-TW"] .contact > a,
     html[lang="zh-TW"] .contact > span {
@@ -322,6 +323,7 @@
     html[lang="zh-TW"] .contact {
       flex-wrap: nowrap;
       column-gap: 8px;
+      font-size: 13.5px;
     }
     html[lang="zh-TW"] .contact > a,
     html[lang="zh-TW"] .contact > span {
@@ -570,10 +572,11 @@ var RESUME_MD_FILES = {
   'lead': langFiles('.lead'), 'ai': langFiles('.ai')
 };
 function pdfFiles(prefix) {
+  var revision = '?v=20260822-3';
   return {
-    'zh-CN': 'downloads/简历_马成军' + prefix + '.pdf',
-    'zh-TW': 'downloads/简历_马成军' + prefix + '.zh-TW.pdf',
-    'en': 'downloads/简历_马成军' + prefix + '.en.pdf'
+    'zh-CN': 'downloads/简历_马成军' + prefix + '.pdf' + revision,
+    'zh-TW': 'downloads/简历_马成军' + prefix + '.zh-TW.pdf' + revision,
+    'en': 'downloads/简历_马成军' + prefix + '.en.pdf' + revision
   };
 }
 // Kept in step with export-resume-pdf.sh — a variant listed here must have had
