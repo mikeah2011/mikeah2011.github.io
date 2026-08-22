@@ -99,6 +99,13 @@
     return 'zh-CN';
   }
 
+  function syncLangInUrl(lang) {
+    if (!global.history || !global.history.replaceState || !global.location) return;
+    var url = new URL(global.location.href);
+    url.searchParams.set('lang', lang);
+    global.history.replaceState(global.history.state, '', url.toString());
+  }
+
   function isCvHomePage() {
     var p = String(global.location && global.location.pathname || '');
     return /\/cv\/$/.test(p) || /\/cv\/index\.html$/.test(p);
@@ -370,7 +377,9 @@
     langBtns.forEach(function (b) {
       b.addEventListener('click', function () {
         var l = b.getAttribute('data-cv-lang');
-        applyLang(l); store.set(LANG_KEY, l);
+        applyLang(l);
+        store.set(LANG_KEY, l);
+        syncLangInUrl(l);
       });
     });
     if (themeBtn) {
