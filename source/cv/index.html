@@ -185,6 +185,19 @@
 
   .bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
   @media (max-width: 760px) { .bento { grid-template-columns: 1fr; } }
+  @media (min-width: 761px) {
+    .files-section { display: block; }
+    .files-section .file-group + .file-group { margin-top: 10px; }
+    .files-section .file-group .files {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .files-section .file-group .file {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
   .card {
     position: relative; overflow: hidden;
     display: flex; flex-direction: column; gap: 6px;
@@ -346,20 +359,6 @@
     .top .rail a:nth-child(2) { order: 3; } /* GitHub */
     .top .rail a:nth-child(4) { order: 4; } /* Blog */
 
-    /* Downloads / source files: both file-groups join ONE grid so the
-       five items pack into two short label+row pairs instead of five
-       stacked rows. `display:contents` lifts the label/file children
-       up into the section's grid; each label spans the full width so
-       its row's files start fresh under it. */
-    /* Fixed max (not 1fr) so columns never stretch past what the longest
-       description ("PowerPoint / Keynote · 1.7 MB") needs — 1fr caused
-       the download row's columns to widen until that text wrapped,
-       which tripled the row's height. */
-    .files-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 305px)); gap: 7px; }
-    .files-section .file-group,
-    .files-section .files { display: contents; }
-    .files-section .label { grid-column: 1 / -1; margin-bottom: 0; }
-    .files-section .file-group + .file-group { margin-top: 0; }
   }
 
   @media print {
@@ -449,7 +448,7 @@
         </a>
         <a class="file" data-cv-file="cvlead" href="resume.html?v=lead">
           <span class="fi badge-marp"><svg viewBox="0 0 24 24"><text x="12" y="16.5" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif" font-size="9" font-weight="800" fill="currentColor">TL</text></svg></span>
-          <span><span class="nm" data-i18n="f.cvlead">Tech Lead 版</span><span class="ds mono" data-cv-file-desc>带队交付 / 跨团队协调侧重</span></span>
+          <span><span class="nm" data-i18n="f.cvlead">技术负责人版</span><span class="ds mono" data-cv-file-desc>带队交付 / 跨团队协调侧重</span></span>
           <span class="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12.5 5.5 19 12l-6.5 6.5"/></svg></span>
         </a>
         <a class="file" data-cv-file="cvai" href="resume.html?v=ai">
@@ -561,7 +560,7 @@
       'f.pptx': '简报 PPTX',
       'f.cvmd': '简历 Markdown', 'f.dkmd': '简报 Marp 源稿', 'f.dkslidev': '简报 Slidev 源稿',
       'sec.variants': '投递版本',
-      'f.cvbackend': '纯后端版', 'f.cvlead': 'Tech Lead 版', 'f.cvai': 'AI 工程版',
+      'f.cvbackend': '纯后端版', 'f.cvlead': '技术负责人版', 'f.cvai': 'AI 工程版',
       'foot.name': '马成军 Michael Ma · 资深后端工程师', 'foot.updated': '更新于',
       'aria.contact': '联系方式',
       'share.btn': '分享简历', 'share.title': '分享简历',
@@ -593,7 +592,7 @@
       'f.pptx': '簡報 PPTX',
       'f.cvmd': '履歷 Markdown', 'f.dkmd': '簡報 Marp 原始稿', 'f.dkslidev': '簡報 Slidev 原始稿',
       'sec.variants': '投遞版本',
-      'f.cvbackend': '純後端版', 'f.cvlead': 'Tech Lead 版', 'f.cvai': 'AI 工程版',
+      'f.cvbackend': '純後端版', 'f.cvlead': '技術負責人版', 'f.cvai': 'AI 工程版',
       'foot.name': '馬成軍 Michael Ma · 資深後端工程師', 'foot.updated': '更新於',
       'aria.contact': '聯絡方式',
       'share.btn': '分享履歷', 'share.title': '分享履歷',

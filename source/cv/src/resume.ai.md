@@ -38,7 +38,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 领英: [link
 | 领域 | 技能 |
 |------|------|
 | AI 工程 | Claude API / Copilot SDK 应用开发、多 AI Agent 编排与收敛、Prompt 设计与成本控制、AI 辅助研发流程建设 |
-| 语言与框架 | TypeScript / Node.js、PHP（精通，8 年+）、Go（基础）、Python（可读）；Laravel / Hyperf、Vue |
+| 语言与框架 | TypeScript / Node.js、PHP（8 年+）、Go（基础）、Python（可读）；Laravel / Hyperf、Vue |
 | 数据与中间件 | Elasticsearch、Google BigQuery、MySQL、PostgreSQL、Redis、RabbitMQ、Kafka |
 | 云原生与运维 | Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana |
 | 架构与业务 | 微服务与 BFF 分层、事件驱动架构、Redis 熔断器；联盟分润结算、订单交易链路、动态定价 |
@@ -93,4 +93,6 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 领英: [link
 
 ## 荣誉奖项
 
-KKday 年度优秀员工（2023、2024 连续两届）· Shopex 金番茄奖（2020）· 远丰科技「技术之星」（2016、2018）
+- KKday 年度优秀员工（2023、2024 连续两届）
+- Shopex 金番茄奖（2020）
+- 远丰科技「技术之星」（2016）

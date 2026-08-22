@@ -1,6 +1,6 @@
 # 马成军（Michael Ma）
 
-**Tech Lead / 资深后端工程师 · 13 年研发经验 · 带队交付 / 跨团队协调 / 业务增长**
+**技术负责人 / 资深后端工程师 · 13 年研发经验 · 带队交付 / 跨团队协调 / 业务增长**
 
 mikeah2011@gmail.com ｜ +86 188-0196-3698 ｜ 上海
 GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 领英: [linkedin.com/in/michael-ma-923223116](https://www.linkedin.com/in/michael-ma-923223116/) ｜ 技术博客: [mikeah2011.github.io](https://mikeah2011.github.io)
@@ -9,7 +9,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 领英: [link
 
 ## 个人简介
 
-13 年后端研发经验，一直以「能扛住技术深度的 Tech Lead」定位成长：在 KKday 从联盟平台 Code Owner 做到 B2C 核心后端，2026 H2 起以负责人身份带 6 人跨端小组冲 CVR 北极星指标；更早在 Shopex 也带过 6–7 人小组交付 Apple 平台小程序端，长期覆盖 OTA / 电商 / MarTech 场景。习惯在业务目标、工程约束与团队协作之间做取舍，深信好的技术决策要能被讲清楚、被验证，而不是只靠一句「我觉得」。
+13 年后端研发经验，一直以「能扛住技术深度的技术负责人」定位成长：在 KKday 从联盟平台 Code Owner 做到 B2C 核心后端，2026 H2 起以负责人身份带 6 人跨端小组冲 CVR 北极星指标；更早在 Shopex 也带过 6–7 人小组交付 Apple 平台小程序端，长期覆盖 OTA / 电商 / MarTech 场景。习惯在业务目标、工程约束与团队协作之间做取舍，深信好的技术决策要能被讲清楚、被验证，而不是只靠一句「我觉得」。
 
 **+50%** — CVR 转化率提升（1.2% → 1.8%），6 人跨端小组  
 **200%** — KKday 联盟业务年同比增长  
@@ -39,7 +39,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 领英: [link
 | 架构与业务 | 微服务与 BFF 分层、RabbitMQ 事件驱动、Redis 熔断器与双层 Kill Switch、多级缓存与 Cache Key 治理；联盟分润结算、订单交易链路、动态定价 |
 | 团队协作机制 | 跨职能对齐（多团队/多服务）、OKR 与站会/1on1 机制、决策文档化（SA/SD）、效果可视化看板 |
 | AI 工程 | Claude API / Copilot SDK 应用开发、多 AI Agent 编排与收敛、AI 辅助研发流程建设 |
-| 语言与框架 | PHP（精通，8 年+）、TypeScript / Node.js、Go（基础）、Python（可读）；Laravel / Hyperf、Vue |
+| 语言与框架 | PHP（8 年+）、TypeScript / Node.js、Go（基础）、Python（可读）；Laravel / Hyperf、Vue |
 | 数据与云原生 | MySQL、PostgreSQL、Redis、Elasticsearch、BigQuery、RabbitMQ、Kafka；Docker、Kubernetes、GitHub Actions |
 
 ---
@@ -95,4 +95,6 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ 领英: [link
 
 ## 荣誉奖项
 
-KKday 年度优秀员工（2023、2024 连续两届）· Shopex 金番茄奖（2020）· 远丰科技「技术之星」（2016、2018）
+- KKday 年度优秀员工（2023、2024 连续两届）
+- Shopex 金番茄奖（2020）
+- 远丰科技「技术之星」（2016）
