@@ -194,7 +194,7 @@ class: text-left
 # Core Skills
 
 <dl class="skills">
-  <dt>Languages</dt><dd>PHP (expert, 8+ yrs), TypeScript / Node.js, Go (basic), Shell</dd>
+  <dt>Languages</dt><dd>PHP (8+ yrs), TypeScript / Node.js, Go (basic), Shell</dd>
   <dt>Frameworks</dt><dd>Laravel / Hyperf / ThinkPHP, Vue</dd>
   <dt>Data & Messaging</dt><dd>MySQL, PostgreSQL, Redis, Elasticsearch, BigQuery, RabbitMQ, Kafka</dd>
   <dt>Cloud Native</dt><dd>Docker, Kubernetes, AWS / GCP Serverless, GitHub Actions, Grafana</dd>
