@@ -115,6 +115,18 @@
     column-gap: 6px;
     min-height: 32px;
   }
+  @media (min-width: 900px) {
+    html[lang="zh-TW"] .contact {
+      flex-wrap: nowrap;
+      column-gap: 8px;
+      font-size: 12px;
+    }
+    html[lang="zh-TW"] .contact > a,
+    html[lang="zh-TW"] .contact > span {
+      column-gap: 5px;
+      white-space: nowrap;
+    }
+  }
 
   section { margin-top: clamp(26px, 4vw, 34px); }
   .eyebrow {
@@ -307,6 +319,16 @@
     :root, :root[data-theme="dark"] {
       --ink:#1a2b33; --ink-2:#3a4e56; --muted:#5c6f77; --paper:#fff; --surface:#fff;
       --surface-2:#eef2f2; --line:#dce3e4; --accent:#0e7c86; --accent-dim:#0e7c8614;
+    }
+    html[lang="zh-TW"] .contact {
+      flex-wrap: nowrap;
+      column-gap: 8px;
+      font-size: 12px;
+    }
+    html[lang="zh-TW"] .contact > a,
+    html[lang="zh-TW"] .contact > span {
+      column-gap: 5px;
+      white-space: nowrap;
     }
     /* 1.68 is generous for screen reading but wastes a lot of paper; 1.55
        keeps bullets comfortable while buying back enough vertical room that
