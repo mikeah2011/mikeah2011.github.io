@@ -99,6 +99,14 @@ menu:
       zh-TW: '簡歷'
       en: 'Resume'
     path: 'https://mikeah2011.github.io/cv/'
+  English:
+    name: '英语'
+    i18n:
+      cn: '英语'
+      zh-CN: '英语'
+      zh-TW: '英語'
+      en: 'English'
+    path: '/english/side-by-side-1/'
   Contact:
     name: '联系'
     i18n:

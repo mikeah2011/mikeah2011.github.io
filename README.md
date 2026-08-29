@@ -23,7 +23,7 @@
 个人技术博客的源码仓库。push 到 `main` 后由 GitHub Actions 构建并部署到 GitHub Pages，
 `public/` 不入库。
 
-同一个站点下还挂着一套独立的 [简历站点](source/cv/)，它有自己的构建脚本和说明。
+同一个站点下还挂着一套独立的 [简历站点](source/cv/)，它有自己的构建脚本和说明；[英语学习页](source/english/side-by-side-1/) 原样发布到 `/english/side-by-side-1/`。
 
 ## 内容
 
@@ -67,6 +67,7 @@ git config core.hooksPath .githooks
 source/_posts/<分类>/     文章，按分类分目录
 source/images/            图片，文章里一律用 /images/<name> 引用
 source/cv/                简历站点，skip_render 原样输出（见其 README）
+source/english/           英语学习静态页，skip_render 原样输出
 source/{about,link,message-board,404}/   独立页面
 scripts/                  构建脚本与 Hexo 插件（见下）
 .github/workflows/        pages.yml 构建部署 · lint-posts.yml 文章校验
