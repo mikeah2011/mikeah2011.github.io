@@ -1,116 +1,273 @@
-const exampleVoiceStorageKey = "sideBySideExampleVoiceURI";
-const exampleVoiceSelectionStorageKey = "sideBySideExampleVoiceSelected";
+const themeStorageKey = "theme";
 const preferredExampleVoiceNames = ["Samantha", "Alex", "Google US English", "Microsoft Aria", "Microsoft Jenny", "Daniel", "Karen", "Tessa", "Moira", "Rishi"];
 const noveltyVoiceNames = ["Albert", "Bad News", "Bahh", "Bells", "Boing", "Bubbles", "Cellos", "Fred", "Good News", "Jester", "Junior", "Organ", "Ralph", "Superstar", "Trinoids", "Whisper", "Wobble", "Zarvox"];
 
+/* ---------------- Theme Controller (Aurora Theme Consistency) ---------------- */
+function getSavedTheme() {
+  return localStorage.getItem(themeStorageKey) || localStorage.getItem("aurora-theme") || localStorage.getItem("cv-theme") || "system";
+}
+
+function applyTheme(theme) {
+  const root = document.documentElement;
+  if (theme === "dark") {
+    root.setAttribute("data-theme", "dark");
+  } else if (theme === "light") {
+    root.setAttribute("data-theme", "light");
+  } else {
+    root.removeAttribute("data-theme");
+  }
+  updateThemeToggleIcon(theme);
+}
+
+function updateThemeToggleIcon(theme) {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  btn.innerHTML = isDark
+    ? `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`
+    : `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+  btn.title = `当前主题：${theme === "dark" ? "深色" : theme === "light" ? "浅色" : "跟随系统"}（点击切换）`;
+}
+
+function toggleTheme() {
+  const current = getSavedTheme();
+  let next = "dark";
+  if (current === "system") {
+    next = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "dark";
+  } else if (current === "dark") {
+    next = "light";
+  } else {
+    next = "dark";
+  }
+  localStorage.setItem(themeStorageKey, next);
+  localStorage.setItem("aurora-theme", next);
+  localStorage.setItem("cv-theme", next);
+  applyTheme(next);
+}
+
+function initTheme() {
+  applyTheme(getSavedTheme());
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (getSavedTheme() === "system") {
+      applyTheme("system");
+    }
+  });
+}
+
+// Apply theme immediately to prevent flashing
+initTheme();
+
+/* ---------------- Audio & Voice Controller (Local Studio HD MP3) ---------------- */
 function markAudioPlaying(trigger) {
-  document.querySelectorAll(".playing").forEach((element) => element.classList.remove("playing"));
+  document.querySelectorAll(".audio-button.playing").forEach((element) => element.classList.remove("playing"));
+  document.querySelectorAll(".word-card.playing-card").forEach((element) => element.classList.remove("playing-card"));
   if (!trigger) return () => {};
   trigger.classList.add("playing");
-  return () => trigger.classList.remove("playing");
-}
-
-function playWordAudio(word, trigger) {
-  window.speechSynthesis?.cancel();
-  const audio = document.getElementById("voice-file");
-  document.getElementById("audioSource").src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(word)}&type=2`;
-  audio.load();
-  audio.play().catch((error) => console.error(`Unable to play audio for "${word}".`, error));
-  const stopPlaying = markAudioPlaying(trigger);
-  setTimeout(stopPlaying, 1000);
-}
-
-function getExampleVoices() {
-  if (!window.speechSynthesis) return [];
-  const voices = window.speechSynthesis.getVoices();
-  const englishVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("en"));
-  const availableVoices = englishVoices.length > 0 ? englishVoices : voices;
-  return [...availableVoices].sort((firstVoice, secondVoice) => {
-    const firstPreferredIndex = preferredExampleVoiceNames.findIndex((name) => firstVoice.name.includes(name));
-    const secondPreferredIndex = preferredExampleVoiceNames.findIndex((name) => secondVoice.name.includes(name));
-    const firstNoveltyIndex = noveltyVoiceNames.findIndex((name) => firstVoice.name.includes(name));
-    const secondNoveltyIndex = noveltyVoiceNames.findIndex((name) => secondVoice.name.includes(name));
-    if (firstPreferredIndex !== -1 || secondPreferredIndex !== -1) {
-      return (firstPreferredIndex === -1 ? Number.MAX_SAFE_INTEGER : firstPreferredIndex) - (secondPreferredIndex === -1 ? Number.MAX_SAFE_INTEGER : secondPreferredIndex);
-    }
-    if (firstNoveltyIndex !== -1 || secondNoveltyIndex !== -1) {
-      return (firstNoveltyIndex === -1 ? -1 : 1) - (secondNoveltyIndex === -1 ? -1 : 1);
-    }
-    return firstVoice.name.localeCompare(secondVoice.name);
-  });
-}
-
-function getSelectedExampleVoice() {
-  const selectedVoiceURI = localStorage.getItem(exampleVoiceStorageKey);
-  const hasUserSelectedVoice = localStorage.getItem(exampleVoiceSelectionStorageKey) === "true";
-  const voices = getExampleVoices();
-  const savedVoice = voices.find((voice) => voice.voiceURI === selectedVoiceURI);
-  return (savedVoice && (hasUserSelectedVoice || !noveltyVoiceNames.some((name) => savedVoice.name.includes(name))) ? savedVoice : undefined)
-    || voices.find((voice) => preferredExampleVoiceNames.some((name) => voice.name.includes(name)))
-    || voices.find((voice) => voice.lang === "en-US" && !noveltyVoiceNames.some((name) => voice.name.includes(name)))
-    || voices[0];
-}
-
-function populateExampleVoiceSelect() {
-  const select = document.getElementById("example-voice-select");
-  const status = document.getElementById("example-voice-status");
-  if (!select) return;
-  const voices = getExampleVoices();
-  select.innerHTML = "";
-  if (voices.length === 0) {
-    select.disabled = true;
-    const option = document.createElement("option");
-    option.textContent = "使用浏览器默认声音";
-    select.append(option);
-    if (status) status.textContent = "当前浏览器暂未返回可选声音。";
-    return;
-  }
-  const selectedVoiceURI = localStorage.getItem(exampleVoiceStorageKey);
-  voices.forEach((voice) => {
-    const option = document.createElement("option");
-    option.value = voice.voiceURI;
-    option.textContent = `${voice.name} (${voice.lang})`;
-    option.selected = voice.voiceURI === selectedVoiceURI;
-    select.append(option);
-  });
-  if (!select.value && voices[0]) select.value = getSelectedExampleVoice().voiceURI;
-  select.disabled = false;
-  if (status) status.textContent = `${voices.length} 个可选英文声音。`;
-}
-
-function playExampleAudio(example, trigger) {
-  const synth = window.speechSynthesis;
-  if (!synth) {
-    console.error("This browser does not support speech synthesis.");
-    return;
-  }
-  document.getElementById("voice-file").pause();
-  synth.cancel();
-  const stopPlaying = markAudioPlaying(trigger);
-  const selectedVoice = getSelectedExampleVoice();
-  const utterance = new SpeechSynthesisUtterance(example);
-  utterance.lang = selectedVoice?.lang || "en-US";
-  utterance.rate = 0.9;
-  utterance.voice = selectedVoice;
-  utterance.onend = stopPlaying;
-  utterance.onerror = (event) => {
-    stopPlaying();
-    console.error(`Unable to play example audio for "${example}".`, event);
+  const card = trigger.closest(".word-card");
+  if (card) card.classList.add("playing-card");
+  return () => {
+    trigger.classList.remove("playing");
+    if (card) card.classList.remove("playing-card");
   };
-  synth.speak(utterance);
+}
+
+let activeAudioElement = null;
+
+function playAudioTrack(src, trigger, onComplete) {
+  if (activeAudioElement) {
+    activeAudioElement.pause();
+    activeAudioElement = null;
+  }
+
+  const stopPlaying = markAudioPlaying(trigger);
+  const audio = new Audio(src);
+  activeAudioElement = audio;
+
+  audio.onended = () => {
+    stopPlaying();
+    activeAudioElement = null;
+    if (onComplete) onComplete();
+  };
+
+  audio.onerror = (e) => {
+    console.error(`Audio playback error for ${src}:`, e);
+    stopPlaying();
+    activeAudioElement = null;
+    if (onComplete) onComplete();
+  };
+
+  audio.play().catch((err) => {
+    console.error(`Audio play caught error for ${src}:`, err);
+    stopPlaying();
+    activeAudioElement = null;
+    if (onComplete) onComplete();
+  });
+}
+
+function playWordAudio(firstArg, secondArg) {
+  const trigger = (firstArg instanceof HTMLElement) ? firstArg : secondArg;
+  if (!trigger) return;
+
+  const wordSrc = trigger.dataset.audioSrc;
+  const card = trigger.closest(".word-card");
+  const exampleBtn = card ? card.querySelector(".example .audio-button") : null;
+  const exampleSrc = exampleBtn ? exampleBtn.dataset.audioSrc : null;
+
+  if (wordSrc) {
+    playAudioTrack(wordSrc, trigger, () => {
+      if (exampleSrc && exampleBtn) {
+        setTimeout(() => {
+          playAudioTrack(exampleSrc, exampleBtn);
+        }, 350);
+      }
+    });
+  }
+}
+
+function playExampleAudio(firstArg, secondArg) {
+  const trigger = (firstArg instanceof HTMLElement) ? firstArg : secondArg;
+  if (!trigger) return;
+
+  const exampleSrc = trigger.dataset.audioSrc;
+  if (exampleSrc) {
+    playAudioTrack(exampleSrc, trigger);
+  }
+}
+
+/* ---------------- Hover-To-Play Controller ---------------- */
+let hoverPlayTimer = null;
+let currentHoverCard = null;
+
+function initHoverPlay() {
+  document.querySelectorAll(".word-card").forEach((card) => {
+    if (card._hasHoverBound) return;
+    card._hasHoverBound = true;
+
+    card.addEventListener("mouseenter", () => {
+      if (hoverPlayTimer) {
+        clearTimeout(hoverPlayTimer);
+        hoverPlayTimer = null;
+      }
+
+      if (currentHoverCard === card && card.classList.contains("playing-card")) {
+        return;
+      }
+
+      hoverPlayTimer = setTimeout(() => {
+        currentHoverCard = card;
+        const wordBtn = card.querySelector(".pronunciation .audio-button");
+        if (wordBtn) {
+          playWordAudio(wordBtn);
+        }
+      }, 140);
+    });
+
+    card.addEventListener("mouseleave", () => {
+      if (hoverPlayTimer) {
+        clearTimeout(hoverPlayTimer);
+        hoverPlayTimer = null;
+      }
+    });
+  });
+}
+
+/* ---------------- Tabs Controller (Core vs Proper Nouns) ---------------- */
+function switchVocabTab(btn) {
+  if (!btn) return;
+  const nav = btn.closest(".vocab-tabs-nav");
+  if (!nav) return;
+
+  if (hoverPlayTimer) {
+    clearTimeout(hoverPlayTimer);
+    hoverPlayTimer = null;
+  }
+  if (activeAudioElement) {
+    activeAudioElement.pause();
+    activeAudioElement = null;
+  }
+  document.querySelectorAll(".audio-button.playing").forEach((el) => el.classList.remove("playing"));
+  document.querySelectorAll(".word-card.playing-card").forEach((el) => el.classList.remove("playing-card"));
+
+  nav.querySelectorAll(".vocab-tab-btn").forEach((b) => {
+    b.classList.remove("active");
+    b.setAttribute("aria-selected", "false");
+  });
+  btn.classList.add("active");
+  btn.setAttribute("aria-selected", "true");
+
+  const targetId = btn.dataset.tabTarget;
+  document.querySelectorAll(".vocab-tab-panel").forEach((panel) => {
+    if (panel.id === targetId) {
+      panel.classList.add("active");
+      panel.hidden = false;
+    } else {
+      panel.classList.remove("active");
+      panel.hidden = true;
+    }
+  });
+
+  initHoverPlay();
+}
+
+function initVocabTabs() {
+  document.querySelectorAll(".vocab-tab-btn").forEach((btn) => {
+    btn.addEventListener("click", () => switchVocabTab(btn));
+  });
+}
+
+// Expose functions globally for inline onclick handlers
+window.switchVocabTab = switchVocabTab;
+window.playWordAudio = playWordAudio;
+window.playExampleAudio = playExampleAudio;
+window.toggleTheme = toggleTheme;
+
+/* ---------------- Render Aurora Navigation Header & Footer ---------------- */
+function enhanceHeader() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  const isDirectoryPage = window.location.pathname.endsWith("/side-by-side-1/") || window.location.pathname.endsWith("/side-by-side-1/index.html");
+
+  header.innerHTML = `
+    <div class="site-header-left">
+      <a href="/" title="返回 Michael's Blog">
+        <img class="site-avatar" src="https://cdn.jsdelivr.net/gh/mikeah2011/oss@main/uPic/blog_logo.jpeg" alt="Michael's Blog">
+      </a>
+      <div class="site-brand-text">
+        <a href="/" class="site-brand-title">Michael's Blog</a>
+        <span class="site-brand-sub">英语学习 · Side by Side 1</span>
+      </div>
+    </div>
+    <nav class="site-header-nav">
+      <a href="/" class="site-nav-link">博客首页</a>
+      <a href="/english/side-by-side-1/" class="site-nav-link ${isDirectoryPage ? "active" : ""}">课程目录</a>
+      <a href="/cv/" class="site-nav-link">简历</a>
+      <a href="/categories" class="site-nav-link">分类</a>
+      <a href="https://github.com/mikeah2011" target="_blank" rel="noopener noreferrer" class="site-nav-link">GitHub</a>
+      <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="切换主题" onclick="toggleTheme()"></button>
+    </nav>
+  `;
+
+  updateThemeToggleIcon(getSavedTheme());
+}
+
+function enhanceFooter() {
+  const footer = document.querySelector("footer");
+  if (!footer) return;
+
+  footer.innerHTML = `
+    <div style="margin-bottom: 0.5rem; font-weight: 600; color: var(--text-title);">
+      知我所能者，尽善尽美；知我所不能者，虚怀若谷。
+    </div>
+    <div>
+      © ${new Date().getFullYear()} <a href="/">Michael's Blog</a> · 英语学习 · Side by Side 1
+    </div>
+  `;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const select = document.getElementById("example-voice-select");
-  if (!select || !window.speechSynthesis) return;
-  populateExampleVoiceSelect();
-  if (typeof window.speechSynthesis.addEventListener === "function") {
-    window.speechSynthesis.addEventListener("voiceschanged", populateExampleVoiceSelect);
-  } else {
-    window.speechSynthesis.onvoiceschanged = populateExampleVoiceSelect;
-  }
-  select.addEventListener("change", () => {
-    localStorage.setItem(exampleVoiceStorageKey, select.value);
-    localStorage.setItem(exampleVoiceSelectionStorageKey, "true");
-  });
+  enhanceHeader();
+  enhanceFooter();
+  initVocabTabs();
+  initHoverPlay();
 });
