@@ -72,6 +72,8 @@ function markAudioPlaying(trigger) {
 }
 
 let activeAudioElement = null;
+let lastPlayTimestamp = 0;
+let lastPlayTrigger = null;
 
 function playAudioTrack(src, trigger, onComplete) {
   if (activeAudioElement) {
@@ -85,21 +87,27 @@ function playAudioTrack(src, trigger, onComplete) {
 
   audio.onended = () => {
     stopPlaying();
-    activeAudioElement = null;
+    if (activeAudioElement === audio) {
+      activeAudioElement = null;
+    }
     if (onComplete) onComplete();
   };
 
   audio.onerror = (e) => {
     console.error(`Audio playback error for ${src}:`, e);
     stopPlaying();
-    activeAudioElement = null;
+    if (activeAudioElement === audio) {
+      activeAudioElement = null;
+    }
     if (onComplete) onComplete();
   };
 
   audio.play().catch((err) => {
     console.error(`Audio play caught error for ${src}:`, err);
     stopPlaying();
-    activeAudioElement = null;
+    if (activeAudioElement === audio) {
+      activeAudioElement = null;
+    }
     if (onComplete) onComplete();
   });
 }
@@ -107,6 +115,20 @@ function playAudioTrack(src, trigger, onComplete) {
 function playWordAudio(firstArg, secondArg) {
   const trigger = (firstArg instanceof HTMLElement) ? firstArg : secondArg;
   if (!trigger) return;
+
+  // Cancel any pending hover timers on click/touch
+  if (hoverPlayTimer) {
+    clearTimeout(hoverPlayTimer);
+    hoverPlayTimer = null;
+  }
+
+  // Prevent duplicate double-tap / synthetic click events on mobile within 350ms
+  const now = Date.now();
+  if (lastPlayTrigger === trigger && now - lastPlayTimestamp < 350) {
+    return;
+  }
+  lastPlayTimestamp = now;
+  lastPlayTrigger = trigger;
 
   const wordSrc = trigger.dataset.audioSrc;
   const card = trigger.closest(".word-card");
@@ -128,6 +150,18 @@ function playExampleAudio(firstArg, secondArg) {
   const trigger = (firstArg instanceof HTMLElement) ? firstArg : secondArg;
   if (!trigger) return;
 
+  if (hoverPlayTimer) {
+    clearTimeout(hoverPlayTimer);
+    hoverPlayTimer = null;
+  }
+
+  const now = Date.now();
+  if (lastPlayTrigger === trigger && now - lastPlayTimestamp < 350) {
+    return;
+  }
+  lastPlayTimestamp = now;
+  lastPlayTrigger = trigger;
+
   const exampleSrc = trigger.dataset.audioSrc;
   if (exampleSrc) {
     playAudioTrack(exampleSrc, trigger);
@@ -138,12 +172,20 @@ function playExampleAudio(firstArg, secondArg) {
 let hoverPlayTimer = null;
 let currentHoverCard = null;
 
+function isPointerHoverSupported() {
+  return window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+}
+
 function initHoverPlay() {
+  if (!isPointerHoverSupported()) return;
+
   document.querySelectorAll(".word-card").forEach((card) => {
     if (card._hasHoverBound) return;
     card._hasHoverBound = true;
 
     card.addEventListener("mouseenter", () => {
+      if (!isPointerHoverSupported()) return;
+
       if (hoverPlayTimer) {
         clearTimeout(hoverPlayTimer);
         hoverPlayTimer = null;
