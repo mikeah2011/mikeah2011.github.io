@@ -23,7 +23,7 @@
 个人技术博客的源码仓库。push 到 `main` 后由 GitHub Actions 构建并部署到 GitHub Pages，
 `public/` 不入库。
 
-同一个站点下还挂着一套独立的 [简历站点](source/cv/)，它有自己的构建脚本和说明；[英语学习页](source/english/side-by-side-1/) 原样发布到 `/english/side-by-side-1/`。
+同一个站点下还挂着一套独立的 [简历站点](source/cv/)，它有自己的构建脚本和说明；[英语学习页](source/english/side-by-side-1/) 原样发布到 `/english/side-by-side-1/`，支持本地选择 PDF 在课程页侧边栏预览。
 
 ## 内容
 
