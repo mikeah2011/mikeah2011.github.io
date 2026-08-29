@@ -106,7 +106,7 @@ menu:
       zh-CN: '英语'
       zh-TW: '英語'
       en: 'English'
-    path: '/english/side-by-side-1/'
+    path: 'https://mikeah2011.github.io/english/side-by-side-1/'
   Contact:
     name: '联系'
     i18n:
