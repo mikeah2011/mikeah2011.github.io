@@ -2,7 +2,6 @@ const exampleVoiceStorageKey = "sideBySideExampleVoiceURI";
 const exampleVoiceSelectionStorageKey = "sideBySideExampleVoiceSelected";
 const preferredExampleVoiceNames = ["Samantha", "Alex", "Google US English", "Microsoft Aria", "Microsoft Jenny", "Daniel", "Karen", "Tessa", "Moira", "Rishi"];
 const noveltyVoiceNames = ["Albert", "Bad News", "Bahh", "Bells", "Boing", "Bubbles", "Cellos", "Fred", "Good News", "Jester", "Junior", "Organ", "Ralph", "Superstar", "Trinoids", "Whisper", "Wobble", "Zarvox"];
-let localPdfPreviewUrl;
 
 function markAudioPlaying(trigger) {
   document.querySelectorAll(".playing").forEach((element) => element.classList.remove("playing"));
@@ -99,48 +98,6 @@ function playExampleAudio(example, trigger) {
     console.error(`Unable to play example audio for "${example}".`, event);
   };
   synth.speak(utterance);
-}
-
-function showPdfPreview(pdfUrl, statusText) {
-  const preview = document.getElementById("pdf-preview");
-  const status = document.getElementById("pdf-preview-status");
-
-  if (!preview) return;
-
-  preview.src = pdfUrl;
-  preview.hidden = false;
-
-  if (status) status.textContent = statusText;
-}
-
-function loadLocalPdfPreview(input) {
-  const file = input.files?.[0];
-
-  if (!file) return;
-
-  if (file.type !== "application/pdf") {
-    const status = document.getElementById("pdf-preview-status");
-    if (status) status.textContent = "请选择 PDF 文件。";
-    input.value = "";
-    return;
-  }
-
-  if (localPdfPreviewUrl) URL.revokeObjectURL(localPdfPreviewUrl);
-  localPdfPreviewUrl = URL.createObjectURL(file);
-  showPdfPreview(localPdfPreviewUrl, `正在预览本地文件：${file.name}。这个文件不会上传到网站。`);
-}
-
-function loadDefaultPdfPreview(trigger) {
-  const sidebar = trigger.closest(".pdf-sidebar");
-  const defaultPdf = sidebar?.dataset.defaultPdf;
-  const status = document.getElementById("pdf-preview-status");
-
-  if (!defaultPdf) {
-    if (status) status.textContent = "还没有配置站点 PDF。";
-    return;
-  }
-
-  showPdfPreview(defaultPdf, "正在加载站点 PDF。如果没有显示，请确认你有授权并已把 PDF 放到 assets/side-by-side-1-sb.pdf。");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
