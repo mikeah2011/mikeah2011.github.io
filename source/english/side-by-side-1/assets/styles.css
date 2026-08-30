@@ -594,6 +594,18 @@ main {
   font-size: 1.45rem;
 }
 
+.custom-word-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.custom-word-name-row .translation-icon-button {
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: 0.9rem;
+}
+
 .custom-word-phonetic {
   display: flex;
   align-items: center;

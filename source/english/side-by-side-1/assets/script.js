@@ -559,7 +559,7 @@ async function createDictionaryFallback(query, word, isChineseQuery) {
     throw new Error("WORD_NOT_FOUND");
   }
   const looksLikeProperName = isLikelyProperName(query) || (isChineseQuery && isLikelyProperName(word));
-  const type = looksLikeProperName ? "专有名称" : "词语";
+  const type = looksLikeProperName ? "专有名词" : "词语";
   return {
     word,
     query,
@@ -624,7 +624,12 @@ function renderCustomWordResult(entry) {
   if (!result) return;
 
   document.getElementById("custom-word-name").textContent = entry.word;
-  document.getElementById("custom-word-part").textContent = entry.partOfSpeech;
+  const copy = document.getElementById("custom-word-copy");
+  copy.dataset.copyText = entry.word;
+  copy.setAttribute("aria-label", `复制 ${entry.word}`);
+  copy.title = `复制 ${entry.word}`;
+  document.getElementById("custom-word-part").textContent =
+    entry.partOfSpeech === "专有名称" ? "专有名词" : entry.partOfSpeech;
   document.getElementById("custom-word-phonetic").textContent = entry.phonetic;
   document.getElementById("custom-word-translation").textContent = entry.wordTranslation;
   document.getElementById("custom-word-meaning").textContent = entry.definitionTranslation;
@@ -829,6 +834,7 @@ function initCustomWordLookup() {
   const form = document.getElementById("custom-word-form");
   const input = document.getElementById("custom-word-input");
   const wordAudio = document.getElementById("custom-word-audio");
+  const wordCopy = document.getElementById("custom-word-copy");
   const exampleAudio = document.getElementById("custom-example-audio");
   const translationToggle = document.getElementById("custom-translation-toggle");
   const definition = document.getElementById("custom-word-definition");
@@ -836,7 +842,7 @@ function initCustomWordLookup() {
   const example = document.getElementById("custom-word-example");
   const translation = document.getElementById("custom-word-example-translation");
   const clearHistory = document.getElementById("custom-word-history-clear");
-  if (!form || !input || !wordAudio || !exampleAudio || !translationToggle || !definition || !meaning || !example || !translation || !clearHistory) return;
+  if (!form || !input || !wordAudio || !wordCopy || !exampleAudio || !translationToggle || !definition || !meaning || !example || !translation || !clearHistory) return;
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -849,6 +855,17 @@ function initCustomWordLookup() {
       playAudioTrack(src, wordAudio);
     } else {
       speakText(wordAudio.dataset.speechText, "en-US", wordAudio);
+    }
+  });
+  wordCopy.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(wordCopy.dataset.copyText);
+      document.getElementById("custom-word-status").textContent = `${wordCopy.dataset.copyText} 已复制。`;
+      document.getElementById("custom-word-status").classList.remove("error");
+    } catch (error) {
+      console.error("Unable to copy word:", error);
+      document.getElementById("custom-word-status").textContent = "复制失败，请长按生词手动复制。";
+      document.getElementById("custom-word-status").classList.add("error");
     }
   });
   exampleAudio.addEventListener("click", () => {
