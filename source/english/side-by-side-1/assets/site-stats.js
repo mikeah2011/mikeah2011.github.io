@@ -40,6 +40,15 @@
     }
   }
 
+  function selfTag() {
+    try {
+      var tag = new URLSearchParams(location.search).get('to') || '';
+      return tag === 'self' || tag.indexOf('self-') === 0 ? tag.slice(0, 60) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
   function send(event, detail) {
     if (!ENDPOINT || location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
     var dimensions = classify(location.pathname);
@@ -50,6 +59,7 @@
       event: event,
       detail: detail || null,
       lang: language(),
+      tag: selfTag(),
       referrer: referrerOrigin()
     });
     var type = 'text/plain;charset=UTF-8';
