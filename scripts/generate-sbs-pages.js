@@ -124,8 +124,8 @@ ${renderTable(coreWords, lessonNumPad, 1)}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(item.title)} - Michael's Blog</title>
   <meta name="description" content="Side by Side 1 英语生词、音标、例句和发音练习。">
-  <link rel="stylesheet" href="../assets/styles.css?v=1.3">
-  <script src="../assets/script.js?v=1.3" defer></script>
+  <link rel="stylesheet" href="../assets/styles.css?v=1.5">
+  <script src="../assets/script.js?v=1.5" defer></script>
 </head>
 <body data-prev-lesson-url="${prevLessonUrl}" data-next-lesson-url="${nextLessonUrl}">
   <header class="site-header"></header>
@@ -138,7 +138,22 @@ ${renderTable(coreWords, lessonNumPad, 1)}
     <section class="hero">
       <p>Lesson ${lessonNum}</p>
       <h2>${escapeHtml(item.title)}</h2>
-      <div>共 ${item.vocabulary.length} 个词汇${properSummary}。鼠标滑过词行或点击小喇叭即可自动连贯朗读单词与例句。</div>
+      <div>共 ${item.vocabulary.length} 个词汇${properSummary}。电脑端可悬停播放；移动端可使用连续播放，自动朗读单词与例句。</div>
+    </section>
+    <section class="continuous-player" aria-label="连续播放控制">
+      <div class="continuous-player-status">
+        <strong id="continuous-player-title">连续播放</strong>
+        <span id="continuous-player-progress" aria-live="polite">从当前分类的第一个词开始</span>
+      </div>
+      <div class="continuous-player-controls">
+        <button type="button" data-player-action="previous" aria-label="上一个词">⏮</button>
+        <button type="button" class="continuous-player-toggle" data-player-action="toggle" aria-label="开始连续播放">▶ 连续播放</button>
+        <button type="button" data-player-action="next" aria-label="下一个词">⏭</button>
+        <label class="continuous-player-loop">
+          <input type="checkbox" id="continuous-player-loop">
+          循环
+        </label>
+      </div>
     </section>
 ${tabsHtml}
     <audio id="voice-file" preload="none"><source id="audioSource" src=""></audio>

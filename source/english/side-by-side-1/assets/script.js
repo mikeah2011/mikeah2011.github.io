@@ -115,6 +115,7 @@ function playAudioTrack(src, trigger, onComplete) {
 function playWordAudio(firstArg, secondArg) {
   const trigger = (firstArg instanceof HTMLElement) ? firstArg : secondArg;
   if (!trigger) return;
+  stopContinuousPlayback();
 
   // Cancel any pending hover timers on click/touch
   if (hoverPlayTimer) {
@@ -149,6 +150,7 @@ function playWordAudio(firstArg, secondArg) {
 function playExampleAudio(firstArg, secondArg) {
   const trigger = (firstArg instanceof HTMLElement) ? firstArg : secondArg;
   if (!trigger) return;
+  stopContinuousPlayback();
 
   if (hoverPlayTimer) {
     clearTimeout(hoverPlayTimer);
@@ -218,6 +220,7 @@ function switchVocabTab(btn) {
   if (!btn) return;
   const nav = btn.closest(".vocab-tabs-nav");
   if (!nav) return;
+  stopContinuousPlayback();
 
   if (hoverPlayTimer) {
     clearTimeout(hoverPlayTimer);
@@ -257,10 +260,190 @@ function initVocabTabs() {
   });
 }
 
+/* ---------------- Mobile Continuous Playback ---------------- */
+let continuousPlaybackActive = false;
+let continuousPlaybackPaused = false;
+let continuousPlaybackIndex = 0;
+let continuousPlaybackCards = [];
+
+function getContinuousPlaybackCards() {
+  const activePanel = document.querySelector(".vocab-tab-panel.active");
+  const container = activePanel || document.querySelector("main");
+  return container ? Array.from(container.querySelectorAll(".word-card")) : [];
+}
+
+function updateContinuousPlayer() {
+  const toggle = document.querySelector('[data-player-action="toggle"]');
+  const progress = document.getElementById("continuous-player-progress");
+  if (!toggle || !progress) return;
+
+  if (!continuousPlaybackActive) {
+    toggle.textContent = "▶ 连续播放";
+    toggle.setAttribute("aria-label", "开始连续播放");
+    progress.textContent = "从当前分类的第一个词开始";
+    return;
+  }
+
+  toggle.textContent = continuousPlaybackPaused ? "▶ 继续" : "⏸ 暂停";
+  toggle.setAttribute("aria-label", continuousPlaybackPaused ? "继续连续播放" : "暂停连续播放");
+
+  const card = continuousPlaybackCards[continuousPlaybackIndex];
+  const number = card ? card.querySelector(".word-num")?.textContent.trim() : "";
+  const word = card ? card.querySelector(".word span")?.textContent.trim() : "";
+  progress.textContent = `${number} ${word} · ${continuousPlaybackIndex + 1}/${continuousPlaybackCards.length}`;
+}
+
+function clearContinuousPlaybackHighlight() {
+  document.querySelectorAll(".word-card.continuous-current").forEach((card) => {
+    card.classList.remove("continuous-current");
+  });
+}
+
+function stopContinuousPlayback() {
+  if (!continuousPlaybackActive && !continuousPlaybackPaused) return;
+
+  continuousPlaybackActive = false;
+  continuousPlaybackPaused = false;
+  if (activeAudioElement) {
+    activeAudioElement.pause();
+    activeAudioElement = null;
+  }
+  document.querySelectorAll(".audio-button.playing").forEach((element) => element.classList.remove("playing"));
+  document.querySelectorAll(".word-card.playing-card").forEach((card) => card.classList.remove("playing-card"));
+  clearContinuousPlaybackHighlight();
+  updateContinuousPlayer();
+}
+
+function finishContinuousPlayback() {
+  continuousPlaybackActive = false;
+  continuousPlaybackPaused = false;
+  clearContinuousPlaybackHighlight();
+  updateContinuousPlayer();
+  const progress = document.getElementById("continuous-player-progress");
+  if (progress) progress.textContent = "本分类已播放完毕";
+}
+
+function playContinuousCard(index) {
+  if (!continuousPlaybackActive || continuousPlaybackPaused) return;
+
+  const loopEnabled = document.getElementById("continuous-player-loop")?.checked;
+  if (index >= continuousPlaybackCards.length) {
+    if (loopEnabled) {
+      index = 0;
+    } else {
+      finishContinuousPlayback();
+      return;
+    }
+  }
+  if (index < 0) index = 0;
+
+  continuousPlaybackIndex = index;
+  const card = continuousPlaybackCards[index];
+  const wordButton = card.querySelector(".pronunciation .audio-button");
+  const exampleButton = card.querySelector(".example .audio-button");
+  if (!wordButton || !exampleButton) {
+    console.error("Continuous playback controls are missing for a vocabulary card.");
+    finishContinuousPlayback();
+    return;
+  }
+
+  clearContinuousPlaybackHighlight();
+  card.classList.add("continuous-current");
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
+  updateContinuousPlayer();
+
+  playAudioTrack(wordButton.dataset.audioSrc, wordButton, () => {
+    if (!continuousPlaybackActive || continuousPlaybackPaused) return;
+    playAudioTrack(exampleButton.dataset.audioSrc, exampleButton, () => {
+      if (!continuousPlaybackActive || continuousPlaybackPaused) return;
+      playContinuousCard(continuousPlaybackIndex + 1);
+    });
+  });
+}
+
+function startContinuousPlayback(index) {
+  const highlightedCard = document.querySelector(".word-card.playing-card, .word-card.continuous-current");
+  continuousPlaybackCards = getContinuousPlaybackCards();
+  if (!continuousPlaybackCards.length) return;
+
+  if (activeAudioElement) {
+    activeAudioElement.pause();
+    activeAudioElement = null;
+  }
+  document.querySelectorAll(".audio-button.playing").forEach((element) => element.classList.remove("playing"));
+  document.querySelectorAll(".word-card.playing-card").forEach((card) => card.classList.remove("playing-card"));
+
+  continuousPlaybackActive = true;
+  continuousPlaybackPaused = false;
+  const highlightedIndex = continuousPlaybackCards.indexOf(highlightedCard);
+  playContinuousCard(Number.isInteger(index) ? index : Math.max(highlightedIndex, 0));
+}
+
+function toggleContinuousPlayback() {
+  if (!continuousPlaybackActive) {
+    startContinuousPlayback();
+    return;
+  }
+
+  if (continuousPlaybackPaused) {
+    continuousPlaybackPaused = false;
+    updateContinuousPlayer();
+    if (activeAudioElement) {
+      activeAudioElement.play().catch((error) => {
+        console.error("Unable to resume continuous playback:", error);
+        stopContinuousPlayback();
+      });
+    } else {
+      playContinuousCard(continuousPlaybackIndex);
+    }
+    return;
+  }
+
+  continuousPlaybackPaused = true;
+  if (activeAudioElement) activeAudioElement.pause();
+  updateContinuousPlayer();
+}
+
+function skipContinuousPlayback(offset) {
+  if (!continuousPlaybackActive) {
+    startContinuousPlayback(offset > 0 ? 1 : 0);
+    return;
+  }
+
+  if (activeAudioElement) {
+    activeAudioElement.pause();
+    activeAudioElement = null;
+  }
+  continuousPlaybackPaused = false;
+  playContinuousCard(continuousPlaybackIndex + offset);
+}
+
+function initContinuousPlayback() {
+  const player = document.querySelector(".continuous-player");
+  if (!player) return;
+
+  player.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-player-action]");
+    if (!button) return;
+
+    const action = button.dataset.playerAction;
+    if (action === "toggle") toggleContinuousPlayback();
+    if (action === "previous") skipContinuousPlayback(-1);
+    if (action === "next") skipContinuousPlayback(1);
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && continuousPlaybackActive && !continuousPlaybackPaused) {
+      toggleContinuousPlayback();
+    }
+  });
+}
+
 /* ---------------- Touch Swipe Navigation ---------------- */
 const swipeMinDistance = 72;
 const swipeDirectionRatio = 1.25;
 const swipeMaxDuration = 1200;
+const swipeEdgeProtection = 32;
 
 function isSwipeControl(element) {
   return element instanceof Element && Boolean(element.closest("a, button, input, select, textarea"));
@@ -308,9 +491,24 @@ function initSwipeNavigation() {
     swipeStart = {
       x: touch.clientX,
       y: touch.clientY,
-      time: Date.now()
+      time: Date.now(),
+      startedAtLeftEdge: touch.clientX <= swipeEdgeProtection
     };
   }, { passive: true });
+
+  main.addEventListener("touchmove", (event) => {
+    if (!swipeStart || event.touches.length !== 1) return;
+
+    const touch = event.touches[0];
+    const deltaX = touch.clientX - swipeStart.x;
+    const deltaY = touch.clientY - swipeStart.y;
+    if (
+      Math.abs(deltaX) >= 12 &&
+      Math.abs(deltaX) > Math.abs(deltaY) * swipeDirectionRatio
+    ) {
+      event.preventDefault();
+    }
+  }, { passive: false });
 
   main.addEventListener("touchend", (event) => {
     if (!swipeStart || event.changedTouches.length !== 1) {
@@ -322,9 +520,11 @@ function initSwipeNavigation() {
     const deltaX = touch.clientX - swipeStart.x;
     const deltaY = touch.clientY - swipeStart.y;
     const duration = Date.now() - swipeStart.time;
+    const startedAtLeftEdge = swipeStart.startedAtLeftEdge;
     swipeStart = null;
 
     if (
+      !startedAtLeftEdge &&
       duration <= swipeMaxDuration &&
       Math.abs(deltaX) >= swipeMinDistance &&
       Math.abs(deltaX) > Math.abs(deltaY) * swipeDirectionRatio
@@ -394,5 +594,6 @@ document.addEventListener("DOMContentLoaded", () => {
   enhanceFooter();
   initVocabTabs();
   initHoverPlay();
+  initContinuousPlayback();
   initSwipeNavigation();
 });
