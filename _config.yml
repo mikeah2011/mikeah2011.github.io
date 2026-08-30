@@ -39,6 +39,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - "assets/**" # 站点共享脚本：原样发布，供博客、简历和英语工具共同加载
   - README.md
   - "cv/**" # 简历站点：原样输出，不经 Hexo 渲染
   - "english/**" # 英语学习静态页：原样输出，不经 Hexo 渲染
