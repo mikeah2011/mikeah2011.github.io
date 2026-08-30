@@ -130,7 +130,8 @@ ${renderTable(coreWords, lessonNumPad, 1)}
   <title>${escapeHtml(item.title)} - Michael's Blog</title>
   <meta name="description" content="Side by Side 1 英语生词、音标、例句和发音练习。">
   <link rel="stylesheet" href="../assets/styles.css?v=4.1">
-  <script src="../assets/script.js?v=4.1" defer></script>
+  <script src="../assets/site-stats.js" defer></script>
+  <script src="../assets/script.js?v=4.2" defer></script>
 </head>
 <body data-prev-lesson-url="${prevLessonUrl}" data-next-lesson-url="${nextLessonUrl}">
   <header class="site-header"></header>

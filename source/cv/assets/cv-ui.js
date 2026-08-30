@@ -42,6 +42,8 @@
   var LANGS = ['zh-CN', 'zh-TW', 'en'];
   var LANG_KEY = 'cv-lang';
   var THEME_KEY = 'cv-theme';
+  var STATS_KEY = 'site-stats-dashboard-key';
+  var STATS_URL = 'https://cv-stats.mikeah2011.workers.dev/';
   var LANG_LABEL = { 'zh-CN': '简', 'zh-TW': '繁', 'en': 'EN' };
 
   // Single button cycles through these in order; the icon shown is always
@@ -51,17 +53,17 @@
   var UI_STRINGS = {
     'zh-CN': {
       lang: '语言切换', light: '浅色', system: '跟随系统', dark: '深色', themeHint: '主题：{mode}（点击切换）',
-      share: '分享', home: '返回首页', shareTo: '分享给（可选）', shareToPh: '例如：HR-Lily', shareCopy: '复制链接', shareNative: '系统分享',
+      share: '分享', home: '返回首页', stats: '网站统计', shareTo: '分享给（可选）', shareToPh: '例如：HR-Lily', shareCopy: '复制链接', shareNative: '系统分享',
       shareClose: '取消', shareCopied: '链接已复制', shareFallback: '分享链接', shareHint: '输入投递对象，生成带 to 参数的分享链接。'
     },
     'zh-TW': {
       lang: '語言切換', light: '淺色', system: '跟隨系統', dark: '深色', themeHint: '主題：{mode}（點擊切換）',
-      share: '分享', home: '返回首頁', shareTo: '分享給（可選）', shareToPh: '例如：HR-Lily', shareCopy: '複製連結', shareNative: '系統分享',
+      share: '分享', home: '返回首頁', stats: '網站統計', shareTo: '分享給（可選）', shareToPh: '例如：HR-Lily', shareCopy: '複製連結', shareNative: '系統分享',
       shareClose: '取消', shareCopied: '連結已複製', shareFallback: '分享連結', shareHint: '輸入投遞對象，產生帶 to 參數的分享連結。'
     },
     'en': {
       lang: 'Language', light: 'Light', system: 'System', dark: 'Dark', themeHint: 'Theme: {mode} (click to switch)',
-      share: 'Share', home: 'Home', shareTo: 'Share to (optional)', shareToPh: 'e.g. HR-Lily', shareCopy: 'Copy link', shareNative: 'System share',
+      share: 'Share', home: 'Home', stats: 'Site statistics', shareTo: 'Share to (optional)', shareToPh: 'e.g. HR-Lily', shareCopy: 'Copy link', shareNative: 'System share',
       shareClose: 'Cancel', shareCopied: 'Link copied', shareFallback: 'Share link', shareHint: 'Add a recipient to generate a share link with the to parameter.'
     }
   };
@@ -76,6 +78,30 @@
     get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
   };
+
+  function captureStatsKey() {
+    var prefixes = ['#site-stats-key=', '#cv-stats-key='];
+    var prefix = prefixes.find(function (candidate) {
+      return global.location && global.location.hash.indexOf(candidate) === 0;
+    });
+    if (!prefix) return;
+    var key;
+    try {
+      key = decodeURIComponent(global.location.hash.slice(prefix.length));
+    } catch (e) {
+      return;
+    }
+    if (!/^[a-z0-9_-]{32,128}$/i.test(key)) return;
+    store.set(STATS_KEY, key);
+    if (global.history && global.history.replaceState) {
+      global.history.replaceState(global.history.state, '', global.location.pathname + global.location.search);
+    }
+  }
+
+  function statsHref() {
+    var key = store.get(STATS_KEY);
+    return key ? STATS_URL + '?k=' + encodeURIComponent(key) : '';
+  }
 
   function detectLang() {
     // An explicit ?lang= wins over everything: it's what makes a link
@@ -123,6 +149,11 @@
     var share = '<button type="button" class="cv-icon-btn share-icon" data-cv-action="share" aria-label="Share" title="Share">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>' +
       '</button>';
+    var statsUrl = statsHref();
+    var stats = statsUrl ?
+      '<a class="cv-icon-btn cv-stats-btn" data-cv-action="stats" href="' + statsUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Site statistics" title="Site statistics">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>' +
+      '</a>' : '';
     var home = isCvHomePage() ? '' :
       '<a class="cv-icon-btn cv-home-btn" data-cv-action="home" href="' + cvHomeHref() + '" aria-label="Home" title="Home">' +
       '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4.2 19 9.7V20a1 1 0 0 1-1 1h-4.6v-6h-2.8v6H6a1 1 0 0 1-1-1V9.7z"/></svg>' +
@@ -130,7 +161,7 @@
     mount.innerHTML =
       '<div class="cv-seg" data-cv-group="lang" role="group">' + lang + '</div>' +
       '<button type="button" class="cv-theme-btn" data-cv-theme-btn></button>' +
-      share + home;
+      share + stats + home;
     mount.classList.add('cv-toolbar');
   }
 
@@ -143,6 +174,7 @@
 
   CVUI.init = function (dict, options) {
     var opts = options || {};
+    captureStatsKey();
     // Held in a variable rather than used directly so a page can swap the
     // whole dictionary later (see `setDict` on the returned controller) —
     // that's what lets the résumé switch between its targeted variants
@@ -155,6 +187,7 @@
     var langBtns = [].slice.call(document.querySelectorAll('[data-cv-lang]'));
     var themeBtn = document.querySelector('[data-cv-theme-btn]');
     var shareBtn = document.querySelector('[data-cv-action="share"]');
+    var statsBtn = document.querySelector('[data-cv-action="stats"]');
     var homeBtn = document.querySelector('[data-cv-action="home"]');
     var fileEls = [].slice.call(document.querySelectorAll('[data-cv-file]'));
     var current = { lang: detectLang(), theme: store.get(THEME_KEY) || 'system' };
@@ -216,6 +249,10 @@
       if (shareBtn) {
         shareBtn.setAttribute('title', ui.share);
         shareBtn.setAttribute('aria-label', ui.share);
+      }
+      if (statsBtn) {
+        statsBtn.setAttribute('title', ui.stats);
+        statsBtn.setAttribute('aria-label', ui.stats);
       }
       if (homeBtn) {
         homeBtn.setAttribute('title', ui.home);

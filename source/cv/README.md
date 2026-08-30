@@ -35,6 +35,18 @@ https://mikeah2011.github.io/cv/resume.html?v=lead&lang=en
 `v` 可选 `backend` / `lead` / `ai`，省略即通用版；`lang` 可选
 `zh-CN` / `zh-TW` / `en`。
 
+### 访问统计入口
+
+统计面板的访问密钥不能写进公开仓库。首次在自己的浏览器中打开下面的地址，
+把 `<KEY>` 替换为 Worker 的面板密钥：
+
+```
+https://mikeah2011.github.io/cv/#site-stats-key=<KEY>
+```
+
+页面会把密钥保存在当前浏览器的 `localStorage`，立即从地址栏清除片段，并在简历
+工具栏显示“网站统计”按钮。其他没有配置密钥的访客不会看到该按钮。
+
 ---
 
 ## 内容从哪来

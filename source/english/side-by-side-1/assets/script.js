@@ -2,6 +2,10 @@ const themeStorageKey = "theme";
 const preferredExampleVoiceNames = ["Samantha", "Alex", "Google US English", "Microsoft Aria", "Microsoft Jenny", "Daniel", "Karen", "Tessa", "Moira", "Rishi"];
 const noveltyVoiceNames = ["Albert", "Bad News", "Bahh", "Bells", "Boing", "Bubbles", "Cellos", "Fred", "Good News", "Jester", "Junior", "Organ", "Ralph", "Superstar", "Trinoids", "Whisper", "Wobble", "Zarvox"];
 
+function trackSiteEvent(event, detail) {
+  if (window.SiteStats) window.SiteStats.track(event, detail);
+}
+
 /* ---------------- Theme Controller (Aurora Theme Consistency) ---------------- */
 function getSavedTheme() {
   return localStorage.getItem(themeStorageKey) || localStorage.getItem("aurora-theme") || localStorage.getItem("cv-theme") || "system";
@@ -115,6 +119,7 @@ function playAudioTrack(src, trigger, onComplete) {
 function playWordAudio(firstArg, secondArg) {
   const trigger = (firstArg instanceof HTMLElement) ? firstArg : secondArg;
   if (!trigger) return;
+  trackSiteEvent("audio_play", trigger.closest(".example") ? "example" : "word");
   stopContinuousPlayback();
 
   // Cancel any pending hover timers on click/touch
@@ -755,6 +760,7 @@ async function lookupCustomWord(rawWord) {
       renderCustomWordResult(fallbackEntry);
       saveCustomWordHistory(fallbackEntry);
       status.textContent = "";
+      trackSiteEvent("lookup", "success");
       return;
     }
     let entries;
@@ -766,6 +772,7 @@ async function lookupCustomWord(rawWord) {
       renderCustomWordResult(fallbackEntry);
       saveCustomWordHistory(fallbackEntry);
       status.textContent = "";
+      trackSiteEvent("lookup", "success");
       return;
     }
     const definition = findDictionaryDefinition(entries);
@@ -774,6 +781,7 @@ async function lookupCustomWord(rawWord) {
       renderCustomWordResult(fallbackEntry);
       saveCustomWordHistory(fallbackEntry);
       status.textContent = "";
+      trackSiteEvent("lookup", "success");
       return;
     }
 
@@ -814,9 +822,11 @@ async function lookupCustomWord(rawWord) {
     renderCustomWordResult(lookupEntry);
     saveCustomWordHistory(lookupEntry);
     status.textContent = "";
+    trackSiteEvent("lookup", "success");
   } catch (error) {
     result.hidden = true;
     status.classList.add("error");
+    trackSiteEvent("lookup", error.message === "WORD_NOT_FOUND" ? "not_found" : "error");
     if (error.message === "WORD_NOT_FOUND") {
       status.textContent = `没有查到 “${query}”，请尝试更具体的单词或短语。`;
     } else if (error.name === "AbortError") {
@@ -849,6 +859,7 @@ function initCustomWordLookup() {
     lookupCustomWord(input.value);
   });
   wordAudio.addEventListener("click", () => {
+    trackSiteEvent("audio_play", "word");
     stopContinuousPlayback();
     const src = wordAudio.dataset.audioSrc;
     if (src) {
@@ -869,6 +880,7 @@ function initCustomWordLookup() {
     }
   });
   exampleAudio.addEventListener("click", () => {
+    trackSiteEvent("audio_play", "example");
     stopContinuousPlayback();
     const src = exampleAudio.dataset.audioSrc;
     if (src) {
@@ -1090,12 +1102,14 @@ async function runTranslation() {
     result.value = translatedText;
     updateTranslationCounts();
     saveTranslationHistory({ sourceText, translatedText, sourceLanguage, targetLanguage, translatedAt: Date.now() });
+    trackSiteEvent("translate", sourceLanguage === "zh-CN" ? "zh-en" : "en-zh");
   } catch (error) {
     console.error("Translation failed:", error);
     status.textContent = error.name === "AbortError"
       ? "翻译超时，请缩短内容或检查网络后重试。"
       : "翻译服务暂时不可用，请稍后重试。";
     status.classList.add("error");
+    trackSiteEvent("translate", "error");
   } finally {
     submit.disabled = false;
     submit.classList.remove("loading");
@@ -1139,10 +1153,12 @@ function initTranslationTool() {
     updateTranslationCounts();
   });
   sourceAudio.addEventListener("click", () => {
+    trackSiteEvent("audio_play", "translation-source");
     const language = form.dataset.sourceLanguage === "en" ? "en-US" : "zh-CN";
     startTranslationSpeech("source", language, sourceAudio);
   });
   resultAudio.addEventListener("click", () => {
+    trackSiteEvent("audio_play", "translation-result");
     const language = form.dataset.targetLanguage === "en" ? "en-US" : "zh-CN";
     startTranslationSpeech("result", language, resultAudio);
   });
@@ -1249,6 +1265,7 @@ function finishContinuousPlayback() {
   updateContinuousPlayer();
   const progress = document.getElementById("continuous-player-progress");
   if (progress) progress.textContent = "本分类已播放完毕";
+  trackSiteEvent("continuous_play", "complete");
 }
 
 function playContinuousCard(index) {
@@ -1303,6 +1320,7 @@ function startContinuousPlayback(index) {
 
   continuousPlaybackActive = true;
   continuousPlaybackPaused = false;
+  trackSiteEvent("continuous_play", "start");
   const highlightedIndex = continuousPlaybackCards.indexOf(highlightedCard);
   playContinuousCard(Number.isInteger(index) ? index : Math.max(highlightedIndex, 0));
 }

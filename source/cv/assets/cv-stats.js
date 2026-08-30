@@ -1,5 +1,5 @@
 /**
- * 简历站访问统计（客户端）
+ * 网站访问统计的简历模块（客户端）
  *
  * ENDPOINT 为空时这个文件完全静默 —— 不发任何请求。目前已配置，正在上报。
  * 部署步骤见私有仓库 jobsearch/analytics/README.md。
@@ -82,6 +82,9 @@
   function send(event, detail) {
     if (!ENDPOINT) return;
     var payload = JSON.stringify({
+      app: 'cv',
+      page_type: detectPage(),
+      path: location.pathname,
       page: detectPage(),
       variant: detectVariant(),
       lang: detectLang(),
