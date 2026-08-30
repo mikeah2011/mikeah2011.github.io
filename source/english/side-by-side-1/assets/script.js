@@ -1034,7 +1034,7 @@ function enhanceHeader() {
   if (!header) return;
 
   const isDirectoryPage = window.location.pathname.endsWith("/side-by-side-1/") || window.location.pathname.endsWith("/side-by-side-1/index.html");
-  const isWordsPage = window.location.pathname.includes("/side-by-side-1/words");
+  const isWordsPage = window.location.pathname.startsWith("/english/words");
 
   header.innerHTML = `
     <div class="site-header-left">
@@ -1043,14 +1043,14 @@ function enhanceHeader() {
       </a>
       <div class="site-brand-text">
         <a href="/" class="site-brand-title">Michael's Blog</a>
-        <span class="site-brand-sub">英语学习 · Side by Side 1</span>
+        <span class="site-brand-sub">${isWordsPage ? "英语学习 · 查询生词" : "英语学习 · Side by Side 1"}</span>
       </div>
     </div>
     <div class="site-header-controls">
       <nav id="site-header-nav" class="site-header-nav" aria-label="主导航">
         <a href="/" class="site-nav-link">博客首页</a>
         <a href="/english/side-by-side-1/" class="site-nav-link ${isDirectoryPage ? "active" : ""}">课程目录</a>
-        <a href="/english/side-by-side-1/words/" class="site-nav-link ${isWordsPage ? "active" : ""}">查询生词</a>
+        <a href="/english/words/" class="site-nav-link ${isWordsPage ? "active" : ""}">查询生词</a>
         <a href="/cv/" class="site-nav-link">简历</a>
         <a href="/categories" class="site-nav-link">分类</a>
         <a href="https://github.com/mikeah2011" target="_blank" rel="noopener noreferrer" class="site-nav-link">GitHub</a>

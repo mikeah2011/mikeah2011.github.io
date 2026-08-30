@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>查询生词 - Michael's Blog</title>
+  <meta name="description" content="查询英语生词的中文释义、音标、发音和例句。">
+  <link rel="stylesheet" href="../side-by-side-1/assets/styles.css?v=2.8">
+  <script src="../side-by-side-1/assets/script.js?v=2.8" defer></script>
+</head>
+<body>
+  <header class="site-header"></header>
+  <main>
+    <nav class="top-nav">
+      <a href="../side-by-side-1/">课程目录</a>
+      <a href="/">返回博客首页</a>
+    </nav>
+    <section class="hero">
+      <p>MY WORDS</p>
+      <h2>查询生词</h2>
+      <div>查询英文单词的释义、音标、发音和词典例句。最近查询仅保存在当前浏览器。</div>
+    </section>
+    <section class="custom-word-lookup" aria-labelledby="custom-word-title">
+      <div class="custom-word-heading">
+        <div>
+          <span class="custom-word-kicker">DICTIONARY</span>
+          <h3 id="custom-word-title">输入一个英文单词</h3>
+        </div>
+        <p>支持英文单词和短语，成功查询后自动加入最近记录。</p>
+      </div>
+      <form id="custom-word-form" class="custom-word-form">
+        <label class="sr-only" for="custom-word-input">英文单词</label>
+        <input id="custom-word-input" name="word" type="text" inputmode="text" autocomplete="off" maxlength="50" placeholder="例如：serendipity" required>
+        <button type="submit">查询单词</button>
+      </form>
+      <div id="custom-word-status" class="custom-word-status" role="status" aria-live="polite"></div>
+      <article id="custom-word-result" class="custom-word-result" hidden>
+        <div class="custom-word-result-main">
+          <div>
+            <span id="custom-word-part" class="custom-word-part"></span>
+            <h4 id="custom-word-name"></h4>
+            <div class="custom-word-phonetic">
+              <span id="custom-word-phonetic"></span>
+              <button id="custom-word-audio" type="button" class="audio-button" aria-label="播放单词发音">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="audio-icon" aria-hidden="true">
+                  <path d="M44.2 21.8a12 12 0 0 1 0 20.5" class="ani-path"></path>
+                  <path d="M50 16a20 20 0 0 1 0 32" class="ani-path-2"></path>
+                  <path d="M38 6L20 24H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12l18 18z" class="ani-path-3"></path>
+                </svg>
+              </button>
+              <button id="custom-translation-toggle" type="button" class="translation-toggle" aria-label="显示释义和例句译文">译文</button>
+            </div>
+            <strong id="custom-word-translation" class="custom-word-translation"></strong>
+          </div>
+          <div class="custom-word-definition">
+            <span class="custom-word-switchable-text">
+              <span id="custom-word-definition"></span>
+              <span id="custom-word-meaning" hidden></span>
+            </span>
+          </div>
+        </div>
+        <div class="custom-word-example">
+          <div class="custom-word-example-row">
+            <span class="custom-word-switchable-text">
+              <span id="custom-word-example"></span>
+              <span id="custom-word-example-translation" hidden></span>
+            </span>
+            <div class="custom-word-example-actions">
+              <button id="custom-example-audio" type="button" class="audio-button" aria-label="播放英文例句">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="audio-icon" aria-hidden="true">
+                  <path d="M44.2 21.8a12 12 0 0 1 0 20.5" class="ani-path"></path>
+                  <path d="M50 16a20 20 0 0 1 0 32" class="ani-path-2"></path>
+                  <path d="M38 6L20 24H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12l18 18z" class="ani-path-3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <small>释义为机器翻译；音标、真人发音及例句来自开放词典和 Wikimedia。</small>
+      </article>
+      <div class="custom-word-history">
+        <div class="custom-word-history-heading">
+          <h4>最近查询</h4>
+          <button id="custom-word-history-clear" type="button" hidden>清空记录</button>
+        </div>
+        <div id="custom-word-history-list" class="custom-word-history-list"></div>
+        <p id="custom-word-history-empty">还没有查询记录。</p>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+</html>
