@@ -831,7 +831,7 @@ function renderTranslationHistory() {
       setTranslationDirection(entry.sourceLanguage, entry.targetLanguage);
       document.getElementById("translation-source").value = entry.sourceText;
       document.getElementById("translation-result").value = entry.translatedText;
-      updateTranslationCount();
+      updateTranslationCounts();
     });
     list.append(button);
   });
@@ -842,18 +842,46 @@ function setTranslationDirection(sourceLanguage, targetLanguage) {
   if (!form) return;
   form.dataset.sourceLanguage = sourceLanguage;
   form.dataset.targetLanguage = targetLanguage;
-  document.getElementById("translation-source-label").textContent = sourceLanguage === "zh-CN" ? "中文原文" : "English";
-  document.getElementById("translation-target-label").textContent = targetLanguage === "en" ? "English translation" : "中文译文";
+  const sourceName = sourceLanguage === "zh-CN" ? "中文" : "English";
+  const targetName = targetLanguage === "en" ? "English" : "中文";
+  document.getElementById("translation-source-label").textContent = sourceName;
+  document.getElementById("translation-target-label").textContent = targetName;
   document.getElementById("translation-toolbar-source").textContent = sourceLanguage === "zh-CN" ? "中文" : "English";
   document.getElementById("translation-toolbar-target").textContent = targetLanguage === "en" ? "English" : "中文";
-  document.getElementById("translation-source").placeholder =
-    sourceLanguage === "zh-CN" ? "输入要翻译的中文句子、段落或文章…" : "Enter an English sentence, paragraph, or article…";
+  const source = document.getElementById("translation-source");
+  const result = document.getElementById("translation-result");
+  source.placeholder = sourceLanguage === "zh-CN"
+    ? "输入要翻译的中文句子、段落或文章…"
+    : "Enter an English sentence, paragraph, or article…";
+  result.placeholder = targetLanguage === "en" ? "Translation will appear here" : "译文会显示在这里";
+  setTranslationActionLabels("source", sourceName);
+  setTranslationActionLabels("result", targetName);
 }
 
-function updateTranslationCount() {
+function setTranslationActionLabels(panel, languageName) {
+  const labels = {
+    audio: languageName === "English" ? "Read English" : "朗读中文",
+    copy: languageName === "English" ? "Copy English" : "复制中文",
+    clear: languageName === "English" ? "Clear English" : "清空中文"
+  };
+  const controls = {
+    audio: document.getElementById(`translation-${panel}-audio`),
+    copy: document.getElementById(`translation-${panel}-copy`),
+    clear: document.getElementById(`translation-${panel}-clear`)
+  };
+  Object.entries(controls).forEach(([action, control]) => {
+    control.setAttribute("aria-label", labels[action]);
+    control.title = labels[action];
+  });
+}
+
+function updateTranslationCounts() {
   const source = document.getElementById("translation-source");
-  const count = document.getElementById("translation-character-count");
-  if (source && count) count.textContent = `${source.value.length} / 5000`;
+  const result = document.getElementById("translation-result");
+  const sourceCount = document.getElementById("translation-character-count");
+  const resultCount = document.getElementById("translation-result-character-count");
+  if (source && sourceCount) sourceCount.textContent = `${source.value.length} / 5000`;
+  if (result && resultCount) resultCount.textContent = `${result.value.length} / 5000`;
   updateTranslationAudioControls();
 }
 
@@ -862,11 +890,13 @@ function updateTranslationAudioControls() {
   const result = document.getElementById("translation-result");
   const sourceAudio = document.getElementById("translation-source-audio");
   const resultAudio = document.getElementById("translation-result-audio");
-  const copy = document.getElementById("translation-copy");
-  if (!source || !result || !sourceAudio || !resultAudio || !copy) return;
+  const sourceCopy = document.getElementById("translation-source-copy");
+  const resultCopy = document.getElementById("translation-result-copy");
+  if (!source || !result || !sourceAudio || !resultAudio || !sourceCopy || !resultCopy) return;
   sourceAudio.disabled = !source.value.trim();
   resultAudio.disabled = !result.value.trim();
-  copy.disabled = !result.value.trim();
+  sourceCopy.disabled = !source.value.trim();
+  resultCopy.disabled = !result.value.trim();
 }
 
 async function runTranslation() {
@@ -895,7 +925,7 @@ async function runTranslation() {
     const translatedText = await translateText(sourceText, sourceLanguage, targetLanguage);
     if (!translatedText) throw new Error("EMPTY_TRANSLATION");
     result.value = translatedText;
-    updateTranslationAudioControls();
+    updateTranslationCounts();
     saveTranslationHistory({ sourceText, translatedText, sourceLanguage, targetLanguage, translatedAt: Date.now() });
   } catch (error) {
     console.error("Translation failed:", error);
@@ -916,13 +946,14 @@ function initTranslationTool() {
   if (!form) return;
   const source = document.getElementById("translation-source");
   const result = document.getElementById("translation-result");
+  const status = document.getElementById("translation-status");
   const sourceAudio = document.getElementById("translation-source-audio");
   const resultAudio = document.getElementById("translation-result-audio");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     runTranslation();
   });
-  source.addEventListener("input", updateTranslationCount);
+  source.addEventListener("input", updateTranslationCounts);
   source.addEventListener("keydown", (event) => {
     if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
       event.preventDefault();
@@ -938,7 +969,7 @@ function initTranslationTool() {
       result.value = previousSource;
     }
     setTranslationDirection(targetLanguage, sourceLanguage);
-    updateTranslationCount();
+    updateTranslationCounts();
   });
   sourceAudio.addEventListener("click", () => {
     const language = form.dataset.sourceLanguage === "en" ? "en-US" : "zh-CN";
@@ -948,30 +979,43 @@ function initTranslationTool() {
     const language = form.dataset.targetLanguage === "en" ? "en-US" : "zh-CN";
     speakText(result.value.trim(), language, resultAudio);
   });
-  document.getElementById("translation-copy").addEventListener("click", async () => {
-    if (!result.value) return;
+  const copyPanelText = async (textarea, successMessage) => {
+    if (!textarea.value) return;
     try {
-      await navigator.clipboard.writeText(result.value);
-      document.getElementById("translation-status").textContent = "译文已复制。";
+      await navigator.clipboard.writeText(textarea.value);
+      status.textContent = successMessage;
+      status.classList.remove("error");
     } catch (error) {
-      console.error("Unable to copy translation:", error);
-      document.getElementById("translation-status").textContent = "复制失败，请长按译文手动复制。";
-      document.getElementById("translation-status").classList.add("error");
+      console.error("Unable to copy text:", error);
+      status.textContent = "复制失败，请长按内容手动复制。";
+      status.classList.add("error");
     }
+  };
+  document.getElementById("translation-source-copy").addEventListener("click", () => {
+    copyPanelText(source, "原文已复制。");
   });
-  document.getElementById("translation-clear").addEventListener("click", () => {
+  document.getElementById("translation-result-copy").addEventListener("click", () => {
+    copyPanelText(result, "译文已复制。");
+  });
+  document.getElementById("translation-source-clear").addEventListener("click", () => {
     source.value = "";
-    result.value = "";
-    document.getElementById("translation-status").textContent = "";
-    updateTranslationCount();
+    status.textContent = "";
+    status.classList.remove("error");
+    updateTranslationCounts();
     source.focus();
+  });
+  document.getElementById("translation-result-clear").addEventListener("click", () => {
+    result.value = "";
+    status.textContent = "";
+    status.classList.remove("error");
+    updateTranslationCounts();
   });
   document.getElementById("translation-history-clear").addEventListener("click", () => {
     localStorage.removeItem(translationHistoryKey);
     renderTranslationHistory();
   });
   setTranslationDirection("zh-CN", "en");
-  updateTranslationCount();
+  updateTranslationCounts();
   renderTranslationHistory();
 }
 
@@ -1154,6 +1198,29 @@ function initContinuousPlayback() {
   });
 }
 
+function initLessonUtilityRail() {
+  const progress = document.querySelector(".lesson-scroll-progress");
+  const backToTop = document.querySelector(".lesson-back-to-top");
+  if (!progress || !backToTop) return;
+
+  const updateProgress = () => {
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const percentage = scrollableHeight > 0
+      ? Math.min(100, Math.max(0, Math.round((window.scrollY / scrollableHeight) * 100)))
+      : 100;
+    progress.style.setProperty("--scroll-progress", `${percentage * 3.6}deg`);
+    progress.setAttribute("aria-valuenow", String(percentage));
+    progress.querySelector("span").textContent = `${percentage}%`;
+    const isVisible = window.scrollY > 320;
+    progress.classList.toggle("show", isVisible);
+    backToTop.classList.toggle("show", isVisible);
+  };
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener("resize", updateProgress);
+  backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  updateProgress();
+}
+
 /* ---------------- Touch Swipe Navigation ---------------- */
 const swipeMinDistance = 72;
 const swipeDirectionRatio = 1.25;
@@ -1285,7 +1352,7 @@ function enhanceHeader() {
         <a href="/english/side-by-side-1/" class="site-nav-link ${isDirectoryPage ? "active" : ""}">课程目录</a>
         <a href="/english/words/" class="site-nav-link ${isWordsPage ? "active" : ""}">查询生词</a>
         <a href="/english/translate/" class="site-nav-link ${isTranslationPage ? "active" : ""}">中英翻译</a>
-        <a href="/cv/" class="site-nav-link">简历</a>
+        <a href="/cv/?to=michael's-blog" class="site-nav-link">简历</a>
         <a href="/categories" class="site-nav-link">分类</a>
         <a href="https://github.com/mikeah2011" target="_blank" rel="noopener noreferrer" class="site-nav-link">GitHub</a>
       </nav>
@@ -1352,5 +1419,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initCustomWordLookup();
   initTranslationTool();
   initContinuousPlayback();
+  initLessonUtilityRail();
   initSwipeNavigation();
 });

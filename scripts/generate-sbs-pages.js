@@ -82,6 +82,11 @@ lessons.forEach((item, idx) => {
 
   let prevLink = prevLesson ? `<a href="${prevLessonUrl}">← 上一课</a>` : "";
   let nextLink = nextLesson ? `<a href="${nextLessonUrl}">下一课 →</a>` : "";
+  const lessonNavLinks = [
+    prevLesson ? `<a href="${prevLessonUrl}" aria-label="上一课" title="上一课">←</a>` : "",
+    '<a href="../" aria-label="课程目录" title="课程目录">目</a>',
+    nextLesson ? `<a href="${nextLessonUrl}" aria-label="下一课" title="下一课">→</a>` : ""
+  ].filter(Boolean).map(link => `      ${link}`).join("\n");
 
   let tabsHtml = "";
   if (properWords.length > 0) {
@@ -124,19 +129,21 @@ ${renderTable(coreWords, lessonNumPad, 1)}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(item.title)} - Michael's Blog</title>
   <meta name="description" content="Side by Side 1 英语生词、音标、例句和发音练习。">
-  <link rel="stylesheet" href="../assets/styles.css?v=3.4">
-  <script src="../assets/script.js?v=3.4" defer></script>
+  <link rel="stylesheet" href="../assets/styles.css?v=3.9">
+  <script src="../assets/script.js?v=3.9" defer></script>
 </head>
 <body data-prev-lesson-url="${prevLessonUrl}" data-next-lesson-url="${nextLessonUrl}">
   <header class="site-header"></header>
   <main>
-    <nav class="top-nav">
-      ${prevLink}
-      <a href="../">课程目录</a>
-      ${nextLink}
-      <a href="/english/words/">查询生词</a>
-      <a href="/english/translate/">中英翻译</a>
-    </nav>
+    <aside class="lesson-utility-rail" aria-label="课程阅读工具">
+      <div class="lesson-scroll-progress" role="progressbar" aria-label="阅读进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span>0%</span>
+      </div>
+      <button type="button" class="lesson-back-to-top" aria-label="回到顶部" title="回到顶部">↑</button>
+      <nav class="lesson-nav-menu" aria-label="课程导航">
+${lessonNavLinks}
+      </nav>
+    </aside>
     <section class="hero">
       <p>Lesson ${lessonNum}</p>
       <h2>${escapeHtml(item.title)}</h2>

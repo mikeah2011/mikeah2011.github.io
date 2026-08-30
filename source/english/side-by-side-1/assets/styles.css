@@ -335,6 +335,101 @@ main {
   box-shadow: 0 4px 12px rgba(0, 112, 243, 0.25);
 }
 
+/* ---------------- Lesson Utility Rail ---------------- */
+.lesson-utility-rail {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 30;
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  width: 2.75rem;
+}
+
+.lesson-scroll-progress,
+.lesson-nav-menu a {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.lesson-scroll-progress {
+  --scroll-progress: 0deg;
+  position: relative;
+  color: var(--text-accent);
+  background: conic-gradient(var(--text-accent) var(--scroll-progress), var(--border) 0);
+  font-size: 0.72rem;
+  font-weight: 800;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.5rem);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.lesson-scroll-progress::before {
+  position: absolute;
+  inset: 0.3rem;
+  content: "";
+  background: var(--bg-card);
+  border-radius: 50%;
+}
+
+.lesson-scroll-progress span {
+  position: relative;
+}
+
+.lesson-scroll-progress.show,
+.lesson-back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.lesson-back-to-top,
+.lesson-nav-menu a {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  color: var(--text-accent);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.lesson-back-to-top {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.5rem);
+  transition: opacity 0.25s ease, transform 0.25s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.lesson-back-to-top:hover,
+.lesson-back-to-top:focus-visible,
+.lesson-nav-menu a:hover,
+.lesson-nav-menu a:focus-visible {
+  color: var(--text-title);
+  background: var(--bg-pill);
+  transform: translateY(-1px);
+}
+
+.lesson-nav-menu {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+}
+
 /* ---------------- Hero Banner (Aurora Glass Card) ---------------- */
 .hero {
   position: relative;
@@ -1454,6 +1549,10 @@ footer a {
     -webkit-backdrop-filter: blur(18px);
     transform: translateX(-50%);
   }
+  .lesson-utility-rail {
+    right: 1rem;
+    bottom: 8.5rem;
+  }
   .word-card {
     grid-template-columns: 1fr;
     gap: 0.55rem;
@@ -1514,6 +1613,9 @@ footer a {
   }
   .continuous-player-controls {
     justify-content: space-between;
+  }
+  .lesson-utility-rail {
+    bottom: 11rem;
   }
   main {
     padding-bottom: 10rem;
