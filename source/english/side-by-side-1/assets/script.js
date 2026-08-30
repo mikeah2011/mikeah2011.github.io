@@ -257,6 +257,88 @@ function initVocabTabs() {
   });
 }
 
+/* ---------------- Touch Swipe Navigation ---------------- */
+const swipeMinDistance = 72;
+const swipeDirectionRatio = 1.25;
+const swipeMaxDuration = 1200;
+
+function isSwipeControl(element) {
+  return element instanceof Element && Boolean(element.closest("a, button, input, select, textarea"));
+}
+
+function navigateToLesson(url) {
+  if (url) {
+    window.location.assign(url);
+  }
+}
+
+function handleHorizontalSwipe(deltaX) {
+  const coreTab = document.querySelector('[data-tab-target="tab-core"]');
+  const properTab = document.querySelector('[data-tab-target="tab-proper"]');
+  const activeTab = document.querySelector(".vocab-tab-btn.active");
+  const prevLessonUrl = document.body.dataset.prevLessonUrl;
+  const nextLessonUrl = document.body.dataset.nextLessonUrl;
+
+  if (deltaX > 0) {
+    if (activeTab === coreTab && properTab) {
+      switchVocabTab(properTab);
+    } else {
+      navigateToLesson(nextLessonUrl);
+    }
+  } else if (activeTab === properTab && coreTab) {
+    switchVocabTab(coreTab);
+  } else {
+    navigateToLesson(prevLessonUrl);
+  }
+}
+
+function initSwipeNavigation() {
+  const main = document.querySelector("main");
+  if (!main || !document.body.matches("[data-prev-lesson-url], [data-next-lesson-url]")) return;
+
+  let swipeStart = null;
+
+  main.addEventListener("touchstart", (event) => {
+    if (event.touches.length !== 1 || isSwipeControl(event.target)) {
+      swipeStart = null;
+      return;
+    }
+
+    const touch = event.touches[0];
+    swipeStart = {
+      x: touch.clientX,
+      y: touch.clientY,
+      time: Date.now()
+    };
+  }, { passive: true });
+
+  main.addEventListener("touchend", (event) => {
+    if (!swipeStart || event.changedTouches.length !== 1) {
+      swipeStart = null;
+      return;
+    }
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - swipeStart.x;
+    const deltaY = touch.clientY - swipeStart.y;
+    const duration = Date.now() - swipeStart.time;
+    swipeStart = null;
+
+    if (
+      duration <= swipeMaxDuration &&
+      Math.abs(deltaX) >= swipeMinDistance &&
+      Math.abs(deltaX) > Math.abs(deltaY) * swipeDirectionRatio
+    ) {
+      event.preventDefault();
+      handleHorizontalSwipe(deltaX);
+    }
+  }, { passive: false });
+
+  main.addEventListener("touchcancel", () => {
+    swipeStart = null;
+  }, { passive: true });
+}
+
 // Expose functions globally for inline onclick handlers
 window.switchVocabTab = switchVocabTab;
 window.playWordAudio = playWordAudio;
@@ -312,4 +394,5 @@ document.addEventListener("DOMContentLoaded", () => {
   enhanceFooter();
   initVocabTabs();
   initHoverPlay();
+  initSwipeNavigation();
 });

@@ -71,6 +71,8 @@ lessons.forEach((item, idx) => {
 
   const prevLesson = idx > 0 ? lessons[idx - 1] : null;
   const nextLesson = idx < lessons.length - 1 ? lessons[idx + 1] : null;
+  const prevLessonUrl = prevLesson ? `../lesson-${String(prevLesson.lesson).padStart(2, "0")}/` : "";
+  const nextLessonUrl = nextLesson ? `../lesson-${String(nextLesson.lesson).padStart(2, "0")}/` : "";
 
   // Add originalIndex to each item to map to generated mp3 files
   const vocabWithIndex = item.vocabulary.map((v, i) => ({ ...v, originalIndex: i }));
@@ -78,8 +80,8 @@ lessons.forEach((item, idx) => {
   const coreWords = vocabWithIndex.filter(v => !properNounRegex.test(v.meaning));
   const properWords = vocabWithIndex.filter(v => properNounRegex.test(v.meaning));
 
-  let prevLink = prevLesson ? `<a href="../lesson-${String(prevLesson.lesson).padStart(2, "0")}/">← 上一课</a>` : "";
-  let nextLink = nextLesson ? `<a href="../lesson-${String(nextLesson.lesson).padStart(2, "0")}/">下一课 →</a>` : "";
+  let prevLink = prevLesson ? `<a href="${prevLessonUrl}">← 上一课</a>` : "";
+  let nextLink = nextLesson ? `<a href="${nextLessonUrl}">下一课 →</a>` : "";
 
   let tabsHtml = "";
   if (properWords.length > 0) {
@@ -90,7 +92,7 @@ lessons.forEach((item, idx) => {
     <span class="tab-badge">${coreWords.length}</span>
   </button>
   <button type="button" class="vocab-tab-btn" role="tab" aria-selected="false" data-tab-target="tab-proper" onclick="switchVocabTab(this)">
-    人名 · 地名 · 称呼
+    专有名词
     <span class="tab-badge">${properWords.length}</span>
   </button>
 </div>
@@ -113,7 +115,7 @@ ${renderTable(coreWords, lessonNumPad, 1)}
 `;
   }
 
-  const properSummary = properWords.length > 0 ? `（核心词汇 ${coreWords.length} · 人名/地名/称呼 ${properWords.length}）` : `（核心词汇 ${coreWords.length}）`;
+  const properSummary = properWords.length > 0 ? `（核心词汇 ${coreWords.length} · 专有名词 ${properWords.length}）` : `（核心词汇 ${coreWords.length}）`;
 
   const pageHtml = `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -122,10 +124,10 @@ ${renderTable(coreWords, lessonNumPad, 1)}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(item.title)} - Michael's Blog</title>
   <meta name="description" content="Side by Side 1 英语生词、音标、例句和发音练习。">
-  <link rel="stylesheet" href="../assets/styles.css?v=1.2">
-  <script src="../assets/script.js?v=1.2" defer></script>
+  <link rel="stylesheet" href="../assets/styles.css?v=1.3">
+  <script src="../assets/script.js?v=1.3" defer></script>
 </head>
-<body>
+<body data-prev-lesson-url="${prevLessonUrl}" data-next-lesson-url="${nextLessonUrl}">
   <header class="site-header"></header>
   <main>
     <nav class="top-nav">
