@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中英翻译 - Michael's Blog</title>
+  <meta name="description" content="中文和英文句子、段落、文章双向翻译。">
+  <link rel="stylesheet" href="../side-by-side-1/assets/styles.css?v=3.4">
+  <script src="../side-by-side-1/assets/script.js?v=3.4" defer></script>
+</head>
+<body>
+  <header class="site-header"></header>
+  <main>
+    <nav class="top-nav">
+      <a href="../words/">查询生词</a>
+      <a href="../side-by-side-1/">课程目录</a>
+      <a href="/">返回博客首页</a>
+    </nav>
+    <section class="hero">
+      <p>TRANSLATE</p>
+      <h2>中英翻译</h2>
+      <div>适合句子、段落和文章的中英文双向翻译，历史仅保存在当前浏览器。</div>
+    </section>
+    <section class="translation-tool" aria-labelledby="translation-title">
+      <div class="translation-toolbar">
+        <div class="translation-language-pair" aria-label="翻译方向">
+          <strong id="translation-toolbar-source">中文</strong>
+          <button id="translation-swap" type="button" class="translation-swap-button" aria-label="交换翻译方向" title="交换翻译方向">⇄</button>
+          <strong id="translation-toolbar-target">English</strong>
+        </div>
+      </div>
+      <form id="translation-form" data-source-language="zh-CN" data-target-language="en">
+        <div class="translation-panels">
+          <div class="translation-panel">
+            <div class="translation-panel-heading">
+              <label id="translation-source-label" for="translation-source">中文原文</label>
+              <button id="translation-source-audio" type="button" class="translation-icon-button" aria-label="朗读原文" title="朗读原文" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="audio-icon" aria-hidden="true">
+                  <path d="M44.2 21.8a12 12 0 0 1 0 20.5" class="ani-path"></path>
+                  <path d="M50 16a20 20 0 0 1 0 32" class="ani-path-2"></path>
+                  <path d="M38 6L20 24H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12l18 18z" class="ani-path-3"></path>
+                </svg>
+              </button>
+            </div>
+            <textarea id="translation-source" maxlength="5000" placeholder="输入要翻译的中文句子、段落或文章…" required></textarea>
+            <small id="translation-character-count">0 / 5000</small>
+          </div>
+          <div class="translation-submit-wrap">
+            <button type="submit" class="translation-submit-button" aria-label="开始翻译" title="开始翻译">
+              <svg class="translation-submit-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M14 7l5 5-5 5"></path>
+              </svg>
+              <span class="translation-submit-spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="translation-panel">
+            <div class="translation-panel-heading">
+              <label id="translation-target-label" for="translation-result">English translation</label>
+              <div class="translation-panel-icons">
+                <button id="translation-result-audio" type="button" class="translation-icon-button" aria-label="朗读译文" title="朗读译文" disabled>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="audio-icon" aria-hidden="true">
+                    <path d="M44.2 21.8a12 12 0 0 1 0 20.5" class="ani-path"></path>
+                    <path d="M50 16a20 20 0 0 1 0 32" class="ani-path-2"></path>
+                    <path d="M38 6L20 24H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12l18 18z" class="ani-path-3"></path>
+                  </svg>
+                </button>
+                <button id="translation-copy" type="button" class="translation-icon-button" aria-label="复制译文" title="复制译文" disabled>⧉</button>
+                <button id="translation-clear" type="button" class="translation-icon-button" aria-label="清空内容" title="清空内容">×</button>
+              </div>
+            </div>
+            <textarea id="translation-result" readonly placeholder="译文会显示在这里"></textarea>
+          </div>
+        </div>
+      </form>
+      <div id="translation-status" class="custom-word-status" role="status" aria-live="polite"></div>
+      <div class="translation-history">
+        <div class="custom-word-history-heading">
+          <h4 id="translation-title">最近翻译</h4>
+          <button id="translation-history-clear" type="button" hidden>清空记录</button>
+        </div>
+        <div id="translation-history-list" class="translation-history-list"></div>
+        <p id="translation-history-empty">还没有翻译记录。</p>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+</html>

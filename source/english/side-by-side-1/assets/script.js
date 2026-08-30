@@ -264,10 +264,12 @@ function initVocabTabs() {
 const primaryDictionaryApiBase = "https://freedictionaryapi.com/api/v1/entries/en/";
 const fallbackDictionaryApiBase = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 const wiktionaryApiBase = "https://en.wiktionary.org/w/api.php?action=query&generator=images&gimlimit=50&prop=imageinfo&iiprop=url&format=json&origin=*&titles=";
-const translationApiBase = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-CN&dt=t&q=";
-const fallbackTranslationApiBase = "https://api.mymemory.translated.net/get?langpair=en%7Czh-CN&q=";
+const translationApiBase = "https://translate.googleapis.com/translate_a/single?client=gtx&dt=t";
+const fallbackTranslationApiBase = "https://api.mymemory.translated.net/get";
 const customWordHistoryKey = "side-by-side-custom-word-history";
 const customWordHistoryLimit = 20;
+const translationHistoryKey = "english-translation-history";
+const translationHistoryLimit = 10;
 const partOfSpeechLabels = {
   noun: "名词",
   verb: "动词",
@@ -289,10 +291,11 @@ async function fetchWithTimeout(url, timeout = 10000) {
   }
 }
 
-async function translateToChinese(text) {
+async function translateChunk(text, sourceLanguage, targetLanguage) {
   if (!text) return "";
   try {
-    const response = await fetchWithTimeout(`${translationApiBase}${encodeURIComponent(text)}`, 6000);
+    const requestUrl = `${translationApiBase}&sl=${encodeURIComponent(sourceLanguage)}&tl=${encodeURIComponent(targetLanguage)}&q=${encodeURIComponent(text)}`;
+    const response = await fetchWithTimeout(requestUrl, 8000);
     if (!response.ok) throw new Error(`Translation request failed with status ${response.status}`);
     const data = await response.json();
     const translation = Array.isArray(data?.[0])
@@ -303,7 +306,9 @@ async function translateToChinese(text) {
     console.warn("Primary translation request failed; trying fallback:", error);
   }
 
-  const fallbackResponse = await fetchWithTimeout(`${fallbackTranslationApiBase}${encodeURIComponent(text)}`, 8000);
+  const languagePair = `${sourceLanguage}|${targetLanguage}`;
+  const fallbackUrl = `${fallbackTranslationApiBase}?langpair=${encodeURIComponent(languagePair)}&q=${encodeURIComponent(text)}`;
+  const fallbackResponse = await fetchWithTimeout(fallbackUrl, 10000);
   if (!fallbackResponse.ok) {
     throw new Error(`Fallback translation request failed with status ${fallbackResponse.status}`);
   }
@@ -311,11 +316,49 @@ async function translateToChinese(text) {
   return fallbackData?.responseData?.translatedText?.trim() || "";
 }
 
+function splitTranslationParagraph(paragraph, maxLength = 800) {
+  const chunks = [];
+  let remaining = paragraph;
+  while (remaining.length > maxLength) {
+    const candidate = remaining.slice(0, maxLength);
+    const breakPoints = [".", "!", "?", "。", "！", "？", "；", ";", "，", ",", " "]
+      .map((character) => candidate.lastIndexOf(character))
+      .filter((index) => index >= Math.floor(maxLength * 0.6));
+    const breakAt = breakPoints.length ? Math.max(...breakPoints) + 1 : maxLength;
+    chunks.push(remaining.slice(0, breakAt).trim());
+    remaining = remaining.slice(breakAt).trimStart();
+  }
+  if (remaining.trim()) chunks.push(remaining.trim());
+  return chunks;
+}
+
+async function translateText(text, sourceLanguage, targetLanguage) {
+  const paragraphs = text.split("\n");
+  const translated = [];
+  for (const paragraph of paragraphs) {
+    if (!paragraph.trim()) {
+      translated.push("");
+      continue;
+    }
+    const chunks = splitTranslationParagraph(paragraph);
+    const translatedChunks = [];
+    for (const chunk of chunks) {
+      translatedChunks.push(await translateChunk(chunk.trim(), sourceLanguage, targetLanguage));
+    }
+    translated.push(translatedChunks.join(" "));
+  }
+  return translated.join("\n");
+}
+
+function translateToChinese(text) {
+  return translateText(text, "en", "zh-CN");
+}
+
 let activeSpeechUtterance = null;
 let speechWatchdogTimer = null;
 
 function speakText(text, language, trigger) {
-  const status = document.getElementById("custom-word-status");
+  const status = document.getElementById("custom-word-status") || document.getElementById("translation-status");
   if (!text || !("speechSynthesis" in window)) {
     if (status) {
       status.textContent = "当前浏览器不支持语音播放，请使用 Safari、Chrome 或 Edge。";
@@ -508,7 +551,7 @@ function setCustomWordLoading(isLoading) {
   if (!input || !button) return;
   input.disabled = isLoading;
   button.disabled = isLoading;
-  button.textContent = isLoading ? "查询中…" : "查询单词";
+  button.textContent = isLoading ? "查询中…" : "查询";
 }
 
 function renderCustomWordResult(entry) {
@@ -584,15 +627,15 @@ function renderCustomWordHistory() {
     const open = document.createElement("button");
     open.type = "button";
     open.className = "custom-word-history-open";
-    open.textContent = entry.word;
+    open.textContent = entry.query || entry.word;
     open.addEventListener("click", () => {
       if (!entry.wordTranslation || !entry.definitionTranslation) {
-        document.getElementById("custom-word-input").value = entry.word;
-        lookupCustomWord(entry.word);
+        document.getElementById("custom-word-input").value = entry.query || entry.word;
+        lookupCustomWord(entry.query || entry.word);
         return;
       }
       renderCustomWordResult(entry);
-      document.getElementById("custom-word-input").value = entry.word;
+      document.getElementById("custom-word-input").value = entry.query || entry.word;
       document.getElementById("custom-word-status").textContent = "";
       document.getElementById("custom-word-result").scrollIntoView({ behavior: "smooth", block: "center" });
     });
@@ -614,24 +657,29 @@ function renderCustomWordHistory() {
 }
 
 async function lookupCustomWord(rawWord) {
-  const word = rawWord.trim().toLowerCase();
+  const query = rawWord.trim();
   const status = document.getElementById("custom-word-status");
   const result = document.getElementById("custom-word-result");
   if (!status || !result) return;
 
-  if (!/^[a-z]+(?:[ '-][a-z]+)*$/i.test(word)) {
+  const isChineseQuery = /[\u3400-\u9fff]/u.test(query);
+  const isEnglishQuery = /^[a-z]+(?:[ '-][a-z]+)*$/i.test(query);
+  if (!query || (!isChineseQuery && !isEnglishQuery)) {
     result.hidden = true;
-    status.textContent = "请输入英文单词或短语，只使用英文字母、空格、连字符或撇号。";
+    status.textContent = "请输入中文或英文单词、短语。";
     status.classList.add("error");
     return;
   }
 
   setCustomWordLoading(true);
-  status.textContent = `正在查询 “${word}”…`;
+  status.textContent = `正在查询 “${query}”…`;
   status.classList.remove("error");
   result.hidden = true;
 
   try {
+    const translatedQuery = isChineseQuery ? await translateText(query, "zh-CN", "en") : query;
+    const word = translatedQuery.trim().toLowerCase().replace(/[.!?。！？]+$/u, "");
+    if (!/^[a-z]+(?:[ '-][a-z]+)*$/i.test(word)) throw new Error("WORD_NOT_FOUND");
     const entries = await fetchDictionaryEntries(word);
     const definition = findDictionaryDefinition(entries);
     if (!definition) throw new Error("DEFINITION_NOT_FOUND");
@@ -642,7 +690,7 @@ async function lookupCustomWord(rawWord) {
       || "暂无音标";
     const example = definition.example || "";
     const translationsAndAudio = await Promise.allSettled([
-      translateToChinese(entry.word || word),
+      isChineseQuery ? Promise.resolve(query) : translateToChinese(entry.word || word),
       translateToChinese(definition.definition),
       example ? translateToChinese(example) : Promise.resolve(""),
       fetchWiktionaryAudio(entry.word || word)
@@ -658,6 +706,7 @@ async function lookupCustomWord(rawWord) {
 
     const lookupEntry = {
       word: entry.word || word,
+      query,
       partOfSpeech: partOfSpeechLabels[definition.partOfSpeech] || definition.partOfSpeech || "词条",
       phonetic,
       wordTranslation,
@@ -676,7 +725,7 @@ async function lookupCustomWord(rawWord) {
     result.hidden = true;
     status.classList.add("error");
     if (error.message === "WORD_NOT_FOUND") {
-      status.textContent = `没有查到 “${word}”，请检查拼写后重试。`;
+      status.textContent = `没有查到 “${query}”，请尝试更具体的单词或短语。`;
     } else if (error.name === "AbortError") {
       status.textContent = "查询超时，请检查网络后重试。";
     } else {
@@ -741,6 +790,189 @@ function initCustomWordLookup() {
     renderCustomWordHistory();
   });
   renderCustomWordHistory();
+}
+
+/* ---------------- Chinese-English Translation ---------------- */
+function getTranslationHistory() {
+  try {
+    const history = JSON.parse(localStorage.getItem(translationHistoryKey) || "[]");
+    return Array.isArray(history) ? history : [];
+  } catch (error) {
+    console.error("Unable to read translation history:", error);
+    return [];
+  }
+}
+
+function saveTranslationHistory(entry) {
+  const history = getTranslationHistory().filter((item) =>
+    item.sourceText !== entry.sourceText || item.sourceLanguage !== entry.sourceLanguage
+  );
+  history.unshift(entry);
+  localStorage.setItem(translationHistoryKey, JSON.stringify(history.slice(0, translationHistoryLimit)));
+  renderTranslationHistory();
+}
+
+function renderTranslationHistory() {
+  const list = document.getElementById("translation-history-list");
+  const empty = document.getElementById("translation-history-empty");
+  const clear = document.getElementById("translation-history-clear");
+  if (!list || !empty || !clear) return;
+  const history = getTranslationHistory();
+  list.replaceChildren();
+  empty.hidden = history.length > 0;
+  clear.hidden = history.length === 0;
+  history.forEach((entry) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "translation-history-item";
+    button.innerHTML = `<strong>${entry.sourceLanguage === "zh-CN" ? "中 → 英" : "英 → 中"}</strong><span></span>`;
+    button.querySelector("span").textContent = entry.sourceText.slice(0, 80);
+    button.addEventListener("click", () => {
+      setTranslationDirection(entry.sourceLanguage, entry.targetLanguage);
+      document.getElementById("translation-source").value = entry.sourceText;
+      document.getElementById("translation-result").value = entry.translatedText;
+      updateTranslationCount();
+    });
+    list.append(button);
+  });
+}
+
+function setTranslationDirection(sourceLanguage, targetLanguage) {
+  const form = document.getElementById("translation-form");
+  if (!form) return;
+  form.dataset.sourceLanguage = sourceLanguage;
+  form.dataset.targetLanguage = targetLanguage;
+  document.getElementById("translation-source-label").textContent = sourceLanguage === "zh-CN" ? "中文原文" : "English";
+  document.getElementById("translation-target-label").textContent = targetLanguage === "en" ? "English translation" : "中文译文";
+  document.getElementById("translation-toolbar-source").textContent = sourceLanguage === "zh-CN" ? "中文" : "English";
+  document.getElementById("translation-toolbar-target").textContent = targetLanguage === "en" ? "English" : "中文";
+  document.getElementById("translation-source").placeholder =
+    sourceLanguage === "zh-CN" ? "输入要翻译的中文句子、段落或文章…" : "Enter an English sentence, paragraph, or article…";
+}
+
+function updateTranslationCount() {
+  const source = document.getElementById("translation-source");
+  const count = document.getElementById("translation-character-count");
+  if (source && count) count.textContent = `${source.value.length} / 5000`;
+  updateTranslationAudioControls();
+}
+
+function updateTranslationAudioControls() {
+  const source = document.getElementById("translation-source");
+  const result = document.getElementById("translation-result");
+  const sourceAudio = document.getElementById("translation-source-audio");
+  const resultAudio = document.getElementById("translation-result-audio");
+  const copy = document.getElementById("translation-copy");
+  if (!source || !result || !sourceAudio || !resultAudio || !copy) return;
+  sourceAudio.disabled = !source.value.trim();
+  resultAudio.disabled = !result.value.trim();
+  copy.disabled = !result.value.trim();
+}
+
+async function runTranslation() {
+  const form = document.getElementById("translation-form");
+  const source = document.getElementById("translation-source");
+  const result = document.getElementById("translation-result");
+  const status = document.getElementById("translation-status");
+  const submit = form?.querySelector('button[type="submit"]');
+  if (!form || !source || !result || !status || !submit) return;
+  const sourceText = source.value.trim();
+  if (!sourceText) {
+    status.textContent = "请先输入需要翻译的内容。";
+    status.classList.add("error");
+    source.focus();
+    return;
+  }
+  submit.disabled = true;
+  submit.classList.add("loading");
+  submit.setAttribute("aria-label", "翻译中");
+  submit.title = "翻译中";
+  status.textContent = "";
+  status.classList.remove("error");
+  try {
+    const sourceLanguage = form.dataset.sourceLanguage;
+    const targetLanguage = form.dataset.targetLanguage;
+    const translatedText = await translateText(sourceText, sourceLanguage, targetLanguage);
+    if (!translatedText) throw new Error("EMPTY_TRANSLATION");
+    result.value = translatedText;
+    updateTranslationAudioControls();
+    saveTranslationHistory({ sourceText, translatedText, sourceLanguage, targetLanguage, translatedAt: Date.now() });
+  } catch (error) {
+    console.error("Translation failed:", error);
+    status.textContent = error.name === "AbortError"
+      ? "翻译超时，请缩短内容或检查网络后重试。"
+      : "翻译服务暂时不可用，请稍后重试。";
+    status.classList.add("error");
+  } finally {
+    submit.disabled = false;
+    submit.classList.remove("loading");
+    submit.setAttribute("aria-label", "开始翻译");
+    submit.title = "开始翻译";
+  }
+}
+
+function initTranslationTool() {
+  const form = document.getElementById("translation-form");
+  if (!form) return;
+  const source = document.getElementById("translation-source");
+  const result = document.getElementById("translation-result");
+  const sourceAudio = document.getElementById("translation-source-audio");
+  const resultAudio = document.getElementById("translation-result-audio");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    runTranslation();
+  });
+  source.addEventListener("input", updateTranslationCount);
+  source.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
+      event.preventDefault();
+      form.requestSubmit();
+    }
+  });
+  document.getElementById("translation-swap").addEventListener("click", () => {
+    const sourceLanguage = form.dataset.sourceLanguage;
+    const targetLanguage = form.dataset.targetLanguage;
+    const previousSource = source.value;
+    if (result.value.trim()) {
+      source.value = result.value;
+      result.value = previousSource;
+    }
+    setTranslationDirection(targetLanguage, sourceLanguage);
+    updateTranslationCount();
+  });
+  sourceAudio.addEventListener("click", () => {
+    const language = form.dataset.sourceLanguage === "en" ? "en-US" : "zh-CN";
+    speakText(source.value.trim(), language, sourceAudio);
+  });
+  resultAudio.addEventListener("click", () => {
+    const language = form.dataset.targetLanguage === "en" ? "en-US" : "zh-CN";
+    speakText(result.value.trim(), language, resultAudio);
+  });
+  document.getElementById("translation-copy").addEventListener("click", async () => {
+    if (!result.value) return;
+    try {
+      await navigator.clipboard.writeText(result.value);
+      document.getElementById("translation-status").textContent = "译文已复制。";
+    } catch (error) {
+      console.error("Unable to copy translation:", error);
+      document.getElementById("translation-status").textContent = "复制失败，请长按译文手动复制。";
+      document.getElementById("translation-status").classList.add("error");
+    }
+  });
+  document.getElementById("translation-clear").addEventListener("click", () => {
+    source.value = "";
+    result.value = "";
+    document.getElementById("translation-status").textContent = "";
+    updateTranslationCount();
+    source.focus();
+  });
+  document.getElementById("translation-history-clear").addEventListener("click", () => {
+    localStorage.removeItem(translationHistoryKey);
+    renderTranslationHistory();
+  });
+  setTranslationDirection("zh-CN", "en");
+  updateTranslationCount();
+  renderTranslationHistory();
 }
 
 /* ---------------- Mobile Continuous Playback ---------------- */
@@ -1035,6 +1267,7 @@ function enhanceHeader() {
 
   const isDirectoryPage = window.location.pathname.endsWith("/side-by-side-1/") || window.location.pathname.endsWith("/side-by-side-1/index.html");
   const isWordsPage = window.location.pathname.startsWith("/english/words");
+  const isTranslationPage = window.location.pathname.startsWith("/english/translate");
 
   header.innerHTML = `
     <div class="site-header-left">
@@ -1043,7 +1276,7 @@ function enhanceHeader() {
       </a>
       <div class="site-brand-text">
         <a href="/" class="site-brand-title">Michael's Blog</a>
-        <span class="site-brand-sub">${isWordsPage ? "英语学习 · 查询生词" : "英语学习 · Side by Side 1"}</span>
+        <span class="site-brand-sub">${isWordsPage ? "英语学习 · 查询生词" : isTranslationPage ? "英语学习 · 中英翻译" : "英语学习 · Side by Side 1"}</span>
       </div>
     </div>
     <div class="site-header-controls">
@@ -1051,6 +1284,7 @@ function enhanceHeader() {
         <a href="/" class="site-nav-link">博客首页</a>
         <a href="/english/side-by-side-1/" class="site-nav-link ${isDirectoryPage ? "active" : ""}">课程目录</a>
         <a href="/english/words/" class="site-nav-link ${isWordsPage ? "active" : ""}">查询生词</a>
+        <a href="/english/translate/" class="site-nav-link ${isTranslationPage ? "active" : ""}">中英翻译</a>
         <a href="/cv/" class="site-nav-link">简历</a>
         <a href="/categories" class="site-nav-link">分类</a>
         <a href="https://github.com/mikeah2011" target="_blank" rel="noopener noreferrer" class="site-nav-link">GitHub</a>
@@ -1104,7 +1338,7 @@ function enhanceFooter() {
       知我所能者，尽善尽美；知我所不能者，虚怀若谷。
     </div>
     <div>
-      © ${new Date().getFullYear()} <a href="/">Michael's Blog</a> · 英语学习 · Side by Side 1
+      © ${new Date().getFullYear()} <a href="/">Michael's Blog</a> · 英语学习
     </div>
   `;
 }
@@ -1116,6 +1350,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initVocabTabs();
   initHoverPlay();
   initCustomWordLookup();
+  initTranslationTool();
   initContinuousPlayback();
   initSwipeNavigation();
 });

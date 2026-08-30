@@ -124,8 +124,8 @@ ${renderTable(coreWords, lessonNumPad, 1)}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(item.title)} - Michael's Blog</title>
   <meta name="description" content="Side by Side 1 英语生词、音标、例句和发音练习。">
-  <link rel="stylesheet" href="../assets/styles.css?v=2.8">
-  <script src="../assets/script.js?v=2.8" defer></script>
+  <link rel="stylesheet" href="../assets/styles.css?v=3.4">
+  <script src="../assets/script.js?v=3.4" defer></script>
 </head>
 <body data-prev-lesson-url="${prevLessonUrl}" data-next-lesson-url="${nextLessonUrl}">
   <header class="site-header"></header>
@@ -135,6 +135,7 @@ ${renderTable(coreWords, lessonNumPad, 1)}
       <a href="../">课程目录</a>
       ${nextLink}
       <a href="/english/words/">查询生词</a>
+      <a href="/english/translate/">中英翻译</a>
     </nav>
     <section class="hero">
       <p>Lesson ${lessonNum}</p>

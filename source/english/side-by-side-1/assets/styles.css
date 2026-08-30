@@ -649,6 +649,235 @@ main {
   font-size: 0.82rem;
 }
 
+/* ---------------- Chinese-English Translation ---------------- */
+.translation-tool {
+  padding: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.translation-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.translation-toolbar {
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.translation-language-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.25rem;
+  background: var(--bg-page);
+  border-radius: 0.85rem;
+}
+
+.translation-language-pair strong {
+  min-width: 6rem;
+  padding: 0.6rem 0.9rem;
+  color: var(--text-title);
+  text-align: center;
+}
+
+.translation-swap-button {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  color: var(--text-accent);
+  background: var(--bg-pill);
+  border: 0;
+  border-radius: 50%;
+  font: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.translation-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.translation-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  color: var(--text-title);
+  font-weight: 700;
+}
+
+.translation-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.translation-panel-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.translation-icon-button,
+.translation-submit-button {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  color: var(--text-accent);
+  background: var(--bg-pill);
+  border: 0;
+  border-radius: 50%;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.translation-icon-button:disabled,
+.translation-submit-button:disabled {
+  color: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.translation-icon-button.playing {
+  color: #ffffff;
+  background: var(--aurora-pink);
+}
+
+.translation-submit-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.translation-submit-button {
+  width: 2.75rem;
+  height: 2.75rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--text-accent), var(--aurora-pink));
+  box-shadow: var(--shadow-card);
+}
+
+.translation-submit-arrow {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.translation-submit-spinner {
+  display: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 2px solid rgb(255 255 255 / 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.translation-submit-button.loading .translation-submit-arrow {
+  display: none;
+}
+
+.translation-submit-button.loading .translation-submit-spinner {
+  display: block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.translation-panel textarea {
+  width: 100%;
+  min-height: 18rem;
+  resize: vertical;
+  padding: 1rem;
+  color: var(--text-body);
+  background: var(--bg-card-alt);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  outline: none;
+  font: inherit;
+  line-height: 1.7;
+}
+
+.translation-panel textarea:focus {
+  border-color: var(--text-accent);
+  box-shadow: 0 0 0 3px var(--bg-pill);
+}
+
+.translation-panel textarea[readonly] {
+  background: var(--bg-quote);
+}
+
+.translation-panel small {
+  align-self: flex-end;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.translation-history {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.translation-history-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.translation-history-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  color: var(--text-body);
+  text-align: left;
+  background: var(--bg-card-alt);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+
+.translation-history-item strong {
+  flex: 0 0 auto;
+  color: var(--text-accent);
+  font-size: 0.75rem;
+}
+
+.translation-history-item span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#translation-history-empty {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
 /* ---------------- Lesson Index Grid (Directory) ---------------- */
 .lesson-grid {
   display: grid;
@@ -1188,6 +1417,22 @@ footer a {
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
+  .translation-panels {
+    grid-template-columns: 1fr;
+  }
+  .translation-submit-wrap {
+    justify-content: center;
+    margin: -0.25rem 0;
+  }
+  .translation-submit-button {
+    transform: none;
+  }
+  .translation-submit-arrow {
+    transform: rotate(90deg);
+  }
+  .translation-panel textarea {
+    min-height: 12rem;
+  }
   .continuous-player {
     position: fixed;
     left: 50%;
@@ -1248,6 +1493,19 @@ footer a {
   }
   .custom-word-form button {
     width: 100%;
+  }
+  .translation-tool {
+    padding: 1rem;
+  }
+  .translation-toolbar {
+    justify-content: center;
+  }
+  .translation-language-pair {
+    width: 100%;
+  }
+  .translation-language-pair strong {
+    flex: 1;
+    min-width: 0;
   }
   .continuous-player {
     align-items: stretch;

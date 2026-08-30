@@ -5,33 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>查询生词 - Michael's Blog</title>
   <meta name="description" content="查询英语生词的中文释义、音标、发音和例句。">
-  <link rel="stylesheet" href="../side-by-side-1/assets/styles.css?v=2.8">
-  <script src="../side-by-side-1/assets/script.js?v=2.8" defer></script>
+  <link rel="stylesheet" href="../side-by-side-1/assets/styles.css?v=3.4">
+  <script src="../side-by-side-1/assets/script.js?v=3.4" defer></script>
 </head>
 <body>
   <header class="site-header"></header>
   <main>
     <nav class="top-nav">
       <a href="../side-by-side-1/">课程目录</a>
+      <a href="../translate/">中英翻译</a>
       <a href="/">返回博客首页</a>
     </nav>
     <section class="hero">
       <p>MY WORDS</p>
       <h2>查询生词</h2>
-      <div>查询英文单词的释义、音标、发音和词典例句。最近查询仅保存在当前浏览器。</div>
+      <div>用中文或英文查询单词、短语的释义、音标、发音和词典例句。</div>
     </section>
     <section class="custom-word-lookup" aria-labelledby="custom-word-title">
       <div class="custom-word-heading">
         <div>
           <span class="custom-word-kicker">DICTIONARY</span>
-          <h3 id="custom-word-title">输入一个英文单词</h3>
+          <h3 id="custom-word-title">输入中文或英文</h3>
         </div>
-        <p>支持英文单词和短语，成功查询后自动加入最近记录。</p>
+        <p>支持中英文单词和短语，成功查询后自动加入最近记录。</p>
       </div>
       <form id="custom-word-form" class="custom-word-form">
-        <label class="sr-only" for="custom-word-input">英文单词</label>
-        <input id="custom-word-input" name="word" type="text" inputmode="text" autocomplete="off" maxlength="50" placeholder="例如：serendipity" required>
-        <button type="submit">查询单词</button>
+        <label class="sr-only" for="custom-word-input">中文或英文单词</label>
+        <input id="custom-word-input" name="word" type="text" inputmode="text" autocomplete="off" maxlength="80" placeholder="例如：serendipity 或 意外发现" required>
+        <button type="submit">查询</button>
       </form>
       <div id="custom-word-status" class="custom-word-status" role="status" aria-live="polite"></div>
       <article id="custom-word-result" class="custom-word-result" hidden>
