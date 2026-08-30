@@ -8,6 +8,7 @@
   var ENDPOINT = global.SiteConfig && global.SiteConfig.statsEndpoint;
   var lastPath = '';
   var depthSent = {};
+  var tag = recipientTag();
 
   function classify(path) {
     if (path.indexOf('/english/translate/') === 0) return { app: 'english', page_type: 'translate' };
@@ -40,13 +41,24 @@
     }
   }
 
-  function selfTag() {
+  function recipientTag() {
     try {
-      var tag = new URLSearchParams(location.search).get('to') || '';
-      return tag === 'self' || tag.indexOf('self-') === 0 ? tag.slice(0, 60) : null;
+      return (new URLSearchParams(location.search).get('to') || '').slice(0, 60) || null;
     } catch (error) {
       return null;
     }
+  }
+
+  function propagateTag() {
+    if (!tag) return;
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      try {
+        var url = new URL(link.href, location.href);
+        if (url.origin !== location.origin || !/^https?:$/.test(url.protocol)) return;
+        url.searchParams.set('to', tag);
+        link.href = url.href;
+      } catch (error) {}
+    });
   }
 
   function send(event, detail) {
@@ -59,7 +71,7 @@
       event: event,
       detail: detail || null,
       lang: language(),
-      tag: selfTag(),
+      tag: tag,
       referrer: referrerOrigin()
     });
     var type = 'text/plain;charset=UTF-8';
@@ -128,6 +140,7 @@
   global.SiteStats = { track: send };
 
   function init() {
+    propagateTag();
     trackView();
     trackExternalClicks();
     watchSpaNavigation();
