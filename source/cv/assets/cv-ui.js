@@ -43,7 +43,7 @@
   var LANG_KEY = 'cv-lang';
   var THEME_KEY = 'cv-theme';
   var STATS_KEY = 'site-stats-dashboard-key';
-  var STATS_URL = 'https://cv-stats.mikeah2011.workers.dev/';
+  var STATS_URL = global.SiteConfig && global.SiteConfig.statsDashboard;
   var LANG_LABEL = { 'zh-CN': '简', 'zh-TW': '繁', 'en': 'EN' };
 
   // Single button cycles through these in order; the icon shown is always

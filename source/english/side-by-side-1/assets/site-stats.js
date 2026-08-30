@@ -5,7 +5,7 @@
 (function (global) {
   'use strict';
 
-  var ENDPOINT = 'https://cv-stats.mikeah2011.workers.dev/h';
+  var ENDPOINT = global.SiteConfig && global.SiteConfig.statsEndpoint;
   var lastPath = '';
   var depthSent = {};
 

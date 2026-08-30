@@ -9,7 +9,7 @@
 
   // 已部署。想临时停止上报就把这里改回空字符串 —— 整个文件会完全静默。
   // Worker 源码与部署手册在私有仓库 jobsearch/analytics/。
-  var ENDPOINT = 'https://cv-stats.mikeah2011.workers.dev/h';
+  var ENDPOINT = window.SiteConfig && window.SiteConfig.statsEndpoint;
 
   // 投递对象标记的参数名。带 ?to=acme 的链接进来，后续站内跳转都会带着它，
   // 所以「从首页点进简历、再下载 PDF」会记在同一个标记下。
