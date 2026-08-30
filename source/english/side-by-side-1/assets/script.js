@@ -260,6 +260,489 @@ function initVocabTabs() {
   });
 }
 
+/* ---------------- Custom Word Lookup ---------------- */
+const primaryDictionaryApiBase = "https://freedictionaryapi.com/api/v1/entries/en/";
+const fallbackDictionaryApiBase = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+const wiktionaryApiBase = "https://en.wiktionary.org/w/api.php?action=query&generator=images&gimlimit=50&prop=imageinfo&iiprop=url&format=json&origin=*&titles=";
+const translationApiBase = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-CN&dt=t&q=";
+const fallbackTranslationApiBase = "https://api.mymemory.translated.net/get?langpair=en%7Czh-CN&q=";
+const customWordHistoryKey = "side-by-side-custom-word-history";
+const customWordHistoryLimit = 20;
+const partOfSpeechLabels = {
+  noun: "名词",
+  verb: "动词",
+  adjective: "形容词",
+  adverb: "副词",
+  pronoun: "代词",
+  preposition: "介词",
+  conjunction: "连词",
+  interjection: "感叹词"
+};
+
+async function fetchWithTimeout(url, timeout = 10000) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+  try {
+    return await fetch(url, { signal: controller.signal });
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
+async function translateToChinese(text) {
+  if (!text) return "";
+  try {
+    const response = await fetchWithTimeout(`${translationApiBase}${encodeURIComponent(text)}`, 6000);
+    if (!response.ok) throw new Error(`Translation request failed with status ${response.status}`);
+    const data = await response.json();
+    const translation = Array.isArray(data?.[0])
+      ? data[0].map((segment) => segment?.[0] || "").join("").trim()
+      : "";
+    if (translation) return translation;
+  } catch (error) {
+    console.warn("Primary translation request failed; trying fallback:", error);
+  }
+
+  const fallbackResponse = await fetchWithTimeout(`${fallbackTranslationApiBase}${encodeURIComponent(text)}`, 8000);
+  if (!fallbackResponse.ok) {
+    throw new Error(`Fallback translation request failed with status ${fallbackResponse.status}`);
+  }
+  const fallbackData = await fallbackResponse.json();
+  return fallbackData?.responseData?.translatedText?.trim() || "";
+}
+
+let activeSpeechUtterance = null;
+let speechWatchdogTimer = null;
+
+function speakText(text, language, trigger) {
+  const status = document.getElementById("custom-word-status");
+  if (!text || !("speechSynthesis" in window)) {
+    if (status) {
+      status.textContent = "当前浏览器不支持语音播放，请使用 Safari、Chrome 或 Edge。";
+      status.classList.add("error");
+    }
+    return;
+  }
+  if (activeAudioElement) {
+    activeAudioElement.pause();
+    activeAudioElement = null;
+  }
+  if (speechWatchdogTimer) {
+    clearTimeout(speechWatchdogTimer);
+    speechWatchdogTimer = null;
+  }
+  if (activeSpeechUtterance || window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+    window.speechSynthesis.cancel();
+  }
+  if (status) {
+    status.textContent = "";
+    status.classList.remove("error");
+  }
+  const stopPlaying = markAudioPlaying(trigger);
+  let hasStarted = false;
+
+  const finish = (utterance) => {
+    if (activeSpeechUtterance !== utterance) return;
+    if (speechWatchdogTimer) {
+      clearTimeout(speechWatchdogTimer);
+      speechWatchdogTimer = null;
+    }
+    stopPlaying();
+    activeSpeechUtterance = null;
+  };
+
+  const play = (isRetry = false) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    activeSpeechUtterance = utterance;
+    utterance.lang = language;
+    utterance.rate = 0.9;
+    utterance.volume = 1;
+    const voices = window.speechSynthesis.getVoices();
+    if (language.startsWith("en")) {
+      utterance.voice = voices.find((voice) => preferredExampleVoiceNames.includes(voice.name))
+        || voices.find((voice) => voice.lang.startsWith("en") && !noveltyVoiceNames.includes(voice.name))
+        || null;
+    } else {
+      utterance.voice = voices.find((voice) => voice.lang.toLowerCase().startsWith("zh"))
+        || null;
+    }
+    utterance.onstart = () => {
+      hasStarted = true;
+      if (speechWatchdogTimer) {
+        clearTimeout(speechWatchdogTimer);
+        speechWatchdogTimer = null;
+      }
+    };
+    utterance.onend = () => finish(utterance);
+    utterance.onerror = (event) => {
+      if (event.error !== "canceled" && event.error !== "interrupted") {
+        console.error(`Speech synthesis failed for ${language}:`, event.error);
+        if (status) {
+          status.textContent = "当前浏览器无法播放这段语音，请检查系统媒体音量或更换浏览器。";
+          status.classList.add("error");
+        }
+      }
+      finish(utterance);
+    };
+
+    window.speechSynthesis.resume();
+    window.speechSynthesis.speak(utterance);
+
+    speechWatchdogTimer = setTimeout(() => {
+      if (activeSpeechUtterance !== utterance || hasStarted || window.speechSynthesis.speaking) return;
+      window.speechSynthesis.cancel();
+      if (!isRetry) {
+        play(true);
+      } else {
+        finish(utterance);
+        if (status) {
+          status.textContent = "语音没有启动，请确认手机未处于静音模式后再试。";
+          status.classList.add("error");
+        }
+      }
+    }, 1500);
+  };
+
+  play();
+}
+
+function findDictionaryDefinition(entries) {
+  const definitions = entries.flatMap((entry) =>
+    (entry.meanings || []).flatMap((meaning) =>
+      (meaning.definitions || []).map((definition) => ({
+        ...definition,
+        partOfSpeech: meaning.partOfSpeech
+      }))
+    )
+  );
+  return definitions.find((definition) => definition.example) || definitions[0] || null;
+}
+
+function flattenDictionarySenses(senses, definitions = []) {
+  (senses || []).forEach((sense) => {
+    if (sense.definition) {
+      definitions.push({
+        definition: sense.definition,
+        example: sense.examples?.[0] || ""
+      });
+    }
+    flattenDictionarySenses(sense.subsenses, definitions);
+  });
+  return definitions;
+}
+
+function normalizePrimaryDictionaryResponse(data) {
+  return (data.entries || []).map((entry) => {
+    const phonetic = (entry.pronunciations || []).find((item) => item.type === "ipa")?.text || "";
+    return {
+      word: data.word,
+      phonetic,
+      phonetics: phonetic ? [{ text: phonetic, audio: "" }] : [],
+      meanings: [{
+        partOfSpeech: entry.partOfSpeech,
+        definitions: flattenDictionarySenses(entry.senses)
+      }]
+    };
+  });
+}
+
+async function fetchDictionaryEntries(word) {
+  let primaryStatus = "network error";
+  try {
+    const primaryResponse = await fetchWithTimeout(`${primaryDictionaryApiBase}${encodeURIComponent(word)}`, 8000);
+    primaryStatus = primaryResponse.status;
+    if (primaryResponse.ok) {
+      return normalizePrimaryDictionaryResponse(await primaryResponse.json());
+    }
+    if (primaryResponse.status === 404) throw new Error("WORD_NOT_FOUND");
+  } catch (error) {
+    if (error.message === "WORD_NOT_FOUND") throw error;
+    console.warn("Primary dictionary request failed; trying fallback:", error);
+  }
+
+  const fallbackResponse = await fetchWithTimeout(`${fallbackDictionaryApiBase}${encodeURIComponent(word)}`);
+  if (fallbackResponse.status === 404) throw new Error("WORD_NOT_FOUND");
+  if (!fallbackResponse.ok) {
+    throw new Error(`Dictionary requests failed with statuses ${primaryStatus} and ${fallbackResponse.status}`);
+  }
+  return fallbackResponse.json();
+}
+
+function getDictionaryAudio(entries) {
+  const audio = entries
+    .flatMap((entry) => entry.phonetics || [])
+    .find((phonetic) => phonetic.audio)?.audio;
+  if (!audio) return "";
+  return audio.startsWith("//") ? `https:${audio}` : audio;
+}
+
+function getWikimediaMp3Url(originalUrl) {
+  const url = new URL(originalUrl);
+  const match = url.pathname.match(/^\/wikipedia\/commons\/(.+)\/([^/]+\.(?:ogg|wav))$/i);
+  if (!match) return originalUrl;
+  return `${url.origin}/wikipedia/commons/transcoded/${match[1]}/${match[2]}/${match[2]}.mp3`;
+}
+
+async function fetchWiktionaryAudio(word) {
+  try {
+    const response = await fetchWithTimeout(`${wiktionaryApiBase}${encodeURIComponent(word)}`, 8000);
+    if (!response.ok) return "";
+    const data = await response.json();
+    const audioFiles = Object.values(data.query?.pages || {}).filter((page) =>
+      /\.(?:ogg|wav|mp3)$/i.test(page.title || "") && page.imageinfo?.[0]?.url
+    );
+    const preferred = audioFiles.find((page) => /^File:En-us-/i.test(page.title))
+      || audioFiles.find((page) => /^File:En-(?:uk|au|ca)-/i.test(page.title))
+      || audioFiles.find((page) => /(?:eng|english)/i.test(page.title));
+    return preferred ? getWikimediaMp3Url(preferred.imageinfo[0].url) : "";
+  } catch (error) {
+    console.warn("Wiktionary audio lookup failed:", error);
+    return "";
+  }
+}
+
+function setCustomWordLoading(isLoading) {
+  const form = document.getElementById("custom-word-form");
+  const input = document.getElementById("custom-word-input");
+  const button = form?.querySelector("button");
+  if (!input || !button) return;
+  input.disabled = isLoading;
+  button.disabled = isLoading;
+  button.textContent = isLoading ? "查询中…" : "查询单词";
+}
+
+function renderCustomWordResult(entry) {
+  const result = document.getElementById("custom-word-result");
+  if (!result) return;
+
+  document.getElementById("custom-word-name").textContent = entry.word;
+  document.getElementById("custom-word-part").textContent = entry.partOfSpeech;
+  document.getElementById("custom-word-phonetic").textContent = entry.phonetic;
+  document.getElementById("custom-word-translation").textContent = entry.wordTranslation;
+  document.getElementById("custom-word-meaning").textContent = entry.definitionTranslation;
+  document.getElementById("custom-word-definition").textContent = entry.definition;
+  document.getElementById("custom-word-example").textContent =
+    entry.example || "开放词典暂未提供这个词的例句。";
+  document.getElementById("custom-word-example-translation").textContent = entry.translatedExample;
+
+  const wordAudio = document.getElementById("custom-word-audio");
+  const exampleAudio = document.getElementById("custom-example-audio");
+  const definition = document.getElementById("custom-word-definition");
+  const meaning = document.getElementById("custom-word-meaning");
+  const translationToggle = document.getElementById("custom-translation-toggle");
+  const example = document.getElementById("custom-word-example");
+  const translation = document.getElementById("custom-word-example-translation");
+  wordAudio.dataset.audioSrc = entry.audio;
+  wordAudio.dataset.speechText = entry.word;
+  definition.hidden = false;
+  meaning.hidden = true;
+  exampleAudio.dataset.audioSrc = "";
+  exampleAudio.dataset.speechText = entry.example;
+  exampleAudio.dataset.speechLang = "en-US";
+  exampleAudio.setAttribute("aria-label", "播放英文例句");
+  exampleAudio.hidden = !entry.example;
+  translationToggle.hidden = !entry.definitionTranslation && !entry.translatedExample;
+  translationToggle.textContent = "译文";
+  translationToggle.setAttribute("aria-label", "显示释义和例句译文");
+  example.hidden = false;
+  translation.hidden = true;
+  result.hidden = false;
+}
+
+function getCustomWordHistory() {
+  try {
+    const history = JSON.parse(localStorage.getItem(customWordHistoryKey) || "[]");
+    return Array.isArray(history) ? history : [];
+  } catch (error) {
+    console.error("Unable to read custom word history:", error);
+    return [];
+  }
+}
+
+function saveCustomWordHistory(entry) {
+  const history = getCustomWordHistory().filter((item) => item.word.toLowerCase() !== entry.word.toLowerCase());
+  history.unshift(entry);
+  localStorage.setItem(customWordHistoryKey, JSON.stringify(history.slice(0, customWordHistoryLimit)));
+  renderCustomWordHistory();
+}
+
+function renderCustomWordHistory() {
+  const list = document.getElementById("custom-word-history-list");
+  const empty = document.getElementById("custom-word-history-empty");
+  const clear = document.getElementById("custom-word-history-clear");
+  if (!list || !empty || !clear) return;
+
+  const history = getCustomWordHistory();
+  list.replaceChildren();
+  empty.hidden = history.length > 0;
+  clear.hidden = history.length === 0;
+
+  history.forEach((entry) => {
+    const item = document.createElement("div");
+    item.className = "custom-word-history-item";
+
+    const open = document.createElement("button");
+    open.type = "button";
+    open.className = "custom-word-history-open";
+    open.textContent = entry.word;
+    open.addEventListener("click", () => {
+      if (!entry.wordTranslation || !entry.definitionTranslation) {
+        document.getElementById("custom-word-input").value = entry.word;
+        lookupCustomWord(entry.word);
+        return;
+      }
+      renderCustomWordResult(entry);
+      document.getElementById("custom-word-input").value = entry.word;
+      document.getElementById("custom-word-status").textContent = "";
+      document.getElementById("custom-word-result").scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "custom-word-history-remove";
+    remove.textContent = "×";
+    remove.setAttribute("aria-label", `删除 ${entry.word} 的查询记录`);
+    remove.addEventListener("click", () => {
+      const nextHistory = getCustomWordHistory().filter((item) => item.word !== entry.word);
+      localStorage.setItem(customWordHistoryKey, JSON.stringify(nextHistory));
+      renderCustomWordHistory();
+    });
+
+    item.append(open, remove);
+    list.append(item);
+  });
+}
+
+async function lookupCustomWord(rawWord) {
+  const word = rawWord.trim().toLowerCase();
+  const status = document.getElementById("custom-word-status");
+  const result = document.getElementById("custom-word-result");
+  if (!status || !result) return;
+
+  if (!/^[a-z]+(?:[ '-][a-z]+)*$/i.test(word)) {
+    result.hidden = true;
+    status.textContent = "请输入英文单词或短语，只使用英文字母、空格、连字符或撇号。";
+    status.classList.add("error");
+    return;
+  }
+
+  setCustomWordLoading(true);
+  status.textContent = `正在查询 “${word}”…`;
+  status.classList.remove("error");
+  result.hidden = true;
+
+  try {
+    const entries = await fetchDictionaryEntries(word);
+    const definition = findDictionaryDefinition(entries);
+    if (!definition) throw new Error("DEFINITION_NOT_FOUND");
+
+    const entry = entries[0];
+    const phonetic = entry.phonetic
+      || entries.flatMap((item) => item.phonetics || []).find((item) => item.text)?.text
+      || "暂无音标";
+    const example = definition.example || "";
+    const translationsAndAudio = await Promise.allSettled([
+      translateToChinese(entry.word || word),
+      translateToChinese(definition.definition),
+      example ? translateToChinese(example) : Promise.resolve(""),
+      fetchWiktionaryAudio(entry.word || word)
+    ]);
+    const wordTranslation = translationsAndAudio[0].status === "fulfilled" && translationsAndAudio[0].value
+      ? translationsAndAudio[0].value
+      : "生词翻译暂时不可用";
+    const definitionTranslation = translationsAndAudio[1].status === "fulfilled" && translationsAndAudio[1].value
+      ? translationsAndAudio[1].value
+      : "中文释义暂时不可用";
+    const translatedExample = translationsAndAudio[2].status === "fulfilled" ? translationsAndAudio[2].value : "";
+    const wiktionaryAudio = translationsAndAudio[3].status === "fulfilled" ? translationsAndAudio[3].value : "";
+
+    const lookupEntry = {
+      word: entry.word || word,
+      partOfSpeech: partOfSpeechLabels[definition.partOfSpeech] || definition.partOfSpeech || "词条",
+      phonetic,
+      wordTranslation,
+      definitionTranslation,
+      definition: definition.definition,
+      example,
+      translatedExample,
+      audio: getDictionaryAudio(entries) || wiktionaryAudio,
+      exampleAudio: "",
+      queriedAt: Date.now()
+    };
+    renderCustomWordResult(lookupEntry);
+    saveCustomWordHistory(lookupEntry);
+    status.textContent = "";
+  } catch (error) {
+    result.hidden = true;
+    status.classList.add("error");
+    if (error.message === "WORD_NOT_FOUND") {
+      status.textContent = `没有查到 “${word}”，请检查拼写后重试。`;
+    } else if (error.name === "AbortError") {
+      status.textContent = "查询超时，请检查网络后重试。";
+    } else {
+      console.error("Custom word lookup failed:", error);
+      status.textContent = "词典服务暂时不可用，请稍后重试。";
+    }
+  } finally {
+    setCustomWordLoading(false);
+  }
+}
+
+function initCustomWordLookup() {
+  const form = document.getElementById("custom-word-form");
+  const input = document.getElementById("custom-word-input");
+  const wordAudio = document.getElementById("custom-word-audio");
+  const exampleAudio = document.getElementById("custom-example-audio");
+  const translationToggle = document.getElementById("custom-translation-toggle");
+  const definition = document.getElementById("custom-word-definition");
+  const meaning = document.getElementById("custom-word-meaning");
+  const example = document.getElementById("custom-word-example");
+  const translation = document.getElementById("custom-word-example-translation");
+  const clearHistory = document.getElementById("custom-word-history-clear");
+  if (!form || !input || !wordAudio || !exampleAudio || !translationToggle || !definition || !meaning || !example || !translation || !clearHistory) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    lookupCustomWord(input.value);
+  });
+  wordAudio.addEventListener("click", () => {
+    stopContinuousPlayback();
+    const src = wordAudio.dataset.audioSrc;
+    if (src) {
+      playAudioTrack(src, wordAudio);
+    } else {
+      speakText(wordAudio.dataset.speechText, "en-US", wordAudio);
+    }
+  });
+  exampleAudio.addEventListener("click", () => {
+    stopContinuousPlayback();
+    const src = exampleAudio.dataset.audioSrc;
+    if (src) {
+      playAudioTrack(src, exampleAudio);
+    } else {
+      speakText(exampleAudio.dataset.speechText, exampleAudio.dataset.speechLang, exampleAudio);
+    }
+  });
+  translationToggle.addEventListener("click", () => {
+    const showTranslation = meaning.hidden;
+    const hasTranslatedExample = Boolean(translation.textContent);
+    definition.hidden = showTranslation;
+    meaning.hidden = !showTranslation;
+    example.hidden = showTranslation && hasTranslatedExample;
+    translation.hidden = !showTranslation || !hasTranslatedExample;
+    translationToggle.textContent = showTranslation ? "原文" : "译文";
+    translationToggle.setAttribute("aria-label", showTranslation ? "显示释义和例句原文" : "显示释义和例句译文");
+    exampleAudio.dataset.speechText = showTranslation && hasTranslatedExample ? translation.textContent : example.textContent;
+    exampleAudio.dataset.speechLang = showTranslation && hasTranslatedExample ? "zh-CN" : "en-US";
+    exampleAudio.setAttribute("aria-label", showTranslation && hasTranslatedExample ? "播放中文译文" : "播放英文例句");
+  });
+  clearHistory.addEventListener("click", () => {
+    localStorage.removeItem(customWordHistoryKey);
+    renderCustomWordHistory();
+  });
+  renderCustomWordHistory();
+}
+
 /* ---------------- Mobile Continuous Playback ---------------- */
 let continuousPlaybackActive = false;
 let continuousPlaybackPaused = false;
@@ -551,6 +1034,7 @@ function enhanceHeader() {
   if (!header) return;
 
   const isDirectoryPage = window.location.pathname.endsWith("/side-by-side-1/") || window.location.pathname.endsWith("/side-by-side-1/index.html");
+  const isWordsPage = window.location.pathname.includes("/side-by-side-1/words");
 
   header.innerHTML = `
     <div class="site-header-left">
@@ -566,6 +1050,7 @@ function enhanceHeader() {
       <nav id="site-header-nav" class="site-header-nav" aria-label="主导航">
         <a href="/" class="site-nav-link">博客首页</a>
         <a href="/english/side-by-side-1/" class="site-nav-link ${isDirectoryPage ? "active" : ""}">课程目录</a>
+        <a href="/english/side-by-side-1/words/" class="site-nav-link ${isWordsPage ? "active" : ""}">查询生词</a>
         <a href="/cv/" class="site-nav-link">简历</a>
         <a href="/categories" class="site-nav-link">分类</a>
         <a href="https://github.com/mikeah2011" target="_blank" rel="noopener noreferrer" class="site-nav-link">GitHub</a>
@@ -630,6 +1115,7 @@ document.addEventListener("DOMContentLoaded", () => {
   enhanceFooter();
   initVocabTabs();
   initHoverPlay();
+  initCustomWordLookup();
   initContinuousPlayback();
   initSwipeNavigation();
 });
