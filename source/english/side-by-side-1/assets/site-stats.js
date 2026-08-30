@@ -32,13 +32,34 @@
   }
 
   function referrerOrigin() {
-    if (!document.referrer) return null;
+    if (!document.referrer) return 'direct';
     try {
       var url = new URL(document.referrer);
-      return url.origin === location.origin ? null : url.origin;
+      return url.origin === location.origin
+        ? 'internal:' + url.pathname
+        : url.origin + url.pathname;
     } catch (error) {
-      return null;
+      return 'direct';
     }
+  }
+
+  function sourceType(referrer) {
+    if (referrer === 'direct') return 'direct';
+    return referrer && referrer.indexOf('internal:') === 0 ? 'internal' : 'external';
+  }
+
+  function variant(dimensions) {
+    var value = new URLSearchParams(location.search).get('v') || '';
+    var allowed = {
+      blog: ['aurora-2'],
+      cv: ['backend', 'lead', 'ai'],
+      english: ['side-by-side-1', 'words-v1', 'translate-v1']
+    };
+    if ((allowed[dimensions.app] || []).indexOf(value) !== -1) return value;
+    if (dimensions.page_type === 'course' || dimensions.page_type === 'lesson') return 'side-by-side-1';
+    if (dimensions.page_type === 'words') return 'words-v1';
+    if (dimensions.page_type === 'translate') return 'translate-v1';
+    return dimensions.app === 'blog' ? 'aurora-2' : null;
   }
 
   function recipientTag() {
@@ -61,18 +82,20 @@
     });
   }
 
-  function send(event, detail) {
+  function send(event, detail, sourceOverride) {
     if (!ENDPOINT || location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
     var dimensions = classify(location.pathname);
+    var referrer = sourceOverride || referrerOrigin();
     var payload = JSON.stringify({
       app: dimensions.app,
       page_type: dimensions.page_type,
       path: location.pathname,
+      variant: variant(dimensions),
       event: event,
-      detail: detail || null,
+      detail: detail || (event === 'view' ? sourceType(referrer) : null),
       lang: language(),
       tag: tag,
-      referrer: referrerOrigin()
+      referrer: referrer
     });
     var type = 'text/plain;charset=UTF-8';
     try {
@@ -92,9 +115,10 @@
   function trackView() {
     var path = location.pathname;
     if (path === lastPath || path.indexOf('/cv/') === 0) return;
+    var previousPath = lastPath;
     lastPath = path;
     depthSent = {};
-    send('view');
+    send('view', null, previousPath ? 'internal:' + previousPath : null);
   }
 
   function trackReadingDepth() {

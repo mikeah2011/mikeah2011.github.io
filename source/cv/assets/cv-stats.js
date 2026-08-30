@@ -69,7 +69,7 @@
   // 还是切换前的值。lang 没有这个问题（detectLang 读的是实时的 <html lang>）。
   function detectVariant() {
     var v = new URLSearchParams(location.search).get('v') || '';
-    return ['', 'backend', 'lead', 'ai'].indexOf(v) > -1 ? v : '';
+    return ['backend', 'lead', 'ai'].indexOf(v) !== -1 ? v : null;
   }
 
   // 语言取 <html lang> —— cv-ui.js 初始化时会写这个属性，所以它反映的是
@@ -81,6 +81,16 @@
 
   function send(event, detail) {
     if (!ENDPOINT) return;
+    var referrer = (function () {
+      if (!document.referrer) return 'direct';
+      try {
+        var r = new URL(document.referrer);
+        return r.origin === location.origin ? 'internal:' + r.pathname : r.origin + r.pathname;
+      } catch (e) { return 'direct'; }
+    })();
+    var sourceType = referrer === 'direct'
+      ? 'direct'
+      : referrer.indexOf('internal:') === 0 ? 'internal' : 'external';
     var payload = JSON.stringify({
       app: 'cv',
       page_type: detectPage(),
@@ -90,15 +100,9 @@
       lang: detectLang(),
       tag: tag,
       event: event,
-      detail: detail || null,
-      // 只带 referrer 的来源域名，不带完整路径 —— 路径可能含对方内部系统的信息。
-      referrer: (function () {
-        if (!document.referrer) return null;
-        try {
-          var r = new URL(document.referrer);
-          return r.origin === location.origin ? null : r.origin;
-        } catch (e) { return null; }
-      })()
+      detail: detail || (event === 'view' ? sourceType : null),
+      // query/hash 会在客户端省略，Worker 入库前也会再次校验。
+      referrer: referrer
     });
 
     // Content-Type 必须是 text/plain，不能是 application/json。
