@@ -202,6 +202,12 @@ a:hover {
   gap: 0.5rem;
 }
 
+.site-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .site-nav-link {
   font-size: 0.88rem;
   font-weight: 600;
@@ -235,6 +241,41 @@ a:hover {
   color: var(--text-accent);
   border-color: var(--text-accent);
   transform: scale(1.05);
+}
+
+.mobile-menu-btn {
+  display: none;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0.55rem;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: var(--text-title);
+  cursor: pointer;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  margin: 2px 0;
+  background: currentColor;
+  border-radius: 9999px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.site-header.menu-open .mobile-menu-btn span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-header.menu-open .mobile-menu-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.menu-open .mobile-menu-btn span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .theme-toggle-btn svg {
@@ -797,15 +838,68 @@ footer a {
 /* ---------------- Responsive Media Queries ---------------- */
 @media (max-width: 860px) {
   .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 4.5rem;
+    padding: 0.65rem 1rem;
+  }
+  .site-header-left {
+    min-width: 0;
+    gap: 0.7rem;
+  }
+  .site-avatar {
+    width: 3.15rem;
+    height: 3.15rem;
+  }
+  .site-brand-text {
+    min-width: 0;
+  }
+  .site-brand-title {
+    font-size: 1.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .site-brand-sub {
+    font-size: 0.72rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .site-header-controls {
+    margin-left: auto;
+  }
+  .mobile-menu-btn {
+    display: grid;
   }
   .site-header-nav {
-    width: 100%;
-    justify-content: space-between;
-    overflow-x: auto;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 1rem;
+    display: none;
+    width: min(16rem, calc(100vw - 2rem));
+    padding: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2rem;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-hover);
+  }
+  .site-header.menu-open .site-header-nav {
+    display: flex;
+  }
+  .site-nav-link {
+    padding: 0.7rem 0.85rem;
+    border-radius: 0.7rem;
+  }
+  .theme-toggle-btn {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-left: 0;
   }
   .table-header {
     display: none;

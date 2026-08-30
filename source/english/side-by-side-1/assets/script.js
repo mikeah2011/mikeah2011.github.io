@@ -562,17 +562,52 @@ function enhanceHeader() {
         <span class="site-brand-sub">英语学习 · Side by Side 1</span>
       </div>
     </div>
-    <nav class="site-header-nav">
-      <a href="/" class="site-nav-link">博客首页</a>
-      <a href="/english/side-by-side-1/" class="site-nav-link ${isDirectoryPage ? "active" : ""}">课程目录</a>
-      <a href="/cv/" class="site-nav-link">简历</a>
-      <a href="/categories" class="site-nav-link">分类</a>
-      <a href="https://github.com/mikeah2011" target="_blank" rel="noopener noreferrer" class="site-nav-link">GitHub</a>
+    <div class="site-header-controls">
+      <nav id="site-header-nav" class="site-header-nav" aria-label="主导航">
+        <a href="/" class="site-nav-link">博客首页</a>
+        <a href="/english/side-by-side-1/" class="site-nav-link ${isDirectoryPage ? "active" : ""}">课程目录</a>
+        <a href="/cv/" class="site-nav-link">简历</a>
+        <a href="/categories" class="site-nav-link">分类</a>
+        <a href="https://github.com/mikeah2011" target="_blank" rel="noopener noreferrer" class="site-nav-link">GitHub</a>
+      </nav>
       <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="切换主题" onclick="toggleTheme()"></button>
-    </nav>
+      <button id="mobile-menu-toggle" class="mobile-menu-btn" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="site-header-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   `;
 
   updateThemeToggleIcon(getSavedTheme());
+}
+
+function initMobileHeaderMenu() {
+  const header = document.querySelector(".site-header");
+  const toggle = document.getElementById("mobile-menu-toggle");
+  if (!header || !toggle) return;
+
+  const closeMenu = () => {
+    header.classList.remove("menu-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "打开导航菜单");
+  };
+
+  toggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isOpen = header.classList.toggle("menu-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "关闭导航菜单" : "打开导航菜单");
+  });
+
+  header.querySelectorAll(".site-nav-link").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!header.contains(event.target)) closeMenu();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
 }
 
 function enhanceFooter() {
@@ -591,6 +626,7 @@ function enhanceFooter() {
 
 document.addEventListener("DOMContentLoaded", () => {
   enhanceHeader();
+  initMobileHeaderMenu();
   enhanceFooter();
   initVocabTabs();
   initHoverPlay();
