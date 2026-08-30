@@ -279,7 +279,7 @@ function handleHorizontalSwipe(deltaX) {
   const prevLessonUrl = document.body.dataset.prevLessonUrl;
   const nextLessonUrl = document.body.dataset.nextLessonUrl;
 
-  if (deltaX > 0) {
+  if (deltaX < 0) {
     if (activeTab === coreTab && properTab) {
       switchVocabTab(properTab);
     } else {
