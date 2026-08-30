@@ -355,9 +355,24 @@ function translateToChinese(text) {
 }
 
 let activeSpeechUtterance = null;
+let activeSpeechSession = null;
 let speechWatchdogTimer = null;
 
-function speakText(text, language, trigger) {
+function stopActiveSpeech() {
+  if (!activeSpeechSession) return;
+  const session = activeSpeechSession;
+  activeSpeechSession = null;
+  activeSpeechUtterance = null;
+  if (speechWatchdogTimer) {
+    clearTimeout(speechWatchdogTimer);
+    speechWatchdogTimer = null;
+  }
+  window.speechSynthesis.cancel();
+  session.stopPlaying();
+  session.onFinish();
+}
+
+function speakText(text, language, trigger, options = {}) {
   const status = document.getElementById("custom-word-status") || document.getElementById("translation-status");
   if (!text || !("speechSynthesis" in window)) {
     if (status) {
@@ -374,28 +389,36 @@ function speakText(text, language, trigger) {
     clearTimeout(speechWatchdogTimer);
     speechWatchdogTimer = null;
   }
-  if (activeSpeechUtterance || window.speechSynthesis.speaking || window.speechSynthesis.pending) {
-    window.speechSynthesis.cancel();
-  }
+  stopActiveSpeech();
+  if (window.speechSynthesis.speaking || window.speechSynthesis.pending) window.speechSynthesis.cancel();
   if (status) {
     status.textContent = "";
     status.classList.remove("error");
   }
   const stopPlaying = markAudioPlaying(trigger);
-  let hasStarted = false;
+  const segments = Array.isArray(options.segments) && options.segments.length ? options.segments : [text];
+  const session = {
+    stopPlaying,
+    onFinish: typeof options.onFinish === "function" ? options.onFinish : () => {}
+  };
+  activeSpeechSession = session;
 
-  const finish = (utterance) => {
-    if (activeSpeechUtterance !== utterance) return;
+  const finish = () => {
+    if (activeSpeechSession !== session) return;
     if (speechWatchdogTimer) {
       clearTimeout(speechWatchdogTimer);
       speechWatchdogTimer = null;
     }
     stopPlaying();
+    session.onFinish();
+    activeSpeechSession = null;
     activeSpeechUtterance = null;
   };
 
-  const play = (isRetry = false) => {
-    const utterance = new SpeechSynthesisUtterance(text);
+  const play = (segmentIndex, isRetry = false) => {
+    if (activeSpeechSession !== session) return;
+    let hasStarted = false;
+    const utterance = new SpeechSynthesisUtterance(segments[segmentIndex]);
     activeSpeechUtterance = utterance;
     utterance.lang = language;
     utterance.rate = 0.9;
@@ -410,14 +433,26 @@ function speakText(text, language, trigger) {
         || null;
     }
     utterance.onstart = () => {
+      if (activeSpeechSession !== session || activeSpeechUtterance !== utterance) return;
       hasStarted = true;
       if (speechWatchdogTimer) {
         clearTimeout(speechWatchdogTimer);
         speechWatchdogTimer = null;
       }
+      if (typeof options.onSegmentStart === "function") {
+        options.onSegmentStart(segmentIndex, segments.length);
+      }
     };
-    utterance.onend = () => finish(utterance);
+    utterance.onend = () => {
+      if (activeSpeechSession !== session || activeSpeechUtterance !== utterance) return;
+      if (segmentIndex + 1 < segments.length) {
+        play(segmentIndex + 1);
+      } else {
+        finish();
+      }
+    };
     utterance.onerror = (event) => {
+      if (activeSpeechSession !== session || activeSpeechUtterance !== utterance) return;
       if (event.error !== "canceled" && event.error !== "interrupted") {
         console.error(`Speech synthesis failed for ${language}:`, event.error);
         if (status) {
@@ -425,19 +460,19 @@ function speakText(text, language, trigger) {
           status.classList.add("error");
         }
       }
-      finish(utterance);
+      finish();
     };
 
     window.speechSynthesis.resume();
     window.speechSynthesis.speak(utterance);
 
     speechWatchdogTimer = setTimeout(() => {
-      if (activeSpeechUtterance !== utterance || hasStarted || window.speechSynthesis.speaking) return;
+      if (activeSpeechSession !== session || activeSpeechUtterance !== utterance || hasStarted || window.speechSynthesis.speaking) return;
       window.speechSynthesis.cancel();
       if (!isRetry) {
-        play(true);
+        play(segmentIndex, true);
       } else {
-        finish(utterance);
+        finish();
         if (status) {
           status.textContent = "语音没有启动，请确认手机未处于静音模式后再试。";
           status.classList.add("error");
@@ -446,7 +481,7 @@ function speakText(text, language, trigger) {
     }, 1500);
   };
 
-  play();
+  play(0);
 }
 
 function findDictionaryDefinition(entries) {
@@ -497,9 +532,7 @@ async function fetchDictionaryEntries(word) {
     if (primaryResponse.ok) {
       return normalizePrimaryDictionaryResponse(await primaryResponse.json());
     }
-    if (primaryResponse.status === 404) throw new Error("WORD_NOT_FOUND");
   } catch (error) {
-    if (error.message === "WORD_NOT_FOUND") throw error;
     console.warn("Primary dictionary request failed; trying fallback:", error);
   }
 
@@ -509,6 +542,38 @@ async function fetchDictionaryEntries(word) {
     throw new Error(`Dictionary requests failed with statuses ${primaryStatus} and ${fallbackResponse.status}`);
   }
   return fallbackResponse.json();
+}
+
+function isUsefulLookupTranslation(source, translated) {
+  const normalize = (value) => value.toLowerCase().replace(/[\s'’-]+/g, "");
+  return Boolean(translated && normalize(source) !== normalize(translated));
+}
+
+function isLikelyProperName(value) {
+  return /^[A-Z][a-z]+(?:[ '-][A-Z][a-z]+)*$/.test(value);
+}
+
+async function createDictionaryFallback(query, word, isChineseQuery) {
+  const wordTranslation = isChineseQuery ? query : await translateToChinese(word);
+  if (!isChineseQuery && !isUsefulLookupTranslation(word, wordTranslation)) {
+    throw new Error("WORD_NOT_FOUND");
+  }
+  const looksLikeProperName = isLikelyProperName(query) || (isChineseQuery && isLikelyProperName(word));
+  const type = looksLikeProperName ? "专有名称" : "词语";
+  return {
+    word,
+    query,
+    partOfSpeech: type,
+    phonetic: "暂无音标",
+    wordTranslation,
+    definitionTranslation: `开放词典暂未收录这个${type}；上方为常见翻译。`,
+    definition: `A ${looksLikeProperName ? "proper name" : "term"} not currently included in the open dictionary.`,
+    example: "",
+    translatedExample: "",
+    audio: await fetchWiktionaryAudio(word),
+    exampleAudio: "",
+    queriedAt: Date.now()
+  };
 }
 
 function getDictionaryAudio(entries) {
@@ -678,11 +743,34 @@ async function lookupCustomWord(rawWord) {
 
   try {
     const translatedQuery = isChineseQuery ? await translateText(query, "zh-CN", "en") : query;
-    const word = translatedQuery.trim().toLowerCase().replace(/[.!?。！？]+$/u, "");
+    const word = translatedQuery.trim().replace(/[.!?。！？]+$/u, "");
     if (!/^[a-z]+(?:[ '-][a-z]+)*$/i.test(word)) throw new Error("WORD_NOT_FOUND");
-    const entries = await fetchDictionaryEntries(word);
+    if (isLikelyProperName(query) || (isChineseQuery && isLikelyProperName(word))) {
+      const fallbackEntry = await createDictionaryFallback(query, word, isChineseQuery);
+      renderCustomWordResult(fallbackEntry);
+      saveCustomWordHistory(fallbackEntry);
+      status.textContent = "";
+      return;
+    }
+    let entries;
+    try {
+      entries = await fetchDictionaryEntries(word.toLowerCase());
+    } catch (error) {
+      if (error.message !== "WORD_NOT_FOUND") throw error;
+      const fallbackEntry = await createDictionaryFallback(query, word, isChineseQuery);
+      renderCustomWordResult(fallbackEntry);
+      saveCustomWordHistory(fallbackEntry);
+      status.textContent = "";
+      return;
+    }
     const definition = findDictionaryDefinition(entries);
-    if (!definition) throw new Error("DEFINITION_NOT_FOUND");
+    if (!definition) {
+      const fallbackEntry = await createDictionaryFallback(query, word, isChineseQuery);
+      renderCustomWordResult(fallbackEntry);
+      saveCustomWordHistory(fallbackEntry);
+      status.textContent = "";
+      return;
+    }
 
     const entry = entries[0];
     const phonetic = entry.phonetic
@@ -828,6 +916,7 @@ function renderTranslationHistory() {
     button.innerHTML = `<strong>${entry.sourceLanguage === "zh-CN" ? "中 → 英" : "英 → 中"}</strong><span></span>`;
     button.querySelector("span").textContent = entry.sourceText.slice(0, 80);
     button.addEventListener("click", () => {
+      stopActiveSpeech();
       setTranslationDirection(entry.sourceLanguage, entry.targetLanguage);
       document.getElementById("translation-source").value = entry.sourceText;
       document.getElementById("translation-result").value = entry.translatedText;
@@ -885,6 +974,62 @@ function updateTranslationCounts() {
   updateTranslationAudioControls();
 }
 
+function getTranslationSpeechRanges(text) {
+  const ranges = [];
+  const sentencePattern = /[^.!?。！？；;\n]+[.!?。！？；;]?/g;
+  for (const match of text.matchAll(sentencePattern)) {
+    let start = match.index;
+    const sentenceEnd = start + match[0].length;
+    while (sentenceEnd - start > 180) {
+      const candidate = text.slice(start, start + 180);
+      const breakpoints = [...candidate.matchAll(/[,，、:\s]/g)].filter((item) => item.index >= 80);
+      const end = breakpoints.length ? start + breakpoints.at(-1).index + 1 : start + 180;
+      ranges.push({ start, end });
+      start = end;
+    }
+    if (text.slice(start, sentenceEnd).trim()) ranges.push({ start, end: sentenceEnd });
+  }
+  if (!ranges.length && text.trim()) ranges.push({ start: 0, end: text.length });
+  return ranges;
+}
+
+function resetTranslationSpeechState(panel) {
+  const textarea = document.getElementById(`translation-${panel}`);
+  const progress = document.getElementById(`translation-${panel}-progress`);
+  if (!textarea || !progress) return;
+  progress.hidden = true;
+  progress.setAttribute("aria-valuenow", "0");
+  progress.querySelector("span").style.width = "0";
+  textarea.setSelectionRange(textarea.selectionEnd, textarea.selectionEnd);
+}
+
+function startTranslationSpeech(panel, language, trigger) {
+  if (trigger.classList.contains("playing")) {
+    stopActiveSpeech();
+    return;
+  }
+  const textarea = document.getElementById(`translation-${panel}`);
+  const progress = document.getElementById(`translation-${panel}-progress`);
+  const text = textarea.value;
+  const ranges = getTranslationSpeechRanges(text);
+  if (!ranges.length) return;
+
+  progress.hidden = false;
+
+  speakText(text, language, trigger, {
+    segments: ranges.map(({ start, end }) => text.slice(start, end).trim()),
+    onSegmentStart: (index, total) => {
+      const { start, end } = ranges[index];
+      textarea.focus({ preventScroll: true });
+      textarea.setSelectionRange(start, end);
+      const percentage = Math.round(((index + 1) / total) * 100);
+      progress.setAttribute("aria-valuenow", String(percentage));
+      progress.querySelector("span").style.width = `${percentage}%`;
+    },
+    onFinish: () => resetTranslationSpeechState(panel)
+  });
+}
+
 function updateTranslationAudioControls() {
   const source = document.getElementById("translation-source");
   const result = document.getElementById("translation-result");
@@ -906,6 +1051,7 @@ async function runTranslation() {
   const status = document.getElementById("translation-status");
   const submit = form?.querySelector('button[type="submit"]');
   if (!form || !source || !result || !status || !submit) return;
+  stopActiveSpeech();
   const sourceText = source.value.trim();
   if (!sourceText) {
     status.textContent = "请先输入需要翻译的内容。";
@@ -953,7 +1099,10 @@ function initTranslationTool() {
     event.preventDefault();
     runTranslation();
   });
-  source.addEventListener("input", updateTranslationCounts);
+  source.addEventListener("input", () => {
+    stopActiveSpeech();
+    updateTranslationCounts();
+  });
   source.addEventListener("keydown", (event) => {
     if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
       event.preventDefault();
@@ -961,6 +1110,7 @@ function initTranslationTool() {
     }
   });
   document.getElementById("translation-swap").addEventListener("click", () => {
+    stopActiveSpeech();
     const sourceLanguage = form.dataset.sourceLanguage;
     const targetLanguage = form.dataset.targetLanguage;
     const previousSource = source.value;
@@ -973,11 +1123,11 @@ function initTranslationTool() {
   });
   sourceAudio.addEventListener("click", () => {
     const language = form.dataset.sourceLanguage === "en" ? "en-US" : "zh-CN";
-    speakText(source.value.trim(), language, sourceAudio);
+    startTranslationSpeech("source", language, sourceAudio);
   });
   resultAudio.addEventListener("click", () => {
     const language = form.dataset.targetLanguage === "en" ? "en-US" : "zh-CN";
-    speakText(result.value.trim(), language, resultAudio);
+    startTranslationSpeech("result", language, resultAudio);
   });
   const copyPanelText = async (textarea, successMessage) => {
     if (!textarea.value) return;
@@ -998,6 +1148,7 @@ function initTranslationTool() {
     copyPanelText(result, "译文已复制。");
   });
   document.getElementById("translation-source-clear").addEventListener("click", () => {
+    stopActiveSpeech();
     source.value = "";
     status.textContent = "";
     status.classList.remove("error");
@@ -1005,6 +1156,7 @@ function initTranslationTool() {
     source.focus();
   });
   document.getElementById("translation-result-clear").addEventListener("click", () => {
+    stopActiveSpeech();
     result.value = "";
     status.textContent = "";
     status.classList.remove("error");

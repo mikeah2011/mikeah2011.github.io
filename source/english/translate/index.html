@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>中英翻译 - Michael's Blog</title>
   <meta name="description" content="中文和英文句子、段落、文章双向翻译。">
-  <link rel="stylesheet" href="../side-by-side-1/assets/styles.css?v=3.9">
-  <script src="../side-by-side-1/assets/script.js?v=3.9" defer></script>
+  <link rel="stylesheet" href="../side-by-side-1/assets/styles.css?v=4.0">
+  <script src="../side-by-side-1/assets/script.js?v=4.0" defer></script>
 </head>
 <body>
   <header class="site-header"></header>
@@ -41,7 +41,10 @@
                 <button id="translation-source-clear" type="button" class="translation-icon-button" aria-label="清空中文" title="清空中文">×</button>
               </div>
             </div>
-            <textarea id="translation-source" maxlength="5000" placeholder="输入要翻译的中文句子、段落或文章…" required></textarea>
+            <div class="translation-reading-area">
+              <textarea id="translation-source" maxlength="5000" placeholder="输入要翻译的中文句子、段落或文章…" required></textarea>
+              <div id="translation-source-progress" class="translation-speech-progress" role="progressbar" aria-label="中文朗读进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden><span></span></div>
+            </div>
             <small id="translation-character-count">0 / 5000</small>
           </div>
           <div class="translation-submit-wrap">
@@ -67,7 +70,10 @@
                 <button id="translation-result-clear" type="button" class="translation-icon-button" aria-label="Clear English" title="Clear English">×</button>
               </div>
             </div>
-            <textarea id="translation-result" readonly placeholder="Translation will appear here"></textarea>
+            <div class="translation-reading-area">
+              <textarea id="translation-result" readonly placeholder="Translation will appear here"></textarea>
+              <div id="translation-result-progress" class="translation-speech-progress" role="progressbar" aria-label="English reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden><span></span></div>
+            </div>
             <small id="translation-result-character-count">0 / 5000</small>
           </div>
         </div>
