@@ -6,6 +6,8 @@
   'use strict';
 
   var ENDPOINT = global.SiteConfig && global.SiteConfig.statsEndpoint;
+  var TAG_PARAM = 'to';
+  var TAG_STORAGE_KEY = 'site_stats_recipient_tag';
   var lastPath = '';
   var depthSent = {};
   var tag = recipientTag();
@@ -63,28 +65,111 @@
   }
 
   function recipientTag() {
+    var fromUrl = null;
     try {
-      return (new URLSearchParams(location.search).get('to') || '').slice(0, 60) || null;
+      fromUrl = new URLSearchParams(location.search).get(TAG_PARAM);
+    } catch (error) {
+      fromUrl = null;
+    }
+    var safeUrlTag = normalizeTag(fromUrl);
+    if (safeUrlTag) {
+      storeTag(safeUrlTag);
+      return safeUrlTag;
+    }
+    if (fromUrl) {
+      clearStoredTag();
+      return null;
+    }
+    return storedTag();
+  }
+
+  function normalizeTag(value) {
+    var safe = (value || '').slice(0, 60);
+    return /^[A-Za-z0-9_-]{1,60}$/.test(safe) ? safe : null;
+  }
+
+  function storeTag(value) {
+    try {
+      global.sessionStorage.setItem(TAG_STORAGE_KEY, value);
+    } catch (error) {}
+  }
+
+  function storedTag() {
+    try {
+      return normalizeTag(global.sessionStorage.getItem(TAG_STORAGE_KEY));
     } catch (error) {
       return null;
+    }
+  }
+
+  function clearStoredTag() {
+    try {
+      global.sessionStorage.removeItem(TAG_STORAGE_KEY);
+    } catch (error) {}
+  }
+
+  function relativeHref(url) {
+    return url.pathname + url.search + url.hash;
+  }
+
+  function shouldPropagate(link, url) {
+    var href = link.getAttribute('href') || '';
+    if (/^(#|mailto:|tel:|javascript:)/i.test(href)) return false;
+    if (link.hasAttribute('download')) return false;
+    if (url.origin !== location.origin || !/^https?:$/.test(url.protocol)) return false;
+    return true;
+  }
+
+  function addTagToLink(link) {
+    if (!tag) return;
+    try {
+      var url = new URL(link.getAttribute('href'), location.href);
+      if (!shouldPropagate(link, url)) return;
+      if (url.searchParams.get(TAG_PARAM) === tag) return;
+      url.searchParams.set(TAG_PARAM, tag);
+      link.setAttribute('href', relativeHref(url));
+    } catch (error) {}
+  }
+
+  function watchNewLinks() {
+    if (!tag || !global.MutationObserver) return;
+    var pending = false;
+    var observer = new MutationObserver(function () {
+      if (pending) return;
+      pending = true;
+      setTimeout(function () {
+        pending = false;
+        propagateTag();
+      }, 50);
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  function updateClickedInternalLink(event) {
+    var link = event.target && event.target.closest && event.target.closest('a[href]');
+    if (link) addTagToLink(link);
+  }
+
+  function refreshTagFromUrl() {
+    var next = recipientTag();
+    if (next !== tag) {
+      tag = next;
+      propagateTag();
     }
   }
 
   function propagateTag() {
     if (!tag) return;
     document.querySelectorAll('a[href]').forEach(function (link) {
-      try {
-        var url = new URL(link.href, location.href);
-        if (url.origin !== location.origin || !/^https?:$/.test(url.protocol)) return;
-        url.searchParams.set('to', tag);
-        link.href = url.href;
-      } catch (error) {}
+      addTagToLink(link);
     });
   }
 
-  function send(event, detail, sourceOverride) {
+  function send(event, detail, options) {
     if (!ENDPOINT || location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
     var dimensions = classify(location.pathname);
+    var sourceOverride = typeof options === 'string' ? options : null;
+    var metrics = options && typeof options === 'object' ? options : {};
     var referrer = sourceOverride || referrerOrigin();
     var payload = JSON.stringify({
       app: dimensions.app,
@@ -95,7 +180,10 @@
       detail: detail || (event === 'view' ? sourceType(referrer) : null),
       lang: language(),
       tag: tag,
-      referrer: referrer
+      referrer: referrer,
+      input_kind: metrics.input_kind || null,
+      input_length_bucket: metrics.input_length_bucket || null,
+      input_script: metrics.input_script || null
     });
     var type = 'text/plain;charset=UTF-8';
     try {
@@ -113,6 +201,7 @@
   }
 
   function trackView() {
+    refreshTagFromUrl();
     var path = location.pathname;
     if (path === lastPath || path.indexOf('/cv/') === 0) return;
     var previousPath = lastPath;
@@ -165,9 +254,11 @@
 
   function init() {
     propagateTag();
+    document.addEventListener('click', updateClickedInternalLink, true);
     trackView();
     trackExternalClicks();
     watchSpaNavigation();
+    watchNewLinks();
     global.addEventListener('scroll', trackReadingDepth, { passive: true });
   }
 

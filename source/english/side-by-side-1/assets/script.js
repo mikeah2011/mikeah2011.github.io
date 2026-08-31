@@ -2,8 +2,36 @@ const themeStorageKey = "theme";
 const preferredExampleVoiceNames = ["Samantha", "Alex", "Google US English", "Microsoft Aria", "Microsoft Jenny", "Daniel", "Karen", "Tessa", "Moira", "Rishi"];
 const noveltyVoiceNames = ["Albert", "Bad News", "Bahh", "Bells", "Boing", "Bubbles", "Cellos", "Fred", "Good News", "Jester", "Junior", "Organ", "Ralph", "Superstar", "Trinoids", "Whisper", "Wobble", "Zarvox"];
 
-function trackSiteEvent(event, detail) {
-  if (window.SiteStats) window.SiteStats.track(event, detail);
+function trackSiteEvent(event, detail, metrics) {
+  if (window.SiteStats) window.SiteStats.track(event, detail, metrics);
+}
+
+function inputLengthBucket(text) {
+  const length = text.trim().length;
+  if (!length) return null;
+  if (length <= 20) return "1-20";
+  if (length <= 80) return "21-80";
+  if (length <= 200) return "81-200";
+  if (length <= 500) return "201-500";
+  if (length <= 1000) return "501-1000";
+  return "1001-5000";
+}
+
+function inputScriptType(text) {
+  const hasChinese = /[\u3400-\u9fff]/u.test(text);
+  const hasEnglish = /[A-Za-z]/.test(text);
+  if (hasChinese && hasEnglish) return "mixed";
+  if (hasChinese) return "zh";
+  if (hasEnglish) return "en";
+  return "other";
+}
+
+function inputMetrics(kind, text) {
+  return {
+    input_kind: kind,
+    input_length_bucket: inputLengthBucket(text),
+    input_script: inputScriptType(text)
+  };
 }
 
 /* ---------------- Theme Controller (Aurora Theme Consistency) ---------------- */
@@ -739,6 +767,7 @@ async function lookupCustomWord(rawWord) {
 
   const isChineseQuery = /[\u3400-\u9fff]/u.test(query);
   const isEnglishQuery = /^[a-z]+(?:[ '-][a-z]+)*$/i.test(query);
+  const metrics = inputMetrics("lookup", query);
   if (!query || (!isChineseQuery && !isEnglishQuery)) {
     result.hidden = true;
     status.textContent = "请输入中文或英文单词、短语。";
@@ -760,7 +789,7 @@ async function lookupCustomWord(rawWord) {
       renderCustomWordResult(fallbackEntry);
       saveCustomWordHistory(fallbackEntry);
       status.textContent = "";
-      trackSiteEvent("lookup", "success");
+      trackSiteEvent("lookup", "success", metrics);
       return;
     }
     let entries;
@@ -772,7 +801,7 @@ async function lookupCustomWord(rawWord) {
       renderCustomWordResult(fallbackEntry);
       saveCustomWordHistory(fallbackEntry);
       status.textContent = "";
-      trackSiteEvent("lookup", "success");
+      trackSiteEvent("lookup", "success", metrics);
       return;
     }
     const definition = findDictionaryDefinition(entries);
@@ -781,7 +810,7 @@ async function lookupCustomWord(rawWord) {
       renderCustomWordResult(fallbackEntry);
       saveCustomWordHistory(fallbackEntry);
       status.textContent = "";
-      trackSiteEvent("lookup", "success");
+      trackSiteEvent("lookup", "success", metrics);
       return;
     }
 
@@ -822,11 +851,11 @@ async function lookupCustomWord(rawWord) {
     renderCustomWordResult(lookupEntry);
     saveCustomWordHistory(lookupEntry);
     status.textContent = "";
-    trackSiteEvent("lookup", "success");
+    trackSiteEvent("lookup", "success", metrics);
   } catch (error) {
     result.hidden = true;
     status.classList.add("error");
-    trackSiteEvent("lookup", error.message === "WORD_NOT_FOUND" ? "not_found" : "error");
+    trackSiteEvent("lookup", error.message === "WORD_NOT_FOUND" ? "not_found" : "error", metrics);
     if (error.message === "WORD_NOT_FOUND") {
       status.textContent = `没有查到 “${query}”，请尝试更具体的单词或短语。`;
     } else if (error.name === "AbortError") {
@@ -1102,14 +1131,14 @@ async function runTranslation() {
     result.value = translatedText;
     updateTranslationCounts();
     saveTranslationHistory({ sourceText, translatedText, sourceLanguage, targetLanguage, translatedAt: Date.now() });
-    trackSiteEvent("translate", sourceLanguage === "zh-CN" ? "zh-en" : "en-zh");
+    trackSiteEvent("translate", sourceLanguage === "zh-CN" ? "zh-en" : "en-zh", inputMetrics("translate_source", sourceText));
   } catch (error) {
     console.error("Translation failed:", error);
     status.textContent = error.name === "AbortError"
       ? "翻译超时，请缩短内容或检查网络后重试。"
       : "翻译服务暂时不可用，请稍后重试。";
     status.classList.add("error");
-    trackSiteEvent("translate", "error");
+    trackSiteEvent("translate", "error", inputMetrics("translate_source", sourceText));
   } finally {
     submit.disabled = false;
     submit.classList.remove("loading");

@@ -14,9 +14,9 @@
   // 投递对象标记的参数名。带 ?to=acme 的链接进来，后续站内跳转都会带着它，
   // 所以「从首页点进简历、再下载 PDF」会记在同一个标记下。
   var TAG_PARAM = 'to';
+  var TAG_STORAGE_KEY = 'site_stats_recipient_tag';
 
-  var params = new URLSearchParams(location.search);
-  var tag = (params.get(TAG_PARAM) || '').slice(0, 60) || null;
+  var tag = recipientTag();
 
   // 简历站的根路径。线上是 /cv/，但本地起 http server 时根目录就是 source/cv/，
   // 路径变成 /index.html。写死 '/cv/' 会让本地预览和线上行为不一致（本地全部
@@ -27,27 +27,83 @@
   })();
 
   // ---- 标记在站内跳转时的传递 ----
-  // 刻意用 URL 传，不用 cookie / localStorage / sessionStorage：
-  // 一是不碰客户端存储就不需要同意横幅，二是和已有的 ?lang= 处理方式一致。
-  // 代价是链接会长一点，可接受。
+  // 用 sessionStorage 兜底，URL 续传做显式链路；不写 cookie，也不把标记带到外站。
+  function normalizeTag(value) {
+    var safe = (value || '').slice(0, 60);
+    return /^[A-Za-z0-9_-]{1,60}$/.test(safe) ? safe : null;
+  }
+
+  function storeTag(value) {
+    try {
+      window.sessionStorage.setItem(TAG_STORAGE_KEY, value);
+    } catch (e) { }
+  }
+
+  function storedTag() {
+    try {
+      return normalizeTag(window.sessionStorage.getItem(TAG_STORAGE_KEY));
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function clearStoredTag() {
+    try {
+      window.sessionStorage.removeItem(TAG_STORAGE_KEY);
+    } catch (e) { }
+  }
+
+  function recipientTag() {
+    var fromUrl = null;
+    try {
+      fromUrl = new URLSearchParams(location.search).get(TAG_PARAM);
+    } catch (e) {
+      fromUrl = null;
+    }
+    var safeUrlTag = normalizeTag(fromUrl);
+    if (safeUrlTag) {
+      storeTag(safeUrlTag);
+      return safeUrlTag;
+    }
+    if (fromUrl) {
+      clearStoredTag();
+      return null;
+    }
+    return storedTag();
+  }
+
+  function relativeHref(url) {
+    return url.pathname + url.search + url.hash;
+  }
+
+  function shouldPropagate(a, url) {
+    var href = a.getAttribute('href') || '';
+    if (a.hasAttribute('download')) return false;
+    if (!href || /^(#|mailto:|tel:|javascript:)/i.test(href)) return false;
+    return url.origin === location.origin && /^https?:$/.test(url.protocol);
+  }
+
+  function addTagToLink(a) {
+    if (!tag) return;
+    var url;
+    try { url = new URL(a.getAttribute('href'), location.href); } catch (e) { return; }
+    if (!shouldPropagate(a, url)) return;
+    if (url.searchParams.get(TAG_PARAM) === tag) return;
+    url.searchParams.set(TAG_PARAM, tag);
+    a.setAttribute('href', relativeHref(url));
+  }
+
   function propagateTag() {
     if (!tag) return;
     var links = document.querySelectorAll('a[href]');
     for (var i = 0; i < links.length; i++) {
-      var a = links[i];
-      // 下载链接不用带（带了也无害，但没意义）；外站链接绝不带 —— 那等于
-      // 把投递对象标记泄漏给第三方。
-      if (a.hasAttribute('download')) continue;
-      var href = a.getAttribute('href');
-      if (!href || /^(#|mailto:|tel:|javascript:)/i.test(href)) continue;
-      var url;
-      try { url = new URL(href, location.href); } catch (e) { continue; }
-      if (url.origin !== location.origin) continue;
-      if (url.pathname.indexOf(BASE) !== 0) continue;
-      if (url.searchParams.get(TAG_PARAM)) continue;
-      url.searchParams.set(TAG_PARAM, tag);
-      a.setAttribute('href', url.pathname + url.search + url.hash);
+      addTagToLink(links[i]);
     }
+  }
+
+  function updateClickedInternalLink(e) {
+    var a = e.target && e.target.closest && e.target.closest('a[href]');
+    if (a) addTagToLink(a);
   }
 
   // ---- 当前页面的身份 ----
@@ -141,6 +197,7 @@
 
   function init() {
     propagateTag();
+    document.addEventListener('click', updateClickedInternalLink, true);
     trackDownloads();
     // cv-ui.js 是同步初始化并写好 <html lang> 的，所以这里读到的语言已经是最终值。
     send('view');
