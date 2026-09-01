@@ -3,7 +3,12 @@ const path = require("path");
 const yaml = require("js-yaml");
 
 const yamlPath = "/Users/michael/GitHub/most-frequent-technology-english-words/_data/side_by_side_1.yml";
-const lessons = yaml.load(fs.readFileSync(yamlPath, "utf8"));
+const lessons = fs.existsSync(yamlPath)
+  ? yaml.load(fs.readFileSync(yamlPath, "utf8"))
+  : [];
+if (lessons.length === 0) {
+  console.warn(`Skip Side by Side page generation: vocabulary source not found at ${yamlPath}`);
+}
 const properNounRegex = /(人名|地名|国家名|城市名|街道名|省份名|建筑名|洲名|专有名词|称呼|酒店名)/;
 
 function renderAudioSvg() {
@@ -149,7 +154,7 @@ ${lessonNavLinks}
     <section class="hero">
       <p>Lesson ${lessonNum}</p>
       <h2>${escapeHtml(item.title)}</h2>
-      <div>共 ${item.vocabulary.length} 个词汇${properSummary}。电脑端可悬停播放；移动端可使用连续播放，自动朗读单词与例句。</div>
+      <div>共 ${item.vocabulary.length} 个词汇${properSummary}。</div>
     </section>
     <section class="continuous-player" aria-label="连续播放控制">
       <div class="continuous-player-status">
