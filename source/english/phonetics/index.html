@@ -4,13 +4,351 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>48个国际音标树状速记学习 - Michael's Blog</title>
-  <meta name="description" content="48个英语国际音标（IPA）科学树状记忆法：元音(20个:单元音/双元音) + 辅音(28个:易17/难11)，可折叠结构、发音要领、代表词点读与易混对比。">
+  <meta name="description" content="48个英语国际音标（IPA）科学树状记忆法：元音(20个:单元音/双元音) + 辅音(28个:易17/难11)，Label标签分块切换、口型要领、代表词点读与易混对比。">
   <link rel="stylesheet" href="../side-by-side-1/assets/styles.css?v=4.1">
   <script src="/assets/site-config.js"></script>
   <script src="../side-by-side-1/assets/site-stats.js" defer></script>
   <script src="../side-by-side-1/assets/script.js?v=4.2" defer></script>
   <style>
-    /* Visual Tree Mindmap Styles (手写思维导图还原) */
+    /* ================= 48 Phonetics Tab & Tree Styles ================= */
+    .phonetics-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+
+    /* Main Tab Navigation Bar */
+    .phonetics-main-tabs {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.4rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 1.15rem;
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      position: sticky;
+      top: 0.75rem;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .phonetics-main-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .main-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 0.85rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .main-tab-btn:hover {
+      color: var(--text-title);
+      background: var(--bg-card-hover);
+    }
+    .main-tab-btn.active {
+      color: #fff;
+      background: var(--aurora-blue);
+      box-shadow: 0 4px 14px rgba(0, 112, 243, 0.35);
+    }
+    .tab-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.75rem;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .main-tab-btn:not(.active) .tab-badge {
+      background: var(--bg-pill);
+      color: var(--text-accent);
+    }
+
+    /* Tab Content Pane Container */
+    .tab-content-pane {
+      display: none;
+      flex-direction: column;
+      gap: 1.25rem;
+      animation: tabFadeIn 0.25s ease;
+    }
+    .tab-content-pane.active {
+      display: flex;
+    }
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sub-filter bar inside tabs */
+    .phonetics-sub-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding: 0.75rem 1.15rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 0.85rem;
+    }
+    .sub-filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .sub-chip-btn {
+      padding: 0.3rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .sub-chip-btn:hover {
+      color: var(--text-accent);
+      border-color: var(--border-hover);
+    }
+    .sub-chip-btn.active {
+      background: var(--bg-pill);
+      color: var(--text-accent);
+      border-color: var(--aurora-blue);
+      font-weight: 700;
+    }
+
+    /* Module Overview Mnemonic Header */
+    .module-mnemonic-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 1rem 1.25rem;
+      background: linear-gradient(135deg, rgba(0, 112, 243, 0.08) 0%, rgba(15, 182, 214, 0.04) 100%);
+      border: 1px solid rgba(0, 112, 243, 0.2);
+      border-radius: 1rem;
+    }
+    .module-mnemonic-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-title);
+    }
+    .module-mnemonic-desc {
+      font-size: 0.85rem;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    /* Section group inside pane */
+    .group-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .group-section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-title);
+      margin: 0.25rem 0 0;
+    }
+    .group-section-title::before {
+      content: "";
+      width: 4px;
+      height: 1.1em;
+      background: var(--aurora-blue);
+      border-radius: 2px;
+    }
+
+    /* Cards Grid */
+    .phonetics-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 0.85rem;
+    }
+    .phonetic-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 1.1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 0.85rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .phonetic-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-hover);
+    }
+    .phonetic-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+    .phonetic-symbol-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 3.2rem;
+      padding: 0.2rem 0.55rem;
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-accent);
+      background: var(--bg-pill);
+      border: 1px solid rgba(0, 112, 243, 0.2);
+      border-radius: 0.6rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .phonetic-symbol-btn:hover {
+      background: var(--aurora-blue);
+      color: #fff;
+      transform: scale(1.05);
+    }
+    .phonetic-tag {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.8rem;
+      background: var(--bg-card-alt);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    .phonetic-tag.voiced {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      border-color: rgba(16, 185, 129, 0.2);
+    }
+    .phonetic-tag.voiceless {
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+      border-color: rgba(245, 158, 11, 0.2);
+    }
+    .phonetic-tips {
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.45;
+      margin-bottom: 0.6rem;
+      padding: 0.45rem 0.65rem;
+      background: var(--bg-quote);
+      border-radius: 0.45rem;
+      border-left: 3px solid var(--aurora-blue);
+    }
+    .phonetic-spelling {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+    .phonetic-spelling strong {
+      color: var(--text-body);
+    }
+    .phonetic-words-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+    .phonetic-word-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.35rem 0.55rem;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-subtle);
+      border-radius: 0.45rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .phonetic-word-item:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+    }
+    .phonetic-word-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+    .phonetic-word-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-title);
+    }
+    .phonetic-word-ipa {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+    .phonetic-word-trans {
+      font-size: 0.7rem;
+      color: var(--text-accent);
+    }
+    .phonetic-contrast-box {
+      margin-top: 0.6rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed var(--border);
+      font-size: 0.75rem;
+    }
+    .phonetic-contrast-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+    .phonetic-contrast-pairs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .phonetic-contrast-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-page);
+      padding: 0.25rem 0.45rem;
+      border-radius: 0.35rem;
+    }
+    .contrast-word-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-body);
+      font-weight: 600;
+      font-size: 0.78rem;
+      cursor: pointer;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .contrast-word-btn:hover {
+      color: var(--text-accent);
+    }
+    .contrast-vs {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Mindmap Visual Tree Styles */
     .mindmap-tree-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
@@ -185,449 +523,45 @@
       box-shadow: 0 3px 8px rgba(0, 112, 243, 0.3);
     }
 
-    /* ================= 48 Phonetics Tree Architecture Styles ================= */
-    .phonetics-layout {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-
-    /* Top Action Bar & Shortcuts */
-    .phonetics-tree-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      padding: 1rem 1.25rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 1rem;
-      box-shadow: var(--shadow-sm);
-    }
-    .phonetics-quick-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .quick-nav-btn {
-      padding: 0.4rem 0.85rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-body);
-      background: var(--bg-card-alt);
-      border: 1px solid var(--border);
-      border-radius: 2rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .quick-nav-btn:hover {
-      color: var(--text-accent);
-      border-color: var(--border-hover);
-      background: var(--bg-card-hover);
-      transform: translateY(-1px);
-    }
-    .tree-toggle-controls {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .ctrl-action-btn {
-      padding: 0.35rem 0.75rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .ctrl-action-btn:hover {
-      color: var(--text-accent);
-      border-color: var(--border-hover);
-    }
-
-    /* Tree Node Card Container */
-    .tree-root-group {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    /* Top Level Accordion: 元音 / 辅音 */
-    details.tree-major-branch {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 1.25rem;
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-    details.tree-major-branch[open] {
-      border-color: var(--border-hover);
-    }
-    details.tree-major-branch > summary {
+    /* Bottom Navigation Controls */
+    .tab-pagination-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.25rem 1.5rem;
-      background: var(--bg-card);
-      cursor: pointer;
-      list-style: none;
-      user-select: none;
-      border-bottom: 1px solid transparent;
-      transition: background 0.2s ease;
-    }
-    details.tree-major-branch > summary::-webkit-details-marker {
-      display: none;
-    }
-    details.tree-major-branch[open] > summary {
-      border-bottom: 1px solid var(--border-subtle);
-      background: var(--bg-card-alt);
-    }
-    .major-title-wrap {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-    .major-icon-badge {
-      width: 2.75rem;
-      height: 2.75rem;
-      border-radius: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      background: var(--bg-pill);
-      color: var(--aurora-blue);
-    }
-    .major-title-text h3 {
-      margin: 0;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-title);
-    }
-    .major-title-text p {
-      margin: 0.2rem 0 0;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-    .branch-meta-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-    .branch-count-tag {
-      padding: 0.25rem 0.65rem;
-      border-radius: 1rem;
-      background: var(--bg-pill);
-      color: var(--text-accent);
-      font-weight: 700;
-      font-size: 0.8rem;
-    }
-    .tree-chevron {
-      width: 1.25rem;
-      height: 1.25rem;
-      stroke: var(--text-muted);
-      stroke-width: 2.5;
-      transition: transform 0.25s ease;
-    }
-    details[open] > summary .tree-chevron {
-      transform: rotate(180deg);
-      stroke: var(--text-accent);
-    }
-
-    /* Branch Content Area (Sub-nodes) */
-    .major-branch-content {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      background: var(--bg-page);
-    }
-
-    /* Sub-branch Accordion */
-    details.tree-sub-branch {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 0.85rem;
-      overflow: hidden;
-      transition: all 0.2s ease;
-    }
-    details.tree-sub-branch > summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1rem;
       padding: 0.85rem 1.15rem;
       background: var(--bg-card);
-      cursor: pointer;
-      list-style: none;
-      user-select: none;
-      font-weight: 600;
-      color: var(--text-title);
-      transition: background 0.15s ease;
-    }
-    details.tree-sub-branch > summary::-webkit-details-marker {
-      display: none;
-    }
-    details.tree-sub-branch[open] > summary {
-      border-bottom: 1px solid var(--border-subtle);
-      background: var(--bg-card-hover);
-    }
-    .sub-branch-title {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.98rem;
-    }
-    .sub-branch-formula {
-      font-size: 0.8rem;
-      font-weight: normal;
-      color: var(--text-muted);
-      margin-left: 0.4rem;
-    }
-    .sub-branch-content {
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    /* Leaf Group */
-    .leaf-group-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .leaf-group-label {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-    .leaf-group-label::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--aurora-blue);
-    }
-
-    /* Phonetic Card Grid */
-    .phonetic-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 0.85rem;
-    }
-    .phonetic-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding: 1rem 1.1rem;
-      background: var(--bg-card);
       border: 1px solid var(--border-card);
       border-radius: 0.85rem;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
-    .phonetic-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--border-hover);
-    }
-    .phonetic-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.6rem;
-    }
-    .phonetic-symbol-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 3.2rem;
-      padding: 0.2rem 0.55rem;
-      font-family: var(--font-mono);
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-accent);
-      background: var(--bg-pill);
-      border: 1px solid rgba(0, 112, 243, 0.2);
-      border-radius: 0.6rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .phonetic-symbol-btn:hover {
-      background: var(--aurora-blue);
-      color: #fff;
-      transform: scale(1.05);
-    }
-    .phonetic-tag {
-      font-size: 0.72rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 0.8rem;
+    .tab-nav-arrow-btn {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-body);
       background: var(--bg-card-alt);
-      color: var(--text-muted);
       border: 1px solid var(--border);
-    }
-    .phonetic-tag.voiced {
-      background: rgba(16, 185, 129, 0.1);
-      color: #10b981;
-      border-color: rgba(16, 185, 129, 0.2);
-    }
-    .phonetic-tag.voiceless {
-      background: rgba(245, 158, 11, 0.1);
-      color: #f59e0b;
-      border-color: rgba(245, 158, 11, 0.2);
-    }
-    .phonetic-tips {
-      font-size: 0.82rem;
-      color: var(--text-body);
-      line-height: 1.45;
-      margin-bottom: 0.6rem;
-      padding: 0.45rem 0.65rem;
-      background: var(--bg-quote);
-      border-radius: 0.45rem;
-      border-left: 3px solid var(--aurora-blue);
-    }
-    .phonetic-spelling {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      margin-bottom: 0.7rem;
-    }
-    .phonetic-spelling strong {
-      color: var(--text-body);
-    }
-    .phonetic-words-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.4rem;
-      margin-top: auto;
-    }
-    .phonetic-word-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.35rem 0.55rem;
-      background: var(--bg-card-alt);
-      border: 1px solid var(--border-subtle);
-      border-radius: 0.45rem;
+      border-radius: 0.6rem;
       cursor: pointer;
       transition: all 0.15s ease;
     }
-    .phonetic-word-item:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-hover);
-    }
-    .phonetic-word-left {
-      display: flex;
-      flex-direction: column;
-      gap: 0.05rem;
-    }
-    .phonetic-word-name {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--text-title);
-    }
-    .phonetic-word-ipa {
-      font-size: 0.72rem;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-    }
-    .phonetic-word-trans {
-      font-size: 0.7rem;
+    .tab-nav-arrow-btn:hover {
+      background: var(--bg-pill);
       color: var(--text-accent);
-    }
-    .phonetic-contrast-box {
-      margin-top: 0.6rem;
-      padding-top: 0.5rem;
-      border-top: 1px dashed var(--border);
-      font-size: 0.75rem;
-    }
-    .phonetic-contrast-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: var(--text-muted);
-      margin-bottom: 0.3rem;
-    }
-    .phonetic-contrast-pairs {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-    .phonetic-contrast-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--bg-page);
-      padding: 0.25rem 0.45rem;
-      border-radius: 0.35rem;
-    }
-    .contrast-word-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-body);
-      font-weight: 600;
-      font-size: 0.78rem;
-      cursor: pointer;
-      padding: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.2rem;
-    }
-    .contrast-word-btn:hover {
-      color: var(--text-accent);
-    }
-    .contrast-vs {
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
-    /* Hand-written Style Memory Tip Callout */
-    .mnemonics-guide-banner {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 1.15rem 1.4rem;
-      background: linear-gradient(135deg, rgba(0, 112, 243, 0.08) 0%, rgba(15, 182, 214, 0.05) 100%);
-      border: 1px solid rgba(0, 112, 243, 0.2);
-      border-radius: 1rem;
-      margin-bottom: 0.5rem;
-    }
-    .mnemonics-title {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--text-title);
-    }
-    .mnemonics-text {
-      font-size: 0.85rem;
-      color: var(--text-body);
-      line-height: 1.6;
+      border-color: var(--aurora-blue);
     }
 
     @media (max-width: 640px) {
       .phonetics-cards-grid {
         grid-template-columns: 1fr;
       }
-      .phonetics-tree-toolbar {
-        flex-direction: column;
-        align-items: stretch;
+      .phonetics-main-tabs {
+        padding: 0.3rem;
       }
-      .tree-toggle-controls {
-        justify-content: flex-end;
+      .main-tab-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.82rem;
       }
     }
   </style>
@@ -636,198 +570,318 @@
   <header class="site-header"></header>
   <main>
     <section class="hero">
-      <p>PHONETICS TREE</p>
+      <p>PHONETICS LEARNING</p>
       <h2>48个国际音标树状速记法</h2>
-      <div>结构化速记：<strong>元音 (20个)</strong> = 单元音 (长5+短7) + 双元音 (合口5+集中3) ；<strong>辅音 (28个)</strong> = 易记辅音 (17个) + 难点辅音 (11个)。支持全折叠点读与发音对比。</div>
+      <div>结构化速记体系：切换上方 <strong>分类标签 (Label)</strong> 专注学习特定音标模块，告别冗长滑动，点击音标即刻点读。</div>
     </section>
 
     <div class="phonetics-layout">
-      <!-- Visual Interactive Tree Mindmap (手写思维导图还原) -->
-      <div class="mindmap-tree-card" aria-label="48个国际音标树状思维导图">
-        <div class="mindmap-tree-header">
-          <div class="mindmap-header-title">
-            <span class="mindmap-badge">🌳 思维导图</span>
-            <strong>48 个国际音标速记体系树（点击音标可直接发音）</strong>
+      <!-- 1. Top Level Label Navigation Tabs -->
+      <nav class="phonetics-main-tabs" id="main-tabs" aria-label="音标分类切换">
+        <button type="button" class="main-tab-btn active" data-tab="mindmap">
+          <span>🌳 思维导图</span>
+        </button>
+        <button type="button" class="main-tab-btn" data-tab="vowel-single">
+          <span>🎵 单元音</span>
+          <span class="tab-badge">12</span>
+        </button>
+        <button type="button" class="main-tab-btn" data-tab="vowel-double">
+          <span>🎶 双元音</span>
+          <span class="tab-badge">8</span>
+        </button>
+        <button type="button" class="main-tab-btn" data-tab="consonant-hard">
+          <span>⚡ 难记辅音</span>
+          <span class="tab-badge">11</span>
+        </button>
+        <button type="button" class="main-tab-btn" data-tab="consonant-easy">
+          <span>✨ 易记辅音</span>
+          <span class="tab-badge">17</span>
+        </button>
+        <button type="button" class="main-tab-btn" data-tab="all-view">
+          <span>📖 全部一览</span>
+          <span class="tab-badge">48</span>
+        </button>
+      </nav>
+
+      <!-- ================= Tab 1: 树状思维导图 ================= -->
+      <div class="tab-content-pane active" id="pane-mindmap">
+        <div class="mindmap-tree-card" aria-label="48个国际音标树状思维导图">
+          <div class="mindmap-tree-header">
+            <div class="mindmap-header-title">
+              <span class="mindmap-badge">🌳 思维导图</span>
+              <strong>48 个国际音标速记体系树（点击音标可直接发音）</strong>
+            </div>
+            <span class="mindmap-hint">手写速记法全景结构</span>
           </div>
-          <span class="mindmap-hint">手写速记法结构 · 快速概览</span>
+
+          <div class="mindmap-tree-body">
+            <div class="tree-root-node">
+              <div class="tree-root-label">
+                <strong>48 个国际音标</strong>
+                <span>IPA Master</span>
+              </div>
+            </div>
+
+            <div class="tree-main-branches">
+              <!-- 元音大分支 -->
+              <div class="tree-branch-cluster vowel-cluster">
+                <div class="cluster-stem-label">
+                  <span class="cluster-tag vowel-tag">元音 (20个)</span>
+                </div>
+                <div class="cluster-sub-tree">
+                  <!-- 单元音 (12) -->
+                  <div class="cluster-row">
+                    <div class="cluster-sub-label">
+                      <span>单元音 (12)</span>
+                    </div>
+                    <div class="cluster-leaf-lines">
+                      <div class="leaf-line">
+                        <span class="leaf-bracket-label">长元音 (5):</span>
+                        <div class="leaf-symbols">
+                          <button type="button" class="sym-pill" onclick="playWordSound('car', this)">/ɑː/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('door', this)">/ɔː/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('bird', this)">/ɜː/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('see', this)">/iː/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('food', this)">/uː/</button>
+                        </div>
+                      </div>
+                      <div class="leaf-line">
+                        <span class="leaf-bracket-label">短元音 (7):</span>
+                        <div class="leaf-symbols">
+                          <button type="button" class="sym-pill" onclick="playWordSound('cup', this)">/ʌ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('hot', this)">/ɒ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('about', this)">/ə/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('big', this)">/ɪ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('book', this)">/ʊ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('bed', this)">/e/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('cat', this)">/æ/</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 双元音 (8) -->
+                  <div class="cluster-row">
+                    <div class="cluster-sub-label">
+                      <span>双元音 (8)</span>
+                    </div>
+                    <div class="cluster-leaf-lines">
+                      <div class="leaf-line">
+                        <span class="leaf-bracket-label">滑向 ɪ (3):</span>
+                        <div class="leaf-symbols">
+                          <button type="button" class="sym-pill" onclick="playWordSound('name', this)">/eɪ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('sky', this)">/aɪ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('boy', this)">/ɔɪ/</button>
+                        </div>
+                      </div>
+                      <div class="leaf-line">
+                        <span class="leaf-bracket-label">滑向 ʊ (2):</span>
+                        <div class="leaf-symbols">
+                          <button type="button" class="sym-pill" onclick="playWordSound('cow', this)">/aʊ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('go', this)">/əʊ/</button>
+                        </div>
+                      </div>
+                      <div class="leaf-line">
+                        <span class="leaf-bracket-label">滑向 ə (3):</span>
+                        <div class="leaf-symbols">
+                          <button type="button" class="sym-pill" onclick="playWordSound('ear', this)">/ɪə/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('air', this)">/eə/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('tour', this)">/ʊə/</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 辅音大分支 -->
+              <div class="tree-branch-cluster consonant-cluster">
+                <div class="cluster-stem-label">
+                  <span class="cluster-tag consonant-tag">辅音 (28个)</span>
+                </div>
+                <div class="cluster-sub-tree">
+                  <!-- 难记 (11) -->
+                  <div class="cluster-row">
+                    <div class="cluster-sub-label">
+                      <span>难记辅音 (11)</span>
+                    </div>
+                    <div class="cluster-leaf-lines">
+                      <div class="leaf-line">
+                        <span class="leaf-bracket-label">一个鼻子 (1):</span>
+                        <div class="leaf-symbols">
+                          <button type="button" class="sym-pill" onclick="playWordSound('sing', this)">/ŋ/</button>
+                        </div>
+                      </div>
+                      <div class="leaf-line">
+                        <span class="leaf-bracket-label">四个怪音 (4):</span>
+                        <div class="leaf-symbols">
+                          <button type="button" class="sym-pill" onclick="playWordSound('think', this)">/θ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('she', this)">/ʃ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('this', this)">/ð/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('vision', this)">/ʒ/</button>
+                        </div>
+                      </div>
+                      <div class="leaf-line">
+                        <span class="leaf-bracket-label">六小伙伴 (6):</span>
+                        <div class="leaf-symbols">
+                          <button type="button" class="sym-pill" onclick="playWordSound('tree', this)">/tr/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('cats', this)">/ts/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('chair', this)">/tʃ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('dream', this)">/dr/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('birds', this)">/dz/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('job', this)">/dʒ/</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 易记 (17) -->
+                  <div class="cluster-row">
+                    <div class="cluster-sub-label">
+                      <span>易记辅音 (17)</span>
+                      <small style="display:block; font-size:0.72rem; color:var(--text-muted); font-weight:normal;">26个字母 - (a,e,i,o,u) - (c,q,x,y) = 17个</small>
+                    </div>
+                    <div class="cluster-leaf-lines">
+                      <div class="leaf-line">
+                        <div class="leaf-symbols wrap-symbols">
+                          <button type="button" class="sym-pill" onclick="playWordSound('big', this)">/b/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('door', this)">/d/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('food', this)">/f/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('go', this)">/ɡ/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('hat', this)">/h/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('yes', this)">/j/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('cat', this)">/k/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('light', this)">/l/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('map', this)">/m/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('nut', this)">/n/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('pig', this)">/p/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('red', this)">/r/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('sun', this)">/s/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('ten', this)">/t/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('voice', this)">/v/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('water', this)">/w/</button>
+                          <button type="button" class="sym-pill" onclick="playWordSound('zoo', this)">/z/</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="mindmap-tree-body">
-          <div class="tree-root-node">
-            <div class="tree-root-label">
-              <strong>48 个国际音标</strong>
-              <span>IPA Master</span>
-            </div>
-          </div>
-
-          <div class="tree-main-branches">
-            <!-- 1. 元音大分支 -->
-            <div class="tree-branch-cluster vowel-cluster">
-              <div class="cluster-stem-label">
-                <span class="cluster-tag vowel-tag">元音 (20个)</span>
-              </div>
-              <div class="cluster-sub-tree">
-                <!-- 单元音 (12) -->
-                <div class="cluster-row">
-                  <div class="cluster-sub-label">
-                    <span>单元音 (12)</span>
-                  </div>
-                  <div class="cluster-leaf-lines">
-                    <div class="leaf-line">
-                      <span class="leaf-bracket-label">长元音 (5):</span>
-                      <div class="leaf-symbols">
-                        <button type="button" class="sym-pill" onclick="playWordSound('car', this)">/ɑː/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('door', this)">/ɔː/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('bird', this)">/ɜː/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('see', this)">/iː/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('food', this)">/uː/</button>
-                      </div>
-                    </div>
-                    <div class="leaf-line">
-                      <span class="leaf-bracket-label">短元音 (7):</span>
-                      <div class="leaf-symbols">
-                        <button type="button" class="sym-pill" onclick="playWordSound('cup', this)">/ʌ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('hot', this)">/ɒ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('about', this)">/ə/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('big', this)">/ɪ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('book', this)">/ʊ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('bed', this)">/e/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('cat', this)">/æ/</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 双元音 (8) -->
-                <div class="cluster-row">
-                  <div class="cluster-sub-label">
-                    <span>双元音 (8)</span>
-                  </div>
-                  <div class="cluster-leaf-lines">
-                    <div class="leaf-line">
-                      <span class="leaf-bracket-label">滑向 ɪ (3):</span>
-                      <div class="leaf-symbols">
-                        <button type="button" class="sym-pill" onclick="playWordSound('name', this)">/eɪ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('sky', this)">/aɪ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('boy', this)">/ɔɪ/</button>
-                      </div>
-                    </div>
-                    <div class="leaf-line">
-                      <span class="leaf-bracket-label">滑向 ʊ (2):</span>
-                      <div class="leaf-symbols">
-                        <button type="button" class="sym-pill" onclick="playWordSound('cow', this)">/aʊ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('go', this)">/əʊ/</button>
-                      </div>
-                    </div>
-                    <div class="leaf-line">
-                      <span class="leaf-bracket-label">滑向 ə (3):</span>
-                      <div class="leaf-symbols">
-                        <button type="button" class="sym-pill" onclick="playWordSound('ear', this)">/ɪə/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('air', this)">/eə/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('tour', this)">/ʊə/</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 2. 辅音大分支 -->
-            <div class="tree-branch-cluster consonant-cluster">
-              <div class="cluster-stem-label">
-                <span class="cluster-tag consonant-tag">辅音 (28个)</span>
-              </div>
-              <div class="cluster-sub-tree">
-                <!-- 难记 (11) -->
-                <div class="cluster-row">
-                  <div class="cluster-sub-label">
-                    <span>难记辅音 (11)</span>
-                  </div>
-                  <div class="cluster-leaf-lines">
-                    <div class="leaf-line">
-                      <span class="leaf-bracket-label">一个鼻子 (1):</span>
-                      <div class="leaf-symbols">
-                        <button type="button" class="sym-pill" onclick="playWordSound('sing', this)">/ŋ/</button>
-                      </div>
-                    </div>
-                    <div class="leaf-line">
-                      <span class="leaf-bracket-label">四个怪音 (4):</span>
-                      <div class="leaf-symbols">
-                        <button type="button" class="sym-pill" onclick="playWordSound('think', this)">/θ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('she', this)">/ʃ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('this', this)">/ð/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('vision', this)">/ʒ/</button>
-                      </div>
-                    </div>
-                    <div class="leaf-line">
-                      <span class="leaf-bracket-label">六小伙伴 (6):</span>
-                      <div class="leaf-symbols">
-                        <button type="button" class="sym-pill" onclick="playWordSound('tree', this)">/tr/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('cats', this)">/ts/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('chair', this)">/tʃ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('dream', this)">/dr/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('birds', this)">/dz/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('job', this)">/dʒ/</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 易记 (17) -->
-                <div class="cluster-row">
-                  <div class="cluster-sub-label">
-                    <span>易记辅音 (17)</span>
-                    <small style="display:block; font-size:0.72rem; color:var(--text-muted); font-weight:normal;">26个英文字母 - 5个元音(a,e,i,o,u) - 4个辅音(c,q,x,y) = 17个</small>
-                  </div>
-                  <div class="cluster-leaf-lines">
-                    <div class="leaf-line">
-                      <div class="leaf-symbols wrap-symbols">
-                        <button type="button" class="sym-pill" onclick="playWordSound('big', this)">/b/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('door', this)">/d/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('food', this)">/f/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('go', this)">/ɡ/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('hat', this)">/h/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('yes', this)">/j/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('cat', this)">/k/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('light', this)">/l/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('map', this)">/m/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('nut', this)">/n/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('pig', this)">/p/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('red', this)">/r/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('sun', this)">/s/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('ten', this)">/t/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('voice', this)">/v/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('water', this)">/w/</button>
-                        <button type="button" class="sym-pill" onclick="playWordSound('zoo', this)">/z/</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="tab-pagination-bar">
+          <span style="font-size:0.85rem; color:var(--text-muted);">建议学习路径：按顺序逐项突破</span>
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('vowel-single')">开始学习：单元音 (12个) →</button>
         </div>
       </div>
 
-      <!-- Toolbar & Quick Anchors -->
-      <div class="phonetics-tree-toolbar">
-        <div class="phonetics-quick-nav">
-          <a href="#vowels-branch" class="quick-nav-btn">🎵 元音 (20个)</a>
-          <a href="#consonants-branch" class="quick-nav-btn">🗣️ 辅音 (28个)</a>
-          <a href="#vowel-single" class="quick-nav-btn">单元音 (12)</a>
-          <a href="#vowel-double" class="quick-nav-btn">双元音 (8)</a>
-          <a href="#consonant-easy" class="quick-nav-btn">易17个</a>
-          <a href="#consonant-hard" class="quick-nav-btn">难11个</a>
+      <!-- ================= Tab 2: 单元音 (12个) ================= -->
+      <div class="tab-content-pane" id="pane-vowel-single">
+        <div class="module-mnemonic-card">
+          <div class="module-mnemonic-header">
+            <span>💡</span>
+            <span>单元音速记：长元音 5 个 + 短元音 7 个 = 12 个</span>
+          </div>
+          <div class="module-mnemonic-desc">
+            长元音发音饱满持久（结尾带长音符号 <code>ː</code>）；短元音短促有力、口型轻快，重点注意 <code>/æ/</code> 梅花音与 <code>/ə/</code> 央元音。
+          </div>
         </div>
-        <div class="tree-toggle-controls">
-          <button type="button" class="ctrl-action-btn" onclick="toggleAllBranches(true)">展开全部</button>
-          <button type="button" class="ctrl-action-btn" onclick="toggleAllBranches(false)">收合全部</button>
+        <div class="phonetics-sub-filter-bar">
+          <div class="sub-filter-chips" data-target-pane="pane-vowel-single">
+            <button type="button" class="sub-chip-btn active" data-sub="all">全部 (12)</button>
+            <button type="button" class="sub-chip-btn" data-sub="long">长元音 (5)</button>
+            <button type="button" class="sub-chip-btn" data-sub="short">短元音 (7)</button>
+          </div>
+          <span style="font-size:0.8rem; color:var(--text-muted);">共 12 个音标</span>
+        </div>
+        <div class="group-section" id="cards-vowel-single"></div>
+        <div class="tab-pagination-bar">
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('mindmap')">← 返回思维导图</button>
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('vowel-double')">下一组：双元音 (8个) →</button>
         </div>
       </div>
 
-      <!-- Root Tree Container -->
-      <div class="tree-root-group" id="phonetics-tree-root">
-        <!-- Javascript renders deep tree structure -->
+      <!-- ================= Tab 3: 双元音 (8个) ================= -->
+      <div class="tab-content-pane" id="pane-vowel-double">
+        <div class="module-mnemonic-card">
+          <div class="module-mnemonic-header">
+            <span>💡</span>
+            <span>双元音速记：3 个滑向 ɪ + 2 个滑向 ʊ + 3 个滑向 ə = 8 个</span>
+          </div>
+          <div class="module-mnemonic-desc">
+            双元音由前一个元音自然滑动到后一个元音，前重后轻、前长后短。合口双元音下巴收窄，集中双元音滑向放松的中央音 <code>/ə/</code>。
+          </div>
+        </div>
+        <div class="phonetics-sub-filter-bar">
+          <div class="sub-filter-chips" data-target-pane="pane-vowel-double">
+            <button type="button" class="sub-chip-btn active" data-sub="all">全部 (8)</button>
+            <button type="button" class="sub-chip-btn" data-sub="glide-i">滑向 ɪ (3)</button>
+            <button type="button" class="sub-chip-btn" data-sub="glide-u">滑向 ʊ (2)</button>
+            <button type="button" class="sub-chip-btn" data-sub="glide-schwa">滑向 ə (3)</button>
+          </div>
+          <span style="font-size:0.8rem; color:var(--text-muted);">共 8 个音标</span>
+        </div>
+        <div class="group-section" id="cards-vowel-double"></div>
+        <div class="tab-pagination-bar">
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('vowel-single')">← 上一组：单元音</button>
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('consonant-hard')">下一组：难记辅音 (11个) →</button>
+        </div>
+      </div>
+
+      <!-- ================= Tab 4: 难记辅音 (11个) ================= -->
+      <div class="tab-content-pane" id="pane-consonant-hard">
+        <div class="module-mnemonic-card">
+          <div class="module-mnemonic-header">
+            <span>💡</span>
+            <span>难记辅音速记：1 个鼻子 + 4 个怪音 + 6 个小伙伴 = 11 个</span>
+          </div>
+          <div class="module-mnemonic-desc">
+            <strong>1个鼻子</strong>：<code>/ŋ/</code> 气流全走鼻腔；<strong>4个怪音</strong>：咬舌 <code>/θ/ /ð/</code> 与 卷唇 <code>/ʃ/ /ʒ/</code>；<strong>6个小伙伴</strong>：破擦音成对 <code>/tr/ /dr/</code>, <code>/ts/ /dz/</code>, <code>/tʃ/ /dʒ/</code>。
+          </div>
+        </div>
+        <div class="phonetics-sub-filter-bar">
+          <div class="sub-filter-chips" data-target-pane="pane-consonant-hard">
+            <button type="button" class="sub-chip-btn active" data-sub="all">全部 (11)</button>
+            <button type="button" class="sub-chip-btn" data-sub="nose">一个鼻子 (1)</button>
+            <button type="button" class="sub-chip-btn" data-sub="strange">四个怪音 (4)</button>
+            <button type="button" class="sub-chip-btn" data-sub="pairs">六个小伙伴 (6)</button>
+          </div>
+          <span style="font-size:0.8rem; color:var(--text-muted);">共 11 个音标</span>
+        </div>
+        <div class="group-section" id="cards-consonant-hard"></div>
+        <div class="tab-pagination-bar">
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('vowel-double')">← 上一组：双元音</button>
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('consonant-easy')">下一组：易记辅音 (17个) →</button>
+        </div>
+      </div>
+
+      <!-- ================= Tab 5: 易记辅音 (17个) ================= -->
+      <div class="tab-content-pane" id="pane-consonant-easy">
+        <div class="module-mnemonic-card">
+          <div class="module-mnemonic-header">
+            <span>💡</span>
+            <span>易记辅音速记：26个字母 - 5个元音(a,e,i,o,u) - 4个辅音(c,q,x,y) = 17个</span>
+          </div>
+          <div class="module-mnemonic-desc">
+            这 17 个辅音的音标符号与字母写法几乎完全相同，发音与字母基本读音吻合（见字即读），掌握规律即可秒记！
+          </div>
+        </div>
+        <div class="group-section" id="cards-consonant-easy"></div>
+        <div class="tab-pagination-bar">
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('consonant-hard')">← 上一组：难记辅音</button>
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('all-view')">查看：全部一览 (48个) →</button>
+        </div>
+      </div>
+
+      <!-- ================= Tab 6: 全部一览 (48个) ================= -->
+      <div class="tab-content-pane" id="pane-all-view">
+        <div class="group-section" id="cards-all-view"></div>
+        <div class="tab-pagination-bar">
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('consonant-easy')">← 上一组：易记辅音</button>
+          <button type="button" class="tab-nav-arrow-btn" onclick="switchTab('mindmap')">返回思维导图 🌳</button>
+        </div>
       </div>
     </div>
 
@@ -838,172 +892,128 @@
   <script>
     let rawPhonetics = [];
 
-    // Tree hierarchy definition following user note image
-    const TREE_SCHEMA = {
-      vowels: {
-        id: "vowels-branch",
-        title: "🎵 第一大类：元音 (Vowels)",
-        subTitle: "发音时声带振动，气流在通路上不受显著阻碍",
-        count: "20 个",
-        icon: "🎵",
-        subBranches: [
-          {
-            id: "vowel-single",
-            title: "单元音 (12个)",
-            formula: "长元音 (5个) + 短元音 (7个)",
-            groups: [
-              {
-                name: "长元音 (5个) — 饱满长音 / 结尾带长音符号 ː",
-                symbols: ["ɑː", "ɔː", "ɜː", "iː", "uː"]
-              },
-              {
-                name: "短元音 (7个) — 短促有力，口型轻快",
-                symbols: ["ʌ", "ɒ", "ə", "ɪ", "ʊ", "e", "æ"]
-              }
-            ]
-          },
-          {
-            id: "vowel-double",
-            title: "双元音 (8个)",
-            formula: "由前一个元音自然滑向后一个元音",
-            groups: [
-              {
-                name: "滑向 /ɪ/ 结尾 (3个) — 合口双元音",
-                symbols: ["eɪ", "aɪ", "ɔɪ"]
-              },
-              {
-                name: "滑向 /ʊ/ 结尾 (2个) — 合口双元音",
-                symbols: ["aʊ", "əʊ"]
-              },
-              {
-                name: "滑向 /ə/ 结尾 (3个) — 集中双元音 (懒人音收尾)",
-                symbols: ["ɪə", "eə", "ʊə"]
-              }
-            ]
-          }
+    // Structured Schema for Tabs
+    const TAB_GROUPS = {
+      "vowel-single": {
+        subCategories: [
+          { key: "long", name: "长元音 (5个) — 饱满长音 / 结尾带长音符号 ː", symbols: ["ɑː", "ɔː", "ɜː", "iː", "uː"] },
+          { key: "short", name: "短元音 (7个) — 短促有力，口型轻快", symbols: ["ʌ", "ɒ", "ə", "ɪ", "ʊ", "e", "æ"] }
         ]
       },
-      consonants: {
-        id: "consonants-branch",
-        title: "🗣️ 第二大类：辅音 (Consonants)",
-        subTitle: "气流在口腔或咽头受到阻碍而发出的音",
-        count: "28 个",
-        icon: "🗣️",
-        subBranches: [
-          {
-            id: "consonant-easy",
-            title: "易记辅音 (17个)",
-            formula: "26个英文字母 - 5个元音(a,e,i,o,u) - 4个辅音(c,q,x,y) = 17个",
-            groups: [
-              {
-                name: "见字即读 (17个) — 符号与字母写法相同，发音高度对应",
-                symbols: ["b", "d", "f", "ɡ", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "z"]
-              }
-            ]
-          },
-          {
-            id: "consonant-hard",
-            title: "难点辅音 (11个)",
-            formula: "1个鼻子 + 4个怪音 + 6个小伙伴组合",
-            groups: [
-              {
-                name: "一个鼻子 (1个) — 舌后部抬起，气流完全过鼻腔",
-                symbols: ["ŋ"]
-              },
-              {
-                name: "四个怪音 (4个) — 咬舌音 θ/ð 与 卷唇摩擦音 ʃ/ʒ",
-                symbols: ["θ", "ð", "ʃ", "ʒ"]
-              },
-              {
-                name: "六个小伙伴成对组合 (6个) — 破擦音成对 (清 vs 浊)",
-                symbols: ["tr", "dr", "ts", "dz", "tʃ", "dʒ"]
-              }
-            ]
-          }
+      "vowel-double": {
+        subCategories: [
+          { key: "glide-i", name: "滑向 /ɪ/ 结尾 (3个) — 合口双元音", symbols: ["eɪ", "aɪ", "ɔɪ"] },
+          { key: "glide-u", name: "滑向 /ʊ/ 结尾 (2个) — 合口双元音", symbols: ["aʊ", "əʊ"] },
+          { key: "glide-schwa", name: "滑向 /ə/ 结尾 (3个) — 集中双元音", symbols: ["ɪə", "eə", "ʊə"] }
+        ]
+      },
+      "consonant-hard": {
+        subCategories: [
+          { key: "nose", name: "一个鼻子 (1个) — 鼻音 ŋ", symbols: ["ŋ"] },
+          { key: "strange", name: "四个怪音 (4个) — 咬舌 θ/ð + 卷唇摩擦 ʃ/ʒ", symbols: ["θ", "ð", "ʃ", "ʒ"] },
+          { key: "pairs", name: "六个小伙伴组合 (6个) — 破擦成对 tr/dr, ts/dz, tʃ/dʒ", symbols: ["tr", "dr", "ts", "dz", "tʃ", "dʒ"] }
+        ]
+      },
+      "consonant-easy": {
+        subCategories: [
+          { key: "easy", name: "见字即读 (17个) — 符号与字母写法相同，发音高度对应", symbols: ["b", "d", "f", "ɡ", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "z"] }
         ]
       }
     };
 
-    async function initTreePhonetics() {
+    async function initPhonetics() {
       try {
-        const res = await fetch("phonetics-data.json?v=1.1");
+        const res = await fetch("phonetics-data.json?v=1.2");
         if (!res.ok) throw new Error("Failed to load JSON");
         rawPhonetics = await res.json();
-        renderTreeStructure();
+        
+        renderTabContents();
+        initTabEvents();
+        initSubFilterEvents();
+
+        // Restore tab from hash if present
+        const hash = window.location.hash.replace("#", "");
+        if (hash && document.querySelector(`[data-tab="${hash}"]`)) {
+          switchTab(hash);
+        }
       } catch (e) {
-        console.error("Error loading phonetics tree:", e);
+        console.error("Error loading phonetics:", e);
       }
     }
 
-    function findPhoneticItem(symbol) {
+    function findItem(symbol) {
       return rawPhonetics.find(item => item.symbol === symbol);
     }
 
-    function renderTreeStructure() {
-      const root = document.getElementById("phonetics-tree-root");
-      if (!root) return;
+    function renderTabContents() {
+      // 1. Render Vowel Single
+      renderCategoryPane("vowel-single", "cards-vowel-single");
+
+      // 2. Render Vowel Double
+      renderCategoryPane("vowel-double", "cards-vowel-double");
+
+      // 3. Render Consonant Hard
+      renderCategoryPane("consonant-hard", "cards-consonant-hard");
+
+      // 4. Render Consonant Easy
+      renderCategoryPane("consonant-easy", "cards-consonant-easy");
+
+      // 5. Render All View
+      renderAllViewPane();
+    }
+
+    function renderCategoryPane(tabKey, targetId, filterSub = "all") {
+      const container = document.getElementById(targetId);
+      if (!container) return;
+      const groupData = TAB_GROUPS[tabKey];
+      if (!groupData) return;
 
       let html = "";
+      groupData.subCategories.forEach(sub => {
+        if (filterSub !== "all" && sub.key !== filterSub) return;
 
-      // Render Major Branches (Vowels & Consonants)
-      for (const [key, major] of Object.entries(TREE_SCHEMA)) {
+        const cardsHtml = sub.symbols.map(sym => {
+          const item = findItem(sym);
+          if (!item) return "";
+          return renderPhoneticCard(item);
+        }).join("");
+
         html += `
-          <details class="tree-major-branch" id="${major.id}" open>
-            <summary>
-              <div class="major-title-wrap">
-                <div class="major-icon-badge">${major.icon}</div>
-                <div class="major-title-text">
-                  <h3>${major.title}</h3>
-                  <p>${major.subTitle}</p>
-                </div>
-              </div>
-              <div class="branch-meta-badge">
-                <span class="branch-count-tag">${major.count}</span>
-                <svg class="tree-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6"></path></svg>
-              </div>
-            </summary>
-            <div class="major-branch-content">
-              ${major.subBranches.map(sub => renderSubBranch(sub)).join("")}
+          <div class="group-section-block" data-sub-group="${sub.key}">
+            <h3 class="group-section-title">${sub.name}</h3>
+            <div class="phonetics-cards-grid" style="margin-top:0.6rem;">
+              ${cardsHtml}
             </div>
-          </details>
+          </div>
         `;
-      }
-
-      root.innerHTML = html;
+      });
+      container.innerHTML = html;
     }
 
-    function renderSubBranch(sub) {
-      return `
-        <details class="tree-sub-branch" id="${sub.id}" open>
-          <summary>
-            <div class="sub-branch-title">
-              <span>📂 ${sub.title}</span>
-              <span class="sub-branch-formula">(${sub.formula})</span>
+    function renderAllViewPane() {
+      const container = document.getElementById("cards-all-view");
+      if (!container) return;
+
+      let html = "";
+      for (const [tabKey, groupData] of Object.entries(TAB_GROUPS)) {
+        groupData.subCategories.forEach(sub => {
+          const cardsHtml = sub.symbols.map(sym => {
+            const item = findItem(sym);
+            if (!item) return "";
+            return renderPhoneticCard(item);
+          }).join("");
+
+          html += `
+            <div class="group-section-block">
+              <h3 class="group-section-title">${sub.name}</h3>
+              <div class="phonetics-cards-grid" style="margin-top:0.6rem; margin-bottom: 1.25rem;">
+                ${cardsHtml}
+              </div>
             </div>
-            <svg class="tree-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6"></path></svg>
-          </summary>
-          <div class="sub-branch-content">
-            ${sub.groups.map(group => renderLeafGroup(group)).join("")}
-          </div>
-        </details>
-      `;
-    }
-
-    function renderLeafGroup(group) {
-      const cardsHtml = group.symbols.map(sym => {
-        const item = findPhoneticItem(sym);
-        if (!item) return `<div class="phonetic-card">未找到音标: ${sym}</div>`;
-        return renderPhoneticCard(item);
-      }).join("");
-
-      return `
-        <div class="leaf-group-row">
-          <div class="leaf-group-label">${group.name}</div>
-          <div class="phonetics-cards-grid">
-            ${cardsHtml}
-          </div>
-        </div>
-      `;
+          `;
+        });
+      }
+      container.innerHTML = html;
     }
 
     function renderPhoneticCard(item) {
@@ -1062,9 +1072,42 @@
       `;
     }
 
-    function toggleAllBranches(expand) {
-      document.querySelectorAll("details.tree-major-branch, details.tree-sub-branch").forEach(d => {
-        d.open = expand;
+    function switchTab(tabId) {
+      document.querySelectorAll(".main-tab-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === tabId);
+      });
+      document.querySelectorAll(".tab-content-pane").forEach(pane => {
+        pane.classList.toggle("active", pane.id === `pane-${tabId}`);
+      });
+      window.location.hash = tabId;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function initTabEvents() {
+      const tabs = document.getElementById("main-tabs");
+      if (tabs) {
+        tabs.addEventListener("click", (e) => {
+          const btn = e.target.closest(".main-tab-btn");
+          if (!btn) return;
+          switchTab(btn.dataset.tab);
+        });
+      }
+    }
+
+    function initSubFilterEvents() {
+      document.querySelectorAll(".sub-filter-chips").forEach(chipGroup => {
+        chipGroup.addEventListener("click", (e) => {
+          const btn = e.target.closest(".sub-chip-btn");
+          if (!btn) return;
+          chipGroup.querySelectorAll(".sub-chip-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const sub = btn.dataset.sub;
+          const targetPaneId = chipGroup.dataset.targetPane;
+          const tabKey = targetPaneId.replace("pane-", "");
+          const cardsContainerId = `cards-${tabKey}`;
+          renderCategoryPane(tabKey, cardsContainerId, sub);
+        });
       });
     }
 
@@ -1088,7 +1131,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      initTreePhonetics();
+      initPhonetics();
     });
   </script>
 </body>
