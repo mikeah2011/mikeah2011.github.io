@@ -1,0 +1,2606 @@
+[
+  {
+    "id": "v-long-01",
+    "symbol": "iː",
+    "name": "长元音 iː",
+    "category": "vowel",
+    "subCategory": "long-vowel",
+    "subCategoryName": "长元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "嘴角向两边拉开像微笑，舌尖抵下齿，声带振动，发音长而饱满。",
+    "spellingRules": "ee (see), ea (tea), ie (piece), e (he), ey (key)",
+    "words": [
+      {
+        "word": "see",
+        "phonetic": "/siː/",
+        "trans": "看见",
+        "audio": "see.mp3"
+      },
+      {
+        "word": "tea",
+        "phonetic": "/tiː/",
+        "trans": "茶",
+        "audio": "tea.mp3"
+      },
+      {
+        "word": "key",
+        "phonetic": "/kiː/",
+        "trans": "钥匙",
+        "audio": "key.mp3"
+      },
+      {
+        "word": "piece",
+        "phonetic": "/piːs/",
+        "trans": "块/片",
+        "audio": "piece.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ɪ",
+      "pairs": [
+        {
+          "w1": "sheep",
+          "p1": "/ʃiːp/",
+          "w2": "ship",
+          "p2": "/ʃɪp/"
+        },
+        {
+          "w1": "feet",
+          "p1": "/fiːt/",
+          "w2": "fit",
+          "p2": "/fɪt/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-long-02",
+    "symbol": "ɜː",
+    "name": "长元音 ɜː",
+    "category": "vowel",
+    "subCategory": "long-vowel",
+    "subCategoryName": "长元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "嘴微张，舌身平放中央微抬，声带振动，发长音“额”。",
+    "spellingRules": "ir (bird), ur (nurse), er (her), or (work), ear (early)",
+    "words": [
+      {
+        "word": "bird",
+        "phonetic": "/bɜːd/",
+        "trans": "鸟",
+        "audio": "bird.mp3"
+      },
+      {
+        "word": "nurse",
+        "phonetic": "/nɜːs/",
+        "trans": "护士",
+        "audio": "nurse.mp3"
+      },
+      {
+        "word": "work",
+        "phonetic": "/wɜːk/",
+        "trans": "工作",
+        "audio": "work.mp3"
+      },
+      {
+        "word": "girl",
+        "phonetic": "/ɡɜːl/",
+        "trans": "女孩",
+        "audio": "girl.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ə",
+      "pairs": [
+        {
+          "w1": "bird",
+          "p1": "/bɜːd/",
+          "w2": "about",
+          "p2": "/əˈbaʊt/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-long-03",
+    "symbol": "ɑː",
+    "name": "长元音 ɑː",
+    "category": "vowel",
+    "subCategory": "long-vowel",
+    "subCategoryName": "长元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "嘴张大，舌身平放压低，舌尖离开下齿，声音从喉部发出，像医生检查喉咙发“啊”。",
+    "spellingRules": "ar (car), a (father, fast), ear (heart), al (calm)",
+    "words": [
+      {
+        "word": "car",
+        "phonetic": "/kɑː/",
+        "trans": "汽车",
+        "audio": "car.mp3"
+      },
+      {
+        "word": "father",
+        "phonetic": "/ˈfɑːðə/",
+        "trans": "父亲",
+        "audio": "father.mp3"
+      },
+      {
+        "word": "heart",
+        "phonetic": "/hɑːt/",
+        "trans": "心/心脏",
+        "audio": "heart.mp3"
+      },
+      {
+        "word": "park",
+        "phonetic": "/pɑːk/",
+        "trans": "公园",
+        "audio": "park.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ʌ",
+      "pairs": [
+        {
+          "w1": "dark",
+          "p1": "/dɑːk/",
+          "w2": "duck",
+          "p2": "/dʌk/"
+        },
+        {
+          "w1": "calm",
+          "p1": "/kɑːm/",
+          "w2": "come",
+          "p2": "/kʌm/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-long-04",
+    "symbol": "ɔː",
+    "name": "长元音 ɔː",
+    "category": "vowel",
+    "subCategory": "long-vowel",
+    "subCategoryName": "长元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "嘴唇收圆向前突出，舌后部大幅抬起，声带振动，发长音“嗷”。",
+    "spellingRules": "or (door), al (talk), aw (law), au (autumn), oor (door)",
+    "words": [
+      {
+        "word": "door",
+        "phonetic": "/dɔː/",
+        "trans": "门",
+        "audio": "door.mp3"
+      },
+      {
+        "word": "water",
+        "phonetic": "/ˈwɔːtə/",
+        "trans": "水",
+        "audio": "water.mp3"
+      },
+      {
+        "word": "talk",
+        "phonetic": "/tɔːk/",
+        "trans": "交谈",
+        "audio": "talk.mp3"
+      },
+      {
+        "word": "sport",
+        "phonetic": "/spɔːt/",
+        "trans": "运动",
+        "audio": "sport.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ɒ",
+      "pairs": [
+        {
+          "w1": "port",
+          "p1": "/pɔːt/",
+          "w2": "pot",
+          "p2": "/pɒt/"
+        },
+        {
+          "w1": "cord",
+          "p1": "/kɔːd/",
+          "w2": "cod",
+          "p2": "/kɒd/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-long-05",
+    "symbol": "uː",
+    "name": "长元音 uː",
+    "category": "vowel",
+    "subCategory": "long-vowel",
+    "subCategoryName": "长元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "嘴唇缩成小圆孔向前突出，舌后部向软腭大幅抬起，发长而饱满的“呜”。",
+    "spellingRules": "oo (food), u (ruler), ew (new), ou (soup), o (do)",
+    "words": [
+      {
+        "word": "food",
+        "phonetic": "/fuːd/",
+        "trans": "食物",
+        "audio": "food.mp3"
+      },
+      {
+        "word": "moon",
+        "phonetic": "/muːn/",
+        "trans": "月亮",
+        "audio": "moon.mp3"
+      },
+      {
+        "word": "blue",
+        "phonetic": "/bluː/",
+        "trans": "蓝色",
+        "audio": "blue.mp3"
+      },
+      {
+        "word": "shoe",
+        "phonetic": "/ʃuː/",
+        "trans": "鞋子",
+        "audio": "shoe.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ʊ",
+      "pairs": [
+        {
+          "w1": "fool",
+          "p1": "/fuːl/",
+          "w2": "full",
+          "p2": "/fʊl/"
+        },
+        {
+          "w1": "pool",
+          "p1": "/puːl/",
+          "w2": "pull",
+          "p2": "/pʊl/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-short-01",
+    "symbol": "ɪ",
+    "name": "短元音 ɪ",
+    "category": "vowel",
+    "subCategory": "short-vowel",
+    "subCategoryName": "短元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "嘴唇微开，比 /iː/ 稍大，短促轻快，发音介于“一”和“诶”之间。",
+    "spellingRules": "i (big, sit), y (city), e (pretty), ui (build)",
+    "words": [
+      {
+        "word": "big",
+        "phonetic": "/bɪɡ/",
+        "trans": "大的",
+        "audio": "big.mp3"
+      },
+      {
+        "word": "sit",
+        "phonetic": "/sɪt/",
+        "trans": "坐",
+        "audio": "sit.mp3"
+      },
+      {
+        "word": "city",
+        "phonetic": "/ˈsɪti/",
+        "trans": "城市",
+        "audio": "city.mp3"
+      },
+      {
+        "word": "milk",
+        "phonetic": "/mɪlk/",
+        "trans": "牛奶",
+        "audio": "milk.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "iː",
+      "pairs": [
+        {
+          "w1": "ship",
+          "p1": "/ʃɪp/",
+          "w2": "sheep",
+          "p2": "/ʃiːp/"
+        },
+        {
+          "w1": "hit",
+          "p1": "/hɪt/",
+          "w2": "heat",
+          "p2": "/hiːt/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-short-02",
+    "symbol": "e",
+    "name": "短元音 e",
+    "category": "vowel",
+    "subCategory": "short-vowel",
+    "subCategoryName": "短元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "上下齿保持一指宽，嘴角向两侧微咧，舌尖抵下齿，短促有力地发“诶”。",
+    "spellingRules": "e (bed, pen), ea (head), a (any), ie (friend)",
+    "words": [
+      {
+        "word": "bed",
+        "phonetic": "/bed/",
+        "trans": "床",
+        "audio": "bed.mp3"
+      },
+      {
+        "word": "pen",
+        "phonetic": "/pen/",
+        "trans": "钢笔",
+        "audio": "pen.mp3"
+      },
+      {
+        "word": "head",
+        "phonetic": "/hed/",
+        "trans": "头",
+        "audio": "head.mp3"
+      },
+      {
+        "word": "desk",
+        "phonetic": "/desk/",
+        "trans": "书桌",
+        "audio": "desk.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "æ",
+      "pairs": [
+        {
+          "w1": "bed",
+          "p1": "/bed/",
+          "w2": "bad",
+          "p2": "/bæd/"
+        },
+        {
+          "w1": "men",
+          "p1": "/men/",
+          "w2": "man",
+          "p2": "/mæn/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-short-03",
+    "symbol": "æ",
+    "name": "短元音 æ (梅花音)",
+    "category": "vowel",
+    "subCategory": "short-vowel",
+    "subCategoryName": "短元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "嘴张大可容两指，嘴角尽量向两边拉开，舌尖抵下齿，发音短促洪亮。",
+    "spellingRules": "a (cat, apple, bag, map, flat)",
+    "words": [
+      {
+        "word": "cat",
+        "phonetic": "/kæt/",
+        "trans": "猫",
+        "audio": "cat.mp3"
+      },
+      {
+        "word": "apple",
+        "phonetic": "/ˈæpl/",
+        "trans": "苹果",
+        "audio": "apple.mp3"
+      },
+      {
+        "word": "bag",
+        "phonetic": "/bæɡ/",
+        "trans": "包",
+        "audio": "bag.mp3"
+      },
+      {
+        "word": "map",
+        "phonetic": "/mæp/",
+        "trans": "地图",
+        "audio": "map.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "e",
+      "pairs": [
+        {
+          "w1": "bad",
+          "p1": "/bæd/",
+          "w2": "bed",
+          "p2": "/bed/"
+        },
+        {
+          "w1": "man",
+          "p1": "/mæn/",
+          "w2": "men",
+          "p2": "/men/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-short-04",
+    "symbol": "ə",
+    "name": "短元音 ə (弱读央元音/懒人音)",
+    "category": "vowel",
+    "subCategory": "short-vowel",
+    "subCategoryName": "短元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "英语中最常用的弱读音，面部肌肉完全放松，嘴微开，轻短地发“额”。",
+    "spellingRules": "非重读音节中的 a, e, i, o, u, er, or 等",
+    "words": [
+      {
+        "word": "about",
+        "phonetic": "/əˈbaʊt/",
+        "trans": "关于",
+        "audio": "about.mp3"
+      },
+      {
+        "word": "banana",
+        "phonetic": "/bəˈnɑːnə/",
+        "trans": "香蕉",
+        "audio": "banana.mp3"
+      },
+      {
+        "word": "teacher",
+        "phonetic": "/ˈtiːtʃə/",
+        "trans": "老师",
+        "audio": "teacher.mp3"
+      },
+      {
+        "word": "doctor",
+        "phonetic": "/ˈdɒktə/",
+        "trans": "医生",
+        "audio": "doctor.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ɜː",
+      "pairs": [
+        {
+          "w1": "teacher",
+          "p1": "/ˈtiːtʃə/",
+          "w2": "bird",
+          "p2": "/bɜːd/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-short-05",
+    "symbol": "ʌ",
+    "name": "短元音 ʌ",
+    "category": "vowel",
+    "subCategory": "short-vowel",
+    "subCategoryName": "短元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "嘴唇向两旁平展，下巴微垂，舌中部稍抬起，短促有力地发音“阿”。",
+    "spellingRules": "u (cup, bus, sun), o (love, son), ou (country, touch)",
+    "words": [
+      {
+        "word": "cup",
+        "phonetic": "/kʌp/",
+        "trans": "杯子",
+        "audio": "cup.mp3"
+      },
+      {
+        "word": "bus",
+        "phonetic": "/bʌs/",
+        "trans": "公交车",
+        "audio": "bus.mp3"
+      },
+      {
+        "word": "love",
+        "phonetic": "/lʌv/",
+        "trans": "爱",
+        "audio": "love.mp3"
+      },
+      {
+        "word": "sun",
+        "phonetic": "/sʌn/",
+        "trans": "太阳",
+        "audio": "sun.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ɑː",
+      "pairs": [
+        {
+          "w1": "duck",
+          "p1": "/dʌk/",
+          "w2": "dark",
+          "p2": "/dɑːk/"
+        },
+        {
+          "w1": "cut",
+          "p1": "/kʌt/",
+          "w2": "cart",
+          "p2": "/kɑːt/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-short-06",
+    "symbol": "ɒ",
+    "name": "短元音 ɒ (美式常为 ɑ)",
+    "category": "vowel",
+    "subCategory": "short-vowel",
+    "subCategoryName": "短元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "嘴张大略呈椭圆，舌后部微抬，发音短促清脆的“奥”。",
+    "spellingRules": "o (hot, box, clock), a (want, wash)",
+    "words": [
+      {
+        "word": "hot",
+        "phonetic": "/hɒt/",
+        "trans": "热的",
+        "audio": "hot.mp3"
+      },
+      {
+        "word": "box",
+        "phonetic": "/bɒks/",
+        "trans": "盒子",
+        "audio": "box.mp3"
+      },
+      {
+        "word": "clock",
+        "phonetic": "/klɒk/",
+        "trans": "时钟",
+        "audio": "clock.mp3"
+      },
+      {
+        "word": "dog",
+        "phonetic": "/dɒɡ/",
+        "trans": "狗",
+        "audio": "dog.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ɔː",
+      "pairs": [
+        {
+          "w1": "pot",
+          "p1": "/pɒt/",
+          "w2": "port",
+          "p2": "/pɔːt/"
+        },
+        {
+          "w1": "fox",
+          "p1": "/fɒks/",
+          "w2": "fork",
+          "p2": "/fɔːk/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-short-07",
+    "symbol": "ʊ",
+    "name": "短元音 ʊ",
+    "category": "vowel",
+    "subCategory": "short-vowel",
+    "subCategoryName": "短元音",
+    "type": "单元音",
+    "voicing": "声带振动",
+    "tips": "嘴唇微圆向前突出，比 /uː/ 略松弛短促，舌后部微抬，短促发“乌”。",
+    "spellingRules": "oo (book, good, look), u (put, full), ou (could, should)",
+    "words": [
+      {
+        "word": "book",
+        "phonetic": "/bʊk/",
+        "trans": "书",
+        "audio": "book.mp3"
+      },
+      {
+        "word": "good",
+        "phonetic": "/ɡʊd/",
+        "trans": "好的",
+        "audio": "good.mp3"
+      },
+      {
+        "word": "put",
+        "phonetic": "/pʊt/",
+        "trans": "放置",
+        "audio": "put.mp3"
+      },
+      {
+        "word": "foot",
+        "phonetic": "/fʊt/",
+        "trans": "脚",
+        "audio": "foot.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "uː",
+      "pairs": [
+        {
+          "w1": "pull",
+          "p1": "/pʊl/",
+          "w2": "pool",
+          "p2": "/puːl/"
+        },
+        {
+          "w1": "full",
+          "p1": "/fʊl/",
+          "w2": "fool",
+          "p2": "/fuːl/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-double-01",
+    "symbol": "eɪ",
+    "name": "双元音 eɪ",
+    "category": "vowel",
+    "subCategory": "double-vowel",
+    "subCategoryName": "合口双元音",
+    "type": "双元音",
+    "voicing": "声带振动",
+    "tips": "由 /e/ 快速滑向 /ɪ/，下巴逐渐收拢，前长后短，清晰饱满。",
+    "spellingRules": "a-e (name, cake), ai (rain), ay (day), ey (they), ea (great)",
+    "words": [
+      {
+        "word": "name",
+        "phonetic": "/neɪm/",
+        "trans": "名字",
+        "audio": "name.mp3"
+      },
+      {
+        "word": "day",
+        "phonetic": "/deɪ/",
+        "trans": "天/白天",
+        "audio": "day.mp3"
+      },
+      {
+        "word": "cake",
+        "phonetic": "/keɪk/",
+        "trans": "蛋糕",
+        "audio": "cake.mp3"
+      },
+      {
+        "word": "rain",
+        "phonetic": "/reɪn/",
+        "trans": "下雨",
+        "audio": "rain.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "e",
+      "pairs": [
+        {
+          "w1": "late",
+          "p1": "/leɪt/",
+          "w2": "let",
+          "p2": "/let/"
+        },
+        {
+          "w1": "paper",
+          "p1": "/ˈpeɪpə/",
+          "w2": "pepper",
+          "p2": "/ˈpepə/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-double-02",
+    "symbol": "aɪ",
+    "name": "双元音 aɪ",
+    "category": "vowel",
+    "subCategory": "double-vowel",
+    "subCategoryName": "合口双元音",
+    "type": "双元音",
+    "voicing": "声带振动",
+    "tips": "由大开的 /a/ 滑向微闭的 /ɪ/，音量前大后小、前长后短。",
+    "spellingRules": "i-e (like, time), y (sky, fly), ie (tie, pie), igh (night)",
+    "words": [
+      {
+        "word": "sky",
+        "phonetic": "/skaɪ/",
+        "trans": "天空",
+        "audio": "sky.mp3"
+      },
+      {
+        "word": "like",
+        "phonetic": "/laɪk/",
+        "trans": "喜欢",
+        "audio": "like.mp3"
+      },
+      {
+        "word": "time",
+        "phonetic": "/taɪm/",
+        "trans": "时间",
+        "audio": "time.mp3"
+      },
+      {
+        "word": "night",
+        "phonetic": "/naɪt/",
+        "trans": "夜晚",
+        "audio": "night.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ɔɪ",
+      "pairs": [
+        {
+          "w1": "tie",
+          "p1": "/taɪ/",
+          "w2": "toy",
+          "p2": "/tɔɪ/"
+        },
+        {
+          "w1": "buy",
+          "p1": "/baɪ/",
+          "w2": "boy",
+          "p2": "/bɔɪ/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-double-03",
+    "symbol": "ɔɪ",
+    "name": "双元音 ɔɪ",
+    "category": "vowel",
+    "subCategory": "double-vowel",
+    "subCategoryName": "合口双元音",
+    "type": "双元音",
+    "voicing": "声带振动",
+    "tips": "从圆唇音 /ɔ/ 自然滑向扁唇 /ɪ/，口型由圆变扁。",
+    "spellingRules": "oi (coin, voice, oil), oy (boy, toy, enjoy)",
+    "words": [
+      {
+        "word": "boy",
+        "phonetic": "/bɔɪ/",
+        "trans": "男孩",
+        "audio": "boy.mp3"
+      },
+      {
+        "word": "coin",
+        "phonetic": "/kɔɪn/",
+        "trans": "硬币",
+        "audio": "coin.mp3"
+      },
+      {
+        "word": "voice",
+        "phonetic": "/vɔɪs/",
+        "trans": "声音",
+        "audio": "voice.mp3"
+      },
+      {
+        "word": "toy",
+        "phonetic": "/tɔɪ/",
+        "trans": "玩具",
+        "audio": "toy.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "aɪ",
+      "pairs": [
+        {
+          "w1": "point",
+          "p1": "/pɔɪnt/",
+          "w2": "pint",
+          "p2": "/paɪnt/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-double-04",
+    "symbol": "aʊ",
+    "name": "双元音 aʊ",
+    "category": "vowel",
+    "subCategory": "double-vowel",
+    "subCategoryName": "合口双元音",
+    "type": "双元音",
+    "voicing": "声带振动",
+    "tips": "嘴张大发 /a/，然后迅速将嘴唇收圆向前突出滑向 /ʊ/。",
+    "spellingRules": "ou (house, out, loud), ow (cow, now, flower)",
+    "words": [
+      {
+        "word": "cow",
+        "phonetic": "/kaʊ/",
+        "trans": "奶牛",
+        "audio": "cow.mp3"
+      },
+      {
+        "word": "house",
+        "phonetic": "/haʊs/",
+        "trans": "房屋",
+        "audio": "house.mp3"
+      },
+      {
+        "word": "now",
+        "phonetic": "/naʊ/",
+        "trans": "现在",
+        "audio": "now.mp3"
+      },
+      {
+        "word": "cloud",
+        "phonetic": "/klaʊd/",
+        "trans": "云朵",
+        "audio": "cloud.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "əʊ",
+      "pairs": [
+        {
+          "w1": "now",
+          "p1": "/naʊ/",
+          "w2": "no",
+          "p2": "/nəʊ/"
+        },
+        {
+          "w1": "town",
+          "p1": "/taʊn/",
+          "w2": "tone",
+          "p2": "/təʊn/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-double-05",
+    "symbol": "əʊ",
+    "name": "双元音 əʊ (美式 oʊ)",
+    "category": "vowel",
+    "subCategory": "double-vowel",
+    "subCategoryName": "合口双元音",
+    "type": "双元音",
+    "voicing": "声带振动",
+    "tips": "由中央元音 /ə/ 滑向圆唇 /ʊ/，嘴唇逐渐收圆收小。",
+    "spellingRules": "o (go, cold), o-e (home, hope), oa (boat), ow (slow)",
+    "words": [
+      {
+        "word": "go",
+        "phonetic": "/ɡəʊ/",
+        "trans": "去",
+        "audio": "go.mp3"
+      },
+      {
+        "word": "home",
+        "phonetic": "/həʊm/",
+        "trans": "家",
+        "audio": "home.mp3"
+      },
+      {
+        "word": "cold",
+        "phonetic": "/kəʊld/",
+        "trans": "寒冷的",
+        "audio": "cold.mp3"
+      },
+      {
+        "word": "boat",
+        "phonetic": "/bəʊt/",
+        "trans": "小船",
+        "audio": "boat.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ɔː",
+      "pairs": [
+        {
+          "w1": "boat",
+          "p1": "/bəʊt/",
+          "w2": "bought",
+          "p2": "/bɔːt/"
+        },
+        {
+          "w1": "so",
+          "p1": "/səʊ/",
+          "w2": "saw",
+          "p2": "/sɔː/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-double-06",
+    "symbol": "ɪə",
+    "name": "双元音 ɪə",
+    "category": "vowel",
+    "subCategory": "double-vowel",
+    "subCategoryName": "集中双元音",
+    "type": "双元音",
+    "voicing": "声带振动",
+    "tips": "从短元音 /ɪ/ 滑向央元音 /ə/，发音清晰连贯。",
+    "spellingRules": "ear (ear, hear, clear), eer (deer, beer), ere (here)",
+    "words": [
+      {
+        "word": "ear",
+        "phonetic": "/ɪə/",
+        "trans": "耳朵",
+        "audio": "ear.mp3"
+      },
+      {
+        "word": "here",
+        "phonetic": "/hɪə/",
+        "trans": "这里",
+        "audio": "here.mp3"
+      },
+      {
+        "word": "deer",
+        "phonetic": "/dɪə/",
+        "trans": "鹿",
+        "audio": "deer.mp3"
+      },
+      {
+        "word": "clear",
+        "phonetic": "/klɪə/",
+        "trans": "清楚的",
+        "audio": "clear.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "eə",
+      "pairs": [
+        {
+          "w1": "hear",
+          "p1": "/hɪə/",
+          "w2": "hair",
+          "p2": "/heə/"
+        },
+        {
+          "w1": "beer",
+          "p1": "/bɪə/",
+          "w2": "bear",
+          "p2": "/beə/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-double-07",
+    "symbol": "eə",
+    "name": "双元音 eə",
+    "category": "vowel",
+    "subCategory": "double-vowel",
+    "subCategoryName": "集中双元音",
+    "type": "双元音",
+    "voicing": "声带振动",
+    "tips": "从开口音 /e/ 滑向中央元音 /ə/，嘴唇由开到微开。",
+    "spellingRules": "air (air, hair, chair), ear (bear, wear), are (care, share)",
+    "words": [
+      {
+        "word": "air",
+        "phonetic": "/eə/",
+        "trans": "空气",
+        "audio": "air.mp3"
+      },
+      {
+        "word": "bear",
+        "phonetic": "/beə/",
+        "trans": "熊",
+        "audio": "bear.mp3"
+      },
+      {
+        "word": "hair",
+        "phonetic": "/heə/",
+        "trans": "头发",
+        "audio": "hair.mp3"
+      },
+      {
+        "word": "chair",
+        "phonetic": "/tʃeə/",
+        "trans": "椅子",
+        "audio": "chair.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ɪə",
+      "pairs": [
+        {
+          "w1": "fair",
+          "p1": "/feə/",
+          "w2": "fear",
+          "p2": "/fɪə/"
+        },
+        {
+          "w1": "pear",
+          "p1": "/peə/",
+          "w2": "peer",
+          "p2": "/pɪə/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v-double-08",
+    "symbol": "ʊə",
+    "name": "双元音 ʊə",
+    "category": "vowel",
+    "subCategory": "double-vowel",
+    "subCategoryName": "集中双元音",
+    "type": "双元音",
+    "voicing": "声带振动",
+    "tips": "从短元音 /ʊ/ 滑向央元音 /ə/，嘴唇由圆变微开。",
+    "spellingRules": "oor (poor), our (tour), ure (sure, pure)",
+    "words": [
+      {
+        "word": "tour",
+        "phonetic": "/tʊə/",
+        "trans": "旅游",
+        "audio": "tour.mp3"
+      },
+      {
+        "word": "poor",
+        "phonetic": "/pʊə/",
+        "trans": "贫穷的",
+        "audio": "poor.mp3"
+      },
+      {
+        "word": "sure",
+        "phonetic": "/ʃʊə/",
+        "trans": "确定的",
+        "audio": "sure.mp3"
+      },
+      {
+        "word": "cure",
+        "phonetic": "/kjʊə/",
+        "trans": "治愈",
+        "audio": "cure.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ɔː",
+      "pairs": [
+        {
+          "w1": "sure",
+          "p1": "/ʃʊə/",
+          "w2": "shore",
+          "p2": "/ʃɔː/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-plosive-01",
+    "symbol": "p",
+    "name": "清辅音 p",
+    "category": "consonant",
+    "subCategory": "plosive",
+    "subCategoryName": "爆破音 (成对)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "双唇紧闭阻断气流，然后突然张开爆发出声，送气强，声带不振动。",
+    "spellingRules": "p (pen, pig), pp (apple)",
+    "words": [
+      {
+        "word": "pig",
+        "phonetic": "/pɪɡ/",
+        "trans": "猪",
+        "audio": "pig.mp3"
+      },
+      {
+        "word": "pen",
+        "phonetic": "/pen/",
+        "trans": "钢笔",
+        "audio": "pen.mp3"
+      },
+      {
+        "word": "park",
+        "phonetic": "/pɑːk/",
+        "trans": "公园",
+        "audio": "park.mp3"
+      },
+      {
+        "word": "cup",
+        "phonetic": "/kʌp/",
+        "trans": "杯子",
+        "audio": "cup.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "b",
+      "pairs": [
+        {
+          "w1": "pig",
+          "p1": "/pɪɡ/",
+          "w2": "big",
+          "p2": "/bɪɡ/"
+        },
+        {
+          "w1": "pat",
+          "p1": "/pæt/",
+          "w2": "bat",
+          "p2": "/bæt/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-plosive-02",
+    "symbol": "b",
+    "name": "浊辅音 b",
+    "category": "consonant",
+    "subCategory": "plosive",
+    "subCategoryName": "爆破音 (成对)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "双唇紧闭阻断气流，突然放开爆破出声，送气较弱，声带强烈振动。",
+    "spellingRules": "b (book, bag), bb (rabbit)",
+    "words": [
+      {
+        "word": "big",
+        "phonetic": "/bɪɡ/",
+        "trans": "大的",
+        "audio": "big.mp3"
+      },
+      {
+        "word": "book",
+        "phonetic": "/bʊk/",
+        "trans": "书",
+        "audio": "book.mp3"
+      },
+      {
+        "word": "bag",
+        "phonetic": "/bæɡ/",
+        "trans": "包",
+        "audio": "bag.mp3"
+      },
+      {
+        "word": "bird",
+        "phonetic": "/bɜːd/",
+        "trans": "鸟",
+        "audio": "bird.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "p",
+      "pairs": [
+        {
+          "w1": "big",
+          "p1": "/bɪɡ/",
+          "w2": "pig",
+          "p2": "/pɪɡ/"
+        },
+        {
+          "w1": "bad",
+          "p1": "/bæd/",
+          "w2": "pad",
+          "p2": "/pæd/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-plosive-03",
+    "symbol": "t",
+    "name": "清辅音 t",
+    "category": "consonant",
+    "subCategory": "plosive",
+    "subCategoryName": "爆破音 (成对)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "舌尖紧抵上齿龈阻断气流，然后突然离开爆发出声，声带不振动。",
+    "spellingRules": "t (ten, tea), tt (butter), -ed 结尾 (worked)",
+    "words": [
+      {
+        "word": "ten",
+        "phonetic": "/ten/",
+        "trans": "十",
+        "audio": "ten.mp3"
+      },
+      {
+        "word": "tea",
+        "phonetic": "/tiː/",
+        "trans": "茶",
+        "audio": "tea.mp3"
+      },
+      {
+        "word": "time",
+        "phonetic": "/taɪm/",
+        "trans": "时间",
+        "audio": "time.mp3"
+      },
+      {
+        "word": "cat",
+        "phonetic": "/kæt/",
+        "trans": "猫",
+        "audio": "cat.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "d",
+      "pairs": [
+        {
+          "w1": "ten",
+          "p1": "/ten/",
+          "w2": "den",
+          "p2": "/den/"
+        },
+        {
+          "w1": "time",
+          "p1": "/taɪm/",
+          "w2": "dime",
+          "p2": "/daɪm/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-plosive-04",
+    "symbol": "d",
+    "name": "浊辅音 d",
+    "category": "consonant",
+    "subCategory": "plosive",
+    "subCategoryName": "爆破音 (成对)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "舌尖紧贴上齿龈，突然放开爆破出声，送气弱，声带剧烈振动。",
+    "spellingRules": "d (door, day), dd (middle), -ed 结尾 (played)",
+    "words": [
+      {
+        "word": "door",
+        "phonetic": "/dɔː/",
+        "trans": "门",
+        "audio": "door.mp3"
+      },
+      {
+        "word": "day",
+        "phonetic": "/deɪ/",
+        "trans": "天",
+        "audio": "day.mp3"
+      },
+      {
+        "word": "desk",
+        "phonetic": "/desk/",
+        "trans": "书桌",
+        "audio": "desk.mp3"
+      },
+      {
+        "word": "bed",
+        "phonetic": "/bed/",
+        "trans": "床",
+        "audio": "bed.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "t",
+      "pairs": [
+        {
+          "w1": "den",
+          "p1": "/den/",
+          "w2": "ten",
+          "p2": "/ten/"
+        },
+        {
+          "w1": "duck",
+          "p1": "/dʌk/",
+          "w2": "tuck",
+          "p2": "/tʌk/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-plosive-05",
+    "symbol": "k",
+    "name": "清辅音 k",
+    "category": "consonant",
+    "subCategory": "plosive",
+    "subCategoryName": "爆破音 (成对)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "舌后部抬起紧贴软腭阻断气流，然后突然离开爆发强气流，声带不振动。",
+    "spellingRules": "k (key, kite), c (cat, cake), ck (clock), ch (school)",
+    "words": [
+      {
+        "word": "cat",
+        "phonetic": "/kæt/",
+        "trans": "猫",
+        "audio": "cat.mp3"
+      },
+      {
+        "word": "key",
+        "phonetic": "/kiː/",
+        "trans": "钥匙",
+        "audio": "key.mp3"
+      },
+      {
+        "word": "cake",
+        "phonetic": "/keɪk/",
+        "trans": "蛋糕",
+        "audio": "cake.mp3"
+      },
+      {
+        "word": "clock",
+        "phonetic": "/klɒk/",
+        "trans": "时钟",
+        "audio": "clock.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ɡ",
+      "pairs": [
+        {
+          "w1": "cold",
+          "p1": "/kəʊld/",
+          "w2": "gold",
+          "p2": "/ɡəʊld/"
+        },
+        {
+          "w1": "cap",
+          "p1": "/kæp/",
+          "w2": "gap",
+          "p2": "/ɡæp/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-plosive-06",
+    "symbol": "ɡ",
+    "name": "浊辅音 ɡ",
+    "category": "consonant",
+    "subCategory": "plosive",
+    "subCategoryName": "爆破音 (成对)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "舌后部紧贴软腭阻挡气流，突然放开发出爆破音，送气较弱，声带振动。",
+    "spellingRules": "g (go, get, good), gg (egg)",
+    "words": [
+      {
+        "word": "go",
+        "phonetic": "/ɡəʊ/",
+        "trans": "去",
+        "audio": "go.mp3"
+      },
+      {
+        "word": "good",
+        "phonetic": "/ɡʊd/",
+        "trans": "好的",
+        "audio": "good.mp3"
+      },
+      {
+        "word": "girl",
+        "phonetic": "/ɡɜːl/",
+        "trans": "女孩",
+        "audio": "girl.mp3"
+      },
+      {
+        "word": "bag",
+        "phonetic": "/bæɡ/",
+        "trans": "包",
+        "audio": "bag.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "k",
+      "pairs": [
+        {
+          "w1": "gold",
+          "p1": "/ɡəʊld/",
+          "w2": "cold",
+          "p2": "/kəʊld/"
+        },
+        {
+          "w1": "glass",
+          "p1": "/ɡlɑːs/",
+          "w2": "class",
+          "p2": "/klɑːs/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-fricative-01",
+    "symbol": "f",
+    "name": "清辅音 f (唇齿音)",
+    "category": "consonant",
+    "subCategory": "fricative",
+    "subCategoryName": "摩擦音 (成对/单列)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "上齿轻触下唇内侧，气流从唇齿缝隙挤出产生摩擦，声带不振动。",
+    "spellingRules": "f (food, fish), ff (coffee), ph (phone), gh (laugh)",
+    "words": [
+      {
+        "word": "food",
+        "phonetic": "/fuːd/",
+        "trans": "食物",
+        "audio": "food.mp3"
+      },
+      {
+        "word": "fish",
+        "phonetic": "/fɪʃ/",
+        "trans": "鱼",
+        "audio": "fish.mp3"
+      },
+      {
+        "word": "father",
+        "phonetic": "/ˈfɑːðə/",
+        "trans": "父亲",
+        "audio": "father.mp3"
+      },
+      {
+        "word": "foot",
+        "phonetic": "/fʊt/",
+        "trans": "脚",
+        "audio": "foot.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "v",
+      "pairs": [
+        {
+          "w1": "fan",
+          "p1": "/fæn/",
+          "w2": "van",
+          "p2": "/væn/"
+        },
+        {
+          "w1": "fine",
+          "p1": "/faɪn/",
+          "w2": "vine",
+          "p2": "/vaɪn/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-fricative-02",
+    "symbol": "v",
+    "name": "浊辅音 v (唇齿音)",
+    "category": "consonant",
+    "subCategory": "fricative",
+    "subCategoryName": "摩擦音 (成对/单列)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "口型同 /f/，上齿轻咬下唇，气流挤出摩擦的同时声带剧烈振动。",
+    "spellingRules": "v (voice, love, very, live)",
+    "words": [
+      {
+        "word": "voice",
+        "phonetic": "/vɔɪs/",
+        "trans": "声音",
+        "audio": "voice.mp3"
+      },
+      {
+        "word": "love",
+        "phonetic": "/lʌv/",
+        "trans": "爱",
+        "audio": "love.mp3"
+      },
+      {
+        "word": "view",
+        "phonetic": "/vjuː/",
+        "trans": "视野/景色",
+        "audio": "view.mp3"
+      },
+      {
+        "word": "river",
+        "phonetic": "/ˈrɪvə/",
+        "trans": "河流",
+        "audio": "river.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "f",
+      "pairs": [
+        {
+          "w1": "van",
+          "p1": "/væn/",
+          "w2": "fan",
+          "p2": "/fæn/"
+        },
+        {
+          "w1": "vote",
+          "p1": "/vəʊt/",
+          "w2": "boat",
+          "p2": "/bəʊt/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-fricative-03",
+    "symbol": "θ",
+    "name": "清辅音 θ (咬舌清音)",
+    "category": "consonant",
+    "subCategory": "fricative",
+    "subCategoryName": "摩擦音 (成对/单列)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "舌尖微微伸出置于上下齿之间，气流从舌齿缝隙呼出摩擦，声带不振动。",
+    "spellingRules": "th (think, thank, tooth, math, three)",
+    "words": [
+      {
+        "word": "think",
+        "phonetic": "/θɪŋk/",
+        "trans": "思考",
+        "audio": "think.mp3"
+      },
+      {
+        "word": "thank",
+        "phonetic": "/θæŋk/",
+        "trans": "感谢",
+        "audio": "thank.mp3"
+      },
+      {
+        "word": "three",
+        "phonetic": "/θriː/",
+        "trans": "三",
+        "audio": "three.mp3"
+      },
+      {
+        "word": "mouth",
+        "phonetic": "/maʊθ/",
+        "trans": "嘴巴",
+        "audio": "mouth.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "s",
+      "pairs": [
+        {
+          "w1": "think",
+          "p1": "/θɪŋk/",
+          "w2": "sink",
+          "p2": "/sɪŋk/"
+        },
+        {
+          "w1": "theme",
+          "p1": "/θiːm/",
+          "w2": "seem",
+          "p2": "/siːm/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-fricative-04",
+    "symbol": "ð",
+    "name": "浊辅音 ð (咬舌浊音)",
+    "category": "consonant",
+    "subCategory": "fricative",
+    "subCategoryName": "摩擦音 (成对/单列)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "口型同 /θ/，舌尖轻置于上下齿间，摩擦呼气的同时声带振动。",
+    "spellingRules": "th (this, that, father, mother, with)",
+    "words": [
+      {
+        "word": "this",
+        "phonetic": "/ðɪs/",
+        "trans": "这个",
+        "audio": "this.mp3"
+      },
+      {
+        "word": "that",
+        "phonetic": "/ðæt/",
+        "trans": "那个",
+        "audio": "that.mp3"
+      },
+      {
+        "word": "father",
+        "phonetic": "/ˈfɑːðə/",
+        "trans": "父亲",
+        "audio": "father.mp3"
+      },
+      {
+        "word": "brother",
+        "phonetic": "/ˈbrʌðə/",
+        "trans": "兄弟",
+        "audio": "brother.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "z",
+      "pairs": [
+        {
+          "w1": "then",
+          "p1": "/ðen/",
+          "w2": "Zen",
+          "p2": "/zen/"
+        },
+        {
+          "w1": "clothe",
+          "p1": "/kləʊð/",
+          "w2": "close",
+          "p2": "/kləʊz/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-fricative-05",
+    "symbol": "s",
+    "name": "清辅音 s",
+    "category": "consonant",
+    "subCategory": "fricative",
+    "subCategoryName": "摩擦音 (成对/单列)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "舌尖靠近上齿龈但不要贴住，气流通过狭缝剧烈摩擦发出“嘶”，声带不振动。",
+    "spellingRules": "s (sun, sit, see), ss (class), c (city, face)",
+    "words": [
+      {
+        "word": "sun",
+        "phonetic": "/sʌn/",
+        "trans": "太阳",
+        "audio": "sun.mp3"
+      },
+      {
+        "word": "see",
+        "phonetic": "/siː/",
+        "trans": "看见",
+        "audio": "see.mp3"
+      },
+      {
+        "word": "sit",
+        "phonetic": "/sɪt/",
+        "trans": "坐",
+        "audio": "sit.mp3"
+      },
+      {
+        "word": "city",
+        "phonetic": "/ˈsɪti/",
+        "trans": "城市",
+        "audio": "city.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "z",
+      "pairs": [
+        {
+          "w1": "sun",
+          "p1": "/sʌn/",
+          "w2": "zoo",
+          "p2": "/zuː/"
+        },
+        {
+          "w1": "peace",
+          "p1": "/piːs/",
+          "w2": "peas",
+          "p2": "/piːz/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-fricative-06",
+    "symbol": "z",
+    "name": "浊辅音 z",
+    "category": "consonant",
+    "subCategory": "fricative",
+    "subCategoryName": "摩擦音 (成对/单列)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "口型同 /s/，气流从齿龈缝隙摩擦喷出的同时声带振动，发如蜜蜂嗡嗡声。",
+    "spellingRules": "z (zoo, zero), s (is, easy, rose), zz (jazz)",
+    "words": [
+      {
+        "word": "zoo",
+        "phonetic": "/zuː/",
+        "trans": "动物园",
+        "audio": "zoo.mp3"
+      },
+      {
+        "word": "zero",
+        "phonetic": "/ˈzɪərəʊ/",
+        "trans": "零",
+        "audio": "zero.mp3"
+      },
+      {
+        "word": "easy",
+        "phonetic": "/ˈiːzi/",
+        "trans": "容易的",
+        "audio": "easy.mp3"
+      },
+      {
+        "word": "music",
+        "phonetic": "/ˈmjuːzɪk/",
+        "trans": "音乐",
+        "audio": "music.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "s",
+      "pairs": [
+        {
+          "w1": "zoo",
+          "p1": "/zuː/",
+          "w2": "Sue",
+          "p2": "/suː/"
+        },
+        {
+          "w1": "buzz",
+          "p1": "/bʌz/",
+          "w2": "bus",
+          "p2": "/bʌs/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-fricative-07",
+    "symbol": "ʃ",
+    "name": "清辅音 ʃ (卷唇清摩擦)",
+    "category": "consonant",
+    "subCategory": "fricative",
+    "subCategoryName": "摩擦音 (成对/单列)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "双唇向前突出微圆，舌尖抬向齿龈后部，气流挤出发出“嘘”声，声带不振动。",
+    "spellingRules": "sh (she, shoe, fish), ch (chef), ti (station), ci (special)",
+    "words": [
+      {
+        "word": "she",
+        "phonetic": "/ʃiː/",
+        "trans": "她",
+        "audio": "she.mp3"
+      },
+      {
+        "word": "shoe",
+        "phonetic": "/ʃuː/",
+        "trans": "鞋子",
+        "audio": "shoe.mp3"
+      },
+      {
+        "word": "fish",
+        "phonetic": "/fɪʃ/",
+        "trans": "鱼",
+        "audio": "fish.mp3"
+      },
+      {
+        "word": "shop",
+        "phonetic": "/ʃɒp/",
+        "trans": "商店",
+        "audio": "shop.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "s",
+      "pairs": [
+        {
+          "w1": "she",
+          "p1": "/ʃiː/",
+          "w2": "see",
+          "p2": "/siː/"
+        },
+        {
+          "w1": "ship",
+          "p1": "/ʃɪp/",
+          "w2": "sip",
+          "p2": "/sɪp/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-fricative-08",
+    "symbol": "ʒ",
+    "name": "浊辅音 ʒ (卷唇浊摩擦)",
+    "category": "consonant",
+    "subCategory": "fricative",
+    "subCategoryName": "摩擦音 (成对/单列)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "口型同 /ʃ/，双唇向前收圆突出，气流摩擦的同时声带剧烈振动。",
+    "spellingRules": "s (measure, pleasure, television), ge (mirage, rouge)",
+    "words": [
+      {
+        "word": "vision",
+        "phonetic": "/ˈvɪʒn/",
+        "trans": "视野/幻象",
+        "audio": "vision.mp3"
+      },
+      {
+        "word": "measure",
+        "phonetic": "/ˈmeʒə/",
+        "trans": "测量",
+        "audio": "measure.mp3"
+      },
+      {
+        "word": "pleasure",
+        "phonetic": "/ˈpleʒə/",
+        "trans": "愉快/乐事",
+        "audio": "pleasure.mp3"
+      },
+      {
+        "word": "television",
+        "phonetic": "/ˈtelɪvɪʒn/",
+        "trans": "电视",
+        "audio": "television.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ʃ",
+      "pairs": [
+        {
+          "w1": "measure",
+          "p1": "/ˈmeʒə/",
+          "w2": "pressure",
+          "p2": "/ˈpreʃə/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-fricative-09",
+    "symbol": "h",
+    "name": "清辅音 h (声门清摩擦音)",
+    "category": "consonant",
+    "subCategory": "fricative",
+    "subCategoryName": "摩擦音 (成对/单列)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "嘴自然微张，气流从声门不受阻碍地轻快呼出，像冬天哈气，声带不振动。",
+    "spellingRules": "h (hat, home, hand), wh (who, whose)",
+    "words": [
+      {
+        "word": "hat",
+        "phonetic": "/hæt/",
+        "trans": "帽子",
+        "audio": "hat.mp3"
+      },
+      {
+        "word": "home",
+        "phonetic": "/həʊm/",
+        "trans": "家",
+        "audio": "home.mp3"
+      },
+      {
+        "word": "hand",
+        "phonetic": "/hænd/",
+        "trans": "手",
+        "audio": "hand.mp3"
+      },
+      {
+        "word": "hear",
+        "phonetic": "/hɪə/",
+        "trans": "听见",
+        "audio": "hear.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "r",
+      "pairs": [
+        {
+          "w1": "hat",
+          "p1": "/hæt/",
+          "w2": "rat",
+          "p2": "/ræt/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-fricative-10",
+    "symbol": "r",
+    "name": "浊辅音 r (卷舌近音/摩擦)",
+    "category": "consonant",
+    "subCategory": "fricative",
+    "subCategoryName": "摩擦音 (成对/单列)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "舌尖向上卷起靠近齿龈后部，舌两侧贴住上臼齿，双唇微圆向前，声带振动。",
+    "spellingRules": "r (red, run, road), rr (sorry), wr (write, wrong)",
+    "words": [
+      {
+        "word": "red",
+        "phonetic": "/red/",
+        "trans": "红色",
+        "audio": "red.mp3"
+      },
+      {
+        "word": "run",
+        "phonetic": "/rʌn/",
+        "trans": "跑",
+        "audio": "run.mp3"
+      },
+      {
+        "word": "river",
+        "phonetic": "/ˈrɪvə/",
+        "trans": "河流",
+        "audio": "river.mp3"
+      },
+      {
+        "word": "rain",
+        "phonetic": "/reɪn/",
+        "trans": "雨",
+        "audio": "rain.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "l",
+      "pairs": [
+        {
+          "w1": "red",
+          "p1": "/red/",
+          "w2": "led",
+          "p2": "/led/"
+        },
+        {
+          "w1": "right",
+          "p1": "/raɪt/",
+          "w2": "light",
+          "p2": "/laɪt/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-affricate-01",
+    "symbol": "tʃ",
+    "name": "清辅音 tʃ",
+    "category": "consonant",
+    "subCategory": "affricate",
+    "subCategoryName": "破擦音 (成对)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "舌尖贴住上齿龈后部阻断气流，然后放开一条狭缝让气流摩擦喷出，像汉语“吃”，声带不振动。",
+    "spellingRules": "ch (chair, teacher), tch (catch, match), t (nature, picture)",
+    "words": [
+      {
+        "word": "chair",
+        "phonetic": "/tʃeə/",
+        "trans": "椅子",
+        "audio": "chair.mp3"
+      },
+      {
+        "word": "teacher",
+        "phonetic": "/ˈtiːtʃə/",
+        "trans": "老师",
+        "audio": "teacher.mp3"
+      },
+      {
+        "word": "cheese",
+        "phonetic": "/tʃiːz/",
+        "trans": "奶酪",
+        "audio": "cheese.mp3"
+      },
+      {
+        "word": "watch",
+        "phonetic": "/wɒtʃ/",
+        "trans": "手表/看",
+        "audio": "watch.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "dʒ",
+      "pairs": [
+        {
+          "w1": "cheer",
+          "p1": "/tʃɪə/",
+          "w2": "jeer",
+          "p2": "/dʒɪə/"
+        },
+        {
+          "w1": "choke",
+          "p1": "/tʃəʊk/",
+          "w2": "joke",
+          "p2": "/dʒəʊk/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-affricate-02",
+    "symbol": "dʒ",
+    "name": "浊辅音 dʒ",
+    "category": "consonant",
+    "subCategory": "affricate",
+    "subCategoryName": "破擦音 (成对)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "发音动作同 /tʃ/，先爆破后摩擦，同时声带剧烈振动，类似于汉语“知/之”。",
+    "spellingRules": "j (job, joy, jump), g (general, age), ge/dge (bridge, page)",
+    "words": [
+      {
+        "word": "job",
+        "phonetic": "/dʒɒb/",
+        "trans": "工作",
+        "audio": "job.mp3"
+      },
+      {
+        "word": "jump",
+        "phonetic": "/dʒʌmp/",
+        "trans": "跳跃",
+        "audio": "jump.mp3"
+      },
+      {
+        "word": "orange",
+        "phonetic": "/ˈɒrɪndʒ/",
+        "trans": "橙子",
+        "audio": "orange.mp3"
+      },
+      {
+        "word": "bridge",
+        "phonetic": "/brɪdʒ/",
+        "trans": "桥",
+        "audio": "bridge.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "tʃ",
+      "pairs": [
+        {
+          "w1": "joke",
+          "p1": "/dʒəʊk/",
+          "w2": "choke",
+          "p2": "/tʃəʊk/"
+        },
+        {
+          "w1": "gin",
+          "p1": "/dʒɪn/",
+          "w2": "chin",
+          "p2": "/tʃɪn/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-affricate-03",
+    "symbol": "tr",
+    "name": "清辅音 tr",
+    "category": "consonant",
+    "subCategory": "affricate",
+    "subCategoryName": "破擦音 (成对)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "舌尖贴住上齿龈后部，舌身呈凹形，双唇向前突出，气流冲开舌尖并摩擦，声带不振动（类似“戳”）。",
+    "spellingRules": "tr (tree, train, trip, travel, truck)",
+    "words": [
+      {
+        "word": "tree",
+        "phonetic": "/triː/",
+        "trans": "树",
+        "audio": "tree.mp3"
+      },
+      {
+        "word": "train",
+        "phonetic": "/treɪn/",
+        "trans": "火车",
+        "audio": "train.mp3"
+      },
+      {
+        "word": "trip",
+        "phonetic": "/trɪp/",
+        "trans": "旅行",
+        "audio": "trip.mp3"
+      },
+      {
+        "word": "true",
+        "phonetic": "/truː/",
+        "trans": "真的",
+        "audio": "true.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "dr",
+      "pairs": [
+        {
+          "w1": "tree",
+          "p1": "/triː/",
+          "w2": "dream",
+          "p2": "/driːm/"
+        },
+        {
+          "w1": "train",
+          "p1": "/treɪn/",
+          "w2": "drain",
+          "p2": "/dreɪn/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-affricate-04",
+    "symbol": "dr",
+    "name": "浊辅音 dr",
+    "category": "consonant",
+    "subCategory": "affricate",
+    "subCategoryName": "破擦音 (成对)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "发音动作同 /tr/，双唇向前收圆突出，气流冲破阻碍的同时声带振动（类似“桌”）。",
+    "spellingRules": "dr (dream, dress, drink, drive, driver)",
+    "words": [
+      {
+        "word": "dream",
+        "phonetic": "/driːm/",
+        "trans": "梦想",
+        "audio": "dream.mp3"
+      },
+      {
+        "word": "dress",
+        "phonetic": "/dres/",
+        "trans": "连衣裙",
+        "audio": "dress.mp3"
+      },
+      {
+        "word": "drink",
+        "phonetic": "/drɪŋk/",
+        "trans": "喝",
+        "audio": "drink.mp3"
+      },
+      {
+        "word": "drive",
+        "phonetic": "/draɪv/",
+        "trans": "驾驶",
+        "audio": "drive.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "tr",
+      "pairs": [
+        {
+          "w1": "drain",
+          "p1": "/dreɪn/",
+          "w2": "train",
+          "p2": "/treɪn/"
+        },
+        {
+          "w1": "dry",
+          "p1": "/draɪ/",
+          "w2": "try",
+          "p2": "/traɪ/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-affricate-05",
+    "symbol": "ts",
+    "name": "清辅音 ts",
+    "category": "consonant",
+    "subCategory": "affricate",
+    "subCategoryName": "破擦音 (成对)",
+    "type": "清辅音",
+    "voicing": "声带不振动",
+    "tips": "舌尖抵住上齿龈阻断气流，然后微开一条缝隙让气流摩擦喷出，像汉语“呲”，声带不振动。",
+    "spellingRules": "ts (cats, hats, seats), tes (kites)",
+    "words": [
+      {
+        "word": "cats",
+        "phonetic": "/kæts/",
+        "trans": "猫(复数)",
+        "audio": "cats.mp3"
+      },
+      {
+        "word": "hats",
+        "phonetic": "/hæts/",
+        "trans": "帽子(复数)",
+        "audio": "hats.mp3"
+      },
+      {
+        "word": "seats",
+        "phonetic": "/siːts/",
+        "trans": "座位(复数)",
+        "audio": "seats.mp3"
+      },
+      {
+        "word": "boats",
+        "phonetic": "/bəʊts/",
+        "trans": "船(复数)",
+        "audio": "boats.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "dz",
+      "pairs": [
+        {
+          "w1": "cats",
+          "p1": "/kæts/",
+          "w2": "cards",
+          "p2": "/kɑːdz/"
+        },
+        {
+          "w1": "coats",
+          "p1": "/kəʊts/",
+          "w2": "codes",
+          "p2": "/kəʊdz/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-affricate-06",
+    "symbol": "dz",
+    "name": "浊辅音 dz",
+    "category": "consonant",
+    "subCategory": "affricate",
+    "subCategoryName": "破擦音 (成对)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "发音动作同 /ts/，气流冲开舌齿隙摩擦的同时声带强烈振动，像汉语“子”。",
+    "spellingRules": "ds (birds, cards, beds), des (rides)",
+    "words": [
+      {
+        "word": "birds",
+        "phonetic": "/bɜːdz/",
+        "trans": "鸟(复数)",
+        "audio": "birds.mp3"
+      },
+      {
+        "word": "beds",
+        "phonetic": "/bedz/",
+        "trans": "床(复数)",
+        "audio": "beds.mp3"
+      },
+      {
+        "word": "cards",
+        "phonetic": "/kɑːdz/",
+        "trans": "卡片(复数)",
+        "audio": "cards.mp3"
+      },
+      {
+        "word": "hands",
+        "phonetic": "/hændz/",
+        "trans": "手(复数)",
+        "audio": "hands.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ts",
+      "pairs": [
+        {
+          "w1": "cards",
+          "p1": "/kɑːdz/",
+          "w2": "cats",
+          "p2": "/kæts/"
+        },
+        {
+          "w1": "beds",
+          "p1": "/bedz/",
+          "w2": "bets",
+          "p2": "/bets/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-nasal-01",
+    "symbol": "m",
+    "name": "浊辅音 m (双唇鼻音)",
+    "category": "consonant",
+    "subCategory": "nasal",
+    "subCategoryName": "鼻音 (独立)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "双唇紧闭，软腭下垂堵住口腔，气流由鼻腔透出，声带振动发“姆”。",
+    "spellingRules": "m (map, moon, man), mm (summer), mb (climb, thumb)",
+    "words": [
+      {
+        "word": "map",
+        "phonetic": "/mæp/",
+        "trans": "地图",
+        "audio": "map.mp3"
+      },
+      {
+        "word": "moon",
+        "phonetic": "/muːn/",
+        "trans": "月亮",
+        "audio": "moon.mp3"
+      },
+      {
+        "word": "time",
+        "phonetic": "/taɪm/",
+        "trans": "时间",
+        "audio": "time.mp3"
+      },
+      {
+        "word": "milk",
+        "phonetic": "/mɪlk/",
+        "trans": "牛奶",
+        "audio": "milk.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "n",
+      "pairs": [
+        {
+          "w1": "some",
+          "p1": "/sʌm/",
+          "w2": "sun",
+          "p2": "/sʌn/"
+        },
+        {
+          "w1": "mouse",
+          "p1": "/maʊs/",
+          "w2": "nice",
+          "p2": "/naɪs/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-nasal-02",
+    "symbol": "n",
+    "name": "浊辅音 n (齿龈鼻音)",
+    "category": "consonant",
+    "subCategory": "nasal",
+    "subCategoryName": "鼻音 (独立)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "舌尖紧贴上齿龈封锁口腔，气流从鼻腔透出，声带振动发“嗯”。",
+    "spellingRules": "n (nut, sun, pen, name), nn (dinner), kn (know, knee)",
+    "words": [
+      {
+        "word": "nut",
+        "phonetic": "/nʌt/",
+        "trans": "坚果",
+        "audio": "nut.mp3"
+      },
+      {
+        "word": "sun",
+        "phonetic": "/sʌn/",
+        "trans": "太阳",
+        "audio": "sun.mp3"
+      },
+      {
+        "word": "pen",
+        "phonetic": "/pen/",
+        "trans": "钢笔",
+        "audio": "pen.mp3"
+      },
+      {
+        "word": "name",
+        "phonetic": "/neɪm/",
+        "trans": "名字",
+        "audio": "name.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "ŋ",
+      "pairs": [
+        {
+          "w1": "sin",
+          "p1": "/sɪn/",
+          "w2": "sing",
+          "p2": "/sɪŋ/"
+        },
+        {
+          "w1": "thin",
+          "p1": "/θɪn/",
+          "w2": "thing",
+          "p2": "/θɪŋ/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-nasal-03",
+    "symbol": "ŋ",
+    "name": "浊辅音 ŋ (后鼻音)",
+    "category": "consonant",
+    "subCategory": "nasal",
+    "subCategoryName": "鼻音 (独立)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "舌后部抬起贴住软腭阻塞口腔，气流完全从鼻腔通过，声带振动。",
+    "spellingRules": "ng (sing, ring, English, long), nk (think, thank, bank)",
+    "words": [
+      {
+        "word": "sing",
+        "phonetic": "/sɪŋ/",
+        "trans": "唱歌",
+        "audio": "sing.mp3"
+      },
+      {
+        "word": "ring",
+        "phonetic": "/rɪŋ/",
+        "trans": "戒指/铃声",
+        "audio": "ring.mp3"
+      },
+      {
+        "word": "think",
+        "phonetic": "/θɪŋk/",
+        "trans": "思考",
+        "audio": "think.mp3"
+      },
+      {
+        "word": "long",
+        "phonetic": "/lɒŋ/",
+        "trans": "长的",
+        "audio": "long.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "n",
+      "pairs": [
+        {
+          "w1": "sing",
+          "p1": "/sɪŋ/",
+          "w2": "sin",
+          "p2": "/sɪn/"
+        },
+        {
+          "w1": "wing",
+          "p1": "/wɪŋ/",
+          "w2": "win",
+          "p2": "/wɪn/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-lateral-01",
+    "symbol": "l",
+    "name": "浊辅音 l (舌侧音/边音)",
+    "category": "consonant",
+    "subCategory": "lateral",
+    "subCategoryName": "边音 (独立)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "清晰音(词首/元音前): 舌尖抵上齿龈，气流从舌两侧流出；暗音(词尾/辅音前): 舌后部微抬呈勺状，发含糊的“欧”音。",
+    "spellingRules": "l (light, love, blue), ll (ball, call, tall)",
+    "words": [
+      {
+        "word": "light",
+        "phonetic": "/laɪt/",
+        "trans": "光/轻的",
+        "audio": "light.mp3"
+      },
+      {
+        "word": "ball",
+        "phonetic": "/bɔːl/",
+        "trans": "球",
+        "audio": "ball.mp3"
+      },
+      {
+        "word": "love",
+        "phonetic": "/lʌv/",
+        "trans": "爱",
+        "audio": "love.mp3"
+      },
+      {
+        "word": "milk",
+        "phonetic": "/mɪlk/",
+        "trans": "牛奶",
+        "audio": "milk.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "r",
+      "pairs": [
+        {
+          "w1": "light",
+          "p1": "/laɪt/",
+          "w2": "right",
+          "p2": "/raɪt/"
+        },
+        {
+          "w1": "fly",
+          "p1": "/flaɪ/",
+          "w2": "fry",
+          "p2": "/fraɪ/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-semivowel-01",
+    "symbol": "w",
+    "name": "浊辅音 w (圆唇半元音)",
+    "category": "consonant",
+    "subCategory": "semivowel",
+    "subCategoryName": "半元音 (独立)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "双唇收圆向前突出呈小孔状，舌后部大幅抬起，随后迅速滑向后面的元音，声带振动。",
+    "spellingRules": "w (water, watch, we), wh (what, where, when)",
+    "words": [
+      {
+        "word": "water",
+        "phonetic": "/ˈwɔːtə/",
+        "trans": "水",
+        "audio": "water.mp3"
+      },
+      {
+        "word": "watch",
+        "phonetic": "/wɒtʃ/",
+        "trans": "手表/看",
+        "audio": "watch.mp3"
+      },
+      {
+        "word": "we",
+        "phonetic": "/wiː/",
+        "trans": "我们",
+        "audio": "we.mp3"
+      },
+      {
+        "word": "work",
+        "phonetic": "/wɜːk/",
+        "trans": "工作",
+        "audio": "work.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "v",
+      "pairs": [
+        {
+          "w1": "wet",
+          "p1": "/wet/",
+          "w2": "vet",
+          "p2": "/vet/"
+        },
+        {
+          "w1": "west",
+          "p1": "/west/",
+          "w2": "vest",
+          "p2": "/vest/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c-semivowel-02",
+    "symbol": "j",
+    "name": "浊辅音 j (硬腭半元音)",
+    "category": "consonant",
+    "subCategory": "semivowel",
+    "subCategoryName": "半元音 (独立)",
+    "type": "浊辅音",
+    "voicing": "声带振动",
+    "tips": "舌前部向硬腭抬起，口型微扁，随后迅速滑向紧随其后的元音，声带振动（类似汉语“爷/耶”）。",
+    "spellingRules": "y (yes, you, young, yellow), u/ew (music, view)",
+    "words": [
+      {
+        "word": "yes",
+        "phonetic": "/jes/",
+        "trans": "是的",
+        "audio": "yes.mp3"
+      },
+      {
+        "word": "you",
+        "phonetic": "/juː/",
+        "trans": "你/你们",
+        "audio": "you.mp3"
+      },
+      {
+        "word": "young",
+        "phonetic": "/jʌŋ/",
+        "trans": "年轻的",
+        "audio": "young.mp3"
+      },
+      {
+        "word": "yellow",
+        "phonetic": "/ˈjeləʊ/",
+        "trans": "黄色",
+        "audio": "yellow.mp3"
+      }
+    ],
+    "contrast": {
+      "target": "dʒ",
+      "pairs": [
+        {
+          "w1": "yet",
+          "p1": "/jet/",
+          "w2": "jet",
+          "p2": "/dʒet/"
+        },
+        {
+          "w1": "year",
+          "p1": "/jɪə/",
+          "w2": "jeer",
+          "p2": "/dʒɪə/"
+        }
+      ]
+    }
+  }
+]

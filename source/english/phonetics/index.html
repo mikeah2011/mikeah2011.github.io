@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>48个国际音标学习 - Michael's Blog</title>
+  <meta name="description" content="48个英语国际音标（IPA）发音、代表单词、口型要领、发音对比与点读练习。">
+  <link rel="stylesheet" href="../side-by-side-1/assets/styles.css?v=4.1">
+  <script src="/assets/site-config.js"></script>
+  <script src="../side-by-side-1/assets/site-stats.js" defer></script>
+  <script src="../side-by-side-1/assets/script.js?v=4.2" defer></script>
+  <style>
+    /* 48 Phonetics Specific Styles */
+    .phonetics-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .phonetics-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .phonetics-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .phonetics-tab-btn {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .phonetics-tab-btn:hover {
+      color: var(--text-accent);
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+    }
+    .phonetics-tab-btn.active {
+      color: #fff;
+      background: var(--aurora-blue);
+      border-color: var(--aurora-blue);
+      box-shadow: 0 4px 12px rgba(0, 112, 243, 0.3);
+    }
+    .phonetics-stats-pill {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .phonetics-section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 1.5rem 0 0.85rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-title);
+    }
+    .phonetics-section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: var(--aurora-blue);
+      border-radius: 2px;
+    }
+    .phonetics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.15rem;
+    }
+    .phonetic-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .phonetic-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-hover);
+    }
+    .phonetic-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    .phonetic-symbol-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .phonetic-symbol-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 3.2rem;
+      padding: 0.25rem 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-accent);
+      background: var(--bg-pill);
+      border: 1px solid rgba(0, 112, 243, 0.2);
+      border-radius: 0.65rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .phonetic-symbol-btn:hover {
+      background: var(--aurora-blue);
+      color: #fff;
+      transform: scale(1.05);
+    }
+    .phonetic-tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 1rem;
+      background: var(--bg-card-alt);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    .phonetic-tag.voiced {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      border-color: rgba(16, 185, 129, 0.2);
+    }
+    .phonetic-tag.voiceless {
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+      border-color: rgba(245, 158, 11, 0.2);
+    }
+    .phonetic-tips {
+      font-size: 0.85rem;
+      color: var(--text-body);
+      line-height: 1.5;
+      margin-bottom: 0.85rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--bg-quote);
+      border-radius: 0.5rem;
+      border-left: 3px solid var(--aurora-blue);
+    }
+    .phonetic-spelling {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+    }
+    .phonetic-spelling strong {
+      color: var(--text-body);
+    }
+    .phonetic-words-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+    .phonetic-word-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 0.6rem;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-subtle);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .phonetic-word-item:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+    }
+    .phonetic-word-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .phonetic-word-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-title);
+    }
+    .phonetic-word-ipa {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+    .phonetic-word-trans {
+      font-size: 0.72rem;
+      color: var(--text-accent);
+    }
+    .phonetic-contrast-box {
+      margin-top: 0.75rem;
+      padding-top: 0.65rem;
+      border-top: 1px dashed var(--border);
+      font-size: 0.78rem;
+    }
+    .phonetic-contrast-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .phonetic-contrast-pairs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .phonetic-contrast-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-page);
+      padding: 0.3rem 0.5rem;
+      border-radius: 0.4rem;
+    }
+    .contrast-word-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-body);
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .contrast-word-btn:hover {
+      color: var(--text-accent);
+    }
+    .contrast-vs {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 640px) {
+      .phonetics-grid {
+        grid-template-columns: 1fr;
+      }
+      .phonetics-filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header"></header>
+  <main>
+    <section class="hero">
+      <p>PHONETICS</p>
+      <h2>48个国际音标学习</h2>
+      <div>掌握英语纯正发音基石。支持元音/辅音分类点读、口型舌位要领、常见字母拼读规则及易混音标对比练习。</div>
+    </section>
+
+    <div class="phonetics-wrapper">
+      <div class="phonetics-filter-bar">
+        <div class="phonetics-tabs" id="phonetics-tabs">
+          <button type="button" class="phonetics-tab-btn active" data-filter="all">全部 (48)</button>
+          <button type="button" class="phonetics-tab-btn" data-filter="vowel">🎵 元音 (20)</button>
+          <button type="button" class="phonetics-tab-btn" data-filter="long-vowel">长元音 (5)</button>
+          <button type="button" class="phonetics-tab-btn" data-filter="short-vowel">短元音 (7)</button>
+          <button type="button" class="phonetics-tab-btn" data-filter="double-vowel">双元音 (8)</button>
+          <button type="button" class="phonetics-tab-btn" data-filter="consonant">🗣️ 辅音 (28)</button>
+          <button type="button" class="phonetics-tab-btn" data-filter="plosive">爆破音 (6)</button>
+          <button type="button" class="phonetics-tab-btn" data-filter="fricative">摩擦音 (10)</button>
+          <button type="button" class="phonetics-tab-btn" data-filter="affricate">破擦音 (6)</button>
+          <button type="button" class="phonetics-tab-btn" data-filter="independent">鼻音/边音/半元音 (6)</button>
+        </div>
+        <span class="phonetics-stats-pill" id="phonetics-stats">共 48 个音标</span>
+      </div>
+
+      <div id="phonetics-container">
+        <!-- Javascript renders categories and cards here -->
+      </div>
+    </div>
+
+    <audio id="voice-file" preload="none"><source id="audioSource" src=""></audio>
+  </main>
+  <footer></footer>
+
+  <script>
+    // Load phonetics dataset directly
+    let phoneticsList = [];
+
+    async function loadPhoneticsData() {
+      try {
+        const res = await fetch("phonetics-data.json?v=1.0");
+        if (!res.ok) throw new Error("Network response was not ok");
+        phoneticsList = await res.json();
+        renderPhonetics("all");
+      } catch (e) {
+        console.error("Failed to load phonetics JSON:", e);
+      }
+    }
+
+    function renderPhonetics(filter) {
+      const container = document.getElementById("phonetics-container");
+      if (!container) return;
+
+      let filtered = phoneticsList;
+      if (filter === "vowel") {
+        filtered = phoneticsList.filter(item => item.category === "vowel");
+      } else if (filter === "consonant") {
+        filtered = phoneticsList.filter(item => item.category === "consonant");
+      } else if (filter === "long-vowel" || filter === "short-vowel" || filter === "double-vowel") {
+        filtered = phoneticsList.filter(item => item.subCategory === filter);
+      } else if (filter === "plosive" || filter === "fricative" || filter === "affricate") {
+        filtered = phoneticsList.filter(item => item.subCategory === filter);
+      } else if (filter === "independent") {
+        filtered = phoneticsList.filter(item => ["nasal", "lateral", "semivowel"].includes(item.subCategory));
+      }
+
+      document.getElementById("phonetics-stats").textContent = `显示 ${filtered.length} 个音标`;
+
+      // Group by subCategoryName
+      const groups = {};
+      filtered.forEach(item => {
+        const groupName = item.subCategoryName || "音标分类";
+        if (!groups[groupName]) groups[groupName] = [];
+        groups[groupName].push(item);
+      });
+
+      let html = "";
+      for (const [groupName, items] of Object.entries(groups)) {
+        html += `
+          <div class="phonetics-section">
+            <h3 class="phonetics-section-title">${groupName} (${items.length})</h3>
+            <div class="phonetics-grid">
+              ${items.map(item => renderPhoneticCard(item)).join("")}
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    function renderPhoneticCard(item) {
+      const isVoiced = item.voicing.includes("振动") && !item.voicing.includes("不振动");
+      const voicingBadge = `<span class="phonetic-tag ${isVoiced ? 'voiced' : 'voiceless'}">${item.type} · ${item.voicing}</span>`;
+      
+      const wordsHtml = item.words.map(w => `
+        <div class="phonetic-word-item" onclick="playWordSound('${w.word}', this)" title="点击发音: ${w.word}">
+          <div class="phonetic-word-left">
+            <span class="phonetic-word-name">${w.word}</span>
+            <span class="phonetic-word-ipa">${w.phonetic}</span>
+          </div>
+          <span class="phonetic-word-trans">${w.trans}</span>
+        </div>
+      `).join("");
+
+      let contrastHtml = "";
+      if (item.contrast && item.contrast.pairs && item.contrast.pairs.length > 0) {
+        contrastHtml = `
+          <div class="phonetic-contrast-box">
+            <div class="phonetic-contrast-header">
+              <span>易混对比 (${item.symbol} vs /${item.contrast.target}/)</span>
+            </div>
+            <div class="phonetic-contrast-pairs">
+              ${item.contrast.pairs.map(p => `
+                <div class="phonetic-contrast-row">
+                  <button type="button" class="contrast-word-btn" onclick="playWordSound('${p.w1}', this)">${p.w1} <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);">${p.p1}</span></button>
+                  <span class="contrast-vs">vs</span>
+                  <button type="button" class="contrast-word-btn" onclick="playWordSound('${p.w2}', this)">${p.w2} <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);">${p.p2}</span></button>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="phonetic-card">
+          <div class="phonetic-card-header">
+            <div class="phonetic-symbol-badge">
+              <button type="button" class="phonetic-symbol-btn" onclick="playPhoneticSound('${item.words[0].word}', '${item.symbol}', this)" title="点击播放示范词发音">
+                /${item.symbol}/
+              </button>
+            </div>
+            ${voicingBadge}
+          </div>
+          <div class="phonetic-tips">
+            <strong>发音要领：</strong>${item.tips}
+          </div>
+          <div class="phonetic-spelling">
+            <strong>字母组合：</strong>${item.spellingRules}
+          </div>
+          <div class="phonetic-words-list">
+            ${wordsHtml}
+          </div>
+          ${contrastHtml}
+        </div>
+      `;
+    }
+
+    function playWordSound(word, trigger) {
+      const audioPath = `audio/${word.toLowerCase()}.mp3`;
+      if (window.playAudioTrack) {
+        window.playAudioTrack(audioPath, trigger);
+      } else {
+        const audio = document.getElementById("voice-file");
+        if (audio) {
+          audio.src = audioPath;
+          audio.play().catch(() => {
+            if (window.speechSynthesis) {
+              const utter = new SpeechSynthesisUtterance(word);
+              utter.lang = "en-US";
+              window.speechSynthesis.speak(utter);
+            }
+          });
+        }
+      }
+    }
+
+    function playPhoneticSound(firstWord, symbol, trigger) {
+      // 优先播放代表词示范
+      playWordSound(firstWord, trigger);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadPhoneticsData();
+
+      // Setup filter tabs
+      const tabs = document.getElementById("phonetics-tabs");
+      if (tabs) {
+        tabs.addEventListener("click", (e) => {
+          const btn = e.target.closest(".phonetics-tab-btn");
+          if (!btn) return;
+          tabs.querySelectorAll(".phonetics-tab-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.dataset.filter;
+          renderPhonetics(filter);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1549,6 +1549,7 @@ function enhanceHeader() {
   if (!header) return;
 
   const isDirectoryPage = window.location.pathname.endsWith("/side-by-side-1/") || window.location.pathname.endsWith("/side-by-side-1/index.html");
+  const isPhoneticsPage = window.location.pathname.startsWith("/english/phonetics");
   const isWordsPage = window.location.pathname.startsWith("/english/words");
   const isTranslationPage = window.location.pathname.startsWith("/english/translate");
 
@@ -1559,13 +1560,14 @@ function enhanceHeader() {
       </a>
       <div class="site-brand-text">
         <a href="/" class="site-brand-title">Michael's Blog</a>
-        <span class="site-brand-sub">${isWordsPage ? "英语学习 · 查询生词" : isTranslationPage ? "英语学习 · 中英翻译" : "英语学习 · Side by Side 1"}</span>
+        <span class="site-brand-sub">${isPhoneticsPage ? "英语学习 · 48个音标" : isWordsPage ? "英语学习 · 查询生词" : isTranslationPage ? "英语学习 · 中英翻译" : "英语学习 · Side by Side 1"}</span>
       </div>
     </div>
     <div class="site-header-controls">
       <nav id="site-header-nav" class="site-header-nav" aria-label="主导航">
         <a href="/" class="site-nav-link">博客首页</a>
         <a href="/english/side-by-side-1/" class="site-nav-link ${isDirectoryPage ? "active" : ""}">课程目录</a>
+        <a href="/english/phonetics/" class="site-nav-link ${isPhoneticsPage ? "active" : ""}">48音标</a>
         <a href="/english/words/" class="site-nav-link ${isWordsPage ? "active" : ""}">查询生词</a>
         <a href="/english/translate/" class="site-nav-link ${isTranslationPage ? "active" : ""}">中英翻译</a>
         <a href="/cv/?to=michael's-blog" class="site-nav-link">简历</a>
