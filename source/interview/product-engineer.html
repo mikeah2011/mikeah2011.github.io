@@ -3,23 +3,66 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <meta name="description" content="馬成軍應徵 Product Engineer 職缺補充說明：Maestro 多機器人程式碼審查收斂、問題定位與 AI 開發實務。">
   <title>Product Engineer 職缺補充說明｜馬成軍</title>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("product-engineer-theme");
+      if (savedTheme === "light" || savedTheme === "dark") document.documentElement.dataset.theme = savedTheme;
+      if (savedTheme === "system") document.documentElement.dataset.themeMode = "system";
+    } catch (error) {
+      console.warn("Unable to load the saved theme preference.", error);
+    }
+  </script>
   <style>
     :root {
       color-scheme: light;
-      --ink: #202b27;
-      --muted: #5c6861;
-      --line: #d8d5ca;
-      --accent: #235d4a;
-      --accent-dark: #193d32;
-      --warm: #bd6c3e;
-      --paper: #fbfaf6;
-      --wash: #f1f0e9;
+      --ink: #1a2b33;
+      --muted: #5c6f77;
+      --line: #dce3e4;
+      --accent: #0e7c86;
+      --accent-dark: #0e7c86;
+      --warm: #0e7c86;
+      --paper: #fcfcfa;
+      --surface: #fff;
+      --wash: #eef2f2;
+      --accent-dim: #0e7c8614;
+      --shadow: 0 1px 2px #1a2b3310, 0 6px 18px -10px #1a2b3326;
       --text-body: 16px;
       --text-heading: 20px;
       --text-support: 13px;
       --text-label: 12px;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #e4ecee;
+      --muted: #93a5ac;
+      --line: #2b3a40;
+      --accent: #4fc3cc;
+      --accent-dark: #4fc3cc;
+      --warm: #4fc3cc;
+      --paper: #131c20;
+      --surface: #182429;
+      --wash: #1e2c32;
+      --accent-dim: #4fc3cc1a;
+      --shadow: 0 1px 2px #0006, 0 6px 18px -10px #0009;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]):not([data-theme="dark"]) {
+        color-scheme: dark;
+        --ink: #e4ecee;
+        --muted: #93a5ac;
+        --line: #2b3a40;
+        --accent: #4fc3cc;
+        --accent-dark: #4fc3cc;
+        --warm: #4fc3cc;
+        --paper: #131c20;
+        --surface: #182429;
+        --wash: #1e2c32;
+        --accent-dim: #4fc3cc1a;
+        --shadow: 0 1px 2px #0006, 0 6px 18px -10px #0009;
+      }
     }
     * { box-sizing: border-box; }
     body {
@@ -36,7 +79,7 @@
     .subtitle, .meta { color: var(--muted); font-size: var(--text-support); }
     h2 { margin: 25px 0 9px; font-size: var(--text-heading); line-height: 1.4; letter-spacing: -.02em; }
     p { margin: 7px 0; }
-    .lead { padding: 10px 13px; border-left: 3px solid var(--warm); background: #fff; line-height: 1.55; }
+    .lead { padding: 10px 13px; border-left: 3px solid var(--warm); background: var(--surface); line-height: 1.55; }
     a { color: var(--accent); text-underline-offset: 3px; }
     .section-kicker { color: var(--warm); font: 700 var(--text-label)/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
     .architecture {
@@ -48,17 +91,17 @@
       margin: 12px 0 15px;
       border: 1px solid var(--line);
       border-radius: 12px;
-      background: #fff;
+      background: var(--surface);
     }
     .arch-node { align-self: center; padding: 12px; border-radius: 8px; background: var(--wash); }
     .arch-node strong, .arch-node span { display: block; }
     .arch-node strong { color: var(--accent-dark); font-size: var(--text-support); }
     .arch-node span { color: var(--muted); font-size: var(--text-label); line-height: 1.45; }
     .arrow { align-self: center; color: var(--warm); font-size: 20px; font-weight: 700; text-align: center; }
-    .orchestrator { padding: 12px; border: 1px solid #b8c9bd; border-radius: 9px; background: #f5f8f4; }
+    .orchestrator { padding: 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--wash); }
     .orchestrator-title { margin-bottom: 7px; color: var(--accent-dark); font-size: var(--text-support); font-weight: 800; }
     .modules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; }
-    .module { padding: 6px 7px; border: 1px solid #dfe7df; border-radius: 6px; background: #fff; font-size: var(--text-label); line-height: 1.4; }
+    .module { padding: 6px 7px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); font-size: var(--text-label); line-height: 1.4; }
     .module b { color: var(--accent); }
     .crosscutting { grid-column: 1 / -1; padding-top: 8px; color: var(--muted); font-size: var(--text-label); line-height: 1.55; }
     .support {
@@ -68,11 +111,11 @@
       gap: 6px 14px;
       padding: 8px 11px;
       border-radius: 7px;
-      background: var(--accent-dark);
-      color: #f6f5ee;
+      background: var(--accent-dim);
+      color: var(--ink);
       font-size: var(--text-label);
     }
-    .support b { color: #e9b38e; }
+    .support b { color: var(--accent); }
     .flow {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -89,7 +132,7 @@
       padding: 10px 12px 10px 39px;
       border: 1px solid var(--line);
       border-radius: 9px;
-      background: #fff;
+      background: var(--surface);
       counter-increment: flow;
       font-size: var(--text-support);
       line-height: 1.45;
@@ -144,12 +187,12 @@
       gap: 10px;
       padding: 8px 11px;
       border-radius: 7px;
-      background: var(--accent-dark);
-      color: #f6f5ee;
+      background: var(--accent-dim);
+      color: var(--ink);
       font-size: var(--text-label);
       line-height: 1.45;
     }
-    .flow-return strong { color: #e9b38e; }
+    .flow-return strong { color: var(--accent); }
     .dedup-flow {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr) 18px minmax(0, 1fr);
@@ -161,7 +204,7 @@
       padding: 8px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: #fff;
+      background: var(--surface);
       font-size: var(--text-label);
       line-height: 1.45;
     }
@@ -187,6 +230,13 @@
     .prompt { font-size: var(--text-support); }
     .result { color: var(--accent-dark); font-weight: 700; }
     .resource-dock {
+      --dock-ink: var(--ink);
+      --dock-muted: var(--muted);
+      --dock-paper: var(--paper);
+      --dock-surface: var(--surface);
+      --dock-line: var(--line);
+      --dock-accent: var(--accent);
+      --dock-shadow: var(--shadow);
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
@@ -198,37 +248,216 @@
       flex-direction: column;
       gap: 3px;
       padding: 10px 12px;
-      border: 1px solid var(--line);
+      border: 1px solid var(--dock-line);
       border-radius: 9px;
-      background: #fff;
-      color: var(--accent-dark);
+      background: var(--dock-surface);
+      color: var(--dock-ink);
       text-decoration: none;
       transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
     }
     .resource-link:hover {
-      border-color: #9eb4a5;
-      box-shadow: 0 5px 16px rgba(25, 61, 50, .09);
+      border-color: var(--dock-accent);
+      box-shadow: var(--dock-shadow);
       transform: translateY(-1px);
     }
-    .resource-link:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
+    .resource-link:focus-visible, .back-to-top:focus-visible, .theme-control:focus-visible { outline: 2px solid var(--dock-accent); outline-offset: 3px; }
     .resource-link strong { font-size: var(--text-support); line-height: 1.35; }
-    .resource-link small { color: var(--muted); font-size: var(--text-label); line-height: 1.35; }
+    .resource-link small { color: var(--dock-muted); font-size: var(--text-label); line-height: 1.35; }
+    .resource-link svg { display: none; }
+    .theme-control {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 10px;
+      border: 1px solid var(--dock-line);
+      border-radius: 9px;
+      background: var(--dock-surface);
+      color: var(--dock-ink);
+      font: inherit;
+      font-size: var(--text-support);
+      cursor: pointer;
+      text-align: left;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+    }
+    .theme-icon { display: none; color: var(--dock-accent); }
+    .theme-icon svg { display: block; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+    .theme-control[data-mode="system"] .icon-system,
+    .theme-control[data-mode="light"] .icon-light,
+    .theme-control[data-mode="dark"] .icon-dark { display: grid; }
+    .back-to-top svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+    .resource-copy { display: contents; }
+    .reading-progress { display: none; }
+    .back-to-top {
+      position: fixed;
+      z-index: 50;
+      right: 16px;
+      bottom: 16px;
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      padding: 0;
+      border: 1px solid var(--dock-line);
+      border-radius: 50%;
+      background: var(--dock-surface);
+      color: var(--dock-accent);
+      box-shadow: var(--dock-shadow);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+      visibility: hidden;
+    }
+    .resource-dock.is-scrolled .back-to-top {
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+      visibility: visible;
+    }
     @media (min-width: 1260px) {
       .resource-dock {
         position: fixed;
         z-index: 10;
-        top: 50%;
-        right: 10px;
-        width: 160px;
-        grid-template-columns: 1fr;
+        right: clamp(14px, 3vw, 30px);
+        bottom: clamp(14px, 3vw, 30px);
+        display: flex;
+        width: auto;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
         margin: 0;
-        padding: 7px;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        background: rgba(251, 250, 246, .96);
-        box-shadow: 0 10px 28px rgba(32, 43, 39, .1);
-        transform: translateY(-50%);
+        padding: 0;
+        border: 0;
+        background: transparent;
       }
+      .resource-link, .back-to-top {
+        position: relative;
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        padding: 0;
+        border: 1px solid var(--dock-line);
+        border-radius: 50%;
+        background: var(--dock-surface);
+        color: var(--dock-accent);
+        box-shadow: var(--dock-shadow);
+        cursor: pointer;
+      }
+      .theme-control {
+        position: relative;
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        padding: 0;
+        border: 1px solid var(--dock-line);
+        border-radius: 50%;
+        background: var(--dock-surface);
+        box-shadow: var(--dock-shadow);
+      }
+      .theme-control .theme-label { display: none; }
+      .theme-control:hover {
+        border-color: var(--dock-accent);
+        background: var(--dock-paper);
+        box-shadow: var(--dock-shadow);
+        transform: translateY(-2px);
+      }
+      .theme-control:focus-within { outline: 2px solid var(--dock-accent); outline-offset: 3px; }
+      .resource-link::before, .back-to-top::before, .theme-control::before {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        z-index: 1;
+        padding: 8px 10px;
+        border: 1px solid var(--dock-line);
+        border-radius: 8px;
+        background: var(--dock-surface);
+        color: var(--dock-ink);
+        box-shadow: var(--dock-shadow);
+        content: attr(data-label);
+        font: 600 13px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translate(-8px, -50%);
+        transition: opacity .16s ease, transform .2s ease, visibility .16s ease;
+        visibility: hidden;
+      }
+      .resource-link:hover::before, .resource-link:focus-visible::before,
+      .back-to-top:hover::before, .back-to-top:focus-visible::before,
+      .theme-control:hover::before, .theme-control:focus-within::before {
+        opacity: 1;
+        transform: translate(0, -50%);
+        visibility: visible;
+      }
+      .theme-control select {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .resource-link::before, .back-to-top::before, .theme-control::before { margin-right: 8px; }
+      .resource-link:hover, .back-to-top:hover {
+        border-color: var(--dock-accent);
+        background: var(--dock-paper);
+        box-shadow: var(--dock-shadow);
+        transform: translateY(-2px);
+      }
+      .resource-link svg, .back-to-top svg {
+        display: block;
+        width: 22px;
+        height: 22px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+      .resource-copy { display: none; }
+      .reading-progress {
+        position: relative;
+        display: grid;
+        width: 52px;
+        height: 52px;
+        place-items: center;
+        border: 1px solid var(--dock-line);
+        border-radius: 50%;
+        background: var(--dock-surface);
+        color: var(--dock-accent);
+        box-shadow: var(--dock-shadow);
+        font: 700 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(8px);
+        transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+        visibility: hidden;
+      }
+      .resource-dock.is-scrolled .reading-progress {
+        opacity: 1;
+        transform: none;
+        visibility: visible;
+      }
+      .reading-progress .ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+      .reading-progress .ring-bg { fill: none; stroke: var(--dock-line); stroke-width: 2.5; }
+      .reading-progress .ring-fg { fill: none; stroke: var(--dock-accent); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 106.8; stroke-dashoffset: 106.8; transition: stroke-dashoffset .1s linear; }
+      .reading-progress span { position: relative; }
+      .back-to-top { position: relative; right: auto; bottom: auto; }
+    }
+    @media (min-width: 1260px) and (max-height: 520px) {
+      .resource-dock { gap: 6px; }
+      .resource-link, .back-to-top, .theme-control { width: 40px; height: 40px; }
+      .reading-progress { width: 44px; height: 44px; }
     }
     @media (max-width: 720px) {
       body { padding: 27px 18px 34px; }
@@ -261,6 +490,22 @@
       .resource-link { padding: 9px 10px; }
     }
     @media print {
+      :root,
+      :root[data-theme="dark"],
+      :root:not([data-theme="light"]):not([data-theme="dark"]) {
+        color-scheme: light;
+        --ink: #1a2b33;
+        --muted: #5c6f77;
+        --line: #dce3e4;
+        --accent: #0e7c86;
+        --accent-dark: #0e7c86;
+        --warm: #0e7c86;
+        --paper: #fcfcfa;
+        --surface: #fff;
+        --wash: #eef2f2;
+        --accent-dim: #0e7c8614;
+        --shadow: 0 1px 2px #1a2b3310, 0 6px 18px -10px #1a2b3326;
+      }
       @page { size: A4; margin: 9mm 10mm; }
       body { max-width: none; padding: 0; font-size: 8.2pt; line-height: 1.28; }
       header { padding-bottom: 8px; margin-bottom: 10px; }
@@ -295,6 +540,8 @@
       .note, .prompt, .caveat { padding: 5px 7px; margin: 5px 0; font-size: 7.5pt; }
       .resource-dock { display: flex; flex-wrap: wrap; gap: 0 12px; margin: 8px 0 0; }
       .resource-link { display: inline-flex; padding: 0; border: 0; background: none; color: inherit; }
+      .resource-link svg, .reading-progress, .back-to-top, .theme-control { display: none !important; }
+      .resource-copy { display: contents; }
       .resource-link small { display: none; }
       .note, .prompt, .caveat, .architecture, .flow li { break-inside: avoid; }
       a { color: inherit; }
@@ -376,22 +623,104 @@
   </main>
 
   <nav class="resource-dock" aria-label="延伸資源">
-    <a class="resource-link" href="./product-engineer-deck.html">
-      <strong>開啟 6 張重點簡報</strong>
-      <small>線上瀏覽 · HTML</small>
+    <div class="reading-progress" id="readingProgress" role="progressbar" aria-label="頁面閱讀進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <svg class="ring" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="17" class="ring-bg"/>
+        <circle cx="20" cy="20" r="17" class="ring-fg" id="readingProgressRing"/>
+      </svg>
+      <span id="readingProgressLabel">0%</span>
+    </div>
+    <button class="back-to-top" id="backToTop" type="button" aria-label="回到頁首" data-label="回到頁首">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 11l6-6 6 6"/></svg>
+    </button>
+    <button class="theme-control" id="themeControl" type="button" data-mode="system" data-label="主題：跟隨系統" aria-label="切換主題，目前為跟隨系統">
+      <span class="theme-icon icon-system" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+      <span class="theme-icon icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></span>
+      <span class="theme-icon icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"/></svg></span>
+      <span class="theme-label" id="themeLabel">主題：跟隨系統</span>
+    </button>
+    <a class="resource-link" href="./product-engineer-deck.html" aria-label="開啟 6 張重點簡報" data-label="開啟 6 張重點簡報">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M8 9h8M8 13h5"/></svg>
+      <span class="resource-copy">
+        <strong>開啟 6 張重點簡報</strong>
+        <small>線上瀏覽 · HTML</small>
+      </span>
     </a>
-    <a class="resource-link" href="./product-engineer-deck.pptx" download>
-      <strong>下載 PowerPoint</strong>
-      <small>簡報檔 · PPTX</small>
+    <a class="resource-link" href="./product-engineer-deck.pptx" download aria-label="下載 PowerPoint" data-label="下載 PowerPoint">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 18v3h14v-3"/></svg>
+      <span class="resource-copy">
+        <strong>下載 PowerPoint</strong>
+        <small>簡報檔 · PPTX</small>
+      </span>
     </a>
-    <a class="resource-link" href="https://mikeah2011.github.io/cv/resume.html?lang=zh-CN&amp;v=lead">
-      <strong>查看履歷</strong>
-      <small>專業經歷</small>
+    <a class="resource-link" href="https://mikeah2011.github.io/cv/resume.html?lang=zh-CN&amp;v=lead" aria-label="查看履歷" data-label="查看履歷">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6"/></svg>
+      <span class="resource-copy">
+        <strong>查看履歷</strong>
+        <small>專業經歷</small>
+      </span>
     </a>
-    <a class="resource-link" href="https://mikeah2011.github.io/post/ai-code-review-coderabbit-pr-agent-claude/">
-      <strong>AI Code Review 文章</strong>
-      <small>工作流實戰</small>
+    <a class="resource-link" href="https://mikeah2011.github.io/post/ai-code-review-coderabbit-pr-agent-claude/" aria-label="AI Code Review 工作流實戰文章" data-label="AI Code Review 工作流實戰文章">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 1 4 17.5zM4 17.5A2.5 2.5 0 0 1 6.5 15H20M8 7h8M8 11h8"/></svg>
+      <span class="resource-copy">
+        <strong>AI Code Review 文章</strong>
+        <small>工作流實戰</small>
+      </span>
     </a>
   </nav>
+  <script>
+    const resourceDock = document.querySelector(".resource-dock");
+    const readingProgress = document.querySelector("#readingProgress");
+    const readingProgressRing = document.querySelector("#readingProgressRing");
+    const readingProgressLabel = document.querySelector("#readingProgressLabel");
+    const backToTop = document.querySelector("#backToTop");
+    const themeControl = document.querySelector("#themeControl");
+    const themeLabel = document.querySelector("#themeLabel");
+    const themeNames = { system: "跟隨系統", light: "淺色", dark: "深色" };
+    const themeModes = ["system", "light", "dark"];
+
+    function updateReadingProgress() {
+      const scrollRange = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollRange > 0 ? Math.round((window.scrollY / scrollRange) * 100) : 0;
+      resourceDock.classList.toggle("is-scrolled", window.scrollY > 80);
+      readingProgress.setAttribute("aria-valuenow", String(progress));
+      readingProgressLabel.textContent = `${progress}%`;
+      readingProgressRing.style.strokeDashoffset = String(106.8 * (1 - progress / 100));
+    }
+
+    function setTheme(mode, persist = true) {
+      document.documentElement.dataset.themeMode = mode;
+      if (mode === "system") {
+        delete document.documentElement.dataset.theme;
+      } else {
+        document.documentElement.dataset.theme = mode;
+      }
+      themeControl.dataset.mode = mode;
+      themeControl.dataset.label = `主題：${themeNames[mode]}`;
+      themeLabel.textContent = `主題：${themeNames[mode]}`;
+      themeControl.setAttribute("aria-label", `切換主題，目前為${themeNames[mode]}`);
+      if (persist) {
+        try {
+          localStorage.setItem("product-engineer-theme", mode);
+        } catch (error) {
+          console.warn("Unable to save the theme preference.", error);
+        }
+      }
+    }
+
+    const initialTheme = document.documentElement.dataset.themeMode || document.documentElement.dataset.theme || "system";
+    setTheme(initialTheme, false);
+    themeControl.addEventListener("click", () => {
+      const currentIndex = themeModes.indexOf(themeControl.dataset.mode);
+      setTheme(themeModes[(currentIndex + 1) % themeModes.length]);
+    });
+    backToTop.addEventListener("click", () => {
+      const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+      window.scrollTo({ top: 0, behavior });
+    });
+    window.addEventListener("scroll", updateReadingProgress, { passive: true });
+    window.addEventListener("resize", updateReadingProgress, { passive: true });
+    updateReadingProgress();
+  </script>
 </body>
 </html>
