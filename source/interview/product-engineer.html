@@ -186,7 +186,50 @@
     .caveat { border-left-color: var(--warm); font-size: var(--text-support); }
     .prompt { font-size: var(--text-support); }
     .result { color: var(--accent-dark); font-weight: 700; }
-    footer { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 13px; color: var(--muted); font-size: var(--text-support); }
+    .resource-dock {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      max-width: 920px;
+      margin: 24px auto 0;
+    }
+    .resource-link {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      color: var(--accent-dark);
+      text-decoration: none;
+      transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+    }
+    .resource-link:hover {
+      border-color: #9eb4a5;
+      box-shadow: 0 5px 16px rgba(25, 61, 50, .09);
+      transform: translateY(-1px);
+    }
+    .resource-link:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
+    .resource-link strong { font-size: var(--text-support); line-height: 1.35; }
+    .resource-link small { color: var(--muted); font-size: var(--text-label); line-height: 1.35; }
+    @media (min-width: 1260px) {
+      .resource-dock {
+        position: fixed;
+        z-index: 10;
+        top: 50%;
+        right: 10px;
+        width: 160px;
+        grid-template-columns: 1fr;
+        margin: 0;
+        padding: 7px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(251, 250, 246, .96);
+        box-shadow: 0 10px 28px rgba(32, 43, 39, .1);
+        transform: translateY(-50%);
+      }
+    }
     @media (max-width: 720px) {
       body { padding: 27px 18px 34px; }
       .lead { padding: 9px 11px; }
@@ -214,6 +257,8 @@
       .dedup-flow { grid-template-columns: 1fr; }
       .dedup-arrow { transform: rotate(90deg); }
       .dedup-outcome { grid-column: auto; }
+      .resource-dock { gap: 7px; margin-top: 20px; }
+      .resource-link { padding: 9px 10px; }
     }
     @media print {
       @page { size: A4; margin: 9mm 10mm; }
@@ -248,7 +293,9 @@
       .dedup-step, .dedup-outcome { padding: 4px; font-size: 6.8pt; }
       .dedup-arrow { transform: none; }
       .note, .prompt, .caveat { padding: 5px 7px; margin: 5px 0; font-size: 7.5pt; }
-      footer { margin-top: 8px; padding-top: 5px; font-size: 7.5pt; }
+      .resource-dock { display: flex; flex-wrap: wrap; gap: 0 12px; margin: 8px 0 0; }
+      .resource-link { display: inline-flex; padding: 0; border: 0; background: none; color: inherit; }
+      .resource-link small { display: none; }
       .note, .prompt, .caveat, .architecture, .flow li { break-inside: avoid; }
       a { color: inherit; }
     }
@@ -328,14 +375,23 @@
     </section>
   </main>
 
-  <footer>
-    <a href="./product-engineer-deck.html">開啟 6 張重點簡報</a>
-    <span aria-hidden="true"> · </span>
-    <a href="./product-engineer-deck.pptx" download>下載 PowerPoint</a>
-    <span aria-hidden="true"> · </span>
-    <a href="https://mikeah2011.github.io/cv/resume.html?lang=zh-CN&amp;v=lead">查看履歷</a>
-    <span aria-hidden="true"> · </span>
-    <a href="https://mikeah2011.github.io/post/ai-code-review-coderabbit-pr-agent-claude/">AI Code Review 工作流實戰文章</a>
-  </footer>
+  <nav class="resource-dock" aria-label="延伸資源">
+    <a class="resource-link" href="./product-engineer-deck.html">
+      <strong>開啟 6 張重點簡報</strong>
+      <small>線上瀏覽 · HTML</small>
+    </a>
+    <a class="resource-link" href="./product-engineer-deck.pptx" download>
+      <strong>下載 PowerPoint</strong>
+      <small>簡報檔 · PPTX</small>
+    </a>
+    <a class="resource-link" href="https://mikeah2011.github.io/cv/resume.html?lang=zh-CN&amp;v=lead">
+      <strong>查看履歷</strong>
+      <small>專業經歷</small>
+    </a>
+    <a class="resource-link" href="https://mikeah2011.github.io/post/ai-code-review-coderabbit-pr-agent-claude/">
+      <strong>AI Code Review 文章</strong>
+      <small>工作流實戰</small>
+    </a>
+  </nav>
 </body>
 </html>
