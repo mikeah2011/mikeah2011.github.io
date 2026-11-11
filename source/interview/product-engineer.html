@@ -260,12 +260,25 @@
       box-shadow: var(--dock-shadow);
       transform: translateY(-1px);
     }
-    .resource-link:focus-visible, .back-to-top:focus-visible, .theme-control:focus-visible { outline: 2px solid var(--dock-accent); outline-offset: 3px; }
+    .resource-link:focus-visible, .back-to-top:focus-visible { outline: 2px solid var(--dock-accent); outline-offset: 3px; }
+    .theme-control:focus-visible, .more-button:focus-visible { outline: none; border-color: var(--dock-accent); }
+    .theme-control:focus-visible::after, .more-button:focus-visible::after {
+      position: absolute;
+      top: 50%;
+      left: -7px;
+      width: 4px;
+      height: 18px;
+      border-radius: 4px;
+      background: var(--dock-accent);
+      content: "";
+      transform: translateY(-50%);
+    }
     .resource-link strong { font-size: var(--text-support); line-height: 1.35; }
     .resource-link small { color: var(--dock-muted); font-size: var(--text-label); line-height: 1.35; }
     .resource-link svg { display: none; }
     .theme-control {
-      grid-column: 1 / -1;
+      grid-column: 2;
+      grid-row: 1;
       display: flex;
       align-items: center;
       gap: 9px;
@@ -282,11 +295,50 @@
       appearance: none;
       transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
     }
+    .more-button {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 9px;
+      padding: 9px 10px;
+      border: 1px solid var(--dock-line);
+      border-radius: 9px;
+      background: var(--dock-surface);
+      color: var(--dock-ink);
+      font: inherit;
+      font-size: var(--text-support);
+      text-align: left;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+    }
+    .theme-control:hover, .more-button:hover {
+      border-color: var(--dock-accent);
+      box-shadow: var(--dock-shadow);
+    }
     .theme-icon { display: none; color: var(--dock-accent); }
     .theme-icon svg { display: block; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
     .theme-control[data-mode="system"] .icon-system,
     .theme-control[data-mode="light"] .icon-light,
     .theme-control[data-mode="dark"] .icon-dark { display: grid; }
+    .more-button svg { display: block; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+    .more-button .icon-more { fill: currentColor; stroke: none; }
+    .more-button { color: var(--dock-accent); }
+    .more-button .icon-close { display: none; }
+    .resource-dock.is-open .more-button .icon-more { display: none; }
+    .resource-dock.is-open .more-button .icon-close { display: block; }
+    .resource-menu { display: contents; }
+    .resource-links {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      display: none;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .resource-dock.is-open .resource-links { display: grid; }
     .back-to-top svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
     .resource-copy { display: contents; }
     .reading-progress { display: none; }
@@ -334,7 +386,7 @@
         border: 0;
         background: transparent;
       }
-      .resource-link, .back-to-top {
+      .resource-link, .back-to-top, .more-button {
         position: relative;
         display: grid;
         width: 48px;
@@ -348,6 +400,8 @@
         box-shadow: var(--dock-shadow);
         cursor: pointer;
       }
+      .more-button { justify-items: center; }
+      .more-button svg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
       .theme-control {
         position: relative;
         display: grid;
@@ -361,14 +415,62 @@
         box-shadow: var(--dock-shadow);
       }
       .theme-control .theme-label { display: none; }
-      .theme-control:hover {
+      .more-button .more-label { display: none; }
+      .resource-menu {
+        position: relative;
+        z-index: 11;
+        display: block;
+        width: 48px;
+        height: 48px;
+        order: 0;
+      }
+      .theme-control { order: 1; }
+      .back-to-top { order: 2; }
+      .reading-progress { order: 3; }
+      .theme-control:hover, .more-button:hover {
         border-color: var(--dock-accent);
         background: var(--dock-paper);
         box-shadow: var(--dock-shadow);
         transform: translateY(-2px);
       }
-      .theme-control:focus-within { outline: 2px solid var(--dock-accent); outline-offset: 3px; }
-      .resource-link::before, .back-to-top::before, .theme-control::before {
+      .theme-control:focus-visible { outline: 2px solid var(--dock-accent); outline-offset: 3px; }
+      .resource-links {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: block;
+        width: 0;
+        height: 0;
+      }
+      .resource-dock.is-open .resource-menu .resource-links { display: block; }
+      .resource-links .resource-link {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(.65);
+        transition: opacity .18s ease, transform .28s cubic-bezier(.2,.8,.2,1), visibility .18s ease;
+        visibility: hidden;
+      }
+      .resource-links .resource-link:nth-child(1) { --fan-x: -11px; --fan-y: -61px; transition-delay: .03s; }
+      .resource-links .resource-link:nth-child(2) { --fan-x: -42px; --fan-y: -45px; transition-delay: .07s; }
+      .resource-links .resource-link:nth-child(3) { --fan-x: -56px; --fan-y: -11px; transition-delay: .11s; }
+      .resource-links .resource-link:nth-child(4) { --fan-x: -43px; --fan-y: 24px; transition-delay: .15s; }
+      .resource-dock.is-open .resource-links .resource-link {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(var(--fan-x), var(--fan-y));
+        visibility: visible;
+      }
+      .resource-dock.is-open .resource-links .resource-link:hover,
+      .resource-dock.is-open .resource-links .resource-link:focus-visible {
+        transform: translate(var(--fan-x), var(--fan-y)) scale(1.06);
+      }
+      .resource-link::before, .back-to-top::before, .theme-control::before, .more-button::before {
         position: absolute;
         top: 50%;
         right: 100%;
@@ -389,26 +491,15 @@
       }
       .resource-link:hover::before, .resource-link:focus-visible::before,
       .back-to-top:hover::before, .back-to-top:focus-visible::before,
-      .theme-control:hover::before, .theme-control:focus-within::before {
+      .theme-control:hover::before, .theme-control:focus-visible::before,
+      .more-button:hover::before, .more-button:focus-visible::before {
         opacity: 1;
         transform: translate(0, -50%);
         visibility: visible;
       }
-      .theme-control select {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        max-width: none;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        border-radius: 50%;
-        opacity: 0;
-        cursor: pointer;
-      }
-      .resource-link::before, .back-to-top::before, .theme-control::before { margin-right: 8px; }
-      .resource-link:hover, .back-to-top:hover {
+      .resource-dock.is-open .more-button::before { display: none; }
+      .resource-link::before, .back-to-top::before, .theme-control::before, .more-button::before { margin-right: 8px; }
+      .resource-link:hover, .back-to-top:hover, .more-button:hover {
         border-color: var(--dock-accent);
         background: var(--dock-paper);
         box-shadow: var(--dock-shadow);
@@ -456,7 +547,7 @@
     }
     @media (min-width: 1260px) and (max-height: 520px) {
       .resource-dock { gap: 6px; }
-      .resource-link, .back-to-top, .theme-control { width: 40px; height: 40px; }
+      .resource-link, .back-to-top, .theme-control, .more-button { width: 40px; height: 40px; }
       .reading-progress { width: 44px; height: 44px; }
     }
     @media (max-width: 720px) {
@@ -540,11 +631,15 @@
       .note, .prompt, .caveat { padding: 5px 7px; margin: 5px 0; font-size: 7.5pt; }
       .resource-dock { display: flex; flex-wrap: wrap; gap: 0 12px; margin: 8px 0 0; }
       .resource-link { display: inline-flex; padding: 0; border: 0; background: none; color: inherit; }
-      .resource-link svg, .reading-progress, .back-to-top, .theme-control { display: none !important; }
+      .resource-link svg, .reading-progress, .back-to-top, .theme-control, .more-button { display: none !important; }
+      .resource-links { display: contents !important; }
       .resource-copy { display: contents; }
       .resource-link small { display: none; }
       .note, .prompt, .caveat, .architecture, .flow li { break-inside: avoid; }
       a { color: inherit; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .resource-dock *, .resource-dock *::before { transition-duration: .01ms !important; }
     }
   </style>
 </head>
@@ -633,40 +728,49 @@
     <button class="back-to-top" id="backToTop" type="button" aria-label="回到頁首" data-label="回到頁首">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 11l6-6 6 6"/></svg>
     </button>
-    <button class="theme-control" id="themeControl" type="button" data-mode="system" data-label="主題：跟隨系統" aria-label="切換主題，目前為跟隨系統">
+    <div class="resource-menu">
+      <button class="more-button" id="moreButton" type="button" aria-label="更多" aria-expanded="false" aria-controls="resourceLinks" data-label="更多">
+        <svg class="icon-more" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        <span class="more-label">更多</span>
+      </button>
+      <div class="resource-links" id="resourceLinks">
+        <a class="resource-link" href="https://mikeah2011.github.io/post/ai-code-review-coderabbit-pr-agent-claude/?to=dogcatstar" aria-label="AI Code Review 實戰" data-label="AI Code Review 實戰">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 1 4 17.5zM4 17.5A2.5 2.5 0 0 1 6.5 15H20M8 7h8M8 11h8"/></svg>
+          <span class="resource-copy">
+            <strong>AI Code Review 實戰</strong>
+            <small>工作流實戰</small>
+          </span>
+        </a>
+        <a class="resource-link" href="./product-engineer-deck.html" aria-label="簡報" data-label="簡報">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M8 9h8M8 13h5"/></svg>
+          <span class="resource-copy">
+            <strong>簡報</strong>
+            <small>線上瀏覽 · HTML</small>
+          </span>
+        </a>
+        <a class="resource-link" href="https://mikeah2011.github.io/cv/resume.html?lang=zh-CN&amp;v=lead&amp;to=dogcatstar" aria-label="履歷" data-label="履歷">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6"/></svg>
+          <span class="resource-copy">
+            <strong>履歷</strong>
+            <small>專業經歷</small>
+          </span>
+        </a>
+        <a class="resource-link" href="./product-engineer-deck.pptx" download aria-label="下載" data-label="下載">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 18v3h14v-3"/></svg>
+          <span class="resource-copy">
+            <strong>下載</strong>
+            <small>簡報檔 · PPTX</small>
+          </span>
+        </a>
+      </div>
+    </div>
+    <button class="theme-control" id="themeControl" type="button" data-mode="system" data-label="跟隨系統" aria-label="切換主題，目前為跟隨系統">
       <span class="theme-icon icon-system" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
       <span class="theme-icon icon-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></span>
       <span class="theme-icon icon-dark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"/></svg></span>
-      <span class="theme-label" id="themeLabel">主題：跟隨系統</span>
+      <span class="theme-label" id="themeLabel">跟隨系統</span>
     </button>
-    <a class="resource-link" href="./product-engineer-deck.html" aria-label="開啟 6 張重點簡報" data-label="開啟 6 張重點簡報">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M8 9h8M8 13h5"/></svg>
-      <span class="resource-copy">
-        <strong>開啟 6 張重點簡報</strong>
-        <small>線上瀏覽 · HTML</small>
-      </span>
-    </a>
-    <a class="resource-link" href="./product-engineer-deck.pptx" download aria-label="下載 PowerPoint" data-label="下載 PowerPoint">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 18v3h14v-3"/></svg>
-      <span class="resource-copy">
-        <strong>下載 PowerPoint</strong>
-        <small>簡報檔 · PPTX</small>
-      </span>
-    </a>
-    <a class="resource-link" href="https://mikeah2011.github.io/cv/resume.html?lang=zh-CN&amp;v=lead" aria-label="查看履歷" data-label="查看履歷">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6"/></svg>
-      <span class="resource-copy">
-        <strong>查看履歷</strong>
-        <small>專業經歷</small>
-      </span>
-    </a>
-    <a class="resource-link" href="https://mikeah2011.github.io/post/ai-code-review-coderabbit-pr-agent-claude/" aria-label="AI Code Review 工作流實戰文章" data-label="AI Code Review 工作流實戰文章">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 1 4 17.5zM4 17.5A2.5 2.5 0 0 1 6.5 15H20M8 7h8M8 11h8"/></svg>
-      <span class="resource-copy">
-        <strong>AI Code Review 文章</strong>
-        <small>工作流實戰</small>
-      </span>
-    </a>
   </nav>
   <script>
     const resourceDock = document.querySelector(".resource-dock");
@@ -674,6 +778,7 @@
     const readingProgressRing = document.querySelector("#readingProgressRing");
     const readingProgressLabel = document.querySelector("#readingProgressLabel");
     const backToTop = document.querySelector("#backToTop");
+    const moreButton = document.querySelector("#moreButton");
     const themeControl = document.querySelector("#themeControl");
     const themeLabel = document.querySelector("#themeLabel");
     const themeNames = { system: "跟隨系統", light: "淺色", dark: "深色" };
@@ -696,8 +801,8 @@
         document.documentElement.dataset.theme = mode;
       }
       themeControl.dataset.mode = mode;
-      themeControl.dataset.label = `主題：${themeNames[mode]}`;
-      themeLabel.textContent = `主題：${themeNames[mode]}`;
+      themeControl.dataset.label = themeNames[mode];
+      themeLabel.textContent = themeNames[mode];
       themeControl.setAttribute("aria-label", `切換主題，目前為${themeNames[mode]}`);
       if (persist) {
         try {
@@ -713,6 +818,18 @@
     themeControl.addEventListener("click", () => {
       const currentIndex = themeModes.indexOf(themeControl.dataset.mode);
       setTheme(themeModes[(currentIndex + 1) % themeModes.length]);
+    });
+    moreButton.addEventListener("click", () => {
+      const expanded = moreButton.getAttribute("aria-expanded") !== "true";
+      moreButton.setAttribute("aria-expanded", String(expanded));
+      moreButton.setAttribute("aria-label", expanded ? "收合資源" : "更多");
+      resourceDock.classList.toggle("is-open", expanded);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && moreButton.getAttribute("aria-expanded") === "true") {
+        moreButton.click();
+        moreButton.focus();
+      }
     });
     backToTop.addEventListener("click", () => {
       const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
