@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="马成军应聘 Product Engineer 的项目补充说明：Maestro 多机器人审查收敛、问题定位与 AI 开发实践。">
+  <title>Product Engineer 职位补充说明｜马成军</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17212b;
+      --muted: #526170;
+      --line: #dce4e9;
+      --accent: #136c64;
+      --wash: #f3f8f7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 34px 56px;
+      color: var(--ink);
+      font: 16px/1.72 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 22px; margin-bottom: 26px; }
+    .eyebrow { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .08em; }
+    h1 { margin: 7px 0 4px; font-size: clamp(26px, 5vw, 36px); line-height: 1.3; }
+    .subtitle, .meta { color: var(--muted); }
+    .meta { font-size: 14px; }
+    h2 { margin: 28px 0 10px; font-size: 20px; line-height: 1.4; }
+    p { margin: 8px 0; }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 15px 0;
+    }
+    .stage {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #fff;
+    }
+    .stage strong { display: block; color: var(--accent); }
+    .stage span { display: block; color: var(--muted); font-size: 14px; }
+    .note, .prompt {
+      border-left: 3px solid var(--accent);
+      background: var(--wash);
+      padding: 11px 15px;
+      margin: 13px 0;
+    }
+    .prompt { font-size: 14px; }
+    .result { font-weight: 600; }
+    footer { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 15px; color: var(--muted); font-size: 14px; }
+    @media (max-width: 600px) {
+      body { padding: 28px 19px 36px; }
+      .pipeline { grid-template-columns: 1fr; gap: 7px; }
+    }
+    @media print {
+      @page { size: A4; margin: 15mm 16mm; }
+      body { max-width: none; padding: 0; font-size: 10.5pt; line-height: 1.55; }
+      h1 { font-size: 25pt; }
+      h2 { margin-top: 17px; font-size: 14pt; }
+      .stage, .note, .prompt { break-inside: avoid; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">PRODUCT ENGINEER · 项目补充说明</div>
+    <h1>把 AI 的“多种意见”变成可执行结果</h1>
+    <div class="subtitle">马成军（Michael Ma）｜资深后端工程师 · AI 工程化实践</div>
+    <div class="meta">围绕 Maestro 多 AI 审查机器人收敛层，以及我在日常开发中的 AI 使用方式</div>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Maestro：三层去重，以及意见冲突时的收敛</h2>
+      <p>团队同时使用 CodeRabbit、Copilot、Codex、Gemini 后，同一个问题会被重复描述，也会出现相互矛盾的建议。Maestro 不按评论条数投票，而是先判断它们是否指向同一个根因，再决定能否自动处理。</p>
+      <div class="pipeline" aria-label="Maestro 三层去重流程">
+        <div class="stage"><strong>第一层 · 位置</strong><span>按文件、代码位置和上下文匹配明显重合的评论。</span></div>
+        <div class="stage"><strong>第二层 · 语义</strong><span>识别措辞不同、但根因或影响相同的问题。</span></div>
+        <div class="stage"><strong>第三层 · LLM 判断</strong><span>仅把前两层无法确定的候选交给模型辅助判断。</span></div>
+      </div>
+      <p>意见不一致时，去重层不会把“相反结论”硬合成一个结论：能从代码和本次 diff 中确认的问题才进入自动修复；证据不足、建议冲突或置信度低的，保留为待判断项并升级给人工。这样既减少重复噪声，也避免模型为了收敛而掩盖分歧。</p>
+    </section>
+
+    <section>
+      <h2>2. 最棘手的问题：不同机器人用不同说法描述同一个 bug</h2>
+      <p>最难的不是调用四个模型，而是判断它们的评论究竟是重复问题、不同问题，还是看似相似但修复方向相反。仅靠文本完全匹配会漏掉大量语义重复；合并过度又可能把独立问题或相反意见吞掉。</p>
+      <p>我先对照真实 PR 评论和代码位置，确认重复主要来自“不同表述、同一根因”，再把判断拆成逐步升级的三层：先用位置关系筛掉明确重合项，再做语义相似匹配，最后才调用 LLM 处理边界案例。对无法确认的情况，不自动修复，转人工判断；同时根据评论被采纳或被驳回的情况观察误报。</p>
+      <p class="result">Maestro 已进入团队日常流程：10 人使用，累计处理 300+ 个 PR。按团队自评，误报下降约 70%，Code Review 耗时明显缩短。</p>
+    </section>
+
+    <section>
+      <h2>3. 日常 AI 开发实践：把模型限制在“可验证的小判断”里</h2>
+      <p>我不会把整个 PR 丢给模型自由裁决。先由规则和相似度缩小范围，再只把少量歧义评论及相关 diff 交给模型；要求它说明依据、区分“同一问题 / 不同问题 / 不确定”，而不是直接生成修复。可验证且明确的问题才继续自动化，不确定就交给人。</p>
+      <div class="prompt"><strong>提示词示例</strong><br>
+        “请只根据下面的代码 diff 和两条审查意见判断：它们是否指向同一根因？引用具体代码作为依据，并输出：same / different / uncertain。不要补充 diff 之外的假设；证据不足时选择 uncertain，不要提出自动修复。”
+      </div>
+      <p>这套做法把 AI 放在它擅长的语义判断环节，同时用代码证据、明确输出和人工兜底控制风险。比起追求一次生成更多内容，我更关注让每个自动化决定都能解释、验证和撤回。</p>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://mikeah2011.github.io/cv/resume.html?lang=zh-CN&amp;v=lead">查看简历</a>
+    <span aria-hidden="true"> · </span>
+    <a href="https://mikeah2011.github.io/post/ai-code-review-coderabbit-pr-agent-claude/">AI Code Review 工作流实战文章</a>
+  </footer>
+</body>
+</html>
