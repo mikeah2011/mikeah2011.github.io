@@ -96,6 +96,33 @@
       font: 700 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
     }
     .flow strong { display: block; color: var(--accent-dark); }
+    .dedup-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr) 18px minmax(0, 1fr);
+      align-items: stretch;
+      gap: 5px;
+      margin: 10px 0;
+    }
+    .dedup-step {
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+    .dedup-step strong { display: block; color: var(--accent-dark); }
+    .dedup-step span { display: block; color: var(--muted); }
+    .dedup-arrow { align-self: center; color: var(--warm); font-weight: 700; text-align: center; }
+    .dedup-outcome {
+      grid-column: 1 / -1;
+      padding: 7px 9px;
+      border-radius: 7px;
+      background: var(--wash);
+      color: var(--accent-dark);
+      font-size: 11px;
+      line-height: 1.45;
+    }
     .note, .prompt, .caveat {
       background: var(--wash);
       padding: 10px 13px;
@@ -114,6 +141,9 @@
       .orchestrator { width: 100%; }
       .crosscutting { grid-column: auto; }
       .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .dedup-flow { grid-template-columns: 1fr; }
+      .dedup-arrow { transform: rotate(90deg); }
+      .dedup-outcome { grid-column: auto; }
     }
     @media print {
       @page { size: A4; margin: 9mm 10mm; }
@@ -135,6 +165,9 @@
       .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; margin: 5px 0 6px; }
       .flow li { min-height: 43px; padding: 4px 5px 4px 25px; font-size: 7.2pt; }
       .flow li::before { top: 4px; font-size: 7pt; }
+      .dedup-flow { grid-template-columns: minmax(0, 1fr) 10px minmax(0, 1fr) 10px minmax(0, 1fr); gap: 2px; margin: 4px 0; }
+      .dedup-step, .dedup-outcome { padding: 4px; font-size: 6.8pt; }
+      .dedup-arrow { transform: none; }
       .note, .prompt, .caveat { padding: 5px 7px; margin: 5px 0; font-size: 7.5pt; }
       footer { margin-top: 8px; padding-top: 5px; font-size: 7.5pt; }
       .note, .prompt, .caveat, .architecture, .flow li { break-inside: avoid; }
@@ -155,6 +188,7 @@
       <div class="section-kicker">01 / ARCHITECTURE</div>
       <h2>Maestro 架構：讓審查結果進入同一條處理流程</h2>
       <p>Maestro 不是另一個審查機器人，而是接在 PR、CI 與機器人評論之間的協調層。CLI 由 <code>LoopOrchestrator</code> 統一調度；目前程式碼中實際落地的平台介接是 GitHub。</p>
+      <p>我把它命名為 <em>Maestro</em>，取意於樂團指揮：各個審查機器人像不同聲部，各自提出觀點；Maestro 不取代它們，而是負責整理、去重、協調後續修復，並判斷何時該停止。</p>
       <div class="architecture" role="img" aria-label="Maestro 架構圖：CLI 與 GitHub 資料進入 LoopOrchestrator，經分類、決策、去重與修復後，透過 GitHub Platform 回寫">
         <div class="arch-node"><strong>輸入</strong><span>maestro loop start<br>PR、CI、審查討論串</span></div>
         <div class="arrow" aria-hidden="true">→</div>
@@ -185,6 +219,15 @@
         <li><strong>修復並回寫</strong>AI 提出小範圍替換，信心值達門檻才寫檔；每輪彙整成一個 commit，再回覆／解決討論串。</li>
         <li><strong>檢查是否收斂</strong>重新跑 CI、請機器人複查；預設最多 3 輪，問題集高度重複（Jaccard &gt; 0.7）或違反不變量即停止。</li>
       </ol>
+      <h2>三層去重：由便宜、確定到語意判斷</h2>
+      <div class="dedup-flow" role="img" aria-label="去重流程：依序比對 Finding 穩定雜湊、標題 Levenshtein 相似度、可選的 LLM 語意；任一層命中就記為重複，全部未命中才保留為新 Finding">
+        <div class="dedup-step"><strong>1 · 精確雜湊</strong><span>比對 Finding.hash（檔案、5 行位置區段、分類與內容雜湊）；相同就命中。</span></div>
+        <div class="dedup-arrow" aria-hidden="true">→</div>
+        <div class="dedup-step"><strong>2 · 模糊比對</strong><span>比較標題的 Levenshtein 正規化相似度；預設門檻 0.8。</span></div>
+        <div class="dedup-arrow" aria-hidden="true">→</div>
+        <div class="dedup-step"><strong>3 · 語意比對</strong><span>可注入 LLM callback 判斷不同措辭是否同義；每次最多 10 次呼叫。</span></div>
+        <div class="dedup-outcome"><strong>任一層命中：</strong>記錄重複項並指向既有 Finding；<strong>三層都未命中：</strong>保留為新的 Finding，進入後續處理。</div>
+      </div>
       <p>不同意見不靠「哪個機器人票數多」決定。系統先把評論分類，再由 CLI 提供修復／延後／拒絕建議，使用者可以逐項覆寫；跨輪則由收斂監控判斷是否持續重複。每輪最多一個 commit、每個討論串最多回覆一次，避免自動化本身製造更多噪音。</p>
       <div class="caveat"><strong>實作範圍說明：</strong>Dedup 已提供第三層 LLM 語意比對的 callback 與每次最多 10 次呼叫的限制；目前 CLI 組裝尚未將設定中的 <code>semanticDedup</code> 路由接到這個 callback，因此這一層目前是可擴充介面，不應描述成 CLI 已啟用的功能。</div>
     </section>
