@@ -16,6 +16,10 @@
       --warm: #bd6c3e;
       --paper: #fbfaf6;
       --wash: #f1f0e9;
+      --text-body: 16px;
+      --text-heading: 20px;
+      --text-support: 13px;
+      --text-label: 12px;
     }
     * { box-sizing: border-box; }
     body {
@@ -24,17 +28,17 @@
       padding: 40px 30px 52px;
       color: var(--ink);
       background: var(--paper);
-      font: 15px/1.68 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font: var(--text-body)/1.68 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
     }
     header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
-    .eyebrow { color: var(--warm); font: 700 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+    .eyebrow { color: var(--warm); font: 700 var(--text-label)/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
     h1 { margin: 8px 0 5px; font-size: clamp(25px, 4.6vw, 35px); letter-spacing: -.035em; line-height: 1.28; }
-    .subtitle, .meta { color: var(--muted); }
-    .meta { font-size: 14px; }
-    h2 { margin: 25px 0 9px; font-size: 19px; line-height: 1.4; letter-spacing: -.02em; }
+    .subtitle, .meta { color: var(--muted); font-size: var(--text-support); }
+    h2 { margin: 25px 0 9px; font-size: var(--text-heading); line-height: 1.4; letter-spacing: -.02em; }
     p { margin: 7px 0; }
+    .lead { padding: 10px 13px; border-left: 3px solid var(--warm); background: #fff; line-height: 1.55; }
     a { color: var(--accent); text-underline-offset: 3px; }
-    .section-kicker { color: var(--warm); font: 700 11px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+    .section-kicker { color: var(--warm); font: 700 var(--text-label)/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
     .architecture {
       display: grid;
       grid-template-columns: minmax(120px, .75fr) 24px minmax(290px, 2fr) 24px minmax(130px, .85fr);
@@ -48,15 +52,15 @@
     }
     .arch-node { align-self: center; padding: 12px; border-radius: 8px; background: var(--wash); }
     .arch-node strong, .arch-node span { display: block; }
-    .arch-node strong { color: var(--accent-dark); font-size: 13px; }
-    .arch-node span { color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .arch-node strong { color: var(--accent-dark); font-size: var(--text-support); }
+    .arch-node span { color: var(--muted); font-size: var(--text-label); line-height: 1.45; }
     .arrow { align-self: center; color: var(--warm); font-size: 20px; font-weight: 700; text-align: center; }
     .orchestrator { padding: 12px; border: 1px solid #b8c9bd; border-radius: 9px; background: #f5f8f4; }
-    .orchestrator-title { margin-bottom: 7px; color: var(--accent-dark); font-size: 13px; font-weight: 800; }
+    .orchestrator-title { margin-bottom: 7px; color: var(--accent-dark); font-size: var(--text-support); font-weight: 800; }
     .modules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; }
-    .module { padding: 6px 7px; border: 1px solid #dfe7df; border-radius: 6px; background: #fff; font-size: 11px; line-height: 1.4; }
+    .module { padding: 6px 7px; border: 1px solid #dfe7df; border-radius: 6px; background: #fff; font-size: var(--text-label); line-height: 1.4; }
     .module b { color: var(--accent); }
-    .crosscutting { grid-column: 1 / -1; padding-top: 8px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+    .crosscutting { grid-column: 1 / -1; padding-top: 8px; color: var(--muted); font-size: var(--text-label); line-height: 1.55; }
     .support {
       grid-column: 1 / -1;
       display: flex;
@@ -66,13 +70,14 @@
       border-radius: 7px;
       background: var(--accent-dark);
       color: #f6f5ee;
-      font-size: 11px;
+      font-size: var(--text-label);
     }
     .support b { color: #e9b38e; }
     .flow {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 7px;
+      grid-template-rows: repeat(2, 1fr);
+      gap: 24px 28px;
       margin: 11px 0 13px;
       padding: 0;
       list-style: none;
@@ -80,22 +85,71 @@
     }
     .flow li {
       position: relative;
-      min-height: 67px;
-      padding: 8px 10px 8px 35px;
-      border-top: 1px solid var(--line);
+      min-height: 78px;
+      padding: 10px 12px 10px 39px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
       counter-increment: flow;
-      font-size: 12px;
-      line-height: 1.5;
+      font-size: var(--text-support);
+      line-height: 1.45;
+    }
+    .flow li:nth-child(4) { grid-column: 3; grid-row: 2; }
+    .flow li:nth-child(5) { grid-column: 2; grid-row: 2; }
+    .flow li:nth-child(6) { grid-column: 1; grid-row: 2; }
+    .flow li:nth-child(1)::after,
+    .flow li:nth-child(2)::after {
+      position: absolute;
+      top: 50%;
+      right: -24px;
+      color: var(--warm);
+      content: "→";
+      font-size: 19px;
+      font-weight: 800;
+      transform: translateY(-50%);
+    }
+    .flow li:nth-child(3)::after {
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      color: var(--warm);
+      content: "↓";
+      font-size: 19px;
+      font-weight: 800;
+      transform: translateX(-50%);
+    }
+    .flow li:nth-child(4)::after,
+    .flow li:nth-child(5)::after {
+      position: absolute;
+      top: 50%;
+      left: -24px;
+      color: var(--warm);
+      content: "←";
+      font-size: 19px;
+      font-weight: 800;
+      transform: translateY(-50%);
     }
     .flow li::before {
       position: absolute;
-      top: 8px;
-      left: 0;
+      top: 10px;
+      left: 11px;
       color: var(--warm);
       content: "0" counter(flow);
-      font: 700 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      font: 700 var(--text-label)/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
     }
     .flow strong { display: block; color: var(--accent-dark); }
+    .flow-return {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 11px;
+      border-radius: 7px;
+      background: var(--accent-dark);
+      color: #f6f5ee;
+      font-size: var(--text-label);
+      line-height: 1.45;
+    }
+    .flow-return strong { color: #e9b38e; }
     .dedup-flow {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr) 18px minmax(0, 1fr);
@@ -108,7 +162,7 @@
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
-      font-size: 11px;
+      font-size: var(--text-label);
       line-height: 1.45;
     }
     .dedup-step strong { display: block; color: var(--accent-dark); }
@@ -120,7 +174,7 @@
       border-radius: 7px;
       background: var(--wash);
       color: var(--accent-dark);
-      font-size: 11px;
+      font-size: var(--text-label);
       line-height: 1.45;
     }
     .note, .prompt, .caveat {
@@ -129,18 +183,34 @@
       margin: 11px 0;
       border-left: 3px solid var(--accent);
     }
-    .caveat { border-left-color: var(--warm); font-size: 13px; }
-    .prompt { font-size: 13px; }
+    .caveat { border-left-color: var(--warm); font-size: var(--text-support); }
+    .prompt { font-size: var(--text-support); }
     .result { color: var(--accent-dark); font-weight: 700; }
-    footer { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 13px; color: var(--muted); font-size: 13px; }
+    footer { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 13px; color: var(--muted); font-size: var(--text-support); }
     @media (max-width: 720px) {
       body { padding: 27px 18px 34px; }
+      .lead { padding: 9px 11px; }
       .architecture { grid-template-columns: 1fr; gap: 5px; }
       .arrow { transform: rotate(90deg); line-height: 1; }
       .arch-node { width: 100%; }
       .orchestrator { width: 100%; }
       .crosscutting { grid-column: auto; }
-      .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow { grid-template-columns: 1fr; grid-template-rows: auto; gap: 16px; }
+      .flow li:nth-child(n) { grid-column: auto; grid-row: auto; }
+      .flow li:nth-child(1)::after,
+      .flow li:nth-child(2)::after,
+      .flow li:nth-child(4)::after,
+      .flow li:nth-child(5)::after {
+        top: auto;
+        right: auto;
+        bottom: -16px;
+        left: 50%;
+        content: "↓";
+        transform: translateX(-50%);
+      }
+      .flow li:nth-child(3)::after { bottom: -16px; }
+      .flow li:nth-child(6)::after { display: none; }
+      .flow-return { flex-direction: column; }
       .dedup-flow { grid-template-columns: 1fr; }
       .dedup-arrow { transform: rotate(90deg); }
       .dedup-outcome { grid-column: auto; }
@@ -162,9 +232,18 @@
       .modules { gap: 3px; }
       .module { padding: 3px; }
       .support { gap: 3px 9px; padding: 4px 7px; font-size: 7pt; }
-      .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; margin: 5px 0 6px; }
-      .flow li { min-height: 43px; padding: 4px 5px 4px 25px; font-size: 7.2pt; }
-      .flow li::before { top: 4px; font-size: 7pt; }
+      .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, 1fr); gap: 16px 18px; margin: 5px 0 6px; }
+      .flow li { min-height: 48px; padding: 4px 5px 4px 25px; font-size: 7.2pt; }
+      .flow li:nth-child(4) { grid-column: 3; grid-row: 2; }
+      .flow li:nth-child(5) { grid-column: 2; grid-row: 2; }
+      .flow li:nth-child(6) { grid-column: 1; grid-row: 2; }
+      .flow li::before { top: 4px; left: 6px; font-size: 7pt; }
+      .flow li:nth-child(1)::after,
+      .flow li:nth-child(2)::after { right: -16px; font-size: 14px; }
+      .flow li:nth-child(3)::after { bottom: -17px; font-size: 14px; }
+      .flow li:nth-child(4)::after,
+      .flow li:nth-child(5)::after { left: -16px; font-size: 14px; }
+      .flow-return { flex-direction: row; gap: 5px; padding: 4px 6px; font-size: 7pt; }
       .dedup-flow { grid-template-columns: minmax(0, 1fr) 10px minmax(0, 1fr) 10px minmax(0, 1fr); gap: 2px; margin: 4px 0; }
       .dedup-step, .dedup-outcome { padding: 4px; font-size: 6.8pt; }
       .dedup-arrow { transform: none; }
@@ -187,8 +266,9 @@
     <section>
       <div class="section-kicker">01 / ARCHITECTURE</div>
       <h2>Maestro 架構：讓審查結果進入同一條處理流程</h2>
-      <p>Maestro 不是另一個審查機器人，而是接在 PR、CI 與機器人評論之間的協調層。CLI 由 <code>LoopOrchestrator</code> 統一調度；目前程式碼中實際落地的平台介接是 GitHub。</p>
+      <p class="lead"><strong>先記住這句：</strong>Maestro 不增加一個審查者，而是把多方評論整理成可決策、可修復、可停止的流程。</p>
       <p>我把它命名為 <em>Maestro</em>，取意於樂團指揮：各個審查機器人像不同聲部，各自提出觀點；Maestro 不取代它們，而是負責整理、去重、協調後續修復，並判斷何時該停止。</p>
+      <p>CLI 由 <code>LoopOrchestrator</code> 統一調度；目前程式碼中實際落地的平台介接是 GitHub。</p>
       <div class="architecture" role="img" aria-label="Maestro 架構圖：CLI 與 GitHub 資料進入 LoopOrchestrator，經分類、決策、去重與修復後，透過 GitHub Platform 回寫">
         <div class="arch-node"><strong>輸入</strong><span>maestro loop start<br>PR、CI、審查討論串</span></div>
         <div class="arrow" aria-hidden="true">→</div>
@@ -212,13 +292,17 @@
       <div class="section-kicker">02 / REVIEW LOOP</div>
       <h2>一輪審查怎麼走？意見不一致時怎麼處理？</h2>
       <ol class="flow" aria-label="Maestro 審查收斂流程">
-        <li><strong>等 CI 與機器人</strong>輪詢狀態，收集 PR 討論串並整理成 Finding。</li>
-        <li><strong>先分類</strong>嚴重度、敏感路徑與關鍵字先判；其餘才交給 LLM 分類。</li>
-        <li><strong>人工決策點</strong>CLI 顯示 AI 摘要及建議，可覆寫修復、延後或拒絕；逾時採用預設值。</li>
-        <li><strong>分層去重</strong>依序比對 Finding hash、標題 Levenshtein 相似度（預設 0.8），再選擇性語意比對。</li>
-        <li><strong>修復並回寫</strong>AI 提出小範圍替換，信心值達門檻才寫檔；每輪彙整成一個 commit，再回覆／解決討論串。</li>
-        <li><strong>檢查是否收斂</strong>重新跑 CI、請機器人複查；預設最多 3 輪，問題集高度重複（Jaccard &gt; 0.7）或違反不變量即停止。</li>
+        <li><strong>收集審查</strong>等 CI 與機器人評論，轉成 Finding。</li>
+        <li><strong>分類問題</strong>規則先判；需要時才交給 LLM。</li>
+        <li><strong>決定怎麼處理</strong>CLI 建議 fix / defer / reject；人可覆寫，逾時採預設。</li>
+        <li><strong>三層去重</strong>精確 hash → 標題模糊比對 → 可選的語意比對。</li>
+        <li><strong>檢查停止條件</strong>追蹤關鍵 Finding 與跨輪變化；震盪、增加或違反不變量時停止／升級。</li>
+        <li><strong>修復並回覆</strong>小範圍修復、每輪一個 commit，回覆／解決討論串並請機器人複查。</li>
       </ol>
+      <div class="flow-return">
+        <span><strong>達停止條件：</strong>停止並升級人工判斷。</span>
+        <span><strong>尚未收斂：</strong>重跑 CI 與審查，回到 01；最多 3 輪。</span>
+      </div>
       <h2>三層去重：由便宜、確定到語意判斷</h2>
       <div class="dedup-flow" role="img" aria-label="去重流程：依序比對 Finding 穩定雜湊、標題 Levenshtein 相似度、可選的 LLM 語意；任一層命中就記為重複，全部未命中才保留為新 Finding">
         <div class="dedup-step"><strong>1 · 精確雜湊</strong><span>比對 Finding.hash（檔案、5 行位置區段、分類與內容雜湊）；相同就命中。</span></div>
@@ -245,6 +329,10 @@
   </main>
 
   <footer>
+    <a href="./product-engineer-deck.html">開啟 6 張重點簡報</a>
+    <span aria-hidden="true"> · </span>
+    <a href="./product-engineer-deck.pptx" download>下載 PowerPoint</a>
+    <span aria-hidden="true"> · </span>
     <a href="https://mikeah2011.github.io/cv/resume.html?lang=zh-CN&amp;v=lead">查看履歷</a>
     <span aria-hidden="true"> · </span>
     <a href="https://mikeah2011.github.io/post/ai-code-review-coderabbit-pr-agent-claude/">AI Code Review 工作流實戰文章</a>
