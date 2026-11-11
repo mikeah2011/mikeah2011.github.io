@@ -1,6 +1,6 @@
 ---
 
-title: AI Code Review 工作流实战：CodeRabbit + PR-Agent + Claude Review——从人工 Review 到 AI
+title: AI Code Review 工作流实战：CodeRabbit、PR-Agent 与 Claude Review
 keywords: [AI Code Review, CodeRabbit, PR, Agent, Claude Review, Review, AI, 工作流实战, 从人工]
 date: 2026-06-06 10:00:00
 author: Michael
@@ -17,11 +17,6 @@ images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 ---
 
-
-
-
-# AI Code Review 工作流实战：CodeRabbit + PR-Agent + Claude Review——从人工 Review 到 AI 辅助的效率提升量化
- 
 ## 三款工具快速对比一览
 
 在深入配置细节之前，先用一张表快速了解三款工具的核心差异，帮你快速判断哪款适合你的团队：
@@ -330,7 +325,7 @@ public function store(Request $request)
 
 **CodeRabbit 输出示例（PR 摘要 + 行内评论）：**
 
-```
+````text
 ## PR Summary
 This PR adds a new order creation endpoint in `OrderController@store`.
 The changes affect the order creation flow and introduce direct database queries.
@@ -364,11 +359,11 @@ $user = DB::select("SELECT * FROM users WHERE email = '" . $request->email . "'"
 > Order creation and stock updates should be wrapped in a database transaction
 > to ensure atomicity. If a stock update fails mid-loop, previously created
 > orders will have inconsistent inventory states.
-```
+````
 
 **PR-Agent 输出示例（结构化 Review 报告 + 行内评论）：**
 
-```markdown
+````markdown
 ## PR Review
 
 ### 🏷️ Labels: `Bug fix needed`, `Performance issue`, `Security`
@@ -435,11 +430,11 @@ and `items.*.quantity`.
 `OrderController.php:26`
 
 Good use of `response()->json()` for API responses.
-```
+````
 
 **Claude Review 输出示例（深度架构审查，中文输出）：**
 
-```markdown
+````markdown
 ## 🧠 Claude 架构级 Code Review
 
 ### 🔴 严重问题（必须修复才能合并）
@@ -526,7 +521,7 @@ public function store(StoreOrderRequest $request)
 该控制器存在严重的安全漏洞（SQL 注入）和数据一致性问题（缺少事务），
 **必须修复后才能合并**。从架构角度看，控制器承担了过多职责，
 建议遵循 Laravel 的最佳实践进行分层重构。
-```
+````
 
 **三款工具输出风格对比总结：**
 

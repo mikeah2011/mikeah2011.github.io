@@ -1,113 +1,210 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-Hant-TW">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="马成军应聘 Product Engineer 的项目补充说明：Maestro 多机器人审查收敛、问题定位与 AI 开发实践。">
-  <title>Product Engineer 职位补充说明｜马成军</title>
+  <meta name="description" content="馬成軍應徵 Product Engineer 職缺補充說明：Maestro 多機器人程式碼審查收斂、問題定位與 AI 開發實務。">
+  <title>Product Engineer 職缺補充說明｜馬成軍</title>
   <style>
     :root {
       color-scheme: light;
-      --ink: #17212b;
-      --muted: #526170;
-      --line: #dce4e9;
-      --accent: #136c64;
-      --wash: #f3f8f7;
+      --ink: #202b27;
+      --muted: #5c6861;
+      --line: #d8d5ca;
+      --accent: #235d4a;
+      --accent-dark: #193d32;
+      --warm: #bd6c3e;
+      --paper: #fbfaf6;
+      --wash: #f1f0e9;
     }
     * { box-sizing: border-box; }
     body {
-      max-width: 860px;
+      max-width: 920px;
       margin: 0 auto;
-      padding: 48px 34px 56px;
+      padding: 40px 30px 52px;
       color: var(--ink);
-      font: 16px/1.72 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--paper);
+      font: 15px/1.68 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
     }
-    header { border-bottom: 1px solid var(--line); padding-bottom: 22px; margin-bottom: 26px; }
-    .eyebrow { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .08em; }
-    h1 { margin: 7px 0 4px; font-size: clamp(26px, 5vw, 36px); line-height: 1.3; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    .eyebrow { color: var(--warm); font: 700 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+    h1 { margin: 8px 0 5px; font-size: clamp(25px, 4.6vw, 35px); letter-spacing: -.035em; line-height: 1.28; }
     .subtitle, .meta { color: var(--muted); }
     .meta { font-size: 14px; }
-    h2 { margin: 28px 0 10px; font-size: 20px; line-height: 1.4; }
-    p { margin: 8px 0; }
+    h2 { margin: 25px 0 9px; font-size: 19px; line-height: 1.4; letter-spacing: -.02em; }
+    p { margin: 7px 0; }
     a { color: var(--accent); text-underline-offset: 3px; }
-    .pipeline {
+    .section-kicker { color: var(--warm); font: 700 11px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+    .architecture {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin: 15px 0;
-    }
-    .stage {
+      grid-template-columns: minmax(120px, .75fr) 24px minmax(290px, 2fr) 24px minmax(130px, .85fr);
+      align-items: stretch;
+      gap: 7px;
+      padding: 14px;
+      margin: 12px 0 15px;
       border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 12px 14px;
+      border-radius: 12px;
       background: #fff;
     }
-    .stage strong { display: block; color: var(--accent); }
-    .stage span { display: block; color: var(--muted); font-size: 14px; }
-    .note, .prompt {
-      border-left: 3px solid var(--accent);
-      background: var(--wash);
-      padding: 11px 15px;
-      margin: 13px 0;
+    .arch-node { align-self: center; padding: 12px; border-radius: 8px; background: var(--wash); }
+    .arch-node strong, .arch-node span { display: block; }
+    .arch-node strong { color: var(--accent-dark); font-size: 13px; }
+    .arch-node span { color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .arrow { align-self: center; color: var(--warm); font-size: 20px; font-weight: 700; text-align: center; }
+    .orchestrator { padding: 12px; border: 1px solid #b8c9bd; border-radius: 9px; background: #f5f8f4; }
+    .orchestrator-title { margin-bottom: 7px; color: var(--accent-dark); font-size: 13px; font-weight: 800; }
+    .modules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; }
+    .module { padding: 6px 7px; border: 1px solid #dfe7df; border-radius: 6px; background: #fff; font-size: 11px; line-height: 1.4; }
+    .module b { color: var(--accent); }
+    .crosscutting { grid-column: 1 / -1; padding-top: 8px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+    .support {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      padding: 8px 11px;
+      border-radius: 7px;
+      background: var(--accent-dark);
+      color: #f6f5ee;
+      font-size: 11px;
     }
-    .prompt { font-size: 14px; }
-    .result { font-weight: 600; }
-    footer { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 15px; color: var(--muted); font-size: 14px; }
-    @media (max-width: 600px) {
-      body { padding: 28px 19px 36px; }
-      .pipeline { grid-template-columns: 1fr; gap: 7px; }
+    .support b { color: #e9b38e; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+      margin: 11px 0 13px;
+      padding: 0;
+      list-style: none;
+      counter-reset: flow;
+    }
+    .flow li {
+      position: relative;
+      min-height: 67px;
+      padding: 8px 10px 8px 35px;
+      border-top: 1px solid var(--line);
+      counter-increment: flow;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .flow li::before {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      color: var(--warm);
+      content: "0" counter(flow);
+      font: 700 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .flow strong { display: block; color: var(--accent-dark); }
+    .note, .prompt, .caveat {
+      background: var(--wash);
+      padding: 10px 13px;
+      margin: 11px 0;
+      border-left: 3px solid var(--accent);
+    }
+    .caveat { border-left-color: var(--warm); font-size: 13px; }
+    .prompt { font-size: 13px; }
+    .result { color: var(--accent-dark); font-weight: 700; }
+    footer { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 13px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 720px) {
+      body { padding: 27px 18px 34px; }
+      .architecture { grid-template-columns: 1fr; gap: 5px; }
+      .arrow { transform: rotate(90deg); line-height: 1; }
+      .arch-node { width: 100%; }
+      .orchestrator { width: 100%; }
+      .crosscutting { grid-column: auto; }
+      .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media print {
-      @page { size: A4; margin: 15mm 16mm; }
-      body { max-width: none; padding: 0; font-size: 10.5pt; line-height: 1.55; }
-      h1 { font-size: 25pt; }
-      h2 { margin-top: 17px; font-size: 14pt; }
-      .stage, .note, .prompt { break-inside: avoid; }
+      @page { size: A4; margin: 9mm 10mm; }
+      body { max-width: none; padding: 0; font-size: 8.2pt; line-height: 1.28; }
+      header { padding-bottom: 8px; margin-bottom: 10px; }
+      h1 { margin: 3px 0; font-size: 17pt; }
+      h2 { margin: 8px 0 4px; font-size: 10.5pt; }
+      p { margin: 3px 0; }
+      .eyebrow, .section-kicker { font-size: 8pt; }
+      .meta { font-size: 8pt; }
+      .architecture { grid-template-columns: minmax(90px, .75fr) 14px minmax(230px, 2fr) 14px minmax(95px, .85fr); padding: 6px; gap: 3px; margin: 5px 0 7px; }
+      .arch-node { padding: 5px; }
+      .arch-node strong, .orchestrator-title { font-size: 8.2pt; }
+      .arch-node span, .module, .crosscutting { font-size: 7pt; }
+      .orchestrator { padding: 5px; }
+      .modules { gap: 3px; }
+      .module { padding: 3px; }
+      .support { gap: 3px 9px; padding: 4px 7px; font-size: 7pt; }
+      .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; margin: 5px 0 6px; }
+      .flow li { min-height: 43px; padding: 4px 5px 4px 25px; font-size: 7.2pt; }
+      .flow li::before { top: 4px; font-size: 7pt; }
+      .note, .prompt, .caveat { padding: 5px 7px; margin: 5px 0; font-size: 7.5pt; }
+      footer { margin-top: 8px; padding-top: 5px; font-size: 7.5pt; }
+      .note, .prompt, .caveat, .architecture, .flow li { break-inside: avoid; }
       a { color: inherit; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="eyebrow">PRODUCT ENGINEER · 项目补充说明</div>
-    <h1>把 AI 的“多种意见”变成可执行结果</h1>
-    <div class="subtitle">马成军（Michael Ma）｜资深后端工程师 · AI 工程化实践</div>
-    <div class="meta">围绕 Maestro 多 AI 审查机器人收敛层，以及我在日常开发中的 AI 使用方式</div>
+    <div class="eyebrow">PRODUCT ENGINEER · PROJECT NOTES</div>
+    <h1>讓多個 AI 審查者，收斂成可執行的下一步</h1>
+    <div class="subtitle">馬成軍（Michael Ma）｜資深後端工程師 · AI 工程實務</div>
+    <div class="meta">專案補充說明 · Maestro 多機器人程式碼審查收斂工具</div>
   </header>
 
   <main>
     <section>
-      <h2>1. Maestro：三层去重，以及意见冲突时的收敛</h2>
-      <p>团队同时使用 CodeRabbit、Copilot、Codex、Gemini 后，同一个问题会被重复描述，也会出现相互矛盾的建议。Maestro 不按评论条数投票，而是先判断它们是否指向同一个根因，再决定能否自动处理。</p>
-      <div class="pipeline" aria-label="Maestro 三层去重流程">
-        <div class="stage"><strong>第一层 · 位置</strong><span>按文件、代码位置和上下文匹配明显重合的评论。</span></div>
-        <div class="stage"><strong>第二层 · 语义</strong><span>识别措辞不同、但根因或影响相同的问题。</span></div>
-        <div class="stage"><strong>第三层 · LLM 判断</strong><span>仅把前两层无法确定的候选交给模型辅助判断。</span></div>
+      <div class="section-kicker">01 / ARCHITECTURE</div>
+      <h2>Maestro 架構：讓審查結果進入同一條處理流程</h2>
+      <p>Maestro 不是另一個審查機器人，而是接在 PR、CI 與機器人評論之間的協調層。CLI 由 <code>LoopOrchestrator</code> 統一調度；目前程式碼中實際落地的平台介接是 GitHub。</p>
+      <div class="architecture" role="img" aria-label="Maestro 架構圖：CLI 與 GitHub 資料進入 LoopOrchestrator，經分類、決策、去重與修復後，透過 GitHub Platform 回寫">
+        <div class="arch-node"><strong>輸入</strong><span>maestro loop start<br>PR、CI、審查討論串</span></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="orchestrator">
+          <div class="orchestrator-title">LoopOrchestrator · 核心協調</div>
+          <div class="modules">
+            <div class="module"><b>Classifier</b><br>規則優先，必要時詢問 AI</div>
+            <div class="module"><b>CLI 決策</b><br>fix / defer / reject，可人工覆寫</div>
+            <div class="module"><b>Dedup</b><br>精確雜湊 → 模糊比對 → 語意介面</div>
+            <div class="module"><b>FixEngine</b><br>產生小範圍修改並檢查信心值</div>
+          </div>
+          <div class="crosscutting">橫向控制：StateMachine · RoundBudget · ConvergenceMonitor · SecretScanner · JSONL EventEmitter</div>
+        </div>
+        <div class="arrow" aria-hidden="true">↔</div>
+        <div class="arch-node"><strong>GitHubPlatform</strong><span>讀取 PR / CI / 討論串<br>提交、回覆、解決與重邀審查</span></div>
+        <div class="support"><span><b>AI Provider</b> Claude API，或 Claude Code CLI fallback</span><span><b>設定</b> CLI → 環境變數 → 專案 → 使用者 → 預設值</span></div>
       </div>
-      <p>意见不一致时，去重层不会把“相反结论”硬合成一个结论：能从代码和本次 diff 中确认的问题才进入自动修复；证据不足、建议冲突或置信度低的，保留为待判断项并升级给人工。这样既减少重复噪声，也避免模型为了收敛而掩盖分歧。</p>
     </section>
 
     <section>
-      <h2>2. 最棘手的问题：不同机器人用不同说法描述同一个 bug</h2>
-      <p>最难的不是调用四个模型，而是判断它们的评论究竟是重复问题、不同问题，还是看似相似但修复方向相反。仅靠文本完全匹配会漏掉大量语义重复；合并过度又可能把独立问题或相反意见吞掉。</p>
-      <p>我先对照真实 PR 评论和代码位置，确认重复主要来自“不同表述、同一根因”，再把判断拆成逐步升级的三层：先用位置关系筛掉明确重合项，再做语义相似匹配，最后才调用 LLM 处理边界案例。对无法确认的情况，不自动修复，转人工判断；同时根据评论被采纳或被驳回的情况观察误报。</p>
-      <p class="result">Maestro 已进入团队日常流程：10 人使用，累计处理 300+ 个 PR。按团队自评，误报下降约 70%，Code Review 耗时明显缩短。</p>
+      <div class="section-kicker">02 / REVIEW LOOP</div>
+      <h2>一輪審查怎麼走？意見不一致時怎麼處理？</h2>
+      <ol class="flow" aria-label="Maestro 審查收斂流程">
+        <li><strong>等 CI 與機器人</strong>輪詢狀態，收集 PR 討論串並整理成 Finding。</li>
+        <li><strong>先分類</strong>嚴重度、敏感路徑與關鍵字先判；其餘才交給 LLM 分類。</li>
+        <li><strong>人工決策點</strong>CLI 顯示 AI 摘要及建議，可覆寫修復、延後或拒絕；逾時採用預設值。</li>
+        <li><strong>分層去重</strong>依序比對 Finding hash、標題 Levenshtein 相似度（預設 0.8），再選擇性語意比對。</li>
+        <li><strong>修復並回寫</strong>AI 提出小範圍替換，信心值達門檻才寫檔；每輪彙整成一個 commit，再回覆／解決討論串。</li>
+        <li><strong>檢查是否收斂</strong>重新跑 CI、請機器人複查；預設最多 3 輪，問題集高度重複（Jaccard &gt; 0.7）或違反不變量即停止。</li>
+      </ol>
+      <p>不同意見不靠「哪個機器人票數多」決定。系統先把評論分類，再由 CLI 提供修復／延後／拒絕建議，使用者可以逐項覆寫；跨輪則由收斂監控判斷是否持續重複。每輪最多一個 commit、每個討論串最多回覆一次，避免自動化本身製造更多噪音。</p>
+      <div class="caveat"><strong>實作範圍說明：</strong>Dedup 已提供第三層 LLM 語意比對的 callback 與每次最多 10 次呼叫的限制；目前 CLI 組裝尚未將設定中的 <code>semanticDedup</code> 路由接到這個 callback，因此這一層目前是可擴充介面，不應描述成 CLI 已啟用的功能。</div>
     </section>
 
     <section>
-      <h2>3. 日常 AI 开发实践：把模型限制在“可验证的小判断”里</h2>
-      <p>我不会把整个 PR 丢给模型自由裁决。先由规则和相似度缩小范围，再只把少量歧义评论及相关 diff 交给模型；要求它说明依据、区分“同一问题 / 不同问题 / 不确定”，而不是直接生成修复。可验证且明确的问题才继续自动化，不确定就交给人。</p>
-      <div class="prompt"><strong>提示词示例</strong><br>
-        “请只根据下面的代码 diff 和两条审查意见判断：它们是否指向同一根因？引用具体代码作为依据，并输出：same / different / uncertain。不要补充 diff 之外的假设；证据不足时选择 uncertain，不要提出自动修复。”
+      <div class="section-kicker">03 / A PRACTICAL AI HABIT</div>
+      <h2>最棘手的問題，以及我平常怎麼讓 AI 幫得上忙</h2>
+      <p>最棘手的是「不同文字是否真的是同一個問題」：比對太嚴格會漏掉重複，合併太積極又會把獨立缺陷或相反建議吞掉。我把它拆成由便宜到昂貴的判斷層，並用固定 hash 與相似度門檻控制成本；對語意邊界情況保留人工決策，且以每輪預算、最多三輪及收斂條件限制副作用。這也讓未接線的語意層成為清楚可驗證的下一步，而不是假設它已經工作。</p>
+      <p>日常使用上，我會先把專案結構、不可違反的工程規則，以及實際驗證指令寫進 repo 的 <code>CLAUDE.md</code>，再用小範圍 prompt 指定要改的模組、預期行為與測試。這樣不用每次重講架構，也能避免 AI 順手重構不相關程式。</p>
+      <div class="prompt"><strong>我會這樣下任務</strong><br>
+        「請先依 <code>CLAUDE.md</code> 理解模組邊界，只處理這次指定的問題；先補上會失敗的測試，再做最小修改。不要改動範圍外檔案。完成後執行 <code>bun run verify</code>，回報測試結果；若證據不足，請標示未知，不要自行補假設。」
       </div>
-      <p>这套做法把 AI 放在它擅长的语义判断环节，同时用代码证据、明确输出和人工兜底控制风险。比起追求一次生成更多内容，我更关注让每个自动化决定都能解释、验证和撤回。</p>
+      <p class="result">這份專案規則包含架構、收斂與防重複操作的不變量，以及固定驗證命令；AI 因此能從一開始就依專案脈絡工作，而不是只按通用最佳實務猜答案。</p>
     </section>
   </main>
 
   <footer>
-    <a href="https://mikeah2011.github.io/cv/resume.html?lang=zh-CN&amp;v=lead">查看简历</a>
+    <a href="https://mikeah2011.github.io/cv/resume.html?lang=zh-CN&amp;v=lead">查看履歷</a>
     <span aria-hidden="true"> · </span>
-    <a href="https://mikeah2011.github.io/post/ai-code-review-coderabbit-pr-agent-claude/">AI Code Review 工作流实战文章</a>
+    <a href="https://mikeah2011.github.io/post/ai-code-review-coderabbit-pr-agent-claude/">AI Code Review 工作流實戰文章</a>
   </footer>
 </body>
 </html>
