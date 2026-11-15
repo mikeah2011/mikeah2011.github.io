@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Maestro 多機器人程式碼審查收斂工具的 Product Engineer 面試補充簡報。">
   <title>Maestro｜Product Engineer 面試補充簡報</title>
-  <style>
-    :root {
+  <style>    :root {
       color-scheme: light;
       --ink: #202b27;
       --muted: #64716a;
@@ -15,6 +14,17 @@
       --rust: #bd6c3e;
       --paper: #f7f5ee;
       --line: #d8d5ca;
+      --card: rgba(255, 255, 255, .72);
+      --card-soft: rgba(255, 255, 255, .62);
+      --slide-alt: #eeece3;
+      --halo: rgba(35, 93, 74, .08);
+      --ring: rgba(35, 93, 74, .17);
+      --ring-near: rgba(35, 93, 74, .025);
+      --ring-far: rgba(35, 93, 74, .02);
+      --nav-bg: rgba(247, 245, 238, .92);
+      --nav-line: rgba(32, 43, 39, .14);
+      --nav-hover: #e7e4da;
+      --progress-track: rgba(32, 43, 39, .1);
       --title-size: clamp(2.1rem, 5.2vw, 5.2rem);
       --h2-size: clamp(1.65rem, 3.2vw, 3rem);
       --h3-size: clamp(1.08rem, 1.65vw, 1.55rem);
@@ -24,7 +34,50 @@
       --content-gap: clamp(.8rem, 2.2vw, 2rem);
       --element-gap: clamp(.5rem, 1vw, 1rem);
     }
-
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #e6efe9;
+      --muted: #93a99f;
+      --green: #78c8a2;
+      --green-dark: #bfe6d2;
+      --rust: #dfa06e;
+      --paper: #141d19;
+      --line: #2c4038;
+      --card: rgba(255, 255, 255, .055);
+      --card-soft: rgba(255, 255, 255, .045);
+      --slide-alt: #182420;
+      --halo: rgba(120, 200, 162, .1);
+      --ring: rgba(120, 200, 162, .18);
+      --ring-near: rgba(120, 200, 162, .05);
+      --ring-far: rgba(120, 200, 162, .03);
+      --nav-bg: rgba(20, 29, 25, .9);
+      --nav-line: rgba(230, 239, 233, .16);
+      --nav-hover: #24352d;
+      --progress-track: rgba(230, 239, 233, .14);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]):not([data-theme="dark"]) {
+        color-scheme: dark;
+        --ink: #e6efe9;
+        --muted: #93a99f;
+        --green: #78c8a2;
+        --green-dark: #bfe6d2;
+        --rust: #dfa06e;
+        --paper: #141d19;
+        --line: #2c4038;
+        --card: rgba(255, 255, 255, .055);
+        --card-soft: rgba(255, 255, 255, .045);
+        --slide-alt: #182420;
+        --halo: rgba(120, 200, 162, .1);
+        --ring: rgba(120, 200, 162, .18);
+        --ring-near: rgba(120, 200, 162, .05);
+        --ring-far: rgba(120, 200, 162, .03);
+        --nav-bg: rgba(20, 29, 25, .9);
+        --nav-line: rgba(230, 239, 233, .16);
+        --nav-hover: #24352d;
+        --progress-track: rgba(230, 239, 233, .14);
+      }
+    }
     * { box-sizing: border-box; }
     html, body { height: 100%; overflow-x: hidden; }
     html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
@@ -40,11 +93,11 @@
       z-index: 5;
       inset: 0 0 auto;
       height: 4px;
-      background: rgba(32, 43, 39, .1);
+      background: var(--progress-track);
     }
     .deck-progress span {
       display: block;
-      width: 16.666%;
+      width: 14.2857%;
       height: 100%;
       background: var(--rust);
       transition: width 350ms ease;
@@ -61,7 +114,7 @@
       scroll-snap-align: start;
       isolation: isolate;
       background:
-        radial-gradient(ellipse at 87% 14%, rgba(35, 93, 74, .08), transparent 34%),
+        radial-gradient(ellipse at 87% 14%, var(--halo), transparent 34%),
         var(--paper);
     }
     .slide::before {
@@ -71,13 +124,13 @@
       bottom: -34vh;
       width: clamp(250px, 42vw, 620px);
       aspect-ratio: 1;
-      border: 1px solid rgba(35, 93, 74, .17);
+      border: 1px solid var(--ring);
       border-radius: 50%;
-      box-shadow: 0 0 0 24px rgba(35, 93, 74, .025), 0 0 0 64px rgba(35, 93, 74, .02);
+      box-shadow: 0 0 0 24px var(--ring-near), 0 0 0 64px var(--ring-far);
       content: "";
       pointer-events: none;
     }
-    .slide:nth-of-type(even) { background-color: #eeece3; }
+    .slide:nth-of-type(even) { background-color: var(--slide-alt); }
     .slide-content {
       display: flex;
       width: min(100%, 1320px);
@@ -98,7 +151,7 @@
       text-transform: uppercase;
     }
     .eyebrow::before { width: 2rem; height: 2px; background: var(--rust); content: ""; }
-    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3, p, blockquote { margin: 0; }
     h1, h2 { font-family: Georgia, "Noto Serif TC", "Songti TC", serif; font-weight: 600; }
     h1 { max-width: 16em; margin-top: 1.2rem; font-size: var(--title-size); line-height: 1.08; letter-spacing: -.045em; }
     h2 { margin: .85rem 0 var(--content-gap); font-size: var(--h2-size); line-height: 1.18; letter-spacing: -.035em; }
@@ -114,31 +167,13 @@
       padding: .5rem .85rem;
       border: 1px solid var(--line);
       border-radius: 99px;
-      background: rgba(255,255,255,.55);
+      background: var(--card-soft);
       color: var(--green-dark);
       font-size: var(--small-size);
       font-weight: 700;
     }
-    .orchestra {
-      display: grid;
-      grid-template-columns: 1fr auto 1.1fr auto 1fr;
-      align-items: center;
-      gap: clamp(.5rem, 2vw, 1.6rem);
-      margin-top: .6rem;
-    }
-    .node {
-      padding: clamp(1rem, 2.3vw, 2rem);
-      border: 1px solid var(--line);
-      border-radius: 1rem;
-      background: rgba(255,255,255,.72);
-    }
-    .node strong { display: block; color: var(--green-dark); font-size: var(--h3-size); }
-    .node p { margin-top: .55rem; color: var(--muted); font-size: var(--small-size); }
-    .node.primary { border-color: var(--green); background: var(--green-dark); color: #f7f5ee; }
-    .node.primary strong { color: #f2c5a5; }
-    .node.primary p { color: #e8eee8; }
-    .arrow { color: var(--rust); font-size: clamp(1.4rem, 3vw, 2.5rem); font-weight: 700; }
-    .sequence { margin-top: var(--content-gap); color: var(--muted); font-size: var(--small-size); }
+    .sequence { margin-top: var(--content-gap); max-width: none; color: var(--muted); font-size: var(--small-size); }
+    .lede + .workflow, .lede + .tradeoffs, .bignum + .workflow { margin-top: var(--content-gap); }
     .tier-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr);
@@ -150,133 +185,96 @@
       padding: clamp(1rem, 2vw, 1.8rem);
       border: 1px solid var(--line);
       border-radius: .9rem;
-      background: rgba(255,255,255,.72);
+      background: var(--card);
     }
     .tier-no { color: var(--rust); font: 700 var(--small-size)/1 ui-monospace, SFMono-Regular, Menlo, monospace; }
     .tier h3 { margin: 1rem 0 .65rem; color: var(--green-dark); }
     .tier p { color: var(--muted); font-size: var(--small-size); }
     .tier .rule { display: block; margin-top: .9rem; color: var(--ink); font-size: var(--small-size); font-weight: 700; }
     .tier-flow { display: flex; align-items: center; justify-content: center; color: var(--rust); font-size: 1.5rem; }
-    .tier-outcome {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: var(--element-gap);
-      padding: .75rem 1rem;
-      border-radius: .7rem;
-      background: var(--green-dark);
-      color: #f7f5ee;
-      font-size: var(--small-size);
-    }
-    .caveat { margin-top: .7rem; color: var(--muted); font-size: var(--small-size); }
-    .review-flow {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      grid-template-rows: repeat(2, 1fr);
-      gap: clamp(.55rem, 1.3vw, 1.1rem) clamp(.6rem, 1.5vw, 1.2rem);
-      align-items: stretch;
-      counter-reset: review-step;
-    }
-    .review-step {
-      position: relative;
-      min-height: clamp(94px, 12vh, 130px);
-      padding: clamp(.65rem, 1.4vw, 1.1rem);
-      border-top: 3px solid var(--green);
-      background: rgba(255,255,255,.65);
-      counter-increment: review-step;
-    }
-    .review-step:nth-child(4) { grid-column: 3; grid-row: 2; }
-    .review-step:nth-child(5) { grid-column: 2; grid-row: 2; }
-    .review-step:nth-child(6) { grid-column: 1; grid-row: 2; }
-    .review-step::before {
-      color: var(--rust);
-      content: "0" counter(review-step);
-      font: 700 var(--small-size)/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
-    }
-    .review-step:nth-child(1)::after,
-    .review-step:nth-child(2)::after,
-    .review-step:nth-child(4)::after,
-    .review-step:nth-child(5)::after {
-      position: absolute;
-      top: 50%;
-      right: -.9rem;
-      color: var(--rust);
-      content: "→";
-      font-size: 1.25rem;
-      font-weight: 700;
-      transform: translateY(-50%);
-    }
-    .review-step:nth-child(3)::after {
-      position: absolute;
-      bottom: -.95rem;
-      left: 50%;
-      color: var(--rust);
-      content: "↓";
-      font-size: 1.25rem;
-      font-weight: 700;
-      transform: translateX(-50%);
-    }
-    .review-step h3 { margin: .45rem 0 .3rem; color: var(--green-dark); font-size: var(--h3-size); }
-    .review-step p { color: var(--muted); font-size: var(--small-size); }
-    .review-return {
-      display: flex;
-      justify-content: space-between;
-      gap: .75rem;
-      margin-top: var(--element-gap);
-      padding: .65rem .85rem;
-      border-radius: .7rem;
-      background: var(--green-dark);
-      color: #f7f5ee;
-      font-size: var(--small-size);
-    }
-    .review-return strong { color: #f2c5a5; }
-    .pullquote {
-      max-width: 24ch;
-      margin-bottom: var(--content-gap);
-      color: var(--green-dark);
-      font-family: Georgia, "Noto Serif TC", "Songti TC", serif;
-      font-size: clamp(1.8rem, 4.2vw, 4rem);
-      line-height: 1.15;
-      letter-spacing: -.035em;
-    }
+    .numbers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--element-gap); margin-top: var(--content-gap); }
+    .numbers > div { padding: .5rem .7rem; border-left: 3px solid var(--green); background: var(--card-soft); }
+    .numbers strong { display: block; color: var(--green-dark); font: 700 clamp(.95rem, 1.7vw, 1.3rem)/1.15 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -.02em; }
+    .numbers span { display: block; margin-top: .2rem; color: var(--muted); font-size: var(--small-size); line-height: 1.4; }
+    .source-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--element-gap); align-items: stretch; margin-top: var(--content-gap); }
+    .source-grid > div { display: flex; flex-direction: column; }
+    .source-grid > div > .codeblock, .source-grid > div > .prompt { flex: 1; margin-top: 0; }
+    .source-grid h3 { margin-bottom: clamp(.55rem, 1.1vw, .95rem); color: var(--green); }
+    .source-grid .codeblock { margin-top: 0; font-size: clamp(.5rem, .72vw, .68rem); line-height: 1.46; }
     .tradeoffs { display: grid; grid-template-columns: 1fr 1fr; gap: var(--element-gap); }
-    .tradeoff { padding: 1rem 1.1rem; border-left: 3px solid var(--rust); background: rgba(255,255,255,.65); }
+    .tradeoff { padding: 1rem 1.1rem; border-left: 3px solid var(--rust); background: var(--card-soft); }
     .tradeoff strong { display: block; margin-bottom: .35rem; color: var(--green-dark); }
     .tradeoff p { color: var(--muted); font-size: var(--small-size); }
     .workflow {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: clamp(.7rem, 1.6vw, 1.4rem);
+      grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr);
+      gap: clamp(.65rem, 1.5vw, 1.3rem);
       align-items: stretch;
     }
     .workflow-step {
       position: relative;
-      min-height: 125px;
       padding: clamp(.8rem, 1.5vw, 1.2rem);
-      border-top: 3px solid var(--green);
-      background: rgba(255,255,255,.65);
+      border: 1px solid var(--line);
+      border-radius: .9rem;
+      background: var(--card);
     }
-    .workflow-step strong { display: block; color: var(--green-dark); font-size: var(--h3-size); }
+    .workflow-step strong { display: block; color: var(--green); font-size: clamp(1.05rem, 1.5vw, 1.32rem); }
     .workflow-step p { margin-top: .45rem; color: var(--muted); font-size: var(--small-size); }
-    .workflow-step:not(:last-child)::after {
-      position: absolute;
-      top: 50%;
-      right: -.95rem;
+    .workflow-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--rust);
-      content: "→";
-      font-size: 1.4rem;
+      font-size: clamp(1.05rem, 1.6vw, 1.5rem);
       font-weight: 700;
-      transform: translateY(-50%);
     }
     .prompt {
       margin-top: var(--element-gap);
       padding: clamp(.8rem, 1.5vw, 1.2rem);
-      border-left: 3px solid var(--rust);
-      background: rgba(255,255,255,.72);
-      color: var(--green-dark);
+      border: 1px solid var(--line);
+      border-radius: .9rem;
+      background: var(--card);
+      color: var(--ink);
       font-size: var(--small-size);
       line-height: 1.5;
     }
+    .prompt .sequence { margin-top: .7rem; padding-top: .7rem; border-top: 1px solid var(--line); }
+    .codeblock {
+      margin-top: var(--element-gap);
+      padding: clamp(.7rem, 1.4vw, 1.1rem) clamp(.85rem, 1.6vw, 1.3rem);
+      border: 1px solid var(--line);
+      border-radius: .9rem;
+      background: var(--card);
+      color: var(--green-dark);
+      font: 400 clamp(.6rem, .95vw, .86rem)/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .codeblock b { color: var(--ink); font-weight: 700; }
+    .codeblock i { color: var(--muted); font-style: normal; }
+    .trace-list { display: grid; gap: .4rem; margin-top: var(--content-gap); }
+    .trace-item {
+      display: grid;
+      grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+      gap: .85rem;
+      padding: .6rem .8rem;
+      border-left: 3px solid var(--rust);
+      background: var(--card-soft);
+    }
+    .trace-item strong { color: var(--green-dark); font-size: var(--small-size); }
+    .trace-item p { color: var(--muted); font-size: var(--small-size); line-height: 1.45; }
+    .evidence { display: grid; gap: .4rem; margin-top: var(--content-gap); }
+    .evidence-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+      gap: .85rem;
+      align-items: baseline;
+      padding: .45rem .7rem;
+      border-left: 3px solid var(--green);
+      background: var(--card-soft);
+    }
+    .evidence-row code { color: var(--green-dark); font: 700 .82em/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+    .evidence-row span { color: var(--muted); font-size: var(--small-size); line-height: 1.4; }
     .deck-nav {
       position: fixed;
       z-index: 5;
@@ -286,9 +284,9 @@
       align-items: center;
       gap: .4rem;
       padding: .4rem;
-      border: 1px solid rgba(32,43,39,.14);
+      border: 1px solid var(--nav-line);
       border-radius: 99px;
-      background: rgba(247,245,238,.92);
+      background: var(--nav-bg);
       backdrop-filter: blur(8px);
     }
     .deck-nav button {
@@ -302,55 +300,70 @@
       color: var(--green-dark);
       cursor: pointer;
     }
-    .deck-nav button:hover, .deck-nav button:focus-visible { background: #e7e4da; outline: 2px solid var(--green); }
+    .deck-nav button:hover, .deck-nav button:focus-visible { background: var(--nav-hover); outline: 2px solid var(--green); }
     .nav-index { min-width: 3.4rem; color: var(--muted); font: 700 var(--small-size)/1 ui-monospace, SFMono-Regular, Menlo, monospace; text-align: center; }
+    .deck-nav .theme-control {
+      display: flex;
+      width: auto;
+      height: 2.2rem;
+      align-items: center;
+      gap: .45rem;
+      padding: 0 .8rem;
+      border: 1px solid var(--nav-line);
+      border-radius: 99px;
+      background: transparent;
+      color: var(--green-dark);
+      font: 700 var(--small-size)/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease;
+    }
+    .deck-nav .theme-control::before {
+      flex: none;
+      width: .72rem;
+      height: .72rem;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      background: var(--half, transparent);
+      content: "";
+    }
+    .deck-nav .theme-control[data-mode="light"]::before { background: currentColor; }
+    .deck-nav .theme-control[data-mode="dark"]::before { --half: linear-gradient(90deg, currentColor 50%, transparent 0); }
+    .deck-nav .theme-control:hover, .deck-nav .theme-control:focus-visible { background: var(--nav-hover); outline: 2px solid var(--green); }
+    .bignum { display: flex; align-items: baseline; max-width: none; gap: .8rem; margin-top: var(--content-gap); }
+    .bignum strong { color: var(--green); font: 600 clamp(2rem, 4.4vw, 3.4rem)/1 Georgia, "Noto Serif TC", serif; letter-spacing: -.03em; }
+    .bignum span { max-width: none; color: var(--muted); font-size: var(--small-size); line-height: 1.45; }
     .keyboard-hint { position: fixed; right: 1.3rem; bottom: 4.2rem; color: var(--muted); font-size: .75rem; }
     .reveal { opacity: 0; transform: translateY(14px); transition: opacity 500ms ease, transform 500ms ease; }
     .slide.is-visible .reveal { opacity: 1; transform: none; }
     .slide.is-visible .reveal:nth-child(2) { transition-delay: 80ms; }
     .slide.is-visible .reveal:nth-child(3) { transition-delay: 150ms; }
     .slide.is-visible .reveal:nth-child(4) { transition-delay: 220ms; }
-    .download-links { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.5rem; }
-    .download-links a { padding: .65rem .95rem; border: 1px solid var(--green); border-radius: 99px; color: var(--green-dark); font-size: var(--small-size); font-weight: 700; text-decoration: none; }
-
-    @media (max-width: 900px) {
-      .orchestra, .workflow { grid-template-columns: 1fr; gap: .45rem; }
-      .orchestra .arrow { justify-self: center; transform: rotate(90deg); line-height: 1; }
+    .link-chips { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.5rem; }
+    .link-chips a { padding: .65rem .95rem; border: 1px solid var(--green); border-radius: 99px; color: var(--green-dark); font-size: var(--small-size); font-weight: 700; text-decoration: none; }
+    .link-chips a:hover { background: var(--halo); }
+    a.src { color: var(--green); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .84em; text-decoration: none; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    a.src:hover { border-bottom-color: var(--green); }
+    @media (max-width: 720px) {
+      .workflow { grid-template-columns: 1fr; gap: .45rem; }
+      .trace-item, .evidence-row { grid-template-columns: 1fr; gap: .2rem; }
       .tier-grid { grid-template-columns: 1fr; gap: .45rem; }
+      .numbers { grid-template-columns: 1fr 1fr; }
+      .source-grid { grid-template-columns: 1fr; }
       .tier { min-height: auto; padding: .4rem .7rem; }
       .tier h3 { margin: .15rem 0 .1rem; font-size: 1.05rem; }
       .tier p { line-height: 1.25; }
       .tier .rule { margin-top: .1rem; line-height: 1.2; }
       .tier-flow { height: .7rem; font-size: .95rem; line-height: 1; transform: rotate(90deg); }
-      .tier-outcome { flex-direction: column; gap: .3rem; }
-      .review-flow { grid-template-columns: 1fr; grid-template-rows: auto; gap: .4rem; }
-      .review-step:nth-child(n) { grid-column: auto; grid-row: auto; min-height: auto; padding: .55rem .7rem .55rem 2.35rem; }
-      .review-step::before { position: absolute; top: .65rem; left: .7rem; }
-      .review-step:nth-child(1)::after,
-      .review-step:nth-child(2)::after,
-      .review-step:nth-child(3)::after,
-      .review-step:nth-child(4)::after,
-      .review-step:nth-child(5)::after {
-        top: auto;
-        right: auto;
-        bottom: -.4rem;
-        left: 50%;
-        content: "↓";
-        transform: translateX(-50%);
-      }
-      .review-return { flex-direction: column; gap: .3rem; margin-top: 0; }
-      .workflow-step { min-height: auto; padding: .65rem .8rem; }
-      .workflow-step:not(:last-child)::after {
-        top: auto;
-        right: auto;
-        bottom: -.78rem;
-        left: 50%;
-        content: "↓";
-        transform: translateX(-50%);
-      }
+      .workflow-step { padding: .65rem .8rem; }
+      .workflow-flow { height: .9rem; font-size: .95rem; line-height: 1; transform: rotate(90deg); }
     }
     @media (min-width: 721px) and (min-height: 800px) and (max-width: 900px) {
       .tier-grid { grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr) 18px minmax(0, 1fr); gap: .45rem; }
+      .workflow { grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr) 18px minmax(0, 1fr); gap: .45rem; }
+      .workflow-step { padding: .7rem; }
+      .workflow-step strong { font-size: 1rem; }
+      .workflow-flow { font-size: 1.05rem; }
       .tier { min-height: 190px; padding: .75rem; }
       .tier h3 { margin: .55rem 0 .4rem; font-size: 1.05rem; }
       .tier p, .tier .rule { font-size: .85rem; line-height: 1.3; }
@@ -359,12 +372,10 @@
     }
     @media (max-width: 720px) {
       :root { --slide-padding: clamp(1rem, 5vw, 1.7rem); }
-      .node { padding: .8rem 1rem; }
-      .node p { margin-top: .25rem; }
-      .decision-flow { gap: .55rem; }
-      .decision { padding: .75rem; }
       .tradeoff { padding: .7rem; }
       .keyboard-hint { display: none; }
+      .theme-label { display: none; }
+      .deck-nav .theme-control { gap: 0; padding: 0; width: 2.2rem; justify-content: center; }
     }
     @media (max-height: 700px) {
       :root {
@@ -374,11 +385,14 @@
         --h2-size: clamp(1.35rem, 2.8vw, 2.2rem);
       }
       .tier { min-height: clamp(135px, 23vh, 190px); }
-      .workflow-step { min-height: 105px; }
     }
     @media (max-height: 600px) {
       :root { --slide-padding: clamp(.6rem, 2.5vw, 1.4rem); --body-size: clamp(.85rem, 1.15vw, 1rem); }
       .nav-dots, .keyboard-hint { display: none; }
+      .sequence { margin-top: .5rem; }
+      .trace-list { gap: .25rem; margin-top: .5rem; }
+      .link-chips { margin-top: .8rem; gap: .45rem; }
+      .link-chips a { padding: .4rem .7rem; }
     }
     @media (max-width: 600px) {
       :root { --title-size: clamp(1.75rem, 8vw, 2.7rem); }
@@ -387,39 +401,20 @@
     @media (max-height: 500px) {
       :root { --slide-padding: clamp(.45rem, 2vw, .9rem); --title-size: clamp(1.45rem, 3.5vw, 2.1rem); --h2-size: clamp(1.1rem, 2.2vw, 1.45rem); --body-size: clamp(.75rem, 1vw, .88rem); }
       .tier { min-height: 0; padding: .65rem; }
-      .workflow-step { min-height: 0; padding: .55rem; }
+      .workflow-step { padding: .55rem; }
+      .link-chips { margin-top: .5rem; gap: .35rem; }
+      .link-chips a { padding: .25rem .55rem; font-size: .72rem; }
+      .slide-meta { margin-top: .8rem; }
+      .title-stats { margin-top: .8rem; }
     }
     @media (max-height: 500px) and (max-width: 720px) {
-      .orchestra { grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1fr) 16px minmax(0, 1fr); gap: .25rem; }
-      .orchestra .arrow { justify-self: center; transform: none; }
       .tier-grid { grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1fr) 16px minmax(0, 1fr); gap: .25rem; }
       .tier { padding: .4rem; }
       .tier h3 { font-size: .95rem; }
       .tier-flow { transform: none; }
-      .review-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, 1fr); gap: .65rem .75rem; }
-      .review-step:nth-child(4) { grid-column: 3; grid-row: 2; }
-      .review-step:nth-child(5) { grid-column: 2; grid-row: 2; }
-      .review-step:nth-child(6) { grid-column: 1; grid-row: 2; }
-      .review-step:nth-child(n) { min-height: 47px; padding: .35rem .35rem .35rem 1.6rem; }
-      .review-step::before { top: .42rem; left: .4rem; font-size: .68rem; }
-      .review-step h3 { margin: .2rem 0 .12rem; font-size: .78rem; }
-      .review-step p { font-size: .66rem; line-height: 1.25; }
-      .review-step:nth-child(1)::after,
-      .review-step:nth-child(2)::after { top: 50%; right: -.65rem; bottom: auto; left: auto; content: "→"; font-size: .9rem; transform: translateY(-50%); }
-      .review-step:nth-child(3)::after { top: auto; right: auto; bottom: -.7rem; left: 50%; content: "↓"; font-size: .9rem; transform: translateX(-50%); }
-      .review-step:nth-child(4)::after,
-      .review-step:nth-child(5)::after { top: 50%; right: auto; bottom: auto; left: -.65rem; content: "←"; font-size: .9rem; transform: translateY(-50%); }
-      .review-return { flex-direction: row; gap: .35rem; margin-top: .45rem; padding: .35rem .45rem; font-size: .65rem; }
-      .workflow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .25rem; }
-      .workflow-step { min-height: 0; padding: .4rem; }
-      .workflow-step:not(:last-child)::after {
-        top: 50%;
-        right: -.6rem;
-        bottom: auto;
-        left: auto;
-        content: "→";
-        transform: translateY(-50%);
-      }
+      .workflow { grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1fr) 16px minmax(0, 1fr); gap: .25rem; }
+      .workflow-step { padding: .4rem; }
+      .workflow-flow { height: auto; font-size: .8rem; transform: none; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
@@ -427,174 +422,219 @@
       .reveal { opacity: 1; transform: none; }
     }
   </style>
+  <script>
+    try {
+      const saved = localStorage.getItem("product-engineer-theme");
+      if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+    } catch (error) { console.warn("Unable to load the saved theme preference.", error); }
+  </script>
 </head>
 <body>
   <div class="deck-progress" aria-hidden="true"><span id="progress"></span></div>
   <main id="deck">
-    <section class="slide" aria-label="第 1 張：Maestro 面試補充">
+    <section class="slide" aria-label="第 1 張：封面">
       <div class="slide-content">
         <div class="eyebrow reveal">Product Engineer · Project Notes</div>
-        <h1 class="reveal">讓多個 AI 審查者，收斂成<span class="highlight">可執行的下一步</span></h1>
-        <p class="lede reveal">Maestro 多機器人程式碼審查收斂工具</p>
+        <h1 class="reveal">讓四個 AI 審查機器人，<br><span class="highlight">收斂成可執行的下一步</span></h1>
+        <p class="lede reveal">Maestro：一個把多個 AI 程式碼審查意見整理成「改什麼、改幾輪、何時停」的工具</p>
         <div class="title-stats reveal">
-          <span class="pill">協調，而非取代 reviewer</span>
-          <span class="pill">3 層去重</span>
-          <span class="pill">最多 3 輪收斂</span>
+          <span class="pill">協調，不取代任何一個機器人</span>
+          <span class="pill">去重分三層</span>
+          <span class="pill">最多三輪</span>
         </div>
         <p class="slide-meta reveal">馬成軍（Michael Ma）｜資深後端工程師 · AI 工程實務</p>
+        <div class="link-chips reveal">
+          <a href="https://github.com/mikeah2011/maestro">原始碼 · github.com/mikeah2011/maestro</a>
+          <a href="https://github.com/mikeah2011/maestro/wiki">Repo Wiki · 78 頁</a>
+        </div>
       </div>
-      <span class="slide-count">01 / 06</span>
+      <span class="slide-count">01 / 07</span>
     </section>
 
-    <section class="slide" aria-label="第 2 張：為什麼叫 Maestro">
+    <section class="slide" aria-label="第 2 張：Maestro 只做三件事">
       <div class="slide-content">
-        <div class="eyebrow reveal">01 · The name</div>
-        <h2 class="reveal">像樂團指揮，讓不同聲部<span class="highlight">協同而不互相覆蓋</span></h2>
-        <div class="orchestra reveal">
-          <div class="node">
-            <strong>多個審查機器人</strong>
-            <p>各自評論程式碼，提出不同觀點。</p>
+        <div class="eyebrow reveal">01 · Q1 三層去重與意見收斂</div>
+        <h2 class="reveal">四個機器人都開口之後，<span class="highlight">需要有人收斂</span></h2>
+        <p class="lede reveal">CodeRabbit、Copilot、Codex、Ellipsis 在同一個 PR 上會留幾十條意見，很多是同一件事講了三四遍，也有互相矛盾的。Maestro 不額外審查程式碼，只做三件事。</p>
+        <div class="workflow reveal">
+          <div class="workflow-step">
+            <strong>1 · 合併重複</strong>
+            <p>三層去重，從最便宜的開始跑。</p>
           </div>
-          <div class="arrow" aria-hidden="true">→</div>
-          <div class="node primary">
-            <strong>Maestro</strong>
-            <p>分類、去重、安排修復與收斂。</p>
+          <div class="workflow-flow" aria-hidden="true">→</div>
+          <div class="workflow-step">
+            <strong>2 · 判斷該不該改</strong>
+            <p>不投票，用規則分出 bug 跟口味。</p>
           </div>
-          <div class="arrow" aria-hidden="true">→</div>
-          <div class="node">
-            <strong>工程師</strong>
-            <p>收到清楚、可追蹤的下一步。</p>
+          <div class="workflow-flow" aria-hidden="true">→</div>
+          <div class="workflow-step">
+            <strong>3 · 決定什麼時候停</strong>
+            <p>只看關鍵問題有沒有變少。</p>
           </div>
         </div>
-        <p class="sequence reveal">它不是另一個 reviewer；它負責 review 之後的協調與收斂。</p>
+        <p class="sequence reveal">名字取意於樂團指揮：它不取代任何一個聲部，只負責讓它們收斂。</p>
       </div>
-      <span class="slide-count">02 / 06</span>
+      <span class="slide-count">02 / 07</span>
     </section>
 
     <section class="slide" aria-label="第 3 張：三層去重">
       <div class="slide-content">
-        <div class="eyebrow reveal">02 · Three-tier dedup</div>
-        <h2 class="reveal">先用低成本確定性比對，必要時才升級判斷</h2>
+        <div class="eyebrow reveal">01 · 去重</div>
+        <h2 class="reveal">三層依序跑，<span class="highlight">前一層攔不住的才交給下一層</span></h2>
         <div class="tier-grid reveal">
           <article class="tier">
-            <span class="tier-no">TIER 01</span>
-            <h3>精確雜湊</h3>
-            <p>Finding.hash 相同即重複。</p>
-            <span class="rule">檔案／位置／分類／內容雜湊</span>
+            <span class="tier-no">第一層 · 完全一樣</span>
+            <h3>先擋掉六成</h3>
+            <p>每條意見算一個指紋＝雜湊（檔案＋行號區間＋問題類別＋附近程式碼），指紋相同就是重複。</p>
+            <span class="rule">零成本、最快</span>
           </article>
           <div class="tier-flow" aria-hidden="true">→</div>
           <article class="tier">
-            <span class="tier-no">TIER 02</span>
-            <h3>標題模糊比對</h3>
-            <p>比較標題的 Levenshtein 相似度。</p>
-            <span class="rule">≥ 0.8 命中</span>
+            <span class="tier-no">第二層 · 標題很像</span>
+            <h3>再擋兩成半</h3>
+            <p>說法不同但講同一件事：比較兩條標題的文字相似度，夠像就當成重複。</p>
+            <span class="rule">相似度 0.8 命中</span>
           </article>
           <div class="tier-flow" aria-hidden="true">→</div>
           <article class="tier">
-            <span class="tier-no">TIER 03 · OPTIONAL</span>
-            <h3>LLM 語意比對</h3>
-            <p>LLM callback 判斷不同措辭是否同義。</p>
-            <span class="rule">每次去重上限 10 次</span>
+            <span class="tier-no">第三層 · 意思一樣</span>
+            <h3>交給大模型</h3>
+            <p>差很多但意思一樣，只能問模型。這層最貴，所以設了上限。</p>
+            <span class="rule">一輪最多問 10 次</span>
           </article>
         </div>
-        <div class="tier-outcome reveal">
-          <span>命中任一層 → 指向既有 Finding</span>
-          <span>全部未命中 → 保留為新 Finding</span>
-        </div>
-        <p class="caveat reveal">現況：CLI 尚未接上 semanticDedup，第三層尚未啟用。</p>
+        <p class="sequence reveal">誠實標註：第三層的介面、上限與單測都在，但啟動時還沒接上線——它是可用的擴充點，不是已啟用的功能。<a class="src" href="https://github.com/mikeah2011/maestro/blob/master/src/core/dedup/Dedup.ts#L88-L89">Dedup.ts:88</a>　<a class="src" href="https://github.com/mikeah2011/maestro/wiki/問題處理管道-—-Dedup-三層去重管道">Wiki · 三層去重</a></p>
       </div>
-      <span class="slide-count">03 / 06</span>
+      <span class="slide-count">03 / 07</span>
     </section>
 
-    <section class="slide" aria-label="第 4 張：如何處理不同審查意見">
+    <section class="slide" aria-label="第 4 張：意見不一致與停止條件">
       <div class="slide-content">
-        <div class="eyebrow reveal">03 · Disagreement</div>
-        <h2 class="reveal">不靠多數決，讓每個意見都經過同一套判斷</h2>
-        <div class="review-flow reveal" aria-label="Maestro 六步審查循環">
-          <article class="review-step">
-            <h3>收集審查</h3>
-            <p>等 CI 與機器人評論，整理成 Finding。</p>
-          </article>
-          <article class="review-step">
-            <h3>分類問題</h3>
-            <p>規則先判；需要時才交給 LLM。</p>
-          </article>
-          <article class="review-step">
-            <h3>人工決策</h3>
-            <p>建議 fix / defer / reject；人可逐項覆寫。</p>
-          </article>
-          <article class="review-step">
-            <h3>三層去重</h3>
-            <p>精確 hash → 標題相似度 → 可選語意。</p>
-          </article>
-          <article class="review-step">
-            <h3>檢查收斂</h3>
-            <p>追蹤關鍵 Finding 與不變量；必要時停止並升級。</p>
-          </article>
-          <article class="review-step">
-            <h3>修復並回覆</h3>
-            <p>每輪一個 commit，回覆後請機器人複查。</p>
-          </article>
+        <div class="eyebrow reveal">01 · 收斂</div>
+        <h2 class="reveal">意見不一致時不投票，<span class="highlight">用規則</span></h2>
+        <div class="workflow reveal">
+          <div class="workflow-step">
+            <strong>1 · 先統一格式</strong>
+            <p>各家嚴重度用詞不同（critical／blocker／error／fatal），先對到同一把尺，否則無從比較。</p>
+          </div>
+          <div class="workflow-flow" aria-hidden="true">→</div>
+          <div class="workflow-step">
+            <strong>2 · 再判是 bug 還是口味</strong>
+            <p>嚴重度關鍵、或碰到認證與支付路徑的算 bug；寫著 nit: 這種字的算口味；規則判不出來才問模型。</p>
+          </div>
+          <div class="workflow-flow" aria-hidden="true">→</div>
+          <div class="workflow-step">
+            <strong>3 · 類別決定動作</strong>
+            <p>bug 就改，口味先擱著，明顯判斷錯的直接拒絕並附理由。人可以逐條推翻，但 30 秒沒動作就照建議走。</p>
+          </div>
         </div>
-        <div class="review-return reveal">
-          <span><strong>達停止條件：</strong>停止並升級人工判斷。</span>
-          <span><strong>尚未收斂：</strong>回到 01，最多 3 輪。</span>
+        <div class="numbers reveal">
+          <div><strong>清零</strong><span>＝完成</span></div>
+          <div><strong>越修越多</strong><span>＝停，交給人</span></div>
+          <div><strong>反覆出現</strong><span>＝停，交給人</span></div>
+          <div><strong>最多三輪</strong><span>＝硬性上限</span></div>
         </div>
+        <p class="sequence reveal"><b>另有一條硬規矩：它自己不能變成噪音。</b>每輪只准一次提交、每條意見只回覆一次；違反就讓程式直接崩掉，而不是警告一聲繼續跑——會累積成刷屏的自動化工具，跟沒有是一樣的。</p>
       </div>
-      <span class="slide-count">04 / 06</span>
+      <span class="slide-count">04 / 07</span>
     </section>
 
     <section class="slide" aria-label="第 5 張：最棘手的問題">
       <div class="slide-content">
-        <div class="eyebrow reveal">04 · Hardest problem</div>
-        <p class="pullquote reveal">「不同文字，究竟是同一個問題，還是兩個不同的 bug？」</p>
+        <div class="eyebrow reveal">02 · Q2 最棘手的問題</div>
+        <h2 class="reveal">測試全綠，<span class="highlight">但功能其實沒生效</span></h2>
+        <p class="lede reveal">註解寫著「指紋取自附近程式碼，不是評論文字，所以換種說法也認得出同一個問題」，單元測試逐條驗證了這句話、全部通過；但實際跑起來，跨機器人的重複一條都沒合併掉。</p>
         <div class="tradeoffs reveal">
           <div class="tradeoff">
-            <strong>去重太保守</strong>
-            <p>同一缺陷被多個 reviewer 重複處理，製造噪音。</p>
+            <strong>代碼說的</strong>
+            <p>註解、命名與單測互相對得上，逐條驗證設計描述，結果全綠。</p>
           </div>
           <div class="tradeoff">
-            <strong>合併太積極</strong>
-            <p>獨立缺陷或相反建議可能被錯誤吞掉。</p>
+            <strong>實際上跑的</strong>
+            <p>跨機器人的重複一條都沒合併，合併幾乎全落在第二層。</p>
           </div>
         </div>
-        <p class="sequence reveal">解法：由精確 hash 到相似度，再到可選語意；控制成本與誤合併風險，邊界情況保留人工決策。</p>
+        <div class="trace-list reveal">
+          <div class="trace-item">
+            <strong>1 · 看紀錄</strong>
+            <p>去重結果按層記了數，對外發的事件只報了加總。把三層拆開看，第一層命中率遠低於預期，合併幾乎全落在第二層。</p>
+          </div>
+          <div class="trace-item">
+            <strong>2 · 往回追指紋在哪算出來</strong>
+            <p>整個倉庫只有一個地方呼叫它，而那個呼叫的第四個參數名叫「附近程式碼」，傳進去卻是機器人寫的評論文字。</p>
+          </div>
+          <div class="trace-item">
+            <strong>3 · 確認設計沒接上</strong>
+            <p>該放程式碼片段的欄位，全倉庫找不到任何賦值的地方——不是筆誤，是整條設計在組裝時斷了。</p>
+          </div>
+        </div>
+        <p class="sequence reveal">後果：傳進去的是評論文字，措辭一改指紋就跟著變，第一層永遠認不出跨機器人的同一個問題。證據就在公開倉庫的 master 上：<a class="src" href="https://github.com/mikeah2011/maestro/blob/master/src/core/convergence/ConvergenceMonitor.ts#L173-L186">ConvergenceMonitor.ts:173-186</a>　<a class="src" href="https://github.com/mikeah2011/maestro/blob/master/src/core/loop/LoopOrchestrator.ts#L616">LoopOrchestrator.ts:616</a></p>
       </div>
-      <span class="slide-count">05 / 06</span>
+      <span class="slide-count">05 / 07</span>
     </section>
 
-    <section class="slide" aria-label="第 6 張：日常 AI 開發方式">
+    <section class="slide" aria-label="第 6 張：怎麼修與學到什麼">
       <div class="slide-content">
-        <div class="eyebrow reveal">05 · Daily AI workflow</div>
-        <h2 class="reveal">把專案知識寫成規則，把每次任務縮小</h2>
+        <div class="eyebrow reveal">02 · 修法</div>
+        <h2 class="reveal">把斷掉的接線<span class="highlight">補回來的三步</span></h2>
+        <p class="bignum reveal"><strong>0 條</strong><span>實際執行中被合併掉的跨機器人重複——這是日誌裡的觀測，不是推測。</span></p>
         <div class="workflow reveal">
           <div class="workflow-step">
-            <strong>1 · CLAUDE.md</strong>
-            <p>模組邊界、工程不變量、常用驗證命令。</p>
+            <strong>1 · 拆開兩種指紋</strong>
+            <p>「位置」和「語意」分開算。還沒分類之前，不該假裝知道問題類別。</p>
           </div>
+          <div class="workflow-flow" aria-hidden="true">→</div>
           <div class="workflow-step">
-            <strong>2 · 聚焦 prompt</strong>
-            <p>指定檔案範圍、預期行為、不可碰觸項目。</p>
+            <strong>2 · 真的取出附近程式碼</strong>
+            <p>從 diff 裡取出來，填進那個欄位，讓它不再只是型別上的裝飾。</p>
           </div>
+          <div class="workflow-flow" aria-hidden="true">→</div>
           <div class="workflow-step">
-            <strong>3 · 驗證</strong>
-            <p>先測試，再最小修改，最後跑 bun run verify。</p>
+            <strong>3 · 補一條從入口跑的測試</strong>
+            <p>同一個位置、不同措辭的兩條意見，去重後只剩一個。</p>
           </div>
         </div>
-        <blockquote class="prompt reveal">「只處理指定問題，先補失敗測試，再做最小修改；執行 bun run verify。證據不足就標示未知，不要自行補假設。」</blockquote>
-        <div class="download-links reveal">
-          <a href="./product-engineer.html">閱讀完整補充頁</a>
-          <a href="./product-engineer-deck.pptx" download>下載 PowerPoint</a>
-        </div>
+        <p class="sequence reveal"><b>這一項我還沒收口</b>，所以這裡寫的是「我怎麼找到它、打算怎麼修」，不是「已解決」。它改變了我之後的習慣：<i>只要註解宣稱一個系統性質，我就同時要求一條從呼叫入口驗證它的測試。</i></p>
       </div>
-      <span class="slide-count">06 / 06</span>
+      <span class="slide-count">06 / 07</span>
+    </section>
+
+    <section class="slide" aria-label="第 7 張：日常 AI 開發做法">
+      <div class="slide-content">
+        <div class="eyebrow reveal">03 · Q3 日常 AI 開發的具體做法</div>
+        <h2 class="reveal">靠的不是神奇 prompt，<span class="highlight">是兩樣留在倉庫裡的東西</span></h2>
+        <p class="lede reveal">兩樣合起來是同一件事：把架構事實、驗證口徑、不讓步的底線，變成<b>倉庫裡可以 diff、可以 review 的檔案</b>，而不是每次對話都要重講的個人記憶（例：<a class="src" href="https://github.com/mikeah2011/maestro/blob/master/CLAUDE.md">CLAUDE.md</a>）。</p>
+        <div class="source-grid reveal">
+          <div>
+            <h3>一 · 把專案規矩寫進規則檔</h3>
+            <div class="codeblock"># CLAUDE.md（節錄）
+
+<b>## 常用指令</b>
+bun run verify   # 型別檢查 + 測試；提交前的驗證口徑寫死在這裡
+
+<b>## 關鍵設計決策</b>
+· 每輪的分類、提交、回覆都有配額，溢出時 <b>throw</b>，不准 warn-and-continue
+· 所有副作用（onFix、onCommit、sleep）<b>都從建構函式注入</b>，測試中可以替換掉
+· 未設定的環境變數必須寫成 <b>${VAR:-預設值}</b></div>
+          </div>
+          <div>
+            <h3>二 · 每次任務只圈一個小範圍</h3>
+            <blockquote class="prompt">請先依 CLAUDE.md 理解模組邊界，這次只處理 core/dedup 這一層；先在 tests/core/dedup/ 補一個會失敗的測試，再做最小修改讓它通過。不要改到範圍外的檔案，不要把 throw 改成警告。完成後跑 bun run verify，回報實際輸出；證據不足的地方標為未知，不要自己補假設。<p class="sequence">讓 AI 改程式碼的 prompt 更嚴：固定 JSON 輸出、溫度 0、信心不足 0.7 直接丟掉、只給目標行上下 20 行——不讓它假裝看過整個檔案。</p></blockquote>
+          </div>
+        </div>
+        <p class="sequence reveal"><b>三個問題講的是同一件事：讓不確定的 AI 輸出，落在確定的規則與可驗證的證據上。</b></p>
+      </div>
+      <span class="slide-count">07 / 07</span>
     </section>
   </main>
   <p class="keyboard-hint" aria-hidden="true">↑ ↓ / 空白鍵切換</p>
   <nav class="deck-nav" aria-label="簡報導覽">
     <button id="prev" type="button" aria-label="上一張">↑</button>
-    <span class="nav-index" id="navIndex" aria-live="polite">01 / 06</span>
+    <span class="nav-index" id="navIndex" aria-live="polite">01 / 07</span>
     <button id="next" type="button" aria-label="下一張">↓</button>
+    <button class="theme-control" id="themeControl" type="button" data-mode="system" aria-label="切換主題，目前為跟隨系統">
+      <span class="theme-label" id="themeLabel">跟隨系統</span>
+    </button>
   </nav>
   <script>
     class PresentationController {
@@ -657,6 +697,38 @@
     }
 
     new PresentationController();
+
+    const THEME_KEY = "product-engineer-theme";
+    const THEME_MODES = ["system", "light", "dark"];
+    const THEME_NAMES = { system: "跟隨系統", light: "淺色", dark: "深色" };
+    const themeControl = document.querySelector("#themeControl");
+    const themeLabel = document.querySelector("#themeLabel");
+
+    function applyTheme(mode) {
+      if (mode === "system") delete document.documentElement.dataset.theme;
+      else document.documentElement.dataset.theme = mode;
+      themeControl.dataset.mode = mode;
+      themeControl.dataset.label = THEME_NAMES[mode];
+      themeLabel.textContent = THEME_NAMES[mode];
+      themeControl.setAttribute("aria-label", `切換主題，目前為${THEME_NAMES[mode]}`);
+    }
+
+    function storedTheme() {
+      try { return localStorage.getItem(THEME_KEY); }
+      catch (error) { console.warn("Unable to load the saved theme preference.", error); }
+      return null;
+    }
+
+    applyTheme(THEME_MODES.includes(storedTheme()) ? storedTheme() : "system");
+    themeControl.addEventListener("click", () => {
+      const mode = THEME_MODES[(THEME_MODES.indexOf(themeControl.dataset.mode) + 1) % THEME_MODES.length];
+      applyTheme(mode);
+      try { localStorage.setItem(THEME_KEY, mode); }
+      catch (error) { console.warn("Unable to save the theme preference.", error); }
+    });
+    window.addEventListener("storage", (event) => {
+      if (event.key === THEME_KEY) applyTheme(THEME_MODES.includes(event.newValue) ? event.newValue : "system");
+    });
   </script>
 </body>
 </html>
