@@ -402,11 +402,10 @@
         transition: opacity .18s ease, transform .28s cubic-bezier(.2,.8,.2,1), visibility .18s ease;
         visibility: hidden;
       }
-      .resource-links .resource-link:nth-child(1) { --fan-x: -11px; --fan-y: -81px; transition-delay: .03s; }
-      .resource-links .resource-link:nth-child(2) { --fan-x: -52px; --fan-y: -66px; transition-delay: .07s; }
-      .resource-links .resource-link:nth-child(3) { --fan-x: -77px; --fan-y: -31px; transition-delay: .11s; }
-      .resource-links .resource-link:nth-child(4) { --fan-x: -80px; --fan-y: 12px; transition-delay: .15s; }
-      .resource-links .resource-link:nth-child(5) { --fan-x: -66px; --fan-y: 52px; transition-delay: .19s; }
+      .resource-links .resource-link:nth-child(1) { --fan-x: -11px; --fan-y: -61px; transition-delay: .03s; }
+      .resource-links .resource-link:nth-child(2) { --fan-x: -42px; --fan-y: -45px; transition-delay: .07s; }
+      .resource-links .resource-link:nth-child(3) { --fan-x: -56px; --fan-y: -11px; transition-delay: .11s; }
+      .resource-links .resource-link:nth-child(4) { --fan-x: -43px; --fan-y: 24px; transition-delay: .15s; }
       .resource-dock.is-open .resource-links .resource-link {
         opacity: 1;
         pointer-events: auto;
@@ -742,18 +741,11 @@ bun run verify        # 型別檢查 + 測試；提交前的驗證口徑寫死�
             <small>專業經歷</small>
           </span>
         </a>
-        <a class="resource-link" href="./product-engineer-deck.pptx" download aria-label="下載淺色版簡報檔" data-label="下載 · 淺色">
+        <a class="resource-link" id="deckDownload" href="./product-engineer-deck.pptx" download aria-label="下載淺色版簡報檔" data-label="下載">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 18v3h14v-3"/></svg>
           <span class="resource-copy">
-            <strong>下載 · 淺色</strong>
-            <small>簡報檔 · PPTX</small>
-          </span>
-        </a>
-        <a class="resource-link" href="./product-engineer-deck-dark.pptx" download aria-label="下載深色版簡報檔" data-label="下載 · 深色">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 18v3h14v-3"/></svg>
-          <span class="resource-copy">
-            <strong>下載 · 深色</strong>
-            <small>簡報檔 · PPTX</small>
+            <strong>下載</strong>
+            <small id="deckDownloadHint">簡報檔 · PPTX · 淺色</small>
           </span>
         </a>
       </div>
@@ -786,6 +778,18 @@ bun run verify        # 型別檢查 + 測試；提交前的驗證口徑寫死�
       readingProgressRing.style.strokeDashoffset = String(106.8 * (1 - progress / 100));
     }
 
+    const deckDownload = document.querySelector("#deckDownload");
+    const deckDownloadHint = document.querySelector("#deckDownloadHint");
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function syncDeckDownload() {
+      const mode = themeControl.dataset.mode;
+      const dark = mode === "system" ? systemDark.matches : mode === "dark";
+      deckDownload.href = `./product-engineer-deck${dark ? "-dark" : ""}.pptx`;
+      deckDownload.setAttribute("aria-label", `下載${dark ? "深色" : "淺色"}版簡報檔`);
+      deckDownloadHint.textContent = `簡報檔 · PPTX · ${dark ? "深色" : "淺色"}`;
+    }
+
     function setTheme(mode, persist = true) {
       document.documentElement.dataset.themeMode = mode;
       if (mode === "system") {
@@ -797,6 +801,7 @@ bun run verify        # 型別檢查 + 測試；提交前的驗證口徑寫死�
       themeControl.dataset.label = themeNames[mode];
       themeLabel.textContent = themeNames[mode];
       themeControl.setAttribute("aria-label", `切換主題，目前為${themeNames[mode]}`);
+      syncDeckDownload();
       if (persist) {
         try {
           localStorage.setItem("product-engineer-theme", mode);
@@ -811,6 +816,9 @@ bun run verify        # 型別檢查 + 測試；提交前的驗證口徑寫死�
     themeControl.addEventListener("click", () => {
       const currentIndex = themeModes.indexOf(themeControl.dataset.mode);
       setTheme(themeModes[(currentIndex + 1) % themeModes.length]);
+    });
+    systemDark.addEventListener("change", () => {
+      if (themeControl.dataset.mode === "system") syncDeckDownload();
     });
     moreButton.addEventListener("click", () => {
       const expanded = moreButton.getAttribute("aria-expanded") !== "true";
