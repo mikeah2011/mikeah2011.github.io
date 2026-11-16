@@ -30,7 +30,7 @@ images:
 
 在 B2C 电商场景中，"附近门店"、"周边景点"、"配送范围校验"是高频需求。传统方案是用 MySQL + Haversine 公式做经纬度距离计算，但当 POI（Point of Interest）数量达到数十万、QPS 飙到几千时，MySQL 的全表扫描 + 三角函数计算就成了性能瓶颈。
 
-Redis 3.2 引入的 GEO 数据类型，底层基于 GeoHash + Sorted Set，天然支持"范围查询 + 距离排序"，O(log N) 复杂度远优于 MySQL 方案。本文记录在 KKday B2C API 项目中落地 Redis GEO 的完整过程：从命令原理到 Laravel 集成，从单机到 Cluster 的踩坑，一步步讲清楚。
+Redis 3.2 引入的 GEO 数据类型，底层基于 GeoHash + Sorted Set，天然支持"范围查询 + 距离排序"，O(log N) 复杂度远优于 MySQL 方案。本文记录在悠途OTA B2C API 项目中落地 Redis GEO 的完整过程：从命令原理到 Laravel 集成，从单机到 Cluster 的踩坑，一步步讲清楚。
 
 ---
 

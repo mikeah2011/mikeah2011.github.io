@@ -18,7 +18,7 @@ tags:
   - 静态分析
   - PHP
   - engineering
-description: 当你的 Laravel 项目从 1 个仓库膨胀到 30+，技术债不再是「以后再改」能解决的。本文以 KKday B2C 后端团队的真实经历为背景，完整拆解一套可落地的技术债治理方案：用 Rector 做自动化批量重构，用 PHPStan 做渐进式静态分析升级，用 CI 门禁做质量兜底。方案核心不在工具本身，而在「怎么让 30 个仓库同时推进还不翻车」的工程方法论。
+description: 当你的 Laravel 项目从 1 个仓库膨胀到 30+，技术债不再是「以后再改」能解决的。本文以悠途OTA B2C 后端团队的真实经历为背景，完整拆解一套可落地的技术债治理方案：用 Rector 做自动化批量重构，用 PHPStan 做渐进式静态分析升级，用 CI 门禁做质量兜底。方案核心不在工具本身，而在「怎么让 30 个仓库同时推进还不翻车」的工程方法论。
 ---
 
 
@@ -664,12 +664,12 @@ pre-commit:
 
 **解决方案：用 Composer 包统一管理配置。**
 
-创建一个内部 Composer 包 `kkday/code-quality-config`：
+创建一个内部 Composer 包 `youtu/code-quality-config`：
 
 ```json
 {
-    "name": "kkday/code-quality-config",
-    "description": "KKday 统一代码质量配置",
+    "name": "youtu/code-quality-config",
+    "description": "youtu 统一代码质量配置",
     "type": "library",
     "require": {
         "php": "^8.2",
@@ -680,7 +680,7 @@ pre-commit:
     },
     "autoload": {
         "psr-4": {
-            "KKday\\CodeQuality\\": "src/"
+            "youtu\\CodeQuality\\": "src/"
         }
     }
 }
@@ -691,11 +691,11 @@ pre-commit:
 ```php
 <?php
 
-// kkday/code-quality-config/src/Rector/BaseConfig.php
+// youtu/code-quality-config/src/Rector/BaseConfig.php
 
 declare(strict_types=1);
 
-namespace KKday\CodeQuality\Rector;
+namespace youtu\CodeQuality\Rector;
 
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\SetList;
@@ -729,7 +729,7 @@ final class BaseConfig
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use KKday\CodeQuality\Rector\BaseConfig;
+use youtu\CodeQuality\Rector\BaseConfig;
 
 return static function (RectorConfig $rectorConfig): void {
     // 应用团队统一配置
@@ -749,7 +749,7 @@ return static function (RectorConfig $rectorConfig): void {
 ### 5.3 共享 PHPStan 配置
 
 ```neon
-# kkday/code-quality-config/phpstan-base.neon
+# youtu/code-quality-config/phpstan-base.neon
 includes:
     - vendor/phpstan/phpstan-laravel/extension.neon
 
@@ -764,7 +764,7 @@ parameters:
 
 ```neon
 includes:
-    - vendor/kkday/code-quality-config/phpstan-base.neon
+    - vendor/youtu/code-quality-config/phpstan-base.neon
     - phpstan-baseline.neon
 
 parameters:

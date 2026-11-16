@@ -26,7 +26,7 @@ description: Laravel Controller-Service-Repository 三层架构实战指南，�
 
 ### 職責分離的必要性
 
-隨著 **KKday B2C API 團隊** 從單人開發成長為 **30+ Laravel 倉庫** 的規模，我們逐漸發現：
+隨著 **悠途OTA B2C API 團隊** 從單人開發成長為 **30+ Laravel 倉庫** 的規模，我們逐漸發現：
 
 | 階段 | 問題現象 | 根本原因 |
 |------|----------|----------|
@@ -96,7 +96,7 @@ public function index()
 
 ---
 
-## 二、KKday B2C API 的架構實踐
+## 二、youtu B2C API 的架構實踐
 
 ### 標準三層目錄結構
 
@@ -133,7 +133,7 @@ app/
 
 ### 場景：ProductController 聚合多個 GraphQL 來源
 
-在 KKday B2C API 中，我們使用 **Laravel BFF 模式**，聚合來自後端 Java/GraphQL 多源數據。
+在 youtu B2C API 中，我們使用 **Laravel BFF 模式**，聚合來自後端 Java/GraphQL 多源數據。
 
 #### ❌ 錯誤做法：Controller 直接調用多個外部服務
 
@@ -622,7 +622,7 @@ class OrderService extends BaseService
 
 ### 為什麼需要 Repository Interface？
 
-在 KKday B2C API 中，我們有多個數據來源：
+在 youtu B2C API 中，我們有多個數據來源：
 - 本地 MySQL（主庫）
 - Elasticsearch（搜索）
 - Redis Cache（熱門商品）
@@ -1353,7 +1353,7 @@ class ProductRepository implements ProductRepositoryInterface
 | **Service** | 核心業務邏輯、事務協調、規則判斷 | 直接 DB 操作、HTTP 調用（BFF 除外）、重複代碼 |
 | **Repository** | CRUD 操作、索引優化、批量查詢 | 業務邏輯、外部服務調用、事件處理 |
 
-### KKday B2C API 的核心建議
+### youtu B2C API 的核心建議
 
 1. **Controller 文件不超過 200 行** → 若超過，拆分成多個 Controller
 2. **Service 層是核心** → 單元測試覆蓋率必須 ≥95%
@@ -1371,8 +1371,8 @@ class ProductRepository implements ProductRepositoryInterface
 
 ---
 
-*本文基於 KKday B2C API 團隊在多個 Laravel 倉庫中的實際實踐經驗，持續更新中。*  
-*如需 SA/SD 模板或更多細節，請參考 [KKday 內網文檔](https://wiki.kkday.com/knowledge-center) 或 [Confluence 開發指南](../docs/architecture.md)。*
+*本文基於 youtu B2C API 團隊在多個 Laravel 倉庫中的實際實踐經驗，持續更新中。*  
+*如需 SA/SD 模板或更多細節，請參考 [youtu 內網文檔](https://wiki.youtu-ota.test/knowledge-center) 或 [Confluence 開發指南](../docs/architecture.md)。*
 
 ---
 
@@ -1380,5 +1380,5 @@ class ProductRepository implements ProductRepositoryInterface
 
 - [Laravel 事务管理实战](/categories/PHP/laravel-transaction/) — 深入 DB::transaction、嵌套事务与 Savepoint 在 Service 层的最佳实践
 - [Laravel CQRS 实战：订单查询模型拆分、投影同步与后台列表性能治理](/categories/PHP/laravel-cqrs-guide-query/) — 从 Controller-Service-Repository 演进到 CQRS 的完整路径与实战案例
-- [Laravel API Resource 实战：BFF 架构下的数据转换与格式化](/categories/PHP/laravel-api-resource-bff-architectureguide/) — KKday B2C API 多端适配、嵌套资源与 N+1 优化的真实踩坑记录
+- [Laravel API Resource 实战：BFF 架构下的数据转换与格式化](/categories/PHP/laravel-api-resource-bff-architectureguide/) — youtu B2C API 多端适配、嵌套资源与 N+1 优化的真实踩坑记录
 - [Controller 薄 + Service 厚：Laravel 大项目中职责分离的真实踩坑记录](/categories/PHP/controller-service-laravel/) — 从单文件 Controller 拆分到 Service 层的演进步骤与代码模板

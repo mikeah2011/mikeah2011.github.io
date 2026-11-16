@@ -16,7 +16,7 @@ description: >-
 
 ## 为什么选 SSE 而不是 WebSocket？
 
-在 KKday B2C API 项目中，产品提出一个需求：用户下单后，订单详情页需要**实时显示状态变化**（支付成功 → 出票中 → 出票完成）。团队里有人提议用 WebSocket（Laravel Reverb / Pusher），但实际评估后我们选了 SSE。原因很简单：
+在悠途OTA B2C API 项目中，产品提出一个需求：用户下单后，订单详情页需要**实时显示状态变化**（支付成功 → 出票中 → 出票完成）。团队里有人提议用 WebSocket（Laravel Reverb / Pusher），但实际评估后我们选了 SSE。原因很简单：
 
 | 维度 | WebSocket | SSE (Server-Sent Events) |
 |------|-----------|--------------------------|
@@ -581,7 +581,7 @@ class SSECorsMiddleware
     {
         if ($request->is('api/*/stream')) {
             $response = $next($request);
-            $response->headers->set('Access-Control-Allow-Origin', 'https://www.kkday.com');
+            $response->headers->set('Access-Control-Allow-Origin', 'https://www.youtu-ota.test');
             $response->headers->set('Access-Control-Allow-Credentials', 'true');
             return $response;
         }
@@ -661,7 +661,7 @@ foreach ($pubsub as $message) {
 
 ## 五、实际效果数据
 
-在 KKday B2C API 项目中部署 SSE 后的指标：
+在 youtu B2C API 项目中部署 SSE 后的指标：
 
 | 指标 | 优化前（Polling） | 优化后（SSE） |
 |------|-------------------|---------------|
@@ -728,7 +728,7 @@ Laravel SSE 实战指南：Server-Sent Events 在 B2C 电商 API 中的完整应
 
 ## 为什么选 SSE 而不是 WebSocket？
 
-在 KKday B2C API 项目中，产品提出一个需求：用户下单后，订单详情页需要**实时显示状态变化**（支付成功 → 出票中 → 出票完成）。团队里有人提议用 WebSocket（Laravel Reverb / Pusher），但实际评估后我们选了 SSE。原因很简单：
+在 youtu B2C API 项目中，产品提出一个需求：用户下单后，订单详情页需要**实时显示状态变化**（支付成功 → 出票中 → 出票完成）。团队里有人提议用 WebSocket（Laravel Reverb / Pusher），但实际评估后我们选了 SSE。原因很简单：
 
 | 维度 | WebSocket | SSE (Server-Sent Events) |
 |------|-----------|--------------------------|
@@ -1293,7 +1293,7 @@ class SSECorsMiddleware
     {
         if ($request->is('api/*/stream')) {
             $response = $next($request);
-            $response->headers->set('Access-Control-Allow-Origin', 'https://www.kkday.com');
+            $response->headers->set('Access-Control-Allow-Origin', 'https://www.youtu-ota.test');
             $response->headers->set('Access-Control-Allow-Credentials', 'true');
             return $response;
         }
@@ -1373,7 +1373,7 @@ foreach ($pubsub as $message) {
 
 ## 五、实际效果数据
 
-在 KKday B2C API 项目中部署 SSE 后的指标：
+在 youtu B2C API 项目中部署 SSE 后的指标：
 
 | 指标 | 优化前（Polling） | 优化后（SSE） |
 |------|-------------------|---------------|

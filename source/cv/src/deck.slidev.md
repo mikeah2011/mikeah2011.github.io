@@ -77,11 +77,11 @@ class: text-left
 
 <ul class="tiles">
   <li class="tile"><div class="v">13 年</div><div class="k">后端研发经验（OTA / 电商 / MarTech）</div></li>
-  <li class="tile"><div class="v">3000+</div><div class="k">KKday 核心仓库提交（两仓第一贡献人）</div></li>
+  <li class="tile"><div class="v">3000+</div><div class="k">悠途OTA核心仓库提交（两仓第一贡献人）</div></li>
   <li class="tile"><div class="v">10+</div><div class="k">全球联盟渠道串接（Google / Naver…）</div></li>
   <li class="tile"><div class="v">25s → 2s</div><div class="k">故障救火后关键 API p99</div></li>
   <li class="tile"><div class="v">+50%</div><div class="k">CVR 提升目标（专项组负责人）</div></li>
-  <li class="tile"><div class="v">2 届</div><div class="k">KKday 年度优秀员工（2023、2024）</div></li>
+  <li class="tile"><div class="v">2 届</div><div class="k">悠途OTA年度优秀员工（2023、2024）</div></li>
 </ul>
 
 ---
@@ -96,7 +96,7 @@ class: text-left
 <ul class="timeline">
   <li><span class="t">2013 – 2017</span><span><span class="co">远丰科技集团 · 全栈开发</span><span class="what">多商户 SaaS 电商（1 万+ 商家）· IM 系统（日消息 200 万+）</span></span></li>
   <li><span class="t">2017 – 2022</span><span><span class="co">商派云起 Shopex · Lead Developer</span><span class="what">Apple 中国经销商平台（5 个月 GMV ¥100 亿）· 金番茄奖</span></span></li>
-  <li class="now"><span class="t">2022 – 2026</span><span><span class="co">KKday · 资深后端工程师</span><span class="what">联盟营销平台负责人 → B2C 交易链路 → CVR 专项组负责人</span></span></li>
+  <li class="now"><span class="t">2022 – 2026</span><span><span class="co">悠途OTA · 资深后端工程师</span><span class="what">联盟营销平台负责人 → B2C 交易链路 → CVR 专项组负责人</span></span></li>
 </ul>
 
 ---
@@ -104,7 +104,7 @@ layout: default
 class: text-left
 ---
 
-<div class="eyebrow">KKday · 2022.11 – 2025.03</div>
+<div class="eyebrow">悠途OTA · 2022.11 – 2025.03</div>
 
 # 联盟营销平台负责人
 
@@ -122,7 +122,7 @@ layout: default
 class: text-left
 ---
 
-<div class="eyebrow">KKday · 2025.02 – 2026.08</div>
+<div class="eyebrow">悠途OTA · 2025.02 – 2026.08</div>
 
 # B2C 核心交易链路
 

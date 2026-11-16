@@ -3,7 +3,7 @@ title: BFF-Laravel 中间层聚合实战
 keywords: [BFF, Laravel, 中间层聚合实战, 架构]
 date: 2026-05-04 11:22:00 +0800
 author: Michael
-description: "深入实战 Laravel BFF（Backend for Frontend）中间层聚合模式。本文以 KKday 真实项目为例，讲解如何用 Laravel 构建 API 聚合层，统一调用 Search、Recommend、Member 等 Java 微服务，实现数据裁剪、Redis 多级缓存、Cache-Stampede 防护、并行 HTTP 请求、降级策略、Request 级缓存等核心能力。涵盖 PHP 8.0 Enum 重构、Pest 契约测试、Docker 开发环境搭建等完整工程实践，适合需要在微服务架构中引入 BFF 中间层的后端与全栈工程师参考。"
+description: "深入实战 Laravel BFF（Backend for Frontend）中间层聚合模式。本文以悠途OTA真实项目为例，讲解如何用 Laravel 构建 API 聚合层，统一调用 Search、Recommend、Member 等 Java 微服务，实现数据裁剪、Redis 多级缓存、Cache-Stampede 防护、并行 HTTP 请求、降级策略、Request 级缓存等核心能力。涵盖 PHP 8.0 Enum 重构、Pest 契约测试、Docker 开发环境搭建等完整工程实践，适合需要在微服务架构中引入 BFF 中间层的后端与全栈工程师参考。"
 categories: [architecture]
 tags:
   - BFF
@@ -26,7 +26,7 @@ images:
 
 ## 💡 为什么需要 BFF？
 
-在 KKday B2C 项目中，我们面对的是典型的 **多版本 API + 微服务化前端** 场景：
+在悠途OTA B2C 项目中，我们面对的是典型的 **多版本 API + 微服务化前端** 场景：
 
 - 前端有 React Native App、Web H5、小程序三种客户端
 - 后端拆分为多个 Java 微服务：`search` / `recommend` / `svc-search` / `member` / `cart`
@@ -71,7 +71,7 @@ images:
 ![Laravel BFF 架构设计](/images/content/architecture-1-content-1.jpg)
 
 
-在 KKday 项目中，我们使用 Laravel 8 + PHP 8.0 构建 BFF 层。核心设计原则是 **薄 Controller + 厚 Service**：
+在 youtu 项目中，我们使用 Laravel 8 + PHP 8.0 构建 BFF 层。核心设计原则是 **薄 Controller + 厚 Service**：
 
 ### Controller 只做路由分发
 
@@ -115,7 +115,7 @@ class ProductListController extends Controller
         // 1. 先查本地缓存（TTL: 5 分钟）
         $cacheKey = 'search:' . md5(json_encode($filters));
         return cache()->get($cacheKey) ?? 
-            ($data = $this->httpCall('https://api-search.internal.kkday/search', [
+            ($data = $this->httpCall('https://api-search.internal.youtu-ota.test/search', [
                 'filters' => $filters,
                 'page' => request('page'),
             ])) ? $data : [];
@@ -126,7 +126,7 @@ class ProductListController extends Controller
         // 2. 推荐接口同样做缓存
         $cacheKey = 'recommend:' . md5(json_encode($filters));
         return cache()->get($cacheKey) ?? 
-            ($data = $this->httpCall('https://api-recommend.internal.kkday/recommend', [
+            ($data = $this->httpCall('https://api-recommend.internal.youtu-ota.test/recommend', [
                 'filters' => array_merge($filters, ['region' => config('user.region')]),
             ])) ? $data : [];
     }
@@ -144,7 +144,7 @@ use Illuminate\Support\Facades\Http;
 
 class ProductListService
 {
-    protected array $memberApi = 'https://api-member.internal.kkday/v2/member/info';
+    protected array $memberApi = 'https://api-member.internal.youtu-ota.test/v2/member/info';
 
     /**
      * 聚合 search + recommend + member 数据
@@ -257,7 +257,7 @@ class ProductDetailService
                 }
 
                 // 4. 调用 Java API
-                $response = Http::get('https://api-search.internal.kkday/product', [
+                $response = Http::get('https://api-search.internal.youtu-ota.test/product', [
                     'product_id' => $productId,
                 ]);
 
@@ -274,7 +274,7 @@ class ProductDetailService
 
 ### 场景 2：PHP 8.0 + Traits 重构旧 Laravel 项目
 
-KKday BFF 原本是 PHP 7.4 + 魔术字符串的版本，我们用 PHP 8.0 做了大规模重构：
+youtu BFF 原本是 PHP 7.4 + 魔术字符串的版本，我们用 PHP 8.0 做了大规模重构：
 
 **Before（PHP 7.4）**：
 
@@ -376,7 +376,7 @@ public function fallbackSearch(array $payload): array
 {
     // 3. 纯搜索接口（不依赖 recommend）
     return [
-        'list' => Http::get('https://api-search.internal.kkday/search', [
+        'list' => Http::get('https://api-search.internal.youtu-ota.test/search', [
             'keyword' => request('keyword'),
         ])->json()['items'] ?? [],
         'meta' => ['source' => 'fallback'],
@@ -388,7 +388,7 @@ public function fallbackSearch(array $payload): array
 
 ## 🧪 测试策略：Pest + ParaTest
 
-在 KKday BFF 项目中，我们使用 Pest + ParaTest 保证 100% 覆盖率：
+在 youtu BFF 项目中，我们使用 Pest + ParaTest 保证 100% 覆盖率：
 
 ```bash
 # 安装 Pest (替代 PHPUnit)
@@ -422,7 +422,7 @@ class ProductListApiTest extends TestCase
     {
         // 1. Mock Java search API (使用 Http Stub)
         Http::fake([
-            'api-search.internal.kkday' => response([
+            'api-search.internal.youtu-ota.test' => response([
                 'items' => ['id' => 1, 'name' => '测试商品'],
             ], 200),
         ])->sequence();
@@ -530,13 +530,13 @@ http://localhost:8025  # Mailhog SMTP 监控
 
 ## 📖 文档与 OpenAPI 规范
 
-KKday BFF 层遵循 `Confluence [SA/SD] YYYY-MM-DD` 格式，并生成 OpenAPI 文档：
+youtu BFF 层遵循 `Confluence [SA/SD] YYYY-MM-DD` 格式，并生成 OpenAPI 文档：
 
 ```yaml
 # openapi.yaml (自动生成)
 openapi: 3.0.0
 info:
-  title: KKday BFF API - Product List
+  title: youtu BFF API - Product List
   version: 1.2.0
 paths:
   /api/v1/products/list:
@@ -576,10 +576,10 @@ paths:
 **SA/SD 文档模板**（放在 Confluence）：
 
 ```markdown
-## [SA/SD] 2026-05-02 KKday-BFF-Aggregation
+## [SA/SD] 2026-05-02 youtu-ota-BFF-Aggregation
 
 ### 背景
-KKday 多客户端（iOS/Android/Web）需要统一的 BFF 聚合层。
+youtu 多客户端（iOS/Android/Web）需要统一的 BFF 聚合层。
 
 ### 需求
 - [x] 支持搜索 + 推荐数据合并
@@ -599,7 +599,7 @@ KKday 多客户端（iOS/Android/Web）需要统一的 BFF 聚合层。
 
 ## 🎯 总结与最佳实践
 
-Laravel BFF 模式的核心优势在于 **中间层聚合 + 缓存优化 + 降级策略**。在 KKday 项目中，我们积累了以下经验：
+Laravel BFF 模式的核心优势在于 **中间层聚合 + 缓存优化 + 降级策略**。在 youtu 项目中，我们积累了以下经验：
 
 ### 架构要点
 
@@ -627,7 +627,7 @@ Laravel BFF 模式的核心优势在于 **中间层聚合 + 缓存优化 + 降�
 
 ---
 
-*本文档更新于 2026-05-02，基于 KKday BFF v1.2 实战经验。*
+*本文档更新于 2026-05-02，基于 youtu BFF v1.2 实战经验。*
 *参考资料：[SA/SD] BFF-Architecture-Design, Confluence-SA/SD*
 
 ## 相关阅读

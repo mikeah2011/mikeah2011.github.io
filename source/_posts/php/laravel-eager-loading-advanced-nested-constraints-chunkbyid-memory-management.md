@@ -23,7 +23,7 @@ description: "深入 Laravel Eloquent Eager Loading 的高级用法：嵌套约�
 
 ## 概述
 
-Laravel Eloquent 的 `with()` 方法是解决 N+1 查询问题的标准武器，但在大规模关联查询场景下，基础用法往往不够用。本文基于 KKday B2C API 的真实项目经验，深入探讨 Eager Loading 的高级技巧：嵌套约束预加载、条件预加载、`chunkById` 内存治理，以及在百万级数据场景下的性能调优策略。
+Laravel Eloquent 的 `with()` 方法是解决 N+1 查询问题的标准武器，但在大规模关联查询场景下，基础用法往往不够用。本文基于悠途OTA B2C API 的真实项目经验，深入探讨 Eager Loading 的高级技巧：嵌套约束预加载、条件预加载、`chunkById` 内存治理，以及在百万级数据场景下的性能调优策略。
 
 如果你只用过 `with('relation')` 这种基础写法，这篇文章会告诉你 Eager Loading 还能做什么。
 

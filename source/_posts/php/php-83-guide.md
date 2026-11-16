@@ -9,7 +9,7 @@ updated: 2026-05-16 17:39:33
 categories: [php]
 tags: [Laravel, PHP]
 keywords: [PHP, Laravel, B2C, API, 类型化类常量实战, 枚举增强与类型安全, 踩坑记录]
-description: PHP 8.3 Typed Class Constants 实战指南：基于 KKday B2C API 30+ 仓库经验，详解类型化类常量替代魔术字符串、与 Enum 深度集成、Interface 契约约束继承链类型安全、Laravel Migration 类型对齐、PHPStan 静态分析配置，附 5 大踩坑记录与渐进式迁移策略
+description: PHP 8.3 Typed Class Constants 实战指南：基于悠途OTA B2C API 30+ 仓库经验，详解类型化类常量替代魔术字符串、与 Enum 深度集成、Interface 契约约束继承链类型安全、Laravel Migration 类型对齐、PHPStan 静态分析配置，附 5 大踩坑记录与渐进式迁移策略
 
 
 
@@ -23,7 +23,7 @@ description: PHP 8.3 Typed Class Constants 实战指南：基于 KKday B2C API 3
 
 ### 魔术字符串的老问题
 
-在 KKday 的 30+ Laravel 仓库中，我见过无数这样的代码：
+在悠途OTA的 30+ Laravel 仓库中，我见过无数这样的代码：
 
 ```php
 // 老项目里随处可见

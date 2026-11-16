@@ -942,6 +942,6 @@ Route::post('/callbacks/alipay', [B2COrderController::class, 'alipayCallback'])
 ## 相关阅读
 
 - [重试与退避策略实战：Exponential Backoff + Jitter——Laravel HTTP Client 的韧性设计模式](/categories/05_PHP/Laravel/重试与退避策略实战-Exponential-Backoff-Jitter-Laravel-HTTP-Client韧性设计模式/)
-- [Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录](/categories/databases/laravel-redis-distributedlockguide/)
+- [Laravel Redis 分布式锁失效场景实战 - youtu B2C API 真实踩坑记录](/categories/databases/laravel-redis-distributedlockguide/)
 - [Redis Stream 实战：消息队列替代方案与消费者组管理 Laravel 踩坑记录](/categories/databases/redis-stream-guide-laravel/)
 - [事件驱动架构全景实战：EventBridge/NATS/Pulsar 统一事件总线设计](/categories/00_架构/事件驱动架构全景实战-EventBridge-NATS-Pulsar-统一事件总线设计/)

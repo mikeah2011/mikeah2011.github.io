@@ -7,8 +7,8 @@ date: 2026-05-05 08:31:06
 author: Michael
 updated: 2026-05-05 08:35:17
 categories: [engineering]
-tags: [KKday, Laravel, 工程管理]
-keywords: [Onboarding, 新人培养, Laravel, 工程管理, 多仓库, KKday]
+tags: [悠途OTA, Laravel, 工程管理]
+keywords: [Onboarding, 新人培养, Laravel, 工程管理, 多仓库, 悠途OTA]
 description: 在 30+ Laravel 仓库的团队中，新人 Onboarding 效率直接决定前三个月的产出。本文分享从环境搭建、代码导读到首个 PR 的完整路径设计，附真实踩坑记录与可复用的 Checklist 模板。
 
 
@@ -17,7 +17,7 @@ description: 在 30+ Laravel 仓库的团队中，新人 Onboarding 效率直接
 
 > 「新人入职第一周，最大的敌人不是代码，而是不知道该从哪里开始。」——这句话我在带了 20+ 位新人后深有体会。
 
-在 KKday B2C Backend 团队，我们维护着 30+ 个 Laravel 仓库，涵盖 BFF 中间层、支付服务、订单系统、搜索推荐等模块。新人入职后面对的第一座大山不是技术难度，而是**信息迷雾**：哪个仓库是核心？本地环境怎么跑起来？代码风格是什么？出了问题找谁？
+在悠途OTA B2C Backend 团队，我们维护着 30+ 个 Laravel 仓库，涵盖 BFF 中间层、支付服务、订单系统、搜索推荐等模块。新人入职后面对的第一座大山不是技术难度，而是**信息迷雾**：哪个仓库是核心？本地环境怎么跑起来？代码风格是什么？出了问题找谁？
 
 本文分享我们从失败中迭代出来的 Onboarding 方法论，目标是让新人在 **3 天内提交第一个有效 PR**，**2 周内独立完成中等复杂度需求**。
 
@@ -215,16 +215,16 @@ echo "📖 API 文档：http://localhost:8080/docs"
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                    KKday B2C 仓库全景图                        │
+│                    youtu B2C 仓库全景图                        │
 ├──────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌──────────────┐     ┌──────────────┐     ┌──────────────┐ │
 │  │  BFF 层       │     │  业务服务层    │     │  基础设施层    │ │
 │  │              │     │              │     │              │ │
 │  │ b2c-api      │────▶│ order-svc    │     │ shared-libs  │ │
-│  │ b2c-search   │     │ payment-svc  │────▶│ kkday/log    │ │
-│  │ b2c-member   │     │ product-svc  │     │ kkday/monitor│ │
-│  │ b2c-cart     │     │ inventory-svc│     │ kkday/tracing│ │
+│  │ b2c-search   │     │ payment-svc  │────▶│ youtu/log    │ │
+│  │ b2c-member   │     │ product-svc  │     │ youtu/monitor│ │
+│  │ b2c-cart     │     │ inventory-svc│     │ youtu/tracing│ │
 │  └──────────────┘     └──────────────┘     └──────────────┘ │
 │         │                    │                    │          │
 │         ▼                    ▼                    ▼          │

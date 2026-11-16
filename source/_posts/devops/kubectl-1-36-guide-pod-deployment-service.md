@@ -10,7 +10,7 @@ author: Michael
 updated: 2026-05-16 23:03:36
 categories: [devops]
 tags:
-- KKday
+- 悠途OTA
 - Kubernetes
 - Laravel
 description: 从零开始掌握 kubectl 核心命令，以 Laravel B2C API 为例，覆盖 Pod 生命周期、Deployment 滚动更新、Service 服务发现的真实操作与踩坑记录。

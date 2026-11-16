@@ -17,7 +17,7 @@ description: "深入 Laravel B2C API 生产环境的 Nginx 性能优化实战：
 
 ## 前言
 
-在 KKday B2C API 的生产环境中，Nginx 不仅仅是"反向代理"那么简单。它同时承担了 **FastCGI 缓存层**、**Gzip 压缩**、**连接池管理** 三重职责。当流量从日均 50 万请求增长到 500 万时，每一个 Nginx 配置项的调优都直接影响 P99 延迟和服务器成本。
+在悠途OTA B2C API 的生产环境中，Nginx 不仅仅是"反向代理"那么简单。它同时承担了 **FastCGI 缓存层**、**Gzip 压缩**、**连接池管理** 三重职责。当流量从日均 50 万请求增长到 500 万时，每一个 Nginx 配置项的调优都直接影响 P99 延迟和服务器成本。
 
 这篇文章记录了我们在 30+ Laravel 仓库的 Nginx 配置实战中踩过的坑，从 PHP-FPM 连接模型选型、FastCGI 缓存命中率优化、到 Gzip 压缩的隐藏性能陷阱。
 
@@ -418,7 +418,7 @@ location /api/v1/orders/*/stream {
 
 ## 五、完整生产配置模板
 
-综合以上所有优化，这是我们在 KKday B2C API 中使用的生产级 Nginx 配置模板：
+综合以上所有优化，这是我们在 youtu B2C API 中使用的生产级 Nginx 配置模板：
 
 ```nginx
 # /etc/nginx/conf.d/b2c-api-production.conf

@@ -5,7 +5,7 @@ author: Michael
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: "Stripe 支付系统完整设计实战：涵盖 PaymentIntent 支付流程、Webhook 签名验证与队列异步处理、幂等性保障（Idempotency-Key）、3D Secure 超时踩坑、高并发连接池复用等核心方案，来自 KKday B2C API 高并发场景的真实生产踩坑与架构优化记录。"
+description: "Stripe 支付系统完整设计实战：涵盖 PaymentIntent 支付流程、Webhook 签名验证与队列异步处理、幂等性保障（Idempotency-Key）、3D Secure 超时踩坑、高并发连接池复用等核心方案，来自悠途OTA B2C API 高并发场景的真实生产踩坑与架构优化记录。"
 updated: null
 tags: [Laravel, Stripe, 支付, 高并发, Webhook, 幂等性, PaymentIntent, B2C]
 keywords: [Stripe, 支付, 支付流程完整设计与高并发场景下的幂等性保障踩坑记录, 技术杂谈]
@@ -17,7 +17,7 @@ categories: [architecture]
 
 ## 前言：为什么要深入研究 Stripe 支付？
 
-在 KKday B2C API 业务中，我们面临高并发下单场景（每秒数百笔订单），支付是核心交易链路。早期使用第三方支付网关对接，存在以下痛点：
+在悠途OTA B2C API 业务中，我们面临高并发下单场景（每秒数百笔订单），支付是核心交易链路。早期使用第三方支付网关对接，存在以下痛点：
 
 - ✅ 对账异常率高（第三方回调延迟导致）
 - ✅ 幂等性设计复杂（重复支付、重复扣款风险）
@@ -31,7 +31,7 @@ categories: [architecture]
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                        KKday Payment Gateway Layer                       │
+│                        youtu Payment Gateway Layer                       │
 ├─────────────────────────────────────────────────────────────────────────┤
 │  ┌──────────────┐   ┌──────────────┐   ┌──────────────────────────┐    │
 │  │ Client App   │──▶│ Laravel API  │──▶│ Stripe Platform          │    │
@@ -557,7 +557,7 @@ class StripeWebhookHandler extends Queueable implements Contracts\PaymentGateway
 
 ---
 
-**本文档由 KKday B2C API 团队整理，实战踩坑记录真实有效。**  
+**本文档由 youtu B2C API 团队整理，实战踩坑记录真实有效。**  
 如有疑问，欢迎交流探讨支付系统架构设计。
 
 ---

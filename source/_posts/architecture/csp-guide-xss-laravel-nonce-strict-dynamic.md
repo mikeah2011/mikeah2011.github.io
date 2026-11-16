@@ -21,7 +21,7 @@ description: 从 OWASP Top 10 中 XSS 防护的「最后一道防线」出发，
 
 CSP（Content-Security-Policy）就是这**最后一道防线**。它在浏览器层面告诉：「这个页面只允许加载来自这些来源的脚本、样式、图片……其他的全部拦截。」即使攻击者成功注入了一段 `<script>`，浏览器也会因为 CSP 策略拒绝执行。
 
-在 KKday B2C 项目中，我们从零接入 CSP 的过程踩了不少坑。今天来完整复盘。
+在悠途OTA B2C 项目中，我们从零接入 CSP 的过程踩了不少坑。今天来完整复盘。
 
 ## 架构全景
 
@@ -58,7 +58,7 @@ Content-Security-Policy:
   style-src 'self' 'unsafe-inline';                      # CSS 样式
   img-src 'self' data: https:;                           # 图片
   font-src 'self' https://fonts.gstatic.com;             # 字体
-  connect-src 'self' https://api.kkday.com;              # AJAX/fetch
+  connect-src 'self' https://api.youtu-ota.test;              # AJAX/fetch
   frame-src 'none';                                      # iframe
   base-uri 'self';                                       # <base> 标签
   form-action 'self';                                    # <form> 提交
@@ -145,7 +145,7 @@ class ContentSecurityPolicy
             "style-src 'self' 'unsafe-inline'",
             "img-src 'self' data: https:",
             "font-src 'self' https://fonts.gstatic.com",
-            "connect-src 'self' https://api.kkday.com https://*.kkday.com",
+            "connect-src 'self' https://api.youtu-ota.test https://*.youtu-ota.test",
             "frame-src 'self' https://www.google.com https://payment.gateway.com",
             "object-src 'none'",
             "base-uri 'self'",
@@ -347,8 +347,8 @@ class CspViolationController extends Controller
         /*
         {
             "csp-report": {
-                "document-uri": "https://www.kkday.com/checkout",
-                "referrer": "https://www.kkday.com/cart",
+                "document-uri": "https://www.youtu-ota.test/checkout",
+                "referrer": "https://www.youtu-ota.test/cart",
                 "violated-directive": "script-src 'nonce-abc123'",
                 "effective-directive": "script-src",
                 "original-policy": "script-src 'nonce-abc123' 'strict-dynamic'; ...",
@@ -526,11 +526,11 @@ add_header Referrer-Policy "strict-origin-when-cross-origin" always;
 ```nginx
 server {
     listen 443 ssl http2;
-    server_name www.kkday.com;
+    server_name www.youtu-ota.test;
 
     # SSL 配置（Let's Encrypt）
-    ssl_certificate     /etc/letsencrypt/live/www.kkday.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/www.kkday.com/privkey.pem;
+    ssl_certificate     /etc/letsencrypt/live/www.youtu-ota.test/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.youtu-ota.test/privkey.pem;
     ssl_protocols       TLSv1.2 TLSv1.3;
     ssl_ciphers         HIGH:!aNULL:!MD5;
 
@@ -568,10 +568,10 @@ F12 → Application → Security → 查看 CSP 状态
 
 ```bash
 # 使用 curl 测试 CSP 头
-curl -sI https://www.kkday.com | grep -i content-security-policy
+curl -sI https://www.youtu-ota.test | grep -i content-security-policy
 
 # 使用 securityheaders.com 评分
-# https://securityheaders.com/?q=https://www.kkday.com
+# https://securityheaders.com/?q=https://www.youtu-ota.test
 ```
 
 ### 3. CSP Evaluator（Google 出品）

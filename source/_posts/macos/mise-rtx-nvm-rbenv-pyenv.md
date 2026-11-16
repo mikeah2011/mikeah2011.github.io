@@ -897,6 +897,6 @@ mise use node@20  0.01s user 0.00s system 95% cpu 0.012 total
 ## 相关阅读
 
 - [GitHub Actions 自定义 Action 开发实战：复用 CI/CD 工作流组件](/categories/CI/CD/GitHub-Actions-自定义-Action-开发实战-复用-CICD-工作流组件踩坑记录/)
-- [Docker Compose + PHP-FPM 实战：KKday B2C API 微服务部署经验](/categories/DevOps/docker-compose-php-fpmguide-microservicesdeployment/)
+- [Docker Compose + PHP-FPM 实战：youtu B2C API 微服务部署经验](/categories/DevOps/docker-compose-php-fpmguide-microservicesdeployment/)
 - [Helm-Chart-实战-Laravel-应用打包与部署踩坑记录](/categories/DevOps/helm-chart-guide-laravel-deployment/)
 - [ArgoCD GitOps 实战：Laravel 应用持续部署与回滚踩坑记录](/categories/DevOps/argocd-gitops-guide-laravel-cd/)

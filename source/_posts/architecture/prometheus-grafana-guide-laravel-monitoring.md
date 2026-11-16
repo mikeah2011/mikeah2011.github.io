@@ -9,7 +9,7 @@ keywords: [Prometheus, Grafana, Laravel, 应用监控, 指标采集, 告警与�
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
-description: 基于 KKday B2C API 生产环境，深入讲解 Prometheus + Grafana 在 Laravel 中的完整落地实践：自定义指标中间件、RED 方法与 USE 方法实现、Grafana Dashboard JSON、AlertManager 告警规则设计，以及 label 基数爆炸、Octane 指标内存泄漏等 10+ 个生产踩坑案例与解决方案。
+description: 基于悠途OTA B2C API 生产环境，深入讲解 Prometheus + Grafana 在 Laravel 中的完整落地实践：自定义指标中间件、RED 方法与 USE 方法实现、Grafana Dashboard JSON、AlertManager 告警规则设计，以及 label 基数爆炸、Octane 指标内存泄漏等 10+ 个生产踩坑案例与解决方案。
 
 
 ---
@@ -18,7 +18,7 @@ description: 基于 KKday B2C API 生产环境，深入讲解 Prometheus + Grafa
 
 ## 一、为什么从 New Relic 迁移到 Prometheus + Grafana？
 
-在 KKday B2C Backend Team，我们之前用 New Relic + Sentry 做 APM。效果不差，但有两个痛点逼我们重新选型：
+在悠途OTA B2C Backend Team，我们之前用 New Relic + Sentry 做 APM。效果不差，但有两个痛点逼我们重新选型：
 
 1. **成本**：New Relic 按数据量计费，30+ 个微服务每月账单接近 $2000，而且大部分指标我们只在排查时才看。
 2. **自定义指标受限**：我想监控「每个 API 端点的 Redis 命中率」「PHP-FPM 活跃进程数」「队列积压深度」这些业务指标，New Relic 的 Custom Events 操作繁琐且查询语言（NRQL）学习成本高。

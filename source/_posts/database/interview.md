@@ -519,6 +519,6 @@ rules:
 - [SQL语句性能分析工具 — EXPLAIN详解](/databases/explain/)
 - [MySQL优化经验总结](/databases/sql-optimization/)
 - [分库分表](/databases/sharding/)
-- [PostgreSQL vs MySQL 选型实战](/databases/postgresql-vs-mysql-guide-kkday-affiliate-postgresql/)
+- [PostgreSQL vs MySQL 选型实战](/databases/postgresql-vs-mysql-guide-youtu-ota-affiliate-postgresql/)
 - [MySQL慢查询治理实战](/databases/slow-query-governance/)
 - [MySQL CTE 递归查询实战](/databases/mysql-cte-queryguide/)

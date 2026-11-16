@@ -24,7 +24,7 @@ description: 从 PHP 编译原理出发，详解 OPcache 每项配置参数的�
 
 它的原理极其简单：PHP 是解释型语言，每次请求都要经历「词法分析 → 语法分析 → 生成 opcode → 执行」。OPcache 把生成的 opcode 缓存在共享内存里，后续请求直接跳过前三个步骤。
 
-**实测数据（KKday B2C API，PHP 8.0 + Laravel 9）：**
+**实测数据（悠途OTA B2C API，PHP 8.0 + Laravel 9）：**
 
 | 指标 | 未开启 OPcache | 开启 OPcache |
 |------|---------------|-------------|
@@ -76,7 +76,7 @@ description: 从 PHP 编译原理出发，详解 OPcache 每项配置参数的�
 
 ## 三、生产环境推荐配置（逐行详解）
 
-以下是我在 KKday B2C API 生产环境实际使用的配置，已针对 Laravel 项目优化：
+以下是我在 youtu B2C API 生产环境实际使用的配置，已针对 Laravel 项目优化：
 
 ```ini
 ; /etc/php/8.0/fpm/conf.d/10-opcache.ini
@@ -855,4 +855,4 @@ OPcache 是 PHP 性能优化中投入产出比最高的手段，没有之一。�
 
 - [PHP OPcache 缓存预热实战：生产环境冷启动治理与自动化 Warmup 全攻略](/php/Laravel/2026-06-01-php-opcache-production-config-cache-preheating-strategies) — 如果你已掌握本文的基础配置，预热策略是下一步必须解决的工程问题，覆盖 Docker 构建期预编译与 K8s 滚动更新缓存治理。
 - [PHP OPcache JIT 联合调优实战：JIT buffer 预热、opcache.jit 参数组合与生产环境性能基准](/php/PHP-OPcache-JIT-联合调优实战-JIT-buffer预热-opcache.jit参数组合与生产环境性能基准) — 深入 JIT 参数组合的数十种变体、buffer 大小精调方法与不同业务场景下的量化性能对比。
-- [PHP-OpCache 调优实战 — KKday B2C API 高并发场景下的内存优化与真实踩坑记录](/php/Laravel/php-opcache-guide-high-concurrencyoptimization) — 从 QPS 5000+ 高并发视角出发，覆盖内存泄漏诊断、PHP 7.4+ 预加载实战与 OPcache vs APCu vs xdebug 性能对比。
+- [PHP-OpCache 调优实战 — youtu B2C API 高并发场景下的内存优化与真实踩坑记录](/php/Laravel/php-opcache-guide-high-concurrencyoptimization) — 从 QPS 5000+ 高并发视角出发，覆盖内存泄漏诊断、PHP 7.4+ 预加载实战与 OPcache vs APCu vs xdebug 性能对比。

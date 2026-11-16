@@ -7,9 +7,9 @@ date: 2026-05-05 00:31:11
 author: Michael
 updated: 2026-05-05 00:37:28
 categories: [php]
-tags: [KKday, Laravel, PHP]
+tags: [悠途OTA, Laravel, PHP]
 keywords: [PHP, xhprof, Blackfire, Tideways, Laravel, Profile, 性能基准测试, 实战对比与, 生产环境, 落地方案踩坑记录]
-description: "在 KKday B2C API 项目中，我们面临过一个经典难题：某个商品搜索接口 P99 从 200ms 飙升到 2s，但日志和 APM 看不出异常。本文记录了我们如何用 xhprof、Blackfire、Tideways 三套工具链定位根因，并建立了可持续的性能基准测试工作流。"
+description: "在悠途OTA B2C API 项目中，我们面临过一个经典难题：某个商品搜索接口 P99 从 200ms 飙升到 2s，但日志和 APM 看不出异常。本文记录了我们如何用 xhprof、Blackfire、Tideways 三套工具链定位根因，并建立了可持续的性能基准测试工作流。"
 
 
 
@@ -17,7 +17,7 @@ description: "在 KKday B2C API 项目中，我们面临过一个经典难题：
 
 # PHP 性能基准测试：xhprof / Blackfire / Tideways 实战对比与 Laravel 生产环境 Profile 落地方案
 
-> 在 KKday B2C API 项目中，我们面临过一个经典难题：某个商品搜索接口 P99 从 200ms 飙升到 2s，但日志和 APM 看不出异常。本文记录了我们如何用 xhprof、Blackfire、Tideways 三套工具链定位根因，并建立了可持续的性能基准测试工作流。
+> 在悠途OTA B2C API 项目中，我们面临过一个经典难题：某个商品搜索接口 P99 从 200ms 飙升到 2s，但日志和 APM 看不出异常。本文记录了我们如何用 xhprof、Blackfire、Tideways 三套工具链定位根因，并建立了可持续的性能基准测试工作流。
 
 <!-- more -->
 
@@ -516,10 +516,10 @@ tests:
 
 ## 总结
 
-在 KKday B2C API 项目中，我们最终的组合是：**开发环境用 xhprof，CI 流水线用 Blackfire，生产环境用 Tideways**。三者互补而非互斥。
+在 youtu B2C API 项目中，我们最终的组合是：**开发环境用 xhprof，CI 流水线用 Blackfire，生产环境用 Tideways**。三者互补而非互斥。
 
 最关键的认知转变：**性能优化不是"猜 + 重构 + 祈祷"，而是 Profile → 定位 → 修复 → 断言锁死的闭环**。引入 Profiler 工具链后，我们的性能回退从"上线后发现"变成了"PR 阶段就拦截"，生产 P99 稳定在 200ms 以内。
 
 ---
 
-*本文基于 KKday B2C Backend Team 真实项目经验，文中代码示例均经过脱敏处理。*
+*本文基于 youtu B2C Backend Team 真实项目经验，文中代码示例均经过脱敏处理。*

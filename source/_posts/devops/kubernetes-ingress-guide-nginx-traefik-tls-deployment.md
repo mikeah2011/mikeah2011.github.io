@@ -7,7 +7,7 @@ date: 2026-05-16 22:25:37
 author: Michael
 updated: 2026-05-16 22:30:30
 categories: [devops]
-tags: [KKday, Kubernetes, Laravel, Nginx, Traefik, Ingress, 安全]
+tags: [悠途OTA, Kubernetes, Laravel, Nginx, Traefik, Ingress, 安全]
 keywords: [Kubernetes, Ingress, Nginx, Traefik, TLS, Laravel, B2C, API, 配置与, 部署踩坑记录]
 description: Kubernetes Ingress 实战：Nginx/Traefik 配置与 TLS，Laravel B2C API 部署踩坑记录。涵盖 Ingress Controller 选型、Path/Host 路由、cert-manager 自动证书、Rate Limiting、安全头配置，以及生产环境真实踩坑经验。
 
@@ -17,7 +17,7 @@ description: Kubernetes Ingress 实战：Nginx/Traefik 配置与 TLS，Laravel B
 
 ## 前言
 
-在 Kubernetes 集群中，Ingress 是外部流量进入集群的「大门」。对于 Laravel B2C API 来说，Ingress 不仅要处理路由转发，还要搞定 TLS 终止、速率限制、安全头注入等关键功能。本文基于 KKday B2C Backend Team 的真实生产经验，对比 Nginx Ingress Controller 和 Traefik 两种方案，从配置到踩坑，一次性讲透。
+在 Kubernetes 集群中，Ingress 是外部流量进入集群的「大门」。对于 Laravel B2C API 来说，Ingress 不仅要处理路由转发，还要搞定 TLS 终止、速率限制、安全头注入等关键功能。本文基于悠途OTA B2C Backend Team 的真实生产经验，对比 Nginx Ingress Controller 和 Traefik 两种方案，从配置到踩坑，一次性讲透。
 
 <!-- more -->
 
@@ -482,7 +482,7 @@ spec:
       - text/event-stream     # SSE 不压缩
 ```
 
-**我们的选择**：KKday B2C 项目最终选了 Nginx Ingress，原因：
+**我们的选择**：youtu B2C 项目最终选了 Nginx Ingress，原因：
 1. 团队对 Nginx 配置更熟悉
 2. Annotation 生态成熟，Stack Overflow 答案多
 3. 与现有 Nginx 配置迁移成本低

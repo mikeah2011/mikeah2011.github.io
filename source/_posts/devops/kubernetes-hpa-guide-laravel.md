@@ -22,7 +22,7 @@ description: 深入讲解 Kubernetes HPA 在 Laravel 应用中的自动扩缩容
 
 ## 为什么需要 HPA？
 
-在 KKday B2C Backend Team 的日常运维中，我经历过最痛的一次事故：2025 年黑五大促，流量在 10 分钟内从 200 QPS 飙到 3000 QPS，3 台 Pod 的 Laravel API 直接被打挂，等运维同事 SSH 上去手动扩容到 12 台时，已经过了 15 分钟，损失了大量订单。
+在悠途OTA B2C Backend Team 的日常运维中，我经历过最痛的一次事故：2025 年黑五大促，流量在 10 分钟内从 200 QPS 飙到 3000 QPS，3 台 Pod 的 Laravel API 直接被打挂，等运维同事 SSH 上去手动扩容到 12 台时，已经过了 15 分钟，损失了大量订单。
 
 从那以后，我们引入了 **Kubernetes HPA（Horizontal Pod Autoscaler）**——让 K8s 根据实时指标自动增减 Pod 数量，真正做到"流量来了就扩、流量走了就缩"。
 
@@ -153,7 +153,7 @@ spec:
     spec:
       containers:
         - name: laravel-api
-          image: registry.cn-hangzhou.aliyuncs.com/kkday/laravel-api:v1.2.3
+          image: registry.cn-hangzhou.aliyuncs.com/youtu/laravel-api:v1.2.3
           ports:
             - containerPort: 9000
           resources:
@@ -633,7 +633,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: registry.cn-hangzhou.aliyuncs.com/kkday/laravel-api:v1.2.3
+          image: registry.cn-hangzhou.aliyuncs.com/youtu/laravel-api:v1.2.3
         - name: php-fpm-exporter
           image: hipages/php-fpm_exporter:2.2.0
           args:
@@ -1015,7 +1015,7 @@ spec:
       terminationGracePeriodSeconds: 300
       containers:
         - name: worker
-          image: registry.cn-hangzhou.aliyuncs.com/kkday/laravel-api:v1.2.3
+          image: registry.cn-hangzhou.aliyuncs.com/youtu/laravel-api:v1.2.3
           command:
             - php
             - artisan
@@ -1175,7 +1175,7 @@ spec:
               app: laravel-api
       containers:
         - name: laravel-api
-          image: registry.cn-hangzhou.aliyuncs.com/kkday/laravel-api:v1.2.3
+          image: registry.cn-hangzhou.aliyuncs.com/youtu/laravel-api:v1.2.3
           ports:
             - containerPort: 9000
           env:

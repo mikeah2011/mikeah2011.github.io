@@ -11,18 +11,18 @@ updated: 2026-05-16 23:49:46
 categories: [macos]
 tags:
 - AI
-- KKday
+- 悠途OTA
 - Laravel
 - 工程管理
 - 测试
-description: 深入实战 GitHub Copilot 在 Laravel B2C API 项目中的全场景应用：从 .github/copilot-instructions.md 项目级指令配置到代码补全接受率 55-65% 的实测数据，从 Pest 测试自动生成与 Mock 陷阱修复到 Scribe v4 文档注解一键生成，从 PR Review 自动检测 N+1 查询与 SQL 注入漏洞到 /workspace 模式跨文件项目级问答。本文基于 KKday B2C API 团队 3 个月实测经验，总结 8 个真实踩坑案例与 Prompt 工程模板库，附带 Cursor、Claude Code 等多 AI 工具分层协作策略，帮助 Laravel 开发者高效利用 AI 辅助编程。
+description: 深入实战 GitHub Copilot 在 Laravel B2C API 项目中的全场景应用：从 .github/copilot-instructions.md 项目级指令配置到代码补全接受率 55-65% 的实测数据，从 Pest 测试自动生成与 Mock 陷阱修复到 Scribe v4 文档注解一键生成，从 PR Review 自动检测 N+1 查询与 SQL 注入漏洞到 /workspace 模式跨文件项目级问答。本文基于悠途OTA B2C API 团队 3 个月实测经验，总结 8 个真实踩坑案例与 Prompt 工程模板库，附带 Cursor、Claude Code 等多 AI 工具分层协作策略，帮助 Laravel 开发者高效利用 AI 辅助编程。
 ---
 
 
 
 # GitHub Copilot 实战：代码补全、测试生成、文档编写——Laravel B2C API 全场景深度踩坑记录
 
-> **关键结论**：GitHub Copilot 在 Laravel 项目中的代码补全接受率可达 **55-65%**（基于 KKday B2C API 团队 3 个月实测数据），但 **Context 配置和 Prompt 工程决定了补全质量的 80%**。用对了是神器，用错了是噪音制造机。
+> **关键结论**：GitHub Copilot 在 Laravel 项目中的代码补全接受率可达 **55-65%**（基于悠途OTA B2C API 团队 3 个月实测数据），但 **Context 配置和 Prompt 工程决定了补全质量的 80%**。用对了是神器，用错了是噪音制造机。
 
 ## 📋 目录
 
@@ -853,7 +853,7 @@ Scribe v4 属性注解，包括：
 | API 文档 | Copilot Chat `/doc` | 结合 Scribe 注解 |
 | 架构讨论 | Claude Code + Cursor | 需要深度推理 |
 
-### 效能提升数据（KKday B2C API 团队 3 个月实测）
+### 效能提升数据（youtu B2C API 团队 3 个月实测）
 
 ```
 ┌──────────────────────────────────────────────────┐

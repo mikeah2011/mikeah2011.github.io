@@ -1,5 +1,5 @@
 ---
-title: Laravel 服务容器深度解析-KKday-B2C-API-10 个真实踩坑记录
+title: Laravel 服务容器深度解析-youtu-ota-B2C-API-10 个真实踩坑记录
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -7,17 +7,17 @@ date: 2026-05-02
 author: Michael
 categories: [php]
 tags: [Laravel, 依赖注入, IoC, 服务容器, ServiceProvider, PHP]
-keywords: [Laravel, KKday, B2C, API, 服务容器深度解析, 个真实踩坑记录, PHP]
-description: Laravel 服务容器（Service Container）是 Laravel 框架的核心依赖注入容器，通过 IoC（控制反转）原理实现类与类之间的松耦合管理。本文基于 KKday B2C API 项目实战，汇总 10 个真实踩坑记录——包括循环依赖、单例状态污染、绑定时机错误、extend 调用链断裂、内存泄漏、中间件依赖注入失效、类型声明冲突、多工厂配置混乱、环境配置不一致、register/boot 顺序遗漏等常见问题，并给出可直接复用的解决方案与最佳实践，适合中高级 Laravel 开发者深入理解服务容器的内部机制。
+keywords: [Laravel, 悠途OTA, B2C, API, 服务容器深度解析, 个真实踩坑记录, PHP]
+description: Laravel 服务容器（Service Container）是 Laravel 框架的核心依赖注入容器，通过 IoC（控制反转）原理实现类与类之间的松耦合管理。本文基于悠途OTA B2C API 项目实战，汇总 10 个真实踩坑记录——包括循环依赖、单例状态污染、绑定时机错误、extend 调用链断裂、内存泄漏、中间件依赖注入失效、类型声明冲突、多工厂配置混乱、环境配置不一致、register/boot 顺序遗漏等常见问题，并给出可直接复用的解决方案与最佳实践，适合中高级 Laravel 开发者深入理解服务容器的内部机制。
 
 
 
 ---
 
-# Laravel 服务容器深度解析 - KKday-B2C-API 十个真实踩坑记录
+# Laravel 服务容器深度解析 - youtu-ota-B2C-API 十个真实踩坑记录
 
 > **作者**：Michael  
-> **项目**：KKday B2C API (Laravel 8+PHP 8)  
+> **项目**：悠途OTA B2C API (Laravel 8+PHP 8)  
 > **时间**：2026-05-02
 
 ---
@@ -43,7 +43,7 @@ class Container {
 
 ---
 
-## 🧨 二、KKday-B2C-API 十个真实踩坑记录
+## 🧨 二、youtu-ota-B2C-API 十个真实踩坑记录
 
 ### ⚠️ 坑 #1：循环依赖导致无法实例化
 
@@ -918,11 +918,11 @@ Laravel 服务容器是构建可维护、可测试大型项目的基础设施。
 
 ---
 
-> 📝 **备注**：本文基于 KKday B2C API 项目（Laravel 8+PHP 8）实战经验整理而成。文中代码示例均可在实际项目中验证。
+> 📝 **备注**：本文基于 youtu B2C API 项目（Laravel 8+PHP 8）实战经验整理而成。文中代码示例均可在实际项目中验证。
 
 ---
 **作者**：Michael  
-**项目**：KKday B2C API  
+**项目**：youtu B2C API  
 **日期**：2026-05-02
 
 ## 相关阅读

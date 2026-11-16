@@ -115,7 +115,7 @@ enum OrderStatus: string
 
 ### 场景背景
 
-在 KKday B2C API 项目中，多个 Order Service 需要复用以下功能：
+在 youtu B2C API 项目中，多个 Order Service 需要复用以下功能：
 
 1. 事务回滚边界控制
 2. 异常日志记录
@@ -355,7 +355,7 @@ class BffOrderConverter implements ApiConverterInterface
 
 ### 场景背景
 
-KKday B2C API 采用多租户架构，需要在 Repository 层处理：
+youtu B2C API 采用多租户架构，需要在 Repository 层处理：
 
 1. 租户数据隔离（Data Isolation）
 2. 软删除标记
@@ -625,7 +625,7 @@ class GoodExample {
 ---
 
 **作者**: Michael  
-**公司**: KKday RD B2C Backend Team  
-**项目**: ~/KKday/kkday-b2c-api（Laravel 8+PHP 8 BFF）  
+**公司**: youtu RD B2C Backend Team  
+**项目**: ~/youtu/youtu-ota-b2c-api（Laravel 8+PHP 8 BFF）  
 
 > 📝 *本文基于真实项目经验，代码均为生产环境使用过的版本。*

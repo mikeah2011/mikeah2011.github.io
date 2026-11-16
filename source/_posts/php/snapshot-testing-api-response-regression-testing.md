@@ -458,7 +458,7 @@ class ProductDetailSnapshotTest extends TestCase
 
         // App 端响应
         $appResponse = $this->withHeaders([
-            'User-Agent' => 'KKdayApp/5.0 (iOS 17.0)',
+            'User-Agent' => 'YoutuApp/5.0 (iOS 17.0)',
             'X-Client-Type' => 'app',
         ])->getJson('/api/v2/products/1001');
 

@@ -12,14 +12,14 @@ tags:
 - BFF
 - Laravel
 - PHP
-description: 本文基于 KKday 30+ Laravel 微服务仓库的真实重构经验，深入讲解 PHP 8.1+ Enum 如何系统性消除魔术字符串（Magic Strings）。涵盖 Backed Enum 与原生 Enum 选型、状态机验证、Laravel Eloquent Cast 集成、Session/Cache 序列化踩坑、Pest 测试驱动重构策略，以及批量迁移脚本与数据库约束设计方案。附完整可运行代码示例与重构效果对比数据，适合中大型 PHP 项目团队落地参考。
+description: 本文基于悠途OTA 30+ Laravel 微服务仓库的真实重构经验，深入讲解 PHP 8.1+ Enum 如何系统性消除魔术字符串（Magic Strings）。涵盖 Backed Enum 与原生 Enum 选型、状态机验证、Laravel Eloquent Cast 集成、Session/Cache 序列化踩坑、Pest 测试驱动重构策略，以及批量迁移脚本与数据库约束设计方案。附完整可运行代码示例与重构效果对比数据，适合中大型 PHP 项目团队落地参考。
 ---
 
 
 
 # PHP Enum 替魔术字符串：30+ 仓库的重构经验与最佳实践
 
-> **来源**：KKday RD B2C Backend Team · BFF 开发者视角  
+> **来源**：悠途OTA RD B2C Backend Team · BFF 开发者视角  
 > **技术栈**：Laravel 8+ / PHP 8.0 / Pest 单元测试驱动  
 > **覆盖范围**：30+ Laravel 仓库的真实重构案例  
 
@@ -359,7 +359,7 @@ Cache::put('order_status', OrderStatus::PAID); // Laravel 自动序列化
 
 ---
 
-## 📚 最佳实践清单（KKday BFF Team 内部规范）
+## 📚 最佳实践清单（youtu BFF Team 内部规范）
 
 ### ✅ DO：使用原生 Enum（无 Backing）或统一 Backed Enum
 
@@ -436,7 +436,7 @@ enum OrderStatus: string
 
 - [PHP 8 Enum 官方文档](https://www.php.net/manual/en/language.types.enumerations.php)
 - [Laravel 8+ Enum Support](https://laravel.com/docs/8.x/eloquent-mutators#enum-strategies)
-- KKday BFF Team 内部规范：Enum Naming Convention
+- 悠途OTA BFF Team 内部规范：Enum Naming Convention
 
 ---
 

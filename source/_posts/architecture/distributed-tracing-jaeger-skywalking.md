@@ -13,13 +13,13 @@ tags:
 - Laravel
 - 微服务
 - 监控
-description: 深入实战 KKday B2C 微服务架构中 Jaeger 与 SkyWalking 双方案链路追踪落地全过程。涵盖 OpenTelemetry SDK PHP 接入、跨服务 W3C TraceContext 上下文传播、Kafka 异步消息链路续接、Head/Tail 双层采样策略设计、OTel Collector 统一汇聚架构，以及生产环境性能压测数据、Grafana 可视化看板配置与六大踩坑记录。适用于 Laravel/PHP 与 Java 混合微服务团队快速构建分布式可观测性体系。
+description: 深入实战悠途OTA B2C 微服务架构中 Jaeger 与 SkyWalking 双方案链路追踪落地全过程。涵盖 OpenTelemetry SDK PHP 接入、跨服务 W3C TraceContext 上下文传播、Kafka 异步消息链路续接、Head/Tail 双层采样策略设计、OTel Collector 统一汇聚架构，以及生产环境性能压测数据、Grafana 可视化看板配置与六大踩坑记录。适用于 Laravel/PHP 与 Java 混合微服务团队快速构建分布式可观测性体系。
 ---
 
 
 # 链路追踪实战：Jaeger/SkyWalking 在 Laravel 微服务中的应用
 
-> **背景**：KKday B2C 后端从单体 Laravel 拆分为微服务后，一个订单请求会经过 BFF → Search → Inventory → Payment → Notification 五个服务。出了问题，日志里只知道 "订单创建失败"，但到底是 Search 超时还是 Payment 扣款异常？没有链路追踪，排查一个线上问题平均耗时 40+ 分钟。本文记录我们引入 Jaeger 和 SkyWalking 两套方案的完整实战过程。
+> **背景**：悠途OTA B2C 后端从单体 Laravel 拆分为微服务后，一个订单请求会经过 BFF → Search → Inventory → Payment → Notification 五个服务。出了问题，日志里只知道 "订单创建失败"，但到底是 Search 超时还是 Payment 扣款异常？没有链路追踪，排查一个线上问题平均耗时 40+ 分钟。本文记录我们引入 Jaeger 和 SkyWalking 两套方案的完整实战过程。
 
 ---
 
@@ -58,7 +58,7 @@ description: 深入实战 KKday B2C 微服务架构中 Jaeger 与 SkyWalking 双
 
 ### 2.1 选型调研过程
 
-在决定引入链路追踪方案之前，我们团队花了一周时间做技术调研。调研对象包括市面上主流的五个方案：Jaeger、SkyWalking、Zipkin、Datadog 和 New Relic。由于 KKday 的基础架构以自建机房为主，SaaS 方案（Datadog/New Relic）的成本模型不适合——按照 span 量计费，日均亿级 span 的场景下费用惊人。
+在决定引入链路追踪方案之前，我们团队花了一周时间做技术调研。调研对象包括市面上主流的五个方案：Jaeger、SkyWalking、Zipkin、Datadog 和 New Relic。由于 youtu 的基础架构以自建机房为主，SaaS 方案（Datadog/New Relic）的成本模型不适合——按照 span 量计费，日均亿级 span 的场景下费用惊人。
 
 最终聚焦到 Jaeger 和 SkyWalking 两个开源方案。我们的评估标准有四个维度：语言覆盖广度（PHP/Java/Node.js 都要支持）、社区活跃度、存储后端灵活性、以及与 OpenTelemetry 标准的兼容程度。
 
@@ -262,7 +262,7 @@ RUN pecl install protobuf-3.25.2 \
 
 ```bash
 # .env
-OTEL_SERVICE_NAME=kkday-bff-api
+OTEL_SERVICE_NAME=youtu-ota-bff-api
 OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
 OTEL_TRACES_SAMPLER=parentbased_traceidratio
@@ -301,7 +301,7 @@ class SearchClient
     public function search(string $keyword, array $filters = []): array
     {
         $tracer = Globals::tracerProvider()
-            ->getTracer('kkday-bff', '1.0.0');
+            ->getTracer('youtu-ota-bff', '1.0.0');
 
         // 创建子 span
         $span = $tracer->spanBuilder('search.products')
@@ -403,7 +403,7 @@ class OrderCreatedListener
         $parentContext = Globals::propagator()->extract($event->traceContext);
 
         $tracer = Globals::tracerProvider()
-            ->getTracer('kkday-notification', '1.0.0');
+            ->getTracer('youtu-ota-notification', '1.0.0');
 
         // 以提取的 context 为父级创建 span
         $span = $tracer->spanBuilder('notification.order_created')
@@ -540,7 +540,7 @@ groups:
         expr: |
           histogram_quantile(0.99,
             sum(rate(otel_span_duration_seconds_bucket{
-              service_name=~"kkday-.*"
+              service_name=~"youtu-ota-.*"
             }[5m])) by (le, service_name)
           ) > 3
         for: 5m
@@ -569,7 +569,7 @@ groups:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        KKday B2C 微服务架构                      │
+│                        youtu B2C 微服务架构                      │
 │                                                                  │
 │  ┌──────────┐  gRPC   ┌──────────────┐  HTTP  ┌────────────┐   │
 │  │   BFF    │────────→│  Search      │       │  Inventory  │   │
@@ -688,7 +688,7 @@ datasources:
 ```promql
 # 1. 各服务 P50/P95/P99 延迟
 histogram_quantile(0.50,
-  sum(rate(otel_span_duration_seconds_bucket{service_name=~"kkday-.*"}[5m]))
+  sum(rate(otel_span_duration_seconds_bucket{service_name=~"youtu-ota-.*"}[5m]))
   by (le, service_name, span_name)
 )
 
@@ -724,11 +724,11 @@ topk(10,
 **排查步骤**：
 
 ```
-1. Jaeger UI 搜索服务名: kkday-bff-api
+1. Jaeger UI 搜索服务名: youtu-ota-bff-api
 2. 筛选最近 1 小时 + tag: order.id = ORD-20260516-8837
 3. 找到完整 trace：
 
-   kkday-bff-api / POST /api/v3/orders          [850ms]
+   youtu-ota-bff-api / POST /api/v3/orders          [850ms]
    ├── search.products (→ Search Service, gRPC)  [120ms]
    ├── inventory.reserve (→ Inventory, HTTP)     [45ms]
    │   └── redis.SETNX inventory_lock             [2ms]
@@ -775,7 +775,7 @@ OrderCreated::dispatch($orderId, $orderData);
 ### 8.2 场景：P99 延迟突增告警
 
 ```
-告警：kkday-bff-api P99 > 3s (持续 5 分钟)
+告警：youtu-ota-bff-api P99 > 3s (持续 5 分钟)
 
 排查路径：
 1. Grafana → Prometheus 看板 → 确认 BFF P99 从 180ms 飙到 4.2s

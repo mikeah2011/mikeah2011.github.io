@@ -25,7 +25,7 @@ description: 本文基于 Laravel B2C 前后端分离项目实战，全面讲解
 
 ## 前言
 
-在 KKday B2C Backend Team 的日常开发中，前端项目从 Webpack（Laravel Mix）迁移到 Vite 已经成为趋势。Vite 基于 ESBuild 的极速冷启动和原生 ESM 的 HMR 体验，让开发效率有了质的飞跃——但迁移过程中踩的坑也不少。
+在悠途OTA B2C Backend Team 的日常开发中，前端项目从 Webpack（Laravel Mix）迁移到 Vite 已经成为趋势。Vite 基于 ESBuild 的极速冷启动和原生 ESM 的 HMR 体验，让开发效率有了质的飞跃——但迁移过程中踩的坑也不少。
 
 本文基于 30+ 仓库的实战经验，从 **HMR 原理与故障排查**、**构建产物优化**、**环境变量管理** 三个维度，分享 Vue 3 + Vite 在 Laravel BFF 架构下的工程化最佳实践。
 
@@ -374,7 +374,7 @@ my-b2c-frontend/
 
 ```bash
 # .env —— 所有环境共享
-VITE_APP_TITLE=KKday B2C
+VITE_APP_TITLE=youtu B2C
 VITE_APP_VERSION=2.1.0
 
 # .env.development
@@ -384,13 +384,13 @@ VITE_ENABLE_MOCK=true
 VITE_LOG_LEVEL=debug
 
 # .env.staging
-VITE_API_BASE_URL=https://staging-api.kkday.com
+VITE_API_BASE_URL=https://staging-api.youtu-ota.test
 VITE_API_TIMEOUT=15000
 VITE_ENABLE_MOCK=false
 VITE_LOG_LEVEL=info
 
 # .env.production
-VITE_API_BASE_URL=https://api.kkday.com
+VITE_API_BASE_URL=https://api.youtu-ota.test
 VITE_API_TIMEOUT=10000
 VITE_ENABLE_MOCK=false
 VITE_LOG_LEVEL=error
@@ -566,7 +566,7 @@ export const request = createRequest()
 ```nginx
 server {
     listen 80;
-    server_name b2c.kkday.com;
+    server_name b2c.youtu-ota.test;
 
     # 前端 SPA（Vite 构建产物）
     root /var/www/b2c-frontend/dist;
@@ -771,7 +771,7 @@ Vue 3 + Vite 在 Laravel BFF 架构下是当前最佳的前端工程化方案。
 
 ---
 
-*本文基于 KKday B2C Backend Team 真实项目经验整理，适用于 Laravel BFF + Vue 3 前后端分离架构。*
+*本文基于 youtu B2C Backend Team 真实项目经验整理，适用于 Laravel BFF + Vue 3 前后端分离架构。*
 
 ## 相关阅读
 

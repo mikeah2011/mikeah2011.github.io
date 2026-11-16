@@ -26,7 +26,7 @@ description: Apple Pay PKPass Wallet Passes 生成完整实战教程：Laravel �
 
 在旅游电商场景中，用户下单后需要将「电子票券」推送到手机 Wallet（Apple Wallet / Google Pay）。这看似简单的功能，实际涉及 Apple PKPass 文件格式、证书签名链、MIME 类型、推送通知等一系列细节。
 
-本文记录了在 KKday B2C API 项目中，用 Laravel 实现 PKPass 生成的完整流程，包括证书申请、文件结构、签名校验，以及 iOS 与 Android 的兼容性踩坑经验。
+本文记录了在悠途OTA B2C API 项目中，用 Laravel 实现 PKPass 生成的完整流程，包括证书申请、文件结构、签名校验，以及 iOS 与 Android 的兼容性踩坑经验。
 
 ---
 
@@ -66,7 +66,7 @@ description: Apple Pay PKPass Wallet Passes 生成完整实战教程：Laravel �
 
 ```
 格式：pass.com.yourcompany.yourapp.ticket
-示例：pass.com.kkday.b2c.eTicket
+示例：pass.com.youtu.b2c.eTicket
 ```
 
 **踩坑记录**：Pass Type ID 必须以 `pass.` 开头，不是 `com.`。很多教程写错了。
@@ -124,12 +124,12 @@ ticket.pkpass (ZIP)
 ```json
 {
   "formatVersion": 1,
-  "passTypeIdentifier": "pass.com.kkday.b2c.eTicket",
+  "passTypeIdentifier": "pass.com.youtu.b2c.eTicket",
   "serialNumber": "KKD-20260505-000123",
   "teamIdentifier": "AB12CD34EF",
-  "organizationName": "KKday",
-  "description": "KKday 景點門票",
-  "logoText": "KKday",
+  "organizationName": "youtu",
+  "description": "youtu 景點門票",
+  "logoText": "youtu",
   "foregroundColor": "rgb(255, 255, 255)",
   "backgroundColor": "rgb(58, 182, 160)",
   "eventTicket": {
@@ -282,9 +282,9 @@ class PKPassGenerator
             'passTypeIdentifier' => $this->passTypeIdentifier,
             'serialNumber' => $serialNumber,
             'teamIdentifier' => $this->teamIdentifier,
-            'organizationName' => $data['organization'] ?? 'KKday',
+            'organizationName' => $data['organization'] ?? 'youtu',
             'description' => $data['description'] ?? '電子票券',
-            'logoText' => $data['logo_text'] ?? 'KKday',
+            'logoText' => $data['logo_text'] ?? 'youtu',
             'foregroundColor' => $data['foreground_color'] ?? 'rgb(255, 255, 255)',
             'backgroundColor' => $data['bg_color'] ?? 'rgb(58, 182, 160)',
             'eventTicket' => [
@@ -534,7 +534,7 @@ class PKPassGenerator
 // config/services.php 添加
 
 'apple_pass' => [
-    'pass_type_id' => env('APPLE_PASS_TYPE_ID', 'pass.com.kkday.b2c.eTicket'),
+    'pass_type_id' => env('APPLE_PASS_TYPE_ID', 'pass.com.youtu.b2c.eTicket'),
     'team_id' => env('APPLE_TEAM_ID', 'AB12CD34EF'),
     'cert_path' => env('APPLE_PASS_CERT_PATH', storage_path('certs/pass_cert.pem')),
     'key_path' => env('APPLE_PASS_KEY_PATH', storage_path('certs/pass_key.pem')),
@@ -674,7 +674,7 @@ class GooglePayPassService
     {
         $payload = [
             'id' => $this->issuerId . '.' . $ticketData['serial_number'],
-            'classId' => $this->issuerId . '.KKDAY_TICKET_CLASS',
+            'classId' => $this->issuerId . '.Youtu_TICKET_CLASS',
             'eventName' => [
                 'defaultValue' => [
                     'language' => 'zh-TW',
@@ -1059,7 +1059,7 @@ Apple Wallet 6.0+ 支持在条码下方显示一行辅助文字（altText）。�
 
 ## 10. 国际化与多语言支持
 
-如果产品面向多语言用户（如 KKday 覆盖中、英、日、韩等市场），PKPass 的国际化支持至关重要。
+如果产品面向多语言用户（如 youtu 覆盖中、英、日、韩等市场），PKPass 的国际化支持至关重要。
 
 ### 10.1 lproj 目录结构
 

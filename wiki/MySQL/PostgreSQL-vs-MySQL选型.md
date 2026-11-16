@@ -209,5 +209,5 @@ Order::where('id', '>', $lastId)->orderBy('id')->limit(20)->get();
 
 ## 实战文章
 
-- [PostgreSQL vs MySQL 选型实战](/categories/Databases/PostgreSQL-vs-MySQL-选型实战/) - KKday Affiliate 选型经验
+- [PostgreSQL vs MySQL 选型实战](/categories/Databases/PostgreSQL-vs-MySQL-选型实战/) - youtu Affiliate 选型经验
 - [Laravel ORM PDO MySQL PostgreSQL 行为差异](/categories/Databases/Laravel-ORM-PDO-MySQL-PostgreSQL-行为差异与兼容性实战踩坑记录/) - 行为差异与兼容性实战踩坑记录

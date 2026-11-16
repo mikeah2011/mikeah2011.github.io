@@ -19,7 +19,7 @@ description: 在 30+ Laravel 仓库中使用 Rector PHP 实现自动化代码重
 
 ## 一、为什么需要 Rector？
 
-在 KKday B2C 后端团队中，我们维护着 30+ 个 Laravel/PHP 仓库。当 PHP 从 7.4 升级到 8.0、8.1、8.2 时，每个仓库都有大量的手动改动：`array_key_exists` 要改成 `??`、`strpos() !== false` 要改成 `str_contains()`、`@param` 注解要改成原生类型声明……
+在悠途OTA B2C 后端团队中，我们维护着 30+ 个 Laravel/PHP 仓库。当 PHP 从 7.4 升级到 8.0、8.1、8.2 时，每个仓库都有大量的手动改动：`array_key_exists` 要改成 `??`、`strpos() !== false` 要改成 `str_contains()`、`@param` 注解要改成原生类型声明……
 
 手动改？30 个仓库 × 每个几百处改动 = 灾难。
 
@@ -212,7 +212,7 @@ vendor/bin/rector process --parallel
 Rector 内置的 800+ 规则覆盖了大部分通用场景，但在实际项目中，你经常会遇到团队特有的代码规范需要自动化迁移。比如：
 
 - 把 `Response::json()` 统一改成 `response()->json()`
-- 把旧版 `kkday/log` 的调用方式迁移到新版 API
+- 把旧版 `youtu/log` 的调用方式迁移到新版 API
 - 把魔术方法 `__get`/`__set` 替换为显式的 Getter/Setter
 
 ### 4.2 编写自定义规则

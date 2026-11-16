@@ -925,7 +925,7 @@ kafka-console-producer.sh --bootstrap-server localhost:9092 --topic order-events
 
 ## 相关阅读
 
-- [Laravel-Kafka 消息队列异步解耦实战——KKday B2C API 真实踩坑记录](/categories/MQ/2026-05-03-Laravel-Kafka-消息队列异步解耦实战/)
+- [Laravel-Kafka 消息队列异步解耦实战——youtu B2C API 真实踩坑记录](/categories/MQ/2026-05-03-Laravel-Kafka-消息队列异步解耦实战/)
 - [MQ 消息队列深度对比：RabbitMQ vs Kafka vs RocketMQ 选型指南](/categories/MQ/mq-comparison/)
 - [MQ 面试经](/categories/MQ/message-queue/)
 - [Kafka + Debezium CDC 实战：数据库变更事件流——与 Laravel Event Sourcing 的互补架构设计](/categories/架构/2026-06-03-Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构/)

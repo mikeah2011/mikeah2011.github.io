@@ -9,7 +9,7 @@ updated: 2026-05-17 02:37:30
 categories: [engineering]
 tags: [Laravel, 测试, API, Postman, Apifox, CI/CD]
 keywords: [Postman, Apifox, API, Mock, Laravel B2C API, 自动化测试, 踩坑记录, 工程化, 测试]
-description: "Postman 与 Apifox 实战对比：在 KKday B2C 30+ Laravel 微服务仓库中，从手动 Postman 请求演进到 Apifox 契约驱动自动化测试的完整路径。覆盖环境变量分层管理、Mock Server 智能配置、Pre-request Script 自动获取 Token、数据驱动测试、Newman/Apifox CLI CI/CD 集成等 API 测试核心实战，附真实踩坑与选型决策指南。"
+description: "Postman 与 Apifox 实战对比：在悠途OTA B2C 30+ Laravel 微服务仓库中，从手动 Postman 请求演进到 Apifox 契约驱动自动化测试的完整路径。覆盖环境变量分层管理、Mock Server 智能配置、Pre-request Script 自动获取 Token、数据驱动测试、Newman/Apifox CLI CI/CD 集成等 API 测试核心实战，附真实踩坑与选型决策指南。"
 
 
 
@@ -19,7 +19,7 @@ description: "Postman 与 Apifox 实战对比：在 KKday B2C 30+ Laravel 微服
 
 ## 背景：从"手动点 Postman"到自动化 API 测试
 
-在 KKday B2C Backend Team，我们有 30+ 个 Laravel 微服务仓库。长期以来，API 联调的基本流程是：
+在悠途OTA B2C Backend Team，我们有 30+ 个 Laravel 微服务仓库。长期以来，API 联调的基本流程是：
 
 1. 后端写完接口 → 手动在 Postman 里打几个请求验证
 2. 把 Postman Collection 导出 → 丢给前端
@@ -27,7 +27,7 @@ description: "Postman 与 Apifox 实战对比：在 KKday B2C 30+ Laravel 微服
 
 这个流程有几个致命问题：
 
-- **环境变量不一致**：后端用 localhost:8000，前端用 staging.kkday.com，字段名对不上
+- **环境变量不一致**：后端用 localhost:8000，前端用 staging.youtu-ota.test，字段名对不上
 - **Mock 数据靠手写**：接口还没上线，前端只能猜数据结构
 - **回归测试靠人肉**：每次发版前，QA 手动跑一遍核心接口
 - **Collection 越来越脏**：几个月下来，几百个请求混在一起，没人知道哪些是有效的
@@ -65,7 +65,7 @@ Postman 的 Environment 是最容易被忽视、也最容易踩坑的功能。�
 │  │  Local   │  │ Staging  │  │   Prod   │      │
 │  │ base_url │  │ base_url │  │ base_url │      │
 │  │ localhost│  │ staging. │  │ api.     │      │
-│  │ :8000    │  │ kkday.com│  │ kkday.com│      │
+│  │ :8000    │  │ youtu-ota.test│  │ youtu-ota.test│      │
 │  └──────────┘  └──────────┘  └──────────┘      │
 │                                                 │
 │  Collection Variables (共享)                    │
@@ -394,7 +394,7 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: test_root
-          MYSQL_DATABASE: kkday_test
+          MYSQL_DATABASE: youtu_test
         ports: ['3306:3306']
         options: >-
           --health-cmd="mysqladmin ping"
@@ -563,7 +563,7 @@ paths:
                         items:
                           type: string
                           format: uri
-                        example: ["https://cdn.kkday.com/product/10001/main.jpg"]
+                        example: ["https://cdn.youtu-ota.test/product/10001/main.jpg"]
 ```
 
 ### 踩坑 3：CI 环境下数据库状态污染
@@ -586,10 +586,10 @@ php artisan migrate:fresh --seed --force
 ```yaml
       - name: Setup Test Database
         env:
-          DB_DATABASE: kkday_api_test
+          DB_DATABASE: youtu_api_test
           DB_HOST: 127.0.0.1
         run: |
-          mysql -h 127.0.0.1 -u root -ptest_root -e "CREATE DATABASE IF NOT EXISTS kkday_api_test;"
+          mysql -h 127.0.0.1 -u root -ptest_root -e "CREATE DATABASE IF NOT EXISTS youtu_api_test;"
           php artisan migrate:fresh --seed --force --database=mysql
 ```
 

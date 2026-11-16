@@ -19,7 +19,7 @@ tags:
 - 自动化
 - 单元测试
 - 覆盖率
-简介: 'KKday B2C API 团队使用 Pest + PHPUnit + ParaTest 构建高覆盖率测试体系。本文分享实战踩坑记录：从 0 到跑满 100%
+简介: '悠途OTA B2C API 团队使用 Pest + PHPUnit + ParaTest 构建高覆盖率测试体系。本文分享实战踩坑记录：从 0 到跑满 100%
   覆盖率的完整路径，包括断言库选择、Mock/Stubs、并行测试优化与 CI 集成方案。
 
   '
@@ -28,7 +28,7 @@ tags:
 
 ## 一、为什么 Laravel B2C API 需要 100% 覆盖率？
 
-在 KKday B2C 项目中，我们的核心 BFF（Backend-for-Frontend）层每天处理数万笔订单查询、商品推荐搜索与会员积分计算。任何一处逻辑错误都可能直接影响营收。
+在悠途OTA B2C 项目中，我们的核心 BFF（Backend-for-Frontend）层每天处理数万笔订单查询、商品推荐搜索与会员积分计算。任何一处逻辑错误都可能直接影响营收。
 
 **真实场景：**
 - Search/Recommend 服务返回空数据 → 前端显示 "无结果"，用户流失
@@ -399,5 +399,5 @@ jobs:
 
 ---
 
-*本文基于 KKday B2C API 团队实战经验，持续更新中。*  
+*本文基于 youtu B2C API 团队实战经验，持续更新中。*  
 *如有疑问，欢迎留言交流或查看 [SA/SD 文档](../docs/testing.md) 获取模板。*

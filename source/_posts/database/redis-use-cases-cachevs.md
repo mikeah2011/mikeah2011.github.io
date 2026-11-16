@@ -4,10 +4,10 @@ title: Laravel B2C API 的 Redis 使用场景：会话/购物车/计次/全页�
 keywords: [Laravel B2C API, Redis, 使用场景, 会话, 购物车, 计次, 全页缓存对比]
 date: 2026-05-02
 author: Michael
-description: 基于 KKday 三年 Laravel B2C API 实战经验，系统对比 Redis 四大核心使用场景：Session 会话管理、购物车 Hash+List 设计、计次功能 Lua 原子操作与全页缓存穿透防护。深入解析各场景的数据结构选型、TTL 策略、并发控制方案，附 Redis 与 Memcached 对比表、redis-cli 监控命令与生产环境告警配置，帮助开发者在电商 B2C 项目中做出最优缓存架构决策。
+description: 基于悠途OTA三年 Laravel B2C API 实战经验，系统对比 Redis 四大核心使用场景：Session 会话管理、购物车 Hash+List 设计、计次功能 Lua 原子操作与全页缓存穿透防护。深入解析各场景的数据结构选型、TTL 策略、并发控制方案，附 Redis 与 Memcached 对比表、redis-cli 监控命令与生产环境告警配置，帮助开发者在电商 B2C 项目中做出最优缓存架构决策。
 categories: [database]
 tags:
-- KKday
+- 悠途OTA
 - Laravel
 - Redis
 - B2C
@@ -24,7 +24,7 @@ images:
 
 ## 写在前面：为什么这篇很重要？
 
-在 KKday B2C 后端团队工作中，Redis 的使用场景非常多元。从最简单的键值存储，到复杂的会话管理、购物车逻辑、计次功能（countdown）、甚至全页缓存策略 —— 不同场景对应不同的 Redis 数据结构与 TTL 策略。
+在悠途OTA B2C 后端团队工作中，Redis 的使用场景非常多元。从最简单的键值存储，到复杂的会话管理、购物车逻辑、计次功能（countdown）、甚至全页缓存策略 —— 不同场景对应不同的 Redis 数据结构与 TTL 策略。
 
 本文基于**3 年 Laravel + Redis 实战经验**，系统梳理 4 大高频场景的对比方案、踩坑记录和优化建议，帮助你在 B2C API 开发中做出正确的 Redis 选型决策。
 
@@ -565,7 +565,7 @@ class RedisRateLimiter
 // CountDownService.php
 protected function incrementCount(string $key, int $amount = 1, int $ttlSeconds = 7200)
 {
-    $script = file_get_contents(base_path('vendor/kkday/lua-increment-and-expire.lua'));
+    $script = file_get_contents(base_path('vendor/youtu/lua-increment-and-expire.lua'));
     
     return app(\Predis\Client::class)->eval($script, [
         'counters:' . $key,
@@ -955,7 +955,7 @@ Redis 在 Laravel B2C API 中是不可或缺的中间件。不同的业务场景
 
 ---
 
-> 本文基于 KKday B2C API 真实项目经验整理，代码示例已通过 Laravel + Predis 环境测试。如有疑问欢迎评论交流！
+> 本文基于 youtu B2C API 真实项目经验整理，代码示例已通过 Laravel + Predis 环境测试。如有疑问欢迎评论交流！
 
 ## 相关阅读
 

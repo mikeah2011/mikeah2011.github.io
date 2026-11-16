@@ -22,7 +22,7 @@ description: "深度剖析 Laravel Eloquent Observer 的性能陷阱，包括 af
 
 ## 概述
 
-Eloquent Observer 是 Laravel 中实现领域事件监听的常用模式。在 KKday 的 30+ 仓库中，我们大量使用 Observer 来处理订单状态变更、库存同步、消息通知等业务逻辑。然而，Observer 的便利性掩盖了几个严重的性能陷阱：
+Eloquent Observer 是 Laravel 中实现领域事件监听的常用模式。在悠途OTA的 30+ 仓库中，我们大量使用 Observer 来处理订单状态变更、库存同步、消息通知等业务逻辑。然而，Observer 的便利性掩盖了几个严重的性能陷阱：
 
 1. **afterCommit 回调中的 N+1 查询**——在事务中触发的 Observer 可能导致循环内重复加载关联
 2. **事务边界混淆**——Observer 内部的数据库操作与父事务的边界不一致
@@ -474,4 +474,4 @@ Eloquent Observer 的性能陷阱主要源于对事务边界和执行时序的�
 4. **区分软删除和硬删除**——在 Observer 中检查 `$user->trashed()` 或 `$user->wasChanged('deleted_at')`
 5. **测试中禁用 Observer**——使用 `withoutEvents()` 避免测试干扰
 
-在 KKday 的 30+ 仓库中，我们遵循这些最佳实践后，Observer 相关的性能问题减少了 90% 以上。记住：Observer 是工具，不是银弹——理解其执行时序和事务边界，才能在生产环境中安全使用。
+在 youtu 的 30+ 仓库中，我们遵循这些最佳实践后，Observer 相关的性能问题减少了 90% 以上。记住：Observer 是工具，不是银弹——理解其执行时序和事务边界，才能在生产环境中安全使用。

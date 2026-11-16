@@ -20,7 +20,7 @@ description: 从 GDPR 和 PIPL 两大法规切入，详解数据主权合规的�
 
 ## 概述
 
-做 B2C 出境游平台，跨境数据存储是绕不开的硬性要求。KKday 业务覆盖全球，用户数据散落在不同区域的数据库里——欧洲用户的数据不能随便扔到亚洲机房，中国大陆用户的个人信息必须境内存储。这不是「最佳实践」，是法律红线。
+做 B2C 出境游平台，跨境数据存储是绕不开的硬性要求。悠途OTA业务覆盖全球，用户数据散落在不同区域的数据库里——欧洲用户的数据不能随便扔到亚洲机房，中国大陆用户的个人信息必须境内存储。这不是「最佳实践」，是法律红线。
 
 本文从实际项目经验出发，拆解 GDPR（欧盟通用数据保护条例）和 PIPL（中国个人信息保护法）对数据存储的核心约束，给出一套 Laravel 项目可落地的多区域数据主权架构方案。
 
@@ -581,7 +581,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_EU_HOST', 'mysql-eu.internal'),
             'port' => env('DB_EU_PORT', '3306'),
-            'database' => env('DB_EU_DATABASE', 'kkday_eu'),
+            'database' => env('DB_EU_DATABASE', 'youtu_eu'),
             'username' => env('DB_EU_USERNAME'),
             'password' => env('DB_EU_PASSWORD'),
             'charset' => 'utf8mb4',
@@ -593,7 +593,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_AP_HOST', 'mysql-ap.internal'),
             'port' => env('DB_AP_PORT', '3306'),
-            'database' => env('DB_AP_DATABASE', 'kkday_ap'),
+            'database' => env('DB_AP_DATABASE', 'youtu_ap'),
             'username' => env('DB_AP_USERNAME'),
             'password' => env('DB_AP_PASSWORD'),
             'charset' => 'utf8mb4',
@@ -605,7 +605,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_CN_HOST', 'mysql-cn.internal'),
             'port' => env('DB_CN_PORT', '3306'),
-            'database' => env('DB_CN_DATABASE', 'kkday_cn'),
+            'database' => env('DB_CN_DATABASE', 'youtu_cn'),
             'username' => env('DB_CN_USERNAME'),
             'password' => env('DB_CN_PASSWORD'),
             'charset' => 'utf8mb4',

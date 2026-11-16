@@ -19,7 +19,7 @@ description: 深入剖析 MySQL 索引设计的三大反模式——过度索引
 
 ## 概述
 
-在维护 KKday 30+ 个 Laravel 仓库的过程中，我见过太多数据库索引问题。有的表堆了 15 个索引，有的索引从创建至今从未被使用过，有的索引明明功能重复却各自为政。这些"索引肿瘤"不仅拖慢写入性能，还让 DDL 变更变得战战兢兢——光是 `ALTER TABLE ADD INDEX` 就能锁表几分钟。
+在维护悠途OTA 30+ 个 Laravel 仓库的过程中，我见过太多数据库索引问题。有的表堆了 15 个索引，有的索引从创建至今从未被使用过，有的索引明明功能重复却各自为政。这些"索引肿瘤"不仅拖慢写入性能，还让 DDL 变更变得战战兢兢——光是 `ALTER TABLE ADD INDEX` 就能锁表几分钟。
 
 本文总结三类最常见的索引反模式，给出诊断方法和治理策略，帮助你在大型 Laravel 项目中保持索引健康。
 
@@ -162,7 +162,7 @@ ORDER BY i.TABLE_SCHEMA, i.TABLE_NAME;
 // 用法: php scripts/index-health-check.php [database_host] [database_name]
 
 $host = $argv[1] ?? '127.0.0.1';
-$db   = $argv[2] ?? 'kkday_b2c';
+$db   = $argv[2] ?? 'youtu_b2c';
 $port = 3306;
 
 try {
@@ -405,7 +405,7 @@ EXPLAIN SELECT * FROM orders WHERE status = 'paid' AND created_at > '2026-01-01'
 pt-online-schema-change \
     --alter "DROP INDEX idx_orders_status" \
     --execute \
-    D=kkday_b2c,t=orders \
+    D=youtu_b2c,t=orders \
     h=127.0.0.1,P=3306,u=root
 ```
 

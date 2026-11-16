@@ -20,7 +20,7 @@ description: 深入对比 StarRocks 与 ClickHouse 两大 OLAP 引擎的架构�
 
 ## 为什么需要 OLAP 引擎？
 
-在 KKday 这样的 OTA 平台中，数据量级往往远超单机 MySQL 的分析能力。订单流水、用户行为日志、商品浏览轨迹——这些数据的价值在于「分析」，而非简单的 CRUD。
+在悠途OTA这样的 OTA 平台中，数据量级往往远超单机 MySQL 的分析能力。订单流水、用户行为日志、商品浏览轨迹——这些数据的价值在于「分析」，而非简单的 CRUD。
 
 传统方案是把数据同步到专门的分析引擎里跑报表。StarRocks 和 ClickHouse 是当前最主流的两个选择。
 
@@ -259,7 +259,7 @@ StarRocks 兼容 MySQL 协议，Laravel 可以直接用 `mysql` driver：
             'host' => [env('MYSQL_HOST', '127.0.0.1')],
             'port' => env('MYSQL_PORT', '3306'),
         ],
-        'database' => env('DB_DATABASE', 'kkday'),
+        'database' => env('DB_DATABASE', 'youtu'),
         'username' => env('DB_USERNAME', 'root'),
         'password' => env('DB_PASSWORD', ''),
         'charset' => 'utf8mb4',
@@ -723,4 +723,4 @@ ALTER TABLE orders SET ("bitmap_columns" = "user_id");
 
 4. **运维上 StarRocks 更友好**。自动 rebalance、动态分区、Routine Load 这些特性都降低了运维负担。
 
-对于 KKday 这样的业务场景，我的建议是：**MySQL 负责 OLTP，StarRocks 负责 OLAP，用 Debezium + Kafka 做实时数据同步**。这个组合在实操中证明是最稳的。
+对于 youtu 这样的业务场景，我的建议是：**MySQL 负责 OLTP，StarRocks 负责 OLAP，用 Debezium + Kafka 做实时数据同步**。这个组合在实操中证明是最稳的。

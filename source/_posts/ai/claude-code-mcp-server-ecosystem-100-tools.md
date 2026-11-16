@@ -314,7 +314,7 @@ claude mcp remove <name>
     },
     "postgres": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost/kkday"]
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost/youtu-ota"]
     },
     "playwright": {
       "command": "npx",
@@ -837,7 +837,7 @@ Claude Code 自动执行：
 ### 场景 3：多仓库代码搜索 + PR 创建
 
 ```
-你：在所有 KKday 仓库中搜索使用了 deprecated 的 mysql_escape_string 的地方
+你：在所有 youtu 仓库中搜索使用了 deprecated 的 mysql_escape_string 的地方
 
 Claude Code 自动执行：
 1. 调用 github MCP → 搜索多个仓库的代码

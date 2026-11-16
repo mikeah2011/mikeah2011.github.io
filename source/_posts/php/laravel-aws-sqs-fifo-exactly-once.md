@@ -702,4 +702,4 @@ FIFO 队列不是银弹，但在订单处理、支付回调、库存同步这类
 
 ---
 
-> 参考：[AWS SQS FIFO 文档](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queue-how-does-it-work.html) · [Laravel Queue 文档](https://laravel.com/docs/11.x/queues) · KKday B2C API 订单处理实战
+> 参考：[AWS SQS FIFO 文档](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queue-how-does-it-work.html) · [Laravel Queue 文档](https://laravel.com/docs/11.x/queues) · youtu B2C API 订单处理实战

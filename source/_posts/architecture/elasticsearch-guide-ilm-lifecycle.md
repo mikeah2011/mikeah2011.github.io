@@ -7,11 +7,11 @@ images:
   - https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 date: 2026-05-04 11:22:00 +0800
 author: Michael
-description: 深入讲解 Elasticsearch ILM（Index Lifecycle Management）索引生命周期管理，涵盖热温冷三级存储架构设计、ILM Policy 配置实战、索引模板绑定、Rollover 自动切换、Shrink 与 ForceMerge 优化。结合 KKday B2C 真实生产踩坑经验，对比 ILM 与 TSM 方案差异，提供完整的监控告警配置与最佳实践指南。
+description: 深入讲解 Elasticsearch ILM（Index Lifecycle Management）索引生命周期管理，涵盖热温冷三级存储架构设计、ILM Policy 配置实战、索引模板绑定、Rollover 自动切换、Shrink 与 ForceMerge 优化。结合悠途OTA B2C 真实生产踩坑经验，对比 ILM 与 TSM 方案差异，提供完整的监控告警配置与最佳实践指南。
 categories: [architecture]
 tags:
 - Elasticsearch
-- KKday
+- 悠途OTA
 - ilm
 - 索引生命周期管理
 - 热温冷架构
@@ -21,13 +21,13 @@ tags:
 
 # Elasticsearch 全文搜索深度调优实战：ILM 生命周期管理与冷热数据分离踩坑记录
 
-> **本文基于 KKday B2C API 搜索业务实战**，从索引生命周期管理（ILM）、冷热数据分离、分词策略等维度，分享真实的生产环境踩坑经验。
+> **本文基于悠途OTA B2C API 搜索业务实战**，从索引生命周期管理（ILM）、冷热数据分离、分词策略等维度，分享真实的生产环境踩坑经验。
 
 ---
 
 ## 一、背景与问题
 
-KKday B2C 平台商品搜索日均查询量达 500 万次+，早期采用单一 `hot` 索引存储所有商品数据（2TB），随着时间推移遇到以下痛点：
+悠途OTA B2C 平台商品搜索日均查询量达 500 万次+，早期采用单一 `hot` 索引存储所有商品数据（2TB），随着时间推移遇到以下痛点：
 
 - **索引膨胀**：旧索引占用磁盘持续上涨，无法自动清理
 - **查询性能下降**：历史数据查询响应缓慢（>3s）

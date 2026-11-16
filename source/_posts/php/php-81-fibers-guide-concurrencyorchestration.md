@@ -533,7 +533,7 @@ $fiber = new Fiber(function () {
 
 ## 性能实测数据
 
-在 KKday B2C API 的商品详情聚合接口上测试：
+在 youtu B2C API 的商品详情聚合接口上测试：
 
 ```
 环境：PHP 8.1.28 + Laravel 10.x + MySQL 8.0 + Redis 7.0
@@ -1025,7 +1025,7 @@ class ProductController extends Controller
 
 ## 性能基准测试（扩展版）
 
-在 KKday B2C API 的商品详情聚合接口上测试：
+在 youtu B2C API 的商品详情聚合接口上测试：
 
 ```
 环境：PHP 8.1.28 + Laravel 10.x + MySQL 8.0 + Redis 7.0

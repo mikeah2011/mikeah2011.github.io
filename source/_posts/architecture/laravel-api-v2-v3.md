@@ -16,7 +16,7 @@ keywords: [Laravel API, v2, v3, 多版本演进策略, 的平滑迁移与废弃�
 
 ## 📌 问题背景：为什么 Laravel B2C API 需要多版本？
 
-在 KKday RD B2C 后端 Team 的实际项目中，我们面临这样的场景：
+在悠途OTA RD B2C 后端 Team 的实际项目中，我们面临这样的场景：
 
 - iOS/Android App 已上线多年，代码库依赖 v1/v2 版本的 API
 - 前端 Web App 使用 React/Vue，可能还在用旧版本接口
@@ -649,10 +649,10 @@ Route::prefix('v3')->get('/users', function () {
 # docs/openapi/api-v2_1.yaml
 openapi: 3.0.3
 info:
-  title: KKday BFF Users API v2.1
+  title: youtu BFF Users API v2.1
   version: 2.1.0
 servers:
-  - url: https://api.kkday.com/v2_1
+  - url: https://api.youtu-ota.test/v2_1
 
 paths:
   /users:
@@ -681,7 +681,7 @@ paths:
                       avatar_url:    # ✨ v2.1 新增字段
                         type: string
                         format: uri
-                        example: https://images.kkday.com/avatar.png
+                        example: https://images.youtu-ota.test/avatar.png
                       created_at:
                         type: string
                         format: date-time
@@ -740,7 +740,7 @@ paths:
 > - Feature Flag 灰度发布降低风险
 > - OpenAPI 契约文档先行，测试 Mock 先行
 
-### KKday B2C API 架构演进建议：
+### youtu B2C API 架构演进建议：
 
 ```yaml
 当前架构（2026-05）:
@@ -760,7 +760,7 @@ paths:
 
 ---
 
-**作者**: Michael · KKday RD B2C Backend Team  
+**作者**: Michael · youtu RD B2C Backend Team  
 **相关资源**: [OpenAPI Design Guide](docs/openapi/) | [BFF Architecture Patterns](source/_posts/00_架构/BFF-Laravel-中间层聚合实战.md)
 
 ---

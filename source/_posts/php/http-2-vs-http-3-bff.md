@@ -13,15 +13,15 @@ tags:
 - Laravel
 - 安全
 - 性能优化
-description: KKday B2C API 真實踩坑記錄：HTTP/2 vs HTTP/3 性能對比、多路复用問題排查、TLS 握手延遲優化、以及从 PHP-FPM+nginx 到 Go 後端的架構遷移實踐。
+description: 悠途OTA B2C API 真實踩坑記錄：HTTP/2 vs HTTP/3 性能對比、多路复用問題排查、TLS 握手延遲優化、以及从 PHP-FPM+nginx 到 Go 後端的架構遷移實踐。
 ---
 
 
 ## 📌 背景說明
 
-在 KKday B2C API 项目中，我們使用 Laravel 作為 BFF (Backend for Frontend) 層，負責聚合多個微服務數據並返回 JSON 給前端應用。隨著流量增長和對響應時間的要求提升，HTTP/2 vs HTTP/3 的選擇成為了架構決策的重要環節。
+在悠途OTA B2C API 项目中，我們使用 Laravel 作為 BFF (Backend for Frontend) 層，負責聚合多個微服務數據並返回 JSON 給前端應用。隨著流量增長和對響應時間的要求提升，HTTP/2 vs HTTP/3 的選擇成為了架構決策的重要環節。
 
-本文基於 **KKday B2C-API** 真實專案的經驗，記錄 HTTP/2 到 HTTP/3 遷移過程中的性能對比、踩坑記錄與最佳實踐。
+本文基於 **悠途OTA B2C-API** 真實專案的經驗，記錄 HTTP/2 到 HTTP/3 遷移過程中的性能對比、踩坑記錄與最佳實踐。
 
 ## 🎯 HTTP/2 vs HTTP/3 核心差異
 
@@ -43,7 +43,7 @@ HTTP/3 基於 **QUIC 協議**，運行在 UDP 之上，主要解決了以下問�
 2. **連接恢復能力**: QUIC 支持基於 UDP 的連接恢復，無需重新建立 TCP 三次握手
 3. **0-RTT 握手**: 在安全 session 保持的情況下，可實現零 RTT 握手
 
-## 🧪 KKday B2C-API 性能測試環境
+## 🧪 悠途OTA B2C-API 性能測試環境
 
 ### 測試配置
 
@@ -76,7 +76,7 @@ HTTP/3 基於 **QUIC 協議**，運行在 UDP 之上，主要解決了以下問�
 | P99 延遲 | 520ms | 210ms | 140ms | **73%↓** |
 | TLS 握手時間 | 350ms | 280ms | 60ms (0-RTT) | **83%↓** |
 
-## 🐛 KKday B2C-API 真實踩坑記錄
+## 🐛 youtu B2C-API 真實踩坑記錄
 
 ### ❌ 坑一：ALPN 協商失敗導致回退 HTTP/1.1
 
@@ -132,7 +132,7 @@ openssl s_client -connect your-domain.com:443 -alpn h3,http/2,h2,crlt
 
 ### ❌ 坑二：QUIC 連接數限制導致請求排隊
 
-HTTP/3 使用 QUIC 協議，每個連線可以建立多個流，但默认配置可能不够。在 KKday B2C 大促期間，我們遇到了大量 `503 Service Unavailable` 錯誤。
+HTTP/3 使用 QUIC 協議，每個連線可以建立多個流，但默认配置可能不够。在 youtu B2C 大促期間，我們遇到了大量 `503 Service Unavailable` 錯誤。
 
 #### Before（問題狀態）
 
@@ -220,7 +220,7 @@ Route::get('/api/v1/products', [ProductController::class, 'index']);
 // OpenSSL 配置 - 優化證書鏈
 openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
     -keyout key.pem -out cert.pem \
-    -addext "subjectAltName=DNS:api.kkday.com"
+    -addext "subjectAltName=DNS:api.youtu-ota.test"
 ```
 
 ```nginx
@@ -237,8 +237,8 @@ ssl_prf_timeouts: "20h 7d 90d";
 **性能測試：**
 ```bash
 # 測量 TLS 握手延遲
-time openssl s_client -connect api.kkday.com:443 \
-    -alpn h3,http/2,h2,crlt -servername api.kkday.com
+time openssl s_client -connect api.youtu-ota.test:443 \
+    -alpn h3,http/2,h2,crlt -servername api.youtu-ota.test
 
 # 期望輸出:
 # real    0m0.067s   # 約 67ms (TLS1.3 + 0-RTT)
@@ -248,7 +248,7 @@ time openssl s_client -connect api.kkday.com:443 \
 
 ### ❌ 坑四：HTTP/3 與現有 PHP-FPM 架構的兼容性問題
 
-在 KKday B2C API 中，我們使用的是傳統 PHP-FPM + Nginx 架構，但 HTTP/3 (QUIC) 運行在 UDP 之上，這导致了某些兼容性问题。
+在 youtu B2C API 中，我們使用的是傳統 PHP-FPM + Nginx 架構，但 HTTP/3 (QUIC) 運行在 UDP 之上，這导致了某些兼容性问题。
 
 #### Before（架構限制）
 
@@ -494,7 +494,7 @@ openssl s_client -connect your-domain.com:443 \
 2. **弱網絡環境**: 移動網絡下 QUIC 表現優於 TCP
 3. **新架構項目**: Go/Kotlin/JVM 等新技術棧可考慮直接採用 QUIC
 
-### KKday B2C-API 推薦配置
+### youtu B2C-API 推薦配置
 
 | 層級 | 推薦配置 | 說明 |
 |------|----------|------|
@@ -509,7 +509,7 @@ openssl s_client -connect your-domain.com:443 \
 git commit -m "feat: HTTP/2 vs HTTP/3 在 BFF 場景性能對比與真實踩坑記錄
 
 - 添加 HTTP/2 vs HTTP/3 技術對照分析表
-- 記錄 KKday B2C-API ALPN 協商失敗排錯流程
+- 記錄 youtu B2C-API ALPN 協商失敗排錯流程
 - 優化 PHP-FPM + Nginx TLS1.3 配置模板
 - 新增 QUIC 服務器示例代碼 (Go)
 - 提供性能調優最佳實踐指南
@@ -559,7 +559,7 @@ HTTP/3 QUIC 解決方案：
 
 ### Laravel BFF 實測基準數據
 
-以下是在 KKday B2C-API 上使用 **k6** 負載測試的真實數據（100 並發用戶，持續 5 分鐘）：
+以下是在 youtu B2C-API 上使用 **k6** 負載測試的真實數據（100 並發用戶，持續 5 分鐘）：
 
 ```javascript
 // k6 負載測試腳本
@@ -579,7 +579,7 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('https://api.kkday.com/api/v1/products?page=1&limit=20');
+  const res = http.get('https://api.youtu-ota.test/api/v1/products?page=1&limit=20');
   check(res, {
     'status is 200': (r) => r.status === 200,
     'TTFB < 200ms': (r) => r.timings.waiting < 200,
@@ -960,4 +960,4 @@ proxy_set_header Early-Data $ssl_early_data;
 ---
 
 **更新記錄**:
-- 2026-05-02: 初版發布，基於 KKday B2C-API 真實項目經驗
+- 2026-05-02: 初版發布，基於 youtu B2C-API 真實項目經驗

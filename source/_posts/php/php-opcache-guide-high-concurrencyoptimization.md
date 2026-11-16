@@ -1,7 +1,7 @@
 ---
 
-title: PHP-OpCache 调优实战-KKday-B2C-API 高并发场景下的内存优化与真实踩坑记录
-keywords: [PHP, OpCache, KKday, B2C, API, 调优实战, 高并发场景下的内存优化与真实踩坑记录]
+title: PHP-OpCache 调优实战-youtu-ota-B2C-API 高并发场景下的内存优化与真实踩坑记录
+keywords: [PHP, OpCache, 悠途OTA, B2C, API, 调优实战, 高并发场景下的内存优化与真实踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -14,15 +14,15 @@ tags:
 - 性能优化
 - Laravel
 - 高并发
-description: PHP OPcache 是提升 Laravel 应用高并发性能的核心扩展，本文从 KKday B2C API 真实生产环境出发，系统讲解 OPcache 完整配置参数详解、内存泄漏诊断、高并发场景调优策略、PHP 7.4+ 预加载（Preloading）实战、部署后代码不生效等踩坑案例，以及 OPcache vs APCu vs xdebug 性能对比，帮助开发者在 QPS 5000+ 的场景下实现稳定低延迟。
+description: PHP OPcache 是提升 Laravel 应用高并发性能的核心扩展，本文从悠途OTA B2C API 真实生产环境出发，系统讲解 OPcache 完整配置参数详解、内存泄漏诊断、高并发场景调优策略、PHP 7.4+ 预加载（Preloading）实战、部署后代码不生效等踩坑案例，以及 OPcache vs APCu vs xdebug 性能对比，帮助开发者在 QPS 5000+ 的场景下实现稳定低延迟。
 ---
 
 
-# PHP-OpCache 调优实战 - KKday B2C API 高并发场景下的内存优化与真实踩坑记录
+# PHP-OpCache 调优实战 - 悠途OTA B2C API 高并发场景下的内存优化与真实踩坑记录
 
 ## 📋 文章目录
 
-1. [问题背景：KKday B2C API 为什么要优化 OpCache](#-问题背景kkday-b2c-api-为什么要优化opcache)
+1. [问题背景：悠途OTA B2C API 为什么要优化 OpCache](#-问题背景youtu-ota-b2c-api-为什么要优化opcache)
 2. [OpCache 内存泄漏现象与诊断](#-opcache-内存泄漏现象与诊断)
 3. [OPcache 完整配置参数详解](#-opcache-完整配置参数详解)
 4. [高并发场景下的调优策略](#-高并发场景下的调优策略)
@@ -34,9 +34,9 @@ description: PHP OPcache 是提升 Laravel 应用高并发性能的核心扩展�
 
 ---
 
-## 🔍 问题背景：KKday B2C API 为什么要优化 OpCache
+## 🔍 问题背景：悠途OTA B2C API 为什么要优化 OpCache
 
-在 KKday B2C API 项目中，我们使用 **Laravel 8 + PHP 8** 作为 BFF（Backend for Frontend）中间层，承接 GraphQL → JSON 转换、聚合查询等业务逻辑。在高并发促销活动期间，单接口 QPS 可达 **5000+**。
+在悠途OTA B2C API 项目中，我们使用 **Laravel 8 + PHP 8** 作为 BFF（Backend for Frontend）中间层，承接 GraphQL → JSON 转换、聚合查询等业务逻辑。在高并发促销活动期间，单接口 QPS 可达 **5000+**。
 
 OpCache 作为 PHP 核心扩展，负责缓存编译后的字节码（bytecode），直接影响应用启动速度和内存占用。但在高负载场景下，我们遇到了以下问题：
 
@@ -295,7 +295,7 @@ opcache.jit_buffer_size=64M    ──┘
 
 ### 策略一：根据 QPS 分级配置
 
-不同并发量级需要不同的 OPcache 配置，以下是基于 KKday 实际压测数据的分级方案：
+不同并发量级需要不同的 OPcache 配置，以下是基于 youtu 实际压测数据的分级方案：
 
 #### 低并发（QPS < 500）：省资源优先
 
@@ -589,7 +589,7 @@ tail -f /var/log/php-fpm/error.log | grep "OPcache Preload"
 curl -s http://localhost/opcache.php | grep -E 'hits|misses'
 ```
 
-### Preloading 性能基准（KKday 实测数据）
+### Preloading 性能基准（youtu 实测数据）
 
 | 指标 | 无 Preloading | 有 Preloading | 提升 |
 |------|---------------|---------------|------|
@@ -646,7 +646,7 @@ opcache.jit=off
 /**
  * 清除 OpCache 字节码缓存（生产环境使用）
  * 
- * @description KKday B2C API - OpCache 定期清理工具
+ * @description youtu B2C API - OpCache 定期清理工具
  */
 
 // 1. 检查当前状态
@@ -732,7 +732,7 @@ class ClearOpCache extends Command
 
     public function handle()
     {
-        $this->info('=== KKday B2C API - OpCache 清理工具 ===');
+        $this->info('=== youtu B2C API - OpCache 清理工具 ===');
         
         // 获取当前状态
         $status = opcache_get_status();
@@ -835,7 +835,7 @@ opcache.validate_timestamps=1
 opcache.max_wasted_percentage=20 ; ❌ 允许内存碎片化达 20%，性能下降
 ```
 
-### After：生产环境优化配置（KKday B2C API 最终方案）
+### After：生产环境优化配置（youtu B2C API 最终方案）
 
 ```ini
 [php_opcache]
@@ -858,7 +858,7 @@ opcache.jit=fault                   ; x86_64 环境；M1/M2 Mac 设为 off
 
 ```bash
 #!/bin/bash
-# KKday B2C API - OpCache 监控脚本
+# youtu B2C API - OpCache 监控脚本
 
 # 颜色输出
 RED='\033[0;31m'
@@ -871,7 +871,7 @@ MEMORY_THRESHOLD=90      # 内存使用率超过 90%
 WASTED_THRESHOLD=15      # 碎片化超过 15%
 MISS_RATE_THRESHOLD=8    # 缓存 Miss 率超过 8%
 
-echo "=== KKday B2C API - OpCache 健康检查 ==="
+echo "=== youtu B2C API - OpCache 健康检查 ==="
 echo ""
 
 # 获取 OpCache 状态
@@ -969,7 +969,7 @@ CMD ["php-fpm"]
 
 ## ⚖️ OPcache vs APCu vs Xdebug 性能对比
 
-在 PHP 性能优化工具箱中，OPcache、APCu 和 Xdebug 经常被混淆使用。下表基于 KKday 生产环境的实测数据，帮助你理解三者的定位和差异：
+在 PHP 性能优化工具箱中，OPcache、APCu 和 Xdebug 经常被混淆使用。下表基于 youtu 生产环境的实测数据，帮助你理解三者的定位和差异：
 
 | 维度 | OPcache | APCu | Xdebug |
 |------|---------|------|--------|
@@ -981,8 +981,8 @@ CMD ["php-fpm"]
 | **配置复杂度** | 低（默认即有效果） | 低 | 高（需配置 IDE 连接、断点等） |
 | **Laravel 集成** | 自动（PHP 引擎级） | 通过 Cache::store('apcu') 或 Predis | 通过 `.env` 或 php.ini |
 | **典型使用场景** | 任何 PHP 应用 | Session、小配置缓存、热点查询缓存 | 本地开发调试、性能 Profiling |
-| **P50 响应时间（KKday）** | 38ms | N/A（辅助角色） | 180ms（开发环境对比） |
-| **P99 响应时间（KKday）** | 175ms | N/A | 850ms+ |
+| **P50 响应时间（youtu）** | 38ms | N/A（辅助角色） | 180ms（开发环境对比） |
+| **P99 响应时间（youtu）** | 175ms | N/A | 850ms+ |
 | **CPU 开销** | 极低（编译后直接执行字节码） | 低（内存读写） | 非常高（每个函数调用插入 hook） |
 | **内存效率** | ⭐⭐⭐⭐⭐ 共享内存，零复制 | ⭐⭐⭐ 进程独立，需关注 `apc.shm_size` | ⭐ 附加大量调试数据 |
 
@@ -1023,7 +1023,7 @@ CMD ["php-fpm"]
 **Metrics 采集配置：**
 
 ```yaml
-# prometheus.yml - KKday B2C API 监控配置
+# prometheus.yml - youtu B2C API 监控配置
 
 global:
   scrape_interval: 15s

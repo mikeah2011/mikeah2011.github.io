@@ -15,7 +15,7 @@ images:
 
 # API 限流实战：Rate Limiting、滑动窗口、令牌桶算法
 
-> 在 B2C 电商 API 中，限流是保护系统稳定性的第一道防线。本文基于 KKday B2C Backend 30+ 仓库的真实经验，从最朴素的固定窗口到生产级的令牌桶，逐层递进讲解三种限流策略的实现、踩坑与选型。
+> 在 B2C 电商 API 中，限流是保护系统稳定性的第一道防线。本文基于悠途OTA B2C Backend 30+ 仓库的真实经验，从最朴素的固定窗口到生产级的令牌桶，逐层递进讲解三种限流策略的实现、踩坑与选型。
 
 ## 为什么需要限流？
 
@@ -439,7 +439,7 @@ Log::channel('rate_limit')->warning('Rate limit hit', [
 
 ## 总结
 
-限流不是"加个中间件"这么简单。在 KKday B2C 30+ 仓库的实践中，我们的经验是：
+限流不是"加个中间件"这么简单。在 youtu B2C 30+ 仓库的实践中，我们的经验是：
 
 1. **分层限流**：Nginx（IP 粗粒度）+ Laravel（业务细粒度），不要只靠一层
 2. **Lua 原子操作**：Redis 限流必须用 Lua 脚本保证原子性，否则高并发必出 bug
@@ -455,4 +455,4 @@ Log::channel('rate_limit')->warning('Rate limit hit', [
 
 - [Redis Lua 脚本原子操作实战：分布式限流、库存扣减、排行榜 — Laravel B2C API 踩坑记录](/databases/redis-lua-guide-distributedrate-limiting/) — 本文限流方案的核心 Redis Lua 脚本详解
 - [电商秒杀系统设计：Redis 预扣减 + 消息队列异步下单 + 限流策略实战踩坑记录](/architecture/2026-06-01-flash-sale-system-design-redis-pre-deduction-mq-async-ordering-rate-limiting/) — 秒杀场景下限流与高并发的完整解决方案
-- [Redis 实战：缓存穿透/击穿/雪崩防护 — KKday B2C API 真实踩坑记录](/databases/redis-guidecache-penetrationbreakdownavalanche/) — 限流之外的 Redis 生产防护策略
+- [Redis 实战：缓存穿透/击穿/雪崩防护 — youtu B2C API 真实踩坑记录](/databases/redis-guidecache-penetrationbreakdownavalanche/) — 限流之外的 Redis 生产防护策略

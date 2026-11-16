@@ -6,9 +6,9 @@ images:
 date: 2026-05-02
 author: Michael
 categories: [php]
-tags: [KKday, Laravel, 架构]
+tags: [悠途OTA, Laravel, 架构]
 keywords: [Controller, Service, Laravel, 大项目中职责分离的真实踩坑记录, PHP]
-description: Laravel 大项目中 Controller 与 Service 服务层职责分离的架构设计实战指南。基于 KKday B2C 真实踩坑记录，详解 Controller 薄 + Service 厚的业务逻辑分层方案，涵盖 Repository 层数据访问抽象、依赖注入、单元测试提升至 85%+ 覆盖率的重构路径与最佳实践。
+description: Laravel 大项目中 Controller 与 Service 服务层职责分离的架构设计实战指南。基于悠途OTA B2C 真实踩坑记录，详解 Controller 薄 + Service 厚的业务逻辑分层方案，涵盖 Repository 层数据访问抽象、依赖注入、单元测试提升至 85%+ 覆盖率的重构路径与最佳实践。
 
 
 
@@ -16,7 +16,7 @@ description: Laravel 大项目中 Controller 与 Service 服务层职责分离�
 
 # Controller 薄 + Service 厚：Laravel 大项目中职责分离的真实踩坑记录
 
-> **摘要**：在 KKday B2C Backend Team 的 Laravel 项目中，我们曾踩过 Controller 超过 500 行、业务逻辑散乱、难以测试的坑。本文将分享真实的重构经验，以及为什么"Controller 薄 + Service 厚"是构建可维护 Laravel 应用的最佳实践。
+> **摘要**：在悠途OTA B2C Backend Team 的 Laravel 项目中，我们曾踩过 Controller 超过 500 行、业务逻辑散乱、难以测试的坑。本文将分享真实的重构经验，以及为什么"Controller 薄 + Service 厚"是构建可维护 Laravel 应用的最佳实践。
 
 ## 📍 本文目录
 
@@ -52,7 +52,7 @@ description: Laravel 大项目中 Controller 与 Service 服务层职责分离�
 
 ### 🔍 问题背景
 
-在 KKday B2C Backend Team 负责 Search 模块时，我们有一个 `ResultsControllerController`，它的代码结构如下：
+在悠途OTA B2C Backend Team 负责 Search 模块时，我们有一个 `ResultsControllerController`，它的代码结构如下：
 
 ```php
 # ❌ Before: Controller 臃肿版（547 行）
@@ -359,7 +359,7 @@ public function test_search_products_returns_success(): ResultAsserts
 
 ### ⚠️ 踩坑清单（真实教训）
 
-在 KKday B2C 项目中，我们踩过以下坑：
+在 youtu B2C 项目中，我们踩过以下坑：
 
 #### 坑 1：一开始就引入过多依赖
 
@@ -408,7 +408,7 @@ class SearchService {
 
 ## 总结
 
-Laravel 大项目的 Controller+Service+Repository 三层架构不是银弹，但它是经过大量实战验证的最佳实践之一。通过 KKday B2C Backend Team 的真实项目经验，我们总结出以下关键要点：
+Laravel 大项目的 Controller+Service+Repository 三层架构不是银弹，但它是经过大量实战验证的最佳实践之一。通过 youtu B2C Backend Team 的真实项目经验，我们总结出以下关键要点：
 
 1. **Controller 只负责 HTTP**：参数解析 → 调用 Service → 返回 Response
 2. **Service 只负责业务逻辑**：事务、计算、聚合、编排
@@ -428,4 +428,4 @@ Laravel 大项目的 Controller+Service+Repository 三层架构不是银弹，�
 - [Laravel DDD 实战：聚合边界、值对象与 afterCommit 领域事件](/php/Laravel/laravel-ddd-guide-aftercommit.html) — 从三层架构演进到领域驱动设计
 - [PHPUnit 断言实战：expect、mock、stub 踩坑记录](/php/Laravel/phpunit-guide-beyond-assertequals-expect-mock-stub.html) — 本文重构后单元测试的具体编写技巧
 
-**作者备注**：本文基于 KKday B2C Backend Team 的 Laravel 项目实战经验整理而成。在重构过程中，我们共完成了 7+ 个 Controller 的重构，将整体测试覆盖率从 35% 提升至 85%+。
+**作者备注**：本文基于 youtu B2C Backend Team 的 Laravel 项目实战经验整理而成。在重构过程中，我们共完成了 7+ 个 Controller 的重构，将整体测试覆盖率从 35% 提升至 85%+。

@@ -656,7 +656,7 @@ class MultiDimensionThrottle
 
 ---
 
-## 六、生产环境踩坑记录（KKday B2C 规模）
+## 六、生产环境踩坑记录（youtu B2C 规模）
 
 ### 6.1 踩坑 #5：Redis 单点限流导致热点 key
 
@@ -849,7 +849,7 @@ memtier_benchmark --server=127.0.0.1:6379 \
 
 ---
 
-*本文基于 KKday B2C 旅游平台的实际生产经验整理，该平台日均处理数千万 API 请求。*
+*本文基于 youtu B2C 旅游平台的实际生产经验整理，该平台日均处理数千万 API 请求。*
 
 ---
 

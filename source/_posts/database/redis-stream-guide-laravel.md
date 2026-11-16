@@ -13,7 +13,7 @@ tags:
 - 消息队列
 - Redis Streams
 - 消费者组
-description: 深入讲解 Redis Stream 在 Laravel 中的实战应用，涵盖 XADD/XREADGROUP/XACK 核心命令与 StreamProducer、StreamConsumer 完整封装，详解 PEL 死信处理与 XAUTOCLAIM 自动回收策略。结合 KKday 电商项目分享 5 大生产踩坑：内存溢出、OOM、消息丢失、ID 冲突、Cluster 跨 slot 等解决方案。附 Redis Stream vs RabbitMQ vs Kafka 性能对比与选型决策框架，助力 Laravel 团队零额外运维成本实现可靠的事件驱动异步架构。
+description: 深入讲解 Redis Stream 在 Laravel 中的实战应用，涵盖 XADD/XREADGROUP/XACK 核心命令与 StreamProducer、StreamConsumer 完整封装，详解 PEL 死信处理与 XAUTOCLAIM 自动回收策略。结合悠途OTA电商项目分享 5 大生产踩坑：内存溢出、OOM、消息丢失、ID 冲突、Cluster 跨 slot 等解决方案。附 Redis Stream vs RabbitMQ vs Kafka 性能对比与选型决策框架，助力 Laravel 团队零额外运维成本实现可靠的事件驱动异步架构。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-005-content-1.jpg
@@ -23,7 +23,7 @@ images:
 
 ## 为什么选 Redis Stream？
 
-在 KKday B2C 项目中，我们有大量「轻量级异步任务」场景：
+在悠途OTA B2C 项目中，我们有大量「轻量级异步任务」场景：
 
 - 订单状态变更通知（写入审计日志、推送 WebSocket）
 - 库存扣减事件广播（跨服务同步）
@@ -1275,7 +1275,7 @@ while (!$this->shouldStop) {
 
 ## 总结
 
-Redis Stream 不是要替代 RabbitMQ 或 Kafka，而是在「轻量级事件流」这个细分场景下，提供了一个零额外运维成本的方案。在 KKday B2C 项目中，我们用 Redis Stream 处理了 80% 的异步事件（订单通知、埋点、库存同步），只有 20% 的复杂场景（跨系统对接、金融对账）才引入 RabbitMQ。
+Redis Stream 不是要替代 RabbitMQ 或 Kafka，而是在「轻量级事件流」这个细分场景下，提供了一个零额外运维成本的方案。在 youtu B2C 项目中，我们用 Redis Stream 处理了 80% 的异步事件（订单通知、埋点、库存同步），只有 20% 的复杂场景（跨系统对接、金融对账）才引入 RabbitMQ。
 
 关键 takeaway：
 

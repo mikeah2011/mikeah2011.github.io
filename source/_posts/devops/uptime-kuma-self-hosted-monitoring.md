@@ -223,9 +223,9 @@ volumes:
 ### 创建公开状态页面
 
 1. 左侧菜单 → Status Pages → 「Add Status Page」
-2. 填入页面标题（如「KKday API Status」）和自定义 slug（如 `kkday`）
+2. 填入页面标题（如「youtu API Status」）和自定义 slug（如 `youtu`）
 3. 添加要展示的监控项，可以分组（如「核心服务」「辅助服务」）
-4. 发布后访问 `https://status.example.com/kkday`
+4. 发布后访问 `https://status.example.com/youtu-ota`
 
 ### 自定义域名
 
@@ -234,10 +234,10 @@ volumes:
 ```nginx
 server {
     listen 443 ssl http2;
-    server_name status.kkday.com;
+    server_name status.youtu-ota.test;
 
-    ssl_certificate     /etc/letsencrypt/live/status.kkday.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/status.kkday.com/privkey.pem;
+    ssl_certificate     /etc/letsencrypt/live/status.youtu-ota.test/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/status.youtu-ota.test/privkey.pem;
 
     location / {
         proxy_pass http://127.0.0.1:3001;

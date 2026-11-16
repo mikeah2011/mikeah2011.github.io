@@ -14,15 +14,15 @@ tags:
 - Laravel
 - 工程管理
 - 监控
-description: 在 KKday B2C 后端 30+ 仓库中落地 Slack 通知的完整方案：Incoming Webhook vs Slack App Bot 选型、Laravel Notification Channel 封装、GitHub Actions 部署/测试结果推送、生产告警降噪策略，以及踩过的每一个坑。
+description: 在悠途OTA B2C 后端 30+ 仓库中落地 Slack 通知的完整方案：Incoming Webhook vs Slack App Bot 选型、Laravel Notification Channel 封装、GitHub Actions 部署/测试结果推送、生产告警降噪策略，以及踩过的每一个坑。
 ---
 
 
-> 一句话总结：**Slack 通知不是"调个 Webhook 就完事"**——频道规划、消息格式、告警降噪、权限隔离每一步都有坑。本文是我在 KKday B2C 后端 30+ 仓库中落地 Slack 通知的完整复盘。
+> 一句话总结：**Slack 通知不是"调个 Webhook 就完事"**——频道规划、消息格式、告警降噪、权限隔离每一步都有坑。本文是我在悠途OTA B2C 后端 30+ 仓库中落地 Slack 通知的完整复盘。
 
 ## 1. 为什么需要 Slack 通知？
 
-在 KKday B2C 的日常开发中，团队需要实时感知以下事件：
+在悠途OTA B2C 的日常开发中，团队需要实时感知以下事件：
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
@@ -46,7 +46,7 @@ description: 在 KKday B2C 后端 30+ 仓库中落地 Slack 通知的完整方�
 | 方案 | 问题 |
 |------|------|
 | Email 通知 | 被淹没在收件箱，团队 90% 不看 |
-| 钉钉/飞书 | 国际团队不统一，KKday 用 Slack 协作 |
+| 钉钉/飞书 | 国际团队不统一，youtu 用 Slack 协作 |
 | Grafana/Alertmanager 独立页面 | 需要主动去看，被动感知缺失 |
 | 手动 SSH 查日志 | 不可扩展，30+ 仓库管不过来 |
 
@@ -62,7 +62,7 @@ description: 在 KKday B2C 后端 30+ 仓库中落地 Slack 通知的完整方�
 # https://hooks.slack.com/services/T00FAKE00/B00FAKE00/your-webhook-token-here
 
 curl -X POST -H 'Content-type: application/json' \
-  --data '{"text":"Hello from KKday CI!"}' \
+  --data '{"text":"Hello from youtu CI!"}' \
   https://hooks.slack.com/services/T00FAKE00/B00FAKE00/your-webhook-token-here
 ```
 
@@ -156,7 +156,7 @@ class DeploymentNotification extends Notification
         $shortSha = substr($this->commitSha, 0, 7);
 
         return (new SlackMessage())
-            ->from('KKday Deploy Bot', ':rocket:')
+            ->from('youtu Deploy Bot', ':rocket:')
             ->to('#deployments')           // ⭐ 动态频道
             ->success()                    // header color hint
             ->content("{$emoji} **Deploy to `{$this->environment}`**")
@@ -422,7 +422,7 @@ jobs:
 
 ### 4.3 多仓库共享 Workflow
 
-KKday 有 30+ 仓库，不能每个仓库都复制粘贴通知步骤。用 **Reusable Workflow** 解决：
+youtu 有 30+ 仓库，不能每个仓库都复制粘贴通知步骤。用 **Reusable Workflow** 解决：
 
 ```yaml
 # .github/workflows/reusable-notify-slack.yml（放在 org/.github 仓库）
@@ -789,7 +789,7 @@ SLACK_BOT_TOKEN: xoxb-xxxx-xxxx-xxxx
 
 ---
 
-*本文基于 KKday B2C Backend Team 的 Slack 通知落地实践，涉及 Laravel 10+ / GitHub Actions / Slack API v2。*
+*本文基于 youtu B2C Backend Team 的 Slack 通知落地实践，涉及 Laravel 10+ / GitHub Actions / Slack API v2。*
 
 ## 相关阅读
 

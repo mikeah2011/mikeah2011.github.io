@@ -586,7 +586,7 @@ jobs:
 !.env.example
 
 # 正确的 .env.example（没有真实值）
-APP_NAME=KKday
+APP_NAME=youtu
 APP_ENV=local
 APP_KEY=
 APP_DEBUG=true
@@ -595,7 +595,7 @@ APP_URL=http://localhost:8000
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=kkday
+DB_DATABASE=youtu
 DB_USERNAME=root
 DB_PASSWORD=
 

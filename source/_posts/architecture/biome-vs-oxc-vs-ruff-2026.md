@@ -315,7 +315,7 @@ ruff format .
 
 ### 场景三：全栈项目（Laravel + Vue/React + Python 脚本）
 
-这是很多团队的真实场景。以 Michael 的项目为例，`kkday-b2c-api`（Laravel 8）+ 前端 Vue 3，加上一些 Python 数据处理脚本。
+这是很多团队的真实场景。以 Michael 的项目为例，`youtu-ota-b2c-api`（Laravel 8）+ 前端 Vue 3，加上一些 Python 数据处理脚本。
 
 **推荐方案：分层工具链**
 

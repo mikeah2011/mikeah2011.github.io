@@ -89,7 +89,7 @@ ddtrace.request_init_hook=/opt/datadog/dd-library/bridge/dd_wrap_autoloader.php
 ddtrace.agent_url=http://localhost:8126
 
 ; 服务名（重要，会显示在 DataDog UI 里）
-DD_SERVICE=kkday-b2c-api
+DD_SERVICE=youtu-ota-b2c-api
 
 ; 环境标识
 DD_ENV=production
@@ -113,7 +113,7 @@ DD_TRACE_DEBUG=false
 
 ```yaml
 environment:
-  - DD_SERVICE=kkday-b2c-api
+  - DD_SERVICE=youtu-ota-b2c-api
   - DD_ENV=production
   - DD_VERSION=${GIT_SHA}
   - DD_TRACE_SAMPLE_RATE=0.3
@@ -170,7 +170,7 @@ apm_config:
 logs:
   - type: file
     path: /var/www/storage/logs/laravel.log
-    service: kkday-b2c-api
+    service: youtu-ota-b2c-api
     source: php
     sourcecategory: laravel
     log_processing_rules:
@@ -286,7 +286,7 @@ class OrderService
         $span = $scope->getSpan();
 
         try {
-            $span->setTag(Tag::SERVICE_NAME, 'kkday-b2c-api');
+            $span->setTag(Tag::SERVICE_NAME, 'youtu-ota-b2c-api');
             $span->setTag(Tag::RESOURCE_NAME, 'OrderService::createOrder');
             $span->setTag('order.product_id', $data['product_id']);
             $span->setTag('order.amount', $data['amount']);
@@ -366,7 +366,7 @@ class ProcessBooking implements ShouldQueue
 
         try {
             $span->setTag('booking.id', $this->bookingId);
-            $span->setTag(Tag::SERVICE_NAME, 'kkday-b2c-api-queue');
+            $span->setTag(Tag::SERVICE_NAME, 'youtu-ota-b2c-api-queue');
 
             // 队列任务逻辑
             $booking = Booking::findOrFail($this->bookingId);
@@ -405,7 +405,7 @@ class ProcessBooking implements ShouldQueue
 ```hcl
 resource "datadog_dashboard_json" "laravel_overview" {
   dashboard = jsonencode({
-    title       = "KKday B2C Laravel Overview"
+    title       = "youtu B2C Laravel Overview"
     description = "Laravel 应用全栈监控"
     layout_type = "ordered"
     widgets = [
@@ -416,9 +416,9 @@ resource "datadog_dashboard_json" "laravel_overview" {
           requests = [
             {
               display_type = "line"
-              q = "avg:trace.http.request.duration{service:kkday-b2c-api} by {resource_name}.rollup(avg, 60)"
+              q = "avg:trace.http.request.duration{service:youtu-ota-b2c-api} by {resource_name}.rollup(avg, 60)"
               metadata = [
-                { expression = "avg:trace.http.request.duration{service:kkday-b2c-api,resource_name:@@@@}.rollup(avg, 60) as p50",
+                { expression = "avg:trace.http.request.duration{service:youtu-ota-b2c-api,resource_name:@@@@}.rollup(avg, 60) as p50",
                   alias_name = "P50" }
               ]
             }
@@ -431,7 +431,7 @@ resource "datadog_dashboard_json" "laravel_overview" {
           title  = "当前错误率"
           requests = [
             {
-              q = "sum:trace.http.request.errors{service:kkday-b2c-api}.as_rate()"
+              q = "sum:trace.http.request.errors{service:youtu-ota-b2c-api}.as_rate()"
             }
           ]
         }
@@ -440,7 +440,7 @@ resource "datadog_dashboard_json" "laravel_overview" {
         definition = {
           type = "log_stream"
           title  = "最近错误日志"
-          query  = "service:kkday-b2c-api status:error"
+          query  = "service:youtu-ota-b2c-api status:error"
           columns  = ["timestamp", "message", "http.url"]
         }
       }
@@ -453,15 +453,15 @@ resource "datadog_dashboard_json" "laravel_overview" {
 
 ```hcl
 resource "datadog_monitor" "http_error_rate" {
-  name    = "KKday B2C HTTP 错误率过高"
+  name    = "youtu B2C HTTP 错误率过高"
   type    = "metric alert"
   message = <<-EOM
     HTTP 5xx 错误率超过阈值。
     @slack-ops-alerts @pagerduty-critical
-    Runbook: https://wiki.kkday.com/runbooks/http-5xx
+    Runbook: https://wiki.youtu-ota.test/runbooks/http-5xx
   EOM
 
-  query = "sum(last_5m):sum:trace.http.request.errors{service:kkday-b2c-api,http.status_code:5xx}.as_rate() > 0.01"
+  query = "sum(last_5m):sum:trace.http.request.errors{service:youtu-ota-b2c-api,http.status_code:5xx}.as_rate() > 0.01"
 
   monitor_thresholds {
     critical          = 0.01
@@ -471,7 +471,7 @@ resource "datadog_monitor" "http_error_rate" {
 
   notify_no_data    = false
   renotify_interval = 30
-  tags              = ["service:kkday-b2c-api", "env:production"]
+  tags              = ["service:youtu-ota-b2c-api", "env:production"]
 }
 ```
 
@@ -550,7 +550,7 @@ scrape_configs:
 
 # DataDog 只做 APM + Logs
 # dd-trace-php 配置
-DD_SERVICE=kkday-b2c-api
+DD_SERVICE=youtu-ota-b2c-api
 DD_TRACE_SAMPLE_RATE=0.3
 # 关闭 DataDog 的指标收集，避免重复
 DD_DOGSTATSD_NON_LOCAL_TRAFFIC=false

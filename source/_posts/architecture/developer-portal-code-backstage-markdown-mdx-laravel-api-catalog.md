@@ -120,7 +120,7 @@ your-laravel-api/
 
 ```yaml
 site_name: Laravel API 文档
-site_description: KKday B2C API 内部文档
+site_description: youtu B2C API 内部文档
 
 nav:
   - 首页: index.md
@@ -143,7 +143,7 @@ theme:
 title: Laravel API 文档
 ---
 
-# KKday B2C API
+# youtu B2C API
 
 ## 服务概览
 
@@ -166,9 +166,9 @@ php artisan serve
 
 | 环境 | 地址 |
 |------|------|
-| DEV | https://dev-api.kkday.com |
-| STG | https://stg-api.kkday.com |
-| PRD | https://api.kkday.com |
+| DEV | https://dev-api.youtu-ota.test |
+| STG | https://stg-api.youtu-ota.test |
+| PRD | https://api.youtu-ota.test |
 ```
 
 ### 4. 注册到 Backstage Catalog
@@ -179,19 +179,19 @@ php artisan serve
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: kkday-b2c-api
-  description: KKday B2C 核心 API 服务
+  name: youtu-ota-b2c-api
+  description: youtu B2C 核心 API 服务
   annotations:
-    github.com/project-slug: kkday/kkday-b2c-api
+    github.com/project-slug: youtu/youtu-ota-b2c-api
     backstage.io/techdocs-ref: dir:.
   tags:
     - Laravel
     - PHP
     - API
   links:
-    - url: https://stg-api.kkday.com
+    - url: https://stg-api.youtu-ota.test
       title: STG 环境
-    - url: https://grafana.internal/kkday-b2c-api
+    - url: https://grafana.internal/youtu-ota-b2c-api
       title: Grafana 监控
 spec:
   type: service
@@ -199,14 +199,14 @@ spec:
   owner: team-b2c
   system: b2c-platform
   providesApis:
-    - kkday-b2c-api
+    - youtu-ota-b2c-api
 ```
 
 然后在 Backstage 中导入：
 
 ```bash
 # 通过 CLI 注册
-backstage-cli catalog:import --url https://github.com/kkday/kkday-b2c-api
+backstage-cli catalog:import --url https://github.com/youtu/youtu-ota-b2c-api
 ```
 
 或在 UI 中通过 **Catalog → Register Component** 粘贴仓库 URL。
@@ -250,7 +250,7 @@ apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: b2c-platform
-  description: KKday B2C 平台系统
+  description: youtu B2C 平台系统
 spec:
   owner: team-b2c
 ---
@@ -302,7 +302,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          aws s3 sync site/ s3://backstage-techdocs/kkday-b2c-api/ \
+          aws s3 sync site/ s3://backstage-techdocs/youtu-ota-b2c-api/ \
             --delete
 ```
 
@@ -324,17 +324,17 @@ php artisan l5-swagger:generate
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: kkday-b2c-api
+  name: youtu-ota-b2c-api
   description: B2C API OpenAPI 规范
   links:
-    - url: https://stg-api.kkday.com/api/documentation
+    - url: https://stg-api.youtu-ota.test/api/documentation
       title: Swagger UI
 spec:
   type: openapi
   lifecycle: production
   owner: team-b2c
   definition:
-    $text: https://raw.githubusercontent.com/kkday/kkday-b2c-api/main/storage/api-docs/api-docs.json
+    $text: https://raw.githubusercontent.com/youtu/youtu-ota-b2c-api/main/storage/api-docs/api-docs.json
 ```
 
 ### 8. 自定义 Plugin：Laravel 健康检查

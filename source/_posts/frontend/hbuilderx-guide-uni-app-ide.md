@@ -13,7 +13,7 @@ tags:
 - Vue
 - macOS
 - uni-app
-description: 在 KKday B2C Backend Team 负责 uni-app 多端项目时，HBuilderX 是团队使用频率最高的前端 IDE。本文记录从 VS Code 迁移到 HBuilderX 的完整过程，覆盖内置终端、真机调试、uni_modules 插件开发、自定义编译配置、多平台发布流水线等实战内容，以及在 M 芯片 Mac 上遇到的真实踩坑。
+description: 在悠途OTA B2C Backend Team 负责 uni-app 多端项目时，HBuilderX 是团队使用频率最高的前端 IDE。本文记录从 VS Code 迁移到 HBuilderX 的完整过程，覆盖内置终端、真机调试、uni_modules 插件开发、自定义编译配置、多平台发布流水线等实战内容，以及在 M 芯片 Mac 上遇到的真实踩坑。
 ---
 
 
@@ -21,7 +21,7 @@ description: 在 KKday B2C Backend Team 负责 uni-app 多端项目时，HBuilde
 
 ## 前言
 
-在 KKday B2C Backend Team，我们有 5 个 uni-app 项目同时维护（H5、微信小程序、App iOS/Android）。最初团队用 VS Code + CLI 开发，但随着项目复杂度上升，遇到了几个痛点：
+在悠途OTA B2C Backend Team，我们有 5 个 uni-app 项目同时维护（H5、微信小程序、App iOS/Android）。最初团队用 VS Code + CLI 开发，但随着项目复杂度上升，遇到了几个痛点：
 
 1. **条件编译没有语法高亮** — `#ifdef MP-WEIXIN` 在 VS Code 里就是普通注释
 2. **真机调试流程繁琐** — 每次改代码要手动 `npm run dev:mp-weixin`，再打开微信开发者工具
@@ -85,7 +85,7 @@ HBuilderX 提供 GUI 界面配置 `manifest.json`，但有些高级选项需要�
 
 ```json
 {
-  "name": "KKday B2C",
+  "name": "youtu B2C",
   "appid": "__UNI__XXXXXX",
   "versionName": "2.5.0",
   "versionCode": 250,
@@ -184,8 +184,8 @@ VITE_API_BASE=http://localhost:8000/api
 VITE_UPLOAD_BASE=http://localhost:8000/upload
 
 # .env.production
-VITE_API_BASE=https://api.kkday.com/b2c
-VITE_UPLOAD_BASE=https://upload.kkday.com
+VITE_API_BASE=https://api.youtu-ota.test/b2c
+VITE_UPLOAD_BASE=https://upload.youtu-ota.test
 ```
 
 ```javascript
@@ -381,14 +381,14 @@ HBuilderX 对 uni_modules 有原生支持，新建插件可以通过菜单操作
 
 ```
 uni_modules/
-└── kkday-auth/
+└── youtu-ota-auth/
     ├── package.json          # 插件描述
     ├── changelog.md          # 更新日志
     ├── readme.md             # 使用文档
     ├── components/
-    │   └── kkday-auth-btn/
-    │       ├── kkday-auth-btn.vue
-    │       └── kkday-auth-btn.json
+    │   └── youtu-ota-auth-btn/
+    │       ├── youtu-ota-auth-btn.vue
+    │       └── youtu-ota-auth-btn.json
     ├── pages/
     │   └── login/
     │       └── login.vue
@@ -405,11 +405,11 @@ uni_modules/
 
 ```json
 {
-  "id": "kkday-auth",
-  "displayName": "KKday 统一认证",
+  "id": "youtu-ota-auth",
+  "displayName": "youtu 统一认证",
   "version": "1.2.0",
-  "description": "KKday B2C 统一登录认证模块，支持微信/手机号/邮箱登录",
-  "keywords": ["auth", "login", "kkday"],
+  "description": "youtu B2C 统一登录认证模块，支持微信/手机号/邮箱登录",
+  "keywords": ["auth", "login", "youtu"],
   "repository": "",
   "engines": {
     "HBuilderX": "^3.8.0"
@@ -428,7 +428,7 @@ uni_modules/
 ### 4.3 实战：封装认证组件
 
 ```vue
-<!-- uni_modules/kkday-auth/components/kkday-auth-btn/kkday-auth-btn.vue -->
+<!-- uni_modules/youtu-ota-auth/components/youtu-ota-auth-btn/youtu-ota-auth-btn.vue -->
 <template>
   <button
     :class="['auth-btn', `auth-btn--${type}`]"
@@ -470,9 +470,9 @@ const disabled = ref(false)
 
 const icon = computed(() => {
   const icons = {
-    wechat: '/uni_modules/kkday-auth/static/icons/wechat.png',
-    phone: '/uni_modules/kkday-auth/static/icons/phone.png',
-    apple: '/uni_modules/kkday-auth/static/icons/apple.png'
+    wechat: '/uni_modules/youtu-ota-auth/static/icons/wechat.png',
+    phone: '/uni_modules/youtu-ota-auth/static/icons/phone.png',
+    apple: '/uni_modules/youtu-ota-auth/static/icons/apple.png'
   }
   return icons[props.type] || ''
 })
@@ -713,15 +713,15 @@ const config = {
 
 // 优先从 uni-app 运行时获取
 // #ifdef H5
-config.apiBase = import.meta.env.VITE_API_BASE || 'https://api.kkday.com/b2c'
+config.apiBase = import.meta.env.VITE_API_BASE || 'https://api.youtu-ota.test/b2c'
 // #endif
 
 // #ifdef APP-PLUS
-config.apiBase = 'https://api.kkday.com/b2c'
+config.apiBase = 'https://api.youtu-ota.test/b2c'
 // #endif
 
 // #ifdef MP-WEIXIN
-config.apiBase = 'https://api.kkday.com/b2c'
+config.apiBase = 'https://api.youtu-ota.test/b2c'
 // #endif
 
 export default config
@@ -805,7 +805,7 @@ major.minor.patch + build
 
 // 实战示例：不同平台的分享逻辑
 const shareConfig = {
-  title: 'KKday 旅游特惠',
+  title: 'youtu 旅游特惠',
   path: '/pages/product/detail?id=123',
 }
 

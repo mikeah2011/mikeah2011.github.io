@@ -27,7 +27,7 @@ description: "Pest PHP 测试指南：详解 Laravel B2C 项目中 API 测试、
 
 **真实踩坑**：我们有个订单创建 Service 被 100% 单元测试覆盖，但上线后 API 直接 500——因为 `Middleware` 里的权限检查被 Mock 掉了，测试没走到那一层。
 
-本文记录 KKday B2C Backend Team 在 30+ 个 Laravel 仓库中，用 Pest 构建完整测试金字塔的实战经验。
+本文记录 youtu B2C Backend Team 在 30+ 个 Laravel 仓库中，用 Pest 构建完整测试金字塔的实战经验。
 
 ---
 
@@ -280,7 +280,7 @@ class CheckoutFlowTest extends DuskTestCase
     {
         $user = User::factory()->create();
         $product = Product::factory()->create([
-            'name' => 'KKday 東京一日遊',
+            'name' => 'youtu 東京一日遊',
             'price' => 2500,
             'stock' => 5,
         ]);
@@ -288,7 +288,7 @@ class CheckoutFlowTest extends DuskTestCase
         $this->browse(function (Browser $browser) use ($user, $product) {
             $browser->loginAs($user)
                 ->visit('/products/' . $product->id)
-                ->assertSee('KKday 東京一日遊')
+                ->assertSee('youtu 東京一日遊')
                 ->assertSee('$2,500')
                 ->select('quantity', '2')
                 ->press('加入購物車')
@@ -353,7 +353,7 @@ public function setUp(): void
 # .env.dusk.ci
 APP_URL=http://localhost:8000
 DB_CONNECTION=mysql
-DB_DATABASE=kkday_test
+DB_DATABASE=youtu_test
 MAIL_MAILER=log  # 不要真的发邮件
 ```
 
@@ -549,7 +549,7 @@ php artisan test --parallel=16 --processes=8
 | Time | `Carbon::setTestNow()` | `Carbon::setTestNow('2026-01-01'); ... Carbon::setTestNow(null)` |
 
 ---
-> 本文基于 KKday B2C Backend Team 的 30+ 个 Laravel 仓库实践，覆盖 Pest v2/v3、Laravel 10/11、GitHub Actions CI 环境。如有问题欢迎在评论区讨论。
+> 本文基于 youtu B2C Backend Team 的 30+ 个 Laravel 仓库实践，覆盖 Pest v2/v3、Laravel 10/11、GitHub Actions CI 环境。如有问题欢迎在评论区讨论。
 
 ---
 

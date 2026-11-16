@@ -94,7 +94,7 @@ uni-app 宣传「一套代码，多端发布」，H5 和微信小程序的发布
             "appkey": "your_weixin_appkey"
           },
           "apple": {
-            "bundleId": "com.kkday.qlmax"
+            "bundleId": "com.youtu.qlmax"
           }
         }
       }
@@ -142,7 +142,7 @@ iOS 的签名体系是整个 App 发布中最复杂的部分。以下是核心�
 │                 Apple Developer 账号               │
 ├──────────────────────────────────────────────────┤
 │  App ID          │  Provisioning Profile          │
-│  com.kkday.qlmax │  Development / Distribution     │
+│  com.youtu.qlmax │  Development / Distribution     │
 ├──────────────────┼────────────────────────────────┤
 │  Certificate     │  Devices (UDID)                │
 │  Dev / Dist      │  测试设备白名单（Ad Hoc）         │
@@ -157,7 +157,7 @@ HBuilderX 的云打包内置了 DCloud 的共享证书，适合个人开发者�
 步骤：
 1. 菜单 → 发行 → 原生App-云打包
 2. 选择 iOS（越狱包不勾选）
-3. Bundle ID: com.kkday.qlmax
+3. Bundle ID: com.youtu.qlmax
 4. 证书：使用 DCloud 共享证书 / 上传自有 .p12 + .mobileprovision
 5. 点击打包，等待 10-30 分钟
 ```
@@ -217,7 +217,7 @@ keytool -genkey -v \
   -validity 10000 \
   -storepass your_store_password \
   -keypass your_key_password \
-  -dname "CN=QLMax, OU=Tech, O=KKDay, L=Taipei, ST=Taiwan, C=TW"
+  -dname "CN=QLMax, OU=Tech, O=youtu, L=Taipei, ST=Taiwan, C=TW"
 
 # 验证 keystore 信息
 keytool -list -v -keystore qlmax-release.keystore -storepass your_store_password

@@ -27,7 +27,7 @@ description: Laravel 缓存策略全解：深入拆解 Route Cache、Config Cach
 
 很多 Laravel 开发者对"缓存"的理解停留在 `Cache::remember()` 和 Redis，但在实际 B2C 项目中，**Laravel 框架自身就提供了四层缓存机制**——Route Cache、Config Cache、View Cache、Query Cache（Eloquent 层面）。这四层缓存配置得当，能让 API 响应时间降低 30-50%；配置不当，则会出现"本地正常、生产报错"的经典翻车场景。
 
-本文基于 KKday B2C API 30+ 仓库的实战经验，逐一拆解每层缓存的原理、启用方式、失效机制和踩坑记录。
+本文基于悠途OTA B2C API 30+ 仓库的实战经验，逐一拆解每层缓存的原理、启用方式、失效机制和踩坑记录。
 
 ---
 
@@ -72,7 +72,7 @@ php artisan route:clear
 
 ### 1.2 性能数据
 
-在 KKday B2C API 项目（约 300 条路由）中测试：
+在 youtu B2C API 项目（约 300 条路由）中测试：
 
 | 场景 | 路由注册耗时 | 请求/秒（QPS） |
 |------|-------------|---------------|

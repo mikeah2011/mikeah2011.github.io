@@ -28,7 +28,7 @@ description: 前端构建优化实战指南，详解 Vite 分包（manualChunks 
 
 ## 为什么需要分包优化？
 
-在 KKday B2C 项目中，前端 Vue 3 SPA 打包后单个 `index.js` 达到 2.8MB（gzip 后 680KB），首屏加载 4.2 秒。用户反馈「页面白屏太久」，Lighthouse Performance 评分只有 52 分。
+在悠途OTA B2C 项目中，前端 Vue 3 SPA 打包后单个 `index.js` 达到 2.8MB（gzip 后 680KB），首屏加载 4.2 秒。用户反馈「页面白屏太久」，Lighthouse Performance 评分只有 52 分。
 
 问题根源：所有代码（Vue 全家桶 + 业务逻辑 + 第三方库）打成一个文件，浏览器必须下载完才能解析执行。每次发版后整个文件 hash 变化，CDN 缓存全部失效。
 

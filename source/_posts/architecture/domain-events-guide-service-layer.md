@@ -17,7 +17,7 @@ description: 在 30+ 仓库的 Laravel B2C 项目中，Service Layer 膨胀是�
 
 ## 前言：Service Layer 胖到什么程度你会考虑重构？
 
-在 KKday B2C Backend 的 30+ 仓库中，我们大量使用 Controller 薄 + Service 厚的模式。这在初期非常高效，但随着业务膨胀，`OrderService::placeOrder()` 方法往往会变成一个 500 行的"上帝方法"——发通知、扣库存、记录积分、更新会员等级、推 Slack 告警、写审计日志，全部揉在一起。
+在悠途OTA B2C Backend 的 30+ 仓库中，我们大量使用 Controller 薄 + Service 厚的模式。这在初期非常高效，但随着业务膨胀，`OrderService::placeOrder()` 方法往往会变成一个 500 行的"上帝方法"——发通知、扣库存、记录积分、更新会员等级、推 Slack 告警、写审计日志，全部揉在一起。
 
 ```php
 // ❌ 典型的胖 Service：所有副作用耦合在一个方法中

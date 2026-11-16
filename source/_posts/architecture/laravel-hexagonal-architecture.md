@@ -22,7 +22,7 @@ description: 六边形架构（Ports and Adapters）在 Laravel 项目中的实�
 
 ## 前言：为什么 Laravel 项目需要六边形架构？
 
-在 KKday B2C 后端维护 30+ 个 Laravel 仓库的三年里，我反复目睹同一个悲剧：
+在悠途OTA B2C 后端维护 30+ 个 Laravel 仓库的三年里，我反复目睹同一个悲剧：
 
 1. 产品说「把 Stripe 支付换成 NewPay」→ 开发翻遍 15 个文件逐行替换
 2. 运维说「从 MySQL 切到 PostgreSQL」→ Service 层的 `DB::raw()` 散落各处，改动量堪比重写

@@ -5,7 +5,7 @@ author: Michael
 categories: [database]
 tags: [Laravel, MySQL, 索引, EXPLAIN, 性能优化]
 keywords: [Laravel, MySQL, EXPLAIN, 索引性能调研笔记, 分析, 覆盖索引, 最左前缀原则, 数据库]
-description: "深入讲解 Laravel + MySQL 索引性能调优三大核心：EXPLAIN 执行计划分析、覆盖索引消除回表、组合索引最左前缀原则。结合 KKday B2C 电商 API 真实案例，手把手演示订单列表慢查询从 1.8s 优化到 45ms 的完整过程，涵盖索引设计、key_len 解读、索引下推与回表原理剖析，附 Redis 缓存协同优化方案、常见踩坑案例与索引设计最佳实践 Checklist"
+description: "深入讲解 Laravel + MySQL 索引性能调优三大核心：EXPLAIN 执行计划分析、覆盖索引消除回表、组合索引最左前缀原则。结合悠途OTA B2C 电商 API 真实案例，手把手演示订单列表慢查询从 1.8s 优化到 45ms 的完整过程，涵盖索引设计、key_len 解读、索引下推与回表原理剖析，附 Redis 缓存协同优化方案、常见踩坑案例与索引设计最佳实践 Checklist"
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
   - /images/content/databases-index-1-content-1.jpg
@@ -16,13 +16,13 @@ images:
 
 # Laravel + MySQL 索引性能调研笔记：EXPLAIN 分析、覆盖索引、最左前缀原则
 
-> **写作背景**：KKday RD B2C Backend Team · PHP 8 BFF 项目对接 Java 内部服务（search/recommend/svc-search）时，发现部分订单/会员查询接口响应缓慢。本文结合 Laravel ORM + MySQL 的真实案例，系统讲解索引调优的三大核心：**EXPLAIN 分析**、**覆盖索引**、**最左前缀原则**。
+> **写作背景**：悠途OTA RD B2C Backend Team · PHP 8 BFF 项目对接 Java 内部服务（search/recommend/svc-search）时，发现部分订单/会员查询接口响应缓慢。本文结合 Laravel ORM + MySQL 的真实案例，系统讲解索引调优的三大核心：**EXPLAIN 分析**、**覆盖索引**、**最左前缀原则**。
 
 ---
 
 ## 📌 一、问题背景：为什么需要关注索引？
 
-在 KKday B2C API 项目中，我们常遇到这样的场景：
+在悠途OTA B2C API 项目中，我们常遇到这样的场景：
 
 ```php
 // search 服务聚合接口 - 查询最近 30 天订单 + 会员信息 + 商品详情
@@ -259,7 +259,7 @@ $orders = Order::where('status', 'in', ['PAID'])
 
 ---
 
-## 🛠️ 五、实战案例：KKday B2C API 索引优化全记录
+## 🛠️ 五、实战案例：youtu B2C API 索引优化全记录
 
 ![数据库性能监控与优化](/images/content/databases-index-1-content-2.jpg)
 
@@ -373,7 +373,7 @@ $members = Member::select('id', 'name', 'email')
 
 ### 案例 3：Redis + MySQL 协同优化（缓存 + 索引）
 
-**场景：** KKday B2C API 的「热门商品排行榜」
+**场景：** youtu B2C API 的「热门商品排行榜」
 
 **原始实现：**
 ```php
@@ -456,7 +456,7 @@ Artisan::call('optimize:clear'); // 确保 SQL 缓存已清理
 
 ```sql
 -- ⚠️ 谨慎！过多的索引会影响 INSERT/UPDATE/DELETE 的性能
--- KKday B2C API 经验：订单表保留 3-5 个关键索引即可
+-- youtu B2C API 经验：订单表保留 3-5 个关键索引即可
 ALTER TABLE orders ADD INDEX idx_old_field (old_column); -- ❌ 不建议
 ```
 
@@ -592,7 +592,7 @@ $orders = Order::select('id', 'order_no', 'created_at', 'amount')
 
 ### 问题现象
 
-KKday B2C API 的「会员订单历史」接口在高峰期频繁超时（P99 > 3s），告警触发后开始排查。
+youtu B2C API 的「会员订单历史」接口在高峰期频繁超时（P99 > 3s），告警触发后开始排查。
 
 ```bash
 # Step 1：通过慢查询日志定位问题 SQL
@@ -682,7 +682,7 @@ LIMIT 0, 20;
 
 ## 📊 八、性能优化前后对比总结
 
-### KKday B2C API 真实数据对比
+### youtu B2C API 真实数据对比
 
 | 接口 | 优化前耗时 | 优化后耗时 | 提升倍数 | 优化手段 |
 |------|-----------|-----------|----------|----------|
@@ -719,7 +719,7 @@ LIMIT 0, 20;
 
 ## 🎯 十、结语与下一步优化方向
 
-本文系统讲解了 Laravel + MySQL 索引优化的三大核心：**EXPLAIN 分析**、**覆盖索引**、**最左前缀原则**。在 KKday B2C API 项目中，我们通过这些方法成功将多个慢查询接口从 **秒级优化到几十毫秒级别**，显著提升用户体验。
+本文系统讲解了 Laravel + MySQL 索引优化的三大核心：**EXPLAIN 分析**、**覆盖索引**、**最左前缀原则**。在 youtu B2C API 项目中，我们通过这些方法成功将多个慢查询接口从 **秒级优化到几十毫秒级别**，显著提升用户体验。
 
 ### 下一步优化方向（待探索）：
 1. **索引监控**：定期分析慢日志，识别潜在性能瓶颈
@@ -729,10 +729,10 @@ LIMIT 0, 20;
 
 ---
 
-> **作者备注**：KKday RD B2C Backend Team · Michael  
+> **作者备注**：youtu RD B2C Backend Team · Michael  
 > **更新日期**：2026-05-02  
 > **技术栈**：Laravel 8 + PHP 8 + MySQL 8.0 + Redis 7.x  
-> **项目**：KKday Affiliate / Search / Recommend / svc-search
+> **项目**：youtu Affiliate / Search / Recommend / svc-search
 ---
 
 **Tags**：`#MySQL` `#Laravel` `#EXPLAIN` `#覆盖索引` `#最左前缀` `#性能优化`

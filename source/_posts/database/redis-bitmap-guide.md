@@ -15,7 +15,7 @@ tags:
 - Redis
 - WebSocket
 - 性能优化
-description: 在 B2C 电商场景中，用户签到、在线状态、特征标记是高频需求。用传统数据库存储每天几千万条记录既浪费空间又慢。Redis Bitmap 用 1 bit 表示一个状态，1 亿用户一年签到数据仅占 4.5 GB，读写 O(1)。本文基于 KKday B2C API 真实项目，覆盖 SETBIT/GETBIT/BITCOUNT/BITOP 四大命令的实战用法、Laravel 封装、踩坑记录与性能调优。
+description: 在 B2C 电商场景中，用户签到、在线状态、特征标记是高频需求。用传统数据库存储每天几千万条记录既浪费空间又慢。Redis Bitmap 用 1 bit 表示一个状态，1 亿用户一年签到数据仅占 4.5 GB，读写 O(1)。本文基于悠途OTA B2C API 真实项目，覆盖 SETBIT/GETBIT/BITCOUNT/BITOP 四大命令的实战用法、Laravel 封装、踩坑记录与性能调优。
 ---
 
 
@@ -735,7 +735,7 @@ class SignController extends Controller
 
 ## 五、性能基准测试
 
-在 KKday B2C API 的 staging 环境实测（Redis 7.0, 2-core 4GB, 1ms 网络延迟）：
+在 youtu B2C API 的 staging 环境实测（Redis 7.0, 2-core 4GB, 1ms 网络延迟）：
 
 | 操作 | 数据量 | 耗时 | 对比 MySQL |
 |------|--------|------|-----------|

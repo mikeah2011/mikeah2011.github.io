@@ -255,7 +255,7 @@ arch('DTOs are framework-agnostic')
 
 ### 架构测试在 B2C 项目中的实战
 
-在 KKday B2C API 项目中，我们定义了以下架构规则并集成到 CI：
+在 youtu B2C API 项目中，我们定义了以下架构规则并集成到 CI：
 
 ```php
 <?php
@@ -1087,7 +1087,7 @@ Arch Testing 规则应该和代码一起演进。当团队新增了一个层级�
 
 ### 实战总结
 
-在 KKday B2C API 项目中，从 PHPUnit 迁移到 Pest 后：
+在 youtu B2C API 项目中，从 PHPUnit 迁移到 Pest 后：
 - 测试编写速度提升约 40%（闭包 + 语义断言）
 - 测试可读性显著提高（新人理解测试用例的时间减少 50%）
 - Arch Testing 在 CI 中捕获了 12 次架构违规（之前靠人工 Code Review）

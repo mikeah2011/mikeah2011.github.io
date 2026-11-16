@@ -75,7 +75,7 @@
 ## 实战文章（来自博客）
 
 ### DDD 系列
-- [DDD 领域驱动设计实战：B2C 电商聚合根、值对象、领域事件在 Laravel 中的落地踩坑记录](/2026/05/05/ddd-guide-laravel/) - KKday B2C 实战
+- [DDD 领域驱动设计实战：B2C 电商聚合根、值对象、领域事件在 Laravel 中的落地踩坑记录](/2026/05/05/ddd-guide-laravel/) - 悠途OTA B2C 实战
 - [Event Storming 实战：从业务事件到代码实现的领域建模方法论](/2026/06/01/Event-Storming-实战-从业务事件到代码实现的领域建模方法论-Laravel-B2C-API踩坑记录/) - 领域建模工作坊
 
 ### CQRS 与事件溯源

@@ -62,7 +62,7 @@ BFF 是一个**面向特定前端的中间层聚合服务**，位于前端和后
 来自博客文章：[BFF Laravel 中间层聚合实战](/2026/05/04/bff-laravel/)
 
 **踩坑经验**：
-- KKday 项目中 BFF 聚合 Search/Recommend/Member 三个 Java 服务
+- 悠途OTA项目中 BFF 聚合 Search/Recommend/Member 三个 Java 服务
 - 并行请求（Promise/Guzzle Pool）减少串行延迟
 - BFF 层做字段裁剪，减少不必要的数据传输
 

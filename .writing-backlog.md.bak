@@ -1,6 +1,6 @@
      1|     1|# 博客选题待办池（技术栈画像驱动版）
      2|     2|
-     3|     3|> 来源：KKday RD B2C Backend Team · 基于真实项目接触面
+     3|     3|> 来源：悠途OTA RD B2C Backend Team · 基于真实项目接触面
      4|     4|> 用法：cron 每次写作时从未完成项中挑 1-2 个；完成后改 `[x]` 并备注路径
      5|     5|
      6|     6|---
@@ -29,7 +29,7 @@
     29|    29|- [x] 百万级数据表的查询优化实战：Laravel B2C API 真实案例 → source/_posts/01_MySQL/百万级数据表查询优化实战-Laravel-B2C-API-EXPLAIN-深度分析索引重构与分页治理踩坑记录.md (2026-05-05)
     30|    30|
     31|    31|### PostgreSQL vs MySQL 选型
-    32|    32|- [x] KKday Affiliate 项目为什么选 PostgreSQL？MySQL/PostgreSQL 的边界在哪里？ → source/_posts/01_MySQL/PostgreSQL-vs-MySQL-选型实战-KKday-Affiliate-项目为什么选-PostgreSQL-以及边界在哪里.md (2026-05-05)
+    32|    32|- [x] 悠途OTA Affiliate 项目为什么选 PostgreSQL？MySQL/PostgreSQL 的边界在哪里？ → source/_posts/01_MySQL/PostgreSQL-vs-MySQL-选型实战-youtu-ota-Affiliate-项目为什么选-PostgreSQL-以及边界在哪里.md (2026-05-05)
     33|    33|- [x] Laravel ORM + PDO：MySQL 与 PostgreSQL 的行为差异与兼容性问题 → source/_posts/05_PHP/Laravel/Laravel-ORM-PDO-MySQL-PostgreSQL-行为差异与兼容性实战踩坑记录.md (2026-05-05)
     34|    34|
     35|    35|### Redis 缓存策略
@@ -76,7 +76,7 @@
     76|    76|## 🔄 第三方服务对接（Slack/Firebase/Monitor/Tracing）
     77|    77|
     78|    78|### 日志与监控
-    79|    79|- [x] kkday/log + kkday/monitor + kkday/tracing：Laravel 项目的可观测性架构 → source/_posts/05_PHP/Laravel/kkday-log-monitor-tracing-Laravel-可观测性架构实战-日志聚合指标采集与分布式追踪踩坑记录.md (2026-05-05)
+    79|    79|- [x] youtu/log + youtu/monitor + youtu/tracing：Laravel 项目的可观测性架构 → source/_posts/05_PHP/Laravel/youtu-ota-log-monitor-tracing-Laravel-可观测性架构实战-日志聚合指标采集与分布式追踪踩坑记录.md (2026-05-05)
     80|    80|- [x] Laravel + New Relic/Sentry：生产环境错误追踪实战对比 → source/_posts/05_PHP/Laravel/Laravel-New-Relic-Sentry-生产环境错误追踪实战对比踩坑记录.md (2026-05-05)
     81|    81|
     82|    82|### Firebase 集成

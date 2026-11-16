@@ -888,4 +888,4 @@ SELECT
 - [Outbox Pattern 实战：保证数据库与消息队列的最终一致性——Laravel + Debezium 的可靠事件发布](/Laravel/Outbox-Pattern-实战-保证数据库与消息队列的最终一致性-Laravel-Debezium/)
 - [PostgreSQL Logical Replication 实战：零停机数据迁移与实时数据同步](/MySQL/PostgreSQL-Logical-Replication-实战-零停机数据迁移与实时数据同步/)
 - [Laravel + PostgreSQL LISTEN/NOTIFY 实战：事务提交后事件广播、连接池与负载均衡踩坑记录](/PHP/Laravel/laravel-postgresql-listen-notify-guide-transaction-load-balancing/)
-- [Laravel-Kafka 消息队列异步解耦实战：KKday B2C API 订单处理与库存扣减真实踩坑记录](/MQ/Kafka/laravel-kafka-guide/)
+- [Laravel-Kafka 消息队列异步解耦实战：youtu B2C API 订单处理与库存扣减真实踩坑记录](/MQ/Kafka/laravel-kafka-guide/)

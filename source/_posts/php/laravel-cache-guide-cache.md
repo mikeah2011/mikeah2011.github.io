@@ -1,7 +1,7 @@
 ---
 
-title: Laravel Cache 实战：KKday B2C API 多缓存后端配置與失效策略對比
-keywords: [Laravel Cache, KKday B2C API, 多缓存后端配置與失效策略對比]
+title: Laravel Cache 实战：悠途OTA B2C API 多缓存后端配置與失效策略對比
+keywords: [Laravel Cache, 悠途OTA B2C API, 多缓存后端配置與失效策略對比]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -16,13 +16,13 @@ tags:
 - 分布式
 - 高并发
 - Docker
-description: 在 KKday B2C API 项目中，我们使用 Laravel 8+ PHP 8.0 构建 BFF 层。本文深入分析 Laravel Cache 多缓存后端配置（Redis / File / Memcached）、TTL / Touch / Flush 三大缓存失效策略对比、Redis 分布式锁内存泄漏修复、缓存雪崩穿透击穿防护与预热方案，附 Docker Compose 生产级配置和真实踩坑记录。
+description: 在悠途OTA B2C API 项目中，我们使用 Laravel 8+ PHP 8.0 构建 BFF 层。本文深入分析 Laravel Cache 多缓存后端配置（Redis / File / Memcached）、TTL / Touch / Flush 三大缓存失效策略对比、Redis 分布式锁内存泄漏修复、缓存雪崩穿透击穿防护与预热方案，附 Docker Compose 生产级配置和真实踩坑记录。
 ---
 
 
 # 前言
 
-在 KKday B2C API 项目中，Laravel 的缓存系统是支撑高并发访问的关键基础设施。我们使用 Laravel 8 + PHP 8.0 + Docker Compose (php-fpm-8.0) 部署生产环境，核心场景包括：
+在悠途OTA B2C API 项目中，Laravel 的缓存系统是支撑高并发访问的关键基础设施。我们使用 Laravel 8 + PHP 8.0 + Docker Compose (php-fpm-8.0) 部署生产环境，核心场景包括：
 
 - ✅ **页面片段缓存**（部分页面渲染、商品详情）
 - ✅ **会话购物车计次全页缓存对比**（CartSession vs CartFullpage）
@@ -109,7 +109,7 @@ description: 在 KKday B2C API 项目中，我们使用 Laravel 8+ PHP 8.0 构�
 | **测试** | `redis:dev`  | `redis`        | `7200`          |
 | **生产** | `default`    | `redis`        | `3600`          |
 
-### 实战配置：KKday B2C API Docker Compose
+### 实战配置：youtu B2C API Docker Compose
 
 ```yaml
 # docker-compose.yml (production)
@@ -122,7 +122,7 @@ services:
       args:
         PHP_VERSION: "8.0-fpm"
     environment:
-      - APP_NAME=KKdayB2CAPI
+      - APP_NAME=YoutuB2CAPI
       - APP_ENV=production
       - CACHE_DRIVER=redis
       - CACHE_STORE=default
@@ -434,7 +434,7 @@ return [
         ],
     ],
     
-    'prefix' => env('CACHE_PREFIX', 'v2_kkday_'), // ⚠️ 多后端隔离（防止冲突）
+    'prefix' => env('CACHE_PREFIX', 'v2_youtu_'), // ⚠️ 多后端隔离（防止冲突）
 ];
 
 // config/database.php (Redis 连接配置)
@@ -638,7 +638,7 @@ environment:
   - CACHE_STORE=default             # 默认存储（Redis+Table）
   - CACHE_TTL=3600                  # TTL=1hr
   - FULL_PAGE_CACHE_TTL=1800        # 全页缓存 TTL=30min
-  - CACHE_PREFIX=v2_kkday_          # ⚠️ 多后端隔离（防止冲突）
+  - CACHE_PREFIX=v2_youtu_          # ⚠️ 多后端隔离（防止冲突）
 
 services:
   redis:
@@ -802,13 +802,13 @@ redis-cli DBSIZE
 redis-cli INFO memory | grep used_memory_human
 
 # 按前缀搜索缓存 key（⚠️ 生产环境慎用 KEYS）
-redis-cli --scan --pattern "v2_kkday_products.*" | head -20
+redis-cli --scan --pattern "v2_youtu_products.*" | head -20
 
 # 监控实时命令执行（调试性能瓶颈）
 redis-cli MONITOR | grep "products"
 
 # 清除指定前缀的缓存（精确操作）
-redis-cli --scan --pattern "v2_kkday_products.*" | \
+redis-cli --scan --pattern "v2_youtu_products.*" | \
   xargs -L 1 redis-cli DEL
 ```
 
@@ -841,7 +841,7 @@ php artisan cache:table  # 创建缓存数据库表（database 驱动）
 // 1. 使用 Redis 驱动（共享缓存，clear 生效）
 // 2. 使用版本前缀（每次部署自动切换 key 前缀）
 // config/cache.php
-'prefix' => env('CACHE_PREFIX', 'v' . env('APP_VERSION', '1') . '_kkday_'),
+'prefix' => env('CACHE_PREFIX', 'v' . env('APP_VERSION', '1') . '_youtu_'),
 
 // 3. 部署时更新 APP_VERSION 环境变量即可自动切换缓存版本
 ```
@@ -995,7 +995,7 @@ Cache::store('redis')->put('key', $compressed, 3600);
 ],
 
 // ✅ 更优方案：缓存前缀包含版本号，部署时自动失效旧缓存
-'prefix' => env('CACHE_PREFIX', 'v2_kkday_'), // v2 表示序列化版本
+'prefix' => env('CACHE_PREFIX', 'v2_youtu_'), // v2 表示序列化版本
 ```
 
 ### Redis 内存优化建议
@@ -1211,9 +1211,9 @@ Cache::forget("categories.{$categoryId}");
 ## 相关阅读
 
 - [Laravel 缓存策略全解：Route/Config/View/Query 缓存最佳实践踩坑记录](/categories/PHP/Laravel/laravel-cache-route-config-view-query-cache/)
-- [Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - KKday B2C API 真实踩坑记录](/categories/Databases/redis-cache-penetrationbreakdownavalanchedistributedlockguide/)
+- [Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - youtu B2C API 真实踩坑记录](/categories/Databases/redis-cache-penetrationbreakdownavalanchedistributedlockguide/)
 - [Laravel Response Cache 实战：全页缓存与局部缓存策略踩坑记录](/categories/PHP/Laravel/laravel-response-cache-guide-cachecache/)
-- [Redis 实战：缓存失效场景深度解析 - KKday B2C API 真实踩坑记录](/categories/Databases/redis-guide-cache/)
+- [Redis 实战：缓存失效场景深度解析 - youtu B2C API 真实踩坑记录](/categories/Databases/redis-guide-cache/)
 - [Predis-Laravel 缓存实战：失效、分布式锁与性能调优](/categories/Databases/predis-laravel-cacheguide-distributedlock/)
 
 ---
@@ -1221,12 +1221,12 @@ Cache::forget("categories.{$categoryId}");
 # 参考资料
 
 - [Laravel Cache 官方文档](https://laravel.com/docs/10.x/cache)
-- [Redis 缓存穿透击穿雪崩防护与分布式锁实战](/06_Redis/Redis-实战：缓存穿透击穿雪崩防护-KKday-B2C-API/)
+- [Redis 缓存穿透击穿雪崩防护与分布式锁实战](/06_Redis/Redis-实战：缓存穿透击穿雪崩防护-youtu-ota-B2C-API/)
 - [Controller-Service-Laravel-大项目职责分离 - 真实踩坑记录](/05_PHP/Laravel/Controller-Service-Laravel-大项目职责分离-真实踩坑记录.md)
 
 ---
 
 > **作者**：Michael  
-> **职位**：KKday RD B2C Backend Team  
+> **职位**：youtu RD B2C Backend Team  
 > **技术栈**：Laravel 8 + PHP 8.0 + Docker Compose (php-fpm-8.0)  
-> **Git Commit Message**：feat: add Laravel Cache 实战 - KKday B2C API 多缓存后端配置與失效策略對比
+> **Git Commit Message**：feat: add Laravel Cache 实战 - youtu B2C API 多缓存后端配置與失效策略對比

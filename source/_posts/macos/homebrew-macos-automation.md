@@ -6,7 +6,7 @@ updated: 2026-05-05 08:29:14
 categories: [macos]
 tags: [Homebrew, 自动化, macOS, 脚本开发, 开发环境]
 keywords: [Homebrew, macOS, 自动更新脚本开发, 开发环境自动化实战踩坑记录]
-description: "macOS 开发者必备：Homebrew 自动更新脚本开发全流程实战，涵盖 LaunchAgent 定时调度、brew pin 版本锁定、Brewfile 团队协作、更新失败回滚策略与 Slack 通知。基于 KKday 30+ 仓库团队真实踩坑经验，助你实现无人值守的 Homebrew 依赖管理。"
+description: "macOS 开发者必备：Homebrew 自动更新脚本开发全流程实战，涵盖 LaunchAgent 定时调度、brew pin 版本锁定、Brewfile 团队协作、更新失败回滚策略与 Slack 通知。基于悠途OTA 30+ 仓库团队真实踩坑经验，助你实现无人值守的 Homebrew 依赖管理。"
 cover: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop
@@ -19,7 +19,7 @@ images:
 
 ## 1. 为什么需要 Homebrew 自动更新？
 
-在 KKday 的 macOS 开发环境中，我们团队有 30+ 个 Laravel 仓库需要维护，每个项目的依赖栈（PHP、Composer、Node.js、Redis、MySQL）版本要求各不相同。手动管理 `brew update && brew upgrade` 的痛点越来越明显：
+在悠途OTA的 macOS 开发环境中，我们团队有 30+ 个 Laravel 仓库需要维护，每个项目的依赖栈（PHP、Composer、Node.js、Redis、MySQL）版本要求各不相同。手动管理 `brew update && brew upgrade` 的痛点越来越明显：
 
 ```
 ❌ 问题 1：遗忘更新 → 安全漏洞累积（openssl CVE 修复没人装）
@@ -261,7 +261,7 @@ exit 0
 
 ### 3.3 brew-auto-safe-upgrade.sh — 按项目要求升级
 
-当你需要按项目要求选择性升级时（比如 KKday-B2C 要求 PHP 8.0，Affiliate 要求 PostgreSQL 15），可以用这个增强版：
+当你需要按项目要求选择性升级时（比如 youtu-ota-B2C 要求 PHP 8.0，Affiliate 要求 PostgreSQL 15），可以用这个增强版：
 
 ```bash
 #!/usr/bin/env bash
@@ -318,7 +318,7 @@ echo -e "$REPORT"
 项目根目录放置 `.brew-requirements` 文件：
 
 ```ini
-# .brew-requirements — KKday B2C Backend
+# .brew-requirements — youtu B2C Backend
 php=8.0
 mysql=8.0
 redis=7.2
@@ -476,7 +476,7 @@ brew bundle --file=~/.Brewfile --no-upgrade
 在每个项目的根目录放置项目级 Brewfile：
 
 ```ruby
-# ~/GitHub/kkday-b2c-backend/Brewfile
+# ~/GitHub/youtu-ota-b2c-backend/Brewfile
 tap "shivammathur/php"
 brew "php@8.0"
 brew "mysql@8.0"

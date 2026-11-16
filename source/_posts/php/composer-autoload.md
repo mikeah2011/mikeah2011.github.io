@@ -1,7 +1,7 @@
 ---
 
-title: Composer 依賴管理優化與 autoload 快取清理實戰 - KKday-B2C-API 真實踩坑記錄
-keywords: [Composer, autoload, KKday, B2C, API, 依賴管理優化與, 快取清理實戰, 真實踩坑記錄]
+title: Composer 依賴管理優化與 autoload 快取清理實戰 - youtu-ota-B2C-API 真實踩坑記錄
+keywords: [Composer, autoload, 悠途OTA, B2C, API, 依賴管理優化與, 快取清理實戰, 真實踩坑記錄]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -14,7 +14,7 @@ tags:
 - Laravel
 - autoload
 - 依赖管理
-description: KKday B2C API 30+倉庫Composer優化實戰：解決install耗時30分鐘、vendor膨脹4GB、autoload缺失等六個真實踩坑。涵蓋PSR-4/Classmap策略對比、composer audit安全掃描、CI/CD緩存加速、記憶體不足排錯，附完整命令速查表與性能對比數據。
+description: 悠途OTA B2C API 30+倉庫Composer優化實戰：解決install耗時30分鐘、vendor膨脹4GB、autoload缺失等六個真實踩坑。涵蓋PSR-4/Classmap策略對比、composer audit安全掃描、CI/CD緩存加速、記憶體不足排錯，附完整命令速查表與性能對比數據。
 ---
 
 
@@ -22,7 +22,7 @@ description: KKday B2C API 30+倉庫Composer優化實戰：解決install耗時30
 
 ## 📋 背景說明
 
-在 KKday B2C API 專案中，隨著時間累積，我們維護了 30+ 個 Laravel 相關仓库。其中一個常見的痛點是：**Composer 安裝過慢**、**vendor 目錄佔用空間過大**、以及**require_autoload.php 偶爾遺漏**。
+在悠途OTA B2C API 專案中，隨著時間累積，我們維護了 30+ 個 Laravel 相關仓库。其中一個常見的痛點是：**Composer 安裝過慢**、**vendor 目錄佔用空間過大**、以及**require_autoload.php 偶爾遺漏**。
 
 本文分享真實踩坑經驗與優化方案。
 
@@ -300,7 +300,7 @@ composer fast-install
 
 ### 📊 Composer Install vs Update 完整性能對比
 
-在不同場景下，`composer install` 和 `composer update` 的性能差異非常大。以下是 KKday B2C API 專案（50+ 個包）的實測數據：
+在不同場景下，`composer install` 和 `composer update` 的性能差異非常大。以下是 youtu B2C API 專案（50+ 個包）的實測數據：
 
 | 命令組合 | 執行時間 | 網路流量 | 依賴解析 | 記憶體 | 適用場景 |
 |---------|---------|---------|---------|--------|---------|
@@ -699,7 +699,7 @@ jobs:
 
 ## 🛠️ 實戰工具與命令速查表
 
-以下是我們在 KKday B2C API 專案中最常用的 Composer 和 Laravel 命令。建議將這些命令保存到專案的 README 文件中，方便團隊成員快速查閱。在 CI/CD 流程中，可以將這些命令整合到部署腳本中，實現自動化優化。
+以下是我們在 youtu B2C API 專案中最常用的 Composer 和 Laravel 命令。建議將這些命令保存到專案的 README 文件中，方便團隊成員快速查閱。在 CI/CD 流程中，可以將這些命令整合到部署腳本中，實現自動化優化。
 
 | 操作 | 命令 | 預期效果 |
 |------|------|----------|
@@ -795,7 +795,7 @@ php -r "require 'vendor/autoload.php'; echo PHP_VERSION . PHP_EOL;"
 
 ### 測試環境
 
-以下數據基於 KKday B2C API 專案（50+ 個包、3000+ 個類別）在相同硬體環境下的實測結果：
+以下數據基於 youtu B2C API 專案（50+ 個包、3000+ 個類別）在相同硬體環境下的實測結果：
 
 - **伺服器**：AWS t3.xlarge（4 vCPU, 16GB RAM）
 - **PHP 版本**：PHP 8.1.15 (FPM)
@@ -1045,7 +1045,7 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 
 ## 🎯 最佳實踐總結
 
-在 Laravel 專案的日常開發中，Composer autoload 的正確配置直接影響到應用程式的穩定性和效能。以下總結了我們團隊在 KKday B2C API 專案中積累的經驗，這些最佳實踐已經在 30+ 個 Laravel 倉庫中得到了驗證。
+在 Laravel 專案的日常開發中，Composer autoload 的正確配置直接影響到應用程式的穩定性和效能。以下總結了我們團隊在 youtu B2C API 專案中積累的經驗，這些最佳實踐已經在 30+ 個 Laravel 倉庫中得到了驗證。
 
 ### ✅ Do's（建議做）
 
@@ -1093,7 +1093,7 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 
 ## 📊 實戰數據對比
 
-以下數據來自 KKday B2C API 專案在實施優化前後的真實測量結果。測試環境為同一台伺服器，使用相同的硬件配置和網路環境，確保數據的可比性。每個數據點都是多次測量的平均值，排除了極端值的影響。
+以下數據來自 youtu B2C API 專案在實施優化前後的真實測量結果。測試環境為同一台伺服器，使用相同的硬件配置和網路環境，確保數據的可比性。每個數據點都是多次測量的平均值，排除了極端值的影響。
 
 | 指標 | Before | After | 提升 |
 |------|--------|-------|------|
@@ -1106,11 +1106,11 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 
 ---
 
-## 📝 KKday-B2C-API 專案真實案例
+## 📝 youtu-ota-B2C-API 專案真實案例
 
 ### 案例一：30+ 倉庫的統一管理策略
 
-在 KKday B2C API 團隊中，我們使用統一的 `composer.json` 模板管理所有 Laravel 專案：
+在 youtu B2C API 團隊中，我們使用統一的 `composer.json` 模板管理所有 Laravel 專案：
 
 ```json
 // composer-template.json - 統一模板
@@ -1469,7 +1469,7 @@ test:
 | 多階段 Docker 快取 | 中等 | 需重建鏡像 | 快（Docker layer cache） | Docker 部署 |
 
 ```bash
-# 快取效果實測（KKday B2C API 專案，50+ 個包）
+# 快取效果實測（youtu B2C API 專案，50+ 個包）
 # 首次構建（無快取）：280 秒
 # vendor 快取命中：15 秒
 # composer cache 命中：45 秒
@@ -1490,7 +1490,7 @@ test:
 
 - [Composer-深度實戰-自動加載插件開發私有倉庫踩坑記錄](/post/supply-chain-security-npm-audit-composer-slsa-laravel-ci/)
 - [Composer 脚本实战：自动化构建、测试、部署流程踩坑记录](/post/supply-chain-security-npm-audit-composer-slsa-laravel-ci/)
-- PHP-OpCache 调优实战-KKday-B2C-API 高并发场景下的内存优化与真实踩坑记录
+- PHP-OpCache 调优实战-youtu-ota-B2C-API 高并发场景下的内存优化与真实踩坑记录
 - GitHub Actions CI/CD 优化实战：Laravel 单体仓库的矩阵拆分、缓存命中与并行发布踩坑记录
 - PHP OPcache 缓存预热实战：生产环境冷启动治理与自动化 Warmup 全攻略
 - [PHP OPcache 高并发优化](/categories/PHP/php-opcache-guide-high-concurrencyoptimization/)
@@ -1540,7 +1540,7 @@ steps:
 
 Composer 依賴管理是 Laravel 專案穩定性的基礎。通過合理的配置和優化，可以將安裝時間減少 **80%**、vendor 大小減少 **57%**，並避免常見的啟動問題。本文分享的六個真實踩坑案例涵蓋了從 autoload 配置到 CI/CD 加速的各個方面，每個案例都附帶了可執行的解決方案和性能對比數據。
 
-在 KKday B2C API 團隊中，我們將這些最佳實踐應用到 **30+ 個 Laravel 仓库**，確保了開發效率和穩定性。關鍵成功因素包括：統一的 composer.json 模板管理、CI/CD 緩存策略優化、以及團隊成員對 autoload 機制的深入理解。這些經驗不僅適用於 Laravel 專案，也適用於所有使用 Composer 作為包管理器的 PHP 專案。
+在 youtu B2C API 團隊中，我們將這些最佳實踐應用到 **30+ 個 Laravel 仓库**，確保了開發效率和穩定性。關鍵成功因素包括：統一的 composer.json 模板管理、CI/CD 緩存策略優化、以及團隊成員對 autoload 機制的深入理解。這些經驗不僅適用於 Laravel 專案，也適用於所有使用 Composer 作為包管理器的 PHP 專案。
 
 ### 📊 核心優化策略一覽
 
@@ -1555,4 +1555,4 @@ Composer 依賴管理是 Laravel 專案穩定性的基礎。通過合理的配�
 
 ---
 
-*本文基於 KKday-B2C-API 真實項目經驗撰寫，歡迎在 [GitHub Issues](../../issues) 提出反饋或技術問題。*
+*本文基於 youtu-ota-B2C-API 真實項目經驗撰寫，歡迎在 [GitHub Issues](../../issues) 提出反饋或技術問題。*

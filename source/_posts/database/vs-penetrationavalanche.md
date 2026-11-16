@@ -565,7 +565,7 @@ $product = $cacheService->rememberWithProtection(
 
 ## 相关阅读
 
-- [Redis 实战：缓存失效场景深度解析 — KKday B2C API 真实踩坑记录](/databases/redis-guide-cache/) — 从生产环境真实案例出发，深入解析缓存穿透、击穿、雪崩的实战应对
+- [Redis 实战：缓存失效场景深度解析 — youtu B2C API 真实踩坑记录](/databases/redis-guide-cache/) — 从生产环境真实案例出发，深入解析缓存穿透、击穿、雪崩的实战应对
 - [Predis Laravel 缓存实战与分布式锁性能调优](/databases/predis-laravel-cacheguide-distributedlock/) — Predis vs PhpRedis 性能对比，分布式锁 Redlock 方案与连接池优化
 - [Redis Cluster 原理探讨](/databases/redis-cluster/) — 本文"高可用架构"章节的延伸阅读，16384 哈希槽与 Gossip 协议详解
 - [Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh](/02_Redis/Cache-Stampede-防护深度实战-Lock-Probabilistic-Early-Expiration-Background-Refresh-Laravel高并发缓存击穿三重防御/) — 本文"缓存击穿"章节的进阶阅读，三种防御策略的原理对比与 Laravel 实现

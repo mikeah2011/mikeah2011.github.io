@@ -16,7 +16,7 @@ description: 結合 GitHub Copilot 與 RTK (Runtime Testing Kit) v0.38.0，建�
 
 # Git Hooks + RTK：Laravel B2C API 自動代碼審查工作流
 
-> **關鍵結論**：Git Hooks + RTK 自動化工作流可以減少 **70%** 的手動 Code Review 時間，同時將 Bug 率降低 **45%**（基於 KKday B2C API 團隊 6 個月數據）。
+> **關鍵結論**：Git Hooks + RTK 自動化工作流可以減少 **70%** 的手動 Code Review 時間，同時將 Bug 率降低 **45%**（基於悠途OTA B2C API 團隊 6 個月數據）。
 
 ## 📋 目錄
 
@@ -35,7 +35,7 @@ description: 結合 GitHub Copilot 與 RTK (Runtime Testing Kit) v0.38.0，建�
 
 ### 問題：B2C API 團隊的代碼審查痛點
 
-作為 KKday B2C Backend Team 的工程負責人，我們面臨以下挑戰：
+作為悠途OTA B2C Backend Team 的工程負責人，我們面臨以下挑戰：
 
 ```bash
 # 傳統手動 Code Review 時間分配
@@ -88,7 +88,7 @@ graph TD
 
 ```yaml
 rtk: "v0.38.0"          # Runtime Testing Kit
-php: "8.0"              # KKday B2C API FPM 環境
+php: "8.0"              # youtu B2C API FPM 環境
 laravel: "^10.0"        # 當前項目使用 Laravel 10+
 pest: "v2.x"            # 測試框架
 phpstan: "1.x"          # 靜態分析
@@ -113,7 +113,7 @@ php artisan vendor:publish --tag=rtk-config
 ### 步驟 2：建立 Git Hooks 結構
 
 ```bash
-cd ~/KKday/kkday-b2c-api
+cd ~/youtu/youtu-ota-b2c-api
 mkdir -p .github/workflows/.pre-commit
 touch .git/hooks/{pre-commit,pre-push}
 chmod +x .git/hooks/*.sh
@@ -231,7 +231,7 @@ class OrderTest extends TestCase
 
 ```bash
 # ✅ AFTER: Commit 前自動生成 Pest 測試腳本
-~/KKday/kkday-b2c-api/.git/hooks/pre-commit.sh # (simplified)
+~/youtu/youtu-ota-b2c-api/.git/hooks/pre-commit.sh # (simplified)
 #!/bin/bash
 
 echo "🤖 [RTK] 偵測新 PHP 文件..."
@@ -376,7 +376,7 @@ function show($id) {   // ← 沒有空格 (違反 PSR-12)
 # Git pre-commit 自動執行 PSR-12 檢查
 echo "📐 [RTK] PSR-12 規範檢查..."
 
-cd ~/KKday/kkday-b2c-api
+cd ~/youtu/youtu-ota-b2c-api
 git diff --cached src/ | \
 while read changed_file; do
     if [[ $changed_file == *.php ]]; then
@@ -401,7 +401,7 @@ done
 ### PSR-12 真實踩坑案例
 
 ```bash
-# 🔥 Case: API Response Format (KKday B2C API)
+# 🔥 Case: API Response Format (youtu B2C API)
 
 # ❌ BEFORE: JSON Response Format Wrong
 public function list($filter = []) {   # ← 空格錯誤 + 未檢查 filter
@@ -478,7 +478,7 @@ composer security \
 }
 ```
 
-### KKday B2C API 真實案例：CVE-2025-XXXXX
+### youtu B2C API 真實案例：CVE-2025-XXXXX
 
 ```bash
 # 🔥 Incident: Stripe Payment SDK (CVSS 7.5)
@@ -510,7 +510,7 @@ vendor/bin/phpstan analyse \
     --memory-limit=-1 \
     src/{App,Config} \
     tests | \
-tee -a /var/log/kkday/rtk-phpstan.log | \
+tee -a /var/log/youtu/rtk-phpstan.log | \
 while read output; do
     
     if [[ $output == *"error:"* ]]; then
@@ -532,7 +532,7 @@ echo "✅ [RTK] PHPStan 檢查完成"
 
 ---
 
-## 真實踩坑記錄（KKday B2C API）
+## 真實踩坑記錄（youtu B2C API）
 
 ### Case 1: Pest 測試覆蓋率不足 → PR 被拒
 
@@ -632,7 +632,7 @@ exit $?
 ### 2. 開發者 Onboarding Checklist（Laravel BFF 團隊）
 
 ```markdown
-# 🚀 新成員加入 KKday B2C API 開發流程
+# 🚀 新成員加入 youtu B2C API 開發流程
 - [x] RTK v0.38.0 已安裝 (已確認 ~/.claude)
 - [x] GitHub Copilot 公司帳號綁定
 - [x] Git Hooks: 執行 `composer install --no-scripts`
@@ -642,7 +642,7 @@ exit $?
 
 # 📚 快速上手
 ```bash
-git submodule add https://github.com/kkday/rtk-laravel-boilerplate.git rtktemplates
+git submodule add https://github.com/youtu/rtk-laravel-boilerplate.git rtktemplates
 cd rtktemplates
 chmod +x ./.git/hooks/*.sh
 ```
@@ -731,6 +731,6 @@ jobs:
 
 ---
 
-**作者**: Michael (KKday RD B2C Backend Team)  
+**作者**: Michael (youtu RD B2C Backend Team)  
 **最後更新**: 2026-05-03  
 **Tags**: #GitHooks #RTK #Laravel #Pest #CodeReview

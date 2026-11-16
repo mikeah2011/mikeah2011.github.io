@@ -25,7 +25,7 @@ description: 知识图谱为 AI Agent 的记忆系统增加关系维度。本文
 
 在上一篇文章中，我们深入剖析了 OpenHuman 的 Memory Tree 四层架构——确定性分块、实体提取、主题树和全局摘要。Memory Tree 解决了"如何结构化存储记忆"的问题，但它本质上仍然是一种**树状层级结构**。树状结构的优势在于层次清晰、查询高效，但它有一个天然的局限：**无法表达实体之间的复杂关系**。
 
-举个例子：在 Memory Tree 中，"张三"是一个实体，"KKday"是一个实体，"Redis"是另一个实体。我们知道张三出现在某些 chunk 中，Redis 也出现在某些 chunk 中，但 Memory Tree 无法直接回答这样的问题：
+举个例子：在 Memory Tree 中，"张三"是一个实体，"悠途OTA"是一个实体，"Redis"是另一个实体。我们知道张三出现在某些 chunk 中，Redis 也出现在某些 chunk 中，但 Memory Tree 无法直接回答这样的问题：
 
 - "张三和 Redis 之间是什么关系？"——他是 Redis 专家？还是他在讨论 Redis 的问题？
 - "哪些人讨论过 Redis？"——需要遍历所有 chunk，效率低下。
@@ -48,7 +48,7 @@ description: 知识图谱为 AI Agent 的记忆系统增加关系维度。本文
 | 类型 | 示例 | 说明 |
 |------|------|------|
 | Person | 张三、Michael | 用户提到的人物 |
-| Organization | KKday、Google | 公司、团队 |
+| Organization | 悠途OTA、Google | 公司、团队 |
 | Technology | Redis、Laravel、K8s | 技术栈、工具 |
 | Concept | 分布式锁、CAP 理论 | 抽象概念 |
 | Location | 台北、AWS ap-east | 地理位置 |
@@ -60,7 +60,7 @@ description: 知识图谱为 AI Agent 的记忆系统增加关系维度。本文
 边代表实体之间的关系。边是有向的，且带有类型标签：
 
 ```
-(张三) --[works_at]--> (KKday)
+(张三) --[works_at]--> (youtu)
 (Redis) --[used_in]--> (B2C API)
 (张三) --[discussed]--> (Redis)
 (分布式锁) --[depends_on]--> (Redis)
@@ -1020,9 +1020,9 @@ def unified_query(query, memory_tree, knowledge_graph):
 经过一周的对话，知识图谱自动构建出以下结构：
 
 ```
-(张三) --[works_at]--> (KKday)
+(张三) --[works_at]--> (youtu)
 (张三) --[responsible_for]--> (后端)
-(李四) --[works_at]--> (KKday)
+(李四) --[works_at]--> (youtu)
 (李四) --[responsible_for]--> (前端)
 
 (Laravel) --[uses]--> (Redis)
@@ -1045,7 +1045,7 @@ def unified_query(query, memory_tree, knowledge_graph):
 
 通过力导向布局，这个图谱会呈现为：
 
-- **中心节点**：KKday（被最多实体关联）、Laravel、Redis（高重要性）
+- **中心节点**：youtu（被最多实体关联）、Laravel、Redis（高重要性）
 - **左簇**：人物相关（张三、李四、团队结构）
 - **右簇**：技术相关（Laravel、Redis、K8s、Docker）
 - **连接桥**：张三连接了人物簇和技术簇（因为他讨论了技术话题）

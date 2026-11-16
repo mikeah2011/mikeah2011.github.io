@@ -21,7 +21,7 @@ description: 在 Laravel B2C 项目中，通过 GitHub Actions 的 Composer 缓�
 
 # GitHub Actions + Composer Cache：构建时间从 20s→5s 的优化实战踩坑记录
 
-> 在 KKday B2C 后端团队的 Laravel 项目中，每次 CI 跑流程都要花 20 秒以上等 Composer install，这对一天几十次提交的团队来说，累积的时间浪费是巨大的。本文记录了我们如何通过缓存策略把构建时间压到 5 秒以内的完整过程。
+> 在悠途OTA B2C 后端团队的 Laravel 项目中，每次 CI 跑流程都要花 20 秒以上等 Composer install，这对一天几十次提交的团队来说，累积的时间浪费是巨大的。本文记录了我们如何通过缓存策略把构建时间压到 5 秒以内的完整过程。
 
 ## 背景：为什么 Composer install 这么慢？
 

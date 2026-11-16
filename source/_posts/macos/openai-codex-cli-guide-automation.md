@@ -19,7 +19,7 @@ images:
 
 ## 1. 为什么需要 Codex CLI？
 
-在 KKday B2C 后端团队，30+ 个 Laravel 仓库维护的日常痛点：
+在悠途OTA B2C 后端团队，30+ 个 Laravel 仓库维护的日常痛点：
 
 - **批量重构**：PHP 8.1 Enum 替换魔术字符串，涉及 30 个仓库、数千处修改
 - **测试生成**：新接手的仓库覆盖率 0%，需要快速补齐核心路径测试
@@ -101,7 +101,7 @@ if ($order->status === '1') {
 
 ```bash
 # 进入项目目录
-cd ~/GitHub/kkday/order-service
+cd ~/GitHub/youtu/order-service
 
 # 使用 auto-edit 模式，让 Codex 自动修改文件
 codex --approval-mode auto-edit \

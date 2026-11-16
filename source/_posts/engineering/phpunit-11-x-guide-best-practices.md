@@ -15,7 +15,7 @@ tags:
 - 单元测试
 - PHP Attributes
 - 最佳实践
-- KKday
+- 悠途OTA
 description: PHPUnit 11 升级实战指南：30+ Laravel 仓库踩坑总结，涵盖 Attributes 语法、Expectation API 流式断言、#[TestWith] 数据提供者、Mock/Stub 演进、分层测试架构与并行测试最佳实践，附 12 项升级 Checklist 与踩坑速查表，助你从 PHPUnit 10 平滑升级到 11。
 ---
 
@@ -26,7 +26,7 @@ description: PHPUnit 11 升级实战指南：30+ Laravel 仓库踩坑总结，�
 
 ## 一、为什么这篇不是又一篇"PHPUnit 入门"
 
-在 KKday B2C Backend Team，我们有 30+ 个 Laravel 仓库，测试框架统一用 PHPUnit（部分仓库已迁移到 Pest，但底层仍然是 PHPUnit）。Laravel 11 发布时默认搭载 PHPUnit 11，我们的第一反应是 `composer update` 然后跑一遍测试——结果 CI 绿了，大家就觉得"升级完成"。
+在悠途OTA B2C Backend Team，我们有 30+ 个 Laravel 仓库，测试框架统一用 PHPUnit（部分仓库已迁移到 Pest，但底层仍然是 PHPUnit）。Laravel 11 发布时默认搭载 PHPUnit 11，我们的第一反应是 `composer update` 然后跑一遍测试——结果 CI 绿了，大家就觉得"升级完成"。
 
 直到有人发现新写的测试还在用 `@dataProvider` 注释、`$this->assertEquals()`、`createMock()` 这些 PHPUnit 10 的老写法，而 PHPUnit 11 已经提供了更现代、更安全、更易读的替代方案。更糟糕的是，PHPUnit 11 移除了一批在 10 中标记为 deprecated 的方法，如果你没注意这些 warning，升级到 11.0 之后 CI 会直接炸。
 

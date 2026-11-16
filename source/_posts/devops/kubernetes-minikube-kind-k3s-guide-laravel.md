@@ -27,7 +27,7 @@ description: macOS上搭建本地Kubernetes开发环境，深度对比minikube�
 
 ## 背景：为什么需要本地 K8s 开发环境？
 
-在 KKday B2C Backend Team 的日常开发中，我们的生产环境跑在 Kubernetes 上。本地开发如果只用 `docker-compose up`，会出现"本地跑得好好的，上线就炸"的问题——因为 K8s 的 Service Discovery、ConfigMap、Secret、HPA 等行为在 Docker Compose 中完全不存在。
+在悠途OTA B2C Backend Team 的日常开发中，我们的生产环境跑在 Kubernetes 上。本地开发如果只用 `docker-compose up`，会出现"本地跑得好好的，上线就炸"的问题——因为 K8s 的 Service Discovery、ConfigMap、Secret、HPA 等行为在 Docker Compose 中完全不存在。
 
 所以我们需要一个**轻量、快速、尽量贴近生产**的本地 K8s 环境。
 
@@ -873,7 +873,7 @@ kubectl get pvc laravel-storage-pvc
 
 ## 七、我的最终选择
 
-在 KKday 的实际项目中，我们最终选择了 **k3d** 作为日常开发环境，**kind** 用于 CI/CD 测试。原因：
+在 youtu 的实际项目中，我们最终选择了 **k3d** 作为日常开发环境，**kind** 用于 CI/CD 测试。原因：
 
 1. **k3d 启动快**：15-30 秒，比 minikube 快一倍
 2. **资源省**：3 节点只占 1.7GB，minikube 单节点就 2GB+

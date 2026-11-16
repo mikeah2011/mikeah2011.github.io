@@ -4,9 +4,9 @@ date: 2026-05-17 01:55:35
 author: Michael
 updated: 2026-05-17 02:02:35
 categories: [architecture]
-tags: [AWS, DevOps, KKday, Kubernetes, Laravel, 架构]
+tags: [AWS, DevOps, 悠途OTA, Kubernetes, Laravel, 架构]
 keywords: [AWS EC2, Laravel B2C API, 实例管理, 安全组与自动扩展, 部署踩坑记录, 架构]
-description: 从 KKday B2C Backend Team 的真实部署经验出发，深度讲解 AWS EC2 实例选型、安全组精细化配置、Auto Scaling Group 扩缩容策略，以及 Laravel 应用在 EC2 上的生产级部署架构，附带多个真实踩坑案例。
+description: 从悠途OTA B2C Backend Team 的真实部署经验出发，深度讲解 AWS EC2 实例选型、安全组精细化配置、Auto Scaling Group 扩缩容策略，以及 Laravel 应用在 EC2 上的生产级部署架构，附带多个真实踩坑案例。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
   - /images/content/architecture-002-content-1.jpg
@@ -18,7 +18,7 @@ images:
 
 ## 📌 前言
 
-在 KKday B2C Backend Team，我们有 30+ 个 Laravel 微服务跑在 AWS 基础设施上。虽然现在 Kubernetes 是主流，但 **EC2 仍然是中小规模服务、定时任务机、跳板机、批处理节点的首选**——不是每个服务都需要 K8s 的复杂度。
+在悠途OTA B2C Backend Team，我们有 30+ 个 Laravel 微服务跑在 AWS 基础设施上。虽然现在 Kubernetes 是主流，但 **EC2 仍然是中小规模服务、定时任务机、跳板机、批处理节点的首选**——不是每个服务都需要 K8s 的复杂度。
 
 这篇文章记录的是我在 EC2 上部署和运维 Laravel B2C API 的实战经验：**怎么选实例、怎么配安全组才不会被扫、怎么用 ASG 做自动扩缩容、以及那些踩过的坑**。
 

@@ -494,7 +494,7 @@ $data = $response->json();
 
 ---
 
-*作者：Michael（KKday RD B2C 后端 Team）*  
+*作者：Michael（youtu RD B2C 后端 Team）*  
 *更新时间：2026-05-02*  
 *本文档基于真实工作场景整理，所有建议均经过生产环境验证。*
 

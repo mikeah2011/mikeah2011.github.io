@@ -16,7 +16,7 @@ description: "深入对比 Cursor、Claude Code、Hermes 三大 AI 编程工具�
 
 ### 单一 AI 工具的天花板
 
-2025-2026 年，AI 编程助手已从「代码补全插件」进化为「全流程开发代理」。但我在 KKday 30+ Laravel 仓库的日常开发中发现，**单一 AI 工具无法覆盖所有场景**：
+2025-2026 年，AI 编程助手已从「代码补全插件」进化为「全流程开发代理」。但我在悠途OTA 30+ Laravel 仓库的日常开发中发现，**单一 AI 工具无法覆盖所有场景**：
 
 | 场景 | Cursor | Claude Code | Hermes Agent |
 |------|--------|-------------|--------------|
@@ -221,7 +221,7 @@ Claude Code 的 `CLAUDE.md` 类似于 Cursor 的 `.cursorrules`，但功能更�
 
 ```markdown
 <!-- CLAUDE.md -->
-# 项目：KKday B2C API
+# 项目：youtu B2C API
 
 ## 技术栈
 - PHP 8.0 + Laravel 9
@@ -705,7 +705,7 @@ $orders = Order::query()
 
 ## 七、性能数据与效率提升
 
-### 实测数据（KKday B2C API 项目，30 天对比）
+### 实测数据（youtu B2C API 项目，30 天对比）
 
 | 指标 | 纯手工开发 | Cursor Only | Cursor + Claude Code | 三工具协作 |
 |------|-----------|-------------|---------------------|-----------|

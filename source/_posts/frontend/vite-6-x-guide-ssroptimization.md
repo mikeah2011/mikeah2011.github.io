@@ -22,7 +22,7 @@ description: 从 Vite 5 升级到 6.x 的真实踩坑经验：Environment API �
 
 ## 前言
 
-在 KKday B2C Backend Team，我们的前端项目（Vue 3 + Vite）从 Vite 5 一路升级到 6.x。这篇文章不是官方文档的中文翻译，而是**升级过程中踩过的坑、做过的取舍、以及最终在生产环境验证过的方案**。
+在悠途OTA B2C Backend Team，我们的前端项目（Vue 3 + Vite）从 Vite 5 一路升级到 6.x。这篇文章不是官方文档的中文翻译，而是**升级过程中踩过的坑、做过的取舍、以及最终在生产环境验证过的方案**。
 
 Vite 6 是一次架构级升级——引入 Environment API、实验性 Rolldown 打包器、以及对 SSR 的重写。如果你还在用 Vite 5 甚至 Laravel Mix，这篇文章会帮你判断：**值不值得升级、怎么升级、哪些坑要提前避开。**
 

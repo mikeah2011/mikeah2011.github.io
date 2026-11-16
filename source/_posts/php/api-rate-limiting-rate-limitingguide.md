@@ -1,5 +1,5 @@
 ---
-title: API Rate Limiting - 接口限流实战 - KKday B2C API 真实踩坑记录
+title: API Rate Limiting - 接口限流实战 - 悠途OTA B2C API 真实踩坑记录
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -7,14 +7,14 @@ date: 2026-05-03
 author: Michael
 categories: [php]
 tags: [Rate Limiting, Token Bucket, Redis, Laravel, API, Sliding Window]
-keywords: [API Rate Limiting, KKday B2C API, 接口限流实战, 真实踩坑记录, PHP]
-description: 深入解析 API 接口限流实战方案，涵盖 Token Bucket 令牌桶、Leaky Bucket 漏桶、滑动窗口算法及 Redis Lua 脚本原子操作，结合 KKday B2C 真实踩坑记录，详解分布式限流、IP 指纹识别、连接池优化与监控日志等生产级解决方案。
+keywords: [API Rate Limiting, 悠途OTA B2C API, 接口限流实战, 真实踩坑记录, PHP]
+description: 深入解析 API 接口限流实战方案，涵盖 Token Bucket 令牌桶、Leaky Bucket 漏桶、滑动窗口算法及 Redis Lua 脚本原子操作，结合悠途OTA B2C 真实踩坑记录，详解分布式限流、IP 指纹识别、连接池优化与监控日志等生产级解决方案。
 
 ---
 
 ## 背景
 
-在 KKday B2C API 项目中，API Rate Limiting（接口限流）是保护后端服务的重要防线之一。我们曾遇到以下场景：
+在悠途OTA B2C API 项目中，API Rate Limiting（接口限流）是保护后端服务的重要防线之一。我们曾遇到以下场景：
 
 - **恶意刷票**：第三方渠道疯狂调用 `/api/tickets/search`，导致 Redis 连接池耗尽
 - **突发流量**：促销活动期间，单个 IP 在短时间内发起大量请求，拖垮业务逻辑层
@@ -24,7 +24,7 @@ description: 深入解析 API 接口限流实战方案，涵盖 Token Bucket 令
 
 ## 核心挑战
 
-| 场景 | 传统方案痛点 | KKday 解决方案 |
+| 场景 | 传统方案痛点 | 悠途OTA解决方案 |
 |------|-------------|---------------|
 | 单机服务 | `Redis\RateLimiter` 扩展不成熟 | **自定义 Token Bucket 算法** + Redis Lua 脚本 |
 | 分布式环境 | Cookie/IP 识别不准确 | **IP Header 指纹识别** + `X-Forwarded-For` 处理 |
@@ -133,7 +133,7 @@ token_count -= N
 return "success"
 ```
 
-### 实现代码（KKday B2C API）
+### 实现代码（youtu B2C API）
 
 **Before**: 简单的固定窗口计数器
 ```php
@@ -349,7 +349,7 @@ $ipFingerprint = hash('sha256', 'mikeah:rate-limit:v1:' . inet_ntop(ip2long($rea
 
 ### 场景对比
 
-| 算法 | 优点 | 缺点 | KKday 使用场景 |
+| 算法 | 优点 | 缺点 | youtu 使用场景 |
 |------|------|------|---------------|
 | **Token Bucket** | 平滑突发流量 | 需要维护令牌桶状态 | 适合高并发 API 限流（如搜索接口） |
 | **Leaky Bucket** | 严格固定速率，避免突发 | 需要等待令牌，体验较差 | 适合低频接口（如价格查询、订单创建） |
@@ -1059,7 +1059,7 @@ LUA;
 | **内存占用** | 低（单计数器） | 高（记录时间戳列表） | 中（Hash 结构） | 中（Hash 结构） |
 | **Redis 原子性** | `INCR` + `EXPIRE` | `ZADD` + `ZREMRANGEBYSCORE` | Lua 脚本 | Lua 脚本 |
 | **适用场景** | 简单场景、低并发 | 通用场景、API 限流 | 高并发 API、允许突发 | 严格速率控制、低频接口 |
-| **KKday 使用** | ❌ 已弃用 | ✅ 搜索接口 | ✅ 核心 API | ✅ 价格查询、订单创建 |
+| **youtu 使用** | ❌ 已弃用 | ✅ 搜索接口 | ✅ 核心 API | ✅ 价格查询、订单创建 |
 
 ### 选型建议
 
@@ -1087,7 +1087,7 @@ $internalRateLimiter = RateLimiter::for('api_internal')
 
 ## 总结
 
-本文档详细记录了 KKday B2C API 在接口限流（API Rate Limiting）方面的完整实战经验，涵盖了以下核心内容：
+本文档详细记录了 youtu B2C API 在接口限流（API Rate Limiting）方面的完整实战经验，涵盖了以下核心内容：
 
 ### 核心主题
 - **Token Bucket 令牌桶算法** + Lua 脚本实现原子性
@@ -1126,7 +1126,7 @@ $internalRateLimiter = RateLimiter::for('api_internal')
 希望本文档对读者有所帮助！如果有任何问题，欢迎留言讨论。👋
 
 ---
-*作者：Michael | KKday RD B2C Backend Team | 2026-05-03*
+*作者：Michael | youtu RD B2C Backend Team | 2026-05-03*
 
 ---
 

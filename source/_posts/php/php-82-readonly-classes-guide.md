@@ -23,7 +23,7 @@ description: "从 PHP 8.1 readonly 属性到 8.2 readonly class 全面实战指�
 
 PHP 8.1 引入了 `readonly` 属性，但你仍然需要逐个标记每个属性。PHP 8.2 将这个能力提升到了类级别——一个 `readonly class` 的**所有**声明属性自动变成 readonly，而且整个类都不能再有非 readonly 的属性。
 
-这篇文章记录了我在 KKday B2C 后端 30+ 仓库中，用 `readonly class` 重构 DTO、Value Object 和领域模型的实战经验，包括踩坑、性能对比和迁移策略。
+这篇文章记录了我在悠途OTA B2C 后端 30+ 仓库中，用 `readonly class` 重构 DTO、Value Object 和领域模型的实战经验，包括踩坑、性能对比和迁移策略。
 
 ### 为什么不可变性在电商系统中至关重要？
 
@@ -675,7 +675,7 @@ readonly class AppConfig
     }
 }
 
-$base = new AppConfig('KKday', 'Asia/Taipei', 'zh-TW', false);
+$base = new AppConfig('youtu', 'Asia/Taipei', 'zh-TW', false);
 $staging = $base->withDebug(true); // 新对象，原对象不变
 ```
 

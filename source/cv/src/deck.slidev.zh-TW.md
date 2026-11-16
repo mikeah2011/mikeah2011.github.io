@@ -77,11 +77,11 @@ class: text-left
 
 <ul class="tiles">
   <li class="tile"><div class="v">13 年</div><div class="k">後端研發經驗（OTA / 電商 / MarTech）</div></li>
-  <li class="tile"><div class="v">3000+</div><div class="k">KKday 核心儲存庫提交（兩庫首要貢獻者）</div></li>
+  <li class="tile"><div class="v">3000+</div><div class="k">悠途OTA核心儲存庫提交（兩庫首要貢獻者）</div></li>
   <li class="tile"><div class="v">10+</div><div class="k">全球聯盟通路串接（Google / Naver…）</div></li>
   <li class="tile"><div class="v">25s → 2s</div><div class="k">故障搶救後關鍵 API p99</div></li>
   <li class="tile"><div class="v">+50%</div><div class="k">CVR 提升目標（專案組負責人）</div></li>
-  <li class="tile"><div class="v">2 屆</div><div class="k">KKday 年度優秀員工（2023、2024）</div></li>
+  <li class="tile"><div class="v">2 屆</div><div class="k">悠途OTA年度優秀員工（2023、2024）</div></li>
 </ul>
 
 ---
@@ -96,7 +96,7 @@ class: text-left
 <ul class="timeline">
   <li><span class="t">2013 – 2017</span><span><span class="co">遠豐科技集團 · 全端開發</span><span class="what">多商戶 SaaS 電商（1 萬+ 商家）· IM 系統（日訊息 200 萬+）</span></span></li>
   <li><span class="t">2017 – 2022</span><span><span class="co">商派雲起 Shopex · Lead Developer</span><span class="what">Apple 中國經銷商平台（5 個月 GMV ¥100 億）· 金番茄獎</span></span></li>
-  <li class="now"><span class="t">2022 – 2026</span><span><span class="co">KKday · 資深後端工程師</span><span class="what">聯盟行銷平台負責人 → B2C 交易鏈路 → CVR 專案組負責人</span></span></li>
+  <li class="now"><span class="t">2022 – 2026</span><span><span class="co">悠途OTA · 資深後端工程師</span><span class="what">聯盟行銷平台負責人 → B2C 交易鏈路 → CVR 專案組負責人</span></span></li>
 </ul>
 
 ---
@@ -104,7 +104,7 @@ layout: default
 class: text-left
 ---
 
-<div class="eyebrow">KKday · 2022.11 – 2025.03</div>
+<div class="eyebrow">悠途OTA · 2022.11 – 2025.03</div>
 
 # 聯盟行銷平台負責人
 
@@ -122,7 +122,7 @@ layout: default
 class: text-left
 ---
 
-<div class="eyebrow">KKday · 2025.02 – 2026.08</div>
+<div class="eyebrow">悠途OTA · 2025.02 – 2026.08</div>
 
 # B2C 核心交易鏈路
 

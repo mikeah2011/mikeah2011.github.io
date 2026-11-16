@@ -21,7 +21,7 @@ description: "从 PHP/Laravel 后端开发者的视角出发，系统讲解 Flut
 
 ## 一、为什么写这篇？（痛点/背景）
 
-作为 KKday B2C 后端团队的一员，我们长期面对一个尴尬的现实：**后端能快速迭代 API，但前端交付速度总是跟不上**。
+作为悠途OTA B2C 后端团队的一员，我们长期面对一个尴尬的现实：**后端能快速迭代 API，但前端交付速度总是跟不上**。
 
 项目里的 uni-app 负责 H5 和小程序，原生 iOS/Android 负责 App。三套代码、三个团队、三种调试方式。每次 API 变更，前端联调至少要等 2-3 天。
 
@@ -96,7 +96,7 @@ Widget buildCard({
 
 // 调用时参数名一目了然（比 PHP 的关联数组清晰得多）
 buildCard(
-  title: 'KKday 东京一日游',
+  title: 'youtu 东京一日游',
   subtitle: '含午餐 · ¥299',
   onTap: () => print('clicked'),
 );
@@ -207,7 +207,7 @@ Flutter 的 UI 构建哲学和传统 OOP 截然不同——**一切都是 Widget
 │  │  ┌─────────────────────────────┐  │  │
 │  │  │        AppBar               │  │  │
 │  │  │  ┌──────────────────────┐   │  │  │
-│  │  │  │    Text('KKday')    │   │  │  │
+│  │  │  │    Text('youtu')    │   │  │  │
 │  │  │  └──────────────────────┘   │  │  │
 │  │  └─────────────────────────────┘  │  │
 │  │  ┌─────────────────────────────┐  │  │
@@ -491,7 +491,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         id: widget.productId,
         name: '东京浅草寺和服体验',
         price: 299.0,
-        imageUrl: 'https://cdn.kkday.com/asakusa-kimono.jpg',
+        imageUrl: 'https://cdn.youtu-ota.test/asakusa-kimono.jpg',
         tags: ['含午餐', '中文导游', '免排队'],
       );
       _isLoading = false;

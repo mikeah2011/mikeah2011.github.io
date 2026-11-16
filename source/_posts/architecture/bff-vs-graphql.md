@@ -4,7 +4,7 @@ title: BFF vs GraphQL：何时用 BFF 而非直接调用 API？
 keywords: [BFF vs GraphQL, BFF, API, 何时用, 而非直接调用]
 date: 2026-05-02
 author: Michael
-description: BFF vs GraphQL 如何选型？本文基于 KKday B2C 真实项目经验，对比 Laravel BFF、GraphQL 与 Direct API 三种架构方案的性能、缓存策略、版本管理和团队适配维度，附完整代码示例与性能实测数据，帮助后端工程师在微服务聚合场景中做出理性架构决策，避免过度设计 GraphQL 的常见踩坑。
+description: BFF vs GraphQL 如何选型？本文基于悠途OTA B2C 真实项目经验，对比 Laravel BFF、GraphQL 与 Direct API 三种架构方案的性能、缓存策略、版本管理和团队适配维度，附完整代码示例与性能实测数据，帮助后端工程师在微服务聚合场景中做出理性架构决策，避免过度设计 GraphQL 的常见踩坑。
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/architecture-1-content-1.jpg
@@ -17,13 +17,13 @@ tags:
 - API
 - 微服务
 - 架构
-简介: KKday B2C 项目中我实际做过三种方案对比：Laravel BFF、GraphQL、Direct API。本文分享真实踩坑记录和选型决策框架，适合正在纠结架构的工程师阅读。
+简介: 悠途OTA B2C 项目中我实际做过三种方案对比：Laravel BFF、GraphQL、Direct API。本文分享真实踩坑记录和选型决策框架，适合正在纠结架构的工程师阅读。
 ---
 
 
-## 🎯 场景背景：KKday B2C 项目的架构抉择
+## 🎯 场景背景：悠途OTA B2C 项目的架构抉择
 
-在 KKday 的 B2C 后端团队中，我负责维护一套 **Laravel + PHP 8 BFF** 中间层架构，主要职责是聚合内部 Java 服务（search/recommend/svc-search）的数据，向前端提供统一接口。
+在悠途OTA的 B2C 后端团队中，我负责维护一套 **Laravel + PHP 8 BFF** 中间层架构，主要职责是聚合内部 Java 服务（search/recommend/svc-search）的数据，向前端提供统一接口。
 
 在项目演进过程中，我们曾面临过这样的讨论：
 
@@ -197,7 +197,7 @@ return Cache::remember(
 
 ![GraphQL 与微服务架构](/images/content/architecture-1-content-2.jpg)
 
-GraphQL 听起来很美好，理论上可以 "一次请求获取所有数据"。但在 KKday B2C 项目中，我们最终只在部分新项目中尝试，**并未全面迁移**。原因如下：
+GraphQL 听起来很美好，理论上可以 "一次请求获取所有数据"。但在 youtu B2C 项目中，我们最终只在部分新项目中尝试，**并未全面迁移**。原因如下：
 
 ### 1. Schema 版本管理噩梦
 
@@ -300,7 +300,7 @@ $results = $memberService->fetchMultiple([$userId]);  // 一次批量查询
 | **团队 PHP** | 前端 + 后端都是 PHP 生态 | ⭐⭐⭐⭐⭐ |
 | **快速迭代** | 需要频繁调整字段和逻辑 | ⭐⭐⭐⭐ |
 
-**KKday B2C 的典型场景**：
+**youtu B2C 的典型场景**：
 - 首页需要聚合 search/recommend/member/ads 4 个数据源
 - 前端是小程序 + H5，需要适配不同网络环境
 - PHP 团队维护后端，前端也用 Vue3（可通过 API 转换）
@@ -331,7 +331,7 @@ $results = $memberService->fetchMultiple([$userId]);  // 一次批量查询
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    KKday B2C 混合架构                         │
+│                    youtu B2C 混合架构                         │
 └─────────────────────────────────────────────────────────────┘
 
 前端 App                          前端 H5/Web
@@ -713,8 +713,8 @@ class HomePageController extends Controller
 
 ## 📖 相关阅读
 
-- [Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录](/databases/laravel-redis-distributedlockguide/) — BFF 缓存层常用的 Redis 分布式锁踩坑与解决方案
-- [Redis 实战：缓存穿透/击穿/雪崩防护 - KKday B2C API 真实踩坑记录](/databases/redis-guidecache-penetrationbreakdownavalanche/) — BFF 缓存策略中 Redis 防护的核心原理
+- [Laravel Redis 分布式锁失效场景实战 - youtu B2C API 真实踩坑记录](/databases/laravel-redis-distributedlockguide/) — BFF 缓存层常用的 Redis 分布式锁踩坑与解决方案
+- [Redis 实战：缓存穿透/击穿/雪崩防护 - youtu B2C API 真实踩坑记录](/databases/redis-guidecache-penetrationbreakdownavalanche/) — BFF 缓存策略中 Redis 防护的核心原理
 - [CQRS 模式实战：读写分离架构在 Laravel 中的落地](/architecture/cqrs-guide-architecture-laravel-queryperformance/) — BFF 聚合读查询场景的进阶架构模式
 - [MySQL 分库分表实战：30 仓库数据库拆分经验与踩坑记录](/databases/sharding-30-repos/) — 微服务拆分后数据库层面的配套策略
 - [负载均衡实战：Nginx Upstream + Laravel Session 共享方案](/architecture/load-balancingguide-nginx-upstream-laravel-session/) — BFF 部署时负载均衡与 Session 共享的实践方案
@@ -723,7 +723,7 @@ class HomePageController extends Controller
 
 ## 📝 作者备注
 
-本文基于 KKday B2C Backend Team 的实际项目经验撰写。我们踩过不少坑：从一开始过度设计 GraphQL，到后来回归简单 BFF + RESTful，再到最后的混合架构。如果你有任何问题或补充，欢迎在 GitHub Issue 中讨论！
+本文基于 youtu B2C Backend Team 的实际项目经验撰写。我们踩过不少坑：从一开始过度设计 GraphQL，到后来回归简单 BFF + RESTful，再到最后的混合架构。如果你有任何问题或补充，欢迎在 GitHub Issue 中讨论！
 
 **更新记录**：
-- 2026-05-02：初稿完成，基于 KKday 实际架构演进经验总结
+- 2026-05-02：初稿完成，基于 youtu 实际架构演进经验总结

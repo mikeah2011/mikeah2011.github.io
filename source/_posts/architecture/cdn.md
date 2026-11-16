@@ -27,7 +27,7 @@ images:
 
 ### 1.1 为什么 B2C 电商需要 CDN？
 
-在 KKday B2C API 项目中，我们面临一个典型的性能瓶颈：
+在悠途OTA B2C API 项目中，我们面临一个典型的性能瓶颈：
 
 - **静态资源加载慢**：商品详情页包含大量图片、CSS、JS，用户分布在亚洲各地区，直连源站延迟 200-500ms
 - **API 响应压力大**：热门活动页面并发请求峰值达到 5000 QPS，源站（单台 Nginx + PHP-FPM）扛不住
@@ -986,7 +986,7 @@ CDN 缓存不是一个"配了就忘"的组件，而是一个需要持续调优�
 ## 相关阅读
 
 - [分布式缓存一致性实战：Cache-Aside/Write-Through/Write-Behind 在 Laravel 中的工程化落地](/categories/架构/分布式缓存一致性实战-Cache-Aside-Write-Through-Write-Behind在Laravel中的工程化落地/)
-- [Redis 缓存穿透/击穿/雪崩防护与分布式锁实战——KKday B2C API 真实踩坑记录](/categories/架构/Redis-缓存穿透击穿雪崩防护与分布式锁实战-KKday-B2C-API真实踩坑记录/)
+- [Redis 缓存穿透/击穿/雪崩防护与分布式锁实战——youtu B2C API 真实踩坑记录](/categories/架构/Redis-缓存穿透击穿雪崩防护与分布式锁实战-youtu-ota-B2C-API真实踩坑记录/)
 - [API 安全加固实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击——Laravel B2C API 踩坑记录](/categories/架构/API-安全加固实战-JWT-黑名单-请求签名-IP白名单-防重放攻击-Laravel-B2C-API踩坑记录/)
 - [Idempotency Key 深度实战：API 幂等性的三层防护——请求去重、结果缓存与分布式锁的工程化方案](/categories/架构/2026-06-06-Idempotency-Key-深度实战-API幂等性的三层防护/)
 - [分布式锁深度对比：Redis Redlock vs Zookeeper vs etcd——PHP 开发者的分布式互斥选型](/categories/架构/Distributed-Lock-深度对比-Redis-Redlock-vs-Zookeeper-vs-etcd-PHP分布式互斥选型/)

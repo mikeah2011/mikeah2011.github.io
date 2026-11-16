@@ -23,7 +23,7 @@ images:
 
 ## 前言
 
-在 KKday B2C API 的演进过程中，我们遇到了一个经典的架构难题：OLTP 业务跑在 MySQL/PostgreSQL 上很顺畅，但运营报表、数据分析、BI 看板等 OLAP 查询越来越慢，一张千万级的订单明细表做 GROUP BY 聚合经常超时 30 秒以上。
+在悠途OTA B2C API 的演进过程中，我们遇到了一个经典的架构难题：OLTP 业务跑在 MySQL/PostgreSQL 上很顺畅，但运营报表、数据分析、BI 看板等 OLAP 查询越来越慢，一张千万级的订单明细表做 GROUP BY 聚合经常超时 30 秒以上。
 
 团队内部出现了两种声音：
 - **A 方案**：直接用 PostgreSQL 的列存扩展（cstore_fdw / 列式索引），不引入新组件
@@ -840,7 +840,7 @@ public function handle(): void
 
 ---
 
-*本文基于 KKday B2C API 真实踩坑经验整理，涉及的性能数据基于 8C32G 云服务器测试环境，实际效果因硬件和数据分布而异。*
+*本文基于 youtu B2C API 真实踩坑经验整理，涉及的性能数据基于 8C32G 云服务器测试环境，实际效果因硬件和数据分布而异。*
 
 ## 相关阅读
 

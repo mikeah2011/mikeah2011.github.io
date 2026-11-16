@@ -5,7 +5,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-02
 author: Michael
-description: "深入讲解 Laravel Phone SDK（spatie/laravel-phone）在跨境业务中的实战应用，覆盖国际手机号验证、E.164 格式化、归一化存储、VoIP 号码识别、Redis 防抖、多国号码格式兼容等核心场景，附 KKday B2C 真实踩坑记录与 Pest 测试用例，帮助 PHP 开发者快速构建支持 180+ 国家和地区手机号校验的后端服务。"
+description: "深入讲解 Laravel Phone SDK（spatie/laravel-phone）在跨境业务中的实战应用，覆盖国际手机号验证、E.164 格式化、归一化存储、VoIP 号码识别、Redis 防抖、多国号码格式兼容等核心场景，附悠途OTA B2C 真实踩坑记录与 Pest 测试用例，帮助 PHP 开发者快速构建支持 180+ 国家和地区手机号校验的后端服务。"
 categories: [php]
 tags: [Laravel, PHP, SDK, 手机号验证, 国际化, 安全]
 keywords: [Laravel Phone SDK, 国际手机号验证, PHP]
@@ -15,7 +15,7 @@ keywords: [Laravel Phone SDK, 国际手机号验证, PHP]
 
 ---
 
-> **背景**：KKday B2C 后端团队日常对接大量跨境用户，日本 (+81)、英国 (+44)、美国 (+1)、德国 (+49)、中国 (+86) 等地的电话号码格式差异极大。早期用正则匹配，结果错误率高、维护成本爆炸。引入 `spatie/laravel-phone` 后，问题迎刃而解。
+> **背景**：悠途OTA B2C 后端团队日常对接大量跨境用户，日本 (+81)、英国 (+44)、美国 (+1)、德国 (+49)、中国 (+86) 等地的电话号码格式差异极大。早期用正则匹配，结果错误率高、维护成本爆炸。引入 `spatie/laravel-phone` 后，问题迎刃而解。
 
 ## 一、为什么要用 Phone SDK？
 
@@ -104,7 +104,7 @@ class PhoneHelper
 }
 ```
 
-## 三、KKday B2C API 实战：跨境用户注册场景
+## 三、youtu B2C API 实战：跨境用户注册场景
 
 ### 控制器层实现（薄 Controller）
 
@@ -279,7 +279,7 @@ class PhoneService
 }
 ```
 
-## 四、真实踩坑记录（KKday B2C 项目经验）
+## 四、真实踩坑记录（youtu B2C 项目经验）
 
 ### 坑 1：时区转换导致验证失败
 
@@ -493,11 +493,11 @@ it('应拒绝 VoIP 号码', function (PhoneService $phoneService) {
 
 - 📄 [spatie/laravel-phone GitHub](https://github.com/spatie/laravel-phone)
 - 📚 [`libphonenumber` 官方文档](https://github.com/google/libphonenumber)
-- 🔍 [KKday B2C API OpenAPI Spec](../docs/bff-api-spec.md#phone-validation-endpoint)
+- 🔍 [youtu B2C API OpenAPI Spec](../docs/bff-api-spec.md#phone-validation-endpoint)
 
 ---
 
-> **作者备注**：本文基于 KKday B2C 后端团队的真实项目经验编写。Phone SDK 已作为生产环境标配，处理日均百万级跨境用户注册请求。
+> **作者备注**：本文基于 youtu B2C 后端团队的真实项目经验编写。Phone SDK 已作为生产环境标配，处理日均百万级跨境用户注册请求。
 
 ## 相关阅读
 

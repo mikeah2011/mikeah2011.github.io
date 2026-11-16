@@ -725,7 +725,7 @@ export default defineConfig({
 
 ---
 
-*本文基于 KKday 前端项目从 Tailwind CSS v3 迁移到 v4 的真实踩坑经验整理。*
+*本文基于 youtu 前端项目从 Tailwind CSS v3 迁移到 v4 的真实踩坑经验整理。*
 
 ## 相关阅读
 

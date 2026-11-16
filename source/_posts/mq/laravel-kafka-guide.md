@@ -1,7 +1,7 @@
 ---
 
-title: Laravel-Kafka 消息队列异步解耦实战-KKday B2C API 订单处理与库存扣减真实踩坑记录
-keywords: [Laravel, Kafka, KKday B2C API, 消息队列异步解耦实战, 订单处理与库存扣减真实踩坑记录, 消息队列, PHP]
+title: Laravel-Kafka 消息队列异步解耦实战-youtu-ota B2C API 订单处理与库存扣减真实踩坑记录
+keywords: [Laravel, Kafka, 悠途OTA B2C API, 消息队列异步解耦实战, 订单处理与库存扣减真实踩坑记录, 消息队列, PHP]
 date: 2026-05-03
 author: Michael
 cover: https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
@@ -9,20 +9,20 @@ images:
   - https://images.unsplash.com/photo-1516259762381-2247580d4b89?w=1200&h=630&fit=crop
 categories: [mq]
 tags:
-- KKday
+- 悠途OTA
 - Laravel
 - 消息队列
 - Kafka
 - PHP
-description: KKday B2C API 项目中 Kafka 与 Laravel 集成分享：Producer/Consumer 配置、消息可靠性保障、事务性消息、死信队列、真实踩坑记录与最佳实践
+description: 悠途OTA B2C API 项目中 Kafka 与 Laravel 集成分享：Producer/Consumer 配置、消息可靠性保障、事务性消息、死信队列、真实踩坑记录与最佳实践
 ---
 
 
-# 🚀 Laravel-Kafka 消息队列异步解耦实战 - KKday B2C API 订单处理与库存扣减真实踩坑记录
+# 🚀 Laravel-Kafka 消息队列异步解耦实战 - 悠途OTA B2C API 订单处理与库存扣减真实踩坑记录
 
 ## 📋 文章目录
 
-1. [问题背景：KKday B2C API 为什么要引入 Kafka？](#-问题背景kkday-b2c-api-为什么要引入kafka)
+1. [问题背景：悠途OTA B2C API 为什么要引入 Kafka？](#-问题背景youtu-ota-b2c-api-为什么要引入kafka)
 2. [架构设计：为什么选择 Kafka 而非 RabbitMQ/Redis List](#-架构设计为什么选择kafka而非rabbitmoredis-list)
 3. [核心配置：Laravel-ScaleKafkaProducer 完整配置指南](#-核心配置laravelscalekafkaproducer-完整配置指南)
 4. [实战踩坑记录：生产环境遇到的真实问题与解决方案](#-实战踩坑记录生产环境遇到过的真实问题与解决方案)
@@ -32,9 +32,9 @@ description: KKday B2C API 项目中 Kafka 与 Laravel 集成分享：Producer/C
 
 ---
 
-## 🔍 问题背景：KKday B2C API 为什么要引入 Kafka？
+## 🔍 问题背景：悠途OTA B2C API 为什么要引入 Kafka？
 
-在 KKday B2C API 项目中，我们使用 **Laravel 8 + PHP 8** 作为 BFF（Backend for Frontend）中间层，承接来自 GraphQL 聚合查询的请求。在高并发促销活动期间，单接口 QPS 可达 **5000+**，主要业务包括：
+在悠途OTA B2C API 项目中，我们使用 **Laravel 8 + PHP 8** 作为 BFF（Backend for Frontend）中间层，承接来自 GraphQL 聚合查询的请求。在高并发促销活动期间，单接口 QPS 可达 **5000+**，主要业务包括：
 
 - 🛒 **订单创建**：用户下单后需要异步执行库存扣减、积分计算、优惠券校验
 - ✈️ **航班预订**：需调用第三方 API（Amadeus/Sabre）处理座位预留
@@ -98,7 +98,7 @@ public function createOrder(OrderRequest $request)
 | 堆叠消费 | ❌ 不支持 | ✅ 支持 | **原生多消费者组** |
 | 消息积压恢复 | ❌ 困难 | ⚠️ 需要重启 | ✅ **消费者重平衡自动恢复** |
 
-### KKday 选择 Kafka 的理由
+### youtu 选择 Kafka 的理由
 
 1. **高吞吐需求**：促销活动期间 QPS 5000+，单 Redis List 节点仅支撑 3000 QPS
 2. **订单状态回溯**：运营需要支持"重新扣减库存"场景，需读取历史消息
@@ -791,7 +791,7 @@ class KafkaOrderConsumer implements Contracts\ConsumerInterface
 | **适用场景** | 日志记录、非关键数据 | BFF 中间层聚合请求 | **订单创建、库存扣减等关键业务** |
 
 ```php
-// ✅ KKday 推荐配置：acks=all（保证不丢消息）
+// ✅ youtu 推荐配置：acks=all（保证不丢消息）
 'acks' => 'all', // 或 '1' 如果性能优先
 ```
 
@@ -1052,7 +1052,7 @@ class KafkaHealthCheck
 
 ### ✅ Kafka 与 Laravel 集成 checklist
 
-| 检查项 | 推荐配置 | KKday B2C API 实际使用 |
+| 检查项 | 推荐配置 | youtu B2C API 实际使用 |
 |--------|---------|----------------------|
 | **Producer ACK** | `acks=all` | ✅ 已启用（订单创建场景） |
 | **消息序列化** | JSON with UTF-8 | ✅ 已使用 `JSON_UNESCAPED_UNICODE` |
@@ -1070,7 +1070,7 @@ class KafkaHealthCheck
 
 ---
 
-📌 **总结**：本文详细介绍了 KKday B2C API 项目中引入 Kafka 消息队列解决订单处理异步解耦的实际经验，包括 Producer 配置、Consumer 消费与重试机制、消息可靠性保障（ACK/幂等性/事务性）、监控与告警等内容。建议在生产环境中启用 `acks=all`、实现 Consumer 端幂等性检查、定期检查 Dead Letter Queue。
+📌 **总结**：本文详细介绍了 youtu B2C API 项目中引入 Kafka 消息队列解决订单处理异步解耦的实际经验，包括 Producer 配置、Consumer 消费与重试机制、消息可靠性保障（ACK/幂等性/事务性）、监控与告警等内容。建议在生产环境中启用 `acks=all`、实现 Consumer 端幂等性检查、定期检查 Dead Letter Queue。
 
 ## 相关阅读
 

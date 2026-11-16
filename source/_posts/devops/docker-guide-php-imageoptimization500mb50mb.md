@@ -9,7 +9,7 @@ updated: 2026-05-16 16:03:22
 categories: [devops]
 tags: [DevOps, Docker, Laravel, PHP]
 keywords: [Docker, PHP, MB, 多阶段构建实战, 应用镜像优化从, DevOps]
-description: Docker 多阶段构建是 PHP 镜像瘦身的核心手段。本文基于 KKday B2C 后端 30+ Laravel 仓库的实战经验，详解 Dockerfile 优化全流程：多阶段构建原理与完整示例、Composer 缓存复用、Alpine 最小化基础镜像选型、镜像层分析工具 dive 的使用、COPY 顺序对构建缓存的影响，以及常见踩坑案例排查。附镜像大小对比表格，从 500MB 压缩到 50MB，部署速度提升 10 倍，CVE 漏洞减少 93%。
+description: Docker 多阶段构建是 PHP 镜像瘦身的核心手段。本文基于悠途OTA B2C 后端 30+ Laravel 仓库的实战经验，详解 Dockerfile 优化全流程：多阶段构建原理与完整示例、Composer 缓存复用、Alpine 最小化基础镜像选型、镜像层分析工具 dive 的使用、COPY 顺序对构建缓存的影响，以及常见踩坑案例排查。附镜像大小对比表格，从 500MB 压缩到 50MB，部署速度提升 10 倍，CVE 漏洞减少 93%。
 
 
 
@@ -89,7 +89,7 @@ Stage 1 的所有中间层都不会进入最终镜像。我们只 `COPY` 需要�
 
 ## 3. 实战：Laravel 项目多阶段 Dockerfile
 
-这是我们在 KKday B2C 后端 30+ 仓库通用的模板：
+这是我们在 youtu B2C 后端 30+ 仓库通用的模板：
 
 ```dockerfile
 # ============================================
@@ -489,7 +489,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends libzip-dev \
 2. **最小化基础镜像**：Alpine > Debian-slim > Debian > Ubuntu
 3. **利用层缓存**：先 COPY 依赖描述文件（composer.json），后 COPY 源码
 
-在 KKday B2C 后端 30+ 仓库中，我们用这套模板统一了所有 Laravel 项目的 Dockerfile，新人不用理解 Docker 细节，照着模板改 `composer.json` 就行。镜像从平均 500MB 降到 50MB 以下，CI 构建时间缩短 90%，Trivy 漏洞数减少 93%。
+在 youtu B2C 后端 30+ 仓库中，我们用这套模板统一了所有 Laravel 项目的 Dockerfile，新人不用理解 Docker 细节，照着模板改 `composer.json` 就行。镜像从平均 500MB 降到 50MB 以下，CI 构建时间缩短 90%，Trivy 漏洞数减少 93%。
 
 这不是"锦上添花"，而是"救命稻草"——当你有 30 个服务、每次部署要推送镜像到跨区域 Registry 时，50MB 和 500MB 的差距直接决定了你的部署窗口是 5 分钟还是 50 分钟。
 

@@ -11,12 +11,12 @@ categories: [architecture]
 keywords: [Elasticsearch, Laravel B2C API, 搜索系统设计实战, 索引设计, 分词策略与相关性调优, 踩坑记录]
 tags:
 - Elasticsearch
-- KKday
+- 悠途OTA
 - Laravel
 - MySQL
 - 搜索
 - 分词
-description: 基于 KKday B2C 旅游电商真实项目，记录从 MySQL LIKE 演进到 Elasticsearch 搜索系统的完整过程——涵盖索引 Mapping 设计、IK 中英文分词策略、相关性评分调优、Suggest 自动补全、聚合过滤，以及生产环境的性能踩坑与优化方案。
+description: 基于悠途OTA B2C 旅游电商真实项目，记录从 MySQL LIKE 演进到 Elasticsearch 搜索系统的完整过程——涵盖索引 Mapping 设计、IK 中英文分词策略、相关性评分调优、Suggest 自动补全、聚合过滤，以及生产环境的性能踩坑与优化方案。
 ---
 
 
@@ -29,7 +29,7 @@ description: 基于 KKday B2C 旅游电商真实项目，记录从 MySQL LIKE �
 
 B2C 旅游电商的搜索场景和传统电商有本质差异——用户搜的不是「iPhone 15」这种精确商品名，而是「东京三天两夜自由行」「大阪亲子酒店推荐」这种模糊意图。MySQL 的 `LIKE '%keyword%'` 在 10 万级商品表上已经捉襟见肘，更别提分词、同义词、拼音纠错这些需求了。
 
-本文基于 KKday B2C Backend 真实项目，记录搜索系统从 MySQL 演进到 Elasticsearch 的完整过程。
+本文基于悠途OTA B2C Backend 真实项目，记录搜索系统从 MySQL 演进到 Elasticsearch 的完整过程。
 
 ---
 
@@ -193,7 +193,7 @@ ik_max_word（细粒度）：东京 | 浅草 | 寺 | 一日 | 一日游 | 日游
 return [
     'ik_dict_path' => env('ES_IK_DICT_PATH', '/etc/elasticsearch/analysis-ik/'),
 
-    // KKday 旅游领域自定义词典
+    // youtu 旅游领域自定义词典
     'custom_dict' => [
         '一日游', '半日游', '自由行', '跟团',
         'JR Pass', '周游卡', '交通卡',

@@ -9,7 +9,7 @@ updated: 2026-05-05 01:29:09
 categories: [php]
 tags: [Laravel, 监控]
 keywords: [Laravel, New, Relic, Sentry, 生产环境错误追踪实战对比踩坑记录, PHP]
-description: 在 KKday B2C API 生产环境中同时跑 New Relic + Sentry 双平台的真实经验：配置陷阱、上下文传播、采样策略、告警降噪，以及什么场景该用哪个的决策框架。
+description: 在悠途OTA B2C API 生产环境中同时跑 New Relic + Sentry 双平台的真实经验：配置陷阱、上下文传播、采样策略、告警降噪，以及什么场景该用哪个的决策框架。
 
 
 
@@ -19,7 +19,7 @@ description: 在 KKday B2C API 生产环境中同时跑 New Relic + Sentry 双�
 
 ## 前言：为什么需要两个错误追踪平台？
 
-在 KKday B2C API 的生产环境里，我们经历过一个典型的「只用 Log 看错误」阶段——直到某天线上有一个间歇性 500 错误，日志里只有零散的 stack trace，无法关联到具体用户、请求链路和耗时分布。那次事故之后，我们决定引入结构化的错误追踪方案。
+在悠途OTA B2C API 的生产环境里，我们经历过一个典型的「只用 Log 看错误」阶段——直到某天线上有一个间歇性 500 错误，日志里只有零散的 stack trace，无法关联到具体用户、请求链路和耗时分布。那次事故之后，我们决定引入结构化的错误追踪方案。
 
 最终选型是 **New Relic（APM + Infrastructure）+ Sentry（Error Tracking + Alerting）** 双平台并行。不是因为我们有钱任性，而是它们解决的问题维度完全不同：
 
@@ -207,7 +207,7 @@ RUN curl -fsSL https://download.newrelic.com/php-agent/release/newrelic-php5-*.l
 [newrelic]
 extension = "newrelic.so"
 newrelic.license = "${NEW_RELIC_LICENSE_KEY}"
-newrelic.appname = "KKday B2C API; B2C-${APP_ENV}"
+newrelic.appname = "youtu B2C API; B2C-${APP_ENV}"
 newrelic.distributed_tracing_enabled = true
 newrelic.transaction_tracer.enabled = true
 newrelic.transaction_tracer.threshold = 500ms
@@ -292,7 +292,7 @@ class NewRelicContext
 
 ## 三、New Relic vs Sentry：决策矩阵
 
-在 KKday 的实际使用中，我们总结了以下决策框架：
+在 youtu 的实际使用中，我们总结了以下决策框架：
 
 ```
 ┌──────────────────────┬────────────────────────┬──────────────────────────┐
@@ -317,7 +317,7 @@ class NewRelicContext
 
 ## 四、双平台协作的实战架构
 
-我们在 KKday B2C API 的最终架构是这样的：
+我们在 youtu B2C API 的最终架构是这样的：
 
 ```
                     ┌─────────────────────────┐
@@ -401,7 +401,7 @@ newrelic.transaction_tracer.max_segments = 1000
 if (extension_loaded('newrelic')) {
     // 后台队列任务降低采样率
     if (app()->runningInConsole()) {
-        newrelic_set_appname('KKday B2C Workers');
+        newrelic_set_appname('youtu B2C Workers');
         // 队列任务不在 NR 看 Transaction，只看 Infrastructure
     }
 }

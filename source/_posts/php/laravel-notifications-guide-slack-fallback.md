@@ -14,7 +14,7 @@ description: >
 ---
 ## 为什么需要统一的通知抽象层？
 
-在 KKday B2C 电商系统中，一个"订单确认"场景至少涉及 **4 种通知通道**：
+在悠途OTA B2C 电商系统中，一个"订单确认"场景至少涉及 **4 种通知通道**：
 
 ```
 订单支付成功
@@ -183,7 +183,7 @@ class OrderConfirmed extends Notification
 
         return (new SlackMessage)
             ->success()
-            ->from('KKday Bot', ':airplane:')
+            ->from('youtu Bot', ':airplane:')
             ->to('#order-notifications')
             ->content("新订单确认！:tada:")
             ->attachment(function ($attachment) use ($order) {
@@ -372,7 +372,7 @@ Notification::send(
 );
 
 // 通知匿名（无 notifiable 模型，用 routeNotificationFor 自定义）
-Notification::route('mail', 'ops@kkday.com')
+Notification::route('mail', 'ops@youtu-ota.test')
     ->route('slack', '#alerts')
     ->notify(new OrderConfirmed($order));
 ```
@@ -648,7 +648,7 @@ Laravel 的 Notification 系统核心价值在于**统一抽象**——你只需
 - [Laravel HTTP Client 容错弹性模式实战 - 熔断降级、重试退避与超时治理](/php/Laravel/laravel-http-client-guide-circuit-breakerfallback)
 - [Laravel Firebase Cloud Messaging Web Push 推送通知实战](/php/Laravel/laravel-firebase-cloud-messaging-web-push-service-worker)
 - [Laravel Horizon 队列监控与生产环境运维实战 - 多队列优先级、指标采集与自动恢复](/php/Laravel/laravel-horizon-monitoringguide)
-- [Laravel Queue 队列实战踩坑记录 - KKday B2C API 真实经验分享](/php/Laravel/laravel-queue-patterns)
+- [Laravel Queue 队列实战踩坑记录 - youtu B2C API 真实经验分享](/php/Laravel/laravel-queue-patterns)
 ---
 tle: Laravel-Notifications-多通道实战-邮件短信Slack企业微信集成-统一通知抽象与降级策略踩坑记录
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -661,11 +661,11 @@ categories:
 tags: [CI/CD, Laravel, 工程管理]
 keywords: [CI/CD, Laravel, 工程管理, Notifications, Slack]
 description: >
-Laravel Notifications 多通道通知实战指南：基于 KKday B2C 电商系统，详解如何通过统一通知抽象层集成邮件、短信、Slack 与企业微信四大通道。深入讲解 Fallback 降级策略、自定义 SmsChannel 开发、Slack Webhook 频率限制处理、SMS 短信模板审核与多语言映射，以及队列化通知序列化陷阱、access_token 缓存竞争等生产级踩坑经验与测试方案。
+Laravel Notifications 多通道通知实战指南：基于 youtu B2C 电商系统，详解如何通过统一通知抽象层集成邮件、短信、Slack 与企业微信四大通道。深入讲解 Fallback 降级策略、自定义 SmsChannel 开发、Slack Webhook 频率限制处理、SMS 短信模板审核与多语言映射，以及队列化通知序列化陷阱、access_token 缓存竞争等生产级踩坑经验与测试方案。
 ---
 ## 为什么需要统一的通知抽象层？
 
-在 KKday B2C 电商系统中，一个"订单确认"场景至少涉及 **4 种通知通道**：
+在 youtu B2C 电商系统中，一个"订单确认"场景至少涉及 **4 种通知通道**：
 
 ```
 订单支付成功
@@ -834,7 +834,7 @@ class OrderConfirmed extends Notification
 
         return (new SlackMessage)
             ->success()
-            ->from('KKday Bot', ':airplane:')
+            ->from('youtu Bot', ':airplane:')
             ->to('#order-notifications')
             ->content("新订单确认！:tada:")
             ->attachment(function ($attachment) use ($order) {
@@ -1023,7 +1023,7 @@ Notification::send(
 );
 
 // 通知匿名（无 notifiable 模型，用 routeNotificationFor 自定义）
-Notification::route('mail', 'ops@kkday.com')
+Notification::route('mail', 'ops@youtu-ota.test')
     ->route('slack', '#alerts')
     ->notify(new OrderConfirmed($order));
 ```
@@ -1299,4 +1299,4 @@ Laravel 的 Notification 系统核心价值在于**统一抽象**——你只需
 - [Laravel HTTP Client 容错弹性模式实战 - 熔断降级、重试退避与超时治理](/php/Laravel/laravel-http-client-guide-circuit-breakerfallback)
 - [Laravel Firebase Cloud Messaging Web Push 推送通知实战](/php/Laravel/laravel-firebase-cloud-messaging-web-push-service-worker)
 - [Laravel Horizon 队列监控与生产环境运维实战 - 多队列优先级、指标采集与自动恢复](/php/Laravel/laravel-horizon-monitoringguide)
-- [Laravel Queue 队列实战踩坑记录 - KKday B2C API 真实经验分享](/php/Laravel/laravel-queue-patterns)
+- [Laravel Queue 队列实战踩坑记录 - youtu B2C API 真实经验分享](/php/Laravel/laravel-queue-patterns)

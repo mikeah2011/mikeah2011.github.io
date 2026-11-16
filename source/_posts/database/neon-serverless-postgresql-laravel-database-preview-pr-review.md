@@ -1506,6 +1506,6 @@ Neon Serverless PostgreSQL 通过存储计算分离和 Copy-on-Write 分支机�
 
 ## 相关阅读
 
-- [PostgreSQL vs MySQL 选型实战：KKday Affiliate 项目为什么选 PostgreSQL 以及边界在哪里](/databases/postgresql-vs-mysql-guide-kkday-affiliate-postgresql/)
+- [PostgreSQL vs MySQL 选型实战：youtu Affiliate 项目为什么选 PostgreSQL 以及边界在哪里](/databases/postgresql-vs-mysql-guide-youtu-ota-affiliate-postgresql/)
 - [数据库连接池实战：PgBouncer vs ProxySQL vs Supabase 在高并发 Laravel 中的选型对比](/databases/database-connection-pool-pgbouncer-proxysql-supabase-comparison/)
 - [TimescaleDB 实战：时序数据库在 Laravel 中的集成——IoT 数据、用户行为分析与物化视图踩坑记录](/databases/TimescaleDB-实战-时序数据库在Laravel中的集成-IoT数据用户行为分析与物化视图踩坑记录/)

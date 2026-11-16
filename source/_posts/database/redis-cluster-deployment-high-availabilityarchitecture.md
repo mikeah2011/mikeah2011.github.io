@@ -13,7 +13,7 @@ tags:
 - Redis Cluster
 - 高可用
 - 故障转移
-description: Redis Cluster 集群部署与高可用架构实战指南。基于 KKday B2C API 生产环境经验，详解 Redis Cluster 集群部署完整流程与六节点三主三从架构设计、16384 哈希槽分片原理与数据路由机制、Docker Compose 快速搭建集群开发环境、Laravel 框架中 Predis 与 phpredis 扩展的集群模式配置及 Hash Tag 路由技巧。深入讲解故障转移测试方法与自动 Failover 触发机制，涵盖手动故障转移、主节点宕机模拟与客户端重试策略实现。全面对比 Redis Sentinel 哨兵模式、Redis Cluster 集群模式与 Redis Proxy 代理三种高可用方案选型。提供 Prometheus 加 Grafana 生产监控告警完整配置方案，收录真实踩坑案例与多种故障恢复场景，助力开发者高效完成 Redis 集群部署与高可用架构落地。
+description: Redis Cluster 集群部署与高可用架构实战指南。基于悠途OTA B2C API 生产环境经验，详解 Redis Cluster 集群部署完整流程与六节点三主三从架构设计、16384 哈希槽分片原理与数据路由机制、Docker Compose 快速搭建集群开发环境、Laravel 框架中 Predis 与 phpredis 扩展的集群模式配置及 Hash Tag 路由技巧。深入讲解故障转移测试方法与自动 Failover 触发机制，涵盖手动故障转移、主节点宕机模拟与客户端重试策略实现。全面对比 Redis Sentinel 哨兵模式、Redis Cluster 集群模式与 Redis Proxy 代理三种高可用方案选型。提供 Prometheus 加 Grafana 生产监控告警完整配置方案，收录真实踩坑案例与多种故障恢复场景，助力开发者高效完成 Redis 集群部署与高可用架构落地。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-001-content-1.jpg
@@ -26,7 +26,7 @@ images:
 
 ## 前言：为什么单实例 Redis 已经不够用了？
 
-在 KKday B2C API 项目早期，我们用单实例 Redis + Sentinel 哨兵模式撑过了前两年的业务增长。但随着日活突破 50 万、Redis 从缓存扩展到分布式锁、Session、排行榜、限流计数器等多种角色后，单实例架构的瓶颈暴露无遗：
+在悠途OTA B2C API 项目早期，我们用单实例 Redis + Sentinel 哨兵模式撑过了前两年的业务增长。但随着日活突破 50 万、Redis 从缓存扩展到分布式锁、Session、排行榜、限流计数器等多种角色后，单实例架构的瓶颈暴露无遗：
 
 - **内存天花板**：单实例内存上限 64GB，数据量逼近阈值
 - **写入瓶颈**：所有写操作集中在单节点，QPS 高峰期 CPU 打满
@@ -810,7 +810,7 @@ scrape_configs:
     static_configs:
       - targets: ["redis-exporter:9121"]
         labels:
-          cluster: "kkday-b2c"
+          cluster: "youtu-ota-b2c"
 ```
 
 ```yaml
@@ -972,7 +972,7 @@ Redis Cluster 不是银弹，它引入了 hash slot 约束、跨 slot 操作限�
 
 ---
 
-*本文基于 KKday B2C API 项目的真实 Redis Cluster 部署经验，所有配置和踩坑记录均来自生产环境。*
+*本文基于 youtu B2C API 项目的真实 Redis Cluster 部署经验，所有配置和踩坑记录均来自生产环境。*
 
 ---
 

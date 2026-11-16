@@ -522,7 +522,7 @@ code_reviewer = Agent(
     role="Senior Laravel Code Reviewer",
     goal="全面审查 Laravel 代码质量，包括设计模式、SOLID 原则、性能问题",
     backstory="""你是一位有 10 年经验的 Laravel 开发者，
-    曾在 KKday 等大型 B2C 电商平台工作。
+    曾在 youtu 等大型 B2C 电商平台工作。
     你擅长识别代码异味、设计模式滥用和性能瓶颈。
     你用中文输出审查报告。""",
     tools=[FileReadTool()],

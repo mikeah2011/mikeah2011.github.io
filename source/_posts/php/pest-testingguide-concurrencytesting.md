@@ -4,7 +4,7 @@ images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-04 07:37:42
 description: "Pest 单元测试测试框架在 Laravel B2C API 项目中的实战指南，涵盖数据驱动测试（Data-Driven）、并发测试防超卖、异步队列 Wait 插件、工厂模式批量创建、数据库连接泄漏修复等核心踩坑记录，附完整 PHPUnit vs Pest 对比与最佳实践清单，帮助 PHP 开发者提升测试覆盖率至 87%。"
-tags: [Laravel, Pest, PHP, PHPUnit, 测试, 并发测试, KKday]
+tags: [Laravel, Pest, PHP, PHPUnit, 测试, 并发测试, 悠途OTA]
 keywords: [Pest, Laravel B2C API, 单元测试实战, 数据驱动与并发测试踩坑记录, PHP, 测试]
 categories: [php]
 title: Pest 单元测试实战：Laravel B2C API 数据驱动与并发测试踩坑记录
@@ -18,7 +18,7 @@ author: Michael
 
 ## 📊 架构概览
 
-在 KKday B2C API 项目中，我们引入了 [Pest](https://pestphp.com/) 替代 PHPUnit 作为测试框架。相比 PHPUnit 的样板代码，Pest 采用 DSL（领域特定语言）让测试更简洁可读：
+在悠途OTA B2C API 项目中，我们引入了 [Pest](https://pestphp.com/) 替代 PHPUnit 作为测试框架。相比 PHPUnit 的样板代码，Pest 采用 DSL（领域特定语言）让测试更简洁可读：
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -277,7 +277,7 @@ public function test_queue_processing($data): void
 
 ### 场景背景
 
-KKday API 在高并发场景下，订单创建接口容易出现超卖问题。我们需要使用 Pest 的并发测试能力进行压力验证：
+youtu API 在高并发场景下，订单创建接口容易出现超卖问题。我们需要使用 Pest 的并发测试能力进行压力验证：
 
 ```php
 // 📂 Tests/O5_PHP/Laravel/Feature/ConcurrentOrderTest.php
@@ -620,7 +620,7 @@ Pest 相比 PHPUnit 的优势：
 - ✅ 异步等待功能完善
 - ✅ 与 Laravel 生态无缝集成
 
-在 KKday B2C API 项目中引入 Pest 后，单元测试执行时间从原来的 **45 秒** 缩短至 **18 秒**，代码覆盖率提升至 **87%**（原 PHPUnit 为 **62%**）。通过数据驱动测试和并发场景模拟，我们成功拦截了多个线上问题，显著提升了 API 的可靠性。
+在 youtu B2C API 项目中引入 Pest 后，单元测试执行时间从原来的 **45 秒** 缩短至 **18 秒**，代码覆盖率提升至 **87%**（原 PHPUnit 为 **62%**）。通过数据驱动测试和并发场景模拟，我们成功拦截了多个线上问题，显著提升了 API 的可靠性。
 
 ---
 
@@ -632,4 +632,4 @@ Pest 相比 PHPUnit 的优势：
 
 ---
 
-*本文基于 KKday B2C API 真实项目经验总结，包含完整的代码示例和踩坑记录，适合中高级 Laravel 开发者参考学习。*
+*本文基于 youtu B2C API 真实项目经验总结，包含完整的代码示例和踩坑记录，适合中高级 Laravel 开发者参考学习。*

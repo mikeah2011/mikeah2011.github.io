@@ -32,7 +32,7 @@ description: 在 Apple Silicon Mac 上部署本地大模型的完整实战指南
 
 ## 🎯 引言：为什么 Laravel BFF 开发者需要本地 LLM？
 
-作为 KKday RD B2C 后端 Team 的一员，我日常的工作场景包括：
+作为悠途OTA RD B2C 后端 Team 的一员，我日常的工作场景包括：
 - **Laravel 8 + PHP 8** 编写 BFF 层，对接 Java 内部服务（search/recommend/svc-search）
 - **MySQL / PostgreSQL / Redis** 处理海量库存、订单数据
 - **Docker Compose + Colima** 在 M 芯片 Mac 上本地构建镜像
@@ -382,7 +382,7 @@ ollama rm qwen3.5:7b
 
 ### 8.3 与 Laravel BFF 集成思路
 
-对于 KKday 的后端服务，我考虑将 Ollama 封装为：
+对于 youtu 的后端服务，我考虑将 Ollama 封装为：
 - **内部 API**：Laravel 通过 `HttpClient` 调用 Ollama 生成 API 文档
 - **本地助手**：IDE 插件自动生成 Confluence SA/SD 草稿
 
@@ -647,7 +647,7 @@ ollama list
 
 ### 9.2 未来计划
 
-- **探索 LM Studio + LoRA 微调**：用 KKday BFF 内部历史对话数据微调 Qwen3.5，使其更懂我们的业务逻辑
+- **探索 LM Studio + LoRA 微调**：用 youtu BFF 内部历史对话数据微调 Qwen3.5，使其更懂我们的业务逻辑
 - **集成 Tailscale**：将 Ollama 通过 Tailscale 内网穿透到公司环境，实现跨网络文档协作（参考 backlog 中的第 28 条）
 - **开发 Laravel 插件**：封装 `pestphp/pest-plugin-laravel` + `ollama`，实现自动代码审查
 

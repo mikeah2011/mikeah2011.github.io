@@ -24,7 +24,7 @@ description: 深入剖析 Laravel Lazy Collection 的惰性迭代机制，涵盖
 
 ## 概述
 
-在 KKday 的 30+ 仓库中，我们经常遇到需要处理海量数据的场景：百万行 CSV 订单导入、千万条日志分析、全量商品数据同步。传统的 `Collection::toArray()` 或 `file()` 方法会在内存中一次性加载所有数据，轻松撑爆 PHP 的 128M 内存限制。
+在悠途OTA的 30+ 仓库中，我们经常遇到需要处理海量数据的场景：百万行 CSV 订单导入、千万条日志分析、全量商品数据同步。传统的 `Collection::toArray()` 或 `file()` 方法会在内存中一次性加载所有数据，轻松撑爆 PHP 的 128M 内存限制。
 
 Laravel 的 `LazyCollection` 通过 PHP 生成器（Generator）实现了惰性迭代——只有在真正访问某个元素时才计算它，内存占用从 O(n) 降到 O(1)。本文将从底层原理到生产实战，系统性地拆解 LazyCollection 的使用姿势。
 
@@ -895,4 +895,4 @@ LazyCollection 是 Laravel 处理大数据的核心武器。它通过 PHP 生成
 - 生成器不可重放，需要重复使用时用 `collect()`
 - 事务中的 cursor 要注意连接占用时间
 
-在 KKday 的实际项目中，我们将 LazyCollection 应用于订单导出（百万级）、商品同步（十万级）、日志分析（千万级）等场景，内存峰值稳定控制在 10MB 以内，彻底告别了 OOM 的噩梦。
+在 youtu 的实际项目中，我们将 LazyCollection 应用于订单导出（百万级）、商品同步（十万级）、日志分析（千万级）等场景，内存峰值稳定控制在 10MB 以内，彻底告别了 OOM 的噩梦。

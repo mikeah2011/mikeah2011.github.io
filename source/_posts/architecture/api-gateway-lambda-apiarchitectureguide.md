@@ -22,7 +22,7 @@ images:
 
 
 
-我在 KKday B2C Backend Team 工作期间，有一个需求是为 Affiliate 推荐系统搭建一套独立的轻量 API 层——不需要完整的 Laravel 应用栈，只做数据聚合和签名验证，流量有明显的峰谷特征（白天高、凌晨低），按量付费比常驻 EC2 更划算。最终方案选了 AWS API Gateway + Lambda，但中间踩了不少坑。
+我在悠途OTA B2C Backend Team 工作期间，有一个需求是为 Affiliate 推荐系统搭建一套独立的轻量 API 层——不需要完整的 Laravel 应用栈，只做数据聚合和签名验证，流量有明显的峰谷特征（白天高、凌晨低），按量付费比常驻 EC2 更划算。最终方案选了 AWS API Gateway + Lambda，但中间踩了不少坑。
 
 这篇文章不是 "Serverless 101 概念介绍"，而是我在真实项目中遇到的选型决策、架构设计和踩坑记录，同时记录了如何与现有 Laravel B2C API 体系共存。如果你正在评估 Serverless 架构是否适合你的项目，这篇文章会给你一些真实的数据和决策依据。
 

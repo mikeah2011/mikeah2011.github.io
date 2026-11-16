@@ -142,7 +142,7 @@ class AgentConfig
 
         return new self(
             role: $role,
-            model: 'xiaomi-sgp-kkday/mimo-v2.5-pro',
+            model: 'xiaomi-sgp-youtu/mimo-v2.5-pro',
             temperature: 0.4,
             maxTokens: 2048,
             systemPrompt: $prompts[$role],
@@ -153,7 +153,7 @@ class AgentConfig
     {
         return new self(
             role: AgentRole::SYNTHESIZER,
-            model: 'xiaomi-sgp-kkday/mimo-v2.5-pro',
+            model: 'xiaomi-sgp-youtu/mimo-v2.5-pro',
             temperature: 0.3,
             maxTokens: 3000,
             systemPrompt: "你是一个技术综合分析师。
@@ -167,7 +167,7 @@ class AgentConfig
     {
         return new self(
             role: AgentRole::VERIFIER,
-            model: 'xiaomi-sgp-kkday/mimo-v2.5-pro',
+            model: 'xiaomi-sgp-youtu/mimo-v2.5-pro',
             temperature: 0.1, // 低温度保证验证严谨
             maxTokens: 3000,
             systemPrompt: "你是一个严格的技术验证专家。
@@ -598,7 +598,7 @@ private function compressContext(string $context, int $maxTokens = 4000): string
 
     // 用小模型做摘要压缩
     return $this->llm->chat(
-        model: 'xiaomi-sgp-kkday/mimo-v2.5',
+        model: 'xiaomi-sgp-youtu/mimo-v2.5',
         system: '将以下辩论内容压缩为关键论点摘要，保留双方的核心论据和数据，去除冗余表述。',
         messages: [['role' => 'user', 'content' => $context]],
         maxTokens: 2000,
@@ -644,7 +644,7 @@ private function classifyComplexity(string $topic): string
 {
     // 用小模型快速分类
     $result = $this->llm->chat(
-        model: 'xiaomi-sgp-kkday/mimo-v2.5',
+        model: 'xiaomi-sgp-youtu/mimo-v2.5',
         system: '将以下问题分类为 simple/medium/complex/critical，只输出一个词。',
         messages: [['role' => 'user', 'content' => $topic]],
         maxTokens: 10,

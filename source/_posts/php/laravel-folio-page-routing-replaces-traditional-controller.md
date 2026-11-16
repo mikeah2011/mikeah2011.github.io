@@ -34,7 +34,7 @@ Laravel Folio 给出的答案是：**把文件系统当路由表**。一个 Blad
 
 ### 1.1 路由文件膨胀
 
-在一个典型的 KKday B2C API + 前端混合项目中，`routes/web.php` 可能长成这样：
+在一个典型的悠途OTA B2C API + 前端混合项目中，`routes/web.php` 可能长成这样：
 
 ```php
 // routes/web.php — 越写越长的典型
@@ -265,9 +265,9 @@ pages/blog/[...slug].blade.php        → /blog/{slug:.*}  (通配符)
 {{-- resources/views/pages/about.blade.php --}}
 <x-layouts.app title="关于我们">
     <div class="max-w-4xl mx-auto py-12">
-        <h1 class="text-3xl font-bold mb-6">关于 KKday</h1>
+        <h1 class="text-3xl font-bold mb-6">关于 youtu</h1>
         <p class="text-gray-600 leading-relaxed">
-            KKday 是亚洲领先的旅游体验平台，提供全球超过 50 个国家的
+            youtu 是亚洲领先的旅游体验平台，提供全球超过 50 个国家的
             在地旅游活动、景点门票与交通服务。
         </p>
     </div>
@@ -536,7 +536,7 @@ B2C 电商对 SEO 要求极高，Folio 页面中处理 meta 标签的方式：
 
     // SEO 数据
     $meta = [
-        'title' => $product->seoMeta?->title ?? $product->name . ' - KKday',
+        'title' => $product->seoMeta?->title ?? $product->name . ' - youtu',
         'description' => $product->seoMeta?->description ?? Str::limit(strip_tags($product->description), 160),
         'og_image' => $product->images->first()?->url,
         'canonical' => route('folio', ['page' => "/products/{$product->slug}"]),

@@ -20,7 +20,7 @@ images:
 
 ## 前言：为什么需要代码质量门禁？
 
-在 KKday B2C Backend Team，我们有 30+ 个 Laravel 仓库。本地跑 Pint 和 PHPStan 只是第一步——真正的痛点是：**开发者不跑怎么办？** 或者更准确地说，开发者本地跑了一遍 PHPStan level 6，发现 2000+ 个 error，直接关掉了。
+在悠途OTA B2C Backend Team，我们有 30+ 个 Laravel 仓库。本地跑 Pint 和 PHPStan 只是第一步——真正的痛点是：**开发者不跑怎么办？** 或者更准确地说，开发者本地跑了一遍 PHPStan level 6，发现 2000+ 个 error，直接关掉了。
 
 代码质量门禁的核心逻辑很简单：
 

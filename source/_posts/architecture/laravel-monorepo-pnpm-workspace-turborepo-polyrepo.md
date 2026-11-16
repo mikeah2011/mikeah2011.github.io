@@ -14,11 +14,11 @@ tags:
 - Turborepo
 - Laravel
 - 工程化
-description: 从 KKday 30+ Laravel 仓库的痛点出发，详解 Monorepo 迁移的完整路径：pnpm workspace 依赖管理、Turborepo 构建编排、共享包治理、渐进式迁移策略与踩坑记录。
+description: 从悠途OTA 30+ Laravel 仓库的痛点出发，详解 Monorepo 迁移的完整路径：pnpm workspace 依赖管理、Turborepo 构建编排、共享包治理、渐进式迁移策略与踩坑记录。
 ---
 
 
-当团队维护 30+ 个 Laravel 仓库时，你会遇到一个又一个令人头疼的问题：同一个认证中间件在 5 个仓库里各有微小差异，升级 PHP 版本时要重复操作 30 次，跨仓库的功能复用全靠 Composer 私有包或手动拷贝。这篇文章记录了我们将 KKday 的多仓库（Polyrepo）架构迁移到 Monorepo 的完整实战过程，涵盖 pnpm workspace 依赖管理、Turborepo 构建编排、共享包的版本治理，以及渐进式迁移中的踩坑记录。
+当团队维护 30+ 个 Laravel 仓库时，你会遇到一个又一个令人头疼的问题：同一个认证中间件在 5 个仓库里各有微小差异，升级 PHP 版本时要重复操作 30 次，跨仓库的功能复用全靠 Composer 私有包或手动拷贝。这篇文章记录了我们将悠途OTA的多仓库（Polyrepo）架构迁移到 Monorepo 的完整实战过程，涵盖 pnpm workspace 依赖管理、Turborepo 构建编排、共享包的版本治理，以及渐进式迁移中的踩坑记录。
 
 ## 为什么要做 Monorepo
 
@@ -138,11 +138,11 @@ packages:
 ```json
 {
   "name": "kday/core",
-  "description": "KKday 核心领域模型与 DTO",
+  "description": "youtu 核心领域模型与 DTO",
   "type": "library",
   "autoload": {
     "psr-4": {
-      "KKday\\Core\\": "src/"
+      "youtu\\Core\\": "src/"
     }
   },
   "require": {
@@ -152,7 +152,7 @@ packages:
   "extra": {
     "laravel": {
       "providers": [
-        "KKday\\Core\\CoreServiceProvider"
+        "youtu\\Core\\CoreServiceProvider"
       ]
     }
   }
@@ -190,7 +190,7 @@ packages:
 
 declare(strict_types=1);
 
-namespace KKday\Core\DTO;
+namespace youtu\Core\DTO;
 
 use Illuminate\Http\JsonResponse;
 
@@ -236,7 +236,7 @@ class ApiResponse
 使用时在任何应用里：
 
 ```php
-use KKday\Core\DTO\ApiResponse;
+use youtu\Core\DTO\ApiResponse;
 
 // Controller 里
 return ApiResponse::success($order)->toJsonResponse();
@@ -251,12 +251,12 @@ return ApiResponse::error(400, '参数错误', ['email' => '格式不正确'])->
 
 declare(strict_types=1);
 
-namespace KKday\Auth\Middleware;
+namespace youtu\Auth\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use KKday\Core\DTO\ApiResponse;
-use KKday\Auth\Services\TokenService;
+use youtu\Core\DTO\ApiResponse;
+use youtu\Auth\Services\TokenService;
 
 class VerifyApiToken
 {
@@ -352,7 +352,7 @@ cp -r ~/old-repos/b2c-api/app/Services/Common/ packages/common/src/
 
 # 重构命名空间
 find packages/common/src -name "*.php" -exec sed -i '' \
-  's/namespace App\\Services\\Common/namespace KKday\\Common/g' {} \;
+  's/namespace App\\Services\\Common/namespace youtu\\Common/g' {} \;
 
 # 确保包能被所有应用引用
 cd packages/common && composer dump-autoload && cd ../..
@@ -683,4 +683,4 @@ Monorepo 迁移不是一次性工程，而是持续演进的过程。几个关�
 
 ---
 
-*本文基于 KKday 实际项目经验，部分配置细节已脱敏处理。*
+*本文基于 youtu 实际项目经验，部分配置细节已脱敏处理。*

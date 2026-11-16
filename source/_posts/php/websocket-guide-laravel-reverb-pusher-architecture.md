@@ -33,7 +33,7 @@ description: '全面解析 Laravel WebSocket 实时通信架构设计，深入�
 
 传统轮询（Polling）方案在高并发下浪费大量资源，而 Server-Sent Events（SSE）是单向的。当需要**双向实时通信**时，WebSocket 是最佳选择。
 
-本文基于 KKday B2C Backend Team 的真实项目经验，完整记录从 Pusher 云服务迁移到 Laravel Reverb（自托管 WebSocket 服务器）的全过程。
+本文基于悠途OTA B2C Backend Team 的真实项目经验，完整记录从 Pusher 云服务迁移到 Laravel Reverb（自托管 WebSocket 服务器）的全过程。
 
 ## 架构选型：Pusher vs Laravel Reverb vs Soketi
 
@@ -55,7 +55,7 @@ description: '全面解析 Laravel WebSocket 实时通信架构设计，深入�
 
 ### 我们的选型决策
 
-KKday 初期使用 **Pusher 云服务**（快速上线），后期迁移到 **Laravel Reverb**（成本控制 + 数据主权）。核心原因：
+悠途OTA初期使用 **Pusher 云服务**（快速上线），后期迁移到 **Laravel Reverb**（成本控制 + 数据主权）。核心原因：
 
 1. **连接数成本**：Pusher 按 concurrent connections 计费，促销高峰期连接数暴增
 2. **数据主权**：实时消息经过第三方云，存在合规风险

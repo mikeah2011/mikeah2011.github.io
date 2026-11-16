@@ -25,7 +25,7 @@ Laravel 自带的 `storage/logs/laravel.log` 在单机开发阶段足够用，�
 2. **日志格式不统一**，有的用 JSON，有的用纯文本，有的混在一起
 3. **没有聚合分析能力**，想知道"过去 1 小时有多少 500 错误"需要写脚本
 
-ELK Stack（Elasticsearch + Logstash + Kibana）就是为了解决这三个问题而生的。本文基于 KKday B2C API 的真实生产环境，记录从零搭建到日均处理 200GB 日志的完整过程。
+ELK Stack（Elasticsearch + Logstash + Kibana）就是为了解决这三个问题而生的。本文基于悠途OTA B2C API 的真实生产环境，记录从零搭建到日均处理 200GB 日志的完整过程。
 
 ## 架构总览
 

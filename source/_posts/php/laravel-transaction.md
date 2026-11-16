@@ -1,5 +1,5 @@
 ---
-title: Laravel 事务回滚边界控制 - KKday B2C-API 真实踩坑记录
+title: Laravel 事务回滚边界控制 - 悠途OTA B2C-API 真实踩坑记录
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -7,16 +7,16 @@ date: 2026-05-02
 author: Michael
 categories: [php]
 tags: [Kubernetes, Laravel]
-keywords: [Laravel, KKday B2C, API, 事务回滚边界控制, 真实踩坑记录, PHP]
-description: 深入解析 Laravel 事务（Transaction）回滚边界控制，涵盖 DB::transaction 使用方法、嵌套事务合并机制、Eloquent 模型事务冲突、异步队列与数据库事务交互等六大踩坑场景，结合 KKday B2C-API 项目真实经验，帮助开发者掌握 Laravel 数据库事务的最佳实践，避免分布式事务环境下的数据一致性问题。
+keywords: [Laravel, 悠途OTA B2C, API, 事务回滚边界控制, 真实踩坑记录, PHP]
+description: 深入解析 Laravel 事务（Transaction）回滚边界控制，涵盖 DB::transaction 使用方法、嵌套事务合并机制、Eloquent 模型事务冲突、异步队列与数据库事务交互等六大踩坑场景，结合悠途OTA B2C-API 项目真实经验，帮助开发者掌握 Laravel 数据库事务的最佳实践，避免分布式事务环境下的数据一致性问题。
 
 
 
 ---
 
-# Laravel 事务回滚边界控制 - KKday B2C-API 真实踩坑记录
+# Laravel 事务回滚边界控制 - 悠途OTA B2C-API 真实踩坑记录
 
-> **摘要**：在 KKday B2C-API 项目中处理订单扣减 + 邮件发送场景时，遇到过"异常被捕获但事务未回滚"、"嵌套事务回滚无效"等经典问题。本文结合 Laravel 8+PHP 8 实际踩坑记录，深入分析事务回滚边界控制的正确实践。
+> **摘要**：在悠途OTA B2C-API 项目中处理订单扣减 + 邮件发送场景时，遇到过"异常被捕获但事务未回滚"、"嵌套事务回滚无效"等经典问题。本文结合 Laravel 8+PHP 8 实际踩坑记录，深入分析事务回滚边界控制的正确实践。
 
 ---
 
@@ -684,7 +684,7 @@ class OrderControllerTransactionIntegrationTest extends TestCase
 
 ---
 
-## 📊 KKday B2C-API 真实踩坑记录总结
+## 📊 youtu B2C-API 真实踩坑记录总结
 
 ### 🐛 Bug #1：异常被捕获后事务未回滚
 
@@ -714,8 +714,8 @@ class OrderControllerTransactionIntegrationTest extends TestCase
 
 ## 📚 相关主题推荐
 
-- [Laravel 服务容器深度解析 - KKday B2C-API](05_PHP/Laravel/Laravel-服务容器深度解析-KKday-B2C-API-十个真实踩坑记录.md)
-- [Laravel Queue 订单扣减与邮件发送实战 - KKday B2C-API](05_PHP/Laravel/Laravel-Queue-订单扣减与邮件发送实战-KKday-B2C-API-真实踩坑记录.md)
+- [Laravel 服务容器深度解析 - youtu B2C-API](05_PHP/Laravel/Laravel-服务容器深度解析-youtu-ota-B2C-API-十个真实踩坑记录.md)
+- [Laravel Queue 订单扣减与邮件发送实战 - youtu B2C-API](05_PHP/Laravel/Laravel-Queue-订单扣减与邮件发送实战-youtu-ota-B2C-API-真实踩坑记录.md)
 - [HTTP/2 vs HTTP/3 在 BFF 场景性能对比](05_PHP/Laravel/HTTP-2-vs-HTTP-3-在-BFF-場景性能對比與真實踩坑記錄.md)
 
 ---
@@ -733,7 +733,7 @@ class OrderControllerTransactionIntegrationTest extends TestCase
 ## 📝 Commit Message
 
 ```bash
-feat(blog): 发布 Laravel 事务回滚边界控制文章 - KKday B2C-API 真实踩坑记录
+feat(blog): 发布 Laravel 事务回滚边界控制文章 - youtu B2C-API 真实踩坑记录
 - 覆盖异常捕获后未抛出、嵌套事务回滚无效、队列任务失败等场景
 - 包含完整代码对比和 Pest + ParaTest 单元测试示例
 ```
@@ -741,5 +741,5 @@ feat(blog): 发布 Laravel 事务回滚边界控制文章 - KKday B2C-API 真实
 ---
 
 **最后更新**：2026-05-02  
-**作者**：Michael (KKday RD B2C Backend Team)  
+**作者**：Michael (youtu RD B2C Backend Team)  
 **GitHub**：[mikeah2011.github.io](https://github.com/mikeah2011.github.io)

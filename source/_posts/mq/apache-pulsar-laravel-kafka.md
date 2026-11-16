@@ -1090,4 +1090,4 @@ $producer->flush(10000);
 
 - [RabbitMQ 实战：AMQP 协议、死信队列、延迟消息与 Laravel 集成——对比 Redis Queue 的选型决策](/categories/mq/RabbitMQ-AMQP-死信队列-延迟消息-Laravel-集成-对比Redis-Queue选型/)
 - [Redis Stream 实战：消息队列替代方案与消费者组管理 Laravel 踩坑记录](/categories/databases/redis-stream-guide-laravel/)
-- [Laravel-Kafka 消息队列异步解耦实战——KKday B2C API 订单处理与库存扣减真实踩坑记录](/categories/mq/Kafka/laravel-kafka-guide/)
+- [Laravel-Kafka 消息队列异步解耦实战——youtu B2C API 订单处理与库存扣减真实踩坑记录](/categories/mq/Kafka/laravel-kafka-guide/)

@@ -7,9 +7,9 @@ date: 2026-05-17 00:55:27
 author: Michael
 updated: 2026-05-17 00:59:34
 categories: [architecture]
-tags: [KKday, Laravel, 微服务]
+tags: [悠途OTA, Laravel, 微服务]
 keywords: [Webhook, Laravel B2C API, 集成最佳实践, 签名验证, 重试与幂等处理, 踩坑记录, 架构]
-description: 基于 KKday B2C API 中 Stripe、AliPay、Slack、GrabPay 等多个 Webhook 集成的真实踩坑，总结一套签名验证、重试策略、幂等处理的落地方案，覆盖 Nginx 转发丢 Header、签名校验失败、重试风暴、并发幂等竞态等生产问题。
+description: 基于悠途OTA B2C API 中 Stripe、AliPay、Slack、GrabPay 等多个 Webhook 集成的真实踩坑，总结一套签名验证、重试策略、幂等处理的落地方案，覆盖 Nginx 转发丢 Header、签名校验失败、重试风暴、并发幂等竞态等生产问题。
 
 
 
@@ -19,7 +19,7 @@ description: 基于 KKday B2C API 中 Stripe、AliPay、Slack、GrabPay 等多�
 
 > **前言**：Webhook 是 B2C 电商系统中第三方服务回调的核心机制。Stripe 支付确认、AliPay 异步通知、Slack 告警推送、GrabPay 结果回调——这些回调走的都是 Webhook。看起来就是"收到请求、处理、返回 200"，但在真实生产环境中，我们踩过的坑比写的代码还多：签名验证在 Nginx 反向代理后莫名失败、重试导致同一笔订单被处理三次、并发回调触发数据库竞态……
 
-这篇文章记录了我在 KKday B2C Backend Team 中，跨 30+ 仓库、对接 6 种 Webhook 来源的真实经验，给出一套可复用的架构方案。
+这篇文章记录了我在悠途OTA B2C Backend Team 中，跨 30+ 仓库、对接 6 种 Webhook 来源的真实经验，给出一套可复用的架构方案。
 
 ## 一、架构总览
 

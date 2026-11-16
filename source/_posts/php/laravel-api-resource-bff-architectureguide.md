@@ -1,24 +1,24 @@
 ---
-title: Laravel API Resource 實戰：BFF 架構下的數據轉換與格式化 - KKday B2C API 真實踩坑記錄
+title: Laravel API Resource 實戰：BFF 架構下的數據轉換與格式化 - 悠途OTA B2C API 真實踩坑記錄
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-03
 author: Michael
 categories: [php]
-tags: [BFF, KKday, Laravel, API-Resource, 微服务]
-keywords: [Laravel API Resource, BFF, KKday B2C API, 實戰, 架構下的數據轉換與格式化, 真實踩坑記錄, PHP]
-description: 深入講解 Laravel API Resource 在 BFF（Backend for Frontend）微服務架構中的實戰應用：KKday B2C API 多端適配、嵌套資源、分頁格式化、N+1 優化、API 版本管理與 Trait 複用等真實踩坑記錄，提供 BFF vs 直接 API 對比分析與性能優化技巧
+tags: [BFF, 悠途OTA, Laravel, API-Resource, 微服务]
+keywords: [Laravel API Resource, BFF, 悠途OTA B2C API, 實戰, 架構下的數據轉換與格式化, 真實踩坑記錄, PHP]
+description: 深入講解 Laravel API Resource 在 BFF（Backend for Frontend）微服務架構中的實戰應用：悠途OTA B2C API 多端適配、嵌套資源、分頁格式化、N+1 優化、API 版本管理與 Trait 複用等真實踩坑記錄，提供 BFF vs 直接 API 對比分析與性能優化技巧
 
 
 
 ---
 
-# Laravel API Resource 實戰：BFF 架構下的數據轉換與格式化 - KKday B2C API 真實踩坑記錄
+# Laravel API Resource 實戰：BFF 架構下的數據轉換與格式化 - 悠途OTA B2C API 真實踩坑記錄
 
 ## 前言
 
-在 KKday B2C API 項目中，作為 BFF（Backend for Frontend）層，我們需要為 iOS、Android、Web 三個平台提供統一且適配的 JSON 數據格式。不同平台對同一個 API 的響應格式有不同需求：
+在悠途OTA B2C API 項目中，作為 BFF（Backend for Frontend）層，我們需要為 iOS、Android、Web 三個平台提供統一且適配的 JSON 數據格式。不同平台對同一個 API 的響應格式有不同需求：
 
 | 平台 | 特殊需求 |
 |------|----------|
@@ -115,9 +115,9 @@ class OrderResource extends JsonResource
 - 轉換邏輯集中在 Resource Class
 - 可複用、可測試、可繼承
 
-## 二、KKday 項目中的 Resource 架構設計
+## 二、youtu 項目中的 Resource 架構設計
 
-在 KKday B2C API 中，我們的 Resource 層結構如下：
+在 youtu B2C API 中，我們的 Resource 層結構如下：
 
 ```
 app/Http/Resources/
@@ -162,7 +162,7 @@ public function show(Order $order)
 
 ## 三、條件加載：不同平台的不同需求
 
-KKday 項目的 BFF 需要根據 `User-Agent` 或 `X-Platform` header 返回不同格式：
+youtu 項目的 BFF 需要根據 `User-Agent` 或 `X-Platform` header 返回不同格式：
 
 ```php
 class ProductResource extends JsonResource
@@ -332,7 +332,7 @@ Laravel 預設的分頁格式是：
 }
 ```
 
-但 KKday 前端需要的格式是：
+但 youtu 前端需要的格式是：
 
 ```json
 {
@@ -461,7 +461,7 @@ class ProductController extends Controller
 
 ## 七、API 版本管理與 Resource 繼承
 
-KKday 項目需要同時支援 v1 和 v2 API，我們使用 Resource 繼承來複用代碼：
+youtu 項目需要同時支援 v1 和 v2 API，我們使用 Resource 繼承來複用代碼：
 
 ```php
 // V1/ProductResource.php
@@ -654,7 +654,7 @@ it('hides internal fields for non-admin requests', function () {
 
 ## 結論
 
-Laravel API Resource 在 BFF 架構中扮演著「數據翻譯器」的角色。通過合理使用 API Resource，我們成功將 KKday B2C API 的 Controller 保持在平均 30 行以內，同時滿足了 iOS、Android、Web 三個平台的差异化需求。
+Laravel API Resource 在 BFF 架構中扮演著「數據翻譯器」的角色。通過合理使用 API Resource，我們成功將 youtu B2C API 的 Controller 保持在平均 30 行以內，同時滿足了 iOS、Android、Web 三個平台的差异化需求。
 
 **核心經驗**：
 1. **Resource 只負責轉換，不負責查詢**
@@ -803,10 +803,10 @@ public function show(Product $product)
 
 ## 相关阅读
 
-- [Laravel BFF 中间层聚合实战 — GraphQL 到 JSON 转换优化](/bff-laravel-guide-graphql-json-optimization) - 同样基于 KKday B2C API，详解 BFF 层如何利用 GraphQL 聚合查询消除 N+1，Redis 缓存分层策略，响应时间从 850ms 优化至 180ms
-- [Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与KKday真实踩坑记录](/bff-laravel-graphql-to-json-kkday) - KKday B2C API 的 gRPC 跨服务调用、Redis 缓存击穿防护与分布式锁策略，响应时间从 2.3s 降至 45ms
+- [Laravel BFF 中间层聚合实战 — GraphQL 到 JSON 转换优化](/bff-laravel-guide-graphql-json-optimization) - 同样基于 youtu B2C API，详解 BFF 层如何利用 GraphQL 聚合查询消除 N+1，Redis 缓存分层策略，响应时间从 850ms 优化至 180ms
+- [Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与youtu真实踩坑记录](/bff-laravel-graphql-to-json-youtu-ota) - youtu B2C API 的 gRPC 跨服务调用、Redis 缓存击穿防护与分布式锁策略，响应时间从 2.3s 降至 45ms
 - [Server-Driven UI 实战：后端驱动前端渲染——JSON UI 描述协议在 Laravel BFF 中的落地](/server-driven-ui-laravel-bff) - Server-Driven UI 在 Laravel BFF 层的完整落地，JSON UI 描述协议设计、Vue 3 前端渲染引擎与 A/B 测试
 
 ---
 
-> 📝 **本文基於 KKday B2C API 真實踩坑記錄撰寫**，所有解決方案已在生產環境驗證。如需其他主題的文章草稿，請隨時告訴我！
+> 📝 **本文基於 youtu B2C API 真實踩坑記錄撰寫**，所有解決方案已在生產環境驗證。如需其他主題的文章草稿，請隨時告訴我！

@@ -24,7 +24,7 @@ description: Laravel HTTP Client 容错实战：详解熔断器、优雅降级�
 
 ## 一、背景：为什么 HTTP Client 需要容错
 
-在 KKday B2C 旅游平台中，一个商品详情页需要同时调用多个外部供应商 API：
+在悠途OTA B2C 旅游平台中，一个商品详情页需要同时调用多个外部供应商 API：
 
 ```
 用户请求 /api/products/{id}
@@ -115,7 +115,7 @@ class HttpServiceProvider extends ServiceProvider
                 ->retry(0, 0)  // 先不重试，后面统一处理
                 ->withHeaders([
                     'X-Request-ID' => request()->header('X-Request-ID', uniqid()),
-                    'X-Source'     => 'kkday-b2c-api',
+                    'X-Source'     => 'youtu-ota-b2c-api',
                 ])
                 ->withBasicAuth(
                     $config['username'] ?? '',
@@ -1121,6 +1121,6 @@ php artisan test --filter=CircuitBreakerTest
 - [Redis Lua 脚本原子操作实战：分布式限流、库存扣减、排行榜 Laravel B2C API 踩坑记录](/databases/redis-lua-guide-distributedrate-limiting/)
 - [Laravel + gRPC 微服务通信实战：Proto 定义、Deadline 透传与连接复用踩坑记录](/php/Laravel/laravel-grpc-microservicesguide-proto-deadline/)
 - [订单提交防重不是加唯一索引：Laravel 用 Idempotency-Key 做创建接口结果回放的实战记录](/php/Laravel/index-laravel-idempotency-key/)
-- [Laravel Queue - 订单扣减与邮件发送实战 - KKday B2C API 真实踩坑记录](/php/Laravel/laravel-queue-patterns/)
+- [Laravel Queue - 订单扣减与邮件发送实战 - youtu B2C API 真实踩坑记录](/php/Laravel/laravel-queue-patterns/)
 - [Prometheus + Grafana 监控体系实战：Laravel API 的 RED 指标、告警降噪与 SLO 看板落地踩坑记录](/php/Laravel/prometheus-grafana-monitoringguide-laravel-api-red-slo/)
 - [Kafka vs NATS vs Pulsar 2026 实战：三大消息队列 Laravel 微服务深度对比](/mq/2026-06-07-Kafka-vs-NATS-vs-Pulsar-2026-实战-三大消息队列深度对比/)

@@ -826,10 +826,10 @@ MySQL 8.0 中，全文索引（FULLTEXT）和空间索引（SPATIAL）在语法�
 
 ## 相关阅读
 
-- [MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则 - KKday B2C API 真实踩坑记录](/categories/Databases/MySQL/index-deep-dive-explain/)
+- [MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则 - youtu B2C API 真实踩坑记录](/categories/Databases/MySQL/index-deep-dive-explain/)
 - [数据库索引优化实战-覆盖索引联合索引与索引下推-Laravel-B2C-API踩坑记录](/categories/Databases/MySQL/index-optimization-explain/)
 - [SQL语句性能分析工具 - explain](/categories/Databases/MySQL/explain/)
-- [MySQL 複雜查詢性能優化實戰 - KKday B2C API 多表 JOIN 與子查詢 EXPLAIN 聯合分析](/categories/Databases/MySQL/mysql-joinexplain/)
+- [MySQL 複雜查詢性能優化實戰 - youtu B2C API 多表 JOIN 與子查詢 EXPLAIN 聯合分析](/categories/Databases/MySQL/mysql-joinexplain/)
 - [百万级数据表查询优化实战-Laravel-B2C-API-EXPLAIN-深度分析索引重构与分页治理踩坑记录](/categories/Databases/MySQL/query-optimization-explain/)
 
 ---

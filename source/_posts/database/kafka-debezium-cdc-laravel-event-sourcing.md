@@ -105,10 +105,10 @@ FLUSH PRIVILEGES;
     "database.user": "debezium",
     "database.password": "secret_password",
     "database.server.id": "184054",
-    "database.include.list": "kkday_b2c",
-    "table.include.list": "kkday_b2c.orders,kkkday_b2c.order_items,kkday_b2c.payments",
+    "database.include.list": "youtu_b2c",
+    "table.include.list": "youtu_b2c.orders,youtu_b2c.order_items,youtu_b2c.payments",
     "database.history.kafka.bootstrap.servers": "kafka:9092",
-    "database.history.kafka.topic": "schema-changes.kkday_b2c",
+    "database.history.kafka.topic": "schema-changes.youtu_b2c",
     "transforms": "route,unwrap",
     "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
     "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
@@ -154,10 +154,10 @@ FLUSH PRIVILEGES;
   "source": {
     "version": "2.6.2.Final",
     "connector": "mysql",
-    "name": "kkday_b2c",
+    "name": "youtu_b2c",
     "ts_ms": 1749474332000,
     "snapshot": "false",
-    "db": "kkday_b2c",
+    "db": "youtu_b2c",
     "table": "orders",
     "file": "mysql-bin.000023",
     "pos": 12345678,
@@ -805,7 +805,7 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: kkday_b2c
+      MYSQL_DATABASE: youtu_b2c
     command: >
       --server-id=1
       --log-bin=mysql-bin
@@ -852,7 +852,7 @@ curl -X POST http://localhost:8083/connectors \
 curl http://localhost:8083/connectors/mysql-cdc-connector/status | jq .
 
 # 5. 测试数据变更
-docker exec mysql mysql -uroot -proot_password kkday_b2c \
+docker exec mysql mysql -uroot -proot_password youtu_b2c \
   -e "INSERT INTO orders (user_id, total_amount, status) VALUES (1, 299.00, 'pending');"
 
 # 6. 查看 Kafka Topic 消息

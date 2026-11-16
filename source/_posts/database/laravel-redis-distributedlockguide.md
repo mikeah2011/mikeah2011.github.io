@@ -1,19 +1,19 @@
 ---
 
-title: Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录
-keywords: [Laravel Redis, KKday B2C API, 分布式锁失效场景实战, 真实踩坑记录]
+title: Laravel Redis 分布式锁失效场景实战 - 悠途OTA B2C API 真实踩坑记录
+keywords: [Laravel Redis, 悠途OTA B2C API, 分布式锁失效场景实战, 真实踩坑记录]
 date: 2026-05-02
 author: Michael
 categories: [database]
 tags:
 - BFF
-- KKday
+- 悠途OTA
 - Redis
 - 分布式
 - Laravel
 - 高并发
 - Lua 脚本
-description: Redis 分布式锁生产环境实战指南：基于 KKday B2C API 20 万 QPS 大促场景，详解死锁防护、RedLock 集群一致性、Lua 脚本原子操作、热点 Key 降级策略、CAS 乐观锁与悲观锁对比、锁超时监控与告警，附完整 Laravel 8 + PHP 8 代码示例
+description: Redis 分布式锁生产环境实战指南：基于悠途OTA B2C API 20 万 QPS 大促场景，详解死锁防护、RedLock 集群一致性、Lua 脚本原子操作、热点 Key 降级策略、CAS 乐观锁与悲观锁对比、锁超时监控与告警，附完整 Laravel 8 + PHP 8 代码示例
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-003-content-1.png
@@ -24,7 +24,7 @@ images:
 
 ## 写在前面
 
-在 KKday B2C API 项目中，我们重度依赖 Redis 实现以下**高并发写操作场景**：
+在悠途OTA B2C API 项目中，我们重度依赖 Redis 实现以下**高并发写操作场景**：
 
 | 场景 | 用途 | 并发量级 | 业务重要性 |
 |------|------|----------|------------|
@@ -207,7 +207,7 @@ class SmsService {
 
 ### 场景描述
 
-在 KKday B2C API 的"商品详情页预热"场景中，多个 Worker 进程竞争同一个缓存 Key：
+在 youtu B2C API 的"商品详情页预热"场景中，多个 Worker 进程竞争同一个缓存 Key：
 
 ```php
 // 场景：5 个 Worker 刷新同一个商品详情缓存
@@ -334,7 +334,7 @@ Schema::create('cache_warmup_logs', function (Blueprint $table) {
 
 ### 场景描述
 
-在 KKday B2C API 的"库存预占"场景中，需要保证多个 Redis 操作的原子性：
+在 youtu B2C API 的"库存预占"场景中，需要保证多个 Redis 操作的原子性：
 
 ```php
 // ❌ Before：非原子操作，可能被并发破坏
@@ -524,7 +524,7 @@ Schema::create('inventory_pre_alloc_logs', function (Blueprint $table) {
 
 ### 场景描述
 
-在 KKday B2C API 的"秒杀活动"场景中，单 Redis 实例成为瓶颈，需要 RedLock 集群保证高可用。
+在 youtu B2C API 的"秒杀活动"场景中，单 Redis 实例成为瓶颈，需要 RedLock 集群保证高可用。
 
 ![RedLock 集群与 Laravel 锁服务架构图](/images/diagrams/databases-003-diagram.png)
 
@@ -656,7 +656,7 @@ REDLOCK_TIMEOUT_MS=5000
 
 ### 场景描述
 
-在 KKday B2C API 的"用户积分累计"场景中，需要保证更新操作的原子性，但不需要互斥锁的高延迟。
+在 youtu B2C API 的"用户积分累计"场景中，需要保证更新操作的原子性，但不需要互斥锁的高延迟。
 
 #### Before vs After（悲观锁 → CAS 乐观锁）
 
@@ -920,7 +920,7 @@ Schema::create('lock_monitor_logs', function (Blueprint $table) {
 
 ### 性能基准测试数据
 
-基于 KKday 生产环境模拟测试（8 核 16G 云服务器，Redis 7.x）：
+基于 youtu 生产环境模拟测试（8 核 16G 云服务器，Redis 7.x）：
 
 | 指标 | SET NX + PX | Lua 脚本锁 | RedLock（3 节点） | CAS 乐观锁 |
 |------|-------------|-----------|------------------|-----------|
@@ -1228,4 +1228,4 @@ php artisan test --filter=DistributedLockTest
 
 ---
 
-**总结**：在 KKday B2C API 项目中，分布式锁的失效场景主要包括死锁、热点 Key 瓶颈、集群不一致、超时竞争等。通过合理设置 TTL、使用 Lua 脚本保证原子性、CAS 乐观锁方案替代悲观锁、以及完善的监控告警策略，可以有效预防分布式锁失效问题，提升系统高可用性。选择锁方案时需根据并发量、一致性要求和运维复杂度综合评估，没有银弹，只有最适合场景的方案。
+**总结**：在 youtu B2C API 项目中，分布式锁的失效场景主要包括死锁、热点 Key 瓶颈、集群不一致、超时竞争等。通过合理设置 TTL、使用 Lua 脚本保证原子性、CAS 乐观锁方案替代悲观锁、以及完善的监控告警策略，可以有效预防分布式锁失效问题，提升系统高可用性。选择锁方案时需根据并发量、一致性要求和运维复杂度综合评估，没有银弹，只有最适合场景的方案。

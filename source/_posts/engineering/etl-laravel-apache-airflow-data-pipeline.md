@@ -14,7 +14,7 @@ tags:
 - dag
 - Python
 - 数据工程
-description: 在 KKday B2C 后端团队的实际项目中，数据管道是连接业务系统与数据仓库的命脉。本文记录从 Laravel Cron + 手动脚本迁移到 Apache Airflow 的完整实战过程：DAG 编排、Operator 选型、Laravel Artisan 命令集成、增量抽取策略、错误重试、监控告警，以及踩过的 15 个生产坑。
+description: 在悠途OTA B2C 后端团队的实际项目中，数据管道是连接业务系统与数据仓库的命脉。本文记录从 Laravel Cron + 手动脚本迁移到 Apache Airflow 的完整实战过程：DAG 编排、Operator 选型、Laravel Artisan 命令集成、增量抽取策略、错误重试、监控告警，以及踩过的 15 个生产坑。
 cover: https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=630&fit=crop
@@ -24,7 +24,7 @@ images:
 
 ## 一、为什么写这篇？
 
-在 KKday RD B2C 后端团队的实际项目中，我们面临这样的数据管道需求：
+在悠途OTA RD B2C 后端团队的实际项目中，我们面临这样的数据管道需求：
 
 - **订单数据同步**：每天凌晨将 MySQL 订单数据同步到 ClickHouse，供运营报表使用
 - **用户行为埋点**：将 Redis 中的用户行为日志定期抽取到 Elasticsearch
@@ -509,7 +509,7 @@ from airflow.providers.slack.operators.slack_webhook import SlackWebhookOperator
 default_args = {
     'owner': 'michael',
     'depends_on_past': False,
-    'email': ['michael@kkday.com'],
+    'email': ['michael@youtu-ota.test'],
     'email_on_failure': True,
     'email_on_retry': False,
     'retries': 3,
@@ -926,7 +926,7 @@ services:
           --firstname Michael \
           --lastname Admin \
           --role Admin \
-          --email michael@kkday.com
+          --email michael@youtu-ota.test
     user: "0:0"
 
 volumes:
@@ -982,9 +982,9 @@ default_ui_timezone = Asia/Taipei
 email_backend = airflow.utils.email.send_email_smtp
 smtp_host = smtp.gmail.com
 smtp_port = 587
-smtp_user = alerts@kkday.com
+smtp_user = alerts@youtu-ota.test
 smtp_password = ***
-smtp_mail_from = alerts@kkday.com
+smtp_mail_from = alerts@youtu-ota.test
 
 [logging]
 # 日志级别

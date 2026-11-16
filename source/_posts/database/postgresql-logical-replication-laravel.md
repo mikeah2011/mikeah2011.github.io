@@ -14,7 +14,7 @@ images:
 
 ## 前言
 
-我在 KKday 的 B2C 后端团队负责核心交易系统，日均处理数十万笔订单。去年我们遇到了一个棘手的问题：**一张 12 亿行的订单表需要从自建机房迁移到云端 PostgreSQL 16，业务方只给了 5 分钟的切换窗口**。传统的 `pg_dump` + `pg_restore` 方案预估需要 6 小时停机，这显然是不可接受的。
+我在悠途OTA的 B2C 后端团队负责核心交易系统，日均处理数十万笔订单。去年我们遇到了一个棘手的问题：**一张 12 亿行的订单表需要从自建机房迁移到云端 PostgreSQL 16，业务方只给了 5 分钟的切换窗口**。传统的 `pg_dump` + `pg_restore` 方案预估需要 6 小时停机，这显然是不可接受的。
 
 最终我们通过 PostgreSQL Logical Replication 实现了零停机迁移，整个切换过程仅耗时 47 秒，业务几乎无感知。更重要的是，迁移完成后，我们发现 Logical Replication 不仅仅是一个迁移工具——它成为了我们 Laravel 多库架构中数据实时同步的基石。
 
@@ -245,7 +245,7 @@ CREATE PUBLICATION migration_pub FOR TABLE
 
 -- 2. 在目标库创建订阅
 CREATE SUBSCRIPTION migration_sub
-    CONNECTION 'host=old-pg-host dbname=kkday_prod user=replicator password=strong_password'
+    CONNECTION 'host=old-pg-host dbname=youtu_prod user=replicator password=strong_password'
     PUBLICATION migration_pub
     WITH (
         copy_data = true,        -- 是否复制现有数据
@@ -300,8 +300,8 @@ FROM (SELECT * FROM orders WHERE id <= 1000000) t;
 #!/bin/bash
 set -e
 
-OLD_DB="host=old-pg-host dbname=kkday_prod"
-NEW_DB="host=new-pg-host dbname=kkday_prod"
+OLD_DB="host=old-pg-host dbname=youtu_prod"
+NEW_DB="host=new-pg-host dbname=youtu_prod"
 
 echo "[$(date)] Step 1: 暂停源库写入（将 Laravel 队列置为维护模式）"
 php artisan down --render=maintenance
@@ -385,7 +385,7 @@ Laravel 原生支持读写分离，但配置方式是同一实例的主从。通
         'write' => [
             'host' => 'primary-db.internal',
         ],
-        'database' => 'kkday_prod',
+        'database' => 'youtu_prod',
         // ...
     ],
 ],
@@ -407,7 +407,7 @@ CREATE PUBLICATION report_pub FOR TABLE orders, order_items;
 ```sql
 -- 订阅
 CREATE SUBSCRIPTION report_sub
-    CONNECTION 'host=primary-db.internal dbname=kkday_prod user=replicator'
+    CONNECTION 'host=primary-db.internal dbname=youtu_prod user=replicator'
     PUBLICATION report_pub;
 ```
 
@@ -472,7 +472,7 @@ SELECT data FROM pg_logical_slot_get_changes('cdc_slot', NULL, NULL);
         'driver' => 'pgsql',
         'host' => env('DB_PRIMARY_HOST', '127.0.0.1'),
         'port' => env('DB_PRIMARY_PORT', '5432'),
-        'database' => env('DB_PRIMARY_DATABASE', 'kkday_prod'),
+        'database' => env('DB_PRIMARY_DATABASE', 'youtu_prod'),
         'username' => env('DB_PRIMARY_USERNAME', 'forge'),
         'password' => env('DB_PRIMARY_PASSWORD', ''),
         'charset' => 'utf8',
@@ -486,7 +486,7 @@ SELECT data FROM pg_logical_slot_get_changes('cdc_slot', NULL, NULL);
         'driver' => 'pgsql',
         'host' => env('DB_REPORT_HOST', '127.0.0.1'),
         'port' => env('DB_REPORT_PORT', '5432'),
-        'database' => env('DB_REPORT_DATABASE', 'kkday_report'),
+        'database' => env('DB_REPORT_DATABASE', 'youtu_report'),
         'username' => env('DB_REPORT_USERNAME', 'forge'),
         'password' => env('DB_REPORT_PASSWORD', ''),
         'charset' => 'utf8',
@@ -498,7 +498,7 @@ SELECT data FROM pg_logical_slot_get_changes('cdc_slot', NULL, NULL);
     'readonly' => [
         'driver' => 'pgsql',
         'host' => env('DB_READONLY_HOST', '127.0.0.1'),
-        'database' => env('DB_READONLY_DATABASE', 'kkday_prod'),
+        'database' => env('DB_READONLY_DATABASE', 'youtu_prod'),
         'username' => env('DB_READONLY_USERNAME', 'forge'),
         'password' => env('DB_READONLY_PASSWORD', ''),
         // 只读连接，禁止写入

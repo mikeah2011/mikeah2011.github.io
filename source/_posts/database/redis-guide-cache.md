@@ -1,7 +1,7 @@
 ---
 
-title: Redis 实战：缓存失效场景深度解析 - KKday B2C API 真实踩坑记录
-keywords: [Redis, KKday B2C API, 缓存失效场景深度解析, 真实踩坑记录]
+title: Redis 实战：缓存失效场景深度解析 - 悠途OTA B2C API 真实踩坑记录
+keywords: [Redis, 悠途OTA B2C API, 缓存失效场景深度解析, 真实踩坑记录]
 date: 2026-05-03
 author: Michael
 categories: [database]
@@ -12,7 +12,7 @@ tags:
 - Redis
 - 分布式
 - 高并发
-description: KKday B2C API 中 Redis 缓存失效的真实踩坑记录，深度解析缓存穿透、缓存击穿、缓存雪崩三大经典问题，涵盖过期时间陷阱、热点 Key 淘汰策略、分布式锁竞态条件与 RedLock 高可用方案、缓存一致性（删库写库与 Canal Binlog 监听）、大对象内存优化、连接池耗尽与限流降级等生产级场景。附 Laravel 完整代码示例、Lua 脚本原子操作、三级缓存架构设计，适合 PHP/Laravel 后端工程师在高并发电商项目中直接复用。
+description: 悠途OTA B2C API 中 Redis 缓存失效的真实踩坑记录，深度解析缓存穿透、缓存击穿、缓存雪崩三大经典问题，涵盖过期时间陷阱、热点 Key 淘汰策略、分布式锁竞态条件与 RedLock 高可用方案、缓存一致性（删库写库与 Canal Binlog 监听）、大对象内存优化、连接池耗尽与限流降级等生产级场景。附 Laravel 完整代码示例、Lua 脚本原子操作、三级缓存架构设计，适合 PHP/Laravel 后端工程师在高并发电商项目中直接复用。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-01-content-1.jpg
@@ -21,11 +21,11 @@ images:
 
 
 
-# Redis 实战：缓存失效场景深度解析 - KKday B2C API 真实踩坑记录
+# Redis 实战：缓存失效场景深度解析 - 悠途OTA B2C API 真实踩坑记录
 
 ## 背景概述
 
-在 KKday B2C API 项目中，Redis 是核心缓存组件，承担着会话管理、购物车数据、库存缓存、分布式锁等多重职责。随着业务迭代，我们在生产环境遇到了不少「理论上没问题，实际却翻车」的缓存失效场景。本文基于真实踩坑记录，深入剖析这些隐患并给出解决方案。
+在悠途OTA B2C API 项目中，Redis 是核心缓存组件，承担着会话管理、购物车数据、库存缓存、分布式锁等多重职责。随着业务迭代，我们在生产环境遇到了不少「理论上没问题，实际却翻车」的缓存失效场景。本文基于真实踩坑记录，深入剖析这些隐患并给出解决方案。
 
 ![Redis 缓存架构示意图](/images/content/databases-01-content-1.jpg)
 
@@ -562,7 +562,7 @@ class RateLimitedCache {
 
 ---
 
-## 七、实战总结：KKday B2C API Redis 配置清单
+## 七、实战总结：youtu B2C API Redis 配置清单
 
 ### 📊 生产环境配置（参考）
 
@@ -644,7 +644,7 @@ REDIS_CLUSTER=true
 ---
 
 **最后更新：** 2026-05-03  
-**作者：** Michael (KKday RD B2C Backend Team)  
+**作者：** Michael (youtu RD B2C Backend Team)  
 **分类：** PHP / Laravel / Redis  
 
-> 💡 **提示：** 本文档基于 KKday B2C API 真实踩坑记录编写，所有解决方案已在生产环境验证。如需其他主题的文章草稿，请随时告诉我！
+> 💡 **提示：** 本文档基于 youtu B2C API 真实踩坑记录编写，所有解决方案已在生产环境验证。如需其他主题的文章草稿，请随时告诉我！

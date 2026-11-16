@@ -25,7 +25,7 @@ description: 深入剖析 Chrome DevTools Protocol 的底层通信机制，从 W
 
 市面上的浏览器自动化工具——Puppeteer、Playwright、Selenium 4——它们的内核都在同一条管道上跑：**Chrome DevTools Protocol（CDP）**。理解 CDP 不是为了造轮子，而是为了在轮子打滑的时候知道往哪修。
 
-笔者在 KKday B2C 项目中用 Playwright 做端到端测试和爬虫，遇到过不少诡异场景：页面白屏但控制台无报错、特定资源加载卡住导致测试超时、需要精确控制 Service Worker 缓存策略……这些问题在高级 API 层面很难定位，但抓到 CDP 层面一看就清楚了。
+笔者在悠途OTA B2C 项目中用 Playwright 做端到端测试和爬虫，遇到过不少诡异场景：页面白屏但控制台无报错、特定资源加载卡住导致测试超时、需要精确控制 Service Worker 缓存策略……这些问题在高级 API 层面很难定位，但抓到 CDP 层面一看就清楚了。
 
 本文的目标：**从 TCP 连接到 WebSocket 帧，搞清楚 CDP 是什么、Playwright 怎么用它、以及如何基于它开发一个实战可用的性能监控工具。**
 

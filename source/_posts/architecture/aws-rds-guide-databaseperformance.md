@@ -18,7 +18,7 @@ images:
 
 ## 前言
 
-在 KKday B2C Backend 的 30+ 仓库中，数据库是最核心的基础设施。我们经历过自建 MySQL on EC2 的痛苦（凌晨 3 点手动恢复主从、磁盘满导致写入阻塞），最终将核心业务库迁移到 AWS RDS。这篇文章记录了从选型、迁移、调优到灾备的完整实战经验，包含 4 个真实踩坑案例和可复用的代码配置。
+在悠途OTA B2C Backend 的 30+ 仓库中，数据库是最核心的基础设施。我们经历过自建 MySQL on EC2 的痛苦（凌晨 3 点手动恢复主从、磁盘满导致写入阻塞），最终将核心业务库迁移到 AWS RDS。这篇文章记录了从选型、迁移、调优到灾备的完整实战经验，包含 4 个真实踩坑案例和可复用的代码配置。
 
 ## 架构总览
 
@@ -86,7 +86,7 @@ B2C API 的数据库负载特征：**读多写少（8:2），突发流量明显�
 ```bash
 # 生产环境配置
 aws rds create-db-instance \
-  --db-instance-identifier kkday-b2c-prod \
+  --db-instance-identifier youtu-ota-b2c-prod \
   --db-instance-class db.r6g.xlarge \          # 4 vCPU, 32GB RAM
   --engine mysql \
   --engine-version 8.0.35 \
@@ -114,8 +114,8 @@ RDS 默认参数组非常保守，必须自定义。我们对照 MySQL 官方文
 # 创建自定义参数组
 aws rds create-db-parameter-group \
   --db-parameter-group-family mysql8.0 \
-  --db-parameter-group-name kkday-b2c-prod-params \
-  --description "KKday B2C Production Optimized"
+  --db-parameter-group-name youtu-ota-b2c-prod-params \
+  --description "youtu B2C Production Optimized"
 ```
 
 核心参数调优（每个参数都有踩坑故事）：
@@ -169,7 +169,7 @@ RDS Proxy 解决了这两个问题：它在应用和数据库之间维护一个�
 ```bash
 # 创建 RDS Proxy（连接池 + 自动读写分离）
 aws rds create-db-proxy \
-  --db-proxy-name kkday-b2c-proxy \
+  --db-proxy-name youtu-ota-b2c-proxy \
   --engine-family MYSQL \
   --auth '{
     "AuthScheme": "SECRETS",
@@ -184,9 +184,9 @@ aws rds create-db-proxy \
 
 # 注册目标组
 aws rds register-db-proxy-targets \
-  --db-proxy-name kkday-b2c-proxy \
+  --db-proxy-name youtu-ota-b2c-proxy \
   --target-group-name default \
-  --db-instance-identifiers kkday-b2c-prod kkday-b2c-read-1
+  --db-instance-identifiers youtu-ota-b2c-prod youtu-ota-b2c-read-1
 ```
 
 ### 3.3 Laravel 配置 RDS Proxy
@@ -196,9 +196,9 @@ aws rds register-db-proxy-targets \
 'mysql' => [
     'driver' => 'mysql',
     // RDS Proxy 端点（自动读写分离：SELECT 走读副本，INSERT/UPDATE/DELETE 走主库）
-    'host' => env('DB_HOST', 'kkday-b2c-proxy.proxy-xxx.ap-northeast-1.rds.amazonaws.com'),
+    'host' => env('DB_HOST', 'youtu-ota-b2c-proxy.proxy-xxx.ap-northeast-1.rds.amazonaws.com'),
     'port' => env('DB_PORT', '3306'),
-    'database' => env('DB_DATABASE', 'kkday_b2c'),
+    'database' => env('DB_DATABASE', 'youtu_b2c'),
     'username' => env('DB_USERNAME'),
     'password' => env('DB_PASSWORD'),
     'charset' => 'utf8mb4',
@@ -215,7 +215,7 @@ aws rds register-db-proxy-targets \
 // 如果需要手动控制读写分离（绕过 Proxy）
 'mysql_read' => [
     'driver' => 'mysql',
-    'host' => env('DB_READ_HOST', 'kkday-b2c-read-1.xxx.rds.amazonaws.com'),
+    'host' => env('DB_READ_HOST', 'youtu-ota-b2c-read-1.xxx.rds.amazonaws.com'),
     // ... 其他配置同上
 ],
 ```
@@ -299,8 +299,8 @@ RDS 自动备份包含两部分：
 ```bash
 # 创建手动快照（不会自动过期，需要手动删除）
 aws rds create-db-snapshot \
-  --db-instance-identifier kkday-b2c-prod \
-  --db-snapshot-identifier kkday-b2c-prod-pre-schema-migration-20260510
+  --db-instance-identifier youtu-ota-b2c-prod \
+  --db-snapshot-identifier youtu-ota-b2c-prod-pre-schema-migration-20260510
 ```
 
 ### 4.3 时间点恢复实战
@@ -310,18 +310,18 @@ aws rds create-db-snapshot \
 ```bash
 # 1. 恢复到误操作前的时间点（2026-05-10 14:30:00 UTC）
 aws rds restore-db-instance-to-point-in-time \
-  --source-db-instance-identifier kkday-b2c-prod \
-  --target-db-instance-identifier kkday-b2c-recovery \
+  --source-db-instance-identifier youtu-ota-b2c-prod \
+  --target-db-instance-identifier youtu-ota-b2c-recovery \
   --restore-time "2026-05-10T14:30:00Z" \
   --db-instance-class db.r6g.xlarge \
   --multi-az
 
 # 2. 等待恢复完成（约 15-30 分钟，取决于数据量）
 aws rds wait db-instance-available \
-  --db-instance-identifier kkday-b2c-recovery
+  --db-instance-identifier youtu-ota-b2c-recovery
 
 # 3. 从恢复实例中导出需要的数据
-mysqldump -h kkday-b2c-recovery.xxx.rds.amazonaws.com \
+mysqldump -h youtu-ota-b2c-recovery.xxx.rds.amazonaws.com \
   -u admin -p \
   --single-transaction \
   --tables orders order_items \
@@ -329,17 +329,17 @@ mysqldump -h kkday-b2c-recovery.xxx.rds.amazonaws.com \
   > recovery_orders.sql
 
 # 4. 导入回生产库
-mysql -h kkday-b2c-proxy.proxy-xxx.rds.amazonaws.com \
-  -u admin -p kkday_b2c < recovery_orders.sql
+mysql -h youtu-ota-b2c-proxy.proxy-xxx.rds.amazonaws.com \
+  -u admin -p youtu_b2c < recovery_orders.sql
 
 # 5. 验证数据完整性
-mysql -h kkday-b2c-proxy.proxy-xxx.rds.amazonaws.com \
-  -u admin -p kkday_b2c \
+mysql -h youtu-ota-b2c-proxy.proxy-xxx.rds.amazonaws.com \
+  -u admin -p youtu_b2c \
   -e "SELECT COUNT(*) FROM orders WHERE created_at >= '2025-10-01' AND created_at < '2026-01-01';"
 
 # 6. 清理恢复实例（避免产生额外费用）
 aws rds delete-db-instance \
-  --db-instance-identifier kkday-b2c-recovery \
+  --db-instance-identifier youtu-ota-b2c-recovery \
   --skip-final-snapshot
 ```
 
@@ -357,7 +357,7 @@ aws rds delete-db-instance \
 
 ```bash
 aws rds modify-db-instance \
-  --db-instance-identifier kkday-b2c-prod \
+  --db-instance-identifier youtu-ota-b2c-prod \
   --enable-performance-insights \
   --performance-insights-retention-period 731 \
   --performance-insights-kms-key-id arn:aws:kms:ap-northeast-1:xxx
@@ -437,7 +437,7 @@ public function boot()
 ```bash
 # CloudWatch 告警：CPU 使用率超过 80%
 aws cloudwatch put-metric-alarm \
-  --alarm-name "RDS-HighCPU-kkday-b2c-prod" \
+  --alarm-name "RDS-HighCPU-youtu-ota-b2c-prod" \
   --metric-name CPUUtilization \
   --namespace AWS/RDS \
   --statistic Average \
@@ -445,12 +445,12 @@ aws cloudwatch put-metric-alarm \
   --threshold 80 \
   --comparison-operator GreaterThanThreshold \
   --evaluation-periods 2 \
-  --dimensions Name=DBInstanceIdentifier,Value=kkday-b2c-prod \
+  --dimensions Name=DBInstanceIdentifier,Value=youtu-ota-b2c-prod \
   --alarm-actions arn:aws:sns:ap-northeast-1:123456789:db-alerts
 
 # 告警：FreeStorageSpace 低于 50GB
 aws cloudwatch put-metric-alarm \
-  --alarm-name "RDS-LowStorage-kkday-b2c-prod" \
+  --alarm-name "RDS-LowStorage-youtu-ota-b2c-prod" \
   --metric-name FreeStorageSpace \
   --namespace AWS/RDS \
   --statistic Average \
@@ -458,12 +458,12 @@ aws cloudwatch put-metric-alarm \
   --threshold 53687091200 \
   --comparison-operator LessThanThreshold \
   --evaluation-periods 1 \
-  --dimensions Name=DBInstanceIdentifier,Value=kkday-b2c-prod \
+  --dimensions Name=DBInstanceIdentifier,Value=youtu-ota-b2c-prod \
   --alarm-actions arn:aws:sns:ap-northeast-1:123456789:db-alerts
 
 # 告警：Read Replica 延迟超过 30 秒
 aws cloudwatch put-metric-alarm \
-  --alarm-name "RDS-ReplicaLag-kkday-b2c-read-1" \
+  --alarm-name "RDS-ReplicaLag-youtu-ota-b2c-read-1" \
   --metric-name ReplicaLag \
   --namespace AWS/RDS \
   --statistic Average \
@@ -471,7 +471,7 @@ aws cloudwatch put-metric-alarm \
   --threshold 30 \
   --comparison-operator GreaterThanThreshold \
   --evaluation-periods 3 \
-  --dimensions Name=DBInstanceIdentifier,Value=kkday-b2c-read-1 \
+  --dimensions Name=DBInstanceIdentifier,Value=youtu-ota-b2c-read-1 \
   --alarm-actions arn:aws:sns:ap-northeast-1:123456789:db-alerts
 ```
 
@@ -490,7 +490,7 @@ aws cloudwatch put-metric-alarm \
 ```bash
 # 存储扩容（在线，不中断服务，但可能有短暂性能影响）
 aws rds modify-db-instance \
-  --db-instance-identifier kkday-b2c-prod \
+  --db-instance-identifier youtu-ota-b2c-prod \
   --allocated-storage 1000 \
   --storage-type gp3 \
   --iops 6000 \
@@ -520,7 +520,7 @@ aws rds describe-reserved-db-instances-offerings \
 # 购买 RI
 aws rds purchase-reserved-db-instances-offering \
   --reserved-db-instances-offering-id xxx \
-  --reserved-db-instance-id kkday-b2c-prod-ri \
+  --reserved-db-instance-id youtu-ota-b2c-prod-ri \
   --db-instance-count 1
 ```
 
@@ -611,7 +611,7 @@ aws ce get-cost-and-usage \
 ### 准备阶段
 - [ ] 1. 确认演练时间窗口（低峰期，提前通知相关团队）
 - [ ] 2. 验证自动备份完整性
-  - `aws rds describe-db-snapshots --db-instance-identifier kkday-b2c-prod`
+  - `aws rds describe-db-snapshots --db-instance-identifier youtu-ota-b2c-prod`
   - 确认最新快照时间 < 24 小时
 - [ ] 3. 准备回滚方案
 
@@ -620,7 +620,7 @@ aws ce get-cost-and-usage \
   - 恢复到 staging 实例，验证数据完整性
   - 记录恢复时间（目标 < 30 分钟）
 - [ ] 5. 模拟主库故障转移
-  - `aws rds reboot-db-instance --db-instance-identifier kkday-b2c-prod --force-failover`
+  - `aws rds reboot-db-instance --db-instance-identifier youtu-ota-b2c-prod --force-failover`
   - 记录故障转移时间（目标 < 60 秒）
   - 验证应用自动重连
 - [ ] 6. 验证读副本延迟
@@ -640,7 +640,7 @@ aws ce get-cost-and-usage \
 ```bash
 # 1. 使用 AWS DMS（Database Migration Service）进行全量 + 增量迁移
 aws dms create-replication-task \
-  --replication-task-identifier kkday-b2c-migration \
+  --replication-task-identifier youtu-ota-b2c-migration \
   --source-endpoint-arn arn:aws:dms:xxx:source-endpoint \
   --target-endpoint-arn arn:aws:dms:xxx:target-endpoint \
   --migration-type full-load-and-cdc \  # 全量加载 + 持续复制
@@ -651,7 +651,7 @@ aws dms create-replication-task \
         "rule-id": "1",
         "rule-name": "all-tables",
         "object-locator": {
-          "schema-name": "kkday_b2c",
+          "schema-name": "youtu_b2c",
           "table-name": "%"
         },
         "rule-action": "include"
@@ -681,4 +681,4 @@ AWS RDS 不是银弹，但它解决了我们 90% 的数据库运维痛点。核�
 
 ---
 
-> 本文基于 KKday B2C Backend 团队在 AWS ap-northeast-1（东京）区域的真实实践，数据库规模约 500GB，日均 QPS 约 5000。如有问题欢迎留言讨论。
+> 本文基于 youtu B2C Backend 团队在 AWS ap-northeast-1（东京）区域的真实实践，数据库规模约 500GB，日均 QPS 约 5000。如有问题欢迎留言讨论。

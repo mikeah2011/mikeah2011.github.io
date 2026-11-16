@@ -230,10 +230,10 @@ TypeScript 项目使用 Prettier，2 空格缩进。
 
 ```markdown
 <!-- memories/projects/current-project.md -->
-# 当前项目: KKday B2C API
+# 当前项目: youtu B2C API
 
 ## 项目背景
-为 KKday 旅游平台开发 B2C API 服务。
+为 youtu 旅游平台开发 B2C API 服务。
 技术栈: Laravel 10 + MySQL 8 + Redis 7。
 
 ## 当前进展

@@ -1,5 +1,5 @@
 ---
-title: Laravel 健康檢查與監控實戰-KKday-B2C-API-生產環境穩定性保障方案
+title: Laravel 健康檢查與監控實戰-youtu-ota-B2C-API-生產環境穩定性保障方案
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -7,17 +7,17 @@ date: 2026-05-03
 author: Michael
 categories: [php]
 tags: [BFF, Laravel, 监控]
-keywords: [Laravel, KKday, B2C, API, 健康檢查與監控實戰, 生產環境穩定性保障方案, PHP]
-description: 基於 KKday-B2C-API 生產環境的完整健康檢查與監控方案，包含自定義健康檢查中間件、Telescope 集成、Prometheus+Grafana 儀表板配置，以及真實踩坑記錄。
+keywords: [Laravel, 悠途OTA, B2C, API, 健康檢查與監控實戰, 生產環境穩定性保障方案, PHP]
+description: 基於 youtu-ota-B2C-API 生產環境的完整健康檢查與監控方案，包含自定義健康檢查中間件、Telescope 集成、Prometheus+Grafana 儀表板配置，以及真實踩坑記錄。
 
 
 
 ---
 
-# Laravel 健康檢查與監控實戰 - KKday-B2C-API 生產環境穩定性保障方案
+# Laravel 健康檢查與監控實戰 - youtu-ota-B2C-API 生產環境穩定性保障方案
 
 > **作者**：Michael  
-> **項目**：KKday B2C API (Laravel 8+PHP 8)  
+> **項目**：悠途OTA B2C API (Laravel 8+PHP 8)  
 > **時間**：2026-05-03  
 > **關鍵詞**：Health Check、Telescope、Prometheus、Grafana、監控
 
@@ -25,7 +25,7 @@ description: 基於 KKday-B2C-API 生產環境的完整健康檢查與監控方�
 
 ## 📌 一、為什麼需要健康檢查與監控？
 
-在 KKday B2C API 的演進過程中，我們經歷過多次生產環境問題：
+在悠途OTA B2C API 的演進過程中，我們經歷過多次生產環境問題：
 
 ### 真實場景回顧
 
@@ -646,7 +646,7 @@ version: '3.8'
 services:
   web-php:
     image: php:8.0-fpm-alpine
-    container_name: kkday-b2c-api-web
+    container_name: youtu-ota-b2c-api-web
     ports:
       - "9000:9000"
     volumes:
@@ -683,10 +683,10 @@ pm.max_spare_servers = 10
 
 ```php
 // .env (Production)
-APP_NAME="KKday B2C API"
+APP_NAME="youtu B2C API"
 APP_ENV=production
 APP_DEBUG=false
-APP_URL=https://api.kkday-b2c.com
+APP_URL=https://api.youtu-ota-b2c.com
 
 ; Monitoring Configuration
 HEALTH_CHECK_ENABLED=true
@@ -806,10 +806,10 @@ scrape_configs:
 
 ## 📝 參考項目
 
-**KKday B2C API 健康檢查配置**：[GitHub Repository]  
+**youtu B2C API 健康檢查配置**：[GitHub Repository]  
 **Telescope Custom Monitor Examples**: [Monitor Code Snippets]  
 
-> **作者備註**：本文內容基於 KKday-B2C-API 生產環境真實踩坑記錄整理。建議所有微服務都應該配備完整的健康檢查和監控機制，以確保服務的穩定性和可觀測性。
+> **作者備註**：本文內容基於 youtu-ota-B2C-API 生產環境真實踩坑記錄整理。建議所有微服務都應該配備完整的健康檢查和監控機制，以確保服務的穩定性和可觀測性。
 
 ---
 

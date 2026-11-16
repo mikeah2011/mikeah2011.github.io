@@ -26,7 +26,7 @@ Apache Kafka 是分布式事件流平台，以高吞吐、持久化、分区有�
 ## 实战案例
 
 来自博客文章：
-- [Laravel-Kafka 消息队列异步解耦实战-KKday B2C API 订单处理与库存扣减真实踩坑记录](/2026/06/01/mq/Kafka/laravel-kafka-guide/) — Producer/Consumer 配置、分区策略、消费者组管理
+- [Laravel-Kafka 消息队列异步解耦实战-youtu-ota B2C API 订单处理与库存扣减真实踩坑记录](/2026/06/01/mq/Kafka/laravel-kafka-guide/) — Producer/Consumer 配置、分区策略、消费者组管理
 - [Kafka + Debezium CDC 实战：数据库变更事件流](/2026/06/01/2026-06-03-Kafka-Debezium-CDC-实战-数据库变更事件流-Laravel互补架构/) — binlog 捕获、Schema Registry、Exactly-Once 语义
 - [Kafka vs NATS vs Pulsar 2026 实战](/2026/06/01/kafka-vs-nats-vs-pulsar-2026-laravel-microservice-mq-comparison/) — 三大消息队列深度对比
 

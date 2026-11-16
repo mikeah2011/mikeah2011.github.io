@@ -829,7 +829,7 @@ class TwoLevelCache
 ## 相关阅读
 
 - [Redis 8.0 新特性实战：向量搜索、JSON Path、性能改进与 AI 场景应用](/databases/2026-06-02-Redis-8.0-新特性实战-向量搜索-JSON-Path-性能改进与AI场景应用/)
-- [Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录](/databases/laravel-redis-distributedlockguide/)
+- [Laravel Redis 分布式锁失效场景实战 - youtu B2C API 真实踩坑记录](/databases/laravel-redis-distributedlockguide/)
 - [Redis 缓存击穿：热点 Key 过期导致数据库雪崩的原因分析与解决方案](/databases/cache-breakdown/)
 
 ## 十、总结

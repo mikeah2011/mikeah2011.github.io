@@ -9,7 +9,7 @@ updated: 2026-05-05 07:43:36
 categories: [architecture]
 tags: [Laravel, 微服务, 架构]
 keywords: [Laravel, 微服务拆分策略, 从单体, 到微服务的渐进式演进踩坑记录, 架构, PHP]
-description: "基于 KKday 30+ Laravel 仓库的实战经验，深入剖析微服务（Microservices）架构设计的核心决策链：服务拆分时机判断与反信号识别、Bounded Context 边界划分与 Event Storming 领域建模、Strangler Fig 渐进式迁移四阶段、API Gateway 与 BFF 聚合层设计、数据库拆分与 CDC 同步、分布式事务状态机补偿方案、熔断降级策略，含完整踩坑记录与架构总览图。"
+description: "基于悠途OTA 30+ Laravel 仓库的实战经验，深入剖析微服务（Microservices）架构设计的核心决策链：服务拆分时机判断与反信号识别、Bounded Context 边界划分与 Event Storming 领域建模、Strangler Fig 渐进式迁移四阶段、API Gateway 与 BFF 聚合层设计、数据库拆分与 CDC 同步、分布式事务状态机补偿方案、熔断降级策略，含完整踩坑记录与架构总览图。"
 
 
 
@@ -21,7 +21,7 @@ description: "基于 KKday 30+ Laravel 仓库的实战经验，深入剖析微�
 
 「我们应该拆微服务了吗？」—— 这可能是 Laravel 大型项目中最容易被误判的架构决策。很多团队在单体还没写好时就急于拆分，结果把一个大泥球变成了多个小泥球，还额外引入了分布式系统的复杂度。
 
-这篇文章基于 KKday B2C 后端团队在 30+ 仓库中的真实经验，分享我们如何**渐进式地**从单体 Laravel 演进到微服务架构，包括拆分时机判断、边界识别、通信选型，以及大量踩坑记录。
+这篇文章基于悠途OTA B2C 后端团队在 30+ 仓库中的真实经验，分享我们如何**渐进式地**从单体 Laravel 演进到微服务架构，包括拆分时机判断、边界识别、通信选型，以及大量踩坑记录。
 
 ---
 
@@ -764,7 +764,7 @@ class InventoryClient
 
 ---
 
-*本文基于 KKday B2C 后端团队在 2023-2025 年间的架构演进实践，涉及 30+ Laravel 仓库的真实经验。*
+*本文基于 youtu B2C 后端团队在 2023-2025 年间的架构演进实践，涉及 30+ Laravel 仓库的真实经验。*
 
 ---
 

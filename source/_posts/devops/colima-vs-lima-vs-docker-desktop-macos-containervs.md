@@ -9,7 +9,7 @@ author: Michael
 categories: [devops]
 tags: [Docker, Laravel, macOS, Colima, Lima, 容器化, 开发环境]
 keywords: [Colima vs Lima vs Docker Desktop, macOS, 容器运行时选型对比实战, DevOps]
-description: 从架构原理、启动性能、磁盘 IO、网络模式、Volume 挂载、GPU 支持六个维度，横向对比 macOS 上三大容器运行时（Docker Desktop / Colima / Lima），附带 KKday B2C Laravel 项目的真实基准测试与选型决策矩阵。
+description: 从架构原理、启动性能、磁盘 IO、网络模式、Volume 挂载、GPU 支持六个维度，横向对比 macOS 上三大容器运行时（Docker Desktop / Colima / Lima），附带悠途OTA B2C Laravel 项目的真实基准测试与选型决策矩阵。
 
 
 
@@ -53,7 +53,7 @@ description: 从架构原理、启动性能、磁盘 IO、网络模式、Volume 
 └─────────────────────────────────────────────────────┘
 ```
 
-在 KKday B2C 后端团队，我们从 2024 年开始同时使用 Docker Desktop（新同事）和 Colima（老同事），同时有个别高级工程师用 Lima 跑非 Docker 的 Linux 工作负载。这篇文章是两年来横跨三个工具的真实体感总结。
+在 youtu B2C 后端团队，我们从 2024 年开始同时使用 Docker Desktop（新同事）和 Colima（老同事），同时有个别高级工程师用 Lima 跑非 Docker 的 Linux 工作负载。这篇文章是两年来横跨三个工具的真实体感总结。
 
 ## 2. 安装与初始化对比
 
@@ -411,7 +411,7 @@ colima restart
 
 ## 8. 我的最终选择
 
-在 KKday B2C 后端团队，我们最终的策略是：
+在 youtu B2C 后端团队，我们最终的策略是：
 
 - **新人入职**：先装 Docker Desktop（降低学习成本），熟悉后再切 Colima
 - **日常开发**：Colima（`vz` + `virtiofs`），内存省 40%，IO 性能反而更好

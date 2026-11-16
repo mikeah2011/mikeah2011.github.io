@@ -11,7 +11,7 @@ categories: [macos]
 tags: [macOS, JetBrains, PhpStorm, WebStorm, GoLand, IDE, 工程管理]
 keywords: [JetBrains Toolbox, PhpStorm, WebStorm, GoLand, 配置同步踩坑记录, macOS]
 简介: |
-  Laravel B2C 开发者日常需要在 PhpStorm（PHP）、WebStorm（Vue/前端）、DataGrip（数据库）之间频繁切换。JetBrains Toolbox App 提供了统一的 IDE 管理和 Settings Sync 跨 IDE 配置同步能力。本文基于 KKday 30+ 仓库的实战经验，详解 Toolbox 安装、配置同步、插件管理、版本回滚、CLI 工具等核心功能，以及跨 IDE 快捷键冲突、Settings Repository 冲突、macOS 权限问题等踩坑记录。
+  Laravel B2C 开发者日常需要在 PhpStorm（PHP）、WebStorm（Vue/前端）、DataGrip（数据库）之间频繁切换。JetBrains Toolbox App 提供了统一的 IDE 管理和 Settings Sync 跨 IDE 配置同步能力。本文基于悠途OTA 30+ 仓库的实战经验，详解 Toolbox 安装、配置同步、插件管理、版本回滚、CLI 工具等核心功能，以及跨 IDE 快捷键冲突、Settings Repository 冲突、macOS 权限问题等踩坑记录。
 
 
 
@@ -19,7 +19,7 @@ keywords: [JetBrains Toolbox, PhpStorm, WebStorm, GoLand, 配置同步踩坑记�
 
 ## 一、为什么 Laravel 开发者需要 JetBrains Toolbox？
 
-在 KKday B2C 项目中，我们的技术栈覆盖：
+在悠途OTA B2C 项目中，我们的技术栈覆盖：
 
 - **后端**：PHP 8.0 + Laravel（PhpStorm）
 - **前端**：Vue 3 + Vite（WebStorm / VS Code）
@@ -205,19 +205,19 @@ MacBook Pro (开发机)          iMac (备用机)
 
 ```bash
 # 1. 创建团队配置 Git 仓库
-git init ~/GitHub/kkday-ide-settings
-cd ~/GitHub/kkday-ide-settings
+git init ~/GitHub/youtu-ota-ide-settings
+cd ~/GitHub/youtu-ota-ide-settings
 
 # 2. 初始化目录结构
 mkdir -p keymaps templates plugins
-echo "# KKday IDE Settings" > README.md
+echo "# youtu IDE Settings" > README.md
 git add . && git commit -m "init: team IDE settings"
-git remote add origin git@github.com:kkday-dev/ide-settings.git
+git remote add origin git@github.com:youtu-ota-dev/ide-settings.git
 git push -u origin main
 
 # 3. 在 PhpStorm 中配置 Settings Repository
 # Settings → Sync Settings → Sync Settings Via → Settings Repository
-# URL: git@github.com:kkday-dev/ide-settings.git
+# URL: git@github.com:youtu-ota-dev/ide-settings.git
 # 选择：Merge (合并) vs Overwrite (覆盖)
 ```
 

@@ -581,7 +581,7 @@ Horizon 不只是一个好看的 Dashboard，它本质上是一个**基于 Redis
 ## 相关阅读
 
 - [Laravel + PostgreSQL SKIP LOCKED 实战：不用 Redis 也能做任务出队、重试回收与死锁规避](/php/Laravel/laravel-postgresql-skip-locked-guide-redis-lock)
-- [kkday/log + kkday/monitor + kkday/tracing 实战：Laravel 可观测性架构——日志聚合、指标采集与分布式追踪踩坑记录](/php/Laravel/kkday-log-monitor-tracing-laravel-architectureguide-loggingdistributed)
+- [youtu/log + youtu/monitor + youtu/tracing 实战：Laravel 可观测性架构——日志聚合、指标采集与分布式追踪踩坑记录](/php/Laravel/youtu-log-monitor-tracing-laravel-architectureguide-loggingdistributed)
 - [PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离踩坑记录](/php/Laravel/php-fiber-concurrencyguide-laravel-concurrencyapi)
 - [Laravel 缓存策略全解：Route/Config/View/Query 缓存最佳实践踩坑记录](/php/Laravel/laravel-cache-route-config-view-query-cache)
 - [数据库读写分离实战：Laravel 中间件 + MySQL 主从复制配置](/databases/2026-06-01-database-read-write-split-laravel-middleware-mysql-replication)

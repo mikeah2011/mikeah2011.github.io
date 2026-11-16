@@ -476,27 +476,27 @@ protected function setUp(): void
 
 ## 4. 多仓库统一方案（30+ 微服务）
 
-在 KKday 的 B2C 后端团队中，30+ 个 Laravel 微服务仓库需要统一 CI 配置。我们采用以下方案：
+在 youtu 的 B2C 后端团队中，30+ 个 Laravel 微服务仓库需要统一 CI 配置。我们采用以下方案：
 
 ### 4.1 共享 phpunit.jenkins.xml 模板
 
-在内部 Composer 私有包 `kkday/ci-config` 中维护模板：
+在内部 Composer 私有包 `youtu/ci-config` 中维护模板：
 
 ```
-kkday/ci-config/
+youtu/ci-config/
 ├── phpunit.jenkins.xml.dist
 ├── Jenkinsfile.template
 ├── phpstan.neon.dist
 └── .env.ci.example
 ```
 
-每个微服务仓库通过 `composer require kkday/ci-config --dev` 安装，然后在 CI 脚本中：
+每个微服务仓库通过 `composer require youtu/ci-config --dev` 安装，然后在 CI 脚本中：
 
 ```groovy
 stage('Prepare CI Config') {
     steps {
         sh '''
-            cp vendor/kkday/ci-config/phpunit.jenkins.xml.dist phpunit.jenkins.xml
+            cp vendor/youtu/ci-config/phpunit.jenkins.xml.dist phpunit.jenkins.xml
             # 动态替换仓库特定的环境变量
             sed -i "s/\${DB_DATABASE}/test_${BUILD_NUMBER}/g" phpunit.jenkins.xml
         '''
@@ -509,7 +509,7 @@ stage('Prepare CI Config') {
 将公共 pipeline 逻辑抽到 Jenkins Shared Library：
 
 ```groovy
-// vars/kkdayPipeline.groovy
+// vars/youtuPipeline.groovy
 def call(Map config = [:]) {
     pipeline {
         agent { docker { image config.get('phpImage', 'php:8.0-fpm') } }
@@ -537,9 +537,9 @@ def call(Map config = [:]) {
 每个微服务的 `Jenkinsfile` 简化到：
 
 ```groovy
-@Library('kkday-shared-lib') _
+@Library('youtu-ota-shared-lib') _
 
-kkdayPipeline(
+youtuPipeline(
     phpImage: 'php:8.0-fpm',
     testSuites: ['Unit', 'Feature', 'Contract']
 )

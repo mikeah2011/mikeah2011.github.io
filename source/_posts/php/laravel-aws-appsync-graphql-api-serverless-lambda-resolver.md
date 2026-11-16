@@ -30,7 +30,7 @@ AWS AppSync 是一个完全托管的 GraphQL 服务，原生支持实时订阅�
 2. **离线同步**：客户端 SDK（Amplify）自动处理离线队列和冲突解决
 3. **多数据源编排**：一个 GraphQL 请求可以同时查询 DynamoDB + Lambda + RDS
 
-本文以 KKday B2C API 的技术栈为背景，实战 Laravel 8 项目如何通过 Lambda Resolver 集成 AppSync，覆盖从认证到实时订阅的完整链路。
+本文以悠途OTA B2C API 的技术栈为背景，实战 Laravel 8 项目如何通过 Lambda Resolver 集成 AppSync，覆盖从认证到实时订阅的完整链路。
 
 ---
 
@@ -543,7 +543,7 @@ async function offlineAwareOrderCreate(items: Array<{ productId: string; quantit
 # cloudformation/appsync.yaml
 
 AWSTemplateFormatVersion: '2010-09-09'
-Description: AppSync GraphQL API for KKday B2C
+Description: AppSync GraphQL API for youtu B2C
 
 Resources:
   # AppSync GraphQL API

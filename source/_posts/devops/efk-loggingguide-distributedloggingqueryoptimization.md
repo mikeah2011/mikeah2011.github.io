@@ -6,9 +6,9 @@ images:
 date: 2026-05-03
 author: Michael
 categories: [devops]
-tags: [Elasticsearch, KKday, Laravel, 微服务, 监控]
+tags: [Elasticsearch, 悠途OTA, Laravel, 微服务, 监控]
 keywords: [EFK, Laravel B2C API, 日志聚合实战, 分布式日志收集与查询优化, DevOps]
-description: 在 KKday B2C API 微服务架构中，EFK（Elasticsearch + Fluentd + Kibana）日志聚合方案的完整实战记录，涵盖架构设计、Fluentd 多格式解析、Elasticsearch 索引模板优化、Kibana 仪表板配置以及生产环境踩坑记录
+description: 在悠途OTA B2C API 微服务架构中，EFK（Elasticsearch + Fluentd + Kibana）日志聚合方案的完整实战记录，涵盖架构设计、Fluentd 多格式解析、Elasticsearch 索引模板优化、Kibana 仪表板配置以及生产环境踩坑记录
 
 
 
@@ -31,7 +31,7 @@ description: 在 KKday B2C API 微服务架构中，EFK（Elasticsearch + Fluent
 
 ## 🎯 问题背景：微服务架构下的日志困境
 
-在 KKday B2C API 项目中，我们从单体架构演进到微服务架构后，日志管理面临三大挑战：
+在悠途OTA B2C API 项目中，我们从单体架构演进到微服务架构后，日志管理面临三大挑战：
 
 **1. 日志分散，排查困难**
 ```
@@ -68,7 +68,7 @@ description: 在 KKday B2C API 微服务架构中，EFK（Elasticsearch + Fluent
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        KKday B2C API 微服务集群                      │
+│                        youtu B2C API 微服务集群                      │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐            │
@@ -198,7 +198,7 @@ spec:
 
 ### 2. Fluentd 多格式解析配置（重点！）
 
-这是我们在 KKday 项目中踩坑最多的部分。不同服务使用不同日志格式：
+这是我们在 youtu 项目中踩坑最多的部分。不同服务使用不同日志格式：
 
 ```xml
 <!-- fluentd-config ConfigMap -->
@@ -251,7 +251,7 @@ spec:
       skip_container_metadata false
       skip_master_url true
       skip_namespace false
-      # 重要！KKday 实战经验：如果不设置 cache_size，内存会爆炸
+      # 重要！youtu 实战经验：如果不设置 cache_size，内存会爆炸
       cache_size 1000
     </kubernetes>
   </inject>
@@ -294,7 +294,7 @@ spec:
 ### 1. 索引模板配置
 
 ```json
-// PUT _index_template/kkday-logs-template
+// PUT _index_template/youtu-ota-logs-template
 {
   "index_patterns": ["order-svc-*", "auth-svc-*", "pay-svc-*"],
   "template": {
@@ -304,8 +304,8 @@ spec:
       "refresh_interval": "30s",
       "index": {
         "lifecycle": {
-          "name": "kkday-logs-policy",
-          "rollover_alias": "kkday-logs"
+          "name": "youtu-ota-logs-policy",
+          "rollover_alias": "youtu-ota-logs"
         },
         "codec": "best_compression",
         "query": {
@@ -372,7 +372,7 @@ spec:
 ### 2. 索引生命周期策略（ILM）
 
 ```json
-// PUT _ilm/policy/kkday-logs-policy
+// PUT _ilm/policy/youtu-ota-logs-policy
 {
   "policy": {
     "phases": {
@@ -513,7 +513,7 @@ spec:
 ### 2. 告警规则（ElastAlert 配置）
 
 ```yaml
-# kkday-alerts.yaml
+# youtu-ota-alerts.yaml
 name: 高错误率告警
 type: frequency
 index: order-svc-*,auth-svc-*,pay-svc-*
@@ -527,12 +527,12 @@ filter:
 alert:
 - "slack"
 slack_webhook_url: "https://hooks.slack.com/services/xxx/yyy/zzz"
-alert_subject: "🚨 KKday API 错误日志激增"
+alert_subject: "🚨 youtu API 错误日志激增"
 alert_text: |
   服务: {0}
   错误数: {1}
   时间范围: 最近 5 分钟
-  查看 Kibana: https://kibana.kkday.com/app/kibana#/discover
+  查看 Kibana: https://kibana.youtu-ota.test/app/kibana#/discover
 alert_text_args:
 - "{0}": "kubernetes.container_name"
 - "{1}": "num_hits"
@@ -583,8 +583,8 @@ curl -s localhost:9200/_cat/indices | wc -l
 {
   "actions": {
     "add": {
-      "index": "kkday-logs-2026.05.03",
-      "alias": "kkday-logs-write"
+      "index": "youtu-ota-logs-2026.05.03",
+      "alias": "youtu-ota-logs-write"
     }
   }
 }
@@ -901,7 +901,7 @@ class OrderService
 
 ---
 
-*本文基于 KKday B2C API 项目真实踩坑经验总结，适用于日均请求量 1000 万+ 的微服务架构。*
+*本文基于 youtu B2C API 项目真实踩坑经验总结，适用于日均请求量 1000 万+ 的微服务架构。*
 
 ## 相关阅读
 

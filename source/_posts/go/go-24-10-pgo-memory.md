@@ -39,7 +39,7 @@ go build -pgo=cpu.prof ./cmd/server
 
 ### 实际收益
 
-在 KKday 的 B2C API（Laravel 8 + Go sidecar）里做过测试，主要收益集中在：
+在 youtu 的 B2C API（Laravel 8 + Go sidecar）里做过测试，主要收益集中在：
 
 1. **热路径函数内联**：被频繁调用的序列化/反序列化函数，内联后 CPU 开销降低 8-15%
 2. **分支预测优化**：错误处理路径被标记为冷路径，热路径的分支预测命中率提升

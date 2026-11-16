@@ -9,7 +9,7 @@ updated: 2026-05-05 00:43:48
 categories: [php]
 tags: [Laravel, MySQL, PostgreSQL]
 keywords: [Laravel, ORM, PDO, MySQL, PostgreSQL, 行为差异与兼容性实战踩坑记录, PHP, 数据库]
-description: 在 KKday B2C 同一 Laravel 代码库中同时支持 MySQL 和 PostgreSQL 的真实踩坑记录——从 Eloquent Query Builder 的 SQL 生成差异、PDO 驱动行为、Schema Migration 到类型映射，涵盖大小写敏感、JSON 查询、NULL 语义、事务隔离级别等 10 大常见陷阱与生产级解决方案。
+description: 在悠途OTA B2C 同一 Laravel 代码库中同时支持 MySQL 和 PostgreSQL 的真实踩坑记录——从 Eloquent Query Builder 的 SQL 生成差异、PDO 驱动行为、Schema Migration 到类型映射，涵盖大小写敏感、JSON 查询、NULL 语义、事务隔离级别等 10 大常见陷阱与生产级解决方案。
 
 
 
@@ -19,7 +19,7 @@ description: 在 KKday B2C 同一 Laravel 代码库中同时支持 MySQL 和 Pos
 
 ## 前言
 
-在 KKday B2C 后端项目中，我们面临着一个特殊的架构挑战：**同一个 Laravel 代码库需要同时支持 MySQL 和 PostgreSQL**。主站订单系统跑在 MySQL 8.0 上，而 Affiliate 联盟项目基于 PostgreSQL 14。两个数据库共享同一套 Eloquent Model 层，通过 Service Provider 动态切换连接。
+在悠途OTA B2C 后端项目中，我们面临着一个特殊的架构挑战：**同一个 Laravel 代码库需要同时支持 MySQL 和 PostgreSQL**。主站订单系统跑在 MySQL 8.0 上，而 Affiliate 联盟项目基于 PostgreSQL 14。两个数据库共享同一套 Eloquent Model 层，通过 Service Provider 动态切换连接。
 
 起初我以为"反正都是 SQL，ORM 抹平了差异"——**这是个天真的想法**。上线后踩了无数坑，从大小写敏感性到 JSON 字段查询，从空字符串与 NULL 的语义差异到 PDO prepared statement 的行为区别。这篇文章记录了我们在 30+ 仓库中积累的真实兼容性经验。
 
@@ -59,7 +59,7 @@ description: 在 KKday B2C 同一 Laravel 代码库中同时支持 MySQL 和 Pos
         'driver' => 'mysql',
         'host' => env('DB_MYSQL_HOST', '127.0.0.1'),
         'port' => env('DB_MYSQL_PORT', '3306'),
-        'database' => env('DB_MYSQL_DATABASE', 'kkday_b2c'),
+        'database' => env('DB_MYSQL_DATABASE', 'youtu_b2c'),
         'username' => env('DB_MYSQL_USERNAME', 'root'),
         'password' => env('DB_MYSQL_PASSWORD', ''),
         'charset' => 'utf8mb4',
@@ -72,7 +72,7 @@ description: 在 KKday B2C 同一 Laravel 代码库中同时支持 MySQL 和 Pos
         'driver' => 'pgsql',
         'host' => env('DB_PGSQL_HOST', '127.0.0.1'),
         'port' => env('DB_PGSQL_PORT', '5432'),
-        'database' => env('DB_PGSQL_DATABASE', 'kkday_affiliate'),
+        'database' => env('DB_PGSQL_DATABASE', 'youtu_affiliate'),
         'username' => env('DB_PGSQL_USERNAME', 'postgres'),
         'password' => env('DB_PGSQL_PASSWORD', ''),
         'charset' => 'utf8',
@@ -94,13 +94,13 @@ MySQL 的默认 collation（如 `utf8mb4_unicode_ci`）是**大小写不敏感**
 
 ```php
 // MySQL：这条能查到结果
-User::where('email', 'Mike@KKday.com')->first(); 
-// → SELECT * FROM users WHERE email = 'Mike@KKday.com'
-// → 命中 mike@kkday.com ✅（ci = case insensitive）
+User::where('email', 'Mike@youtu-ota.test')->first(); 
+// → SELECT * FROM users WHERE email = 'Mike@youtu-ota.test'
+// → 命中 mike@youtu-ota.test ✅（ci = case insensitive）
 
 // PostgreSQL：查不到！
-User::on('pgsql')->where('email', 'Mike@KKday.com')->first();
-// → SELECT * FROM users WHERE email = 'Mike@KKday.com'
+User::on('pgsql')->where('email', 'Mike@youtu-ota.test')->first();
+// → SELECT * FROM users WHERE email = 'Mike@youtu-ota.test'
 // → NULL ❌（PostgreSQL 严格区分大小写）
 ```
 
@@ -908,7 +908,7 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: secret
-          MYSQL_DATABASE: kkday_test
+          MYSQL_DATABASE: youtu_test
     steps:
       - uses: actions/checkout@v4
       - run: vendor/bin/pest --configuration phpunit.mysql.xml
@@ -919,7 +919,7 @@ jobs:
         image: postgres:14
         env:
           POSTGRES_PASSWORD: secret
-          POSTGRES_DB: kkday_test
+          POSTGRES_DB: youtu_test
     steps:
       - uses: actions/checkout@v4
       - run: vendor/bin/pest --configuration phpunit.pgsql.xml

@@ -10,7 +10,7 @@ images:
   - https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop
 categories: [misc]
 tags:
-- KKday
+- 悠途OTA
 - Laravel
 - Redis
 - ThinkPHP

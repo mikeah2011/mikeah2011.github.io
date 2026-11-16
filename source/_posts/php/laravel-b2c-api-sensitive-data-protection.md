@@ -1170,4 +1170,4 @@ git log -p --all -S 'password' -- '*.env' '*.php'
 
 - [API 安全加固实战：JWT 黑名单、请求签名、IP 白名单、防重放攻击](/categories/架构/api-安全加固实战-jwt-黑名单-请求签名-ip白名单-防重放攻击-laravel-b2c-api踩坑记录/)
 - [Laravel Sanctum 实战：SPA API 令牌认证与移动端适配](/categories/php/laravel/laravel-sanctum-实战-spa-api-令牌认证与移动端适配/)
-- [Laravel 日志监控与链路追踪架构实战](/categories/php/laravel/kkday-log-monitor-tracing-laravel-architectureguide-loggingdistributed/)
+- [Laravel 日志监控与链路追踪架构实战](/categories/php/laravel/youtu-log-monitor-tracing-laravel-architectureguide-loggingdistributed/)

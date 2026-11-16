@@ -13,7 +13,7 @@ tags:
 - Laravel
 - PHP
 - 安全
-description: 在 KKday B2C API 处理支付回调与会员敏感资料传输时，如何用 phpseclib 3 做 RSA/AES 混合加密、前端用 gibberish-aes 做对称加密，以及在 PCI DSS / 个资法合规要求下的密钥管理、编码踩坑与架构决策。
+description: 在悠途OTA B2C API 处理支付回调与会员敏感资料传输时，如何用 phpseclib 3 做 RSA/AES 混合加密、前端用 gibberish-aes 做对称加密，以及在 PCI DSS / 个资法合规要求下的密钥管理、编码踩坑与架构决策。
 ---
 
 
@@ -23,7 +23,7 @@ description: 在 KKday B2C API 处理支付回调与会员敏感资料传输时�
 
 ## 1. 为什么 HTTPS 不够？
 
-在 KKday B2C 的支付链路里，前端（Web/App）→ BFF → 第三方支付（Stripe / Alipay）这条数据流涉及三类敏感数据：
+在悠途OTA B2C 的支付链路里，前端（Web/App）→ BFF → 第三方支付（Stripe / Alipay）这条数据流涉及三类敏感数据：
 
 | 类别 | 示例 | 合规要求 |
 |------|------|----------|
@@ -713,4 +713,4 @@ class KeyManager
 4. **日志是最大的泄漏点**（不是加密算法本身）
 5. **EVP_BytesToKey 是历史包袱**（新项目请用 PBKDF2/Argon2）
 
-在 KKday B2C 的实际落地中，这套方案帮我们通过了 PCI DSS Level 1 审计，也满足了台湾个资法对 PII 加密传输的要求。核心思路就是：**前端做轻量加密防 XSS，后端做重加密防传输泄漏，密钥管理防内部威胁**。
+在 youtu B2C 的实际落地中，这套方案帮我们通过了 PCI DSS Level 1 审计，也满足了台湾个资法对 PII 加密传输的要求。核心思路就是：**前端做轻量加密防 XSS，后端做重加密防传输泄漏，密钥管理防内部威胁**。

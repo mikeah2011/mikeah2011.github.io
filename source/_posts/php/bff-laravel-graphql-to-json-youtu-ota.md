@@ -1,7 +1,7 @@
 ---
 
-title: Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与KKday真实踩坑记录
-keywords: [Laravel BFF, GraphQL to JSON, KKday, 中间层聚合实战, 转换优化与, 真实踩坑记录]
+title: Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与悠途OTA真实踩坑记录
+keywords: [Laravel BFF, GraphQL to JSON, 悠途OTA, 中间层聚合实战, 转换优化与, 真实踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -9,7 +9,7 @@ date: 2026-05-02 18:30
 author: Michael
 categories: [php]
 tags:
-- KKday
+- 悠途OTA
 - Laravel
 - GraphQL
 - BFF
@@ -18,16 +18,16 @@ tags:
 - gRPC
 - 性能优化
 - Redis
-description: 深入解析 Laravel BFF 中间层如何实现 GraphQL 到 JSON 的高效 API 聚合转换，涵盖 KKday B2C API 真实踩坑记录：N+1 查询优化、gRPC 跨服务调用、Redis 缓存击穿防护与分布式锁策略，响应时间从 2.3s 降至 45ms 的完整性能优化实战。
+description: 深入解析 Laravel BFF 中间层如何实现 GraphQL 到 JSON 的高效 API 聚合转换，涵盖悠途OTA B2C API 真实踩坑记录：N+1 查询优化、gRPC 跨服务调用、Redis 缓存击穿防护与分布式锁策略，响应时间从 2.3s 降至 45ms 的完整性能优化实战。
 ---
 
 
 
-# Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与 KKday 真实踩坑记录
+# Laravel BFF 中间层聚合实战 - GraphQL to JSON 转换优化与悠途OTA真实踩坑记录
 
 ## 📋 背景
 
-在 KKday B2C API 项目中，我们面临着一个经典的问题：**如何在微服务架构下高效地聚合数据？**
+在悠途OTA B2C API 项目中，我们面临着一个经典的问题：**如何在微服务架构下高效地聚合数据？**
 
 传统的做法是直接暴露多个 GraphQL/REST API 给前端应用，但这种方式存在以下痛点：
 
@@ -562,7 +562,7 @@ class AggregatorService
 
 ### 1. Strangler Fig 模式：从旧 API 到 BFF 的渐进迁移
 
-在 KKday 的实际项目中，我们不可能一次性将所有旧 API 迁移到 BFF 架构。Strangler Fig（绞杀者模式）是最佳迁移策略：
+在 youtu 的实际项目中，我们不可能一次性将所有旧 API 迁移到 BFF 架构。Strangler Fig（绞杀者模式）是最佳迁移策略：
 
 ```php
 // app/Http/Middleware/StranglerRouting.php
@@ -614,7 +614,7 @@ class StranglerRouting
 }
 ```
 
-**迁移节奏（KKday 实际执行）：**
+**迁移节奏（youtu 实际执行）：**
 
 | 阶段 | 时间 | 流量分配 | 状态 |
 |------|------|---------|------|
@@ -1294,7 +1294,7 @@ class FrontendOrder implements JsonSerializable
 
 ---
 
-## 🚀 生產環境建議（KKday B2C API）
+## 🚀 生產環境建議（youtu B2C API）
 
 ### 1. 緩存策略總結
 
@@ -1372,7 +1372,7 @@ BFF 模式在微服務架構下有以下優勢：
 ## 相关阅读
 
 - [GraphQL Federation 超图实战：订单、库存、价格子图拆分与网关鉴权缓存踩坑记录](/architecture/graphql-federation-guide-cache) - 基于 Laravel BFF 对接 Apollo Router 的 Federation 架构深度解析
-- [BFF vs GraphQL：何时用 BFF 而非直接调用 API？](/architecture/bff-vs-graphql) - KKday B2C 真实项目中 BFF 与 GraphQL 的选型对比
+- [BFF vs GraphQL：何时用 BFF 而非直接调用 API？](/architecture/bff-vs-graphql) - youtu B2C 真实项目中 BFF 与 GraphQL 的选型对比
 - [Laravel BFF 中间层聚合实战 — GraphQL 到 JSON 转换优化](/php/Laravel/bff-laravel-guide-graphql-json-optimization) - 批量聚合查询消除 N+1 问题与 Redis 缓存分层策略
 - [API Composition Pattern 进阶：GraphQL Federation vs REST BFF vs gRPC](/00_架构/api-composition-pattern-graphql-rest-grpc) - 三种跨服务查询聚合路线深度对比
 
@@ -1382,7 +1382,7 @@ BFF 模式在微服務架構下有以下優勢：
 
 1. [Laravel BFF 模式介紹](https://laravel-bff.com/)
 2. [GraphQL vs REST 性能對比](https://graphql-vs-rest.io/performance)
-3. [KKday B2C API Architecture Decision Records](https://confluence.company/kkday/b2c-adr)
+3. [youtu B2C API Architecture Decision Records](https://confluence.company/youtu/b2c-adr)
 
 ---
 
@@ -1390,7 +1390,7 @@ BFF 模式在微服務架構下有以下優勢：
 > 大項目務必在 BFF 層進行數據聚合，避免前端多次請求導致體驗劣化。同時，緩存策略與版本管理是生產環境的兩大痛點，需提前規劃。
 
 ---
-*本文基於 KKday B2C API 真實項目經驗撰寫，部分數據為脫敏後測試結果。*
-*作者：Michael (KKday RD B2C Backend Team)*
+*本文基於 youtu B2C API 真實項目經驗撰寫，部分數據為脫敏後測試結果。*
+*作者：Michael (youtu RD B2C Backend Team)*
 *日期：2026-05-02*
 *更多技術文章請訪問 https://mikeah2011.github.io*

@@ -19,7 +19,7 @@ description: Mermaid 是一款基于文本的图表绘制工具，让工程师�
 
 ## 为什么选 Mermaid？
 
-在 KKday B2C Backend Team，我们的 SA/SD 文档都写在 Confluence 上。以前画架构图得切到 draw.io，画完导出 PNG 再贴回来，改一次需求就得重新画。后来发现 Mermaid 可以直接在 Confluence 里渲染，改动只改几行代码，从此告别"截图地狱"。
+在悠途OTA B2C Backend Team，我们的 SA/SD 文档都写在 Confluence 上。以前画架构图得切到 draw.io，画完导出 PNG 再贴回来，改一次需求就得重新画。后来发现 Mermaid 可以直接在 Confluence 里渲染，改动只改几行代码，从此告别"截图地狱"。
 
 **Mermaid 的核心优势**：
 
@@ -649,7 +649,7 @@ stateDiagram-v2
 
 ```mermaid
 gantt
-    title KKday B2C API v3 重构排期
+    title youtu B2C API v3 重构排期
     dateFormat  YYYY-MM-DD
     section 架构设计
     SA/SD 文档编写           :done, sa1, 2026-01-06, 5d
@@ -746,8 +746,8 @@ flowchart TB
 ```mermaid
 flowchart TD
     A[订单服务] --> B[支付服务]
-    click A "https://github.com/kkday/order-service" "查看源码"
-    click B "https://github.com/kkday/payment-service" "查看源码"
+    click A "https://github.com/youtu/order-service" "查看源码"
+    click B "https://github.com/youtu/payment-service" "查看源码"
 ```
 
 这在写技术文档时特别有用，点击图上的节点直接跳转到对应仓库。

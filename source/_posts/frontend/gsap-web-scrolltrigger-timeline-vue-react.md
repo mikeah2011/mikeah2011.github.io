@@ -24,7 +24,7 @@ description: 深入解析 GSAP 3.x 动画引擎核心 API，实战演示 ScrollT
 
 前端动画领域，CSS Animation 和 Web Animations API 各有局限——前者调试困难、后者兼容性堪忧。GSAP（GreenSock Animation Platform）3.x 作为业界标杆，提供了一套完整、高性能、跨浏览器的动画解决方案。
 
-在 KKday B2C 项目中，落地页的滚动视差、产品卡片入场动画、价格切换过渡都依赖 GSAP。本文从实际项目经验出发，系统讲解 GSAP 3.x 的核心 API、ScrollTrigger 滚动驱动、Timeline 复杂编排，以及在 Vue 3 和 React 中的集成与性能优化。
+在悠途OTA B2C 项目中，落地页的滚动视差、产品卡片入场动画、价格切换过渡都依赖 GSAP。本文从实际项目经验出发，系统讲解 GSAP 3.x 的核心 API、ScrollTrigger 滚动驱动、Timeline 复杂编排，以及在 Vue 3 和 React 中的集成与性能优化。
 
 ## 核心概念
 
@@ -166,7 +166,7 @@ gsap.to('.parallax-bg', {
 })
 ```
 
-### 2. 产品卡片入场动画（KKday 风格）
+### 2. 产品卡片入场动画（youtu 风格）
 
 ```javascript
 // 产品列表分批入场

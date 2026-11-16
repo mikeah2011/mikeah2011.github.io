@@ -22,7 +22,7 @@ images:
 # AI 辅助文档生成实战：API 文档、README、CHANGELOG 自动化踩坑记录
 
 > 📅 创建时间：2026-05-17 | 🏷️ 分类：macOS / AI 工具链 / 工程化
-> 📝 基于 KKday RD B2C Backend Team 30+ 仓库的真实文档治理经验
+> 📝 基于悠途OTA RD B2C Backend Team 30+ 仓库的真实文档治理经验
 
 ## 为什么需要 AI 辅助文档？
 
@@ -570,4 +570,4 @@ AI 辅助文档生成不是"让 AI 写文档"，而是**让 AI 做文档的 80% 
 
 ---
 
-> 💡 本文基于 KKday RD B2C Backend Team 的真实文档治理经验。如果你也在用 Laravel 做 B2C 项目，欢迎交流文档自动化方案。
+> 💡 本文基于 youtu RD B2C Backend Team 的真实文档治理经验。如果你也在用 Laravel 做 B2C 项目，欢迎交流文档自动化方案。

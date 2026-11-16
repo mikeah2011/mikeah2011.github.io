@@ -333,7 +333,7 @@ class EntityIndex:
 ```
 Root
 ├── 项目工作
-│   ├── KKday B2C API
+│   ├── youtu B2C API
 │   │   ├── 性能优化
 │   │   ├── 数据库设计
 │   │   └── Redis 缓存
@@ -652,7 +652,7 @@ def query_memory(query, memory_tree):
 
 假设用户在一天内进行了以下对话：
 
-**对话 1（上午 10:00）**：讨论 KKday API 的 Redis 缓存优化
+**对话 1（上午 10:00）**：讨论 youtu API 的 Redis 缓存优化
 **对话 2（下午 2:00）**：讨论晚上跑步的计划
 **对话 3（下午 4:00）**：讨论 OpenHuman 的新插件开发
 
@@ -660,8 +660,8 @@ def query_memory(query, memory_tree):
 
 ```
 对话 1 → chunk_001, chunk_002
-  实体: KKday, Redis, 缓存, API, 性能优化
-  主题: 项目工作 > KKday B2C API > 性能优化
+  实体: youtu, Redis, 缓存, API, 性能优化
+  主题: 项目工作 > youtu B2C API > 性能优化
 
 对话 2 → chunk_003
   实体: 跑步, 运动, 晚上, 5公里
@@ -673,8 +673,8 @@ def query_memory(query, memory_tree):
 ```
 
 到了一天结束时，全局摘要更新为：
-- L1: "讨论了 KKday API 的 Redis 缓存优化、个人运动计划，以及 OpenHuman 插件开发"
-- L2[项目工作]: "在 KKday B2C API 项目中优化了 Redis 缓存策略，同时推进了 OpenHuman 的 OAuth 插件开发"
+- L1: "讨论了 youtu API 的 Redis 缓存优化、个人运动计划，以及 OpenHuman 插件开发"
+- L2[项目工作]: "在 youtu B2C API 项目中优化了 Redis 缓存策略，同时推进了 OpenHuman 的 OAuth 插件开发"
 - L2[生活日常]: "制定了晚间跑步运动计划"
 
 ---
@@ -699,7 +699,7 @@ def query_memory(query, memory_tree):
 
 **传统 RAG**：向量相似度是一个黑盒数值，用户很难理解为什么返回了某个结果。
 
-**Memory Tree**：每个查询结果都可以追溯到具体的实体关系和主题路径。例如："这个 chunk 被返回是因为它提到了实体 'Redis'，属于主题 'KKday B2C API > 性能优化'"。
+**Memory Tree**：每个查询结果都可以追溯到具体的实体关系和主题路径。例如："这个 chunk 被返回是因为它提到了实体 'Redis'，属于主题 'youtu B2C API > 性能优化'"。
 
 ### 对比四：存储效率
 
@@ -733,7 +733,7 @@ last_week_summaries = memory_tree.query_by_time_range(
 当用户在开发过程中遇到问题并和 Agent 讨论时，Memory Tree 会自动积累项目知识：
 
 ```
-项目: KKday B2C API
+项目: youtu B2C API
 ├── 已知问题
 │   ├── Redis 分布式锁竞态条件（2026-05-15 讨论）
 │   ├── MySQL 慢查询优化经验（2026-05-20 讨论）

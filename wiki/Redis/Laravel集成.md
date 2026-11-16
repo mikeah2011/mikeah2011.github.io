@@ -130,10 +130,10 @@ Lua 的落地重点通常包括：
 | Cluster | 智能客户端 + 故障降级 |
 
 ## 十一、关联文章
-- [Redis 实战：缓存失效场景深度解析 - KKday B2C API 真实踩坑记录](/2026/06/01/redis-guide-cache/)
+- [Redis 实战：缓存失效场景深度解析 - 悠途OTA B2C API 真实踩坑记录](/2026/06/01/redis-guide-cache/)
 - [Laravel B2C API 的 Redis 使用场景：会话/购物车/计次/全页缓存对比](/2026/06/01/redis-use-cases-cachevs/)
 - [Predis-Laravel-缓存实战-失效分布式锁性能调优](/2026/06/01/predis-laravel-cacheguide-distributedlock/)
-- [Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录](/2026/06/01/laravel-redis-distributedlockguide/)
+- [Laravel Redis 分布式锁失效场景实战 - 悠途OTA B2C API 真实踩坑记录](/2026/06/01/laravel-redis-distributedlockguide/)
 - [Redis Stream 实战：消息队列替代方案与消费者组管理 Laravel 踩坑记录](/2026/06/01/redis-stream-guide-laravel/)
 - [Redis Bitmap 实战：用户签到/在线状态/特征标记 — Laravel B2C API 踩坑记录](/2026/06/01/redis-bitmap-guide/)
 - [Redis-HyperLogLog-实战-UV统计与基数估算-Laravel-B2C-API踩坑记录](/2026/06/01/redis-hyperloglog-guide-uv/)

@@ -51,7 +51,7 @@ Cursor、Claude Code、Hermes Agent 不是同质化竞争产品。它们在架�
 
 ### 1.2 我的真实使用数据
 
-在过去一个季度（2026 Q1-Q2），我在 `~/KKday/kkday-b2c-api`（Laravel B2C API，30+ 仓库）和 `~/GitHub/mikeah2011.github.io`（Hexo 博客）上同时使用三个工具。以下是任务分配统计：
+在过去一个季度（2026 Q1-Q2），我在 `~/youtu/youtu-ota-b2c-api`（Laravel B2C API，30+ 仓库）和 `~/GitHub/mikeah2011.github.io`（Hexo 博客）上同时使用三个工具。以下是任务分配统计：
 
 ```
 任务类型分布（2026 Q1-Q2，共 847 个 AI 辅助任务）：
@@ -130,7 +130,7 @@ if (trigger === 'tab_completion') {
 
 **踩坑记录 #1：Cursor 的向量索引在大仓库中失效**
 
-我们的 `kkday-b2c-api` 仓库有 3000+ PHP 文件。Cursor 的向量索引在首次构建时需要 15-20 分钟，而且索引质量在仓库超过 500 个文件后明显下降。具体表现为：`@codebase` 返回的结果经常是不相关的文件。
+我们的 `youtu-ota-b2c-api` 仓库有 3000+ PHP 文件。Cursor 的向量索引在首次构建时需要 15-20 分钟，而且索引质量在仓库超过 500 个文件后明显下降。具体表现为：`@codebase` 返回的结果经常是不相关的文件。
 
 **解决方案**：使用 `.cursorignore` 排除 vendor/、tests/、storage/ 目录，把索引范围缩小到 app/ 目录下的核心代码。索引时间从 20 分钟降到 3 分钟，相关性显著提升。
 
@@ -338,7 +338,7 @@ hermes cron add \
 我在同一个 Laravel 仓库上测试了三个工具在不同任务上的表现：
 
 **测试环境**：
-- 仓库：`kkday-b2c-api`（Laravel 10, PHP 8.0, 3000+ 文件）
+- 仓库：`youtu-ota-b2c-api`（Laravel 10, PHP 8.0, 3000+ 文件）
 - 任务：5 个真实开发任务，每任务重复 3 次取平均
 - 硬件：MacBook Pro M3 Max, 64GB RAM
 
@@ -464,7 +464,7 @@ Cursor 的 Tab 补全之所以准确，是因为它通过向量索引找到了�
 
 ```bash
 # 1. 启动 Claude Code，加载项目上下文
-cd ~/KKday/kkday-b2c-api
+cd ~/youtu/youtu-ota-b2c-api
 claude
 
 # 2. 描述任务（Claude Code 会自动分析依赖链）
@@ -748,4 +748,4 @@ MCP (Model Context Protocol) 正在成为 AI 工具的"USB 接口"——一个 M
 
 ---
 
-*本文所有基准测试数据来自真实仓库 `~/KKday/kkday-b2c-api`（Laravel B2C API），测试环境为 MacBook Pro M3 Max / 64GB RAM / macOS 26.5。成本数据基于 2026 年 6 月各平台公开定价。*
+*本文所有基准测试数据来自真实仓库 `~/youtu/youtu-ota-b2c-api`（Laravel B2C API），测试环境为 MacBook Pro M3 Max / 64GB RAM / macOS 26.5。成本数据基于 2026 年 6 月各平台公开定价。*

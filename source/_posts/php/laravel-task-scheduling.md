@@ -12,7 +12,7 @@ tags:
 - 队列
 - 监控告警
 categories: [php]
-description: 深入实战 Laravel Task Scheduling 在分布式环境下的完整解决方案。涵盖 onOneServer 分布式锁、Leader Election 高可用选主、任务分片内存优化、Prometheus/Grafana 监控告警集成、动态调度与事件驱动解耦等高级话题。基于 KKday B2C 生产环境真实踩坑经验，详解时区陷阱、锁残留清理、连接超时处理等七大常见问题，帮助团队构建任务不丢、不重、有日志、有告警的健壮调度系统。
+description: 深入实战 Laravel Task Scheduling 在分布式环境下的完整解决方案。涵盖 onOneServer 分布式锁、Leader Election 高可用选主、任务分片内存优化、Prometheus/Grafana 监控告警集成、动态调度与事件驱动解耦等高级话题。基于悠途OTA B2C 生产环境真实踩坑经验，详解时区陷阱、锁残留清理、连接超时处理等七大常见问题，帮助团队构建任务不丢、不重、有日志、有告警的健壮调度系统。
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -1389,7 +1389,7 @@ Laravel Task Scheduling 从表面上看只是一个简单的定时任务管理�
 
 - [Laravel Task Scheduling 进阶实战：onOneServer() 的 Redis 互斥实现](/categories/Laravel/PHP/2026-06-07-laravel-task-scheduling-ononeserver-redis-mutex/)——本文多服务器调度方案的源码级深度展开
 - [Retry with Dead Letter Queue 深度实战：Laravel 队列失败消息治理](/categories/PHP/2026-06-06-Retry-Dead-Letter-Queue-深度实战-Laravel队列失败消息治理/)——调度任务失败后的队列重试与死信处理闭环
-- [Redis 分布式锁生产环境实战指南](/categories/Databases/Redis/laravel-redis-distributedlockguide/)——本文分布式锁方案的深度扩展与 KKday 大促踩坑记录
+- [Redis 分布式锁生产环境实战指南](/categories/Databases/Redis/laravel-redis-distributedlockguide/)——本文分布式锁方案的深度扩展与 youtu 大促踩坑记录
 
 ---
 

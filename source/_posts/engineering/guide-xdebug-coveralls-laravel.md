@@ -9,7 +9,7 @@ updated: 2026-05-16 22:58:46
 categories: [engineering]
 tags: [CI/CD, Laravel, PHP, 测试]
 keywords: [Xdebug, Coveralls, Laravel, 代码覆盖率实战, 集成与报告, 踩坑记录, 工程化, PHP]
-description: 代码覆盖率不是"数字越高越好"的KPI游戏。本文以KKday B2C API真实项目为背景，完整走通Xdebug采集→PHPUnit报告→Coveralls.io集成→CI自动上报的全链路，覆盖PHP 8.x + Xdebug 3.x配置踩坑、HTML/Clover/Cobertura多格式报告对比、排除策略设计、以及覆盖率治理中团队协作的真实经验。
+description: 代码覆盖率不是"数字越高越好"的KPI游戏。本文以悠途OTA B2C API真实项目为背景，完整走通Xdebug采集→PHPUnit报告→Coveralls.io集成→CI自动上报的全链路，覆盖PHP 8.x + Xdebug 3.x配置踩坑、HTML/Clover/Cobertura多格式报告对比、排除策略设计、以及覆盖率治理中团队协作的真实经验。
 
 
 
@@ -21,7 +21,7 @@ description: 代码覆盖率不是"数字越高越好"的KPI游戏。本文以KK
 
 ## 为什么写这篇文章？
 
-在 KKday B2C Backend Team，我们有 30+ 个 Laravel 仓库。之前代码覆盖率的现状是：
+在悠途OTA B2C Backend Team，我们有 30+ 个 Laravel 仓库。之前代码覆盖率的现状是：
 
 - 本地开发：开发者偶尔跑一下 `phpunit --coverage-text`，看一眼就关了
 - CI 流水线：没有覆盖率报告，合 PR 全靠 Code Review 肉眼检查
@@ -510,7 +510,7 @@ fi
 
 ## 真实案例：覆盖率从 20% 到 85% 的实战路径
 
-在 KKday B2C API 项目中，我们用两周时间将覆盖率从 20% 提升到 85%：
+在 youtu B2C API 项目中，我们用两周时间将覆盖率从 20% 提升到 85%：
 
 ### 第一阶段：基础设施搭建（第 1 周）
 

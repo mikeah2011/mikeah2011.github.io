@@ -18,7 +18,7 @@ description: >
 
 ## 为什么需要这个话题？
 
-在 KKday 的日常开发中，我们经常需要在公司 Mac 和家里 Mac 之间切换。两台机器跑同一个 Laravel B2C API 项目，代码用 Git 管理没问题，但有些东西 Git 管不了或不适合管：
+在悠途OTA的日常开发中，我们经常需要在公司 Mac 和家里 Mac 之间切换。两台机器跑同一个 Laravel B2C API 项目，代码用 Git 管理没问题，但有些东西 Git 管不了或不适合管：
 
 - **数据库 dump**（几十 MB 的 `.sql` 文件，不适合提交到 repo）
 - **本地 `.env`**（含敏感凭证，被 `.gitignore` 排除）
@@ -180,7 +180,7 @@ echo "🎉 Sync complete ($ACTION)"
 # 备份脚本 backup-db.sh
 #!/bin/bash
 
-DB_NAME="kkday_b2c_local"
+DB_NAME="youtu_b2c_local"
 DB_USER="root"
 DB_PASS="secret"
 DUMP_DIR="$HOME/GitHub/my-laravel-project/storage/dumps"
@@ -215,7 +215,7 @@ echo "🧹 Cleaned dumps older than 7 days"
 # restore-db.sh
 #!/bin/bash
 
-DB_NAME="kkday_b2c_local"
+DB_NAME="youtu_b2c_local"
 DB_USER="root"
 DB_PASS="secret"
 DUMP_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/LaravelSync/my-laravel-project/storage/dumps"
@@ -302,12 +302,12 @@ ensure_downloaded() {
 # .env.local（每台设备独立，不同步）
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=kkday_b2c_local
+DB_DATABASE=youtu_b2c_local
 DB_USERNAME=root
 DB_PASSWORD=local_secret_123
 
 # .env.shared（通过云存储同步，不含敏感信息）
-APP_NAME="KKday B2C API"
+APP_NAME="youtu B2C API"
 APP_ENV=local
 APP_DEBUG=true
 LOG_CHANNEL=stack

@@ -13,13 +13,13 @@ tags:
 - PHP
 - 性能优化
 categories: [php]
-description: 深度解析 PHP 8.4 十大新特性，结合 KKday B2C-API 真实升级场景，涵盖纤程(Fiber)优化、属性钩子、DOM\Text 扩展、性能对比、兼容性踩坑记录，提供可直接复用的生产级代码。
+description: 深度解析 PHP 8.4 十大新特性，结合悠途OTA B2C-API 真实升级场景，涵盖纤程(Fiber)优化、属性钩子、DOM\Text 扩展、性能对比、兼容性踩坑记录，提供可直接复用的生产级代码。
 ---
 
 
 ## 前言：为什么升级到 PHP 8.4？
 
-在 KKday B2C-API 项目中，我们决定将核心服务从 PHP 8.2 升级到 8.4。这次升级不是为了"尝鲜"，而是基于三个核心需求：
+在悠途OTA B2C-API 项目中，我们决定将核心服务从 PHP 8.2 升级到 8.4。这次升级不是为了"尝鲜"，而是基于三个核心需求：
 
 1. **纤程(Fiber)性能优化**：PHP 8.4 对 Fiber 调度器进行了底层重构，我们的异步任务处理期望获得 15%+ 性能提升
 2. **属性钩子(Property Hooks)**：解决 DTO 层大量的 getter/setter 样板代码
@@ -152,7 +152,7 @@ try {
 
 ### 2.1 我们的异步场景
 
-KKday B2C-API 需要同时处理：
+youtu B2C-API 需要同时处理：
 - 订单创建
 - 库存检查（调用外部 API）
 - 支付处理（Stripe/AliPay）
@@ -818,9 +818,9 @@ class SafeFiberScheduler
 - [PHP 8.4 官方文档](https://www.php.net/manual/en/migration84.php)
 - [Laravel 11 升级指南](https://laravel.com/docs/11.x/upgrade)
 - [Blackfire 性能分析](https://blackfire.io/docs)
-- [KKday 技术博客](https://tech.kkday.com)
+- [youtu 技术博客](https://tech.youtu-ota.test)
 
-> 本文基于 KKday B2C-API 项目真实升级经验整理，所有代码已在生产环境验证。
+> 本文基于 youtu B2C-API 项目真实升级经验整理，所有代码已在生产环境验证。
 
 ---
 

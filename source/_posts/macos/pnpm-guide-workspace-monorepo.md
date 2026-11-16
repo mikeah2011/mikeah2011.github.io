@@ -87,8 +87,8 @@ auto-install-peers=true
 shamefully-hoist=false
 
 # 私有 registry（公司内部 npm）
-@kkday:registry=https://npm.kkday.com/
-//npm.kkday.com/:_authToken=${NPM_TOKEN}
+@youtu:registry=https://npm.youtu-ota.test/
+//npm.youtu-ota.test/:_authToken=${NPM_TOKEN}
 
 # 并发安装数（CI 环境适当降低避免内存爆炸）
 network-concurrency=16
@@ -216,21 +216,21 @@ pnpm workspace 是管理 Monorepo 的最轻量方案，无需 Nx/Turborepo/Lerna
 ### 5.1 项目结构
 
 ```
-kkday-frontend/
+youtu-ota-frontend/
 ├── pnpm-workspace.yaml          # workspace 声明
 ├── package.json                  # root package.json
 ├── .npmrc
 ├── packages/
 │   ├── shared/                   # 共享工具库
-│   │   ├── package.json          # name: "@kkday/shared"
+│   │   ├── package.json          # name: "@youtu/shared"
 │   │   └── src/
 │   │       └── utils.ts
 │   ├── ui-components/            # 通用 UI 组件库
-│   │   ├── package.json          # name: "@kkday/ui-components"
+│   │   ├── package.json          # name: "@youtu/ui-components"
 │   │   └── src/
 │   │       └── Button.vue
 │   └── types/                    # 共享类型定义
-│       ├── package.json          # name: "@kkday/types"
+│       ├── package.json          # name: "@youtu/types"
 │       └── src/
 │           └── api.d.ts
 ├── apps/
@@ -264,11 +264,11 @@ packages:
 ```json
 // apps/admin/package.json
 {
-  "name": "@kkday/admin",
+  "name": "@youtu/admin",
   "dependencies": {
-    "@kkday/shared": "workspace:*",        // 始终链接到本地最新
-    "@kkday/ui-components": "workspace:^", // 发布时转换为 ^x.y.z
-    "@kkday/types": "workspace:~",
+    "@youtu/shared": "workspace:*",        // 始终链接到本地最新
+    "@youtu/ui-components": "workspace:^", // 发布时转换为 ^x.y.z
+    "@youtu/types": "workspace:~",
     "vue": "^3.4.0",
     "vite": "^5.2.0"
   }
@@ -290,8 +290,8 @@ packages:
 pnpm install
 
 # 给特定包添加依赖
-pnpm --filter @kkday/admin add axios
-pnpm --filter @kkday/shared add -D vitest
+pnpm --filter @youtu/admin add axios
+pnpm --filter @youtu/shared add -D vitest
 
 # 给多个包添加同一个依赖
 pnpm --filter "./packages/*" add lodash-es
@@ -300,13 +300,13 @@ pnpm --filter "./packages/*" add lodash-es
 pnpm -r run build
 
 # 只构建 admin 及其依赖（拓扑排序）
-pnpm --filter @kkday/admin... run build
+pnpm --filter @youtu/admin... run build
 
 # 并行运行（无拓扑依赖的任务）
 pnpm -r --parallel run lint
 
 # 查看依赖关系图
-pnpm why @vue/shared --filter @kkday/admin
+pnpm why @vue/shared --filter @youtu/admin
 ```
 
 ### 5.5 踩坑记录：Workspace 依赖安装顺序
@@ -314,7 +314,7 @@ pnpm why @vue/shared --filter @kkday/admin
 ```bash
 # 问题：首次 pnpm install 时报错
 ERR_PNPM_LINKED_PKG_DIR_NOT_FOUND
-  In "@kkday/shared": linked package directory not found
+  In "@youtu/shared": linked package directory not found
 
 # 原因：packages/shared 目录存在但没有 package.json
 # pnpm workspace 要求每个声明的目录下必须有 package.json
@@ -322,7 +322,7 @@ ERR_PNPM_LINKED_PKG_DIR_NOT_FOUND
 # 解决：确保所有 workspace 包都有 package.json
 # 即使是空包，至少要有 name 和 version
 {
-  "name": "@kkday/shared",
+  "name": "@youtu/shared",
   "version": "0.0.0",
   "private": true
 }
@@ -338,7 +338,7 @@ ERR_PNPM_LINKED_PKG_DIR_NOT_FOUND
 
 # 原因：Vite 插件被安装在 root，但 pnpm 隔离后 app 找不到
 # 解决：将 vite 和插件安装到具体 app 里
-pnpm --filter @kkday/admin add -D vite @vitejs/plugin-vue
+pnpm --filter @youtu/admin add -D vite @vitejs/plugin-vue
 ```
 
 ### 6.2 Vue SFC 编译器版本不一致
@@ -351,8 +351,8 @@ pnpm --filter @kkday/admin add -D vite @vitejs/plugin-vue
 # pnpm 隔离后不会自动提升，导致多个 vue 实例并存
 
 # 诊断
-pnpm why vue --filter @kkday/admin
-pnpm why vue --filter @kkday/ui-components
+pnpm why vue --filter @youtu/admin
+pnpm why vue --filter @youtu/ui-components
 
 # 解决方案：root package.json 用 pnpm.overrides 统一版本
 {
@@ -513,7 +513,7 @@ pnpm install           # corepack 自动下载 pnpm@9.1.0
 
 ## 九、性能对比数据
 
-在 KKday B2C 前端 Monorepo（8 个应用 + 5 个共享包）上的实测：
+在 youtu B2C 前端 Monorepo（8 个应用 + 5 个共享包）上的实测：
 
 | 指标 | npm 9 | yarn 1.22 | pnpm 9 |
 |------|-------|-----------|--------|

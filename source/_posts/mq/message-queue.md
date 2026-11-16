@@ -392,5 +392,5 @@ rabbitmq如果丢失了数据，主要是因为你消费的时候，刚消费到
 
 - [MQ 消息队列深度对比：RabbitMQ vs Kafka vs RocketMQ 选型指南](/categories/MQ/mq-comparison/)
 - [RabbitMQ 实战：AMQP 协议、死信队列、延迟消息与 Laravel 集成——对比 Redis Queue 的选型决策](/categories/消息队列/RabbitMQ-AMQP-死信队列-延迟消息-Laravel-集成-对比Redis-Queue选型/)
-- [Laravel-Kafka 消息队列异步解耦实战——KKday B2C API 订单处理与库存扣减真实踩坑记录](/categories/MQ/laravel-kafka-guide/)
+- [Laravel-Kafka 消息队列异步解耦实战——悠途OTA B2C API 订单处理与库存扣减真实踩坑记录](/categories/MQ/laravel-kafka-guide/)
 - [Outbox Pattern 实战：保证数据库与消息队列的最终一致性——Laravel + Debezium 的可靠事件发布](/categories/Laravel-PHP/Outbox-Pattern-实战-保证数据库与消息队列的最终一致性-Laravel-Debezium/)

@@ -22,13 +22,13 @@ description: 深度拆解 Laravel B2C API 集成测试方案：外部服务 Mock
 
 在大型 Laravel B2C API 项目中，单元测试能验证业务逻辑的正确性，但一旦代码触及外部服务——Stripe 支付、Slack 通知、Firebase 认证、邮件发送、短信网关——单元测试就捉襟见肘了。Mock 太多会让测试失去信心，直接调用真实服务又不稳定且昂贵。
 
-这篇文章拆解 KKday B2C API 项目中真实使用的三层集成测试策略：**外部服务 Mock**、**HTTP 录制回放**、**Contract 测试**。目标是让你在 CI 环境中跑出接近生产调用链路的测试覆盖，同时保持毫秒级的执行速度。
+这篇文章拆解悠途OTA B2C API 项目中真实使用的三层集成测试策略：**外部服务 Mock**、**HTTP 录制回放**、**Contract 测试**。目标是让你在 CI 环境中跑出接近生产调用链路的测试覆盖，同时保持毫秒级的执行速度。
 
 <!-- more -->
 
 ## 一、为什么需要集成测试？
 
-在 KKday B2C API 中，一个典型的下单请求会触发以下外部调用：
+在悠途OTA B2C API 中，一个典型的下单请求会触发以下外部调用：
 
 ```
 用户下单 → Stripe PaymentIntent → Slack 通知 → 邮件确认 → 短信通知
@@ -180,7 +180,7 @@ $gateway = $this->mock(PaymentGateway::class, function ($mock) {
 
 ### 2.3 工厂方法 + 测试替身
 
-KKday 项目中有一个通用模式——为外部服务创建 TestDouble：
+youtu 项目中有一个通用模式——为外部服务创建 TestDouble：
 
 ```php
 class FakePaymentGateway implements PaymentGateway
@@ -243,7 +243,7 @@ Mock 的问题是**你不知道真实 API 的响应长什么样**。录制回放
 
 ### 3.1 基于文件的录制回放
 
-KKday 项目中实现了一个轻量级的录制回放中间件：
+youtu 项目中实现了一个轻量级的录制回放中间件：
 
 ```php
 namespace Tests\Support;
@@ -411,7 +411,7 @@ uses(TestCase::class);
 
 it('contract: Stripe payment intent creation', function () {
     $contract = [
-        'consumer' => 'kkday-b2c-api',
+        'consumer' => 'youtu-ota-b2c-api',
         'provider' => 'stripe-api',
         'interaction' => [
             'description' => 'Create a payment intent',
@@ -740,7 +740,7 @@ it('processes unique order', function () {
 
 ## 九、总结
 
-集成测试不是要替代单元测试，而是补齐单元测试覆盖不到的盲区。在 KKday B2C API 中，我们采用的组合策略是：
+集成测试不是要替代单元测试，而是补齐单元测试覆盖不到的盲区。在 youtu B2C API 中，我们采用的组合策略是：
 
 1. **Service Layer Mock**：Mock 接口而非 HTTP，测试更稳定
 2. **HTTP 录制回放**：验证真实 API 响应，录制文件纳入版本控制

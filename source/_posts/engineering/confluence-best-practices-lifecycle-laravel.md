@@ -19,7 +19,7 @@ description: 在 30+ Laravel 仓库的团队中，Confluence 不只是"写文档
 
 ## 为什么需要这篇文章？
 
-在 KKday RD B2C Backend Team，我们管理着 30+ 个 Laravel 仓库。每个项目都有 SA/SD 文档、API 设计文档、部署手册、故障复盘……如果这些知识散落在 Google Docs、Notion、个人笔记、甚至 Slack 消息里，新人 Onboarding 的第一天就是一场噩梦。
+在悠途OTA RD B2C Backend Team，我们管理着 30+ 个 Laravel 仓库。每个项目都有 SA/SD 文档、API 设计文档、部署手册、故障复盘……如果这些知识散落在 Google Docs、Notion、个人笔记、甚至 Slack 消息里，新人 Onboarding 的第一天就是一场噩梦。
 
 我们选择 Confluence 作为团队知识中枢，不是因为它最好用，而是因为它和 Jira 深度集成、权限模型成熟、适合企业级协作。但用好 Confluence 远不止"建个 Space 写页面"这么简单。
 
@@ -34,10 +34,10 @@ description: 在 30+ Laravel 仓库的团队中，Confluence 不只是"写文档
 我们最初的做法：每个 Laravel 项目建一个 Confluence Space。结果呢？
 
 ```
-Space: kkday-api-b2c          → 47 个页面，无人维护
-Space: kkday-member-service    → 12 个页面，一半过期
-Space: kkday-search-engine     → 8 个页面，3 个空白
-Space: kkday-recommend-api     → 5 个页面，全部 2023 年
+Space: youtu-ota-api-b2c          → 47 个页面，无人维护
+Space: youtu-ota-member-service    → 12 个页面，一半过期
+Space: youtu-ota-search-engine     → 8 个页面，3 个空白
+Space: youtu-ota-recommend-api     → 5 个页面，全部 2023 年
 ```
 
 问题很明显：
@@ -54,9 +54,9 @@ Space: kkday-recommend-api     → 5 个页面，全部 2023 年
 B2C-Backend:          # 核心 Space，按项目用页面树组织
   - 🏗️ 架构决策记录 (ADR)
   - 📋 项目文档/
-      ├── kkday-api-b2c/
-      ├── kkday-member-service/
-      └── kkday-search-engine/
+      ├── youtu-ota-api-b2c/
+      ├── youtu-ota-member-service/
+      └── youtu-ota-search-engine/
   - 🔧 运维手册/
       ├── 部署流程/
       ├── 故障复盘/
@@ -479,7 +479,7 @@ if __name__ == "__main__":
 在 Confluence 页面中使用 Jira Issues Macro：
 
 ```
-{jiraissues:url=https://your-domain.atlassian.net/rest/api/2/search?jql=project=KKDAY+AND+component=backend+AND+status=In+Review|columns=key,summary,status,assignee}
+{jiraissues:url=https://your-domain.atlassian.net/rest/api/2/search?jql=project=youtu+AND+component=backend+AND+status=In+Review|columns=key,summary,status,assignee}
 ```
 
 ### 从 Jira 链接回 Confluence
@@ -539,7 +539,7 @@ jobs:
 
 ```bash
 # 项目目录结构
-kkday-api-b2c/
+youtu-ota-api-b2c/
 ├── app/
 ├── docs/                    # 项目文档（与代码同仓库）
 │   ├── adr/                 # Architecture Decision Records
@@ -687,9 +687,9 @@ def sync_adrs(repo_path: str):
 
 if __name__ == "__main__":
     repos = [
-        "/Users/michael/GitHub/kkday-api-b2c",
-        "/Users/michael/GitHub/kkday-member-service",
-        "/Users/michael/GitHub/kkday-search-engine",
+        "/Users/michael/GitHub/youtu-ota-api-b2c",
+        "/Users/michael/GitHub/youtu-ota-member-service",
+        "/Users/michael/GitHub/youtu-ota-search-engine",
     ]
     for repo in repos:
         print(f"\n🔄 Syncing ADRs from {os.path.basename(repo)}...")

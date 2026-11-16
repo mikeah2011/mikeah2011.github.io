@@ -26,7 +26,7 @@ description: '本文是一份面向 macOS 开发者的 Charles 抓包工具深�
 
 ## 前言：为什么 Charles 在 B2C 团队中不可替代？
 
-在 KKday B2C Backend Team 的日常开发中，调试工具链是这样的：
+在悠途OTA B2C Backend Team 的日常开发中，调试工具链是这样的：
 
 ```
 开发者 → IDE (Cursor/PhpStorm)
@@ -81,11 +81,11 @@ networksetup -setsecurewebproxy Wi-Fi 127.0.0.1 8888
 ┌─────────────────────────────────────────────────────┐
 │ Structure 视图 (按域名分组)    │  Sequence 视图 (按时间排序) │
 ├─────────────────────────────────────────────────────┤
-│ api.kkday.com                                         │
+│ api.youtu-ota.test                                         │
 │   ├── /v3/orders        GET    200   128ms           │
 │   ├── /v3/orders        POST   201   342ms           │
 │   └── /v2_1/products    GET    200   89ms            │
-│ recommend.kkday.com                                   │
+│ recommend.youtu-ota.test                                   │
 │   └── /v1/suggestions   GET    200   156ms           │
 ├─────────────────────────────────────────────────────┤
 │ Overview | Request | Response | Summary | Chart       │
@@ -106,7 +106,7 @@ networksetup -setsecurewebproxy Wi-Fi 127.0.0.1 8888
 步骤：
 1. Proxy → SSL Proxying Settings → 勾选 "Enable SSL Proxying"
 2. 点击 "Add" 添加域名：
-   Host: *.kkday.com    Port: 443
+   Host: *.youtu-ota.test    Port: 443
    Host: *.stripe.com   Port: 443
    Host: *              Port: 443   （调试时可以全放开）
 3. 安装 Charles Root Certificate：
@@ -174,7 +174,7 @@ val client = OkHttpClient.Builder()
 1. Proxy → Breakpoints Settings → Add
 2. 配置匹配规则：
    Protocol: https
-   Host: api.kkday.com
+   Host: api.youtu-ota.test
    Path: /v3/orders*
    勾选 Request 和/或 Response
 3. 确认后，当匹配的请求发生时，Charles 会自动暂停
@@ -273,7 +273,7 @@ class StripeWebhookController extends Controller
 
 2. Charles 中：Tools → Map Local → Add
    Protocol: https
-   Host: api.kkday.com
+   Host: api.youtu-ota.test
    Path: /v3/orders/*
    Local path: ~/mocks/api/v3/orders/detail.json
 ```
@@ -289,14 +289,14 @@ console.log(data.data.items[0].product_name) // "东京铁塔门票"
 
 ### 4.2 Map Remote：请求转发到不同服务器
 
-**场景**：本地开发环境的 Laravel 跑在 `localhost:8000`，但前端配置的 API 地址是 `api.kkday.com`。
+**场景**：本地开发环境的 Laravel 跑在 `localhost:8000`，但前端配置的 API 地址是 `api.youtu-ota.test`。
 
 ```
 Tools → Map Remote → Add
-  From: https://api.kkday.com:443
+  From: https://api.youtu-ota.test:443
   To:   http://localhost:8000
 
-效果：前端请求 api.kkday.com → Charles 转发到 localhost:8000
+效果：前端请求 api.youtu-ota.test → Charles 转发到 localhost:8000
 ```
 
 **踩坑 #4**：Map Remote 转发后，`Host` 请求头会变成 `localhost:8000`，如果 Laravel 的 `TrustProxies` 中间件或 `URL::forceRootUrl()` 没配好，生成的 URL 会出错。解决方案：
@@ -306,7 +306,7 @@ Tools → Map Remote → Add
 protected $proxies = '*'; // 开发环境信任所有代理
 
 // 或在 .env 中强制 URL
-// APP_URL=https://api.kkday.com
+// APP_URL=https://api.youtu-ota.test
 ```
 
 ### 4.3 Map Local 进阶：动态 Mock 响应
@@ -342,7 +342,7 @@ const server = http.createServer((req, res) => {
 server.listen(3001, () => console.log('Mock server on :3001'))
 ```
 
-然后用 Map Remote 把 `api.kkday.com` 转发到 `localhost:3001`。
+然后用 Map Remote 把 `api.youtu-ota.test` 转发到 `localhost:3001`。
 
 ---
 
@@ -350,7 +350,7 @@ server.listen(3001, () => console.log('Mock server on :3001'))
 
 ### 5.1 配置限速
 
-**场景**：用户在东南亚使用 3G 网络访问 KKday App，需要验证加载体验。
+**场景**：用户在东南亚使用 3G 网络访问 youtu App，需要验证加载体验。
 
 ```
 Proxy → Throttle Settings → Enable Throttling
@@ -369,8 +369,8 @@ Proxy → Throttle Settings → Enable Throttling
 
 ```
 Throttle Settings → Only for selected hosts → Add:
-  api.kkday.com      ← 只限速 API
-  cdn.kkday.com      ← 不限速静态资源（CDN 本来就快）
+  api.youtu-ota.test      ← 只限速 API
+  cdn.youtu-ota.test      ← 不限速静态资源（CDN 本来就快）
 ```
 
 **踩坑 #5**：开启 Throttle 后，Charles 自身也会变慢。如果同时开启了 SSL Proxying + Breakpoints + Throttle，调试体验会很痛苦。建议分步骤测试，不要同时开启所有功能。
@@ -640,7 +640,7 @@ File → Export Session → 选择格式：
 ifconfig | grep "inet " | grep -v 127.0.0.1
 
 # Map Remote 配置：
-#   From: https://api.kkday.com:443
+#   From: https://api.youtu-ota.test:443
 #   To:   http://192.168.1.100:8000  ← 使用局域网 IP，不要用 localhost
 
 # 同时确保 Laravel 开发服务器监听 0.0.0.0 而非 127.0.0.1

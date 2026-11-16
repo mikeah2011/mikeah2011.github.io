@@ -14,7 +14,7 @@ tags:
 - Laravel
 - PHP
 - 工程管理
-description: KKday B2C 后端 30+ 个 Laravel 仓库统一本地开发环境的完整实战指南 —— 从零搭建 local-docker（PHP-FPM 8.0 + MySQL + Redis + Mailhog），详解 Dockerfile 与 docker-compose 配置，解决容器权限、hostname 互通、邮件捕获等常见坑位，附 Makefile 速查与 FAQ，新成员 10 分钟跑起来。
+description: 悠途OTA B2C 后端 30+ 个 Laravel 仓库统一本地开发环境的完整实战指南 —— 从零搭建 local-docker（PHP-FPM 8.0 + MySQL + Redis + Mailhog），详解 Dockerfile 与 docker-compose 配置，解决容器权限、hostname 互通、邮件捕获等常见坑位，附 Makefile 速查与 FAQ，新成员 10 分钟跑起来。
 ---
 
 
@@ -24,7 +24,7 @@ description: KKday B2C 后端 30+ 个 Laravel 仓库统一本地开发环境的�
 
 ## 1. 为什么要统一 local-docker
 
-KKday B2C 后端团队有 30+ 个 Git 仓库（BFF、搜索聚合、会员系统、支付网关……）。每个仓库都需要 MySQL、Redis、PHP-FPM，加上开发时必看的邮件通知。
+悠途OTA B2C 后端团队有 30+ 个 Git 仓库（BFF、搜索聚合、会员系统、支付网关……）。每个仓库都需要 MySQL、Redis、PHP-FPM，加上开发时必看的邮件通知。
 
 在统一之前，团队遇到过这些痛点：
 
@@ -62,7 +62,7 @@ services:
     build:
       context: ./php-fpm-8.0
       dockerfile: Dockerfile
-    container_name: kkday-php-fpm
+    container_name: youtu-ota-php-fpm
     volumes:
       # 关键：挂载整个开发目录
       - ${HOME}/GitHub:/var/www/html
@@ -70,14 +70,14 @@ services:
     ports:
       - "9000:9000"
     networks:
-      - kkday-local
+      - youtu-ota-local
     environment:
-      - PHP_IDE_CONFIG=serverName=kkday.local
+      - PHP_IDE_CONFIG=serverName=youtu.local
     restart: unless-stopped
 
   mysql:
     image: mysql:8.0
-    container_name: kkday-mysql
+    container_name: youtu-ota-mysql
     ports:
       - "3307:3306"          # ⚠️ 用 3307 避免与本地 MySQL 冲突
     volumes:
@@ -86,16 +86,16 @@ services:
       - ./mysql/init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: kkday_b2c
-      MYSQL_USER: kkday
-      MYSQL_PASSWORD: kkday123
+      MYSQL_DATABASE: youtu_b2c
+      MYSQL_USER: youtu
+      MYSQL_PASSWORD: youtu123
     networks:
-      - kkday-local
+      - youtu-ota-local
     restart: unless-stopped
 
   redis:
     image: redis:7-alpine
-    container_name: kkday-redis
+    container_name: youtu-ota-redis
     ports:
       - "6380:6379"          # ⚠️ 用 6380 避免冲突
     volumes:
@@ -103,17 +103,17 @@ services:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf
     networks:
-      - kkday-local
+      - youtu-ota-local
     restart: unless-stopped
 
   mailhog:
     image: mailhog/mailhog:latest
-    container_name: kkday-mailhog
+    container_name: youtu-ota-mailhog
     ports:
       - "1025:1025"          # SMTP 端口
       - "8025:8025"          # Web UI 端口
     networks:
-      - kkday-local
+      - youtu-ota-local
     restart: unless-stopped
 
 volumes:
@@ -123,7 +123,7 @@ volumes:
     driver: local
 
 networks:
-  kkday-local:
+  youtu-ota-local:
     driver: bridge
 ```
 
@@ -138,7 +138,7 @@ networks:
 
 ## 3. PHP-FPM 8.0 Dockerfile
 
-这是最容易踩坑的部分。KKday 项目依赖的扩展比较多：
+这是最容易踩坑的部分。youtu 项目依赖的扩展比较多：
 
 ```dockerfile
 # ~/local-docker/php-fpm-8.0/Dockerfile
@@ -264,13 +264,13 @@ default-character-set = utf8mb4
 
 ```sql
 -- ~/local-docker/mysql/init/01-create-databases.sql
-CREATE DATABASE IF NOT EXISTS kkday_b2c;
-CREATE DATABASE IF NOT EXISTS kkday_b2c_test;
-CREATE DATABASE IF NOT EXISTS kkday_search;
-CREATE DATABASE IF NOT EXISTS kkday_member;
+CREATE DATABASE IF NOT EXISTS youtu_b2c;
+CREATE DATABASE IF NOT EXISTS youtu_b2c_test;
+CREATE DATABASE IF NOT EXISTS youtu_search;
+CREATE DATABASE IF NOT EXISTS youtu_member;
 
 -- 给测试库单独授权
-GRANT ALL PRIVILEGES ON kkday_b2c_test.* TO 'kkday'@'%';
+GRANT ALL PRIVILEGES ON youtu_b2c_test.* TO 'youtu'@'%';
 FLUSH PRIVILEGES;
 ```
 
@@ -306,17 +306,17 @@ loglevel notice
 ```env
 # ~/GitHub/any-laravel-project/.env
 DB_CONNECTION=mysql
-DB_HOST=kkday-mysql        # ⚠️ 用 Docker 网络内部 hostname
+DB_HOST=youtu-ota-mysql        # ⚠️ 用 Docker 网络内部 hostname
 DB_PORT=3306               # 容器内部端口始终是 3306
-DB_DATABASE=kkday_b2c
-DB_USERNAME=kkday
-DB_PASSWORD=kkday123
+DB_DATABASE=youtu_b2c
+DB_USERNAME=youtu
+DB_PASSWORD=youtu123
 
-REDIS_HOST=kkday-redis     # ⚠️ 用 Docker 网络内部 hostname
+REDIS_HOST=youtu-ota-redis     # ⚠️ 用 Docker 网络内部 hostname
 REDIS_PORT=6379            # 容器内部端口始终是 6379
 
 MAIL_MAILER=smtp
-MAIL_HOST=kkday-mailhog    # ⚠️ 用 Docker 网络内部 hostname
+MAIL_HOST=youtu-ota-mailhog    # ⚠️ 用 Docker 网络内部 hostname
 MAIL_PORT=1025
 MAIL_USERNAME=null
 MAIL_PASSWORD=null
@@ -325,7 +325,7 @@ MAIL_ENCRYPTION=null
 
 **⚠️ 关键坑位：hostname 要用容器名而非 localhost**
 
-当 Laravel 代码也跑在 Docker 容器内（`php-fpm` 容器）时，必须用 Docker 网络内部的 hostname（`kkday-mysql`、`kkday-redis`），而非 `127.0.0.1`。
+当 Laravel 代码也跑在 Docker 容器内（`php-fpm` 容器）时，必须用 Docker 网络内部的 hostname（`youtu-ota-mysql`、`youtu-ota-redis`），而非 `127.0.0.1`。
 
 但如果代码在宿主机运行（比如 `php artisan serve`），则需要用 `127.0.0.1:3307`、`127.0.0.1:6380`。
 
@@ -370,13 +370,13 @@ rebuild:
 
 # 快速进入容器
 shell-php:
-	docker exec -it kkday-php-fpm bash
+	docker exec -it youtu-ota-php-fpm bash
 
 shell-mysql:
-	docker exec -it kkday-mysql mysql -ukkday -pkkday123 kkday_b2c
+	docker exec -it youtu-ota-mysql mysql -uyoutu -pyoutu123 youtu_b2c
 
 shell-redis:
-	docker exec -it kkday-redis redis-cli
+	docker exec -it youtu-ota-redis redis-cli
 ```
 
 ## 8. Mailhog 实战：验证 Laravel 邮件
@@ -422,7 +422,7 @@ MAIL_ENCRYPTION=null
 │  │  │ MailHog  │  ← SMTP (1025) + Web UI (8025)     │    │
 │  │  └──────────┘                                     │    │
 │  │                                                    │    │
-│  │  kkday-local network                               │    │
+│  │  youtu-ota-local network                               │    │
 │  └──────────────────────────────────────────────────┘    │
 │                                                          │
 │  ~/GitHub/           ← 30+ Laravel 仓库                  │
@@ -462,7 +462,7 @@ cd ~/local-docker && make up
 
 1. `brew install colima docker docker-compose` → 装 Colima 套件
 2. `colima start --vm-type vz --mount-type virtiofs` → 启动 VM
-3. `git clone git@github.com:kkday/local-docker.git ~/local-docker` → 拉取配置
+3. `git clone git@github.com:youtu/local-docker.git ~/local-docker` → 拉取配置
 4. `cd ~/local-docker && make up` → 启动所有服务
 5. 打开 `http://localhost:8025` 确认 Mailhog 可访问
 6. `make shell-mysql` 确认 MySQL 连通
@@ -504,14 +504,14 @@ logs:
 # 数据库导出（带时间戳）
 TIMESTAMP = $(shell date +%Y%m%d_%H%M%S)
 db-dump:
-	docker exec kkday-mysql mysqldump -ukkday -pkkday123 kkday_b2c \
-		> ./backups/kkday_b2c_$(TIMESTAMP).sql
-	@echo "✅ 数据库已导出到 ./backups/kkday_b2c_$(TIMESTAMP).sql"
+	docker exec youtu-ota-mysql mysqldump -uyoutu -pyoutu123 youtu_b2c \
+		> ./backups/youtu_b2c_$(TIMESTAMP).sql
+	@echo "✅ 数据库已导出到 ./backups/youtu_b2c_$(TIMESTAMP).sql"
 
 # 数据库恢复
 db-restore:
 	@test -f $(FILE) || (echo "❌ 用法: make db-restore FILE=path/to/dump.sql" && exit 1)
-	docker exec -i kkday-mysql mysql -ukkday -pkkday123 kkday_b2c < $(FILE)
+	docker exec -i youtu-ota-mysql mysql -uyoutu -pyoutu123 youtu_b2c < $(FILE)
 	@echo "✅ 数据库已恢复"
 
 # 一键清理 + 重建
@@ -568,26 +568,26 @@ SQLSTATE[HY000] [2002] No such file or directory
 docker ps | grep mysql
 
 # 2. 查看 MySQL 日志，是否有启动错误
-docker logs kkday-mysql --tail=50
+docker logs youtu-ota-mysql --tail=50
 
 # 3. 测试容器内连通性（从 PHP-FPM 容器内测试）
-docker exec kkday-php-fpm php -r "
-  \$pdo = new PDO('mysql:host=kkday-mysql;port=3306', 'kkday', 'kkday123');
+docker exec youtu-ota-php-fpm php -r "
+  \$pdo = new PDO('mysql:host=youtu-ota-mysql;port=3306', 'youtu', 'youtu123');
   echo '连接成功';
 "
 
 # 4. 测试宿主机连通性（端口映射）
-mysql -h 127.0.0.1 -P 3307 -ukkday -pkkday123 kkday_b2c
+mysql -h 127.0.0.1 -P 3307 -uyoutu -pyoutu123 youtu_b2c
 ```
 
 **常见原因与解法**：
 
 | 原因 | 解法 |
 |------|------|
-| `.env` 里用了 `localhost` 而非容器名 | 容器内运行时改为 `DB_HOST=kkday-mysql` |
+| `.env` 里用了 `localhost` 而非容器名 | 容器内运行时改为 `DB_HOST=youtu-ota-mysql` |
 | 宿主机连接时用了 3306 而非 3307 | 改为 `DB_PORT=3307` 或 `mysql -P 3307` |
 | MySQL 还没启动完成就连接了 | 加 `depends_on` 或用 healthcheck 等待 |
-| Docker 网络异常 | `docker network ls && docker network inspect kkday-local` |
+| Docker 网络异常 | `docker network ls && docker network inspect youtu-ota-local` |
 
 **推荐使用 healthcheck 等待 MySQL 就绪**：
 
@@ -620,15 +620,15 @@ READONLY You can't write against a read only replica
 
 ```bash
 # 1. 测试 Redis 连通性
-docker exec kkday-redis redis-cli ping
+docker exec youtu-ota-redis redis-cli ping
 # 期望输出: PONG
 
 # 2. 如果 redis.conf 设了密码，测试时需要带密码
-docker exec kkday-redis redis-cli -a yourpassword ping
+docker exec youtu-ota-redis redis-cli -a yourpassword ping
 
 # 3. 检查 .env 里的 Redis 配置
 grep REDIS .env
-# 确认 REDIS_HOST=kkday-redis, REDIS_PORT=6379, REDIS_PASSWORD=你的密码
+# 确认 REDIS_HOST=youtu-ota-redis, REDIS_PORT=6379, REDIS_PASSWORD=你的密码
 
 # 4. 清除 Laravel 缓存配置（改了 .env 后必须做）
 php artisan config:clear
@@ -655,12 +655,12 @@ php artisan cache:clear
 docker ps | grep mailhog
 
 # 2. 测试 SMTP 端口连通性
-docker exec kkday-php-fpm sh -c "echo 'test' | nc -w3 kkday-mailhog 1025"
+docker exec youtu-ota-php-fpm sh -c "echo 'test' | nc -w3 youtu-ota-mailhog 1025"
 
 # 3. 用 telnet 手动发一封测试邮件
-docker exec -it kkday-php-fpm bash
+docker exec -it youtu-ota-php-fpm bash
 apt-get install -y telnet
-telnet kkday-mailhog 1025
+telnet youtu-ota-mailhog 1025
 # 输入以下内容：
 # HELO test
 # MAIL FROM:<test@test.com>
@@ -681,7 +681,7 @@ php artisan tinker
 
 | 原因 | 解法 |
 |------|------|
-| `.env` 里 `MAIL_HOST` 不对 | 容器内用 `kkday-mailhog`，宿主机用 `127.0.0.1` |
+| `.env` 里 `MAIL_HOST` 不对 | 容器内用 `youtu-ota-mailhog`，宿主机用 `127.0.0.1` |
 | 混用了 Gmail/SES 等真实 SMTP | 开发环境 `.env` 强制配 Mailhog，不要混用 |
 | `MAIL_ENCRYPTION=tls` 导致连不上 | Mailhog 不支持 TLS，改为 `null` |
 | 队列异步发邮件，队列 worker 没跑 | `php artisan queue:work` 或同步发 `MAIL_MAILER=log` |
@@ -742,15 +742,15 @@ echo "=== 清理完成 ==="
 
 ```bash
 # 1. 确认 Xdebug 已加载
-docker exec kkday-php-fpm php -m | grep xdebug
+docker exec youtu-ota-php-fpm php -m | grep xdebug
 
 # 2. 检查 Xdebug 配置
-docker exec kkday-php-fpm php -i | grep xdebug.client
+docker exec youtu-ota-php-fpm php -i | grep xdebug.client
 # 期望: xdebug.client_host => host.docker.internal
 # 期望: xdebug.client_port => 9003
 
 # 3. 测试 host.docker.internal 是否可解析（Colima 用户注意）
-docker exec kkday-php-fpm getent hosts host.docker.internal
+docker exec youtu-ota-php-fpm getent hosts host.docker.internal
 # 如果解析失败，说明 Colima 没有启用 --network-address
 
 # 4. 检查 PHPStorm 是否在监听 9003
@@ -846,7 +846,7 @@ appendonly no          # 关闭 AOF（开发环境）
 如果遇到 Redis 内存爆满（大量队列任务），可以临时清空：
 
 ```bash
-docker exec kkday-redis redis-cli FLUSHALL
+docker exec youtu-ota-redis redis-cli FLUSHALL
 ```
 
 ## 17. 团队协作规范
@@ -855,20 +855,20 @@ docker exec kkday-redis redis-cli FLUSHALL
 
 ### 17.1 容器命名与端口规范
 
-所有容器统一以 `kkday-` 前缀命名，端口映射固定：
+所有容器统一以 `youtu-ota-` 前缀命名，端口映射固定：
 
 | 服务 | 容器名 | 宿主机端口 | 容器内端口 |
 |------|--------|-----------|-----------|
-| PHP-FPM | kkday-php-fpm | 9000 | 9000 |
-| MySQL | kkday-mysql | 3307 | 3306 |
-| Redis | kkday-redis | 6380 | 6379 |
-| Mailhog | kkday-mailhog | 1025 / 8025 | 1025 / 8025 |
+| PHP-FPM | youtu-ota-php-fpm | 9000 | 9000 |
+| MySQL | youtu-ota-mysql | 3307 | 3306 |
+| Redis | youtu-ota-redis | 6380 | 6379 |
+| Mailhog | youtu-ota-mailhog | 1025 / 8025 | 1025 / 8025 |
 
 > **为什么不用默认端口？** 很多开发者本地装了 MySQL（brew install mysql），默认占了 3306。如果 Docker 也用 3306 就会冲突。统一用 3307/6380 可以避免这类问题。
 
 ### 17.2 数据库命名规范
 
-每个仓库在 `kkday_b2c` 数据库里建自己的表，表名加仓库前缀：
+每个仓库在 `youtu_b2c` 数据库里建自己的表，表名加仓库前缀：
 
 ```sql
 -- bff 仓库
@@ -887,17 +887,17 @@ CREATE TABLE member_profiles (...);
 ```env
 # .env.example — 开发环境默认配置（local-docker）
 DB_CONNECTION=mysql
-DB_HOST=kkday-mysql
+DB_HOST=youtu-ota-mysql
 DB_PORT=3306
-DB_DATABASE=kkday_b2c
-DB_USERNAME=kkday
-DB_PASSWORD=kkday123
+DB_DATABASE=youtu_b2c
+DB_USERNAME=youtu
+DB_PASSWORD=youtu123
 
-REDIS_HOST=kkday-redis
+REDIS_HOST=youtu-ota-redis
 REDIS_PORT=6379
 
 MAIL_MAILER=smtp
-MAIL_HOST=kkday-mailhog
+MAIL_HOST=youtu-ota-mailhog
 MAIL_PORT=1025
 MAIL_ENCRYPTION=null
 ```
@@ -906,7 +906,7 @@ MAIL_ENCRYPTION=null
 
 ---
 
-*本文基于 KKday B2C Backend Team 的 local-docker 实际使用经验，涉及 PHP-FPM 8.0 / MySQL 8.0 / Redis 7 / Mailhog / Colima。配置已覆盖 30+ 个 Laravel 仓库的日常开发需求。*
+*本文基于 youtu B2C Backend Team 的 local-docker 实际使用经验，涉及 PHP-FPM 8.0 / MySQL 8.0 / Redis 7 / Mailhog / Colima。配置已覆盖 30+ 个 Laravel 仓库的日常开发需求。*
 
 ## 相关阅读
 

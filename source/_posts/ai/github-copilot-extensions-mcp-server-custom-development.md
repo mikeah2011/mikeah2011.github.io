@@ -149,7 +149,7 @@ class Server
             'result' => [
                 'protocolVersion' => '2024-11-05',
                 'serverInfo' => [
-                    'name' => 'kkday-copilot-extension',
+                    'name' => 'youtu-ota-copilot-extension',
                     'version' => '1.0.0',
                 ],
                 'capabilities' => [
@@ -268,7 +268,7 @@ class QueryTool
     {
         return [
             'name' => 'query_database',
-            'description' => '查询 KKday 业务数据库，支持只读查询。可查询订单、用户、产品、预订等表。',
+            'description' => '查询 youtu 业务数据库，支持只读查询。可查询订单、用户、产品、预订等表。',
             'inputSchema' => [
                 'type' => 'object',
                 'properties' => [
@@ -356,9 +356,9 @@ use Illuminate\Support\Facades\Process;
 class DeployTool
 {
     protected array $allowedServices = [
-        'api' => 'kkday-b2c-api',
-        'admin' => 'kkday-admin',
-        'worker' => 'kkday-worker',
+        'api' => 'youtu-ota-b2c-api',
+        'admin' => 'youtu-ota-admin',
+        'worker' => 'youtu-ota-worker',
     ];
 
     protected array $allowedEnvironments = ['staging', 'production'];
@@ -903,8 +903,8 @@ class PromptTool
 
 ```json
 {
-  "name": "KKday DevOps Copilot",
-  "description": "KKday 内部开发工具 Copilot 扩展",
+  "name": "youtu DevOps Copilot",
+  "description": "youtu 内部开发工具 Copilot 扩展",
   "callback_urls": ["https://your-domain.com/auth/callback"],
   "setup_url": "https://your-domain.com/setup",
   "events": ["copilot"],

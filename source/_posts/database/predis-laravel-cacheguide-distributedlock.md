@@ -4,7 +4,7 @@ title: Predis-Laravel-缓存实战-失效分布式锁性能调优
 keywords: [Predis, Laravel, 缓存实战, 失效分布式锁性能调优]
 date: 2026-05-02
 author: Michael
-description: 基于 KKday B2C API 百万级订单实战经验，深度解析 Predis 与 Laravel Redis 缓存体系。涵盖缓存穿透、雪崩、击穿三大失效模式的工程解决方案，SET NX 与 Redlock 分布式锁的 Lua 原子实现与续期机制，Predis vs PhpRedis 性能基准对比，以及连接池优化、TTL 随机化、大 Key 拆分、缓存与 DB 双写一致性等生产环境踩坑案例与性能调优最佳实践。
+description: 基于悠途OTA B2C API 百万级订单实战经验，深度解析 Predis 与 Laravel Redis 缓存体系。涵盖缓存穿透、雪崩、击穿三大失效模式的工程解决方案，SET NX 与 Redlock 分布式锁的 Lua 原子实现与续期机制，Predis vs PhpRedis 性能基准对比，以及连接池优化、TTL 随机化、大 Key 拆分、缓存与 DB 双写一致性等生产环境踩坑案例与性能调优最佳实践。
 categories: [database]
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
@@ -12,7 +12,7 @@ images:
 - /images/content/databases-020-content-2.jpg
 tags:
 - BFF
-- KKday
+- 悠途OTA
 - Laravel
 - Redis
 - 微服务
@@ -26,7 +26,7 @@ tags:
 
 ## 写在前面
 
-在 KKday B2C API 项目中，我们重度依赖 Redis 实现购物车计次、用户会话、热点数据预热等功能。随着订单量增长到月均百万级，Redis 从"加分项"变成"必选项"——特别是大促期间并发高峰，**缓存穿透/雪崩/击穿**问题直接考验架构韧性。
+在悠途OTA B2C API 项目中，我们重度依赖 Redis 实现购物车计次、用户会话、热点数据预热等功能。随着订单量增长到月均百万级，Redis 从"加分项"变成"必选项"——特别是大促期间并发高峰，**缓存穿透/雪崩/击穿**问题直接考验架构韧性。
 
 Predis（Laravel 默认客户端）与 PhpRedis 的选型争论多年，本文基于 **Laravel 8 + PHP 8.0 + Predis 1.1.x + Redis 7.x** 的真实项目踩坑经验，系统梳理缓存失效策略、分布式锁实战、性能调优三大部分。
 
@@ -66,7 +66,7 @@ Predis（Laravel 默认客户端）与 PhpRedis 的选型争论多年，本文�
 
 ### Laravel 8 缓存服务封装
 
-KKday 项目中我们使用统一接口层 `CacheService`：
+youtu 项目中我们使用统一接口层 `CacheService`：
 
 ```php
 // app/Services/CacheService.php
@@ -133,7 +133,7 @@ class CacheService extends Cache
 
 ### 场景对比：缓存失效策略
 
-在 KKday 的搜索/BFF 中间层，我们维护大量热点数据（商品/店铺/用户标签）。下面是三种失效模式的真实项目对比：
+在 youtu 的搜索/BFF 中间层，我们维护大量热点数据（商品/店铺/用户标签）。下面是三种失效模式的真实项目对比：
 
 | 失效类型 | TTL 处理 | 风险等级 | 适用场景 |
 |----------|----------|----------|----------|
@@ -259,14 +259,14 @@ class Product extends Model
 
 ### PHP-FPM + Redis 环境下的锁选型
 
-在 KKday B2C API 项目中，我们对比过 **SET NX** vs **Redlock**，结论如下：
+在 youtu B2C API 项目中，我们对比过 **SET NX** vs **Redlock**，结论如下：
 
 | 方案 | 优点 | 缺点 | 推荐场景 |
 |------|------|------|----------|
 | `SET key value NX EX ttl` | 简单、Redis 原生原子 | 单节点 Redis（无高可用风险） | 同机房/同集群开发环境 |
 | Redlock (go-redis) | 多副本一致性 | 实现复杂、PHP 生态弱 | 生产 HA 集群 |
 
-### SET NX 实现（KKday 开发环境用这个）
+### SET NX 实现（youtu 开发环境用这个）
 
 ```bash
 # 加锁：10s 过期，自动续期（业务耗时>ttl 时手动续）
@@ -474,7 +474,7 @@ $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_JSON);
 // Predis 默认不序列化，PhpRedis 可能自动序列化数组
 ```
 
-> **KKday 实战经验**：我们在生产环境运行了 2 年 Predis，主要优势是 Composer 管理和类型安全。迁移 PhpRedis 需要重点测试序列化兼容性、连接池配置差异、以及 Sentinel 自动故障转移行为。
+> **youtu 实战经验**：我们在生产环境运行了 2 年 Predis，主要优势是 Composer 管理和类型安全。迁移 PhpRedis 需要重点测试序列化兼容性、连接池配置差异、以及 Sentinel 自动故障转移行为。
 
 ---
 
@@ -833,7 +833,7 @@ $results = Cache::store('redis')->many($keys);
 3. **分布式锁**：开发环境 SET NX 即可，生产需考虑 Redlock（多副本）
 4. **性能调优**：Predis 略逊 PhpRedis，但类型安全/调试友好
 
-### KKday B2C API 架构实践清单
+### youtu B2C API 架构实践清单
 
 - [x] Redis 连接池配置 + 监控埋点
 - [x] 核心业务 TTL 随机化（±30%）
@@ -843,7 +843,7 @@ $results = Cache::store('redis')->many($keys);
 
 ---
 
-> **本文基于 KKday RD B2C Backend Team 真实项目经验编写，技术栈：Laravel 8 + PHP-FPM 8.0 + Redis 7.x + Predis 1.1.9**
+> **本文基于 youtu RD B2C Backend Team 真实项目经验编写，技术栈：Laravel 8 + PHP-FPM 8.0 + Redis 7.x + Predis 1.1.9**
 > 
 > 👉 关注系列专题：`source/_posts/06_Redis/`（Predis/Lua脚本/集群模式等）
 

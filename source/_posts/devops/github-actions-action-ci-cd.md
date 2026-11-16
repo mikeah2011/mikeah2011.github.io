@@ -1588,7 +1588,7 @@ find .github/workflows -name '*.yml' -exec grep -l 'composer install' {} \; | wc
 
 ---
 
-> 本文基于 KKday B2C Backend Team 30+ 个 Laravel 仓库的 CI/CD 统一治理实践。如有问题欢迎在评论区讨论。文中所有代码示例均经过实际生产环境验证，可直接复制使用。
+> 本文基于 youtu B2C Backend Team 30+ 个 Laravel 仓库的 CI/CD 统一治理实践。如有问题欢迎在评论区讨论。文中所有代码示例均经过实际生产环境验证，可直接复制使用。
 
 ---
 

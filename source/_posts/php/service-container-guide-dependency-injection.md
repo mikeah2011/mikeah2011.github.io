@@ -22,7 +22,7 @@ description: 深入 Laravel Service Container 的五大核心能力：依赖注�
 
 Laravel 的 Service Container（服务容器）是整个框架的心脏，几乎所有核心功能都围绕它运转。然而在实际的 B2C 项目中，绝大多数开发者仅停留在构造函数自动注入和 `app()->make()` 这两个最基础的用法上。当项目规模扩展到 30+ 仓库、多团队协作时，如果不深入理解 Contextual Binding、Deferred Providers、Tagged Bindings 等高级特性，代码会迅速腐化——到处是 `if/else` 判断环境、硬编码依赖、启动时加载大量无用服务拖慢请求响应。
 
-本文基于 KKday B2C Backend 的真实项目经验，围绕 Service Container 的五大核心能力展开，每一节都有可运行的代码示例和踩坑记录。
+本文基于悠途OTA B2C Backend 的真实项目经验，围绕 Service Container 的五大核心能力展开，每一节都有可运行的代码示例和踩坑记录。
 
 ---
 
@@ -354,7 +354,7 @@ $this->app->when(DynamicPaymentHandler::class)
 
 在 B2C 项目中，一个 `AppServiceProvider` 可能注册了 20+ 个绑定。但一次简单的 `/api/health` 请求可能只需要其中 2 个。如果每次请求都实例化所有 ServiceProvider，启动开销会很大。
 
-**实测数据**（KKday 某 API 项目，Laravel 10 + PHP 8.2）：
+**实测数据**（youtu 某 API 项目，Laravel 10 + PHP 8.2）：
 
 | 场景 | Provider 数量 | 平均启动耗时 | 每秒请求数 |
 |------|--------------|-------------|-----------|

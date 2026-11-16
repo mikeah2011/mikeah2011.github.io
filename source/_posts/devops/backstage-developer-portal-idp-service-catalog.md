@@ -81,12 +81,12 @@ Backstage 的核心由三部分组成：
 npx @backstage/create-app@latest
 
 # 交互式配置
-? Enter a name for the app: kkday-developer-portal
+? Enter a name for the app: youtu-ota-developer-portal
 ? Select the database for the backend: PostgreSQL
 ```
 
 ```bash
-cd kkday-developer-portal
+cd youtu-ota-developer-portal
 
 # 启动开发模式
 yarn dev
@@ -97,7 +97,7 @@ yarn dev
 ### 2.2 目录结构
 
 ```
-kkday-developer-portal/
+youtu-ota-developer-portal/
 ├── app-config.yaml          # 主配置文件
 ├── app-config.production.yaml  # 生产环境配置
 ├── packages/
@@ -122,11 +122,11 @@ kkday-developer-portal/
 ```yaml
 # app-config.yaml
 app:
-  title: KKday Developer Portal
+  title: youtu Developer Portal
   baseUrl: http://localhost:3000
 
 organization:
-  name: KKday
+  name: youtu
 
 backend:
   baseUrl: http://localhost:7007
@@ -166,7 +166,7 @@ catalog:
   locations:
     # 从 GitHub 仓库自动发现
     - type: github-discovery
-      target: https://github.com/kkday-org/blob/main/catalog-info.yaml
+      target: https://github.com/youtu-ota-org/blob/main/catalog-info.yaml
       rules:
         - allow: [Component, API, Resource, System]
     # 本地 YAML 文件
@@ -183,14 +183,14 @@ catalog:
 每个服务/仓库需要一个 `catalog-info.yaml` 文件：
 
 ```yaml
-# 在 kkday-b2c-api 仓库根目录的 catalog-info.yaml
+# 在 youtu-ota-b2c-api 仓库根目录的 catalog-info.yaml
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: kkday-b2c-api
-  description: KKday B2C 电商后端 API，基于 Laravel 12
+  name: youtu-ota-b2c-api
+  description: youtu B2C 电商后端 API，基于 Laravel 12
   annotations:
-    github.com/project-slug: kkday-org/kkday-b2c-api
+    github.com/project-slug: youtu-ota-org/youtu-ota-b2c-api
     backstage.io/techdocs-ref: dir:.
     jira/project-key: B2C
   tags:
@@ -199,28 +199,28 @@ metadata:
     - API
     - b2c
   links:
-    - url: https://api.kkday.com/docs
+    - url: https://api.youtu-ota.test/docs
       title: API Documentation
       icon: dashboard
-    - url: https://grafana.kkday.com/d/b2c-api
+    - url: https://grafana.youtu-ota.test/d/b2c-api
       title: Grafana Dashboard
       icon: dashboard
-    - url: https://sentry.io/organizations/kkday/projects/b2c-api/
+    - url: https://sentry.io/organizations/youtu/projects/b2c-api/
       title: Sentry Error Tracking
       icon: bug
 spec:
   type: service
   lifecycle: production
   owner: team-backend
-  system: kkday-ecommerce
+  system: youtu-ota-ecommerce
   providesApis:
-    - kkday-b2c-api
+    - youtu-ota-b2c-api
   dependsOn:
     - resource:postgres-b2c
     - resource:redis-cluster
   consumesApis:
-    - kkday-payment-api
-    - kkday-notification-api
+    - youtu-ota-payment-api
+    - youtu-ota-notification-api
 ```
 
 ```yaml
@@ -228,15 +228,15 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: kkday-b2c-api
-  description: KKday B2C RESTful API
+  name: youtu-ota-b2c-api
+  description: youtu B2C RESTful API
 spec:
   type: openapi
   lifecycle: production
   owner: team-backend
-  system: kkday-ecommerce
+  system: youtu-ota-ecommerce
   definition:
-    $text: https://raw.githubusercontent.com/kkday-org/kkday-b2c-api/main/docs/openapi.yaml
+    $text: https://raw.githubusercontent.com/youtu-ota-org/youtu-ota-b2c-api/main/docs/openapi.yaml
 ```
 
 ```yaml
@@ -244,11 +244,11 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: kkday-ecommerce
-  description: KKday 电商核心系统
+  name: youtu-ota-ecommerce
+  description: youtu 电商核心系统
 spec:
   owner: team-platform
-  domain: kkday-main
+  domain: youtu-ota-main
 ```
 
 ```yaml
@@ -264,7 +264,7 @@ spec:
   type: database
   lifecycle: production
   owner: team-infra
-  system: kkday-ecommerce
+  system: youtu-ota-ecommerce
 ```
 
 ### 3.2 Catalog 页面功能
@@ -291,7 +291,7 @@ spec:
 catalog:
   locations:
     - type: github-discovery
-      target: https://github.com/kkday-org
+      target: https://github.com/youtu-ota-org
       rules:
         - allow: [Component, API, Resource, System, Domain, Template]
 ```
@@ -307,7 +307,7 @@ catalog:
 TechDocs 允许你在代码仓库中写文档，Backstage 自动渲染：
 
 ```
-kkday-b2c-api/
+youtu-ota-b2c-api/
 ├── docs/
 │   ├── index.md          # 文档首页
 │   ├── architecture.md   # 架构设计
@@ -320,7 +320,7 @@ kkday-b2c-api/
 
 ```yaml
 # mkdocs.yaml
-site_name: KKday B2C API Documentation
+site_name: youtu B2C API Documentation
 nav:
   - Home: index.md
   - Architecture: architecture.md
@@ -333,10 +333,10 @@ plugins:
 
 ```markdown
 <!-- docs/index.md -->
-# KKday B2C API
+# youtu B2C API
 
 ## Overview
-KKday B2C 电商后端 API，提供产品管理、订单处理、支付集成等核心功能。
+youtu B2C 电商后端 API，提供产品管理、订单处理、支付集成等核心功能。
 
 ## Quick Start
 ```bash
@@ -394,7 +394,7 @@ jobs:
           aws-region: ap-southeast-1
 
       - run: |
-          aws s3 sync ./site s3://kkday-techdocs/${{ github.event.repository.name }}/ --delete
+          aws s3 sync ./site s3://youtu-ota-techdocs/${{ github.event.repository.name }}/ --delete
 ```
 
 **方式二：Build In-Process**
@@ -426,7 +426,7 @@ kind: Template
 metadata:
   name: create-laravel-service
   title: Create Laravel Service
-  description: 创建一个符合 KKday 规范的 Laravel 服务
+  description: 创建一个符合 youtu 规范的 Laravel 服务
   tags:
     - PHP
     - Laravel
@@ -495,14 +495,14 @@ spec:
             allowedHosts:
               - github.com
             allowedOrganizations:
-              - kkday-org
+              - youtu-ota-org
 
   steps:
     - id: fetch-template
       name: Fetch Template
       action: fetch:template
       input:
-        url: https://github.com/kkday-org/backstage-templates/tree/main/laravel-service
+        url: https://github.com/youtu-ota-org/backstage-templates/tree/main/laravel-service
         values:
           name: ${{ parameters.name }}
           description: ${{ parameters.description }}
@@ -563,7 +563,7 @@ steps:
     if: ${{ parameters.database !== 'none' }}
     action: fetch:template
     input:
-      url: https://github.com/kkday-org/backstage-templates/tree/main/database/${{ parameters.database }}
+      url: https://github.com/youtu-ota-org/backstage-templates/tree/main/database/${{ parameters.database }}
       targetPath: database
 
   # 列表输入
@@ -613,7 +613,7 @@ export const CICDDashboard = ({ entity }: { entity: Entity }) => {
 
   React.useEffect(() => {
     if (repoSlug) {
-      githubActionsApi.listWorkflowRuns({ owner: 'kkday-org', repo: repoSlug })
+      githubActionsApi.listWorkflowRuns({ owner: 'youtu-ota-org', repo: repoSlug })
         .then(data => setRuns(data.workflow_runs))
     }
   }, [repoSlug])
@@ -753,7 +753,7 @@ jobs:
           curl -X POST "${{ secrets.BACKSTAGE_URL }}/api/catalog/refresh" \
             -H "Authorization: Bearer ${{ secrets.BACKSTAGE_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -d '{"entityRef": "component:default/kkday-b2c-api"}'
+            -d '{"entityRef": "component:default/youtu-ota-b2c-api"}'
 ```
 
 ---
@@ -822,7 +822,7 @@ yarn backstage-cli versions:bump
 # Nginx 反向代理配置
 server {
     listen 80;
-    server_name portal.kkday.com;
+    server_name portal.youtu-ota.test;
 
     location / {
         proxy_pass http://localhost:3000;
@@ -903,7 +903,7 @@ Backstage 是目前最成熟的开源 IDP 方案，特别适合：
 
 ---
 
-*本文基于 KKday 30+ 仓库规模下搭建 Backstage 开发者门户的真实踩坑经验整理。*
+*本文基于 youtu 30+ 仓库规模下搭建 Backstage 开发者门户的真实踩坑经验整理。*
 
 ## 相关阅读
 

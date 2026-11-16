@@ -350,7 +350,7 @@ ls -la public/docs/
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "KKday API 文档",
+    "title": "youtu API 文档",
     "version": "1.0.0"
   },
   "paths": {
@@ -386,7 +386,7 @@ ls -la public/docs/
 ```json
 {
   "info": {
-    "name": "KKday API",
+    "name": "youtu API",
     "_postman_id": "auto-generated"
   },
   "item": [

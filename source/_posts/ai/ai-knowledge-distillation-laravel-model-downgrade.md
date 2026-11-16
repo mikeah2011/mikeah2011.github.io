@@ -72,7 +72,7 @@ def distillation_loss(student_logits, teacher_logits, labels, T=3.0, alpha=0.7):
 
 ## Laravel 项目中的蒸馏实战
 
-在 KKday 的 B2C 后端项目中，我们面临一个典型场景：AI Agent 需要处理用户意图识别、订单状态查询、商品推荐等任务，GPT-4 的成本实在扛不住。
+在 youtu 的 B2C 后端项目中，我们面临一个典型场景：AI Agent 需要处理用户意图识别、订单状态查询、商品推荐等任务，GPT-4 的成本实在扛不住。
 
 ### 架构设计
 
@@ -694,7 +694,7 @@ $trainingData = collect($rawData)
 
 ## 成本对比数据
 
-在 KKday 项目中的实际效果（30 天数据）：
+在 youtu 项目中的实际效果（30 天数据）：
 
 ```
                   GPT-4 Only    蒸馏混合方案    节省

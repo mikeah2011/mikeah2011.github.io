@@ -454,7 +454,7 @@ MEMORY.md 是 OpenClaw 记忆系统的"长期知识层"。与 daily notes 的"�
 
 ## 活跃项目
 
-### 项目 Alpha（KKday B2C API）
+### 项目 Alpha（youtu B2C API）
 - 状态：进行中
 - 技术栈：Laravel 11 + PostgreSQL + Redis Cluster
 - 当前迭代：支付模块重构
@@ -490,7 +490,7 @@ MEMORY.md 是 OpenClaw 记忆系统的"长期知识层"。与 daily notes 的"�
 
 ### 技术社区
 - 台湾 PHP 社区活跃成员
-- KKday 技术团队核心开发者
+- 悠途OTA技术团队核心开发者
 
 ### 互动模式
 - 群聊中倾向于技术讨论，少闲聊

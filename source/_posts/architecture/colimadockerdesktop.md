@@ -12,11 +12,11 @@ tags:
 - Docker
 - Laravel
 - macOS
-description: Colima替代Docker Desktop实战指南：基于KKday B2C Laravel 8项目，详解Colima安装配置、vz虚拟化与virtiofs性能优化、docker-compose编排、Pest/ParaTest测试加速，对比Docker Desktop与Rancher Desktop在macOS M系列芯片上的许可证、内存占用与IO性能差异，附常见踩坑与团队迁移方案
+description: Colima替代Docker Desktop实战指南：基于悠途OTA B2C Laravel 8项目，详解Colima安装配置、vz虚拟化与virtiofs性能优化、docker-compose编排、Pest/ParaTest测试加速，对比Docker Desktop与Rancher Desktop在macOS M系列芯片上的许可证、内存占用与IO性能差异，附常见踩坑与团队迁移方案
 ---
 
 
-> 一句话总结：**M 系列 Mac + Laravel docker-compose，Colima 已经可以无缝替代 Docker Desktop**，而且免费、轻量、可脚本化。本文是我在 KKday B2C 后端日常用了半年多之后的复盘。
+> 一句话总结：**M 系列 Mac + Laravel docker-compose，Colima 已经可以无缝替代 Docker Desktop**，而且免费、轻量、可脚本化。本文是我在悠途OTA B2C 后端日常用了半年多之后的复盘。
 
 ## 1. 为什么要把 Docker Desktop 换掉
 
@@ -433,7 +433,7 @@ nuke:
 
 ## 8. 小结
 
-对一个典型的 KKday 后端 RD 工作流（Laravel 8 BFF + 多服务 compose + Pest 测试 + 偶尔起一下 Postgres / Kafka），Colima 已经完全够用，而且：
+对一个典型的 youtu 后端 RD 工作流（Laravel 8 BFF + 多服务 compose + Pest 测试 + 偶尔起一下 Postgres / Kafka），Colima 已经完全够用，而且：
 
 - ✅ 合规免费
 - ✅ 内存省一半以上

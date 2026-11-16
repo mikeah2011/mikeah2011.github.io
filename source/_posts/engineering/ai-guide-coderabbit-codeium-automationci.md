@@ -630,7 +630,7 @@ reviews:
 
 ### 踩坑 #5：私有依赖包的审查噪音
 
-**现象**：公司内部的 Composer 包（如 `kkday/log`）代码被 AI 审查，产生大量无意义评论。
+**现象**：公司内部的 Composer 包（如 `youtu/log`）代码被 AI 审查，产生大量无意义评论。
 
 **解决方案**：
 
@@ -638,7 +638,7 @@ reviews:
 # .coderabbit.yaml
 reviews:
   ignore_paths:
-    - "vendor/kkday/**"      # 忽略内部 vendor
+    - "vendor/youtu/**"      # 忽略内部 vendor
     - "vendor/composer/**"    # 忽略 composer 生成文件
 ```
 

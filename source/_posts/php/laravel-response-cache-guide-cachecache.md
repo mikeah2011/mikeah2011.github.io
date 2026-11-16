@@ -7,9 +7,9 @@ date: 2026-05-16 20:50:45
 author: Michael
 updated: 2026-05-16 20:55:31
 categories: [php]
-tags: [KKday, Laravel, Redis, 性能优化, 缓存]
+tags: [悠途OTA, Laravel, Redis, 性能优化, 缓存]
 keywords: [Laravel Response Cache, 全页缓存与局部缓存策略踩坑记录, PHP]
-description: 在 KKday B2C API 项目中，全页缓存（Response Cache）是提升高并发场景下响应速度的关键手段。本文从 spatie/laravel-response-cache 出发，深入讲解 HTTP 响应缓存的架构设计、缓存失效策略、局部缓存（ESI/Edge-Side Includes 思路）、认证用户场景处理，以及生产环境中真实踩过的坑。
+description: 在悠途OTA B2C API 项目中，全页缓存（Response Cache）是提升高并发场景下响应速度的关键手段。本文从 spatie/laravel-response-cache 出发，深入讲解 HTTP 响应缓存的架构设计、缓存失效策略、局部缓存（ESI/Edge-Side Includes 思路）、认证用户场景处理，以及生产环境中真实踩过的坑。
 
 
 
@@ -23,7 +23,7 @@ description: 在 KKday B2C API 项目中，全页缓存（Response Cache）是�
 
 之前我们聊过 Laravel 框架层面的四层缓存（Route/Config/View/Query），但那都是「应用内部」的优化。**Response Cache 是在 HTTP 响应层面做缓存**——直接把整个响应体（或部分响应）存起来，下次请求直接返回，连 PHP 代码都不用执行。
 
-本文基于 KKday B2C API 的真实项目经验，讲清楚：
+本文基于悠途OTA B2C API 的真实项目经验，讲清楚：
 
 1. 全页缓存的架构设计与选型
 2. `spatie/laravel-response-cache` 实战配置
@@ -732,7 +732,7 @@ class SanitizeVaryHeader
 
 ## 性能对比数据
 
-在 KKday 商品详情页 API 上的实测数据（QPS = 1000，并发 50）：
+在 youtu 商品详情页 API 上的实测数据（QPS = 1000，并发 50）：
 
 | 指标 | 无缓存 | Application Cache (Query) | Response Cache |
 |------|--------|--------------------------|----------------|
@@ -761,4 +761,4 @@ class SanitizeVaryHeader
 
 ---
 
-*本文基于 KKday B2C API 项目实战经验，涵盖了 spatie/laravel-response-cache 的配置、自定义 CacheProfile、缓存失效策略、局部缓存方案、认证用户隔离以及生产环境的 5 个经典踩坑。Response Cache 不是银弹，但在高并发的公开页面场景下，它能带来显著的性能提升。*
+*本文基于 youtu B2C API 项目实战经验，涵盖了 spatie/laravel-response-cache 的配置、自定义 CacheProfile、缓存失效策略、局部缓存方案、认证用户隔离以及生产环境的 5 个经典踩坑。Response Cache 不是银弹，但在高并发的公开页面场景下，它能带来显著的性能提升。*

@@ -21,7 +21,7 @@ description: macOS 上 Python 多版本管理与依赖隔离的完整实战指�
 
 ## 为什么 PHP 开发者需要关心 Python 工具链？
 
-在 KKday 的 B2C 后端团队中，我们的主力栈是 Laravel/PHP。但实际开发中，Python 出场的频率远超预期：
+在悠途OTA的 B2C 后端团队中，我们的主力栈是 Laravel/PHP。但实际开发中，Python 出场的频率远超预期：
 
 - **AI 辅助脚本**：用 Python 调 OpenAI/Claude API 做批量代码审查、文档生成
 - **数据处理管道**：ETL 脚本、日志分析、报表生成
@@ -206,7 +206,7 @@ poetry init   # 交互式创建 pyproject.toml
 name = "ai-code-reviewer"
 version = "0.1.0"
 description = "AI-powered code review script for Laravel projects"
-authors = ["Michael <michael@kkday.com>"]
+authors = ["Michael <michael@youtu-ota.test>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

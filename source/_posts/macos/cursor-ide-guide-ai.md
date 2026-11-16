@@ -371,7 +371,7 @@ database/seeders/ProductionSeeder.php
 
 ```bash
 # 团队公共规则仓库
-git@github.com:kkday-team/cursor-rules.git
+git@github.com:youtu-ota-team/cursor-rules.git
 
 # 仓库结构
 cursor-rules/
@@ -386,7 +386,7 @@ cursor-rules/
 ```bash
 #!/bin/bash
 # scripts/sync-rules.sh — 同步公共规则到当前项目
-RULES_REPO="git@github.com:kkday-team/cursor-rules.git"
+RULES_REPO="git@github.com:youtu-ota-team/cursor-rules.git"
 TEMP_DIR=$(mktemp -d)
 
 git clone --depth 1 "$RULES_REPO" "$TEMP_DIR"

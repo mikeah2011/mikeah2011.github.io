@@ -292,9 +292,9 @@ export default defineEventHandler(async (event) => {
       relatedProducts: await getRelatedProducts(product.category_id, id),
       // 添加 SEO 元数据
       seo: {
-        title: `${product.name} - KKday`,
+        title: `${product.name} - youtu`,
         description: product.summary,
-        canonical: `https://www.kkday.com/product/${id}`,
+        canonical: `https://www.youtu-ota.test/product/${id}`,
       },
     }
   } catch (error) {
@@ -341,7 +341,7 @@ export default defineNuxtConfig({
 
     // 客户端公开变量
     public: {
-      siteUrl: process.env.SITE_URL || 'https://www.kkday.com',
+      siteUrl: process.env.SITE_URL || 'https://www.youtu-ota.test',
       analyticsId: process.env.GOOGLE_ANALYTICS_ID,
     },
   },
@@ -350,10 +350,10 @@ export default defineNuxtConfig({
 
 ```bash
 # .env
-LARAVEL_API_BASE=https://api.internal.kkday.com/v2
+LARAVEL_API_BASE=https://api.internal.youtu-ota.test/v2
 LARAVEL_API_TOKEN=your-secret-token
 REDIS_URL=redis://localhost:6379
-SITE_URL=https://www.kkday.com
+SITE_URL=https://www.youtu-ota.test
 ```
 
 ---
@@ -520,13 +520,13 @@ const jsonLd = computed(() => {
 <!-- composables/useProductSeo.ts
 export const useProductSeo = (product: Ref<Product | null>) => {
   useSeoMeta({
-    title: () => product.value ? `${product.value.name} | KKday` : 'KKday',
+    title: () => product.value ? `${product.value.name} | youtu` : 'youtu',
     description: () => product.value?.summary || '',
     ogTitle: () => product.value?.name || '',
     ogDescription: () => product.value?.summary || '',
     ogImage: () => product.value?.coverImage || '',
     ogType: 'product',
-    ogUrl: () => product.value ? `https://www.kkday.com/product/${product.value.id}` : '',
+    ogUrl: () => product.value ? `https://www.youtu-ota.test/product/${product.value.id}` : '',
     twitterCard: 'summary_large_image',
     twitterTitle: () => product.value?.name || '',
     twitterDescription: () => product.value?.summary || '',
@@ -728,16 +728,16 @@ export default defineEventHandler((event) => {
 // nuxt.config.ts
 export default defineNuxtConfig({
   image: {
-    domains: ['cdn.kkday.com', 'img.kkday.com'],
+    domains: ['cdn.youtu-ota.test', 'img.youtu-ota.test'],
     alias: {
-      kkday: 'https://cdn.kkday.com',
+      youtu: 'https://cdn.youtu-ota.test',
     },
   },
 })
 ```
 
 ```vue
-<NuxtImg src="kkday:/product/123/cover.jpg" preset="product" loading="lazy" />
+<NuxtImg src="youtu:/product/123/cover.jpg" preset="product" loading="lazy" />
 ```
 
 ---
@@ -758,7 +758,7 @@ Nuxt 4 在 Nuxt 3 的基础上做了大量改进，服务器组件是最具革�
 
 ---
 
-*本文基于 KKday B2C 前端项目从 Nuxt 3 迁移到 Nuxt 4 的真实踩坑经验整理。*
+*本文基于 youtu B2C 前端项目从 Nuxt 3 迁移到 Nuxt 4 的真实踩坑经验整理。*
 
 ## 相关阅读
 

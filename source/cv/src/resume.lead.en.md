@@ -9,17 +9,17 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 
 ## Profile
 
-13 years of backend engineering, grown consistently along a "Tech Lead who can carry the technical depth" path: at KKday I went from affiliate-platform Code Owner to B2C core backend, and since 2026 H2 have led a 6-person cross-platform team against a CVR north-star metric; earlier at Shopex I led a 6–7 person team delivering the Apple platform's mini-program and worked across OTA / e-commerce / MarTech scenarios. I'm used to trading off business goals, engineering constraints and team dynamics — and I believe a good technical decision has to be explainable and verifiable, not just "because I think so."
+13 years of backend engineering, grown consistently along a "Tech Lead who can carry the technical depth" path: at 悠途OTA I went from affiliate-platform Code Owner to B2C core backend, and since 2026 H2 have led a 6-person cross-platform team against a CVR north-star metric; earlier at Shopex I led a 6–7 person team delivering the Apple platform's mini-program and worked across OTA / e-commerce / MarTech scenarios. I'm used to trading off business goals, engineering constraints and team dynamics — and I believe a good technical decision has to be explainable and verifiable, not just "because I think so."
 
 **+50%** — CVR improvement (1.2% → 1.8%), 6-person cross-platform team  
-**200%** — YoY growth, KKday affiliate business  
+**200%** — YoY growth, 悠途OTA affiliate business  
 **¥10B+** — Apple platform GMV in 5 months, delivered with a 6–7 person team  
 **20+** — Daily users of self-built AI platforms across 7 teams  
 **25s → 2s** — Critical API p99 after leading incident response  
 **13 yrs** — Backend engineering · technical depth paired with team delivery
 
 - **Team delivery**: formed and lead a 6-person cross-platform team (iOS / Android / Web / Backend), driving pre-purchase CVR up 50% against a single north-star metric; established standups, 1-on-1s and OKR alignment, and built a dashboard so the team's output is verifiable — while staying hands-on with code and architectural decisions
-- **Cross-team technical decisions**: led the USJ re-architecture across four services (B2C/Order/MKT/Member), authoring 7 SA/SD documents and introducing an "entitlements inherit, conditions re-evaluate" principle that aligned all four teams in a single review; top contributor and owner of KKday's affiliate marketing platform (200% YoY growth) as Code Owner and PR gatekeeper; earlier at Shopex, owned the MarTech/SCRM marketing-automation microservice suite and its high-concurrency/stability work
+- **Cross-team technical decisions**: led the USJ re-architecture across four services (B2C/Order/MKT/Member), authoring 7 SA/SD documents and introducing an "entitlements inherit, conditions re-evaluate" principle that aligned all four teams in a single review; top contributor and owner of 悠途OTA's affiliate marketing platform (200% YoY growth) as Code Owner and PR gatekeeper; earlier at Shopex, owned the MarTech/SCRM marketing-automation microservice suite and its high-concurrency/stability work
 - **Reliability & engineering culture**: led incident response on a large-scale outage (critical API p99 25s+ → <2s, 5xx held below 0.01%); self-initiated AI collaboration platforms (Maestro, VM Health Center) that turned AI tooling into everyday team productivity
 
 ---
@@ -46,7 +46,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 
 ## Experience
 
-### KKday — Senior Backend Engineer
+### 悠途OTA — Senior Backend Engineer
 **2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
 A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → in H2 2026 also owner of the Pre-Purchase Conversion Task Force (~80% of my time, with the remaining 20% wrapping up and handing off the B2C core flow while mentoring the team taking it over).
@@ -95,6 +95,6 @@ A leading domestic e-commerce and B2B MarTech/SCRM marketing-automation SaaS pro
 
 ## Honors
 
-- KKday Employee of the Year (2023, 2024 — two consecutive years)
+- 悠途OTA Employee of the Year (2023, 2024 — two consecutive years)
 - Shopex Golden Tomato Award (2020)
 - Yuanfeng Technology Star (2016)

@@ -372,5 +372,5 @@ CREATE INDEX idx_content (100) ON articles (content);
 ## 相关阅读
 
 - [索引的类型](/categories/Databases/index/types/) — 深入对比 B+Tree、Hash、Full-text、R-Tree/Spatial 四种索引的底层结构与适用场景
-- [MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则](/categories/Databases/index-deep-dive-explain/) — KKday B2C API 真实踩坑记录
+- [MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则](/categories/Databases/index-deep-dive-explain/) — youtu B2C API 真实踩坑记录
 - [百万级数据表查询优化实战](/categories/Databases/query-optimization-explain/) — EXPLAIN 深度分析索引重构与分页治理踩坑记录

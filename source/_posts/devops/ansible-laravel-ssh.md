@@ -12,7 +12,7 @@ tags:
 - 自动化
 - 配置管理
 - IaC
-description: 基于 KKday B2C Backend Team 30+ 仓库的运维经验，记录 Ansible 在 Laravel 项目中的落地实践：Inventory 设计、Playbook 编写、Role 抽象、Vault 密钥管理、滚动部署、零停机发布，以及 Jinja2 模板渲染陷阱、幂等性违背、handler 时序、权限提升踩坑等真实问题。
+description: 基于悠途OTA B2C Backend Team 30+ 仓库的运维经验，记录 Ansible 在 Laravel 项目中的落地实践：Inventory 设计、Playbook 编写、Role 抽象、Vault 密钥管理、滚动部署、零停机发布，以及 Jinja2 模板渲染陷阱、幂等性违背、handler 时序、权限提升踩坑等真实问题。
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
 - /images/content/devops-ansible-content-1.jpg
@@ -25,7 +25,7 @@ images:
 
 ## 一、为什么写这篇？
 
-在 KKday B2C Backend Team，我们有 30+ 个 Laravel 微服务。最开始，部署流程是这样的：
+在悠途OTA B2C Backend Team，我们有 30+ 个 Laravel 微服务。最开始，部署流程是这样的：
 
 ```bash
 # 某个同事写的 deploy.sh（真实存在过）
@@ -201,8 +201,8 @@ all:
 ```yaml
 # inventories/production/group_vars/all.yml
 ---
-app_name: "kkday-api"
-app_repo: "git@github.com:kkday/b2c-api.git"
+app_name: "youtu-ota-api"
+app_repo: "git@github.com:youtu/b2c-api.git"
 app_branch: "main"
 app_root: "/var/www/{{ app_name }}"
 app_shared_dir: "{{ app_root }}/shared"
@@ -213,7 +213,7 @@ keep_releases: 5
 php_version: "8.0"
 php_fpm_socket: "/run/php/php{{ php_version }}-fpm.sock"
 
-nginx_server_name: "api.kkday.com"
+nginx_server_name: "api.youtu-ota.test"
 nginx_worker_processes: "auto"
 
 redis_host: "10.0.2.10"
@@ -588,15 +588,15 @@ app_debug: false
 
 db_host: "10.0.2.10"
 db_port: 3306
-db_database: "kkday_prod"
-db_username: "kkday_app"
+db_database: "youtu_prod"
+db_username: "youtu_app"
 db_password: "xxxxxxxxxxxxxxxxxxxx"
 
 redis_password: "xxxxxxxxxxxxxxxxxxxx"
 
-mail_host: "smtp.kkday.com"
+mail_host: "smtp.youtu-ota.test"
 mail_port: 587
-mail_username: "noreply@kkday.com"
+mail_username: "noreply@youtu-ota.test"
 mail_password: "xxxxxxxxxxxxxxxxxxxx"
 
 stripe_key: "pk_live_xxxxxxxxxxxxxxxx"
@@ -1344,7 +1344,7 @@ scp_if_ssh = smart
 
 ---
 
-*本文基于 KKday B2C Backend Team 的真实运维经验，涉及 30+ 个 Laravel 微服务的 Ansible 管理实践。所有代码示例均来自生产环境（已脱敏）。*
+*本文基于 youtu B2C Backend Team 的真实运维经验，涉及 30+ 个 Laravel 微服务的 Ansible 管理实践。所有代码示例均来自生产环境（已脱敏）。*
 
 ## 相关阅读
 

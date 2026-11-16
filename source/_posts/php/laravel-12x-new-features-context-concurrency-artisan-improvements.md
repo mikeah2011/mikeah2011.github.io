@@ -270,7 +270,7 @@ public function handle($command, $job, $data)
 
 ### 2.4 B2C API 实战：全链路追踪
 
-在 KKday B2C API 中，我们用 Context 实现了零侵入的全链路追踪：
+在 youtu B2C API 中，我们用 Context 实现了零侵入的全链路追踪：
 
 ```php
 <?php
@@ -1106,7 +1106,7 @@ Laravel 12 的 Context、Concurrency 和 Artisan 改进，分别解决了 PHP �
 
 ---
 
-*本文基于 Laravel 12.x 源码与 KKday B2C API 真实项目经验撰写。文中性能数据来自生产环境 A/B 测试，具体数值因网络环境和数据量而异。*
+*本文基于 Laravel 12.x 源码与 youtu B2C API 真实项目经验撰写。文中性能数据来自生产环境 A/B 测试，具体数值因网络环境和数据量而异。*
 
 ## 相关阅读
 

@@ -23,7 +23,7 @@ tags:
 
 ### 痛点：Git 命令行的「认知负担」
 
-作为一名在 KKday 负责 30+ Laravel 仓库的后端工程师，我每天的 Git 操作量是这样的：
+作为一名在悠途OTA负责 30+ Laravel 仓库的后端工程师，我每天的 Git 操作量是这样的：
 
 | 场景 | 日均操作次数 | 典型命令 |
 |------|-------------|---------|
@@ -789,7 +789,7 @@ git config --global diff.colorMoved default
 
 ### 6.4 性能数据
 
-在 KKday 的 Laravel B2C API 项目中实测：
+在 youtu 的 Laravel B2C API 项目中实测：
 
 | 操作 | Git CLI | Lazygit | SourceTree |
 |------|---------|---------|------------|

@@ -552,7 +552,7 @@ protected function handleInitialize(array $params): array
     return [
         'protocolVersion' => '2024-11-05',
         'serverInfo' => [
-            'name' => 'kkday-mcp-server',
+            'name' => 'youtu-ota-mcp-server',
             'version' => '2.0.0',
         ],
         'capabilities' => ['tools' => ['listChanged' => true]],
@@ -652,8 +652,8 @@ AI Agent 工具定义的 Schema 演进，本质上是**契约管理**问题。�
 - **活跃版本控制在 3 个以内**，避免维护地狱
 - **日志记录版本信息**，出问题能追溯
 
-在 KKday 的 MCP Server 实践中，这套机制帮助我们在不停服的情况下完成了 5 次工具定义升级，零线上事故。关键在于：**把 Schema 演进当作数据库迁移来做——有版本、有迁移脚本、有回滚方案。**
+在 youtu 的 MCP Server 实践中，这套机制帮助我们在不停服的情况下完成了 5 次工具定义升级，零线上事故。关键在于：**把 Schema 演进当作数据库迁移来做——有版本、有迁移脚本、有回滚方案。**
 
 ---
 
-*本文基于 KKday 30+ 仓库的 MCP Server 实践总结，PHP 8.2 + Laravel 11 环境。*
+*本文基于 youtu 30+ 仓库的 MCP Server 实践总结，PHP 8.2 + Laravel 11 环境。*

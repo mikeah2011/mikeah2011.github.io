@@ -70,7 +70,7 @@ MEMORY.md 存储了 Agent 对用户的了解——"我记得什么"：
 - 技术栈：PHP/Laravel, MySQL, Redis, Docker, K8s
 
 ## 活跃项目
-- KKday B2C API 重构
+- 悠途OTA B2C API 重构
 - 博客 OpenClaw 系列文章
 
 ## 技术知识

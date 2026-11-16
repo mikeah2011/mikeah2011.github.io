@@ -14,12 +14,12 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 **13 yrs** — Backend engineering · OTA / e-commerce / MarTech  
 **¥10B+** — GMV within 5 months, Apple China reseller platform  
 **25s → 2s** — Critical API p99 after major-outage response  
-**200%** — YoY growth, KKday affiliate business  
+**200%** — YoY growth, 悠途OTA affiliate business  
 **False positives ~70%↓** — Maestro converging 4 AI review bots, 300+ PRs  
 **20+** — Daily users of self-built AI platforms, 7 teams
 
 - **AI engineering**: built a convergence layer for multiple AI review bots (Maestro) and an AI-assisted root-cause monitoring platform (VM Health Center), solving the practical problem of duplicated, unreliable, unconverged AI output
-- **Transaction-systems depth**: top contributor and owner of KKday's affiliate marketing platform (200% YoY growth), and owner of the B2C core transaction flow
+- **Transaction-systems depth**: top contributor and owner of 悠途OTA's affiliate marketing platform (200% YoY growth), and owner of the B2C core transaction flow
 - **Stability & leadership**: led incident response on a large-scale outage (critical API p99 25s+ → <2s, 5xx held below 0.01%); in H2 2026 also owner of the Pre-Purchase Conversion Task Force, coordinating a 6-person cross-platform team
 
 ---
@@ -46,7 +46,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 
 ## Experience
 
-### KKday — Senior Backend Engineer
+### 悠途OTA — Senior Backend Engineer
 **2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
 A leading global travel-experience platform operating in 50+ countries. Progressed from affiliate platform owner → B2C core backend → owner of the Pre-Purchase Conversion Task Force (in H2 2026, ~80% of my time, with the remaining 20% wrapping up and handing off the B2C core flow).
@@ -97,6 +97,6 @@ A leading domestic e-commerce and B2B MarTech/SCRM marketing-automation SaaS pro
 
 ## Honors
 
-- KKday Employee of the Year (2023, 2024 — two consecutive years)
+- 悠途OTA Employee of the Year (2023, 2024 — two consecutive years)
 - Shopex Golden Tomato Award (2020)
 - Yuanfeng Technology Star (2016)

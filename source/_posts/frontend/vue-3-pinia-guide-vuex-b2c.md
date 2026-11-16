@@ -22,7 +22,7 @@ images:
 
 ## 为什么从 Vuex 迁移到 Pinia？
 
-在 Vue 2 时代，Vuex 是状态管理的事实标准。但随着 Vue 3 Composition API 的普及，Vuex 的 `mutations`、`actions`、`getters` 三层嵌套越来越显得冗余。在我们 KKday B2C 前端项目（基于 vue-pure-admin 二次开发的管理后台 + uni-app C 端）中，我们经历了从 Vuex 4 迁移到 Pinia 的完整过程。
+在 Vue 2 时代，Vuex 是状态管理的事实标准。但随着 Vue 3 Composition API 的普及，Vuex 的 `mutations`、`actions`、`getters` 三层嵌套越来越显得冗余。在我们悠途OTA B2C 前端项目（基于 vue-pure-admin 二次开发的管理后台 + uni-app C 端）中，我们经历了从 Vuex 4 迁移到 Pinia 的完整过程。
 
 ### 核心痛点对比
 

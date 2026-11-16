@@ -34,7 +34,7 @@ images:
 
 ### 1.1 真实场景：网络抖动导致重复提交
 
-在 KKday B2C API 项目中，我们遇到过这样的场景：用户点击"下单"按钮后，由于网络波动或浏览器自动重试机制，同一请求被服务端接收了三次。
+在悠途OTA B2C API 项目中，我们遇到过这样的场景：用户点击"下单"按钮后，由于网络波动或浏览器自动重试机制，同一请求被服务端接收了三次。
 
 ```
 ┌─────────┐    ┌─────────┐    ┌─────────┐
@@ -214,7 +214,7 @@ class OctaneProvider extends ServiceProvider
 }
 ```
 
-**性能数据（KKday B2C API 实测）：**
+**性能数据（youtu B2C API 实测）：**
 
 | 指标 | 值 |
 |------|-----|
@@ -1221,7 +1221,7 @@ class CleanupIdempotencyKeys extends Command
 
 ---
 
-**本文档为 KKday B2C API 项目真实生产代码，已应用于微服务集群（Kubernetes）。**
+**本文档为 youtu B2C API 项目真实生产代码，已应用于微服务集群（Kubernetes）。**
 
 如需查看完整源码，可以访问：`~/GitHub/mikeah2011.github.io/source/_posts/`
 

@@ -21,7 +21,7 @@ description: 深入讲解 Helm Chart 构建 Laravel 应用部署的完整实战�
 
 ## 为什么需要 Helm？
 
-在 KKday B2C Backend Team，我们有 30+ 个 Laravel 微服务仓库。当每个服务都需要 Deployment、Service、Ingress、HPA、ConfigMap、Secret 这些 K8s 资源时，纯 YAML 文件的维护量会指数级增长。
+在悠途OTA B2C Backend Team，我们有 30+ 个 Laravel 微服务仓库。当每个服务都需要 Deployment、Service、Ingress、HPA、ConfigMap、Secret 这些 K8s 资源时，纯 YAML 文件的维护量会指数级增长。
 
 我们之前的做法是每个仓库里放一套 `k8s/` 目录的 YAML 文件，通过 `kubectl apply -f` 部署。问题很快暴露：
 
@@ -110,7 +110,7 @@ values.yaml 是整个 Chart 的灵魂。我们采用 **分层覆盖** 策略：�
 replicaCount: 2
 
 image:
-  repository: registry.kkday.com/b2c/laravel-api
+  repository: registry.youtu-ota.test/b2c/laravel-api
   pullPolicy: IfNotPresent
   tag: "latest"  # CI/CD 时通过 --set image.tag=<git-sha> 覆盖
 
@@ -481,7 +481,7 @@ metadata:
 spec:
   project: b2c-backend
   source:
-    repoURL: git@github.com:kkday/b2c-helm-charts.git
+    repoURL: git@github.com:youtu/b2c-helm-charts.git
     targetRevision: main
     path: laravel-helm-chart
     helm:

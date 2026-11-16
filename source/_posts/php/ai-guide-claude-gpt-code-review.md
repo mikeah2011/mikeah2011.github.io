@@ -17,7 +17,7 @@ description: 在 30+ 仓库的 Laravel B2C API 项目中，如何将 AI（Claude
 
 ## 前言：为什么需要 AI 辅助 Code Review？
 
-在 KKday B2C Backend Team，我们同时维护 30+ 个 Laravel 仓库，每天产生大量 Pull Request。传统 Code Review 的痛点很明显：
+在悠途OTA B2C Backend Team，我们同时维护 30+ 个 Laravel 仓库，每天产生大量 Pull Request。传统 Code Review 的痛点很明显：
 
 - **资深工程师时间碎片化**：一个人要看 5-8 个仓库的 PR，每个只花 3-5 分钟扫一眼
 - **风格/规范类问题反复出现**：PHPDoc 缺失、魔术字符串、未处理异常……年年讲年年犯
@@ -564,7 +564,7 @@ AI 辅助 Code Review 不是银弹，但它是 2026 年工程团队提效的必�
 
 ---
 
-*本文基于 KKday RD B2C Backend Team 30+ 仓库的真实实践，所有代码示例均来自生产项目（已脱敏）。*
+*本文基于 youtu RD B2C Backend Team 30+ 仓库的真实实践，所有代码示例均来自生产项目（已脱敏）。*
 
 ---
 

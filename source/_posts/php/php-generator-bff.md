@@ -1,5 +1,5 @@
 ---
-title: PHP Generator -BFF 流式響應實戰-KKday-B2C-API-真實踩坑記錄
+title: PHP Generator -BFF 流式響應實戰-youtu-ota-B2C-API-真實踩坑記錄
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -7,18 +7,18 @@ date: 2026-05-03
 author: Michael
 categories: [php]
 tags: [BFF, Laravel, WebSocket]
-keywords: [PHP Generator, BFF, KKday, B2C, API, 流式響應實戰, 真實踩坑記錄, PHP]
-description: PHP Generator 在 BFF 層的流式響應實戰，結合 KKday-B2C-API 真實踩坑經驗，分享如何利用 Generator 實現漸進式數據傳輸與錯誤容錯機制。
+keywords: [PHP Generator, BFF, 悠途OTA, B2C, API, 流式響應實戰, 真實踩坑記錄, PHP]
+description: PHP Generator 在 BFF 層的流式響應實戰，結合 youtu-ota-B2C-API 真實踩坑經驗，分享如何利用 Generator 實現漸進式數據傳輸與錯誤容錯機制。
 
 
 
 ---
 
-# PHP Generator -BFF 流式響應實戰-KKday-B2C-API-真實踩坑記錄
+# PHP Generator -BFF 流式響應實戰-youtu-ota-B2C-API-真實踩坑記錄
 
 ## 背景：為什麼需要 BFF 層流式響應？
 
-在 KKday-B2C-API 項目中，我們面臨以下挑戰：
+在 youtu-ota-B2C-API 項目中，我們面臨以下挑戰：
 
 1. **前端需要長時間運行的報表分析頁面**
 2. **即時推送大數據集時，瀏覽器需要逐步渲染避免白屏**
@@ -382,7 +382,7 @@ log_slow_threshold = 3
 
 ### 背景
 
-KKday-B2C-API 有 GraphQL 層，但前端希望直接獲得 JSON。BFF 負責：
+youtu-ota-B2C-API 有 GraphQL 層，但前端希望直接獲得 JSON。BFF 負責：
 1. 解析 GraphQL 請求
 2. 調用下游 API
 3. 轉換為標準 JSON 響應
@@ -696,7 +696,7 @@ location ~* \.php$ {
 ### 📝 Commit Message 建議（繁体中文）
 
 ```
-feat(BFF): 實作 PHP Generator 流式響應模式-KKday-B2C-API
+feat(BFF): 實作 PHP Generator 流式響應模式-youtu-ota-B2C-API
 
 - 新增 streaming 控制器支援 SSE 推送
 - 優化 GraphQL→JSON 轉換為分批處理
@@ -714,4 +714,4 @@ Ref: https://github.com/mikeah2011.github.io/pull/XXX
 
 ---
 
-**本文為 KKday-B2C-API 真實項目踩坑經驗整理，如有問題歡迎在 GitHub Issue 中提問。** 🚀
+**本文為 youtu-ota-B2C-API 真實項目踩坑經驗整理，如有問題歡迎在 GitHub Issue 中提問。** 🚀

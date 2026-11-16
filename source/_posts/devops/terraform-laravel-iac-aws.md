@@ -27,7 +27,7 @@ images:
 
 ### 1.1 痛点：手动在 AWS 控制台点点点
 
-我在 KKday 的 B2C 后端团队负责 30+ Laravel 仓库，每个项目都要面对「部署基础设施」这件事。早期的做法是：
+我在悠途OTA的 B2C 后端团队负责 30+ Laravel 仓库，每个项目都要面对「部署基础设施」这件事。早期的做法是：
 
 - **开发环境**：同事拿着一个 Word 文档，照着步骤在 AWS 控制台手动创建 VPC → Subnet → EC2 → RDS → S3 → Security Group...
 - **Staging/Production**：运维同事在控制台操作，然后用截图记录配置，存在 Confluence 里
@@ -93,7 +93,7 @@ Terraform：代码 → Plan → Apply → 资源（可追溯、可复现、可�
 | 状态管理 | 本地/S3/Terraform Cloud | CloudFormation | CloudFormation | Pulumi Cloud/S3 |
 | 适合场景 | 多云/混合云 | AWS + TypeScript 团队 | 纯 AWS + 简单场景 | 已有 TS/Python 技能栈 |
 
-**我们的选择**：Terraform，因为 KKday 的基础设施跨 AWS 和阿里云，Terraform 的多云支持是决定性优势。
+**我们的选择**：Terraform，因为 youtu 的基础设施跨 AWS 和阿里云，Terraform 的多云支持是决定性优势。
 
 ---
 
@@ -154,7 +154,7 @@ terraform {
 
   # State 存储在 S3（团队协作必须）
   backend "s3" {
-    bucket         = "kkday-terraform-state"
+    bucket         = "youtu-ota-terraform-state"
     key            = "laravel-b2c/terraform.tfstate"
     region         = "ap-southeast-1"
     encrypt        = true
@@ -870,7 +870,7 @@ module "ec2" {
   db_name               = "laravel_b2c"
   db_username           = "laravel"
   db_password           = var.db_password
-  app_url               = var.environment == "production" ? "https://api.kkday.com" : "https://${var.environment}.api.kkday.com"
+  app_url               = var.environment == "production" ? "https://api.youtu-ota.test" : "https://${var.environment}.api.youtu-ota.test"
   s3_bucket             = module.s3.bucket_name
   aws_region            = var.aws_region
   desired_capacity      = var.environment == "production" ? 2 : 1
@@ -1230,7 +1230,7 @@ resource "aws_dynamodb_table" "terraform_lock" {
 
 # backend 配置里加上
 backend "s3" {
-  bucket         = "kkday-terraform-state"
+  bucket         = "youtu-ota-terraform-state"
   key            = "laravel-b2c/terraform.tfstate"
   region         = "ap-southeast-1"
   encrypt        = true

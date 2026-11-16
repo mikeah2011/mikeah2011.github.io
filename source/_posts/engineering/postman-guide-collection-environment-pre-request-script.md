@@ -22,7 +22,7 @@ description: 'Postman API测试高级实战指南：详解集合(Collection)编�
 
 很多开发者对 Postman 的认知停留在「发请求、看响应」的阶段。但在实际的 B2C API 项目中，Postman 可以承担起**接口契约验证、自动化回归测试、CI 质量门禁**等关键角色。
 
-本文基于我在 KKday 30+ Laravel B2C API 仓库中的真实经验，系统整理 Postman 的高级用法——不是「功能介绍」，而是**每一步都有真实踩坑记录**的实战指南。
+本文基于我在悠途OTA 30+ Laravel B2C API 仓库中的真实经验，系统整理 Postman 的高级用法——不是「功能介绍」，而是**每一步都有真实踩坑记录**的实战指南。
 
 ## 整体架构概览
 
@@ -88,11 +88,11 @@ pm.collectionVariables.set("api_version", "v2");
 pm.collectionVariables.set("base_path", "/api/v2");
 
 // Environment 变量：与环境绑定，适合存储 URL、Token、数据库配置
-pm.environment.set("base_url", "https://api-staging.kkday.com");
+pm.environment.set("base_url", "https://api-staging.youtu-ota.test");
 pm.environment.set("access_token", "eyJhbGciOi...");
 
 // Global 变量：跨 Collection 共享，慎用
-pm.globals.set("company_id", "KKDAY");
+pm.globals.set("company_id", "youtu");
 ```
 
 **踩坑 #2：变量优先级陷阱**
@@ -111,8 +111,8 @@ Postman 变量优先级：`Local > Data > Environment > Collection > Global`
   "id": "env-staging-001",
   "name": "B2C Staging",
   "values": [
-    { "key": "base_url", "value": "https://api-staging.kkday.com", "type": "default" },
-    { "key": "admin_email", "value": "admin@kkday-staging.com", "type": "default" },
+    { "key": "base_url", "value": "https://api-staging.youtu-ota.test", "type": "default" },
+    { "key": "admin_email", "value": "admin@youtu-ota-staging.com", "type": "default" },
     { "key": "stripe_key", "value": "sk_test_xxx", "type": "secret" },
     { "key": "db_host", "value": "staging-db.internal", "type": "default" }
   ]
@@ -123,8 +123,8 @@ Postman 变量优先级：`Local > Data > Environment > Collection > Global`
   "id": "env-prod-001",
   "name": "B2C Production",
   "values": [
-    { "key": "base_url", "value": "https://api.kkday.com", "type": "default" },
-    { "key": "admin_email", "value": "admin@kkday.com", "type": "default" },
+    { "key": "base_url", "value": "https://api.youtu-ota.test", "type": "default" },
+    { "key": "admin_email", "value": "admin@youtu-ota.test", "type": "default" },
     { "key": "stripe_key", "value": "sk_live_xxx", "type": "secret" },
     { "key": "db_host", "value": "prod-db.internal", "type": "default" }
   ]
@@ -150,7 +150,7 @@ newman run collection.json \
 // 场景：根据当前时间选择不同的 API 端点
 const hour = new Date().getHours();
 if (hour >= 0 && hour < 6) {
-  pm.environment.set("api_endpoint", "https://api-maintenance.kkday.com");
+  pm.environment.set("api_endpoint", "https://api-maintenance.youtu-ota.test");
 } else {
   pm.environment.set("api_endpoint", pm.environment.get("base_url"));
 }
@@ -271,7 +271,7 @@ const params = {
   app_id: appId,
   method: "alipay.trade.query",
   format: "JSON",
-  return_url: "https://api.kkday.com/callback",
+  return_url: "https://api.youtu-ota.test/callback",
   charset: "utf-8",
   sign_type: "RSA2",
   timestamp: new Date().toISOString().replace('T', ' ').substring(0, 19),
@@ -409,11 +409,11 @@ pm.test("Response size is reasonable", () => {
 
 ```csv
 email,password,expected_status,expected_message
-admin@kkday.com,correct_pass,200,Login successful
-admin@kkday.com,wrong_pass,401,Invalid credentials
+admin@youtu-ota.test,correct_pass,200,Login successful
+admin@youtu-ota.test,wrong_pass,401,Invalid credentials
 ,correct_pass,422,Email is required
 invalid-email,correct_pass,422,Email must be a valid email
-admin@kkday.com,,422,Password is required
+admin@youtu-ota.test,,422,Password is required
 ```
 
 在 Collection Runner 中选择 CSV 文件，每个请求会自动替换 `{{email}}`、`{{password}}` 等变量。

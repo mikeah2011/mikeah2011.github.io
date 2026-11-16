@@ -1,5 +1,5 @@
 ---
-title: PHPStan/Psalm 大型 Laravel 項目靜態分析最佳實踐-KKday-B2C-API 真實踩坑記錄
+title: PHPStan/Psalm 大型 Laravel 項目靜態分析最佳實踐-youtu-ota-B2C-API 真實踩坑記錄
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -7,18 +7,18 @@ date: 2026-05-02
 author: Michael
 categories: [php]
 tags: [CI/CD, Laravel, PHP, PHPStan, Psalm, 静态分析, 代码质量]
-keywords: [PHPStan, Psalm, Laravel, KKday, B2C, API, 大型, 項目靜態分析最佳實踐, 真實踩坑記錄, PHP]
-description: 基於 KKday B2C API 項目經驗，深入解析 PHPStan 和 Psalm 在大型 Laravel 應用中的配置技巧、性能優化與真實踩坑記錄。從 10 個實際問題出發，提供可落地的代碼品質提升方案。
+keywords: [PHPStan, Psalm, Laravel, 悠途OTA, B2C, API, 大型, 項目靜態分析最佳實踐, 真實踩坑記錄, PHP]
+description: 基於悠途OTA B2C API 項目經驗，深入解析 PHPStan 和 Psalm 在大型 Laravel 應用中的配置技巧、性能優化與真實踩坑記錄。從 10 個實際問題出發，提供可落地的代碼品質提升方案。
 
 
 
 ---
 
-# PHPStan/Psalm 大型 Laravel 項目靜態分析最佳實踐 - KKday B2C API 真實踩坑記錄
+# PHPStan/Psalm 大型 Laravel 項目靜態分析最佳實踐 - 悠途OTA B2C API 真實踩坑記錄
 
 > **作者**：Michael  
-> **職位**：KKday RD B2C Backend Team  
-> **專案**：KKday-B2C-API (Laravel 8+PHP 8)  
+> **職位**：悠途OTA RD B2C Backend Team  
+> **專案**：youtu-ota-B2C-API (Laravel 8+PHP 8)  
 > **時間**：2026-05-02  
 > **工具鏈**：GitHub Copilot + RTK v0.38.0
 
@@ -26,7 +26,7 @@ description: 基於 KKday B2C API 項目經驗，深入解析 PHPStan 和 Psalm 
 
 ## 📌 一、為什麼需要在大型 Laravel 項目中引入靜態分析？
 
-KKday B2C API 是一個大型的 Laravel 8+PHP 8 後端服務，擁有 30+ 個相關倉庫。隨著團隊規模擴大，代碼複雜度呈指數級增長。在缺乏自動化測試覆蓋的情況下（某些模組僅有 45% 測試覆蓋率），**靜態分析工具成為第二道防線**。
+悠途OTA B2C API 是一個大型的 Laravel 8+PHP 8 後端服務，擁有 30+ 個相關倉庫。隨著團隊規模擴大，代碼複雜度呈指數級增長。在缺乏自動化測試覆蓋的情況下（某些模組僅有 45% 測試覆蓋率），**靜態分析工具成為第二道防線**。
 
 ### 傳統開發的痛點
 
@@ -41,7 +41,7 @@ KKday B2C API 是一個大型的 Laravel 8+PHP 8 後端服務，擁有 30+ 個�
 
 ---
 
-## 🧨 二、KKday-B2C-API 真實踩坑記錄
+## 🧨 二、youtu-ota-B2C-API 真實踩坑記錄
 
 ### ⚠️ 坑 #1：Laravel 魔法方法導致靜態分析失效
 
@@ -287,7 +287,7 @@ PHPStan expects: array, got Illuminate\Support\Collection.
 
 ---
 
-## ⚙️ 三、KKday-B2C-API PHPStan 最佳配置（Production Ready）
+## ⚙️ 三、youtu-ota-B2C-API PHPStan 最佳配置（Production Ready）
 
 ### 📄 `phpstan.neon` Production Configuration
 
@@ -357,7 +357,7 @@ vendor/bin/phpstan analyse \
 
 ---
 
-## 🧰 四、Psalm vs PHPStan - 在 KKday B2C API 中的選擇策略
+## 🧰 四、Psalm vs PHPStan - 在 youtu B2C API 中的選擇策略
 
 | 工具 | Laravel 集成度 | 類型推斷能力 | 性能 (大型項目) | 推薦場景 |
 |------|---------------|-------------|-----------------|---------|
@@ -379,7 +379,7 @@ vendor/bin/phpunit tests/Unit --coverage-html=./coverage
 
 ---
 
-## 🚀 五、KKday-B2C-API 性能優化實踐
+## 🚀 五、youtu-ota-B2C-API 性能優化實踐
 
 ### 大型 Laravel 項目的 PHPStan 運行時間優化
 
@@ -415,7 +415,7 @@ parameters:
 
 ---
 
-## 📈 六、KKday-B2C-API 導入靜態分析後的成效
+## 📈 六、youtu-ota-B2C-API 導入靜態分析後的成效
 
 ### 📊 數據對比（導入前 vs 導入後）
 
@@ -429,7 +429,7 @@ parameters:
 ### 🎯 真實專案效益（30+ Laravel 倉庫）
 
 ```yaml
-# 📊 KKday-B2C-API 導入靜態分析後的成果
+# 📊 youtu-ota-B2C-API 導入靜態分析後的成果
 project_stats:
   repositories_analyzed: 35
   lines_of_code_scanned: 4850000
@@ -442,13 +442,13 @@ recommendation: "推薦在 CI/CD 中運行 PHPStan Level 5 + Psalm"
 
 ---
 
-## 🎓 七、KKday-B2C-API 開發團隊最佳實踐建議
+## 🎓 七、youtu-ota-B2C-API 開發團隊最佳實踐建議
 
 ### ✅ 代碼規範（配合靜態分析）
 
 ```php
 <?php
-// ✅ KKday-B2C-API 編碼規範 - 配合 PHPStan Level 5
+// ✅ youtu-ota-B2C-API 編碼規範 - 配合 PHPStan Level 5
 
 namespace App\Services\Payment;
 
@@ -459,7 +459,7 @@ use Psr\Log\LoggerInterface;
 /**
  * PaymentProcessor Service
  * 
- * @author Michael <michael@kkday.com>
+ * @author Michael <michael@youtu-ota.test>
  * @version 2.3.1 (Laravel 8+PHP 8 compatible)
  */
 class PaymentProcessor implements \Psr\Container\ContainerInterface {
@@ -538,7 +538,7 @@ class TestCase extends \LaravelFrameworkTestCase {
 
 ---
 
-## 📋 九、KKday-B2C-API CI/CD 集成方案
+## 📋 九、youtu-ota-B2C-API CI/CD 集成方案
 
 ### GitHub Actions Workflow
 
@@ -577,7 +577,7 @@ jobs:
 
 ---
 
-## 🔚 十、總結：KKday-B2C-API 靜態分析最佳實踐清單
+## 🔚 十、總結：youtu-ota-B2C-API 靜態分析最佳實踐清單
 
 ### ✅ 必做事項（Production Ready）
 
@@ -592,7 +592,7 @@ jobs:
 
 1. [PHPStan Laravel 最佳實踐](https://phpstan.org/user-guide/laravel)
 2. [Psalm PHPDoc Type Annotations](https://psalm.dev/3/docs/annotating-types)
-3. KKday-B2C-API 代碼規範手冊
+3. youtu-ota-B2C-API 代碼規範手冊
 
 ### 💬 開發者評論
 
@@ -612,13 +612,13 @@ jobs:
 
 ## 📞 聯繫與反饋
 
-- **專案連結**：https://github.com/mikeah2011/kkday-b2c-api
+- **專案連結**：https://github.com/mikeah2011/youtu-ota-b2c-api
 - **Bug Report**：請在 GitHub Issues 中開單
 - **Contributing**：歡迎提 Issue/PR 優化本文案
 
 ---
 
-> 💡 **作者說明**：本文內容基於 KKday B2C API 項目真實經驗整理，所有代碼示例均可從 GitHub 倉庫中找到對應實現。持續更新中，請關注 [kkday-b2c-api](https://github.com/mikeah2011/kkday-b2c-api) 獲取最新技術實踐。
+> 💡 **作者說明**：本文內容基於 youtu B2C API 項目真實經驗整理，所有代碼示例均可從 GitHub 倉庫中找到對應實現。持續更新中，請關注 [youtu-ota-b2c-api](https://github.com/mikeah2011/youtu-ota-b2c-api) 獲取最新技術實踐。
 
 ---
 

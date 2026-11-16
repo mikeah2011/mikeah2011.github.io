@@ -1,5 +1,5 @@
 ---
-title: "Laravel Octane 性能优化实战：从 FPM 到 Swoole/RoadRunner 的高并发之路 - KKday B2C API 真实踩坑记录"
+title: "Laravel Octane 性能优化实战：从 FPM 到 Swoole/RoadRunner 的高并发之路 - 悠途OTA B2C API 真实踩坑记录"
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -7,8 +7,8 @@ date: 2026-05-03
 author: Michael
 categories: [php]
 tags: [Laravel, PHP, Redis, 微服务, 性能优化, Octane, Swoole, RoadRunner, 高并发]
-keywords: [Laravel Octane, FPM, Swoole, RoadRunner, KKday B2C API, 性能优化实战, 的高并发之路, 真实踩坑记录, PHP]
-description: 在 KKday B2C API 团队面对每秒 5000+ 请求的促销场景下，我们通过 Laravel Octane 从 FPM 迁移到 Swoole/RoadRunner，实现了 QPS 提升 300% 的实战经验。本文涵盖完整架构图、性能测试数据、连接池配置、协程安全陷阱与生产环境部署方案，附详细对比分析。
+keywords: [Laravel Octane, FPM, Swoole, RoadRunner, 悠途OTA B2C API, 性能优化实战, 的高并发之路, 真实踩坑记录, PHP]
+description: 在悠途OTA B2C API 团队面对每秒 5000+ 请求的促销场景下，我们通过 Laravel Octane 从 FPM 迁移到 Swoole/RoadRunner，实现了 QPS 提升 300% 的实战经验。本文涵盖完整架构图、性能测试数据、连接池配置、协程安全陷阱与生产环境部署方案，附详细对比分析。
 
 
 
@@ -28,11 +28,11 @@ FPM 请求流程：
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**真实案例：** 在 KKday 的 B2C API 中，我们使用 ApacheBench 进行基准测试：
+**真实案例：** 在 youtu 的 B2C API 中，我们使用 ApacheBench 进行基准测试：
 
 ```bash
 # FPM 模式 (PHP 8.2 + OPcache)
-ab -n 10000 -c 100 http://api.kkday.local/products/featured
+ab -n 10000 -c 100 http://api.youtu.local/products/featured
 # 结果：Requests per second: 1256.45 [#/sec] (mean)
 # 99% 延迟：245ms
 ```
@@ -41,7 +41,7 @@ ab -n 10000 -c 100 http://api.kkday.local/products/featured
 
 Laravel Octane 通过**常驻进程**避免重复初始化，并支持三种 SAPI 模式：
 
-| 模式 | 并发模型 | 适用场景 | KKday 实测 QPS |
+| 模式 | 并发模型 | 适用场景 | youtu 实测 QPS |
 |------|----------|----------|----------------|
 | **Swoole** | 协程 + 事件循环 | 高并发 I/O 密集型 | 4200 |
 | **RoadRunner** | Worker + 任务队列 | 长连接 / WebSocket | 3800 |
@@ -78,7 +78,7 @@ php artisan octane:install
 > s
 ```
 
-### 2.2 Swoole 配置详解（kkday-config/octane.php）
+### 2.2 Swoole 配置详解（youtu-ota-config/octane.php）
 
 ```php
 // config/octane.php
@@ -293,7 +293,7 @@ class CartService
 ### 5.1 Nginx 反向代理配置
 
 ```nginx
-# /etc/nginx/sites-available/kkday-api
+# /etc/nginx/sites-available/youtu-ota-api
 upstream octane_backend {
     # 🔥 Octane 进程地址
     server 127.0.0.1:8000;
@@ -307,11 +307,11 @@ upstream octane_backend {
 
 server {
     listen 80;
-    server_name api.kkday.local;
+    server_name api.youtu.local;
     
     # 🔥 静态文件由 Nginx 直接处理（Octane 不擅长）
     location /static/ {
-        alias /var/www/kkday-api/public/;
+        alias /var/www/youtu-ota-api/public/;
         expires 30d;
         add_header Cache-Control "public, immutable";
     }
@@ -340,17 +340,17 @@ server {
 ### 5.2 Supervisor 进程管理
 
 ```ini
-; /etc/supervisor/conf.d/kkday-octane.conf
-[program:kkday-octane]
+; /etc/supervisor/conf.d/youtu-ota-octane.conf
+[program:youtu-ota-octane]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/kkday-api/artisan octane:start --server=swoole --host=0.0.0.0 --port=800%(process_num)s
-directory=/var/www/kkday-api
+command=php /var/www/youtu-ota-api/artisan octane:start --server=swoole --host=0.0.0.0 --port=800%(process_num)s
+directory=/var/www/youtu-ota-api
 autostart=true
 autorestart=true
 user=www-data
 numprocs=4  ; 🔥 每个 CPU 核心一个进程
 redirect_stderr=true
-stdout_logfile=/var/log/kkday-octane.log
+stdout_logfile=/var/log/youtu-ota-octane.log
 stdout_logfile_maxbytes=10MB
 stdout_logfile_backups=10
 
@@ -478,7 +478,7 @@ Event::listen(function (WorkerStopping $event) {
 
 ### 8.1 数据总结
 
-通过从 FPM 迁移到 Octane + Swoole，我们在 KKday B2C API 中实现了：
+通过从 FPM 迁移到 Octane + Swoole，我们在 youtu B2C API 中实现了：
 
 | 指标 | FPM | Octane+Swoole | 提升 |
 |------|-----|---------------|------|
@@ -511,12 +511,12 @@ Event::listen(function (WorkerStopping $event) {
 **参考资料：**
 - Laravel Octane 官方文档：https://github.com/laravel/octane
 - Swoole 官方文档：https://wiki.swoole.com/
-- KKday 技术博客：https://tech.kkday.com
-- 基准测试代码：https://github.com/kkday/benchmarks
+- 悠途OTA技术博客：https://tech.youtu-ota.test
+- 基准测试代码：https://github.com/youtu/benchmarks
 
 ## 相关阅读
 
-- [PHP-OpCache 调优实战：KKday B2C API 高并发场景下的内存优化](/categories/PHP/Laravel/php-opcache-guide-high-concurrencyoptimization/)
+- [PHP-OpCache 调优实战：youtu B2C API 高并发场景下的内存优化](/categories/PHP/Laravel/php-opcache-guide-high-concurrencyoptimization/)
 - [Nginx 配置实战：PHP-FPM 调优、FastCGI 缓存、Gzip 压缩](/categories/architecture/nginx-guide-php-fpm-fastcgi-cache-gzip/)
 - [负载均衡实战：Nginx Upstream + Laravel Session 共享方案](/categories/architecture/load-balancingguide-nginx-upstream-laravel-session/)
 - [PHP Fiber 协程并发实战 — Laravel 并发 API 聚合与错误隔离](/categories/PHP/Laravel/php-fiber-concurrencyguide-laravel-concurrencyapi/)

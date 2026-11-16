@@ -7,7 +7,7 @@ date: 2026-05-05 11:50:32
 author: Michael
 updated: 2026-05-05 11:53:04
 categories: [architecture]
-tags: [KKday, Laravel, 架构]
+tags: [悠途OTA, Laravel, 架构]
 keywords: [DDD, B2C, Laravel, 领域驱动设计实战, 电商聚合根, 值对象, 领域事件在, 中的落地踩坑记录, 架构, PHP]
 description: "DDD 领域驱动设计在 Laravel B2C 电商中的完整实战指南。从传统 MVC 胖 Controller 迁移到 DDD 分层架构，以订单聚合根、Money 值对象、领域事件为核心案例，深入讲解限界上下文划分、Repository 模式隔离持久化、Eloquent 与领域实体分离策略。附 5 个真实生产踩坑记录、MVC vs DDD 性能对比数据、目录结构总览与渐进式迁移最佳实践。"
 
@@ -17,7 +17,7 @@ description: "DDD 领域驱动设计在 Laravel B2C 电商中的完整实战指�
 
 ## 前言：为什么要在 Laravel 里搞 DDD？
 
-在 KKday B2C 后端团队维护 30+ 个 Laravel 仓库的过程中，我们反复遇到同一个痛点：**业务逻辑散落在 Controller、Service、Model 三层之间，没有明确的边界**。一个"下单"操作，可能涉及 `OrderController` 调用 `OrderService`，再调用 `InventoryService`、`PaymentService`、`NotificationService`，每个 Service 内部又直接操作 Eloquent Model。当业务复杂度上来后，改一个字段要追溯 5 个文件，改一个流程要回归 20 个测试。
+在悠途OTA B2C 后端团队维护 30+ 个 Laravel 仓库的过程中，我们反复遇到同一个痛点：**业务逻辑散落在 Controller、Service、Model 三层之间，没有明确的边界**。一个"下单"操作，可能涉及 `OrderController` 调用 `OrderService`，再调用 `InventoryService`、`PaymentService`、`NotificationService`，每个 Service 内部又直接操作 Eloquent Model。当业务复杂度上来后，改一个字段要追溯 5 个文件，改一个流程要回归 20 个测试。
 
 DDD（Domain-Driven Design）不是银弹，但它提供了一套**以业务领域为中心的建模方法论**。这篇文章记录了我们在 Laravel B2C 项目中从 MVC 胖 Service 迁移到 DDD 分层架构的完整过程，包括真实代码、踩坑和最终结论。
 

@@ -652,7 +652,7 @@ dc exec php-fpm bash     # 进入容器 shell
 
 ## 总结
 
-这套 local-docker 环境在 KKday 团队已经稳定运行一年以上，覆盖 30+ 个 Laravel 仓库的日常开发。核心优势：
+这套 local-docker 环境在 youtu 团队已经稳定运行一年以上，覆盖 30+ 个 Laravel 仓库的日常开发。核心优势：
 
 1. **统一性**：新人 `git clone` + `make up`，10 分钟开始开发
 2. **性能**：Colima + virtiofs，M 芯片 Mac 上接近原生速度
@@ -661,7 +661,7 @@ dc exec php-fpm bash     # 进入容器 shell
 
 ---
 
-*本文基于 KKday B2C Backend Team 的 local-docker 实际使用经验，涉及 PHP-FPM 8.3 / MySQL 8.0 / Redis 7 / Mailpit / Colima / Xdebug 3。所有配置均已在 M2 Pro MacBook 上验证通过。*
+*本文基于 youtu B2C Backend Team 的 local-docker 实际使用经验，涉及 PHP-FPM 8.3 / MySQL 8.0 / Redis 7 / Mailpit / Colima / Xdebug 3。所有配置均已在 M2 Pro MacBook 上验证通过。*
 
 ## 相关阅读
 
@@ -669,4 +669,4 @@ dc exec php-fpm bash     # 进入容器 shell
 - [local-docker 实战 — PHP-FPM 8.0 + MySQL/Redis + Mailhog 开发环境配置](/DevOps/MySQL/local-docker-guide-php-fpm-8-0-mysql-redis-mailhog/)
 - [Docker 网络实战：bridge/host/overlay 网络模式与服务发现](/DevOps/Docker/docker-guide-bridge-host-overlay-service-discovery/)
 - [Colima vs Lima vs Docker Desktop：macOS 容器运行时选型对比实战](/DevOps/Docker/colima-vs-lima-vs-docker-desktop-macos-containervs/)
-- [Docker Compose + PHP-FPM 实战：KKday B2C API 微服务部署经验](/DevOps/Docker/docker-compose-php-fpmguide-microservicesdeployment/)
+- [Docker Compose + PHP-FPM 实战：youtu B2C API 微服务部署经验](/DevOps/Docker/docker-compose-php-fpmguide-microservicesdeployment/)

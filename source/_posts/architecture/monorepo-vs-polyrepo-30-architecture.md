@@ -17,7 +17,7 @@ tags:
 - macOS
 - 工程管理
 - 微服务
-description: 基于 KKday B2C 团队 30+ Git 仓库的真实管理经验，深度对比 Monorepo 与 Polyrepo 的优劣势、决策框架与混合架构选型策略。涵盖 Git filter-repo 历史保留合并、Composer Path Repository 配置、GitHub Actions CI/CD 路径检测矩阵策略、Docker 多阶段构建、Sparse Checkout 优化等完整迁移踩坑记录与最佳实践。
+description: 基于悠途OTA B2C 团队 30+ Git 仓库的真实管理经验，深度对比 Monorepo 与 Polyrepo 的优劣势、决策框架与混合架构选型策略。涵盖 Git filter-repo 历史保留合并、Composer Path Repository 配置、GitHub Actions CI/CD 路径检测矩阵策略、Docker 多阶段构建、Sparse Checkout 优化等完整迁移踩坑记录与最佳实践。
 ---
 
 
@@ -25,14 +25,14 @@ description: 基于 KKday B2C 团队 30+ Git 仓库的真实管理经验，深�
 
 ## 前言
 
-在 KKday B2C Backend Team，我们维护着 30+ 个 Git 仓库——从核心 API 服务、BFF 层、共享 Composer 包，到 OpenAPI Spec、CI 配置、部署脚本。这种 Polyrepo（多仓库）模式在团队扩张到一定规模后，逐渐暴露出依赖管理混乱、跨仓库变更困难、CI 配置重复等问题。
+在悠途OTA B2C Backend Team，我们维护着 30+ 个 Git 仓库——从核心 API 服务、BFF 层、共享 Composer 包，到 OpenAPI Spec、CI 配置、部署脚本。这种 Polyrepo（多仓库）模式在团队扩张到一定规模后，逐渐暴露出依赖管理混乱、跨仓库变更困难、CI 配置重复等问题。
 
 本文基于真实的 30+ 仓库管理经验，系统性对比 Monorepo 与 Polyrepo 的优劣势，并分享我们在评估迁移过程中的决策框架和踩坑记录。
 
 ## 架构全景：当前 Polyrepo 布局
 
 ```
-GitHub Organization: kkday-backend
+GitHub Organization: youtu-ota-backend
 ├── b2c-api                    # 核心 Laravel API 服务
 ├── b2c-bff                    # BFF 聚合层（Laravel）
 ├── b2c-admin                  # 后台管理 API
@@ -159,7 +159,7 @@ Monorepo（合并后）：
 # 以 shared-utils 为例
 
 # 1. 克隆源仓库
-git clone git@github.com:kkday-backend/shared-utils.git /tmp/shared-utils
+git clone git@github.com:youtu-ota-backend/shared-utils.git /tmp/shared-utils
 cd /tmp/shared-utils
 
 # 2. 将所有文件移动到子目录（保留历史）
@@ -192,9 +192,9 @@ git remote remove shared-utils
         }
     ],
     "require": {
-        "kkday/shared-auth": "*",
-        "kkday/shared-utils": "*",
-        "kkday/shared-monitor": "*"
+        "youtu/shared-auth": "*",
+        "youtu/shared-utils": "*",
+        "youtu/shared-monitor": "*"
     }
 }
 ```
@@ -202,10 +202,10 @@ git remote remove shared-utils
 ```json
 // monorepo/packages/shared-auth/composer.json
 {
-    "name": "kkday/shared-auth",
+    "name": "youtu/shared-auth",
     "autoload": {
         "psr-4": {
-            "KKday\\Shared\\Auth\\": "src/"
+            "youtu\\Shared\\Auth\\": "src/"
         }
     }
 }
@@ -214,7 +214,7 @@ git remote remove shared-utils
 **踩坑记录 #1：Path Repository 的版本解析**
 
 ```
-问题：`"kkday/shared-auth": "*"` 在 CI 环境报错
+问题：`"youtu/shared-auth": "*"` 在 CI 环境报错
 原因：Path repository 默认解析为 symlink，但 CI 用的是 `--no-symlink`
 修复：统一使用 symlink，并在 CI 中配置：
 ```
@@ -325,7 +325,7 @@ jobs:
         run: echo "version=${GITHUB_REF#packages/shared-auth/}" >> $GITHUB_OUTPUT
       - name: Notify Packagist
         run: |
-          curl -XPOST -d '{"repository":{"url":"https://github.com/kkday-backend/shared-auth"}}' \
+          curl -XPOST -d '{"repository":{"url":"https://github.com/youtu-ota-backend/shared-auth"}}' \
             https://packagist.org/api/update-package?username=$PACKAGIST_USER&apiToken=$PACKAGIST_TOKEN
 ```
 
@@ -402,7 +402,7 @@ git gc --prune=now --aggressive
 
 ```bash
 # 新人只负责 b2c-api 开发
-git clone --filter=blob:none --sparse git@github.com:kkday-backend/monorepo.git
+git clone --filter=blob:none --sparse git@github.com:youtu-ota-backend/monorepo.git
 cd monorepo
 git sparse-checkout set services/b2c-api packages/shared-auth packages/shared-utils
 
@@ -500,7 +500,7 @@ Monorepo 不是银弹。以下场景建议保持 Polyrepo：
 
 ---
 
-> 本文基于 KKday B2C Backend Team 的真实仓库管理经验总结。30+ 仓库的管理不是技术问题，而是团队协作问题——技术方案只是载体。
+> 本文基于 youtu B2C Backend Team 的真实仓库管理经验总结。30+ 仓库的管理不是技术问题，而是团队协作问题——技术方案只是载体。
 
 ## 相关阅读
 

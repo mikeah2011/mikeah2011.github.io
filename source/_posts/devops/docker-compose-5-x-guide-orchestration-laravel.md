@@ -23,7 +23,7 @@ description: Docker Compose 5.x 多服务编排实战：PHP-FPM + MySQL + Redis 
 
 ## 为什么需要这篇文章？
 
-在 KKday B2C Backend Team，每个 Laravel 项目都有自己的 `docker-compose.yml`。但早期的做法很粗暴——`depends_on` 只保证容器启动，不保证服务就绪。结果就是：
+在悠途OTA B2C Backend Team，每个 Laravel 项目都有自己的 `docker-compose.yml`。但早期的做法很粗暴——`depends_on` 只保证容器启动，不保证服务就绪。结果就是：
 
 - CI 流水线时好时坏，"在我机器上没问题"成常态
 - 新人 onboarding 花半天配环境，踩的坑比写代码还多

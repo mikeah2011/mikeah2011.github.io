@@ -7,15 +7,15 @@ date: 2026-05-05 06:50:50
 author: Michael
 updated: 2026-05-05 06:53:31
 categories: [architecture]
-tags: [CI/CD, Git, KKday, 工程管理]
+tags: [CI/CD, Git, 悠途OTA, 工程管理]
 keywords: [Git Flow vs Trunk, Based, 仓库的分支策略选型与踩坑记录, 架构]
-description: 在管理 30+ 仓库的 KKday B2C 团队中，如何在 Git Flow 和 Trunk-Based Development 之间做出选型决策？本文基于真实项目经验，覆盖从单体到微服务、从发布周期到 CI/CD 管道的完整分支策略选型与踩坑记录。
+description: 在管理 30+ 仓库的悠途OTA B2C 团队中，如何在 Git Flow 和 Trunk-Based Development 之间做出选型决策？本文基于真实项目经验，覆盖从单体到微服务、从发布周期到 CI/CD 管道的完整分支策略选型与踩坑记录。
 
 
 
 ---
 
-> 📝 **写在前面**：在 KKday B2C Backend Team 中，我参与了 30+ 个仓库的分支策略选型与落地工作。从早期的 Git Flow 到后续的 Trunk-Based Development（TBD），经历了无数次的合并冲突、发布踩坑和团队协作摩擦。本文不是理论对比文章，而是一份**真实的踩坑记录与决策框架**。
+> 📝 **写在前面**：在悠途OTA B2C Backend Team 中，我参与了 30+ 个仓库的分支策略选型与落地工作。从早期的 Git Flow 到后续的 Trunk-Based Development（TBD），经历了无数次的合并冲突、发布踩坑和团队协作摩擦。本文不是理论对比文章，而是一份**真实的踩坑记录与决策框架**。
 
 ---
 
@@ -57,11 +57,11 @@ description: 在管理 30+ 仓库的 KKday B2C 团队中，如何在 Git Flow �
 
 ---
 
-## 二、Git Flow 在 KKday 的实际落地
+## 二、Git Flow 在 youtu 的实际落地
 
 ### 2.1 我们最初的选择
 
-KKday 早期采用 Git Flow，原因很直接：
+youtu 早期采用 Git Flow，原因很直接：
 
 ```
 main ──────────────────────────────────────────► 生产环境
@@ -618,7 +618,7 @@ deploy:production:
 
 ### 4.1 踩坑一：monorepo 中的 TBD 陷阱
 
-**背景**：KKday 有一个 monorepo 包含 BFF 层和 3 个微服务的共享代码。
+**背景**：youtu 有一个 monorepo 包含 BFF 层和 3 个微服务的共享代码。
 
 ```bash
 # monorepo 结构
@@ -876,11 +876,11 @@ class CheckMigrationConflicts extends Command
 
 ### 5.2 共享库的版本管理
 
-共享库（如 `kkday/common`、`kkday/log`）需要语义化版本配合 TBD：
+共享库（如 `youtu/common`、`youtu/log`）需要语义化版本配合 TBD：
 
 ```json
 {
-  "name": "kkday/common",
+  "name": "youtu/common",
   "version": "3.2.1",
   "require": {
     "php": "^8.0"
@@ -904,7 +904,7 @@ git pull origin main
 npx semantic-release --branches main
 
 # 4. 消费方通过 Composer 锁定版本
-composer require kkday/common:^3.2
+composer require youtu/common:^3.2
 ```
 
 ---
@@ -1007,7 +1007,7 @@ git log --merges --since="30 days ago" --oneline | grep -i conflict | wc -l
 
 > **没有完美的分支策略，只有适合团队和业务的策略。**
 > 
-> 在 KKday 的 30+ 仓库中，我们最终采用了混合策略：
+> 在 youtu 的 30+ 仓库中，我们最终采用了混合策略：
 > - **API 服务和 BFF**：TBD + Feature Flags
 > - **配置仓库和需要版本管理的库**：Git Flow
 > 

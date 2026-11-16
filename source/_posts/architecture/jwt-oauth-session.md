@@ -14,7 +14,7 @@ tags:
 - OAuth
 - 认证
 - API安全
-description: KKday B2C API 生产环境认证授权实战踩坑记录，深入剖析 JWT Token 刷新无限循环、OAuth 2.0 回调 CSRF 防护与死循环跳转、Session 与 Token 混合认证边界控制，涵盖 SSO 单点登录架构设计、多种认证协议方案对比分析、性能优化策略与生产环境最佳实践
+description: 悠途OTA B2C API 生产环境认证授权实战踩坑记录，深入剖析 JWT Token 刷新无限循环、OAuth 2.0 回调 CSRF 防护与死循环跳转、Session 与 Token 混合认证边界控制，涵盖 SSO 单点登录架构设计、多种认证协议方案对比分析、性能优化策略与生产环境最佳实践
 ---
 
 
@@ -23,7 +23,7 @@ description: KKday B2C API 生产环境认证授权实战踩坑记录，深入�
 
 ## 📋 文章摘要
 
-在 KKday B2C API 项目中，我经历了三种认证协议的深度实践：**JWT**（无状态）、**OAuth 2.0**（第三方登录）和 **Session**（传统 Web）。本文基于真实项目经验，分享以下核心踩坑：
+在悠途OTA B2C API 项目中，我经历了三种认证协议的深度实践：**JWT**（无状态）、**OAuth 2.0**（第三方登录）和 **Session**（传统 Web）。本文基于真实项目经验，分享以下核心踩坑：
 
 1. ❌ JWT 刷新 Token 无限循环问题
 2. ❌ OAuth 回调路径冲突与跳转死循环
@@ -34,7 +34,7 @@ description: KKday B2C API 生产环境认证授权实战踩坑记录，深入�
 
 ## 🎯 项目背景
 
-KKday B2C API 作为 BFF（Backend for Frontend）中间层，需要对接多种认证场景：
+悠途OTA B2C API 作为 BFF（Backend for Frontend）中间层，需要对接多种认证场景：
 
 - **用户登录**：传统账号密码 → Session Token
 - **第三方登录**：Google/Facebook/Apple → OAuth 2.0 Access Token
@@ -753,7 +753,7 @@ class OAuthCallbackExceptionHandling extends Middleware
 
 ## 📊 性能指标对比
 
-在 KKday B2C API 生产环境测试：
+在 youtu B2C API 生产环境测试：
 
 | 场景 | Session | JWT (Access) | JWT + Refresh | OAuth 回调 |
 |------|---------|--------------|---------------|------------|
@@ -776,11 +776,11 @@ class OAuthCallbackExceptionHandling extends Middleware
 
 ---
 
-## 📝 KKday B2C API 项目相关资源
+## 📝 youtu B2C API 项目相关资源
 
-- 🔗 [KKday B2C API GitHub 仓库](https://github.com/mikeah2011/kkday-b2c-api)
-- 📚 [Laravel 认证实战最佳实践文档](https://confluence.atlassian.net/display/DEV/KKday+Auth+Guide)
-- 🧪 [测试用例仓库](https://github.com/mikeah2011/kkday-b2c-api-tests)
+- 🔗 [youtu B2C API GitHub 仓库](https://github.com/mikeah2011/youtu-ota-b2c-api)
+- 📚 [Laravel 认证实战最佳实践文档](https://confluence.atlassian.net/display/DEV/youtu-ota+Auth+Guide)
+- 🧪 [测试用例仓库](https://github.com/mikeah2011/youtu-ota-b2c-api-tests)
 
 ---
 
@@ -801,7 +801,7 @@ class OAuthCallbackExceptionHandling extends Middleware
 
 ---
 
-*本文基于 KKday B2C API 生产环境真实踩坑记录整理，欢迎参考实践！*
+*本文基于 youtu B2C API 生产环境真实踩坑记录整理，欢迎参考实践！*
 
 ---
 

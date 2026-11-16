@@ -9,7 +9,7 @@ updated: 2026-05-05 08:43:28
 categories: [php]
 tags: [Laravel, OpenAPI, Swagger, API文档, Scribe]
 keywords: [Scribe vs SwaggerPHP, Laravel API, 文档生成工具对比实战踩坑记录, PHP]
-description: 在 30+ Laravel API 仓库中如何选型 API 文档工具？本文从架构设计、注解风格、OpenAPI 兼容性、CI 集成、前端代码生成五个维度深度对比 Scribe 与 SwaggerPHP，结合 KKday B2C 真实踩坑经验给出混合策略选型建议，附完整配置与代码示例。
+description: 在 30+ Laravel API 仓库中如何选型 API 文档工具？本文从架构设计、注解风格、OpenAPI 兼容性、CI 集成、前端代码生成五个维度深度对比 Scribe 与 SwaggerPHP，结合悠途OTA B2C 真实踩坑经验给出混合策略选型建议，附完整配置与代码示例。
 
 
 
@@ -17,7 +17,7 @@ description: 在 30+ Laravel API 仓库中如何选型 API 文档工具？本文
 
 ## 前言：为什么 API 文档工具选型很重要？
 
-在 KKday B2C Backend Team，我们维护 30+ 个 Laravel API 仓库，每个仓库都有大量接口需要文档化。API 文档不是「写完就丢」的东西——它是前后端联调的契约、是自动化测试的输入、是新人 Onboarding 的入口。
+在悠途OTA B2C Backend Team，我们维护 30+ 个 Laravel API 仓库，每个仓库都有大量接口需要文档化。API 文档不是「写完就丢」的东西——它是前后端联调的契约、是自动化测试的输入、是新人 Onboarding 的入口。
 
 我们先后在不同项目中使用过 **Scribe**（原 Laravel API Documentation Generator）和 **SwaggerPHP**（`zircote/swagger-php`），积累了大量踩坑经验。本文从实战角度对比这两个工具的方方面面。
 
@@ -75,8 +75,8 @@ php artisan vendor:publish --tag=scribe-views
 return [
     'type' => 'laravel',           // laravel | static | external
     'theme' => 'default',          // default | elements
-    'title' => 'KKday B2C API',
-    'base_url' => env('API_BASE_URL', 'https://api.kkday.com'),
+    'title' => 'youtu B2C API',
+    'base_url' => env('API_BASE_URL', 'https://api.youtu-ota.test'),
     
     // 浏览器访问路径
     'docs_url' => '/docs',
@@ -132,7 +132,7 @@ return [
     'documents' => [
         'default' => [
             'api' => [
-                'title' => 'KKday B2C API',
+                'title' => 'youtu B2C API',
             ],
             'routes' => [
                 'api' => [
@@ -434,7 +434,7 @@ SwaggerPHP 的优势在于它输出标准 OpenAPI spec，可以直接接入代�
 
 ```bash
 npx openapi-typescript-codegen \
-  -i http://api.kkday.com/docs/openapi.yaml \
+  -i http://api.youtu-ota.test/docs/openapi.yaml \
   -o frontend/src/api/generated \
   --client axios
 ```
@@ -471,7 +471,7 @@ const order = await OrdersService.postApiV2Orders({
 
 ## 七、我们的最终方案：混合策略
 
-在 KKday 的实际项目中，我们没有二选一，而是采用了**分层策略**：
+在 youtu 的实际项目中，我们没有二选一，而是采用了**分层策略**：
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -577,4 +577,4 @@ jobs:
 
 ---
 
-> 本文基于 KKday B2C Backend Team 在 30+ Laravel 仓库中的真实实践经验总结。如有问题，欢迎留言讨论。
+> 本文基于 youtu B2C Backend Team 在 30+ Laravel 仓库中的真实实践经验总结。如有问题，欢迎留言讨论。

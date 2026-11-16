@@ -19,7 +19,7 @@ description: "Kubernetes ConfigMap/Secret 完全实战指南：详解 Laravel �
 
 把一个 Laravel 应用打包成 Docker 镜像只是容器化的第一步。真正让人头疼的是：`.env` 文件里的数据库密码、Redis 连接串、第三方 API Key 怎么管理？不同环境（dev/staging/prod）的配置怎么隔离？配置变更后怎么不重启 Pod 就生效？
 
-这些问题在传统部署时代可以用 Ansible + `.env` 文件 + 文件权限来解决，但在 Kubernetes 里，ConfigMap 和 Secret 才是正道。本文基于 KKday B2C API 项目从传统部署迁移到 K8s 的真实经验，把配置管理的每个环节拆开讲透。
+这些问题在传统部署时代可以用 Ansible + `.env` 文件 + 文件权限来解决，但在 Kubernetes 里，ConfigMap 和 Secret 才是正道。本文基于悠途OTA B2C API 项目从传统部署迁移到 K8s 的真实经验，把配置管理的每个环节拆开讲透。
 
 ## 架构总览
 
@@ -81,10 +81,10 @@ metadata:
     env: production
 data:
   # 应用基础配置
-  APP_NAME: "KKday B2C API"
+  APP_NAME: "youtu B2C API"
   APP_ENV: "production"
   APP_DEBUG: "false"
-  APP_URL: "https://api.kkday.com"
+  APP_URL: "https://api.youtu-ota.test"
   APP_TIMEZONE: "Asia/Taipei"
   APP_LOCALE: "zh_TW"
 
@@ -296,7 +296,7 @@ spec:
     spec:
       containers:
         - name: php-fpm
-          image: registry.kkday.com/b2c-api:v3.2.1
+          image: registry.youtu-ota.test/b2c-api:v3.2.1
           envFrom:
             - configMapRef:
                 name: laravel-config
@@ -320,7 +320,7 @@ Pod env (最高) > Container env > envFrom (最低)
 spec:
   containers:
     - name: php-fpm
-      image: registry.kkday.com/b2c-api:v3.2.1
+      image: registry.youtu-ota.test/b2c-api:v3.2.1
       volumeMounts:
         - name: config-volume
           mountPath: /var/www/html/config/app.php

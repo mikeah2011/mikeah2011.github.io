@@ -26,7 +26,7 @@ description: 2026 年 Code Review 自动化全景实战：CodeRabbit、GitHub Co
 
 2026 年，Code Review 正在经历一场范式转变。GitHub Copilot Code Review 进入 GA，CodeRabbit 支持多仓库 Org 级别配置，PR 级 Review Agent 成为标配。但现实是：**纯 AI Review 不可靠，纯人工 Review 太慢**。
 
-KKday 有 30+ 仓库，QA 人力有限，我们选择了混合工作流：**AI 先审 → 人工确认 → CI 门禁**。这篇文章记录从试点到规模化落地的全过程。
+悠途OTA有 30+ 仓库，QA 人力有限，我们选择了混合工作流：**AI 先审 → 人工确认 → CI 门禁**。这篇文章记录从试点到规模化落地的全过程。
 
 <!-- more -->
 
@@ -295,7 +295,7 @@ class ReviewChecker
 
 ### 阶段 1：单仓库试点（2 周）
 
-选择 `kkday-b2c-api` 作为试点：
+选择 `youtu-ota-b2c-api` 作为试点：
 1. 配置 CodeRabbit
 2. 设置 Danger.js 规则
 3. 团队培训（1 小时）
@@ -417,13 +417,13 @@ path_instructions:
 **解决：** 使用 Organization-level 的 CodeRabbit 配置：
 ```bash
 # 使用模板仓库同步配置
-gh repo edit kkday-org/config-templates \
+gh repo edit youtu-ota-org/config-templates \
   --description "Org 级别配置模板"
 
 # 定期同步脚本
 #!/bin/bash
-for repo in $(gh repo list kkday-org --json name -q '.[].name'); do
-  gh api repos/kkday-org/$repo/contents/.coderabbit.yaml \
+for repo in $(gh repo list youtu-ota-org --json name -q '.[].name'); do
+  gh api repos/youtu-ota-org/$repo/contents/.coderabbit.yaml \
     --method PUT \
     -f message="sync: update code review config" \
     -f content=@config-templates/.coderabbit.yaml.base64

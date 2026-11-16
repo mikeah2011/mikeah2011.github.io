@@ -1,6 +1,6 @@
 ---
 
-title: kkday/log + kkday/monitor + kkday/tracing 实战：Laravel 可观测性架构——日志聚合、指标采集与分布式追踪踩坑记录
+title: youtu/log + youtu/monitor + youtu/tracing 实战：Laravel 可观测性架构——日志聚合、指标采集与分布式追踪踩坑记录
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -8,9 +8,9 @@ date: 2026-05-05 01:40:51
 author: Michael
 updated: 2026-05-05 01:43:32
 categories: [php]
-keywords: [kkday, log, monitor, tracing, Laravel, 可观测性架构, 日志聚合, 指标采集与分布式追踪踩坑记录]
+keywords: [悠途OTA, log, monitor, tracing, Laravel, 可观测性架构, 日志聚合, 指标采集与分布式追踪踩坑记录]
 tags:
-- KKday
+- 悠途OTA
 - Laravel
 - 微服务
 - 监控
@@ -20,11 +20,11 @@ tags:
 - 日志
 - Monolog
 - 分布式
-description: 基于 KKday B2C Backend 30+ 仓库真实生产项目，深度拆解 Laravel 可观测性架构落地实战全记录。本文从三大核心模块出发，系统讲解 kkday/log 结构化日志规范与 Monolog 自定义处理器链定制、kkday/monitor Prometheus RED 指标采集与高基数标签防护策略、kkday/tracing OpenTelemetry 分布式追踪与 Trace Context 跨队列透传机制。涵盖完整的 PHP 可运行代码示例、生产部署检查清单、Grafana 告警规则配置、真实线上排查案例与踩坑速查表，助你构建日志、指标、追踪三位一体的可观测性体系，适合需要搭建 Laravel 监控告警体系的 PHP 开发者参考。
+description: 基于悠途OTA B2C Backend 30+ 仓库真实生产项目，深度拆解 Laravel 可观测性架构落地实战全记录。本文从三大核心模块出发，系统讲解 youtu/log 结构化日志规范与 Monolog 自定义处理器链定制、youtu/monitor Prometheus RED 指标采集与高基数标签防护策略、youtu/tracing OpenTelemetry 分布式追踪与 Trace Context 跨队列透传机制。涵盖完整的 PHP 可运行代码示例、生产部署检查清单、Grafana 告警规则配置、真实线上排查案例与踩坑速查表，助你构建日志、指标、追踪三位一体的可观测性体系，适合需要搭建 Laravel 监控告警体系的 PHP 开发者参考。
 ---
 
 
-在 KKday B2C API 项目中，我们经历了从「打印日志就是可观测」到「日志、指标、追踪三位一体」的演变。初期用 `Log::info()` 打印字符串，出了问题靠 `grep` 搜日志文件；中期接入 Sentry 收错误、Prometheus 拿 QPS；后期才把三个信号串联起来——一次请求出错，能在 Grafana 上从 RED 指标跳到对应 Trace，再从 Trace 里拉出关联的 Structured Log。这篇文章记录的就是这个演进过程中，`kkday/log`、`kkday/monitor`、`kkday/tracing` 三个内部包的实际落地方式与踩过的坑。
+在悠途OTA B2C API 项目中，我们经历了从「打印日志就是可观测」到「日志、指标、追踪三位一体」的演变。初期用 `Log::info()` 打印字符串，出了问题靠 `grep` 搜日志文件；中期接入 Sentry 收错误、Prometheus 拿 QPS；后期才把三个信号串联起来——一次请求出错，能在 Grafana 上从 RED 指标跳到对应 Trace，再从 Trace 里拉出关联的 Structured Log。这篇文章记录的就是这个演进过程中，`youtu/log`、`youtu/monitor`、`youtu/tracing` 三个内部包的实际落地方式与踩过的坑。
 
 ## 一、整体架构：三大信号如何在 Laravel 中协同
 
@@ -41,7 +41,7 @@ description: 基于 KKday B2C Backend 30+ 仓库真实生产项目，深度拆�
                          └──────┬──────────┬──────────┬─────────────┘
                                 │          │          │
                     ┌───────────┴──┐  ┌────┴────┐  ┌──┴──────────┐
-                    │  kkday/log   │  │kkday/   │  │kkday/       │
+                    │  youtu/log   │  │youtu/   │  │youtu/       │
                     │  Monolog     │  │monitor  │  │tracing      │
                     │  JSON Handler│  │Prometheu│  │OTLP + Context│
                     └──────┬───────┘  │s Client │  │Propagation   │
@@ -55,11 +55,11 @@ description: 基于 KKday B2C Backend 30+ 仓库真实生产项目，深度拆�
 
 三个包各司其职：
 
-- **kkday/log**：Structured Logging 封装，统一日志格式（JSON），注入 request_id / trace_id / user_id 等上下文字段
-- **kkday/monitor**：Prometheus Client 封装，暴露 RED（Rate-Error-Duration）指标，支持 Histogram / Counter / Gauge
-- **kkday/tracing**：OpenTelemetry SDK 封装，自动生成 Span，透传 Trace Context 到 HTTP Client 和 Queue Job
+- **youtu/log**：Structured Logging 封装，统一日志格式（JSON），注入 request_id / trace_id / user_id 等上下文字段
+- **youtu/monitor**：Prometheus Client 封装，暴露 RED（Rate-Error-Duration）指标，支持 Histogram / Counter / Gauge
+- **youtu/tracing**：OpenTelemetry SDK 封装，自动生成 Span，透传 Trace Context 到 HTTP Client 和 Queue Job
 
-## 二、kkday/log：Monolog 定制与 Structured Logging 规范
+## 二、youtu/log：Monolog 定制与 Structured Logging 规范
 
 ### 2.1 为什么不用 Log::info 直接打字符串？
 
@@ -78,18 +78,18 @@ Log::info("User 12345 created order ORD-20260430-001, amount: 5999");
 |------|----------|----------|------------|----------|----------|
 | `Log::info("string")` | 纯文本 | ❌ 需正则 | ❌ 手动拼接 | 低 | 本地调试 |
 | `Log::info('msg', $data)` | 数组上下文 | ⚠️ 部分字段可查 | ❌ 手动 | 低 | 小项目 |
-| **kkday/log JSON** | 结构化 JSON | ✅ 全字段可查 | ✅ Processor 自动注入 | 中 | 生产环境 |
+| **youtu/log JSON** | 结构化 JSON | ✅ 全字段可查 | ✅ Processor 自动注入 | 中 | 生产环境 |
 | Contextual Logging (Laravel 11+) | 数组上下文 | ✅ | ✅ `Log::context()` | 低 | Laravel 11+ 新项目 |
 
-> **选型建议**：如果团队已在 Laravel 11+，优先评估 Contextual Logging；如果需要跨服务统一格式、自定义 Processor 链，kkday/log 的 Monolog Processor 机制更灵活。
+> **选型建议**：如果团队已在 Laravel 11+，优先评估 Contextual Logging；如果需要跨服务统一格式、自定义 Processor 链，youtu/log 的 Monolog Processor 机制更灵活。
 
 ### 2.2 Structured Logging 的正确姿势
 
-`kkday/log` 核心是一个自定义的 Monolog Processor，它会自动注入上下文字段：
+`youtu/log` 核心是一个自定义的 Monolog Processor，它会自动注入上下文字段：
 
 ```php
-// packages/kkday-log/src/Processor/RequestContextProcessor.php
-namespace Kkday\Log\Processor;
+// packages/youtu-ota-log/src/Processor/RequestContextProcessor.php
+namespace youtu\Log\Processor;
 
 use Monolog\Processor\ProcessorInterface;
 
@@ -102,7 +102,7 @@ class RequestContextProcessor implements ProcessorInterface
             'trace_id'    => app('trace-id') ?? null,
             'span_id'     => app('span-id') ?? null,
             'user_id'     => auth()->id() ?? null,
-            'service'     => config('kkday-log.service_name'),
+            'service'     => config('youtu-ota-log.service_name'),
             'env'         => config('app.env'),
         ]);
 
@@ -115,13 +115,13 @@ class RequestContextProcessor implements ProcessorInterface
 
 ```php
 'channels' => [
-    'kkday' => [
+    'youtu' => [
         'driver' => 'monolog',
         'handler' => StreamHandler::class,
-        'formatter' => \Kkday\Log\Formatter\JsonLineFormatter::class,
+        'formatter' => \youtu\Log\Formatter\JsonLineFormatter::class,
         'processors' => [
-            \Kkday\Log\Processor\RequestContextProcessor::class,
-            \Kkday\Log\Processor\MemoryUsageProcessor::class,
+            \youtu\Log\Processor\RequestContextProcessor::class,
+            \youtu\Log\Processor\MemoryUsageProcessor::class,
         ],
     ],
 ],
@@ -131,7 +131,7 @@ class RequestContextProcessor implements ProcessorInterface
 
 ```php
 // ✅ Structured 写法：每个字段都可查询
-Log::channel('kkday')->info('order.created', [
+Log::channel('youtu')->info('order.created', [
     'order_id'    => $order->id,
     'user_id'     => $order->user_id,
     'amount'      => $order->amount,
@@ -167,11 +167,11 @@ Log::channel('kkday')->info('order.created', [
 
 ### 2.2.1 敏感字段自动脱敏
 
-生产环境中，日志里混入密码、Token、信用卡号是安全合规的红线。`kkday/log` 内置了 SensitiveDataProcessor，支持正则规则自动脱敏：
+生产环境中，日志里混入密码、Token、信用卡号是安全合规的红线。`youtu/log` 内置了 SensitiveDataProcessor，支持正则规则自动脱敏：
 
 ```php
-// packages/kkday-log/src/Processor/SensitiveDataProcessor.php
-namespace Kkday\Log\Processor;
+// packages/youtu-ota-log/src/Processor/SensitiveDataProcessor.php
+namespace youtu\Log\Processor;
 
 use Monolog\Processor\ProcessorInterface;
 
@@ -210,9 +210,9 @@ class SensitiveDataProcessor implements ProcessorInterface
 
 ```php
 'processors' => [
-    \Kkday\Log\Processor\RequestContextProcessor::class,
-    \Kkday\Log\Processor\MemoryUsageProcessor::class,
-    \Kkday\Log\Processor\SensitiveDataProcessor::class,  // 放在最后，确保脱敏
+    \youtu\Log\Processor\RequestContextProcessor::class,
+    \youtu\Log\Processor\MemoryUsageProcessor::class,
+    \youtu\Log\Processor\SensitiveDataProcessor::class,  // 放在最后，确保脱敏
 ],
 ```
 
@@ -234,11 +234,11 @@ class SensitiveDataProcessor implements ProcessorInterface
 
 ```php
 // config/logging.php
-'kkday_queue' => [
+'youtu_queue' => [
     'driver' => 'monolog',
     'handler' => StreamHandler::class,
     // 不包装 BufferHandler，直接写磁盘
-    'formatter' => \Kkday\Log\Formatter\JsonLineFormatter::class,
+    'formatter' => \youtu\Log\Formatter\JsonLineFormatter::class,
 ],
 ```
 
@@ -250,12 +250,12 @@ public function handle(): void
     try {
         // ... 业务逻辑
     } finally {
-        Log::channel('kkday_queue')->getLogger()->close();
+        Log::channel('youtu_queue')->getLogger()->close();
     }
 }
 ```
 
-## 三、kkday/monitor：Prometheus 指标采集与 RED 方法论
+## 三、youtu/monitor：Prometheus 指标采集与 RED 方法论
 
 ### 3.1 RED vs USE：B2C API 应该选哪个？
 
@@ -264,13 +264,13 @@ public function handle(): void
 | **RED** | Rate（请求速率）、Error（错误率）、Duration（延迟） | 面向请求的服务（API、Web） |
 | **USE** | Utilization（利用率）、Saturation（饱和度）、Error（错误） | 面向资源的服务（数据库、队列） |
 
-B2C API 是典型的请求驱动服务，选 RED。`kkday/monitor` 封装了 Prometheus PHP Client，自动生成中间件：
+B2C API 是典型的请求驱动服务，选 RED。`youtu/monitor` 封装了 Prometheus PHP Client，自动生成中间件：
 
 ```php
-// packages/kkday-monitor/src/Middleware/RecordMetrics.php
-namespace Kkday\Monitor\Middleware;
+// packages/youtu-ota-monitor/src/Middleware/RecordMetrics.php
+namespace youtu\Monitor\Middleware;
 
-use Kkday\Monitor\MetricsCollector;
+use youtu\Monitor\MetricsCollector;
 
 class RecordMetrics
 {
@@ -302,7 +302,7 @@ class RecordMetrics
 
 ```php
 // 在 Service 层记录业务指标
-use Kkday\Monitor\MetricsCollector;
+use youtu\Monitor\MetricsCollector;
 
 class CreateOrderService
 {
@@ -375,10 +375,10 @@ MetricsCollector::observeHistogram('order_amount_distribution', $amount, [
 ]);
 ```
 
-`kkday/monitor` 内置了 label 白名单机制，超出阈值会自动降级为 `_overflow`：
+`youtu/monitor` 内置了 label 白名单机制，超出阈值会自动降级为 `_overflow`：
 
 ```php
-// packages/kkday-monitor/src/LabelGuard.php
+// packages/youtu-ota-monitor/src/LabelGuard.php
 public function sanitize(string $key, string $value): string
 {
     if ($this->cardinality($key) > $this->maxCardinality($key)) {
@@ -388,32 +388,32 @@ public function sanitize(string $key, string $value): string
 }
 ```
 
-## 四、kkday/tracing：分布式追踪与 Trace Context 透传
+## 四、youtu/tracing：分布式追踪与 Trace Context 透传
 
 ### 4.1 Span 生成策略
 
-`kkday/tracing` 基于 OpenTelemetry PHP SDK，自动为 Laravel 创建 Span：
+`youtu/tracing` 基于 OpenTelemetry PHP SDK，自动为 Laravel 创建 Span：
 
 ```php
-// packages/kkday-tracing/src/TracingServiceProvider.php
+// packages/youtu-ota-tracing/src/TracingServiceProvider.php
 public function boot(): void
 {
     // HTTP 入口：创建 Root Span
     $this->app->middleware->push(
-        \Kkday\Tracing\Middleware\StartSpanMiddleware::class
+        \youtu\Tracing\Middleware\StartSpanMiddleware::class
     );
 
     // HTTP Client：自动注入 traceparent header
     \Illuminate\Support\Facades\Http::macro('traced', function () {
         return Http::withHeaders(
-            \Kkday\Tracing\ContextPropagator::getOutgoingHeaders()
+            \youtu\Tracing\ContextPropagator::getOutgoingHeaders()
         );
     });
 
     // Queue Job：自动从 payload 恢复 Trace Context
     Queue::createPayloadUsing(function ($connection, $queue, $payload) {
         return array_merge($payload, [
-            'trace_context' => \Kkday\Tracing\ContextPropagator::toArray(),
+            'trace_context' => \youtu\Tracing\ContextPropagator::toArray(),
         ]);
     });
 }
@@ -430,7 +430,7 @@ public function boot(): void
 | **ParentBased + Ratio** | 根 Span 比例采样，子 Span 跟随 | 根采样 + 继承 | **生产推荐** |
 
 ```php
-// packages/kkday-tracing/src/config/tracing.php
+// packages/youtu-ota-tracing/src/config/tracing.php
 return [
     'service_name' => env('OTEL_SERVICE_NAME', 'b2c-api'),
     'sample_rate' => env('OTEL_SAMPLE_RATE', 0.1), // 生产 10%
@@ -452,7 +452,7 @@ class ReserveInventory implements ShouldQueue
 {
     public function handle(): void
     {
-        // kkday/tracing 的 Queue Middleware 自动从 payload 恢复
+        // youtu/tracing 的 Queue Middleware 自动从 payload 恢复
         // 此时 $this->span 已经是 parent span 的 child
         $span = app('tracer')->getCurrentSpan();
 
@@ -481,7 +481,7 @@ abstract class TracedJob implements ShouldQueue
     public function __construct()
     {
         // 确保构造时就捕获上下文
-        $this->traceContext = \Kkday\Tracing\ContextPropagator::toArray();
+        $this->traceContext = \youtu\Tracing\ContextPropagator::toArray();
     }
 }
 ```
@@ -518,15 +518,15 @@ Event::listen(RequestTerminated::class, function () {
 
 线上某天下午 3 点，Prometheus 告警 `/api/orders` 的 P99 延迟从 400ms 飙到 3200ms。
 
-**Step 1：指标（kkday/monitor）发现异常**
+**Step 1：指标（youtu/monitor）发现异常**
 
 在 Grafana RED 面板看到 Duration 飙升，Rate 未降（不是下游挂了），Error 略有上升。
 
-**Step 2：Trace（kkday/tracing）定位慢点**
+**Step 2：Trace（youtu/tracing）定位慢点**
 
 点击 Grafana 中的 P99 链路，发现一个 Trace 里 `payment.callback` Span 耗时 2100ms，其 child span `order.update_status` 卡在 DB Query。
 
-**Step 3：日志（kkday/log）拿到细节**
+**Step 3：日志（youtu/log）拿到细节**
 
 用 `trace_id` 在 Loki 中搜索，发现这条日志：
 
@@ -552,35 +552,35 @@ Event::listen(RequestTerminated::class, function () {
 
 | 模块 | 踩坑场景 | 根因 | 解法 |
 |------|----------|------|------|
-| kkday/log | BufferHandler 在队列中日志丢失 | 常驻进程不触发 `close()` | 队列场景改用 StreamHandler |
-| kkday/log | 敏感数据泄露到日志 | 业务字段未脱敏 | 注册 SensitiveDataProcessor |
-| kkday/log | 日志文件无限增长 | 未配置轮转 | 使用 RotatingFileHandler + `daily` |
-| kkday/monitor | High Cardinality 打爆 Prometheus | `user_id` 等高基数字段做 label | 用分桶/白名单机制限制 label 基数 |
-| kkday/monitor | /metrics 端点暴露到公网 | 未配置访问控制 | 仅内网可达 + IP 白名单 |
-| kkday/monitor | Summary 跨实例聚合不准 | Summary 在客户端计算分位数 | 改用 Histogram，服务端聚合 |
-| kkday/tracing | 队列 Job Trace 断链 | `createPayloadUsing` 在 sync 驱动不触发 | 基类构造时捕获上下文 |
-| kkday/tracing | Bus::batch 后续 Job 丢 trace_context | 序列化时只有第一个 Job 完整构建 | Batch 回调中手动创建新 Span |
-| kkday/tracing | Octane Span 泄漏 | Swoole 协程复用未清理 | `RequestTerminated` 事件中 `forceFlush()` + `resetContext()` |
-| kkday/tracing | 采样率过高导致存储爆掉 | 生产环境用 100% 采样 | 降为 5-10%，错误请求兜底 100% |
+| youtu/log | BufferHandler 在队列中日志丢失 | 常驻进程不触发 `close()` | 队列场景改用 StreamHandler |
+| youtu/log | 敏感数据泄露到日志 | 业务字段未脱敏 | 注册 SensitiveDataProcessor |
+| youtu/log | 日志文件无限增长 | 未配置轮转 | 使用 RotatingFileHandler + `daily` |
+| youtu/monitor | High Cardinality 打爆 Prometheus | `user_id` 等高基数字段做 label | 用分桶/白名单机制限制 label 基数 |
+| youtu/monitor | /metrics 端点暴露到公网 | 未配置访问控制 | 仅内网可达 + IP 白名单 |
+| youtu/monitor | Summary 跨实例聚合不准 | Summary 在客户端计算分位数 | 改用 Histogram，服务端聚合 |
+| youtu/tracing | 队列 Job Trace 断链 | `createPayloadUsing` 在 sync 驱动不触发 | 基类构造时捕获上下文 |
+| youtu/tracing | Bus::batch 后续 Job 丢 trace_context | 序列化时只有第一个 Job 完整构建 | Batch 回调中手动创建新 Span |
+| youtu/tracing | Octane Span 泄漏 | Swoole 协程复用未清理 | `RequestTerminated` 事件中 `forceFlush()` + `resetContext()` |
+| youtu/tracing | 采样率过高导致存储爆掉 | 生产环境用 100% 采样 | 降为 5-10%，错误请求兜底 100% |
 
 ## 六、生产部署 Checklist
 
 ```text
-✅ kkday/log
+✅ youtu/log
   - 所有日志输出为 JSON 格式
   - request_id / trace_id 自动注入
   - 敏感字段（password, token, card_number）自动脱敏
   - 队列场景不用 BufferHandler
   - 日志文件按天轮转，保留 30 天
 
-✅ kkday/monitor
+✅ youtu/monitor
   - RED 指标覆盖所有 API 路由
   - 业务指标 label 基数 < 1000
   - /metrics 端点仅内网可访问
   - Prometheus scrape interval = 15s
   - 告警规则：P99 > 1s 持续 5 分钟
 
-✅ kkday/tracing
+✅ youtu/tracing
   - 采样率生产环境 10%（压测时 100%）
   - 队列 Job 的 Trace Context 透传已验证
   - Octane 场景的 Span 清理已覆盖
@@ -590,7 +590,7 @@ Event::listen(RequestTerminated::class, function () {
 
 ## 总结
 
-可观测性不是「接个 Sentry 就完了」。`kkday/log` 解决的是「发生了什么」，`kkday/monitor` 解决的是「系统状态如何」，`kkday/tracing` 解决的是「问题在哪里」。三者缺一不可，而且必须共享同一个 `trace_id` 才能串联起来。最深的教训是：**队列场景的 Context 透传**是整个链路最容易断的地方，也是排查异步问题时最救命的环节。
+可观测性不是「接个 Sentry 就完了」。`youtu/log` 解决的是「发生了什么」，`youtu/monitor` 解决的是「系统状态如何」，`youtu/tracing` 解决的是「问题在哪里」。三者缺一不可，而且必须共享同一个 `trace_id` 才能串联起来。最深的教训是：**队列场景的 Context 透传**是整个链路最容易断的地方，也是排查异步问题时最救命的环节。
 
 ## 相关阅读
 

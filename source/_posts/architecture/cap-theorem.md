@@ -479,7 +479,7 @@ class ReconciliationCommand extends Command
 
 # 相关阅读
 
-- [CAP 定理论在 KKday B2C 微服务中的取舍与实战](/architecture/cap-theorem-kkday/)
+- [CAP 定理论在 youtu B2C 微服务中的取舍与实战](/architecture/cap-theorem-youtu-ota/)
 - [分布式事务实战：Saga 模式在订单/库存/支付中的应用](/architecture/distributedtransactionguide-saga/)
 - [服务注册与发现实战：Consul/Nacos 与 Laravel 集成](/architecture/service-discovery-consul-nacos/)
 - [配置中心实战：Apollo/Nacos 动态配置与 Laravel 集成](/architecture/config-center-apollo-nacos/)

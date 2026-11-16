@@ -23,7 +23,7 @@ description: Laravel B2C 项目中用 Claude Code / ChatGPT / Cursor 辅助调�
 
 ## 前言：调试为什么需要 AI？
 
-在 KKday B2C Backend 团队管理 30+ Laravel 仓库的日常中，调试消耗的时间远超写新代码。一个典型的生产事故排查链路：
+在悠途OTA B2C Backend 团队管理 30+ Laravel 仓库的日常中，调试消耗的时间远超写新代码。一个典型的生产事故排查链路：
 
 1. Sentry 报错 → 堆栈追踪 20+ 层
 2. ELK 日志 → 数千条结构化 JSON
@@ -576,7 +576,7 @@ AI 辅助调试不是"让 AI 替你 debug"，而是**让 AI 处理模式识别�
 
 ---
 
-*本文基于 KKday B2C Backend 团队的 30+ Laravel 仓库真实调试经验，使用 Claude Code CLI、ChatGPT、Cursor 三种 AI 工具的实际踩坑记录。*
+*本文基于 youtu B2C Backend 团队的 30+ Laravel 仓库真实调试经验，使用 Claude Code CLI、ChatGPT、Cursor 三种 AI 工具的实际踩坑记录。*
 
 ---
 

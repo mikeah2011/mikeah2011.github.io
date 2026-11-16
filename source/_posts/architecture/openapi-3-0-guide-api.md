@@ -21,7 +21,7 @@ description: 从手写 OpenAPI YAML 到自动化生成文档与代码的完整�
 
 ## 前言
 
-在 KKday B2C Backend 团队管理 30+ 个 Laravel 仓库的过程中，API 文档长期处于「写了过时、没写空白」的状态。前端拿到的接口文档和实际返回的 JSON 格式经常对不上，联调效率极低。
+在悠途OTA B2C Backend 团队管理 30+ 个 Laravel 仓库的过程中，API 文档长期处于「写了过时、没写空白」的状态。前端拿到的接口文档和实际返回的 JSON 格式经常对不上，联调效率极低。
 
 我们最终选定了 **OpenAPI 3.0 规范**作为 Single Source of Truth，通过自动化工具链实现：
 
@@ -91,19 +91,19 @@ docs/
 ```yaml
 openapi: 3.0.3
 info:
-  title: KKday B2C API
+  title: youtu B2C API
   description: |
-    KKday 旅游电商平台 B2C API 文档。
+    youtu 旅游电商平台 B2C API 文档。
     认证方式：Bearer Token (JWT)
   version: 2.1.0
   contact:
     name: Backend Team
-    email: backend@kkday.com
+    email: backend@youtu-ota.test
 
 servers:
-  - url: https://api.kkday.com/v2
+  - url: https://api.youtu-ota.test/v2
     description: Production
-  - url: https://staging-api.kkday.com/v2
+  - url: https://staging-api.youtu-ota.test/v2
     description: Staging
   - url: http://localhost:8000/api/v2
     description: Local Development
@@ -221,8 +221,8 @@ php artisan vendor:publish --tag=scribe-config
 
 ```php
 return [
-    'title'              => 'KKday B2C API',
-    'base_url'           => 'https://api.kkday.com/v2',
+    'title'              => 'youtu B2C API',
+    'base_url'           => 'https://api.youtu-ota.test/v2',
     'auth'               => [
         'enabled'       => true,
         'default'       => true,
@@ -452,7 +452,7 @@ npm install @stoplight/elements
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>KKday B2C API Docs</title>
+    <title>youtu B2C API Docs</title>
     <script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@stoplight/elements/styles.min.css">
 </head>
@@ -613,7 +613,7 @@ docker run --rm \
     -i /workspace/docs/openapi/openapi.yaml \
     -g go \
     -o /workspace/sdk/go \
-    --additional-properties=packageName=kkdayapi,isGoSubmodule=true
+    --additional-properties=packageName=youtuapi,isGoSubmodule=true
 ```
 
 生成目录结构：
@@ -637,20 +637,20 @@ package main
 
 import (
     "context"
-    kkdayapi "kkday/sdk/go"
+    youtuapi "youtu/sdk/go"
 )
 
 func main() {
-    cfg := kkdayapi.NewConfiguration()
-    cfg.Servers = []kkdayapi.ServerConfiguration{
-        {URL: "https://api.kkday.com/v2"},
+    cfg := youtuapi.NewConfiguration()
+    cfg.Servers = []youtuapi.ServerConfiguration{
+        {URL: "https://api.youtu-ota.test/v2"},
     }
 
-    client := kkdayapi.NewAPIClient(cfg)
-    ctx := context.WithValue(context.Background(), kkdayapi.ContextAccessToken, "jwt-token")
+    client := youtuapi.NewAPIClient(cfg)
+    ctx := context.WithValue(context.Background(), youtuapi.ContextAccessToken, "jwt-token")
 
     order, _, err := client.OrdersAPI.CreateOrder(ctx).
-        CreateOrderRequest(kkdayapi.CreateOrderRequest{
+        CreateOrderRequest(youtuapi.CreateOrderRequest{
             ProductId:  "550e8400-e29b-41d4-a716-446655440000",
             Quantity:   2,
             StartDate:  "2026-06-01",
@@ -674,7 +674,7 @@ docker run --rm \
     -i /workspace/docs/openapi/openapi.yaml \
     -g php-laravel \
     -o /workspace/stubs/laravel \
-    --additional-properties=packageName=KkdayApiStubs
+    --additional-properties=packageName=YoutuApiStubs
 ```
 
 ### 5.4 oapi-codegen（Go 生态推荐）
@@ -785,7 +785,7 @@ yq eval-all '
 # docs/openapi/overlay.yaml
 info:
   x-logo:
-    url: https://cdn.kkday.com/logo.svg
+    url: https://cdn.youtu-ota.test/logo.svg
     backgroundColor: "#0078D4"
 
 paths:
@@ -794,7 +794,7 @@ paths:
       x-codeSamples:
         - lang: curl
           source: |
-            curl -X GET "https://api.kkday.com/v2/orders/123" \
+            curl -X GET "https://api.youtu-ota.test/v2/orders/123" \
               -H "Authorization: Bearer YOUR_TOKEN"
 ```
 
@@ -812,7 +812,7 @@ docker run --rm \
     -g go \
     -o /workspace/sdk/go \
     -t /workspace/templates/go-custom \
-    --additional-properties=packageName=kkdayapi
+    --additional-properties=packageName=youtuapi
 ```
 
 将有问题的模板文件复制到 `templates/go-custom/` 下修改。

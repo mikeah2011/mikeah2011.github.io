@@ -396,7 +396,7 @@ function serve() {
 ```
 Profile: Laravel API
   → Command: /bin/zsh
-  → Working Directory: ~/GitHub/kkday-b2c-api
+  → Working Directory: ~/GitHub/youtu-ota-b2c-api
   → Tab Color: Blue
   → Badge: "API"
 

@@ -1,7 +1,7 @@
 ---
 
-title: PHP 实战 - 消息幂等性设计模式 KKday B2C API 真实踩坑记录
-keywords: [PHP, KKday B2C API, 消息幂等性设计模式, 真实踩坑记录]
+title: PHP 实战 - 消息幂等性设计模式悠途OTA B2C API 真实踩坑记录
+keywords: [PHP, 悠途OTA B2C API, 消息幂等性设计模式, 真实踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -12,18 +12,18 @@ tags:
 - Redis
 - Kafka
 - 幂等性
-- KKday
+- 悠途OTA
 categories: [php]
 date: 2026-05-03 13:50:54
 author: Michael
-description: 深入解析 PHP 消息幂等性设计模式，基于 KKday B2C API 真实踩坑记录。对比唯一 ID 去重表、数据库唯一键约束、Redis Set 三大方案，详解 Laravel 中观察者、策略、状态机等设计模式与幂等性的结合实践，涵盖 Kafka ACK 优化、去重表清理与 Prometheus 监控，帮助开发者构建高可靠分布式消息消费系统。
+description: 深入解析 PHP 消息幂等性设计模式，基于悠途OTA B2C API 真实踩坑记录。对比唯一 ID 去重表、数据库唯一键约束、Redis Set 三大方案，详解 Laravel 中观察者、策略、状态机等设计模式与幂等性的结合实践，涵盖 Kafka ACK 优化、去重表清理与 Prometheus 监控，帮助开发者构建高可靠分布式消息消费系统。
 updated: 2026-05-03 14:00:21
 ---
 
 
 ## 引言：消息系统为何需要幂等性？
 
-在 KKday B2C API 项目中，我们每天处理数万条订单、支付、库存扣减消息。消息队列（RabbitMQ/Kafka）作为核心基础设施，却给我们埋下重大隐患：**重复消费**。
+在悠途OTA B2C API 项目中，我们每天处理数万条订单、支付、库存扣减消息。消息队列（RabbitMQ/Kafka）作为核心基础设施，却给我们埋下重大隐患：**重复消费**。
 
 ### 真实踩坑案例
 
@@ -816,4 +816,4 @@ class PaymentCallbackService
 - [Laravel Action Pattern 实战：用单一职责的 Action 类替代胖 Service](/categories/Laravel/Laravel-Action-Pattern-实战/) — 将幂等逻辑封装为独立 Action，保持代码整洁
 - [重试与退避策略实战：Exponential Backoff + Jitter](/categories/Laravel/重试与退避策略实战-Exponential-Backoff-Jitter-Laravel-HTTP-Client韧性设计模式/) — 消费失败后的重试策略设计，与幂等性配合使用效果更佳
 - [Redis Lua 脚本原子操作实战：分布式限流/库存扣减/排行榜](/categories/Databases/redis-lua-guide-distributedrate-limiting/) — 用 Lua 脚本实现原子级幂等检查，适合高并发场景
-- [Laravel HTTP Client 深度实战：Guzzle 封装、中间件链、超时策略、熔断降级](/categories/Laravel/Laravel-HTTP-Client-深度实战-Guzzle封装-中间件链-超时策略-熔断降级-B2C-API外部调用治理/) — B2C API 外部调用治理，与本文的 KKday 实战场景高度相关
+- [Laravel HTTP Client 深度实战：Guzzle 封装、中间件链、超时策略、熔断降级](/categories/Laravel/Laravel-HTTP-Client-深度实战-Guzzle封装-中间件链-超时策略-熔断降级-B2C-API外部调用治理/) — B2C API 外部调用治理，与本文的 youtu 实战场景高度相关

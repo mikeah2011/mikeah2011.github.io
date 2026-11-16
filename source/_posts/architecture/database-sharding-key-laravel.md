@@ -13,7 +13,7 @@ tags:
   - MySQL
   - Laravel
   - 架构设计
-description: 在 Laravel 多库架构下，Sharding Key 的选择决定了数据分布、查询效率和扩容成本。本文以 KKday B2C API 真实场景为背景，对比按用户、按时间、按业务域三种分片策略，给出可落地的决策树和 Laravel 实现方案。
+description: 在 Laravel 多库架构下，Sharding Key 的选择决定了数据分布、查询效率和扩容成本。本文以悠途OTA B2C API 真实场景为背景，对比按用户、按时间、按业务域三种分片策略，给出可落地的决策树和 Laravel 实现方案。
 ---
 
 
@@ -21,7 +21,7 @@ description: 在 Laravel 多库架构下，Sharding Key 的选择决定了数据
 
 当单表数据量突破千万级、单库连接数逼近天花板时，分库分表（Sharding）几乎是唯一的出路。但 Sharding 最关键的决策不是「怎么分」，而是**「按什么键分」**——也就是 Sharding Key 的选择。
 
-选错了 Sharding Key，轻则跨库 JOIN 泛滥、热点集中，重则需要全量数据迁移推倒重来。本文基于 KKday B2C API（Laravel 8，30+ 仓库）的实际架构演进经验，对比三种主流 Sharding Key 策略，给出一套可直接套用的决策树。
+选错了 Sharding Key，轻则跨库 JOIN 泛滥、热点集中，重则需要全量数据迁移推倒重来。本文基于悠途OTA B2C API（Laravel 8，30+ 仓库）的实际架构演进经验，对比三种主流 Sharding Key 策略，给出一套可直接套用的决策树。
 
 ## 核心概念
 
@@ -149,17 +149,17 @@ return [
     'shards' => [
         [
             'connection' => 'shard_0',
-            'database' => 'kkday_b2c_shard_0',
+            'database' => 'youtu_b2c_shard_0',
             'range' => ['min' => 0, 'max' => 499999], // user_id 范围
         ],
         [
             'connection' => 'shard_1',
-            'database' => 'kkday_b2c_shard_1',
+            'database' => 'youtu_b2c_shard_1',
             'range' => ['min' => 500000, 'max' => 999999],
         ],
         [
             'connection' => 'shard_2',
-            'database' => 'kkday_b2c_shard_2',
+            'database' => 'youtu_b2c_shard_2',
             'range' => ['min' => 1000000, 'max' => 1499999],
         ],
     ],
@@ -476,6 +476,6 @@ Sharding Key 的选择没有银弹，但有一套可复用的决策框架：
 4. **预分析数据**：分片前必须分析数据分布，识别长尾用户和热点 Key
 5. **渐进式迁移**：从单库开始，用 Router 层屏蔽分片细节，数据量到了再拆
 
-在 KKday B2C API 的实践中，我们最终选择了 **user_id + 一致性哈希** 作为主分片策略，配合商家维度反向索引表和 Elasticsearch 跨维度查询，在 30+ 仓库的复杂架构下实现了可控的数据分布和查询性能。
+在 youtu B2C API 的实践中，我们最终选择了 **user_id + 一致性哈希** 作为主分片策略，配合商家维度反向索引表和 Elasticsearch 跨维度查询，在 30+ 仓库的复杂架构下实现了可控的数据分布和查询性能。
 
 记住：**最好的 Sharding Key 是让大部分请求不需要跨分片的那个**。

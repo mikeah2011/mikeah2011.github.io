@@ -19,7 +19,7 @@ description: 从传统 CI/CD push 模式迁移到 ArgoCD GitOps pull 模式，�
 
 ## 前言
 
-在 KKday B2C Backend Team 的 30+ Laravel 仓库中，CI/CD 流水线一直是工程化的基石。早期我们采用 GitHub Actions + kubectl apply 的经典 push 模式——CI 跑完测试后直接把镜像 tag 推到 K8s 集群。这种模式简单直接，但随着仓库数量增长和多环境（dev/staging/prod）管理需求出现，问题逐渐暴露：
+在悠途OTA B2C Backend Team 的 30+ Laravel 仓库中，CI/CD 流水线一直是工程化的基石。早期我们采用 GitHub Actions + kubectl apply 的经典 push 模式——CI 跑完测试后直接把镜像 tag 推到 K8s 集群。这种模式简单直接，但随着仓库数量增长和多环境（dev/staging/prod）管理需求出现，问题逐渐暴露：
 
 - **状态漂移**：有人手动 `kubectl edit deployment` 改了副本数，Git 仓库里的声明和集群实际状态不一致
 - **回滚困难**：kubectl rollout undo 只能回退一个版本，且回滚操作不记录在 Git 中
@@ -252,7 +252,7 @@ metadata:
 spec:
   project: b2c
   source:
-    repoURL: https://github.com/kkday/b2c-api.git
+    repoURL: https://github.com/youtu/b2c-api.git
     targetRevision: main                    # 生产环境追踪 main 分支
     path: helm
     helm:
@@ -291,7 +291,7 @@ metadata:
 spec:
   project: b2c
   source:
-    repoURL: https://github.com/kkday/b2c-api.git
+    repoURL: https://github.com/youtu/b2c-api.git
     targetRevision: develop                   # dev 环境追踪 develop 分支
     path: helm
     helm:
@@ -321,8 +321,8 @@ metadata:
 spec:
   description: "B2C Backend Team 项目"
   sourceRepos:
-    - "https://github.com/kkday/b2c-api.git"
-    - "https://github.com/kkday/helm-charts.git"
+    - "https://github.com/youtu/b2c-api.git"
+    - "https://github.com/youtu/helm-charts.git"
   destinations:
     - namespace: "b2c-*"                      # 只能部署到 b2c- 前缀的 namespace
       server: "*"
@@ -749,7 +749,7 @@ spec:
     spec:
       project: b2c
       source:
-        repoURL: https://github.com/kkday/b2c-api.git
+        repoURL: https://github.com/youtu/b2c-api.git
         targetRevision: "{{branch}}"
         path: helm
         helm:

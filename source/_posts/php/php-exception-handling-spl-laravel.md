@@ -1035,5 +1035,5 @@ $order = $this->createOrder($cart); // 异常自然向上传播
 ## 相关阅读
 
 - [Rust 错误处理哲学：Result/Option/thiserror/anyhow 对比 PHP Exception 与 Go error 的设计权衡](/categories/杂记/Rust-错误处理哲学-Result-Option-thiserror-anyhow-对比PHP-Exception与Go-error的设计权衡/) — 跨语言错误处理范式对比，从 Rust 的 Result 类型反思 PHP 异常设计的优劣
-- [KKday 日志监控链路追踪：Laravel 分布式日志架构](/categories/PHP/kkday-log-monitor-tracing-laravel-architectureguide-loggingdistributed/) — 异常处理的可观测性配套方案，实现异常日志的集中采集与链路追踪
+- [youtu 日志监控链路追踪：Laravel 分布式日志架构](/categories/PHP/youtu-log-monitor-tracing-laravel-architectureguide-loggingdistributed/) — 异常处理的可观测性配套方案，实现异常日志的集中采集与链路追踪
 - [PHPUnit 11.x 实战：新特性与最佳实践](/categories/Engineering/phpunit-11-x-guide-best-practices/) — 异常测试的最佳实践，验证异常触发条件、错误码与上下文数据

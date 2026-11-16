@@ -68,7 +68,7 @@ images:
 
 ## Kong vs APISIX：选型对比
 
-在 KKday 的微服务演进过程中，我们评估了 Kong 和 Apache APISIX 两个主流方案：
+在 youtu 的微服务演进过程中，我们评估了 Kong 和 Apache APISIX 两个主流方案：
 
 | 维度 | Kong | Apache APISIX |
 |------|------|---------------|
@@ -156,7 +156,7 @@ curl -X PUT http://127.0.0.1:9180/apisix/admin/routes/order-api \
   -H "Content-Type: application/json" \
   -d '{
     "uri": "/api/v3/orders/*",
-    "host": "api.kkday.com",
+    "host": "api.youtu-ota.test",
     "upstream_id": "order-service",
     "plugins": {
       "proxy-rewrite": {
@@ -174,7 +174,7 @@ curl -X PUT http://127.0.0.1:9180/apisix/admin/routes/order-api \
 # apisix-routes.yaml
 routes:
   - uri: /api/v3/orders/*
-    host: api.kkday.com
+    host: api.youtu-ota.test
     upstream_id: order-service
     plugins:
       proxy-rewrite:
@@ -183,7 +183,7 @@ routes:
           - "/orders/$1"
 
   - uri: /api/v3/products/*
-    host: api.kkday.com
+    host: api.youtu-ota.test
     upstream_id: product-service
     plugins:
       proxy-rewrite:
@@ -218,7 +218,7 @@ curl -X PUT http://127.0.0.1:9180/apisix/admin/consumers/bff-app \
     "username": "bff-app",
     "plugins": {
       "jwt-auth": {
-        "key": "kkday-bff",
+        "key": "youtu-ota-bff",
         "secret": "your-jwt-secret-key",
         "algorithm": "HS256"
       }
@@ -241,7 +241,7 @@ curl -X PATCH http://127.0.0.1:9180/apisix/admin/routes/order-api \
 # APISIX 配置：将 JWT claims 转为 Header 透传给下游
 "jwt-auth": {
   "header": "Authorization",
-  "key": "kkday-bff",
+  "key": "youtu-ota-bff",
   "secret": "your-jwt-secret",
   "algorithm": "HS256",
   "run_on_preflight": false

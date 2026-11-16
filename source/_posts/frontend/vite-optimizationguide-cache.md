@@ -72,7 +72,7 @@ const module = await import(`./plugins/${name}.ts`)
 
 ```text
 你的项目
-  └─ @kkday/admin-utils（内部包）
+  └─ @youtu/admin-utils（内部包）
        └─ dayjs
             └─ dayjs/plugin/utc（CJS 插件）
 ```
@@ -85,7 +85,7 @@ Vite 可能只预构建了 `dayjs` 主入口，但 `dayjs/plugin/utc` 没被包�
 // package.json
 {
   "dependencies": {
-    "@kkday/shared-types": "workspace:*"
+    "@youtu/shared-types": "workspace:*"
   }
 }
 ```
@@ -305,7 +305,7 @@ monorepo/
   └── pnpm-workspace.yaml
 ```
 
-`web-admin` 引用 `@kkday/admin-utils`，而 `admin-utils` 内部 import 了 `dayjs`。问题是 Vite 不会自动预构建 `admin-utils` 的间接依赖。
+`web-admin` 引用 `@youtu/admin-utils`，而 `admin-utils` 内部 import 了 `dayjs`。问题是 Vite 不会自动预构建 `admin-utils` 的间接依赖。
 
 ### 5.2 解法
 
@@ -320,7 +320,7 @@ export default defineConfig({
       'dayjs/plugin/timezone',
 
       // workspace 包本身如果包含 CJS 代码，也要加
-      '@kkday/admin-utils',
+      '@youtu/admin-utils',
     ],
   },
   resolve: {
@@ -354,7 +354,7 @@ function findWorkspaceDeps(workspaceDir) {
 
       for (const [name, version] of Object.entries(allDeps)) {
         // 排除 workspace 包和类型包
-        if (!name.startsWith('@kkday/') && !name.startsWith('@types/')) {
+        if (!name.startsWith('@youtu/') && !name.startsWith('@types/')) {
           deps.add(name)
         }
       }

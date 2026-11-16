@@ -17,7 +17,7 @@ description: "深入讲解 Laravel Observers 模型事件监听机制与审计�
 
 ## 背景：为什么需要 Observers？
 
-在 KKday B2C API 项目中，随着业务增长，Controller 和 Service Layer 里充斥着大量「模型保存后顺便写日志、发通知、清缓存」的代码。原本 3 行的 `update()` 调用，后面跟了 20 行 `if ($model->wasChanged('status')) { ... }` 的副效应逻辑。
+在悠途OTA B2C API 项目中，随着业务增长，Controller 和 Service Layer 里充斥着大量「模型保存后顺便写日志、发通知、清缓存」的代码。原本 3 行的 `update()` 调用，后面跟了 20 行 `if ($model->wasChanged('status')) { ... }` 的副效应逻辑。
 
 **核心痛点**：
 
@@ -601,6 +601,6 @@ Laravel Observers 是一个轻量但强大的工具，特别适合做模型级�
 
 ## 相关阅读
 
-- [Laravel Event-Listener 事件驱动架构 - 解耦订单处理](/2026/05/05/Laravel-Event-Listener-事件驱动架构-解耦订单处理-KKday-B2C-API-真实踩坑记录/) — Observer 适合单模型 CRUD 监听，Event & Listener 适合跨服务的业务流程编排，本文详解两者选型与踩坑。
+- [Laravel Event-Listener 事件驱动架构 - 解耦订单处理](/2026/05/05/Laravel-Event-Listener-事件驱动架构-解耦订单处理-youtu-ota-B2C-API-真实踩坑记录/) — Observer 适合单模型 CRUD 监听，Event & Listener 适合跨服务的业务流程编排，本文详解两者选型与踩坑。
 - [Laravel 日志实战：多通道、结构化、日志聚合与生产环境治理踩坑记录](/2026/05/05/Laravel-日志实战-多通道-结构化-日志聚合与生产环境治理踩坑记录/) — Observer 审计日志只是日志体系的一部分，本文覆盖 Laravel Logging 全链路：多通道配置、结构化 JSON、日志聚合与生产治理。
 - [Laravel Horizon 队列监控与生产环境运维实战](/2026/05/05/Laravel-Horizon-队列监控与生产环境运维实战-多队列优先级-指标采集与自动恢复踩坑记录/) — 审计日志异步写入依赖队列，Horizon 是监控队列健康的关键工具，本文详解多队列优先级配置与故障自动恢复。

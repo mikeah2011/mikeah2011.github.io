@@ -145,7 +145,7 @@
 - [Laravel 多租户 SaaS](/categories/PHP-Laravel/laravel-saas-guide/) - 共享库与独立库混合架构
 
 ### 可观测性
-- [kkday/log + monitor + tracing](/categories/PHP-Laravel/kkday-log-monitor-tracing-laravel/) - 日志聚合、指标采集与分布式追踪
+- [youtu/log + monitor + tracing](/categories/PHP-Laravel/youtu-ota-log-monitor-tracing-laravel/) - 日志聚合、指标采集与分布式追踪
 - [Laravel CQRS 实战](/categories/PHP-Laravel/laravel-cqrs-guide/) - 订单查询模型拆分与投影同步
 
 ### 工具与 IDE

@@ -58,9 +58,9 @@ Redis 在博客中的核心角色首先是缓存：用于商品详情、会话�
 
 - 相关页：[缓存策略](缓存策略.md)、[性能优化](性能优化.md)、[高可用架构](高可用架构.md)
 - 相关文章：
-  - [Redis 实战：缓存失效场景深度解析 - KKday B2C API 真实踩坑记录](/2026/06/01/redis-guide-cache/)
-  - [Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - KKday B2C API 真实踩坑记录](/2026/06/01/redis-cache-penetrationbreakdownavalanchedistributedlockguide/)
-  - [Redis 实战：缓存穿透/击穿/雪崩防护 - KKday B2C API 真实踩坑记录](/2026/06/01/redis-guidecache-penetrationbreakdownavalanche/)
+  - [Redis 实战：缓存失效场景深度解析 - 悠途OTA B2C API 真实踩坑记录](/2026/06/01/redis-guide-cache/)
+  - [Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - 悠途OTA B2C API 真实踩坑记录](/2026/06/01/redis-cache-penetrationbreakdownavalanchedistributedlockguide/)
+  - [Redis 实战：缓存穿透/击穿/雪崩防护 - 悠途OTA B2C API 真实踩坑记录](/2026/06/01/redis-guidecache-penetrationbreakdownavalanche/)
   - [Laravel B2C API 的 Redis 使用场景：会话/购物车/计次/全页缓存对比](/2026/06/01/redis-use-cases-cachevs/)
   - [Predis-Laravel-缓存实战-失效分布式锁性能调优](/2026/06/01/predis-laravel-cacheguide-distributedlock/)
   - [Redis缓存穿透](/2026/06/01/cache-penetration/)
@@ -77,9 +77,9 @@ Redis 在博客中的核心角色首先是缓存：用于商品详情、会话�
 
 - 相关页：[分布式锁](分布式锁.md)、[性能优化](性能优化.md)
 - 相关文章：
-  - [Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录](/2026/06/01/laravel-redis-distributedlockguide/)
+  - [Laravel Redis 分布式锁失效场景实战 - 悠途OTA B2C API 真实踩坑记录](/2026/06/01/laravel-redis-distributedlockguide/)
   - [Redis-Lua-脚本原子操作实战-分布式限流库存扣减排行榜-Laravel-B2C-API踩坑记录](/2026/06/01/redis-lua-guide-distributedrate-limiting/)
-  - [Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - KKday B2C API 真实踩坑记录](/2026/06/01/redis-cache-penetrationbreakdownavalanchedistributedlockguide/)
+  - [Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - 悠途OTA B2C API 真实踩坑记录](/2026/06/01/redis-cache-penetrationbreakdownavalanchedistributedlockguide/)
 
 ### 3. 特殊数据结构扩展了 Redis 的边界
 Redis 不只是缓存，还能处理 UV 统计、签到、地理位置、排行榜、队列与实时状态。

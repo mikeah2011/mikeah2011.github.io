@@ -127,15 +127,15 @@ macOS Docker Desktop 默认够用，无需额外调整。
 ```bash
 # 创建项目
 curl -u admin:your_new_password -X POST "http://localhost:9000/api/projects/create" \
-  -d "name=kkday-b2c-api" \
-  -d "project=kkday-b2c-api" \
+  -d "name=youtu-ota-b2c-api" \
+  -d "project=youtu-ota-b2c-api" \
   -d "mainBranch=main"
 
 # 生成 Token（用于 CI）
 curl -u admin:your_new_password -X POST "http://localhost:9000/api/user_tokens/generate" \
   -d "name=ci-token" \
   -d "type=PROJECT_ANALYSIS_TOKEN" \
-  -d "projectKey=kkday-b2c-api"
+  -d "projectKey=youtu-ota-b2c-api"
 ```
 
 ### 2.2 自定义 Quality Gate
@@ -195,8 +195,8 @@ curl -u admin:your_new_password -X POST "http://localhost:9000/api/qualitygates/
 
 ```properties
 # sonar-project.properties
-sonar.projectKey=kkday-b2c-api
-sonar.projectName=kkday-b2c-api
+sonar.projectKey=youtu-ota-b2c-api
+sonar.projectName=youtu-ota-b2c-api
 sonar.projectVersion=1.0
 
 # 源码目录
@@ -467,10 +467,10 @@ SONAR_PASS="your_password"
 QUALITY_GATE="Laravel-Strict"
 
 REPOS=(
-  "kkday-b2c-api"
-  "kkday-admin-api"
-  "kkday-payment-service"
-  "kkday-notification-service"
+  "youtu-ota-b2c-api"
+  "youtu-ota-admin-api"
+  "youtu-ota-payment-service"
+  "youtu-ota-notification-service"
   # ... 添加你的所有仓库
 )
 
@@ -549,7 +549,7 @@ def get_quality_gate_status(project_key):
     return resp.json().get("projectStatus", {})
 
 # 批量拉取
-projects = ["kkday-b2c-api", "kkday-admin-api", "kkday-payment-service"]
+projects = ["youtu-ota-b2c-api", "youtu-ota-admin-api", "youtu-ota-payment-service"]
 results = []
 
 for proj in projects:
@@ -627,7 +627,7 @@ print(json.dumps(results, indent=2))
 
 ```bash
 # 使用 GitHub CLI
-gh api repos/your-org/kkday-b2c-api/branches/main/protection \
+gh api repos/your-org/youtu-ota-b2c-api/branches/main/protection \
   -X PUT \
   -f '{
     "required_status_checks": {

@@ -7,19 +7,19 @@ date: 2026-05-05 01:31:05
 author: Michael
 updated: 2026-05-05 01:37:02
 categories: [php]
-tags: [KKday, Laravel, 前端]
+tags: [悠途OTA, Laravel, 前端]
 keywords: [Laravel, Firebase, Cloud, Messaging, Web, Push, Service, Worker, 推送通知实战, PHP]
-description: 在 KKday B2C 旅行平台落地 FCM Web Push 的完整方案：从 Firebase 项目配置、Service Worker 注册、Laravel 后端 topic 订阅与消息发送，到静默推送失效、Token 轮换、多端去重等真实踩坑记录。
+description: 在悠途OTA B2C 旅行平台落地 FCM Web Push 的完整方案：从 Firebase 项目配置、Service Worker 注册、Laravel 后端 topic 订阅与消息发送，到静默推送失效、Token 轮换、多端去重等真实踩坑记录。
 
 
 
 ---
 
-> 一句话总结：**Web Push 不是「注册 Service Worker + 调 sendNotification」就完事**——FCM Token 生命周期管理、Topic 订阅一致性、静默推送限制、多端去重每一步都有坑。本文是我在 KKday B2C 旅行平台落地 FCM Web Push 的完整复盘。
+> 一句话总结：**Web Push 不是「注册 Service Worker + 调 sendNotification」就完事**——FCM Token 生命周期管理、Topic 订阅一致性、静默推送限制、多端去重每一步都有坑。本文是我在悠途OTA B2C 旅行平台落地 FCM Web Push 的完整复盘。
 
 ## 1. 为什么选择 Firebase Cloud Messaging？
 
-在 KKday B2C 场景中，推送通知的需求非常明确：
+在悠途OTA B2C 场景中，推送通知的需求非常明确：
 
 - **订单状态变更**：用户下单成功、出票确认、行程变更提醒
 - **营销推送**：限时优惠、目的地降价通知
@@ -198,7 +198,7 @@ class PushController extends Controller
 
         // 踩坑点 #2: Topic 名称只能包含 [a-zA-Z0-9-_.~%]
         // 不能包含中文、空格、特殊字符
-        $topic = "kkday_{$validated['topic']}";
+        $topic = "youtu_{$validated['topic']}";
 
         $messaging->subscribeToTopic($topic, $validated['token']);
 
@@ -264,7 +264,7 @@ class PushNotificationService
         array  $data = [],
         array  $options = []
     ): array {
-        $topic = "kkday_{$topic}";
+        $topic = "youtu_{$topic}";
 
         // 推荐：使用 Data payload + Service Worker 自定义展示
         // 这样可以控制通知的 click_action、icon、tag 等
@@ -316,7 +316,7 @@ class PushNotificationService
 
         // 构建条件表达式: "'topic1' in topics || 'topic2' in topics"
         $conditions = collect($topics)
-            ->map(fn($t) => "'kkday_{$t}' in topics")
+            ->map(fn($t) => "'youtu_{$t}' in topics")
             ->implode(' || ');
 
         $message = CloudMessage::new()
@@ -469,7 +469,7 @@ const messaging = firebase.messaging();
 messaging.onBackgroundMessage((payload) => {
     console.log('[SW] Background message received:', payload);
 
-    const notificationTitle = payload.data.title || 'KKday 通知';
+    const notificationTitle = payload.data.title || 'youtu 通知';
     const notificationOptions = {
         body: payload.data.body || '',
         icon: payload.data.icon || '/images/logo-192.png',
@@ -713,12 +713,12 @@ class FcmMetrics
 
 ## 8. 总结
 
-在 KKday B2C 旅行平台落地 FCM Web Push 的关键经验：
+在 youtu B2C 旅行平台落地 FCM Web Push 的关键经验：
 
 1. **始终用 Data Payload**——Notification Payload 会让 SW 的 `onBackgroundMessage` 不触发
 2. **Token 生命周期管理是核心**——静默失效是推送不到的最大元凶
 3. **Safari/iOS 限制很大**——需要 PWA 模式、用户手势触发、不支持 actions
-4. **Topic 命名规范化**——加业务前缀（如 `kkday_order_update`），避免多项目冲突
+4. **Topic 命名规范化**——加业务前缀（如 `youtu_order_update`），避免多项目冲突
 5. **Tag 设计要用心**——`order_{id}_{status}` 让同订单状态变更合并显示，不同订单独立
 6. **开发环境先清 SW 缓存**——否则会怀疑人生
 

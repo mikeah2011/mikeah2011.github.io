@@ -7,9 +7,9 @@ date: 2026-05-16 19:40:32
 author: Michael
 updated: 2026-05-16 19:42:48
 categories: [php]
-tags: [KKday, Laravel]
+tags: [悠途OTA, Laravel]
 keywords: [GraphQL, Laravel Lighthouse, 与前端集成踩坑记录, PHP]
-description: "在 KKday B2C 项目中用 Laravel Lighthouse 落地 GraphQL 的完整实战：从 Schema 设计、N+1 治理、鉴权限流到 Subscription 实时推送，附带真实踩坑记录与架构决策。"
+description: "在悠途OTA B2C 项目中用 Laravel Lighthouse 落地 GraphQL 的完整实战：从 Schema 设计、N+1 治理、鉴权限流到 Subscription 实时推送，附带真实踩坑记录与架构决策。"
 
 
 
@@ -706,7 +706,7 @@ return [
 - ✅ **适合**：前端需要灵活查询、多端数据需求差异大、聚合多个数据源
 - ❌ **不适合**：简单的 CRUD、纯文件上传/下载、Server-to-Server 调用（不如 gRPC）
 
-在 KKday 项目中，我们最终采用的是**混合架构**：BFF 层同时暴露 REST（给简单场景和第三方）和 GraphQL（给前端复杂查询），用 Nginx 路由分流。这才是最务实的选择。
+在 youtu 项目中，我们最终采用的是**混合架构**：BFF 层同时暴露 REST（给简单场景和第三方）和 GraphQL（给前端复杂查询），用 Nginx 路由分流。这才是最务实的选择。
 
 ---
 

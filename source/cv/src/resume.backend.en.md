@@ -15,10 +15,10 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 **¥10B+** — GMV in 5 months, Apple China reseller platform  
 **17.5×** — H5 API throughput (200 → 3,500 TPS)  
 **25s → 2s** — Critical API p99 after major-outage response  
-**200%** — YoY growth, KKday affiliate business  
+**200%** — YoY growth, 悠途OTA affiliate business  
 **70%↓** — Affiliate platform API latency (120ms → 35ms)
 
-- **Transaction-systems depth**: top contributor and owner of KKday's affiliate marketing platform (200% YoY growth), and owner of the B2C core transaction flow spanning orders, payment callbacks and ticketing architecture
+- **Transaction-systems depth**: top contributor and owner of 悠途OTA's affiliate marketing platform (200% YoY growth), and owner of the B2C core transaction flow spanning orders, payment callbacks and ticketing architecture
 - **High concurrency & reliability**: led incident response on a large-scale outage (critical API p99 25s+ → <2s, 5xx held below 0.01%); raised H5 API throughput 17.5× on the Apple China reseller platform, reaching 12K TPS under load testing
 - **Cross-team technical influence**: authored 7 SA/SD documents that aligned four service teams (B2C/Order/MKT/Member) in a single review; established a "BFF-layer version compatibility + progressive app rollout" playbook now used across the team; served as Code Owner and PR gatekeeper on the affiliate platform
 
@@ -38,7 +38,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 
 ## Experience
 
-### KKday — Senior Backend Engineer
+### 悠途OTA — Senior Backend Engineer
 **2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
 A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → in H2 2026 focused on the technical implementation and monitoring dashboard for pre-purchase conversion (~80% of my time), while wrapping up and handing off the B2C core flow (~20%).
@@ -91,6 +91,6 @@ An e-commerce SaaS provider. Full-stack ownership of a multi-merchant commerce p
 
 ## Honors
 
-- KKday Employee of the Year (2023, 2024 — two consecutive years)
+- 悠途OTA Employee of the Year (2023, 2024 — two consecutive years)
 - Shopex Golden Tomato Award (2020)
 - Yuanfeng Technology Star (2016)

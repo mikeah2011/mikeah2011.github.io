@@ -29,7 +29,7 @@ description: Claude Code CLI 是 Anthropic 推出的命令行 AI 编程工具，
 
 Claude Code CLI（由 Anthropic 推出）是第一个让我觉得"它理解整个项目上下文"的终端 AI 工具。它不只是回答问题——它可以读文件、写文件、执行命令、跑测试，真正成为一个"坐在终端里的结对编程搭档"。
 
-这篇文章记录了我在 KKday B2C Backend 项目中深度使用 Claude Code CLI 三个月的实战经验，包含真实代码示例、架构决策、以及踩过的每一个坑。
+这篇文章记录了我在悠途OTA B2C Backend 项目中深度使用 Claude Code CLI 三个月的实战经验，包含真实代码示例、架构决策、以及踩过的每一个坑。
 
 ---
 
@@ -78,7 +78,7 @@ your-project/
 # CLAUDE.md 示例（Laravel B2C API 项目）
 
 ## 项目概述
-KKday B2C Backend API，Laravel 10 + PHP 8.2，服务全球旅游电商。
+youtu B2C Backend API，Laravel 10 + PHP 8.2，服务全球旅游电商。
 
 ## 技术栈
 - PHP 8.2 / Laravel 10

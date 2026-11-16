@@ -9,7 +9,7 @@ updated: 2026-05-16 22:48:11
 tags: [DevOps, Docker, Kubernetes, Laravel]
 keywords: [Docker, Volume, NFS, Laravel, 数据持久化备份恢复与, 挂载, 踩坑记录, DevOps]
 categories: [devops]
-description: 从本地开发到生产部署，Docker Volume 是数据持久化的核心基础设施。本文基于 KKday B2C 真实场景，深入实战 bind mount、named volume、tmpfs、NFS 挂载的选型与踩坑，覆盖 MySQL/Redis/文件存储的数据备份恢复策略，以及多节点共享存储的高可用方案。
+description: 从本地开发到生产部署，Docker Volume 是数据持久化的核心基础设施。本文基于悠途OTA B2C 真实场景，深入实战 bind mount、named volume、tmpfs、NFS 挂载的选型与踩坑，覆盖 MySQL/Redis/文件存储的数据备份恢复策略，以及多节点共享存储的高可用方案。
 
 
 
@@ -268,7 +268,7 @@ if [ $? -eq 0 ]; then
   echo "[$(date)] ✅ Backup successful: full_${DATE}.sql.gz"
   # 上传到 S3
   aws s3 cp "${BACKUP_DIR}/full_${DATE}.sql.gz" \
-    s3://kkday-backups/mysql/ \
+    s3://youtu-ota-backups/mysql/ \
     --storage-class STANDARD_IA
 else
   echo "[$(date)] ❌ Backup failed!" >&2
@@ -296,7 +296,7 @@ gunzip < /data/backups/mysql/full_20260516_020000.sql.gz | \
 # 3. 验证数据
 docker exec prod-mysql \
   mysql --user=root --password="${MYSQL_ROOT_PASSWORD}" \
-    -e "SELECT COUNT(*) FROM kkday.orders;"
+    -e "SELECT COUNT(*) FROM youtu.orders;"
 
 # 4. 重启应用
 docker-compose start php-fpm nginx

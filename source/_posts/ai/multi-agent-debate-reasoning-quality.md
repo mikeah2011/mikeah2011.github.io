@@ -342,12 +342,12 @@ readonly class DebateResult
 
 ## 实战场景：技术决策辩论
 
-以一个真实场景为例——**KKday B2C 项目中数据库读写分离方案选型**，对比 Single Agent 与 Multi-Agent Debate 的输出质量。
+以一个真实场景为例——**youtu B2C 项目中数据库读写分离方案选型**，对比 Single Agent 与 Multi-Agent Debate 的输出质量。
 
 ### 场景设定
 
 ```
-问题：KKday 搜索服务日均 5000 万次读请求，MySQL 主从复制延迟偶尔超过 2s，
+问题：youtu 搜索服务日均 5000 万次读请求，MySQL 主从复制延迟偶尔超过 2s，
 需要设计读写分离方案。请分析 Laravel 中的实现路径，对比以下方案：
 A. MySQL 原生主从 + Laravel Read/Write Connection
 B. ProxySQL 代理层 + Laravel 连接池
@@ -794,4 +794,4 @@ Multi-Agent Debate 不是银弹，但在特定场景下能显著提升推理质�
 4. 控制轮数（2-3 轮足够），更多轮次收益递减
 5. Judge 的系统提示要**强制明确立场**，否则会"和稀泥"
 
-Multi-Agent Debate 的本质是**用确定的成本换取更高的推理可靠性**。在 KKday 这样日均千万级请求的项目中，架构决策的错误代价远高于额外的 API 成本——这才是引入对抗式推理的最佳理由。
+Multi-Agent Debate 的本质是**用确定的成本换取更高的推理可靠性**。在 youtu 这样日均千万级请求的项目中，架构决策的错误代价远高于额外的 API 成本——这才是引入对抗式推理的最佳理由。

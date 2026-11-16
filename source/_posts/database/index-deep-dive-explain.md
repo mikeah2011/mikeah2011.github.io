@@ -1,10 +1,10 @@
 ---
 
-title: MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则 - KKday B2C API 真实踩坑记录
-keywords: [MySQL, EXPLAIN, KKday B2C API, 索引优化实战, 分析, 覆盖索引, 最左前缀原则, 真实踩坑记录]
+title: MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则 - 悠途OTA B2C API 真实踩坑记录
+keywords: [MySQL, EXPLAIN, 悠途OTA B2C API, 索引优化实战, 分析, 覆盖索引, 最左前缀原则, 真实踩坑记录]
 date: 2026-05-03
 author: Michael
-description: MySQL 索引深度优化实战指南，基于 KKday B2C API 真实踩坑记录，系统讲解 EXPLAIN 查询计划分析方法、覆盖索引设计策略、最左前缀原则应用技巧、索引失效三大典型场景避坑方案与慢查询治理完整解决方案。每个优化技巧均配有详细的 Before/After 代码对比、Docker Compose 一键复现测试环境与性能基准数据，帮助后端工程师全面掌握从全表扫描 type=ALL 到覆盖索引 Using index 的完整性能调优路径，实现查询速度提升 7 倍、P99 延迟降低 93%、CPU 使用率降低 82% 的显著优化效果。
+description: MySQL 索引深度优化实战指南，基于悠途OTA B2C API 真实踩坑记录，系统讲解 EXPLAIN 查询计划分析方法、覆盖索引设计策略、最左前缀原则应用技巧、索引失效三大典型场景避坑方案与慢查询治理完整解决方案。每个优化技巧均配有详细的 Before/After 代码对比、Docker Compose 一键复现测试环境与性能基准数据，帮助后端工程师全面掌握从全表扫描 type=ALL 到覆盖索引 Using index 的完整性能调优路径，实现查询速度提升 7 倍、P99 延迟降低 93%、CPU 使用率降低 82% 的显著优化效果。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-007-content-1.jpg
@@ -13,7 +13,7 @@ categories: [database]
 tags:
 - Laravel
 - MySQL
-简介: 'KKday B2C API 处理数万笔订单查询，MySQL 是核心数据源。本文基于真实踩坑记录分享索引优化实战经验：从 EXPLAIN 分析、覆盖索引应用、最左前缀原则到索引失效场景，每个技巧都配有
+简介: '悠途OTA B2C API 处理数万笔订单查询，MySQL 是核心数据源。本文基于真实踩坑记录分享索引优化实战经验：从 EXPLAIN 分析、覆盖索引应用、最左前缀原则到索引失效场景，每个技巧都配有
   Before/After 代码对比，配合 Docker Compose 环境一键复现测试案例。
 
   '
@@ -22,7 +22,7 @@ tags:
 
 ## 一、为什么 B2C API 需要 MySQL 索引优化？
 
-在 KKday B2C 项目中，我们的核心业务层每天处理 **50,000+ 订单查询**、**20,000+ 商品搜索请求** 与 **10,000+ 会员积分计算**。MySQL 是这些数据的主要存储引擎，任何一处索引设计不当都可能导致：
+在悠途OTA B2C 项目中，我们的核心业务层每天处理 **50,000+ 订单查询**、**20,000+ 商品搜索请求** 与 **10,000+ 会员积分计算**。MySQL 是这些数据的主要存储引擎，任何一处索引设计不当都可能导致：
 
 - **API 响应超时**：用户端 T+3s 的订单详情页加载 >5s
 - **数据库连接池耗尽**：长查询阻塞事务，等待 timeout=60s
@@ -45,7 +45,7 @@ tags:
 
 ### Before：优化前的 EXPLAIN 输出
 
-在 KKday B2C API 的订单查询接口中，我们最初是这样查询订单详情的：
+在 youtu B2C API 的订单查询接口中，我们最初是这样查询订单详情的：
 
 ```php
 // ❌ Before：单字段索引，全表扫描
@@ -117,7 +117,7 @@ mysql> EXPLAIN SELECT * FROM orders WHERE user_id = 50 AND status = 'PAID';
 
 ### 真实踩坑案例：联合索引使用误区
 
-在 KKday B2C API 的商品搜索表中，我们有一个经典的联合索引场景：
+在 youtu B2C API 的商品搜索表中，我们有一个经典的联合索引场景：
 
 ```sql
 -- 📦 表结构
@@ -198,7 +198,7 @@ mysql> EXPLAIN SELECT * FROM products WHERE category_id = 100 ORDER BY price LIM
 
 ### Before：回表查询的代价
 
-在 KKday B2C API 的商品详情页中，我们最初是这样查询的：
+在 youtu B2C API 的商品详情页中，我们最初是这样查询的：
 
 ```sql
 -- ❌ Before：SELECT * 导致回表
@@ -459,7 +459,7 @@ services:
       dockerfile: Dockerfile.before
     environment:
       - DB_HOST=mysql
-      - APP_NAME=KKday-B2C-Optimization-Test-Before
+      - APP_NAME=youtu-ota-B2C-Optimization-Test-Before
     depends_on:
       - mysql
   
@@ -469,7 +469,7 @@ services:
       dockerfile: Dockerfile.after
     environment:
       - DB_HOST=mysql
-      - APP_NAME=KKday-B2C-Optimization-Test-After
+      - APP_NAME=youtu-ota-B2C-Optimization-Test-After
     depends_on:
       - mysql
   
@@ -543,7 +543,7 @@ CMD ["php-fpm"]
 
 ```bash
 #!/bin/bash
-# KKday B2C API MySQL 索引自动优化脚本
+# youtu B2C API MySQL 索引自动优化脚本
 
 set -e
 
@@ -641,7 +641,7 @@ WHERE category_id = ? AND sub_category_id = ? AND brand_name = ?
 
 ## 八、性能数据对比
 
-在 KKday B2C API 的 Docker Compose 环境（php-fpm-8.0 + MySQL 8.0）上，优化前后的性能对比：
+在 youtu B2C API 的 Docker Compose 环境（php-fpm-8.0 + MySQL 8.0）上，优化前后的性能对比：
 
 | 指标 | Before | After | 提升 |
 |------|-------|-------|------|
@@ -653,7 +653,7 @@ WHERE category_id = ? AND sub_category_id = ? AND brand_name = ?
 
 ---
 
-## 九、附录：KKday B2C API 常用索引模式
+## 九、附录：youtu B2C API 常用索引模式
 
 ### 场景一：订单详情查询
 
@@ -704,7 +704,7 @@ WHERE user_id = ? AND created_at >= ?;
 2. **每月一次**：分析 slow query log 找出瓶颈
 3. **每季一次**：使用 `pt-online-schema-change` 或原生 ALTER TABLE 优化索引结构
 
-在 KKday B2C API 上，我们始终坚持 **性能优先** 的开发文化。每次上线都要问自己：**这个 SQL 真的高效吗？**
+在 youtu B2C API 上，我们始终坚持 **性能优先** 的开发文化。每次上线都要问自己：**这个 SQL 真的高效吗？**
 
 📋 **Commit 建议（繁体中文风格）**：
 ```sql
@@ -726,7 +726,7 @@ update orders 訂單總價計算邏輯優化-索引提升查詢效能從28k行�
 
 ---
 
-> 📝 **本文基于 KKday B2C API 真实项目经验，所有案例均可在 Docker Compose 环境复现。**
+> 📝 **本文基于 youtu B2C API 真实项目经验，所有案例均可在 Docker Compose 环境复现。**
 
 ## 相关阅读
 

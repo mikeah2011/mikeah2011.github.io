@@ -1,7 +1,7 @@
 ---
 
-title: CAP 定理论在 KKday B2C 微服务中的取舍与实战
-keywords: [CAP, KKday B2C, 定理论在, 微服务中的取舍与实战]
+title: CAP 定理论在悠途OTA B2C 微服务中的取舍与实战
+keywords: [CAP, 悠途OTA B2C, 定理论在, 微服务中的取舍与实战]
 date: 2026-05-03
 author: Michael
 categories: [architecture]
@@ -10,11 +10,11 @@ tags:
 - CAP
 - 分布式
 - 微服务
-- KKday
+- 悠途OTA
 - Laravel
 - Redis
 - MySQL
-description: 深入解析 CAP 定理在 KKday B2C 微服务架构中的实战取舍：涵盖订单创建 CP 模式、库存扣减 AP 模式、支付回调幂等性设计，附 PHP/Lua 代码示例与踩坑记录，助你掌握分布式系统一致性与高可用性的平衡之道
+description: 深入解析 CAP 定理在悠途OTA B2C 微服务架构中的实战取舍：涵盖订单创建 CP 模式、库存扣减 AP 模式、支付回调幂等性设计，附 PHP/Lua 代码示例与踩坑记录，助你掌握分布式系统一致性与高可用性的平衡之道
 cover: https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=630&fit=crop
 images:
 - /images/content/architecture-1-content-1.jpg
@@ -22,7 +22,7 @@ images:
 ---
 
 
-# CAP 定理论在 KKday B2C 微服务中的取舍与实战
+# CAP 定理论在悠途OTA B2C 微服务中的取舍与实战
 
 ## 一、CAP 定理回顾
 
@@ -47,11 +47,11 @@ images:
 
 ---
 
-## 二、KKday B2C API 架构概览
+## 二、youtu B2C API 架构概览
 
 ### 微服务拆分策略
 
-在 KKday 项目中，我们采用**领域驱动设计（DDD）**进行服务拆分：
+在 youtu 项目中，我们采用**领域驱动设计（DDD）**进行服务拆分：
 
 | 服务模块 | 数据敏感性 | CAP 选择 | 技术选型 |
 |---------|-----------|---------|---------|
@@ -62,7 +62,7 @@ images:
 | **行程推荐 (Trip)** | 低 | AP | Elasticsearch + Redis 缓存 |
 | **营销活动 (Promo)** | 中 | AP | RabbitMQ 延迟队列补偿 |
 
-![KKday 微服务架构概览](/images/content/architecture-1-content-1.jpg)
+![youtu 微服务架构概览](/images/content/architecture-1-content-1.jpg)
 
 ---
 
@@ -70,7 +70,7 @@ images:
 
 ### 业务痛点
 
-在 KKday B2C API 中，**订单服务是典型的 CP 系统**。曾经发生过以下问题：
+在 youtu B2C API 中，**订单服务是典型的 CP 系统**。曾经发生过以下问题：
 
 1. **超卖现象**：促销活动时库存扣减失败但用户已下单
 2. **状态不一致**：创建订单后查询返回空（网络分区）
@@ -360,7 +360,7 @@ private function generateCallbackSN(Request $request): string {
 
 ---
 
-## 七、分布式事务最佳实践（KKday 经验）
+## 七、分布式事务最佳实践（youtu 经验）
 
 ### Saga 模式：多步骤事务补偿
 
@@ -393,8 +393,8 @@ public function sagaCreateOrder(OrderDTO $dto): OrderSagaResult
 ### 最终一致性：Canal + MQ 同步
 
 ```yaml
-# KKday B2C API 生产环境配置 (.env.example)
-CANAL_COORDINATOR_HOST: canal.kkday.internal
+# youtu B2C API 生产环境配置 (.env.example)
+CANAL_COORDINATOR_HOST: canal.internal.youtu-ota.test
 CANAL_COORDINATOR_PORT: 9064
 SYNC_QUEUE_NAME: inventory_sync_queue
 SYNC_RETRY_TIMES: 3
@@ -415,7 +415,7 @@ SYNC_DEAD_LETTER_QUEUE: inventory_sync_dlq
 | **支付回调处理时间** | ~4s | ~200ms | **20x** |
 | **错误率（大促）** | 2.3% | 0.01% | **230x↓** |
 
-数据来源：**KKday B2C API 生产监控面板（Sentry + Prometheus）**
+数据来源：**youtu B2C API 生产监控面板（Sentry + Prometheus）**
 
 ---
 
@@ -465,7 +465,7 @@ $stream = new ConsumerGroup(['inventory_sync'], function (Message $m) {
 
 ## 十、总结与建议
 
-### CAP 定理取舍原则（KKday 团队经验）
+### CAP 定理取舍原则（youtu 团队经验）
 
 1. **核心账务**：选 CP，宁可不可用也不能出错  
    - 订单、支付、库存扣减 → 数据库强一致
@@ -506,7 +506,7 @@ $stream = new ConsumerGroup(['inventory_sync'], function (Message $m) {
 
 ---
 
-**©️ Michael's Blog · KKday B2C API Team · Last Updated: 2026-05-03
+**©️ Michael's Blog · youtu B2C API Team · Last Updated: 2026-05-03
 
 ---
 

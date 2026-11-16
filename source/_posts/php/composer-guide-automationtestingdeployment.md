@@ -13,14 +13,14 @@ tags:
 - DevOps
 - PHP
 - 自动化
-description: '在 30+ Laravel 仓库的日常维护中，Composer scripts 是最被低估的自动化利器。 本文基于 KKday B2C 后端团队真实项目经验，深入讲解 Composer 脚本的事件机制、 工具链编排、并行执行、CI/CD 集成，以及那些文档里不会告诉你的踩坑记录。 包含完整的项目脚本配置、自定义脚本类开发、多环境条件执行、GitHub Actions 与 Jenkins 集成方案， 附带 7 个真实踩坑案例与最佳实践清单，助你将开发团队 onboarding 时间从 30 分钟缩短到 5 分钟。
+description: '在 30+ Laravel 仓库的日常维护中，Composer scripts 是最被低估的自动化利器。 本文基于悠途OTA B2C 后端团队真实项目经验，深入讲解 Composer 脚本的事件机制、 工具链编排、并行执行、CI/CD 集成，以及那些文档里不会告诉你的踩坑记录。 包含完整的项目脚本配置、自定义脚本类开发、多环境条件执行、GitHub Actions 与 Jenkins 集成方案， 附带 7 个真实踩坑案例与最佳实践清单，助你将开发团队 onboarding 时间从 30 分钟缩短到 5 分钟。
 
   '
 ---
 
 # Composer 脚本实战：自动化构建、测试、部署流程踩坑记录
 
-> "为什么不直接写 Makefile？" —— 这是我刚加入 KKday 时问的第一个问题。
+> "为什么不直接写 Makefile？" —— 这是我刚加入悠途OTA时问的第一个问题。
 > 答案很简单：Composer scripts 无需额外依赖，与 PHP 生态天然融合，且 CI 环境零配置。
 
 ## 一、为什么选择 Composer Scripts？
@@ -126,7 +126,7 @@ Composer 提供了常用事件别名，让脚本更通用：
 
 ### 3.1 完整的项目脚本配置
 
-这是我们在 KKday B2C API 项目中实际使用的 `composer.json` scripts 配置：
+这是我们在 youtu B2C API 项目中实际使用的 `composer.json` scripts 配置：
 
 ```json
 {
@@ -540,7 +540,7 @@ class EnvironmentAware
 
 ```json
 {
-    "name": "kkday/b2c-api",
+    "name": "youtu/b2c-api",
     "scripts": {
         "// 引用共享配置包中的脚本",
         "cs:check": "@composer -- working-dir=../shared-scripts run-script cs:check",
@@ -553,7 +553,7 @@ class EnvironmentAware
         ]
     },
     "require-dev": {
-        "kkday/shared-scripts": "dev-main"
+        "youtu/shared-scripts": "dev-main"
     }
 }
 ```
@@ -619,7 +619,7 @@ Composer scripts 不是什么高深技术，但用好了能显著提升团队效
 3. **复用而非重复** —— CI 流水线直接调用 Composer scripts
 4. **文档即代码** —— `composer.json` 的 scripts 字段就是项目的操作手册
 
-> 💡 本文基于 KKday B2C 后端团队 30+ Laravel 仓库的真实经验，覆盖 CI/CD 集成、代码质量门禁、本地开发环境等场景。如有问题欢迎交流。
+> 💡 本文基于 youtu B2C 后端团队 30+ Laravel 仓库的真实经验，覆盖 CI/CD 集成、代码质量门禁、本地开发环境等场景。如有问题欢迎交流。
 
 ## 相关阅读
 

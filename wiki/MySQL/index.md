@@ -78,7 +78,7 @@
 
 ### 索引优化系列
 - [数据库索引优化实战-覆盖索引联合索引与索引下推](/categories/Databases/数据库索引优化实战-覆盖索引联合索引与索引下推-Laravel-B2C-API踩坑记录/) - Laravel B2C API 踩坑记录
-- [MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则](/categories/Databases/MySQL索引优化实战-EXPLAIN分析-覆盖索引-最左前缀原则/) - KKday B2C API 真实踩坑记录
+- [MySQL 索引优化实战：EXPLAIN 分析、覆盖索引、最左前缀原则](/categories/Databases/MySQL索引优化实战-EXPLAIN分析-覆盖索引-最左前缀原则/) - 悠途OTA B2C API 真实踩坑记录
 - [Laravel + MySQL 索引性能调研笔记](/categories/Databases/Laravel-MySQL-索引性能调研笔记/) - EXPLAIN 分析、覆盖索引、最左前缀原则
 
 ### 查询优化系列
@@ -121,7 +121,7 @@
 - [ShardingSphere-Proxy 分库分表实战](/categories/Databases/ShardingSphere-Proxy-分库分表实战/) - Laravel 订单中心按用户路由
 - [FerretDB 文档数据库实战](/categories/数据库/2026-06-07-FerretDB-实战-开源MongoDB替代/) - PostgreSQL 驱动的 MongoDB 替代
 - [Schema 迁移零停机 DDL 实战](/01_MySQL/2026-06-07-Schema-Migration-Zero-Downtime-gh-ost-pt-osc-Laravel/) - gh-ost vs pt-osc
-- [PostgreSQL vs MySQL 选型实战](/categories/Databases/PostgreSQL-vs-MySQL-选型实战/) - KKday Affiliate 选型
+- [PostgreSQL vs MySQL 选型实战](/categories/Databases/PostgreSQL-vs-MySQL-选型实战/) - 悠途OTA Affiliate 选型
 - [PlanetScale Serverless MySQL 实战](/2026/06/05/planetscale-serverless-mysql-laravel-vitess-workflow-benchmark/) - Vitess 驱动的无服务器数据库
 - [Migration-Free Schema Evolution 实战](/2026/06/05/Migration-Free-Schema-Evolution-实战-Atlas-Bytebase数据库Schema即代码-对比Laravel-Migrations的DDL管理新范式/) - Atlas/Bytebase Schema 即代码
 - [Neon Serverless PostgreSQL 实战](/2026/06/05/Neon-Serverless-PostgreSQL-实战-分支工作流与Laravel-开发体验/) - 分支工作流与 PR 级数据库 Review

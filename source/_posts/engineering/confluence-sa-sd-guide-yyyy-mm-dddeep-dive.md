@@ -8,15 +8,15 @@ date: 2026-05-05 02:26:04
 author: Michael
 updated: 2026-05-05 02:28:42
 categories: [engineering]
-tags: [KKday, 工程管理, 技术文档, Laravel]
-keywords: [KKday, 工程管理, 技术文档, Laravel, Confluence, SA, SD]
+tags: [悠途OTA, 工程管理, 技术文档, Laravel]
+keywords: [悠途OTA, 工程管理, 技术文档, Laravel, Confluence, SA, SD]
 description: >
 ---
-# Confluence `[SA/SD] YYYY-MM-DD {专案}` 模板实战：KKday B2C 团队的文档规范落地与真实案例
+# Confluence `[SA/SD] YYYY-MM-DD {专案}` 模板实战：悠途OTA B2C 团队的文档规范落地与真实案例
 
 ## 为什么需要 SA/SD 文档规范？
 
-在 KKday 的 B2C Backend Team，我们维护着 30+ 个 PHP/Laravel 仓库。新需求从 PM 的 PRD 到开发落地，中间最关键的一步就是 **SA/SD（System Analysis / System Design）** 文档。
+在悠途OTA的 B2C Backend Team，我们维护着 30+ 个 PHP/Laravel 仓库。新需求从 PM 的 PRD 到开发落地，中间最关键的一步就是 **SA/SD（System Analysis / System Design）** 文档。
 
 没有 SA/SD 规范之前，我们遇到的典型问题：
 

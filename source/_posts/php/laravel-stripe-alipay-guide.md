@@ -14,20 +14,20 @@ tags:
 - alipay
 - 支付
 - API
-description: Laravel Stripe 支付宝双通道跨境支付集成实战：涵盖 PaymentIntent 创建、Webhook 回调处理、IPN 异步通知、RSA2 签名验证、幂等性三重防护（数据库锁+唯一约束+缓存锁）、指数退避重试机制及竞态条件修复。适用于国际支付与跨境收款场景，来自 KKday B2C API 真实生产踩坑记录与完整代码示例。
+description: Laravel Stripe 支付宝双通道跨境支付集成实战：涵盖 PaymentIntent 创建、Webhook 回调处理、IPN 异步通知、RSA2 签名验证、幂等性三重防护（数据库锁+唯一约束+缓存锁）、指数退避重试机制及竞态条件修复。适用于国际支付与跨境收款场景，来自悠途OTA B2C API 真实生产踩坑记录与完整代码示例。
 ---
 
 
 # Laravel + Stripe + AliPay 双通道支付实现：回调处理、幂等性、重试机制
 
-> **适用场景**：KKday B2C API 双通道支付集成（Stripe + AliPay），包括回调处理、幂等性设计、失败订单重试等生产级实战经验。  
+> **适用场景**：悠途OTA B2C API 双通道支付集成（Stripe + AliPay），包括回调处理、幂等性设计、失败订单重试等生产级实战经验。  
 > **前置要求**：Laravel 8+，熟悉 Event/Queue/Transaction 基础用法。
 
 ---
 
-## 🎯 背景：KKday B2C API 的支付架构挑战
+## 🎯 背景：悠途OTA B2C API 的支付架构挑战
 
-在 KKday 项目中，我们需要对接多通道支付网关：**Stripe（国际卡） + AliPay（支付宝）**，面向台湾地区用户。由于 Stripe 和 AliPay 使用不同的 SDK、回调机制和状态模型，如何在同一个 Laravel 代码库中优雅地抽象、保证事务一致性和幂等性，是一个极具挑战性的问题。
+在悠途OTA项目中，我们需要对接多通道支付网关：**Stripe（国际卡） + AliPay（支付宝）**，面向台湾地区用户。由于 Stripe 和 AliPay 使用不同的 SDK、回调机制和状态模型，如何在同一个 Laravel 代码库中优雅地抽象、保证事务一致性和幂等性，是一个极具挑战性的问题。
 
 **核心痛点**：
 - Stripe 采用异步 `Webhook` + 状态机流转；
@@ -135,7 +135,7 @@ public function handle(PaymentReceived $event): void
 | 状态检查锁表 | `update where status='pending'` + 行锁 | 保证只更新一次 | 并发场景性能下降 |
 | 幂等表记录 | 自研幂等记录表 + UUID 键 | 可审计、可扩展 | 增加复杂度 |
 
-**KKday B2C API 采用「数据库唯一约束 + 状态检查」组合方案**：
+**youtu B2C API 采用「数据库唯一约束 + 状态检查」组合方案**：
 
 ```php
 // app/Models/PaymentOrder.php
@@ -186,7 +186,7 @@ class PaymentOrder extends Model
 
 ## 🔄 重试机制：失败订单的自动恢复
 
-支付网关网络抖动会导致回调丢失，我们需要**重试机制**。KKday B2C API 采用「事件队列」方式实现：
+支付网关网络抖动会导致回调丢失，我们需要**重试机制**。youtu B2C API 采用「事件队列」方式实现：
 
 ```php
 // app/Listeners/PaymentCallbackListener.php
@@ -252,7 +252,7 @@ return [
 
 ## 🏗️ Stripe PaymentIntent 创建全流程
 
-在 KKday B2C API 中，用户发起支付后首先在服务端创建 PaymentIntent，然后将 `client_secret` 返回给前端完成 3D Secure 或 SCA 认证。
+在 youtu B2C API 中，用户发起支付后首先在服务端创建 PaymentIntent，然后将 `client_secret` 返回给前端完成 3D Secure 或 SCA 认证。
 
 ### 完整的 PaymentIntent 创建流程
 
@@ -286,7 +286,7 @@ class StripePaymentService
         $params = [
             'amount'               => $this->convertToSmallestUnit($order->amount, $order->currency),
             'currency'             => strtolower($order->currency),
-            'description'          => "KKday Order #{$order->order_id}",
+            'description'          => "youtu Order #{$order->order_id}",
             'receipt_email'        => $order->user->email,
             'automatic_payment_methods' => [
                 'enabled' => true,
@@ -294,7 +294,7 @@ class StripePaymentService
             'metadata'             => [
                 'order_id'    => $order->order_id,
                 'user_id'     => $order->user_id,
-                'platform'    => 'kkday_b2c',
+                'platform'    => 'youtu_b2c',
             ],
         ];
 
@@ -424,7 +424,7 @@ class AliPayWapService
     public function createWapPayment(PaymentOrder $order): string
     {
         $bizContent = [
-            'subject'      => "KKday Order #{$order->order_id}",
+            'subject'      => "youtu Order #{$order->order_id}",
             'out_trade_no' => $order->order_id,
             'total_amount' => number_format($order->amount, 2, '.', ''),
             'product_code' => 'QUICK_WAP_WAY',  // H5 专用 product_code
@@ -577,7 +577,7 @@ class AliPayNotifyController extends Controller
 
 ## 🔁 指数退避重试机制实现
 
-支付网关回调偶尔会因网络抖动、DNS 解析超时等原因丢失。KKday B2C API 采用**指数退避（Exponential Backoff）**策略实现智能重试：
+支付网关回调偶尔会因网络抖动、DNS 解析超时等原因丢失。youtu B2C API 采用**指数退避（Exponential Backoff）**策略实现智能重试：
 
 ```php
 // app/Jobs/RetryPaymentCallbackJob.php
@@ -720,7 +720,7 @@ public function handle(PaymentReceived $event): void
 }
 ```
 
-> **为什么选择主动查询 + 被动回调双保险**：被动回调是首选，但网络不可靠。指数退避重试中主动调用支付网关查询接口，可以弥补回调丢失的情况。KKday B2C API 在生产中观察到约 2-3% 的回调丢失率，重试机制将最终一致性保障提升到 99.99%。
+> **为什么选择主动查询 + 被动回调双保险**：被动回调是首选，但网络不可靠。指数退避重试中主动调用支付网关查询接口，可以弥补回调丢失的情况。youtu B2C API 在生产中观察到约 2-3% 的回调丢失率，重试机制将最终一致性保障提升到 99.99%。
 
 ---
 
@@ -728,7 +728,7 @@ public function handle(PaymentReceived $event): void
 
 ### 事故现象
 
-2026-03-15 凌晨，KKday 台湾站出现多笔订单状态异常：用户已完成支付且收到支付宝扣款通知，但后台显示「待支付」。经排查发现是**支付回调竞态条件（Race Condition）**导致。
+2026-03-15 凌晨，youtu 台湾站出现多笔订单状态异常：用户已完成支付且收到支付宝扣款通知，但后台显示「待支付」。经排查发现是**支付回调竞态条件（Race Condition）**导致。
 
 ### 根因分析
 
@@ -858,7 +858,7 @@ class PaymentEvent extends Model
 | **多币种** | 支持 135+ 种货币 | 仅支持 CNY（跨境需汇率转换） |
 | **推荐方案** | Laravel Webhook Controller + Event + Job | IPN + Cron 对账任务 + 主动查询兜底 |
 
-> 💡 **关键结论**：Stripe 的 Webhook 机制成熟可靠，但需要验证签名并实现幂等性；AliPay 的 IPN 更依赖主动拉取和对账任务，需结合 MySQL 事务保证一致性。在 KKday B2C API 中，Stripe 承担国际卡支付（约占 60%），AliPay 承担中国大陆用户支付（约占 30%），剩余 10% 通过其他渠道处理。
+> 💡 **关键结论**：Stripe 的 Webhook 机制成熟可靠，但需要验证签名并实现幂等性；AliPay 的 IPN 更依赖主动拉取和对账任务，需结合 MySQL 事务保证一致性。在 youtu B2C API 中，Stripe 承担国际卡支付（约占 60%），AliPay 承担中国大陆用户支付（约占 30%），剩余 10% 通过其他渠道处理。
 
 ### 🐞 坑 1：Stripe Webhook 签名验证失败导致回调丢失
 
@@ -986,10 +986,10 @@ class AliPayIpnListener
 ## 相关阅读
 
 - [Stripe 支付 - 支付流程完整设计与高并发场景下的幂等性保障踩坑记录](/2026/05/04/stripe-high-concurrency/) — Stripe PaymentIntent 全流程、Webhook 签名验证、Idempotency-Key、3D Secure 超时与高并发连接池复用等核心方案
-- [Laravel 事务回滚边界控制 - KKday B2C-API 真实踩坑记录](/2026/05/02/laravel-transaction/) — 支付系统中 DB::transaction 嵌套事务、异步队列与数据库事务交互的踩坑经验
+- [Laravel 事务回滚边界控制 - youtu B2C-API 真实踩坑记录](/2026/05/02/laravel-transaction/) — 支付系统中 DB::transaction 嵌套事务、异步队列与数据库事务交互的踩坑经验
 - [Saga 编排模式深度实战：Choreography vs Orchestration vs Temporal](/2026/06/05/saga-orchestration-pattern-laravel-distributed-transaction/) — 支付系统中的分布式事务处理与 Saga 模式在 Laravel 中的落地实践
 
 ---
 
-**撰写时间**：2026-05-02（KKday RD B2C Backend Team）  
+**撰写时间**：2026-05-02（youtu RD B2C Backend Team）  
 **来源**：.writing-backlog.md → 支付集成实战

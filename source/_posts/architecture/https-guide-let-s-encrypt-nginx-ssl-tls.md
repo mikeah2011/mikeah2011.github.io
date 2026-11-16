@@ -19,7 +19,7 @@ description: 从零到 A+ 评级的 HTTPS 全链路实战。覆盖 Let's Encrypt
 
 ## 前言
 
-在 KKday B2C API 项目中，所有对外暴露的接口都必须走 HTTPS——这不是"最好有"，而是支付回调（Stripe/AliPay）的硬性要求、PCI DSS 合规的底线，也是 SEO 排名的基础信号。
+在悠途OTA B2C API 项目中，所有对外暴露的接口都必须走 HTTPS——这不是"最好有"，而是支付回调（Stripe/AliPay）的硬性要求、PCI DSS 合规的底线，也是 SEO 排名的基础信号。
 
 然而，"把 HTTP 变成 HTTPS"远不是装个证书就完事。我见过太多团队拿到 SSL Labs B 评级就算"搞定了"，直到浏览器因为 HSTS 缺失、证书链不完整、混合内容等问题弹出警告时才来救火。
 

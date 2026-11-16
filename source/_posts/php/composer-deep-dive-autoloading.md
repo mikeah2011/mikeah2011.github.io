@@ -19,7 +19,7 @@ description: Composer 是 PHP 生态的基石，但多数开发者只停留在 `
 
 Composer 是 PHP 生态的事实标准包管理器，但 90% 的开发者对它的理解停留在 `composer install/update/require`。当你的团队管理 30+ 个仓库、涉及内部共享包、CI 环境频繁出现 `composer install` 卡死或 `Class not found` 时，你就会意识到：不理解 Composer 的内部机制，就无法真正掌控 PHP 项目的依赖治理。
 
-本文从 KKday B2C Backend Team 30+ 仓库的真实运维经验出发，覆盖自动加载原理、依赖解析机制、插件开发、私有仓库搭建，以及 CI/CD 场景下的踩坑记录。
+本文从悠途OTA B2C Backend Team 30+ 仓库的真实运维经验出发，覆盖自动加载原理、依赖解析机制、插件开发、私有仓库搭建，以及 CI/CD 场景下的踩坑记录。
 
 ## 一、架构总览：Composer 的核心模块
 
@@ -95,7 +95,7 @@ public function findFile(string $class): string|false
         "psr-4": {
             "App\\": "app/",
             "App\\Models\\": "app/Models/",
-            "KKday\\Shared\\Auth\\": "packages/shared-auth/src/"
+            "youtu\\Shared\\Auth\\": "packages/shared-auth/src/"
         },
         "classmap": [
             "database/seeders",
@@ -222,7 +222,7 @@ composer install --no-dev --no-interaction --prefer-dist
 ```json
 // packages/composer-auto-setup/composer.json
 {
-    "name": "kkday/composer-auto-setup",
+    "name": "youtu/composer-auto-setup",
     "type": "composer-plugin",
     "require": {
         "php": "^8.1",
@@ -230,18 +230,18 @@ composer install --no-dev --no-interaction --prefer-dist
     },
     "autoload": {
         "psr-4": {
-            "KKday\\Composer\\AutoSetup\\": "src/"
+            "youtu\\Composer\\AutoSetup\\": "src/"
         }
     },
     "extra": {
-        "class": "KKday\\Composer\\AutoSetup\\AutoSetupPlugin"
+        "class": "youtu\\Composer\\AutoSetup\\AutoSetupPlugin"
     }
 }
 ```
 
 ```php
 // packages/composer-auto-setup/src/AutoSetupPlugin.php
-namespace KKday\Composer\AutoSetup;
+namespace youtu\Composer\AutoSetup;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;
@@ -290,7 +290,7 @@ class AutoSetupPlugin implements PluginInterface, EventSubscriberInterface
         $packageName = $package->getName();
 
         // 自动为内部包注册 Service Provider
-        if (str_starts_with($packageName, 'kkday/')) {
+        if (str_starts_with($packageName, 'youtu/')) {
             $this->registerServiceProvider($package);
         }
     }
@@ -325,8 +325,8 @@ class AutoSetupPlugin implements PluginInterface, EventSubscriberInterface
     private function getDeprecatedPackages(): array
     {
         return [
-            'kkday/old-auth-sdk',      // → 使用 kkday/shared-auth
-            'kkday/legacy-logger',     // → 使用 kkday/log
+            'youtu/old-auth-sdk',      // → 使用 youtu/shared-auth
+            'youtu/legacy-logger',     // → 使用 youtu/log
         ];
     }
 
@@ -362,7 +362,7 @@ class AutoSetupPlugin implements PluginInterface, EventSubscriberInterface
         }
     ],
     "require": {
-        "kkday/composer-auto-setup": "*"
+        "youtu/composer-auto-setup": "*"
     }
 }
 ```
@@ -376,20 +376,20 @@ Satis 是 Composer 官方提供的轻量级私有仓库方案，本质是一个�
 ```json
 // satis.json
 {
-    "name": "KKday Private Packages",
-    "homepage": "https://packages.kkday.com",
+    "name": "youtu Private Packages",
+    "homepage": "https://packages.youtu-ota.test",
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/kkday/shared-auth.git"
+            "url": "https://github.com/youtu/shared-auth.git"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/kkday/shared-utils.git"
+            "url": "https://github.com/youtu/shared-utils.git"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/kkday/shared-monitor.git"
+            "url": "https://github.com/youtu/shared-monitor.git"
         }
     ],
     "require-all": true,
@@ -419,12 +419,12 @@ php vendor/bin/satis-build satis.json public/
     "repositories": [
         {
             "type": "composer",
-            "url": "https://packages.kkday.com"
+            "url": "https://packages.youtu-ota.test"
         }
     ],
     "require": {
-        "kkday/shared-auth": "^2.0",
-        "kkday/shared-utils": "^1.5"
+        "youtu/shared-auth": "^2.0",
+        "youtu/shared-utils": "^1.5"
     }
 }
 ```
@@ -443,7 +443,7 @@ export COMPOSER_AUTH='{"github-oauth":{"github.com":"ghp_xxxxxxxxxxxx"}}'
 # 方式三：auth.json（项目级，加入 .gitignore）
 {
     "http-basic": {
-        "packages.kkday.com": {
+        "packages.youtu-ota.test": {
             "username": "deploy",
             "password": "satis-token-xxx"
         }

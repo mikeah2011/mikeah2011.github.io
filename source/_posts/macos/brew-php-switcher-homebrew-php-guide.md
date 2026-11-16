@@ -17,7 +17,7 @@ tags:
 - brew-php-switcher
 - 版本管理
 - Apple Silicon
-description: KKday 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.2/8.3 多版本共存的完整方案 | brew-php-switcher 与 Homebrew 原生方式对比 | 真实踩坑记录
+description: 悠途OTA 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.2/8.3 多版本共存的完整方案 | brew-php-switcher 与 Homebrew 原生方式对比 | 真实踩坑记录
 ---
 
 
@@ -25,7 +25,7 @@ description: KKday 30+ Laravel 仓库实战经验 | macOS 上 PHP 7.4/8.0/8.1/8.
 
 ## 前言：为什么需要多版本 PHP？
 
-在 KKday 的日常开发中，我同时维护着 30+ 个 Laravel 仓库。有的老项目还跑在 PHP 7.4 上（是的，2026 年了还有），新项目已经用到 PHP 8.3 的 `json_validate()` 和 Typed Class Constants。如果 macOS 上只装一个 PHP 版本，每次切项目就要改配置、重启服务，效率极低。
+在悠途OTA的日常开发中，我同时维护着 30+ 个 Laravel 仓库。有的老项目还跑在 PHP 7.4 上（是的，2026 年了还有），新项目已经用到 PHP 8.3 的 `json_validate()` 和 Typed Class Constants。如果 macOS 上只装一个 PHP 版本，每次切项目就要改配置、重启服务，效率极低。
 
 这篇文章记录了我在 Apple M 系列芯片 Mac 上使用 `brew-php-switcher` + Homebrew 管理多版本 PHP 的完整方案，以及踩过的每一个坑。
 

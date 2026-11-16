@@ -1,12 +1,12 @@
 ---
 
-title: MySQL 複雜查詢性能優化實戰 - KKday B2C API 多表 JOIN 與子查詢 EXPLAIN 聯合分析
-keywords: [MySQL, KKday B2C API, JOIN, EXPLAIN, 複雜查詢性能優化實戰, 多表, 與子查詢, 聯合分析, 数据库]
+title: MySQL 複雜查詢性能優化實戰 - 悠途OTA B2C API 多表 JOIN 與子查詢 EXPLAIN 聯合分析
+keywords: [MySQL, 悠途OTA B2C API, JOIN, EXPLAIN, 複雜查詢性能優化實戰, 多表, 與子查詢, 聯合分析, 数据库]
 date: 2026-05-03
 author: Michael
 categories: [database]
 tags:
-- KKday
+- 悠途OTA
 - MySQL
 - JOIN
 - 索引
@@ -14,7 +14,7 @@ tags:
 - 查询优化
 - 性能优化
 - B+Tree
-description: 基于KKday B2C API真实项目经验，详解MySQL多表JOIN查询优化、子查询转JOIN、覆盖索引设计与最左前缀原则。通过EXPLAIN执行计划深入分析type、key、rows字段，结合B+Tree索引底层原理，将慢查询从3.5s优化至0.045s，包含4个完整的MySQL性能优化实战案例与索引设计最佳实践。
+description: 基于悠途OTA B2C API真实项目经验，详解MySQL多表JOIN查询优化、子查询转JOIN、覆盖索引设计与最左前缀原则。通过EXPLAIN执行计划深入分析type、key、rows字段，结合B+Tree索引底层原理，将慢查询从3.5s优化至0.045s，包含4个完整的MySQL性能优化实战案例与索引设计最佳实践。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-019-content-1.jpg
@@ -24,12 +24,12 @@ images:
 
 # MySQL 複雜查詢性能優化實戰
 
-> **KKday B2C API 真實踩坑記錄**  
-> _2026-05-03_ · 作者：Michael (KKday RD B2C Backend Team)
+> **悠途OTA B2C API 真實踩坑記錄**  
+> _2026-05-03_ · 作者：Michael (悠途OTA RD B2C Backend Team)
 
 ## 📋 背景說明
 
-在 KKday B2C API 開發過程中，我們遇到了多個複雜查詢性能問題。特別是涉及訂單系統、用戶信息、商品數據的多表 JOIN，以及大量的子查詢場景。本文基於真實項目踩坑記錄，分享 MySQL 索引優化實戰經驗。
+在悠途OTA B2C API 開發過程中，我們遇到了多個複雜查詢性能問題。特別是涉及訂單系統、用戶信息、商品數據的多表 JOIN，以及大量的子查詢場景。本文基於真實項目踩坑記錄，分享 MySQL 索引優化實戰經驗。
 
 ![MySQL 多表 JOIN 性能優化](/images/content/databases-019-content-1.jpg)
 
@@ -48,7 +48,7 @@ images:
 ### ❌ 問題描述
 
 ```php
-// KKday B2C API - OrderController.php:32-45
+// youtu B2C API - OrderController.php:32-45
 public function show($orderId) 
 {
     // 原始查詢 - 執行時間：1.2s (慢查詢日誌記錄)
@@ -122,7 +122,7 @@ Before EXPLAIN 輸出：
 #### Step 1: 添加適當索引
 
 ```sql
--- KKday B2C API 數據庫：orders 表
+-- youtu B2C API 數據庫：orders 表
 ALTER TABLE orders 
   ADD INDEX idx_order_id_user_status (id, user_id, status);
 
@@ -139,7 +139,7 @@ CREATE INDEX idx_composite ON orders(id, created_at);
 #### Step 2: JOIN ON 子句明確化
 
 ```php
-// KKday B2C API - OrderController.php:32-50 (優化後)
+// youtu B2C API - OrderController.php:32-50 (優化後)
 public function show($orderId) 
 {
     // 優化後查詢 - 執行時間：0.045s ⬇️ 96%
@@ -203,7 +203,7 @@ graph TD
 ### ❌ 問題描述
 
 ```php
-// KKday B2C API - OrderStatsController.php:25-38
+// youtu B2C API - OrderStatsController.php:25-38
 public function getDailyStats() 
 {
     // 原始查詢 - 執行時間：3.5s
@@ -259,7 +259,7 @@ WHERE oi2.order_id IN (
 #### Step 1: 子查詢轉 JOIN
 
 ```php
-// KKday B2C API - OrderStatsController.php:25-38 (優化後)
+// youtu B2C API - OrderStatsController.php:25-38 (優化後)
 public function getDailyStats($days = 7) 
 {
     // 優化後查詢 - 執行時間：0.12s ⬇️ 96.6%
@@ -294,11 +294,11 @@ public function getDailyStats($days = 7)
 #### Step 2: 添加複合索引（日期範圍查詢優化）
 
 ```sql
--- KKday B2C API 數據庫 - orders 表複合索引
+-- youtu B2C API 數據庫 - orders 表複合索引
 ALTER TABLE orders 
   ADD INDEX idx_created_date_status (created_at, status);
 
--- KKday B2C API 數據庫 - order_items 表複合索引
+-- youtu B2C API 數據庫 - order_items 表複合索引
 ALTER TABLE order_items 
   ADD INDEX idx_created_date_order_id (created_at, order_id);
 
@@ -336,7 +336,7 @@ flowchart LR
 ### ❌ 問題描述
 
 ```php
-// KKday B2C API - ProductSearchController.php:18-30
+// youtu B2C API - ProductSearchController.php:18-30
 public function search($keyword, $categoryId = null) 
 {
     // 原始查詢 - 執行時間：0.8s，回表次數多
@@ -391,7 +391,7 @@ LIMIT 20 OFFSET 0;
 #### Step 1: 設計覆蓋索引（Covering Index）
 
 ```sql
--- KKday B2C API 數據庫 - products 表覆蓋索引設計
+-- youtu B2C API 數據庫 - products 表覆蓋索引設計
 CREATE INDEX idx_name_status_cover ON products(
     status, 
     name, 
@@ -446,7 +446,7 @@ graph TD
 ### ❌ 問題描述
 
 ```php
-// KKday B2C API - UserController.php:45-60
+// youtu B2C API - UserController.php:45-60
 public function searchUsers($keyword, $status = null, $ageRange = [18, 65]) 
 {
     // 原始查詢 - 執行時間：2.3s，索引未正確使用
@@ -495,7 +495,7 @@ ORDER BY age ASC;
 #### Step 1: 遵循最左前綴原則設計複合索引
 
 ```sql
--- KKday B2C API 數據庫 - users 表複合索引設計（最左前綴）
+-- youtu B2C API 數據庫 - users 表複合索引設計（最左前綴）
 CREATE INDEX idx_status_age_composite ON users(
     status, 
     age
@@ -529,7 +529,7 @@ CREATE INDEX idx_name_status_age ON users_virtual(
 #### Step 2: 查詢優化（遵循最左前綴）
 
 ```php
-// KKday B2C API - UserController.php:45-60 (優化後)
+// youtu B2C API - UserController.php:45-60 (優化後)
 public function searchUsers($keyword, $status = null, $ageRange = [18, 65]) 
 {
     // 優化後查詢 - 執行時間：0.12s ⬇️ 95%
@@ -565,7 +565,7 @@ graph TD
 
 ---
 
-## 📋 KKday B2C API 索引優化檢查清單
+## 📋 youtu B2C API 索引優化檢查清單
 
 ### 🔍 日常監控
 
@@ -644,7 +644,7 @@ flowchart LR
 
 ---
 
-*本文基於 KKday B2C API 真實項目經驗整理，內容持續更新中。  
+*本文基於 youtu B2C API 真實項目經驗整理，內容持續更新中。  
 如有問題或建議，請於 [GitHub Issues](../../..) 提出討論。*
 
 ## 相关阅读

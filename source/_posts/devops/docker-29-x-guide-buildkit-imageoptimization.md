@@ -21,7 +21,7 @@ description: Docker 29.x 将 BuildKit 设为默认构建引擎，本文基于 30
 
 Docker 29.x 是一个里程碑式的版本——BuildKit 从可选变成了默认构建引擎，`docker build` 命令直接使用 BuildKit，不再需要 `DOCKER_BUILDKIT=1` 环境变量。这意味着所有构建都自动享有并行构建、缓存挂载、secret 管理等高级特性。
 
-在 KKday B2C Backend Team 的 30+ 个 Laravel 仓库中，我们经历了从 `docker build` 到 BuildKit 的完整迁移。本文记录这个过程中的关键决策、踩坑记录和最终方案。
+在悠途OTA B2C Backend Team 的 30+ 个 Laravel 仓库中，我们经历了从 `docker build` 到 BuildKit 的完整迁移。本文记录这个过程中的关键决策、踩坑记录和最终方案。
 
 ## Docker 29.x 核心变化速览
 

@@ -22,13 +22,13 @@ tags:
 
 # OpenAPI-YAML 契约驱动：如何设计可测试可 Mock 的 Fake Response JSON
 
-> 在 KKday BFF 模式中，前后端联调常因真实接口未就绪而阻塞。本文分享如何用 OpenAPI YAML + Fake Response JSON 实现契约驱动开发，提升协作效率 30%+。
+> 在悠途OTA BFF 模式中，前后端联调常因真实接口未就绪而阻塞。本文分享如何用 OpenAPI YAML + Fake Response JSON 实现契约驱动开发，提升协作效率 30%+。
 
 ## 问题背景：前后端联调的「假死」困境
 
-在 KKday B2C API 项目中，BFF（Backend-for-Frontend）层需要聚合 Search、Recommend、Member 三个内部 Java 服务的数据。但真实情况是：**前端往往要提前 2-3 周开始 UI 开发**，而 Java 服务的开放接口和鉴权流程却卡在中后期才能就绪。
+在悠途OTA B2C API 项目中，BFF（Backend-for-Frontend）层需要聚合 Search、Recommend、Member 三个内部 Java 服务的数据。但真实情况是：**前端往往要提前 2-3 周开始 UI 开发**，而 Java 服务的开放接口和鉴权流程却卡在中后期才能就绪。
 
-没有真实的 API 接口，前端团队只能用「假数据」硬撑——手写 JSON、Postman Mock Server、甚至硬编码在 Vue/React 中。结果就是：数据结构不一致、字段命名冲突、联调时反复返工。根据 KKday 项目复盘数据，联调阶段平均返工率达到 40%，其中约 60% 的返工源于前后端对字段定义的理解偏差。
+没有真实的 API 接口，前端团队只能用「假数据」硬撑——手写 JSON、Postman Mock Server、甚至硬编码在 Vue/React 中。结果就是：数据结构不一致、字段命名冲突、联调时反复返工。根据悠途OTA项目复盘数据，联调阶段平均返工率达到 40%，其中约 60% 的返工源于前后端对字段定义的理解偏差。
 
 > 痛点总结：
 > - 前端拿不到可测试的真实接口（鉴权/环境未就绪）
@@ -72,7 +72,7 @@ OpenAPI Specification (Swagger) 的核心价值在于：**用 YAML 描述 API �
 2. **来源明确**：每个字段都标注真实 API 的来源（Search/Recommend/Member）
 3. **错误可复现**：包含典型错误码与消息（如 `404`、`401`、`500`）
 
-### KKday Search API 的 Fake Response 实战
+### 悠途OTA Search API 的 Fake Response 实战
 
 ### 完整的 OpenAPI YAML 示例
 
@@ -81,7 +81,7 @@ OpenAPI Specification (Swagger) 的核心价值在于：**用 YAML 描述 API �
 ```yaml
 openapi: 3.0.3
 info:
-  title: KKday B2C Search API
+  title: youtu B2C Search API
   version: 2.0.0
   description: BFF 层聚合搜索商品列表，数据来自 SearchService + RecommendService
 
@@ -345,8 +345,8 @@ OpenAPI YAML 编写 → Schema 验证 → Mock Server 启动 → 前端消费 Mo
         "currency": "TWD"
       },
       "images": [
-        "https://assets.kkday.com/images/sku/5551_01.jpg",
-        "https://assets.kkday.com/images/sku/5551_02.jpg"
+        "https://assets.youtu-ota.test/images/sku/5551_01.jpg",
+        "https://assets.youtu-ota.test/images/sku/5551_02.jpg"
       ],
       "stock": 9999,
       "tags": ["促销", "新品"],
@@ -369,8 +369,8 @@ OpenAPI YAML 编写 → Schema 验证 → Mock Server 启动 → 前端消费 Mo
         "currency": "TWD"
       },
       "images": [
-        "https://assets.kkday.com/images/sku/6002_01.jpg",
-        "https://assets.kkday.com/images/sku/6002_02.jpg"
+        "https://assets.youtu-ota.test/images/sku/6002_01.jpg",
+        "https://assets.youtu-ota.test/images/sku/6002_02.jpg"
       ],
       "stock": 45,
       "tags": ["推荐"],
@@ -453,7 +453,7 @@ protected $routeMiddleware = [
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "KKday Search API",
+    "title": "youtu Search API",
     "version": "2.0.0"
   },
   "paths": {
@@ -701,7 +701,7 @@ jobs:
 
 ### 推荐组合：Prism（后端） + MSW（前端）
 
-在 KKday BFF 项目中，我们最终采用了 **Prism + MSW** 的组合方案：
+在 youtu BFF 项目中，我们最终采用了 **Prism + MSW** 的组合方案：
 
 ```bash
 # 后端：用 Prism 从 OpenAPI YAML 启动 Mock Server
@@ -767,7 +767,7 @@ public function handle(Request $request, Closure $next)
         $request->merge([
             'user' => (object) [
                 'id' => 12345,
-                'email' => 'mock-user@kkday.com',
+                'email' => 'mock-user@youtu-ota.test',
                 'role' => 'member',
                 'permissions' => ['search:read', 'recommend:read'],
             ],
@@ -1110,12 +1110,12 @@ OpenAPI YAML + Fake Response JSON 的核心价值是：**把「真实接口」�
 5. **团队共识**：前端、后端、测试三方共同维护同一份 OpenAPI 规范，避免「各自为政」
 6. **定期清理**：每个迭代周期结束时，清理过期的 Mock 数据文件，避免「Mock 腐化」
 
-下一步可以考虑探索：**OpenAPI + Fake Response JSON + Cypress 的完整联调工作流**，在 KKday BFF 项目中已验证可提升前后端协作效率约 30%。
+下一步可以考虑探索：**OpenAPI + Fake Response JSON + Cypress 的完整联调工作流**，在 youtu BFF 项目中已验证可提升前后端协作效率约 30%。
 
 ## 相关阅读
 
 - [OpenAPI 3.0 实战：API 文档自动生成与代码生成——Laravel B2C API 踩坑记录](/architecture/openapi-3-0-guide-api/) — 从手写 OpenAPI YAML 到自动化生成文档与代码的完整实战，涵盖 Scribe/Stoplight Elements 文档渲染与 CI 集成。
-- [BFF-Laravel 中间层聚合实战](/architecture/bff-laravel/) — 以 KKday 真实项目为例，讲解如何用 Laravel 构建 BFF API 聚合层，统一调用 Java 微服务并实现多级缓存与降级策略。
+- [BFF-Laravel 中间层聚合实战](/architecture/bff-laravel/) — 以 youtu 真实项目为例，讲解如何用 Laravel 构建 BFF API 聚合层，统一调用 Java 微服务并实现多级缓存与降级策略。
 - [Contract-First API Development 实战：从 OpenAPI/AsyncAPI 规范生成代码](/categories/架构/Contract-First-API-Development-实战-从OpenAPI-AsyncAPI规范生成代码-Stoplight-Studio-oapi-codegen的设计优先工作流/) — 设计优先工作流：Stoplight Studio 可视化编辑 + oapi-codegen 代码生成 + oasdiff Breaking Change 检测 + Schemathesis 属性测试。
 - [API Mock 策略实战：WireMock/Mockoon/MSW 三层 Mock 体系](/categories/架构/2026-06-06-API-Mock-策略实战-WireMock-Mockoon-MSW-三层Mock体系/) — 从开发层 MSW 到联调层 Mockoon 到测试层 WireMock 的完整 Mock 策略，含环境变量路由与 CI 卡点配置。
 

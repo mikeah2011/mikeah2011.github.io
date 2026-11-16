@@ -16,7 +16,7 @@ keywords: [PHP, Trait, Enum, Laravel, 重构旧, 项目, 仓库的实战经验]
 
 ## 📌 文章摘要
 
-KKday BFF 团队在从 PHP 7.4 升级到 PHP 8.0 + Traits/Enum 重构旧 Laravel 项目的过程中，踩过不少坑。本文基于 **30+ 仓库** 的实战经验，系统梳理：
+悠途OTA BFF 团队在从 PHP 7.4 升级到 PHP 8.0 + Traits/Enum 重构旧 Laravel 项目的过程中，踩过不少坑。本文基于 **30+ 仓库** 的实战经验，系统梳理：
 
 - ✅ **Traits vs Enum** 何时用哪个？何时混用？
 - ✅ **魔术字符串消除实战**：如何用 Enum 替代硬编码
@@ -29,7 +29,7 @@ KKday BFF 团队在从 PHP 7.4 升级到 PHP 8.0 + Traits/Enum 重构旧 Laravel
 
 ## 🎯 背景：为什么需要重构？
 
-KKday BFF 项目曾是典型的「PHP 7.4 + 魔术字符串」版本。在 Search/Recommend/Membership 等多服务聚合场景下，问题逐渐暴露：
+悠途OTA BFF 项目曾是典型的「PHP 7.4 + 魔术字符串」版本。在 Search/Recommend/Membership 等多服务聚合场景下，问题逐渐暴露：
 
 | 痛点 | PHP 7.4 老代码示例 | 带来的问题 |
 |------|-------------------|-----------|
@@ -525,7 +525,7 @@ class PaypalService
 
 ## 📝 后记：关于"PHP 8.0 + Enum/Traits 是银弹吗？”
 
-**不是**。它们有明确的适用场景，而非万能药。在 KKday BFF 项目中，我们遵循的原则是：
+**不是**。它们有明确的适用场景，而非万能药。在 youtu BFF 项目中，我们遵循的原则是：
 
 > **1. 先解决类型安全问题（Union Types/Typed Properties）**
 > **2. 再消除魔术字符串（Enum）**
@@ -543,4 +543,4 @@ PHP 8.0 + Traits/Enum 是工具，不是银弹。关键在于：**用对的场�
 
 ---
 
-*本文基于 KKday RD B2C Backend Team 的实战经验，欢迎 Star & Fork 一起交流！*
+*本文基于 youtu RD B2C Backend Team 的实战经验，欢迎 Star & Fork 一起交流！*

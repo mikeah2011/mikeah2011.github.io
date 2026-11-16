@@ -1,12 +1,12 @@
 ---
 
-title: Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - KKday B2C API 真实踩坑记录
-keywords: [Redis, KKday B2C API, 缓存穿透, 击穿, 雪崩防护与分布式锁实战, 真实踩坑记录]
+title: Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - 悠途OTA B2C API 真实踩坑记录
+keywords: [Redis, 悠途OTA B2C API, 缓存穿透, 击穿, 雪崩防护与分布式锁实战, 真实踩坑记录]
 date: 2026-05-02
 author: Michael
 categories: [database]
 tags:
-- KKday
+- 悠途OTA
 - Redis
 - 缓存
 - 缓存穿透
@@ -16,7 +16,7 @@ tags:
 - 布隆过滤器
 - 高并发
 - PHP
-description: 基于 KKday B2C API 高并发真实踩坑记录，系统讲解 Redis 缓存穿透（布隆过滤器+空值缓存双层防护）、缓存击穿（互斥锁+随机TTL+逻辑过期）、缓存雪崩（分时段过期+随机TTL分散）三大经典问题的生产级解决方案，深入剖析 Redis 分布式锁失效场景与 RedLock 防护策略，含完整 PHP 8 代码实战与高并发架构最佳实践
+description: 基于悠途OTA B2C API 高并发真实踩坑记录，系统讲解 Redis 缓存穿透（布隆过滤器+空值缓存双层防护）、缓存击穿（互斥锁+随机TTL+逻辑过期）、缓存雪崩（分时段过期+随机TTL分散）三大经典问题的生产级解决方案，深入剖析 Redis 分布式锁失效场景与 RedLock 防护策略，含完整 PHP 8 代码实战与高并发架构最佳实践
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-redis-cache-shield-content-1.jpg
@@ -30,7 +30,7 @@ images:
 
 ## 📋 文章目录
 
-1. [问题背景：KKday B2C API 为什么需要 Redis](#-问题背景kkday-b2c-api-为什么需要redis)
+1. [问题背景：悠途OTA B2C API 为什么需要 Redis](#-问题背景youtu-ota-b2c-api-为什么需要redis)
 2. [缓存穿透：空数据也缓存？](#-缓存穿透空数据也缓存)
 3. [缓存击穿：热点 Key 突然过期](#-缓存击穿热点-key-突然过期)
 4. [缓存雪崩：大量 Key 同时失效](#-缓存雪崩大量-key-同时失效)
@@ -40,9 +40,9 @@ images:
 
 ---
 
-## 🔍 问题背景：KKday B2C API 为什么需要 Redis
+## 🔍 问题背景：悠途OTA B2C API 为什么需要 Redis
 
-在 KKday B2C API 项目中，我们面临以下挑战：
+在悠途OTA B2C API 项目中，我们面临以下挑战：
 
 - **高并发场景**：促销活动期间单接口 QPS 达到 5000+
 - **数据一致性**：订单状态、库存扣减需要强一致性
@@ -1170,7 +1170,7 @@ return [
             'database' => env('REDIS_DB', 0),
             'prefix' => env('REDIS_PREFIX', ''),
             'options' => [
-                'prefix' => 'kkday_b2c_', // 设置 Key 前缀
+                'prefix' => 'youtu_b2c_', // 设置 Key 前缀
                 'read_timeout' => 2,      // 连接超时
                 'write_timeout' => 5,     // 写操作超时
                 'retry_interval' => 100,   // 重试间隔 (ms)
@@ -1227,7 +1227,7 @@ if ($stats['used_memory'] > $memoryThreshold) {
 4. **释放时验证所有权，避免误删他人锁**
 5. **主从切换容灾：定期检查锁 Key 的存活状态**
 
-### ✅ KKday B2C API 实战建议
+### ✅ youtu B2C API 实战建议
 
 ```php
 /**
@@ -1264,7 +1264,7 @@ REDIS_DB=0
 
 ---
 
-*本文基于 KKday B2C API 真实项目踩坑记录整理，已应用于生产环境验证。*
+*本文基于 youtu B2C API 真实项目踩坑记录整理，已应用于生产环境验证。*
 
 ---
 
@@ -1272,7 +1272,7 @@ REDIS_DB=0
 
 - [穿透 & 雪崩 & 击穿：Redis 缓存三大问题全面对比与防护方案选型](/post/vs-penetrationavalanche/)
 - [Cache Stampede 防护深度实战：Lock + Probabilistic Early Expiration + Background Refresh 三重防御](/post/cache-stampede-lock-probabilistic-early-expiration-background-refresh-laravel/)
-- [Laravel Redis 分布式锁失效场景实战 - KKday B2C API 真实踩坑记录](/post/laravel-redis-distributedlockguide/)
+- [Laravel Redis 分布式锁失效场景实战 - youtu B2C API 真实踩坑记录](/post/laravel-redis-distributedlockguide/)
 - [Predis Laravel 缓存实战与分布式锁性能调优](/post/predis-laravel-cacheguide-distributedlock/)
 - [Laravel Task Scheduling 进阶实战：Redis 互斥实现多实例任务去重](/post/laravel-task-scheduling/)
 - [API 限流实战：滑动窗口、令牌桶算法 - Redis Lua 原子实现](/post/api-rate-limitingguide-rate-limiting/)

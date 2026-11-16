@@ -273,7 +273,7 @@ workflows:
 
 ```bash
 curl -X POST \
-  https://circleci.com/api/v2/project/gh/mikeah2011/kkday-b2c-api/pipeline \
+  https://circleci.com/api/v2/project/gh/mikeah2011/youtu-ota-b2c-api/pipeline \
   -H "Circle-Token: $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{

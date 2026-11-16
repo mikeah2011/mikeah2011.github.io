@@ -23,7 +23,7 @@ keywords: [PHPUnit, Beyond assertEquals, expect, mock, stub, 断言实战, 掌�
 
 ## 前言：为什么 assertEquals 远远不够？
 
-在 KKday B2C API 的 30+ 仓库中，我见过太多这样的测试：
+在悠途OTA B2C API 的 30+ 仓库中，我见过太多这样的测试：
 
 ```php
 public function test_create_order()
@@ -37,7 +37,7 @@ public function test_create_order()
 
 这种测试叫「Happy Path 测试」，它能告诉你「函数没报错」，但无法告诉你「函数做了该做的事」。在 B2C 订单场景下，这种测试形同虚设。
 
-本文基于我在 KKday B2C API 中的真实测试实践，讲解如何用 PHPUnit 的 `expect()`、Mock、Stub 构建有深度的断言。
+本文基于我在 youtu B2C API 中的真实测试实践，讲解如何用 PHPUnit 的 `expect()`、Mock、Stub 构建有深度的断言。
 
 ---
 
@@ -87,7 +87,7 @@ $this->assertEquals(1, true);   // 1 == true → pass（松散比较）
 $this->assertSame(1, true);     // 1 === true → fail（类型不同）
 ```
 
-**踩坑记录**：在 KKday 的订单金额计算中，有个 Service 返回的是字符串 `"0"`，`assertEquals(0, $result)` 通过了测试，但下游支付 SDK 需要的是 `int 0`。上线后支付回调解析失败。修复后我们强制规定：**所有金额、状态码的断言必须用 `assertSame`**。
+**踩坑记录**：在 youtu 的订单金额计算中，有个 Service 返回的是字符串 `"0"`，`assertEquals(0, $result)` 通过了测试，但下游支付 SDK 需要的是 `int 0`。上线后支付回调解析失败。修复后我们强制规定：**所有金额、状态码的断言必须用 `assertSame`**。
 
 ### 2.2 断言集合：assertArraySubset 的替代方案
 
@@ -95,11 +95,11 @@ PHPUnit 9 移除了 `assertArraySubset`，在 Laravel 项目中推荐这样替�
 
 ```php
 // ❌ 旧写法（PHPUnit 9+ 已移除）
-$this->assertArraySubset(['name' => 'KKday'], $response);
+$this->assertArraySubset(['name' => 'youtu'], $response);
 
 // ✅ 新写法：使用 Laravel 的 fluent JSON 断言
 $this->getJson('/api/products/1')
-    ->assertJsonFragment(['name' => 'KKday'])
+    ->assertJsonFragment(['name' => 'youtu'])
     ->assertJsonMissing(['internal_code' => 'SECRET_001']);
 ```
 
@@ -564,10 +564,10 @@ class OrderModelTest extends TestCase
     public function test_order_relationship_user(): void
     {
         $order = Order::factory()
-            ->for(User::factory()->create(['name' => 'KKday']))
+            ->for(User::factory()->create(['name' => 'youtu']))
             ->create();
 
-        $this->assertSame('KKday', $order->user->name);
+        $this->assertSame('youtu', $order->user->name);
     }
 
     public function test_order_soft_deletion(): void
@@ -657,7 +657,7 @@ class OrderJobChainTest extends TestCase
 
 ## 4A、测试策略与最佳实践
 
-在 Laravel B2C 项目中，测试不是越多越好，而是要覆盖关键路径。以下是我们在 KKday 30+ 仓库中总结的测试策略：
+在 Laravel B2C 项目中，测试不是越多越好，而是要覆盖关键路径。以下是我们在 youtu 30+ 仓库中总结的测试策略：
 
 ### 测试覆盖率的优先级金字塔
 
@@ -949,7 +949,7 @@ class CreateOrderServiceTest extends TestCase
             ))
             ->andReturn([
                 'status' => 'succeeded',
-                'transaction_id' => 'txn_KKday_20260505',
+                'transaction_id' => 'txn_Youtu_20260505',
             ]);
 
         $this->eventMock
@@ -968,7 +968,7 @@ class CreateOrderServiceTest extends TestCase
 
         // Assert 状态
         $this->assertSame('confirmed', $order->status);
-        $this->assertSame('txn_KKday_20260505', $order->transaction_id);
+        $this->assertSame('txn_Youtu_20260505', $order->transaction_id);
 
         // Assert 行为
         $this->inventoryMock->shouldHaveReceived('reserve')->once();
@@ -1168,7 +1168,7 @@ class OrderServiceTest extends TestCase
 | 参数类型匹配 | `Mockery::type('array')` | `->with(Mockery::type('string'))` |
 | HTTP 状态码 | `assertStatus($code)` | `$response->assertStatus(200)` |
 | JSON 结构 | `assertJsonStructure([...])` | `->assertJsonStructure(['data' => ['id']])` |
-| JSON 片段 | `assertJsonFragment([...])` | `->assertJsonFragment(['name' => 'KKday'])` |
+| JSON 片段 | `assertJsonFragment([...])` | `->assertJsonFragment(['name' => 'youtu'])` |
 | 事件被触发 | `Event::assertDispatched($class)` | `Event::assertDispatched(OrderCreatedEvent::class)` |
 | Job 被入队 | `Queue::assertPushed($class)` | `Queue::assertPushed(ProcessPaymentJob::class)` |
 | 邮件已发送 | `Mail::assertSent($class)` | `Mail::assertSent(OrderConfirmationMail::class)` |

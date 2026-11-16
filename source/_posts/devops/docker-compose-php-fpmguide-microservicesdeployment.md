@@ -1,5 +1,5 @@
 ---
-title: Docker Compose + PHP-FPM 实战：KKday B2C API 微服务部署经验
+title: Docker Compose + PHP-FPM 实战：悠途OTA B2C API 微服务部署经验
 cover: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop
@@ -7,18 +7,18 @@ date: 2026-05-02
 author: Michael
 categories: [devops]
 tags: [Docker, PHP, PHP-FPM, Docker Compose, 微服务, DevOps, Laravel, 容器化]
-keywords: [Docker Compose, PHP, FPM, KKday B2C API, 微服务部署经验, DevOps]
-description: 基于 KKday B2C API 真实项目的 Docker Compose + PHP-FPM 微服务部署实战指南。涵盖 Dockerfile 多阶段构建、健康检查与启动顺序配置、PHP-FPM 内存泄漏排查与 OPcache 调优、Composer 缓存污染治理等踩坑经验，适合 PHP 开发者掌握企业级 Docker 微服务部署全流程。
+keywords: [Docker Compose, PHP, FPM, 悠途OTA B2C API, 微服务部署经验, DevOps]
+description: 基于悠途OTA B2C API 真实项目的 Docker Compose + PHP-FPM 微服务部署实战指南。涵盖 Dockerfile 多阶段构建、健康检查与启动顺序配置、PHP-FPM 内存泄漏排查与 OPcache 调优、Composer 缓存污染治理等踩坑经验，适合 PHP 开发者掌握企业级 Docker 微服务部署全流程。
 
 
 
 ---
 
-# Docker Compose + PHP-FPM 实战：KKday B2C API 微服务部署经验
+# Docker Compose + PHP-FPM 实战：悠途OTA B2C API 微服务部署经验
 
 ## 📌 前言
 
-在 KKday B2C API 项目中，我们采用 **Docker Compose + PHP-FPM-8.0** 作为基础运行环境。本文将基于真实踩坑记录，分享微服务部署的完整实战经验。
+在悠途OTA B2C API 项目中，我们采用 **Docker Compose + PHP-FPM-8.0** 作为基础运行环境。本文将基于真实踩坑记录，分享微服务部署的完整实战经验。
 
 > 💡 **关键词**：`PHP 8.0` `Laravel BFF` `Docker Compose` `PHP-FPM` `微服务部署`
 
@@ -55,7 +55,7 @@ description: 基于 KKday B2C API 真实项目的 Docker Compose + PHP-FPM 微�
 
 | 方案 | 优点 | 缺点 | 适用场景 |
 |------|------|------|----------|
-| **PHP-FPM + Docker** | 生态完善、Laravel 原生支持 | 语言绑定强、需编译扩展 | ✅ **KKday 主选方案** |
+| **PHP-FPM + Docker** | 生态完善、Laravel 原生支持 | 语言绑定强、需编译扩展 | ✅ **youtu 主选方案** |
 | Node.js + Express | 前端技术栈统一、非阻塞 I/O | PHP 业务迁移成本高 | 前后端同团队 |
 | Python FastAPI | 数据科学友好、AI 集成方便 | Laravel 生态差异大 | AI 特色服务 |
 
@@ -63,7 +63,7 @@ description: 基于 KKday B2C API 真实项目的 Docker Compose + PHP-FPM 微�
 
 ## 💡 为什么选择 Docker Compose + PHP-FPM
 
-在 KKday B2C 项目的实际选型过程中，我们团队对比了多种部署方案，最终选择了 Docker Compose + PHP-FPM 的组合。核心原因如下：
+在 youtu B2C 项目的实际选型过程中，我们团队对比了多种部署方案，最终选择了 Docker Compose + PHP-FPM 的组合。核心原因如下：
 
 **第一，团队技术栈统一。** 我们的后端团队以 PHP/Laravel 为主力开发语言，PHP-FPM 是最成熟的 PHP 进程管理器，能够保证与现有代码库的完全兼容。相比迁移到 Go 或 Rust 等语言带来的重写成本，PHP-FPM 方案的落地风险最低。
 
@@ -73,11 +73,11 @@ description: 基于 KKday B2C API 真实项目的 Docker Compose + PHP-FPM 微�
 
 ### 我们的技术栈全景
 
-在 KKday B2C API 中，完整的容器化技术栈包括：
+在 youtu B2C API 中，完整的容器化技术栈包括：
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                      KKday B2C 技术栈全景                      │
+│                      youtu B2C 技术栈全景                      │
 ├──────────────────────────────────────────────────────────────┤
 │  前端层    │  Next.js (SSR) / Flutter (移动端)                  │
 │  网关层    │  Nginx (反向代理/限流/SSL 终止)                     │
@@ -97,7 +97,7 @@ description: 基于 KKday B2C API 真实项目的 Docker Compose + PHP-FPM 微�
 
 ## 🔧 微服务拆分策略与实践
 
-在 KKday B2C 项目中，微服务的拆分并非一步到位，而是经历了一个渐进式的演进过程。最初的单体 Laravel 应用承载了所有业务逻辑，包括订单管理、用户认证、支付处理、商品搜索、营销活动等模块。随着业务规模的增长，单体应用的部署频率和故障隔离能力逐渐成为瓶颈。
+在 youtu B2C 项目中，微服务的拆分并非一步到位，而是经历了一个渐进式的演进过程。最初的单体 Laravel 应用承载了所有业务逻辑，包括订单管理、用户认证、支付处理、商品搜索、营销活动等模块。随着业务规模的增长，单体应用的部署频率和故障隔离能力逐渐成为瓶颈。
 
 ### 第一步：按业务域拆分（Domain-Driven Design）
 
@@ -174,9 +174,9 @@ services:
         }
     ],
     "require": {
-        "kkday/shared-auth": "^2.0",
-        "kkday/shared-logger": "^1.5",
-        "kkday/shared-validation": "^1.0"
+        "youtu/shared-auth": "^2.0",
+        "youtu/shared-logger": "^1.5",
+        "youtu/shared-validation": "^1.0"
     }
 }
 ```
@@ -220,7 +220,7 @@ services:
       args:
         APP_ENV: production
         APP_DEBUG: false
-    container_name: kkday-api-01
+    container_name: youtu-ota-api-01
     restart: always
     volumes:
       - ./app/storage/logs:/var/log/www-data
@@ -245,7 +245,7 @@ services:
   # === MySQL (主数据库) ===
   db:
     image: mysql:8.0
-    container_name: kkday-mysql-01
+    container_name: youtu-ota-mysql-01
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -266,7 +266,7 @@ services:
   # === Redis (缓存/队列) ===
   redis:
     image: redis:7-alpine
-    container_name: kkday-redis-01
+    container_name: youtu-ota-redis-01
     restart: always
     command: redis-server --appendonly yes
     volumes:
@@ -277,7 +277,7 @@ services:
   # === PHP Adminer (管理界面) ===
   adminer:
     image: adminer:4.8
-    container_name: kkday-adminer-01
+    container_name: youtu-ota-adminer-01
     restart: always
     ports:
       - "8081:8080"
@@ -443,7 +443,7 @@ Nginx 与 PHP-FPM 容器之间的通信是部署中的关键环节。以下是�
 ```nginx
 server {
     listen 80;
-    server_name api.kkday.example.com;
+    server_name api.youtu.example.com;
 
     # 静态资源缓存
     location ~* \.(jpg|jpeg|png|gif|ico|css|js|woff2)$ {
@@ -485,7 +485,7 @@ server {
 
 ## ⚠️ 真实踩坑记录与解决方案
 
-在生产环境中部署 PHP-FPM 微服务，总会遇到各种意想不到的问题。以下是我们团队在 KKday 项目中遇到的四个高频踩坑场景，每个都附有完整的排查思路和解决方案。
+在生产环境中部署 PHP-FPM 微服务，总会遇到各种意想不到的问题。以下是我们团队在 youtu 项目中遇到的四个高频踩坑场景，每个都附有完整的排查思路和解决方案。
 
 ### 🐛 问题 1：服务启动顺序导致的数据库连接失败
 
@@ -593,7 +593,7 @@ autorestart=true
 
 ```bash
 # 1. 监控内存使用
-watch -n 5 'docker stats kkday-api-01 --no-stream | head -n1'
+watch -n 5 'docker stats youtu-ota-api-01 --no-stream | head -n1'
 
 # 2. 查看 PHP-FPM 错误日志
 tail -f /var/log/php-fpm.err.log
@@ -763,7 +763,7 @@ networks:
 
 ## 🔍 常见 Docker 构建问题排查指南
 
-在容器化部署过程中，Docker 构建阶段是问题最高发的环节。以下是我们在 KKday 项目中总结的常见构建错误及其排查方法：
+在容器化部署过程中，Docker 构建阶段是问题最高发的环节。以下是我们在 youtu 项目中总结的常见构建错误及其排查方法：
 
 ### 问题：Docker 镜像构建缓慢
 
@@ -838,7 +838,7 @@ services:
 
 ## 🔒 容器安全加固实战
 
-在 B2C 电商系统中，容器安全直接关系到用户数据和资金安全。以下是我们在 KKday 项目中实施的安全加固措施：
+在 B2C 电商系统中，容器安全直接关系到用户数据和资金安全。以下是我们在 youtu 项目中实施的安全加固措施：
 
 ### 1. 非 Root 用户运行容器
 
@@ -982,7 +982,7 @@ docker compose -f compose.yaml.prod \
 docker compose ps
 
 # 进入容器调试
-docker exec -it kkday-api-01 /bin/bash
+docker exec -it youtu-ota-api-01 /bin/bash
 
 # 重启特定服务
 docker compose restart api
@@ -1095,13 +1095,13 @@ CACHE_DRIVER=redis
 REDIS_HOST=redis
 REDIS_PORT=6379
 REDIS_PASSWORD=null
-REDIS_PREFIX=kkday_
+REDIS_PREFIX=youtu_
 REDIS_DATABASE=0
 ```
 
 ### 数据卷备份与恢复策略
 
-在生产环境中，数据库数据的持久化和备份是重中之重。以下是我们在 KKday 项目中使用的自动化备份方案：
+在生产环境中，数据库数据的持久化和备份是重中之重。以下是我们在 youtu 项目中使用的自动化备份方案：
 
 ```bash
 #!/bin/bash
@@ -1112,7 +1112,7 @@ BACKUP_DIR="/backup/mysql/$(date +%Y%m%d)"
 mkdir -p "$BACKUP_DIR"
 
 # 导出数据库
-docker exec kkday-mysql-01 mysqldump \
+docker exec youtu-ota-mysql-01 mysqldump \
     -u root \
     -p"${DB_PASSWORD}" \
     --single-transaction \
@@ -1131,8 +1131,8 @@ echo "备份完成: $BACKUP_DIR"
 
 ```bash
 # 从备份恢复数据库
-gunzip < /backup/mysql/20260501/kkday_api_143022.sql.gz \
-  | docker exec -i kkday-mysql-01 mysql \
+gunzip < /backup/mysql/20260501/youtu_api_143022.sql.gz \
+  | docker exec -i youtu-ota-mysql-01 mysql \
     -u root -p"${DB_PASSWORD}" "${DB_NAME}"
 ```
 
@@ -1173,7 +1173,7 @@ api:
 
 ### 4. Docker 日志排障实战
 
-在生产环境中，快速定位问题根源是运维效率的关键。以下是我们在 KKday 项目中常用的日志分析方法：
+在生产环境中，快速定位问题根源是运维效率的关键。以下是我们在 youtu 项目中常用的日志分析方法：
 
 **查看容器实时日志：**
 
@@ -1192,11 +1192,11 @@ docker compose logs --since=5m api
 
 ```bash
 # 统计 PHP-FPM 错误日志中的错误类型分布
-docker exec kkday-api-01 bash -c \
+docker exec youtu-ota-api-01 bash -c \
   "cat /var/log/php-fpm.err.log | grep -oP '\[\w+-\w+\]' | sort | uniq -c | sort -rn"
 
 # 查找最近的 OOM (Out of Memory) 记录
-docker exec kkday-api-01 bash -c \
+docker exec youtu-ota-api-01 bash -c \
   "grep -i 'oom\|out of memory\|killed process' /var/log/php-fpm.err.log | tail -20"
 
 # 分析请求响应时间（通过 Nginx access log）
@@ -1218,7 +1218,7 @@ docker stats --no-stream > "$DIAG_DIR/stats.txt"
 docker system df > "$DIAG_DIR/disk-usage.txt"
 
 # 导出 PHP-FPM 状态
-docker exec kkday-api-01 php-fpm -tt 2>&1 > "$DIAG_DIR/php-fpm-test.txt"
+docker exec youtu-ota-api-01 php-fpm -tt 2>&1 > "$DIAG_DIR/php-fpm-test.txt"
 
 tar czf "${DIAG_DIR}.tar.gz" "$DIAG_DIR"
 rm -rf "$DIAG_DIR"
@@ -1251,7 +1251,7 @@ echo "诊断信息已导出: ${DIAG_DIR}.tar.gz"
 # scripts/setup.sh - 新开发者环境初始化
 set -e
 
-echo "🚀 KKday B2C API 开发环境初始化"
+echo "🚀 youtu B2C API 开发环境初始化"
 
 # 1. 检查 Docker 是否运行
 if ! docker info > /dev/null 2>&1; then
@@ -1352,7 +1352,7 @@ services:
 
 ## 🚀 CI/CD 流水线与自动化部署
 
-在 KKday B2C 项目中，我们使用 GitHub Actions 实现了完整的 CI/CD 流水线。每次代码推送到主分支时，系统会自动执行构建、测试、镜像推送和生产部署的全流程。
+在 youtu B2C 项目中，我们使用 GitHub Actions 实现了完整的 CI/CD 流水线。每次代码推送到主分支时，系统会自动执行构建、测试、镜像推送和生产部署的全流程。
 
 ### GitHub Actions 工作流配置
 
@@ -1448,7 +1448,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /opt/kkday-api
+            cd /opt/youtu-ota-api
             docker compose pull
             docker compose up -d --remove-orphans
             docker compose exec api php artisan migrate --force
@@ -1469,7 +1469,7 @@ jobs:
 set -e
 
 echo "检查数据库连接..."
-docker exec kkday-mysql-01 mysqladmin ping -h localhost
+docker exec youtu-ota-mysql-01 mysqladmin ping -h localhost
 if [ $? -ne 0 ]; then
     echo "数据库连接失败，终止迁移"
     exit 1

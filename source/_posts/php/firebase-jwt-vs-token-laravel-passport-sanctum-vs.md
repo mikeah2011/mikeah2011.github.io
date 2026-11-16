@@ -9,7 +9,7 @@ updated: 2026-05-05 01:08:54
 categories: [php]
 tags: [Laravel, JWT, 认证, Sanctum, Passport, Firebase, 微服务]
 keywords: [Firebase JWT vs, Token, Laravel Passport, Sanctum, 自建, 的真实选型对比踩坑记录, PHP]
-description: "在 KKday B2C 微服务架构下，对比 Firebase JWT（第三方签发）与 Laravel Passport/Sanctum（自建 Token）的真实选型经验。涵盖 JWKS 旋转、RSA/ECDSA 算法选型、多服务 Token 验证、性能基准测试，以及我们从 Passport 迁移到 Sanctum + Firebase JWT 混合方案的完整踩坑记录。"
+description: "在悠途OTA B2C 微服务架构下，对比 Firebase JWT（第三方签发）与 Laravel Passport/Sanctum（自建 Token）的真实选型经验。涵盖 JWKS 旋转、RSA/ECDSA 算法选型、多服务 Token 验证、性能基准测试，以及我们从 Passport 迁移到 Sanctum + Firebase JWT 混合方案的完整踩坑记录。"
 
 
 
@@ -19,7 +19,7 @@ description: "在 KKday B2C 微服务架构下，对比 Firebase JWT（第三方
 
 ## 前言：为什么需要重新审视 Token 选型？
 
-在 KKday B2C 微服务架构演进过程中，我们面临一个核心问题：**当你的系统从单体 Laravel 应用拆分为 30+ 微服务后，认证方案该如何选择？**
+在悠途OTA B2C 微服务架构演进过程中，我们面临一个核心问题：**当你的系统从单体 Laravel 应用拆分为 30+ 微服务后，认证方案该如何选择？**
 
 最初的架构使用 Laravel Passport（OAuth2 + JWT），但随着服务间调用链变长、移动端接入增多、以及与 Firebase Auth 等第三方身份源的集成需求，我们逐渐发现单一方案无法覆盖所有场景。最终我们采用了 **Firebase JWT + Sanctum 混合方案**，这篇文章记录了这个决策过程中的真实踩坑。
 
@@ -178,7 +178,7 @@ php artisan passport:keys
 
 ### 3.1 为什么考虑 Firebase？
 
-在 KKday 的业务场景中，我们遇到了 Passport 无法优雅解决的问题：
+在 youtu 的业务场景中，我们遇到了 Passport 无法优雅解决的问题：
 
 1. **多端登录**：Web、iOS、Android、小程序，每个端的 Token 管理策略不同
 2. **第三方身份源**：Google、Facebook、Apple 登录，需要统一身份管理
@@ -367,8 +367,8 @@ Sanctum 的 SPA 模式依赖 Cookie + CSRF，但在 BFF 架构下跨域配置容
 return [
     'paths' => ['api/*', 'sanctum/csrf-cookie', 'login', 'logout'],
     'allowed_origins' => [
-        'https://admin.kkday.com',    // ❌ 不能用通配符
-        'https://www.kkday.com',
+        'https://admin.youtu-ota.test',    // ❌ 不能用通配符
+        'https://www.youtu-ota.test',
     ],
     'supports_credentials' => true,   // 必须为 true
 ];
@@ -511,7 +511,7 @@ class UnifiedAuthService
             }
 
             // 服务账号映射到特殊用户
-            return User::where('email', $decoded->service . '@internal.kkday.com')->first();
+            return User::where('email', $decoded->service . '@internal.youtu-ota.test')->first();
         } catch (\Exception $e) {
             return null;
         }
@@ -614,7 +614,7 @@ Web SPA（内部管理）     → Sanctum（Session + CSRF）
 
 ---
 
-*本文基于 KKday B2C Backend Team 真实项目经验，涉及的代码示例已脱敏处理。如有疑问或补充，欢迎在评论区交流。*
+*本文基于 youtu B2C Backend Team 真实项目经验，涉及的代码示例已脱敏处理。如有疑问或补充，欢迎在评论区交流。*
 
 ## 相关阅读
 

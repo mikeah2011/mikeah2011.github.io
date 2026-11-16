@@ -77,11 +77,11 @@ class: text-left
 
 <ul class="tiles">
   <li class="tile"><div class="v">13 yrs</div><div class="k">Backend engineering (OTA / e-commerce / MarTech)</div></li>
-  <li class="tile"><div class="v">3000+</div><div class="k">Commits to KKday’s core repositories (top contributor on both)</div></li>
+  <li class="tile"><div class="v">3000+</div><div class="k">Commits to 悠途OTA’s core repositories (top contributor on both)</div></li>
   <li class="tile"><div class="v">10+</div><div class="k">Global affiliate channels integrated (Google / Naver…)</div></li>
   <li class="tile"><div class="v">25s → 2s</div><div class="k">Critical API p99 after incident response</div></li>
   <li class="tile"><div class="v">+50%</div><div class="k">Conversion-rate target (as task-force lead)</div></li>
-  <li class="tile"><div class="v">2×</div><div class="k">KKday Employee of the Year (2023, 2024)</div></li>
+  <li class="tile"><div class="v">2×</div><div class="k">悠途OTA Employee of the Year (2023, 2024)</div></li>
 </ul>
 
 ---
@@ -96,7 +96,7 @@ class: text-left
 <ul class="timeline">
   <li><span class="t">2013 – 2017</span><span><span class="co">Yuanfeng Technology Group · Full-Stack</span><span class="what">Multi-merchant SaaS e-commerce (10,000+ merchants) · IM system (2M+ daily messages)</span></span></li>
   <li><span class="t">2017 – 2022</span><span><span class="co">Shopex · Lead Developer</span><span class="what">Apple China reseller platform (¥10B GMV in 5 months) · Golden Tomato Award</span></span></li>
-  <li class="now"><span class="t">2022 – 2026</span><span><span class="co">KKday · Senior Backend Engineer</span><span class="what">Affiliate platform owner → B2C transaction flow → Conversion task-force lead</span></span></li>
+  <li class="now"><span class="t">2022 – 2026</span><span><span class="co">悠途OTA · Senior Backend Engineer</span><span class="what">Affiliate platform owner → B2C transaction flow → Conversion task-force lead</span></span></li>
 </ul>
 
 ---
@@ -104,7 +104,7 @@ layout: default
 class: text-left
 ---
 
-<div class="eyebrow">KKDAY · 2022.11 – 2025.03</div>
+<div class="eyebrow">悠途OTA · 2022.11 – 2025.03</div>
 
 # Affiliate Marketing Platform Owner
 
@@ -122,7 +122,7 @@ layout: default
 class: text-left
 ---
 
-<div class="eyebrow">KKDAY · 2025.02 – 2026.08</div>
+<div class="eyebrow">悠途OTA · 2025.02 – 2026.08</div>
 
 # B2C Core Transaction Flow
 

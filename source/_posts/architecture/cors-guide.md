@@ -27,7 +27,7 @@ description: 深入解析CORS跨域资源共享的浏览器预检请求机制与
 
 > 前端同事发来截图：`Access to XMLHttpRequest at 'https://api.example.com/v2/orders' from origin 'https://www.example.com' has been blocked by CORS policy`，然后一句"后端改一下 CORS 配置就好了"甩过来。
 
-但 CORS 真的只是"加个 Header"这么简单吗？在 KKday B2C API 的 30+ 仓库中，我见过太多因为 CORS 配置不当导致的线上事故：**预检请求超时导致下单失败、Allow-Origin 设为 `*` 导致 Cookie 泄露、Nginx 和 Laravel 双重配置冲突导致 Header 重复**……
+但 CORS 真的只是"加个 Header"这么简单吗？在悠途OTA B2C API 的 30+ 仓库中，我见过太多因为 CORS 配置不当导致的线上事故：**预检请求超时导致下单失败、Allow-Origin 设为 `*` 导致 Cookie 泄露、Nginx 和 Laravel 双重配置冲突导致 Header 重复**……
 
 本文基于真实项目经验，从原理到实践，彻底讲透 CORS 在 Laravel B2C API 中的正确配置姿势。
 
@@ -35,16 +35,16 @@ description: 深入解析CORS跨域资源共享的浏览器预检请求机制与
 
 ### 为什么需要 CORS？
 
-浏览器的同源策略（Same-Origin Policy）限制了跨域请求。当你的前端页面在 `https://www.kkday.com`，API 在 `https://api.kkday.com`，虽然都是 `kkday.com`，但因为 scheme/port/host 三者不完全一致，就是跨域。
+浏览器的同源策略（Same-Origin Policy）限制了跨域请求。当你的前端页面在 `https://www.youtu-ota.test`，API 在 `https://api.youtu-ota.test`，虽然都是 `youtu-ota.test`，但因为 scheme/port/host 三者不完全一致，就是跨域。
 
 ```mermaid
 sequenceDiagram
-    participant Browser as 浏览器 (www.kkday.com)
-    participant API as API Server (api.kkday.com)
+    participant Browser as 浏览器 (www.youtu-ota.test)
+    participant API as API Server (api.youtu-ota.test)
 
     Note over Browser,API: 非简单请求 (PUT/DELETE/自定义Header)
     Browser->>API: OPTIONS /v2/orders (预检请求)
-    API-->>Browser: Access-Control-Allow-Origin: https://www.kkday.com
+    API-->>Browser: Access-Control-Allow-Origin: https://www.youtu-ota.test
     API-->>Browser: Access-Control-Allow-Methods: GET,POST,PUT,DELETE
     API-->>Browser: Access-Control-Allow-Headers: Content-Type,Authorization
     API-->>Browser: Access-Control-Max-Age: 86400
@@ -93,15 +93,15 @@ return [
     | 生产环境绝不能用 '*'，必须精确指定白名单
     */
     'allowed_origins' => [
-        'https://www.kkday.com',
-        'https://www.kkday.com.tw',
-        'https://m.kkday.com',          // 移动端
-        'https://admin.kkday.com',       // 管理后台
+        'https://www.youtu-ota.test',
+        'https://www.youtu-ota.test.tw',
+        'https://m.youtu-ota.test',          // 移动端
+        'https://admin.youtu-ota.test',       // 管理后台
     ],
 
     // 支持通配符子域名（谨慎使用）
     'allowed_origins_patterns' => [
-        '/^https:\/\/([a-z0-9-]+\.)?kkday\.com$/',
+        '/^https:\/\/([a-z0-9-]+\.)?youtu\.com$/',
     ],
 
     'allowed_methods' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
@@ -267,11 +267,11 @@ class CustomCorsMiddleware
 ```nginx
 server {
     listen 443 ssl;
-    server_name api.kkday.com;
+    server_name api.youtu-ota.test;
 
     # 定义允许的来源
     set $cors_origin "";
-    if ($http_origin ~* "^https://(www|m|admin)\.kkday\.com(\.(tw|jp))?$") {
+    if ($http_origin ~* "^https://(www|m|admin)\.youtu\.com(\.(tw|jp))?$") {
         set $cors_origin $http_origin;
     }
 
@@ -376,7 +376,7 @@ proxy_cache_key "$scheme$request_method$host$request_uri$http_origin";
 axios.defaults.withCredentials = true;
 
 // Fetch
-fetch('https://api.kkday.com/v2/orders', {
+fetch('https://api.youtu-ota.test/v2/orders', {
     credentials: 'include',
 });
 ```
@@ -389,7 +389,7 @@ return [
     'same_site' => 'none',   // 允许跨站发送
     'secure'   => true,       // 必须 HTTPS
     'http_only' => true,
-    'domain'   => '.kkday.com',  // 共享父域
+    'domain'   => '.youtu-ota.test',  // 共享父域
 ];
 ```
 
@@ -397,19 +397,19 @@ return [
 
 ```bash
 # 1. 模拟浏览器预检请求
-curl -i -X OPTIONS 'https://api.kkday.com/v2/orders' \
-  -H 'Origin: https://www.kkday.com' \
+curl -i -X OPTIONS 'https://api.youtu-ota.test/v2/orders' \
+  -H 'Origin: https://www.youtu-ota.test' \
   -H 'Access-Control-Request-Method: PUT' \
   -H 'Access-Control-Request-Headers: authorization,content-type'
 
 # 2. 检查实际请求是否带回暴露的 Header
-curl -i 'https://api.kkday.com/v2/orders/123' \
-  -H 'Origin: https://www.kkday.com' \
+curl -i 'https://api.youtu-ota.test/v2/orders/123' \
+  -H 'Origin: https://www.youtu-ota.test' \
   -H 'Authorization: Bearer demo-token'
 
 # 3. 快速确认响应是否按来源区分缓存
-curl -I 'https://api.kkday.com/v2/orders' -H 'Origin: https://www.kkday.com'
-curl -I 'https://api.kkday.com/v2/orders' -H 'Origin: https://staging.kkday.com'
+curl -I 'https://api.youtu-ota.test/v2/orders' -H 'Origin: https://www.youtu-ota.test'
+curl -I 'https://api.youtu-ota.test/v2/orders' -H 'Origin: https://staging.youtu-ota.test'
 ```
 
 ### 踩坑 4：多环境 Origin 管理混乱
@@ -420,10 +420,10 @@ curl -I 'https://api.kkday.com/v2/orders' -H 'Origin: https://staging.kkday.com'
 
 ```env
 # .env.production
-CORS_ALLOWED_ORIGINS=https://www.kkday.com,https://m.kkday.com
+CORS_ALLOWED_ORIGINS=https://www.youtu-ota.test,https://m.youtu-ota.test
 
 # .env.staging
-CORS_ALLOWED_ORIGINS=https://staging.kkday.com,http://localhost:3000
+CORS_ALLOWED_ORIGINS=https://staging.youtu-ota.test,http://localhost:3000
 
 # .env.local
 CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
@@ -445,7 +445,7 @@ CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
 'allowed_origins' => ['*'],
 
 // ✅ 安全：明确指定允许的来源
-'allowed_origins' => ['https://www.kkday.com'],
+'allowed_origins' => ['https://www.youtu-ota.test'],
 ```
 
 ### 2. 最小化 `allowed_headers`

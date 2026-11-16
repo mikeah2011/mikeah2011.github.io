@@ -25,7 +25,7 @@ description: Cursor、Claude Code、Hermes 三层 AI 协作架构的进阶实战
 
 上一篇文章我们建立了 Cursor + Claude Code + Hermes 的三层基础架构：编辑层、推理层、执行层。但当这套工作流在真实 Laravel B2C 仓库中跑了一个季度之后，新的问题开始浮现——**不是"能不能用"，而是"怎么用得更深、更稳、更能规模化"**。
 
-这篇文章聚焦四个进阶主题：MCP 如何统一三个工具的工具层、多 AI 协作中的上下文治理进阶、团队从个人到多人的扩展策略、以及成本在不同模型间的智能路由。所有配置和代码都来自真实仓库 `~/KKday/kkday-b2c-api` 和 `~/GitHub/mikeah2011.github.io` 的生产实践。
+这篇文章聚焦四个进阶主题：MCP 如何统一三个工具的工具层、多 AI 协作中的上下文治理进阶、团队从个人到多人的扩展策略、以及成本在不同模型间的智能路由。所有配置和代码都来自真实仓库 `~/youtu/youtu-ota-b2c-api` 和 `~/GitHub/mikeah2011.github.io` 的生产实践。
 
 <!-- more -->
 
@@ -117,11 +117,11 @@ Cursor 从 0.45+ 版本开始原生支持 MCP。配置文件位于 `.cursor/mcp.
     },
     "postgres": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://user:pass@localhost:5432/kkday_b2c"]
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://user:pass@localhost:5432/youtu_b2c"]
     },
     "filesystem": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/michael/KKday/kkday-b2c-api"]
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/michael/youtu/youtu-ota-b2c-api"]
     }
   }
 }
@@ -136,7 +136,7 @@ Claude Code 的 MCP 配置位于 `~/.claude/claude_desktop_config.json`（桌面
 ```bash
 # CLI 方式添加 MCP Server
 claude mcp add github -- npx -y @modelcontextprotocol/server-github
-claude mcp add postgres -- npx -y @modelcontextprotocol/server-postgres postgresql://user:pass@localhost:5432/kkday_b2c
+claude mcp add postgres -- npx -y @modelcontextprotocol/server-postgres postgresql://user:pass@localhost:5432/youtu_b2c
 
 # 查看已配置的 MCP Server
 claude mcp list
@@ -159,7 +159,7 @@ claude mcp list
       "args": ["-y", "@modelcontextprotocol/server-sentry"],
       "env": {
         "SENTRY_AUTH_TOKEN": "sntrys_xxxxxxxxxxxx",
-        "SENTRY_ORG": "kkday"
+        "SENTRY_ORG": "youtu"
       }
     }
   }
@@ -234,7 +234,7 @@ import sys
 from pathlib import Path
 from collections import deque
 
-ROOT = Path("/Users/michael/KKday/kkday-b2c-api")
+ROOT = Path("/Users/michael/youtu/youtu-ota-b2c-api")
 MAX_DEPTH = 3  # 最大依赖深度
 MAX_FILES = 15  # 最大文件数
 
@@ -424,7 +424,7 @@ def compress_php_file(file_path: Path) -> str:
 把所有 AI 工具的上下文规则抽到一个独立的 Git 仓库：
 
 ```
-kkday-ai-rules/
+youtu-ota-ai-rules/
 ├── CLAUDE.md                    # Claude Code 项目级规则
 ├── .cursorrules                 # Cursor 规则
 ├── hermes-persona.md            # Hermes 人格配置
@@ -447,8 +447,8 @@ kkday-ai-rules/
 
 ```bash
 # 在项目根目录
-ln -sf ~/kkday-ai-rules/CLAUDE.md ./CLAUDE.md
-ln -sf ~/kkday-ai-rules/.cursorrules ./.cursorrules
+ln -sf ~/youtu-ota-ai-rules/CLAUDE.md ./CLAUDE.md
+ln -sf ~/youtu-ota-ai-rules/.cursorrules ./.cursorrules
 ```
 
 这样所有人的 AI 工具读到的是同一份规则，消除了"三份规则三个版本"的问题。
@@ -515,7 +515,7 @@ jobs:
 
 ### 5.1 成本基准数据
 
-在深入优化之前，先看真实成本数据。以下是我在 `~/KKday/kkday-b2c-api` 仓库中一个月的 AI 工具使用统计：
+在深入优化之前，先看真实成本数据。以下是我在 `~/youtu/youtu-ota-b2c-api` 仓库中一个月的 AI 工具使用统计：
 
 | 工具 | 任务数 | 平均 Token/任务 | 模型 | 月费用 |
 |---|---:|---:|---|---:|
@@ -678,7 +678,7 @@ flowchart TD
 
 ### 6.1 场景一：跨仓库依赖升级影响分析
 
-当 `kkday/log` 包发布新版本时，需要分析对 30+ 个 Laravel 仓库的影响。这个任务不适合手动做，也不适合交给单一 AI：
+当 `youtu/log` 包发布新版本时，需要分析对 30+ 个 Laravel 仓库的影响。这个任务不适合手动做，也不适合交给单一 AI：
 
 ```python
 #!/usr/bin/env python3
@@ -691,12 +691,12 @@ import json
 from pathlib import Path
 
 REPOS = [
-    "~/KKday/kkday-b2c-api",
-    "~/KKday/kkday-member-api",
-    "~/KKday/kkday-order-api",
-    "~/KKday/kkday-search-api",
+    "~/youtu/youtu-ota-b2c-api",
+    "~/youtu/youtu-ota-member-api",
+    "~/youtu/youtu-ota-order-api",
+    "~/youtu/youtu-ota-search-api",
 ]
-PACKAGE = "kkday/log"
+PACKAGE = "youtu/log"
 NEW_VERSION = "2.5.0"
 
 def check_usage(repo_path: str, package: str) -> dict:
@@ -722,7 +722,7 @@ def check_usage(repo_path: str, package: str) -> dict:
         if "vendor" in str(php_file):
             continue
         text = php_file.read_text(encoding="utf-8", errors="ignore")
-        if "kkday\\log" in text.lower() or "kkday\\Log" in text:
+        if "youtu\\log" in text.lower() or "youtu\\Log" in text:
             usage_files.append(str(php_file.relative_to(path)))
     
     return {
@@ -780,7 +780,7 @@ import re
 from pathlib import Path
 from collections import Counter
 
-ROOT = Path("/Users/michael/KKday/kkday-b2c-api")
+ROOT = Path("/Users/michael/youtu/youtu-ota-b2c-api")
 
 # 技术债务标记模式
 PATTERNS = {

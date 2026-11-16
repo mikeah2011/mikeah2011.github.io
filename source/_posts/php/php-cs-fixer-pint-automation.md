@@ -25,7 +25,7 @@ description: 在 30+ 仓库的 Laravel B2C 项目中落地 PHP-CS-Fixer 和 Lara
 - `git blame` 被大量格式化 commit 污染，定位变更历史困难
 - 新人入职时不知道该遵循哪种风格，每个仓库各一套
 
-这篇文章记录了我们如何在 KKday B2C Backend Team 的 30+ Laravel 仓库中，从混乱走向统一的完整过程，包括工具选型、配置策略、CI 集成和踩过的每一个坑。
+这篇文章记录了我们如何在悠途OTA B2C Backend Team 的 30+ Laravel 仓库中，从混乱走向统一的完整过程，包括工具选型、配置策略、CI 集成和踩过的每一个坑。
 
 ---
 
@@ -417,9 +417,9 @@ echo $?  # 应该为 0
 30+ 仓库如果每个都维护一份 `pint.json`，规则漂移不可避免。我们的解法是**抽成 Composer 包**：
 
 ```json
-// kkday/coding-standards/composer.json
+// youtu/coding-standards/composer.json
 {
-    "name": "kkday/coding-standards",
+    "name": "youtu/coding-standards",
     "type": "library",
     "autoload": {
         "files": ["helpers.php"]
@@ -427,7 +427,7 @@ echo $?  # 应该为 0
     "extra": {
         "laravel": {
             "providers": [
-                "KKday\\CodingStandards\\PintServiceProvider"
+                "youtu\\CodingStandards\\PintServiceProvider"
             ]
         }
     }
@@ -435,12 +435,12 @@ echo $?  # 应该为 0
 ```
 
 ```php
-// kkday/coding-standards/src/PintServiceProvider.php
+// youtu/coding-standards/src/PintServiceProvider.php
 <?php
 
 declare(strict_types=1);
 
-namespace KKday\CodingStandards;
+namespace youtu\CodingStandards;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -457,7 +457,7 @@ class PintServiceProvider extends ServiceProvider
 
 ```bash
 # 每个仓库初始化时
-composer require kkday/coding-standards --dev
+composer require youtu/coding-standards --dev
 php artisan vendor:publish --tag=pint-config
 ```
 

@@ -31,7 +31,7 @@ class OrderController extends Controller
 
 这套方案运行了十多年，但本质问题始终存在：**注释不是代码**。IDE 无法静态检查、运行时需要正则解析、重构时容易遗漏。PHP 8.0 引入的 Attribute（属性注解）彻底改变了这个局面。
 
-在 KKday B2C Backend Team 的 30+ Laravel 仓库中，我们经历了从 Doctrine Annotations 到 PHP Native Attribute 的完整迁移。这篇文章记录整个过程中的架构决策、真实踩坑和最佳实践。
+在 youtu B2C Backend Team 的 30+ Laravel 仓库中，我们经历了从 Doctrine Annotations 到 PHP Native Attribute 的完整迁移。这篇文章记录整个过程中的架构决策、真实踩坑和最佳实践。
 
 ---
 
@@ -1555,6 +1555,6 @@ PHP Attribute 不是"语法糖"，它是元数据编程的范式转变。在 B2C
 
 ## 相关阅读
 
-- [API Rate Limiting - 接口限流实战 - KKday B2C API 真实踩坑记录](/categories/php/API/api-rate-limiting-rate-limitingguide/)
+- [API Rate Limiting - 接口限流实战 - youtu B2C API 真实踩坑记录](/categories/php/API/api-rate-limiting-rate-limitingguide/)
 - [PHP 8 + Trait/Enum 重构旧 Laravel 项目：30+ 仓库的实战经验](/categories/php/Laravel/php-8-trait-enum-laravel-30-guide/)
 - [PHP 8.2 readonly Classes 实战 — 不可变对象与值对象设计](/categories/php/Runtime/php-82-readonly-classes-guide/)

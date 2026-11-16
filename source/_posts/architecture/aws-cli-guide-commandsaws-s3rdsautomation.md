@@ -19,7 +19,7 @@ images:
 
 ## 前言：为什么不用 Console 而用 CLI？
 
-在 KKday B2C Backend Team，我们管理着 30+ 个 Laravel 项目的 AWS 基础设施。早期全靠 AWS Console 手动操作，直到某次深夜值班：
+在悠途OTA B2C Backend Team，我们管理着 30+ 个 Laravel 项目的 AWS 基础设施。早期全靠 AWS Console 手动操作，直到某次深夜值班：
 
 > 运维："Production 的 EC2 需要扩容，但我手边没有电脑。"
 > 我："用手机打开 Console？"
@@ -97,13 +97,13 @@ sudo installer -pkg AWSCLIV2.pkg -target /
 
 ```bash
 # 配置不同项目的 Profile
-aws configure --profile kkday-prod
+aws configure --profile youtu-ota-prod
 # AWS Access Key ID: AKIA...
 # AWS Secret Access Key: ****
 # Default region name: ap-southeast-1
 # Default output format: json
 
-aws configure --profile kkday-staging
+aws configure --profile youtu-ota-staging
 aws configure --profile affiliate-prod
 aws configure --profile personal
 ```
@@ -111,11 +111,11 @@ aws configure --profile personal
 配置文件结构（`~/.aws/config`）：
 
 ```ini
-[profile kkday-prod]
+[profile youtu-ota-prod]
 region = ap-southeast-1
 output = json
 
-[profile kkday-staging]
+[profile youtu-ota-staging]
 region = ap-southeast-1
 output = json
 
@@ -126,7 +126,7 @@ output = table
 
 **踩坑记录 #1：Profile 切换遗忘症**
 
-> 有一次在 `kkday-prod` Profile 下执行了 `aws s3 rm --recursive`，差点删掉生产数据。之后我养成了两个习惯：
+> 有一次在 `youtu-ota-prod` Profile 下执行了 `aws s3 rm --recursive`，差点删掉生产数据。之后我养成了两个习惯：
 >
 > 1. 终端 Prompt 显示当前 AWS Profile：
 > ```bash
@@ -141,8 +141,8 @@ output = table
 > 2. 危险操作前强制确认：
 > ```bash
 > # alias 到 ~/.zshrc
-> alias aws-prod='export AWS_PROFILE=kkday-prod && echo "⚠️ 已切换到 PRODUCTION"'
-> alias aws-staging='export AWS_PROFILE=kkday-staging && echo "✅ 已切换到 Staging"'
+> alias aws-prod='export AWS_PROFILE=youtu-ota-prod && echo "⚠️ 已切换到 PRODUCTION"'
+> alias aws-staging='export AWS_PROFILE=youtu-ota-staging && echo "✅ 已切换到 Staging"'
 > ```
 
 ---
@@ -176,7 +176,7 @@ aws ec2 describe-instances \
 # 批量重启指定 Tag 的实例
 
 TAG_KEY="Project"
-TAG_VALUE="kkday-api"
+TAG_VALUE="youtu-ota-api"
 ACTION=${1:-"status"}  # status | start | stop | restart
 
 get_instances() {
@@ -265,22 +265,22 @@ aws ec2 describe-security-group-rules \
 
 ```bash
 # 同步 Laravel 项目的 storage 到 S3（增量同步）
-aws s3 sync ./storage/app/uploads s3://kkday-assets/uploads \
+aws s3 sync ./storage/app/uploads s3://youtu-ota-assets/uploads \
   --exclude ".DS_Store" \
   --exclude "*.tmp" \
   --size-only \
-  --profile kkday-prod
+  --profile youtu-ota-prod
 
 # 反向同步：从 S3 拉取到本地（灾难恢复场景）
-aws s3 sync s3://kkday-assets/uploads ./storage/app/uploads \
-  --profile kkday-prod
+aws s3 sync s3://youtu-ota-assets/uploads ./storage/app/uploads \
+  --profile youtu-ota-prod
 
 # 带进度条的大文件上传
 aws s3 cp ./database-backup-20260517.sql.gz \
-  s3://kkday-backups/database/ \
+  s3://youtu-ota-backups/database/ \
   --storage-class STANDARD_IA \
   --expected-size $(stat -f%z ./database-backup-20260517.sql.gz) \
-  --profile kkday-prod
+  --profile youtu-ota-prod
 ```
 
 ### 3.2 生命周期策略管理
@@ -325,9 +325,9 @@ cat > /tmp/lifecycle.json << 'EOF'
 EOF
 
 aws s3api put-bucket-lifecycle-configuration \
-  --bucket kkday-backups \
+  --bucket youtu-ota-backups \
   --lifecycle-configuration file:///tmp/lifecycle.json \
-  --profile kkday-prod
+  --profile youtu-ota-prod
 ```
 
 ### 3.3 存储成本分析脚本
@@ -384,7 +384,7 @@ aws rds describe-db-instances \
 
 # 查看特定实例的详细信息
 aws rds describe-db-instances \
-  --db-instance-identifier kkday-mysql-prod \
+  --db-instance-identifier youtu-ota-mysql-prod \
   --query 'DBInstances[0].{
     Status: DBInstanceStatus,
     Engine: Engine,
@@ -406,10 +406,10 @@ aws rds describe-db-instances \
 # scripts/aws-rds-backup.sh
 # RDS 手动快照备份 + 旧快照清理
 
-DB_ID="kkday-mysql-prod"
+DB_ID="youtu-ota-mysql-prod"
 SNAPSHOT_ID="${DB_ID}-manual-$(date '+%Y%m%d-%H%M%S')"
 RETENTION_DAYS=30
-PROFILE="kkday-prod"
+PROFILE="youtu-ota-prod"
 
 echo "📸 创建 RDS 快照: $SNAPSHOT_ID"
 aws rds create-db-snapshot \
@@ -447,15 +447,15 @@ aws rds describe-db-snapshots \
 ```bash
 # 创建只读副本（用于报表查询）
 aws rds create-db-instance-read-replica \
-  --db-instance-identifier kkday-mysql-prod-read \
-  --source-db-instance-identifier kkday-mysql-prod \
+  --db-instance-identifier youtu-ota-mysql-prod-read \
+  --source-db-instance-identifier youtu-ota-mysql-prod \
   --db-instance-class db.r5.large \
   --availability-zone ap-southeast-1b \
-  --profile kkday-prod
+  --profile youtu-ota-prod
 
 # 查看复制延迟
 aws rds describe-db-instances \
-  --db-instance-identifier kkday-mysql-prod-read \
+  --db-instance-identifier youtu-ota-mysql-prod-read \
   --query 'DBInstances[0].StatusInfos' \
   --output json
 ```
@@ -466,11 +466,11 @@ aws rds describe-db-instances \
 > ```bash
 > # 将快照复制到 us-west-2 作为灾备
 > aws rds copy-db-snapshot \
->   --source-db-snapshot-identifier kkday-mysql-prod-manual-20260517 \
->   --target-db-snapshot-identifier kkday-mysql-prod-dr-20260517 \
+>   --source-db-snapshot-identifier youtu-ota-mysql-prod-manual-20260517 \
+>   --target-db-snapshot-identifier youtu-ota-mysql-prod-dr-20260517 \
 >   --source-region ap-southeast-1 \
 >   --kms-key-id alias/aws/rds \
->   --profile kkday-prod
+>   --profile youtu-ota-prod
 > ```
 > **注意**：跨区域复制需要 KMS 密钥权限，确保 IAM Policy 包含 `kms:CreateGrant` 和 `kms:DescribeKey`。
 
@@ -510,8 +510,8 @@ aws rds describe-db-instances \
         "s3:DeleteObject"
       ],
       "Resource": [
-        "arn:aws:s3:::kkday-assets",
-        "arn:aws:s3:::kkday-assets/*"
+        "arn:aws:s3:::youtu-ota-assets",
+        "arn:aws:s3:::youtu-ota-assets/*"
       ]
     },
     {
@@ -533,13 +533,13 @@ aws rds describe-db-instances \
 aws iam create-policy \
   --policy-name LaravelDeployPolicy \
   --policy-document file://laravel-deploy-policy.json \
-  --profile kkday-prod
+  --profile youtu-ota-prod
 
 # 附加到用户
 aws iam attach-user-policy \
   --user-name deploy-bot \
   --policy-arn arn:aws:iam::123456789012:policy/LaravelDeployPolicy \
-  --profile kkday-prod
+  --profile youtu-ota-prod
 ```
 
 ### 5.2 临时凭证（推荐用于 CI/CD）
@@ -555,7 +555,7 @@ aws sts assume-role \
 
 # 使用临时凭证操作
 AWS_ACCESS_KEY_ID=$AK AWS_SECRET_ACCESS_KEY=$SK AWS_SESSION_TOKEN=$TOKEN \
-  aws s3 sync ./public/build s3://kkday-assets/cdn/
+  aws s3 sync ./public/build s3://youtu-ota-assets/cdn/
 ```
 
 **踩坑记录 #5：IAM Policy 的 Resource 通配符**
@@ -573,7 +573,7 @@ AWS_ACCESS_KEY_ID=$AK AWS_SECRET_ACCESS_KEY=$SK AWS_SESSION_TOKEN=$TOKEN \
 # scripts/aws-pre-deploy-check.sh
 # 部署前检查所有依赖服务状态
 
-PROFILE=${AWS_PROFILE:-kkday-prod}
+PROFILE=${AWS_PROFILE:-youtu-ota-prod}
 ERRORS=0
 
 echo "🔍 部署前健康检查 — $(date '+%Y-%m-%d %H:%M:%S')"
@@ -583,7 +583,7 @@ echo "============================================"
 echo -n "📦 EC2 实例: "
 RUNNING=$(aws ec2 describe-instances \
   --filters "Name=instance-state-name,Values=running" \
-            "Name=tag:Project,Values=kkday-api" \
+            "Name=tag:Project,Values=youtu-ota-api" \
   --query 'Reservations[].Instances[].InstanceId' \
   --output text | wc -w | tr -d ' ')
 EXPECTED=3
@@ -597,7 +597,7 @@ fi
 # 检查 RDS 状态
 echo -n "🐘 RDS 状态: "
 RDS_STATUS=$(aws rds describe-db-instances \
-  --db-instance-identifier kkday-mysql-prod \
+  --db-instance-identifier youtu-ota-mysql-prod \
   --query 'DBInstances[0].DBInstanceStatus' --output text)
 if [[ $RDS_STATUS == "available" ]]; then
   echo "✅ $RDS_STATUS"
@@ -609,7 +609,7 @@ fi
 # 检查 ElastiCache
 echo -n "🔴 Redis 状态: "
 REDIS_STATUS=$(aws elasticache describe-cache-clusters \
-  --cache-cluster-id kkday-redis-prod \
+  --cache-cluster-id youtu-ota-redis-prod \
   --query 'CacheClusters[0].CacheClusterStatus' --output text 2>/dev/null)
 if [[ $REDIS_STATUS == "available" ]]; then
   echo "✅ $REDIS_STATUS"
@@ -633,9 +633,9 @@ fi
 # ~/.zshrc — AWS 环境快速切换
 aws-env() {
   case $1 in
-    prod)     export AWS_PROFILE=kkday-prod     && echo "🔴 Production" ;;
-    staging)  export AWS_PROFILE=kkday-staging   && echo "🟡 Staging" ;;
-    dev)      export AWS_PROFILE=kkday-dev       && echo "🟢 Development" ;;
+    prod)     export AWS_PROFILE=youtu-ota-prod     && echo "🔴 Production" ;;
+    staging)  export AWS_PROFILE=youtu-ota-staging   && echo "🟡 Staging" ;;
+    dev)      export AWS_PROFILE=youtu-ota-dev       && echo "🟢 Development" ;;
     affiliate) export AWS_PROFILE=affiliate-prod  && echo "🔵 Affiliate Prod" ;;
     *)        echo "用法: aws-env {prod|staging|dev|affiliate}" ;;
   esac

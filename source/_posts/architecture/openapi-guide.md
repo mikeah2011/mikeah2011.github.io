@@ -13,13 +13,13 @@ tags:
 - Laravel
 - OpenAPI
 - 架构
-description: 在 KKday B2C Backend Team 的 30+ 仓库实战中，我们逐步建立了 OpenAPI 文档驱动开发（DDD - Document-Driven Development）的完整工作流：从 PRD → OpenAPI YAML 契约设计 → Prism Mock Server 自动生成 → 前后端并行开发 → Pest Contract Test 契约校验 → GitHub Actions CI Gate 验证 → Scribe 文档发布。本文以 Laravel + PHP 8 为技术栈，详细讲解 OpenAPI YAML 目录拆分、Fake Response 手写校验、FormRequest/DTO 契约绑定、$ref 路径踩坑、nullable vs required 语义陷阱等 5 大真实生产事故案例，附完整的 CI 流水线配置与中小团队最小化落地 Checklist，帮助 API 设计者和后端工程师建立可维护、可测试、可 Mock 的文档驱动开发体系。
+description: 在悠途OTA B2C Backend Team 的 30+ 仓库实战中，我们逐步建立了 OpenAPI 文档驱动开发（DDD - Document-Driven Development）的完整工作流：从 PRD → OpenAPI YAML 契约设计 → Prism Mock Server 自动生成 → 前后端并行开发 → Pest Contract Test 契约校验 → GitHub Actions CI Gate 验证 → Scribe 文档发布。本文以 Laravel + PHP 8 为技术栈，详细讲解 OpenAPI YAML 目录拆分、Fake Response 手写校验、FormRequest/DTO 契约绑定、$ref 路径踩坑、nullable vs required 语义陷阱等 5 大真实生产事故案例，附完整的 CI 流水线配置与中小团队最小化落地 Checklist，帮助 API 设计者和后端工程师建立可维护、可测试、可 Mock 的文档驱动开发体系。
 ---
 
 
 ## 前言：为什么需要文档驱动开发？
 
-在 KKday B2C Backend Team，我们同时维护 30+ 个 Laravel 仓库，前端团队分布在不同城市。传统的「先写代码再补文档」模式导致了三个致命问题：
+在悠途OTA B2C Backend Team，我们同时维护 30+ 个 Laravel 仓库，前端团队分布在不同城市。传统的「先写代码再补文档」模式导致了三个致命问题：
 
 1. **接口返工率高**：前后端对字段含义理解不一致，联调才发现问题
 2. **文档腐化严重**：Swagger 注释与实际代码不同步
@@ -96,19 +96,19 @@ app/
 ```yaml
 openapi: 3.0.3
 info:
-  title: KKday B2C Order Service API
+  title: youtu B2C Order Service API
   version: 2.1.0
   description: |
-    KKday B2C 订单服务 API 文档。
+    youtu B2C 订单服务 API 文档。
     本文档为 **single source of truth**，所有代码和测试必须与此保持一致。
   contact:
     name: B2C Backend Team
-    email: b2c-backend@kkday.com
+    email: b2c-backend@youtu-ota.test
 
 servers:
-  - url: https://api-b2c.kkday.com/v2_1
+  - url: https://api-b2c.youtu-ota.test/v2_1
     description: Production
-  - url: https://api-b2c-staging.kkday.com/v2_1
+  - url: https://api-b2c-staging.youtu-ota.test/v2_1
     description: Staging
   - url: http://localhost:8080/api/v2_1
     description: Local Development
@@ -303,8 +303,8 @@ return [
         },
     ],
     // 关键：从 openapi.yaml 同步基础信息
-    'base_url' => 'https://api-b2c-staging.kkday.com',
-    'title' => 'KKday B2C Order Service API',
+    'base_url' => 'https://api-b2c-staging.youtu-ota.test',
+    'title' => 'youtu B2C Order Service API',
 ];
 ```
 
@@ -434,7 +434,7 @@ class OrderContractTest extends TestCase
             'date'       => now()->addDays(3)->format('Y-m-d'),
             'contact'    => [
                 'name'  => 'Michael',
-                'email' => 'michael@kkday.com',
+                'email' => 'michael@youtu-ota.test',
                 'phone' => '+886912345678',
             ],
         ]);
@@ -682,7 +682,7 @@ createdAt:
   example: '2026-05-05T09:15:36+08:00'
 ```
 
-在 KKday 面对多时区场景（台湾 UTC+8、日本 UTC+9、韩国 UTC+9），不带时区的 `date-time` 字段导致前端倒计时计算偏差 1-2 小时。
+在 youtu 面对多时区场景（台湾 UTC+8、日本 UTC+9、韩国 UTC+9），不带时区的 `date-time` 字段导致前端倒计时计算偏差 1-2 小时。
 
 ---
 

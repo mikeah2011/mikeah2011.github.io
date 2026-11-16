@@ -8,7 +8,7 @@ author: Michael
 categories: [architecture]
 tags: [Event Storming, DDD, 领域建模, Laravel, B2C, 电商]
 keywords: [Event Storming, 从业务事件到代码实现的领域建模方法论, 架构]
-description: "以 KKday B2C 电商真实项目为例，详解 Event Storming 事件风暴工作坊的完整流程与实战演练：从便签纸头脑风暴、领域事件提取、聚合根识别到 Laravel 代码落地，涵盖 DDD 领域建模、限界上下文、值对象、领域服务的完整实现。附 5 个真实踩坑案例、方案对比表和可运行代码示例，助你掌握从业务事件到代码架构的端到端方法论。"
+description: "以悠途OTA B2C 电商真实项目为例，详解 Event Storming 事件风暴工作坊的完整流程与实战演练：从便签纸头脑风暴、领域事件提取、聚合根识别到 Laravel 代码落地，涵盖 DDD 领域建模、限界上下文、值对象、领域服务的完整实现。附 5 个真实踩坑案例、方案对比表和可运行代码示例，助你掌握从业务事件到代码架构的端到端方法论。"
 ---
 
 
@@ -16,7 +16,7 @@ description: "以 KKday B2C 电商真实项目为例，详解 Event Storming 事
 
 在上一篇《DDD 领域驱动设计实战》中，我们聊了 DDD 的分层架构、聚合根、值对象在 Laravel 中的落地。但有一个关键问题没有深入：**你怎么知道领域模型该怎么设计？**
 
-在 KKday B2C 后端团队的真实经历中，我们遇到过这些痛点：
+在悠途OTA B2C 后端团队的真实经历中，我们遇到过这些痛点：
 
 - **产品经理说的「下单」和开发理解的「下单」完全不是一回事**：PM 关注的是用户体验流程，开发关注的是数据库事务，双方对不上
 - **领域专家（业务方）和技术团队之间存在巨大的知识鸿沟**：业务方不懂代码，开发不懂业务细节
@@ -25,7 +25,7 @@ description: "以 KKday B2C 电商真实项目为例，详解 Event Storming 事
 
 **Event Storming（事件风暴）** 就是解决这些问题的方法论。它是由 Alberto Brandolini 发明的一种**协作式领域建模工作坊**，通过橙色便签纸上的「领域事件」把业务方和技术方拉到同一张桌子上，用一种所有人都能理解的方式建模。
 
-**本文目标**：不讲理论空话，直接用 KKday B2C 电商的「旅游产品预订」场景，走一遍完整的 Event Storming 工作坊，然后把产出直接翻译成 Laravel 代码。
+**本文目标**：不讲理论空话，直接用悠途OTA B2C 电商的「旅游产品预订」场景，走一遍完整的 Event Storming 工作坊，然后把产出直接翻译成 Laravel 代码。
 
 ---
 
@@ -104,16 +104,16 @@ B2C 电商有三个特点让它特别适合 Event Storming：
 
 ## 三、实战代码（完整 Event Storming 工作坊演练）
 
-### 3.1 业务场景：KKday 旅游产品预订
+### 3.1 业务场景：youtu 旅游产品预订
 
 我们用一个真实的业务场景来走一遍 Event Storming：
 
-> **场景**：用户在 KKday 预订了一张「东京迪士尼门票」，选择了日期和人数，使用信用卡支付成功后，系统自动生成电子票券。
+> **场景**：用户在 youtu 预订了一张「东京迪士尼门票」，选择了日期和人数，使用信用卡支付成功后，系统自动生成电子票券。
 
 涉及的角色：
 - 👤 用户（Customer）
 - 🏪 商户（Merchant）：迪士尼官方
-- 🖥️ 系统（System）：KKday 平台
+- 🖥️ 系统（System）：youtu 平台
 - 👩‍💼 客服（CS）：处理异常
 
 ### 3.2 阶段一：Big Picture — 发现领域事件
@@ -1020,7 +1020,7 @@ class EloquentOrderRepository implements OrderRepositoryInterface
 
 ### 6.3 我们的真实收益
 
-在 KKday B2C 项目中引入 Event Storming 后：
+在 youtu B2C 项目中引入 Event Storming 后：
 
 - **需求理解偏差减少 60%**：因为大家在工作坊中就对齐了
 - **跨团队接口联调时间缩短 40%**：因为聚合边界清晰，接口定义明确

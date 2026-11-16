@@ -344,7 +344,7 @@ Wujie 的 iframe 方案天然支持 URL 同步——iframe 的 `location` 变化
 
 ## 实战：Laravel 项目接入微前端
 
-KKday 的典型场景是主应用（Vue 3 + Vite）管理全局布局和导航，子应用（PHP 渲染的页面 + Vue/React 局部组件）嵌入主应用。
+youtu 的典型场景是主应用（Vue 3 + Vite）管理全局布局和导航，子应用（PHP 渲染的页面 + Vue/React 局部组件）嵌入主应用。
 
 ### qiankun 接入示例
 

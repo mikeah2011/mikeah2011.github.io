@@ -69,11 +69,11 @@ images:
 ~/Documents/ObsidianVault/
 ├── 00-Inbox/                    # 快速收集，未整理的内容
 ├── 01-Projects/                 # 按项目分目录
-│   ├── kkday-b2c-api/
+│   ├── youtu-ota-b2c-api/
 │   │   ├── architecture.md
 │   │   ├── api-design.md
 │   │   └── troubleshooting.md
-│   ├── kkday-affiliate/
+│   ├── youtu-ota-affiliate/
 │   └── qilemax-shop/
 ├── 02-Areas/                    # 长期关注领域
 │   ├── Laravel/
@@ -164,7 +164,7 @@ LIMIT 20
 ````markdown
 ```dataview
 TABLE status AS "状态", priority AS "优先级"
-FROM "01-Projects/kkday-b2c-api"
+FROM "01-Projects/youtu-ota-b2c-api"
 WHERE status != "archived"
 SORT priority ASC
 ```

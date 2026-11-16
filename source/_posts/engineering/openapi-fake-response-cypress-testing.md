@@ -16,7 +16,7 @@ tags:
 - Cypress
 - 契约测试
 - API Mock
-description: KKday B2C 后端实战经验：基于 OpenAPI YAML 契约驱动开发，通过 Prism/Mockoon 自动生成 Fake Response JSON，结合 Cypress + Ajv 实现前后端契约测试的完整工作流。涵盖 30+ Laravel 仓库的真实踩坑记录，包括 $ref 解析、enum 演进、CI Pipeline 集成与错误处理模式，帮助团队将联调周期从 5 天缩短至 0 天。
+description: 悠途OTA B2C 后端实战经验：基于 OpenAPI YAML 契约驱动开发，通过 Prism/Mockoon 自动生成 Fake Response JSON，结合 Cypress + Ajv 实现前后端契约测试的完整工作流。涵盖 30+ Laravel 仓库的真实踩坑记录，包括 $ref 解析、enum 演进、CI Pipeline 集成与错误处理模式，帮助团队将联调周期从 5 天缩短至 0 天。
 ---
 
 
@@ -24,7 +24,7 @@ description: KKday B2C 后端实战经验：基于 OpenAPI YAML 契约驱动开�
 
 # OpenAPI + Fake Response + Cypress 契约测试实战——前后端联调的完整测试工作流踩坑记录
 
-> **来源**：KKday RD B2C Backend Team · BFF + 前端联调视角
+> **来源**：悠途OTA RD B2C Backend Team · BFF + 前端联调视角
 > **技术栈**：Laravel 8+ / OpenAPI 3.0 YAML / Prism / Cypress 13 / Mockoon
 > **覆盖范围**：30+ 仓库的契约测试落地经验
 
@@ -32,7 +32,7 @@ description: KKday B2C 后端实战经验：基于 OpenAPI YAML 契约驱动开�
 
 ## 一、痛点：前后端联调为什么总是「互相等」？
 
-在 KKday 的 BFF 架构下，前端（Vue/Next）消费 BFF 层的 API，BFF 层再聚合下游微服务。联调时的经典困境：
+在悠途OTA的 BFF 架构下，前端（Vue/Next）消费 BFF 层的 API，BFF 层再聚合下游微服务。联调时的经典困境：
 
 ```
 前端："你的 API 文档说有 `orderStatus` 字段，怎么返回的是 `status`？"
@@ -71,21 +71,21 @@ description: KKday B2C 后端实战经验：基于 OpenAPI YAML 契约驱动开�
 
 ### 3.1 从 PRD 到 Interface Design
 
-KKday 的流程：`PRD → SA/SD（Confluence）→ OpenAPI YAML → Code Review → Implementation`。
+youtu 的流程：`PRD → SA/SD（Confluence）→ OpenAPI YAML → Code Review → Implementation`。
 
-我们用 Confluence `[SA/SD] 2026-05-05 KKday-BFF-Order` 格式写设计文档，其中 Interface Design 章节直接输出 OpenAPI YAML：
+我们用 Confluence `[SA/SD] 2026-05-05 youtu-ota-BFF-Order` 格式写设计文档，其中 Interface Design 章节直接输出 OpenAPI YAML：
 
 ```yaml
 # openapi/v3/order-api.yaml
 openapi: "3.0.3"
 info:
-  title: "KKday BFF Order API"
+  title: "youtu BFF Order API"
   version: "2.1.0"
   description: "BFF 订单聚合接口，前端 Vue3 + Next.js 消费"
 servers:
-  - url: "https://bff-api.kkday.com/v2_1"
+  - url: "https://bff-api.youtu-ota.test/v2_1"
     description: "Staging"
-  - url: "https://api.kkday.com/v2_1"
+  - url: "https://api.youtu-ota.test/v2_1"
     description: "Production"
 
 paths:
@@ -299,7 +299,7 @@ Mockoon 优势：GUI 编辑器可手动修改响应，支持规则路由（同�
 | **适用场景** | API-first 团队，契约驱动 | 需要手动微调 Mock 数据 | 前端单元测试、组件测试 |
 | **不适用场景** | 需要复杂条件逻辑 | 需要严格 Schema 校验 | E2E 测试（不在浏览器进程内） |
 
-**KKday 实践选择**：日常开发用 **Prism**（Schema 驱动，零维护），通勤离线用 **Mockoon**（GUI 可视化），前端组件测试用 **MSW**（进程内拦截无跨域问题）。
+**youtu 实践选择**：日常开发用 **Prism**（Schema 驱动，零维护），通勤离线用 **Mockoon**（GUI 可视化），前端组件测试用 **MSW**（进程内拦截无跨域问题）。
 
 ---
 
@@ -308,7 +308,7 @@ Mockoon 优势：GUI 编辑器可手动修改响应，支持规则路由（同�
 ### 5.1 项目结构
 
 ```
-kkday-frontend/
+youtu-ota-frontend/
 ├── cypress/
 │   ├── e2e/
 │   │   ├── contract/
@@ -503,7 +503,7 @@ export default defineConfig({
       // 根据环境切换 API 目标
       API_BASE_URL: process.env.CYPRESS_MOCK === 'true'
         ? 'http://127.0.0.1:4010'      // Prism Mock Server
-        : 'https://bff-api-staging.kkday.com/v2_1',
+        : 'https://bff-api-staging.youtu-ota.test/v2_1',
       AUTH_TOKEN: process.env.CYPRESS_AUTH_TOKEN || 'mock-token',
     },
   },
@@ -552,7 +552,7 @@ jobs:
       - name: Sync OpenAPI from Backend
         run: |
           # 从后端仓库拉取最新 OpenAPI YAML
-          git clone --depth 1 https://github.com/kkday/backend-bff.git /tmp/bff
+          git clone --depth 1 https://github.com/youtu/backend-bff.git /tmp/bff
           cp /tmp/bff/openapi/v3/*.yaml cypress/fixtures/openapi-schemas/
 
       - name: Install dependencies
@@ -873,4 +873,4 @@ it('GET /recommend - 契约验证（警告级别）', () => {
 
 ---
 
-*本文基于 KKday B2C Backend Team 的 30+ 个 Laravel 仓库的前后端联调实战经验。涉及 OpenAPI 3.0 / Prism 4 / Cypress 13 / Ajv / Redocly CLI / Mockoon / MSW。契约测试工作流已覆盖 BFF 层 85% 的核心 API 接口。*
+*本文基于 youtu B2C Backend Team 的 30+ 个 Laravel 仓库的前后端联调实战经验。涉及 OpenAPI 3.0 / Prism 4 / Cypress 13 / Ajv / Redocly CLI / Mockoon / MSW。契约测试工作流已覆盖 BFF 层 85% 的核心 API 接口。*

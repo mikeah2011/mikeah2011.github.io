@@ -1,14 +1,14 @@
 ---
-title: Laravel Queue - 订单扣减与邮件发送实战-KKday-B2C-API 真实踩坑记录
+title: Laravel Queue - 订单扣减与邮件发送实战-youtu-ota-B2C-API 真实踩坑记录
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 date: 2026-05-02
 author: Michael
 categories: [php]
-tags: [Laravel, Queue, Redis, 消息队列, KKday]
-keywords: [Laravel Queue, KKday, B2C, API, 订单扣减与邮件发送实战, 真实踩坑记录, PHP]
-description: KKday B2C API 中 Laravel Queue 深度实战：Redis 队列架构设计与选型、OrderSyncJob 超时导致用户等待、RetryableTrait 配置不当引发无限重试循环、Worker 并发数设置不合理造成数据库压力、指数退避重试策略与 Supervisor 生产部署等踩坑经验与完整解决方案，附 Queue 监控与故障排查 Checklist
+tags: [Laravel, Queue, Redis, 消息队列, 悠途OTA]
+keywords: [Laravel Queue, 悠途OTA, B2C, API, 订单扣减与邮件发送实战, 真实踩坑记录, PHP]
+description: 悠途OTA B2C API 中 Laravel Queue 深度实战：Redis 队列架构设计与选型、OrderSyncJob 超时导致用户等待、RetryableTrait 配置不当引发无限重试循环、Worker 并发数设置不合理造成数据库压力、指数退避重试策略与 Supervisor 生产部署等踩坑经验与完整解决方案，附 Queue 监控与故障排查 Checklist
 
 
 
@@ -16,7 +16,7 @@ description: KKday B2C API 中 Laravel Queue 深度实战：Redis 队列架构�
 
 ## 📋 文章目录
 
-1. [问题背景：KKday B2C API 为什么要引入 Queue](#-问题背景kkday-b2c-api-为什么要引入queue)
+1. [问题背景：悠途OTA B2C API 为什么要引入 Queue](#-问题背景youtu-ota-b2c-api-为什么要引入queue)
 2. [Queue 架构设计：消息队列选型与配置](#-queue-架构设计消息队列选型与配置)
 3. [实战踩坑记录：生产环境遇到的真实问题](#-实战踩坑记录生产环境遇到过的真实问题)
 4. [代码实战：Before/After 配置对比与解决方案](#-代码实战beforeafter-配置对比与解决方案)
@@ -24,9 +24,9 @@ description: KKday B2C API 中 Laravel Queue 深度实战：Redis 队列架构�
 
 ---
 
-## 🔍 问题背景：KKday B2C API 为什么要引入 Queue
+## 🔍 问题背景：悠途OTA B2C API 为什么要引入 Queue
 
-在 KKday B2C API 项目中，我们使用 **Laravel 8 + PHP 8** 作为 BFF（Backend for Frontend）中间层，承接来自 iOS App 和 Android App 的订单、库存等核心业务。随着用户量增长到数十万级，同步处理模式遇到了明显瓶颈：
+在悠途OTA B2C API 项目中，我们使用 **Laravel 8 + PHP 8** 作为 BFF（Backend for Frontend）中间层，承接来自 iOS App 和 Android App 的订单、库存等核心业务。随着用户量增长到数十万级，同步处理模式遇到了明显瓶颈：
 
 ### ❌ 同步处理的问题表现
 
@@ -104,7 +104,7 @@ php artisan queue:work redis --queue=orders,emails --tries=3 --timeout=60
 
 # 生产环境推荐：使用 Supervisor 管理多个 worker 进程
 sudo supervisorctl add laravel-queue:high <<EOF
-command=/usr/local/bin/php /Users/michael/kkday-b2c-api/artisan queue:work redis high --sleep=3 --tries=3 --timeout=60
+command=/usr/local/bin/php /Users/michael/youtu-ota-b2c-api/artisan queue:work redis high --sleep=3 --tries=3 --timeout=60
 autostart=true
 autorestart=true
 numprocs=4
@@ -115,7 +115,7 @@ EOF
 
 # 处理低优先级队列（如邮件发送）
 sudo supervisorctl add laravel-queue:low <<EOF
-command=/usr/local/bin/php /Users/michael/kkday-b2c-api/artisan queue:work redis low --sleep=5 --tries=10 --timeout=300
+command=/usr/local/bin/php /Users/michael/youtu-ota-b2c-api/artisan queue:work redis low --sleep=5 --tries=10 --timeout=300
 autostart=true
 autorestart=true
 numprocs=2
@@ -462,7 +462,7 @@ EmailBatchSendJob::dispatch(1, [100, 200, 300, 400, 500]);
 ```bash
 # 应用日志输出
 [2026-05-01 14:37:22] production.ERROR: OrderSyncJob failed for order 98765: Timeout after 30s
-{"exception":"[object] (Exception(code: 0): "cURL error 28: Operation timed out after 30000 milliseconds") at /Users/michael/kkday-b2c-api/app/Jobs/OrderSyncJob.php:45"}
+{"exception":"[object] (Exception(code: 0): "cURL error 28: Operation timed out after 30000 milliseconds") at /Users/michael/youtu-ota-b2c-api/app/Jobs/OrderSyncJob.php:45"}
 ```
 
 **根本原因：**
@@ -548,9 +548,9 @@ class OrderSyncJob implements ShouldQueue
 ```bash
 # 应用日志输出（出现大量重复的失败记录）
 [2026-05-01 15:12:05] production.ERROR: EmailJob failed: SMTP connection refused
-{"exception":"[object] (Exception(code: 0): "SMTP connection refused") at /Users/michael/kkday-b2c-api/app/Jobs/EmailJob.php:38}
+{"exception":"[object] (Exception(code: 0): "SMTP connection refused") at /Users/michael/youtu-ota-b2c-api/app/Jobs/EmailJob.php:38}
 [2026-05-01 15:12:05] production.ERROR: EmailJob failed: SMTP connection refused
-{"exception":"[object] (Exception(code: 0): "SMTP connection refused") at /Users/michael/kkday-b2c-api/app/Jobs/EmailJob.php:38}
+{"exception":"[object] (Exception(code: 0): "SMTP connection refused") at /Users/michael/youtu-ota-b2c-api/app/Jobs/EmailJob.php:38}
 ```
 
 **根本原因：**
@@ -626,13 +626,13 @@ php artisan queue:work redis --queue=orders,emails --tries=3 --timeout=60
 # ✅ After：根据 Job 类型区分优先级队列 + 合理设置并发数
 # 高优先级队列（订单处理，低并发）
 sudo supervisorctl add laravel-queue:high <<EOF
-command=/usr/local/bin/php /Users/michael/kkday-b2c-api/artisan queue:work redis high --sleep=3 --tries=3 --timeout=120
+command=/usr/local/bin/php /Users/michael/youtu-ota-b2c-api/artisan queue:work redis high --sleep=3 --tries=3 --timeout=120
 numprocs=4  # ⭐ 限制为 4 个进程（避免数据库压力）
 EOF
 
 # 低优先级队列（邮件发送、同步，高并发）
 sudo supervisorctl add laravel-queue:low <<EOF
-command=/usr/local/bin/php /Users/michael/kkday-b2c-api/artisan queue:work redis low --sleep=5 --tries=10 --timeout=300
+command=/usr/local/bin/php /Users/michael/youtu-ota-b2c-api/artisan queue:work redis low --sleep=5 --tries=10 --timeout=300
 numprocs=2  # ⭐ 限制为 2 个进程（降低并发）
 EOF
 
@@ -694,7 +694,7 @@ class OrderSyncJob implements ShouldQueue
     'client' => env('REDIS_CLIENT', 'phpredis'),
     'options' => [
         'cluster' => env('REDIS_CLUSTER', 'redis'),
-        'prefix' => env('REDIS_PREFIX', 'kkday_queue_'),
+        'prefix' => env('REDIS_PREFIX', 'youtu_queue_'),
     ],
     'queues' => [
         'host' => env('REDIS_QUEUE_HOST', '127.0.0.1'),
@@ -788,14 +788,14 @@ QUEUE_WORKER_LOW_TIMEOUT=300
 
 # Supervisor 配置文件（/etc/supervisor/conf.d/laravel-worker.conf）
 [program:laravel-worker-high]
-command=/usr/local/bin/php /Users/michael/kkday-b2c-api/artisan queue:work redis high --sleep=3 --tries=$(QUEUE_WORKER_HIGH_TRIES) --timeout=$(QUEUE_WORKER_HIGH_TIMEOUT)
+command=/usr/local/bin/php /Users/michael/youtu-ota-b2c-api/artisan queue:work redis high --sleep=3 --tries=$(QUEUE_WORKER_HIGH_TRIES) --timeout=$(QUEUE_WORKER_HIGH_TIMEOUT)
 numprocs=4
-directory=/Users/michael/kkday-b2c-api
+directory=/Users/michael/youtu-ota-b2c-api
 
 [program:laravel-worker-low]
-command=/usr/local/bin/php /Users/michael/kkday-b2c-api/artisan queue:work redis low --sleep=5 --tries=$(QUEUE_WORKER_LOW_TRIES) --timeout=$(QUEUE_WORKER_LOW_TIMEOUT)
+command=/usr/local/bin/php /Users/michael/youtu-ota-b2c-api/artisan queue:work redis low --sleep=5 --tries=$(QUEUE_WORKER_LOW_TRIES) --timeout=$(QUEUE_WORKER_LOW_TIMEOUT)
 numprocs=2
-directory=/Users/michael/kkday-b2c-api
+directory=/Users/michael/youtu-ota-b2c-api
 ```
 
 ### 🎯 监控建议
@@ -846,9 +846,9 @@ curl -v https://api.external-service.com/health
 
 - [Laravel Redis Queue + Horizon 实战：队列监控、失败重试与性能调优](/categories/Redis/laravel-redis-queue-horizon-guide-monitoring/)
 - [Laravel Horizon 队列监控与生产环境运维实战：多队列优先级、指标采集与自动恢复踩坑记录](/categories/Laravel/laravel-horizon-monitoringguide/)
-- [KKday Laravel 可观测性架构实战：日志聚合、指标采集与分布式追踪踩坑记录](/categories/Laravel/kkday-log-monitor-tracing-laravel-architectureguide-loggingdistributed/)
+- [youtu Laravel 可观测性架构实战：日志聚合、指标采集与分布式追踪踩坑记录](/categories/Laravel/youtu-log-monitor-tracing-laravel-architectureguide-loggingdistributed/)
 - [Laravel HTTP Client 容错弹性模式实战：熔断降级、重试退避与超时治理踩坑记录](/categories/PHP/laravel-http-client-guide-circuit-breakerfallback/)
-- [Laravel BFF 中间层聚合实战：GraphQL to JSON 转换优化与 KKday 真实踩坑记录](/categories/PHP/bff-laravel-graphql-to-json-kkday/)
+- [Laravel BFF 中间层聚合实战：GraphQL to JSON 转换优化与 youtu 真实踩坑记录](/categories/PHP/bff-laravel-graphql-to-json-youtu-ota/)
 
 ---
 
@@ -856,6 +856,6 @@ curl -v https://api.external-service.com/health
 
 - [Laravel Queue Documentation](https://laravel.com/docs/9.x/queues)
 - [PHP Redis Extension](https://github.com/phpredis/phpredis)
-- [KKday B2C API 内部架构文档](../architecture/queue-design.md)
+- [youtu B2C API 内部架构文档](../architecture/queue-design.md)
 
-*本文档基于 KKday B2C API 项目真实生产经验编写，部分配置参数需根据实际业务场景调整。*
+*本文档基于 youtu B2C API 项目真实生产经验编写，部分配置参数需根据实际业务场景调整。*

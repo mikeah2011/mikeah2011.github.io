@@ -10,7 +10,7 @@ author: Michael
 updated: 2026-05-05 10:47:51
 categories: [architecture]
 tags:
-- KKday
+- 悠途OTA
 - Laravel
 - 架构
 - Event Sourcing
@@ -24,7 +24,7 @@ description: 从传统 CRUD 到事件溯源架构的完整转型指南——基�
 
 ## 为什么 CRUD 在电商场景下不够用？
 
-在 KKday B2C 后端团队，大多数 Laravel 项目用经典的 CRUD 模式运行得很好。但当业务提出这些需求时，传统 CRUD 开始力不从心：
+在悠途OTA B2C 后端团队，大多数 Laravel 项目用经典的 CRUD 模式运行得很好。但当业务提出这些需求时，传统 CRUD 开始力不从心：
 
 - **订单状态回溯**：「这个订单从创建到完成经历了哪些状态变更？每次变更是谁触发的？」
 - **库存变更审计**：「商品 A 的库存在昨天下午为什么突然少了 50 件？是哪笔操作扣的？」

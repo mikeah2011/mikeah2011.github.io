@@ -585,9 +585,9 @@ class SanitizeGateway
 
     // 需要替换的类名/变量名（项目特定）
     private array $replacements = [
-        'KKdayPaymentService' => 'PaymentService',
-        'kkday_member_api' => 'member_api',
-        'kkday_b2c_db' => 'app_db',
+        'YoutuPaymentService' => 'PaymentService',
+        'youtu_member_api' => 'member_api',
+        'youtu_b2c_db' => 'app_db',
     ];
 
     public function sanitize(string $code): string

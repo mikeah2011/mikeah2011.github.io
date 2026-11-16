@@ -354,7 +354,7 @@
     .tiles, .tile { break-inside: avoid; }
     .role li, .impact li, .plain li, .role .org-note { orphans: 2; widows: 2; }
     /* Chrome cannot fragment a grid container across pages, so a .job that
-       straddles a page boundary is pushed down whole — the KKday block is
+       straddles a page boundary is pushed down whole — the 悠途OTA block is
        500px+, which stranded most of a page and added a third one. Floating
        the date column keeps the same two-column look while letting the block
        break naturally. */
@@ -473,7 +473,7 @@
     <div class="job">
       <div class="when num"><span data-i18n="j1.when">2022.11 – 2026.08</span><span class="place" data-i18n="loc">上海</span></div>
       <div class="role">
-        <h3><span data-i18n="j1.co">KKday（酷游天国际旅行社）</span><span class="title" data-i18n="j1.role">｜资深后端工程师</span></h3>
+        <h3><span data-i18n="j1.co">悠途OTA</span><span class="title" data-i18n="j1.role">｜资深后端工程师</span></h3>
         <p class="org-note" data-i18n="j1.note"></p>
 
         <div class="phase">
@@ -605,11 +605,11 @@ var RESUME_DICT = {
   'm.1.v': '13 年', 'm.1.k': '后端研发 · OTA / 电商 / MarTech',
   'm.2.v': '¥100 亿', 'm.2.k': 'Apple 中国经销商平台上线 5 个月 GMV',
   'm.3.v': '25s → 2s', 'm.3.k': '大促故障救火后关键 API p99',
-  'm.4.v': '200%', 'm.4.k': 'KKday 联盟业务年同比增长',
+  'm.4.v': '200%', 'm.4.k': '悠途OTA联盟业务年同比增长',
   'm.5.v': '误报 ~70%↓', 'm.5.k': 'Maestro 收敛 4 个 AI 审查机器人，300+ PR',
   'm.6.v': '20+ 人', 'm.6.k': '自研 AI 平台跨 7 个团队日常使用',
   'sum.1': '<strong>AI 工程化</strong>：自研多 AI 审查机器人收敛层（Maestro）与 AI 根因分析监控平台（VM Health Center），解决多源 AI 输出重复、不可靠、无法收敛的工程问题',
-  'sum.2': '<strong>交易系统纵深</strong>：以第一贡献人身份主导 KKday 联盟营销平台（业务年同比增长 <span class="num">200%</span>），并负责 B2C 主干线核心交易链路',
+  'sum.2': '<strong>交易系统纵深</strong>：以第一贡献人身份主导悠途OTA联盟营销平台（业务年同比增长 <span class="num">200%</span>），并负责 B2C 主干线核心交易链路',
   'sum.3': '<strong>稳定性与团队</strong>：主导大规模故障救火（关键 API p99 <span class="num">25s+ → &lt;2s</span>，5xx 稳定 <span class="num">&lt;0.01%</span>）；2026 H2 兼任售前 CVR 增转专项组负责人，统筹 <span class="num">6</span> 人跨端小组',
   'ai.1': '<strong>Maestro</strong>（TypeScript CLI）——<strong>多 AI 审查机器人收敛层</strong>：编排 CodeRabbit / Copilot / Codex / Gemini <span class="num">4</span> 个机器人，经问题分类 → 三层去重 → 自动修复 → 回复并解决讨论串 → 收敛监控与人工升级判断，把发散的 AI 意见收敛成可执行的修改队列；<strong>已成为团队日常流程</strong>：<span class="num">10</span> 人使用、累计走过 <span class="num">300+</span> 个 PR；据团队自评，Code Review 耗时<strong>明显缩短</strong>、误报率下降约 <span class="num">70%</span>',
   'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，从 0 到 1 独立开发）——团队作战看板 + 服务健康监控：聚合 Jira / GitHub / Confluence 自动生成日报周报、订购漏斗与后端服务健康告警、AI 初步根因分析（规则匹配日志关键字筛出 1-2 条可疑链路，交由 LLM 辅助分析症结）；<strong>跨 <span class="num">7</span> 个团队（Product / Web / App / QA / Order / B2C 等）<span class="num">20+</span> 人日常使用</strong>，每日触发告警，故障定位时间缩短 <span class="num">40%</span>',
@@ -620,7 +620,7 @@ var RESUME_DICT = {
   'sk.3.k': '数据与中间件', 'sk.3.v': 'MySQL、PostgreSQL、Redis、Elasticsearch、Google BigQuery、RabbitMQ、Kafka',
   'sk.4.k': '云原生与运维', 'sk.4.v': 'Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana',
   'sk.5.k': '架构与业务', 'sk.5.v': '微服务与 BFF 分层、RabbitMQ 事件驱动、Redis 熔断器与双层 Kill Switch、多级缓存与 Cache Key 治理；联盟分润结算、订单交易链路、动态定价',
-  'j1.when': '2022.11 – 2026.08', 'j1.co': 'KKday（酷游天国际旅行社）', 'j1.role': '｜资深后端工程师',
+  'j1.when': '2022.11 – 2026.08', 'j1.co': '悠途OTA', 'j1.role': '｜资深后端工程师',
   'j1.note': '全球领先的旅游体验预订平台（覆盖 50+ 国家/地区）。近四年历任联盟营销平台负责人、B2C 主干线核心后端，2026 H2 兼任售前 CVR 增转专项组负责人（约 80% 精力投入于此，另 20% 用于 B2C 核心链路收尾交接）。',
   'j1.p1.h': '售前 CVR 增转专项组 · 负责人（2026 H2）',
   'j1.p1.b1': '组建并带领 <strong>6 人跨端小组</strong>（iOS / Android / Web / BE），以「CVR <span class="num">1.2% → 1.8%</span>（<span class="num">+50%</span>）」为唯一北极星指标，直接对 PM 负责；建立站会、1on1、OKR 对齐机制，统筹售前链路（商品页 → 购物车 → 订购页）全端体验与性能优化，并搭建 CVR 健康监控看板，使优化成果可视化、可验证',
@@ -646,7 +646,7 @@ var RESUME_DICT = {
   'oss.1': '<strong>SwaggerNotes</strong>（PHP/Laravel 扩展包，100% 独立开发）：自动生成 Swagger 注释并产出 OpenAPI 接口文件；已发布至 Packagist，累计下载 <span class="num">2.6k+</span>',
   'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文档生成器）：<span class="num">2</span> 个 PR 已合并进主线，列名于官方贡献者',
   'oss.3': '<strong>技术博客</strong>：<span class="num">1300+</span> 篇技术文章，覆盖 PHP / 架构 / 数据库 / AI 工程，至今仍在更新',
-  'aw.items': '<li>KKday 年度优秀员工（<span class="num">2023、2024</span> 连续两届）</li><li>Shopex 金番茄奖（<span class="num">2020</span>）</li><li>远丰科技「技术之星」（<span class="num">2016</span>）</li>',
+  'aw.items': '<li>悠途OTA年度优秀员工（<span class="num">2023、2024</span> 连续两届）</li><li>Shopex 金番茄奖（<span class="num">2020</span>）</li><li>远丰科技「技术之星」（<span class="num">2016</span>）</li>',
   'foot.name': '马成军 Michael Ma · 资深后端工程师 / 技术负责人',
   'foot.tip': '浏览器打印（⌘P）即可导出 A4 PDF',
   'dl.md.btn': '下载简历 Markdown', 'dl.top': '回到顶部',
@@ -664,11 +664,11 @@ var RESUME_DICT = {
   'm.1.v': '13 年', 'm.1.k': '後端研發 · OTA / 電商 / MarTech',
   'm.2.v': '¥100 億', 'm.2.k': 'Apple 中國經銷商平台上線 5 個月 GMV',
   'm.3.v': '25s → 2s', 'm.3.k': '大型促銷故障搶救後關鍵 API p99',
-  'm.4.v': '200%', 'm.4.k': 'KKday 聯盟業務年增長',
+  'm.4.v': '200%', 'm.4.k': '悠途OTA聯盟業務年增長',
   'm.5.v': '誤報 ~70%↓', 'm.5.k': 'Maestro 收斂 4 個 AI 審查機器人，300+ PR',
   'm.6.v': '20+ 人', 'm.6.k': '自研 AI 平台跨 7 個團隊日常使用',
   'sum.1': '<strong>AI 工程化</strong>：自研多 AI 審查機器人收斂層（Maestro）與 AI 根因分析監控平台（VM Health Center），解決多來源 AI 輸出重複、不可靠、無法收斂的工程問題',
-  'sum.2': '<strong>交易系統縱深</strong>：以首要貢獻者身分主導 KKday 聯盟行銷平台（業務年增長 <span class="num">200%</span>），並負責 B2C 主幹線核心交易鏈路',
+  'sum.2': '<strong>交易系統縱深</strong>：以首要貢獻者身分主導悠途OTA聯盟行銷平台（業務年增長 <span class="num">200%</span>），並負責 B2C 主幹線核心交易鏈路',
   'sum.3': '<strong>穩定性與團隊</strong>：主導大規模故障搶救（關鍵 API p99 <span class="num">25s+ → &lt;2s</span>，5xx 穩定 <span class="num">&lt;0.01%</span>）；2026 H2 兼任售前 CVR 增轉專案組負責人，統籌 <span class="num">6</span> 人跨端小組',
   'ai.1': '<strong>Maestro</strong>（TypeScript CLI）——<strong>多 AI 審查機器人收斂層</strong>：編排 CodeRabbit / Copilot / Codex / Gemini <span class="num">4</span> 個機器人，經問題分類 → 三層去重 → 自動修復 → 回覆並解決討論串 → 收斂監控與人工升級判斷，將發散的 AI 意見收斂成可執行的修改佇列；<strong>已成為團隊日常流程</strong>：<span class="num">10</span> 人使用、累計走過 <span class="num">300+</span> 個 PR；據團隊自評，Code Review 耗時<strong>明顯縮短</strong>、誤報率下降約 <span class="num">70%</span>',
   'ai.2': '<strong>VM Health Center</strong>（TypeScript / Node.js + Slack Bolt + Elasticsearch，從 0 到 1 獨立開發）——團隊作戰看板 + 服務健康監控：彙整 Jira / GitHub / Confluence 自動產生日報週報、訂購漏斗與後端服務健康告警、AI 初步根因分析（規則比對日誌關鍵字篩出 1-2 條可疑鏈路，交由 LLM 輔助分析癥結）；<strong>跨 <span class="num">7</span> 個團隊（Product / Web / App / QA / Order / B2C 等）<span class="num">20+</span> 人日常使用</strong>，每日觸發告警，故障定位時間縮短 <span class="num">40%</span>',
@@ -679,7 +679,7 @@ var RESUME_DICT = {
   'sk.3.k': '資料與中介軟體', 'sk.3.v': 'MySQL、PostgreSQL、Redis、Elasticsearch、Google BigQuery、RabbitMQ、Kafka',
   'sk.4.k': '雲原生與維運', 'sk.4.v': 'Docker、Kubernetes、AWS Lambda / GCP Cloud Run、GitHub Actions、Prometheus / Grafana / Kibana',
   'sk.5.k': '架構與業務', 'sk.5.v': '微服務與 BFF 分層、RabbitMQ 事件驅動、Redis 熔斷器與雙層 Kill Switch、多級快取與 Cache Key 治理；聯盟分潤結算、訂單交易鏈路、動態定價',
-  'j1.when': '2022.11 – 2026.08', 'j1.co': 'KKday（酷遊天國際旅行社）', 'j1.role': '｜資深後端工程師',
+  'j1.when': '2022.11 – 2026.08', 'j1.co': '悠途OTA', 'j1.role': '｜資深後端工程師',
   'j1.note': '全球領先的旅遊體驗預訂平台（涵蓋 50+ 國家/地區）。近四年歷任聯盟行銷平台負責人、B2C 主幹線核心後端，2026 H2 兼任售前 CVR 增轉專案組負責人（約 80% 精力投入於此，另 20% 用於 B2C 核心鏈路收尾交接）。',
   'j1.p1.h': '售前 CVR 增轉專案組 · 負責人（2026 H2）',
   'j1.p1.b1': '組建並帶領 <strong>6 人跨端小組</strong>（iOS / Android / Web / BE），以「CVR <span class="num">1.2% → 1.8%</span>（<span class="num">+50%</span>）」為唯一北極星指標，直接向 PM 負責；建立站立會議、1on1、OKR 對齊機制，統籌售前鏈路（商品頁 → 購物車 → 訂購頁）全端體驗與效能優化，並建置 CVR 健康監控看板，使優化成果可視化、可驗證',
@@ -705,7 +705,7 @@ var RESUME_DICT = {
   'oss.1': '<strong>SwaggerNotes</strong>（PHP/Laravel 擴充套件，100% 獨立開發）：自動產生 Swagger 註解並輸出 OpenAPI 介面檔；已發布至 Packagist，累計下載 <span class="num">2.6k+</span>',
   'oss.2': '<strong>knuckleswtf/scribe</strong>（<span class="num">2.3k</span> ⭐ Laravel API 文件產生器）：<span class="num">2</span> 個 PR 已合併進主線，列名於官方貢獻者',
   'oss.3': '<strong>技術部落格</strong>：<span class="num">1300+</span> 篇技術文章，涵蓋 PHP／架構／資料庫／AI 工程，至今仍在更新',
-  'aw.items': '<li>KKday 年度優秀員工（<span class="num">2023、2024</span> 連續兩屆）</li><li>Shopex 金番茄獎（<span class="num">2020</span>）</li><li>遠豐科技「技術之星」（<span class="num">2016</span>）</li>',
+  'aw.items': '<li>悠途OTA年度優秀員工（<span class="num">2023、2024</span> 連續兩屆）</li><li>Shopex 金番茄獎（<span class="num">2020</span>）</li><li>遠豐科技「技術之星」（<span class="num">2016</span>）</li>',
   'foot.name': '馬成軍 Michael Ma · 資深後端工程師 / 技術負責人',
   'foot.tip': '瀏覽器列印（⌘P）即可匯出 A4 PDF',
   'dl.md.btn': '下載履歷 Markdown', 'dl.top': '回到頂部',
@@ -725,11 +725,11 @@ var RESUME_DICT = {
   'm.1.v': '13 yrs', 'm.1.k': 'Backend engineering · OTA / e-commerce / MarTech',
   'm.2.v': '&yen;10B+', 'm.2.k': 'GMV within 5 months, Apple China reseller platform',
   'm.3.v': '25s &rarr; 2s', 'm.3.k': 'Critical API p99 after major-outage response',
-  'm.4.v': '200%', 'm.4.k': 'YoY growth, KKday affiliate business',
+  'm.4.v': '200%', 'm.4.k': 'YoY growth, 悠途OTA affiliate business',
   'm.5.v': 'False positives ~70%↓', 'm.5.k': 'Maestro converging 4 AI review bots, 300+ PRs',
   'm.6.v': '20+', 'm.6.k': 'Daily users of self-built AI platforms, 7 teams',
   'sum.1': '<strong>AI engineering</strong>: built a convergence layer for multiple AI review bots (Maestro) and an AI-assisted root-cause monitoring platform (VM Health Center), solving the practical problem of duplicated, unreliable, unconverged AI output',
-  'sum.2': '<strong>Transaction-systems depth</strong>: top contributor and owner of KKday\'s affiliate marketing platform (<span class="num">200%</span> YoY growth), and owner of the B2C core transaction flow',
+  'sum.2': '<strong>Transaction-systems depth</strong>: top contributor and owner of 悠途OTA\'s affiliate marketing platform (<span class="num">200%</span> YoY growth), and owner of the B2C core transaction flow',
   'sum.3': '',
   'ai.1': '<strong>Maestro</strong> (TypeScript CLI) — a <strong>convergence layer for AI review bots</strong>: orchestrates <span class="num">4</span> bots (CodeRabbit, Copilot, Codex, Gemini) through classification, three-stage deduplication, auto-fix, thread replies and resolution, convergence monitoring and escalation. <strong>Now part of the team\'s daily workflow</strong>: <span class="num">10</span> engineers, <span class="num">300+</span> PRs processed; per the team\'s own assessment, review time <strong>noticeably shorter</strong> and false positives down about <span class="num">70%</span>',
   'ai.2': '<strong>VM Health Center</strong> (TypeScript/Node.js + Slack Bolt + Elasticsearch, built solo from scratch) — a team dashboard and service health monitor: aggregates Jira/GitHub/Confluence into daily/weekly reports, surfaces checkout-funnel and backend health alerts, with preliminary AI root-cause analysis (rule-based log-keyword matching narrows down 1–2 suspicious traces, then an LLM helps pinpoint the underlying issue). <strong>Used daily by <span class="num">20+</span> people across <span class="num">7</span> teams</strong> (Product, Web, App, QA, Order, B2C), firing alerts every day and cutting incident triage time by <span class="num">40%</span>',
@@ -740,7 +740,7 @@ var RESUME_DICT = {
   'sk.3.k': 'Data &amp; Messaging', 'sk.3.v': 'MySQL, PostgreSQL, Redis, Elasticsearch, Google BigQuery, RabbitMQ, Kafka',
   'sk.4.k': 'Cloud &amp; DevOps', 'sk.4.v': 'Docker, Kubernetes, AWS Lambda / GCP Cloud Run, GitHub Actions, Prometheus / Grafana / Kibana',
   'sk.5.k': 'Architecture &amp; Domain', 'sk.5.v': 'Microservices and BFF layering, RabbitMQ event-driven pipelines, Redis circuit breakers with two-tier kill switches, multi-tier caching and cache-key governance; commission settlement, order transaction flows, dynamic pricing',
-  'j1.when': '2022.11 – 2026.08', 'j1.co': 'KKday', 'j1.role': ' ｜ Senior Backend Engineer',
+  'j1.when': '2022.11 – 2026.08', 'j1.co': '悠途OTA', 'j1.role': ' ｜ Senior Backend Engineer',
   'j1.note': 'A leading global travel-experience platform operating in 50+ countries. Progressed from affiliate platform owner → B2C core backend → owner of the Pre-Purchase Conversion Task Force (in H2 2026, ~80% of my time, with the remaining 20% wrapping up and handing off the B2C core flow).',
   'j1.p1.h': 'Pre-Purchase Conversion Task Force · Owner (2026 H2)',
   'j1.p1.b1': 'Formed and led a <strong>6-person cross-platform team</strong> (iOS/Android/Web/Backend) against a single north-star metric — conversion <span class="num">1.2% → 1.8%</span> (<span class="num">+50%</span>); established standups, 1-on-1s and OKR alignment across the pre-purchase funnel (product page → cart → checkout), and built a CVR health-monitoring dashboard so results are visible and verifiable',
@@ -771,7 +771,7 @@ var RESUME_DICT = {
   // The blog is written in Chinese, so it carries little weight with an
   // English-reading recruiter — and the link is already in the header.
   'oss.3': '',
-  'aw.items': '<li>KKday Employee of the Year (<span class="num">2023, 2024</span> — two consecutive years)</li><li>Shopex Golden Tomato Award (<span class="num">2020</span>)</li><li>Yuanfeng Technology Star (<span class="num">2016</span>)</li>',
+  'aw.items': '<li>悠途OTA Employee of the Year (<span class="num">2023, 2024</span> — two consecutive years)</li><li>Shopex Golden Tomato Award (<span class="num">2020</span>)</li><li>Yuanfeng Technology Star (<span class="num">2016</span>)</li>',
   'foot.name': 'Michael Ma · Senior Backend Engineer / Tech Lead',
   'foot.tip': 'Print from your browser (⌘P) to export as A4 PDF',
   'dl.md.btn': 'Download Résumé Markdown', 'dl.top': 'Back to top',
@@ -812,32 +812,32 @@ var VARIANT_OVERRIDES = {
 'lead': {
 'zh-CN': {
   'headline': '技术负责人 / 资深后端工程师 · 13 年研发经验 · 带队交付 / 跨团队协调 / 业务增长',
-  'sum.lede': '<span class="num">13</span> 年后端研发经验，一直以「能扛住技术深度的 <strong>技术负责人</strong>」定位成长：在 KKday 从联盟平台 Code Owner 做到 B2C 核心后端，2026 H2 起以负责人身份带 <span class="num">6</span> 人跨端小组冲 CVR 北极星指标；更早在 Shopex 也带过 <span class="num">6–7</span> 人小组交付 Apple 平台小程序端。习惯在业务目标、工程约束与团队协作之间做取舍，深信好的技术决策要能被讲清楚、被验证。',
+  'sum.lede': '<span class="num">13</span> 年后端研发经验，一直以「能扛住技术深度的 <strong>技术负责人</strong>」定位成长：在悠途OTA从联盟平台 Code Owner 做到 B2C 核心后端，2026 H2 起以负责人身份带 <span class="num">6</span> 人跨端小组冲 CVR 北极星指标；更早在 Shopex 也带过 <span class="num">6–7</span> 人小组交付 Apple 平台小程序端。习惯在业务目标、工程约束与团队协作之间做取舍，深信好的技术决策要能被讲清楚、被验证。',
   'sec.ai': '团队效能与 AI 工程化',
   'm.1.v': '+50%', 'm.1.k': 'CVR 转化率提升（1.2% → 1.8%），6 人跨端小组',
   'm.5.v': '13 年', 'm.5.k': '后端研发 · 技术深度与带队交付兼备',
   'x.delivery': '<strong>带队交付</strong>：组建并带领 <span class="num">6</span> 人跨端小组（iOS / Android / Web / BE），以单一北极星指标驱动售前 CVR 提升 <span class="num">50%</span>；建立站会、1on1、OKR 对齐机制，并搭建可视化看板让团队产出可被检验——同时保持写代码、做架构决策的一线手感',
-  'x.decisions': '<strong>跨团队技术决策</strong>：主导 USJ 跨 B2C/Order/MKT/Member 四大服务改造，主笔 <span class="num">7</span> 份 SA/SD，提出「权益继承、条件重审」原则一次性对齐四方团队；以第一贡献人身份主导 KKday 联盟营销平台（年同比增长 <span class="num">200%</span>），担任 Code Owner 与 PR 把关人',
+  'x.decisions': '<strong>跨团队技术决策</strong>：主导 USJ 跨 B2C/Order/MKT/Member 四大服务改造，主笔 <span class="num">7</span> 份 SA/SD，提出「权益继承、条件重审」原则一次性对齐四方团队；以第一贡献人身份主导悠途OTA联盟营销平台（年同比增长 <span class="num">200%</span>），担任 Code Owner 与 PR 把关人',
   'x.culture': '<strong>稳定性与工程文化</strong>：主导大规模故障应急响应（关键 API p99 <span class="num">25s+ → &lt;2s</span>，5xx 稳定 <span class="num">&lt;0.01%</span>）；自驱建设 AI 协作平台（Maestro、VM Health Center），把 AI 工具能力转化为团队日常生产力'
 },
 'zh-TW': {
   'headline': '技術負責人 / 資深後端工程師 · 13 年研發經驗 · 帶隊交付 / 跨團隊協調 / 業務增長',
-  'sum.lede': '<span class="num">13</span> 年後端研發經驗，一直以「能扛住技術深度的 <strong>技術負責人</strong>」定位成長：在 KKday 從聯盟平台 Code Owner 做到 B2C 核心後端，2026 H2 起以負責人身分帶 <span class="num">6</span> 人跨端小組衝 CVR 北極星指標；更早在 Shopex 也帶過 <span class="num">6–7</span> 人小組交付 Apple 平台小程式端。習慣在業務目標、工程約束與團隊協作之間做取捨，深信好的技術決策要能被講清楚、被驗證。',
+  'sum.lede': '<span class="num">13</span> 年後端研發經驗，一直以「能扛住技術深度的 <strong>技術負責人</strong>」定位成長：在悠途OTA從聯盟平台 Code Owner 做到 B2C 核心後端，2026 H2 起以負責人身分帶 <span class="num">6</span> 人跨端小組衝 CVR 北極星指標；更早在 Shopex 也帶過 <span class="num">6–7</span> 人小組交付 Apple 平台小程式端。習慣在業務目標、工程約束與團隊協作之間做取捨，深信好的技術決策要能被講清楚、被驗證。',
   'sec.ai': '團隊效能與 AI 工程化',
   'm.1.v': '+50%', 'm.1.k': 'CVR 轉化率提升（1.2% → 1.8%），6 人跨端小組',
   'm.5.v': '13 年', 'm.5.k': '後端研發 · 技術深度與帶隊交付兼備',
   'x.delivery': '<strong>帶隊交付</strong>：組建並帶領 <span class="num">6</span> 人跨端小組（iOS / Android / Web / BE），以單一北極星指標驅動售前 CVR 提升 <span class="num">50%</span>；建立站立會議、1on1、OKR 對齊機制，並建置可視化看板讓團隊產出可被檢驗——同時保持寫程式、做架構決策的一線手感',
-  'x.decisions': '<strong>跨團隊技術決策</strong>：主導 USJ 跨 B2C/Order/MKT/Member 四大服務改造，主筆 <span class="num">7</span> 份 SA/SD，提出「權益繼承、條件重審」原則一次性對齊四方團隊；以首要貢獻者身分主導 KKday 聯盟行銷平台（年增長 <span class="num">200%</span>），擔任 Code Owner 與 PR 把關人',
+  'x.decisions': '<strong>跨團隊技術決策</strong>：主導 USJ 跨 B2C/Order/MKT/Member 四大服務改造，主筆 <span class="num">7</span> 份 SA/SD，提出「權益繼承、條件重審」原則一次性對齊四方團隊；以首要貢獻者身分主導悠途OTA聯盟行銷平台（年增長 <span class="num">200%</span>），擔任 Code Owner 與 PR 把關人',
   'x.culture': '<strong>穩定性與工程文化</strong>：主導大規模故障應急回應（關鍵 API p99 <span class="num">25s+ → &lt;2s</span>，5xx 穩定 <span class="num">&lt;0.01%</span>）；自驅建置 AI 協作平台（Maestro、VM Health Center），把 AI 工具能力轉化為團隊日常生產力'
 },
 'en': {
   'headline': 'Tech Lead / Senior Backend Engineer · 13 Years of Experience · Team Delivery / Cross-Team Alignment / Business Growth',
-  'sum.lede': '<span class="num">13</span> years of backend engineering, grown consistently along a "<strong>Tech Lead</strong> who can carry the technical depth" path: at KKday I went from affiliate-platform Code Owner to B2C core backend, and since 2026 H2 have led a <span class="num">6</span>-person cross-platform team against a CVR north-star metric; earlier at Shopex I led a <span class="num">6–7</span> person team delivering the Apple platform\'s mini-program. I believe a good technical decision has to be explainable and verifiable.',
+  'sum.lede': '<span class="num">13</span> years of backend engineering, grown consistently along a "<strong>Tech Lead</strong> who can carry the technical depth" path: at 悠途OTA I went from affiliate-platform Code Owner to B2C core backend, and since 2026 H2 have led a <span class="num">6</span>-person cross-platform team against a CVR north-star metric; earlier at Shopex I led a <span class="num">6–7</span> person team delivering the Apple platform\'s mini-program. I believe a good technical decision has to be explainable and verifiable.',
   'sec.ai': 'Team Effectiveness & AI Engineering',
   'm.1.v': '+50%', 'm.1.k': 'CVR improvement (1.2% → 1.8%), 6-person team',
   'm.5.v': '13 yrs', 'm.5.k': 'Backend engineering · depth paired with delivery',
   'x.delivery': '<strong>Team delivery</strong>: formed and lead a <span class="num">6</span>-person cross-platform team (iOS / Android / Web / Backend), driving pre-purchase CVR up <span class="num">50%</span> against a single north-star metric; established standups, 1-on-1s and OKR alignment, and built a dashboard so the team\'s output is verifiable — while staying hands-on with code and architectural decisions',
-  'x.decisions': '<strong>Cross-team technical decisions</strong>: led the USJ re-architecture across four services (B2C/Order/MKT/Member), authoring <span class="num">7</span> SA/SD documents and introducing an "entitlements inherit, conditions re-evaluate" principle that aligned all four teams in a single review; top contributor and owner of KKday\'s affiliate marketing platform (<span class="num">200%</span> YoY growth) as Code Owner and PR gatekeeper',
+  'x.decisions': '<strong>Cross-team technical decisions</strong>: led the USJ re-architecture across four services (B2C/Order/MKT/Member), authoring <span class="num">7</span> SA/SD documents and introducing an "entitlements inherit, conditions re-evaluate" principle that aligned all four teams in a single review; top contributor and owner of 悠途OTA\'s affiliate marketing platform (<span class="num">200%</span> YoY growth) as Code Owner and PR gatekeeper',
   'x.culture': '<strong>Reliability &amp; engineering culture</strong>: led incident response on a large-scale outage (critical API p99 <span class="num">25s+ → &lt;2s</span>, 5xx held below <span class="num">0.01%</span>); self-initiated AI collaboration platforms (Maestro, VM Health Center) that turned AI tooling into everyday team productivity'
 }
 },

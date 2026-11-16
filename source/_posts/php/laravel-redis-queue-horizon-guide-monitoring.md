@@ -17,7 +17,7 @@ description: Laravel Redis Queue + Horizon 完整实战指南：覆盖 Redis 队
 
 # Laravel Redis Queue + Horizon 实战：队列监控、失败重试与性能调优
 
-> 在 B2C 电商场景中，队列是削峰填谷的核心基础设施。本文基于 KKday B2C 后端团队 30+ 仓库的真实生产经验，完整覆盖 Laravel Redis Queue + Horizon 的架构设计、监控配置、失败重试策略与性能调优实战。
+> 在 B2C 电商场景中，队列是削峰填谷的核心基础设施。本文基于悠途OTA B2C 后端团队 30+ 仓库的真实生产经验，完整覆盖 Laravel Redis Queue + Horizon 的架构设计、监控配置、失败重试策略与性能调优实战。
 
 ## 架构全景
 
@@ -637,8 +637,8 @@ protected function gate(): void
 {
     Gate::define('viewHorizon', function ($user) {
         return in_array($user->email, [
-            'admin@kkday.com',
-            'devops@kkday.com',
+            'admin@youtu-ota.test',
+            'devops@youtu-ota.test',
         ]);
     });
 }
@@ -681,7 +681,7 @@ Route::middleware(['auth', 'can:viewHorizon'])
 3. **可观测**：Horizon Dashboard + 队列深度监控 + 告警
 4. **资源控制**：maxProcesses / maxJobs / memory 三管齐下
 
-> 本文基于 KKday B2C 后端团队 30+ 仓库的真实生产经验，希望对你的队列架构设计有所启发。如有疑问，欢迎在评论区讨论。
+> 本文基于 youtu B2C 后端团队 30+ 仓库的真实生产经验，希望对你的队列架构设计有所启发。如有疑问，欢迎在评论区讨论。
 
 ## 八、实战案例：订单支付回调队列的完整链路
 

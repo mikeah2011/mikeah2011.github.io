@@ -23,7 +23,7 @@ description: 从 Vue 2 + Webpack 迁移到 Vue 3 + Vite 现代 uni-app 跨平台
 
 ## 前言
 
-在 KKday B2C 团队中，uni-app 承担着 H5、微信小程序、App 三端的核心业务。旧项目基于 Vue 2 + Webpack（HBuilderX 内置），构建时间长达 40s+，HMR 经常失效，类型检查全靠自觉。2025 年底我们启动了 Vue 3 + Vite 迁移计划，覆盖 5 个 uni-app 子项目。整个迁移历时 3 个月，涉及 120+ 组件和 30+ 页面的改造。本文记录整个迁移过程中的架构决策、代码改造和踩坑经验，希望能帮正在考虑或正在进行类似迁移的团队少走弯路。
+在悠途OTA B2C 团队中，uni-app 承担着 H5、微信小程序、App 三端的核心业务。旧项目基于 Vue 2 + Webpack（HBuilderX 内置），构建时间长达 40s+，HMR 经常失效，类型检查全靠自觉。2025 年底我们启动了 Vue 3 + Vite 迁移计划，覆盖 5 个 uni-app 子项目。整个迁移历时 3 个月，涉及 120+ 组件和 30+ 页面的改造。本文记录整个迁移过程中的架构决策、代码改造和踩坑经验，希望能帮正在考虑或正在进行类似迁移的团队少走弯路。
 
 ## 架构总览
 
@@ -84,7 +84,7 @@ pnpm install
 
 ```json
 {
-  "name": "@kkday/uni-h5-mall",
+  "name": "@youtu/uni-h5-mall",
   "type": "module",
   "scripts": {
     "dev:h5": "uni",
@@ -141,7 +141,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'https://staging-api.kkday.com',
+        target: 'https://staging-api.youtu-ota.test',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '/v2/b2c'),
       },
@@ -167,7 +167,7 @@ export default defineConfig({
 
 ```bash
 # .env                    # 所有环境共享
-VITE_APP_TITLE=KKday商城
+VITE_APP_TITLE=youtu商城
 VITE_API_TIMEOUT=15000
 
 # .env.development        # 开发环境
@@ -175,11 +175,11 @@ VITE_API_BASE_URL=/api
 VITE_ENABLE_MOCK=true
 
 # .env.staging            # 预发布
-VITE_API_BASE_URL=https://staging-api.kkday.com/v2/b2c
+VITE_API_BASE_URL=https://staging-api.youtu-ota.test/v2/b2c
 VITE_ENABLE_MOCK=false
 
 # .env.production         # 生产
-VITE_API_BASE_URL=https://api.kkday.com/v2/b2c
+VITE_API_BASE_URL=https://api.youtu-ota.test/v2/b2c
 VITE_ENABLE_MOCK=false
 ```
 

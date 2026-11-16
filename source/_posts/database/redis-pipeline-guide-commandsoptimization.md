@@ -16,7 +16,7 @@ description: "本文结合 Laravel B2C API 商品详情接口的真实优化案�
 
 ## 为什么需要 Pipeline？
 
-在 KKday B2C API 的商品详情接口中，一个请求需要从 Redis 读取：
+在悠途OTA B2C API 的商品详情接口中，一个请求需要从 Redis 读取：
 - 商品基础信息（1 key）
 - SKU 库存列表（20-50 keys）
 - 促销标签（5-10 keys）
@@ -59,7 +59,7 @@ description: "本文结合 Laravel B2C API 商品详情接口的真实优化案�
 
 ## Predis 客户端的 Pipeline 用法
 
-KKday 项目使用 `predis/predis` 作为 Redis 客户端。Pipeline 的基本用法：
+youtu 项目使用 `predis/predis` 作为 Redis 客户端。Pipeline 的基本用法：
 
 ### 基础 Pipeline
 
@@ -567,7 +567,7 @@ $details = Redis::connection()->pipeline(function ($pipe) use ($productIds) {
 
 ## 性能基准测试数据
 
-在 KKday 生产环境（AWS ElastiCache Redis 6.x，同可用区，RTT ≈ 0.3ms）的实际测试：
+在 youtu 生产环境（AWS ElastiCache Redis 6.x，同可用区，RTT ≈ 0.3ms）的实际测试：
 
 | 场景 | 命令数 | 串行耗时 | Pipeline 耗时 | 提升倍数 |
 |------|--------|----------|---------------|----------|
@@ -887,7 +887,7 @@ dump([
 
 ### Step 1：找出热点接口
 
-用 `kkday/monitor` 或 New Relic 的 APM 数据，找出 Redis 调用次数最多、耗时最长的接口：
+用 `youtu/monitor` 或 New Relic 的 APM 数据，找出 Redis 调用次数最多、耗时最长的接口：
 
 ```
 接口                          Redis 调用次数  Redis 总耗时
@@ -940,5 +940,5 @@ Redis Pipeline 是一个「投入产出比极高」的优化手段——改动�
 ## 相关阅读
 
 - [Redis Stream 实战：消息队列替代方案与消费者组管理 Laravel 踩坑记录](/categories/Databases/redis-stream-guide-laravel/)
-- [Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - KKday B2C API 真实踩坑记录](/categories/Databases/redis-cache-penetrationbreakdownavalanchedistributedlockguide/)
+- [Redis 缓存穿透/击穿/雪崩防护与分布式锁实战 - youtu B2C API 真实踩坑记录](/categories/Databases/redis-cache-penetrationbreakdownavalanchedistributedlockguide/)
 - [Predis-Laravel-缓存实战-失效分布式锁性能调优](/categories/Databases/predis-laravel-cacheguide-distributedlock/)

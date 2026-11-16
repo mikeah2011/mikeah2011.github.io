@@ -467,7 +467,7 @@ PHPStan + larastan 是 Laravel 生态中目前最成熟的静态分析方案。P
 
 ---
 
-*本文基于 KKday RD B2C Backend Team 30+ Laravel 仓库的真实治理经验整理。*
+*本文基于 youtu RD B2C Backend Team 30+ Laravel 仓库的真实治理经验整理。*
 
 ## 相关阅读
 

@@ -25,7 +25,7 @@ description: Git 高级用法实战指南：深入讲解 rebase 保持线性历�
 
 > 在管理 30+ 个 Laravel 仓库的日常中，我发现很多开发者对 Git 的使用停留在 `add → commit → push → pull`。但当你面对「需要把一个 hotfix 同时应用到 3 个环境分支」「生产出了 Bug 但不知道哪个 commit 引入的」「需要同时在 v2 和 v3 上开发」这些场景时，基础操作就不够用了。
 
-本文基于 KKday B2C Backend Team 的真实项目经验，深入讲解四个高频但容易踩坑的 Git 高级用法。
+本文基于悠途OTA B2C Backend Team 的真实项目经验，深入讲解四个高频但容易踩坑的 Git 高级用法。
 
 ---
 
@@ -1124,4 +1124,4 @@ git worktree list --porcelain | grep -B2 "worktree"
 
 ---
 
-*本文基于 KKday B2C Backend Team 30+ 仓库的真实开发经验整理。如果你也有 Git 高级用法的踩坑经历，欢迎交流！*
+*本文基于 youtu B2C Backend Team 30+ 仓库的真实开发经验整理。如果你也有 Git 高级用法的踩坑经历，欢迎交流！*

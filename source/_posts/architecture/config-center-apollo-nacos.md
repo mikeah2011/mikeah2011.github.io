@@ -36,7 +36,7 @@ description: 深入解析 Apollo 与 Nacos 配置中心在 Laravel 微服务架�
 | 配置审计 | 无 | 完整变更记录 + 通知 |
 | 敏感信息 | 明文存 Git | 加密存储 + 权限控制 |
 
-在 KKday B2C 后端，我们最终选型了 **Nacos**（主）+ **Apollo**（备）的方案。本文记录完整的集成过程和踩坑经验。
+在悠途OTA B2C 后端，我们最终选型了 **Nacos**（主）+ **Apollo**（备）的方案。本文记录完整的集成过程和踩坑经验。
 
 ## 架构总览
 
@@ -386,7 +386,7 @@ return [
 
 ```bash
 # Nacos 配置中心
-NACOS_SERVER_ADDR=nacos.internal.kkday.com:8848
+NACOS_SERVER_ADDR=nacos.internal.youtu-ota.test:8848
 NACOS_NAMESPACE_ID=production
 NACOS_GROUP=B2C_GROUP
 NACOS_DATA_ID=b2c-api.yaml

@@ -987,7 +987,7 @@ class CleanupStaleUploads extends Command
 
 ## 五、性能数据与基准测试
 
-以下数据来自 KKday B2C Backend Team 的生产环境实测（AWS S3 + CloudFront，新加坡区域）：
+以下数据来自 youtu B2C Backend Team 的生产环境实测（AWS S3 + CloudFront，新加坡区域）：
 
 | 指标 | 直接访问 S3 | CDN 缓存命中 | CDN + WebP |
 |------|------------|-------------|-----------|

@@ -1,7 +1,7 @@
 ---
 
-title: Laravel Event-Listener 事件驱动架构 - 解耦订单处理 - KKday B2C API 真实踩坑记录
-keywords: [Laravel Event, Listener, KKday B2C API, 事件驱动架构, 解耦订单处理, 真实踩坑记录]
+title: Laravel Event-Listener 事件驱动架构 - 解耦订单处理 - 悠途OTA B2C API 真实踩坑记录
+keywords: [Laravel Event, Listener, 悠途OTA B2C API, 事件驱动架构, 解耦订单处理, 真实踩坑记录]
 cover: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
 images:
   - https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop
@@ -13,16 +13,16 @@ tags:
 - 事件驱动
 - 设计模式
 - 解耦
-description: 深入解析 Laravel Event-Listener 事件驱动架构，涵盖事件监听注册、Observer 观察者模式、队列异步处理与 Pipeline 执行顺序控制。通过 KKday B2C API 订单处理真实踩坑记录，详解事务内事件触发、Listener 异常堆积、序列化内存优化等 5 大生产问题与解耦最佳实践。
+description: 深入解析 Laravel Event-Listener 事件驱动架构，涵盖事件监听注册、Observer 观察者模式、队列异步处理与 Pipeline 执行顺序控制。通过悠途OTA B2C API 订单处理真实踩坑记录，详解事务内事件触发、Listener 异常堆积、序列化内存优化等 5 大生产问题与解耦最佳实践。
 ---
 
 
-# Laravel Event-Listener 事件驱动架构 - 解耦订单处理 - KKday B2C API 真实踩坑记录
+# Laravel Event-Listener 事件驱动架构 - 解耦订单处理 - 悠途OTA B2C API 真实踩坑记录
 
 ## 📚 目录
 
 1. [前言：什么是事件驱动架构](#前言什么是事件驱动架构)
-2. [KKday B2C API 订单处理架构图解](#kkday-b2c-api-订单处理架构图解)
+2. [悠途OTA B2C API 订单处理架构图解](#youtu-ota-b2c-api-订单处理架构图解)
 3. [基础实现：Controller-Service-Event-Listener](#基础实现controller-service-event-listener)
 4. [真实踩坑记录](#真实踩坑记录)
 5. [最佳实践建议](#最佳实践建议)
@@ -57,11 +57,11 @@ description: 深入解析 Laravel Event-Listener 事件驱动架构，涵盖事�
 
 ---
 
-## KKday B2C API 订单处理架构图解
+## youtu B2C API 订单处理架构图解
 
 ### 当前架构问题
 
-在 KKday B2C API（Laravel 8 + PHP 8）项目中，我们曾面临以下痛点：
+在 youtu B2C API（Laravel 8 + PHP 8）项目中，我们曾面临以下痛点：
 
 1. **服务调用链路过长**：下单流程需依次调用用户信息、商品库存、优惠券校验、支付接口等 7+ Service
 2. **同步阻塞严重**：邮件发送、短信通知等耗时操作拖慢响应时间
@@ -334,7 +334,7 @@ class OrderCreatedListener implements ShouldQueue
                 'type'    => 'created_email',
                 'payload' => [
                     'to'      => config('mail.default'),
-                    'subject' => '订单创建成功 - KKday',
+                    'subject' => '订单创建成功 - youtu',
                 ],
             ]);
 
@@ -343,7 +343,7 @@ class OrderCreatedListener implements ShouldQueue
                 SmsLog::create([
                     'user_id' => $order->user_id,
                     'order_no'=> $order->code,
-                    'message' => '您的 KKday 订单已成功创建',
+                    'message' => '您的 youtu 订单已成功创建',
                 ]);
             }
 
@@ -915,19 +915,19 @@ class OrderCreatedListener implements ShouldQueue {
 ## 📝 相关代码仓库
 
 本项目的所有源代码可在以下仓库查看：
-- **[KKday B2C API](../../KKday/kkday-b2c-api)** - Laravel 8 + PHP 8 后端服务
+- **[youtu B2C API](../../youtu/youtu-ota-b2c-api)** - Laravel 8 + PHP 8 后端服务
 
 ---
 
 ## 🏷️ 标签
 
-`#Laravel` `#Event` `#Listener` `#解耦` `#B2C-API` `#订单处理` `#分布式消息` `#KKday`
+`#Laravel` `#Event` `#Listener` `#解耦` `#B2C-API` `#订单处理` `#分布式消息` `#youtu`
 
 ---
 
 **最后更新**: 2026-05-03
 
-**作者**: Michael (KKday RD B2C Backend Team)
+**作者**: Michael (youtu RD B2C Backend Team)
 
 **许可协议**: MIT License
 

@@ -7,7 +7,7 @@ date: 2026-05-05 07:30:03
 author: Michael
 updated: 2026-05-05 07:32:58
 categories: [architecture]
-tags: [KKday, Laravel, Nginx, Redis, 架构]
+tags: [悠途OTA, Laravel, Nginx, Redis, 架构]
 keywords: [Nginx Upstream, Laravel Session, 负载均衡实战, 共享方案踩坑记录, 架构, PHP]
 description: 从单机 Laravel 到 Nginx 多实例负载均衡的真实踩坑记录。覆盖 Upstream 配置、Session 共享方案选型（Cookie / Sticky / Redis / Database）、健康检查、会话一致性与生产环境故障恢复。
 
@@ -17,7 +17,7 @@ description: 从单机 Laravel 到 Nginx 多实例负载均衡的真实踩坑记
 
 # 前言
 
-单机 Laravel 跑得好好的，一上负载均衡就出 bug —— 这是我在 KKday B2C API 项目中亲身经历的事。用户购物车突然清空、CSRF token 校验失败、后台登录莫名失效，全都是因为 **Session 粘性没处理好**。
+单机 Laravel 跑得好好的，一上负载均衡就出 bug —— 这是我在悠途OTA B2C API 项目中亲身经历的事。用户购物车突然清空、CSRF token 校验失败、后台登录莫名失效，全都是因为 **Session 粘性没处理好**。
 
 本文记录的是从 `1 台 PHP-FPM` 扩到 `3 台 + Nginx Upstream` 的完整过程，包含 Nginx 配置、Session 共享方案选型、健康检查、以及一个生产环境 P0 故障的复盘。
 
@@ -81,7 +81,7 @@ upstream laravel_backend {
 
 server {
     listen 80;
-    server_name api.kkday.com;
+    server_name api.youtu-ota.test;
 
     location ~ \.php$ {
         fastcgi_pass laravel_backend;
@@ -182,7 +182,7 @@ SESSION_EXPIRE_ON_CLOSE=false
     'client' => 'predis',
     'options' => [
         'cluster' => env('REDIS_CLUSTER', false),
-        'prefix' => env('REDIS_PREFIX', 'kkday_'),
+        'prefix' => env('REDIS_PREFIX', 'youtu_'),
     ],
     'default' => [
         'url'      => env('REDIS_URL'),
@@ -387,7 +387,7 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: kkday_b2c
+      MYSQL_DATABASE: youtu_b2c
     volumes:
       - mysql_data:/var/lib/mysql
 

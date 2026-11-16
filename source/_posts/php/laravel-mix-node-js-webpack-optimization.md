@@ -27,7 +27,7 @@ description: 深入 Laravel Mix 与 Webpack 配置优化实战：代码分割、
 
 2026 年了，Laravel 默认脚手架已经切到 Vite。但现实是——大量存量 Laravel 6/7/8 项目仍然跑在 Laravel Mix 上，尤其是 B2C 后台这种「后端主导、前端偶尔改」的项目。你不可能为了一个 `app.scss` 里加一行 CSS 就把整个构建工具链换成 Vite，那样做 ROI 太低。
 
-这篇文章基于 KKday B2C 后台项目的实战经验，聊聊 Laravel Mix 的配置细节、性能优化，以及从 Mix 迁移到 Vite 时那些没人告诉你的坑。
+这篇文章基于悠途OTA B2C 后台项目的实战经验，聊聊 Laravel Mix 的配置细节、性能优化，以及从 Mix 迁移到 Vite 时那些没人告诉你的坑。
 
 **Laravel Mix 的版本演进**：Mix 4 基于 Webpack 4，Mix 5 升级到 Webpack 5，Mix 6（当前最新稳定版）进一步简化了 API 并修复了大量 bug。如果你还在用 Mix 4，强烈建议先升级到 Mix 6——Web 5 的持久缓存（persistent caching）和更好的 tree shaking 支持能让构建速度提升 20-40%。升级路径通常是 `npm install laravel-mix@latest --save-dev`，配合 `npx mix` 替代旧的 `npx cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js`。
 
@@ -337,7 +337,7 @@ module.exports = {
 3. **CommonJS 模块**：`module.exports` 导出的对象无法被 tree shake，只有 ESM 的 `export` 可以。
 4. **重导出（re-export）**：中间层的 `export { xxx } from './xxx'` 有时会阻断 tree shaking 的传播链，尤其是在库的 index.js 中。
 
-**实际效果**：在 KKday 项目中，将 lodash 全量引入改为按需引入后，app.js 的体积从 480KB 降到 310KB（gzip 后从 142KB 降到 98KB），首屏加载时间减少约 1.2 秒（3G 网络环境）。
+**实际效果**：在 youtu 项目中，将 lodash 全量引入改为按需引入后，app.js 的体积从 480KB 降到 310KB（gzip 后从 142KB 降到 98KB），首屏加载时间减少约 1.2 秒（3G 网络环境）。
 
 ### 3.3 缓存编译结果
 
@@ -581,7 +581,7 @@ export default defineConfig({
 
 ### 5.3 迁移后性能对比
 
-在 KKday B2C 后台项目中的实测数据：
+在 youtu B2C 后台项目中的实测数据：
 
 | 指标 | Laravel Mix (Webpack) | Vite |
 |------|----------------------|------|
@@ -730,7 +730,7 @@ brotli_static on;  # 优先使用 .br 文件
 
 **Gzip vs Brotli 的选择**：Brotli 的压缩率比 Gzip 高 15-25%，但压缩速度慢 3-5 倍。在 Web 服务器上使用 `gzip_static` / `brotli_static` 时，预压缩文件只在构建时生成一次，运行时直接发送，所以 Brotli 的压缩速度劣势不影响线上性能。建议同时生成两种格式：Nginx 会根据客户端 `Accept-Encoding` 头自动选择最优的压缩格式。
 
-**压缩效果实测**：在 KKday 项目中，启用 Brotli 预压缩后，vendor.js 从 185KB (gzip) 降到 148KB (brotli)，减少约 20%。对于移动端用户（3G/弱网），这 37KB 的差异意味着约 0.5 秒的加载时间改善。
+**压缩效果实测**：在 youtu 项目中，启用 Brotli 预压缩后，vendor.js 从 185KB (gzip) 降到 148KB (brotli)，减少约 20%。对于移动端用户（3G/弱网），这 37KB 的差异意味着约 0.5 秒的加载时间改善。
 
 ### 6.3 Chunk 策略与长期缓存
 
@@ -908,7 +908,7 @@ git ls-files | sort -f | uniq -di
 
 ## 九、webpack.mix.js 完整配置模板
 
-以下是我们在 KKday B2C 项目中使用的生产级配置，可以直接复用：
+以下是我们在 youtu B2C 项目中使用的生产级配置，可以直接复用：
 
 ```js
 const mix = require('laravel-mix');
@@ -995,7 +995,7 @@ Laravel Mix 不是过时的技术——它是**适合特定场景的务实选择
 
 ---
 
-*本文基于 KKday B2C 后台项目的真实开发经验整理，涉及 Laravel 7/8/9 + Laravel Mix 6.x + Node.js 18 环境。*
+*本文基于 youtu B2C 后台项目的真实开发经验整理，涉及 Laravel 7/8/9 + Laravel Mix 6.x + Node.js 18 环境。*
 
 ---
 

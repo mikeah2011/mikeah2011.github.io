@@ -21,7 +21,7 @@ description: "在 Laravel 全栈项目中引入 Effect-TS，用类型系统约�
 
 ## 为什么 Laravel 全栈项目需要 Effect-TS？
 
-在 KKday 的 B2C 项目中，前端使用 Inertia + Vue 3 与 Laravel API 交互。随着业务复杂度增长，TypeScript 层面的问题逐渐暴露：
+在悠途OTA的 B2C 项目中，前端使用 Inertia + Vue 3 与 Laravel API 交互。随着业务复杂度增长，TypeScript 层面的问题逐渐暴露：
 
 1. **错误处理全靠 try-catch**：API 调用、数据解析、表单验证，每一层都在 catch 里做类型断言，代码变成 `catch (e) { if (e instanceof SomeError) ... }` 的嵌套地狱
 2. **依赖注入靠手动传参**：API Client、Logger、Config 散落在各个组件里，测试时 mock 痛苦
@@ -363,7 +363,7 @@ describe("fetchOrders", () => {
 
 ### 场景：Laravel B2C 首页数据聚合
 
-在 KKday B2C 首页，需要同时请求推荐商品、热门目的地、用户信息、广告位四个接口。传统 Promise.all 的问题：
+在 youtu B2C 首页，需要同时请求推荐商品、热门目的地、用户信息、广告位四个接口。传统 Promise.all 的问题：
 
 ```typescript
 // ❌ Promise.all：一个失败全部失败

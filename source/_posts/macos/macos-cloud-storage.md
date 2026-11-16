@@ -79,7 +79,7 @@ def choose_storage(file):
 ~/
 ├── Projects/                    # 所有 Git 项目（不在 iCloud/Google Drive）
 │   ├── mikeah2011.github.io/   # 博客
-│   ├── kkday/                  # 工作项目
+│   ├── youtu/                  # 工作项目
 │   │   ├── b2c-api/
 │   │   └── affiliate-api/
 │   └── side-projects/
@@ -133,7 +133,7 @@ $ git status
 
 ```bash
 # 项目放在标准路径
-~/Projects/kkday/b2c-api/
+~/Projects/youtu/b2c-api/
 
 # 用 rsync 手动备份（非实时同步）
 #!/bin/bash
@@ -141,7 +141,7 @@ $ git status
 BACKUP_DIR="$HOME/Documents/backup/projects-$(date +%Y%m%d)"
 mkdir -p "$BACKUP_DIR"
 
-for project in ~/Projects/kkday/*; do
+for project in ~/Projects/youtu/*; do
     [ -d "$project/.git" ] || continue
     project_name=$(basename "$project")
     echo "Backing up $project_name..."

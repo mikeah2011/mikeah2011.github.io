@@ -12,7 +12,7 @@ categories: [macos]
 tags:
 - Laravel
 - macOS
-description: 本文基于 KKday 30+ Laravel 仓库实战经验，全面解析 PHPStorm 高效开发工作流。涵盖 macOS 键位映射、Laravel Live Templates、Postfix Completion、Database 面板、Xdebug 远程断点、HTTP Client API 测试、代码导航与性能调优等高频场景，附带 8 个踩坑记录与解决方案，帮助开发者告别鼠标依赖，高效写代码。
+description: 本文基于悠途OTA 30+ Laravel 仓库实战经验，全面解析 PHPStorm 高效开发工作流。涵盖 macOS 键位映射、Laravel Live Templates、Postfix Completion、Database 面板、Xdebug 远程断点、HTTP Client API 测试、代码导航与性能调优等高频场景，附带 8 个踩坑记录与解决方案，帮助开发者告别鼠标依赖，高效写代码。
 ---
 
 
@@ -20,7 +20,7 @@ description: 本文基于 KKday 30+ Laravel 仓库实战经验，全面解析 PH
 
 ## 为什么写这篇文章？
 
-在 KKday B2C Backend Team 的 30+ Laravel 仓库中，PHPStorm 是团队统一使用的 IDE。刚开始用的时候，我跟大多数人一样——鼠标点来点去，`Cmd+Shift+F` 全局搜索当万能工具。直到有一天看到同事双手不离键盘就完成了 Controller → Service → Repository → Migration 的全链路跳转，我才意识到自己一直在"用记事本的方式用 IDE"。
+在悠途OTA B2C Backend Team 的 30+ Laravel 仓库中，PHPStorm 是团队统一使用的 IDE。刚开始用的时候，我跟大多数人一样——鼠标点来点去，`Cmd+Shift+F` 全局搜索当万能工具。直到有一天看到同事双手不离键盘就完成了 Controller → Service → Repository → Migration 的全链路跳转，我才意识到自己一直在"用记事本的方式用 IDE"。
 
 这篇文章是我两年 PHPStorm 使用经验的浓缩，专注 **Laravel B2C API 开发** 场景，不讲泛泛而谈的"入门指南"，只讲能直接提升效率的实战技巧。
 
@@ -296,7 +296,7 @@ Host: 127.0.0.1
 Port: 3306
 User: root
 Password: ****
-Database: kkday_b2c
+Database: youtu_b2c
 ```
 
 **踩坑 #3：MySQL 8.0 认证方式问题**
@@ -585,7 +585,7 @@ Authorization: Bearer {{login.response.body.data.token}}
         "productId": 1
     },
     "staging": {
-        "baseUrl": "https://staging-api.kkday.com",
+        "baseUrl": "https://staging-api.youtu-ota.test",
         "productId": 1
     }
 }

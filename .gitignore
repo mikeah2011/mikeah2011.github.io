@@ -26,3 +26,6 @@ AUDIT-REPORT-*.md
 
 # 本机私人工作目录，不提交也不发布
 .jobsearch/
+
+# 本机品牌暴露清点与脱敏脚本，内含未脱敏指纹，不提交也不发布
+.brand-audit/

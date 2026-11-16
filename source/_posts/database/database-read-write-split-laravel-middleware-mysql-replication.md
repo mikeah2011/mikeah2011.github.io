@@ -11,7 +11,7 @@ tags:
 - 读写分离
 - 主从复制
 - 性能优化
-description: 基于 KKday B2C API 项目的真实生产经验，记录从 MySQL 主从复制搭建到 Laravel 中间件自动路由读写的完整落地过程，覆盖 binlog 格式选型、主从延迟治理、Laravel 多数据库连接配置、Sticky Connection、事务内强制主库等核心踩坑点。
+description: 基于悠途OTA B2C API 项目的真实生产经验，记录从 MySQL 主从复制搭建到 Laravel 中间件自动路由读写的完整落地过程，覆盖 binlog 格式选型、主从延迟治理、Laravel 多数据库连接配置、Sticky Connection、事务内强制主库等核心踩坑点。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/database-001-content-1.jpg
@@ -22,7 +22,7 @@ images:
 
 ## 一、为什么写这篇？
 
-在 B2C 电商场景中，随着流量增长，数据库逐渐成为瓶颈。以 KKday 的 Laravel B2C API 为例：
+在 B2C 电商场景中，随着流量增长，数据库逐渐成为瓶颈。以悠途OTA的 Laravel B2C API 为例：
 
 - **读写比 8:2**：商品查询、订单列表、搜索结果等读操作远多于写操作
 - **单库 QPS 瓶颈**：高峰期主库 CPU 持续 70%+，慢查询数量飙升
@@ -120,7 +120,7 @@ gtid_mode = ON
 enforce_gtid_consistency = ON
 
 # === 需要复制的数据库 ===
-# binlog-do-db = kkday_b2c         # 可选：只复制指定库
+# binlog-do-db = youtu_b2c         # 可选：只复制指定库
 # binlog-ignore-db = mysql          # 可选：忽略系统库
 ```
 
@@ -214,7 +214,7 @@ Slave_SQL_Running: Yes
 
     // 公共配置
     'port' => env('DB_PORT', '3306'),
-    'database' => env('DB_DATABASE', 'kkday_b2c'),
+    'database' => env('DB_DATABASE', 'youtu_b2c'),
     'username' => env('DB_USERNAME', 'app_user'),
     'password' => env('DB_PASSWORD', ''),
     'charset' => 'utf8mb4',
@@ -403,7 +403,7 @@ $products = DB::connection(DatabaseRouter::routeFor('product'))
     'driver' => 'mysql',
     'host' => env('DB_ANALYTICS_HOST', '10.0.1.20'),  // 报表专用从库
     'port' => env('DB_PORT', '3306'),
-    'database' => env('DB_DATABASE', 'kkday_b2c'),
+    'database' => env('DB_DATABASE', 'youtu_b2c'),
     'username' => env('DB_ANALYTICS_USER', 'readonly_user'),
     'password' => env('DB_ANALYTICS_PASSWORD', ''),
     'charset' => 'utf8mb4',
@@ -652,7 +652,7 @@ pt-table-checksum \
   --host=10.0.1.10 \
   --user=root \
   --password=your_password \
-  --databases=kkday_b2c \
+  --databases=youtu_b2c \
   --replicate=percona.checksums \
   --no-check-binlog-format
 ```

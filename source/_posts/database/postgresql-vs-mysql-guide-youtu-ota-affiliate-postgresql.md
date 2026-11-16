@@ -1,17 +1,17 @@
 ---
 
-title: PostgreSQL-vs-MySQL-选型实战-KKday-Affiliate-项目为什么选 PostgreSQL 以及边界在哪里
-keywords: [PostgreSQL, MySQL, KKday, Affiliate, 选型实战, 项目为什么选, 以及边界在哪里]
+title: PostgreSQL-vs-MySQL-选型实战-youtu-ota-Affiliate-项目为什么选 PostgreSQL 以及边界在哪里
+keywords: [PostgreSQL, MySQL, 悠途OTA, Affiliate, 选型实战, 项目为什么选, 以及边界在哪里]
 date: 2026-05-05 01:11:02
 author: Michael
 updated: 2026-05-05 01:13:41
 categories: [database]
 tags:
-- KKday
+- 悠途OTA
 - Laravel
 - MySQL
 - PostgreSQL
-description: KKday Affiliate 项目从 MySQL 迁移到 PostgreSQL 的真实决策过程，涵盖 JSONB、全文搜索、GIS 能力、CTE 递归查询等场景对比，以及哪些场景 PostgreSQL 反而不如 MySQL 的边界踩坑记录。
+description: 悠途OTA Affiliate 项目从 MySQL 迁移到 PostgreSQL 的真实决策过程，涵盖 JSONB、全文搜索、GIS 能力、CTE 递归查询等场景对比，以及哪些场景 PostgreSQL 反而不如 MySQL 的边界踩坑记录。
 cover: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&h=630&fit=crop
 images:
 - /images/content/databases-018-content-1.jpg
@@ -22,7 +22,7 @@ images:
 
 ## 前言
 
-2024 年 KKday 启动 Affiliate（联盟营销）项目时，团队面临一个关键决策：继续用 MySQL 8.0（公司主力数据库），还是引入 PostgreSQL？
+2024 年悠途OTA启动 Affiliate（联盟营销）项目时，团队面临一个关键决策：继续用 MySQL 8.0（公司主力数据库），还是引入 PostgreSQL？
 
 这不是一个「PostgreSQL 更强所以用它」的简单答案。实际上我们经历了**两周的技术选型调研**，跑了真实数据的 benchmark，踩了 PgBouncer 连接池的坑，最后才得出一个有边界的结论。
 
@@ -370,7 +370,7 @@ ALTER TABLE users ALTER COLUMN email TYPE citext;
 
 ```
 ┌─────────────────────────────────────────────────┐
-│               KKday 混合数据库架构               │
+│               youtu 混合数据库架构               │
 ├─────────────────────────────────────────────────┤
 │                                                  │
 │  ┌──────────────────┐  ┌──────────────────────┐ │
@@ -444,7 +444,7 @@ Laravel 双数据库配置：
 
 ## 总结
 
-PostgreSQL 不是「更好的 MySQL」，而是一个**能力边界不同**的数据库。我们在 KKday Affiliate 项目中选择 PostgreSQL 的核心原因是 JSONB + GIN 索引——这个场景下 MySQL 8.0 的性能差距是 **27 倍**，无法通过优化弥补。
+PostgreSQL 不是「更好的 MySQL」，而是一个**能力边界不同**的数据库。我们在 youtu Affiliate 项目中选择 PostgreSQL 的核心原因是 JSONB + GIN 索引——这个场景下 MySQL 8.0 的性能差距是 **27 倍**，无法通过优化弥补。
 
 但如果你的项目不需要 JSONB 深度查询、GIS 空间索引、或复杂递归 CTE，MySQL 8.0 在运维成熟度、连接模型、工具生态上仍然是更稳妥的选择。
 

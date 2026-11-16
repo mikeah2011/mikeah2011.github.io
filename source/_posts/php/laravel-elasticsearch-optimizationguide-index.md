@@ -10,7 +10,7 @@ author: Michael
 categories: [php]
 tags:
 - Elasticsearch
-- KKday
+- 悠途OTA
 - Laravel
 - 全文搜索
 - 同义词

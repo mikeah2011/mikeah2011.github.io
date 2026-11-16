@@ -333,7 +333,7 @@ signature = HMAC-SHA256(app_secret, sign_string)
 ```http
 POST /api/v3/orders/create HTTP/1.1
 Authorization: Bearer eyJhbGciOi...
-X-App-Id: kkday-b2c-api
+X-App-Id: youtu-ota-b2c-api
 X-Timestamp: 1717234567
 X-Nonce: a8f5f167f44f4964e6c998dee827110c
 X-Signature: 3a7bd3e2f1c9b4e8d5a6f7c2e9b0d1a3f4c5e6d7a8b9c0d1e2f3a4b5c6d7e8f9
@@ -1419,7 +1419,7 @@ class SecurityMonitor
 
 ### 8.3 我们的真实收益
 
-在 KKday B2C API 上线这套多层防御后：
+在 youtu B2C API 上线这套多层防御后：
 
 - **伪造请求**：从月均 200+ 降至 0
 - **重放攻击**：支付重复扣款投诉归零

@@ -20,7 +20,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 
 - **AI engineering**: built a convergence layer for multiple AI review bots (Maestro) and an AI-assisted root-cause monitoring platform (VM Health Center), solving the practical problem of duplicated, unreliable, unconverged AI output; Claude API in production across nearly 3,000 product pages
 - **Engineering fundamentals**: 13 years of high-concurrency backend work (PHP / Go / Node.js), maintaining core transaction flows and leading major incident response — which is why I'm more careful than most before putting AI output in front of production traffic
-- **Transaction-systems depth**: top contributor and owner of KKday's affiliate marketing platform (200% YoY growth), and owner of the B2C core transaction flow
+- **Transaction-systems depth**: top contributor and owner of 悠途OTA's affiliate marketing platform (200% YoY growth), and owner of the B2C core transaction flow
 
 ---
 
@@ -47,7 +47,7 @@ GitHub: [github.com/mikeah2011](https://github.com/mikeah2011) ｜ LinkedIn: [li
 
 ## Experience
 
-### KKday — Senior Backend Engineer
+### 悠途OTA — Senior Backend Engineer
 **2022.11 – 2026.08 ｜ Shanghai, China (UTC+8)**
 
 A leading global travel-experience platform operating in 50+ countries. Over nearly four years: affiliate platform owner → B2C mainline core backend → in H2 2026 also owner of the Pre-Purchase Conversion Task Force. Maestro and VM Health Center were both self-initiated projects.
@@ -93,6 +93,6 @@ A leading global travel-experience platform operating in 50+ countries. Over nea
 
 ## Honors
 
-- KKday Employee of the Year (2023, 2024 — two consecutive years)
+- 悠途OTA Employee of the Year (2023, 2024 — two consecutive years)
 - Shopex Golden Tomato Award (2020)
 - Yuanfeng Technology Star (2016)
